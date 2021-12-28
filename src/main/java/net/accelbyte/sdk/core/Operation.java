@@ -82,7 +82,7 @@ public class Operation {
     }
 
     @JsonIgnore
-    public <T> T getBodyParams() {
+    public Object getBodyParams() {
         return null;
     }
 
@@ -99,6 +99,11 @@ public class Operation {
     @JsonIgnore
     public Object parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         return null;
+    }
+
+    @JsonIgnore
+    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+
     }
 
     public String convertInputStreamToString(InputStream is) throws IOException {
