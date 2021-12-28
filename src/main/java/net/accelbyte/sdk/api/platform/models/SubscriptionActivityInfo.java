@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,38 +17,56 @@ import java.util.Map;
 public class SubscriptionActivityInfo extends Model {
 
     @JsonProperty("action")
-    String action;
+    private String action;
+
     @JsonProperty("chargedCycles")
-    Integer chargedCycles;
+    private Integer chargedCycles;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("currentCycle")
-    Integer currentCycle;
+    private Integer currentCycle;
+
     @JsonProperty("grantDays")
-    Integer grantDays;
+    private Integer grantDays;
+
     @JsonProperty("inFixedCycleTrial")
-    Boolean inFixedCycleTrial;
+    private Boolean inFixedCycleTrial;
+
     @JsonProperty("inFixedFreeDays")
-    Boolean inFixedFreeDays;
+    private Boolean inFixedFreeDays;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("operator")
-    String operator;
+    private String operator;
+
     @JsonProperty("reason")
-    String reason;
+    private String reason;
+
     @JsonProperty("subscribedBy")
-    String subscribedBy;
+    private String subscribedBy;
+
     @JsonProperty("subscriptionId")
-    String subscriptionId;
+    private String subscriptionId;
+
     @JsonProperty("trialedCycles")
-    Integer trialedCycles;
+    private Integer trialedCycles;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
 
     public SubscriptionActivityInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<SubscriptionActivityInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<SubscriptionActivityInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

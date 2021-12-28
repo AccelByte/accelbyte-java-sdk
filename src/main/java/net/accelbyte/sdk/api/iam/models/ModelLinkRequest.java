@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,26 +17,38 @@ import java.util.Map;
 public class ModelLinkRequest extends Model {
 
     @JsonProperty("client_id")
-    String clientId;
+    private String clientId;
+
     @JsonProperty("error")
-    RestErrorResponse error;
+    private RestErrorResponse error;
+
     @JsonProperty("expiration")
-    Integer expiration;
+    private Integer expiration;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("operation_name")
-    String operationName;
+    private String operationName;
+
     @JsonProperty("payload")
-    Map<String, ?> payload;
+    private Map<String, ?> payload;
+
     @JsonProperty("redirect_uri")
-    String redirectUri;
+    private String redirectUri;
+
     @JsonProperty("request_id")
-    String requestId;
+    private String requestId;
+
     @JsonProperty("status")
-    String status;
+    private String status;
 
     public ModelLinkRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelLinkRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelLinkRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

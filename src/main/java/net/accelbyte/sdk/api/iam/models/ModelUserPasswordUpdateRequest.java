@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,14 +17,20 @@ import java.util.Map;
 public class ModelUserPasswordUpdateRequest extends Model {
 
     @JsonProperty("LanguageTag")
-    String languageTag;
+    private String languageTag;
+
     @JsonProperty("NewPassword")
-    String newPassword;
+    private String newPassword;
+
     @JsonProperty("OldPassword")
-    String oldPassword;
+    private String oldPassword;
 
     public ModelUserPasswordUpdateRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelUserPasswordUpdateRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserPasswordUpdateRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

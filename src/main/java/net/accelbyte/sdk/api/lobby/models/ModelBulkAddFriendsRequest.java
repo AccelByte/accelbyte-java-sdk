@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.lobby.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,10 +17,14 @@ import java.util.Map;
 public class ModelBulkAddFriendsRequest extends Model {
 
     @JsonProperty("friendIds")
-    List<String> friendIds;
+    private List<String> friendIds;
 
     public ModelBulkAddFriendsRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelBulkAddFriendsRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelBulkAddFriendsRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

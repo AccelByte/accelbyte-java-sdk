@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.eventlog.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,22 +17,32 @@ import java.util.Map;
 public class ModelsGenericQueryPayload extends Model {
 
     @JsonProperty("clientId")
-    String clientId;
+    private String clientId;
+
     @JsonProperty("eventName")
-    String eventName;
+    private String eventName;
+
     @JsonProperty("payloadQuery")
-    Map<String, ?> payloadQuery;
+    private Map<String, ?> payloadQuery;
+
     @JsonProperty("sessionId")
-    String sessionId;
+    private String sessionId;
+
     @JsonProperty("traceId")
-    String traceId;
+    private String traceId;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
+
     @JsonProperty("version")
-    Integer version;
+    private Integer version;
 
     public ModelsGenericQueryPayload createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsGenericQueryPayload> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGenericQueryPayload>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

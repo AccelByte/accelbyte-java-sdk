@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,14 +17,20 @@ import java.util.Map;
 public class ConditionMatchResult extends Model {
 
     @JsonProperty("matched")
-    Boolean matched;
+    private Boolean matched;
+
     @JsonProperty("matchedConditions")
-    List<Map<String, ?>> matchedConditions;
+    private List<Map<String, ?>> matchedConditions;
+
     @JsonProperty("notMatchReason")
-    String notMatchReason;
+    private String notMatchReason;
 
     public ConditionMatchResult createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ConditionMatchResult> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ConditionMatchResult>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

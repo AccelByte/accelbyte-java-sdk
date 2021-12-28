@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.group.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,10 +17,14 @@ import java.util.Map;
 public class ModelsUpdateGroupCustomRuleRequestV1 extends Model {
 
     @JsonProperty("groupCustomRule")
-    ModelsUpdateGroupCustomRuleRequestV1GroupCustomRule groupCustomRule;
+    private ModelsUpdateGroupCustomRuleRequestV1GroupCustomRule groupCustomRule;
 
     public ModelsUpdateGroupCustomRuleRequestV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsUpdateGroupCustomRuleRequestV1> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateGroupCustomRuleRequestV1>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

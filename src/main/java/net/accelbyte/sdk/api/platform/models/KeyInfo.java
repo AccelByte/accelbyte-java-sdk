@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,28 +17,41 @@ import java.util.Map;
 public class KeyInfo extends Model {
 
     @JsonProperty("acquireOrderNo")
-    String acquireOrderNo;
+    private String acquireOrderNo;
+
     @JsonProperty("acquireUserId")
-    String acquireUserId;
+    private String acquireUserId;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("id")
-    String id;
+    private String id;
+
     @JsonProperty("keyFile")
-    String keyFile;
+    private String keyFile;
+
     @JsonProperty("keyGroupId")
-    String keyGroupId;
+    private String keyGroupId;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("value")
-    String value;
+    private String value;
 
     public KeyInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<KeyInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<KeyInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

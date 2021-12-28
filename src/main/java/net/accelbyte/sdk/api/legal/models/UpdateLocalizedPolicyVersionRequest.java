@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.legal.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,18 +17,26 @@ import java.util.Map;
 public class UpdateLocalizedPolicyVersionRequest extends Model {
 
     @JsonProperty("attachmentChecksum")
-    String attachmentChecksum;
+    private String attachmentChecksum;
+
     @JsonProperty("attachmentLocation")
-    String attachmentLocation;
+    private String attachmentLocation;
+
     @JsonProperty("attachmentVersionIdentifier")
-    String attachmentVersionIdentifier;
+    private String attachmentVersionIdentifier;
+
     @JsonProperty("contentType")
-    String contentType;
+    private String contentType;
+
     @JsonProperty("description")
-    String description;
+    private String description;
 
     public UpdateLocalizedPolicyVersionRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<UpdateLocalizedPolicyVersionRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<UpdateLocalizedPolicyVersionRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

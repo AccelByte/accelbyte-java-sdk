@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,40 +17,59 @@ import java.util.Map;
 public class BasicItem extends Model {
 
     @JsonProperty("appId")
-    String appId;
+    private String appId;
+
     @JsonProperty("appType")
-    String appType;
+    private String appType;
+
     @JsonProperty("baseAppId")
-    String baseAppId;
+    private String baseAppId;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("entitlementType")
-    String entitlementType;
+    private String entitlementType;
+
     @JsonProperty("features")
-    List<String> features;
+    private List<String> features;
+
     @JsonProperty("itemId")
-    String itemId;
+    private String itemId;
+
     @JsonProperty("itemType")
-    String itemType;
+    private String itemType;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("seasonType")
-    String seasonType;
+    private String seasonType;
+
     @JsonProperty("sku")
-    String sku;
+    private String sku;
+
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("tags")
-    List<String> tags;
+    private List<String> tags;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("useCount")
-    Integer useCount;
+    private Integer useCount;
 
     public BasicItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<BasicItem> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<BasicItem>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

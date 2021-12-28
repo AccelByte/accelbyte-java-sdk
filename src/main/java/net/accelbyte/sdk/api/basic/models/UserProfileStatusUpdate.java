@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.basic.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,10 +17,14 @@ import java.util.Map;
 public class UserProfileStatusUpdate extends Model {
 
     @JsonProperty("status")
-    String status;
+    private String status;
 
     public UserProfileStatusUpdate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<UserProfileStatusUpdate> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<UserProfileStatusUpdate>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

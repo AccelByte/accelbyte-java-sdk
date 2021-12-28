@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,24 +17,35 @@ import java.util.Map;
 public class ModelSSOPlatformCredentialRequest extends Model {
 
     @JsonProperty("acsUrl")
-    String acsUrl;
+    private String acsUrl;
+
     @JsonProperty("apiKey")
-    String apiKey;
+    private String apiKey;
+
     @JsonProperty("appId")
-    String appId;
+    private String appId;
+
     @JsonProperty("federationMetadataUrl")
-    String federationMetadataUrl;
+    private String federationMetadataUrl;
+
     @JsonProperty("isActive")
-    Boolean isActive;
+    private Boolean isActive;
+
     @JsonProperty("redirectUri")
-    String redirectUri;
+    private String redirectUri;
+
     @JsonProperty("secret")
-    String secret;
+    private String secret;
+
     @JsonProperty("ssoUrl")
-    String ssoUrl;
+    private String ssoUrl;
 
     public ModelSSOPlatformCredentialRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelSSOPlatformCredentialRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelSSOPlatformCredentialRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

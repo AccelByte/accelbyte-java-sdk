@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.lobby.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class ModelsBlockedByPlayerData extends Model {
 
     @JsonProperty("blockedAt")
-    String blockedAt;
+    private String blockedAt;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
 
     public ModelsBlockedByPlayerData createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsBlockedByPlayerData> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsBlockedByPlayerData>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

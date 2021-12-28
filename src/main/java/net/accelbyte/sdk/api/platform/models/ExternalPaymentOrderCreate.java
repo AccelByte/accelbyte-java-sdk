@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,50 +17,74 @@ import java.util.Map;
 public class ExternalPaymentOrderCreate extends Model {
 
     @JsonProperty("currencyCode")
-    String currencyCode;
+    private String currencyCode;
+
     @JsonProperty("currencyNamespace")
-    String currencyNamespace;
+    private String currencyNamespace;
+
     @JsonProperty("customParameters")
-    Map<String, ?> customParameters;
+    private Map<String, ?> customParameters;
+
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("extOrderNo")
-    String extOrderNo;
+    private String extOrderNo;
+
     @JsonProperty("extUserId")
-    String extUserId;
+    private String extUserId;
+
     @JsonProperty("itemType")
-    String itemType;
+    private String itemType;
+
     @JsonProperty("language")
-    String language;
+    private String language;
+
     @JsonProperty("metadata")
-    Map<String, String> metadata;
+    private Map<String, String> metadata;
+
     @JsonProperty("notifyUrl")
-    String notifyUrl;
+    private String notifyUrl;
+
     @JsonProperty("omitNotification")
-    Boolean omitNotification;
+    private Boolean omitNotification;
+
     @JsonProperty("price")
-    Integer price;
+    private Integer price;
+
     @JsonProperty("recurringPaymentOrderNo")
-    String recurringPaymentOrderNo;
+    private String recurringPaymentOrderNo;
+
     @JsonProperty("region")
-    String region;
+    private String region;
+
     @JsonProperty("returnUrl")
-    String returnUrl;
+    private String returnUrl;
+
     @JsonProperty("sandbox")
-    Boolean sandbox;
+    private Boolean sandbox;
+
     @JsonProperty("sku")
-    String sku;
+    private String sku;
+
     @JsonProperty("subscriptionId")
-    String subscriptionId;
+    private String subscriptionId;
+
     @JsonProperty("targetNamespace")
-    String targetNamespace;
+    private String targetNamespace;
+
     @JsonProperty("targetUserId")
-    String targetUserId;
+    private String targetUserId;
+
     @JsonProperty("title")
-    String title;
+    private String title;
 
     public ExternalPaymentOrderCreate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ExternalPaymentOrderCreate> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ExternalPaymentOrderCreate>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

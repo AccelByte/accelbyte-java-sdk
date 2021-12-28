@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.dsmc.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,30 +17,44 @@ import java.util.Map;
 public class ModelsDeploymentConfigOverride extends Model {
 
     @JsonProperty("buffer_count")
-    Integer bufferCount;
+    private Integer bufferCount;
+
     @JsonProperty("buffer_percent")
-    Integer bufferPercent;
+    private Integer bufferPercent;
+
     @JsonProperty("configuration")
-    String configuration;
+    private String configuration;
+
     @JsonProperty("enable_region_overrides")
-    Boolean enableRegionOverrides;
+    private Boolean enableRegionOverrides;
+
     @JsonProperty("game_version")
-    String gameVersion;
+    private String gameVersion;
+
     @JsonProperty("max_count")
-    Integer maxCount;
+    private Integer maxCount;
+
     @JsonProperty("min_count")
-    Integer minCount;
+    private Integer minCount;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("region_overrides")
-    Map<String, ModelsPodCountConfigOverride> regionOverrides;
+    private Map<String, ModelsPodCountConfigOverride> regionOverrides;
+
     @JsonProperty("regions")
-    List<String> regions;
+    private List<String> regions;
+
     @JsonProperty("use_buffer_percent")
-    Boolean useBufferPercent;
+    private Boolean useBufferPercent;
 
     public ModelsDeploymentConfigOverride createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsDeploymentConfigOverride> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDeploymentConfigOverride>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

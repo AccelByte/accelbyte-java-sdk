@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.legal.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class UploadPolicyVersionAttachmentRequest extends Model {
 
     @JsonProperty("contentMD5")
-    String contentMD5;
+    private String contentMD5;
+
     @JsonProperty("contentType")
-    String contentType;
+    private String contentType;
 
     public UploadPolicyVersionAttachmentRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<UploadPolicyVersionAttachmentRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<UploadPolicyVersionAttachmentRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

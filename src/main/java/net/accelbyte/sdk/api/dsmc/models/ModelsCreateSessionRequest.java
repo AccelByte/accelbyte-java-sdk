@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.dsmc.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,26 +17,38 @@ import java.util.Map;
 public class ModelsCreateSessionRequest extends Model {
 
     @JsonProperty("client_version")
-    String clientVersion;
+    private String clientVersion;
+
     @JsonProperty("configuration")
-    String configuration;
+    private String configuration;
+
     @JsonProperty("deployment")
-    String deployment;
+    private String deployment;
+
     @JsonProperty("game_mode")
-    String gameMode;
+    private String gameMode;
+
     @JsonProperty("matching_allies")
-    List<ModelsRequestMatchingAlly> matchingAllies;
+    private List<ModelsRequestMatchingAlly> matchingAllies;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("pod_name")
-    String podName;
+    private String podName;
+
     @JsonProperty("region")
-    String region;
+    private String region;
+
     @JsonProperty("session_id")
-    String sessionId;
+    private String sessionId;
 
     public ModelsCreateSessionRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsCreateSessionRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateSessionRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

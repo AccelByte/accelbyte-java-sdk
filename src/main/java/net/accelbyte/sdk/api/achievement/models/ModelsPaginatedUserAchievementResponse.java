@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.achievement.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,14 +17,20 @@ import java.util.Map;
 public class ModelsPaginatedUserAchievementResponse extends Model {
 
     @JsonProperty("countInfo")
-    ModelsAdditionalInfo countInfo;
+    private ModelsAdditionalInfo countInfo;
+
     @JsonProperty("data")
-    List<ModelsUserAchievementResponse> data;
+    private List<ModelsUserAchievementResponse> data;
+
     @JsonProperty("paging")
-    ModelsPagination paging;
+    private ModelsPagination paging;
 
     public ModelsPaginatedUserAchievementResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsPaginatedUserAchievementResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPaginatedUserAchievementResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,24 +17,35 @@ import java.util.Map;
 public class HierarchicalCategoryInfo extends Model {
 
     @JsonProperty("categoryPath")
-    String categoryPath;
+    private String categoryPath;
+
     @JsonProperty("childCategories")
-    List<HierarchicalCategoryInfo> childCategories;
+    private List<HierarchicalCategoryInfo> childCategories;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("displayName")
-    String displayName;
+    private String displayName;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("parentCategoryPath")
-    String parentCategoryPath;
+    private String parentCategoryPath;
+
     @JsonProperty("root")
-    Boolean root;
+    private Boolean root;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
 
     public HierarchicalCategoryInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<HierarchicalCategoryInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<HierarchicalCategoryInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

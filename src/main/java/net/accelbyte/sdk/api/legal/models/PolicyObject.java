@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.legal.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,32 +17,47 @@ import java.util.Map;
 public class PolicyObject extends Model {
 
     @JsonProperty("countryCode")
-    String countryCode;
+    private String countryCode;
+
     @JsonProperty("countryGroupCode")
-    String countryGroupCode;
+    private String countryGroupCode;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("id")
-    String id;
+    private String id;
+
     @JsonProperty("isDefaultOpted")
-    Boolean isDefaultOpted;
+    private Boolean isDefaultOpted;
+
     @JsonProperty("isDefaultSelection")
-    Boolean isDefaultSelection;
+    private Boolean isDefaultSelection;
+
     @JsonProperty("isMandatory")
-    Boolean isMandatory;
+    private Boolean isMandatory;
+
     @JsonProperty("policyName")
-    String policyName;
+    private String policyName;
+
     @JsonProperty("readableId")
-    String readableId;
+    private String readableId;
+
     @JsonProperty("shouldNotifyOnUpdate")
-    Boolean shouldNotifyOnUpdate;
+    private Boolean shouldNotifyOnUpdate;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
 
     public PolicyObject createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<PolicyObject> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<PolicyObject>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

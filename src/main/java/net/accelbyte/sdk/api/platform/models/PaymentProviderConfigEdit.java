@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,24 +17,35 @@ import java.util.Map;
 public class PaymentProviderConfigEdit extends Model {
 
     @JsonProperty("aggregate")
-    String aggregate;
+    private String aggregate;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("region")
-    String region;
+    private String region;
+
     @JsonProperty("sandboxTaxJarApiToken")
-    String sandboxTaxJarApiToken;
+    private String sandboxTaxJarApiToken;
+
     @JsonProperty("specials")
-    List<String> specials;
+    private List<String> specials;
+
     @JsonProperty("taxJarApiToken")
-    String taxJarApiToken;
+    private String taxJarApiToken;
+
     @JsonProperty("taxJarEnabled")
-    Boolean taxJarEnabled;
+    private Boolean taxJarEnabled;
+
     @JsonProperty("useGlobalTaxJarApiToken")
-    Boolean useGlobalTaxJarApiToken;
+    private Boolean useGlobalTaxJarApiToken;
 
     public PaymentProviderConfigEdit createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<PaymentProviderConfigEdit> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<PaymentProviderConfigEdit>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

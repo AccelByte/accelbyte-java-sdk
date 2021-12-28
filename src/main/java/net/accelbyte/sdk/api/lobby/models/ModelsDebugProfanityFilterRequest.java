@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.lobby.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,10 +17,14 @@ import java.util.Map;
 public class ModelsDebugProfanityFilterRequest extends Model {
 
     @JsonProperty("text")
-    String text;
+    private String text;
 
     public ModelsDebugProfanityFilterRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsDebugProfanityFilterRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDebugProfanityFilterRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

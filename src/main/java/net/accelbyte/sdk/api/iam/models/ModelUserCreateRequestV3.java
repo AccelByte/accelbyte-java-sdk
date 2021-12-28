@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,24 +17,35 @@ import java.util.Map;
 public class ModelUserCreateRequestV3 extends Model {
 
     @JsonProperty("PasswordMD5Sum")
-    String passwordMD5Sum;
+    private String passwordMD5Sum;
+
     @JsonProperty("acceptedPolicies")
-    List<LegalAcceptedPoliciesRequest> acceptedPolicies;
+    private List<LegalAcceptedPoliciesRequest> acceptedPolicies;
+
     @JsonProperty("authType")
-    String authType;
+    private String authType;
+
     @JsonProperty("country")
-    String country;
+    private String country;
+
     @JsonProperty("dateOfBirth")
-    String dateOfBirth;
+    private String dateOfBirth;
+
     @JsonProperty("displayName")
-    String displayName;
+    private String displayName;
+
     @JsonProperty("emailAddress")
-    String emailAddress;
+    private String emailAddress;
+
     @JsonProperty("password")
-    String password;
+    private String password;
 
     public ModelUserCreateRequestV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelUserCreateRequestV3> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserCreateRequestV3>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.gametelemetry.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,18 +17,26 @@ import java.util.Map;
 public class TelemetryBody extends Model {
 
     @JsonProperty("EventId")
-    String eventId;
+    private String eventId;
+
     @JsonProperty("EventName")
-    String eventName;
+    private String eventName;
+
     @JsonProperty("EventNamespace")
-    String eventNamespace;
+    private String eventNamespace;
+
     @JsonProperty("EventTimestamp")
-    String eventTimestamp;
+    private String eventTimestamp;
+
     @JsonProperty("Payload")
-    Map<String, ?> payload;
+    private Map<String, ?> payload;
 
     public TelemetryBody createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<TelemetryBody> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<TelemetryBody>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

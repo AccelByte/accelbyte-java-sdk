@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.seasonpass.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,30 +17,44 @@ import java.util.Map;
 public class SeasonCreate extends Model {
 
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("start")
-    String start;
+    private String start;
+
     @JsonProperty("end")
-    String end;
+    private String end;
+
     @JsonProperty("defaultLanguage")
-    String defaultLanguage;
+    private String defaultLanguage;
+
     @JsonProperty("defaultRequiredExp")
-    Integer defaultRequiredExp;
+    private Integer defaultRequiredExp;
+
     @JsonProperty("draftStoreId")
-    String draftStoreId;
+    private String draftStoreId;
+
     @JsonProperty("tierItemId")
-    String tierItemId;
+    private String tierItemId;
+
     @JsonProperty("autoClaim")
-    Boolean autoClaim;
+    private Boolean autoClaim;
+
     @JsonProperty("excessStrategy")
-    ExcessStrategy excessStrategy;
+    private ExcessStrategy excessStrategy;
+
     @JsonProperty("localizations")
-    Map<String, Localization> localizations;
+    private Map<String, Localization> localizations;
+
     @JsonProperty("images")
-    List<Image> images;
+    private List<Image> images;
 
     public SeasonCreate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<SeasonCreate> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<SeasonCreate>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.seasonpass.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,46 +17,68 @@ import java.util.Map;
 public class LocalizedSeasonInfo extends Model {
 
     @JsonProperty("title")
-    String title;
+    private String title;
+
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("id")
-    String id;
+    private String id;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("start")
-    String start;
+    private String start;
+
     @JsonProperty("end")
-    String end;
+    private String end;
+
     @JsonProperty("tierItemId")
-    String tierItemId;
+    private String tierItemId;
+
     @JsonProperty("autoClaim")
-    Boolean autoClaim;
+    private Boolean autoClaim;
+
     @JsonProperty("images")
-    List<Image> images;
+    private List<Image> images;
+
     @JsonProperty("passCodes")
-    List<String> passCodes;
+    private List<String> passCodes;
+
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("publishedAt")
-    String publishedAt;
+    private String publishedAt;
+
     @JsonProperty("language")
-    String language;
+    private String language;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("passes")
-    List<LocalizedPassInfo> passes;
+    private List<LocalizedPassInfo> passes;
+
     @JsonProperty("rewards")
-    Map<String, RewardInfo> rewards;
+    private Map<String, RewardInfo> rewards;
+
     @JsonProperty("tiers")
-    List<Tier> tiers;
+    private List<Tier> tiers;
 
     public LocalizedSeasonInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<LocalizedSeasonInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<LocalizedSeasonInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

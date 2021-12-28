@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.leaderboard.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,28 +17,41 @@ import java.util.Map;
 public class ModelsLeaderboardConfigReq extends Model {
 
     @JsonProperty("daily")
-    ModelsDailyConfig daily;
+    private ModelsDailyConfig daily;
+
     @JsonProperty("descending")
-    Boolean descending;
+    private Boolean descending;
+
     @JsonProperty("iconURL")
-    String iconURL;
+    private String iconURL;
+
     @JsonProperty("leaderboardCode")
-    String leaderboardCode;
+    private String leaderboardCode;
+
     @JsonProperty("monthly")
-    ModelsMonthlyConfig monthly;
+    private ModelsMonthlyConfig monthly;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("seasonPeriod")
-    Integer seasonPeriod;
+    private Integer seasonPeriod;
+
     @JsonProperty("startTime")
-    String startTime;
+    private String startTime;
+
     @JsonProperty("statCode")
-    String statCode;
+    private String statCode;
+
     @JsonProperty("weekly")
-    ModelsWeeklyConfig weekly;
+    private ModelsWeeklyConfig weekly;
 
     public ModelsLeaderboardConfigReq createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsLeaderboardConfigReq> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsLeaderboardConfigReq>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

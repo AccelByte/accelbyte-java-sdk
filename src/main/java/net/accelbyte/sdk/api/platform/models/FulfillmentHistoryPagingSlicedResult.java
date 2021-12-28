@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class FulfillmentHistoryPagingSlicedResult extends Model {
 
     @JsonProperty("data")
-    List<FulfillmentHistoryInfo> data;
+    private List<FulfillmentHistoryInfo> data;
+
     @JsonProperty("paging")
-    Paging paging;
+    private Paging paging;
 
     public FulfillmentHistoryPagingSlicedResult createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<FulfillmentHistoryPagingSlicedResult> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<FulfillmentHistoryPagingSlicedResult>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

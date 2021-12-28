@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.dsmc.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,10 +17,14 @@ import java.util.Map;
 public class ModelsSessionResponse extends Model {
 
     @JsonProperty("session")
-    ModelsSession session;
+    private ModelsSession session;
 
     public ModelsSessionResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsSessionResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsSessionResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

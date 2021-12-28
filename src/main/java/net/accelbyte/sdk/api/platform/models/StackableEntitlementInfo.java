@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,66 +17,86 @@ import java.util.Map;
 public class StackableEntitlementInfo extends Model {
 
     @JsonProperty("appId")
-    String appId;
+    private String appId;
+
     @JsonProperty("appType")
-    String appType;
+    private String appType;
+
     @JsonProperty("clazz")
-    String clazz;
+    private String clazz;
+
     @JsonProperty("createdAt")
-    String createdAt;
-    @JsonProperty("distributedQuantity")
-    Integer distributedQuantity;
+    private String createdAt;
+
     @JsonProperty("endDate")
-    String endDate;
+    private String endDate;
+
     @JsonProperty("features")
-    List<String> features;
+    private List<String> features;
+
     @JsonProperty("grantedAt")
-    String grantedAt;
+    private String grantedAt;
+
     @JsonProperty("grantedCode")
-    String grantedCode;
+    private String grantedCode;
+
     @JsonProperty("id")
-    String id;
+    private String id;
+
     @JsonProperty("itemId")
-    String itemId;
+    private String itemId;
+
     @JsonProperty("itemNamespace")
-    String itemNamespace;
+    private String itemNamespace;
+
     @JsonProperty("itemSnapshot")
-    ItemSnapshot itemSnapshot;
+    private ItemSnapshot itemSnapshot;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("namespace")
-    String namespace;
-    @JsonProperty("quantity")
-    Integer quantity;
+    private String namespace;
+
     @JsonProperty("sku")
-    String sku;
+    private String sku;
+
     @JsonProperty("source")
-    String source;
+    private String source;
+
     @JsonProperty("stackable")
-    Boolean stackable;
-    @JsonProperty("stackedQuantity")
-    Integer stackedQuantity;
+    private Boolean stackable;
+
     @JsonProperty("stackedUseCount")
-    Integer stackedUseCount;
+    private Integer stackedUseCount;
+
     @JsonProperty("startDate")
-    String startDate;
+    private String startDate;
+
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("storeId")
-    String storeId;
-    @JsonProperty("targetNamespace")
-    String targetNamespace;
+    private String storeId;
+
     @JsonProperty("type")
-    String type;
+    private String type;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("useCount")
-    Integer useCount;
+    private Integer useCount;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
 
     public StackableEntitlementInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<StackableEntitlementInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<StackableEntitlementInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {
@@ -84,7 +105,6 @@ public class StackableEntitlementInfo extends Model {
         result.put("appType", "appType");
         result.put("clazz", "clazz");
         result.put("createdAt", "createdAt");
-        result.put("distributedQuantity", "distributedQuantity");
         result.put("endDate", "endDate");
         result.put("features", "features");
         result.put("grantedAt", "grantedAt");
@@ -95,16 +115,13 @@ public class StackableEntitlementInfo extends Model {
         result.put("itemSnapshot", "itemSnapshot");
         result.put("name", "name");
         result.put("namespace", "namespace");
-        result.put("quantity", "quantity");
         result.put("sku", "sku");
         result.put("source", "source");
         result.put("stackable", "stackable");
-        result.put("stackedQuantity", "stackedQuantity");
         result.put("stackedUseCount", "stackedUseCount");
         result.put("startDate", "startDate");
         result.put("status", "status");
         result.put("storeId", "storeId");
-        result.put("targetNamespace", "targetNamespace");
         result.put("type", "type");
         result.put("updatedAt", "updatedAt");
         result.put("useCount", "useCount");

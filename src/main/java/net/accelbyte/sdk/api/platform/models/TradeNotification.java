@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,86 +17,128 @@ import java.util.Map;
 public class TradeNotification extends Model {
 
     @JsonProperty("additionalData")
-    AdditionalData additionalData;
+    private AdditionalData additionalData;
+
     @JsonProperty("authorisedTime")
-    String authorisedTime;
+    private String authorisedTime;
+
     @JsonProperty("chargebackReversedTime")
-    String chargebackReversedTime;
+    private String chargebackReversedTime;
+
     @JsonProperty("chargebackTime")
-    String chargebackTime;
+    private String chargebackTime;
+
     @JsonProperty("chargedTime")
-    String chargedTime;
+    private String chargedTime;
+
     @JsonProperty("createdTime")
-    String createdTime;
+    private String createdTime;
+
     @JsonProperty("currency")
-    CurrencySummary currency;
+    private CurrencySummary currency;
+
     @JsonProperty("customParameters")
-    Map<String, ?> customParameters;
+    private Map<String, ?> customParameters;
+
     @JsonProperty("extOrderNo")
-    String extOrderNo;
+    private String extOrderNo;
+
     @JsonProperty("extTxId")
-    String extTxId;
+    private String extTxId;
+
     @JsonProperty("extUserId")
-    String extUserId;
+    private String extUserId;
+
     @JsonProperty("issuedAt")
-    String issuedAt;
+    private String issuedAt;
+
     @JsonProperty("metadata")
-    Map<String, String> metadata;
+    private Map<String, String> metadata;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("nonceStr")
-    String nonceStr;
+    private String nonceStr;
+
     @JsonProperty("paymentMethod")
-    String paymentMethod;
+    private String paymentMethod;
+
     @JsonProperty("paymentMethodFee")
-    Integer paymentMethodFee;
+    private Integer paymentMethodFee;
+
     @JsonProperty("paymentOrderNo")
-    String paymentOrderNo;
+    private String paymentOrderNo;
+
     @JsonProperty("paymentProvider")
-    String paymentProvider;
+    private String paymentProvider;
+
     @JsonProperty("paymentProviderFee")
-    Integer paymentProviderFee;
+    private Integer paymentProviderFee;
+
     @JsonProperty("paymentStationUrl")
-    String paymentStationUrl;
+    private String paymentStationUrl;
+
     @JsonProperty("price")
-    Integer price;
+    private Integer price;
+
     @JsonProperty("refundedTime")
-    String refundedTime;
+    private String refundedTime;
+
     @JsonProperty("salesTax")
-    Integer salesTax;
+    private Integer salesTax;
+
     @JsonProperty("sandbox")
-    Boolean sandbox;
+    private Boolean sandbox;
+
     @JsonProperty("sku")
-    String sku;
+    private String sku;
+
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("statusReason")
-    String statusReason;
+    private String statusReason;
+
     @JsonProperty("subscriptionId")
-    String subscriptionId;
+    private String subscriptionId;
+
     @JsonProperty("subtotalPrice")
-    Integer subtotalPrice;
+    private Integer subtotalPrice;
+
     @JsonProperty("targetNamespace")
-    String targetNamespace;
+    private String targetNamespace;
+
     @JsonProperty("targetUserId")
-    String targetUserId;
+    private String targetUserId;
+
     @JsonProperty("tax")
-    Integer tax;
+    private Integer tax;
+
     @JsonProperty("totalPrice")
-    Integer totalPrice;
+    private Integer totalPrice;
+
     @JsonProperty("totalTax")
-    Integer totalTax;
+    private Integer totalTax;
+
     @JsonProperty("txEndTime")
-    String txEndTime;
+    private String txEndTime;
+
     @JsonProperty("type")
-    String type;
+    private String type;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
+
     @JsonProperty("vat")
-    Integer vat;
+    private Integer vat;
 
     public TradeNotification createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<TradeNotification> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<TradeNotification>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

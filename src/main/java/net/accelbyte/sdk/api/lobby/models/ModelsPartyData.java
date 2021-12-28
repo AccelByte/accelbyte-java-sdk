@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.lobby.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,22 +17,32 @@ import java.util.Map;
 public class ModelsPartyData extends Model {
 
     @JsonProperty("custom_attribute")
-    Map<String, ?> customAttribute;
+    private Map<String, ?> customAttribute;
+
     @JsonProperty("invitees")
-    List<String> invitees;
+    private List<String> invitees;
+
     @JsonProperty("leader")
-    String leader;
+    private String leader;
+
     @JsonProperty("members")
-    List<String> members;
+    private List<String> members;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("partyId")
-    String partyId;
+    private String partyId;
+
     @JsonProperty("updatedAt")
-    Integer updatedAt;
+    private Integer updatedAt;
 
     public ModelsPartyData createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsPartyData> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPartyData>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

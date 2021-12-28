@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.seasonpass.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,14 +17,20 @@ import java.util.Map;
 public class ExcessStrategy extends Model {
 
     @JsonProperty("method")
-    String method;
+    private String method;
+
     @JsonProperty("currency")
-    String currency;
+    private String currency;
+
     @JsonProperty("percentPerExp")
-    Integer percentPerExp;
+    private Integer percentPerExp;
 
     public ExcessStrategy createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ExcessStrategy> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ExcessStrategy>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

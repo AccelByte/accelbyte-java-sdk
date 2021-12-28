@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.sessionbrowser.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,18 +17,26 @@ import java.util.Map;
 public class RestapiErrorResponseV2 extends Model {
 
     @JsonProperty("attributes")
-    Map<String, String> attributes;
+    private Map<String, String> attributes;
+
     @JsonProperty("errorCode")
-    Integer errorCode;
+    private Integer errorCode;
+
     @JsonProperty("errorMessage")
-    String errorMessage;
+    private String errorMessage;
+
     @JsonProperty("message")
-    String message;
+    private String message;
+
     @JsonProperty("name")
-    String name;
+    private String name;
 
     public RestapiErrorResponseV2 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<RestapiErrorResponseV2> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<RestapiErrorResponseV2>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

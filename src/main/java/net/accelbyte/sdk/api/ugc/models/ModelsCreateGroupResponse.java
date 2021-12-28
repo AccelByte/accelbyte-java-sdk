@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.ugc.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,20 +17,29 @@ import java.util.Map;
 public class ModelsCreateGroupResponse extends Model {
 
     @JsonProperty("contents")
-    List<String> contents;
+    private List<String> contents;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("id")
-    String id;
+    private String id;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
 
     public ModelsCreateGroupResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsCreateGroupResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateGroupResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

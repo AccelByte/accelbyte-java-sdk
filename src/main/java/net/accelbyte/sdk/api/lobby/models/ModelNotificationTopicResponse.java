@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.lobby.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,16 +17,23 @@ import java.util.Map;
 public class ModelNotificationTopicResponse extends Model {
 
     @JsonProperty("createdAt")
-    Integer createdAt;
+    private Integer createdAt;
+
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("topic")
-    String topic;
+    private String topic;
 
     public ModelNotificationTopicResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelNotificationTopicResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelNotificationTopicResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

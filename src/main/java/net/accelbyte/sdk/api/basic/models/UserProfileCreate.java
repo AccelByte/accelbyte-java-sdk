@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.basic.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,26 +17,38 @@ import java.util.Map;
 public class UserProfileCreate extends Model {
 
     @JsonProperty("avatarLargeUrl")
-    String avatarLargeUrl;
+    private String avatarLargeUrl;
+
     @JsonProperty("avatarSmallUrl")
-    String avatarSmallUrl;
+    private String avatarSmallUrl;
+
     @JsonProperty("avatarUrl")
-    String avatarUrl;
+    private String avatarUrl;
+
     @JsonProperty("customAttributes")
-    Map<String, ?> customAttributes;
+    private Map<String, ?> customAttributes;
+
     @JsonProperty("dateOfBirth")
-    String dateOfBirth;
+    private String dateOfBirth;
+
     @JsonProperty("firstName")
-    String firstName;
+    private String firstName;
+
     @JsonProperty("language")
-    String language;
+    private String language;
+
     @JsonProperty("lastName")
-    String lastName;
+    private String lastName;
+
     @JsonProperty("timeZone")
-    String timeZone;
+    private String timeZone;
 
     public UserProfileCreate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<UserProfileCreate> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<UserProfileCreate>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.cloudsave.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class ModelsConcurrentRecordRequest extends Model {
 
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("value")
-    Map<String, ?> value;
+    private Map<String, ?> value;
 
     public ModelsConcurrentRecordRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsConcurrentRecordRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsConcurrentRecordRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

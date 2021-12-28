@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.seasonpass.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class ListSeasonInfoPagingSlicedResult extends Model {
 
     @JsonProperty("data")
-    List<ListSeasonInfo> data;
+    private List<ListSeasonInfo> data;
+
     @JsonProperty("paging")
-    Paging paging;
+    private Paging paging;
 
     public ListSeasonInfoPagingSlicedResult createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ListSeasonInfoPagingSlicedResult> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ListSeasonInfoPagingSlicedResult>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

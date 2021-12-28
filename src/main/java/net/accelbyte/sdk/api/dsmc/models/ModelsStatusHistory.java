@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.dsmc.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class ModelsStatusHistory extends Model {
 
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("time_stamp")
-    String timeStamp;
+    private String timeStamp;
 
     public ModelsStatusHistory createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsStatusHistory> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsStatusHistory>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

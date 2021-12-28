@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.leaderboard.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,24 +17,35 @@ import java.util.Map;
 public class ModelsUserLeaderboardRanking extends Model {
 
     @JsonProperty("allTime")
-    ModelsUserRankingResponseDetail allTime;
+    private ModelsUserRankingResponseDetail allTime;
+
     @JsonProperty("current")
-    ModelsUserRankingResponseDetail current;
+    private ModelsUserRankingResponseDetail current;
+
     @JsonProperty("daily")
-    ModelsUserRankingResponseDetail daily;
+    private ModelsUserRankingResponseDetail daily;
+
     @JsonProperty("leaderboardCode")
-    String leaderboardCode;
+    private String leaderboardCode;
+
     @JsonProperty("leaderboardName")
-    String leaderboardName;
+    private String leaderboardName;
+
     @JsonProperty("monthly")
-    ModelsUserRankingResponseDetail monthly;
+    private ModelsUserRankingResponseDetail monthly;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
+
     @JsonProperty("weekly")
-    ModelsUserRankingResponseDetail weekly;
+    private ModelsUserRankingResponseDetail weekly;
 
     public ModelsUserLeaderboardRanking createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsUserLeaderboardRanking> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUserLeaderboardRanking>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

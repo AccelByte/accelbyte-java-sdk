@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,46 +17,68 @@ import java.util.Map;
 public class IAPOrderInfo extends Model {
 
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("credits")
-    List<CreditSummary> credits;
+    private List<CreditSummary> credits;
+
     @JsonProperty("entitlements")
-    List<EntitlementSummary> entitlements;
+    private List<EntitlementSummary> entitlements;
+
     @JsonProperty("fulfilledTime")
-    String fulfilledTime;
+    private String fulfilledTime;
+
     @JsonProperty("iapOrderNo")
-    String iapOrderNo;
+    private String iapOrderNo;
+
     @JsonProperty("language")
-    String language;
+    private String language;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("productId")
-    String productId;
+    private String productId;
+
     @JsonProperty("quantity")
-    Integer quantity;
+    private Integer quantity;
+
     @JsonProperty("receiptData")
-    String receiptData;
+    private String receiptData;
+
     @JsonProperty("region")
-    String region;
+    private String region;
+
     @JsonProperty("retryCount")
-    Integer retryCount;
+    private Integer retryCount;
+
     @JsonProperty("sandbox")
-    Boolean sandbox;
+    private Boolean sandbox;
+
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("statusReason")
-    String statusReason;
+    private String statusReason;
+
     @JsonProperty("transactionId")
-    String transactionId;
+    private String transactionId;
+
     @JsonProperty("type")
-    String type;
+    private String type;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
 
     public IAPOrderInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<IAPOrderInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<IAPOrderInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

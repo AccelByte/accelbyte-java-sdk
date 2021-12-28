@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,68 +17,101 @@ import java.util.Map;
 public class ItemUpdate extends Model {
 
     @JsonProperty("appId")
-    String appId;
+    private String appId;
+
     @JsonProperty("appType")
-    String appType;
+    private String appType;
+
     @JsonProperty("baseAppId")
-    String baseAppId;
+    private String baseAppId;
+
     @JsonProperty("boothName")
-    String boothName;
+    private String boothName;
+
     @JsonProperty("categoryPath")
-    String categoryPath;
+    private String categoryPath;
+
     @JsonProperty("clazz")
-    String clazz;
+    private String clazz;
+
     @JsonProperty("displayOrder")
-    Integer displayOrder;
+    private Integer displayOrder;
+
     @JsonProperty("entitlementType")
-    String entitlementType;
+    private String entitlementType;
+
     @JsonProperty("ext")
-    Map<String, ?> ext;
+    private Map<String, ?> ext;
+
     @JsonProperty("features")
-    List<String> features;
+    private List<String> features;
+
     @JsonProperty("images")
-    List<Image> images;
+    private List<Image> images;
+
     @JsonProperty("itemIds")
-    List<String> itemIds;
+    private List<String> itemIds;
+
     @JsonProperty("itemType")
-    String itemType;
+    private String itemType;
+
     @JsonProperty("listable")
-    Boolean listable;
+    private Boolean listable;
+
     @JsonProperty("localizations")
-    Map<String, Localization> localizations;
+    private Map<String, Localization> localizations;
+
     @JsonProperty("maxCount")
-    Integer maxCount;
+    private Integer maxCount;
+
     @JsonProperty("maxCountPerUser")
-    Integer maxCountPerUser;
+    private Integer maxCountPerUser;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("purchasable")
-    Boolean purchasable;
+    private Boolean purchasable;
+
     @JsonProperty("recurring")
-    Recurring recurring;
+    private Recurring recurring;
+
     @JsonProperty("regionData")
-    Map<String, List<RegionDataItem>> regionData;
+    private Map<String, List<RegionDataItem>> regionData;
+
     @JsonProperty("seasonType")
-    String seasonType;
+    private String seasonType;
+
     @JsonProperty("sku")
-    String sku;
+    private String sku;
+
     @JsonProperty("stackable")
-    Boolean stackable;
+    private Boolean stackable;
+
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("tags")
-    List<String> tags;
+    private List<String> tags;
+
     @JsonProperty("targetCurrencyCode")
-    String targetCurrencyCode;
+    private String targetCurrencyCode;
+
     @JsonProperty("targetNamespace")
-    String targetNamespace;
+    private String targetNamespace;
+
     @JsonProperty("thumbnailUrl")
-    String thumbnailUrl;
+    private String thumbnailUrl;
+
     @JsonProperty("useCount")
-    Integer useCount;
+    private Integer useCount;
 
     public ItemUpdate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ItemUpdate> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ItemUpdate>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

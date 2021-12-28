@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.dsmc.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,18 +17,26 @@ import java.util.Map;
 public class ModelsUpdateRegionOverrideRequest extends Model {
 
     @JsonProperty("buffer_count")
-    Integer bufferCount;
+    private Integer bufferCount;
+
     @JsonProperty("buffer_percent")
-    Integer bufferPercent;
+    private Integer bufferPercent;
+
     @JsonProperty("max_count")
-    Integer maxCount;
+    private Integer maxCount;
+
     @JsonProperty("min_count")
-    Integer minCount;
+    private Integer minCount;
+
     @JsonProperty("use_buffer_percent")
-    Boolean useBufferPercent;
+    private Boolean useBufferPercent;
 
     public ModelsUpdateRegionOverrideRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsUpdateRegionOverrideRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateRegionOverrideRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.social.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class SlotConfigUpdate extends Model {
 
     @JsonProperty("maxSlotSize")
-    Integer maxSlotSize;
+    private Integer maxSlotSize;
+
     @JsonProperty("maxSlots")
-    Integer maxSlots;
+    private Integer maxSlots;
 
     public SlotConfigUpdate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<SlotConfigUpdate> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<SlotConfigUpdate>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

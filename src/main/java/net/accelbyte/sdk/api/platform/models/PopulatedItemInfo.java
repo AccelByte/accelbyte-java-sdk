@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,92 +17,137 @@ import java.util.Map;
 public class PopulatedItemInfo extends Model {
 
     @JsonProperty("appId")
-    String appId;
+    private String appId;
+
     @JsonProperty("appType")
-    String appType;
+    private String appType;
+
     @JsonProperty("baseAppId")
-    String baseAppId;
+    private String baseAppId;
+
     @JsonProperty("boothName")
-    String boothName;
+    private String boothName;
+
     @JsonProperty("boundItemIds")
-    List<String> boundItemIds;
+    private List<String> boundItemIds;
+
     @JsonProperty("categoryPath")
-    String categoryPath;
+    private String categoryPath;
+
     @JsonProperty("clazz")
-    String clazz;
+    private String clazz;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("displayOrder")
-    Integer displayOrder;
+    private Integer displayOrder;
+
     @JsonProperty("entitlementType")
-    String entitlementType;
+    private String entitlementType;
+
     @JsonProperty("ext")
-    Map<String, ?> ext;
+    private Map<String, ?> ext;
+
     @JsonProperty("features")
-    List<String> features;
+    private List<String> features;
+
     @JsonProperty("images")
-    List<Image> images;
+    private List<Image> images;
+
     @JsonProperty("itemId")
-    String itemId;
+    private String itemId;
+
     @JsonProperty("itemIds")
-    List<String> itemIds;
+    private List<String> itemIds;
+
     @JsonProperty("itemType")
-    String itemType;
+    private String itemType;
+
     @JsonProperty("items")
-    List<ItemInfo> items;
+    private List<ItemInfo> items;
+
     @JsonProperty("language")
-    String language;
+    private String language;
+
     @JsonProperty("listable")
-    Boolean listable;
+    private Boolean listable;
+
     @JsonProperty("localExt")
-    Map<String, ?> localExt;
+    private Map<String, ?> localExt;
+
     @JsonProperty("longDescription")
-    String longDescription;
+    private String longDescription;
+
     @JsonProperty("maxCount")
-    Integer maxCount;
+    private Integer maxCount;
+
     @JsonProperty("maxCountPerUser")
-    Integer maxCountPerUser;
+    private Integer maxCountPerUser;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("purchasable")
-    Boolean purchasable;
+    private Boolean purchasable;
+
     @JsonProperty("recurring")
-    Recurring recurring;
+    private Recurring recurring;
+
     @JsonProperty("region")
-    String region;
+    private String region;
+
     @JsonProperty("regionData")
-    List<RegionDataItem> regionData;
+    private List<RegionDataItem> regionData;
+
     @JsonProperty("seasonType")
-    String seasonType;
+    private String seasonType;
+
     @JsonProperty("sku")
-    String sku;
+    private String sku;
+
     @JsonProperty("stackable")
-    Boolean stackable;
+    private Boolean stackable;
+
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("tags")
-    List<String> tags;
+    private List<String> tags;
+
     @JsonProperty("targetCurrencyCode")
-    String targetCurrencyCode;
+    private String targetCurrencyCode;
+
     @JsonProperty("targetItemId")
-    String targetItemId;
+    private String targetItemId;
+
     @JsonProperty("targetNamespace")
-    String targetNamespace;
+    private String targetNamespace;
+
     @JsonProperty("thumbnailUrl")
-    String thumbnailUrl;
+    private String thumbnailUrl;
+
     @JsonProperty("title")
-    String title;
+    private String title;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("useCount")
-    Integer useCount;
+    private Integer useCount;
 
     public PopulatedItemInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<PopulatedItemInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<PopulatedItemInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

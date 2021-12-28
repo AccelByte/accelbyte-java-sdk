@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,60 +17,89 @@ import java.util.Map;
 public class ModelUserResponse extends Model {
 
     @JsonProperty("AuthType")
-    String authType;
+    private String authType;
+
     @JsonProperty("Bans")
-    List<ModelUserActiveBanResponse> bans;
+    private List<ModelUserActiveBanResponse> bans;
+
     @JsonProperty("Country")
-    String country;
+    private String country;
+
     @JsonProperty("CreatedAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("DateOfBirth")
-    String dateOfBirth;
+    private String dateOfBirth;
+
     @JsonProperty("DeletionStatus")
-    Boolean deletionStatus;
+    private Boolean deletionStatus;
+
     @JsonProperty("DisplayName")
-    String displayName;
+    private String displayName;
+
     @JsonProperty("EmailAddress")
-    String emailAddress;
+    private String emailAddress;
+
     @JsonProperty("EmailVerified")
-    Boolean emailVerified;
+    private Boolean emailVerified;
+
     @JsonProperty("Enabled")
-    Boolean enabled;
+    private Boolean enabled;
+
     @JsonProperty("LastDateOfBirthChangedTime")
-    String lastDateOfBirthChangedTime;
+    private String lastDateOfBirthChangedTime;
+
     @JsonProperty("LastEnabledChangedTime")
-    String lastEnabledChangedTime;
+    private String lastEnabledChangedTime;
+
     @JsonProperty("LoginId")
-    String loginId;
+    private String loginId;
+
     @JsonProperty("Namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("NamespaceRoles")
-    List<AccountcommonNamespaceRole> namespaceRoles;
+    private List<AccountcommonNamespaceRole> namespaceRoles;
+
     @JsonProperty("NewEmailAddress")
-    String newEmailAddress;
+    private String newEmailAddress;
+
     @JsonProperty("OldEmailAddress")
-    String oldEmailAddress;
+    private String oldEmailAddress;
+
     @JsonProperty("Permissions")
-    List<AccountcommonPermission> permissions;
+    private List<AccountcommonPermission> permissions;
+
     @JsonProperty("PhoneNumber")
-    String phoneNumber;
+    private String phoneNumber;
+
     @JsonProperty("PhoneVerified")
-    Boolean phoneVerified;
+    private Boolean phoneVerified;
+
     @JsonProperty("PlatformId")
-    String platformId;
+    private String platformId;
+
     @JsonProperty("PlatformUserId")
-    String platformUserId;
+    private String platformUserId;
+
     @JsonProperty("Roles")
-    List<String> roles;
+    private List<String> roles;
+
     @JsonProperty("UserId")
-    String userId;
+    private String userId;
+
     @JsonProperty("Username")
-    String username;
+    private String username;
+
     @JsonProperty("XUID")
-    String xuid;
+    private String xuid;
 
     public ModelUserResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelUserResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

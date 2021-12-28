@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.basic.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class ADTOForUnbanUserAPICall extends Model {
 
     @JsonProperty("comment")
-    String comment;
+    private String comment;
+
     @JsonProperty("userIds")
-    List<String> userIds;
+    private List<String> userIds;
 
     public ADTOForUnbanUserAPICall createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ADTOForUnbanUserAPICall> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ADTOForUnbanUserAPICall>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

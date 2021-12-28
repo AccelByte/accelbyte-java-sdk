@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.achievement.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,36 +17,53 @@ import java.util.Map;
 public class ModelsPublicAchievementResponse extends Model {
 
     @JsonProperty("achievementCode")
-    String achievementCode;
+    private String achievementCode;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("goalValue")
-    Float goalValue;
+    private Float goalValue;
+
     @JsonProperty("hidden")
-    Boolean hidden;
+    private Boolean hidden;
+
     @JsonProperty("incremental")
-    Boolean incremental;
+    private Boolean incremental;
+
     @JsonProperty("listOrder")
-    Integer listOrder;
+    private Integer listOrder;
+
     @JsonProperty("lockedIcons")
-    List<ModelsIcon> lockedIcons;
+    private List<ModelsIcon> lockedIcons;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("statCode")
-    String statCode;
+    private String statCode;
+
     @JsonProperty("tags")
-    List<String> tags;
+    private List<String> tags;
+
     @JsonProperty("unlockedIcons")
-    List<ModelsIcon> unlockedIcons;
+    private List<ModelsIcon> unlockedIcons;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
 
     public ModelsPublicAchievementResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsPublicAchievementResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPublicAchievementResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

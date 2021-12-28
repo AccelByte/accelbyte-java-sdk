@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.ugc.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,42 +17,62 @@ import java.util.Map;
 public class ModelsCreateContentResponse extends Model {
 
     @JsonProperty("channelId")
-    String channelId;
+    private String channelId;
+
     @JsonProperty("contentType")
-    String contentType;
+    private String contentType;
+
     @JsonProperty("createdTime")
-    String createdTime;
+    private String createdTime;
+
     @JsonProperty("creatorName")
-    String creatorName;
+    private String creatorName;
+
     @JsonProperty("fileExtension")
-    String fileExtension;
+    private String fileExtension;
+
     @JsonProperty("id")
-    String id;
+    private String id;
+
     @JsonProperty("isHidden")
-    Boolean isHidden;
+    private Boolean isHidden;
+
     @JsonProperty("isOfficial")
-    Boolean isOfficial;
+    private Boolean isOfficial;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("payloadURL")
-    List<ModelsPayloadURL> payloadURL;
+    private List<ModelsPayloadURL> payloadURL;
+
     @JsonProperty("preview")
-    String preview;
+    private String preview;
+
     @JsonProperty("shareCode")
-    String shareCode;
+    private String shareCode;
+
     @JsonProperty("subType")
-    String subType;
+    private String subType;
+
     @JsonProperty("tags")
-    List<String> tags;
+    private List<String> tags;
+
     @JsonProperty("type")
-    String type;
+    private String type;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
 
     public ModelsCreateContentResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsCreateContentResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateContentResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

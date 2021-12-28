@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.ugc.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class ModelsPaginatedGetChannelResponse extends Model {
 
     @JsonProperty("data")
-    List<ModelsChannelResponse> data;
+    private List<ModelsChannelResponse> data;
+
     @JsonProperty("paging")
-    ModelsPagingCursor paging;
+    private ModelsPagingCursor paging;
 
     public ModelsPaginatedGetChannelResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsPaginatedGetChannelResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPaginatedGetChannelResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,54 +17,80 @@ import java.util.Map;
 public class AccountUserResponseV4 extends Model {
 
     @JsonProperty("authType")
-    String authType;
+    private String authType;
+
     @JsonProperty("bans")
-    List<AccountUserActiveBanResponseV4> bans;
+    private List<AccountUserActiveBanResponseV4> bans;
+
     @JsonProperty("country")
-    String country;
+    private String country;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("dateOfBirth")
-    String dateOfBirth;
+    private String dateOfBirth;
+
     @JsonProperty("deletionStatus")
-    Boolean deletionStatus;
+    private Boolean deletionStatus;
+
     @JsonProperty("displayName")
-    String displayName;
+    private String displayName;
+
     @JsonProperty("emailAddress")
-    String emailAddress;
+    private String emailAddress;
+
     @JsonProperty("emailVerified")
-    Boolean emailVerified;
+    private Boolean emailVerified;
+
     @JsonProperty("enabled")
-    Boolean enabled;
+    private Boolean enabled;
+
     @JsonProperty("lastDateOfBirthChangedTime")
-    String lastDateOfBirthChangedTime;
+    private String lastDateOfBirthChangedTime;
+
     @JsonProperty("lastEnabledChangedTime")
-    String lastEnabledChangedTime;
+    private String lastEnabledChangedTime;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("newEmailAddress")
-    String newEmailAddress;
+    private String newEmailAddress;
+
     @JsonProperty("oldEmailAddress")
-    String oldEmailAddress;
+    private String oldEmailAddress;
+
     @JsonProperty("permissions")
-    List<AccountUserPermissionsResponseV4> permissions;
+    private List<AccountUserPermissionsResponseV4> permissions;
+
     @JsonProperty("phoneNumber")
-    String phoneNumber;
+    private String phoneNumber;
+
     @JsonProperty("phoneVerified")
-    Boolean phoneVerified;
+    private Boolean phoneVerified;
+
     @JsonProperty("platformId")
-    String platformId;
+    private String platformId;
+
     @JsonProperty("platformUserId")
-    String platformUserId;
+    private String platformUserId;
+
     @JsonProperty("roles")
-    List<String> roles;
+    private List<String> roles;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
+
     @JsonProperty("username")
-    String username;
+    private String username;
 
     public AccountUserResponseV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<AccountUserResponseV4> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<AccountUserResponseV4>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

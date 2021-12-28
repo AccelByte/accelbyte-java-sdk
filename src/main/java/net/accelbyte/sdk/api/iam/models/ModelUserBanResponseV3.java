@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,30 +17,44 @@ import java.util.Map;
 public class ModelUserBanResponseV3 extends Model {
 
     @JsonProperty("ban")
-    String ban;
+    private String ban;
+
     @JsonProperty("banId")
-    String banId;
+    private String banId;
+
     @JsonProperty("bannedBy")
-    AccountcommonBannedByV3 bannedBy;
+    private AccountcommonBannedByV3 bannedBy;
+
     @JsonProperty("comment")
-    String comment;
+    private String comment;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("disabledDate")
-    String disabledDate;
+    private String disabledDate;
+
     @JsonProperty("enabled")
-    Boolean enabled;
+    private Boolean enabled;
+
     @JsonProperty("endDate")
-    String endDate;
+    private String endDate;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("reason")
-    String reason;
+    private String reason;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
 
     public ModelUserBanResponseV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelUserBanResponseV3> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserBanResponseV3>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

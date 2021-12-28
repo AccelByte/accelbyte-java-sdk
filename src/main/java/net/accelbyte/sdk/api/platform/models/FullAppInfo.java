@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,36 +17,53 @@ import java.util.Map;
 public class FullAppInfo extends Model {
 
     @JsonProperty("carousel")
-    List<Slide> carousel;
+    private List<Slide> carousel;
+
     @JsonProperty("developer")
-    String developer;
+    private String developer;
+
     @JsonProperty("forumUrl")
-    String forumUrl;
+    private String forumUrl;
+
     @JsonProperty("genres")
-    List<String> genres;
+    private List<String> genres;
+
     @JsonProperty("itemId")
-    String itemId;
+    private String itemId;
+
     @JsonProperty("localizations")
-    Map<String, AppLocalization> localizations;
+    private Map<String, AppLocalization> localizations;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("platformRequirements")
-    Map<String, List<Requirement>> platformRequirements;
+    private Map<String, List<Requirement>> platformRequirements;
+
     @JsonProperty("platforms")
-    List<String> platforms;
+    private List<String> platforms;
+
     @JsonProperty("players")
-    List<String> players;
+    private List<String> players;
+
     @JsonProperty("primaryGenre")
-    String primaryGenre;
+    private String primaryGenre;
+
     @JsonProperty("publisher")
-    String publisher;
+    private String publisher;
+
     @JsonProperty("releaseDate")
-    String releaseDate;
+    private String releaseDate;
+
     @JsonProperty("websiteUrl")
-    String websiteUrl;
+    private String websiteUrl;
 
     public FullAppInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<FullAppInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<FullAppInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

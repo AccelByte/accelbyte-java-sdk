@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.matchmaking.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,16 +17,23 @@ import java.util.Map;
 public class ModelsFlexingRule extends Model {
 
     @JsonProperty("attribute")
-    String attribute;
+    private String attribute;
+
     @JsonProperty("criteria")
-    String criteria;
+    private String criteria;
+
     @JsonProperty("duration")
-    Integer duration;
+    private Integer duration;
+
     @JsonProperty("reference")
-    Float reference;
+    private Float reference;
 
     public ModelsFlexingRule createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsFlexingRule> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsFlexingRule>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

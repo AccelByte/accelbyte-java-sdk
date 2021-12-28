@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.ugc.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class ModelsLikeState extends Model {
 
     @JsonProperty("state")
-    Boolean state;
+    private Boolean state;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
 
     public ModelsLikeState createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsLikeState> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsLikeState>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

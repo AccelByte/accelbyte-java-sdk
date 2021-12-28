@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.matchmaking.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,26 +17,38 @@ import java.util.Map;
 public class ModelsUpdateChannelRequest extends Model {
 
     @JsonProperty("deployment")
-    String deployment;
+    private String deployment;
+
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("findMatchTimeoutSeconds")
-    Integer findMatchTimeoutSeconds;
+    private Integer findMatchTimeoutSeconds;
+
     @JsonProperty("joinable")
-    Boolean joinable;
+    private Boolean joinable;
+
     @JsonProperty("max_delay_ms")
-    Integer maxDelayMs;
+    private Integer maxDelayMs;
+
     @JsonProperty("ruleSet")
-    ModelsUpdateRuleset ruleSet;
+    private ModelsUpdateRuleset ruleSet;
+
     @JsonProperty("sessionQueueTimeoutSeconds")
-    Integer sessionQueueTimeoutSeconds;
+    private Integer sessionQueueTimeoutSeconds;
+
     @JsonProperty("socialMatchmaking")
-    Boolean socialMatchmaking;
+    private Boolean socialMatchmaking;
+
     @JsonProperty("use_sub_gamemode")
-    Boolean useSubGamemode;
+    private Boolean useSubGamemode;
 
     public ModelsUpdateChannelRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsUpdateChannelRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateChannelRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

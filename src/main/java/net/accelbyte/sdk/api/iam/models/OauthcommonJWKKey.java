@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,20 +17,29 @@ import java.util.Map;
 public class OauthcommonJWKKey extends Model {
 
     @JsonProperty("alg")
-    String alg;
+    private String alg;
+
     @JsonProperty("e")
-    String e;
+    private String e;
+
     @JsonProperty("kid")
-    String kid;
+    private String kid;
+
     @JsonProperty("kty")
-    String kty;
+    private String kty;
+
     @JsonProperty("n")
-    String n;
+    private String n;
+
     @JsonProperty("use")
-    String use;
+    private String use;
 
     public OauthcommonJWKKey createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<OauthcommonJWKKey> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<OauthcommonJWKKey>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

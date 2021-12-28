@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class OauthapiRevocationList extends Model {
 
     @JsonProperty("revoked_tokens")
-    BloomFilterJSON revokedTokens;
+    private BloomFilterJSON revokedTokens;
+
     @JsonProperty("revoked_users")
-    List<OauthcommonUserRevocationListRecord> revokedUsers;
+    private List<OauthcommonUserRevocationListRecord> revokedUsers;
 
     public OauthapiRevocationList createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<OauthapiRevocationList> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<OauthapiRevocationList>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

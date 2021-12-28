@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,30 +17,44 @@ import java.util.Map;
 public class AdyenConfig extends Model {
 
     @JsonProperty("allowedPaymentMethods")
-    List<String> allowedPaymentMethods;
+    private List<String> allowedPaymentMethods;
+
     @JsonProperty("apiKey")
-    String apiKey;
+    private String apiKey;
+
     @JsonProperty("authoriseAsCapture")
-    Boolean authoriseAsCapture;
+    private Boolean authoriseAsCapture;
+
     @JsonProperty("blockedPaymentMethods")
-    List<String> blockedPaymentMethods;
+    private List<String> blockedPaymentMethods;
+
     @JsonProperty("liveEndpointUrlPrefix")
-    String liveEndpointUrlPrefix;
+    private String liveEndpointUrlPrefix;
+
     @JsonProperty("merchantAccount")
-    String merchantAccount;
+    private String merchantAccount;
+
     @JsonProperty("notificationHmacKey")
-    String notificationHmacKey;
+    private String notificationHmacKey;
+
     @JsonProperty("notificationPassword")
-    String notificationPassword;
+    private String notificationPassword;
+
     @JsonProperty("notificationUsername")
-    String notificationUsername;
+    private String notificationUsername;
+
     @JsonProperty("returnUrl")
-    String returnUrl;
+    private String returnUrl;
+
     @JsonProperty("settings")
-    String settings;
+    private String settings;
 
     public AdyenConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<AdyenConfig> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<AdyenConfig>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

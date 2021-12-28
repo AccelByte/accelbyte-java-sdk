@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,18 +17,26 @@ import java.util.Map;
 public class XblReconcileResult extends Model {
 
     @JsonProperty("iapOrderStatus")
-    String iapOrderStatus;
+    private String iapOrderStatus;
+
     @JsonProperty("itemId")
-    String itemId;
+    private String itemId;
+
     @JsonProperty("sku")
-    String sku;
+    private String sku;
+
     @JsonProperty("transactionId")
-    String transactionId;
+    private String transactionId;
+
     @JsonProperty("xboxProductId")
-    String xboxProductId;
+    private String xboxProductId;
 
     public XblReconcileResult createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<XblReconcileResult> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<XblReconcileResult>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,16 +17,23 @@ import java.util.Map;
 public class KeyGroupCreate extends Model {
 
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("tags")
-    List<String> tags;
+    private List<String> tags;
 
     public KeyGroupCreate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<KeyGroupCreate> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<KeyGroupCreate>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.dslogmanager.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,46 +17,68 @@ import java.util.Map;
 public class ModelsServer extends Model {
 
     @JsonProperty("allocation_id")
-    String allocationId;
+    private String allocationId;
+
     @JsonProperty("alternate_ips")
-    List<String> alternateIps;
+    private List<String> alternateIps;
+
     @JsonProperty("cpu_limit")
-    Integer cpuLimit;
+    private Integer cpuLimit;
+
     @JsonProperty("deployment")
-    String deployment;
+    private String deployment;
+
     @JsonProperty("game_version")
-    String gameVersion;
+    private String gameVersion;
+
     @JsonProperty("image_version")
-    String imageVersion;
+    private String imageVersion;
+
     @JsonProperty("ip")
-    String ip;
+    private String ip;
+
     @JsonProperty("last_update")
-    String lastUpdate;
+    private String lastUpdate;
+
     @JsonProperty("mem_limit")
-    Integer memLimit;
+    private Integer memLimit;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("params")
-    String params;
+    private String params;
+
     @JsonProperty("pod_name")
-    String podName;
+    private String podName;
+
     @JsonProperty("port")
-    Integer port;
+    private Integer port;
+
     @JsonProperty("ports")
-    Map<String, Integer> ports;
+    private Map<String, Integer> ports;
+
     @JsonProperty("provider")
-    String provider;
+    private String provider;
+
     @JsonProperty("region")
-    String region;
+    private String region;
+
     @JsonProperty("session_id")
-    String sessionId;
+    private String sessionId;
+
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("status_history")
-    List<ModelsStatusHistory> statusHistory;
+    private List<ModelsStatusHistory> statusHistory;
 
     public ModelsServer createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsServer> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsServer>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,34 +17,50 @@ import java.util.Map;
 public class FulfillmentHistoryInfo extends Model {
 
     @JsonProperty("code")
-    String code;
+    private String code;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("creditSummaries")
-    List<CreditSummary> creditSummaries;
+    private List<CreditSummary> creditSummaries;
+
     @JsonProperty("entitlementSummaries")
-    List<EntitlementSummary> entitlementSummaries;
+    private List<EntitlementSummary> entitlementSummaries;
+
     @JsonProperty("fulfillItems")
-    List<FulfillmentItem> fulfillItems;
+    private List<FulfillmentItem> fulfillItems;
+
     @JsonProperty("fulfillmentError")
-    FulfillmentError fulfillmentError;
+    private FulfillmentError fulfillmentError;
+
     @JsonProperty("grantedItemIds")
-    List<String> grantedItemIds;
+    private List<String> grantedItemIds;
+
     @JsonProperty("id")
-    String id;
+    private String id;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("orderNo")
-    String orderNo;
+    private String orderNo;
+
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
 
     public FulfillmentHistoryInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<FulfillmentHistoryInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<FulfillmentHistoryInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

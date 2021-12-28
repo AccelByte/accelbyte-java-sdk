@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,30 +17,44 @@ import java.util.Map;
 public class WalletTransactionInfo extends Model {
 
     @JsonProperty("amount")
-    Integer amount;
+    private Integer amount;
+
     @JsonProperty("balanceSource")
-    String balanceSource;
+    private String balanceSource;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("currencyCode")
-    String currencyCode;
+    private String currencyCode;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("operator")
-    String operator;
+    private String operator;
+
     @JsonProperty("reason")
-    String reason;
+    private String reason;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
+
     @JsonProperty("walletAction")
-    String walletAction;
+    private String walletAction;
+
     @JsonProperty("walletId")
-    String walletId;
+    private String walletId;
 
     public WalletTransactionInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<WalletTransactionInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<WalletTransactionInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.achievement.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,38 +17,56 @@ import java.util.Map;
 public class ModelsAchievementResponse extends Model {
 
     @JsonProperty("achievementCode")
-    String achievementCode;
+    private String achievementCode;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("defaultLanguage")
-    String defaultLanguage;
+    private String defaultLanguage;
+
     @JsonProperty("description")
-    Map<String, String> description;
+    private Map<String, String> description;
+
     @JsonProperty("goalValue")
-    Float goalValue;
+    private Float goalValue;
+
     @JsonProperty("hidden")
-    Boolean hidden;
+    private Boolean hidden;
+
     @JsonProperty("incremental")
-    Boolean incremental;
+    private Boolean incremental;
+
     @JsonProperty("listOrder")
-    Integer listOrder;
+    private Integer listOrder;
+
     @JsonProperty("lockedIcons")
-    List<ModelsIcon> lockedIcons;
+    private List<ModelsIcon> lockedIcons;
+
     @JsonProperty("name")
-    Map<String, String> name;
+    private Map<String, String> name;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("statCode")
-    String statCode;
+    private String statCode;
+
     @JsonProperty("tags")
-    List<String> tags;
+    private List<String> tags;
+
     @JsonProperty("unlockedIcons")
-    List<ModelsIcon> unlockedIcons;
+    private List<ModelsIcon> unlockedIcons;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
 
     public ModelsAchievementResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsAchievementResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAchievementResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

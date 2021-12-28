@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,46 +17,68 @@ import java.util.Map;
 public class Transaction extends Model {
 
     @JsonProperty("additionalData")
-    AdditionalData additionalData;
+    private AdditionalData additionalData;
+
     @JsonProperty("amount")
-    Integer amount;
+    private Integer amount;
+
     @JsonProperty("currency")
-    CurrencySummary currency;
+    private CurrencySummary currency;
+
     @JsonProperty("extMessage")
-    String extMessage;
+    private String extMessage;
+
     @JsonProperty("extStatusCode")
-    String extStatusCode;
+    private String extStatusCode;
+
     @JsonProperty("extTxId")
-    String extTxId;
+    private String extTxId;
+
     @JsonProperty("merchantId")
-    String merchantId;
+    private String merchantId;
+
     @JsonProperty("notified")
-    Boolean notified;
+    private Boolean notified;
+
     @JsonProperty("paymentMethod")
-    String paymentMethod;
+    private String paymentMethod;
+
     @JsonProperty("paymentMethodFee")
-    Integer paymentMethodFee;
+    private Integer paymentMethodFee;
+
     @JsonProperty("paymentProviderFee")
-    Integer paymentProviderFee;
+    private Integer paymentProviderFee;
+
     @JsonProperty("provider")
-    String provider;
+    private String provider;
+
     @JsonProperty("salesTax")
-    Integer salesTax;
+    private Integer salesTax;
+
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("tax")
-    Integer tax;
+    private Integer tax;
+
     @JsonProperty("txEndTime")
-    String txEndTime;
+    private String txEndTime;
+
     @JsonProperty("txId")
-    String txId;
+    private String txId;
+
     @JsonProperty("type")
-    String type;
+    private String type;
+
     @JsonProperty("vat")
-    Integer vat;
+    private Integer vat;
 
     public Transaction createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<Transaction> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<Transaction>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

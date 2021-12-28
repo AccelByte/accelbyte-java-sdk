@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.leaderboard.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,10 +17,14 @@ import java.util.Map;
 public class ModelsSetUserVisibilityRequest extends Model {
 
     @JsonProperty("visibility")
-    Boolean visibility;
+    private Boolean visibility;
 
     public ModelsSetUserVisibilityRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsSetUserVisibilityRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsSetUserVisibilityRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

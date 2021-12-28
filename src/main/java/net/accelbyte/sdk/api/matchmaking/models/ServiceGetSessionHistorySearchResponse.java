@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.matchmaking.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class ServiceGetSessionHistorySearchResponse extends Model {
 
     @JsonProperty("data")
-    List<ServiceGetSessionHistorySearchResponseItem> data;
+    private List<ServiceGetSessionHistorySearchResponseItem> data;
+
     @JsonProperty("pagination")
-    ModelsPagination pagination;
+    private ModelsPagination pagination;
 
     public ServiceGetSessionHistorySearchResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ServiceGetSessionHistorySearchResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ServiceGetSessionHistorySearchResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

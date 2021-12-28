@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.dslogmanager.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class ModelsNotifPayloadServerStatusChange extends Model {
 
     @JsonProperty("match")
-    ModelsMatchResult match;
+    private ModelsMatchResult match;
+
     @JsonProperty("server")
-    ModelsServer server;
+    private ModelsServer server;
 
     public ModelsNotifPayloadServerStatusChange createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsNotifPayloadServerStatusChange> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsNotifPayloadServerStatusChange>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

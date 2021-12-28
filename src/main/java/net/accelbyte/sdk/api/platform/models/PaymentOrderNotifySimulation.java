@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,20 +17,29 @@ import java.util.Map;
 public class PaymentOrderNotifySimulation extends Model {
 
     @JsonProperty("amount")
-    Integer amount;
+    private Integer amount;
+
     @JsonProperty("currencyCode")
-    String currencyCode;
+    private String currencyCode;
+
     @JsonProperty("notifyType")
-    String notifyType;
+    private String notifyType;
+
     @JsonProperty("paymentProvider")
-    String paymentProvider;
+    private String paymentProvider;
+
     @JsonProperty("salesTax")
-    Integer salesTax;
+    private Integer salesTax;
+
     @JsonProperty("vat")
-    Integer vat;
+    private Integer vat;
 
     public PaymentOrderNotifySimulation createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<PaymentOrderNotifySimulation> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<PaymentOrderNotifySimulation>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

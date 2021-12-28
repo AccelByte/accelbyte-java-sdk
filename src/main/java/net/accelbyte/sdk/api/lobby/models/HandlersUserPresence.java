@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.lobby.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,18 +17,26 @@ import java.util.Map;
 public class HandlersUserPresence extends Model {
 
     @JsonProperty("activity")
-    String activity;
+    private String activity;
+
     @JsonProperty("availability")
-    String availability;
+    private String availability;
+
     @JsonProperty("lastSeenAt")
-    String lastSeenAt;
+    private String lastSeenAt;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("userID")
-    String userID;
+    private String userID;
 
     public HandlersUserPresence createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<HandlersUserPresence> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<HandlersUserPresence>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,28 +17,41 @@ import java.util.Map;
 public class RewardInfo extends Model {
 
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("eventTopic")
-    String eventTopic;
+    private String eventTopic;
+
     @JsonProperty("maxAwarded")
-    Integer maxAwarded;
+    private Integer maxAwarded;
+
     @JsonProperty("maxAwardedPerUser")
-    Integer maxAwardedPerUser;
+    private Integer maxAwardedPerUser;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("rewardCode")
-    String rewardCode;
+    private String rewardCode;
+
     @JsonProperty("rewardConditions")
-    List<RewardCondition> rewardConditions;
+    private List<RewardCondition> rewardConditions;
+
     @JsonProperty("rewardId")
-    String rewardId;
+    private String rewardId;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
 
     public RewardInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<RewardInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<RewardInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

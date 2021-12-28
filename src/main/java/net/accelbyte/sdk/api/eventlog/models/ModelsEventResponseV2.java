@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.eventlog.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class ModelsEventResponseV2 extends Model {
 
     @JsonProperty("data")
-    List<ModelsEventV2> data;
+    private List<ModelsEventV2> data;
+
     @JsonProperty("paging")
-    ModelsPaging paging;
+    private ModelsPaging paging;
 
     public ModelsEventResponseV2 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsEventResponseV2> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsEventResponseV2>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.seasonpass.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,32 +17,47 @@ import java.util.Map;
 public class LocalizedPassInfo extends Model {
 
     @JsonProperty("title")
-    String title;
+    private String title;
+
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("seasonId")
-    String seasonId;
+    private String seasonId;
+
     @JsonProperty("code")
-    String code;
+    private String code;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("displayOrder")
-    String displayOrder;
+    private String displayOrder;
+
     @JsonProperty("autoEnroll")
-    Boolean autoEnroll;
+    private Boolean autoEnroll;
+
     @JsonProperty("passItemId")
-    String passItemId;
+    private String passItemId;
+
     @JsonProperty("images")
-    List<Image> images;
+    private List<Image> images;
+
     @JsonProperty("language")
-    String language;
+    private String language;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
 
     public LocalizedPassInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<LocalizedPassInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<LocalizedPassInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

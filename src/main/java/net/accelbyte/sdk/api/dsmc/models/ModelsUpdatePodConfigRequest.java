@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.dsmc.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,16 +17,23 @@ import java.util.Map;
 public class ModelsUpdatePodConfigRequest extends Model {
 
     @JsonProperty("cpu_limit")
-    Integer cpuLimit;
+    private Integer cpuLimit;
+
     @JsonProperty("mem_limit")
-    Integer memLimit;
+    private Integer memLimit;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("params")
-    String params;
+    private String params;
 
     public ModelsUpdatePodConfigRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsUpdatePodConfigRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdatePodConfigRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

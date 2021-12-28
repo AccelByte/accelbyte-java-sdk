@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,30 +17,44 @@ import java.util.Map;
 public class ClientmodelClientV3Response extends Model {
 
     @JsonProperty("audiences")
-    List<String> audiences;
+    private List<String> audiences;
+
     @JsonProperty("baseUri")
-    String baseUri;
+    private String baseUri;
+
     @JsonProperty("clientId")
-    String clientId;
+    private String clientId;
+
     @JsonProperty("clientName")
-    String clientName;
+    private String clientName;
+
     @JsonProperty("clientPermissions")
-    List<AccountcommonPermissionV3> clientPermissions;
+    private List<AccountcommonPermissionV3> clientPermissions;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("modifiedAt")
-    String modifiedAt;
+    private String modifiedAt;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("oauthClientType")
-    String oauthClientType;
+    private String oauthClientType;
+
     @JsonProperty("redirectUri")
-    String redirectUri;
+    private String redirectUri;
+
     @JsonProperty("scopes")
-    List<String> scopes;
+    private List<String> scopes;
 
     public ClientmodelClientV3Response createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ClientmodelClientV3Response> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ClientmodelClientV3Response>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

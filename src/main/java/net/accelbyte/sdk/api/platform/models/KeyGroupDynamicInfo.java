@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,14 +17,20 @@ import java.util.Map;
 public class KeyGroupDynamicInfo extends Model {
 
     @JsonProperty("availableSaleCount")
-    Integer availableSaleCount;
+    private Integer availableSaleCount;
+
     @JsonProperty("quantity")
-    Integer quantity;
+    private Integer quantity;
+
     @JsonProperty("saleCount")
-    Integer saleCount;
+    private Integer saleCount;
 
     public KeyGroupDynamicInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<KeyGroupDynamicInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<KeyGroupDynamicInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

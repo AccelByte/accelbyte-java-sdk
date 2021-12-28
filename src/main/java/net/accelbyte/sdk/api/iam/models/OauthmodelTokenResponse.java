@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,38 +17,56 @@ import java.util.Map;
 public class OauthmodelTokenResponse extends Model {
 
     @JsonProperty("access_token")
-    String accessToken;
+    private String accessToken;
+
     @JsonProperty("bans")
-    List<AccountcommonJWTBanV3> bans;
+    private List<AccountcommonJWTBanV3> bans;
+
     @JsonProperty("display_name")
-    String displayName;
+    private String displayName;
+
     @JsonProperty("expires_in")
-    Integer expiresIn;
+    private Integer expiresIn;
+
     @JsonProperty("is_comply")
-    Boolean isComply;
+    private Boolean isComply;
+
     @JsonProperty("jflgs")
-    Integer jflgs;
+    private Integer jflgs;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("namespace_roles")
-    List<AccountcommonNamespaceRole> namespaceRoles;
+    private List<AccountcommonNamespaceRole> namespaceRoles;
+
     @JsonProperty("permissions")
-    List<AccountcommonPermission> permissions;
+    private List<AccountcommonPermission> permissions;
+
     @JsonProperty("platform_id")
-    String platformId;
+    private String platformId;
+
     @JsonProperty("platform_user_id")
-    String platformUserId;
+    private String platformUserId;
+
     @JsonProperty("refresh_token")
-    String refreshToken;
+    private String refreshToken;
+
     @JsonProperty("roles")
-    List<String> roles;
+    private List<String> roles;
+
     @JsonProperty("token_type")
-    String tokenType;
+    private String tokenType;
+
     @JsonProperty("user_id")
-    String userId;
+    private String userId;
 
     public OauthmodelTokenResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<OauthmodelTokenResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<OauthmodelTokenResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.ugc.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,20 +17,29 @@ import java.util.Map;
 public class ModelsScreenshotResponse extends Model {
 
     @JsonProperty("contentType")
-    String contentType;
+    private String contentType;
+
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("fileExtension")
-    String fileExtension;
+    private String fileExtension;
+
     @JsonProperty("screenshotId")
-    String screenshotId;
+    private String screenshotId;
+
     @JsonProperty("source")
-    String source;
+    private String source;
+
     @JsonProperty("url")
-    String url;
+    private String url;
 
     public ModelsScreenshotResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsScreenshotResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsScreenshotResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

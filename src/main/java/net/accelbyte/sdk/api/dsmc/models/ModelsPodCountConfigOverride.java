@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.dsmc.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,20 +17,29 @@ import java.util.Map;
 public class ModelsPodCountConfigOverride extends Model {
 
     @JsonProperty("buffer_count")
-    Integer bufferCount;
+    private Integer bufferCount;
+
     @JsonProperty("buffer_percent")
-    Integer bufferPercent;
+    private Integer bufferPercent;
+
     @JsonProperty("max_count")
-    Integer maxCount;
+    private Integer maxCount;
+
     @JsonProperty("min_count")
-    Integer minCount;
+    private Integer minCount;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("use_buffer_percent")
-    Boolean useBufferPercent;
+    private Boolean useBufferPercent;
 
     public ModelsPodCountConfigOverride createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsPodCountConfigOverride> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPodCountConfigOverride>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

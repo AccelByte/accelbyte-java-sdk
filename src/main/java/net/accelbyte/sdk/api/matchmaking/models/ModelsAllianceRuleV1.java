@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.matchmaking.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,16 +17,23 @@ import java.util.Map;
 public class ModelsAllianceRuleV1 extends Model {
 
     @JsonProperty("maxNumber")
-    Integer maxNumber;
+    private Integer maxNumber;
+
     @JsonProperty("minNumber")
-    Integer minNumber;
+    private Integer minNumber;
+
     @JsonProperty("playerMaxNumber")
-    Integer playerMaxNumber;
+    private Integer playerMaxNumber;
+
     @JsonProperty("playerMinNumber")
-    Integer playerMinNumber;
+    private Integer playerMinNumber;
 
     public ModelsAllianceRuleV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsAllianceRuleV1> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAllianceRuleV1>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

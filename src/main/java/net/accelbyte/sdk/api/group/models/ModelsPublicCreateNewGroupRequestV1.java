@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.group.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,26 +17,38 @@ import java.util.Map;
 public class ModelsPublicCreateNewGroupRequestV1 extends Model {
 
     @JsonProperty("configurationCode")
-    String configurationCode;
+    private String configurationCode;
+
     @JsonProperty("customAttributes")
-    Map<String, ?> customAttributes;
+    private Map<String, ?> customAttributes;
+
     @JsonProperty("groupDescription")
-    String groupDescription;
+    private String groupDescription;
+
     @JsonProperty("groupIcon")
-    String groupIcon;
+    private String groupIcon;
+
     @JsonProperty("groupMaxMember")
-    Integer groupMaxMember;
+    private Integer groupMaxMember;
+
     @JsonProperty("groupName")
-    String groupName;
+    private String groupName;
+
     @JsonProperty("groupRegion")
-    String groupRegion;
+    private String groupRegion;
+
     @JsonProperty("groupRules")
-    ModelsGroupRule groupRules;
+    private ModelsGroupRule groupRules;
+
     @JsonProperty("groupType")
-    String groupType;
+    private String groupType;
 
     public ModelsPublicCreateNewGroupRequestV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsPublicCreateNewGroupRequestV1> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPublicCreateNewGroupRequestV1>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

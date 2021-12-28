@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.sessionbrowser.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,14 +17,20 @@ import java.util.Map;
 public class ModelsMatchingParty extends Model {
 
     @JsonProperty("party_attributes")
-    Map<String, ?> partyAttributes;
+    private Map<String, ?> partyAttributes;
+
     @JsonProperty("party_id")
-    String partyId;
+    private String partyId;
+
     @JsonProperty("party_members")
-    List<ModelsPartyMember> partyMembers;
+    private List<ModelsPartyMember> partyMembers;
 
     public ModelsMatchingParty createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsMatchingParty> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMatchingParty>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,22 +17,32 @@ import java.util.Map;
 public class OauthmodelTokenIntrospectResponse extends Model {
 
     @JsonProperty("active")
-    Boolean active;
+    private Boolean active;
+
     @JsonProperty("aud")
-    String aud;
+    private String aud;
+
     @JsonProperty("client_id")
-    String clientId;
+    private String clientId;
+
     @JsonProperty("exp")
-    Integer exp;
+    private Integer exp;
+
     @JsonProperty("iat")
-    Integer iat;
+    private Integer iat;
+
     @JsonProperty("scope")
-    String scope;
+    private String scope;
+
     @JsonProperty("sub")
-    String sub;
+    private String sub;
 
     public OauthmodelTokenIntrospectResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<OauthmodelTokenIntrospectResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<OauthmodelTokenIntrospectResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

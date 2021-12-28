@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.social.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,28 +17,41 @@ import java.util.Map;
 public class StatCreate extends Model {
 
     @JsonProperty("defaultValue")
-    Float defaultValue;
+    private Float defaultValue;
+
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("incrementOnly")
-    Boolean incrementOnly;
+    private Boolean incrementOnly;
+
     @JsonProperty("maximum")
-    Float maximum;
+    private Float maximum;
+
     @JsonProperty("minimum")
-    Float minimum;
+    private Float minimum;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("setAsGlobal")
-    Boolean setAsGlobal;
+    private Boolean setAsGlobal;
+
     @JsonProperty("setBy")
-    String setBy;
+    private String setBy;
+
     @JsonProperty("statCode")
-    String statCode;
+    private String statCode;
+
     @JsonProperty("tags")
-    List<String> tags;
+    private List<String> tags;
 
     public StatCreate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<StatCreate> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<StatCreate>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

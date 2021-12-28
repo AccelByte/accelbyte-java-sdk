@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.dsmc.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,24 +17,35 @@ import java.util.Map;
 public class ModelsUpdateDSMConfigRequest extends Model {
 
     @JsonProperty("claim_timeout")
-    Integer claimTimeout;
+    private Integer claimTimeout;
+
     @JsonProperty("creation_timeout")
-    Integer creationTimeout;
+    private Integer creationTimeout;
+
     @JsonProperty("default_version")
-    String defaultVersion;
+    private String defaultVersion;
+
     @JsonProperty("port")
-    Integer port;
+    private Integer port;
+
     @JsonProperty("protocol")
-    String protocol;
+    private String protocol;
+
     @JsonProperty("providers")
-    List<String> providers;
+    private List<String> providers;
+
     @JsonProperty("session_timeout")
-    Integer sessionTimeout;
+    private Integer sessionTimeout;
+
     @JsonProperty("unreachable_timeout")
-    Integer unreachableTimeout;
+    private Integer unreachableTimeout;
 
     public ModelsUpdateDSMConfigRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsUpdateDSMConfigRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateDSMConfigRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

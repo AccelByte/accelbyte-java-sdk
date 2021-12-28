@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.basic.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,16 +17,23 @@ import java.util.Map;
 public class FileUploadUrlInfo extends Model {
 
     @JsonProperty("accessUrl")
-    String accessUrl;
+    private String accessUrl;
+
     @JsonProperty("contentType")
-    String contentType;
+    private String contentType;
+
     @JsonProperty("method")
-    String method;
+    private String method;
+
     @JsonProperty("url")
-    String url;
+    private String url;
 
     public FileUploadUrlInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<FileUploadUrlInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<FileUploadUrlInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

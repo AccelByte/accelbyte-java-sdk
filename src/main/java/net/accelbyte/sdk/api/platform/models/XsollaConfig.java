@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,18 +17,26 @@ import java.util.Map;
 public class XsollaConfig extends Model {
 
     @JsonProperty("apiKey")
-    String apiKey;
+    private String apiKey;
+
     @JsonProperty("flowCompletionUrl")
-    String flowCompletionUrl;
+    private String flowCompletionUrl;
+
     @JsonProperty("merchantId")
-    Integer merchantId;
+    private Integer merchantId;
+
     @JsonProperty("projectId")
-    Integer projectId;
+    private Integer projectId;
+
     @JsonProperty("projectSecretKey")
-    String projectSecretKey;
+    private String projectSecretKey;
 
     public XsollaConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<XsollaConfig> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<XsollaConfig>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

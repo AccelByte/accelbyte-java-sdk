@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.sessionbrowser.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,28 +17,41 @@ import java.util.Map;
 public class ModelsGameSessionSetting extends Model {
 
     @JsonProperty("allow_join_in_progress")
-    Boolean allowJoinInProgress;
+    private Boolean allowJoinInProgress;
+
     @JsonProperty("current_internal_player")
-    Integer currentInternalPlayer;
+    private Integer currentInternalPlayer;
+
     @JsonProperty("current_player")
-    Integer currentPlayer;
+    private Integer currentPlayer;
+
     @JsonProperty("map_name")
-    String mapName;
+    private String mapName;
+
     @JsonProperty("max_internal_player")
-    Integer maxInternalPlayer;
+    private Integer maxInternalPlayer;
+
     @JsonProperty("max_player")
-    Integer maxPlayer;
+    private Integer maxPlayer;
+
     @JsonProperty("mode")
-    String mode;
+    private String mode;
+
     @JsonProperty("num_bot")
-    Integer numBot;
+    private Integer numBot;
+
     @JsonProperty("password")
-    String password;
+    private String password;
+
     @JsonProperty("settings")
-    Map<String, ?> settings;
+    private Map<String, ?> settings;
 
     public ModelsGameSessionSetting createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsGameSessionSetting> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGameSessionSetting>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,56 +17,83 @@ import java.util.Map;
 public class BillingHistoryInfo extends Model {
 
     @JsonProperty("amount")
-    Integer amount;
+    private Integer amount;
+
     @JsonProperty("billingAccount")
-    BillingAccount billingAccount;
+    private BillingAccount billingAccount;
+
     @JsonProperty("changeBillingAccount")
-    Boolean changeBillingAccount;
+    private Boolean changeBillingAccount;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("currency")
-    CurrencySummary currency;
+    private CurrencySummary currency;
+
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("extTxId")
-    String extTxId;
+    private String extTxId;
+
     @JsonProperty("itemId")
-    String itemId;
+    private String itemId;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("paymentOrderNo")
-    String paymentOrderNo;
+    private String paymentOrderNo;
+
     @JsonProperty("recurringOrderNo")
-    String recurringOrderNo;
+    private String recurringOrderNo;
+
     @JsonProperty("retryAttempted")
-    Integer retryAttempted;
+    private Integer retryAttempted;
+
     @JsonProperty("sandbox")
-    Boolean sandbox;
+    private Boolean sandbox;
+
     @JsonProperty("sku")
-    String sku;
+    private String sku;
+
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("statusReason")
-    String statusReason;
+    private String statusReason;
+
     @JsonProperty("subscriptionId")
-    String subscriptionId;
+    private String subscriptionId;
+
     @JsonProperty("subtotalPrice")
-    Integer subtotalPrice;
+    private Integer subtotalPrice;
+
     @JsonProperty("title")
-    String title;
+    private String title;
+
     @JsonProperty("totalPrice")
-    Integer totalPrice;
+    private Integer totalPrice;
+
     @JsonProperty("totalTax")
-    Integer totalTax;
+    private Integer totalTax;
+
     @JsonProperty("txEndTime")
-    String txEndTime;
+    private String txEndTime;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
 
     public BillingHistoryInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<BillingHistoryInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<BillingHistoryInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

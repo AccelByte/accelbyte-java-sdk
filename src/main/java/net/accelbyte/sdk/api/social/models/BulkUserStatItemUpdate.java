@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.social.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,20 +17,29 @@ import java.util.Map;
 public class BulkUserStatItemUpdate extends Model {
 
     @JsonProperty("additionalData")
-    Map<String, ?> additionalData;
+    private Map<String, ?> additionalData;
+
     @JsonProperty("additionalKey")
-    String additionalKey;
+    private String additionalKey;
+
     @JsonProperty("statCode")
-    String statCode;
+    private String statCode;
+
     @JsonProperty("updateStrategy")
-    String updateStrategy;
+    private String updateStrategy;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
+
     @JsonProperty("value")
-    Float value;
+    private Float value;
 
     public BulkUserStatItemUpdate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<BulkUserStatItemUpdate> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<BulkUserStatItemUpdate>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

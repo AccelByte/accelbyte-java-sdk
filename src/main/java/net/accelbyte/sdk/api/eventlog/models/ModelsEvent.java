@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.eventlog.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,36 +17,53 @@ import java.util.Map;
 public class ModelsEvent extends Model {
 
     @JsonProperty("AgentType")
-    Integer agentType;
+    private Integer agentType;
+
     @JsonProperty("ClientID")
-    String clientID;
+    private String clientID;
+
     @JsonProperty("ComponentID")
-    Integer componentID;
+    private Integer componentID;
+
     @JsonProperty("EventID")
-    Integer eventID;
+    private Integer eventID;
+
     @JsonProperty("EventLevel")
-    Integer eventLevel;
+    private Integer eventLevel;
+
     @JsonProperty("EventType")
-    Integer eventType;
+    private Integer eventType;
+
     @JsonProperty("IPAddress")
-    String ipAddress;
+    private String ipAddress;
+
     @JsonProperty("Namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("Realm")
-    String realm;
+    private String realm;
+
     @JsonProperty("TargetNamespace")
-    String targetNamespace;
+    private String targetNamespace;
+
     @JsonProperty("TargetUserID")
-    String targetUserID;
+    private String targetUserID;
+
     @JsonProperty("Time")
-    String time;
+    private String time;
+
     @JsonProperty("UX")
-    Integer ux;
+    private Integer ux;
+
     @JsonProperty("UserID")
-    String userID;
+    private String userID;
 
     public ModelsEvent createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsEvent> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsEvent>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

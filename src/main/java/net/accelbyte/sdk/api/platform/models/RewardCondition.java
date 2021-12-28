@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,16 +17,23 @@ import java.util.Map;
 public class RewardCondition extends Model {
 
     @JsonProperty("condition")
-    String condition;
+    private String condition;
+
     @JsonProperty("conditionName")
-    String conditionName;
+    private String conditionName;
+
     @JsonProperty("eventName")
-    String eventName;
+    private String eventName;
+
     @JsonProperty("rewardItems")
-    List<RewardItem> rewardItems;
+    private List<RewardItem> rewardItems;
 
     public RewardCondition createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<RewardCondition> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<RewardCondition>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

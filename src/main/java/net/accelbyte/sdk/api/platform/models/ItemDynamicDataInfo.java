@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,18 +17,26 @@ import java.util.Map;
 public class ItemDynamicDataInfo extends Model {
 
     @JsonProperty("availableCount")
-    Integer availableCount;
+    private Integer availableCount;
+
     @JsonProperty("itemId")
-    String itemId;
+    private String itemId;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("userAvailableCount")
-    Integer userAvailableCount;
+    private Integer userAvailableCount;
+
     @JsonProperty("userPurchaseLimit")
-    Integer userPurchaseLimit;
+    private Integer userPurchaseLimit;
 
     public ItemDynamicDataInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ItemDynamicDataInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ItemDynamicDataInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

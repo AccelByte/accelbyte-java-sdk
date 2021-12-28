@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,94 +17,140 @@ import java.util.Map;
 public class SubscriptionInfo extends Model {
 
     @JsonProperty("billingAccount")
-    BillingAccount billingAccount;
+    private BillingAccount billingAccount;
+
     @JsonProperty("chargeStatus")
-    String chargeStatus;
+    private String chargeStatus;
+
     @JsonProperty("chargedCycles")
-    Integer chargedCycles;
+    private Integer chargedCycles;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("currency")
-    CurrencySummary currency;
+    private CurrencySummary currency;
+
     @JsonProperty("currentCycle")
-    Integer currentCycle;
+    private Integer currentCycle;
+
     @JsonProperty("currentPeriodEnd")
-    String currentPeriodEnd;
+    private String currentPeriodEnd;
+
     @JsonProperty("currentPeriodStart")
-    String currentPeriodStart;
+    private String currentPeriodStart;
+
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("end")
-    String end;
+    private String end;
+
     @JsonProperty("entitlements")
-    List<EntitlementSummary> entitlements;
+    private List<EntitlementSummary> entitlements;
+
     @JsonProperty("firstSubscribe")
-    Boolean firstSubscribe;
+    private Boolean firstSubscribe;
+
     @JsonProperty("id")
-    String id;
+    private String id;
+
     @JsonProperty("inFixedCycleTrial")
-    Boolean inFixedCycleTrial;
+    private Boolean inFixedCycleTrial;
+
     @JsonProperty("inFixedFreeDays")
-    Boolean inFixedFreeDays;
+    private Boolean inFixedFreeDays;
+
     @JsonProperty("itemId")
-    String itemId;
+    private String itemId;
+
     @JsonProperty("itemSnapshot")
-    ItemSnapshot itemSnapshot;
+    private ItemSnapshot itemSnapshot;
+
     @JsonProperty("language")
-    String language;
+    private String language;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("nextBillingDate")
-    String nextBillingDate;
+    private String nextBillingDate;
+
     @JsonProperty("paid")
-    Boolean paid;
+    private Boolean paid;
+
     @JsonProperty("paymentFlowRequired")
-    Boolean paymentFlowRequired;
+    private Boolean paymentFlowRequired;
+
     @JsonProperty("paymentOrderNo")
-    String paymentOrderNo;
+    private String paymentOrderNo;
+
     @JsonProperty("paymentStationUrl")
-    String paymentStationUrl;
+    private String paymentStationUrl;
+
     @JsonProperty("price")
-    Integer price;
+    private Integer price;
+
     @JsonProperty("recurring")
-    Recurring recurring;
+    private Recurring recurring;
+
     @JsonProperty("region")
-    String region;
+    private String region;
+
     @JsonProperty("retryAttempted")
-    Integer retryAttempted;
+    private Integer retryAttempted;
+
     @JsonProperty("returnUrl")
-    String returnUrl;
+    private String returnUrl;
+
     @JsonProperty("sandbox")
-    Boolean sandbox;
+    private Boolean sandbox;
+
     @JsonProperty("sku")
-    String sku;
+    private String sku;
+
     @JsonProperty("source")
-    String source;
+    private String source;
+
     @JsonProperty("start")
-    String start;
+    private String start;
+
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("subscribedAt")
-    String subscribedAt;
+    private String subscribedAt;
+
     @JsonProperty("subscribedBy")
-    String subscribedBy;
+    private String subscribedBy;
+
     @JsonProperty("title")
-    String title;
+    private String title;
+
     @JsonProperty("trialPrice")
-    Integer trialPrice;
+    private Integer trialPrice;
+
     @JsonProperty("trialedCycles")
-    Integer trialedCycles;
+    private Integer trialedCycles;
+
     @JsonProperty("unsubscribeReason")
-    String unsubscribeReason;
+    private String unsubscribeReason;
+
     @JsonProperty("unsubscribedAt")
-    String unsubscribedAt;
+    private String unsubscribedAt;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
 
     public SubscriptionInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<SubscriptionInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<SubscriptionInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

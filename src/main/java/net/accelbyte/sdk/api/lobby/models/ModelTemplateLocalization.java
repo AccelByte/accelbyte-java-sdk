@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.lobby.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,18 +17,26 @@ import java.util.Map;
 public class ModelTemplateLocalization extends Model {
 
     @JsonProperty("lastDraftAt")
-    String lastDraftAt;
+    private String lastDraftAt;
+
     @JsonProperty("lastPublishedAt")
-    String lastPublishedAt;
+    private String lastPublishedAt;
+
     @JsonProperty("templateContent")
-    ModelTemplateContent templateContent;
+    private ModelTemplateContent templateContent;
+
     @JsonProperty("templateLanguage")
-    String templateLanguage;
+    private String templateLanguage;
+
     @JsonProperty("templateSlug")
-    String templateSlug;
+    private String templateSlug;
 
     public ModelTemplateLocalization createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelTemplateLocalization> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelTemplateLocalization>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,18 +17,26 @@ import java.util.Map;
 public class ModelPublicThirdPartyPlatformInfo extends Model {
 
     @JsonProperty("AppId")
-    String appId;
+    private String appId;
+
     @JsonProperty("ClientId")
-    String clientId;
+    private String clientId;
+
     @JsonProperty("Environment")
-    String environment;
+    private String environment;
+
     @JsonProperty("IsActive")
-    Boolean isActive;
+    private Boolean isActive;
+
     @JsonProperty("PlatformId")
-    String platformId;
+    private String platformId;
 
     public ModelPublicThirdPartyPlatformInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelPublicThirdPartyPlatformInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelPublicThirdPartyPlatformInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

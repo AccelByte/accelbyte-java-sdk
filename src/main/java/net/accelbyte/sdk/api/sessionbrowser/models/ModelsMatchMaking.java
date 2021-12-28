@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.sessionbrowser.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,40 +17,59 @@ import java.util.Map;
 public class ModelsMatchMaking extends Model {
 
     @JsonProperty("channel")
-    String channel;
+    private String channel;
+
     @JsonProperty("client_version")
-    String clientVersion;
+    private String clientVersion;
+
     @JsonProperty("created_at")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("deployment")
-    String deployment;
+    private String deployment;
+
     @JsonProperty("event")
-    String event;
+    private String event;
+
     @JsonProperty("game_mode")
-    String gameMode;
+    private String gameMode;
+
     @JsonProperty("joinable")
-    Boolean joinable;
+    private Boolean joinable;
+
     @JsonProperty("match_id")
-    String matchId;
+    private String matchId;
+
     @JsonProperty("matching_allies")
-    List<ModelsMatchingAlly> matchingAllies;
+    private List<ModelsMatchingAlly> matchingAllies;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("party_attributes")
-    Map<String, ?> partyAttributes;
+    private Map<String, ?> partyAttributes;
+
     @JsonProperty("party_id")
-    String partyId;
+    private String partyId;
+
     @JsonProperty("queued_at")
-    Integer queuedAt;
+    private Integer queuedAt;
+
     @JsonProperty("region")
-    String region;
+    private String region;
+
     @JsonProperty("server_name")
-    String serverName;
+    private String serverName;
+
     @JsonProperty("status")
-    String status;
+    private String status;
 
     public ModelsMatchMaking createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsMatchMaking> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMatchMaking>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

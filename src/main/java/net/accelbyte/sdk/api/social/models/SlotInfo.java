@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.social.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,36 +17,53 @@ import java.util.Map;
 public class SlotInfo extends Model {
 
     @JsonProperty("checksum")
-    String checksum;
+    private String checksum;
+
     @JsonProperty("customAttribute")
-    String customAttribute;
+    private String customAttribute;
+
     @JsonProperty("dateAccessed")
-    String dateAccessed;
+    private String dateAccessed;
+
     @JsonProperty("dateCreated")
-    String dateCreated;
+    private String dateCreated;
+
     @JsonProperty("dateModified")
-    String dateModified;
+    private String dateModified;
+
     @JsonProperty("label")
-    String label;
+    private String label;
+
     @JsonProperty("mimeType")
-    String mimeType;
+    private String mimeType;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("originalName")
-    String originalName;
+    private String originalName;
+
     @JsonProperty("size")
-    Integer size;
+    private Integer size;
+
     @JsonProperty("slotId")
-    String slotId;
+    private String slotId;
+
     @JsonProperty("storedName")
-    String storedName;
+    private String storedName;
+
     @JsonProperty("tags")
-    List<String> tags;
+    private List<String> tags;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
 
     public SlotInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<SlotInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<SlotInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

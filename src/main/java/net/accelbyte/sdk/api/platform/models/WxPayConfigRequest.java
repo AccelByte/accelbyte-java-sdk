@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,16 +17,23 @@ import java.util.Map;
 public class WxPayConfigRequest extends Model {
 
     @JsonProperty("appId")
-    String appId;
+    private String appId;
+
     @JsonProperty("key")
-    String key;
+    private String key;
+
     @JsonProperty("mchid")
-    String mchid;
+    private String mchid;
+
     @JsonProperty("returnUrl")
-    String returnUrl;
+    private String returnUrl;
 
     public WxPayConfigRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<WxPayConfigRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<WxPayConfigRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

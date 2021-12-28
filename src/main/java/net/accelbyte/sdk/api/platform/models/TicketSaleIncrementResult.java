@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class TicketSaleIncrementResult extends Model {
 
     @JsonProperty("maxSaleCount")
-    Integer maxSaleCount;
+    private Integer maxSaleCount;
+
     @JsonProperty("success")
-    Boolean success;
+    private Boolean success;
 
     public TicketSaleIncrementResult createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<TicketSaleIncrementResult> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<TicketSaleIncrementResult>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

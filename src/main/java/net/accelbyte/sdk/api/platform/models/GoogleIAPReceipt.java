@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,22 +17,32 @@ import java.util.Map;
 public class GoogleIAPReceipt extends Model {
 
     @JsonProperty("language")
-    String language;
+    private String language;
+
     @JsonProperty("orderId")
-    String orderId;
+    private String orderId;
+
     @JsonProperty("packageName")
-    String packageName;
+    private String packageName;
+
     @JsonProperty("productId")
-    String productId;
+    private String productId;
+
     @JsonProperty("purchaseTime")
-    Integer purchaseTime;
+    private Integer purchaseTime;
+
     @JsonProperty("purchaseToken")
-    String purchaseToken;
+    private String purchaseToken;
+
     @JsonProperty("region")
-    String region;
+    private String region;
 
     public GoogleIAPReceipt createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<GoogleIAPReceipt> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<GoogleIAPReceipt>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

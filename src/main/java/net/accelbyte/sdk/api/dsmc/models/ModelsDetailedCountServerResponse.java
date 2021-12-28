@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.dsmc.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,16 +17,23 @@ import java.util.Map;
 public class ModelsDetailedCountServerResponse extends Model {
 
     @JsonProperty("busy_count")
-    Integer busyCount;
+    private Integer busyCount;
+
     @JsonProperty("creating_count")
-    Integer creatingCount;
+    private Integer creatingCount;
+
     @JsonProperty("ready_count")
-    Integer readyCount;
+    private Integer readyCount;
+
     @JsonProperty("unreachable_count")
-    Integer unreachableCount;
+    private Integer unreachableCount;
 
     public ModelsDetailedCountServerResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsDetailedCountServerResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDetailedCountServerResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

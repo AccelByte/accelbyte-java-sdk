@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.matchmaking.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,34 +17,50 @@ import java.util.Map;
 public class ModelsChannelV1 extends Model {
 
     @JsonProperty("deployment")
-    String deployment;
+    private String deployment;
+
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("findMatchTimeoutSeconds")
-    Integer findMatchTimeoutSeconds;
+    private Integer findMatchTimeoutSeconds;
+
     @JsonProperty("gameMode")
-    String gameMode;
+    private String gameMode;
+
     @JsonProperty("joinable")
-    Boolean joinable;
+    private Boolean joinable;
+
     @JsonProperty("max_delay_ms")
-    Integer maxDelayMs;
+    private Integer maxDelayMs;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("ruleSet")
-    ModelsRuleSetV1 ruleSet;
+    private ModelsRuleSetV1 ruleSet;
+
     @JsonProperty("sessionQueueTimeoutSeconds")
-    Integer sessionQueueTimeoutSeconds;
+    private Integer sessionQueueTimeoutSeconds;
+
     @JsonProperty("slug")
-    String slug;
+    private String slug;
+
     @JsonProperty("socialMatchmaking")
-    Boolean socialMatchmaking;
+    private Boolean socialMatchmaking;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("use_sub_gamemode")
-    Boolean useSubGamemode;
+    private Boolean useSubGamemode;
 
     public ModelsChannelV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsChannelV1> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsChannelV1>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

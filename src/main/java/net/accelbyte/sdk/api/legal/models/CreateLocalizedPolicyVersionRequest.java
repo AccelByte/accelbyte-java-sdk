@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.legal.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,14 +17,20 @@ import java.util.Map;
 public class CreateLocalizedPolicyVersionRequest extends Model {
 
     @JsonProperty("contentType")
-    String contentType;
+    private String contentType;
+
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("localeCode")
-    String localeCode;
+    private String localeCode;
 
     public CreateLocalizedPolicyVersionRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<CreateLocalizedPolicyVersionRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<CreateLocalizedPolicyVersionRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

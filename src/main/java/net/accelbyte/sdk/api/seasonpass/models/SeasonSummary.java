@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.seasonpass.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,26 +17,38 @@ import java.util.Map;
 public class SeasonSummary extends Model {
 
     @JsonProperty("id")
-    String id;
+    private String id;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("start")
-    String start;
+    private String start;
+
     @JsonProperty("end")
-    String end;
+    private String end;
+
     @JsonProperty("passCodes")
-    List<String> passCodes;
+    private List<String> passCodes;
+
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("publishedAt")
-    String publishedAt;
+    private String publishedAt;
+
     @JsonProperty("previous")
-    SeasonSummary previous;
+    private SeasonSummary previous;
 
     public SeasonSummary createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<SeasonSummary> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<SeasonSummary>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

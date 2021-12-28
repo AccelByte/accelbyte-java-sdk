@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.leaderboard.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,16 +17,23 @@ import java.util.Map;
 public class ModelsGetLeaderboardConfigPublicResp extends Model {
 
     @JsonProperty("iconURL")
-    String iconURL;
+    private String iconURL;
+
     @JsonProperty("leaderboardCode")
-    String leaderboardCode;
+    private String leaderboardCode;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("statCode")
-    String statCode;
+    private String statCode;
 
     public ModelsGetLeaderboardConfigPublicResp createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsGetLeaderboardConfigPublicResp> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGetLeaderboardConfigPublicResp>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

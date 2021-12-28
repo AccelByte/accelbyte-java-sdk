@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,40 +17,59 @@ import java.util.Map;
 public class PaymentMerchantConfigInfo extends Model {
 
     @JsonProperty("adyenConfig")
-    AdyenConfig adyenConfig;
+    private AdyenConfig adyenConfig;
+
     @JsonProperty("adyenSandboxConfig")
-    AdyenConfig adyenSandboxConfig;
+    private AdyenConfig adyenSandboxConfig;
+
     @JsonProperty("aliPayConfig")
-    AliPayConfig aliPayConfig;
+    private AliPayConfig aliPayConfig;
+
     @JsonProperty("aliPaySandboxConfig")
-    AliPayConfig aliPaySandboxConfig;
+    private AliPayConfig aliPaySandboxConfig;
+
     @JsonProperty("checkoutConfig")
-    CheckoutConfig checkoutConfig;
+    private CheckoutConfig checkoutConfig;
+
     @JsonProperty("checkoutSandboxConfig")
-    CheckoutConfig checkoutSandboxConfig;
+    private CheckoutConfig checkoutSandboxConfig;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("id")
-    String id;
+    private String id;
+
     @JsonProperty("payPalConfig")
-    PayPalConfig payPalConfig;
+    private PayPalConfig payPalConfig;
+
     @JsonProperty("payPalSandboxConfig")
-    PayPalConfig payPalSandboxConfig;
+    private PayPalConfig payPalSandboxConfig;
+
     @JsonProperty("stripeConfig")
-    StripeConfig stripeConfig;
+    private StripeConfig stripeConfig;
+
     @JsonProperty("stripeSandboxConfig")
-    StripeConfig stripeSandboxConfig;
+    private StripeConfig stripeSandboxConfig;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("wxPayConfig")
-    WxPayConfigInfo wxPayConfig;
+    private WxPayConfigInfo wxPayConfig;
+
     @JsonProperty("xsollaConfig")
-    XsollaConfig xsollaConfig;
+    private XsollaConfig xsollaConfig;
+
     @JsonProperty("xsollaPaywallConfig")
-    XsollaPaywallConfig xsollaPaywallConfig;
+    private XsollaPaywallConfig xsollaPaywallConfig;
 
     public PaymentMerchantConfigInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<PaymentMerchantConfigInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<PaymentMerchantConfigInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

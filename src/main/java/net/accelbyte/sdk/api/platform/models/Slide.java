@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,20 +17,29 @@ import java.util.Map;
 public class Slide extends Model {
 
     @JsonProperty("alt")
-    String alt;
+    private String alt;
+
     @JsonProperty("previewUrl")
-    String previewUrl;
+    private String previewUrl;
+
     @JsonProperty("thumbnailUrl")
-    String thumbnailUrl;
+    private String thumbnailUrl;
+
     @JsonProperty("type")
-    String type;
+    private String type;
+
     @JsonProperty("url")
-    String url;
+    private String url;
+
     @JsonProperty("videoSource")
-    String videoSource;
+    private String videoSource;
 
     public Slide createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<Slide> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<Slide>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

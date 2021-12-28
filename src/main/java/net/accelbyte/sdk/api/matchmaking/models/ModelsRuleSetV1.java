@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.matchmaking.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,20 +17,29 @@ import java.util.Map;
 public class ModelsRuleSetV1 extends Model {
 
     @JsonProperty("alliance")
-    ModelsAllianceRuleV1 alliance;
+    private ModelsAllianceRuleV1 alliance;
+
     @JsonProperty("alliance_flexing_rule")
-    List<ModelsAllianceFlexingRule> allianceFlexingRule;
+    private List<ModelsAllianceFlexingRule> allianceFlexingRule;
+
     @JsonProperty("flexingRules")
-    List<ModelsFlexingRule> flexingRules;
+    private List<ModelsFlexingRule> flexingRules;
+
     @JsonProperty("match_options")
-    ModelsMatchOptionRule matchOptions;
+    private ModelsMatchOptionRule matchOptions;
+
     @JsonProperty("matchingRules")
-    List<ModelsMatchingRule> matchingRules;
+    private List<ModelsMatchingRule> matchingRules;
+
     @JsonProperty("sub_game_modes")
-    Map<String, ModelsSubGameMode> subGameModes;
+    private Map<String, ModelsSubGameMode> subGameModes;
 
     public ModelsRuleSetV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsRuleSetV1> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsRuleSetV1>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

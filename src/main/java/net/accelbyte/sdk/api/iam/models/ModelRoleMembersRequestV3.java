@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,10 +17,14 @@ import java.util.Map;
 public class ModelRoleMembersRequestV3 extends Model {
 
     @JsonProperty("members")
-    List<AccountcommonRoleMemberV3> members;
+    private List<AccountcommonRoleMemberV3> members;
 
     public ModelRoleMembersRequestV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelRoleMembersRequestV3> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelRoleMembersRequestV3>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

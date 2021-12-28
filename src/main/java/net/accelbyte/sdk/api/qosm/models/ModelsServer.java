@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.qosm.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,20 +17,29 @@ import java.util.Map;
 public class ModelsServer extends Model {
 
     @JsonProperty("alias")
-    String alias;
+    private String alias;
+
     @JsonProperty("ip")
-    String ip;
+    private String ip;
+
     @JsonProperty("last_update")
-    String lastUpdate;
+    private String lastUpdate;
+
     @JsonProperty("port")
-    Integer port;
+    private Integer port;
+
     @JsonProperty("region")
-    String region;
+    private String region;
+
     @JsonProperty("status")
-    String status;
+    private String status;
 
     public ModelsServer createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsServer> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsServer>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

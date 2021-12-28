@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,26 +17,38 @@ import java.util.Map;
 public class AccountcommonUserLinkedPlatform extends Model {
 
     @JsonProperty("DisplayName")
-    String displayName;
+    private String displayName;
+
     @JsonProperty("EmailAddress")
-    String emailAddress;
+    private String emailAddress;
+
     @JsonProperty("LinkedAt")
-    String linkedAt;
+    private String linkedAt;
+
     @JsonProperty("Namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("OriginNamespace")
-    String originNamespace;
+    private String originNamespace;
+
     @JsonProperty("PlatformId")
-    String platformId;
+    private String platformId;
+
     @JsonProperty("PlatformUserId")
-    String platformUserId;
+    private String platformUserId;
+
     @JsonProperty("UserId")
-    String userId;
+    private String userId;
+
     @JsonProperty("XUID")
-    String xuid;
+    private String xuid;
 
     public AccountcommonUserLinkedPlatform createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<AccountcommonUserLinkedPlatform> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonUserLinkedPlatform>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.legal.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,30 +17,44 @@ import java.util.Map;
 public class RetrieveBasePolicyResponse extends Model {
 
     @JsonProperty("affectedClientIds")
-    List<String> affectedClientIds;
+    private List<String> affectedClientIds;
+
     @JsonProperty("basePolicyName")
-    String basePolicyName;
+    private String basePolicyName;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("id")
-    String id;
+    private String id;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("policies")
-    List<PolicyObject> policies;
+    private List<PolicyObject> policies;
+
     @JsonProperty("policyTypeId")
-    String policyTypeId;
+    private String policyTypeId;
+
     @JsonProperty("policyTypeName")
-    String policyTypeName;
+    private String policyTypeName;
+
     @JsonProperty("tags")
-    List<String> tags;
+    private List<String> tags;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
 
     public RetrieveBasePolicyResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<RetrieveBasePolicyResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<RetrieveBasePolicyResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

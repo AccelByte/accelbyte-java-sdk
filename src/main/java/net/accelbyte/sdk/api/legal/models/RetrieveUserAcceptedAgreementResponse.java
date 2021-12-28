@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.legal.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,36 +17,53 @@ import java.util.Map;
 public class RetrieveUserAcceptedAgreementResponse extends Model {
 
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("displayName")
-    String displayName;
+    private String displayName;
+
     @JsonProperty("email")
-    String email;
+    private String email;
+
     @JsonProperty("id")
-    String id;
+    private String id;
+
     @JsonProperty("isAccepted")
-    Boolean isAccepted;
+    private Boolean isAccepted;
+
     @JsonProperty("localizedPolicyVersion")
-    LocalizedPolicyVersionObject localizedPolicyVersion;
+    private LocalizedPolicyVersionObject localizedPolicyVersion;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("policyName")
-    String policyName;
+    private String policyName;
+
     @JsonProperty("policyType")
-    String policyType;
+    private String policyType;
+
     @JsonProperty("publisherUserId")
-    String publisherUserId;
+    private String publisherUserId;
+
     @JsonProperty("signingDate")
-    String signingDate;
+    private String signingDate;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
+
     @JsonProperty("username")
-    String username;
+    private String username;
 
     public RetrieveUserAcceptedAgreementResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<RetrieveUserAcceptedAgreementResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<RetrieveUserAcceptedAgreementResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

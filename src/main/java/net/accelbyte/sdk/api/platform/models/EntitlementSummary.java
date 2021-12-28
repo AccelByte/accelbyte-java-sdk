@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,38 +17,53 @@ import java.util.Map;
 public class EntitlementSummary extends Model {
 
     @JsonProperty("clazz")
-    String clazz;
+    private String clazz;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("endDate")
-    String endDate;
+    private String endDate;
+
     @JsonProperty("grantedCode")
-    String grantedCode;
+    private String grantedCode;
+
     @JsonProperty("id")
-    String id;
+    private String id;
+
     @JsonProperty("itemId")
-    String itemId;
+    private String itemId;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("stackable")
-    Boolean stackable;
-    @JsonProperty("stackedQuantity")
-    Integer stackedQuantity;
+    private Boolean stackable;
+
     @JsonProperty("stackedUseCount")
-    Integer stackedUseCount;
+    private Integer stackedUseCount;
+
     @JsonProperty("startDate")
-    String startDate;
+    private String startDate;
+
     @JsonProperty("storeId")
-    String storeId;
+    private String storeId;
+
     @JsonProperty("type")
-    String type;
+    private String type;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
 
     public EntitlementSummary createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<EntitlementSummary> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<EntitlementSummary>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {
@@ -60,7 +76,6 @@ public class EntitlementSummary extends Model {
         result.put("itemId", "itemId");
         result.put("namespace", "namespace");
         result.put("stackable", "stackable");
-        result.put("stackedQuantity", "stackedQuantity");
         result.put("stackedUseCount", "stackedUseCount");
         result.put("startDate", "startDate");
         result.put("storeId", "storeId");

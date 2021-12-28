@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,16 +17,23 @@ import java.util.Map;
 public class XsollaPaywallConfigRequest extends Model {
 
     @JsonProperty("device")
-    String device;
+    private String device;
+
     @JsonProperty("showCloseButton")
-    Boolean showCloseButton;
+    private Boolean showCloseButton;
+
     @JsonProperty("size")
-    String size;
+    private String size;
+
     @JsonProperty("theme")
-    String theme;
+    private String theme;
 
     public XsollaPaywallConfigRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<XsollaPaywallConfigRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<XsollaPaywallConfigRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

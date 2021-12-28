@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,48 +17,71 @@ import java.util.Map;
 public class CodeInfo extends Model {
 
     @JsonProperty("acquireOrderNo")
-    String acquireOrderNo;
+    private String acquireOrderNo;
+
     @JsonProperty("acquireUserId")
-    String acquireUserId;
+    private String acquireUserId;
+
     @JsonProperty("batchNo")
-    Integer batchNo;
+    private Integer batchNo;
+
     @JsonProperty("campaignId")
-    String campaignId;
+    private String campaignId;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("id")
-    String id;
+    private String id;
+
     @JsonProperty("items")
-    List<RedeemableItem> items;
+    private List<RedeemableItem> items;
+
     @JsonProperty("maxRedeemCountPerCampaignPerUser")
-    Integer maxRedeemCountPerCampaignPerUser;
+    private Integer maxRedeemCountPerCampaignPerUser;
+
     @JsonProperty("maxRedeemCountPerCode")
-    Integer maxRedeemCountPerCode;
+    private Integer maxRedeemCountPerCode;
+
     @JsonProperty("maxRedeemCountPerCodePerUser")
-    Integer maxRedeemCountPerCodePerUser;
+    private Integer maxRedeemCountPerCodePerUser;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("redeemEnd")
-    String redeemEnd;
+    private String redeemEnd;
+
     @JsonProperty("redeemStart")
-    String redeemStart;
+    private String redeemStart;
+
     @JsonProperty("redeemType")
-    String redeemType;
+    private String redeemType;
+
     @JsonProperty("redeemedCount")
-    Integer redeemedCount;
+    private Integer redeemedCount;
+
     @JsonProperty("remainder")
-    Integer remainder;
+    private Integer remainder;
+
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("type")
-    String type;
+    private String type;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("value")
-    String value;
+    private String value;
 
     public CodeInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<CodeInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<CodeInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

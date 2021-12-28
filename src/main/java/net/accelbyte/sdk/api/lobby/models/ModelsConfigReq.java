@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.lobby.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,36 +17,53 @@ import java.util.Map;
 public class ModelsConfigReq extends Model {
 
     @JsonProperty("autoKickOnDisconnect")
-    Boolean autoKickOnDisconnect;
+    private Boolean autoKickOnDisconnect;
+
     @JsonProperty("autoKickOnDisconnectDelay")
-    Integer autoKickOnDisconnectDelay;
+    private Integer autoKickOnDisconnectDelay;
+
     @JsonProperty("cancelTicketOnDisconnect")
-    Boolean cancelTicketOnDisconnect;
+    private Boolean cancelTicketOnDisconnect;
+
     @JsonProperty("chatRateLimitBurst")
-    Integer chatRateLimitBurst;
+    private Integer chatRateLimitBurst;
+
     @JsonProperty("chatRateLimitDuration")
-    Integer chatRateLimitDuration;
+    private Integer chatRateLimitDuration;
+
     @JsonProperty("concurrentUsersLimit")
-    Integer concurrentUsersLimit;
+    private Integer concurrentUsersLimit;
+
     @JsonProperty("enableChat")
-    Boolean enableChat;
+    private Boolean enableChat;
+
     @JsonProperty("entitlementCheck")
-    Boolean entitlementCheck;
+    private Boolean entitlementCheck;
+
     @JsonProperty("entitlementItemID")
-    String entitlementItemID;
+    private String entitlementItemID;
+
     @JsonProperty("generalRateLimitBurst")
-    Integer generalRateLimitBurst;
+    private Integer generalRateLimitBurst;
+
     @JsonProperty("generalRateLimitDuration")
-    Integer generalRateLimitDuration;
+    private Integer generalRateLimitDuration;
+
     @JsonProperty("maxPartyMember")
-    Integer maxPartyMember;
+    private Integer maxPartyMember;
+
     @JsonProperty("profanityFilter")
-    Boolean profanityFilter;
+    private Boolean profanityFilter;
+
     @JsonProperty("readyConsentTimeout")
-    Integer readyConsentTimeout;
+    private Integer readyConsentTimeout;
 
     public ModelsConfigReq createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsConfigReq> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsConfigReq>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

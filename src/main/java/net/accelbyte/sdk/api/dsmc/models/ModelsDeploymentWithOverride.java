@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.dsmc.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,42 +17,62 @@ import java.util.Map;
 public class ModelsDeploymentWithOverride extends Model {
 
     @JsonProperty("allow_version_override")
-    Boolean allowVersionOverride;
+    private Boolean allowVersionOverride;
+
     @JsonProperty("buffer_count")
-    Integer bufferCount;
+    private Integer bufferCount;
+
     @JsonProperty("buffer_percent")
-    Integer bufferPercent;
+    private Integer bufferPercent;
+
     @JsonProperty("configuration")
-    String configuration;
+    private String configuration;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("enable_region_overrides")
-    Boolean enableRegionOverrides;
+    private Boolean enableRegionOverrides;
+
     @JsonProperty("game_version")
-    String gameVersion;
+    private String gameVersion;
+
     @JsonProperty("max_count")
-    Integer maxCount;
+    private Integer maxCount;
+
     @JsonProperty("min_count")
-    Integer minCount;
+    private Integer minCount;
+
     @JsonProperty("modifiedBy")
-    String modifiedBy;
+    private String modifiedBy;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("overrides")
-    Map<String, ModelsDeploymentConfigOverride> overrides;
+    private Map<String, ModelsDeploymentConfigOverride> overrides;
+
     @JsonProperty("region_overrides")
-    Map<String, ModelsPodCountConfigOverride> regionOverrides;
+    private Map<String, ModelsPodCountConfigOverride> regionOverrides;
+
     @JsonProperty("regions")
-    List<String> regions;
+    private List<String> regions;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("use_buffer_percent")
-    Boolean useBufferPercent;
+    private Boolean useBufferPercent;
 
     public ModelsDeploymentWithOverride createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsDeploymentWithOverride> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDeploymentWithOverride>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

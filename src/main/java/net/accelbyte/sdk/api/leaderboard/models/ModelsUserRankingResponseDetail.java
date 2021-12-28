@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.leaderboard.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,16 +17,23 @@ import java.util.Map;
 public class ModelsUserRankingResponseDetail extends Model {
 
     @JsonProperty("additionalData")
-    Map<String, ?> additionalData;
+    private Map<String, ?> additionalData;
+
     @JsonProperty("hidden")
-    Boolean hidden;
+    private Boolean hidden;
+
     @JsonProperty("point")
-    Float point;
+    private Float point;
+
     @JsonProperty("rank")
-    Integer rank;
+    private Integer rank;
 
     public ModelsUserRankingResponseDetail createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsUserRankingResponseDetail> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUserRankingResponseDetail>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,32 +17,47 @@ import java.util.Map;
 public class CampaignUpdate extends Model {
 
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("items")
-    List<RedeemableItem> items;
+    private List<RedeemableItem> items;
+
     @JsonProperty("maxRedeemCountPerCampaignPerUser")
-    Integer maxRedeemCountPerCampaignPerUser;
+    private Integer maxRedeemCountPerCampaignPerUser;
+
     @JsonProperty("maxRedeemCountPerCode")
-    Integer maxRedeemCountPerCode;
+    private Integer maxRedeemCountPerCode;
+
     @JsonProperty("maxRedeemCountPerCodePerUser")
-    Integer maxRedeemCountPerCodePerUser;
+    private Integer maxRedeemCountPerCodePerUser;
+
     @JsonProperty("maxSaleCount")
-    Integer maxSaleCount;
+    private Integer maxSaleCount;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("redeemEnd")
-    String redeemEnd;
+    private String redeemEnd;
+
     @JsonProperty("redeemStart")
-    String redeemStart;
+    private String redeemStart;
+
     @JsonProperty("redeemType")
-    String redeemType;
+    private String redeemType;
+
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("tags")
-    List<String> tags;
+    private List<String> tags;
 
     public CampaignUpdate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<CampaignUpdate> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<CampaignUpdate>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

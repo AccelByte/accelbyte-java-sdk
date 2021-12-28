@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.legal.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,16 +17,23 @@ import java.util.Map;
 public class ErrorEntity extends Model {
 
     @JsonProperty("devStackTrace")
-    String devStackTrace;
+    private String devStackTrace;
+
     @JsonProperty("errorCode")
-    Integer errorCode;
+    private Integer errorCode;
+
     @JsonProperty("errorMessage")
-    String errorMessage;
+    private String errorMessage;
+
     @JsonProperty("messageVariables")
-    Map<String, String> messageVariables;
+    private Map<String, String> messageVariables;
 
     public ErrorEntity createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ErrorEntity> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ErrorEntity>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

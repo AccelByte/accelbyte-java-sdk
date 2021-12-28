@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.matchmaking.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class ModelsMatchResultResponse extends Model {
 
     @JsonProperty("match_id")
-    String matchId;
+    private String matchId;
+
     @JsonProperty("players")
-    List<ModelsPlayerResultResponse> players;
+    private List<ModelsPlayerResultResponse> players;
 
     public ModelsMatchResultResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsMatchResultResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMatchResultResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

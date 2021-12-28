@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.leaderboard.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class ModelsWeeklyConfig extends Model {
 
     @JsonProperty("resetDay")
-    Integer resetDay;
+    private Integer resetDay;
+
     @JsonProperty("resetTime")
-    String resetTime;
+    private String resetTime;
 
     public ModelsWeeklyConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsWeeklyConfig> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsWeeklyConfig>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

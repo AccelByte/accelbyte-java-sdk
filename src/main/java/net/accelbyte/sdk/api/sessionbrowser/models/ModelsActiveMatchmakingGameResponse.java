@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.sessionbrowser.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class ModelsActiveMatchmakingGameResponse extends Model {
 
     @JsonProperty("pagination")
-    ModelsPagingCursor pagination;
+    private ModelsPagingCursor pagination;
+
     @JsonProperty("sessions")
-    List<ModelsGameSession> sessions;
+    private List<ModelsGameSession> sessions;
 
     public ModelsActiveMatchmakingGameResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsActiveMatchmakingGameResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsActiveMatchmakingGameResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

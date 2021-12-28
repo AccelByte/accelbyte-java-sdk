@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.lobby.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class RestapiErrorResponseV1 extends Model {
 
     @JsonProperty("errorCode")
-    Integer errorCode;
+    private Integer errorCode;
+
     @JsonProperty("errorMessage")
-    String errorMessage;
+    private String errorMessage;
 
     public RestapiErrorResponseV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<RestapiErrorResponseV1> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<RestapiErrorResponseV1>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

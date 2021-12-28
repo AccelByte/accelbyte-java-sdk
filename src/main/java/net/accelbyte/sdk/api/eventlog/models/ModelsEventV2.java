@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.eventlog.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,28 +17,41 @@ import java.util.Map;
 public class ModelsEventV2 extends Model {
 
     @JsonProperty("clientId")
-    String clientId;
+    private String clientId;
+
     @JsonProperty("id")
-    String id;
+    private String id;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("payload")
-    Map<String, ?> payload;
+    private Map<String, ?> payload;
+
     @JsonProperty("sessionId")
-    String sessionId;
+    private String sessionId;
+
     @JsonProperty("timestamp")
-    String timestamp;
+    private String timestamp;
+
     @JsonProperty("traceId")
-    String traceId;
+    private String traceId;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
+
     @JsonProperty("version")
-    Integer version;
+    private Integer version;
 
     public ModelsEventV2 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsEventV2> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsEventV2>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

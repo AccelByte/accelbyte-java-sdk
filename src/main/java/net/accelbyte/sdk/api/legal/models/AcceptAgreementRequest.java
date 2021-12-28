@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.legal.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,16 +17,23 @@ import java.util.Map;
 public class AcceptAgreementRequest extends Model {
 
     @JsonProperty("isAccepted")
-    Boolean isAccepted;
+    private Boolean isAccepted;
+
     @JsonProperty("localizedPolicyVersionId")
-    String localizedPolicyVersionId;
+    private String localizedPolicyVersionId;
+
     @JsonProperty("policyId")
-    String policyId;
+    private String policyId;
+
     @JsonProperty("policyVersionId")
-    String policyVersionId;
+    private String policyVersionId;
 
     public AcceptAgreementRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<AcceptAgreementRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<AcceptAgreementRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

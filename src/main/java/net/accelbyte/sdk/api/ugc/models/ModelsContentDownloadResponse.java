@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.ugc.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,52 +17,77 @@ import java.util.Map;
 public class ModelsContentDownloadResponse extends Model {
 
     @JsonProperty("channelId")
-    String channelId;
+    private String channelId;
+
     @JsonProperty("createdTime")
-    String createdTime;
+    private String createdTime;
+
     @JsonProperty("creatorFollowState")
-    ModelsCreatorFollowState creatorFollowState;
+    private ModelsCreatorFollowState creatorFollowState;
+
     @JsonProperty("creatorName")
-    String creatorName;
+    private String creatorName;
+
     @JsonProperty("downloadCount")
-    Integer downloadCount;
+    private Integer downloadCount;
+
     @JsonProperty("fileExtension")
-    String fileExtension;
+    private String fileExtension;
+
     @JsonProperty("groups")
-    List<String> groups;
+    private List<String> groups;
+
     @JsonProperty("id")
-    String id;
+    private String id;
+
     @JsonProperty("isHidden")
-    Boolean isHidden;
+    private Boolean isHidden;
+
     @JsonProperty("isOfficial")
-    Boolean isOfficial;
+    private Boolean isOfficial;
+
     @JsonProperty("likeCount")
-    Integer likeCount;
+    private Integer likeCount;
+
     @JsonProperty("likeState")
-    ModelsLikeState likeState;
+    private ModelsLikeState likeState;
+
     @JsonProperty("name")
-    String name;
+    private String name;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("payload")
-    String payload;
+    private String payload;
+
     @JsonProperty("payloadURL")
-    List<ModelsPayloadURL> payloadURL;
+    private List<ModelsPayloadURL> payloadURL;
+
     @JsonProperty("screenshots")
-    List<ModelsScreenshotResponse> screenshots;
+    private List<ModelsScreenshotResponse> screenshots;
+
     @JsonProperty("shareCode")
-    String shareCode;
+    private String shareCode;
+
     @JsonProperty("subType")
-    String subType;
+    private String subType;
+
     @JsonProperty("tags")
-    List<String> tags;
+    private List<String> tags;
+
     @JsonProperty("type")
-    String type;
+    private String type;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
 
     public ModelsContentDownloadResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsContentDownloadResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsContentDownloadResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,32 +17,47 @@ import java.util.Map;
 public class RegionDataItem extends Model {
 
     @JsonProperty("currencyCode")
-    String currencyCode;
+    private String currencyCode;
+
     @JsonProperty("currencyNamespace")
-    String currencyNamespace;
+    private String currencyNamespace;
+
     @JsonProperty("currencyType")
-    String currencyType;
+    private String currencyType;
+
     @JsonProperty("discountAmount")
-    Integer discountAmount;
+    private Integer discountAmount;
+
     @JsonProperty("discountExpireAt")
-    String discountExpireAt;
+    private String discountExpireAt;
+
     @JsonProperty("discountPercentage")
-    Integer discountPercentage;
+    private Integer discountPercentage;
+
     @JsonProperty("discountPurchaseAt")
-    String discountPurchaseAt;
+    private String discountPurchaseAt;
+
     @JsonProperty("discountedPrice")
-    Integer discountedPrice;
+    private Integer discountedPrice;
+
     @JsonProperty("expireAt")
-    String expireAt;
+    private String expireAt;
+
     @JsonProperty("price")
-    Integer price;
+    private Integer price;
+
     @JsonProperty("purchaseAt")
-    String purchaseAt;
+    private String purchaseAt;
+
     @JsonProperty("trialPrice")
-    Integer trialPrice;
+    private Integer trialPrice;
 
     public RegionDataItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<RegionDataItem> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<RegionDataItem>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

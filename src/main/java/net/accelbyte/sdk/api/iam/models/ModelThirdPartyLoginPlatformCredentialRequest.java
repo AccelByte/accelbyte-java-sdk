@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,34 +17,50 @@ import java.util.Map;
 public class ModelThirdPartyLoginPlatformCredentialRequest extends Model {
 
     @JsonProperty("ACSURL")
-    String acsurl;
+    private String acsurl;
+
     @JsonProperty("AWSCognitoRegion")
-    String awsCognitoRegion;
+    private String awsCognitoRegion;
+
     @JsonProperty("AWSCognitoUserPool")
-    String awsCognitoUserPool;
+    private String awsCognitoUserPool;
+
     @JsonProperty("AppId")
-    String appId;
+    private String appId;
+
     @JsonProperty("ClientId")
-    String clientId;
+    private String clientId;
+
     @JsonProperty("Environment")
-    String environment;
+    private String environment;
+
     @JsonProperty("FederationMetadataURL")
-    String federationMetadataURL;
+    private String federationMetadataURL;
+
     @JsonProperty("IsActive")
-    Boolean isActive;
+    private Boolean isActive;
+
     @JsonProperty("KeyID")
-    String keyID;
+    private String keyID;
+
     @JsonProperty("OrganizationId")
-    String organizationId;
+    private String organizationId;
+
     @JsonProperty("RedirectUri")
-    String redirectUri;
+    private String redirectUri;
+
     @JsonProperty("Secret")
-    String secret;
+    private String secret;
+
     @JsonProperty("TeamID")
-    String teamID;
+    private String teamID;
 
     public ModelThirdPartyLoginPlatformCredentialRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelThirdPartyLoginPlatformCredentialRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelThirdPartyLoginPlatformCredentialRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

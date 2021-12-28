@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class ModelUpgradeHeadlessAccountV3Request extends Model {
 
     @JsonProperty("emailAddress")
-    String emailAddress;
+    private String emailAddress;
+
     @JsonProperty("password")
-    String password;
+    private String password;
 
     public ModelUpgradeHeadlessAccountV3Request createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelUpgradeHeadlessAccountV3Request> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelUpgradeHeadlessAccountV3Request>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

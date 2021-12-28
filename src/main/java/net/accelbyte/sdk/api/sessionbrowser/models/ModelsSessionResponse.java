@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.sessionbrowser.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,36 +17,53 @@ import java.util.Map;
 public class ModelsSessionResponse extends Model {
 
     @JsonProperty("all_players")
-    List<String> allPlayers;
+    private List<String> allPlayers;
+
     @JsonProperty("created_at")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("game_session_setting")
-    ModelsGameSessionSetting gameSessionSetting;
+    private ModelsGameSessionSetting gameSessionSetting;
+
     @JsonProperty("game_version")
-    String gameVersion;
+    private String gameVersion;
+
     @JsonProperty("joinable")
-    Boolean joinable;
+    private Boolean joinable;
+
     @JsonProperty("match")
-    ModelsMatchMaking match;
+    private ModelsMatchMaking match;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("players")
-    List<String> players;
+    private List<String> players;
+
     @JsonProperty("server")
-    ModelsServer server;
+    private ModelsServer server;
+
     @JsonProperty("session_id")
-    String sessionId;
+    private String sessionId;
+
     @JsonProperty("session_type")
-    String sessionType;
+    private String sessionType;
+
     @JsonProperty("spectators")
-    List<String> spectators;
+    private List<String> spectators;
+
     @JsonProperty("user_id")
-    String userId;
+    private String userId;
+
     @JsonProperty("username")
-    String username;
+    private String username;
 
     public ModelsSessionResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsSessionResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsSessionResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.dsmc.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,26 +17,38 @@ import java.util.Map;
 public class ModelsImageRecord extends Model {
 
     @JsonProperty("artifactPath")
-    String artifactPath;
+    private String artifactPath;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("dockerPath")
-    String dockerPath;
+    private String dockerPath;
+
     @JsonProperty("image")
-    String image;
+    private String image;
+
     @JsonProperty("modifiedBy")
-    String modifiedBy;
+    private String modifiedBy;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("persistent")
-    Boolean persistent;
+    private Boolean persistent;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("version")
-    String version;
+    private String version;
 
     public ModelsImageRecord createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsImageRecord> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsImageRecord>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

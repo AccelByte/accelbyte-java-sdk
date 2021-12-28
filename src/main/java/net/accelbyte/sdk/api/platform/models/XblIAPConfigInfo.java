@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,16 +17,23 @@ import java.util.Map;
 public class XblIAPConfigInfo extends Model {
 
     @JsonProperty("businessPartnerCertFileName")
-    String businessPartnerCertFileName;
+    private String businessPartnerCertFileName;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("password")
-    String password;
+    private String password;
+
     @JsonProperty("relyingPartyCert")
-    String relyingPartyCert;
+    private String relyingPartyCert;
 
     public XblIAPConfigInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<XblIAPConfigInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<XblIAPConfigInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.matchmaking.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,36 +17,53 @@ import java.util.Map;
 public class ServiceGetSessionHistorySearchResponseItem extends Model {
 
     @JsonProperty("_id")
-    String id;
+    private String id;
+
     @JsonProperty("channel")
-    String channel;
+    private String channel;
+
     @JsonProperty("client_version")
-    String clientVersion;
+    private String clientVersion;
+
     @JsonProperty("created_at")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("event_description")
-    String eventDescription;
+    private String eventDescription;
+
     @JsonProperty("event_name")
-    String eventName;
+    private String eventName;
+
     @JsonProperty("game_mode")
-    String gameMode;
+    private String gameMode;
+
     @JsonProperty("joinable")
-    Boolean joinable;
+    private Boolean joinable;
+
     @JsonProperty("match_id")
-    String matchId;
+    private String matchId;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("party_id")
-    String partyId;
+    private String partyId;
+
     @JsonProperty("region")
-    String region;
+    private String region;
+
     @JsonProperty("server_name")
-    String serverName;
+    private String serverName;
+
     @JsonProperty("status")
-    String status;
+    private String status;
 
     public ServiceGetSessionHistorySearchResponseItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ServiceGetSessionHistorySearchResponseItem> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ServiceGetSessionHistorySearchResponseItem>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

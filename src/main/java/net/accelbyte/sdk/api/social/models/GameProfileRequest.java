@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.social.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,24 +17,35 @@ import java.util.Map;
 public class GameProfileRequest extends Model {
 
     @JsonProperty("achievements")
-    List<String> achievements;
+    private List<String> achievements;
+
     @JsonProperty("attributes")
-    Map<String, String> attributes;
+    private Map<String, String> attributes;
+
     @JsonProperty("avatarUrl")
-    String avatarUrl;
+    private String avatarUrl;
+
     @JsonProperty("inventories")
-    List<String> inventories;
+    private List<String> inventories;
+
     @JsonProperty("label")
-    String label;
+    private String label;
+
     @JsonProperty("profileName")
-    String profileName;
+    private String profileName;
+
     @JsonProperty("statistics")
-    List<String> statistics;
+    private List<String> statistics;
+
     @JsonProperty("tags")
-    List<String> tags;
+    private List<String> tags;
 
     public GameProfileRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<GameProfileRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<GameProfileRequest>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

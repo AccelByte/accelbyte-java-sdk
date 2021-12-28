@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,20 +17,29 @@ import java.util.Map;
 public class StoreUpdate extends Model {
 
     @JsonProperty("defaultLanguage")
-    String defaultLanguage;
+    private String defaultLanguage;
+
     @JsonProperty("defaultRegion")
-    String defaultRegion;
+    private String defaultRegion;
+
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("supportedLanguages")
-    List<String> supportedLanguages;
+    private List<String> supportedLanguages;
+
     @JsonProperty("supportedRegions")
-    List<String> supportedRegions;
+    private List<String> supportedRegions;
+
     @JsonProperty("title")
-    String title;
+    private String title;
 
     public StoreUpdate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<StoreUpdate> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<StoreUpdate>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

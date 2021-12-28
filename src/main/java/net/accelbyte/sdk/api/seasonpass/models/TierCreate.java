@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.seasonpass.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,14 +17,20 @@ import java.util.Map;
 public class TierCreate extends Model {
 
     @JsonProperty("index")
-    Integer index;
+    private Integer index;
+
     @JsonProperty("quantity")
-    Integer quantity;
+    private Integer quantity;
+
     @JsonProperty("tier")
-    TierInput tier;
+    private TierInput tier;
 
     public TierCreate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<TierCreate> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<TierCreate>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

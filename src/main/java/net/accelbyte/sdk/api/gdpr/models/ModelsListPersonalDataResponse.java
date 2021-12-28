@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.gdpr.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,17 @@ import java.util.Map;
 public class ModelsListPersonalDataResponse extends Model {
 
     @JsonProperty("Data")
-    List<ModelsPersonalData> data;
+    private List<ModelsPersonalData> data;
+
     @JsonProperty("Paging")
-    ModelsPagination paging;
+    private ModelsPagination paging;
 
     public ModelsListPersonalDataResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelsListPersonalDataResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsListPersonalDataResponse>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

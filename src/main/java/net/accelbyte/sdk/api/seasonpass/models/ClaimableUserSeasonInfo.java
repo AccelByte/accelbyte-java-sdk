@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.seasonpass.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,40 +17,59 @@ import java.util.Map;
 public class ClaimableUserSeasonInfo extends Model {
 
     @JsonProperty("id")
-    String id;
+    private String id;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
+
     @JsonProperty("seasonId")
-    String seasonId;
+    private String seasonId;
+
     @JsonProperty("enrolledAt")
-    String enrolledAt;
+    private String enrolledAt;
+
     @JsonProperty("enrolledPasses")
-    List<String> enrolledPasses;
+    private List<String> enrolledPasses;
+
     @JsonProperty("currentTierIndex")
-    Integer currentTierIndex;
+    private Integer currentTierIndex;
+
     @JsonProperty("lastTierIndex")
-    Integer lastTierIndex;
+    private Integer lastTierIndex;
+
     @JsonProperty("requiredExp")
-    Integer requiredExp;
+    private Integer requiredExp;
+
     @JsonProperty("currentExp")
-    Integer currentExp;
+    private Integer currentExp;
+
     @JsonProperty("cleared")
-    Boolean cleared;
+    private Boolean cleared;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("season")
-    SeasonSummary season;
+    private SeasonSummary season;
+
     @JsonProperty("toClaimRewards")
-    Map<String, ?> toClaimRewards;
+    private Map<String, ?> toClaimRewards;
+
     @JsonProperty("claimingRewards")
-    Map<String, ?> claimingRewards;
+    private Map<String, ?> claimingRewards;
 
     public ClaimableUserSeasonInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ClaimableUserSeasonInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ClaimableUserSeasonInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

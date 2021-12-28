@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,44 +17,65 @@ import java.util.Map;
 public class ModelPublicUserResponseV3 extends Model {
 
     @JsonProperty("authType")
-    String authType;
+    private String authType;
+
     @JsonProperty("bans")
-    List<ModelUserActiveBanResponseV3> bans;
+    private List<ModelUserActiveBanResponseV3> bans;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("deletionStatus")
-    Boolean deletionStatus;
+    private Boolean deletionStatus;
+
     @JsonProperty("displayName")
-    String displayName;
+    private String displayName;
+
     @JsonProperty("emailVerified")
-    Boolean emailVerified;
+    private Boolean emailVerified;
+
     @JsonProperty("enabled")
-    Boolean enabled;
+    private Boolean enabled;
+
     @JsonProperty("lastDateOfBirthChangedTime")
-    String lastDateOfBirthChangedTime;
+    private String lastDateOfBirthChangedTime;
+
     @JsonProperty("lastEnabledChangedTime")
-    String lastEnabledChangedTime;
+    private String lastEnabledChangedTime;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("namespaceRoles")
-    List<AccountcommonNamespaceRole> namespaceRoles;
+    private List<AccountcommonNamespaceRole> namespaceRoles;
+
     @JsonProperty("permissions")
-    List<ModelUserPermissionsResponseV3> permissions;
+    private List<ModelUserPermissionsResponseV3> permissions;
+
     @JsonProperty("phoneVerified")
-    Boolean phoneVerified;
+    private Boolean phoneVerified;
+
     @JsonProperty("platformId")
-    String platformId;
+    private String platformId;
+
     @JsonProperty("platformUserId")
-    String platformUserId;
+    private String platformUserId;
+
     @JsonProperty("roles")
-    List<String> roles;
+    private List<String> roles;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
+
     @JsonProperty("userName")
-    String userName;
+    private String userName;
 
     public ModelPublicUserResponseV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<ModelPublicUserResponseV3> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelPublicUserResponseV3>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

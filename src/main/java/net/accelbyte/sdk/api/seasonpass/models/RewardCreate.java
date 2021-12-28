@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.seasonpass.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,20 +17,29 @@ import java.util.Map;
 public class RewardCreate extends Model {
 
     @JsonProperty("code")
-    String code;
+    private String code;
+
     @JsonProperty("type")
-    String type;
+    private String type;
+
     @JsonProperty("itemId")
-    String itemId;
+    private String itemId;
+
     @JsonProperty("currency")
-    RewardCurrency currency;
+    private RewardCurrency currency;
+
     @JsonProperty("quantity")
-    Integer quantity;
+    private Integer quantity;
+
     @JsonProperty("image")
-    Image image;
+    private Image image;
 
     public RewardCreate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<RewardCreate> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<RewardCreate>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {

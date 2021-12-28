@@ -2,6 +2,7 @@ package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,102 +17,152 @@ import java.util.Map;
 public class PaymentOrderInfo extends Model {
 
     @JsonProperty("authorisedTime")
-    String authorisedTime;
+    private String authorisedTime;
+
     @JsonProperty("channel")
-    String channel;
+    private String channel;
+
     @JsonProperty("chargebackReversedTime")
-    String chargebackReversedTime;
+    private String chargebackReversedTime;
+
     @JsonProperty("chargebackTime")
-    String chargebackTime;
+    private String chargebackTime;
+
     @JsonProperty("chargedTime")
-    String chargedTime;
+    private String chargedTime;
+
     @JsonProperty("charging")
-    Boolean charging;
+    private Boolean charging;
+
     @JsonProperty("createdAt")
-    String createdAt;
+    private String createdAt;
+
     @JsonProperty("createdTime")
-    String createdTime;
+    private String createdTime;
+
     @JsonProperty("currency")
-    CurrencySummary currency;
+    private CurrencySummary currency;
+
     @JsonProperty("customParameters")
-    Map<String, ?> customParameters;
+    private Map<String, ?> customParameters;
+
     @JsonProperty("description")
-    String description;
+    private String description;
+
     @JsonProperty("extOrderNo")
-    String extOrderNo;
+    private String extOrderNo;
+
     @JsonProperty("extUserId")
-    String extUserId;
+    private String extUserId;
+
     @JsonProperty("itemType")
-    String itemType;
+    private String itemType;
+
     @JsonProperty("language")
-    String language;
+    private String language;
+
     @JsonProperty("metadata")
-    Map<String, String> metadata;
+    private Map<String, String> metadata;
+
     @JsonProperty("namespace")
-    String namespace;
+    private String namespace;
+
     @JsonProperty("notifyUrl")
-    String notifyUrl;
+    private String notifyUrl;
+
     @JsonProperty("omitNotification")
-    Boolean omitNotification;
+    private Boolean omitNotification;
+
     @JsonProperty("paymentMethod")
-    String paymentMethod;
+    private String paymentMethod;
+
     @JsonProperty("paymentMethodFee")
-    Integer paymentMethodFee;
+    private Integer paymentMethodFee;
+
     @JsonProperty("paymentOrderNo")
-    String paymentOrderNo;
+    private String paymentOrderNo;
+
     @JsonProperty("paymentProvider")
-    String paymentProvider;
+    private String paymentProvider;
+
     @JsonProperty("paymentProviderFee")
-    Integer paymentProviderFee;
+    private Integer paymentProviderFee;
+
     @JsonProperty("paymentStationUrl")
-    String paymentStationUrl;
+    private String paymentStationUrl;
+
     @JsonProperty("price")
-    Integer price;
+    private Integer price;
+
     @JsonProperty("recurringPaymentOrderNo")
-    String recurringPaymentOrderNo;
+    private String recurringPaymentOrderNo;
+
     @JsonProperty("refundedTime")
-    String refundedTime;
+    private String refundedTime;
+
     @JsonProperty("region")
-    String region;
+    private String region;
+
     @JsonProperty("returnUrl")
-    String returnUrl;
+    private String returnUrl;
+
     @JsonProperty("salesTax")
-    Integer salesTax;
+    private Integer salesTax;
+
     @JsonProperty("sandbox")
-    Boolean sandbox;
+    private Boolean sandbox;
+
     @JsonProperty("sku")
-    String sku;
+    private String sku;
+
     @JsonProperty("status")
-    String status;
+    private String status;
+
     @JsonProperty("statusReason")
-    String statusReason;
+    private String statusReason;
+
     @JsonProperty("subscriptionId")
-    String subscriptionId;
+    private String subscriptionId;
+
     @JsonProperty("subtotalPrice")
-    Integer subtotalPrice;
+    private Integer subtotalPrice;
+
     @JsonProperty("targetNamespace")
-    String targetNamespace;
+    private String targetNamespace;
+
     @JsonProperty("targetUserId")
-    String targetUserId;
+    private String targetUserId;
+
     @JsonProperty("tax")
-    Integer tax;
+    private Integer tax;
+
     @JsonProperty("title")
-    String title;
+    private String title;
+
     @JsonProperty("totalPrice")
-    Integer totalPrice;
+    private Integer totalPrice;
+
     @JsonProperty("totalTax")
-    Integer totalTax;
+    private Integer totalTax;
+
     @JsonProperty("transactions")
-    List<Transaction> transactions;
+    private List<Transaction> transactions;
+
     @JsonProperty("updatedAt")
-    String updatedAt;
+    private String updatedAt;
+
     @JsonProperty("userId")
-    String userId;
+    private String userId;
+
     @JsonProperty("vat")
-    Integer vat;
+    private Integer vat;
 
     public PaymentOrderInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
+    }
+
+    public List<PaymentOrderInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<PaymentOrderInfo>>() {});
     }
 
     public static Map<String, String> getFieldInfo() {
