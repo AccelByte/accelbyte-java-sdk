@@ -55,6 +55,8 @@ public class CreateNamespace extends Operation {
         this.body = body;
     }
 
+    public CreateNamespace(){
+    }
 
     public CreateNamespace createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -80,6 +82,16 @@ public class CreateNamespace extends Operation {
     }
 
 
+    @JsonIgnore
+    public List<String> getAllRequiredFields() {
+        return Arrays.asList(
+        );
+    }
+
+    @Override
+    public boolean isValid() {
+        return true;
+    }
 
     @Override
     public NamespaceInfo parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {

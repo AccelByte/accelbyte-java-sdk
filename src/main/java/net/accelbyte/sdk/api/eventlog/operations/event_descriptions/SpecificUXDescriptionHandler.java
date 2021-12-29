@@ -54,6 +54,8 @@ public class SpecificUXDescriptionHandler extends Operation {
         this.ux = ux;
     }
 
+    public SpecificUXDescriptionHandler(){
+    }
 
     public SpecificUXDescriptionHandler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());

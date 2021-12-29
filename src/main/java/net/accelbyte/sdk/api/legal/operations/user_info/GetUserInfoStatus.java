@@ -53,6 +53,8 @@ public class GetUserInfoStatus extends Operation {
         this.namespaces = namespaces;
     }
 
+    public GetUserInfoStatus(){
+    }
 
     public GetUserInfoStatus createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());

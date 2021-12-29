@@ -63,6 +63,8 @@ public class AdminGetRolesV3 extends Operation {
         this.limit = limit;
     }
 
+    public AdminGetRolesV3(){
+    }
 
     public AdminGetRolesV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());

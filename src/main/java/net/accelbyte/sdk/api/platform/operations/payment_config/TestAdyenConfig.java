@@ -58,6 +58,8 @@ public class TestAdyenConfig extends Operation {
         this.body = body;
     }
 
+    public TestAdyenConfig(){
+    }
 
     public TestAdyenConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -95,6 +97,16 @@ public class TestAdyenConfig extends Operation {
         return result;
     }
 
+    @JsonIgnore
+    public List<String> getAllRequiredFields() {
+        return Arrays.asList(
+        );
+    }
+
+    @Override
+    public boolean isValid() {
+        return true;
+    }
 
     @Override
     public TestResult parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {

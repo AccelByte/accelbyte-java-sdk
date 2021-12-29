@@ -55,6 +55,8 @@ public class UpdatePaymentTaxConfig extends Operation {
         this.body = body;
     }
 
+    public UpdatePaymentTaxConfig(){
+    }
 
     public UpdatePaymentTaxConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -80,6 +82,16 @@ public class UpdatePaymentTaxConfig extends Operation {
     }
 
 
+    @JsonIgnore
+    public List<String> getAllRequiredFields() {
+        return Arrays.asList(
+        );
+    }
+
+    @Override
+    public boolean isValid() {
+        return true;
+    }
 
     @Override
     public PaymentTaxConfigInfo parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {

@@ -58,6 +58,8 @@ public class TestCheckoutConfig extends Operation {
         this.body = body;
     }
 
+    public TestCheckoutConfig(){
+    }
 
     public TestCheckoutConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -95,6 +97,16 @@ public class TestCheckoutConfig extends Operation {
         return result;
     }
 
+    @JsonIgnore
+    public List<String> getAllRequiredFields() {
+        return Arrays.asList(
+        );
+    }
+
+    @Override
+    public boolean isValid() {
+        return true;
+    }
 
     @Override
     public TestResult parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {

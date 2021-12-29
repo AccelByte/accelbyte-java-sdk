@@ -63,6 +63,8 @@ public class PublicGetRolesV3 extends Operation {
         this.limit = limit;
     }
 
+    public PublicGetRolesV3(){
+    }
 
     public PublicGetRolesV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());

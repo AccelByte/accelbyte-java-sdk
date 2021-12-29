@@ -63,6 +63,8 @@ public class QueryPaymentProviderConfig extends Operation {
         this.region = region;
     }
 
+    public QueryPaymentProviderConfig(){
+    }
 
     public QueryPaymentProviderConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());

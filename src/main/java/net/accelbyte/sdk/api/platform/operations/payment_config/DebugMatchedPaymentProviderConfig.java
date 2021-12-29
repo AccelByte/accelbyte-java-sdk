@@ -57,6 +57,8 @@ public class DebugMatchedPaymentProviderConfig extends Operation {
         this.region = region;
     }
 
+    public DebugMatchedPaymentProviderConfig(){
+    }
 
     public DebugMatchedPaymentProviderConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());

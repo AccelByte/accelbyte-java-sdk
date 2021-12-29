@@ -54,6 +54,8 @@ public class ChangePreferenceConsent extends Operation {
         this.body = body;
     }
 
+    public ChangePreferenceConsent(){
+    }
 
     public ChangePreferenceConsent createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -79,6 +81,16 @@ public class ChangePreferenceConsent extends Operation {
     }
 
 
+    @JsonIgnore
+    public List<String> getAllRequiredFields() {
+        return Arrays.asList(
+        );
+    }
+
+    @Override
+    public boolean isValid() {
+        return true;
+    }
 
     @Override
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
