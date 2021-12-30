@@ -35,10 +35,10 @@ public class OAuth20 {
             );
     }
 
-    public void authorizeV3(AuthorizeV3 input) throws ResponseException, IOException {
+    public String authorizeV3(AuthorizeV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AuthorizeV3()
-                .handleEmptyResponse(
+            return new AuthorizeV3()
+                .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
     }
@@ -67,10 +67,10 @@ public class OAuth20 {
             );
     }
 
-    public void authCodeRequestV3(AuthCodeRequestV3 input) throws ResponseException, IOException {
+    public String authCodeRequestV3(AuthCodeRequestV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AuthCodeRequestV3()
-                .handleEmptyResponse(
+            return new AuthCodeRequestV3()
+                .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
     }

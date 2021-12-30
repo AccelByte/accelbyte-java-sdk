@@ -19,10 +19,10 @@ public class OAuth {
         this.sdk = sdk;
     }
 
-    public void authorization(Authorization input) throws ResponseException, IOException {
+    public String authorization(Authorization input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new Authorization()
-                .handleEmptyResponse(
+            return new Authorization()
+                .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
     }

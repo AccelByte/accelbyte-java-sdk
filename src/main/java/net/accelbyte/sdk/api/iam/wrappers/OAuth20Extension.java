@@ -19,10 +19,10 @@ public class OAuth20Extension {
         this.sdk = sdk;
     }
 
-    public void userAuthenticationV3(UserAuthenticationV3 input) throws ResponseException, IOException {
+    public String userAuthenticationV3(UserAuthenticationV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new UserAuthenticationV3()
-                .handleEmptyResponse(
+            return new UserAuthenticationV3()
+                .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
     }
@@ -43,10 +43,10 @@ public class OAuth20Extension {
             );
     }
 
-    public void platformAuthenticationV3(PlatformAuthenticationV3 input) throws ResponseException, IOException {
+    public String platformAuthenticationV3(PlatformAuthenticationV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PlatformAuthenticationV3()
-                .handleEmptyResponse(
+            return new PlatformAuthenticationV3()
+                .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
     }

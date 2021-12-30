@@ -1019,10 +1019,10 @@ public class Users {
             );
     }
 
-    public void publicWebLinkPlatformEstablish(PublicWebLinkPlatformEstablish input) throws ResponseException, IOException {
+    public String publicWebLinkPlatformEstablish(PublicWebLinkPlatformEstablish input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PublicWebLinkPlatformEstablish()
-                .handleEmptyResponse(
+            return new PublicWebLinkPlatformEstablish()
+                .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
     }

@@ -134,10 +134,11 @@ public class PublicWebLinkPlatformEstablish extends Operation {
     }
 
     @Override
-    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public String parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code != 302){
             throw new ResponseException(code, json);
         }
+        return json;
     }
 }

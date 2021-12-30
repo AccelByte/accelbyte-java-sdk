@@ -19,10 +19,10 @@ public class SSOSAML20 {
         this.sdk = sdk;
     }
 
-    public void platformAuthenticateSAMLV3Handler(PlatformAuthenticateSAMLV3Handler input) throws ResponseException, IOException {
+    public String platformAuthenticateSAMLV3Handler(PlatformAuthenticateSAMLV3Handler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PlatformAuthenticateSAMLV3Handler()
-                .handleEmptyResponse(
+            return new PlatformAuthenticateSAMLV3Handler()
+                .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
     }
