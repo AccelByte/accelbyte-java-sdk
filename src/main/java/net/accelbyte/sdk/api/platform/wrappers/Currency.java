@@ -21,7 +21,7 @@ public class Currency {
 
     public List<CurrencyInfo> listCurrencies(ListCurrencies input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ListCurrencies()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Currency {
 
     public CurrencyInfo createCurrency(CreateCurrency input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreateCurrency()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Currency {
 
     public CurrencyInfo updateCurrency(UpdateCurrency input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateCurrency()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Currency {
 
     public CurrencyInfo deleteCurrency(DeleteCurrency input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new DeleteCurrency()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Currency {
 
     public CurrencyConfig getCurrencyConfig(GetCurrencyConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetCurrencyConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Currency {
 
     public CurrencySummary getCurrencySummary(GetCurrencySummary input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetCurrencySummary()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class Currency {
 
     public List<CurrencyInfo> publicListCurrencies(PublicListCurrencies input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicListCurrencies()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

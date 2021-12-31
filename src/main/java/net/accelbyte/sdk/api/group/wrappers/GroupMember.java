@@ -21,7 +21,7 @@ public class GroupMember {
 
     public ModelsGetGroupMemberListResponseV1 getGroupMembersListAdminV1(GetGroupMembersListAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetGroupMembersListAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class GroupMember {
 
     public ModelsMemberRequestGroupResponseV1 acceptGroupInvitationPublicV1(AcceptGroupInvitationPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AcceptGroupInvitationPublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class GroupMember {
 
     public ModelsMemberRequestGroupResponseV1 rejectGroupInvitationPublicV1(RejectGroupInvitationPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RejectGroupInvitationPublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class GroupMember {
 
     public ModelsJoinGroupResponseV1 joinGroupV1(JoinGroupV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new JoinGroupV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class GroupMember {
 
     public ModelsMemberRequestGroupResponseV1 cancelGroupJoinRequestV1(CancelGroupJoinRequestV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CancelGroupJoinRequestV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class GroupMember {
 
     public ModelsGetGroupMemberListResponseV1 getGroupMembersListPublicV1(GetGroupMembersListPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetGroupMembersListPublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class GroupMember {
 
     public ModelsLeaveGroupResponseV1 leaveGroupPublicV1(LeaveGroupPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new LeaveGroupPublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class GroupMember {
 
     public ModelsGetUserGroupInformationResponseV1 getUserGroupInformationPublicV1(GetUserGroupInformationPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserGroupInformationPublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class GroupMember {
 
     public ModelsUserInvitationResponseV1 inviteGroupPublicV1(InviteGroupPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new InviteGroupPublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class GroupMember {
 
     public ModelsMemberRequestGroupResponseV1 acceptGroupJoinRequestPublicV1(AcceptGroupJoinRequestPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AcceptGroupJoinRequestPublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class GroupMember {
 
     public ModelsMemberRequestGroupResponseV1 rejectGroupJoinRequestPublicV1(RejectGroupJoinRequestPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RejectGroupJoinRequestPublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -109,7 +109,7 @@ public class GroupMember {
 
     public ModelsKickGroupMemberResponseV1 kickGroupMemberPublicV1(KickGroupMemberPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new KickGroupMemberPublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

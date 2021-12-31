@@ -21,7 +21,7 @@ public class PolicyVersions {
 
     public UpdatePolicyVersionResponse updatePolicyVersion(UpdatePolicyVersion input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdatePolicyVersion()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class PolicyVersions {
 
     public void publishPolicyVersion(PublishPolicyVersion input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PublishPolicyVersion()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class PolicyVersions {
 
     public List<RetrievePolicyVersionResponse> retrieveSinglePolicyVersion(RetrieveSinglePolicyVersion input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrieveSinglePolicyVersion()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class PolicyVersions {
 
     public CreatePolicyVersionResponse createPolicyVersion(CreatePolicyVersion input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreatePolicyVersion()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class PolicyVersions {
 
     public List<RetrievePolicyVersionResponse> retrievePolicyVersions(RetrievePolicyVersions input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrievePolicyVersions()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

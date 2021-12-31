@@ -21,7 +21,7 @@ public class FulfillmentScript {
 
     public List<FulfillmentScriptInfo> listFulfillmentScripts(ListFulfillmentScripts input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ListFulfillmentScripts()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class FulfillmentScript {
 
     public FulfillmentScriptEvalTestResult testFulfillmentScriptEval(TestFulfillmentScriptEval input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new TestFulfillmentScriptEval()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class FulfillmentScript {
 
     public FulfillmentScriptInfo getFulfillmentScript(GetFulfillmentScript input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetFulfillmentScript()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class FulfillmentScript {
 
     public FulfillmentScriptInfo createFulfillmentScript(CreateFulfillmentScript input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreateFulfillmentScript()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class FulfillmentScript {
 
     public void deleteFulfillmentScript(DeleteFulfillmentScript input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteFulfillmentScript()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class FulfillmentScript {
 
     public FulfillmentScriptInfo updateFulfillmentScript(UpdateFulfillmentScript input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateFulfillmentScript()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

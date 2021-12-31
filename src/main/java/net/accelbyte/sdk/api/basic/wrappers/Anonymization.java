@@ -21,7 +21,7 @@ public class Anonymization {
 
     public void anonymizeUserProfile(AnonymizeUserProfile input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AnonymizeUserProfile()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

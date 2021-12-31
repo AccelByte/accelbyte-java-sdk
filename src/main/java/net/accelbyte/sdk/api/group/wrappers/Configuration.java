@@ -21,7 +21,7 @@ public class Configuration {
 
     public ModelsListConfigurationResponseV1 listGroupConfigurationAdminV1(ListGroupConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ListGroupConfigurationAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Configuration {
 
     public ModelsCreateGroupConfigurationResponseV1 createGroupConfigurationAdminV1(CreateGroupConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreateGroupConfigurationAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Configuration {
 
     public ModelsCreateGroupConfigurationResponseV1 initiateGroupConfigurationAdminV1(InitiateGroupConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new InitiateGroupConfigurationAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Configuration {
 
     public ModelsGetGroupConfigurationResponseV1 getGroupConfigurationAdminV1(GetGroupConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetGroupConfigurationAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Configuration {
 
     public void deleteGroupConfigurationV1(DeleteGroupConfigurationV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteGroupConfigurationV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Configuration {
 
     public ModelsUpdateGroupConfigurationResponseV1 updateGroupConfigurationAdminV1(UpdateGroupConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateGroupConfigurationAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class Configuration {
 
     public ModelsUpdateGroupConfigurationResponseV1 updateGroupConfigurationGlobalRuleAdminV1(UpdateGroupConfigurationGlobalRuleAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateGroupConfigurationGlobalRuleAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class Configuration {
 
     public ModelsUpdateGroupConfigurationResponseV1 deleteGroupConfigurationGlobalRuleAdminV1(DeleteGroupConfigurationGlobalRuleAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new DeleteGroupConfigurationGlobalRuleAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

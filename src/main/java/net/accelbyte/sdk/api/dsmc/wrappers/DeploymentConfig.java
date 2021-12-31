@@ -21,7 +21,7 @@ public class DeploymentConfig {
 
     public ModelsListDeploymentResponse getAllDeployment(GetAllDeployment input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetAllDeployment()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class DeploymentConfig {
 
     public ModelsDeploymentWithOverride getDeployment(GetDeployment input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetDeployment()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class DeploymentConfig {
 
     public ModelsDeploymentWithOverride createDeployment(CreateDeployment input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreateDeployment()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class DeploymentConfig {
 
     public void deleteDeployment(DeleteDeployment input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteDeployment()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class DeploymentConfig {
 
     public ModelsDeploymentWithOverride updateDeployment(UpdateDeployment input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateDeployment()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class DeploymentConfig {
 
     public ModelsDeploymentWithOverride createRootRegionOverride(CreateRootRegionOverride input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreateRootRegionOverride()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class DeploymentConfig {
 
     public ModelsDeploymentWithOverride deleteRootRegionOverride(DeleteRootRegionOverride input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new DeleteRootRegionOverride()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class DeploymentConfig {
 
     public ModelsDeploymentWithOverride updateRootRegionOverride(UpdateRootRegionOverride input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateRootRegionOverride()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class DeploymentConfig {
 
     public ModelsDeploymentWithOverride createDeploymentOverride(CreateDeploymentOverride input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreateDeploymentOverride()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class DeploymentConfig {
 
     public ModelsDeploymentWithOverride deleteDeploymentOverride(DeleteDeploymentOverride input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new DeleteDeploymentOverride()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class DeploymentConfig {
 
     public ModelsDeploymentWithOverride updateDeploymentOverride(UpdateDeploymentOverride input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateDeploymentOverride()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -109,7 +109,7 @@ public class DeploymentConfig {
 
     public ModelsDeploymentWithOverride createOverrideRegionOverride(CreateOverrideRegionOverride input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreateOverrideRegionOverride()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -117,7 +117,7 @@ public class DeploymentConfig {
 
     public ModelsDeploymentWithOverride deleteOverrideRegionOverride(DeleteOverrideRegionOverride input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new DeleteOverrideRegionOverride()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -125,7 +125,7 @@ public class DeploymentConfig {
 
     public ModelsDeploymentWithOverride updateOverrideRegionOverride(UpdateOverrideRegionOverride input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateOverrideRegionOverride()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

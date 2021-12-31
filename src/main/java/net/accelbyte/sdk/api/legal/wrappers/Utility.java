@@ -21,7 +21,7 @@ public class Utility {
 
     public LegalReadinessStatusResponse checkReadiness(CheckReadiness input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CheckReadiness()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

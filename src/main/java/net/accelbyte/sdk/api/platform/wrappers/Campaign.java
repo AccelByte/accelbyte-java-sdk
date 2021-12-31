@@ -21,7 +21,7 @@ public class Campaign {
 
     public CampaignPagingSlicedResult queryCampaigns(QueryCampaigns input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new QueryCampaigns()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Campaign {
 
     public CampaignInfo createCampaign(CreateCampaign input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreateCampaign()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Campaign {
 
     public CampaignInfo getCampaign(GetCampaign input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetCampaign()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Campaign {
 
     public CampaignInfo updateCampaign(UpdateCampaign input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateCampaign()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Campaign {
 
     public CampaignDynamicInfo getCampaignDynamic(GetCampaignDynamic input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetCampaignDynamic()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Campaign {
 
     public CodeInfoPagingSlicedResult queryCodes(QueryCodes input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new QueryCodes()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class Campaign {
 
     public CodeCreateResult createCodes(CreateCodes input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreateCodes()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class Campaign {
 
     public void download(Download input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new Download()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class Campaign {
 
     public BulkOperationResult bulkDisableCodes(BulkDisableCodes input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new BulkDisableCodes()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class Campaign {
 
     public BulkOperationResult bulkEnableCodes(BulkEnableCodes input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new BulkEnableCodes()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class Campaign {
 
     public RedeemHistoryPagingSlicedResult queryRedeemHistory(QueryRedeemHistory input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new QueryRedeemHistory()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -109,7 +109,7 @@ public class Campaign {
 
     public CodeInfo getCode(GetCode input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetCode()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -117,7 +117,7 @@ public class Campaign {
 
     public CodeInfo disableCode(DisableCode input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new DisableCode()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -125,7 +125,7 @@ public class Campaign {
 
     public CodeInfo enableCode(EnableCode input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new EnableCode()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -133,7 +133,7 @@ public class Campaign {
 
     public RedeemResult applyUserRedemption(ApplyUserRedemption input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ApplyUserRedemption()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

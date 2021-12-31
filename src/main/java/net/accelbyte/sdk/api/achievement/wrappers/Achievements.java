@@ -21,7 +21,7 @@ public class Achievements {
 
     public ModelsPaginatedAchievementResponse adminListAchievements(AdminListAchievements input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminListAchievements()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Achievements {
 
     public ModelsAchievementResponse adminCreateNewAchievement(AdminCreateNewAchievement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminCreateNewAchievement()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Achievements {
 
     public List<ModelsAchievement> exportAchievements(ExportAchievements input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ExportAchievements()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Achievements {
 
     public ServiceImportConfigResponse importAchievements(ImportAchievements input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ImportAchievements()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Achievements {
 
     public ModelsAchievementResponse adminGetAchievement(AdminGetAchievement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetAchievement()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Achievements {
 
     public ModelsAchievementResponse adminUpdateAchievement(AdminUpdateAchievement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminUpdateAchievement()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class Achievements {
 
     public void adminDeleteAchievement(AdminDeleteAchievement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminDeleteAchievement()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class Achievements {
 
     public void adminUpdateAchievementListOrder(AdminUpdateAchievementListOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminUpdateAchievementListOrder()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class Achievements {
 
     public ModelsPaginatedUserAchievementResponse adminListUserAchievements(AdminListUserAchievements input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminListUserAchievements()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class Achievements {
 
     public void adminUnlockAchievement(AdminUnlockAchievement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminUnlockAchievement()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class Achievements {
 
     public ModelsPublicAchievementsResponse publicListAchievements(PublicListAchievements input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicListAchievements()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -109,7 +109,7 @@ public class Achievements {
 
     public ModelsPublicAchievementResponse publicGetAchievement(PublicGetAchievement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetAchievement()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -117,7 +117,7 @@ public class Achievements {
 
     public ModelsPaginatedUserAchievementResponse publicListUserAchievements(PublicListUserAchievements input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicListUserAchievements()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -125,7 +125,7 @@ public class Achievements {
 
     public void publicUnlockAchievement(PublicUnlockAchievement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PublicUnlockAchievement()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

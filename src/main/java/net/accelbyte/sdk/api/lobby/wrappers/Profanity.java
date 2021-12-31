@@ -21,7 +21,7 @@ public class Profanity {
 
     public List<ModelsProfanityFilter> adminDebugProfanityFilters(AdminDebugProfanityFilters input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminDebugProfanityFilters()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Profanity {
 
     public ModelsAdminGetProfanityListFiltersV1Response adminGetProfanityListFiltersV1(AdminGetProfanityListFiltersV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetProfanityListFiltersV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Profanity {
 
     public void adminAddProfanityFilterIntoList(AdminAddProfanityFilterIntoList input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminAddProfanityFilterIntoList()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Profanity {
 
     public void adminAddProfanityFilters(AdminAddProfanityFilters input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminAddProfanityFilters()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Profanity {
 
     public void adminImportProfanityFiltersFromFile(AdminImportProfanityFiltersFromFile input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminImportProfanityFiltersFromFile()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Profanity {
 
     public List<ModelsProfanityFilter> adminDeleteProfanityFilter(AdminDeleteProfanityFilter input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminDeleteProfanityFilter()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class Profanity {
 
     public List<ModelsAdminGetProfanityListsListResponse> adminGetProfanityLists(AdminGetProfanityLists input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetProfanityLists()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class Profanity {
 
     public void adminCreateProfanityList(AdminCreateProfanityList input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminCreateProfanityList()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class Profanity {
 
     public void adminUpdateProfanityList(AdminUpdateProfanityList input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminUpdateProfanityList()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class Profanity {
 
     public void adminDeleteProfanityList(AdminDeleteProfanityList input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminDeleteProfanityList()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class Profanity {
 
     public ModelsProfanityRule adminGetProfanityRule(AdminGetProfanityRule input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetProfanityRule()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -109,7 +109,7 @@ public class Profanity {
 
     public void adminSetProfanityRuleForNamespace(AdminSetProfanityRuleForNamespace input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminSetProfanityRuleForNamespace()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -117,7 +117,7 @@ public class Profanity {
 
     public ModelsAdminVerifyMessageProfanityResponse adminVerifyMessageProfanityResponse(AdminVerifyMessageProfanityResponse input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminVerifyMessageProfanityResponse()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

@@ -21,7 +21,7 @@ public class OrderDedicated {
 
     public OrderSyncResult syncOrders(SyncOrders input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SyncOrders()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

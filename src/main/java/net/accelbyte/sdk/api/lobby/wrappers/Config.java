@@ -21,7 +21,7 @@ public class Config {
 
     public ModelsConfigList adminGetAllConfigV1(AdminGetAllConfigV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetAllConfigV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Config {
 
     public ModelsConfigReq adminGetConfigV1(AdminGetConfigV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetConfigV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Config {
 
     public ModelsConfigReq adminUpdateConfigV1(AdminUpdateConfigV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminUpdateConfigV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Config {
 
     public List<ModelsConfigExport> exportConfig(ExportConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ExportConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Config {
 
     public ModelsImportConfigResponse importConfig(ImportConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ImportConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

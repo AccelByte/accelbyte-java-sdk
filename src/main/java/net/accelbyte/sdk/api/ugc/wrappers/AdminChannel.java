@@ -21,7 +21,7 @@ public class AdminChannel {
 
     public ModelsPaginatedGetChannelResponse singleAdminGetChannel(SingleAdminGetChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SingleAdminGetChannel()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class AdminChannel {
 
     public ModelsChannelResponse adminCreateChannel(AdminCreateChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminCreateChannel()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class AdminChannel {
 
     public ModelsChannelResponse singleAdminUpdateChannel(SingleAdminUpdateChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SingleAdminUpdateChannel()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class AdminChannel {
 
     public void singleAdminDeleteChannel(SingleAdminDeleteChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new SingleAdminDeleteChannel()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class AdminChannel {
 
     public ModelsPaginatedGetChannelResponse adminGetChannel(AdminGetChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetChannel()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class AdminChannel {
 
     public ModelsChannelResponse adminUpdateChannel(AdminUpdateChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminUpdateChannel()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class AdminChannel {
 
     public void adminDeleteChannel(AdminDeleteChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminDeleteChannel()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

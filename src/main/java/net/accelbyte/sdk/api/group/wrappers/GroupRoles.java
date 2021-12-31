@@ -21,7 +21,7 @@ public class GroupRoles {
 
     public ModelsGetMemberRolesListResponseV1 getMemberRolesListAdminV1(GetMemberRolesListAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetMemberRolesListAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class GroupRoles {
 
     public ModelsCreateMemberRoleResponseV1 createMemberRoleAdminV1(CreateMemberRoleAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreateMemberRoleAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class GroupRoles {
 
     public ModelsGetMemberRoleResponseV1 getSingleMemberRoleAdminV1(GetSingleMemberRoleAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetSingleMemberRoleAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class GroupRoles {
 
     public void deleteMemberRoleAdminV1(DeleteMemberRoleAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteMemberRoleAdminV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class GroupRoles {
 
     public ModelsUpdateMemberRoleResponseV1 updateMemberRoleAdminV1(UpdateMemberRoleAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateMemberRoleAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class GroupRoles {
 
     public ModelsUpdateMemberRoleResponseV1 updateMemberRolePermissionAdminV1(UpdateMemberRolePermissionAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateMemberRolePermissionAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class GroupRoles {
 
     public ModelsGetMemberRolesListResponseV1 getMemberRolesListPublicV1(GetMemberRolesListPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetMemberRolesListPublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class GroupRoles {
 
     public ModelsGetUserGroupInformationResponseV1 updateMemberRolePublicV1(UpdateMemberRolePublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateMemberRolePublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class GroupRoles {
 
     public ModelsUpdateMemberRoleResponseV1 deleteMemberRolePublicV1(DeleteMemberRolePublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new DeleteMemberRolePublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

@@ -21,7 +21,7 @@ public class Subscription {
 
     public SubscriptionPagingSlicedResult querySubscriptions(QuerySubscriptions input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new QuerySubscriptions()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Subscription {
 
     public RecurringChargeResult recurringChargeSubscription(RecurringChargeSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RecurringChargeSubscription()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Subscription {
 
     public SubscriptionPagingSlicedResult queryUserSubscriptions(QueryUserSubscriptions input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new QueryUserSubscriptions()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Subscription {
 
     public SubscriptionActivityPagingSlicedResult getUserSubscriptionActivities(GetUserSubscriptionActivities input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserSubscriptionActivities()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Subscription {
 
     public SubscriptionInfo platformSubscribeSubscription(PlatformSubscribeSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PlatformSubscribeSubscription()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Subscription {
 
     public Subscribable checkUserSubscriptionSubscribableByItemId(CheckUserSubscriptionSubscribableByItemId input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CheckUserSubscriptionSubscribableByItemId()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class Subscription {
 
     public SubscriptionInfo getUserSubscription(GetUserSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserSubscription()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class Subscription {
 
     public void deleteUserSubscription(DeleteUserSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteUserSubscription()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class Subscription {
 
     public SubscriptionInfo cancelSubscription(CancelSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CancelSubscription()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class Subscription {
 
     public SubscriptionInfo grantDaysToSubscription(GrantDaysToSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GrantDaysToSubscription()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class Subscription {
 
     public BillingHistoryPagingSlicedResult getUserSubscriptionBillingHistories(GetUserSubscriptionBillingHistories input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserSubscriptionBillingHistories()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -109,7 +109,7 @@ public class Subscription {
 
     public void processUserSubscriptionNotification(ProcessUserSubscriptionNotification input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new ProcessUserSubscriptionNotification()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -117,7 +117,7 @@ public class Subscription {
 
     public SubscriptionPagingSlicedResult publicQueryUserSubscriptions(PublicQueryUserSubscriptions input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicQueryUserSubscriptions()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -125,7 +125,7 @@ public class Subscription {
 
     public void publicSubscribeSubscription(PublicSubscribeSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PublicSubscribeSubscription()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -133,7 +133,7 @@ public class Subscription {
 
     public Subscribable publicCheckUserSubscriptionSubscribableByItemId(PublicCheckUserSubscriptionSubscribableByItemId input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicCheckUserSubscriptionSubscribableByItemId()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -141,7 +141,7 @@ public class Subscription {
 
     public SubscriptionInfo publicGetUserSubscription(PublicGetUserSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetUserSubscription()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -149,7 +149,7 @@ public class Subscription {
 
     public SubscriptionInfo publicChangeSubscriptionBillingAccount(PublicChangeSubscriptionBillingAccount input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicChangeSubscriptionBillingAccount()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -157,7 +157,7 @@ public class Subscription {
 
     public SubscriptionInfo publicCancelSubscription(PublicCancelSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicCancelSubscription()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -165,7 +165,7 @@ public class Subscription {
 
     public BillingHistoryPagingSlicedResult publicGetUserSubscriptionBillingHistories(PublicGetUserSubscriptionBillingHistories input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetUserSubscriptionBillingHistories()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

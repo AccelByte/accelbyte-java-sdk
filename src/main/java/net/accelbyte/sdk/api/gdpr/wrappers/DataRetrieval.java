@@ -21,7 +21,7 @@ public class DataRetrieval {
 
     public List<String> getAdminEmailConfiguration(GetAdminEmailConfiguration input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetAdminEmailConfiguration()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class DataRetrieval {
 
     public void updateAdminEmailConfiguration(UpdateAdminEmailConfiguration input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new UpdateAdminEmailConfiguration()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class DataRetrieval {
 
     public void saveAdminEmailConfiguration(SaveAdminEmailConfiguration input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new SaveAdminEmailConfiguration()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class DataRetrieval {
 
     public void deleteAdminEmailConfiguration(DeleteAdminEmailConfiguration input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteAdminEmailConfiguration()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class DataRetrieval {
 
     public ModelsListPersonalDataResponse adminGetListPersonalDataRequest(AdminGetListPersonalDataRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetListPersonalDataRequest()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class DataRetrieval {
 
     public ModelsUserPersonalDataResponse adminGetUserPersonalDataRequests(AdminGetUserPersonalDataRequests input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetUserPersonalDataRequests()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class DataRetrieval {
 
     public ModelsDataRetrievalResponse adminRequestDataRetrieval(AdminRequestDataRetrieval input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminRequestDataRetrieval()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class DataRetrieval {
 
     public void adminCancelUserPersonalDataRequest(AdminCancelUserPersonalDataRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminCancelUserPersonalDataRequest()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class DataRetrieval {
 
     public ModelsUserDataURL adminGeneratePersonalDataURL(AdminGeneratePersonalDataURL input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGeneratePersonalDataURL()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class DataRetrieval {
 
     public ModelsUserPersonalDataResponse publicGetUserPersonalDataRequests(PublicGetUserPersonalDataRequests input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetUserPersonalDataRequests()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class DataRetrieval {
 
     public ModelsDataRetrievalResponse publicRequestDataRetrieval(PublicRequestDataRetrieval input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicRequestDataRetrieval()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -109,7 +109,7 @@ public class DataRetrieval {
 
     public ModelsListPersonalDataResponse publicCancelUserPersonalDataRequest(PublicCancelUserPersonalDataRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicCancelUserPersonalDataRequest()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -117,7 +117,7 @@ public class DataRetrieval {
 
     public ModelsUserDataURL publicGeneratePersonalDataURL(PublicGeneratePersonalDataURL input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGeneratePersonalDataURL()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

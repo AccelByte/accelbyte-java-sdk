@@ -21,7 +21,7 @@ public class PaymentCallbackConfig {
 
     public PaymentCallbackConfigInfo getPaymentCallbackConfig(GetPaymentCallbackConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetPaymentCallbackConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class PaymentCallbackConfig {
 
     public PaymentCallbackConfigInfo updatePaymentCallbackConfig(UpdatePaymentCallbackConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdatePaymentCallbackConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

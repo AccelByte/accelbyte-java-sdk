@@ -21,7 +21,7 @@ public class PublicGameRecord {
 
     public ModelsGameRecord getGameRecordHandlerV1(GetGameRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetGameRecordHandlerV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class PublicGameRecord {
 
     public void putGameRecordHandlerV1(PutGameRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PutGameRecordHandlerV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class PublicGameRecord {
 
     public void postGameRecordHandlerV1(PostGameRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PostGameRecordHandlerV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class PublicGameRecord {
 
     public void deleteGameRecordHandlerV1(DeleteGameRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteGameRecordHandlerV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

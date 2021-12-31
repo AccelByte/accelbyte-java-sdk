@@ -21,7 +21,7 @@ public class UserVisibility {
 
     public ModelsGetHiddenUserResponse getHiddenUsersV2(GetHiddenUsersV2 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetHiddenUsersV2()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class UserVisibility {
 
     public ModelsGetUserVisibilityResponse getUserVisibilityStatusV2(GetUserVisibilityStatusV2 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserVisibilityStatusV2()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class UserVisibility {
 
     public ModelsGetUserVisibilityResponse setUserLeaderboardVisibilityStatusV2(SetUserLeaderboardVisibilityStatusV2 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SetUserLeaderboardVisibilityStatusV2()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class UserVisibility {
 
     public ModelsGetUserVisibilityResponse setUserVisibilityStatusV2(SetUserVisibilityStatusV2 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SetUserVisibilityStatusV2()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

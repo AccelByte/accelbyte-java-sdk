@@ -21,7 +21,7 @@ public class Misc {
 
     public List<CountryObject> getCountries(GetCountries input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetCountries()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Misc {
 
     public List<RetrieveCountryGroupResponse> getCountryGroups(GetCountryGroups input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetCountryGroups()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Misc {
 
     public AddCountryGroupResponse addCountryGroup(AddCountryGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AddCountryGroup()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Misc {
 
     public CountryGroupObject updateCountryGroup(UpdateCountryGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateCountryGroup()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Misc {
 
     public void deleteCountryGroup(DeleteCountryGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteCountryGroup()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Misc {
 
     public Map<String, ?> getLanguages(GetLanguages input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetLanguages()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class Misc {
 
     public List<String> getTimeZones(GetTimeZones input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetTimeZones()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class Misc {
 
     public RetrieveTimeResponse publicGetTime(PublicGetTime input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetTime()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class Misc {
 
     public List<CountryObject> publicGetCountries(PublicGetCountries input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetCountries()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class Misc {
 
     public Map<String, ?> publicGetLanguages(PublicGetLanguages input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetLanguages()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class Misc {
 
     public List<String> publicGetTimeZones(PublicGetTimeZones input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetTimeZones()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

@@ -21,7 +21,7 @@ public class Payment {
 
     public PaymentNotificationPagingSlicedResult queryPaymentNotifications(QueryPaymentNotifications input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new QueryPaymentNotifications()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Payment {
 
     public PaymentOrderPagingSlicedResult queryPaymentOrders(QueryPaymentOrders input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new QueryPaymentOrders()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Payment {
 
     public List<String> listExtOrderNoByExtTxId(ListExtOrderNoByExtTxId input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ListExtOrderNoByExtTxId()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Payment {
 
     public PaymentOrderInfo getPaymentOrder(GetPaymentOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetPaymentOrder()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Payment {
 
     public PaymentOrderInfo chargePaymentOrder(ChargePaymentOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ChargePaymentOrder()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Payment {
 
     public NotificationProcessResult simulatePaymentOrderNotification(SimulatePaymentOrderNotification input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SimulatePaymentOrderNotification()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class Payment {
 
     public PaymentOrderChargeStatus getPaymentOrderChargeStatus(GetPaymentOrderChargeStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetPaymentOrderChargeStatus()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class Payment {
 
     public PaymentOrderInfo createUserPaymentOrder(CreateUserPaymentOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreateUserPaymentOrder()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class Payment {
 
     public PaymentOrderInfo refundUserPaymentOrder(RefundUserPaymentOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RefundUserPaymentOrder()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

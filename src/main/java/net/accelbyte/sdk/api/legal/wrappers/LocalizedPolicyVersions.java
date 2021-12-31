@@ -21,7 +21,7 @@ public class LocalizedPolicyVersions {
 
     public List<RetrieveLocalizedPolicyVersionResponse> retrieveLocalizedPolicyVersions(RetrieveLocalizedPolicyVersions input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrieveLocalizedPolicyVersions()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class LocalizedPolicyVersions {
 
     public CreateLocalizedPolicyVersionResponse createLocalizedPolicyVersion(CreateLocalizedPolicyVersion input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreateLocalizedPolicyVersion()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class LocalizedPolicyVersions {
 
     public UpdateLocalizedPolicyVersionResponse retrieveSingleLocalizedPolicyVersion(RetrieveSingleLocalizedPolicyVersion input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrieveSingleLocalizedPolicyVersion()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class LocalizedPolicyVersions {
 
     public UpdateLocalizedPolicyVersionResponse updateLocalizedPolicyVersion(UpdateLocalizedPolicyVersion input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateLocalizedPolicyVersion()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class LocalizedPolicyVersions {
 
     public UploadLocalizedPolicyVersionAttachmentResponse requestPresignedURL(RequestPresignedURL input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RequestPresignedURL()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class LocalizedPolicyVersions {
 
     public void setDefaultPolicy(SetDefaultPolicy input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new SetDefaultPolicy()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class LocalizedPolicyVersions {
 
     public RetrieveLocalizedPolicyVersionPublicResponse retrieveSingleLocalizedPolicyVersion1(RetrieveSingleLocalizedPolicyVersion1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrieveSingleLocalizedPolicyVersion1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

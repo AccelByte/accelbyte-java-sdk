@@ -21,7 +21,7 @@ public class Friends {
 
     public List<ModelGetUserFriendsResponse> getUserFriendsUpdated(GetUserFriendsUpdated input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserFriendsUpdated()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Friends {
 
     public List<ModelGetUserIncomingFriendsResponse> getUserIncomingFriends(GetUserIncomingFriends input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserIncomingFriends()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Friends {
 
     public List<ModelGetUserOutgoingFriendsResponse> getUserOutgoingFriends(GetUserOutgoingFriends input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserOutgoingFriends()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Friends {
 
     public void userRequestFriend(UserRequestFriend input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new UserRequestFriend()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Friends {
 
     public void userAcceptFriendRequest(UserAcceptFriendRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new UserAcceptFriendRequest()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Friends {
 
     public void userCancelFriendRequest(UserCancelFriendRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new UserCancelFriendRequest()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class Friends {
 
     public void userRejectFriendRequest(UserRejectFriendRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new UserRejectFriendRequest()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class Friends {
 
     public ModelUserGetFriendshipStatusResponse userGetFriendshipStatus(UserGetFriendshipStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UserGetFriendshipStatus()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class Friends {
 
     public void userUnfriendRequest(UserUnfriendRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new UserUnfriendRequest()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class Friends {
 
     public void addFriendsWithoutConfirmation(AddFriendsWithoutConfirmation input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AddFriendsWithoutConfirmation()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class Friends {
 
     public ModelGetFriendsResponse getListOfFriends(GetListOfFriends input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetListOfFriends()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

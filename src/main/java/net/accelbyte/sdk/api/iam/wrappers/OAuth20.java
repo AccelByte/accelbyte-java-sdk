@@ -21,7 +21,7 @@ public class OAuth20 {
 
     public OauthmodelTokenThirdPartyResponse adminRetrieveUserThirdPartyPlatformTokenV3(AdminRetrieveUserThirdPartyPlatformTokenV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminRetrieveUserThirdPartyPlatformTokenV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class OAuth20 {
 
     public void revokeUserV3(RevokeUserV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new RevokeUserV3()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class OAuth20 {
 
     public String authorizeV3(AuthorizeV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AuthorizeV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class OAuth20 {
 
     public OauthmodelTokenIntrospectResponse tokenIntrospectionV3(TokenIntrospectionV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new TokenIntrospectionV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class OAuth20 {
 
     public OauthcommonJWKSet getJWKSV3(GetJWKSV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetJWKSV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class OAuth20 {
 
     public OauthmodelTokenThirdPartyResponse retrieveUserThirdPartyPlatformTokenV3(RetrieveUserThirdPartyPlatformTokenV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrieveUserThirdPartyPlatformTokenV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class OAuth20 {
 
     public String authCodeRequestV3(AuthCodeRequestV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AuthCodeRequestV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class OAuth20 {
 
     public OauthmodelTokenResponse platformTokenGrantV3(PlatformTokenGrantV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PlatformTokenGrantV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class OAuth20 {
 
     public OauthapiRevocationList getRevocationListV3(GetRevocationListV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetRevocationListV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class OAuth20 {
 
     public void tokenRevocationV3(TokenRevocationV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new TokenRevocationV3()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class OAuth20 {
 
     public OauthmodelTokenResponseV3 tokenGrantV3(TokenGrantV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new TokenGrantV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

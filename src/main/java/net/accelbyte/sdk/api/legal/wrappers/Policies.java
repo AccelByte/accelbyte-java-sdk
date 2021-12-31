@@ -21,7 +21,7 @@ public class Policies {
 
     public List<RetrievePolicyResponse> retrievePolicies(RetrievePolicies input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrievePolicies()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Policies {
 
     public void updatePolicy(UpdatePolicy input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new UpdatePolicy()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Policies {
 
     public void setDefaultPolicy1(SetDefaultPolicy1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new SetDefaultPolicy1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Policies {
 
     public List<RetrievePolicyPublicResponse> retrieveLatestPolicies(RetrieveLatestPolicies input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrieveLatestPolicies()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Policies {
 
     public List<RetrievePolicyPublicResponse> retrieveLatestPoliciesPublic(RetrieveLatestPoliciesPublic input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrieveLatestPoliciesPublic()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Policies {
 
     public List<RetrievePolicyPublicResponse> retrieveLatestPoliciesByNamespaceAndCountryPublic(RetrieveLatestPoliciesByNamespaceAndCountryPublic input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrieveLatestPoliciesByNamespaceAndCountryPublic()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

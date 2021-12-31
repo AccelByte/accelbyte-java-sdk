@@ -21,7 +21,7 @@ public class PaymentDedicated {
 
     public PaymentOrderCreateResult createPaymentOrderByDedicated(CreatePaymentOrderByDedicated input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreatePaymentOrderByDedicated()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class PaymentDedicated {
 
     public PaymentOrderRefundResult refundPaymentOrderByDedicated(RefundPaymentOrderByDedicated input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RefundPaymentOrderByDedicated()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class PaymentDedicated {
 
     public PaymentOrderSyncResult syncPaymentOrders(SyncPaymentOrders input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SyncPaymentOrders()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

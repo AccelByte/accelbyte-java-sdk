@@ -21,7 +21,7 @@ public class AdminType {
 
     public ModelsPaginatedGetTypeResponse adminGetType(AdminGetType input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetType()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class AdminType {
 
     public ModelsCreateTypeResponse adminCreateType(AdminCreateType input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminCreateType()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class AdminType {
 
     public ModelsCreateTypeResponse adminUpdateType(AdminUpdateType input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminUpdateType()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class AdminType {
 
     public void adminDeleteType(AdminDeleteType input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminDeleteType()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

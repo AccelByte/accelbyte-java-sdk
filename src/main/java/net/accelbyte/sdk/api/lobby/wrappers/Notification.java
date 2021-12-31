@@ -21,7 +21,7 @@ public class Notification {
 
     public void sendMultipleUsersFreeformNotificationV1Admin(SendMultipleUsersFreeformNotificationV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new SendMultipleUsersFreeformNotificationV1Admin()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Notification {
 
     public void sendUsersFreeformNotificationV1Admin(SendUsersFreeformNotificationV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new SendUsersFreeformNotificationV1Admin()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Notification {
 
     public void sendPartyFreeformNotificationV1Admin(SendPartyFreeformNotificationV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new SendPartyFreeformNotificationV1Admin()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Notification {
 
     public void sendPartyTemplatedNotificationV1Admin(SendPartyTemplatedNotificationV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new SendPartyTemplatedNotificationV1Admin()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Notification {
 
     public List<ModelNotificationTemplateResponse> getAllNotificationTemplatesV1Admin(GetAllNotificationTemplatesV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetAllNotificationTemplatesV1Admin()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Notification {
 
     public void createNotificationTemplateV1Admin(CreateNotificationTemplateV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new CreateNotificationTemplateV1Admin()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class Notification {
 
     public void sendUsersTemplatedNotificationV1Admin(SendUsersTemplatedNotificationV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new SendUsersTemplatedNotificationV1Admin()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class Notification {
 
     public ModelGetAllNotificationTemplateSlugResp getTemplateSlugLocalizationsTemplateV1Admin(GetTemplateSlugLocalizationsTemplateV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetTemplateSlugLocalizationsTemplateV1Admin()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class Notification {
 
     public void deleteNotificationTemplateSlugV1Admin(DeleteNotificationTemplateSlugV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteNotificationTemplateSlugV1Admin()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class Notification {
 
     public ModelLocalization getSingleTemplateLocalizationV1Admin(GetSingleTemplateLocalizationV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetSingleTemplateLocalizationV1Admin()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class Notification {
 
     public void updateTemplateLocalizationV1Admin(UpdateTemplateLocalizationV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new UpdateTemplateLocalizationV1Admin()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -109,7 +109,7 @@ public class Notification {
 
     public void deleteTemplateLocalizationV1Admin(DeleteTemplateLocalizationV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteTemplateLocalizationV1Admin()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -117,7 +117,7 @@ public class Notification {
 
     public void publishTemplateLocalizationV1Admin(PublishTemplateLocalizationV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PublishTemplateLocalizationV1Admin()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -125,7 +125,7 @@ public class Notification {
 
     public ModelGetAllNotificationTopicsResponse getAllNotificationTopicsV1Admin(GetAllNotificationTopicsV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetAllNotificationTopicsV1Admin()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -133,7 +133,7 @@ public class Notification {
 
     public void createNotificationTopicV1Admin(CreateNotificationTopicV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new CreateNotificationTopicV1Admin()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -141,7 +141,7 @@ public class Notification {
 
     public ModelNotificationTopicResponseV1 getNotificationTopicV1Admin(GetNotificationTopicV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetNotificationTopicV1Admin()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -149,7 +149,7 @@ public class Notification {
 
     public void updateNotificationTopicV1Admin(UpdateNotificationTopicV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new UpdateNotificationTopicV1Admin()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -157,7 +157,7 @@ public class Notification {
 
     public void deleteNotificationTopicV1Admin(DeleteNotificationTopicV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteNotificationTopicV1Admin()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -165,7 +165,7 @@ public class Notification {
 
     public void sendSpecificUserFreeformNotificationV1Admin(SendSpecificUserFreeformNotificationV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new SendSpecificUserFreeformNotificationV1Admin()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -173,7 +173,7 @@ public class Notification {
 
     public void sendSpecificUserTemplatedNotificationV1Admin(SendSpecificUserTemplatedNotificationV1Admin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new SendSpecificUserTemplatedNotificationV1Admin()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -181,7 +181,7 @@ public class Notification {
 
     public void freeFormNotification(FreeFormNotification input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new FreeFormNotification()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -189,7 +189,7 @@ public class Notification {
 
     public void notificationWithTemplate(NotificationWithTemplate input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new NotificationWithTemplate()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -197,7 +197,7 @@ public class Notification {
 
     public List<ModelTemplateResponse> getGameTemplate(GetGameTemplate input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetGameTemplate()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -205,7 +205,7 @@ public class Notification {
 
     public void createTemplate(CreateTemplate input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new CreateTemplate()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -213,7 +213,7 @@ public class Notification {
 
     public ModelTemplateLocalizationResponse getSlugTemplate(GetSlugTemplate input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetSlugTemplate()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -221,7 +221,7 @@ public class Notification {
 
     public void deleteTemplateSlug(DeleteTemplateSlug input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteTemplateSlug()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -229,7 +229,7 @@ public class Notification {
 
     public ModelTemplateLocalization getLocalizationTemplate(GetLocalizationTemplate input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetLocalizationTemplate()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -237,7 +237,7 @@ public class Notification {
 
     public void updateLocalizationTemplate(UpdateLocalizationTemplate input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new UpdateLocalizationTemplate()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -245,7 +245,7 @@ public class Notification {
 
     public void deleteTemplateLocalization(DeleteTemplateLocalization input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteTemplateLocalization()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -253,7 +253,7 @@ public class Notification {
 
     public void publishTemplate(PublishTemplate input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PublishTemplate()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -261,7 +261,7 @@ public class Notification {
 
     public ModelTopicByNamespacesResponse getTopicByNamespace(GetTopicByNamespace input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetTopicByNamespace()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -269,7 +269,7 @@ public class Notification {
 
     public void createTopic(CreateTopic input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new CreateTopic()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -277,7 +277,7 @@ public class Notification {
 
     public ModelNotificationTopicResponse getTopicByTopicName(GetTopicByTopicName input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetTopicByTopicName()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -285,7 +285,7 @@ public class Notification {
 
     public void updateTopicByTopicName(UpdateTopicByTopicName input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new UpdateTopicByTopicName()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -293,7 +293,7 @@ public class Notification {
 
     public void deleteTopicByTopicName(DeleteTopicByTopicName input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteTopicByTopicName()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -301,7 +301,7 @@ public class Notification {
 
     public void freeFormNotificationByUserID(FreeFormNotificationByUserID input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new FreeFormNotificationByUserID()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -309,7 +309,7 @@ public class Notification {
 
     public void notificationWithTemplateByUserID(NotificationWithTemplateByUserID input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new NotificationWithTemplateByUserID()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

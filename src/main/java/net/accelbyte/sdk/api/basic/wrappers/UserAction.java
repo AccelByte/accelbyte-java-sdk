@@ -21,7 +21,7 @@ public class UserAction {
 
     public List<Action> getActions(GetActions input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetActions()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class UserAction {
 
     public void banUsers(BanUsers input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new BanUsers()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class UserAction {
 
     public List<ADTOObjectForEqu8UserBanStatus> getBannedUsers(GetBannedUsers input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetBannedUsers()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class UserAction {
 
     public void reportUser(ReportUser input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new ReportUser()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class UserAction {
 
     public ADTOObjectForEqu8UserStatus getUserStatus(GetUserStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserStatus()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class UserAction {
 
     public void unBanUsers(UnBanUsers input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new UnBanUsers()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class UserAction {
 
     public void publicReportUser(PublicReportUser input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PublicReportUser()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

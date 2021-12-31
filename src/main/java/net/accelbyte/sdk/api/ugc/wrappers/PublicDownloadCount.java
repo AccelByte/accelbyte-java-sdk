@@ -21,7 +21,7 @@ public class PublicDownloadCount {
 
     public ModelsAddDownloadCountResponse addDownloadCount(AddDownloadCount input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AddDownloadCount()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

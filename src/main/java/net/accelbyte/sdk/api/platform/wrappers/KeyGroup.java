@@ -21,7 +21,7 @@ public class KeyGroup {
 
     public KeyGroupPagingSlicedResult queryKeyGroups(QueryKeyGroups input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new QueryKeyGroups()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class KeyGroup {
 
     public KeyGroupInfo createKeyGroup(CreateKeyGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreateKeyGroup()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class KeyGroup {
 
     public KeyGroupInfo getKeyGroup(GetKeyGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetKeyGroup()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class KeyGroup {
 
     public KeyGroupInfo updateKeyGroup(UpdateKeyGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateKeyGroup()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class KeyGroup {
 
     public KeyGroupDynamicInfo getKeyGroupDynamic(GetKeyGroupDynamic input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetKeyGroupDynamic()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class KeyGroup {
 
     public KeyPagingSliceResult listKeys(ListKeys input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ListKeys()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class KeyGroup {
 
     public BulkOperationResult uploadKeys(UploadKeys input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UploadKeys()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

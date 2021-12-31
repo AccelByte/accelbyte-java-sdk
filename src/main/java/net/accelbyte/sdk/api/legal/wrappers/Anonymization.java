@@ -21,7 +21,7 @@ public class Anonymization {
 
     public void anonymizeUserAgreement(AnonymizeUserAgreement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AnonymizeUserAgreement()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

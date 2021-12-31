@@ -21,7 +21,7 @@ public class PaymentAccount {
 
     public List<net.accelbyte.sdk.api.platform.models.PaymentAccount> publicGetPaymentAccounts(PublicGetPaymentAccounts input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetPaymentAccounts()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class PaymentAccount {
 
     public void publicDeletePaymentAccount(PublicDeletePaymentAccount input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PublicDeletePaymentAccount()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

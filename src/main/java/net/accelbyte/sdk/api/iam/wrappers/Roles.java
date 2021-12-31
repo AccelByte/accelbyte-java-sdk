@@ -21,7 +21,7 @@ public class Roles {
 
     public List<ModelRoleResponseWithManagers> getRoles(GetRoles input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetRoles()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Roles {
 
     public AccountcommonRole createRole(CreateRole input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreateRole()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Roles {
 
     public ModelRoleResponse getRole(GetRole input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetRole()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Roles {
 
     public ModelRoleResponse updateRole(UpdateRole input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateRole()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Roles {
 
     public void deleteRole(DeleteRole input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteRole()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Roles {
 
     public ModelRoleAdminStatusResponse getRoleAdminStatus(GetRoleAdminStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetRoleAdminStatus()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class Roles {
 
     public void setRoleAsAdmin(SetRoleAsAdmin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new SetRoleAsAdmin()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class Roles {
 
     public void removeRoleAdmin(RemoveRoleAdmin input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new RemoveRoleAdmin()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class Roles {
 
     public ModelRoleManagersResponse getRoleManagers(GetRoleManagers input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetRoleManagers()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class Roles {
 
     public void addRoleManagers(AddRoleManagers input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AddRoleManagers()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class Roles {
 
     public void removeRoleManagers(RemoveRoleManagers input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new RemoveRoleManagers()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -109,7 +109,7 @@ public class Roles {
 
     public ModelRoleMembersResponse getRoleMembers(GetRoleMembers input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetRoleMembers()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -117,7 +117,7 @@ public class Roles {
 
     public void addRoleMembers(AddRoleMembers input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AddRoleMembers()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -125,7 +125,7 @@ public class Roles {
 
     public void removeRoleMembers(RemoveRoleMembers input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new RemoveRoleMembers()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -133,7 +133,7 @@ public class Roles {
 
     public void updateRolePermissions(UpdateRolePermissions input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new UpdateRolePermissions()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -141,7 +141,7 @@ public class Roles {
 
     public void addRolePermission(AddRolePermission input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AddRolePermission()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -149,7 +149,7 @@ public class Roles {
 
     public void deleteRolePermission(DeleteRolePermission input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteRolePermission()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -157,7 +157,7 @@ public class Roles {
 
     public ModelRoleResponseWithManagersAndPaginationV3 adminGetRolesV3(AdminGetRolesV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetRolesV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -165,7 +165,7 @@ public class Roles {
 
     public AccountcommonRoleV3 adminCreateRoleV3(AdminCreateRoleV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminCreateRoleV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -173,7 +173,7 @@ public class Roles {
 
     public ModelRoleResponseV3 adminGetRoleV3(AdminGetRoleV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetRoleV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -181,7 +181,7 @@ public class Roles {
 
     public void adminDeleteRoleV3(AdminDeleteRoleV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminDeleteRoleV3()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -189,7 +189,7 @@ public class Roles {
 
     public ModelRoleResponseV3 adminUpdateRoleV3(AdminUpdateRoleV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminUpdateRoleV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -197,7 +197,7 @@ public class Roles {
 
     public ModelRoleAdminStatusResponseV3 adminGetRoleAdminStatusV3(AdminGetRoleAdminStatusV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetRoleAdminStatusV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -205,7 +205,7 @@ public class Roles {
 
     public void adminUpdateAdminRoleStatusV3(AdminUpdateAdminRoleStatusV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminUpdateAdminRoleStatusV3()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -213,7 +213,7 @@ public class Roles {
 
     public void adminRemoveRoleAdminV3(AdminRemoveRoleAdminV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminRemoveRoleAdminV3()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -221,7 +221,7 @@ public class Roles {
 
     public ModelRoleManagersResponsesV3 adminGetRoleManagersV3(AdminGetRoleManagersV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetRoleManagersV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -229,7 +229,7 @@ public class Roles {
 
     public void adminAddRoleManagersV3(AdminAddRoleManagersV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminAddRoleManagersV3()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -237,7 +237,7 @@ public class Roles {
 
     public void adminRemoveRoleManagersV3(AdminRemoveRoleManagersV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminRemoveRoleManagersV3()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -245,7 +245,7 @@ public class Roles {
 
     public ModelRoleMembersResponseV3 adminGetRoleMembersV3(AdminGetRoleMembersV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetRoleMembersV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -253,7 +253,7 @@ public class Roles {
 
     public void adminAddRoleMembersV3(AdminAddRoleMembersV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminAddRoleMembersV3()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -261,7 +261,7 @@ public class Roles {
 
     public void adminRemoveRoleMembersV3(AdminRemoveRoleMembersV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminRemoveRoleMembersV3()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -269,7 +269,7 @@ public class Roles {
 
     public void adminUpdateRolePermissionsV3(AdminUpdateRolePermissionsV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminUpdateRolePermissionsV3()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -277,7 +277,7 @@ public class Roles {
 
     public void adminAddRolePermissionsV3(AdminAddRolePermissionsV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminAddRolePermissionsV3()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -285,7 +285,7 @@ public class Roles {
 
     public void adminDeleteRolePermissionsV3(AdminDeleteRolePermissionsV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminDeleteRolePermissionsV3()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -293,7 +293,7 @@ public class Roles {
 
     public void adminDeleteRolePermissionV3(AdminDeleteRolePermissionV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminDeleteRolePermissionV3()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -301,7 +301,7 @@ public class Roles {
 
     public ModelRoleNamesResponseV3 publicGetRolesV3(PublicGetRolesV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetRolesV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -309,7 +309,7 @@ public class Roles {
 
     public ModelRoleResponse publicGetRoleV3(PublicGetRoleV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetRoleV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -317,7 +317,7 @@ public class Roles {
 
     public ModelListRoleV4Response adminGetRolesV4(AdminGetRolesV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetRolesV4()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -325,7 +325,7 @@ public class Roles {
 
     public ModelRoleV4Response adminCreateRoleV4(AdminCreateRoleV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminCreateRoleV4()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -333,7 +333,7 @@ public class Roles {
 
     public ModelRoleV4Response adminGetRoleV4(AdminGetRoleV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetRoleV4()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -341,7 +341,7 @@ public class Roles {
 
     public void adminDeleteRoleV4(AdminDeleteRoleV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminDeleteRoleV4()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -349,7 +349,7 @@ public class Roles {
 
     public ModelRoleV4Response adminUpdateRoleV4(AdminUpdateRoleV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminUpdateRoleV4()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -357,7 +357,7 @@ public class Roles {
 
     public ModelRoleV4Response adminUpdateRolePermissionsV4(AdminUpdateRolePermissionsV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminUpdateRolePermissionsV4()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -365,7 +365,7 @@ public class Roles {
 
     public ModelRoleV4Response adminAddRolePermissionsV4(AdminAddRolePermissionsV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminAddRolePermissionsV4()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -373,7 +373,7 @@ public class Roles {
 
     public void adminDeleteRolePermissionsV4(AdminDeleteRolePermissionsV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminDeleteRolePermissionsV4()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -381,7 +381,7 @@ public class Roles {
 
     public ModelListAssignedUsersV4Response adminListAssignedUsersV4(AdminListAssignedUsersV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminListAssignedUsersV4()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -389,7 +389,7 @@ public class Roles {
 
     public ModelAssignedUserV4Response adminAssignUserToRoleV4(AdminAssignUserToRoleV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminAssignUserToRoleV4()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -397,7 +397,7 @@ public class Roles {
 
     public void adminRevokeUserFromRoleV4(AdminRevokeUserFromRoleV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminRevokeUserFromRoleV4()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

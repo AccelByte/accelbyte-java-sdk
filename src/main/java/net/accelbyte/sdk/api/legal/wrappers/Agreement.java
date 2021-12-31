@@ -21,7 +21,7 @@ public class Agreement {
 
     public List<RetrieveAcceptedAgreementResponse> retrieveAcceptedAgreements(RetrieveAcceptedAgreements input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrieveAcceptedAgreements()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Agreement {
 
     public List<PagedRetrieveUserAcceptedAgreementResponse> retrieveAllUsersByPolicyVersion(RetrieveAllUsersByPolicyVersion input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrieveAllUsersByPolicyVersion()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Agreement {
 
     public void changePreferenceConsent(ChangePreferenceConsent input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new ChangePreferenceConsent()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Agreement {
 
     public void acceptVersionedPolicy(AcceptVersionedPolicy input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AcceptVersionedPolicy()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Agreement {
 
     public List<RetrieveAcceptedAgreementResponse> retrieveAgreementsPublic(RetrieveAgreementsPublic input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrieveAgreementsPublic()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Agreement {
 
     public AcceptAgreementResponse bulkAcceptVersionedPolicy(BulkAcceptVersionedPolicy input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new BulkAcceptVersionedPolicy()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class Agreement {
 
     public AcceptAgreementResponse indirectBulkAcceptVersionedPolicyV2(IndirectBulkAcceptVersionedPolicyV2 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new IndirectBulkAcceptVersionedPolicyV2()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class Agreement {
 
     public AcceptAgreementResponse indirectBulkAcceptVersionedPolicy(IndirectBulkAcceptVersionedPolicy input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new IndirectBulkAcceptVersionedPolicy()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

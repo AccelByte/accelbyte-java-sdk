@@ -21,7 +21,7 @@ public class DataDeletion {
 
     public ModelsListDeletionDataResponse adminGetListDeletionDataRequest(AdminGetListDeletionDataRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetListDeletionDataRequest()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class DataDeletion {
 
     public ModelsDeletionData adminGetUserAccountDeletionRequest(AdminGetUserAccountDeletionRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetUserAccountDeletionRequest()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class DataDeletion {
 
     public ModelsRequestDeleteResponse adminSubmitUserAccountDeletionRequest(AdminSubmitUserAccountDeletionRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminSubmitUserAccountDeletionRequest()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class DataDeletion {
 
     public void adminCancelUserAccountDeletionRequest(AdminCancelUserAccountDeletionRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminCancelUserAccountDeletionRequest()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class DataDeletion {
 
     public ModelsRequestDeleteResponse publicSubmitUserAccountDeletionRequest(PublicSubmitUserAccountDeletionRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicSubmitUserAccountDeletionRequest()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class DataDeletion {
 
     public void publicCancelUserAccountDeletionRequest(PublicCancelUserAccountDeletionRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PublicCancelUserAccountDeletionRequest()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class DataDeletion {
 
     public ModelsDeletionStatus publicGetUserAccountDeletionStatus(PublicGetUserAccountDeletionStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetUserAccountDeletionStatus()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

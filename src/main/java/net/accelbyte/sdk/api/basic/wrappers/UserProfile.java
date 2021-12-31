@@ -21,7 +21,7 @@ public class UserProfile {
 
     public List<UserProfilePublicInfo> adminGetUserProfilePublicInfoByIds(AdminGetUserProfilePublicInfoByIds input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetUserProfilePublicInfoByIds()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class UserProfile {
 
     public UserProfilePrivateInfo getUserProfileInfo(GetUserProfileInfo input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserProfileInfo()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class UserProfile {
 
     public UserProfilePrivateInfo updateUserProfile(UpdateUserProfile input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateUserProfile()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class UserProfile {
 
     public UserProfilePrivateInfo deleteUserProfile(DeleteUserProfile input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new DeleteUserProfile()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class UserProfile {
 
     public Map<String, ?> getCustomAttributesInfo(GetCustomAttributesInfo input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetCustomAttributesInfo()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class UserProfile {
 
     public Map<String, ?> updateCustomAttributesPartially(UpdateCustomAttributesPartially input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateCustomAttributesPartially()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class UserProfile {
 
     public Map<String, ?> getPrivateCustomAttributesInfo(GetPrivateCustomAttributesInfo input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetPrivateCustomAttributesInfo()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class UserProfile {
 
     public Map<String, ?> updatePrivateCustomAttributesPartially(UpdatePrivateCustomAttributesPartially input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdatePrivateCustomAttributesPartially()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class UserProfile {
 
     public UserProfilePrivateInfo updateUserProfileStatus(UpdateUserProfileStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateUserProfileStatus()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class UserProfile {
 
     public List<UserProfilePublicInfo> publicGetUserProfilePublicInfoByIds(PublicGetUserProfilePublicInfoByIds input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetUserProfilePublicInfoByIds()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class UserProfile {
 
     public UserProfilePrivateInfo getMyProfileInfo(GetMyProfileInfo input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetMyProfileInfo()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -109,7 +109,7 @@ public class UserProfile {
 
     public UserProfilePrivateInfo updateMyProfile(UpdateMyProfile input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateMyProfile()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -117,7 +117,7 @@ public class UserProfile {
 
     public UserProfilePrivateInfo createMyProfile(CreateMyProfile input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreateMyProfile()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -125,7 +125,7 @@ public class UserProfile {
 
     public UserZipCode getMyZipCode(GetMyZipCode input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetMyZipCode()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -133,7 +133,7 @@ public class UserProfile {
 
     public UserZipCode updateMyZipCode(UpdateMyZipCode input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateMyZipCode()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -141,7 +141,7 @@ public class UserProfile {
 
     public UserProfileInfo publicGetUserProfileInfo(PublicGetUserProfileInfo input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetUserProfileInfo()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -149,7 +149,7 @@ public class UserProfile {
 
     public UserProfileInfo publicUpdateUserProfile(PublicUpdateUserProfile input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicUpdateUserProfile()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -157,7 +157,7 @@ public class UserProfile {
 
     public UserProfileInfo publicCreateUserProfile(PublicCreateUserProfile input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicCreateUserProfile()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -165,7 +165,7 @@ public class UserProfile {
 
     public Map<String, ?> publicGetCustomAttributesInfo(PublicGetCustomAttributesInfo input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetCustomAttributesInfo()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -173,7 +173,7 @@ public class UserProfile {
 
     public Map<String, ?> publicUpdateCustomAttributesPartially(PublicUpdateCustomAttributesPartially input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicUpdateCustomAttributesPartially()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -181,7 +181,7 @@ public class UserProfile {
 
     public UserProfilePublicInfo publicGetUserProfilePublicInfo(PublicGetUserProfilePublicInfo input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetUserProfilePublicInfo()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -189,7 +189,7 @@ public class UserProfile {
 
     public UserProfileInfo publicUpdateUserProfileStatus(PublicUpdateUserProfileStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicUpdateUserProfileStatus()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

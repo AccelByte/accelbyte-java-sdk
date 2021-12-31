@@ -21,7 +21,7 @@ public class Operations {
 
     public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetMessages()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

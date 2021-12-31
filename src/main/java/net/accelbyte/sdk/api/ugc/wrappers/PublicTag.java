@@ -21,7 +21,7 @@ public class PublicTag {
 
     public ModelsPaginatedGetTagResponse getTag(GetTag input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetTag()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

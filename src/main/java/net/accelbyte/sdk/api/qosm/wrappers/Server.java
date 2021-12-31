@@ -21,7 +21,7 @@ public class Server {
 
     public void heartbeat(Heartbeat input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new Heartbeat()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

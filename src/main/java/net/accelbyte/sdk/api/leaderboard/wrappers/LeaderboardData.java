@@ -21,7 +21,7 @@ public class LeaderboardData {
 
     public List<ModelsArchiveLeaderboardSignedURLResponse> adminGetArchivedLeaderboardRankingDataV1Handler(AdminGetArchivedLeaderboardRankingDataV1Handler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetArchivedLeaderboardRankingDataV1Handler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class LeaderboardData {
 
     public void createArchivedLeaderboardRankingDataV1Handler(CreateArchivedLeaderboardRankingDataV1Handler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new CreateArchivedLeaderboardRankingDataV1Handler()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class LeaderboardData {
 
     public ModelsGetLeaderboardRankingResp getAllTimeLeaderboardRankingAdminV1(GetAllTimeLeaderboardRankingAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetAllTimeLeaderboardRankingAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class LeaderboardData {
 
     public ModelsGetLeaderboardRankingResp getCurrentMonthLeaderboardRankingAdminV1(GetCurrentMonthLeaderboardRankingAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetCurrentMonthLeaderboardRankingAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class LeaderboardData {
 
     public ModelsGetLeaderboardRankingResp getCurrentSeasonLeaderboardRankingAdminV1(GetCurrentSeasonLeaderboardRankingAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetCurrentSeasonLeaderboardRankingAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class LeaderboardData {
 
     public ModelsGetLeaderboardRankingResp getTodayLeaderboardRankingAdminV1(GetTodayLeaderboardRankingAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetTodayLeaderboardRankingAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class LeaderboardData {
 
     public ModelsUserRankingResponse getUserRankingAdminV1(GetUserRankingAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserRankingAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class LeaderboardData {
 
     public ModelsUpdateUserPointAdminV1Response updateUserPointAdminV1(UpdateUserPointAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateUserPointAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class LeaderboardData {
 
     public void deleteUserRankingAdminV1(DeleteUserRankingAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteUserRankingAdminV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class LeaderboardData {
 
     public ModelsGetLeaderboardRankingResp getCurrentWeekLeaderboardRankingAdminV1(GetCurrentWeekLeaderboardRankingAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetCurrentWeekLeaderboardRankingAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class LeaderboardData {
 
     public void deleteUserRankingsAdminV1(DeleteUserRankingsAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteUserRankingsAdminV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -109,7 +109,7 @@ public class LeaderboardData {
 
     public ModelsGetLeaderboardRankingResp getAllTimeLeaderboardRankingPublicV1(GetAllTimeLeaderboardRankingPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetAllTimeLeaderboardRankingPublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -117,7 +117,7 @@ public class LeaderboardData {
 
     public List<ModelsArchiveLeaderboardSignedURLResponse> getArchivedLeaderboardRankingDataV1Handler(GetArchivedLeaderboardRankingDataV1Handler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetArchivedLeaderboardRankingDataV1Handler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -125,7 +125,7 @@ public class LeaderboardData {
 
     public ModelsGetLeaderboardRankingResp getCurrentMonthLeaderboardRankingPublicV1(GetCurrentMonthLeaderboardRankingPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetCurrentMonthLeaderboardRankingPublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -133,7 +133,7 @@ public class LeaderboardData {
 
     public ModelsGetLeaderboardRankingResp getCurrentSeasonLeaderboardRankingPublicV1(GetCurrentSeasonLeaderboardRankingPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetCurrentSeasonLeaderboardRankingPublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -141,7 +141,7 @@ public class LeaderboardData {
 
     public ModelsGetLeaderboardRankingResp getTodayLeaderboardRankingPublicV1(GetTodayLeaderboardRankingPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetTodayLeaderboardRankingPublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -149,7 +149,7 @@ public class LeaderboardData {
 
     public ModelsUserRankingResponse getUserRankingPublicV1(GetUserRankingPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserRankingPublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -157,7 +157,7 @@ public class LeaderboardData {
 
     public void deleteUserRankingPublicV1(DeleteUserRankingPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteUserRankingPublicV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -165,7 +165,7 @@ public class LeaderboardData {
 
     public ModelsGetLeaderboardRankingResp getCurrentWeekLeaderboardRankingPublicV1(GetCurrentWeekLeaderboardRankingPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetCurrentWeekLeaderboardRankingPublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -173,7 +173,7 @@ public class LeaderboardData {
 
     public V2GetPublicLeaderboardRankingResponse getAllTimeLeaderboardRankingPublicV2(GetAllTimeLeaderboardRankingPublicV2 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetAllTimeLeaderboardRankingPublicV2()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

@@ -21,7 +21,7 @@ public class Anonymization {
 
     public void anonymizeCampaign(AnonymizeCampaign input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AnonymizeCampaign()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Anonymization {
 
     public void anonymizeEntitlement(AnonymizeEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AnonymizeEntitlement()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Anonymization {
 
     public void anonymizeFulfillment(AnonymizeFulfillment input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AnonymizeFulfillment()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Anonymization {
 
     public void anonymizeIntegration(AnonymizeIntegration input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AnonymizeIntegration()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Anonymization {
 
     public void anonymizeOrder(AnonymizeOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AnonymizeOrder()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Anonymization {
 
     public void anonymizePayment(AnonymizePayment input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AnonymizePayment()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class Anonymization {
 
     public void anonymizeSubscription(AnonymizeSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AnonymizeSubscription()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class Anonymization {
 
     public void anonymizeWallet(AnonymizeWallet input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AnonymizeWallet()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

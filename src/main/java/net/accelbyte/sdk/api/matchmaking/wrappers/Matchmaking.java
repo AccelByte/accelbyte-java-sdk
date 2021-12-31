@@ -21,7 +21,7 @@ public class Matchmaking {
 
     public ModelsGetChannelsResponse getAllChannelsHandler(GetAllChannelsHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetAllChannelsHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Matchmaking {
 
     public ModelsCreateChannelResponse createChannelHandler(CreateChannelHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreateChannelHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Matchmaking {
 
     public void deleteChannelHandler(DeleteChannelHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteChannelHandler()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Matchmaking {
 
     public ModelsMatchResultResponse storeMatchResults(StoreMatchResults input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new StoreMatchResults()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Matchmaking {
 
     public void queueSessionHandler(QueueSessionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new QueueSessionHandler()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Matchmaking {
 
     public void dequeueSessionHandler(DequeueSessionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DequeueSessionHandler()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class Matchmaking {
 
     public ModelsMatchmakingResult querySessionHandler(QuerySessionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new QuerySessionHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class Matchmaking {
 
     public Map<String, List<ModelsMatchingParty>> getAllPartyInAllChannel(GetAllPartyInAllChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetAllPartyInAllChannel()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class Matchmaking {
 
     public List<ModelsMatchmakingResult> bulkGetSessions(BulkGetSessions input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new BulkGetSessions()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class Matchmaking {
 
     public List<ModelsChannelV1> exportChannels(ExportChannels input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ExportChannels()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class Matchmaking {
 
     public ModelsImportConfigResponse importChannels(ImportChannels input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ImportChannels()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -109,7 +109,7 @@ public class Matchmaking {
 
     public ModelsChannelV1 getSingleMatchmakingChannel(GetSingleMatchmakingChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetSingleMatchmakingChannel()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -117,7 +117,7 @@ public class Matchmaking {
 
     public void updateMatchmakingChannel(UpdateMatchmakingChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new UpdateMatchmakingChannel()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -125,7 +125,7 @@ public class Matchmaking {
 
     public List<ModelsMatchingParty> getAllPartyInChannel(GetAllPartyInChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetAllPartyInChannel()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -133,7 +133,7 @@ public class Matchmaking {
 
     public List<ModelsMatchmakingResult> getAllSessionsInChannel(GetAllSessionsInChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetAllSessionsInChannel()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -141,7 +141,7 @@ public class Matchmaking {
 
     public void addUserIntoSessionInChannel(AddUserIntoSessionInChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AddUserIntoSessionInChannel()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -149,7 +149,7 @@ public class Matchmaking {
 
     public void deleteSessionInChannel(DeleteSessionInChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteSessionInChannel()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -157,7 +157,7 @@ public class Matchmaking {
 
     public void deleteUserFromSessionInChannel(DeleteUserFromSessionInChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteUserFromSessionInChannel()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -165,7 +165,7 @@ public class Matchmaking {
 
     public ServiceGetSessionHistorySearchResponse searchSessions(SearchSessions input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SearchSessions()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -173,7 +173,7 @@ public class Matchmaking {
 
     public List<ServiceGetSessionHistoryDetailedResponseItem> getSessionHistoryDetailed(GetSessionHistoryDetailed input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetSessionHistoryDetailed()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -181,7 +181,7 @@ public class Matchmaking {
 
     public List<ModelsChannelV1> publicGetAllMatchmakingChannel(PublicGetAllMatchmakingChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetAllMatchmakingChannel()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -189,7 +189,7 @@ public class Matchmaking {
 
     public ModelsChannelV1 publicGetSingleMatchmakingChannel(PublicGetSingleMatchmakingChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetSingleMatchmakingChannel()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

@@ -21,7 +21,7 @@ public class IAP {
 
     public AppleIAPConfigInfo getAppleIAPConfig(GetAppleIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetAppleIAPConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class IAP {
 
     public AppleIAPConfigInfo updateAppleIAPConfig(UpdateAppleIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateAppleIAPConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class IAP {
 
     public void deleteAppleIAPConfig(DeleteAppleIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteAppleIAPConfig()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class IAP {
 
     public EpicGamesIAPConfigInfo getEpicGamesIAPConfig(GetEpicGamesIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetEpicGamesIAPConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class IAP {
 
     public EpicGamesIAPConfigInfo updateEpicGamesIAPConfig(UpdateEpicGamesIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateEpicGamesIAPConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class IAP {
 
     public void deleteEpicGamesIAPConfig(DeleteEpicGamesIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteEpicGamesIAPConfig()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class IAP {
 
     public GoogleIAPConfigInfo getGoogleIAPConfig(GetGoogleIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetGoogleIAPConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class IAP {
 
     public GoogleIAPConfigInfo updateGoogleIAPConfig(UpdateGoogleIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateGoogleIAPConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class IAP {
 
     public void deleteGoogleIAPConfig(DeleteGoogleIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteGoogleIAPConfig()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class IAP {
 
     public GoogleIAPConfigInfo updateGoogleP12File(UpdateGoogleP12File input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateGoogleP12File()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class IAP {
 
     public PlayStationIAPConfigInfo getPlayStationIAPConfig(GetPlayStationIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetPlayStationIAPConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -109,7 +109,7 @@ public class IAP {
 
     public PlayStationIAPConfigInfo updatePlaystationIAPConfig(UpdatePlaystationIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdatePlaystationIAPConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -117,7 +117,7 @@ public class IAP {
 
     public void deletePlaystationIAPConfig(DeletePlaystationIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeletePlaystationIAPConfig()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -125,7 +125,7 @@ public class IAP {
 
     public StadiaIAPConfigInfo getStadiaIAPConfig(GetStadiaIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetStadiaIAPConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -133,7 +133,7 @@ public class IAP {
 
     public void deleteStadiaIAPConfig(DeleteStadiaIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteStadiaIAPConfig()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -141,7 +141,7 @@ public class IAP {
 
     public StadiaIAPConfigInfo updateStadiaJsonConfigFile(UpdateStadiaJsonConfigFile input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateStadiaJsonConfigFile()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -149,7 +149,7 @@ public class IAP {
 
     public SteamIAPConfig getSteamIAPConfig(GetSteamIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetSteamIAPConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -157,7 +157,7 @@ public class IAP {
 
     public SteamIAPConfigInfo updateSteamIAPConfig(UpdateSteamIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateSteamIAPConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -165,7 +165,7 @@ public class IAP {
 
     public void deleteSteamIAPConfig(DeleteSteamIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteSteamIAPConfig()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -173,7 +173,7 @@ public class IAP {
 
     public XblIAPConfigInfo getXblIAPConfig(GetXblIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetXblIAPConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -181,7 +181,7 @@ public class IAP {
 
     public XblIAPConfigInfo updateXblIAPConfig(UpdateXblIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateXblIAPConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -189,7 +189,7 @@ public class IAP {
 
     public void deleteXblAPConfig(DeleteXblAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteXblAPConfig()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -197,7 +197,7 @@ public class IAP {
 
     public XblIAPConfigInfo updateXblBPCertFile(UpdateXblBPCertFile input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateXblBPCertFile()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -205,7 +205,7 @@ public class IAP {
 
     public IAPOrderPagingSlicedResult queryUserIAPOrders(QueryUserIAPOrders input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new QueryUserIAPOrders()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -213,7 +213,7 @@ public class IAP {
 
     public void mockFulfillIAPItem(MockFulfillIAPItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new MockFulfillIAPItem()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -221,7 +221,7 @@ public class IAP {
 
     public void publicFulfillAppleIAPItem(PublicFulfillAppleIAPItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PublicFulfillAppleIAPItem()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -229,7 +229,7 @@ public class IAP {
 
     public List<EpicGamesReconcileResult> syncEpicGamesInventory(SyncEpicGamesInventory input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SyncEpicGamesInventory()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -237,7 +237,7 @@ public class IAP {
 
     public void publicFulfillGoogleIAPItem(PublicFulfillGoogleIAPItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PublicFulfillGoogleIAPItem()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -245,7 +245,7 @@ public class IAP {
 
     public List<PlayStationReconcileResult> publicReconcilePlayStationStore(PublicReconcilePlayStationStore input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicReconcilePlayStationStore()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -253,7 +253,7 @@ public class IAP {
 
     public void syncStadiaEntitlement(SyncStadiaEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new SyncStadiaEntitlement()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -261,7 +261,7 @@ public class IAP {
 
     public void syncSteamInventory(SyncSteamInventory input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new SyncSteamInventory()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -269,7 +269,7 @@ public class IAP {
 
     public List<XblReconcileResult> syncXboxInventory(SyncXboxInventory input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SyncXboxInventory()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

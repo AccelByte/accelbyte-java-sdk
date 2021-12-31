@@ -21,7 +21,7 @@ public class PublicPlayerRecord {
 
     public void publicDeletePlayerPublicRecordHandlerV1(PublicDeletePlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PublicDeletePlayerPublicRecordHandlerV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class PublicPlayerRecord {
 
     public ModelsPlayerRecord getPlayerRecordHandlerV1(GetPlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetPlayerRecordHandlerV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class PublicPlayerRecord {
 
     public void putPlayerRecordHandlerV1(PutPlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PutPlayerRecordHandlerV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class PublicPlayerRecord {
 
     public void postPlayerRecordHandlerV1(PostPlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PostPlayerRecordHandlerV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class PublicPlayerRecord {
 
     public void deletePlayerRecordHandlerV1(DeletePlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeletePlayerRecordHandlerV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class PublicPlayerRecord {
 
     public ModelsPlayerRecord getPlayerPublicRecordHandlerV1(GetPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetPlayerPublicRecordHandlerV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class PublicPlayerRecord {
 
     public void putPlayerPublicRecordHandlerV1(PutPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PutPlayerPublicRecordHandlerV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class PublicPlayerRecord {
 
     public void postPlayerPublicRecordHandlerV1(PostPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PostPlayerPublicRecordHandlerV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

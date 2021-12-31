@@ -21,7 +21,7 @@ public class Bans {
 
     public AccountcommonBans getBansType(GetBansType input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetBansType()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Bans {
 
     public AccountcommonBanReasons getListBanReason(GetListBanReason input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetListBanReason()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Bans {
 
     public AccountcommonBansV3 adminGetBansTypeV3(AdminGetBansTypeV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetBansTypeV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Bans {
 
     public AccountcommonBanReasonsV3 adminGetListBanReasonV3(AdminGetListBanReasonV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetListBanReasonV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Bans {
 
     public ModelGetUserBanV3Response adminGetBannedUsersV3(AdminGetBannedUsersV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetBannedUsersV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Bans {
 
     public AccountcommonBansV3 adminGetBansTypeWithNamespaceV3(AdminGetBansTypeWithNamespaceV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetBansTypeWithNamespaceV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

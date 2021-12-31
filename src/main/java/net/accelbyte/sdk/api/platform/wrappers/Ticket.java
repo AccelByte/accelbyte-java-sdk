@@ -21,7 +21,7 @@ public class Ticket {
 
     public TicketDynamicInfo getTicketDynamic(GetTicketDynamic input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetTicketDynamic()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Ticket {
 
     public void decreaseTicketSale(DecreaseTicketSale input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DecreaseTicketSale()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Ticket {
 
     public TicketBoothID getTicketBoothID(GetTicketBoothID input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetTicketBoothID()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Ticket {
 
     public TicketSaleIncrementResult increaseTicketSale(IncreaseTicketSale input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new IncreaseTicketSale()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Ticket {
 
     public TicketAcquireResult acquireUserTicket(AcquireUserTicket input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AcquireUserTicket()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

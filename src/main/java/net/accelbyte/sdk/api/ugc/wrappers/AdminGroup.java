@@ -21,7 +21,7 @@ public class AdminGroup {
 
     public ModelsPaginatedGroupResponse singleAdminGetAllGroups(SingleAdminGetAllGroups input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SingleAdminGetAllGroups()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class AdminGroup {
 
     public ModelsCreateGroupResponse adminCreateGroup(AdminCreateGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminCreateGroup()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class AdminGroup {
 
     public ModelsCreateGroupResponse singleAdminGetGroup(SingleAdminGetGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SingleAdminGetGroup()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class AdminGroup {
 
     public ModelsCreateGroupResponse singleAdminUpdateGroup(SingleAdminUpdateGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SingleAdminUpdateGroup()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class AdminGroup {
 
     public void singleAdminDeleteGroup(SingleAdminDeleteGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new SingleAdminDeleteGroup()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class AdminGroup {
 
     public ModelsPaginatedContentDownloadResponse singleAdminGetGroupContents(SingleAdminGetGroupContents input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SingleAdminGetGroupContents()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class AdminGroup {
 
     public ModelsPaginatedGroupResponse adminGetAllGroups(AdminGetAllGroups input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetAllGroups()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class AdminGroup {
 
     public ModelsCreateGroupResponse adminGetGroup(AdminGetGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetGroup()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class AdminGroup {
 
     public ModelsCreateGroupResponse adminUpdateGroup(AdminUpdateGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminUpdateGroup()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class AdminGroup {
 
     public void adminDeleteGroup(AdminDeleteGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminDeleteGroup()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class AdminGroup {
 
     public ModelsPaginatedContentDownloadResponse adminGetGroupContents(AdminGetGroupContents input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetGroupContents()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

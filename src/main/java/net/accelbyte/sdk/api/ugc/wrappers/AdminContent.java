@@ -21,7 +21,7 @@ public class AdminContent {
 
     public ModelsCreateContentResponse adminUploadContentDirect(AdminUploadContentDirect input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminUploadContentDirect()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class AdminContent {
 
     public ModelsCreateContentResponse adminUploadContentS3(AdminUploadContentS3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminUploadContentS3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class AdminContent {
 
     public ModelsCreateContentResponse singleAdminUpdateContentS3(SingleAdminUpdateContentS3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SingleAdminUpdateContentS3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class AdminContent {
 
     public ModelsPaginatedContentDownloadResponse adminSearchChannelSpecificContent(AdminSearchChannelSpecificContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminSearchChannelSpecificContent()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class AdminContent {
 
     public ModelsCreateContentResponse singleAdminUpdateContentDirect(SingleAdminUpdateContentDirect input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SingleAdminUpdateContentDirect()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class AdminContent {
 
     public void singleAdminDeleteContent(SingleAdminDeleteContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new SingleAdminDeleteContent()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class AdminContent {
 
     public ModelsPaginatedContentDownloadResponse singleAdminGetContent(SingleAdminGetContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SingleAdminGetContent()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class AdminContent {
 
     public ModelsPaginatedContentDownloadResponse adminSearchContent(AdminSearchContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminSearchContent()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class AdminContent {
 
     public ModelsContentDownloadResponse adminGetSpecificContent(AdminGetSpecificContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetSpecificContent()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class AdminContent {
 
     public ModelsGetContentPreviewResponse adminDownloadContentPreview(AdminDownloadContentPreview input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminDownloadContentPreview()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class AdminContent {
 
     public ModelsUpdateScreenshotResponse adminUpdateScreenshots(AdminUpdateScreenshots input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminUpdateScreenshots()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -109,7 +109,7 @@ public class AdminContent {
 
     public ModelsCreateScreenshotResponse adminUploadContentScreenshot(AdminUploadContentScreenshot input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminUploadContentScreenshot()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -117,7 +117,7 @@ public class AdminContent {
 
     public void adminDeleteContentScreenshot(AdminDeleteContentScreenshot input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminDeleteContentScreenshot()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -125,7 +125,7 @@ public class AdminContent {
 
     public ModelsCreateContentResponse adminUpdateContentS3(AdminUpdateContentS3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminUpdateContentS3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -133,7 +133,7 @@ public class AdminContent {
 
     public ModelsCreateContentResponse adminUpdateContentDirect(AdminUpdateContentDirect input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminUpdateContentDirect()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -141,7 +141,7 @@ public class AdminContent {
 
     public void adminDeleteContent(AdminDeleteContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminDeleteContent()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -149,7 +149,7 @@ public class AdminContent {
 
     public ModelsPaginatedContentDownloadResponse adminGetContent(AdminGetContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetContent()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -157,7 +157,7 @@ public class AdminContent {
 
     public ModelsCreateContentResponse adminHideUserContent(AdminHideUserContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminHideUserContent()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

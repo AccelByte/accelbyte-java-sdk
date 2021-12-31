@@ -21,7 +21,7 @@ public class Operations {
 
     public void getHealthcheckInfo(GetHealthcheckInfo input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new GetHealthcheckInfo()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Operations {
 
     public void handlerV3Healthz(HandlerV3Healthz input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new HandlerV3Healthz()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Operations {
 
     public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetMessages()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Operations {
 
     public void versionCheckHandler(VersionCheckHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new VersionCheckHandler()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

@@ -21,7 +21,7 @@ public class ThirdParty {
 
     public ModelsGetConfigResponse adminGetThirdPartyConfig(AdminGetThirdPartyConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetThirdPartyConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class ThirdParty {
 
     public ModelsUpdateConfigResponse adminUpdateThirdPartyConfig(AdminUpdateThirdPartyConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminUpdateThirdPartyConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class ThirdParty {
 
     public ModelsCreateConfigResponse adminCreateThirdPartyConfig(AdminCreateThirdPartyConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminCreateThirdPartyConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class ThirdParty {
 
     public String adminDeleteThirdPartyConfig(AdminDeleteThirdPartyConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminDeleteThirdPartyConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

@@ -21,7 +21,7 @@ public class AdminGameRecord {
 
     public ModelsListGameRecordKeys listGameRecordsHandlerV1(ListGameRecordsHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ListGameRecordsHandlerV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class AdminGameRecord {
 
     public ModelsGameRecord adminGetGameRecordHandlerV1(AdminGetGameRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetGameRecordHandlerV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class AdminGameRecord {
 
     public void adminPutGameRecordHandlerV1(AdminPutGameRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminPutGameRecordHandlerV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class AdminGameRecord {
 
     public void adminPostGameRecordHandlerV1(AdminPostGameRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminPostGameRecordHandlerV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class AdminGameRecord {
 
     public void adminDeleteGameRecordHandlerV1(AdminDeleteGameRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminDeleteGameRecordHandlerV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

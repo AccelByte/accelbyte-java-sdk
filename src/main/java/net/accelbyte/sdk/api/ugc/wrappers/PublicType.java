@@ -21,7 +21,7 @@ public class PublicType {
 
     public ModelsPaginatedGetTypeResponse getType(GetType input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetType()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

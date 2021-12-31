@@ -21,7 +21,7 @@ public class PaymentStation {
 
     public Customization getPaymentCustomization(GetPaymentCustomization input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetPaymentCustomization()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class PaymentStation {
 
     public PaymentUrl publicGetPaymentUrl(PublicGetPaymentUrl input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetPaymentUrl()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class PaymentStation {
 
     public List<PaymentMethod> publicGetPaymentMethods(PublicGetPaymentMethods input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetPaymentMethods()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class PaymentStation {
 
     public PaymentOrderDetails publicGetUnpaidPaymentOrder(PublicGetUnpaidPaymentOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetUnpaidPaymentOrder()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class PaymentStation {
 
     public PaymentProcessResult pay(Pay input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new Pay()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class PaymentStation {
 
     public PaymentOrderPaidResult publicCheckPaymentOrderPaidStatus(PublicCheckPaymentOrderPaidStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicCheckPaymentOrderPaidStatus()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class PaymentStation {
 
     public Map<String, ?> getPaymentPublicConfig(GetPaymentPublicConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetPaymentPublicConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class PaymentStation {
 
     public InputStream publicGetQRCode(PublicGetQRCode input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetQRCode()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class PaymentStation {
 
     public void publicNormalizePaymentReturnUrl(PublicNormalizePaymentReturnUrl input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PublicNormalizePaymentReturnUrl()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class PaymentStation {
 
     public TaxResult getPaymentTaxValue(GetPaymentTaxValue input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetPaymentTaxValue()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

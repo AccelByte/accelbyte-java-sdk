@@ -21,7 +21,7 @@ public class PublicLike {
 
     public ModelsPaginatedContentDownloadResponse getLikedContent(GetLikedContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetLikedContent()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class PublicLike {
 
     public ModelsContentLikeResponse updateContentLikeStatus(UpdateContentLikeStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateContentLikeStatus()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

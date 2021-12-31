@@ -21,7 +21,7 @@ public class TerminatedServers {
 
     public ModelsListTerminatedServersResponse listTerminatedServers(ListTerminatedServers input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ListTerminatedServers()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class TerminatedServers {
 
     public void downloadServerLogs(DownloadServerLogs input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DownloadServerLogs()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class TerminatedServers {
 
     public ModelsLogFileStatus checkServerLogs(CheckServerLogs input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CheckServerLogs()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

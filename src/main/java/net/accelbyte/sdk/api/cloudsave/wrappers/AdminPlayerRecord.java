@@ -21,7 +21,7 @@ public class AdminPlayerRecord {
 
     public ModelsListPlayerRecordKeys listPlayerRecordHandlerV1(ListPlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ListPlayerRecordHandlerV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class AdminPlayerRecord {
 
     public ModelsListPlayerRecordKeys adminRetrievePlayerRecords(AdminRetrievePlayerRecords input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminRetrievePlayerRecords()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class AdminPlayerRecord {
 
     public ModelsPlayerRecord adminGetPlayerRecordHandlerV1(AdminGetPlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetPlayerRecordHandlerV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class AdminPlayerRecord {
 
     public void adminPutPlayerRecordHandlerV1(AdminPutPlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminPutPlayerRecordHandlerV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class AdminPlayerRecord {
 
     public void adminPostPlayerRecordHandlerV1(AdminPostPlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminPostPlayerRecordHandlerV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class AdminPlayerRecord {
 
     public void adminDeletePlayerRecordHandlerV1(AdminDeletePlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminDeletePlayerRecordHandlerV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class AdminPlayerRecord {
 
     public ModelsPlayerRecord adminGetPlayerPublicRecordHandlerV1(AdminGetPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetPlayerPublicRecordHandlerV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class AdminPlayerRecord {
 
     public void adminPutPlayerPublicRecordHandlerV1(AdminPutPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminPutPlayerPublicRecordHandlerV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class AdminPlayerRecord {
 
     public void adminPostPlayerPublicRecordHandlerV1(AdminPostPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminPostPlayerPublicRecordHandlerV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class AdminPlayerRecord {
 
     public void adminDeletePlayerPublicRecordHandlerV1(AdminDeletePlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminDeletePlayerPublicRecordHandlerV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

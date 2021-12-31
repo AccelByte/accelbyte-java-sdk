@@ -21,7 +21,7 @@ public class Event {
 
     public ModelsEventResponse getEventByNamespaceHandler(GetEventByNamespaceHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetEventByNamespaceHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Event {
 
     public void postEventHandler(PostEventHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new PostEventHandler()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Event {
 
     public ModelsEventResponse getEventByEventIDHandler(GetEventByEventIDHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetEventByEventIDHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Event {
 
     public ModelsEventResponse getEventByEventTypeHandler(GetEventByEventTypeHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetEventByEventTypeHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Event {
 
     public ModelsEventResponse getEventByEventTypeAndEventIDHandler(GetEventByEventTypeAndEventIDHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetEventByEventTypeAndEventIDHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Event {
 
     public ModelsEventResponse getEventByUserIDHandler(GetEventByUserIDHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetEventByUserIDHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class Event {
 
     public ModelsEventResponse getEventByUserIDAndEventIDHandler(GetEventByUserIDAndEventIDHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetEventByUserIDAndEventIDHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class Event {
 
     public ModelsEventResponse getEventByUserIDAndEventTypeHandler(GetEventByUserIDAndEventTypeHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetEventByUserIDAndEventTypeHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class Event {
 
     public ModelsEventResponse getEventByUserEventIDAndEventTypeHandler(GetEventByUserEventIDAndEventTypeHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetEventByUserEventIDAndEventTypeHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

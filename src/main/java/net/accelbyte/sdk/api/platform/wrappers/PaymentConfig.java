@@ -21,7 +21,7 @@ public class PaymentConfig {
 
     public TestResult testAdyenConfig(TestAdyenConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new TestAdyenConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class PaymentConfig {
 
     public TestResult testAliPayConfig(TestAliPayConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new TestAliPayConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class PaymentConfig {
 
     public TestResult testCheckoutConfig(TestCheckoutConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new TestCheckoutConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class PaymentConfig {
 
     public PaymentMerchantConfigInfo debugMatchedPaymentMerchantConfig(DebugMatchedPaymentMerchantConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new DebugMatchedPaymentMerchantConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class PaymentConfig {
 
     public TestResult testPayPalConfig(TestPayPalConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new TestPayPalConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class PaymentConfig {
 
     public TestResult testStripeConfig(TestStripeConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new TestStripeConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class PaymentConfig {
 
     public TestResult testWxPayConfig(TestWxPayConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new TestWxPayConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class PaymentConfig {
 
     public TestResult testXsollaConfig(TestXsollaConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new TestXsollaConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class PaymentConfig {
 
     public PaymentMerchantConfigInfo getPaymentMerchantConfig(GetPaymentMerchantConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetPaymentMerchantConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class PaymentConfig {
 
     public PaymentMerchantConfigInfo updateAdyenConfig(UpdateAdyenConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateAdyenConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class PaymentConfig {
 
     public TestResult testAdyenConfigById(TestAdyenConfigById input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new TestAdyenConfigById()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -109,7 +109,7 @@ public class PaymentConfig {
 
     public PaymentMerchantConfigInfo updateAliPayConfig(UpdateAliPayConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateAliPayConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -117,7 +117,7 @@ public class PaymentConfig {
 
     public TestResult testAliPayConfigById(TestAliPayConfigById input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new TestAliPayConfigById()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -125,7 +125,7 @@ public class PaymentConfig {
 
     public PaymentMerchantConfigInfo updateCheckoutConfig(UpdateCheckoutConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateCheckoutConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -133,7 +133,7 @@ public class PaymentConfig {
 
     public TestResult testCheckoutConfigById(TestCheckoutConfigById input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new TestCheckoutConfigById()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -141,7 +141,7 @@ public class PaymentConfig {
 
     public PaymentMerchantConfigInfo updatePayPalConfig(UpdatePayPalConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdatePayPalConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -149,7 +149,7 @@ public class PaymentConfig {
 
     public TestResult testPayPalConfigById(TestPayPalConfigById input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new TestPayPalConfigById()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -157,7 +157,7 @@ public class PaymentConfig {
 
     public PaymentMerchantConfigInfo updateStripeConfig(UpdateStripeConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateStripeConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -165,7 +165,7 @@ public class PaymentConfig {
 
     public TestResult testStripeConfigById(TestStripeConfigById input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new TestStripeConfigById()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -173,7 +173,7 @@ public class PaymentConfig {
 
     public PaymentMerchantConfigInfo updateWxPayConfig(UpdateWxPayConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateWxPayConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -181,7 +181,7 @@ public class PaymentConfig {
 
     public PaymentMerchantConfigInfo updateWxPayConfigCert(UpdateWxPayConfigCert input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateWxPayConfigCert()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -189,7 +189,7 @@ public class PaymentConfig {
 
     public TestResult testWxPayConfigById(TestWxPayConfigById input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new TestWxPayConfigById()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -197,7 +197,7 @@ public class PaymentConfig {
 
     public PaymentMerchantConfigInfo updateXsollaConfig(UpdateXsollaConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateXsollaConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -205,7 +205,7 @@ public class PaymentConfig {
 
     public TestResult testXsollaConfigById(TestXsollaConfigById input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new TestXsollaConfigById()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -213,7 +213,7 @@ public class PaymentConfig {
 
     public PaymentMerchantConfigInfo updateXsollaUIConfig(UpdateXsollaUIConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateXsollaUIConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -221,7 +221,7 @@ public class PaymentConfig {
 
     public PaymentProviderConfigPagingSlicedResult queryPaymentProviderConfig(QueryPaymentProviderConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new QueryPaymentProviderConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -229,7 +229,7 @@ public class PaymentConfig {
 
     public PaymentProviderConfigInfo createPaymentProviderConfig(CreatePaymentProviderConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreatePaymentProviderConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -237,7 +237,7 @@ public class PaymentConfig {
 
     public List<String> getAggregatePaymentProviders(GetAggregatePaymentProviders input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetAggregatePaymentProviders()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -245,7 +245,7 @@ public class PaymentConfig {
 
     public PaymentProviderConfigInfo debugMatchedPaymentProviderConfig(DebugMatchedPaymentProviderConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new DebugMatchedPaymentProviderConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -253,7 +253,7 @@ public class PaymentConfig {
 
     public List<String> getSpecialPaymentProviders(GetSpecialPaymentProviders input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetSpecialPaymentProviders()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -261,7 +261,7 @@ public class PaymentConfig {
 
     public PaymentProviderConfigInfo updatePaymentProviderConfig(UpdatePaymentProviderConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdatePaymentProviderConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -269,7 +269,7 @@ public class PaymentConfig {
 
     public void deletePaymentProviderConfig(DeletePaymentProviderConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeletePaymentProviderConfig()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -277,7 +277,7 @@ public class PaymentConfig {
 
     public PaymentTaxConfigInfo getPaymentTaxConfig(GetPaymentTaxConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetPaymentTaxConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -285,7 +285,7 @@ public class PaymentConfig {
 
     public PaymentTaxConfigInfo updatePaymentTaxConfig(UpdatePaymentTaxConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdatePaymentTaxConfig()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

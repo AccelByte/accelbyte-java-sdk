@@ -21,7 +21,7 @@ public class Admin {
 
     public void deleteServer(DeleteServer input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteServer()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Admin {
 
     public void setServerAlias(SetServerAlias input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new SetServerAlias()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

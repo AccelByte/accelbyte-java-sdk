@@ -21,7 +21,7 @@ public class LeaderboardConfiguration {
 
     public ModelsGetAllLeaderboardConfigsResp getLeaderboardConfigurationsAdminV1(GetLeaderboardConfigurationsAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetLeaderboardConfigurationsAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class LeaderboardConfiguration {
 
     public ModelsLeaderboardConfigReq createLeaderboardConfigurationAdminV1(CreateLeaderboardConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreateLeaderboardConfigurationAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class LeaderboardConfiguration {
 
     public ModelsDeleteBulkLeaderboardsResp deleteBulkLeaderboardConfigurationAdminV1(DeleteBulkLeaderboardConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new DeleteBulkLeaderboardConfigurationAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class LeaderboardConfiguration {
 
     public ModelsGetLeaderboardConfigResp getLeaderboardConfigurationAdminV1(GetLeaderboardConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetLeaderboardConfigurationAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class LeaderboardConfiguration {
 
     public ModelsGetLeaderboardConfigResp updateLeaderboardConfigurationAdminV1(UpdateLeaderboardConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateLeaderboardConfigurationAdminV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class LeaderboardConfiguration {
 
     public void deleteLeaderboardConfigurationAdminV1(DeleteLeaderboardConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteLeaderboardConfigurationAdminV1()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class LeaderboardConfiguration {
 
     public ModelsGetAllLeaderboardConfigsPublicResp getLeaderboardConfigurationsPublicV1(GetLeaderboardConfigurationsPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetLeaderboardConfigurationsPublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class LeaderboardConfiguration {
 
     public ModelsLeaderboardConfigReq createLeaderboardConfigurationPublicV1(CreateLeaderboardConfigurationPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreateLeaderboardConfigurationPublicV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class LeaderboardConfiguration {
 
     public V2GetAllLeaderboardConfigsPublicResp getLeaderboardConfigurationsPublicV2(GetLeaderboardConfigurationsPublicV2 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetLeaderboardConfigurationsPublicV2()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

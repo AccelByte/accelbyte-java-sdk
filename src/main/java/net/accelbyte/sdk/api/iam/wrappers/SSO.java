@@ -21,7 +21,7 @@ public class SSO {
 
     public void loginSSOClient(LoginSSOClient input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new LoginSSOClient()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class SSO {
 
     public void logoutSSOClient(LogoutSSOClient input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new LogoutSSOClient()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

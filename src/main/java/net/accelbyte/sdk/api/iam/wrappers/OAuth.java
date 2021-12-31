@@ -21,7 +21,7 @@ public class OAuth {
 
     public String authorization(Authorization input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new Authorization()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class OAuth {
 
     public OauthcommonJWKSet getJWKS(GetJWKS input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetJWKS()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class OAuth {
 
     public OauthmodelTokenResponse platformTokenRequestHandler(PlatformTokenRequestHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PlatformTokenRequestHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class OAuth {
 
     public void revokeUser(RevokeUser input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new RevokeUser()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class OAuth {
 
     public OauthapiRevocationList getRevocationList(GetRevocationList input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetRevocationList()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class OAuth {
 
     public void revokeToken(RevokeToken input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new RevokeToken()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class OAuth {
 
     public void revokeAUser(RevokeAUser input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new RevokeAUser()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class OAuth {
 
     public OauthmodelTokenResponse tokenGrant(TokenGrant input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new TokenGrant()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class OAuth {
 
     public OauthmodelTokenResponse verifyToken(VerifyToken input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new VerifyToken()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

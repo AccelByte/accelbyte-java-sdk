@@ -21,7 +21,7 @@ public class Player {
 
     public ModelsGetLobbyCcuResponse adminGetLobbyCCU(AdminGetLobbyCCU input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetLobbyCCU()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Player {
 
     public ModelsGetAllPlayerSessionAttributeResponse adminGetAllPlayerSessionAttribute(AdminGetAllPlayerSessionAttribute input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetAllPlayerSessionAttribute()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Player {
 
     public void adminSetPlayerSessionAttribute(AdminSetPlayerSessionAttribute input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new AdminSetPlayerSessionAttribute()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Player {
 
     public ModelsGetPlayerSessionAttributeResponse adminGetPlayerSessionAttribute(AdminGetPlayerSessionAttribute input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetPlayerSessionAttribute()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Player {
 
     public ModelsGetAllPlayerBlockedUsersResponse adminGetPlayerBlockedPlayersV1(AdminGetPlayerBlockedPlayersV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetPlayerBlockedPlayersV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Player {
 
     public ModelsGetAllPlayerBlockedByUsersResponse adminGetPlayerBlockedByPlayersV1(AdminGetPlayerBlockedByPlayersV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminGetPlayerBlockedByPlayersV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class Player {
 
     public Integer adminBulkBlockPlayersV1(AdminBulkBlockPlayersV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminBulkBlockPlayersV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class Player {
 
     public ModelsGetAllPlayerBlockedUsersResponse publicGetPlayerBlockedPlayersV1(PublicGetPlayerBlockedPlayersV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetPlayerBlockedPlayersV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class Player {
 
     public ModelsGetAllPlayerBlockedByUsersResponse publicGetPlayerBlockedByPlayersV1(PublicGetPlayerBlockedByPlayersV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetPlayerBlockedByPlayersV1()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

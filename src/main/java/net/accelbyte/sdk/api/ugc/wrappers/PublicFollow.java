@@ -21,7 +21,7 @@ public class PublicFollow {
 
     public ModelsPaginatedContentDownloadResponse getFollowedContent(GetFollowedContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetFollowedContent()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class PublicFollow {
 
     public ModelsPaginatedCreatorOverviewResponse getFollowedUsers(GetFollowedUsers input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetFollowedUsers()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class PublicFollow {
 
     public ModelsUserFollowResponse updateUserFollowStatus(UpdateUserFollowStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateUserFollowStatus()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

@@ -21,7 +21,7 @@ public class EventDescriptions {
 
     public ModelsMultipleAgentType agentTypeDescriptionHandler(AgentTypeDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AgentTypeDescriptionHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class EventDescriptions {
 
     public ModelsMultipleAgentType specificAgentTypeDescriptionHandler(SpecificAgentTypeDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SpecificAgentTypeDescriptionHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class EventDescriptions {
 
     public ModelsMultipleEventID eventIDDescriptionHandler(EventIDDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new EventIDDescriptionHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class EventDescriptions {
 
     public ModelsMultipleEventID specificEventIDDescriptionHandler(SpecificEventIDDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SpecificEventIDDescriptionHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class EventDescriptions {
 
     public ModelsMultipleEventLevel eventLevelDescriptionHandler(EventLevelDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new EventLevelDescriptionHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class EventDescriptions {
 
     public ModelsMultipleEventLevel specificEventLevelDescriptionHandler(SpecificEventLevelDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SpecificEventLevelDescriptionHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class EventDescriptions {
 
     public ModelsMultipleEventType eventTypeDescriptionHandler(EventTypeDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new EventTypeDescriptionHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class EventDescriptions {
 
     public ModelsMultipleEventType specificEventTypeDescriptionHandler(SpecificEventTypeDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SpecificEventTypeDescriptionHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class EventDescriptions {
 
     public ModelsMultipleUX uxNameDescriptionHandler(UXNameDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UXNameDescriptionHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class EventDescriptions {
 
     public ModelsMultipleUX specificUXDescriptionHandler(SpecificUXDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new SpecificUXDescriptionHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

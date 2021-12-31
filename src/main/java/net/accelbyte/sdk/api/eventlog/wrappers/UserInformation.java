@@ -21,7 +21,7 @@ public class UserInformation {
 
     public ModelsEventResponse getUserActivitiesHandler(GetUserActivitiesHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserActivitiesHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class UserInformation {
 
     public void deleteUserActivitiesHandler(DeleteUserActivitiesHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteUserActivitiesHandler()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class UserInformation {
 
     public ModelsUserLastActivity lastUserActivityTimeHandler(LastUserActivityTimeHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new LastUserActivityTimeHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

@@ -21,7 +21,7 @@ public class Fulfillment {
 
     public FulfillmentHistoryPagingSlicedResult queryFulfillmentHistories(QueryFulfillmentHistories input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new QueryFulfillmentHistories()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Fulfillment {
 
     public FulfillmentResult fulfillItem(FulfillItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new FulfillItem()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Fulfillment {
 
     public FulfillmentResult redeemCode(RedeemCode input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RedeemCode()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Fulfillment {
 
     public FulfillmentResult publicRedeemCode(PublicRedeemCode input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicRedeemCode()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

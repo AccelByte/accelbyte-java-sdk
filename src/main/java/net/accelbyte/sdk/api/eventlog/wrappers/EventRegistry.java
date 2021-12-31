@@ -21,7 +21,7 @@ public class EventRegistry {
 
     public ModelsEventRegistry getRegisteredEventsHandler(GetRegisteredEventsHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetRegisteredEventsHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class EventRegistry {
 
     public void registerEventHandler(RegisterEventHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new RegisterEventHandler()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class EventRegistry {
 
     public ModelsEventRegistry getRegisteredEventIDHandler(GetRegisteredEventIDHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetRegisteredEventIDHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class EventRegistry {
 
     public void updateEventRegistryHandler(UpdateEventRegistryHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new UpdateEventRegistryHandler()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class EventRegistry {
 
     public void unregisterEventIDHandler(UnregisterEventIDHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new UnregisterEventIDHandler()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class EventRegistry {
 
     public ModelsEventRegistry getRegisteredEventsByEventTypeHandler(GetRegisteredEventsByEventTypeHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetRegisteredEventsByEventTypeHandler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

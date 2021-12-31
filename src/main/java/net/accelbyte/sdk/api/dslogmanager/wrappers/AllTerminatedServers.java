@@ -21,7 +21,7 @@ public class AllTerminatedServers {
 
     public void batchDownloadServerLogs(BatchDownloadServerLogs input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new BatchDownloadServerLogs()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class AllTerminatedServers {
 
     public ModelsListTerminatedServersResponse listAllTerminatedServers(ListAllTerminatedServers input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ListAllTerminatedServers()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

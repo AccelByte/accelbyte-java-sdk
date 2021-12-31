@@ -21,7 +21,7 @@ public class Eligibilities {
 
     public List<RetrieveUserEligibilitiesResponse> retrieveEligibilitiesPublic(RetrieveEligibilitiesPublic input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrieveEligibilitiesPublic()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Eligibilities {
 
     public RetrieveUserEligibilitiesIndirectResponse retrieveEligibilitiesPublicIndirect(RetrieveEligibilitiesPublicIndirect input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrieveEligibilitiesPublicIndirect()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

@@ -21,7 +21,7 @@ public class Wallet {
 
     public void checkWallet(CheckWallet input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new CheckWallet()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Wallet {
 
     public WalletInfo creditUserWallet(CreditUserWallet input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreditUserWallet()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Wallet {
 
     public WalletInfo payWithUserWallet(PayWithUserWallet input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PayWithUserWallet()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Wallet {
 
     public WalletInfo getUserWallet(GetUserWallet input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserWallet()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Wallet {
 
     public WalletInfo debitUserWallet(DebitUserWallet input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new DebitUserWallet()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Wallet {
 
     public void disableUserWallet(DisableUserWallet input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DisableUserWallet()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class Wallet {
 
     public void enableUserWallet(EnableUserWallet input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new EnableUserWallet()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class Wallet {
 
     public WalletTransactionPagingSlicedResult listUserWalletTransactions(ListUserWalletTransactions input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ListUserWalletTransactions()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class Wallet {
 
     public WalletPagingSlicedResult queryWallets(QueryWallets input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new QueryWallets()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class Wallet {
 
     public WalletInfo getWallet(GetWallet input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetWallet()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class Wallet {
 
     public WalletInfo publicGetMyWallet(PublicGetMyWallet input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetMyWallet()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -109,7 +109,7 @@ public class Wallet {
 
     public WalletInfo publicGetWallet(PublicGetWallet input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetWallet()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -117,7 +117,7 @@ public class Wallet {
 
     public WalletTransactionPagingSlicedResult publicListUserWalletTransactions(PublicListUserWalletTransactions input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicListUserWalletTransactions()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

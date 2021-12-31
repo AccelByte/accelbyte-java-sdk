@@ -21,7 +21,7 @@ public class SSOCredential {
 
     public List<ModelSSOPlatformCredentialResponse> retrieveAllSSOLoginPlatformCredentialV3(RetrieveAllSSOLoginPlatformCredentialV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrieveAllSSOLoginPlatformCredentialV3()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class SSOCredential {
 
     public ModelSSOPlatformCredentialResponse retrieveSSOLoginPlatformCredential(RetrieveSSOLoginPlatformCredential input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrieveSSOLoginPlatformCredential()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class SSOCredential {
 
     public ModelSSOPlatformCredentialResponse addSSOLoginPlatformCredential(AddSSOLoginPlatformCredential input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AddSSOLoginPlatformCredential()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class SSOCredential {
 
     public void deleteSSOLoginPlatformCredentialV3(DeleteSSOLoginPlatformCredentialV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new DeleteSSOLoginPlatformCredentialV3()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class SSOCredential {
 
     public ModelSSOPlatformCredentialResponse updateSSOPlatformCredential(UpdateSSOPlatformCredential input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateSSOPlatformCredential()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

@@ -21,7 +21,7 @@ public class SSOSAML20 {
 
     public String platformAuthenticateSAMLV3Handler(PlatformAuthenticateSAMLV3Handler input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PlatformAuthenticateSAMLV3Handler()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

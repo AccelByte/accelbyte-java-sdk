@@ -21,7 +21,7 @@ public class FileUpload {
 
     public FileUploadUrlInfo generatedUploadUrl(GeneratedUploadUrl input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GeneratedUploadUrl()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class FileUpload {
 
     public FileUploadUrlInfo generatedUserUploadContentUrl(GeneratedUserUploadContentUrl input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GeneratedUserUploadContentUrl()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class FileUpload {
 
     public FileUploadUrlInfo publicGeneratedUploadUrl(PublicGeneratedUploadUrl input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGeneratedUploadUrl()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class FileUpload {
 
     public FileUploadUrlInfo publicGeneratedUserUploadContentUrl(PublicGeneratedUserUploadContentUrl input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGeneratedUserUploadContentUrl()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

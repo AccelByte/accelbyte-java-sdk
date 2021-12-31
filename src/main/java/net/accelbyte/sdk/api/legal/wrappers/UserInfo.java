@@ -21,7 +21,7 @@ public class UserInfo {
 
     public List<RetrieveUserInfoCacheStatusResponse> getUserInfoStatus(GetUserInfoStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserInfoStatus()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class UserInfo {
 
     public void syncUserInfo(SyncUserInfo input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new SyncUserInfo()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class UserInfo {
 
     public void invalidateUserInfoCache(InvalidateUserInfoCache input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            new InvalidateUserInfoCache()
+            input
                 .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

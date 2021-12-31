@@ -21,7 +21,7 @@ public class Chat {
 
     public List<ModelChatMessageResponse> personalChatHistory(PersonalChatHistory input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PersonalChatHistory()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Chat {
 
     public List<ModelChatMessageResponse> adminChatHistory(AdminChatHistory input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new AdminChatHistory()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Chat {
 
     public List<ModelChatMessageResponse> getPersonalChatHistoryV1Public(GetPersonalChatHistoryV1Public input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetPersonalChatHistoryV1Public()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

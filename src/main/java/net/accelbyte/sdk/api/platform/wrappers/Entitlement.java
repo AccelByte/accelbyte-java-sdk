@@ -21,7 +21,7 @@ public class Entitlement {
 
     public EntitlementPagingSlicedResult queryEntitlements(QueryEntitlements input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new QueryEntitlements()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class Entitlement {
 
     public EntitlementInfo getEntitlement(GetEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetEntitlement()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class Entitlement {
 
     public EntitlementPagingSlicedResult queryUserEntitlements(QueryUserEntitlements input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new QueryUserEntitlements()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class Entitlement {
 
     public List<StackableEntitlementInfo> grantUserEntitlement(GrantUserEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GrantUserEntitlement()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class Entitlement {
 
     public AppEntitlementInfo getUserAppEntitlementByAppId(GetUserAppEntitlementByAppId input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserAppEntitlementByAppId()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class Entitlement {
 
     public AppEntitlementPagingSlicedResult queryUserEntitlementsByAppType(QueryUserEntitlementsByAppType input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new QueryUserEntitlementsByAppType()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -69,7 +69,7 @@ public class Entitlement {
 
     public EntitlementInfo getUserEntitlementByItemId(GetUserEntitlementByItemId input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserEntitlementByItemId()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -77,7 +77,7 @@ public class Entitlement {
 
     public EntitlementInfo getUserEntitlementBySku(GetUserEntitlementBySku input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserEntitlementBySku()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -85,7 +85,7 @@ public class Entitlement {
 
     public Ownership existsAnyUserActiveEntitlement(ExistsAnyUserActiveEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ExistsAnyUserActiveEntitlement()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -93,7 +93,7 @@ public class Entitlement {
 
     public Ownership existsAnyUserActiveEntitlementByItemIds(ExistsAnyUserActiveEntitlementByItemIds input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ExistsAnyUserActiveEntitlementByItemIds()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -101,7 +101,7 @@ public class Entitlement {
 
     public Ownership getUserAppEntitlementOwnershipByAppId(GetUserAppEntitlementOwnershipByAppId input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserAppEntitlementOwnershipByAppId()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -109,7 +109,7 @@ public class Entitlement {
 
     public TimedOwnership getUserEntitlementOwnershipByItemId(GetUserEntitlementOwnershipByItemId input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserEntitlementOwnershipByItemId()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -117,7 +117,7 @@ public class Entitlement {
 
     public TimedOwnership getUserEntitlementOwnershipBySku(GetUserEntitlementOwnershipBySku input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserEntitlementOwnershipBySku()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -125,7 +125,7 @@ public class Entitlement {
 
     public BulkOperationResult revokeUserEntitlements(RevokeUserEntitlements input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RevokeUserEntitlements()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -133,7 +133,7 @@ public class Entitlement {
 
     public EntitlementInfo getUserEntitlement(GetUserEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserEntitlement()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -141,7 +141,7 @@ public class Entitlement {
 
     public EntitlementInfo updateUserEntitlement(UpdateUserEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new UpdateUserEntitlement()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -149,7 +149,7 @@ public class Entitlement {
 
     public EntitlementInfo consumeUserEntitlement(ConsumeUserEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new ConsumeUserEntitlement()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -157,7 +157,7 @@ public class Entitlement {
 
     public EntitlementInfo disableUserEntitlement(DisableUserEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new DisableUserEntitlement()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -165,7 +165,7 @@ public class Entitlement {
 
     public EntitlementInfo enableUserEntitlement(EnableUserEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new EnableUserEntitlement()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -173,7 +173,7 @@ public class Entitlement {
 
     public List<EntitlementHistoryInfo> getUserEntitlementHistories(GetUserEntitlementHistories input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new GetUserEntitlementHistories()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -181,7 +181,7 @@ public class Entitlement {
 
     public EntitlementInfo revokeUserEntitlement(RevokeUserEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RevokeUserEntitlement()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -189,7 +189,7 @@ public class Entitlement {
 
     public Ownership publicExistsAnyMyActiveEntitlement(PublicExistsAnyMyActiveEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicExistsAnyMyActiveEntitlement()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -197,7 +197,7 @@ public class Entitlement {
 
     public Ownership publicGetMyAppEntitlementOwnershipByAppId(PublicGetMyAppEntitlementOwnershipByAppId input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetMyAppEntitlementOwnershipByAppId()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -205,7 +205,7 @@ public class Entitlement {
 
     public TimedOwnership publicGetMyEntitlementOwnershipByItemId(PublicGetMyEntitlementOwnershipByItemId input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetMyEntitlementOwnershipByItemId()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -213,7 +213,7 @@ public class Entitlement {
 
     public TimedOwnership publicGetMyEntitlementOwnershipBySku(PublicGetMyEntitlementOwnershipBySku input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetMyEntitlementOwnershipBySku()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -221,7 +221,7 @@ public class Entitlement {
 
     public OwnershipToken publicGetEntitlementOwnershipToken(PublicGetEntitlementOwnershipToken input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetEntitlementOwnershipToken()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -229,7 +229,7 @@ public class Entitlement {
 
     public EntitlementPagingSlicedResult publicQueryUserEntitlements(PublicQueryUserEntitlements input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicQueryUserEntitlements()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -237,7 +237,7 @@ public class Entitlement {
 
     public AppEntitlementInfo publicGetUserAppEntitlementByAppId(PublicGetUserAppEntitlementByAppId input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetUserAppEntitlementByAppId()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -245,7 +245,7 @@ public class Entitlement {
 
     public AppEntitlementPagingSlicedResult publicQueryUserEntitlementsByAppType(PublicQueryUserEntitlementsByAppType input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicQueryUserEntitlementsByAppType()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -253,7 +253,7 @@ public class Entitlement {
 
     public EntitlementInfo publicGetUserEntitlementByItemId(PublicGetUserEntitlementByItemId input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetUserEntitlementByItemId()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -261,7 +261,7 @@ public class Entitlement {
 
     public EntitlementInfo publicGetUserEntitlementBySku(PublicGetUserEntitlementBySku input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetUserEntitlementBySku()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -269,7 +269,7 @@ public class Entitlement {
 
     public Ownership publicExistsAnyUserActiveEntitlement(PublicExistsAnyUserActiveEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicExistsAnyUserActiveEntitlement()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -277,7 +277,7 @@ public class Entitlement {
 
     public Ownership publicGetUserAppEntitlementOwnershipByAppId(PublicGetUserAppEntitlementOwnershipByAppId input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetUserAppEntitlementOwnershipByAppId()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -285,7 +285,7 @@ public class Entitlement {
 
     public TimedOwnership publicGetUserEntitlementOwnershipByItemId(PublicGetUserEntitlementOwnershipByItemId input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetUserEntitlementOwnershipByItemId()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -293,7 +293,7 @@ public class Entitlement {
 
     public TimedOwnership publicGetUserEntitlementOwnershipBySku(PublicGetUserEntitlementOwnershipBySku input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetUserEntitlementOwnershipBySku()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -301,7 +301,7 @@ public class Entitlement {
 
     public EntitlementInfo publicGetUserEntitlement(PublicGetUserEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicGetUserEntitlement()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -309,7 +309,7 @@ public class Entitlement {
 
     public EntitlementInfo publicConsumeUserEntitlement(PublicConsumeUserEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PublicConsumeUserEntitlement()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );

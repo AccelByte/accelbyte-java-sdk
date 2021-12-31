@@ -21,7 +21,7 @@ public class BaseLegalPolicies {
 
     public List<RetrieveBasePolicyResponse> retrieveAllLegalPolicies(RetrieveAllLegalPolicies input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrieveAllLegalPolicies()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -29,7 +29,7 @@ public class BaseLegalPolicies {
 
     public CreateBasePolicyResponse createPolicy(CreatePolicy input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new CreatePolicy()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -37,7 +37,7 @@ public class BaseLegalPolicies {
 
     public RetrieveBasePolicyResponse retrieveSinglePolicy(RetrieveSinglePolicy input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrieveSinglePolicy()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -45,7 +45,7 @@ public class BaseLegalPolicies {
 
     public UpdateBasePolicyResponse partialUpdatePolicy(PartialUpdatePolicy input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new PartialUpdatePolicy()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -53,7 +53,7 @@ public class BaseLegalPolicies {
 
     public RetrievePolicyResponse retrievePolicyCountry(RetrievePolicyCountry input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrievePolicyCountry()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
@@ -61,7 +61,7 @@ public class BaseLegalPolicies {
 
     public List<RetrievePolicyTypeResponse> retrieveAllPolicyTypes(RetrieveAllPolicyTypes input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return new RetrieveAllPolicyTypes()
+            return input
                 .parseResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
