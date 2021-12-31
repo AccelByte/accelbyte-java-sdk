@@ -58,9 +58,6 @@ public class AdminGetUserByEmailAddressV3 extends Operation {
         this.emailAddress = emailAddress;
     }
 
-    public AdminGetUserByEmailAddressV3(){
-    }
-
     public AdminGetUserByEmailAddressV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

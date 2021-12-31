@@ -62,9 +62,6 @@ public class DeleteTemplateLocalizationV1Admin extends Operation {
         this.templateSlug = templateSlug;
     }
 
-    public DeleteTemplateLocalizationV1Admin(){
-    }
-
     public DeleteTemplateLocalizationV1Admin createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

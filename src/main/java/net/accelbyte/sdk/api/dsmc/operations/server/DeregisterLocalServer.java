@@ -59,9 +59,6 @@ public class DeregisterLocalServer extends Operation {
         this.body = body;
     }
 
-    public DeregisterLocalServer(){
-    }
-
     public DeregisterLocalServer createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

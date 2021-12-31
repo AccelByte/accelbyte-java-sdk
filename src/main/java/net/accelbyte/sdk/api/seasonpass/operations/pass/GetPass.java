@@ -63,9 +63,6 @@ public class GetPass extends Operation {
         this.seasonId = seasonId;
     }
 
-    public GetPass(){
-    }
-
     public GetPass createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

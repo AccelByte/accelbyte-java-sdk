@@ -65,9 +65,6 @@ public class GetItem extends Operation {
         this.storeId = storeId;
     }
 
-    public GetItem(){
-    }
-
     public GetItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -64,9 +64,6 @@ public class UpgradeHeadlessAccount extends Operation {
         this.body = body;
     }
 
-    public UpgradeHeadlessAccount(){
-    }
-
     public UpgradeHeadlessAccount createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

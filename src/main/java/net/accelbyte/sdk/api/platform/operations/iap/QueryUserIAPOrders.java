@@ -80,9 +80,6 @@ public class QueryUserIAPOrders extends Operation {
         this.type = type;
     }
 
-    public QueryUserIAPOrders(){
-    }
-
     public QueryUserIAPOrders createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

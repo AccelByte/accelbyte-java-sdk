@@ -59,9 +59,6 @@ public class DequeueSessionHandler extends Operation {
         this.body = body;
     }
 
-    public DequeueSessionHandler(){
-    }
-
     public DequeueSessionHandler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

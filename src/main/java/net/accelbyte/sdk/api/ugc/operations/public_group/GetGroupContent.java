@@ -69,9 +69,6 @@ public class GetGroupContent extends Operation {
         this.offset = offset;
     }
 
-    public GetGroupContent(){
-    }
-
     public GetGroupContent createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

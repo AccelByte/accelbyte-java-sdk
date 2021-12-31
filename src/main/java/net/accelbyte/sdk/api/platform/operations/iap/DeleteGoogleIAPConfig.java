@@ -54,9 +54,6 @@ public class DeleteGoogleIAPConfig extends Operation {
         this.namespace = namespace;
     }
 
-    public DeleteGoogleIAPConfig(){
-    }
-
     public DeleteGoogleIAPConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -59,9 +59,6 @@ public class GetServerLogs extends Operation {
         this.podName = podName;
     }
 
-    public GetServerLogs(){
-    }
-
     public GetServerLogs createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

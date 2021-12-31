@@ -59,9 +59,6 @@ public class PublicUserVerificationV3 extends Operation {
         this.body = body;
     }
 
-    public PublicUserVerificationV3(){
-    }
-
     public PublicUserVerificationV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

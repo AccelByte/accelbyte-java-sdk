@@ -58,9 +58,6 @@ public class DeleteUserActivitiesHandler extends Operation {
         this.userId = userId;
     }
 
-    public DeleteUserActivitiesHandler(){
-    }
-
     public DeleteUserActivitiesHandler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

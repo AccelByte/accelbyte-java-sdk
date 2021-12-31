@@ -59,9 +59,6 @@ public class RejectGroupInvitationPublicV1 extends Operation {
         this.namespace = namespace;
     }
 
-    public RejectGroupInvitationPublicV1(){
-    }
-
     public RejectGroupInvitationPublicV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

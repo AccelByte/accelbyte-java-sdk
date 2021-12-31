@@ -59,9 +59,6 @@ public class AdminGetPartyDataV1 extends Operation {
         this.partyId = partyId;
     }
 
-    public AdminGetPartyDataV1(){
-    }
-
     public AdminGetPartyDataV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

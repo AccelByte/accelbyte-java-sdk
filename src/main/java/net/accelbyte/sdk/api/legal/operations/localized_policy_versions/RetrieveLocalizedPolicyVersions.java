@@ -54,9 +54,6 @@ public class RetrieveLocalizedPolicyVersions extends Operation {
         this.policyVersionId = policyVersionId;
     }
 
-    public RetrieveLocalizedPolicyVersions(){
-    }
-
     public RetrieveLocalizedPolicyVersions createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

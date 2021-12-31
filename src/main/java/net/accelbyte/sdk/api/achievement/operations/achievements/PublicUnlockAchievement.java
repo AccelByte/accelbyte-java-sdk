@@ -62,9 +62,6 @@ public class PublicUnlockAchievement extends Operation {
         this.userId = userId;
     }
 
-    public PublicUnlockAchievement(){
-    }
-
     public PublicUnlockAchievement createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

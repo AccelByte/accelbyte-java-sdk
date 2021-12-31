@@ -59,9 +59,6 @@ public class PublicGetUserByUserIDV2 extends Operation {
         this.userId = userId;
     }
 
-    public PublicGetUserByUserIDV2(){
-    }
-
     public PublicGetUserByUserIDV2 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

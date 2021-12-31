@@ -59,9 +59,6 @@ public class CreateNotificationTemplateV1Admin extends Operation {
         this.body = body;
     }
 
-    public CreateNotificationTemplateV1Admin(){
-    }
-
     public CreateNotificationTemplateV1Admin createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -58,9 +58,6 @@ public class CountSession extends Operation {
         this.region = region;
     }
 
-    public CountSession(){
-    }
-
     public CountSession createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

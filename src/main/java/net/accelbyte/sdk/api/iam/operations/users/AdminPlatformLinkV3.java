@@ -66,9 +66,6 @@ public class AdminPlatformLinkV3 extends Operation {
         this.ticket = ticket;
     }
 
-    public AdminPlatformLinkV3(){
-    }
-
     public AdminPlatformLinkV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

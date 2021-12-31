@@ -59,9 +59,6 @@ public class PublicCheckPaymentOrderPaidStatus extends Operation {
         this.paymentOrderNo = paymentOrderNo;
     }
 
-    public PublicCheckPaymentOrderPaidStatus(){
-    }
-
     public PublicCheckPaymentOrderPaidStatus createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

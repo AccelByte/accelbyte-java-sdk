@@ -62,9 +62,6 @@ public class UpdateWxPayConfig extends Operation {
         this.body = body;
     }
 
-    public UpdateWxPayConfig(){
-    }
-
     public UpdateWxPayConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -62,9 +62,6 @@ public class AdminImportProfanityFiltersFromFile extends Operation {
         this.body = body;
     }
 
-    public AdminImportProfanityFiltersFromFile(){
-    }
-
     public AdminImportProfanityFiltersFromFile createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

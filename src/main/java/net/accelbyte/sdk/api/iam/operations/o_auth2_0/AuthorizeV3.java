@@ -76,9 +76,6 @@ public class AuthorizeV3 extends Operation {
         this.responseType = responseType;
     }
 
-    public AuthorizeV3(){
-    }
-
     public AuthorizeV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
@@ -92,14 +89,14 @@ public class AuthorizeV3 extends Operation {
     @JsonIgnore
     public Map<String, String> getQueryParams(){
         Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("codeChallenge", this.codeChallenge);
-        queryParams.put("codeChallengeMethod", this.codeChallengeMethod);
-        queryParams.put("redirectUri", this.redirectUri);
+        queryParams.put("code_challenge", this.codeChallenge);
+        queryParams.put("code_challenge_method", this.codeChallengeMethod);
+        queryParams.put("redirect_uri", this.redirectUri);
         queryParams.put("scope", this.scope);
         queryParams.put("state", this.state);
-        queryParams.put("targetAuthPage", this.targetAuthPage);
-        queryParams.put("clientId", this.clientId);
-        queryParams.put("responseType", this.responseType);
+        queryParams.put("target_auth_page", this.targetAuthPage);
+        queryParams.put("client_id", this.clientId);
+        queryParams.put("response_type", this.responseType);
         return queryParams;
     }
 

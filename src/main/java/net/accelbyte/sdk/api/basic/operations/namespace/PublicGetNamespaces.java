@@ -53,9 +53,6 @@ public class PublicGetNamespaces extends Operation {
         this.activeOnly = activeOnly;
     }
 
-    public PublicGetNamespaces(){
-    }
-
     public PublicGetNamespaces createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

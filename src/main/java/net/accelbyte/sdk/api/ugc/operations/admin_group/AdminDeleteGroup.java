@@ -62,9 +62,6 @@ public class AdminDeleteGroup extends Operation {
         this.userId = userId;
     }
 
-    public AdminDeleteGroup(){
-    }
-
     public AdminDeleteGroup createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

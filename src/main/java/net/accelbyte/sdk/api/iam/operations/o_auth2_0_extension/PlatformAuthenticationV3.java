@@ -94,9 +94,6 @@ public class PlatformAuthenticationV3 extends Operation {
         this.state = state;
     }
 
-    public PlatformAuthenticationV3(){
-    }
-
     public PlatformAuthenticationV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
@@ -121,16 +118,16 @@ public class PlatformAuthenticationV3 extends Operation {
         Map<String, String> queryParams = new HashMap<>();
         queryParams.put("code", this.code);
         queryParams.put("error", this.error);
-        queryParams.put("openidAssocHandle", this.openidAssocHandle);
-        queryParams.put("openidClaimedId", this.openidClaimedId);
-        queryParams.put("openidIdentity", this.openidIdentity);
-        queryParams.put("openidMode", this.openidMode);
-        queryParams.put("openidNs", this.openidNs);
-        queryParams.put("openidOpEndpoint", this.openidOpEndpoint);
-        queryParams.put("openidResponseNonce", this.openidResponseNonce);
-        queryParams.put("openidReturnTo", this.openidReturnTo);
-        queryParams.put("openidSig", this.openidSig);
-        queryParams.put("openidSigned", this.openidSigned);
+        queryParams.put("openid.assoc_handle", this.openidAssocHandle);
+        queryParams.put("openid.claimed_id", this.openidClaimedId);
+        queryParams.put("openid.identity", this.openidIdentity);
+        queryParams.put("openid.mode", this.openidMode);
+        queryParams.put("openid.ns", this.openidNs);
+        queryParams.put("openid.op_endpoint", this.openidOpEndpoint);
+        queryParams.put("openid.response_nonce", this.openidResponseNonce);
+        queryParams.put("openid.return_to", this.openidReturnTo);
+        queryParams.put("openid.sig", this.openidSig);
+        queryParams.put("openid.signed", this.openidSigned);
         queryParams.put("state", this.state);
         return queryParams;
     }

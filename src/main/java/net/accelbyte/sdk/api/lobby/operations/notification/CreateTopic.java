@@ -59,9 +59,6 @@ public class CreateTopic extends Operation {
         this.body = body;
     }
 
-    public CreateTopic(){
-    }
-
     public CreateTopic createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -62,9 +62,6 @@ public class AdminRequestDataRetrieval extends Operation {
         this.password = password;
     }
 
-    public AdminRequestDataRetrieval(){
-    }
-
     public AdminRequestDataRetrieval createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

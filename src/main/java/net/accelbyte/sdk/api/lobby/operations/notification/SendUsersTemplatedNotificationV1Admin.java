@@ -59,9 +59,6 @@ public class SendUsersTemplatedNotificationV1Admin extends Operation {
         this.body = body;
     }
 
-    public SendUsersTemplatedNotificationV1Admin(){
-    }
-
     public SendUsersTemplatedNotificationV1Admin createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

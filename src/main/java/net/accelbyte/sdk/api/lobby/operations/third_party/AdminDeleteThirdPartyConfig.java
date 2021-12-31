@@ -54,9 +54,6 @@ public class AdminDeleteThirdPartyConfig extends Operation {
         this.namespace = namespace;
     }
 
-    public AdminDeleteThirdPartyConfig(){
-    }
-
     public AdminDeleteThirdPartyConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

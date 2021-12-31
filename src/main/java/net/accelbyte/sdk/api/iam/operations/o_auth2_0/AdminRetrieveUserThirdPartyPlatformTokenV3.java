@@ -63,9 +63,6 @@ public class AdminRetrieveUserThirdPartyPlatformTokenV3 extends Operation {
         this.userId = userId;
     }
 
-    public AdminRetrieveUserThirdPartyPlatformTokenV3(){
-    }
-
     public AdminRetrieveUserThirdPartyPlatformTokenV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

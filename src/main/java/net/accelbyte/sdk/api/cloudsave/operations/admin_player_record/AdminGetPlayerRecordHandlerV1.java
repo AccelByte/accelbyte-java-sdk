@@ -63,9 +63,6 @@ public class AdminGetPlayerRecordHandlerV1 extends Operation {
         this.userId = userId;
     }
 
-    public AdminGetPlayerRecordHandlerV1(){
-    }
-
     public AdminGetPlayerRecordHandlerV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

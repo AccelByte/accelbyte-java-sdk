@@ -55,9 +55,6 @@ public class GetPaymentMerchantConfig extends Operation {
         this.id = id;
     }
 
-    public GetPaymentMerchantConfig(){
-    }
-
     public GetPaymentMerchantConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

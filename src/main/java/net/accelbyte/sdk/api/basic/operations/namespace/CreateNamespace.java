@@ -55,9 +55,6 @@ public class CreateNamespace extends Operation {
         this.body = body;
     }
 
-    public CreateNamespace(){
-    }
-
     public CreateNamespace createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

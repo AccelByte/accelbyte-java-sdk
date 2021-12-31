@@ -59,9 +59,6 @@ public class CreateKeyGroup extends Operation {
         this.body = body;
     }
 
-    public CreateKeyGroup(){
-    }
-
     public CreateKeyGroup createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

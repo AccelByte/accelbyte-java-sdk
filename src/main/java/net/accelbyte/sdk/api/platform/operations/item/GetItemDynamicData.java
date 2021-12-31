@@ -59,9 +59,6 @@ public class GetItemDynamicData extends Operation {
         this.namespace = namespace;
     }
 
-    public GetItemDynamicData(){
-    }
-
     public GetItemDynamicData createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

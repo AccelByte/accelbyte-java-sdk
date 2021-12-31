@@ -72,9 +72,6 @@ public class UpdateContentDirect extends Operation {
         this.body = body;
     }
 
-    public UpdateContentDirect(){
-    }
-
     public UpdateContentDirect createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

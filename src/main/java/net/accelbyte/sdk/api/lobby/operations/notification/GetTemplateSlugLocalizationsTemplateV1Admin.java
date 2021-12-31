@@ -68,9 +68,6 @@ public class GetTemplateSlugLocalizationsTemplateV1Admin extends Operation {
         this.limit = limit;
     }
 
-    public GetTemplateSlugLocalizationsTemplateV1Admin(){
-    }
-
     public GetTemplateSlugLocalizationsTemplateV1Admin createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

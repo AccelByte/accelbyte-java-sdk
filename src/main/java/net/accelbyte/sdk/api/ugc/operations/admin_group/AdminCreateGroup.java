@@ -60,9 +60,6 @@ public class AdminCreateGroup extends Operation {
         this.body = body;
     }
 
-    public AdminCreateGroup(){
-    }
-
     public AdminCreateGroup createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

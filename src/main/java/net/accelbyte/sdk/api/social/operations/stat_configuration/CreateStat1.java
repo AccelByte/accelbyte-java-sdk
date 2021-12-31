@@ -59,9 +59,6 @@ public class CreateStat1 extends Operation {
         this.body = body;
     }
 
-    public CreateStat1(){
-    }
-
     public CreateStat1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -60,9 +60,6 @@ public class CreateSession extends Operation {
         this.body = body;
     }
 
-    public CreateSession(){
-    }
-
     public CreateSession createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

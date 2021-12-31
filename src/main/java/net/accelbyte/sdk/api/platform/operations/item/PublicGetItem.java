@@ -71,9 +71,6 @@ public class PublicGetItem extends Operation {
         this.storeId = storeId;
     }
 
-    public PublicGetItem(){
-    }
-
     public PublicGetItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

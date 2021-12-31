@@ -65,9 +65,6 @@ public class GetUserParticipatedSeasons extends Operation {
         this.offset = offset;
     }
 
-    public GetUserParticipatedSeasons(){
-    }
-
     public GetUserParticipatedSeasons createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

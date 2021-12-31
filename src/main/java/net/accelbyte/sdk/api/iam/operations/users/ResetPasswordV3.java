@@ -59,9 +59,6 @@ public class ResetPasswordV3 extends Operation {
         this.body = body;
     }
 
-    public ResetPasswordV3(){
-    }
-
     public ResetPasswordV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

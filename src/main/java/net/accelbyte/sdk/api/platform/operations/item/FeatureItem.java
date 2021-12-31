@@ -67,9 +67,6 @@ public class FeatureItem extends Operation {
         this.storeId = storeId;
     }
 
-    public FeatureItem(){
-    }
-
     public FeatureItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

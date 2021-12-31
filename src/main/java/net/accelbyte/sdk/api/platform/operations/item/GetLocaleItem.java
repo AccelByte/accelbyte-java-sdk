@@ -74,9 +74,6 @@ public class GetLocaleItem extends Operation {
         this.storeId = storeId;
     }
 
-    public GetLocaleItem(){
-    }
-
     public GetLocaleItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

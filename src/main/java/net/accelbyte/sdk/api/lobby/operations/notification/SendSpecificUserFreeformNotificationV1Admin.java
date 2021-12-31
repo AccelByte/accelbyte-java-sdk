@@ -63,9 +63,6 @@ public class SendSpecificUserFreeformNotificationV1Admin extends Operation {
         this.body = body;
     }
 
-    public SendSpecificUserFreeformNotificationV1Admin(){
-    }
-
     public SendSpecificUserFreeformNotificationV1Admin createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

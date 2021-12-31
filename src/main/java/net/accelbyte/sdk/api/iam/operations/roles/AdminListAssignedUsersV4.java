@@ -64,9 +64,6 @@ public class AdminListAssignedUsersV4 extends Operation {
         this.limit = limit;
     }
 
-    public AdminListAssignedUsersV4(){
-    }
-
     public AdminListAssignedUsersV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

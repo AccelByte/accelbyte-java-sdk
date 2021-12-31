@@ -68,9 +68,6 @@ public class GetGroupMembersListPublicV1 extends Operation {
         this.order = order;
     }
 
-    public GetGroupMembersListPublicV1(){
-    }
-
     public GetGroupMembersListPublicV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

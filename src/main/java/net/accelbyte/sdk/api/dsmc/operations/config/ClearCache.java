@@ -54,9 +54,6 @@ public class ClearCache extends Operation {
         this.namespace = namespace;
     }
 
-    public ClearCache(){
-    }
-
     public ClearCache createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

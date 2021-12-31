@@ -58,9 +58,6 @@ public class GetUserByLoginID extends Operation {
         this.loginId = loginId;
     }
 
-    public GetUserByLoginID(){
-    }
-
     public GetUserByLoginID createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

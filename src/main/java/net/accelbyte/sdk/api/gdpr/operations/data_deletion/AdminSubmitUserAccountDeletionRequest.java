@@ -59,9 +59,6 @@ public class AdminSubmitUserAccountDeletionRequest extends Operation {
         this.userId = userId;
     }
 
-    public AdminSubmitUserAccountDeletionRequest(){
-    }
-
     public AdminSubmitUserAccountDeletionRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

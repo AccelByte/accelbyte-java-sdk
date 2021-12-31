@@ -54,9 +54,6 @@ public class ExportImages extends Operation {
         this.namespace = namespace;
     }
 
-    public ExportImages(){
-    }
-
     public ExportImages createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

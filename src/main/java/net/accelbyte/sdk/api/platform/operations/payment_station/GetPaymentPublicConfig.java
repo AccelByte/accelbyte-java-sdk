@@ -65,9 +65,6 @@ public class GetPaymentPublicConfig extends Operation {
         this.region = region;
     }
 
-    public GetPaymentPublicConfig(){
-    }
-
     public GetPaymentPublicConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

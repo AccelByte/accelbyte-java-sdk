@@ -59,9 +59,6 @@ public class CreateCurrency extends Operation {
         this.body = body;
     }
 
-    public CreateCurrency(){
-    }
-
     public CreateCurrency createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

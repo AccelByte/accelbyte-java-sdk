@@ -59,9 +59,6 @@ public class GetKeyGroup extends Operation {
         this.namespace = namespace;
     }
 
-    public GetKeyGroup(){
-    }
-
     public GetKeyGroup createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

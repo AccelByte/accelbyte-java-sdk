@@ -62,9 +62,6 @@ public class PublicReconcilePlayStationStore extends Operation {
         this.body = body;
     }
 
-    public PublicReconcilePlayStationStore(){
-    }
-
     public PublicReconcilePlayStationStore createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

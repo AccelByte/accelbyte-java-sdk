@@ -55,9 +55,6 @@ public class ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost extends Opera
         this.body = body;
     }
 
-    public ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost(){
-    }
-
     public ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

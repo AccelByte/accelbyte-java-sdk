@@ -59,9 +59,6 @@ public class AdminGetSpecificContent extends Operation {
         this.namespace = namespace;
     }
 
-    public AdminGetSpecificContent(){
-    }
-
     public AdminGetSpecificContent createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

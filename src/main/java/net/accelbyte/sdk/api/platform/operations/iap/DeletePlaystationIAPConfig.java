@@ -54,9 +54,6 @@ public class DeletePlaystationIAPConfig extends Operation {
         this.namespace = namespace;
     }
 
-    public DeletePlaystationIAPConfig(){
-    }
-
     public DeletePlaystationIAPConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -60,9 +60,6 @@ public class PublicUpgradeHeadlessAccountWithVerificationCodeV4 extends Operatio
         this.body = body;
     }
 
-    public PublicUpgradeHeadlessAccountWithVerificationCodeV4(){
-    }
-
     public PublicUpgradeHeadlessAccountWithVerificationCodeV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

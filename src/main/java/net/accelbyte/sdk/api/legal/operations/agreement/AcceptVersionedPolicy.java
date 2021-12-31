@@ -54,9 +54,6 @@ public class AcceptVersionedPolicy extends Operation {
         this.localizedPolicyVersionId = localizedPolicyVersionId;
     }
 
-    public AcceptVersionedPolicy(){
-    }
-
     public AcceptVersionedPolicy createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

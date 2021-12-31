@@ -50,7 +50,6 @@ public class PublicGetMessages extends Operation {
     {
     }
 
-
     public PublicGetMessages createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

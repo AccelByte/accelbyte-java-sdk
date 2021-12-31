@@ -58,9 +58,6 @@ public class TestAliPayConfigById extends Operation {
         this.sandbox = sandbox;
     }
 
-    public TestAliPayConfigById(){
-    }
-
     public TestAliPayConfigById createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

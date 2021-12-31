@@ -54,9 +54,6 @@ public class GetUserOutgoingFriends extends Operation {
         this.namespace = namespace;
     }
 
-    public GetUserOutgoingFriends(){
-    }
-
     public GetUserOutgoingFriends createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

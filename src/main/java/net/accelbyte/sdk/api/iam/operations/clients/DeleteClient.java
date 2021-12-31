@@ -54,9 +54,6 @@ public class DeleteClient extends Operation {
         this.clientId = clientId;
     }
 
-    public DeleteClient(){
-    }
-
     public DeleteClient createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

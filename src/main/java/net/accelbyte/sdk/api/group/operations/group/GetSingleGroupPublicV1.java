@@ -59,9 +59,6 @@ public class GetSingleGroupPublicV1 extends Operation {
         this.namespace = namespace;
     }
 
-    public GetSingleGroupPublicV1(){
-    }
-
     public GetSingleGroupPublicV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

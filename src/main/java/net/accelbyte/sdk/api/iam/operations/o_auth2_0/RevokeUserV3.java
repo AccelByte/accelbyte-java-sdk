@@ -58,9 +58,6 @@ public class RevokeUserV3 extends Operation {
         this.userId = userId;
     }
 
-    public RevokeUserV3(){
-    }
-
     public RevokeUserV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

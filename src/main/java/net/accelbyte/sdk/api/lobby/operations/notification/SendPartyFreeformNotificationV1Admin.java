@@ -63,9 +63,6 @@ public class SendPartyFreeformNotificationV1Admin extends Operation {
         this.body = body;
     }
 
-    public SendPartyFreeformNotificationV1Admin(){
-    }
-
     public SendPartyFreeformNotificationV1Admin createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

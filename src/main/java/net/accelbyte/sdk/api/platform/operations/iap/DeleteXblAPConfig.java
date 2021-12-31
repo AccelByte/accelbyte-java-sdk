@@ -54,9 +54,6 @@ public class DeleteXblAPConfig extends Operation {
         this.namespace = namespace;
     }
 
-    public DeleteXblAPConfig(){
-    }
-
     public DeleteXblAPConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -54,9 +54,6 @@ public class DeleteEpicGamesIAPConfig extends Operation {
         this.namespace = namespace;
     }
 
-    public DeleteEpicGamesIAPConfig(){
-    }
-
     public DeleteEpicGamesIAPConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -67,9 +67,6 @@ public class PublicBulkGetItems extends Operation {
         this.itemIds = itemIds;
     }
 
-    public PublicBulkGetItems(){
-    }
-
     public PublicBulkGetItems createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

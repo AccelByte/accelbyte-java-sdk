@@ -58,9 +58,6 @@ public class UpdateGoogleP12File extends Operation {
         this.file = file;
     }
 
-    public UpdateGoogleP12File(){
-    }
-
     public UpdateGoogleP12File createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

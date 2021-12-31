@@ -72,9 +72,6 @@ public class CreateOverrideRegionOverride extends Operation {
         this.body = body;
     }
 
-    public CreateOverrideRegionOverride(){
-    }
-
     public CreateOverrideRegionOverride createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

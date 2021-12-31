@@ -63,9 +63,6 @@ public class EnableItem extends Operation {
         this.storeId = storeId;
     }
 
-    public EnableItem(){
-    }
-
     public EnableItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

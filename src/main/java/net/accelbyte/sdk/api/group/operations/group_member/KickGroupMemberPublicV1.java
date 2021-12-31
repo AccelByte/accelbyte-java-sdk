@@ -59,9 +59,6 @@ public class KickGroupMemberPublicV1 extends Operation {
         this.userId = userId;
     }
 
-    public KickGroupMemberPublicV1(){
-    }
-
     public KickGroupMemberPublicV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

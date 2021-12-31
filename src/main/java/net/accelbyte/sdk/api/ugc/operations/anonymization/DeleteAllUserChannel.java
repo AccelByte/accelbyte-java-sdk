@@ -58,9 +58,6 @@ public class DeleteAllUserChannel extends Operation {
         this.userId = userId;
     }
 
-    public DeleteAllUserChannel(){
-    }
-
     public DeleteAllUserChannel createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

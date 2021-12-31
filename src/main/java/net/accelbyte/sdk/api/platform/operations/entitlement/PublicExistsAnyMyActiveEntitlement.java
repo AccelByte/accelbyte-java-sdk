@@ -64,9 +64,6 @@ public class PublicExistsAnyMyActiveEntitlement extends Operation {
         this.skus = skus;
     }
 
-    public PublicExistsAnyMyActiveEntitlement(){
-    }
-
     public PublicExistsAnyMyActiveEntitlement createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -63,9 +63,6 @@ public class UpdateReward extends Operation {
         this.body = body;
     }
 
-    public UpdateReward(){
-    }
-
     public UpdateReward createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -62,9 +62,6 @@ public class SyncEpicGamesInventory extends Operation {
         this.body = body;
     }
 
-    public SyncEpicGamesInventory(){
-    }
-
     public SyncEpicGamesInventory createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

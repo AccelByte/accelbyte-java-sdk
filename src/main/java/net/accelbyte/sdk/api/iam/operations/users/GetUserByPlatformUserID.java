@@ -63,9 +63,6 @@ public class GetUserByPlatformUserID extends Operation {
         this.platformUserID = platformUserID;
     }
 
-    public GetUserByPlatformUserID(){
-    }
-
     public GetUserByPlatformUserID createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

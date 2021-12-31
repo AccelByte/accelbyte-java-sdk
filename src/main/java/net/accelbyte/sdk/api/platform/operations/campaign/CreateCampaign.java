@@ -59,9 +59,6 @@ public class CreateCampaign extends Operation {
         this.body = body;
     }
 
-    public CreateCampaign(){
-    }
-
     public CreateCampaign createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

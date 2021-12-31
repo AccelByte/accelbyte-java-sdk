@@ -62,9 +62,6 @@ public class SyncPaymentOrders extends Operation {
         this.start = start;
     }
 
-    public SyncPaymentOrders(){
-    }
-
     public SyncPaymentOrders createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

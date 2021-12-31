@@ -63,9 +63,6 @@ public class UpdateStat extends Operation {
         this.body = body;
     }
 
-    public UpdateStat(){
-    }
-
     public UpdateStat createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

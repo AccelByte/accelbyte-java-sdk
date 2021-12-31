@@ -59,9 +59,6 @@ public class AdminGetSession extends Operation {
         this.sessionID = sessionID;
     }
 
-    public AdminGetSession(){
-    }
-
     public AdminGetSession createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

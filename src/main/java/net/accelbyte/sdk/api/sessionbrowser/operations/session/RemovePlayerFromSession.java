@@ -63,9 +63,6 @@ public class RemovePlayerFromSession extends Operation {
         this.userID = userID;
     }
 
-    public RemovePlayerFromSession(){
-    }
-
     public RemovePlayerFromSession createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

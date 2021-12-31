@@ -58,9 +58,6 @@ public class TestStripeConfigById extends Operation {
         this.sandbox = sandbox;
     }
 
-    public TestStripeConfigById(){
-    }
-
     public TestStripeConfigById createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

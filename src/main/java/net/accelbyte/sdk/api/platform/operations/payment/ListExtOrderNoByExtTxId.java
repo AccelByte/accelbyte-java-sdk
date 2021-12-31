@@ -58,9 +58,6 @@ public class ListExtOrderNoByExtTxId extends Operation {
         this.extTxId = extTxId;
     }
 
-    public ListExtOrderNoByExtTxId(){
-    }
-
     public ListExtOrderNoByExtTxId createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

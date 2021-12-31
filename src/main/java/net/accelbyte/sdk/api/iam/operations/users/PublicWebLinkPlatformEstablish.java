@@ -62,9 +62,6 @@ public class PublicWebLinkPlatformEstablish extends Operation {
         this.state = state;
     }
 
-    public PublicWebLinkPlatformEstablish(){
-    }
-
     public PublicWebLinkPlatformEstablish createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

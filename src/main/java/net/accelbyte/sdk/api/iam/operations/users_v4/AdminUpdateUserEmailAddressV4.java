@@ -63,9 +63,6 @@ public class AdminUpdateUserEmailAddressV4 extends Operation {
         this.body = body;
     }
 
-    public AdminUpdateUserEmailAddressV4(){
-    }
-
     public AdminUpdateUserEmailAddressV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

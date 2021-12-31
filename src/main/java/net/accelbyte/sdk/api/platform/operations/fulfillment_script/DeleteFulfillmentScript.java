@@ -54,9 +54,6 @@ public class DeleteFulfillmentScript extends Operation {
         this.id = id;
     }
 
-    public DeleteFulfillmentScript(){
-    }
-
     public DeleteFulfillmentScript createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

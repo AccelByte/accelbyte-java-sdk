@@ -58,9 +58,6 @@ public class TestAdyenConfig extends Operation {
         this.body = body;
     }
 
-    public TestAdyenConfig(){
-    }
-
     public TestAdyenConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

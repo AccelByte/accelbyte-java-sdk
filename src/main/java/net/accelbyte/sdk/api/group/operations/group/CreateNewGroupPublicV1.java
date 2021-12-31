@@ -60,9 +60,6 @@ public class CreateNewGroupPublicV1 extends Operation {
         this.body = body;
     }
 
-    public CreateNewGroupPublicV1(){
-    }
-
     public CreateNewGroupPublicV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

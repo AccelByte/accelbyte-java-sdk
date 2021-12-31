@@ -59,9 +59,6 @@ public class LastUserActivityTimeHandler extends Operation {
         this.userId = userId;
     }
 
-    public LastUserActivityTimeHandler(){
-    }
-
     public LastUserActivityTimeHandler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

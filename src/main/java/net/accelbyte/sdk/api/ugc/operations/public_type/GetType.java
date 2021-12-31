@@ -61,9 +61,6 @@ public class GetType extends Operation {
         this.offset = offset;
     }
 
-    public GetType(){
-    }
-
     public GetType createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

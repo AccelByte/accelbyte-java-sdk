@@ -68,9 +68,6 @@ public class UploadContentScreenshot extends Operation {
         this.body = body;
     }
 
-    public UploadContentScreenshot(){
-    }
-
     public UploadContentScreenshot createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

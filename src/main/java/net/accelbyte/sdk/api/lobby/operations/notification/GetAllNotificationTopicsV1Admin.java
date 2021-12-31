@@ -64,9 +64,6 @@ public class GetAllNotificationTopicsV1Admin extends Operation {
         this.limit = limit;
     }
 
-    public GetAllNotificationTopicsV1Admin(){
-    }
-
     public GetAllNotificationTopicsV1Admin createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

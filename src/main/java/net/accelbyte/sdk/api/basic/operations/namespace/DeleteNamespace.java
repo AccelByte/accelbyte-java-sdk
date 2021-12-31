@@ -55,9 +55,6 @@ public class DeleteNamespace extends Operation {
         this.namespace = namespace;
     }
 
-    public DeleteNamespace(){
-    }
-
     public DeleteNamespace createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

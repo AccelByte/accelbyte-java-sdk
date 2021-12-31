@@ -64,9 +64,6 @@ public class SingleAdminUpdateGroup extends Operation {
         this.body = body;
     }
 
-    public SingleAdminUpdateGroup(){
-    }
-
     public SingleAdminUpdateGroup createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

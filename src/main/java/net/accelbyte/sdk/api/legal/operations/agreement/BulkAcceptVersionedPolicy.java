@@ -55,9 +55,6 @@ public class BulkAcceptVersionedPolicy extends Operation {
         this.body = body;
     }
 
-    public BulkAcceptVersionedPolicy(){
-    }
-
     public BulkAcceptVersionedPolicy createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

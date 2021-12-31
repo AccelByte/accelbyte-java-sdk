@@ -60,9 +60,6 @@ public class PublicVerifyHeadlessAccountV3 extends Operation {
         this.body = body;
     }
 
-    public PublicVerifyHeadlessAccountV3(){
-    }
-
     public PublicVerifyHeadlessAccountV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

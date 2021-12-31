@@ -64,9 +64,6 @@ public class CreateUserFromInvitationV4 extends Operation {
         this.body = body;
     }
 
-    public CreateUserFromInvitationV4(){
-    }
-
     public CreateUserFromInvitationV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

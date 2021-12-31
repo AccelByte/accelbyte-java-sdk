@@ -67,9 +67,6 @@ public class GetLeaderboardConfigurationsPublicV1 extends Operation {
         this.offset = offset;
     }
 
-    public GetLeaderboardConfigurationsPublicV1(){
-    }
-
     public GetLeaderboardConfigurationsPublicV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -64,9 +64,6 @@ public class ListPlayerRecordHandlerV1 extends Operation {
         this.query = query;
     }
 
-    public ListPlayerRecordHandlerV1(){
-    }
-
     public ListPlayerRecordHandlerV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

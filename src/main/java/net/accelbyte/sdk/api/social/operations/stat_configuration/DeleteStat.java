@@ -58,9 +58,6 @@ public class DeleteStat extends Operation {
         this.statCode = statCode;
     }
 
-    public DeleteStat(){
-    }
-
     public DeleteStat createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

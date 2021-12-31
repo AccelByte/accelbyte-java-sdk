@@ -70,9 +70,6 @@ public class RetrieveLatestPoliciesByNamespaceAndCountryPublic extends Operation
         this.tags = tags;
     }
 
-    public RetrieveLatestPoliciesByNamespaceAndCountryPublic(){
-    }
-
     public RetrieveLatestPoliciesByNamespaceAndCountryPublic createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

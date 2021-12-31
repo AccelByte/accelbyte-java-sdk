@@ -63,9 +63,6 @@ public class ApplyUserRedemption extends Operation {
         this.body = body;
     }
 
-    public ApplyUserRedemption(){
-    }
-
     public ApplyUserRedemption createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

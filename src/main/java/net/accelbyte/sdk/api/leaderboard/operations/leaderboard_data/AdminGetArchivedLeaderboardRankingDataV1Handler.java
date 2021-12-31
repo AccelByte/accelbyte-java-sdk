@@ -61,9 +61,6 @@ public class AdminGetArchivedLeaderboardRankingDataV1Handler extends Operation {
         this.leaderboardCodes = leaderboardCodes;
     }
 
-    public AdminGetArchivedLeaderboardRankingDataV1Handler(){
-    }
-
     public AdminGetArchivedLeaderboardRankingDataV1Handler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

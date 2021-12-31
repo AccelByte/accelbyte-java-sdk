@@ -59,9 +59,6 @@ public class CreateLocalizedPolicyVersion extends Operation {
         this.body = body;
     }
 
-    public CreateLocalizedPolicyVersion(){
-    }
-
     public CreateLocalizedPolicyVersion createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -61,9 +61,6 @@ public class ImportChannels extends Operation {
         this.strategy = strategy;
     }
 
-    public ImportChannels(){
-    }
-
     public ImportChannels createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

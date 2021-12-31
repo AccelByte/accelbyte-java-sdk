@@ -54,9 +54,6 @@ public class DeleteNamespaceSlotConfig extends Operation {
         this.namespace = namespace;
     }
 
-    public DeleteNamespaceSlotConfig(){
-    }
-
     public DeleteNamespaceSlotConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

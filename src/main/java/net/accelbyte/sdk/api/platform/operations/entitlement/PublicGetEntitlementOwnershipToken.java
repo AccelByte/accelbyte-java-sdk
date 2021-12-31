@@ -64,9 +64,6 @@ public class PublicGetEntitlementOwnershipToken extends Operation {
         this.skus = skus;
     }
 
-    public PublicGetEntitlementOwnershipToken(){
-    }
-
     public PublicGetEntitlementOwnershipToken createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

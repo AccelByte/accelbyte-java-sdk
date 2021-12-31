@@ -63,9 +63,6 @@ public class AdminResetPasswordV2 extends Operation {
         this.body = body;
     }
 
-    public AdminResetPasswordV2(){
-    }
-
     public AdminResetPasswordV2 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

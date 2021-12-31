@@ -59,9 +59,6 @@ public class SendMultipleUsersFreeformNotificationV1Admin extends Operation {
         this.body = body;
     }
 
-    public SendMultipleUsersFreeformNotificationV1Admin(){
-    }
-
     public SendMultipleUsersFreeformNotificationV1Admin createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

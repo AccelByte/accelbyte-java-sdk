@@ -64,9 +64,6 @@ public class AddSSOLoginPlatformCredential extends Operation {
         this.body = body;
     }
 
-    public AddSSOLoginPlatformCredential(){
-    }
-
     public AddSSOLoginPlatformCredential createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -65,9 +65,6 @@ public class ListCrossNamespaceAccountLink extends Operation {
         this.linkingToken = linkingToken;
     }
 
-    public ListCrossNamespaceAccountLink(){
-    }
-
     public ListCrossNamespaceAccountLink createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

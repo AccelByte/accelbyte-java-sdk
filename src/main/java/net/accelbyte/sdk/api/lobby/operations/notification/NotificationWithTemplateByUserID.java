@@ -63,9 +63,6 @@ public class NotificationWithTemplateByUserID extends Operation {
         this.body = body;
     }
 
-    public NotificationWithTemplateByUserID(){
-    }
-
     public NotificationWithTemplateByUserID createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

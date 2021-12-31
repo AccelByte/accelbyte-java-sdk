@@ -61,9 +61,6 @@ public class SingleAdminGetChannel extends Operation {
         this.offset = offset;
     }
 
-    public SingleAdminGetChannel(){
-    }
-
     public SingleAdminGetChannel createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

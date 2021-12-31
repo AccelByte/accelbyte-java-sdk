@@ -62,9 +62,6 @@ public class BulkCreateUserStatItems extends Operation {
         this.body = body;
     }
 
-    public BulkCreateUserStatItems(){
-    }
-
     public BulkCreateUserStatItems createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -50,7 +50,6 @@ public class GetAggregatePaymentProviders extends Operation {
     {
     }
 
-
     public GetAggregatePaymentProviders createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

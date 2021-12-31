@@ -55,9 +55,6 @@ public class GetCurrentSeason extends Operation {
         this.namespace = namespace;
     }
 
-    public GetCurrentSeason(){
-    }
-
     public GetCurrentSeason createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

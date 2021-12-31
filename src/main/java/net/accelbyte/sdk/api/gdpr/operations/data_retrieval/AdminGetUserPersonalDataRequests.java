@@ -65,9 +65,6 @@ public class AdminGetUserPersonalDataRequests extends Operation {
         this.offset = offset;
     }
 
-    public AdminGetUserPersonalDataRequests(){
-    }
-
     public AdminGetUserPersonalDataRequests createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

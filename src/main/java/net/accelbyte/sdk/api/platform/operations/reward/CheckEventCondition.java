@@ -63,9 +63,6 @@ public class CheckEventCondition extends Operation {
         this.body = body;
     }
 
-    public CheckEventCondition(){
-    }
-
     public CheckEventCondition createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

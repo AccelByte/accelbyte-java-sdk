@@ -68,9 +68,6 @@ public class ListKeys extends Operation {
         this.status = status;
     }
 
-    public ListKeys(){
-    }
-
     public ListKeys createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

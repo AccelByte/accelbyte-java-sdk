@@ -63,9 +63,6 @@ public class GetUserJusticePlatformAccount extends Operation {
         this.userId = userId;
     }
 
-    public GetUserJusticePlatformAccount(){
-    }
-
     public GetUserJusticePlatformAccount createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

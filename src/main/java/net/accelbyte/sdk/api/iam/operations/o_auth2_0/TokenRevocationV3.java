@@ -54,9 +54,6 @@ public class TokenRevocationV3 extends Operation {
         this.token = token;
     }
 
-    public TokenRevocationV3(){
-    }
-
     public TokenRevocationV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

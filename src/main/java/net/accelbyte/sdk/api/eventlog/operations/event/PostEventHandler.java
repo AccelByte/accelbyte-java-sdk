@@ -59,9 +59,6 @@ public class PostEventHandler extends Operation {
         this.body = body;
     }
 
-    public PostEventHandler(){
-    }
-
     public PostEventHandler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

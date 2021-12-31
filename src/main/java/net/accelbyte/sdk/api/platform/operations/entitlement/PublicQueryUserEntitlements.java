@@ -77,9 +77,6 @@ public class PublicQueryUserEntitlements extends Operation {
         this.offset = offset;
     }
 
-    public PublicQueryUserEntitlements(){
-    }
-
     public PublicQueryUserEntitlements createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

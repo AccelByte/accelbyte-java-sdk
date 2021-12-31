@@ -55,9 +55,6 @@ public class GetRoleManagers extends Operation {
         this.roleId = roleId;
     }
 
-    public GetRoleManagers(){
-    }
-
     public GetRoleManagers createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

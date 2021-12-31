@@ -54,9 +54,6 @@ public class AdminUpdateAdminRoleStatusV3 extends Operation {
         this.roleId = roleId;
     }
 
-    public AdminUpdateAdminRoleStatusV3(){
-    }
-
     public AdminUpdateAdminRoleStatusV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

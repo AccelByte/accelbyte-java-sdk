@@ -59,9 +59,6 @@ public class PublicGetMyWallet extends Operation {
         this.namespace = namespace;
     }
 
-    public PublicGetMyWallet(){
-    }
-
     public PublicGetMyWallet createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

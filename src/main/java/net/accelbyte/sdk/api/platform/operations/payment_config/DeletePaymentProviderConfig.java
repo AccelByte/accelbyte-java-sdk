@@ -54,9 +54,6 @@ public class DeletePaymentProviderConfig extends Operation {
         this.id = id;
     }
 
-    public DeletePaymentProviderConfig(){
-    }
-
     public DeletePaymentProviderConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

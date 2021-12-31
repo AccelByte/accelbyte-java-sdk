@@ -67,9 +67,6 @@ public class AddUserIntoSessionInChannel extends Operation {
         this.body = body;
     }
 
-    public AddUserIntoSessionInChannel(){
-    }
-
     public AddUserIntoSessionInChannel createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

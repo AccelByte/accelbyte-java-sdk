@@ -78,9 +78,6 @@ public class GetEventByUserIDAndEventTypeHandler extends Operation {
         this.startDate = startDate;
     }
 
-    public GetEventByUserIDAndEventTypeHandler(){
-    }
-
     public GetEventByUserIDAndEventTypeHandler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

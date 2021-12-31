@@ -59,9 +59,6 @@ public class AdminUpdateRolePermissionsV3 extends Operation {
         this.body = body;
     }
 
-    public AdminUpdateRolePermissionsV3(){
-    }
-
     public AdminUpdateRolePermissionsV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

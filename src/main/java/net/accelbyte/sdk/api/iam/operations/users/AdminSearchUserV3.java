@@ -79,9 +79,6 @@ public class AdminSearchUserV3 extends Operation {
         this.startDate = startDate;
     }
 
-    public AdminSearchUserV3(){
-    }
-
     public AdminSearchUserV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

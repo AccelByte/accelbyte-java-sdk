@@ -50,7 +50,6 @@ public class GetHealthcheckInfo extends Operation {
     {
     }
 
-
     public GetHealthcheckInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

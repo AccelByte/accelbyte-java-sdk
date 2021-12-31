@@ -59,9 +59,6 @@ public class AdminGetUserByUserIdV3 extends Operation {
         this.userId = userId;
     }
 
-    public AdminGetUserByUserIdV3(){
-    }
-
     public AdminGetUserByUserIdV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

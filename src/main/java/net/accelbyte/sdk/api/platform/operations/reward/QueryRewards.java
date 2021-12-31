@@ -67,9 +67,6 @@ public class QueryRewards extends Operation {
         this.sortBy = sortBy;
     }
 
-    public QueryRewards(){
-    }
-
     public QueryRewards createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

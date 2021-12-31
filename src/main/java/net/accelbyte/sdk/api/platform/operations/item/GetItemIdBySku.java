@@ -65,9 +65,6 @@ public class GetItemIdBySku extends Operation {
         this.sku = sku;
     }
 
-    public GetItemIdBySku(){
-    }
-
     public GetItemIdBySku createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

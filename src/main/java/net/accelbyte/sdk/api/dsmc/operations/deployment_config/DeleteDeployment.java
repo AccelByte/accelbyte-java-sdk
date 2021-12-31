@@ -58,9 +58,6 @@ public class DeleteDeployment extends Operation {
         this.namespace = namespace;
     }
 
-    public DeleteDeployment(){
-    }
-
     public DeleteDeployment createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

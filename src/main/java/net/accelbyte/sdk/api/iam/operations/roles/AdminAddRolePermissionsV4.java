@@ -60,9 +60,6 @@ public class AdminAddRolePermissionsV4 extends Operation {
         this.body = body;
     }
 
-    public AdminAddRolePermissionsV4(){
-    }
-
     public AdminAddRolePermissionsV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

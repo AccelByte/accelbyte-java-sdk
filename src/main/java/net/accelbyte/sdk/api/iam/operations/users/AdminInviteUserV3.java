@@ -60,9 +60,6 @@ public class AdminInviteUserV3 extends Operation {
         this.body = body;
     }
 
-    public AdminInviteUserV3(){
-    }
-
     public AdminInviteUserV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -60,9 +60,6 @@ public class ListBasicItemsByFeatures extends Operation {
         this.features = features;
     }
 
-    public ListBasicItemsByFeatures(){
-    }
-
     public ListBasicItemsByFeatures createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -58,9 +58,6 @@ public class DeleteGameRecordHandlerV1 extends Operation {
         this.namespace = namespace;
     }
 
-    public DeleteGameRecordHandlerV1(){
-    }
-
     public DeleteGameRecordHandlerV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

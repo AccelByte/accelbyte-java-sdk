@@ -66,9 +66,6 @@ public class AdminDeleteClientPermissionV3 extends Operation {
         this.resource = resource;
     }
 
-    public AdminDeleteClientPermissionV3(){
-    }
-
     public AdminDeleteClientPermissionV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

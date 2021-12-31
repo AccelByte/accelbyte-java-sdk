@@ -61,9 +61,6 @@ public class GetGroupInvitationRequestPublicV1 extends Operation {
         this.offset = offset;
     }
 
-    public GetGroupInvitationRequestPublicV1(){
-    }
-
     public GetGroupInvitationRequestPublicV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

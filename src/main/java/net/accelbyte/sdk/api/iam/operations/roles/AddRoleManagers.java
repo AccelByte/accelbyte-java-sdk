@@ -59,9 +59,6 @@ public class AddRoleManagers extends Operation {
         this.body = body;
     }
 
-    public AddRoleManagers(){
-    }
-
     public AddRoleManagers createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

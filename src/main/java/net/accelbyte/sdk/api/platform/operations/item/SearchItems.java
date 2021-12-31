@@ -75,9 +75,6 @@ public class SearchItems extends Operation {
         this.language = language;
     }
 
-    public SearchItems(){
-    }
-
     public SearchItems createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

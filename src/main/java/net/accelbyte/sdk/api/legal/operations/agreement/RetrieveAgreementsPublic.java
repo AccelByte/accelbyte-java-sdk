@@ -50,7 +50,6 @@ public class RetrieveAgreementsPublic extends Operation {
     {
     }
 
-
     public RetrieveAgreementsPublic createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

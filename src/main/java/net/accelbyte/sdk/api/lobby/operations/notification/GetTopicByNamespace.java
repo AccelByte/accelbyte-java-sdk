@@ -64,9 +64,6 @@ public class GetTopicByNamespace extends Operation {
         this.limit = limit;
     }
 
-    public GetTopicByNamespace(){
-    }
-
     public GetTopicByNamespace createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

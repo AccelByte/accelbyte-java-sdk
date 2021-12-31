@@ -72,9 +72,6 @@ public class QueryEventStreamHandler extends Operation {
         this.body = body;
     }
 
-    public QueryEventStreamHandler(){
-    }
-
     public QueryEventStreamHandler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

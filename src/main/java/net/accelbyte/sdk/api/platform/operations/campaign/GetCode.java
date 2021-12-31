@@ -62,9 +62,6 @@ public class GetCode extends Operation {
         this.redeemable = redeemable;
     }
 
-    public GetCode(){
-    }
-
     public GetCode createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

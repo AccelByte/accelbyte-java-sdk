@@ -62,9 +62,6 @@ public class AdminDeleteRolePermissionV3 extends Operation {
         this.roleId = roleId;
     }
 
-    public AdminDeleteRolePermissionV3(){
-    }
-
     public AdminDeleteRolePermissionV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

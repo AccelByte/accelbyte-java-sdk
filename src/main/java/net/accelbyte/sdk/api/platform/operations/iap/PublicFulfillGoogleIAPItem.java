@@ -62,9 +62,6 @@ public class PublicFulfillGoogleIAPItem extends Operation {
         this.body = body;
     }
 
-    public PublicFulfillGoogleIAPItem(){
-    }
-
     public PublicFulfillGoogleIAPItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

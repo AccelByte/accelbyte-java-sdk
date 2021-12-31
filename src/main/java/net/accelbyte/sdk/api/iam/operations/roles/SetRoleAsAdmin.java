@@ -54,9 +54,6 @@ public class SetRoleAsAdmin extends Operation {
         this.roleId = roleId;
     }
 
-    public SetRoleAsAdmin(){
-    }
-
     public SetRoleAsAdmin createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -54,9 +54,6 @@ public class DeleteServer extends Operation {
         this.region = region;
     }
 
-    public DeleteServer(){
-    }
-
     public DeleteServer createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

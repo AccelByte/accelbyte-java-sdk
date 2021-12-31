@@ -59,9 +59,6 @@ public class RequestPresignedURL extends Operation {
         this.body = body;
     }
 
-    public RequestPresignedURL(){
-    }
-
     public RequestPresignedURL createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

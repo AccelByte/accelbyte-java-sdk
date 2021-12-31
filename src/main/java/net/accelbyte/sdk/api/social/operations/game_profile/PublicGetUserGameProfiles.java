@@ -58,9 +58,6 @@ public class PublicGetUserGameProfiles extends Operation {
         this.userIds = userIds;
     }
 
-    public PublicGetUserGameProfiles(){
-    }
-
     public PublicGetUserGameProfiles createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

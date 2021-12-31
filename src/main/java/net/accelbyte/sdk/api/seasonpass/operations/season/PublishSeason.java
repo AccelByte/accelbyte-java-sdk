@@ -59,9 +59,6 @@ public class PublishSeason extends Operation {
         this.seasonId = seasonId;
     }
 
-    public PublishSeason(){
-    }
-
     public PublishSeason createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

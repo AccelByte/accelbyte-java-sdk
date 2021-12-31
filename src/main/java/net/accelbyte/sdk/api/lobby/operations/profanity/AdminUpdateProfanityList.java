@@ -63,9 +63,6 @@ public class AdminUpdateProfanityList extends Operation {
         this.body = body;
     }
 
-    public AdminUpdateProfanityList(){
-    }
-
     public AdminUpdateProfanityList createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

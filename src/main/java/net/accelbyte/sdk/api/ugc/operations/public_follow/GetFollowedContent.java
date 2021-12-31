@@ -61,9 +61,6 @@ public class GetFollowedContent extends Operation {
         this.offset = offset;
     }
 
-    public GetFollowedContent(){
-    }
-
     public GetFollowedContent createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

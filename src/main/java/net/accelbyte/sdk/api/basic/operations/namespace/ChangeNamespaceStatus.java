@@ -59,9 +59,6 @@ public class ChangeNamespaceStatus extends Operation {
         this.body = body;
     }
 
-    public ChangeNamespaceStatus(){
-    }
-
     public ChangeNamespaceStatus createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -60,9 +60,6 @@ public class UpdateClient extends Operation {
         this.body = body;
     }
 
-    public UpdateClient(){
-    }
-
     public UpdateClient createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -63,9 +63,6 @@ public class AdminAddUserPermissionsV3 extends Operation {
         this.body = body;
     }
 
-    public AdminAddUserPermissionsV3(){
-    }
-
     public AdminAddUserPermissionsV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

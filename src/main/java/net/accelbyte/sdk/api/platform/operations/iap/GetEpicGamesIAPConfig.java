@@ -55,9 +55,6 @@ public class GetEpicGamesIAPConfig extends Operation {
         this.namespace = namespace;
     }
 
-    public GetEpicGamesIAPConfig(){
-    }
-
     public GetEpicGamesIAPConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -61,9 +61,6 @@ public class SingleAdminGetContent extends Operation {
         this.offset = offset;
     }
 
-    public SingleAdminGetContent(){
-    }
-
     public SingleAdminGetContent createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

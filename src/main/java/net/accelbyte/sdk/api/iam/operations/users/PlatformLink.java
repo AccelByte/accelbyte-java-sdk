@@ -66,9 +66,6 @@ public class PlatformLink extends Operation {
         this.ticket = ticket;
     }
 
-    public PlatformLink(){
-    }
-
     public PlatformLink createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

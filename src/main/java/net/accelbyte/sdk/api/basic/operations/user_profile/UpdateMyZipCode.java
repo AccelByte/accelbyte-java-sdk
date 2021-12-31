@@ -60,9 +60,6 @@ public class UpdateMyZipCode extends Operation {
         this.userZipCodeUpdate = userZipCodeUpdate;
     }
 
-    public UpdateMyZipCode(){
-    }
-
     public UpdateMyZipCode createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -62,9 +62,6 @@ public class BulkResetUserStatItem1 extends Operation {
         this.body = body;
     }
 
-    public BulkResetUserStatItem1(){
-    }
-
     public BulkResetUserStatItem1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

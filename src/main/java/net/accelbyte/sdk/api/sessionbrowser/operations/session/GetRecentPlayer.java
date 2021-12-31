@@ -59,9 +59,6 @@ public class GetRecentPlayer extends Operation {
         this.userID = userID;
     }
 
-    public GetRecentPlayer(){
-    }
-
     public GetRecentPlayer createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

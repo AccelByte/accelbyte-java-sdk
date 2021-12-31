@@ -64,9 +64,6 @@ public class GetActiveMatchmakingGameSessions extends Operation {
         this.sessionId = sessionId;
     }
 
-    public GetActiveMatchmakingGameSessions(){
-    }
-
     public GetActiveMatchmakingGameSessions createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
@@ -89,9 +86,9 @@ public class GetActiveMatchmakingGameSessions extends Operation {
     @JsonIgnore
     public Map<String, String> getQueryParams(){
         Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("matchId", this.matchId);
-        queryParams.put("serverRegion", this.serverRegion);
-        queryParams.put("sessionId", this.sessionId);
+        queryParams.put("match_id", this.matchId);
+        queryParams.put("server_region", this.serverRegion);
+        queryParams.put("session_id", this.sessionId);
         return queryParams;
     }
 

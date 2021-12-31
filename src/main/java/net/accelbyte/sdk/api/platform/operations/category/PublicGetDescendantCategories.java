@@ -64,9 +64,6 @@ public class PublicGetDescendantCategories extends Operation {
         this.storeId = storeId;
     }
 
-    public PublicGetDescendantCategories(){
-    }
-
     public PublicGetDescendantCategories createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

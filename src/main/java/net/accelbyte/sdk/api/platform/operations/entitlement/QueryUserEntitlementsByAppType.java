@@ -72,9 +72,6 @@ public class QueryUserEntitlementsByAppType extends Operation {
         this.appType = appType;
     }
 
-    public QueryUserEntitlementsByAppType(){
-    }
-
     public QueryUserEntitlementsByAppType createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

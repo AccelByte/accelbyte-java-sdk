@@ -58,9 +58,6 @@ public class AdminGetListJusticePlatformAccounts extends Operation {
         this.userId = userId;
     }
 
-    public AdminGetListJusticePlatformAccounts(){
-    }
-
     public AdminGetListJusticePlatformAccounts createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

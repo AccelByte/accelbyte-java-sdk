@@ -59,9 +59,6 @@ public class GetRewardByCode extends Operation {
         this.rewardCode = rewardCode;
     }
 
-    public GetRewardByCode(){
-    }
-
     public GetRewardByCode createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

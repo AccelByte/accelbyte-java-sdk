@@ -55,9 +55,6 @@ public class ListProvidersByRegion extends Operation {
         this.region = region;
     }
 
-    public ListProvidersByRegion(){
-    }
-
     public ListProvidersByRegion createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

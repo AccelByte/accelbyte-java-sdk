@@ -74,9 +74,6 @@ public class GetEventByEventIDHandler extends Operation {
         this.startDate = startDate;
     }
 
-    public GetEventByEventIDHandler(){
-    }
-
     public GetEventByEventIDHandler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

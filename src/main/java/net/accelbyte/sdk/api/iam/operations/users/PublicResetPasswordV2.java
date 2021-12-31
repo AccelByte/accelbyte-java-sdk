@@ -59,9 +59,6 @@ public class PublicResetPasswordV2 extends Operation {
         this.body = body;
     }
 
-    public PublicResetPasswordV2(){
-    }
-
     public PublicResetPasswordV2 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

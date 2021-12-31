@@ -55,9 +55,6 @@ public class TestXsollaConfigById extends Operation {
         this.id = id;
     }
 
-    public TestXsollaConfigById(){
-    }
-
     public TestXsollaConfigById createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -79,9 +79,6 @@ public class QuerySubscriptions extends Operation {
         this.userId = userId;
     }
 
-    public QuerySubscriptions(){
-    }
-
     public QuerySubscriptions createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

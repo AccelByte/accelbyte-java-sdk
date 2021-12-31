@@ -55,9 +55,6 @@ public class UpdatePaymentTaxConfig extends Operation {
         this.body = body;
     }
 
-    public UpdatePaymentTaxConfig(){
-    }
-
     public UpdatePaymentTaxConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

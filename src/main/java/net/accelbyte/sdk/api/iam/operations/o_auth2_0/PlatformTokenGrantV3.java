@@ -64,9 +64,6 @@ public class PlatformTokenGrantV3 extends Operation {
         this.platformToken = platformToken;
     }
 
-    public PlatformTokenGrantV3(){
-    }
-
     public PlatformTokenGrantV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
@@ -91,9 +88,9 @@ public class PlatformTokenGrantV3 extends Operation {
     @JsonIgnore
     public Map<String, String> getFormDataParams(){
         Map<String, String> formDataParams = new HashMap<>();
-        formDataParams.put("clientId", this.clientId);
-        formDataParams.put("deviceId", this.deviceId);
-        formDataParams.put("platformToken", this.platformToken);
+        formDataParams.put("client_id", this.clientId);
+        formDataParams.put("device_id", this.deviceId);
+        formDataParams.put("platform_token", this.platformToken);
         return formDataParams;
     }
 

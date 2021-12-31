@@ -66,9 +66,6 @@ public class PublicGetUserEntitlementOwnershipByItemId extends Operation {
         this.itemId = itemId;
     }
 
-    public PublicGetUserEntitlementOwnershipByItemId(){
-    }
-
     public PublicGetUserEntitlementOwnershipByItemId createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

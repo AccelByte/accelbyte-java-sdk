@@ -60,9 +60,6 @@ public class DownloadCategories extends Operation {
         this.storeId = storeId;
     }
 
-    public DownloadCategories(){
-    }
-
     public DownloadCategories createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

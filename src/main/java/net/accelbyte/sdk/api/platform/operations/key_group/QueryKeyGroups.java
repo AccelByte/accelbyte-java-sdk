@@ -67,9 +67,6 @@ public class QueryKeyGroups extends Operation {
         this.tag = tag;
     }
 
-    public QueryKeyGroups(){
-    }
-
     public QueryKeyGroups createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

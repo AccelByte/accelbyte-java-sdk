@@ -88,9 +88,6 @@ public class AdminSearchContent extends Operation {
         this.userId = userId;
     }
 
-    public AdminSearchContent(){
-    }
-
     public AdminSearchContent createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

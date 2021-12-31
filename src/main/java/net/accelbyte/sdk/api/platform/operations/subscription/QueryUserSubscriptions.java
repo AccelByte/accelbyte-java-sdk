@@ -80,9 +80,6 @@ public class QueryUserSubscriptions extends Operation {
         this.subscribedBy = subscribedBy;
     }
 
-    public QueryUserSubscriptions(){
-    }
-
     public QueryUserSubscriptions createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

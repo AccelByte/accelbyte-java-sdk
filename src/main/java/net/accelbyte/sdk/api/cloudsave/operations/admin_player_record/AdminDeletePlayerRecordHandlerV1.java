@@ -62,9 +62,6 @@ public class AdminDeletePlayerRecordHandlerV1 extends Operation {
         this.userId = userId;
     }
 
-    public AdminDeletePlayerRecordHandlerV1(){
-    }
-
     public AdminDeletePlayerRecordHandlerV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

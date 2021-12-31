@@ -59,9 +59,6 @@ public class SetServerAlias extends Operation {
         this.body = body;
     }
 
-    public SetServerAlias(){
-    }
-
     public SetServerAlias createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

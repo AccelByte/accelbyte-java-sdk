@@ -58,9 +58,6 @@ public class SearchUser extends Operation {
         this.query = query;
     }
 
-    public SearchUser(){
-    }
-
     public SearchUser createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

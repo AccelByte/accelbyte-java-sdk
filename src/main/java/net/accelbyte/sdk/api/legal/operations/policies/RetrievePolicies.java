@@ -54,9 +54,6 @@ public class RetrievePolicies extends Operation {
         this.countryCode = countryCode;
     }
 
-    public RetrievePolicies(){
-    }
-
     public RetrievePolicies createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

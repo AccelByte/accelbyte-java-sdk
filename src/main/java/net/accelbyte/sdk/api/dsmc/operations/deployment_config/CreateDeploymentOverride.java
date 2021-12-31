@@ -68,9 +68,6 @@ public class CreateDeploymentOverride extends Operation {
         this.body = body;
     }
 
-    public CreateDeploymentOverride(){
-    }
-
     public CreateDeploymentOverride createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -74,9 +74,6 @@ public class GetEventSpecificUserV2Handler extends Operation {
         this.startDate = startDate;
     }
 
-    public GetEventSpecificUserV2Handler(){
-    }
-
     public GetEventSpecificUserV2Handler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

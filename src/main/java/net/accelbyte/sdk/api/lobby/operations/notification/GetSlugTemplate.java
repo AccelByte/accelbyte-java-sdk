@@ -68,9 +68,6 @@ public class GetSlugTemplate extends Operation {
         this.limit = limit;
     }
 
-    public GetSlugTemplate(){
-    }
-
     public GetSlugTemplate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -64,9 +64,6 @@ public class AdminUpdateUserV3 extends Operation {
         this.body = body;
     }
 
-    public AdminUpdateUserV3(){
-    }
-
     public AdminUpdateUserV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

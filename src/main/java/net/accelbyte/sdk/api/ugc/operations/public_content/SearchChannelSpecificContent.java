@@ -92,9 +92,6 @@ public class SearchChannelSpecificContent extends Operation {
         this.userId = userId;
     }
 
-    public SearchChannelSpecificContent(){
-    }
-
     public SearchChannelSpecificContent createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

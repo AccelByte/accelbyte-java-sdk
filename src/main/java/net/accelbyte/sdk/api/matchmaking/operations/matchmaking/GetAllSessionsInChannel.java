@@ -58,9 +58,6 @@ public class GetAllSessionsInChannel extends Operation {
         this.namespace = namespace;
     }
 
-    public GetAllSessionsInChannel(){
-    }
-
     public GetAllSessionsInChannel createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

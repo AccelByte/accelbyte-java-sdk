@@ -64,9 +64,6 @@ public class AdminUpdateType extends Operation {
         this.body = body;
     }
 
-    public AdminUpdateType(){
-    }
-
     public AdminUpdateType createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

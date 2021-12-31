@@ -64,9 +64,6 @@ public class AdminBanUserV2 extends Operation {
         this.body = body;
     }
 
-    public AdminBanUserV2(){
-    }
-
     public AdminBanUserV2 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

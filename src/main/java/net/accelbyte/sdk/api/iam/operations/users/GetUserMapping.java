@@ -63,9 +63,6 @@ public class GetUserMapping extends Operation {
         this.userId = userId;
     }
 
-    public GetUserMapping(){
-    }
-
     public GetUserMapping createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

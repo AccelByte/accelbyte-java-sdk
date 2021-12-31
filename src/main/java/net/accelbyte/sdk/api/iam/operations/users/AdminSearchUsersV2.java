@@ -83,9 +83,6 @@ public class AdminSearchUsersV2 extends Operation {
         this.platformId = platformId;
     }
 
-    public AdminSearchUsersV2(){
-    }
-
     public AdminSearchUsersV2 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

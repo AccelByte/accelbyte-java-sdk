@@ -59,9 +59,6 @@ public class DeleteSessionLocalDS extends Operation {
         this.sessionID = sessionID;
     }
 
-    public DeleteSessionLocalDS(){
-    }
-
     public DeleteSessionLocalDS createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

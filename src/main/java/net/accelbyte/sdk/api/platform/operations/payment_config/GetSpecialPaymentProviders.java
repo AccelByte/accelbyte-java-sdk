@@ -50,7 +50,6 @@ public class GetSpecialPaymentProviders extends Operation {
     {
     }
 
-
     public GetSpecialPaymentProviders createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

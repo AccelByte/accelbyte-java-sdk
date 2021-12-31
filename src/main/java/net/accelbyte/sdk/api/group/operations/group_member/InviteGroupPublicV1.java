@@ -59,9 +59,6 @@ public class InviteGroupPublicV1 extends Operation {
         this.userId = userId;
     }
 
-    public InviteGroupPublicV1(){
-    }
-
     public InviteGroupPublicV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -51,7 +51,6 @@ public class AdminGetListBanReasonV3 extends Operation {
     {
     }
 
-
     public AdminGetListBanReasonV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

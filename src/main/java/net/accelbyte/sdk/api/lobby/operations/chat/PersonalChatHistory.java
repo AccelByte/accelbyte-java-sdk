@@ -62,9 +62,6 @@ public class PersonalChatHistory extends Operation {
         this.userId = userId;
     }
 
-    public PersonalChatHistory(){
-    }
-
     public PersonalChatHistory createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

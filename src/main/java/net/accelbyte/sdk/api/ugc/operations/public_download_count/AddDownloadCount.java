@@ -59,9 +59,6 @@ public class AddDownloadCount extends Operation {
         this.namespace = namespace;
     }
 
-    public AddDownloadCount(){
-    }
-
     public AddDownloadCount createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

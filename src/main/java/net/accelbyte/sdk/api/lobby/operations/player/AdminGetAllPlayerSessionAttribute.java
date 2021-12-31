@@ -59,9 +59,6 @@ public class AdminGetAllPlayerSessionAttribute extends Operation {
         this.userId = userId;
     }
 
-    public AdminGetAllPlayerSessionAttribute(){
-    }
-
     public AdminGetAllPlayerSessionAttribute createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

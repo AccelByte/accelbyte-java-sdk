@@ -63,9 +63,6 @@ public class AcquireItem extends Operation {
         this.body = body;
     }
 
-    public AcquireItem(){
-    }
-
     public AcquireItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

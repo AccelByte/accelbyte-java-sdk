@@ -58,9 +58,6 @@ public class AnonymizeEntitlement extends Operation {
         this.userId = userId;
     }
 
-    public AnonymizeEntitlement(){
-    }
-
     public AnonymizeEntitlement createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

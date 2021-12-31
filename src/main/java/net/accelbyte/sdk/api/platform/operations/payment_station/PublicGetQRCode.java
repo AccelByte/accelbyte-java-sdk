@@ -58,9 +58,6 @@ public class PublicGetQRCode extends Operation {
         this.code = code;
     }
 
-    public PublicGetQRCode(){
-    }
-
     public PublicGetQRCode createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

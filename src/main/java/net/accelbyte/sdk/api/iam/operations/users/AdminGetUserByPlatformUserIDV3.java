@@ -63,9 +63,6 @@ public class AdminGetUserByPlatformUserIDV3 extends Operation {
         this.platformUserId = platformUserId;
     }
 
-    public AdminGetUserByPlatformUserIDV3(){
-    }
-
     public AdminGetUserByPlatformUserIDV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

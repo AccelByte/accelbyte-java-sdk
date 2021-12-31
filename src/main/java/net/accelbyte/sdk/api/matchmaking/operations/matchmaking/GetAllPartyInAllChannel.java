@@ -54,9 +54,6 @@ public class GetAllPartyInAllChannel extends Operation {
         this.namespace = namespace;
     }
 
-    public GetAllPartyInAllChannel(){
-    }
-
     public GetAllPartyInAllChannel createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -58,9 +58,6 @@ public class DeleteNotificationTemplateSlugV1Admin extends Operation {
         this.templateSlug = templateSlug;
     }
 
-    public DeleteNotificationTemplateSlugV1Admin(){
-    }
-
     public DeleteNotificationTemplateSlugV1Admin createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

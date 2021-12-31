@@ -65,9 +65,6 @@ public class AdminGetAllGroups extends Operation {
         this.offset = offset;
     }
 
-    public AdminGetAllGroups(){
-    }
-
     public AdminGetAllGroups createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

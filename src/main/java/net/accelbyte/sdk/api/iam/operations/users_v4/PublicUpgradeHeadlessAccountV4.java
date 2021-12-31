@@ -60,9 +60,6 @@ public class PublicUpgradeHeadlessAccountV4 extends Operation {
         this.body = body;
     }
 
-    public PublicUpgradeHeadlessAccountV4(){
-    }
-
     public PublicUpgradeHeadlessAccountV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

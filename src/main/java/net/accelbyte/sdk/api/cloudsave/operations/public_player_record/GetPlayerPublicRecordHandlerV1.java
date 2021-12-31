@@ -63,9 +63,6 @@ public class GetPlayerPublicRecordHandlerV1 extends Operation {
         this.userId = userId;
     }
 
-    public GetPlayerPublicRecordHandlerV1(){
-    }
-
     public GetPlayerPublicRecordHandlerV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

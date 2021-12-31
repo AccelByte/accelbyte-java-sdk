@@ -63,9 +63,6 @@ public class PublicLinkPlatformAccount extends Operation {
         this.body = body;
     }
 
-    public PublicLinkPlatformAccount(){
-    }
-
     public PublicLinkPlatformAccount createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

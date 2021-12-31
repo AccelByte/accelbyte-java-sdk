@@ -71,9 +71,6 @@ public class QueryRedeemHistory extends Operation {
         this.userId = userId;
     }
 
-    public QueryRedeemHistory(){
-    }
-
     public QueryRedeemHistory createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

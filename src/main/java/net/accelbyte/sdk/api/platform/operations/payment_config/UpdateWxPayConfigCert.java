@@ -58,9 +58,6 @@ public class UpdateWxPayConfigCert extends Operation {
         this.file = file;
     }
 
-    public UpdateWxPayConfigCert(){
-    }
-
     public UpdateWxPayConfigCert createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -55,9 +55,6 @@ public class AdminGetConfigV1 extends Operation {
         this.namespace = namespace;
     }
 
-    public AdminGetConfigV1(){
-    }
-
     public AdminGetConfigV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -51,7 +51,6 @@ public class PublicGetMyUserV3 extends Operation {
     {
     }
 
-
     public PublicGetMyUserV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

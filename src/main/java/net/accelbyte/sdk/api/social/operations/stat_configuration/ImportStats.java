@@ -61,9 +61,6 @@ public class ImportStats extends Operation {
         this.file = file;
     }
 
-    public ImportStats(){
-    }
-
     public ImportStats createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

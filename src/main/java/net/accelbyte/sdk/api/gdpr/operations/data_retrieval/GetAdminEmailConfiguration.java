@@ -54,9 +54,6 @@ public class GetAdminEmailConfiguration extends Operation {
         this.namespace = namespace;
     }
 
-    public GetAdminEmailConfiguration(){
-    }
-
     public GetAdminEmailConfiguration createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

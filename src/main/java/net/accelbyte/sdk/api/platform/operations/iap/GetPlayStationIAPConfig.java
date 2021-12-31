@@ -55,9 +55,6 @@ public class GetPlayStationIAPConfig extends Operation {
         this.namespace = namespace;
     }
 
-    public GetPlayStationIAPConfig(){
-    }
-
     public GetPlayStationIAPConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

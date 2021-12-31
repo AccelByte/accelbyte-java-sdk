@@ -62,9 +62,6 @@ public class DeletePass extends Operation {
         this.seasonId = seasonId;
     }
 
-    public DeletePass(){
-    }
-
     public DeletePass createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

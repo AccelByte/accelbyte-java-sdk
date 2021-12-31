@@ -59,9 +59,6 @@ public class ImageDetailClient extends Operation {
         this.version = version;
     }
 
-    public ImageDetailClient(){
-    }
-
     public ImageDetailClient createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

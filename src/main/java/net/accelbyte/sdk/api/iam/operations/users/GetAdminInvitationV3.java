@@ -59,9 +59,6 @@ public class GetAdminInvitationV3 extends Operation {
         this.namespace = namespace;
     }
 
-    public GetAdminInvitationV3(){
-    }
-
     public GetAdminInvitationV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

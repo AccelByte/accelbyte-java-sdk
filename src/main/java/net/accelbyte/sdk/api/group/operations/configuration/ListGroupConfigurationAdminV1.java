@@ -61,9 +61,6 @@ public class ListGroupConfigurationAdminV1 extends Operation {
         this.offset = offset;
     }
 
-    public ListGroupConfigurationAdminV1(){
-    }
-
     public ListGroupConfigurationAdminV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

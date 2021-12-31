@@ -63,9 +63,6 @@ public class PublicSubmitUserAccountDeletionRequest extends Operation {
         this.password = password;
     }
 
-    public PublicSubmitUserAccountDeletionRequest(){
-    }
-
     public PublicSubmitUserAccountDeletionRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -55,9 +55,6 @@ public class AdminGetBansTypeWithNamespaceV3 extends Operation {
         this.namespace = namespace;
     }
 
-    public AdminGetBansTypeWithNamespaceV3(){
-    }
-
     public AdminGetBansTypeWithNamespaceV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

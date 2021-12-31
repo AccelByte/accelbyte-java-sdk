@@ -59,9 +59,6 @@ public class CancelGroupJoinRequestV1 extends Operation {
         this.namespace = namespace;
     }
 
-    public CancelGroupJoinRequestV1(){
-    }
-
     public CancelGroupJoinRequestV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

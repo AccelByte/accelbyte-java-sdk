@@ -58,9 +58,6 @@ public class GetBannedUsers extends Operation {
         this.userIds = userIds;
     }
 
-    public GetBannedUsers(){
-    }
-
     public GetBannedUsers createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

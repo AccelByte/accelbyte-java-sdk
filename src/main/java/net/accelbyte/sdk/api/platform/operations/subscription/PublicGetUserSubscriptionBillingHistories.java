@@ -72,9 +72,6 @@ public class PublicGetUserSubscriptionBillingHistories extends Operation {
         this.offset = offset;
     }
 
-    public PublicGetUserSubscriptionBillingHistories(){
-    }
-
     public PublicGetUserSubscriptionBillingHistories createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

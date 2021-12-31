@@ -58,9 +58,6 @@ public class ExportStore extends Operation {
         this.storeId = storeId;
     }
 
-    public ExportStore(){
-    }
-
     public ExportStore createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

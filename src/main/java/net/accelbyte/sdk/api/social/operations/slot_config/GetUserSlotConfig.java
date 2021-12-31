@@ -59,9 +59,6 @@ public class GetUserSlotConfig extends Operation {
         this.userId = userId;
     }
 
-    public GetUserSlotConfig(){
-    }
-
     public GetUserSlotConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

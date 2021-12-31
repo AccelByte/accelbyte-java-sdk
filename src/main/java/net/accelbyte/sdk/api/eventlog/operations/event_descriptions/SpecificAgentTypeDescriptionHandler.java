@@ -54,9 +54,6 @@ public class SpecificAgentTypeDescriptionHandler extends Operation {
         this.agentTypes = agentTypes;
     }
 
-    public SpecificAgentTypeDescriptionHandler(){
-    }
-
     public SpecificAgentTypeDescriptionHandler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

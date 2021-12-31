@@ -54,9 +54,6 @@ public class PublicGetTimeZones extends Operation {
         this.namespace = namespace;
     }
 
-    public PublicGetTimeZones(){
-    }
-
     public PublicGetTimeZones createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

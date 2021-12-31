@@ -63,9 +63,6 @@ public class RetrieveAllUsersByPolicyVersion extends Operation {
         this.policyVersionId = policyVersionId;
     }
 
-    public RetrieveAllUsersByPolicyVersion(){
-    }
-
     public RetrieveAllUsersByPolicyVersion createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

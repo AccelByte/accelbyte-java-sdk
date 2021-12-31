@@ -68,9 +68,6 @@ public class AdminUpdateChannel extends Operation {
         this.body = body;
     }
 
-    public AdminUpdateChannel(){
-    }
-
     public AdminUpdateChannel createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

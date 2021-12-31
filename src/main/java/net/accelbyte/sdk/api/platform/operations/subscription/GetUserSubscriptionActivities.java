@@ -71,9 +71,6 @@ public class GetUserSubscriptionActivities extends Operation {
         this.subscriptionId = subscriptionId;
     }
 
-    public GetUserSubscriptionActivities(){
-    }
-
     public GetUserSubscriptionActivities createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

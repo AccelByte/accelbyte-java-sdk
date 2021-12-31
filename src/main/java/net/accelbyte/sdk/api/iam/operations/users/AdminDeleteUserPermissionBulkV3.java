@@ -63,9 +63,6 @@ public class AdminDeleteUserPermissionBulkV3 extends Operation {
         this.body = body;
     }
 
-    public AdminDeleteUserPermissionBulkV3(){
-    }
-
     public AdminDeleteUserPermissionBulkV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

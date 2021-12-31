@@ -59,9 +59,6 @@ public class GetGroupConfigurationAdminV1 extends Operation {
         this.namespace = namespace;
     }
 
-    public GetGroupConfigurationAdminV1(){
-    }
-
     public GetGroupConfigurationAdminV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

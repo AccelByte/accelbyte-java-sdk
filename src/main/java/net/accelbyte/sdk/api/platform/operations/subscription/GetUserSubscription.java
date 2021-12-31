@@ -63,9 +63,6 @@ public class GetUserSubscription extends Operation {
         this.userId = userId;
     }
 
-    public GetUserSubscription(){
-    }
-
     public GetUserSubscription createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

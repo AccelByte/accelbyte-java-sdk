@@ -71,9 +71,6 @@ public class PublicGetUserBanHistoryV3 extends Operation {
         this.limit = limit;
     }
 
-    public PublicGetUserBanHistoryV3(){
-    }
-
     public PublicGetUserBanHistoryV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

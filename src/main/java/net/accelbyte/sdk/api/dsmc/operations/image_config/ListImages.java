@@ -70,9 +70,6 @@ public class ListImages extends Operation {
         this.sortDirection = sortDirection;
     }
 
-    public ListImages(){
-    }
-
     public ListImages createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

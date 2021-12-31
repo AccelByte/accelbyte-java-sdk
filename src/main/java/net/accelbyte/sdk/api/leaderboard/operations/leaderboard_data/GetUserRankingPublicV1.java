@@ -63,9 +63,6 @@ public class GetUserRankingPublicV1 extends Operation {
         this.userId = userId;
     }
 
-    public GetUserRankingPublicV1(){
-    }
-
     public GetUserRankingPublicV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

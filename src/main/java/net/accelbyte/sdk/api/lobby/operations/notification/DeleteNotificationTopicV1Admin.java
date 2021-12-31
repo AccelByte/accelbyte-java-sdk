@@ -58,9 +58,6 @@ public class DeleteNotificationTopicV1Admin extends Operation {
         this.topicName = topicName;
     }
 
-    public DeleteNotificationTopicV1Admin(){
-    }
-
     public DeleteNotificationTopicV1Admin createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

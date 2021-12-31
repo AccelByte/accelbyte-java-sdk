@@ -66,9 +66,6 @@ public class GetUserEntitlementOwnershipBySku extends Operation {
         this.sku = sku;
     }
 
-    public GetUserEntitlementOwnershipBySku(){
-    }
-
     public GetUserEntitlementOwnershipBySku createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

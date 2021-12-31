@@ -68,9 +68,6 @@ public class PublicListAchievements extends Operation {
         this.language = language;
     }
 
-    public PublicListAchievements(){
-    }
-
     public PublicListAchievements createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

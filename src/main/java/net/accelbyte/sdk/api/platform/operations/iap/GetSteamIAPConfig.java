@@ -55,9 +55,6 @@ public class GetSteamIAPConfig extends Operation {
         this.namespace = namespace;
     }
 
-    public GetSteamIAPConfig(){
-    }
-
     public GetSteamIAPConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

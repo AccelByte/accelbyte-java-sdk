@@ -74,9 +74,6 @@ public class GetUserEventsV2Public extends Operation {
         this.startDate = startDate;
     }
 
-    public GetUserEventsV2Public(){
-    }
-
     public GetUserEventsV2Public createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

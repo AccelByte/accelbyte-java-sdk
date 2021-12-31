@@ -55,9 +55,6 @@ public class GetPublishedStore extends Operation {
         this.namespace = namespace;
     }
 
-    public GetPublishedStore(){
-    }
-
     public GetPublishedStore createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

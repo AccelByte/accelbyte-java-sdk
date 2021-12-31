@@ -59,9 +59,6 @@ public class AdminGetClientsbyNamespacebyIDV3 extends Operation {
         this.namespace = namespace;
     }
 
-    public AdminGetClientsbyNamespacebyIDV3(){
-    }
-
     public AdminGetClientsbyNamespacebyIDV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

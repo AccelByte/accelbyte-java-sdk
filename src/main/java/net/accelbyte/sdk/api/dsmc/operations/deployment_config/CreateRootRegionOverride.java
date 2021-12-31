@@ -68,9 +68,6 @@ public class CreateRootRegionOverride extends Operation {
         this.body = body;
     }
 
-    public CreateRootRegionOverride(){
-    }
-
     public CreateRootRegionOverride createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

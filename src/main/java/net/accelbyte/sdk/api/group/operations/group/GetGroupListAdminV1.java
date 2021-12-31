@@ -70,9 +70,6 @@ public class GetGroupListAdminV1 extends Operation {
         this.offset = offset;
     }
 
-    public GetGroupListAdminV1(){
-    }
-
     public GetGroupListAdminV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

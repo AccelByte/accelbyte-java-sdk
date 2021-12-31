@@ -58,9 +58,6 @@ public class AdminGetUserProfilePublicInfoByIds extends Operation {
         this.body = body;
     }
 
-    public AdminGetUserProfilePublicInfoByIds(){
-    }
-
     public AdminGetUserProfilePublicInfoByIds createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

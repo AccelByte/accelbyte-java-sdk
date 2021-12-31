@@ -60,9 +60,6 @@ public class AdminGetBulkUserByEmailAddressV3 extends Operation {
         this.body = body;
     }
 
-    public AdminGetBulkUserByEmailAddressV3(){
-    }
-
     public AdminGetBulkUserByEmailAddressV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

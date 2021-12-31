@@ -74,9 +74,6 @@ public class GetPublicEditHistory extends Operation {
         this.type = type;
     }
 
-    public GetPublicEditHistory(){
-    }
-
     public GetPublicEditHistory createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -66,9 +66,6 @@ public class DeleteContentScreenshot extends Operation {
         this.userId = userId;
     }
 
-    public DeleteContentScreenshot(){
-    }
-
     public DeleteContentScreenshot createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

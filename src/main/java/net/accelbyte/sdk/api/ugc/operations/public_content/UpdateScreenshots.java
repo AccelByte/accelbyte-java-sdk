@@ -68,9 +68,6 @@ public class UpdateScreenshots extends Operation {
         this.body = body;
     }
 
-    public UpdateScreenshots(){
-    }
-
     public UpdateScreenshots createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

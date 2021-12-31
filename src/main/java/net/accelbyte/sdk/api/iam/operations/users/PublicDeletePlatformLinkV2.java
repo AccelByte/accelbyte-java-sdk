@@ -65,9 +65,6 @@ public class PublicDeletePlatformLinkV2 extends Operation {
         this.platformNamespace = platformNamespace;
     }
 
-    public PublicDeletePlatformLinkV2(){
-    }
-
     public PublicDeletePlatformLinkV2 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
@@ -98,7 +95,7 @@ public class PublicDeletePlatformLinkV2 extends Operation {
     @JsonIgnore
     public Map<String, String> getFormDataParams(){
         Map<String, String> formDataParams = new HashMap<>();
-        formDataParams.put("platformNamespace", this.platformNamespace);
+        formDataParams.put("platform_namespace", this.platformNamespace);
         return formDataParams;
     }
 

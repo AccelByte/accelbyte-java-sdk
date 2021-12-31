@@ -63,9 +63,6 @@ public class PlatformSubscribeSubscription extends Operation {
         this.body = body;
     }
 
-    public PlatformSubscribeSubscription(){
-    }
-
     public PlatformSubscribeSubscription createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

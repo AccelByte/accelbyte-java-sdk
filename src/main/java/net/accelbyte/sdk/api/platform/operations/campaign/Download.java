@@ -61,9 +61,6 @@ public class Download extends Operation {
         this.batchNo = batchNo;
     }
 
-    public Download(){
-    }
-
     public Download createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

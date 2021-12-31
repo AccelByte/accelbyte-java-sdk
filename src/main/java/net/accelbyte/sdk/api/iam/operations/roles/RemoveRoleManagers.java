@@ -59,9 +59,6 @@ public class RemoveRoleManagers extends Operation {
         this.body = body;
     }
 
-    public RemoveRoleManagers(){
-    }
-
     public RemoveRoleManagers createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

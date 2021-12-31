@@ -58,9 +58,6 @@ public class TestPayPalConfig extends Operation {
         this.body = body;
     }
 
-    public TestPayPalConfig(){
-    }
-
     public TestPayPalConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -59,9 +59,6 @@ public class GetImageDetail extends Operation {
         this.version = version;
     }
 
-    public GetImageDetail(){
-    }
-
     public GetImageDetail createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

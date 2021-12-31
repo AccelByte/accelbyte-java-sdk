@@ -59,9 +59,6 @@ public class UpdateNamespaceSlotConfig extends Operation {
         this.body = body;
     }
 
-    public UpdateNamespaceSlotConfig(){
-    }
-
     public UpdateNamespaceSlotConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

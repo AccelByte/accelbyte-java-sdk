@@ -59,9 +59,6 @@ public class CreateNotificationTopicV1Admin extends Operation {
         this.body = body;
     }
 
-    public CreateNotificationTopicV1Admin(){
-    }
-
     public CreateNotificationTopicV1Admin createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -58,9 +58,6 @@ public class GetPrivateCustomAttributesInfo extends Operation {
         this.userId = userId;
     }
 
-    public GetPrivateCustomAttributesInfo(){
-    }
-
     public GetPrivateCustomAttributesInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

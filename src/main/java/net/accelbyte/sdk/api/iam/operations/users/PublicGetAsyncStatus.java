@@ -59,9 +59,6 @@ public class PublicGetAsyncStatus extends Operation {
         this.requestId = requestId;
     }
 
-    public PublicGetAsyncStatus(){
-    }
-
     public PublicGetAsyncStatus createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

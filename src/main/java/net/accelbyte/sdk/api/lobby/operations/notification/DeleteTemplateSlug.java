@@ -58,9 +58,6 @@ public class DeleteTemplateSlug extends Operation {
         this.templateSlug = templateSlug;
     }
 
-    public DeleteTemplateSlug(){
-    }
-
     public DeleteTemplateSlug createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

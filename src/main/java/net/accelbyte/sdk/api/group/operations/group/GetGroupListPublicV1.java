@@ -67,9 +67,6 @@ public class GetGroupListPublicV1 extends Operation {
         this.offset = offset;
     }
 
-    public GetGroupListPublicV1(){
-    }
-
     public GetGroupListPublicV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -70,9 +70,6 @@ public class GetEventByNamespaceHandler extends Operation {
         this.startDate = startDate;
     }
 
-    public GetEventByNamespaceHandler(){
-    }
-
     public GetEventByNamespaceHandler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

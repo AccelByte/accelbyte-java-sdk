@@ -59,9 +59,6 @@ public class IndirectBulkAcceptVersionedPolicy extends Operation {
         this.body = body;
     }
 
-    public IndirectBulkAcceptVersionedPolicy(){
-    }
-
     public IndirectBulkAcceptVersionedPolicy createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

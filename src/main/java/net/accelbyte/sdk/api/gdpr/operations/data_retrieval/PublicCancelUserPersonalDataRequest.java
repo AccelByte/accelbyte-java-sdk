@@ -63,9 +63,6 @@ public class PublicCancelUserPersonalDataRequest extends Operation {
         this.userId = userId;
     }
 
-    public PublicCancelUserPersonalDataRequest(){
-    }
-
     public PublicCancelUserPersonalDataRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -58,9 +58,6 @@ public class PublicGetUserNamespaceSlots extends Operation {
         this.userId = userId;
     }
 
-    public PublicGetUserNamespaceSlots(){
-    }
-
     public PublicGetUserNamespaceSlots createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

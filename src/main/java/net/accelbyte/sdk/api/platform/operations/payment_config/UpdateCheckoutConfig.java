@@ -65,9 +65,6 @@ public class UpdateCheckoutConfig extends Operation {
         this.body = body;
     }
 
-    public UpdateCheckoutConfig(){
-    }
-
     public UpdateCheckoutConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

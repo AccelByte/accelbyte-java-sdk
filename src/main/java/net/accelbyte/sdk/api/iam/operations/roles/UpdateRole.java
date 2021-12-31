@@ -60,9 +60,6 @@ public class UpdateRole extends Operation {
         this.body = body;
     }
 
-    public UpdateRole(){
-    }
-
     public UpdateRole createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

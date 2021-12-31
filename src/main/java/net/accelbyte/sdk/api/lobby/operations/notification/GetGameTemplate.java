@@ -54,9 +54,6 @@ public class GetGameTemplate extends Operation {
         this.namespace = namespace;
     }
 
-    public GetGameTemplate(){
-    }
-
     public GetGameTemplate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

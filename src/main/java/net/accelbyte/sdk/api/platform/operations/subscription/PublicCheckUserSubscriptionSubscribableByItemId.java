@@ -63,9 +63,6 @@ public class PublicCheckUserSubscriptionSubscribableByItemId extends Operation {
         this.itemId = itemId;
     }
 
-    public PublicCheckUserSubscriptionSubscribableByItemId(){
-    }
-
     public PublicCheckUserSubscriptionSubscribableByItemId createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

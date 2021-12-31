@@ -65,9 +65,6 @@ public class GetCurrentMonthLeaderboardRankingPublicV1 extends Operation {
         this.offset = offset;
     }
 
-    public GetCurrentMonthLeaderboardRankingPublicV1(){
-    }
-
     public GetCurrentMonthLeaderboardRankingPublicV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

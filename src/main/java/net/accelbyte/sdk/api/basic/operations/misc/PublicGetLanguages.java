@@ -54,9 +54,6 @@ public class PublicGetLanguages extends Operation {
         this.namespace = namespace;
     }
 
-    public PublicGetLanguages(){
-    }
-
     public PublicGetLanguages createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

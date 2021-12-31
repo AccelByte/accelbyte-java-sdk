@@ -64,9 +64,6 @@ public class UpdatePort extends Operation {
         this.body = body;
     }
 
-    public UpdatePort(){
-    }
-
     public UpdatePort createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -59,9 +59,6 @@ public class GetEntitlement extends Operation {
         this.namespace = namespace;
     }
 
-    public GetEntitlement(){
-    }
-
     public GetEntitlement createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

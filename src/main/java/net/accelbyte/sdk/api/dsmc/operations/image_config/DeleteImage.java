@@ -62,9 +62,6 @@ public class DeleteImage extends Operation {
         this.version = version;
     }
 
-    public DeleteImage(){
-    }
-
     public DeleteImage createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

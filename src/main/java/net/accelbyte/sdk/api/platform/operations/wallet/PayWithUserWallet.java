@@ -67,9 +67,6 @@ public class PayWithUserWallet extends Operation {
         this.body = body;
     }
 
-    public PayWithUserWallet(){
-    }
-
     public PayWithUserWallet createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

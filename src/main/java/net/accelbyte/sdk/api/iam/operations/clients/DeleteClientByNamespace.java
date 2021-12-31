@@ -58,9 +58,6 @@ public class DeleteClientByNamespace extends Operation {
         this.namespace = namespace;
     }
 
-    public DeleteClientByNamespace(){
-    }
-
     public DeleteClientByNamespace createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

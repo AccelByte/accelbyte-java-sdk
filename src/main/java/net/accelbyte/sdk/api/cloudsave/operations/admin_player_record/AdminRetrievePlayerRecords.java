@@ -65,9 +65,6 @@ public class AdminRetrievePlayerRecords extends Operation {
         this.offset = offset;
     }
 
-    public AdminRetrievePlayerRecords(){
-    }
-
     public AdminRetrievePlayerRecords createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

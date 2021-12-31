@@ -60,9 +60,6 @@ public class PublicCreateUserV4 extends Operation {
         this.body = body;
     }
 
-    public PublicCreateUserV4(){
-    }
-
     public PublicCreateUserV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

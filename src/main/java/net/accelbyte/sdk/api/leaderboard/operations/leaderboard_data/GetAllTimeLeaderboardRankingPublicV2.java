@@ -65,9 +65,6 @@ public class GetAllTimeLeaderboardRankingPublicV2 extends Operation {
         this.offset = offset;
     }
 
-    public GetAllTimeLeaderboardRankingPublicV2(){
-    }
-
     public GetAllTimeLeaderboardRankingPublicV2 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

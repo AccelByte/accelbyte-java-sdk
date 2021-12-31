@@ -68,9 +68,6 @@ public class UpdateGroupPredefinedRulePublicV1 extends Operation {
         this.body = body;
     }
 
-    public UpdateGroupPredefinedRulePublicV1(){
-    }
-
     public UpdateGroupPredefinedRulePublicV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

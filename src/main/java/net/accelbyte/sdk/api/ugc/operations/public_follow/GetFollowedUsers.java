@@ -61,9 +61,6 @@ public class GetFollowedUsers extends Operation {
         this.offset = offset;
     }
 
-    public GetFollowedUsers(){
-    }
-
     public GetFollowedUsers createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

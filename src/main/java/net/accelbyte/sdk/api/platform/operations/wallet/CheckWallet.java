@@ -62,9 +62,6 @@ public class CheckWallet extends Operation {
         this.userId = userId;
     }
 
-    public CheckWallet(){
-    }
-
     public CheckWallet createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

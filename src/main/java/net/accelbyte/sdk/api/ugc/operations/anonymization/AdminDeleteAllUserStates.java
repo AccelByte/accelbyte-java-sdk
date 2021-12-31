@@ -58,9 +58,6 @@ public class AdminDeleteAllUserStates extends Operation {
         this.userId = userId;
     }
 
-    public AdminDeleteAllUserStates(){
-    }
-
     public AdminDeleteAllUserStates createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

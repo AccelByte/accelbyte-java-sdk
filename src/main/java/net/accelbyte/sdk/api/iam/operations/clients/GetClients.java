@@ -50,7 +50,6 @@ public class GetClients extends Operation {
     {
     }
 
-
     public GetClients createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

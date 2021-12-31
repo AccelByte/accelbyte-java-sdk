@@ -59,9 +59,6 @@ public class PublicGetSingleMatchmakingChannel extends Operation {
         this.namespace = namespace;
     }
 
-    public PublicGetSingleMatchmakingChannel(){
-    }
-
     public PublicGetSingleMatchmakingChannel createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

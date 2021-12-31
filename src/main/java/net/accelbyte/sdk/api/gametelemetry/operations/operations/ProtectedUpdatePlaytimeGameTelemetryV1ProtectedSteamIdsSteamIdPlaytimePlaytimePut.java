@@ -58,9 +58,6 @@ public class ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlayt
         this.steamId = steamId;
     }
 
-    public ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut(){
-    }
-
     public ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

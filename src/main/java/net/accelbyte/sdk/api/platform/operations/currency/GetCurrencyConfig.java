@@ -59,9 +59,6 @@ public class GetCurrencyConfig extends Operation {
         this.namespace = namespace;
     }
 
-    public GetCurrencyConfig(){
-    }
-
     public GetCurrencyConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

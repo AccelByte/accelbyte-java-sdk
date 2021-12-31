@@ -59,9 +59,6 @@ public class PublicCreateJusticeUser extends Operation {
         this.targetNamespace = targetNamespace;
     }
 
-    public PublicCreateJusticeUser(){
-    }
-
     public PublicCreateJusticeUser createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

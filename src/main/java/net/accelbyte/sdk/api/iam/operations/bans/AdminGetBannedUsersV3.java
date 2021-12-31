@@ -67,9 +67,6 @@ public class AdminGetBannedUsersV3 extends Operation {
         this.offset = offset;
     }
 
-    public AdminGetBannedUsersV3(){
-    }
-
     public AdminGetBannedUsersV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

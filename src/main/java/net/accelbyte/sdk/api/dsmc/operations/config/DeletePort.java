@@ -59,9 +59,6 @@ public class DeletePort extends Operation {
         this.namespace = namespace;
     }
 
-    public DeletePort(){
-    }
-
     public DeletePort createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -67,9 +67,6 @@ public class AdminPutPlayerPublicRecordHandlerV1 extends Operation {
         this.body = body;
     }
 
-    public AdminPutPlayerPublicRecordHandlerV1(){
-    }
-
     public AdminPutPlayerPublicRecordHandlerV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

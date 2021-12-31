@@ -68,9 +68,6 @@ public class AdminHideUserContent extends Operation {
         this.body = body;
     }
 
-    public AdminHideUserContent(){
-    }
-
     public AdminHideUserContent createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

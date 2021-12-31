@@ -97,9 +97,6 @@ public class QueryItems extends Operation {
         this.targetNamespace = targetNamespace;
     }
 
-    public QueryItems(){
-    }
-
     public QueryItems createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

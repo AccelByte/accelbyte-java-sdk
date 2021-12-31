@@ -64,9 +64,6 @@ public class PublicListUserIDByPlatformUserIDsV3 extends Operation {
         this.body = body;
     }
 
-    public PublicListUserIDByPlatformUserIDsV3(){
-    }
-
     public PublicListUserIDByPlatformUserIDsV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

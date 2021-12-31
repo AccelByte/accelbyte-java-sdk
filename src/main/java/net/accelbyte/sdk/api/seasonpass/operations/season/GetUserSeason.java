@@ -63,9 +63,6 @@ public class GetUserSeason extends Operation {
         this.userId = userId;
     }
 
-    public GetUserSeason(){
-    }
-
     public GetUserSeason createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

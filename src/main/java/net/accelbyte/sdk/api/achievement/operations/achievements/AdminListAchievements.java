@@ -64,9 +64,6 @@ public class AdminListAchievements extends Operation {
         this.sortBy = sortBy;
     }
 
-    public AdminListAchievements(){
-    }
-
     public AdminListAchievements createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

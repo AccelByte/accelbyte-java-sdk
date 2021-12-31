@@ -71,9 +71,6 @@ public class PublicQueryUserOrders extends Operation {
         this.status = status;
     }
 
-    public PublicQueryUserOrders(){
-    }
-
     public PublicQueryUserOrders createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

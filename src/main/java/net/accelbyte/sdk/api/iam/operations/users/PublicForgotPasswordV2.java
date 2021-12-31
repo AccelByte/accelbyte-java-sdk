@@ -59,9 +59,6 @@ public class PublicForgotPasswordV2 extends Operation {
         this.body = body;
     }
 
-    public PublicForgotPasswordV2(){
-    }
-
     public PublicForgotPasswordV2 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

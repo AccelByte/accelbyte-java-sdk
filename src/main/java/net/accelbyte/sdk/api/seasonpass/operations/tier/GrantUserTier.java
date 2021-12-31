@@ -63,9 +63,6 @@ public class GrantUserTier extends Operation {
         this.body = body;
     }
 
-    public GrantUserTier(){
-    }
-
     public GrantUserTier createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

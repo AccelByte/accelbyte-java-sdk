@@ -59,9 +59,6 @@ public class AdminDebugProfanityFilters extends Operation {
         this.body = body;
     }
 
-    public AdminDebugProfanityFilters(){
-    }
-
     public AdminDebugProfanityFilters createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

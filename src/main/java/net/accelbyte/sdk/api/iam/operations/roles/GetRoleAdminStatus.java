@@ -55,9 +55,6 @@ public class GetRoleAdminStatus extends Operation {
         this.roleId = roleId;
     }
 
-    public GetRoleAdminStatus(){
-    }
-
     public GetRoleAdminStatus createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

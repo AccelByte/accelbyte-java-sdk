@@ -55,9 +55,6 @@ public class TestFulfillmentScriptEval extends Operation {
         this.body = body;
     }
 
-    public TestFulfillmentScriptEval(){
-    }
-
     public TestFulfillmentScriptEval createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -67,9 +67,6 @@ public class PublicGeneratePersonalDataURL extends Operation {
         this.password = password;
     }
 
-    public PublicGeneratePersonalDataURL(){
-    }
-
     public PublicGeneratePersonalDataURL createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

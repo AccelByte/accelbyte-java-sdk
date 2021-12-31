@@ -54,9 +54,6 @@ public class AdminGetProfanityLists extends Operation {
         this.namespace = namespace;
     }
 
-    public AdminGetProfanityLists(){
-    }
-
     public AdminGetProfanityLists createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -55,9 +55,6 @@ public class GetRegisteredEventIDHandler extends Operation {
         this.eventId = eventId;
     }
 
-    public GetRegisteredEventIDHandler(){
-    }
-
     public GetRegisteredEventIDHandler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

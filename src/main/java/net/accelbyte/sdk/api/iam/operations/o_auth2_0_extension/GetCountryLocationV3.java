@@ -51,7 +51,6 @@ public class GetCountryLocationV3 extends Operation {
     {
     }
 
-
     public GetCountryLocationV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

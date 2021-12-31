@@ -62,9 +62,6 @@ public class DeleteTier extends Operation {
         this.seasonId = seasonId;
     }
 
-    public DeleteTier(){
-    }
-
     public DeleteTier createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -54,9 +54,6 @@ public class PublicListCurrencies extends Operation {
         this.namespace = namespace;
     }
 
-    public PublicListCurrencies(){
-    }
-
     public PublicListCurrencies createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

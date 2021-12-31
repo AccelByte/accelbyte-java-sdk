@@ -58,9 +58,6 @@ public class DeleteLeaderboardConfigurationAdminV1 extends Operation {
         this.namespace = namespace;
     }
 
-    public DeleteLeaderboardConfigurationAdminV1(){
-    }
-
     public DeleteLeaderboardConfigurationAdminV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

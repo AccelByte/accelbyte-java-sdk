@@ -68,9 +68,6 @@ public class SingleAdminUpdateContentS3 extends Operation {
         this.body = body;
     }
 
-    public SingleAdminUpdateContentS3(){
-    }
-
     public SingleAdminUpdateContentS3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

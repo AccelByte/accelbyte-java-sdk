@@ -62,9 +62,6 @@ public class DeleteClientPermission extends Operation {
         this.resource = resource;
     }
 
-    public DeleteClientPermission(){
-    }
-
     public DeleteClientPermission createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

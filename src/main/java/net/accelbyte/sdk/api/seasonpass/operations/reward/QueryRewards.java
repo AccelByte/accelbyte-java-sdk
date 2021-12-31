@@ -61,9 +61,6 @@ public class QueryRewards extends Operation {
         this.q = q;
     }
 
-    public QueryRewards(){
-    }
-
     public QueryRewards createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -65,9 +65,6 @@ public class UpdatePayPalConfig extends Operation {
         this.body = body;
     }
 
-    public UpdatePayPalConfig(){
-    }
-
     public UpdatePayPalConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -63,9 +63,6 @@ public class DeleteDeploymentOverride extends Operation {
         this.version = version;
     }
 
-    public DeleteDeploymentOverride(){
-    }
-
     public DeleteDeploymentOverride createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

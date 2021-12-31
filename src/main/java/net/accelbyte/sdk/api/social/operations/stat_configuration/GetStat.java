@@ -59,9 +59,6 @@ public class GetStat extends Operation {
         this.statCode = statCode;
     }
 
-    public GetStat(){
-    }
-
     public GetStat createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -57,9 +57,6 @@ public class RetrieveAllPolicyTypes extends Operation {
         this.limit = limit;
     }
 
-    public RetrieveAllPolicyTypes(){
-    }
-
     public RetrieveAllPolicyTypes createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

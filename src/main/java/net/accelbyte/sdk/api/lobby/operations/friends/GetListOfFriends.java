@@ -65,9 +65,6 @@ public class GetListOfFriends extends Operation {
         this.offset = offset;
     }
 
-    public GetListOfFriends(){
-    }
-
     public GetListOfFriends createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

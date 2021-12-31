@@ -55,9 +55,6 @@ public class AdminGetThirdPartyConfig extends Operation {
         this.namespace = namespace;
     }
 
-    public AdminGetThirdPartyConfig(){
-    }
-
     public AdminGetThirdPartyConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

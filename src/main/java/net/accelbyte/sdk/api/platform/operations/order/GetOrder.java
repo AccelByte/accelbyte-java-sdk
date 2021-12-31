@@ -59,9 +59,6 @@ public class GetOrder extends Operation {
         this.orderNo = orderNo;
     }
 
-    public GetOrder(){
-    }
-
     public GetOrder createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -58,9 +58,6 @@ public class DeleteAdminEmailConfiguration extends Operation {
         this.emails = emails;
     }
 
-    public DeleteAdminEmailConfiguration(){
-    }
-
     public DeleteAdminEmailConfiguration createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

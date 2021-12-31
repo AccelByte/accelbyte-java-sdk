@@ -55,9 +55,6 @@ public class UpdateImage extends Operation {
         this.body = body;
     }
 
-    public UpdateImage(){
-    }
-
     public UpdateImage createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

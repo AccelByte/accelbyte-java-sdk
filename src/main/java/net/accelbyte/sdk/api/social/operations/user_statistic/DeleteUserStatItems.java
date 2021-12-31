@@ -62,9 +62,6 @@ public class DeleteUserStatItems extends Operation {
         this.userId = userId;
     }
 
-    public DeleteUserStatItems(){
-    }
-
     public DeleteUserStatItems createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

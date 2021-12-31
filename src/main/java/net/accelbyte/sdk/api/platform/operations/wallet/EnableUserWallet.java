@@ -62,9 +62,6 @@ public class EnableUserWallet extends Operation {
         this.walletId = walletId;
     }
 
-    public EnableUserWallet(){
-    }
-
     public EnableUserWallet createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

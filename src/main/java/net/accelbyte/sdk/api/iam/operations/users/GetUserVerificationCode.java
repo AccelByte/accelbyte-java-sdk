@@ -59,9 +59,6 @@ public class GetUserVerificationCode extends Operation {
         this.userId = userId;
     }
 
-    public GetUserVerificationCode(){
-    }
-
     public GetUserVerificationCode createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

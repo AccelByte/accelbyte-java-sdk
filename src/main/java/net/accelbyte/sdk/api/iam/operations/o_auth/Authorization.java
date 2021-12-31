@@ -74,9 +74,6 @@ public class Authorization extends Operation {
         this.responseType = responseType;
     }
 
-    public Authorization(){
-    }
-
     public Authorization createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
@@ -96,9 +93,9 @@ public class Authorization extends Operation {
         formDataParams.put("password", this.password);
         formDataParams.put("scope", this.scope);
         formDataParams.put("state", this.state);
-        formDataParams.put("clientId", this.clientId);
-        formDataParams.put("redirectUri", this.redirectUri);
-        formDataParams.put("responseType", this.responseType);
+        formDataParams.put("client_id", this.clientId);
+        formDataParams.put("redirect_uri", this.redirectUri);
+        formDataParams.put("response_type", this.responseType);
         return formDataParams;
     }
 

@@ -59,9 +59,6 @@ public class PublicGetUserAccountDeletionStatus extends Operation {
         this.userId = userId;
     }
 
-    public PublicGetUserAccountDeletionStatus(){
-    }
-
     public PublicGetUserAccountDeletionStatus createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

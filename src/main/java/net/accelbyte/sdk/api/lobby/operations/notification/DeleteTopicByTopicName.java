@@ -58,9 +58,6 @@ public class DeleteTopicByTopicName extends Operation {
         this.topic = topic;
     }
 
-    public DeleteTopicByTopicName(){
-    }
-
     public DeleteTopicByTopicName createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

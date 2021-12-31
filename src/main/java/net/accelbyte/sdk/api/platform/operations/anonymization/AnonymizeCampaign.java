@@ -58,9 +58,6 @@ public class AnonymizeCampaign extends Operation {
         this.userId = userId;
     }
 
-    public AnonymizeCampaign(){
-    }
-
     public AnonymizeCampaign createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

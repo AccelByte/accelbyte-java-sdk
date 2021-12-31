@@ -65,9 +65,6 @@ public class GetCurrentSeasonLeaderboardRankingAdminV1 extends Operation {
         this.offset = offset;
     }
 
-    public GetCurrentSeasonLeaderboardRankingAdminV1(){
-    }
-
     public GetCurrentSeasonLeaderboardRankingAdminV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

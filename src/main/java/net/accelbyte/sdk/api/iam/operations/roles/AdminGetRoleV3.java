@@ -55,9 +55,6 @@ public class AdminGetRoleV3 extends Operation {
         this.roleId = roleId;
     }
 
-    public AdminGetRoleV3(){
-    }
-
     public AdminGetRoleV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

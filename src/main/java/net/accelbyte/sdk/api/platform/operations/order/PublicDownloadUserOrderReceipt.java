@@ -62,9 +62,6 @@ public class PublicDownloadUserOrderReceipt extends Operation {
         this.userId = userId;
     }
 
-    public PublicDownloadUserOrderReceipt(){
-    }
-
     public PublicDownloadUserOrderReceipt createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

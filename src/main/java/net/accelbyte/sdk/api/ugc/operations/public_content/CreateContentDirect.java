@@ -68,9 +68,6 @@ public class CreateContentDirect extends Operation {
         this.body = body;
     }
 
-    public CreateContentDirect(){
-    }
-
     public CreateContentDirect createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -61,9 +61,6 @@ public class GetTag extends Operation {
         this.offset = offset;
     }
 
-    public GetTag(){
-    }
-
     public GetTag createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

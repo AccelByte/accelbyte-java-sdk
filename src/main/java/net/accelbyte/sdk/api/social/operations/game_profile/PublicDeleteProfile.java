@@ -62,9 +62,6 @@ public class PublicDeleteProfile extends Operation {
         this.userId = userId;
     }
 
-    public PublicDeleteProfile(){
-    }
-
     public PublicDeleteProfile createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

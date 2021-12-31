@@ -67,9 +67,6 @@ public class ConsumeUserEntitlement extends Operation {
         this.body = body;
     }
 
-    public ConsumeUserEntitlement(){
-    }
-
     public ConsumeUserEntitlement createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

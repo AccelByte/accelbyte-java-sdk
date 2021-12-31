@@ -67,9 +67,6 @@ public class UpdateTemplateLocalizationV1Admin extends Operation {
         this.body = body;
     }
 
-    public UpdateTemplateLocalizationV1Admin(){
-    }
-
     public UpdateTemplateLocalizationV1Admin createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

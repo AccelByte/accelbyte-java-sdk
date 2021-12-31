@@ -55,9 +55,6 @@ public class CreatePolicy extends Operation {
         this.body = body;
     }
 
-    public CreatePolicy(){
-    }
-
     public CreatePolicy createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -71,9 +71,6 @@ public class AdminGetUserBanV3 extends Operation {
         this.limit = limit;
     }
 
-    public AdminGetUserBanV3(){
-    }
-
     public AdminGetUserBanV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

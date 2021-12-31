@@ -62,9 +62,6 @@ public class PublicValidateUserByUserIDAndPasswordV3 extends Operation {
         this.password = password;
     }
 
-    public PublicValidateUserByUserIDAndPasswordV3(){
-    }
-
     public PublicValidateUserByUserIDAndPasswordV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

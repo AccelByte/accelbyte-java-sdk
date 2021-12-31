@@ -63,9 +63,6 @@ public class UpdateCountryGroup extends Operation {
         this.body = body;
     }
 
-    public UpdateCountryGroup(){
-    }
-
     public UpdateCountryGroup createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

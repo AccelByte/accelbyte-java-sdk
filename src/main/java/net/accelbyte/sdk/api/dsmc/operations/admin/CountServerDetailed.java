@@ -58,9 +58,6 @@ public class CountServerDetailed extends Operation {
         this.region = region;
     }
 
-    public CountServerDetailed(){
-    }
-
     public CountServerDetailed createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

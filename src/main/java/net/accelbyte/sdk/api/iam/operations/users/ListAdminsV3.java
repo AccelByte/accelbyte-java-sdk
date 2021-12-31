@@ -64,9 +64,6 @@ public class ListAdminsV3 extends Operation {
         this.limit = limit;
     }
 
-    public ListAdminsV3(){
-    }
-
     public ListAdminsV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

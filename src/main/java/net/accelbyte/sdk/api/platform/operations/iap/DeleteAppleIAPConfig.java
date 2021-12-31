@@ -54,9 +54,6 @@ public class DeleteAppleIAPConfig extends Operation {
         this.namespace = namespace;
     }
 
-    public DeleteAppleIAPConfig(){
-    }
-
     public DeleteAppleIAPConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

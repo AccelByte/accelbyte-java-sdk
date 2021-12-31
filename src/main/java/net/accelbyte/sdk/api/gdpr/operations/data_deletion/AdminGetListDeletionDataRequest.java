@@ -70,9 +70,6 @@ public class AdminGetListDeletionDataRequest extends Operation {
         this.requestDate = requestDate;
     }
 
-    public AdminGetListDeletionDataRequest(){
-    }
-
     public AdminGetListDeletionDataRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -68,9 +68,6 @@ public class AdminGetUserPlatformAccountsV3 extends Operation {
         this.limit = limit;
     }
 
-    public AdminGetUserPlatformAccountsV3(){
-    }
-
     public AdminGetUserPlatformAccountsV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

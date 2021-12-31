@@ -58,9 +58,6 @@ public class DeleteSSOLoginPlatformCredentialV3 extends Operation {
         this.platformId = platformId;
     }
 
-    public DeleteSSOLoginPlatformCredentialV3(){
-    }
-
     public DeleteSSOLoginPlatformCredentialV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

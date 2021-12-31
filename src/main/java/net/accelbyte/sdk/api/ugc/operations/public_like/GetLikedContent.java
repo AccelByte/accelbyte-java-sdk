@@ -61,9 +61,6 @@ public class GetLikedContent extends Operation {
         this.offset = offset;
     }
 
-    public GetLikedContent(){
-    }
-
     public GetLikedContent createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

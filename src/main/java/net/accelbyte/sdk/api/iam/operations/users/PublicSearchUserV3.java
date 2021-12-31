@@ -61,9 +61,6 @@ public class PublicSearchUserV3 extends Operation {
         this.query = query;
     }
 
-    public PublicSearchUserV3(){
-    }
-
     public PublicSearchUserV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -63,9 +63,6 @@ public class AdminCreateJusticeUser extends Operation {
         this.userId = userId;
     }
 
-    public AdminCreateJusticeUser(){
-    }
-
     public AdminCreateJusticeUser createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

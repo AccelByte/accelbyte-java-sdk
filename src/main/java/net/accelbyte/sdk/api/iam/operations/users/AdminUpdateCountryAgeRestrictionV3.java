@@ -64,9 +64,6 @@ public class AdminUpdateCountryAgeRestrictionV3 extends Operation {
         this.body = body;
     }
 
-    public AdminUpdateCountryAgeRestrictionV3(){
-    }
-
     public AdminUpdateCountryAgeRestrictionV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

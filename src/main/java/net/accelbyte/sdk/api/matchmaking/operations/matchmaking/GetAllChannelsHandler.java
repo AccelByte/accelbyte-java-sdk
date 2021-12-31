@@ -61,9 +61,6 @@ public class GetAllChannelsHandler extends Operation {
         this.offset = offset;
     }
 
-    public GetAllChannelsHandler(){
-    }
-
     public GetAllChannelsHandler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

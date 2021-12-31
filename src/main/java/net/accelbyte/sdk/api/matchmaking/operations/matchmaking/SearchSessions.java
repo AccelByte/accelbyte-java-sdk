@@ -78,9 +78,6 @@ public class SearchSessions extends Operation {
         this.offset = offset;
     }
 
-    public SearchSessions(){
-    }
-
     public SearchSessions createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

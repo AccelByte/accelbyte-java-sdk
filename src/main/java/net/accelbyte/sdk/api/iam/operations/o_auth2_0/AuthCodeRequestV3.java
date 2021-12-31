@@ -64,9 +64,6 @@ public class AuthCodeRequestV3 extends Operation {
         this.requestId = requestId;
     }
 
-    public AuthCodeRequestV3(){
-    }
-
     public AuthCodeRequestV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
@@ -89,9 +86,9 @@ public class AuthCodeRequestV3 extends Operation {
     @JsonIgnore
     public Map<String, String> getQueryParams(){
         Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("clientId", this.clientId);
-        queryParams.put("redirectUri", this.redirectUri);
-        queryParams.put("requestId", this.requestId);
+        queryParams.put("client_id", this.clientId);
+        queryParams.put("redirect_uri", this.redirectUri);
+        queryParams.put("request_id", this.requestId);
         return queryParams;
     }
 

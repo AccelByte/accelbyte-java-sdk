@@ -63,9 +63,6 @@ public class RedeemCode extends Operation {
         this.body = body;
     }
 
-    public RedeemCode(){
-    }
-
     public RedeemCode createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -63,9 +63,6 @@ public class CreateUserPaymentOrder extends Operation {
         this.body = body;
     }
 
-    public CreateUserPaymentOrder(){
-    }
-
     public CreateUserPaymentOrder createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

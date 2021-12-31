@@ -59,9 +59,6 @@ public class PublicDownloadContentPreview extends Operation {
         this.namespace = namespace;
     }
 
-    public PublicDownloadContentPreview(){
-    }
-
     public PublicDownloadContentPreview createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -58,9 +58,6 @@ public class AdminDeleteType extends Operation {
         this.typeId = typeId;
     }
 
-    public AdminDeleteType(){
-    }
-
     public AdminDeleteType createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

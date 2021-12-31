@@ -58,9 +58,6 @@ public class TestPayPalConfigById extends Operation {
         this.sandbox = sandbox;
     }
 
-    public TestPayPalConfigById(){
-    }
-
     public TestPayPalConfigById createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

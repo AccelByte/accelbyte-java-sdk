@@ -64,9 +64,6 @@ public class UpdateSSOPlatformCredential extends Operation {
         this.body = body;
     }
 
-    public UpdateSSOPlatformCredential(){
-    }
-
     public UpdateSSOPlatformCredential createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

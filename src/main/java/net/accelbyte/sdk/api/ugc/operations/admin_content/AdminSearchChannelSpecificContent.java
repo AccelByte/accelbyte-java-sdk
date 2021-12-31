@@ -92,9 +92,6 @@ public class AdminSearchChannelSpecificContent extends Operation {
         this.userId = userId;
     }
 
-    public AdminSearchChannelSpecificContent(){
-    }
-
     public AdminSearchChannelSpecificContent createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

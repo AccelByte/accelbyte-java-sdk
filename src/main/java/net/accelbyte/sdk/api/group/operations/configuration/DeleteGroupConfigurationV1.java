@@ -58,9 +58,6 @@ public class DeleteGroupConfigurationV1 extends Operation {
         this.namespace = namespace;
     }
 
-    public DeleteGroupConfigurationV1(){
-    }
-
     public DeleteGroupConfigurationV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

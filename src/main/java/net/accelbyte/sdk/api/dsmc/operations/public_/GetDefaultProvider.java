@@ -51,7 +51,6 @@ public class GetDefaultProvider extends Operation {
     {
     }
 
-
     public GetDefaultProvider createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

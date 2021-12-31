@@ -79,9 +79,6 @@ public class QueryOrders extends Operation {
         this.withTotal = withTotal;
     }
 
-    public QueryOrders(){
-    }
-
     public QueryOrders createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

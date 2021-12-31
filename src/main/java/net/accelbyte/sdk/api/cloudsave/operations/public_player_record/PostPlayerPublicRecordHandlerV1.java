@@ -67,9 +67,6 @@ public class PostPlayerPublicRecordHandlerV1 extends Operation {
         this.body = body;
     }
 
-    public PostPlayerPublicRecordHandlerV1(){
-    }
-
     public PostPlayerPublicRecordHandlerV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

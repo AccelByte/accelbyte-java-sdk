@@ -59,9 +59,6 @@ public class EnableCode extends Operation {
         this.namespace = namespace;
     }
 
-    public EnableCode(){
-    }
-
     public EnableCode createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

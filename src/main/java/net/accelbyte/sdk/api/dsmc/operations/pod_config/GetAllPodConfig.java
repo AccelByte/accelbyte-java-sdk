@@ -61,9 +61,6 @@ public class GetAllPodConfig extends Operation {
         this.offset = offset;
     }
 
-    public GetAllPodConfig(){
-    }
-
     public GetAllPodConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

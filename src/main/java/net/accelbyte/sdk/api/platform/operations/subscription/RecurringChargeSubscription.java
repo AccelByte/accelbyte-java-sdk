@@ -59,9 +59,6 @@ public class RecurringChargeSubscription extends Operation {
         this.subscriptionId = subscriptionId;
     }
 
-    public RecurringChargeSubscription(){
-    }
-
     public RecurringChargeSubscription createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

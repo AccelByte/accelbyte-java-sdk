@@ -54,9 +54,6 @@ public class DeleteConfig extends Operation {
         this.namespace = namespace;
     }
 
-    public DeleteConfig(){
-    }
-
     public DeleteConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

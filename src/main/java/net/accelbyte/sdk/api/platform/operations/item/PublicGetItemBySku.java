@@ -68,9 +68,6 @@ public class PublicGetItemBySku extends Operation {
         this.sku = sku;
     }
 
-    public PublicGetItemBySku(){
-    }
-
     public PublicGetItemBySku createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

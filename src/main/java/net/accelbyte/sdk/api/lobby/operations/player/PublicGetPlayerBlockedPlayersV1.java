@@ -55,9 +55,6 @@ public class PublicGetPlayerBlockedPlayersV1 extends Operation {
         this.namespace = namespace;
     }
 
-    public PublicGetPlayerBlockedPlayersV1(){
-    }
-
     public PublicGetPlayerBlockedPlayersV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

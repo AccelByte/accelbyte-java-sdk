@@ -55,9 +55,6 @@ public class BatchDownloadServerLogs extends Operation {
         this.body = body;
     }
 
-    public BatchDownloadServerLogs(){
-    }
-
     public BatchDownloadServerLogs createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

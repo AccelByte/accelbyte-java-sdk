@@ -54,9 +54,6 @@ public class UnregisterEventIDHandler extends Operation {
         this.eventId = eventId;
     }
 
-    public UnregisterEventIDHandler(){
-    }
-
     public UnregisterEventIDHandler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

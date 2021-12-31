@@ -55,9 +55,6 @@ public class PublicGetRoleV3 extends Operation {
         this.roleId = roleId;
     }
 
-    public PublicGetRoleV3(){
-    }
-
     public PublicGetRoleV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

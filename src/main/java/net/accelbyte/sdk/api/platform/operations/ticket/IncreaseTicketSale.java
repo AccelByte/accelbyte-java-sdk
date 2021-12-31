@@ -63,9 +63,6 @@ public class IncreaseTicketSale extends Operation {
         this.body = body;
     }
 
-    public IncreaseTicketSale(){
-    }
-
     public IncreaseTicketSale createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

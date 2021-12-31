@@ -59,9 +59,6 @@ public class UpdateXsollaUIConfig extends Operation {
         this.body = body;
     }
 
-    public UpdateXsollaUIConfig(){
-    }
-
     public UpdateXsollaUIConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

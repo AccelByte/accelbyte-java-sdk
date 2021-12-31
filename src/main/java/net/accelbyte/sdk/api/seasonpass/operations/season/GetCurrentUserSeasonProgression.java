@@ -59,9 +59,6 @@ public class GetCurrentUserSeasonProgression extends Operation {
         this.userId = userId;
     }
 
-    public GetCurrentUserSeasonProgression(){
-    }
-
     public GetCurrentUserSeasonProgression createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

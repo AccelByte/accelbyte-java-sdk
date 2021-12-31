@@ -58,9 +58,6 @@ public class TestStripeConfig extends Operation {
         this.body = body;
     }
 
-    public TestStripeConfig(){
-    }
-
     public TestStripeConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

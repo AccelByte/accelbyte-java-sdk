@@ -67,9 +67,6 @@ public class GetAdminUsersByRoleID extends Operation {
         this.roleId = roleId;
     }
 
-    public GetAdminUsersByRoleID(){
-    }
-
     public GetAdminUsersByRoleID createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

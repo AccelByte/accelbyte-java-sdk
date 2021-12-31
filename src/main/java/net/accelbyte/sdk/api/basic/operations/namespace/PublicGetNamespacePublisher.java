@@ -55,9 +55,6 @@ public class PublicGetNamespacePublisher extends Operation {
         this.namespace = namespace;
     }
 
-    public PublicGetNamespacePublisher(){
-    }
-
     public PublicGetNamespacePublisher createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

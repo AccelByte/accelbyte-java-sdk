@@ -61,9 +61,6 @@ public class PublicGetUserBan extends Operation {
         this.activeOnly = activeOnly;
     }
 
-    public PublicGetUserBan(){
-    }
-
     public PublicGetUserBan createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

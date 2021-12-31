@@ -64,9 +64,6 @@ public class AdminUpgradeHeadlessAccountV3 extends Operation {
         this.body = body;
     }
 
-    public AdminUpgradeHeadlessAccountV3(){
-    }
-
     public AdminUpgradeHeadlessAccountV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

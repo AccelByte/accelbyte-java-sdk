@@ -66,9 +66,6 @@ public class GetPaymentTaxValue extends Operation {
         this.paymentProvider = paymentProvider;
     }
 
-    public GetPaymentTaxValue(){
-    }
-
     public GetPaymentTaxValue createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

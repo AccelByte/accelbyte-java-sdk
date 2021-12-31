@@ -58,9 +58,6 @@ public class DeleteUserSlotConfig extends Operation {
         this.userId = userId;
     }
 
-    public DeleteUserSlotConfig(){
-    }
-
     public DeleteUserSlotConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

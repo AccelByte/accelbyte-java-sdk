@@ -62,9 +62,6 @@ public class DeleteSessionInChannel extends Operation {
         this.namespace = namespace;
     }
 
-    public DeleteSessionInChannel(){
-    }
-
     public DeleteSessionInChannel createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

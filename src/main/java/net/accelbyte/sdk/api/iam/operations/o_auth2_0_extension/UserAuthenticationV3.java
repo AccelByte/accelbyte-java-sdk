@@ -71,9 +71,6 @@ public class UserAuthenticationV3 extends Operation {
         this.userName = userName;
     }
 
-    public UserAuthenticationV3(){
-    }
-
     public UserAuthenticationV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
@@ -89,12 +86,12 @@ public class UserAuthenticationV3 extends Operation {
     @JsonIgnore
     public Map<String, String> getFormDataParams(){
         Map<String, String> formDataParams = new HashMap<>();
-        formDataParams.put("clientId", this.clientId);
-        formDataParams.put("extendExp", String.valueOf(this.extendExp));
-        formDataParams.put("redirectUri", this.redirectUri);
+        formDataParams.put("client_id", this.clientId);
+        formDataParams.put("extend_exp", String.valueOf(this.extendExp));
+        formDataParams.put("redirect_uri", this.redirectUri);
         formDataParams.put("password", this.password);
-        formDataParams.put("requestId", this.requestId);
-        formDataParams.put("userName", this.userName);
+        formDataParams.put("request_id", this.requestId);
+        formDataParams.put("user_name", this.userName);
         return formDataParams;
     }
 

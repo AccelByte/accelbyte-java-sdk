@@ -59,9 +59,6 @@ public class UpdateGoogleIAPConfig extends Operation {
         this.body = body;
     }
 
-    public UpdateGoogleIAPConfig(){
-    }
-
     public UpdateGoogleIAPConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

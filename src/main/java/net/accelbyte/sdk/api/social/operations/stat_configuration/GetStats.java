@@ -61,9 +61,6 @@ public class GetStats extends Operation {
         this.offset = offset;
     }
 
-    public GetStats(){
-    }
-
     public GetStats createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

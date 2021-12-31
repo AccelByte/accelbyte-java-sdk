@@ -58,9 +58,6 @@ public class PublicGetPaymentMethods extends Operation {
         this.paymentOrderNo = paymentOrderNo;
     }
 
-    public PublicGetPaymentMethods(){
-    }
-
     public PublicGetPaymentMethods createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

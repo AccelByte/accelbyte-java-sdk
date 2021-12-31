@@ -55,9 +55,6 @@ public class TokenIntrospectionV3 extends Operation {
         this.token = token;
     }
 
-    public TokenIntrospectionV3(){
-    }
-
     public TokenIntrospectionV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -61,9 +61,6 @@ public class ImportStore extends Operation {
         this.file = file;
     }
 
-    public ImportStore(){
-    }
-
     public ImportStore createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

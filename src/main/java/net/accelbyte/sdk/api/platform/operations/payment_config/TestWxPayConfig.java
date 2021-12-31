@@ -55,9 +55,6 @@ public class TestWxPayConfig extends Operation {
         this.body = body;
     }
 
-    public TestWxPayConfig(){
-    }
-
     public TestWxPayConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

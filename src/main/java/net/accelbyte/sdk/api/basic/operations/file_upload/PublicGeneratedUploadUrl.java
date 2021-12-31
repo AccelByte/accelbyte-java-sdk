@@ -63,9 +63,6 @@ public class PublicGeneratedUploadUrl extends Operation {
         this.fileType = fileType;
     }
 
-    public PublicGeneratedUploadUrl(){
-    }
-
     public PublicGeneratedUploadUrl createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

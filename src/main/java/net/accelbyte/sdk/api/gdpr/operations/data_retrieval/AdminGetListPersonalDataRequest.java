@@ -64,9 +64,6 @@ public class AdminGetListPersonalDataRequest extends Operation {
         this.requestDate = requestDate;
     }
 
-    public AdminGetListPersonalDataRequest(){
-    }
-
     public AdminGetListPersonalDataRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

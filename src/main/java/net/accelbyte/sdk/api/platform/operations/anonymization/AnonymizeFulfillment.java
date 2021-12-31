@@ -58,9 +58,6 @@ public class AnonymizeFulfillment extends Operation {
         this.userId = userId;
     }
 
-    public AnonymizeFulfillment(){
-    }
-
     public AnonymizeFulfillment createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

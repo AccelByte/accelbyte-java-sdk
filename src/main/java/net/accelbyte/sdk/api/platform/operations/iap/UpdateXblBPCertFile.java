@@ -61,9 +61,6 @@ public class UpdateXblBPCertFile extends Operation {
         this.password = password;
     }
 
-    public UpdateXblBPCertFile(){
-    }
-
     public UpdateXblBPCertFile createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -55,9 +55,6 @@ public class GetImageLimit extends Operation {
         this.namespace = namespace;
     }
 
-    public GetImageLimit(){
-    }
-
     public GetImageLimit createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

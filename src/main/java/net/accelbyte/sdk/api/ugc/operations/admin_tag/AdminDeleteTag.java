@@ -58,9 +58,6 @@ public class AdminDeleteTag extends Operation {
         this.tagId = tagId;
     }
 
-    public AdminDeleteTag(){
-    }
-
     public AdminDeleteTag createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

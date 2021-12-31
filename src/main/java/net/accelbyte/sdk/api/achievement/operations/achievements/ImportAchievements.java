@@ -61,9 +61,6 @@ public class ImportAchievements extends Operation {
         this.strategy = strategy;
     }
 
-    public ImportAchievements(){
-    }
-
     public ImportAchievements createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

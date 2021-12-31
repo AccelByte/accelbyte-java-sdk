@@ -60,9 +60,6 @@ public class PublicBulkGetUsers extends Operation {
         this.body = body;
     }
 
-    public PublicBulkGetUsers(){
-    }
-
     public PublicBulkGetUsers createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

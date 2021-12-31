@@ -66,9 +66,6 @@ public class DeleteUserFromSessionInChannel extends Operation {
         this.userID = userID;
     }
 
-    public DeleteUserFromSessionInChannel(){
-    }
-
     public DeleteUserFromSessionInChannel createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

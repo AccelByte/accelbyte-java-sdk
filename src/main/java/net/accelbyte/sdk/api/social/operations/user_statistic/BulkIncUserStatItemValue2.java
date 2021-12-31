@@ -62,9 +62,6 @@ public class BulkIncUserStatItemValue2 extends Operation {
         this.body = body;
     }
 
-    public BulkIncUserStatItemValue2(){
-    }
-
     public BulkIncUserStatItemValue2 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

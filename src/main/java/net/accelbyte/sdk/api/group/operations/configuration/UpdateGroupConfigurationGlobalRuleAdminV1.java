@@ -68,9 +68,6 @@ public class UpdateGroupConfigurationGlobalRuleAdminV1 extends Operation {
         this.body = body;
     }
 
-    public UpdateGroupConfigurationGlobalRuleAdminV1(){
-    }
-
     public UpdateGroupConfigurationGlobalRuleAdminV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

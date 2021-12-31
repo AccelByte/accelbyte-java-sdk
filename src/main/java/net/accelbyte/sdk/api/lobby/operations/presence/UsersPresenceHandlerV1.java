@@ -62,9 +62,6 @@ public class UsersPresenceHandlerV1 extends Operation {
         this.userIds = userIds;
     }
 
-    public UsersPresenceHandlerV1(){
-    }
-
     public UsersPresenceHandlerV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

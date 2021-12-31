@@ -63,9 +63,6 @@ public class CloneSeason extends Operation {
         this.body = body;
     }
 
-    public CloneSeason(){
-    }
-
     public CloneSeason createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -63,9 +63,6 @@ public class GetLocalizationTemplate extends Operation {
         this.templateSlug = templateSlug;
     }
 
-    public GetLocalizationTemplate(){
-    }
-
     public GetLocalizationTemplate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -67,9 +67,6 @@ public class DebitUserWallet extends Operation {
         this.body = body;
     }
 
-    public DebitUserWallet(){
-    }
-
     public DebitUserWallet createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

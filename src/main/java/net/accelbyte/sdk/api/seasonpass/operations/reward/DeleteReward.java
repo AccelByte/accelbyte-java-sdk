@@ -62,9 +62,6 @@ public class DeleteReward extends Operation {
         this.seasonId = seasonId;
     }
 
-    public DeleteReward(){
-    }
-
     public DeleteReward createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

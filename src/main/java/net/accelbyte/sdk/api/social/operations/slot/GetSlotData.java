@@ -62,9 +62,6 @@ public class GetSlotData extends Operation {
         this.userId = userId;
     }
 
-    public GetSlotData(){
-    }
-
     public GetSlotData createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

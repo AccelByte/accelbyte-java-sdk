@@ -58,9 +58,6 @@ public class DeleteSession extends Operation {
         this.sessionID = sessionID;
     }
 
-    public DeleteSession(){
-    }
-
     public DeleteSession createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

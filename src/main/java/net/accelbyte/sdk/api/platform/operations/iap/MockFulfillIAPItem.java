@@ -62,9 +62,6 @@ public class MockFulfillIAPItem extends Operation {
         this.body = body;
     }
 
-    public MockFulfillIAPItem(){
-    }
-
     public MockFulfillIAPItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

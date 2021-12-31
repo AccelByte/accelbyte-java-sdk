@@ -62,9 +62,6 @@ public class SaveUserRoles extends Operation {
         this.body = body;
     }
 
-    public SaveUserRoles(){
-    }
-
     public SaveUserRoles createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

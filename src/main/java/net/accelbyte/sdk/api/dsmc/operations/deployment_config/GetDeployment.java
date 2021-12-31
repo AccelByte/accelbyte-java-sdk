@@ -59,9 +59,6 @@ public class GetDeployment extends Operation {
         this.namespace = namespace;
     }
 
-    public GetDeployment(){
-    }
-
     public GetDeployment createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

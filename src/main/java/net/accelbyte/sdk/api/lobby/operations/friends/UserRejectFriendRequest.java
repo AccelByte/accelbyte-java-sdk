@@ -59,9 +59,6 @@ public class UserRejectFriendRequest extends Operation {
         this.body = body;
     }
 
-    public UserRejectFriendRequest(){
-    }
-
     public UserRejectFriendRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

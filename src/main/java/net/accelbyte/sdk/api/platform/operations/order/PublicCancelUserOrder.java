@@ -63,9 +63,6 @@ public class PublicCancelUserOrder extends Operation {
         this.userId = userId;
     }
 
-    public PublicCancelUserOrder(){
-    }
-
     public PublicCancelUserOrder createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

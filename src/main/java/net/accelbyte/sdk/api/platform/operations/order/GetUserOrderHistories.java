@@ -62,9 +62,6 @@ public class GetUserOrderHistories extends Operation {
         this.userId = userId;
     }
 
-    public GetUserOrderHistories(){
-    }
-
     public GetUserOrderHistories createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

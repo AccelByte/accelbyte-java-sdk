@@ -67,9 +67,6 @@ public class PublicIncUserStatItemValue extends Operation {
         this.body = body;
     }
 
-    public PublicIncUserStatItemValue(){
-    }
-
     public PublicIncUserStatItemValue createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

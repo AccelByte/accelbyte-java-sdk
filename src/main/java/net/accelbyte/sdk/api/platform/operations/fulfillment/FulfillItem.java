@@ -63,9 +63,6 @@ public class FulfillItem extends Operation {
         this.body = body;
     }
 
-    public FulfillItem(){
-    }
-
     public FulfillItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

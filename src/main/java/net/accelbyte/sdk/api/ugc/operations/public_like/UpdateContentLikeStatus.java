@@ -64,9 +64,6 @@ public class UpdateContentLikeStatus extends Operation {
         this.body = body;
     }
 
-    public UpdateContentLikeStatus(){
-    }
-
     public UpdateContentLikeStatus createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

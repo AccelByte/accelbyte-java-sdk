@@ -63,9 +63,6 @@ public class DeleteGroupConfigurationGlobalRuleAdminV1 extends Operation {
         this.namespace = namespace;
     }
 
-    public DeleteGroupConfigurationGlobalRuleAdminV1(){
-    }
-
     public DeleteGroupConfigurationGlobalRuleAdminV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

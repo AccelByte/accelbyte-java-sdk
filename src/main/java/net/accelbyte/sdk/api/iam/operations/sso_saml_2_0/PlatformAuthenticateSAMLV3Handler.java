@@ -64,9 +64,6 @@ public class PlatformAuthenticateSAMLV3Handler extends Operation {
         this.state = state;
     }
 
-    public PlatformAuthenticateSAMLV3Handler(){
-    }
-
     public PlatformAuthenticateSAMLV3Handler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

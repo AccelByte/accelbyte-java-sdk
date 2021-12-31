@@ -54,9 +54,6 @@ public class RetrieveAcceptedAgreements extends Operation {
         this.userId = userId;
     }
 
-    public RetrieveAcceptedAgreements(){
-    }
-
     public RetrieveAcceptedAgreements createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

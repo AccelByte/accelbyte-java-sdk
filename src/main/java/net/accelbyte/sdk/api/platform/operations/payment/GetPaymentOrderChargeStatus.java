@@ -59,9 +59,6 @@ public class GetPaymentOrderChargeStatus extends Operation {
         this.paymentOrderNo = paymentOrderNo;
     }
 
-    public GetPaymentOrderChargeStatus(){
-    }
-
     public GetPaymentOrderChargeStatus createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

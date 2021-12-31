@@ -59,9 +59,6 @@ public class CreateStore extends Operation {
         this.body = body;
     }
 
-    public CreateStore(){
-    }
-
     public CreateStore createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

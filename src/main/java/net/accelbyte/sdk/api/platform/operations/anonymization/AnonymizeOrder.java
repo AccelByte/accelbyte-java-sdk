@@ -58,9 +58,6 @@ public class AnonymizeOrder extends Operation {
         this.userId = userId;
     }
 
-    public AnonymizeOrder(){
-    }
-
     public AnonymizeOrder createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

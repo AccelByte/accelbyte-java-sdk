@@ -54,9 +54,6 @@ public class RevokeToken extends Operation {
         this.token = token;
     }
 
-    public RevokeToken(){
-    }
-
     public RevokeToken createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

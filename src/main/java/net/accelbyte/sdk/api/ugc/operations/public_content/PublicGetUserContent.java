@@ -65,9 +65,6 @@ public class PublicGetUserContent extends Operation {
         this.offset = offset;
     }
 
-    public PublicGetUserContent(){
-    }
-
     public PublicGetUserContent createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

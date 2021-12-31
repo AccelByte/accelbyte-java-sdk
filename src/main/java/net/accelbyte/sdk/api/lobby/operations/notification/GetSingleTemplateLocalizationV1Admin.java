@@ -63,9 +63,6 @@ public class GetSingleTemplateLocalizationV1Admin extends Operation {
         this.templateSlug = templateSlug;
     }
 
-    public GetSingleTemplateLocalizationV1Admin(){
-    }
-
     public GetSingleTemplateLocalizationV1Admin createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -59,9 +59,6 @@ public class PublicGetPaymentUrl extends Operation {
         this.body = body;
     }
 
-    public PublicGetPaymentUrl(){
-    }
-
     public PublicGetPaymentUrl createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

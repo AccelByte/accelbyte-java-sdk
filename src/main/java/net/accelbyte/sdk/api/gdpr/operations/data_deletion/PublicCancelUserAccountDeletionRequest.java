@@ -58,9 +58,6 @@ public class PublicCancelUserAccountDeletionRequest extends Operation {
         this.userId = userId;
     }
 
-    public PublicCancelUserAccountDeletionRequest(){
-    }
-
     public PublicCancelUserAccountDeletionRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

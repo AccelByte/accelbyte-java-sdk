@@ -59,9 +59,6 @@ public class CreateTemplate extends Operation {
         this.body = body;
     }
 
-    public CreateTemplate(){
-    }
-
     public CreateTemplate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

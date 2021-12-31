@@ -59,9 +59,6 @@ public class RejectGroupJoinRequestPublicV1 extends Operation {
         this.userId = userId;
     }
 
-    public RejectGroupJoinRequestPublicV1(){
-    }
-
     public RejectGroupJoinRequestPublicV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

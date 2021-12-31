@@ -71,9 +71,6 @@ public class GetUserStatItems extends Operation {
         this.tags = tags;
     }
 
-    public GetUserStatItems(){
-    }
-
     public GetUserStatItems createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

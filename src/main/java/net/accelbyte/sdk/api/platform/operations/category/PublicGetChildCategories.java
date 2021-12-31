@@ -64,9 +64,6 @@ public class PublicGetChildCategories extends Operation {
         this.storeId = storeId;
     }
 
-    public PublicGetChildCategories(){
-    }
-
     public PublicGetChildCategories createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

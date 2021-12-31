@@ -57,9 +57,6 @@ public class RetrieveSinglePolicyVersion extends Operation {
         this.versionId = versionId;
     }
 
-    public RetrieveSinglePolicyVersion(){
-    }
-
     public RetrieveSinglePolicyVersion createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -62,9 +62,6 @@ public class PublicSubscribeSubscription extends Operation {
         this.body = body;
     }
 
-    public PublicSubscribeSubscription(){
-    }
-
     public PublicSubscribeSubscription createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

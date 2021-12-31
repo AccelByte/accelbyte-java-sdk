@@ -62,9 +62,6 @@ public class GrantUserEntitlement extends Operation {
         this.body = body;
     }
 
-    public GrantUserEntitlement(){
-    }
-
     public GrantUserEntitlement createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

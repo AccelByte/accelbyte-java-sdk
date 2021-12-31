@@ -67,9 +67,6 @@ public class QueryCampaigns extends Operation {
         this.tag = tag;
     }
 
-    public QueryCampaigns(){
-    }
-
     public QueryCampaigns createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

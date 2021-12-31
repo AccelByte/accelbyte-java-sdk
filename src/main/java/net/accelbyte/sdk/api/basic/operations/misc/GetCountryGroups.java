@@ -57,9 +57,6 @@ public class GetCountryGroups extends Operation {
         this.groupCode = groupCode;
     }
 
-    public GetCountryGroups(){
-    }
-
     public GetCountryGroups createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

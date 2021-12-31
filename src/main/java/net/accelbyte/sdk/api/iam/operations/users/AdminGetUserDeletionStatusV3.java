@@ -59,9 +59,6 @@ public class AdminGetUserDeletionStatusV3 extends Operation {
         this.userId = userId;
     }
 
-    public AdminGetUserDeletionStatusV3(){
-    }
-
     public AdminGetUserDeletionStatusV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

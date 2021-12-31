@@ -62,9 +62,6 @@ public class PublicCreateProfile extends Operation {
         this.body = body;
     }
 
-    public PublicCreateProfile(){
-    }
-
     public PublicCreateProfile createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

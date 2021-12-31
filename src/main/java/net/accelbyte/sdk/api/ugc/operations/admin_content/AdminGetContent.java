@@ -65,9 +65,6 @@ public class AdminGetContent extends Operation {
         this.offset = offset;
     }
 
-    public AdminGetContent(){
-    }
-
     public AdminGetContent createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

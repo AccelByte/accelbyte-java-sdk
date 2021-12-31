@@ -63,9 +63,6 @@ public class DisableUser extends Operation {
         this.body = body;
     }
 
-    public DisableUser(){
-    }
-
     public DisableUser createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

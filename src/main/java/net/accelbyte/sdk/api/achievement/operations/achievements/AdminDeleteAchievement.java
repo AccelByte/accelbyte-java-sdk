@@ -58,9 +58,6 @@ public class AdminDeleteAchievement extends Operation {
         this.namespace = namespace;
     }
 
-    public AdminDeleteAchievement(){
-    }
-
     public AdminDeleteAchievement createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

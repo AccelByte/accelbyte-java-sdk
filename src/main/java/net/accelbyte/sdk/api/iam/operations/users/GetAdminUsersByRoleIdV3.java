@@ -68,9 +68,6 @@ public class GetAdminUsersByRoleIdV3 extends Operation {
         this.limit = limit;
     }
 
-    public GetAdminUsersByRoleIdV3(){
-    }
-
     public GetAdminUsersByRoleIdV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

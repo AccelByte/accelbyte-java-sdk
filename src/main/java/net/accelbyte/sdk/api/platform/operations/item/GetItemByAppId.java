@@ -65,9 +65,6 @@ public class GetItemByAppId extends Operation {
         this.appId = appId;
     }
 
-    public GetItemByAppId(){
-    }
-
     public GetItemByAppId createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

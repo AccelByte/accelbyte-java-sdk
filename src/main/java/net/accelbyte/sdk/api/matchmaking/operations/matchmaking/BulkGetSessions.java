@@ -57,9 +57,6 @@ public class BulkGetSessions extends Operation {
         this.matchIDs = matchIDs;
     }
 
-    public BulkGetSessions(){
-    }
-
     public BulkGetSessions createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

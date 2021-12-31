@@ -63,9 +63,6 @@ public class PublicGetUserAppEntitlementByAppId extends Operation {
         this.appId = appId;
     }
 
-    public PublicGetUserAppEntitlementByAppId(){
-    }
-
     public PublicGetUserAppEntitlementByAppId createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

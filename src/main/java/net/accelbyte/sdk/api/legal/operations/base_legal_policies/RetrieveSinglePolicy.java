@@ -55,9 +55,6 @@ public class RetrieveSinglePolicy extends Operation {
         this.basePolicyId = basePolicyId;
     }
 
-    public RetrieveSinglePolicy(){
-    }
-
     public RetrieveSinglePolicy createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

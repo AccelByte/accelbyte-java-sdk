@@ -59,9 +59,6 @@ public class GetSession extends Operation {
         this.sessionID = sessionID;
     }
 
-    public GetSession(){
-    }
-
     public GetSession createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

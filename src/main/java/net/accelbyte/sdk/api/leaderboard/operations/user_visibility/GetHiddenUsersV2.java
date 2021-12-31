@@ -65,9 +65,6 @@ public class GetHiddenUsersV2 extends Operation {
         this.offset = offset;
     }
 
-    public GetHiddenUsersV2(){
-    }
-
     public GetHiddenUsersV2 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

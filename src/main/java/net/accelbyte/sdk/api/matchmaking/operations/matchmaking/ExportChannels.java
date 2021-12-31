@@ -54,9 +54,6 @@ public class ExportChannels extends Operation {
         this.namespace = namespace;
     }
 
-    public ExportChannels(){
-    }
-
     public ExportChannels createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -68,9 +68,6 @@ public class PublicListUserAchievements extends Operation {
         this.preferUnlocked = preferUnlocked;
     }
 
-    public PublicListUserAchievements(){
-    }
-
     public PublicListUserAchievements createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

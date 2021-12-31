@@ -63,9 +63,6 @@ public class AdminSendVerificationCodeV3 extends Operation {
         this.body = body;
     }
 
-    public AdminSendVerificationCodeV3(){
-    }
-
     public AdminSendVerificationCodeV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -60,9 +60,6 @@ public class UpdatePlayTimeWeight extends Operation {
         this.body = body;
     }
 
-    public UpdatePlayTimeWeight(){
-    }
-
     public UpdatePlayTimeWeight createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

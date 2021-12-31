@@ -63,9 +63,6 @@ public class CreateCategory extends Operation {
         this.body = body;
     }
 
-    public CreateCategory(){
-    }
-
     public CreateCategory createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -63,9 +63,6 @@ public class ExistsAnyUserActiveEntitlementByItemIds extends Operation {
         this.itemIds = itemIds;
     }
 
-    public ExistsAnyUserActiveEntitlementByItemIds(){
-    }
-
     public ExistsAnyUserActiveEntitlementByItemIds createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

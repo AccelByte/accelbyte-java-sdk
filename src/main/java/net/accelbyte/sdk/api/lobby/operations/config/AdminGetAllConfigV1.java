@@ -51,7 +51,6 @@ public class AdminGetAllConfigV1 extends Operation {
     {
     }
 
-
     public AdminGetAllConfigV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

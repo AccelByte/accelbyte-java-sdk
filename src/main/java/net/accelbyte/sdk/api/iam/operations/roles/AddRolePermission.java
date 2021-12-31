@@ -67,9 +67,6 @@ public class AddRolePermission extends Operation {
         this.body = body;
     }
 
-    public AddRolePermission(){
-    }
-
     public AddRolePermission createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

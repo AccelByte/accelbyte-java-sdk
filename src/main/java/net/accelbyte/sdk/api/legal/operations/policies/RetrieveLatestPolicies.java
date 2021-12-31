@@ -63,9 +63,6 @@ public class RetrieveLatestPolicies extends Operation {
         this.tags = tags;
     }
 
-    public RetrieveLatestPolicies(){
-    }
-
     public RetrieveLatestPolicies createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

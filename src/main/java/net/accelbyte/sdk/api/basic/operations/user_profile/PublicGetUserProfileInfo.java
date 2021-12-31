@@ -59,9 +59,6 @@ public class PublicGetUserProfileInfo extends Operation {
         this.userId = userId;
     }
 
-    public PublicGetUserProfileInfo(){
-    }
-
     public PublicGetUserProfileInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

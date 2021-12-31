@@ -60,9 +60,6 @@ public class DeleteBulkLeaderboardConfigurationAdminV1 extends Operation {
         this.body = body;
     }
 
-    public DeleteBulkLeaderboardConfigurationAdminV1(){
-    }
-
     public DeleteBulkLeaderboardConfigurationAdminV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

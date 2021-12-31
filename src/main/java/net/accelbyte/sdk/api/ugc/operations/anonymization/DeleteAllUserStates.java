@@ -58,9 +58,6 @@ public class DeleteAllUserStates extends Operation {
         this.userId = userId;
     }
 
-    public DeleteAllUserStates(){
-    }
-
     public DeleteAllUserStates createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -58,9 +58,6 @@ public class DeleteMemberRoleAdminV1 extends Operation {
         this.namespace = namespace;
     }
 
-    public DeleteMemberRoleAdminV1(){
-    }
-
     public DeleteMemberRoleAdminV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

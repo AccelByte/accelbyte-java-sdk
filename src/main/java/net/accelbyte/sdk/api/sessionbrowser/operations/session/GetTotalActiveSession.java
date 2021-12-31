@@ -58,9 +58,6 @@ public class GetTotalActiveSession extends Operation {
         this.sessionType = sessionType;
     }
 
-    public GetTotalActiveSession(){
-    }
-
     public GetTotalActiveSession createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
@@ -83,7 +80,7 @@ public class GetTotalActiveSession extends Operation {
     @JsonIgnore
     public Map<String, String> getQueryParams(){
         Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("sessionType", this.sessionType);
+        queryParams.put("session_type", this.sessionType);
         return queryParams;
     }
 

@@ -63,9 +63,6 @@ public class GetUserOrderGrant extends Operation {
         this.userId = userId;
     }
 
-    public GetUserOrderGrant(){
-    }
-
     public GetUserOrderGrant createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -58,9 +58,6 @@ public class DeleteThirdPartyLoginPlatformCredentialV3 extends Operation {
         this.platformId = platformId;
     }
 
-    public DeleteThirdPartyLoginPlatformCredentialV3(){
-    }
-
     public DeleteThirdPartyLoginPlatformCredentialV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

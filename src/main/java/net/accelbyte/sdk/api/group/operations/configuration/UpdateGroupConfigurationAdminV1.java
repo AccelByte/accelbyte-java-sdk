@@ -64,9 +64,6 @@ public class UpdateGroupConfigurationAdminV1 extends Operation {
         this.body = body;
     }
 
-    public UpdateGroupConfigurationAdminV1(){
-    }
-
     public UpdateGroupConfigurationAdminV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

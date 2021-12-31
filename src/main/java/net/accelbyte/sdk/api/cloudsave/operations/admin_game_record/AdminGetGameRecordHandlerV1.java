@@ -59,9 +59,6 @@ public class AdminGetGameRecordHandlerV1 extends Operation {
         this.namespace = namespace;
     }
 
-    public AdminGetGameRecordHandlerV1(){
-    }
-
     public AdminGetGameRecordHandlerV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -68,9 +68,6 @@ public class CreateContentS3 extends Operation {
         this.body = body;
     }
 
-    public CreateContentS3(){
-    }
-
     public CreateContentS3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

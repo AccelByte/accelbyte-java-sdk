@@ -66,9 +66,6 @@ public class AdminDeleteContent extends Operation {
         this.userId = userId;
     }
 
-    public AdminDeleteContent(){
-    }
-
     public AdminDeleteContent createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

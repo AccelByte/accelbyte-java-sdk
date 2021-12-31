@@ -59,9 +59,6 @@ public class GetPaymentOrder extends Operation {
         this.paymentOrderNo = paymentOrderNo;
     }
 
-    public GetPaymentOrder(){
-    }
-
     public GetPaymentOrder createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

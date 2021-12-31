@@ -59,9 +59,6 @@ public class RetrieveThirdPartyLoginPlatformCredentialV3 extends Operation {
         this.platformId = platformId;
     }
 
-    public RetrieveThirdPartyLoginPlatformCredentialV3(){
-    }
-
     public RetrieveThirdPartyLoginPlatformCredentialV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

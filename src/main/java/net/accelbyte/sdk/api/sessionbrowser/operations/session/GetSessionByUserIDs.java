@@ -59,9 +59,6 @@ public class GetSessionByUserIDs extends Operation {
         this.userIds = userIds;
     }
 
-    public GetSessionByUserIDs(){
-    }
-
     public GetSessionByUserIDs createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
@@ -84,7 +81,7 @@ public class GetSessionByUserIDs extends Operation {
     @JsonIgnore
     public Map<String, String> getQueryParams(){
         Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("userIds", this.userIds);
+        queryParams.put("user_ids", this.userIds);
         return queryParams;
     }
 

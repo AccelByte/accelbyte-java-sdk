@@ -62,9 +62,6 @@ public class AdminDeleteContentScreenshot extends Operation {
         this.screenshotId = screenshotId;
     }
 
-    public AdminDeleteContentScreenshot(){
-    }
-
     public AdminDeleteContentScreenshot createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

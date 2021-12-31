@@ -58,9 +58,6 @@ public class AdminVerifyUserWithoutVerificationCodeV3 extends Operation {
         this.userId = userId;
     }
 
-    public AdminVerifyUserWithoutVerificationCodeV3(){
-    }
-
     public AdminVerifyUserWithoutVerificationCodeV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

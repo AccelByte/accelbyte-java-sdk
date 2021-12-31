@@ -58,9 +58,6 @@ public class UpdateAdminEmailConfiguration extends Operation {
         this.body = body;
     }
 
-    public UpdateAdminEmailConfiguration(){
-    }
-
     public UpdateAdminEmailConfiguration createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

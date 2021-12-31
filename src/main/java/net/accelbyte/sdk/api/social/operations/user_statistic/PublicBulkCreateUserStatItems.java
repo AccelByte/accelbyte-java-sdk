@@ -62,9 +62,6 @@ public class PublicBulkCreateUserStatItems extends Operation {
         this.body = body;
     }
 
-    public PublicBulkCreateUserStatItems(){
-    }
-
     public PublicBulkCreateUserStatItems createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

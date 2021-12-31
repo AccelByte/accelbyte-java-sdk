@@ -64,9 +64,6 @@ public class DeleteMemberRolePublicV1 extends Operation {
         this.body = body;
     }
 
-    public DeleteMemberRolePublicV1(){
-    }
-
     public DeleteMemberRolePublicV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

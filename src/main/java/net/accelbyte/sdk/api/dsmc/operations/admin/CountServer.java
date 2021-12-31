@@ -55,9 +55,6 @@ public class CountServer extends Operation {
         this.namespace = namespace;
     }
 
-    public CountServer(){
-    }
-
     public CountServer createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

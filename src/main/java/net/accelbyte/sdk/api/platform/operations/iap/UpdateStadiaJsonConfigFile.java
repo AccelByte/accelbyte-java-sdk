@@ -58,9 +58,6 @@ public class UpdateStadiaJsonConfigFile extends Operation {
         this.file = file;
     }
 
-    public UpdateStadiaJsonConfigFile(){
-    }
-
     public UpdateStadiaJsonConfigFile createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

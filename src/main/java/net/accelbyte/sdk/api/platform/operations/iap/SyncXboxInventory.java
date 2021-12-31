@@ -62,9 +62,6 @@ public class SyncXboxInventory extends Operation {
         this.body = body;
     }
 
-    public SyncXboxInventory(){
-    }
-
     public SyncXboxInventory createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

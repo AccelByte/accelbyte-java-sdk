@@ -59,9 +59,6 @@ public class UpdatePaymentProviderConfig extends Operation {
         this.body = body;
     }
 
-    public UpdatePaymentProviderConfig(){
-    }
-
     public UpdatePaymentProviderConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

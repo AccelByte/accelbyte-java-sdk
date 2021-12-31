@@ -59,9 +59,6 @@ public class CreateMyProfile extends Operation {
         this.body = body;
     }
 
-    public CreateMyProfile(){
-    }
-
     public CreateMyProfile createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -63,9 +63,6 @@ public class PublicGetWallet extends Operation {
         this.userId = userId;
     }
 
-    public PublicGetWallet(){
-    }
-
     public PublicGetWallet createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

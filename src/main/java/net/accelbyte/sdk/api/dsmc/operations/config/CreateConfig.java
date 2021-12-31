@@ -60,9 +60,6 @@ public class CreateConfig extends Operation {
         this.body = body;
     }
 
-    public CreateConfig(){
-    }
-
     public CreateConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

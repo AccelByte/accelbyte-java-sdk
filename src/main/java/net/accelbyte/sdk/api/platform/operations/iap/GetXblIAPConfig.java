@@ -55,9 +55,6 @@ public class GetXblIAPConfig extends Operation {
         this.namespace = namespace;
     }
 
-    public GetXblIAPConfig(){
-    }
-
     public GetXblIAPConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

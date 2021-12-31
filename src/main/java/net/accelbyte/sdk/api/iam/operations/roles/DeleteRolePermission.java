@@ -62,9 +62,6 @@ public class DeleteRolePermission extends Operation {
         this.roleId = roleId;
     }
 
-    public DeleteRolePermission(){
-    }
-
     public DeleteRolePermission createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

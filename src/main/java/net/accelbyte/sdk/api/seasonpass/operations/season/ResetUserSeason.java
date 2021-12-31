@@ -58,9 +58,6 @@ public class ResetUserSeason extends Operation {
         this.userId = userId;
     }
 
-    public ResetUserSeason(){
-    }
-
     public ResetUserSeason createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

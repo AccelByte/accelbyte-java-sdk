@@ -54,9 +54,6 @@ public class ExportStats extends Operation {
         this.namespace = namespace;
     }
 
-    public ExportStats(){
-    }
-
     public ExportStats createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

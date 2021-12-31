@@ -68,9 +68,6 @@ public class GetUserLoginHistories extends Operation {
         this.limit = limit;
     }
 
-    public GetUserLoginHistories(){
-    }
-
     public GetUserLoginHistories createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

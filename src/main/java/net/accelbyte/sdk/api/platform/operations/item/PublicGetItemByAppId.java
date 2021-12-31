@@ -68,9 +68,6 @@ public class PublicGetItemByAppId extends Operation {
         this.appId = appId;
     }
 
-    public PublicGetItemByAppId(){
-    }
-
     public PublicGetItemByAppId createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

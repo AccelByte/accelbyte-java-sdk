@@ -59,9 +59,6 @@ public class PublicBulkClaimUserRewards extends Operation {
         this.userId = userId;
     }
 
-    public PublicBulkClaimUserRewards(){
-    }
-
     public PublicBulkClaimUserRewards createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

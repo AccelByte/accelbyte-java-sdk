@@ -59,9 +59,6 @@ public class GetTopicByTopicName extends Operation {
         this.topic = topic;
     }
 
-    public GetTopicByTopicName(){
-    }
-
     public GetTopicByTopicName createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

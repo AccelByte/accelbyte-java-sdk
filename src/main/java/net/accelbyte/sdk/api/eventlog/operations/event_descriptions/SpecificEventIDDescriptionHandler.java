@@ -54,9 +54,6 @@ public class SpecificEventIDDescriptionHandler extends Operation {
         this.eventIds = eventIds;
     }
 
-    public SpecificEventIDDescriptionHandler(){
-    }
-
     public SpecificEventIDDescriptionHandler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

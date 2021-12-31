@@ -55,9 +55,6 @@ public class AdminGetAgeRestrictionStatusV2 extends Operation {
         this.namespace = namespace;
     }
 
-    public AdminGetAgeRestrictionStatusV2(){
-    }
-
     public AdminGetAgeRestrictionStatusV2 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

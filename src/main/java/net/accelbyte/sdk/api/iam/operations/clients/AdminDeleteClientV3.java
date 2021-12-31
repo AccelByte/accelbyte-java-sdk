@@ -58,9 +58,6 @@ public class AdminDeleteClientV3 extends Operation {
         this.namespace = namespace;
     }
 
-    public AdminDeleteClientV3(){
-    }
-
     public AdminDeleteClientV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

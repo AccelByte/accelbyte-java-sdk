@@ -68,9 +68,6 @@ public class PublicGetUserLoginHistoriesV3 extends Operation {
         this.limit = limit;
     }
 
-    public PublicGetUserLoginHistoriesV3(){
-    }
-
     public PublicGetUserLoginHistoriesV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

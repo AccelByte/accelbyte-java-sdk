@@ -65,9 +65,6 @@ public class UpdateStripeConfig extends Operation {
         this.body = body;
     }
 
-    public UpdateStripeConfig(){
-    }
-
     public UpdateStripeConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

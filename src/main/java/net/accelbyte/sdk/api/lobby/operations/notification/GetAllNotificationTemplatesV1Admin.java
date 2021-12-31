@@ -54,9 +54,6 @@ public class GetAllNotificationTemplatesV1Admin extends Operation {
         this.namespace = namespace;
     }
 
-    public GetAllNotificationTemplatesV1Admin(){
-    }
-
     public GetAllNotificationTemplatesV1Admin createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

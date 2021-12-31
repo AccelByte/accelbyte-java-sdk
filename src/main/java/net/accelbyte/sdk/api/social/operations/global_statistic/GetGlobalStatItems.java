@@ -61,9 +61,6 @@ public class GetGlobalStatItems extends Operation {
         this.offset = offset;
     }
 
-    public GetGlobalStatItems(){
-    }
-
     public GetGlobalStatItems createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

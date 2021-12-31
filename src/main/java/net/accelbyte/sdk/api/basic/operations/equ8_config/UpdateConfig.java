@@ -59,9 +59,6 @@ public class UpdateConfig extends Operation {
         this.body = body;
     }
 
-    public UpdateConfig(){
-    }
-
     public UpdateConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

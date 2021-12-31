@@ -59,9 +59,6 @@ public class PartialUpdatePolicy extends Operation {
         this.body = body;
     }
 
-    public PartialUpdatePolicy(){
-    }
-
     public PartialUpdatePolicy createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -63,9 +63,6 @@ public class PublicUpdatePasswordV2 extends Operation {
         this.body = body;
     }
 
-    public PublicUpdatePasswordV2(){
-    }
-
     public PublicUpdatePasswordV2 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

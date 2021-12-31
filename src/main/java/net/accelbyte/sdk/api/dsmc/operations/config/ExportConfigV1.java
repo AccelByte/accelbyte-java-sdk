@@ -55,9 +55,6 @@ public class ExportConfigV1 extends Operation {
         this.namespace = namespace;
     }
 
-    public ExportConfigV1(){
-    }
-
     public ExportConfigV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

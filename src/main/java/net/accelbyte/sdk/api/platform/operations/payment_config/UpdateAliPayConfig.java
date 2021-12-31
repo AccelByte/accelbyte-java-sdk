@@ -65,9 +65,6 @@ public class UpdateAliPayConfig extends Operation {
         this.body = body;
     }
 
-    public UpdateAliPayConfig(){
-    }
-
     public UpdateAliPayConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -62,9 +62,6 @@ public class BulkFetchStatItems1 extends Operation {
         this.userIds = userIds;
     }
 
-    public BulkFetchStatItems1(){
-    }
-
     public BulkFetchStatItems1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -63,9 +63,6 @@ public class AddFriendsWithoutConfirmation extends Operation {
         this.body = body;
     }
 
-    public AddFriendsWithoutConfirmation(){
-    }
-
     public AddFriendsWithoutConfirmation createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

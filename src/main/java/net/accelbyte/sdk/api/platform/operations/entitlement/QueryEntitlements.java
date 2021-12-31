@@ -79,9 +79,6 @@ public class QueryEntitlements extends Operation {
         this.userId = userId;
     }
 
-    public QueryEntitlements(){
-    }
-
     public QueryEntitlements createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

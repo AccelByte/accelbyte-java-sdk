@@ -61,9 +61,6 @@ public class GetMemberRolesListAdminV1 extends Operation {
         this.offset = offset;
     }
 
-    public GetMemberRolesListAdminV1(){
-    }
-
     public GetMemberRolesListAdminV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

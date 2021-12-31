@@ -58,9 +58,6 @@ public class TestCheckoutConfigById extends Operation {
         this.sandbox = sandbox;
     }
 
-    public TestCheckoutConfigById(){
-    }
-
     public TestCheckoutConfigById createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

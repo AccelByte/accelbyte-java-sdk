@@ -74,9 +74,6 @@ public class GetLocaleItemBySku extends Operation {
         this.sku = sku;
     }
 
-    public GetLocaleItemBySku(){
-    }
-
     public GetLocaleItemBySku createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

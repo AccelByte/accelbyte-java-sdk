@@ -63,9 +63,6 @@ public class RetrieveUserThirdPartyPlatformTokenV3 extends Operation {
         this.userId = userId;
     }
 
-    public RetrieveUserThirdPartyPlatformTokenV3(){
-    }
-
     public RetrieveUserThirdPartyPlatformTokenV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

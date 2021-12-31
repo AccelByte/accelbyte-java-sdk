@@ -59,9 +59,6 @@ public class UpdatePlaystationIAPConfig extends Operation {
         this.body = body;
     }
 
-    public UpdatePlaystationIAPConfig(){
-    }
-
     public UpdatePlaystationIAPConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

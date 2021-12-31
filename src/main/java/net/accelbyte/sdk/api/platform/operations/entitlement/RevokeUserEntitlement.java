@@ -63,9 +63,6 @@ public class RevokeUserEntitlement extends Operation {
         this.userId = userId;
     }
 
-    public RevokeUserEntitlement(){
-    }
-
     public RevokeUserEntitlement createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

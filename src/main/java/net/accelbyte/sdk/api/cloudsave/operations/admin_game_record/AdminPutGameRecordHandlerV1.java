@@ -63,9 +63,6 @@ public class AdminPutGameRecordHandlerV1 extends Operation {
         this.body = body;
     }
 
-    public AdminPutGameRecordHandlerV1(){
-    }
-
     public AdminPutGameRecordHandlerV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

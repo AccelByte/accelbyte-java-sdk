@@ -63,9 +63,6 @@ public class SaveUserPermission extends Operation {
         this.body = body;
     }
 
-    public SaveUserPermission(){
-    }
-
     public SaveUserPermission createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

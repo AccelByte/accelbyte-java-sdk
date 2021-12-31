@@ -59,9 +59,6 @@ public class UnBanUsers extends Operation {
         this.body = body;
     }
 
-    public UnBanUsers(){
-    }
-
     public UnBanUsers createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

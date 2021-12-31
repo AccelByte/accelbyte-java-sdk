@@ -67,9 +67,6 @@ public class RetrieveEligibilitiesPublicIndirect extends Operation {
         this.userId = userId;
     }
 
-    public RetrieveEligibilitiesPublicIndirect(){
-    }
-
     public RetrieveEligibilitiesPublicIndirect createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

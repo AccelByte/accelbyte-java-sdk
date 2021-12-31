@@ -63,9 +63,6 @@ public class AdminBulkBlockPlayersV1 extends Operation {
         this.body = body;
     }
 
-    public AdminBulkBlockPlayersV1(){
-    }
-
     public AdminBulkBlockPlayersV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

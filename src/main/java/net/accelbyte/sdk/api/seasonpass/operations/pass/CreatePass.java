@@ -63,9 +63,6 @@ public class CreatePass extends Operation {
         this.body = body;
     }
 
-    public CreatePass(){
-    }
-
     public CreatePass createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

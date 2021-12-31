@@ -59,9 +59,6 @@ public class UpdateEpicGamesIAPConfig extends Operation {
         this.body = body;
     }
 
-    public UpdateEpicGamesIAPConfig(){
-    }
-
     public UpdateEpicGamesIAPConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

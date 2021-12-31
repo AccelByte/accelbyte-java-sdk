@@ -61,9 +61,6 @@ public class AdminListUsersV3 extends Operation {
         this.offset = offset;
     }
 
-    public AdminListUsersV3(){
-    }
-
     public AdminListUsersV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

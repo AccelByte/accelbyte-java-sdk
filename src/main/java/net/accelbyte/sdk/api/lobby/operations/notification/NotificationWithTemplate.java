@@ -59,9 +59,6 @@ public class NotificationWithTemplate extends Operation {
         this.body = body;
     }
 
-    public NotificationWithTemplate(){
-    }
-
     public NotificationWithTemplate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

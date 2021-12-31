@@ -69,9 +69,6 @@ public class PublicListUserWalletTransactions extends Operation {
         this.offset = offset;
     }
 
-    public PublicListUserWalletTransactions(){
-    }
-
     public PublicListUserWalletTransactions createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -63,9 +63,6 @@ public class PutGameRecordConcurrentHandlerV1 extends Operation {
         this.body = body;
     }
 
-    public PutGameRecordConcurrentHandlerV1(){
-    }
-
     public PutGameRecordConcurrentHandlerV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

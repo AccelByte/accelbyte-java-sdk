@@ -58,9 +58,6 @@ public class PublicGetPaymentAccounts extends Operation {
         this.userId = userId;
     }
 
-    public PublicGetPaymentAccounts(){
-    }
-
     public PublicGetPaymentAccounts createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

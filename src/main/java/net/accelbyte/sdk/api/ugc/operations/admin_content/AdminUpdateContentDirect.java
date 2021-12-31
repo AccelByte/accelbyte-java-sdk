@@ -72,9 +72,6 @@ public class AdminUpdateContentDirect extends Operation {
         this.body = body;
     }
 
-    public AdminUpdateContentDirect(){
-    }
-
     public AdminUpdateContentDirect createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

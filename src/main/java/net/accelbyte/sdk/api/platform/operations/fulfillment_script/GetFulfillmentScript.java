@@ -55,9 +55,6 @@ public class GetFulfillmentScript extends Operation {
         this.id = id;
     }
 
-    public GetFulfillmentScript(){
-    }
-
     public GetFulfillmentScript createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

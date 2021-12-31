@@ -67,9 +67,6 @@ public class QueryFulfillmentHistories extends Operation {
         this.userId = userId;
     }
 
-    public QueryFulfillmentHistories(){
-    }
-
     public QueryFulfillmentHistories createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

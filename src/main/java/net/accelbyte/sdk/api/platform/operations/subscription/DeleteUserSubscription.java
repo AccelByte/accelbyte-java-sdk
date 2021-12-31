@@ -62,9 +62,6 @@ public class DeleteUserSubscription extends Operation {
         this.userId = userId;
     }
 
-    public DeleteUserSubscription(){
-    }
-
     public DeleteUserSubscription createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

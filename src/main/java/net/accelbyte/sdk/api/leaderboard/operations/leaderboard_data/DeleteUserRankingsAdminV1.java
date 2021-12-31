@@ -62,9 +62,6 @@ public class DeleteUserRankingsAdminV1 extends Operation {
         this.leaderboardCode = leaderboardCode;
     }
 
-    public DeleteUserRankingsAdminV1(){
-    }
-
     public DeleteUserRankingsAdminV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

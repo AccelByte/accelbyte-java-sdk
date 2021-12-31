@@ -55,9 +55,6 @@ public class VerifyToken extends Operation {
         this.token = token;
     }
 
-    public VerifyToken(){
-    }
-
     public VerifyToken createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -54,9 +54,6 @@ public class GetClientsbyNamespace extends Operation {
         this.namespace = namespace;
     }
 
-    public GetClientsbyNamespace(){
-    }
-
     public GetClientsbyNamespace createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -70,9 +70,6 @@ public class TokenGrantV3 extends Operation {
         this.grantType = grantType;
     }
 
-    public TokenGrantV3(){
-    }
-
     public TokenGrantV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
@@ -88,12 +85,12 @@ public class TokenGrantV3 extends Operation {
     @JsonIgnore
     public Map<String, String> getFormDataParams(){
         Map<String, String> formDataParams = new HashMap<>();
-        formDataParams.put("clientId", this.clientId);
+        formDataParams.put("client_id", this.clientId);
         formDataParams.put("code", this.code);
-        formDataParams.put("codeVerifier", this.codeVerifier);
-        formDataParams.put("redirectUri", this.redirectUri);
-        formDataParams.put("refreshToken", this.refreshToken);
-        formDataParams.put("grantType", this.grantType);
+        formDataParams.put("code_verifier", this.codeVerifier);
+        formDataParams.put("redirect_uri", this.redirectUri);
+        formDataParams.put("refresh_token", this.refreshToken);
+        formDataParams.put("grant_type", this.grantType);
         return formDataParams;
     }
 

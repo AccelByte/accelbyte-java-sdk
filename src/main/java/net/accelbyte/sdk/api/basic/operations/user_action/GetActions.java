@@ -54,9 +54,6 @@ public class GetActions extends Operation {
         this.namespace = namespace;
     }
 
-    public GetActions(){
-    }
-
     public GetActions createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

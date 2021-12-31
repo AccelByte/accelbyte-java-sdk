@@ -62,9 +62,6 @@ public class UploadKeys extends Operation {
         this.file = file;
     }
 
-    public UploadKeys(){
-    }
-
     public UploadKeys createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

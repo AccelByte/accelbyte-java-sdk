@@ -62,9 +62,6 @@ public class ExistsAnyPassByPassCodes extends Operation {
         this.passCodes = passCodes;
     }
 
-    public ExistsAnyPassByPassCodes(){
-    }
-
     public ExistsAnyPassByPassCodes createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

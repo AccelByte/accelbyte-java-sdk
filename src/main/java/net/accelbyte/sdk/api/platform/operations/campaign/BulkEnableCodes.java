@@ -62,9 +62,6 @@ public class BulkEnableCodes extends Operation {
         this.batchNo = batchNo;
     }
 
-    public BulkEnableCodes(){
-    }
-
     public BulkEnableCodes createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

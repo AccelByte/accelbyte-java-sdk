@@ -59,9 +59,6 @@ public class UpdatePaymentCallbackConfig extends Operation {
         this.body = body;
     }
 
-    public UpdatePaymentCallbackConfig(){
-    }
-
     public UpdatePaymentCallbackConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

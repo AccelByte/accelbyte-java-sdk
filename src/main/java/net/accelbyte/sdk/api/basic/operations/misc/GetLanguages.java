@@ -54,9 +54,6 @@ public class GetLanguages extends Operation {
         this.namespace = namespace;
     }
 
-    public GetLanguages(){
-    }
-
     public GetLanguages createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -59,9 +59,6 @@ public class AdminGetAchievement extends Operation {
         this.namespace = namespace;
     }
 
-    public AdminGetAchievement(){
-    }
-
     public AdminGetAchievement createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

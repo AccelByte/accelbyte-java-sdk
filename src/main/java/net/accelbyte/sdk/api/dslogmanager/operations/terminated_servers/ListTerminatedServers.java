@@ -94,9 +94,6 @@ public class ListTerminatedServers extends Operation {
         this.userId = userId;
     }
 
-    public ListTerminatedServers(){
-    }
-
     public ListTerminatedServers createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
@@ -120,18 +117,18 @@ public class ListTerminatedServers extends Operation {
     public Map<String, String> getQueryParams(){
         Map<String, String> queryParams = new HashMap<>();
         queryParams.put("deployment", this.deployment);
-        queryParams.put("endDate", this.endDate);
-        queryParams.put("gameMode", this.gameMode);
+        queryParams.put("end_date", this.endDate);
+        queryParams.put("game_mode", this.gameMode);
         queryParams.put("limit", String.valueOf(this.limit));
         queryParams.put("next", this.next);
-        queryParams.put("partyId", this.partyId);
-        queryParams.put("podName", this.podName);
+        queryParams.put("party_id", this.partyId);
+        queryParams.put("pod_name", this.podName);
         queryParams.put("previous", this.previous);
         queryParams.put("provider", this.provider);
         queryParams.put("region", this.region);
-        queryParams.put("sessionId", this.sessionId);
-        queryParams.put("startDate", this.startDate);
-        queryParams.put("userId", this.userId);
+        queryParams.put("session_id", this.sessionId);
+        queryParams.put("start_date", this.startDate);
+        queryParams.put("user_id", this.userId);
         return queryParams;
     }
 

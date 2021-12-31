@@ -54,9 +54,6 @@ public class AdminGetListCountryAgeRestrictionV3 extends Operation {
         this.namespace = namespace;
     }
 
-    public AdminGetListCountryAgeRestrictionV3(){
-    }
-
     public AdminGetListCountryAgeRestrictionV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

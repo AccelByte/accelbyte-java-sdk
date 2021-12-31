@@ -63,9 +63,6 @@ public class SendVerificationCode extends Operation {
         this.body = body;
     }
 
-    public SendVerificationCode(){
-    }
-
     public SendVerificationCode createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

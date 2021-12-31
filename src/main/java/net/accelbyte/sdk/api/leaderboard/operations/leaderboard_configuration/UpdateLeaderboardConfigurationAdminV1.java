@@ -64,9 +64,6 @@ public class UpdateLeaderboardConfigurationAdminV1 extends Operation {
         this.body = body;
     }
 
-    public UpdateLeaderboardConfigurationAdminV1(){
-    }
-
     public UpdateLeaderboardConfigurationAdminV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

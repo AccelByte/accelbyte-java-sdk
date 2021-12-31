@@ -62,9 +62,6 @@ public class UnpublishSeason extends Operation {
         this.force = force;
     }
 
-    public UnpublishSeason(){
-    }
-
     public UnpublishSeason createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

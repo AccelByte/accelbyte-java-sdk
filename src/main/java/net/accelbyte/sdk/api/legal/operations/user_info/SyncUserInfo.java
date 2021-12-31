@@ -54,9 +54,6 @@ public class SyncUserInfo extends Operation {
         this.namespace = namespace;
     }
 
-    public SyncUserInfo(){
-    }
-
     public SyncUserInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

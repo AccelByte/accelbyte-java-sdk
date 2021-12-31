@@ -54,9 +54,6 @@ public class ExportAchievements extends Operation {
         this.namespace = namespace;
     }
 
-    public ExportAchievements(){
-    }
-
     public ExportAchievements createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -59,9 +59,6 @@ public class QueueSessionHandler extends Operation {
         this.body = body;
     }
 
-    public QueueSessionHandler(){
-    }
-
     public QueueSessionHandler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

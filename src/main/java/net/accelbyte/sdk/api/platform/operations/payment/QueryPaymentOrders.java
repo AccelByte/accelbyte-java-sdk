@@ -70,9 +70,6 @@ public class QueryPaymentOrders extends Operation {
         this.status = status;
     }
 
-    public QueryPaymentOrders(){
-    }
-
     public QueryPaymentOrders createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

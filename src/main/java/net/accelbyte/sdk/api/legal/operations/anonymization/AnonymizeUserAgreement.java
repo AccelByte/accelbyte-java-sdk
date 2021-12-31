@@ -54,9 +54,6 @@ public class AnonymizeUserAgreement extends Operation {
         this.userId = userId;
     }
 
-    public AnonymizeUserAgreement(){
-    }
-
     public AnonymizeUserAgreement createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

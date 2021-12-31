@@ -59,9 +59,6 @@ public class AdminRevokeUserFromRoleV4 extends Operation {
         this.body = body;
     }
 
-    public AdminRevokeUserFromRoleV4(){
-    }
-
     public AdminRevokeUserFromRoleV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

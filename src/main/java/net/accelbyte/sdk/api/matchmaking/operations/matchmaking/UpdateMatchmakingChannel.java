@@ -63,9 +63,6 @@ public class UpdateMatchmakingChannel extends Operation {
         this.body = body;
     }
 
-    public UpdateMatchmakingChannel(){
-    }
-
     public UpdateMatchmakingChannel createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

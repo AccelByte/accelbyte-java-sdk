@@ -59,9 +59,6 @@ public class GetUserGroupInformationPublicV1 extends Operation {
         this.userId = userId;
     }
 
-    public GetUserGroupInformationPublicV1(){
-    }
-
     public GetUserGroupInformationPublicV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

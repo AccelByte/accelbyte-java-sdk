@@ -63,9 +63,6 @@ public class PublicClaimUserReward extends Operation {
         this.body = body;
     }
 
-    public PublicClaimUserReward(){
-    }
-
     public PublicClaimUserReward createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

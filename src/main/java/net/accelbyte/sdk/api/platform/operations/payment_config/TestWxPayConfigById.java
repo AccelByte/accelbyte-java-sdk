@@ -55,9 +55,6 @@ public class TestWxPayConfigById extends Operation {
         this.id = id;
     }
 
-    public TestWxPayConfigById(){
-    }
-
     public TestWxPayConfigById createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -67,9 +67,6 @@ public class UpdateUserOrderStatus extends Operation {
         this.body = body;
     }
 
-    public UpdateUserOrderStatus(){
-    }
-
     public UpdateUserOrderStatus createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

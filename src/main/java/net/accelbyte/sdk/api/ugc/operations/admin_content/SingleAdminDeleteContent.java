@@ -62,9 +62,6 @@ public class SingleAdminDeleteContent extends Operation {
         this.namespace = namespace;
     }
 
-    public SingleAdminDeleteContent(){
-    }
-
     public SingleAdminDeleteContent createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

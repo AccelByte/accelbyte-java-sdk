@@ -64,9 +64,6 @@ public class ListServer extends Operation {
         this.region = region;
     }
 
-    public ListServer(){
-    }
-
     public ListServer createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

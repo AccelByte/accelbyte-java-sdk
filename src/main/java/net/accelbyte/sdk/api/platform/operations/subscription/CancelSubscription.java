@@ -70,9 +70,6 @@ public class CancelSubscription extends Operation {
         this.body = body;
     }
 
-    public CancelSubscription(){
-    }
-
     public CancelSubscription createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

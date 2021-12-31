@@ -62,9 +62,6 @@ public class CloneStore extends Operation {
         this.targetStoreId = targetStoreId;
     }
 
-    public CloneStore(){
-    }
-
     public CloneStore createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

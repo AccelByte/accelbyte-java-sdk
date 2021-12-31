@@ -59,9 +59,6 @@ public class AdminDownloadContentPreview extends Operation {
         this.namespace = namespace;
     }
 
-    public AdminDownloadContentPreview(){
-    }
-
     public AdminDownloadContentPreview createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

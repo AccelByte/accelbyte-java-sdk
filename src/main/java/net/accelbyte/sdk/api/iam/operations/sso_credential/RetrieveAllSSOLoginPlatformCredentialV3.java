@@ -60,9 +60,6 @@ public class RetrieveAllSSOLoginPlatformCredentialV3 extends Operation {
         this.offset = offset;
     }
 
-    public RetrieveAllSSOLoginPlatformCredentialV3(){
-    }
-
     public RetrieveAllSSOLoginPlatformCredentialV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

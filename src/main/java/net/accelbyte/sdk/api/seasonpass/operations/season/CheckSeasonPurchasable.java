@@ -62,9 +62,6 @@ public class CheckSeasonPurchasable extends Operation {
         this.body = body;
     }
 
-    public CheckSeasonPurchasable(){
-    }
-
     public CheckSeasonPurchasable createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

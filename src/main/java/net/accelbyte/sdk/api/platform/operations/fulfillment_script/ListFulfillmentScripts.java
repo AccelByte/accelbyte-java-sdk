@@ -50,7 +50,6 @@ public class ListFulfillmentScripts extends Operation {
     {
     }
 
-
     public ListFulfillmentScripts createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

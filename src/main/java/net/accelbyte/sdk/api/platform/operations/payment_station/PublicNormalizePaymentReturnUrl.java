@@ -97,9 +97,6 @@ public class PublicNormalizePaymentReturnUrl extends Operation {
         this.returnUrl = returnUrl;
     }
 
-    public PublicNormalizePaymentReturnUrl(){
-    }
-
     public PublicNormalizePaymentReturnUrl createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
@@ -122,15 +119,15 @@ public class PublicNormalizePaymentReturnUrl extends Operation {
     @JsonIgnore
     public Map<String, String> getQueryParams(){
         Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("payerID", this.payerID);
+        queryParams.put("PayerID", this.payerID);
         queryParams.put("foreinginvoice", this.foreinginvoice);
-        queryParams.put("invoiceId", this.invoiceId);
+        queryParams.put("invoice_id", this.invoiceId);
         queryParams.put("payload", this.payload);
         queryParams.put("resultCode", this.resultCode);
         queryParams.put("status", this.status);
         queryParams.put("token", this.token);
         queryParams.put("type", this.type);
-        queryParams.put("userId", this.userId);
+        queryParams.put("user_id", this.userId);
         queryParams.put("orderNo", this.orderNo);
         queryParams.put("paymentOrderNo", this.paymentOrderNo);
         queryParams.put("paymentProvider", this.paymentProvider);

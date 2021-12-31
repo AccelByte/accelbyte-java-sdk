@@ -59,9 +59,6 @@ public class GetCampaignDynamic extends Operation {
         this.namespace = namespace;
     }
 
-    public GetCampaignDynamic(){
-    }
-
     public GetCampaignDynamic createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

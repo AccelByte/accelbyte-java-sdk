@@ -60,9 +60,6 @@ public class PublicGetRootCategories extends Operation {
         this.storeId = storeId;
     }
 
-    public PublicGetRootCategories(){
-    }
-
     public PublicGetRootCategories createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

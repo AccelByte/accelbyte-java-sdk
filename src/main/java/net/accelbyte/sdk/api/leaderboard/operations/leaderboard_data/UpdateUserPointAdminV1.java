@@ -68,9 +68,6 @@ public class UpdateUserPointAdminV1 extends Operation {
         this.body = body;
     }
 
-    public UpdateUserPointAdminV1(){
-    }
-
     public UpdateUserPointAdminV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

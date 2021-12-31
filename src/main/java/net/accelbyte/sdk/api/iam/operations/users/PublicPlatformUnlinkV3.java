@@ -63,9 +63,6 @@ public class PublicPlatformUnlinkV3 extends Operation {
         this.body = body;
     }
 
-    public PublicPlatformUnlinkV3(){
-    }
-
     public PublicPlatformUnlinkV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

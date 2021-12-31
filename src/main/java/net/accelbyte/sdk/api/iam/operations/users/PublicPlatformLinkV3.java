@@ -65,9 +65,6 @@ public class PublicPlatformLinkV3 extends Operation {
         this.ticket = ticket;
     }
 
-    public PublicPlatformLinkV3(){
-    }
-
     public PublicPlatformLinkV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

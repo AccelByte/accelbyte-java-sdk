@@ -63,9 +63,6 @@ public class PublicUpdateUserProfileStatus extends Operation {
         this.body = body;
     }
 
-    public PublicUpdateUserProfileStatus(){
-    }
-
     public PublicUpdateUserProfileStatus createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

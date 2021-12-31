@@ -58,9 +58,6 @@ public class DeleteAllUserGroup extends Operation {
         this.userId = userId;
     }
 
-    public DeleteAllUserGroup(){
-    }
-
     public DeleteAllUserGroup createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

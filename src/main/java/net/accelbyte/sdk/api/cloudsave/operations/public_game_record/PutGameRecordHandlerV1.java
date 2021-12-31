@@ -63,9 +63,6 @@ public class PutGameRecordHandlerV1 extends Operation {
         this.body = body;
     }
 
-    public PutGameRecordHandlerV1(){
-    }
-
     public PutGameRecordHandlerV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

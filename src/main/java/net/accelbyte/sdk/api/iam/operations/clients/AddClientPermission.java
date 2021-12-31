@@ -62,9 +62,6 @@ public class AddClientPermission extends Operation {
         this.resource = resource;
     }
 
-    public AddClientPermission(){
-    }
-
     public AddClientPermission createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

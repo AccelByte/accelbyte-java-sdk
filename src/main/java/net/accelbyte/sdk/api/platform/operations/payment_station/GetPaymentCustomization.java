@@ -66,9 +66,6 @@ public class GetPaymentCustomization extends Operation {
         this.region = region;
     }
 
-    public GetPaymentCustomization(){
-    }
-
     public GetPaymentCustomization createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

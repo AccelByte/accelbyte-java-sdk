@@ -62,9 +62,6 @@ public class SyncStadiaEntitlement extends Operation {
         this.body = body;
     }
 
-    public SyncStadiaEntitlement(){
-    }
-
     public SyncStadiaEntitlement createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

@@ -58,9 +58,6 @@ public class TestAdyenConfigById extends Operation {
         this.sandbox = sandbox;
     }
 
-    public TestAdyenConfigById(){
-    }
-
     public TestAdyenConfigById createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

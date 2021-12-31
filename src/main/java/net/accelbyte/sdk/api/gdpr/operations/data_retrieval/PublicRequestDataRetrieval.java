@@ -63,9 +63,6 @@ public class PublicRequestDataRetrieval extends Operation {
         this.password = password;
     }
 
-    public PublicRequestDataRetrieval(){
-    }
-
     public PublicRequestDataRetrieval createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

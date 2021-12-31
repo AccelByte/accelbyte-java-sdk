@@ -55,9 +55,6 @@ public class GetGoogleIAPConfig extends Operation {
         this.namespace = namespace;
     }
 
-    public GetGoogleIAPConfig(){
-    }
-
     public GetGoogleIAPConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

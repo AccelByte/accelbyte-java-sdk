@@ -58,9 +58,6 @@ public class AnonymizeUserProfile extends Operation {
         this.userId = userId;
     }
 
-    public AnonymizeUserProfile(){
-    }
-
     public AnonymizeUserProfile createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

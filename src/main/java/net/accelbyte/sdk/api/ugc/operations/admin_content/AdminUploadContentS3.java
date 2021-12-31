@@ -64,9 +64,6 @@ public class AdminUploadContentS3 extends Operation {
         this.body = body;
     }
 
-    public AdminUploadContentS3(){
-    }
-
     public AdminUploadContentS3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

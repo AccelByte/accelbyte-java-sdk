@@ -67,9 +67,6 @@ public class AdminGeneratePersonalDataURL extends Operation {
         this.password = password;
     }
 
-    public AdminGeneratePersonalDataURL(){
-    }
-
     public AdminGeneratePersonalDataURL createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

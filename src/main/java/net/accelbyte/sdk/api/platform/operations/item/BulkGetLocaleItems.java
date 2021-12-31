@@ -70,9 +70,6 @@ public class BulkGetLocaleItems extends Operation {
         this.itemIds = itemIds;
     }
 
-    public BulkGetLocaleItems(){
-    }
-
     public BulkGetLocaleItems createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

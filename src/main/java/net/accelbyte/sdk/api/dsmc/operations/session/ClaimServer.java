@@ -59,9 +59,6 @@ public class ClaimServer extends Operation {
         this.body = body;
     }
 
-    public ClaimServer(){
-    }
-
     public ClaimServer createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

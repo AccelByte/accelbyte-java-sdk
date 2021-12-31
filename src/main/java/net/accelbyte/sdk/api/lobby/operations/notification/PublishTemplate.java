@@ -62,9 +62,6 @@ public class PublishTemplate extends Operation {
         this.templateSlug = templateSlug;
     }
 
-    public PublishTemplate(){
-    }
-
     public PublishTemplate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

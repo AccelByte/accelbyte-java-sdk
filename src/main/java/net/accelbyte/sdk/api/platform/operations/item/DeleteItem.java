@@ -61,9 +61,6 @@ public class DeleteItem extends Operation {
         this.storeId = storeId;
     }
 
-    public DeleteItem(){
-    }
-
     public DeleteItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

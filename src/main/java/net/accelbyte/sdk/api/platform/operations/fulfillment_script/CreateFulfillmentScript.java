@@ -59,9 +59,6 @@ public class CreateFulfillmentScript extends Operation {
         this.body = body;
     }
 
-    public CreateFulfillmentScript(){
-    }
-
     public CreateFulfillmentScript createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

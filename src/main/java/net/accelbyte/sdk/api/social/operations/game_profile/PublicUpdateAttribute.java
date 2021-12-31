@@ -71,9 +71,6 @@ public class PublicUpdateAttribute extends Operation {
         this.body = body;
     }
 
-    public PublicUpdateAttribute(){
-    }
-
     public PublicUpdateAttribute createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

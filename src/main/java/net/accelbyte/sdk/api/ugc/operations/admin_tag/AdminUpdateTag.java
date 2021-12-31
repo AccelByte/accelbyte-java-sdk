@@ -64,9 +64,6 @@ public class AdminUpdateTag extends Operation {
         this.body = body;
     }
 
-    public AdminUpdateTag(){
-    }
-
     public AdminUpdateTag createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

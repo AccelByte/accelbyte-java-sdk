@@ -61,9 +61,6 @@ public class AdminGetUserBanV2 extends Operation {
         this.activeOnly = activeOnly;
     }
 
-    public AdminGetUserBanV2(){
-    }
-
     public AdminGetUserBanV2 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

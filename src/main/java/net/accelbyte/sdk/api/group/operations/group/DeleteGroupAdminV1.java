@@ -58,9 +58,6 @@ public class DeleteGroupAdminV1 extends Operation {
         this.namespace = namespace;
     }
 
-    public DeleteGroupAdminV1(){
-    }
-
     public DeleteGroupAdminV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

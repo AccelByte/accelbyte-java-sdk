@@ -59,9 +59,6 @@ public class UpdateClientPermission extends Operation {
         this.body = body;
     }
 
-    public UpdateClientPermission(){
-    }
-
     public UpdateClientPermission createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

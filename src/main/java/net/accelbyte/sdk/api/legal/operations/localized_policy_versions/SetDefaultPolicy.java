@@ -54,9 +54,6 @@ public class SetDefaultPolicy extends Operation {
         this.localizedPolicyVersionId = localizedPolicyVersionId;
     }
 
-    public SetDefaultPolicy(){
-    }
-
     public SetDefaultPolicy createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

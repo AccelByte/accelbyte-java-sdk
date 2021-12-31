@@ -80,9 +80,6 @@ public class QueryUserEntitlements extends Operation {
         this.offset = offset;
     }
 
-    public QueryUserEntitlements(){
-    }
-
     public QueryUserEntitlements createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

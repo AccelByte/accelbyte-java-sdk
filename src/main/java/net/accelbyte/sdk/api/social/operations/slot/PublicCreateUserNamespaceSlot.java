@@ -73,9 +73,6 @@ public class PublicCreateUserNamespaceSlot extends Operation {
         this.file = file;
     }
 
-    public PublicCreateUserNamespaceSlot(){
-    }
-
     public PublicCreateUserNamespaceSlot createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

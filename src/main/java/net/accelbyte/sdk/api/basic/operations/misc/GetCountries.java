@@ -57,9 +57,6 @@ public class GetCountries extends Operation {
         this.lang = lang;
     }
 
-    public GetCountries(){
-    }
-
     public GetCountries createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

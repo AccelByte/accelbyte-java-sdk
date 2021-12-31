@@ -67,9 +67,6 @@ public class ListSession extends Operation {
         this.withServer = withServer;
     }
 
-    public ListSession(){
-    }
-
     public ListSession createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

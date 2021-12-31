@@ -64,9 +64,6 @@ public class AdminUpdateScreenshots extends Operation {
         this.body = body;
     }
 
-    public AdminUpdateScreenshots(){
-    }
-
     public AdminUpdateScreenshots createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

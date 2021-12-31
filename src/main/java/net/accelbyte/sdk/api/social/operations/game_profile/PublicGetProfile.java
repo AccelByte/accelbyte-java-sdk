@@ -63,9 +63,6 @@ public class PublicGetProfile extends Operation {
         this.userId = userId;
     }
 
-    public PublicGetProfile(){
-    }
-
     public PublicGetProfile createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

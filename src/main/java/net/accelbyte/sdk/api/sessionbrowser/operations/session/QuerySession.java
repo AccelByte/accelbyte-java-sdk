@@ -86,9 +86,6 @@ public class QuerySession extends Operation {
         this.sessionType = sessionType;
     }
 
-    public QuerySession(){
-    }
-
     public QuerySession createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
@@ -111,16 +108,16 @@ public class QuerySession extends Operation {
     @JsonIgnore
     public Map<String, String> getQueryParams(){
         Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("gameMode", this.gameMode);
-        queryParams.put("gameVersion", this.gameVersion);
+        queryParams.put("game_mode", this.gameMode);
+        queryParams.put("game_version", this.gameVersion);
         queryParams.put("joinable", this.joinable);
         queryParams.put("limit", this.limit);
-        queryParams.put("matchExist", this.matchExist);
-        queryParams.put("matchId", this.matchId);
+        queryParams.put("match_exist", this.matchExist);
+        queryParams.put("match_id", this.matchId);
         queryParams.put("offset", this.offset);
-        queryParams.put("serverStatus", this.serverStatus);
-        queryParams.put("userId", this.userId);
-        queryParams.put("sessionType", this.sessionType);
+        queryParams.put("server_status", this.serverStatus);
+        queryParams.put("user_id", this.userId);
+        queryParams.put("session_type", this.sessionType);
         return queryParams;
     }
 

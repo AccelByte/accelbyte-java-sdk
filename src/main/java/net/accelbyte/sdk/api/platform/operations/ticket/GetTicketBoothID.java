@@ -59,9 +59,6 @@ public class GetTicketBoothID extends Operation {
         this.namespace = namespace;
     }
 
-    public GetTicketBoothID(){
-    }
-
     public GetTicketBoothID createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }

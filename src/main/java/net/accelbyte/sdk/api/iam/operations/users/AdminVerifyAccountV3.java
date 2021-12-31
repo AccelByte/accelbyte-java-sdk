@@ -63,9 +63,6 @@ public class AdminVerifyAccountV3 extends Operation {
         this.body = body;
     }
 
-    public AdminVerifyAccountV3(){
-    }
-
     public AdminVerifyAccountV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
