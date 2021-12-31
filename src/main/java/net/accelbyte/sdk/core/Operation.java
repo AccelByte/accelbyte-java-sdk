@@ -15,36 +15,27 @@ import java.util.Map;
 @Getter
 @Setter
 public class Operation {
+
     @JsonIgnore
     protected String url = "";
+
     @JsonIgnore
     protected String method = "";
+
     @JsonIgnore
     protected List<String> consumes = new ArrayList<>();
+
     @JsonIgnore
     protected List<String> produces = new ArrayList<>();
+
     @JsonIgnore
     protected String security = "";
+
     @JsonIgnore
     protected String locationQuery = "";
+
     @JsonIgnore
     protected String authorizationOverride = "";
-
-    public Map<String, String> getPathParams() {
-        return new HashMap<>();
-    }
-
-    public Map<String, String> getQueryParams() {
-        return new HashMap<>();
-    }
-
-    public Map<String, Map<String, String>> getAllParams() {
-        return new HashMap<>();
-    }
-
-    public String getFullUrl(String baseUrl) {
-        return null;
-    }
 
     public static String createFullUrl(String url, String baseUrl, Map<String, String> pathParams, Map<String, String> queryParams) {
         StringBuilder result = new StringBuilder();
@@ -66,14 +57,34 @@ public class Operation {
         // query params
         StringBuilder queryParamBuilder = new StringBuilder();
         for (Map.Entry<String, String> queryParam : queryParams.entrySet()) {
-            queryParamBuilder.append("&");
-            queryParamBuilder.append(queryParam.getKey());
-            queryParamBuilder.append("=");
-            queryParamBuilder.append(queryParam.getValue());
+            if (queryParam.getValue() != null) {
+                if (!queryParam.getValue().equals("")) {
+                    queryParamBuilder.append("&");
+                    queryParamBuilder.append(queryParam.getKey());
+                    queryParamBuilder.append("=");
+                    queryParamBuilder.append(queryParam.getValue());
+                }
+            }
         }
         result.append("?");
         result.append(queryParamBuilder);
         return result.toString();
+    }
+
+    public Map<String, String> getPathParams() {
+        return new HashMap<>();
+    }
+
+    public Map<String, String> getQueryParams() {
+        return new HashMap<>();
+    }
+
+    public Map<String, Map<String, String>> getAllParams() {
+        return new HashMap<>();
+    }
+
+    public String getFullUrl(String baseUrl) {
+        return null;
     }
 
     @JsonIgnore

@@ -7,16 +7,26 @@ public class ConfigRepositoryImpl implements ConfigRepository {
 
     @Override
     public String getClientId() {
+        if (System.getenv(CLIENT_ID) == null) {
+            return "";
+        }
         return System.getenv(CLIENT_ID);
     }
 
     @Override
     public String getClientSecret() {
+        if (System.getenv(CLIENT_SECRET) == null) {
+            return "";
+        }
         return System.getenv(CLIENT_SECRET);
+
     }
 
     @Override
     public String getBaseURL() {
+        if (System.getenv(BASE_URL) == null) {
+            return "";
+        }
         return System.getenv(BASE_URL);
     }
 }
