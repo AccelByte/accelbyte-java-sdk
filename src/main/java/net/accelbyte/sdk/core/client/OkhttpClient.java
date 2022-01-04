@@ -46,10 +46,7 @@ public class OkhttpClient implements HttpClient {
             FormBody.Builder formBody = new FormBody.Builder();
             for (Map.Entry<String, String> entry : operation.getFormDataParams().entrySet()) {
                 if (entry.getValue() != null) {
-                    // todo : handle this condition
-                    if (!entry.getValue().equals("null")) {
-                        formBody.add(entry.getKey(), entry.getValue());
-                    }
+                    formBody.add(entry.getKey(), entry.getValue());
                 }
             }
             requestBuilder.method(operation.getMethod(), formBody.build());
@@ -61,7 +58,6 @@ public class OkhttpClient implements HttpClient {
                 .build();
         InputStream payload = null;
         Response response = okHttpClient.newCall(request).execute();
-        response.body();
         if (response.isRedirect()) {
             byte[] responseHeader = Objects.requireNonNull(response.header("Location")).getBytes();
             payload = new ByteArrayInputStream(responseHeader);
