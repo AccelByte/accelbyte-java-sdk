@@ -1,6 +1,7 @@
 package net.accelbyte.sdk.api.iam.operations.o_auth;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,6 +19,7 @@ import java.util.*;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TokenGrant extends Operation {
     /**
      * generated field's value
@@ -76,10 +78,12 @@ public class TokenGrant extends Operation {
         this.grantType = grantType;
     }
 
+    @JsonIgnore
     public TokenGrant createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -92,7 +96,7 @@ public class TokenGrant extends Operation {
     public Map<String, String> getFormDataParams(){
         Map<String, String> formDataParams = new HashMap<>();
         formDataParams.put("code", this.code);
-        formDataParams.put("extend_exp", String.valueOf(this.extendExp));
+        formDataParams.put("extend_exp", this.extendExp == null ? null : String.valueOf(this.extendExp));
         formDataParams.put("namespace", this.namespace);
         formDataParams.put("password", this.password);
         formDataParams.put("redirect_uri", this.redirectUri);
@@ -108,6 +112,7 @@ public class TokenGrant extends Operation {
         return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("code","code");
@@ -128,6 +133,7 @@ public class TokenGrant extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public boolean isValid() {
         if(this.grantType == null) {
             return false;
@@ -136,6 +142,7 @@ public class TokenGrant extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public OauthmodelTokenResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

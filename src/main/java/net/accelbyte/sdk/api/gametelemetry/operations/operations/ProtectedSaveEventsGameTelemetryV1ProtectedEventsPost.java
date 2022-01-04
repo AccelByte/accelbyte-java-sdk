@@ -1,6 +1,7 @@
 package net.accelbyte.sdk.api.gametelemetry.operations.operations;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,6 +19,7 @@ import java.util.*;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost extends Operation {
     /**
      * generated field's value
@@ -55,10 +57,12 @@ public class ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost extends Opera
         this.body = body;
     }
 
+    @JsonIgnore
     public ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -86,11 +90,13 @@ public class ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost extends Opera
     }
 
     @Override
+    @JsonIgnore
     public boolean isValid() {
         return true;
     }
 
     @Override
+    @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code != 204){

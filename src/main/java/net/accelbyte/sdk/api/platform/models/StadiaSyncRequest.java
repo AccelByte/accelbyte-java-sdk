@@ -1,5 +1,7 @@
 package net.accelbyte.sdk.api.platform.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,6 +16,7 @@ import java.util.Map;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class StadiaSyncRequest extends Model {
 
     @JsonProperty("appId")
@@ -28,14 +31,17 @@ public class StadiaSyncRequest extends Model {
     @JsonProperty("stadiaPlayerId")
     private String stadiaPlayerId;
 
+    @JsonIgnore
     public StadiaSyncRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public List<StadiaSyncRequest> createFromJsonList(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, new TypeReference<List<StadiaSyncRequest>>() {});
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("appId", "appId");

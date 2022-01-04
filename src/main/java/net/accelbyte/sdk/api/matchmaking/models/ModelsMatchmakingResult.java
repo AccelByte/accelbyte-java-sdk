@@ -1,5 +1,7 @@
 package net.accelbyte.sdk.api.matchmaking.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,6 +16,7 @@ import java.util.Map;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ModelsMatchmakingResult extends Model {
 
     @JsonProperty("channel")
@@ -61,14 +64,17 @@ public class ModelsMatchmakingResult extends Model {
     @JsonProperty("updated_at")
     private String updatedAt;
 
+    @JsonIgnore
     public ModelsMatchmakingResult createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public List<ModelsMatchmakingResult> createFromJsonList(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMatchmakingResult>>() {});
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("channel", "channel");

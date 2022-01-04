@@ -1,5 +1,7 @@
 package net.accelbyte.sdk.api.dslogmanager.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,6 +16,7 @@ import java.util.Map;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ModelsServer extends Model {
 
     @JsonProperty("allocation_id")
@@ -73,14 +76,17 @@ public class ModelsServer extends Model {
     @JsonProperty("status_history")
     private List<ModelsStatusHistory> statusHistory;
 
+    @JsonIgnore
     public ModelsServer createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public List<ModelsServer> createFromJsonList(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsServer>>() {});
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("allocation_id", "allocationId");

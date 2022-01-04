@@ -1,6 +1,7 @@
 package net.accelbyte.sdk.api.matchmaking.operations.matchmaking;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,6 +19,7 @@ import java.util.*;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UpdateMatchmakingChannel extends Operation {
     /**
      * generated field's value
@@ -63,10 +65,12 @@ public class UpdateMatchmakingChannel extends Operation {
         this.body = body;
     }
 
+    @JsonIgnore
     public UpdateMatchmakingChannel createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -98,6 +102,7 @@ public class UpdateMatchmakingChannel extends Operation {
         return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("channelName","channelName");
@@ -114,6 +119,7 @@ public class UpdateMatchmakingChannel extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public boolean isValid() {
         if(this.channelName == null) {
             return false;
@@ -125,6 +131,7 @@ public class UpdateMatchmakingChannel extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code != 204){

@@ -1,6 +1,7 @@
 package net.accelbyte.sdk.api.legal.operations.agreement;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,6 +19,7 @@ import java.util.*;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ChangePreferenceConsent extends Operation {
     /**
      * generated field's value
@@ -54,10 +56,12 @@ public class ChangePreferenceConsent extends Operation {
         this.body = body;
     }
 
+    @JsonIgnore
     public ChangePreferenceConsent createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -85,11 +89,13 @@ public class ChangePreferenceConsent extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public boolean isValid() {
         return true;
     }
 
     @Override
+    @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code != 200){

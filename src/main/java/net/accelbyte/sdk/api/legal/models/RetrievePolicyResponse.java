@@ -1,5 +1,7 @@
 package net.accelbyte.sdk.api.legal.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,6 +16,7 @@ import java.util.Map;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class RetrievePolicyResponse extends Model {
 
     @JsonProperty("countryCode")
@@ -55,14 +58,17 @@ public class RetrievePolicyResponse extends Model {
     @JsonProperty("updatedAt")
     private String updatedAt;
 
+    @JsonIgnore
     public RetrievePolicyResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public List<RetrievePolicyResponse> createFromJsonList(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, new TypeReference<List<RetrievePolicyResponse>>() {});
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("countryCode", "countryCode");

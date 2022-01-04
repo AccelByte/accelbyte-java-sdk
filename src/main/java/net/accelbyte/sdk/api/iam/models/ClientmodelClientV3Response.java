@@ -1,5 +1,7 @@
 package net.accelbyte.sdk.api.iam.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,6 +16,7 @@ import java.util.Map;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ClientmodelClientV3Response extends Model {
 
     @JsonProperty("audiences")
@@ -49,14 +52,17 @@ public class ClientmodelClientV3Response extends Model {
     @JsonProperty("scopes")
     private List<String> scopes;
 
+    @JsonIgnore
     public ClientmodelClientV3Response createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public List<ClientmodelClientV3Response> createFromJsonList(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, new TypeReference<List<ClientmodelClientV3Response>>() {});
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("audiences", "audiences");

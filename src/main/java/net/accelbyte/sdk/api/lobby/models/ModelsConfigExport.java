@@ -1,5 +1,7 @@
 package net.accelbyte.sdk.api.lobby.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,6 +16,7 @@ import java.util.Map;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ModelsConfigExport extends Model {
 
     @JsonProperty("autoKickOnDisconnect")
@@ -61,14 +64,17 @@ public class ModelsConfigExport extends Model {
     @JsonProperty("readyConsentTimeout")
     private Integer readyConsentTimeout;
 
+    @JsonIgnore
     public ModelsConfigExport createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public List<ModelsConfigExport> createFromJsonList(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsConfigExport>>() {});
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("autoKickOnDisconnect", "autoKickOnDisconnect");

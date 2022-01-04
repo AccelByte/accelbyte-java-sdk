@@ -1,5 +1,7 @@
 package net.accelbyte.sdk.api.seasonpass.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,6 +16,7 @@ import java.util.Map;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LocalizedSeasonInfo extends Model {
 
     @JsonProperty("title")
@@ -73,14 +76,17 @@ public class LocalizedSeasonInfo extends Model {
     @JsonProperty("tiers")
     private List<Tier> tiers;
 
+    @JsonIgnore
     public LocalizedSeasonInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public List<LocalizedSeasonInfo> createFromJsonList(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, new TypeReference<List<LocalizedSeasonInfo>>() {});
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("title", "title");

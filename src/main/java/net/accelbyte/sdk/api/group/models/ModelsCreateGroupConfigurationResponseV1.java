@@ -1,5 +1,7 @@
 package net.accelbyte.sdk.api.group.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,6 +16,7 @@ import java.util.Map;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ModelsCreateGroupConfigurationResponseV1 extends Model {
 
     @JsonProperty("configurationCode")
@@ -37,14 +40,17 @@ public class ModelsCreateGroupConfigurationResponseV1 extends Model {
     @JsonProperty("name")
     private String name;
 
+    @JsonIgnore
     public ModelsCreateGroupConfigurationResponseV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public List<ModelsCreateGroupConfigurationResponseV1> createFromJsonList(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateGroupConfigurationResponseV1>>() {});
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("configurationCode", "configurationCode");

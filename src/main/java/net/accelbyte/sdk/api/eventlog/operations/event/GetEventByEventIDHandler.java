@@ -1,6 +1,7 @@
 package net.accelbyte.sdk.api.eventlog.operations.event;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,6 +19,7 @@ import java.util.*;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class GetEventByEventIDHandler extends Operation {
     /**
      * generated field's value
@@ -74,10 +76,12 @@ public class GetEventByEventIDHandler extends Operation {
         this.startDate = startDate;
     }
 
+    @JsonIgnore
     public GetEventByEventIDHandler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -87,7 +91,7 @@ public class GetEventByEventIDHandler extends Operation {
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
         if (this.eventId != null){
-            pathParams.put("eventId", String.valueOf(this.eventId));
+            pathParams.put("eventId", this.eventId == null ? null : String.valueOf(this.eventId));
         }
         if (this.namespace != null){
             pathParams.put("namespace", this.namespace);
@@ -99,9 +103,9 @@ public class GetEventByEventIDHandler extends Operation {
     @JsonIgnore
     public Map<String, String> getQueryParams(){
         Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("offset", String.valueOf(this.offset));
+        queryParams.put("offset", this.offset == null ? null : String.valueOf(this.offset));
         queryParams.put("endDate", this.endDate);
-        queryParams.put("pageSize", String.valueOf(this.pageSize));
+        queryParams.put("pageSize", this.pageSize == null ? null : String.valueOf(this.pageSize));
         queryParams.put("startDate", this.startDate);
         return queryParams;
     }
@@ -114,6 +118,7 @@ public class GetEventByEventIDHandler extends Operation {
         return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("eventId","eventId");
@@ -138,6 +143,7 @@ public class GetEventByEventIDHandler extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public boolean isValid() {
         if(this.eventId == null) {
             return false;
@@ -158,6 +164,7 @@ public class GetEventByEventIDHandler extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public ModelsEventResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

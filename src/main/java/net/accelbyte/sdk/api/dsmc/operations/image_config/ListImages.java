@@ -1,6 +1,7 @@
 package net.accelbyte.sdk.api.dsmc.operations.image_config;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,6 +19,7 @@ import java.util.*;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ListImages extends Operation {
     /**
      * generated field's value
@@ -70,10 +72,12 @@ public class ListImages extends Operation {
         this.sortDirection = sortDirection;
     }
 
+    @JsonIgnore
     public ListImages createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -92,8 +96,8 @@ public class ListImages extends Operation {
     @JsonIgnore
     public Map<String, String> getQueryParams(){
         Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("count", String.valueOf(this.count));
-        queryParams.put("offset", String.valueOf(this.offset));
+        queryParams.put("count", this.count == null ? null : String.valueOf(this.count));
+        queryParams.put("offset", this.offset == null ? null : String.valueOf(this.offset));
         queryParams.put("q", this.q);
         queryParams.put("sortBy", this.sortBy);
         queryParams.put("sortDirection", this.sortDirection);
@@ -108,6 +112,7 @@ public class ListImages extends Operation {
         return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("namespace","namespace");
@@ -127,6 +132,7 @@ public class ListImages extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public boolean isValid() {
         if(this.namespace == null) {
             return false;
@@ -135,6 +141,7 @@ public class ListImages extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public ModelsListImageResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

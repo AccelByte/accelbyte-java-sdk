@@ -1,6 +1,7 @@
 package net.accelbyte.sdk.api.social.operations.game_profile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,6 +18,7 @@ import java.util.*;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PublicGetUserGameProfiles extends Operation {
     /**
      * generated field's value
@@ -58,10 +60,12 @@ public class PublicGetUserGameProfiles extends Operation {
         this.userIds = userIds;
     }
 
+    @JsonIgnore
     public PublicGetUserGameProfiles createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -80,7 +84,7 @@ public class PublicGetUserGameProfiles extends Operation {
     @JsonIgnore
     public Map<String, String> getQueryParams(){
         Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("userIds", String.valueOf(this.userIds));
+        queryParams.put("userIds", this.userIds == null ? null : String.valueOf(this.userIds));
         return queryParams;
     }
 
@@ -92,6 +96,7 @@ public class PublicGetUserGameProfiles extends Operation {
         return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("namespace","namespace");
@@ -108,6 +113,7 @@ public class PublicGetUserGameProfiles extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public boolean isValid() {
         if(this.namespace == null) {
             return false;
@@ -119,6 +125,7 @@ public class PublicGetUserGameProfiles extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public List<UserGameProfiles> parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

@@ -1,6 +1,7 @@
 package net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,6 +19,7 @@ import java.util.*;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ListTerminatedServers extends Operation {
     /**
      * generated field's value
@@ -94,10 +96,12 @@ public class ListTerminatedServers extends Operation {
         this.userId = userId;
     }
 
+    @JsonIgnore
     public ListTerminatedServers createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -119,7 +123,7 @@ public class ListTerminatedServers extends Operation {
         queryParams.put("deployment", this.deployment);
         queryParams.put("end_date", this.endDate);
         queryParams.put("game_mode", this.gameMode);
-        queryParams.put("limit", String.valueOf(this.limit));
+        queryParams.put("limit", this.limit == null ? null : String.valueOf(this.limit));
         queryParams.put("next", this.next);
         queryParams.put("party_id", this.partyId);
         queryParams.put("pod_name", this.podName);
@@ -140,6 +144,7 @@ public class ListTerminatedServers extends Operation {
         return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("namespace","namespace");
@@ -167,6 +172,7 @@ public class ListTerminatedServers extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public boolean isValid() {
         if(this.namespace == null) {
             return false;
@@ -175,6 +181,7 @@ public class ListTerminatedServers extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public ModelsListTerminatedServersResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

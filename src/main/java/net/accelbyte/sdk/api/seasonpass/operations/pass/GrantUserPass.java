@@ -1,6 +1,7 @@
 package net.accelbyte.sdk.api.seasonpass.operations.pass;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,6 +20,7 @@ import java.util.*;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class GrantUserPass extends Operation {
     /**
      * generated field's value
@@ -63,10 +65,12 @@ public class GrantUserPass extends Operation {
         this.body = body;
     }
 
+    @JsonIgnore
     public GrantUserPass createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -98,6 +102,7 @@ public class GrantUserPass extends Operation {
         return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("namespace","namespace");
@@ -114,6 +119,7 @@ public class GrantUserPass extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public boolean isValid() {
         if(this.namespace == null) {
             return false;
@@ -125,6 +131,7 @@ public class GrantUserPass extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public UserSeasonSummary parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

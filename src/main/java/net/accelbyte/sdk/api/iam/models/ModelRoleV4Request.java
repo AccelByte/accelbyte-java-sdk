@@ -1,5 +1,7 @@
 package net.accelbyte.sdk.api.iam.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,6 +16,7 @@ import java.util.Map;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ModelRoleV4Request extends Model {
 
     @JsonProperty("adminRole")
@@ -25,14 +28,17 @@ public class ModelRoleV4Request extends Model {
     @JsonProperty("roleName")
     private String roleName;
 
+    @JsonIgnore
     public ModelRoleV4Request createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public List<ModelRoleV4Request> createFromJsonList(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelRoleV4Request>>() {});
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("adminRole", "adminRole");

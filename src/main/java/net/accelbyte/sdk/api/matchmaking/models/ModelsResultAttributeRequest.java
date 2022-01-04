@@ -1,5 +1,7 @@
 package net.accelbyte.sdk.api.matchmaking.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,6 +16,7 @@ import java.util.Map;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ModelsResultAttributeRequest extends Model {
 
     @JsonProperty("attribute")
@@ -22,14 +25,17 @@ public class ModelsResultAttributeRequest extends Model {
     @JsonProperty("value")
     private Float value;
 
+    @JsonIgnore
     public ModelsResultAttributeRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public List<ModelsResultAttributeRequest> createFromJsonList(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsResultAttributeRequest>>() {});
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("attribute", "attribute");

@@ -1,6 +1,7 @@
 package net.accelbyte.sdk.api.legal.operations.base_legal_policies;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,6 +18,7 @@ import java.util.*;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class RetrieveAllLegalPolicies extends Operation {
     /**
      * generated field's value
@@ -50,10 +52,12 @@ public class RetrieveAllLegalPolicies extends Operation {
     {
     }
 
+    @JsonIgnore
     public RetrieveAllLegalPolicies createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -71,6 +75,7 @@ public class RetrieveAllLegalPolicies extends Operation {
 
 
     @Override
+    @JsonIgnore
     public List<RetrieveBasePolicyResponse> parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

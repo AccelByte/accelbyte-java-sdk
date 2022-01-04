@@ -1,5 +1,7 @@
 package net.accelbyte.sdk.api.social.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,6 +16,7 @@ import java.util.Map;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SlotConfigUpdate extends Model {
 
     @JsonProperty("maxSlotSize")
@@ -22,14 +25,17 @@ public class SlotConfigUpdate extends Model {
     @JsonProperty("maxSlots")
     private Integer maxSlots;
 
+    @JsonIgnore
     public SlotConfigUpdate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public List<SlotConfigUpdate> createFromJsonList(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, new TypeReference<List<SlotConfigUpdate>>() {});
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("maxSlotSize", "maxSlotSize");

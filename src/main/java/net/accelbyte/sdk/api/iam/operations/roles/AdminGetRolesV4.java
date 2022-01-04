@@ -1,6 +1,7 @@
 package net.accelbyte.sdk.api.iam.operations.roles;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,6 +19,7 @@ import java.util.*;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AdminGetRolesV4 extends Operation {
     /**
      * generated field's value
@@ -66,10 +68,12 @@ public class AdminGetRolesV4 extends Operation {
         this.limit = limit;
     }
 
+    @JsonIgnore
     public AdminGetRolesV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -79,11 +83,11 @@ public class AdminGetRolesV4 extends Operation {
     @JsonIgnore
     public Map<String, String> getQueryParams(){
         Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("adminRole", String.valueOf(this.adminRole));
+        queryParams.put("adminRole", this.adminRole == null ? null : String.valueOf(this.adminRole));
         queryParams.put("after", this.after);
         queryParams.put("before", this.before);
-        queryParams.put("isWildcard", String.valueOf(this.isWildcard));
-        queryParams.put("limit", String.valueOf(this.limit));
+        queryParams.put("isWildcard", this.isWildcard == null ? null : String.valueOf(this.isWildcard));
+        queryParams.put("limit", this.limit == null ? null : String.valueOf(this.limit));
         return queryParams;
     }
 
@@ -95,6 +99,7 @@ public class AdminGetRolesV4 extends Operation {
         return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("adminRole","adminRole");
@@ -107,6 +112,7 @@ public class AdminGetRolesV4 extends Operation {
 
 
     @Override
+    @JsonIgnore
     public ModelListRoleV4Response parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

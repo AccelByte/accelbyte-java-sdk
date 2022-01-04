@@ -1,5 +1,7 @@
 package net.accelbyte.sdk.api.dsmc.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,6 +16,7 @@ import java.util.Map;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ModelsCreateDSMConfigRequest extends Model {
 
     @JsonProperty("claim_timeout")
@@ -43,14 +46,17 @@ public class ModelsCreateDSMConfigRequest extends Model {
     @JsonProperty("unreachable_timeout")
     private Integer unreachableTimeout;
 
+    @JsonIgnore
     public ModelsCreateDSMConfigRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public List<ModelsCreateDSMConfigRequest> createFromJsonList(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateDSMConfigRequest>>() {});
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("claim_timeout", "claimTimeout");

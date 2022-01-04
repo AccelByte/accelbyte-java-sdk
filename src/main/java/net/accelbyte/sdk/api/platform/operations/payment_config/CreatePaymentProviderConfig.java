@@ -1,6 +1,7 @@
 package net.accelbyte.sdk.api.platform.operations.payment_config;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,6 +20,7 @@ import java.util.*;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CreatePaymentProviderConfig extends Operation {
     /**
      * generated field's value
@@ -55,10 +57,12 @@ public class CreatePaymentProviderConfig extends Operation {
         this.body = body;
     }
 
+    @JsonIgnore
     public CreatePaymentProviderConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -86,11 +90,13 @@ public class CreatePaymentProviderConfig extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public boolean isValid() {
         return true;
     }
 
     @Override
+    @JsonIgnore
     public PaymentProviderConfigInfo parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

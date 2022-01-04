@@ -1,6 +1,7 @@
 package net.accelbyte.sdk.api.iam.operations.roles;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,6 +20,7 @@ import java.util.*;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AdminCreateRoleV4 extends Operation {
     /**
      * generated field's value
@@ -56,10 +58,12 @@ public class AdminCreateRoleV4 extends Operation {
         this.body = body;
     }
 
+    @JsonIgnore
     public AdminCreateRoleV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -87,11 +91,13 @@ public class AdminCreateRoleV4 extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public boolean isValid() {
         return true;
     }
 
     @Override
+    @JsonIgnore
     public ModelRoleV4Response parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 201){

@@ -1,6 +1,7 @@
 package net.accelbyte.sdk.api.eventlog.operations.event_descriptions;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,6 +19,7 @@ import java.util.*;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class EventIDDescriptionHandler extends Operation {
     /**
      * generated field's value
@@ -51,10 +53,12 @@ public class EventIDDescriptionHandler extends Operation {
     {
     }
 
+    @JsonIgnore
     public EventIDDescriptionHandler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -72,6 +76,7 @@ public class EventIDDescriptionHandler extends Operation {
 
 
     @Override
+    @JsonIgnore
     public ModelsMultipleEventID parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

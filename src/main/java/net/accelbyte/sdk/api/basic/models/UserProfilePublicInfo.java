@@ -1,5 +1,7 @@
 package net.accelbyte.sdk.api.basic.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,6 +16,7 @@ import java.util.Map;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserProfilePublicInfo extends Model {
 
     @JsonProperty("avatarLargeUrl")
@@ -37,14 +40,17 @@ public class UserProfilePublicInfo extends Model {
     @JsonProperty("userId")
     private String userId;
 
+    @JsonIgnore
     public UserProfilePublicInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public List<UserProfilePublicInfo> createFromJsonList(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserProfilePublicInfo>>() {});
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("avatarLargeUrl", "avatarLargeUrl");

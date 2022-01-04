@@ -1,6 +1,7 @@
 package net.accelbyte.sdk.api.platform.operations.campaign;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,6 +19,7 @@ import java.util.*;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BulkEnableCodes extends Operation {
     /**
      * generated field's value
@@ -62,10 +64,12 @@ public class BulkEnableCodes extends Operation {
         this.batchNo = batchNo;
     }
 
+    @JsonIgnore
     public BulkEnableCodes createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
+    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -87,7 +91,7 @@ public class BulkEnableCodes extends Operation {
     @JsonIgnore
     public Map<String, String> getQueryParams(){
         Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("batchNo", String.valueOf(this.batchNo));
+        queryParams.put("batchNo", this.batchNo == null ? null : String.valueOf(this.batchNo));
         return queryParams;
     }
 
@@ -99,6 +103,7 @@ public class BulkEnableCodes extends Operation {
         return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
     }
 
+    @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("campaignId","campaignId");
@@ -116,6 +121,7 @@ public class BulkEnableCodes extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public boolean isValid() {
         if(this.campaignId == null) {
             return false;
@@ -127,6 +133,7 @@ public class BulkEnableCodes extends Operation {
     }
 
     @Override
+    @JsonIgnore
     public BulkOperationResult parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
