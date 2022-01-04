@@ -37,7 +37,6 @@ public class AccelByteSDK {
     }
 
     public HttpResponse runRequest(Operation operation) throws IOException {
-        // TODO : cek header either basic or bearer
         sdkConfiguration.getTokenRepository().storeToken(sdkConfiguration.getTokenRepository().getToken());
         String baseUrl = sdkConfiguration.getConfigRepository().getBaseURL();
         Header header = new Header();

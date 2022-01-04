@@ -9,8 +9,6 @@ import net.accelbyte.sdk.core.repository.TokenRepository;
 @Setter
 @Getter
 public class AccelByteConfig {
-
-    //TODO: make builder pattern for this
     private HttpClient httpClient;
     private TokenRepository tokenRepository;
     private ConfigRepository configRepository;
