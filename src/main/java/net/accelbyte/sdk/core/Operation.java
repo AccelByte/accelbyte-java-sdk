@@ -37,6 +37,7 @@ public class Operation {
     @JsonIgnore
     protected String authorizationOverride = "";
 
+    @JsonIgnore
     public static String createFullUrl(String url, String baseUrl, Map<String, String> pathParams, Map<String, String> queryParams) {
         StringBuilder result = new StringBuilder();
 
@@ -71,18 +72,22 @@ public class Operation {
         return result.toString();
     }
 
+    @JsonIgnore
     public Map<String, String> getPathParams() {
         return new HashMap<>();
     }
 
+    @JsonIgnore
     public Map<String, String> getQueryParams() {
         return new HashMap<>();
     }
 
+    @JsonIgnore
     public Map<String, Map<String, String>> getAllParams() {
         return new HashMap<>();
     }
 
+    @JsonIgnore
     public String getFullUrl(String baseUrl) {
         return null;
     }
@@ -117,6 +122,7 @@ public class Operation {
 
     }
 
+    @JsonIgnore
     public String convertInputStreamToString(InputStream is) throws IOException {
         return Helper.convertInputStreamToString(is);
     }
