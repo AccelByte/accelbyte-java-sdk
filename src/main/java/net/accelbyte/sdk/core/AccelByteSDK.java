@@ -47,7 +47,7 @@ public class AccelByteSDK {
         if (operation.getSecurity() != null) {
             if (operation.getSecurity().equals("Bearer")) {
                 if (!sdkConfiguration.getTokenRepository().getToken().equals("")) {
-                    header.setBearerAuthorization("Bearer "+ token);
+                    header.setBearerAuthorization("Bearer " + token);
                 }
             }
             if (operation.getSecurity().equals("Basic")) {
@@ -132,6 +132,16 @@ public class AccelByteSDK {
             this.sdkConfiguration.getTokenRepository().storeToken(token.getAccessToken());
             return true;
         } catch (ResponseException | IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean logout() {
+        try {
+            this.sdkConfiguration.getTokenRepository().removeToken();
+            return true;
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return false;
