@@ -1,0 +1,18 @@
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'sdk'
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            name "nexus-internal"
+            url = version.endsWith('SNAPSHOT') ? "https://nexus.accelbyte.net/repository/maven-snapshots/" : "https://nexus.accelbyte.net/repository/maven-releases/"
+            credentials {
+                username System.getenv("AB_NEXUS_USERNAME")
+                password System.getenv("AB_NEXUS_PASSWORD")
+            }
+        }
+    }
+}

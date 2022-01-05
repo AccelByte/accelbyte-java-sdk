@@ -1,28 +1,29 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+apply from: "repositories.gradle"
+apply from: "publish.gradle"
+apply from: "shared-dependencies.gradle"
 
-repositories {
-    mavenCentral()
-}
+import groovy.json.JsonSlurper
+def jsonSlurper = new JsonSlurper()
+def versionJson = jsonSlurper.parse file('version.json')
+
+group = 'net.accelbyte.platform.sdk'
+version = "${version != 'unspecified' ? version : versionJson.version}"
+
+compileJava.options.encoding = 'UTF-8'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 dependencies {
-    // lombok
-    compileOnly 'org.projectlombok:lombok:1.18.22'
-    annotationProcessor 'org.projectlombok:lombok:1.18.22'
-
-    // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
-    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.9.1'
-
-    // a dependency on Jackson Databind
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
-
-    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
-    implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
-
+    compileOnly sharedDependencies.lombok
+    annotationProcessor sharedDependencies.lombok
+    implementation sharedDependencies.okhttp
+    implementation sharedDependencies.apacheHttpClient
+    implementation sharedDependencies.jackson.databind
 }
 
 test {
