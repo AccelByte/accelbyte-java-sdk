@@ -11,7 +11,7 @@ import groovy.json.JsonSlurper
 def jsonSlurper = new JsonSlurper()
 def versionJson = jsonSlurper.parse file('version.json')
 
-group = 'net.accelbyte.platform.sdk'
+group = 'net.accelbyte.sdk'
 version = "${version != 'unspecified' ? version : versionJson.version}"
 
 compileJava.options.encoding = 'UTF-8'
