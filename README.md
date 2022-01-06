@@ -1,37 +1,58 @@
 # AccelByte Java SDK
 
-## Initializing
+## Setup
 
-First, you have to set environment variable :
+### 1. Adding SDK to gradle file
 
-`MY_BASE_URL` (Required)
-
-`MY_CLIENT_ID` (Required)
-
-`MY_CLIENT_SECRET` (Required if using private OAuth client only)
-
-Then, you'll have to instantiate AccelByteConfig and AccelByteSDK the SDK. this is the example how to instantiate it:
+Add this code below to `build.gradle` file on your project,
+Replace `{VERSION}` with a specific release version tag.
+check available tag in this repo : <a href="https://github.com/AccelByte/accelbyte-java-sdk">accelbyte-java-sdk</a>:
 
 ```java
-package example.java.co;
-        
-import net.accelbyte.sdk.core.AccelByteConfig;
-import net.accelbyte.sdk.core.AccelByteSDK;
-import net.accelbyte.sdk.core.client.OkhttpClient;
-import net.accelbyte.sdk.core.repository.ConfigRepositoryImpl;
-import net.accelbyte.sdk.core.repository.TokenRepositoryImpl;
-
-public class Main {
-   public static void main(String[] args) {
-      AccelByteConfig config = new AccelByteConfig(
-              new OkhttpClient(),
-              TokenRepositoryImpl.getInstance(),
-              new ConfigRepositoryImpl());
-      AccelByteSDK sdk = new AccelByteSDK(config);
-   }
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://nexus.accelbyte.net/repository/maven-releases/'
+    }
 }
 
+dependencies {
+    implementation 'net.accelbyte.sdk:sdk:{VERSION}'
+}
 ```
+
+### 2. Set the environment variables :
+You have to declare these environment variables below:
+
+`AB_BASE_URL` (Required)
+
+`AB_CLIENT_ID` (Required)
+
+`AB_CLIENT_SECRET` (Required if you use private OAuth client only)
+
+
+## Initializing SDK
+You'll have to create AccelByteConfig and AccelByteSDK object. This is the example how to create them:
+    
+```java
+ package example.java.co;
+         
+ import net.accelbyte.sdk.core.AccelByteConfig;
+ import net.accelbyte.sdk.core.AccelByteSDK;
+ import net.accelbyte.sdk.core.client.OkhttpClient;
+ import net.accelbyte.sdk.core.repository.ConfigRepositoryImpl;
+ import net.accelbyte.sdk.core.repository.TokenRepositoryImpl;
+ 
+ public class Main {
+    public static void main(String[] args) {
+       AccelByteConfig config = new AccelByteConfig(
+               new OkhttpClient(),
+               TokenRepositoryImpl.getInstance(),
+               new ConfigRepositoryImpl());
+       AccelByteSDK sdk = new AccelByteSDK(config);
+    }
+ }
+ ```
 
 ## Logging In
 
@@ -127,3 +148,29 @@ public class Main {
       }
    }
 }
+```
+
+## API Covered:
+All the REST-API from all AccelByte services are included (the websocket on lobby service is not covered yet).
+
+Below are the list of services covered on the SDK:
+1. achievement
+2. basic
+3. cloudsave
+4. DS Log Manager
+5. DSMC
+6. eventlog
+7. game telemetry
+8. GDPR
+9. group
+10. IAM
+11. leaderboard
+12. legal
+13. lobby
+14. matchmaking
+15. platform
+16. QoSM
+17. season pass
+18. session browser
+19. social
+20. UGC
