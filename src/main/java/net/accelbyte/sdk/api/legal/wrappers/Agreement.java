@@ -75,7 +75,7 @@ public class Agreement {
             );
     }
 
-    public AcceptAgreementResponse indirectBulkAcceptVersionedPolicy(IndirectBulkAcceptVersionedPolicy input) throws ResponseException, IOException {
+    public AcceptAgreementResponse indirectBulkAcceptVersionedPolicy1(IndirectBulkAcceptVersionedPolicy1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
             return input
                 .parseResponse(

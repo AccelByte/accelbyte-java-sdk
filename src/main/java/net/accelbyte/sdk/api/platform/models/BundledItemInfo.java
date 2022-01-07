@@ -17,7 +17,7 @@ import java.util.Map;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ItemCreate extends Model {
+public class BundledItemInfo extends Model {
 
     @JsonProperty("appId")
     private String appId;
@@ -31,11 +31,23 @@ public class ItemCreate extends Model {
     @JsonProperty("boothName")
     private String boothName;
 
+    @JsonProperty("boundItemIds")
+    private List<String> boundItemIds;
+
+    @JsonProperty("bundledQty")
+    private Integer bundledQty;
+
     @JsonProperty("categoryPath")
     private String categoryPath;
 
     @JsonProperty("clazz")
     private String clazz;
+
+    @JsonProperty("createdAt")
+    private String createdAt;
+
+    @JsonProperty("description")
+    private String description;
 
     @JsonProperty("displayOrder")
     private Integer displayOrder;
@@ -52,6 +64,9 @@ public class ItemCreate extends Model {
     @JsonProperty("images")
     private List<Image> images;
 
+    @JsonProperty("itemId")
+    private String itemId;
+
     @JsonProperty("itemIds")
     private List<String> itemIds;
 
@@ -61,11 +76,17 @@ public class ItemCreate extends Model {
     @JsonProperty("itemType")
     private String itemType;
 
+    @JsonProperty("language")
+    private String language;
+
     @JsonProperty("listable")
     private Boolean listable;
 
-    @JsonProperty("localizations")
-    private Map<String, Localization> localizations;
+    @JsonProperty("localExt")
+    private Map<String, ?> localExt;
+
+    @JsonProperty("longDescription")
+    private String longDescription;
 
     @JsonProperty("maxCount")
     private Integer maxCount;
@@ -76,14 +97,20 @@ public class ItemCreate extends Model {
     @JsonProperty("name")
     private String name;
 
+    @JsonProperty("namespace")
+    private String namespace;
+
     @JsonProperty("purchasable")
     private Boolean purchasable;
 
     @JsonProperty("recurring")
     private Recurring recurring;
 
+    @JsonProperty("region")
+    private String region;
+
     @JsonProperty("regionData")
-    private Map<String, List<RegionDataItem>> regionData;
+    private List<RegionDataItem> regionData;
 
     @JsonProperty("seasonType")
     private String seasonType;
@@ -103,23 +130,32 @@ public class ItemCreate extends Model {
     @JsonProperty("targetCurrencyCode")
     private String targetCurrencyCode;
 
+    @JsonProperty("targetItemId")
+    private String targetItemId;
+
     @JsonProperty("targetNamespace")
     private String targetNamespace;
 
     @JsonProperty("thumbnailUrl")
     private String thumbnailUrl;
 
+    @JsonProperty("title")
+    private String title;
+
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+
     @JsonProperty("useCount")
     private Integer useCount;
 
     @JsonIgnore
-    public ItemCreate createFromJson(String json) throws JsonProcessingException {
+    public BundledItemInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<ItemCreate> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ItemCreate>>() {});
+    public List<BundledItemInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<BundledItemInfo>>() {});
     }
 
     @JsonIgnore
@@ -129,23 +165,32 @@ public class ItemCreate extends Model {
         result.put("appType", "appType");
         result.put("baseAppId", "baseAppId");
         result.put("boothName", "boothName");
+        result.put("boundItemIds", "boundItemIds");
+        result.put("bundledQty", "bundledQty");
         result.put("categoryPath", "categoryPath");
         result.put("clazz", "clazz");
+        result.put("createdAt", "createdAt");
+        result.put("description", "description");
         result.put("displayOrder", "displayOrder");
         result.put("entitlementType", "entitlementType");
         result.put("ext", "ext");
         result.put("features", "features");
         result.put("images", "images");
+        result.put("itemId", "itemId");
         result.put("itemIds", "itemIds");
         result.put("itemQty", "itemQty");
         result.put("itemType", "itemType");
+        result.put("language", "language");
         result.put("listable", "listable");
-        result.put("localizations", "localizations");
+        result.put("localExt", "localExt");
+        result.put("longDescription", "longDescription");
         result.put("maxCount", "maxCount");
         result.put("maxCountPerUser", "maxCountPerUser");
         result.put("name", "name");
+        result.put("namespace", "namespace");
         result.put("purchasable", "purchasable");
         result.put("recurring", "recurring");
+        result.put("region", "region");
         result.put("regionData", "regionData");
         result.put("seasonType", "seasonType");
         result.put("sku", "sku");
@@ -153,8 +198,11 @@ public class ItemCreate extends Model {
         result.put("status", "status");
         result.put("tags", "tags");
         result.put("targetCurrencyCode", "targetCurrencyCode");
+        result.put("targetItemId", "targetItemId");
         result.put("targetNamespace", "targetNamespace");
         result.put("thumbnailUrl", "thumbnailUrl");
+        result.put("title", "title");
+        result.put("updatedAt", "updatedAt");
         result.put("useCount", "useCount");
         return result;
     }

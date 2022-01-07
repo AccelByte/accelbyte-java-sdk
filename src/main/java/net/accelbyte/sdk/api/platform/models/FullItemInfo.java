@@ -64,6 +64,9 @@ public class FullItemInfo extends Model {
     @JsonProperty("itemIds")
     private List<String> itemIds;
 
+    @JsonProperty("itemQty")
+    private Map<String, Integer> itemQty;
+
     @JsonProperty("itemType")
     private String itemType;
 
@@ -155,6 +158,7 @@ public class FullItemInfo extends Model {
         result.put("images", "images");
         result.put("itemId", "itemId");
         result.put("itemIds", "itemIds");
+        result.put("itemQty", "itemQty");
         result.put("itemType", "itemType");
         result.put("listable", "listable");
         result.put("localizations", "localizations");

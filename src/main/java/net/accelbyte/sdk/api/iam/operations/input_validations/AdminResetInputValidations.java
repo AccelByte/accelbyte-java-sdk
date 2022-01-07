@@ -1,4 +1,4 @@
-package net.accelbyte.sdk.api.cloudsave.operations.admin_game_record;
+package net.accelbyte.sdk.api.iam.operations.input_validations;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -8,8 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.accelbyte.sdk.api.cloudsave.models.*;
-import net.accelbyte.sdk.api.cloudsave.models.ModelsListGameRecordKeys;
+import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -20,15 +19,15 @@ import java.util.*;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ListGameRecordsHandlerV1 extends Operation {
+public class AdminResetInputValidations extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/cloudsave/v1/admin/namespaces/{namespace}/records";
+    private String url = "/iam/v3/admin/inputValidations/{field}";
 
     @JsonIgnore
-    private String method = "GET";
+    private String method = "DELETE";
 
     @JsonIgnore
     private List<String> consumes = Arrays.asList("application/json");
@@ -45,31 +44,20 @@ public class ListGameRecordsHandlerV1 extends Operation {
     /**
      * fields as input parameter
      */
-    private String namespace;
-    private String query;
-    private Integer limit;
-    private Integer offset;
+    private String field;
 
     /**
-    * @param namespace required
-    * @param limit required
-    * @param offset required
+    * @param field required
     */
-    public ListGameRecordsHandlerV1(
-            String namespace,
-            String query,
-            Integer limit,
-            Integer offset
+    public AdminResetInputValidations(
+            String field
     )
     {
-        this.namespace = namespace;
-        this.query = query;
-        this.limit = limit;
-        this.offset = offset;
+        this.field = field;
     }
 
     @JsonIgnore
-    public ListGameRecordsHandlerV1 createFromJson(String json) throws JsonProcessingException {
+    public AdminResetInputValidations createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -82,21 +70,12 @@ public class ListGameRecordsHandlerV1 extends Operation {
     @JsonIgnore
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
+        if (this.field != null){
+            pathParams.put("field", this.field);
         }
         return pathParams;
     }
 
-    @Override
-    @JsonIgnore
-    public Map<String, String> getQueryParams(){
-        Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("query", this.query);
-        queryParams.put("limit", this.limit == null ? null : String.valueOf(this.limit));
-        queryParams.put("offset", this.offset == null ? null : String.valueOf(this.offset));
-        return queryParams;
-    }
 
 
 
@@ -109,33 +88,21 @@ public class ListGameRecordsHandlerV1 extends Operation {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("namespace","namespace");
-        result.put("query","query");
-        result.put("limit","limit");
-        result.put("offset","offset");
+        result.put("field","field");
         return result;
     }
 
     @JsonIgnore
     public List<String> getAllRequiredFields() {
         return Arrays.asList(
-            "namespace",
-
-            "limit",
-            "offset"
+            "field"
         );
     }
 
     @Override
     @JsonIgnore
     public boolean isValid() {
-        if(this.namespace == null) {
-            return false;
-        }
-        if(this.limit == null) {
-            return false;
-        }
-        if(this.offset == null) {
+        if(this.field == null) {
             return false;
         }
         return true;
@@ -143,11 +110,10 @@ public class ListGameRecordsHandlerV1 extends Operation {
 
     @Override
     @JsonIgnore
-    public ModelsListGameRecordKeys parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
-        if(code == 200){
-            return new ModelsListGameRecordKeys().createFromJson(json);
+        if(code != 204){
+            throw new ResponseException(code, json);
         }
-        throw new ResponseException(code, json);
     }
 }

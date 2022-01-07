@@ -17,33 +17,25 @@ import java.util.Map;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ModelGameUserBaseInfo extends Model {
+public class ModelUserIDsRequest extends Model {
 
-    @JsonProperty("avatarUrl")
-    private String avatarUrl;
-
-    @JsonProperty("displayName")
-    private String displayName;
-
-    @JsonProperty("userId")
-    private String userId;
+    @JsonProperty("userIds")
+    private List<String> userIds;
 
     @JsonIgnore
-    public ModelGameUserBaseInfo createFromJson(String json) throws JsonProcessingException {
+    public ModelUserIDsRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<ModelGameUserBaseInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelGameUserBaseInfo>>() {});
+    public List<ModelUserIDsRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserIDsRequest>>() {});
     }
 
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("avatarUrl", "avatarUrl");
-        result.put("displayName", "displayName");
-        result.put("userId", "userId");
+        result.put("userIds", "userIds");
         return result;
     }
 }

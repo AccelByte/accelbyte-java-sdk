@@ -67,11 +67,14 @@ public class PopulatedItemInfo extends Model {
     @JsonProperty("itemIds")
     private List<String> itemIds;
 
+    @JsonProperty("itemQty")
+    private Map<String, Integer> itemQty;
+
     @JsonProperty("itemType")
     private String itemType;
 
     @JsonProperty("items")
-    private List<ItemInfo> items;
+    private List<BundledItemInfo> items;
 
     @JsonProperty("language")
     private String language;
@@ -174,6 +177,7 @@ public class PopulatedItemInfo extends Model {
         result.put("images", "images");
         result.put("itemId", "itemId");
         result.put("itemIds", "itemIds");
+        result.put("itemQty", "itemQty");
         result.put("itemType", "itemType");
         result.put("items", "items");
         result.put("language", "language");

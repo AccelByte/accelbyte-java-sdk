@@ -83,7 +83,7 @@ public class Group {
             );
     }
 
-    public ModelsGroupResponseV1 updateSingleGroupPublicV1(UpdateSingleGroupPublicV1 input) throws ResponseException, IOException {
+    public ModelsGroupResponseV1 updatePatchSingleGroupPublicV1(UpdatePatchSingleGroupPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
             return input
                 .parseResponse(

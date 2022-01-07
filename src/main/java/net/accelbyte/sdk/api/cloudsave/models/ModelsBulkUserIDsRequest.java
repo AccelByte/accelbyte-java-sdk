@@ -1,4 +1,4 @@
-package net.accelbyte.sdk.api.iam.models;
+package net.accelbyte.sdk.api.cloudsave.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,25 +17,25 @@ import java.util.Map;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ModelListBulkUserGameResponse extends Model {
+public class ModelsBulkUserIDsRequest extends Model {
 
-    @JsonProperty("data")
-    private List<ModelGameUserBaseInfo> data;
+    @JsonProperty("userIds")
+    private List<String> userIds;
 
     @JsonIgnore
-    public ModelListBulkUserGameResponse createFromJson(String json) throws JsonProcessingException {
+    public ModelsBulkUserIDsRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<ModelListBulkUserGameResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelListBulkUserGameResponse>>() {});
+    public List<ModelsBulkUserIDsRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsBulkUserIDsRequest>>() {});
     }
 
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("data", "data");
+        result.put("userIds", "userIds");
         return result;
     }
 }

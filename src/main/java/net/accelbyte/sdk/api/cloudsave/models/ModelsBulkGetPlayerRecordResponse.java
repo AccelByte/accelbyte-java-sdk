@@ -1,4 +1,4 @@
-package net.accelbyte.sdk.api.group.models;
+package net.accelbyte.sdk.api.cloudsave.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,25 +17,25 @@ import java.util.Map;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ModelsUpdateGroupCustomRuleRequestV1 extends Model {
+public class ModelsBulkGetPlayerRecordResponse extends Model {
 
-    @JsonProperty("groupCustomRule")
-    private Map<String, ?> groupCustomRule;
+    @JsonProperty("data")
+    private List<ModelsPlayerRecord> data;
 
     @JsonIgnore
-    public ModelsUpdateGroupCustomRuleRequestV1 createFromJson(String json) throws JsonProcessingException {
+    public ModelsBulkGetPlayerRecordResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<ModelsUpdateGroupCustomRuleRequestV1> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateGroupCustomRuleRequestV1>>() {});
+    public List<ModelsBulkGetPlayerRecordResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsBulkGetPlayerRecordResponse>>() {});
     }
 
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("groupCustomRule", "groupCustomRule");
+        result.put("data", "data");
         return result;
     }
 }

@@ -1,4 +1,4 @@
-package net.accelbyte.sdk.api.iam.operations.roles;
+package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -9,7 +9,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import net.accelbyte.sdk.api.iam.models.*;
-import net.accelbyte.sdk.api.iam.models.ModelListRoleV4Response;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -20,12 +19,12 @@ import java.util.*;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AdminGetRolesV4 extends Operation {
+public class CheckUserAvailability extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/iam/v4/admin/roles";
+    private String url = "/iam/v3/public/namespaces/{namespace}/users/availability";
 
     @JsonIgnore
     private String method = "GET";
@@ -45,28 +44,28 @@ public class AdminGetRolesV4 extends Operation {
     /**
      * fields as input parameter
      */
-    private Boolean adminRole;
-    private Boolean isWildcard;
-    private Integer limit;
-    private Integer offset;
+    private String namespace;
+    private String field;
+    private String query;
 
     /**
+    * @param namespace required
+    * @param field required
+    * @param query required
     */
-    public AdminGetRolesV4(
-            Boolean adminRole,
-            Boolean isWildcard,
-            Integer limit,
-            Integer offset
+    public CheckUserAvailability(
+            String namespace,
+            String field,
+            String query
     )
     {
-        this.adminRole = adminRole;
-        this.isWildcard = isWildcard;
-        this.limit = limit;
-        this.offset = offset;
+        this.namespace = namespace;
+        this.field = field;
+        this.query = query;
     }
 
     @JsonIgnore
-    public AdminGetRolesV4 createFromJson(String json) throws JsonProcessingException {
+    public CheckUserAvailability createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -75,15 +74,22 @@ public class AdminGetRolesV4 extends Operation {
         return new ObjectMapper().writeValueAsString(this);
     }
 
+    @Override
+    @JsonIgnore
+    public Map<String, String> getPathParams(){
+        Map<String, String> pathParams = new HashMap<>();
+        if (this.namespace != null){
+            pathParams.put("namespace", this.namespace);
+        }
+        return pathParams;
+    }
 
     @Override
     @JsonIgnore
     public Map<String, String> getQueryParams(){
         Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("adminRole", this.adminRole == null ? null : String.valueOf(this.adminRole));
-        queryParams.put("isWildcard", this.isWildcard == null ? null : String.valueOf(this.isWildcard));
-        queryParams.put("limit", this.limit == null ? null : String.valueOf(this.limit));
-        queryParams.put("offset", this.offset == null ? null : String.valueOf(this.offset));
+        queryParams.put("field", this.field);
+        queryParams.put("query", this.query);
         return queryParams;
     }
 
@@ -98,21 +104,42 @@ public class AdminGetRolesV4 extends Operation {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("adminRole","adminRole");
-        result.put("isWildcard","isWildcard");
-        result.put("limit","limit");
-        result.put("offset","offset");
+        result.put("namespace","namespace");
+        result.put("field","field");
+        result.put("query","query");
         return result;
     }
 
+    @JsonIgnore
+    public List<String> getAllRequiredFields() {
+        return Arrays.asList(
+            "namespace",
+            "field",
+            "query"
+        );
+    }
 
     @Override
     @JsonIgnore
-    public ModelListRoleV4Response parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
-        String json = this.convertInputStreamToString(payload);
-        if(code == 200){
-            return new ModelListRoleV4Response().createFromJson(json);
+    public boolean isValid() {
+        if(this.namespace == null) {
+            return false;
         }
-        throw new ResponseException(code, json);
+        if(this.field == null) {
+            return false;
+        }
+        if(this.query == null) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    @JsonIgnore
+    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+        String json = this.convertInputStreamToString(payload);
+        if(code != 204){
+            throw new ResponseException(code, json);
+        }
     }
 }

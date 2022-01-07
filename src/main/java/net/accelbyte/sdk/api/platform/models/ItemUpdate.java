@@ -55,6 +55,9 @@ public class ItemUpdate extends Model {
     @JsonProperty("itemIds")
     private List<String> itemIds;
 
+    @JsonProperty("itemQty")
+    private Map<String, Integer> itemQty;
+
     @JsonProperty("itemType")
     private String itemType;
 
@@ -134,6 +137,7 @@ public class ItemUpdate extends Model {
         result.put("features", "features");
         result.put("images", "images");
         result.put("itemIds", "itemIds");
+        result.put("itemQty", "itemQty");
         result.put("itemType", "itemType");
         result.put("listable", "listable");
         result.put("localizations", "localizations");

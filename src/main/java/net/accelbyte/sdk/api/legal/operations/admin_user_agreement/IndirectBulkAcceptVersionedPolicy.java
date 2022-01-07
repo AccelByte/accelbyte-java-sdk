@@ -1,4 +1,4 @@
-package net.accelbyte.sdk.api.cloudsave.operations.admin_game_record;
+package net.accelbyte.sdk.api.legal.operations.admin_user_agreement;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -8,8 +8,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.accelbyte.sdk.api.cloudsave.models.*;
-import net.accelbyte.sdk.api.cloudsave.models.ModelsListGameRecordKeys;
+import net.accelbyte.sdk.api.legal.models.*;
+import net.accelbyte.sdk.api.legal.models.AcceptAgreementResponse;
+import net.accelbyte.sdk.api.legal.models.AcceptAgreementRequest;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -20,18 +21,18 @@ import java.util.*;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ListGameRecordsHandlerV1 extends Operation {
+public class IndirectBulkAcceptVersionedPolicy extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/cloudsave/v1/admin/namespaces/{namespace}/records";
+    private String url = "/agreement/admin/namespaces/{namespace}/users/{userId}/agreements/policies";
 
     @JsonIgnore
-    private String method = "GET";
+    private String method = "POST";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList("application/json");
+    private List<String> consumes = Arrays.asList();
 
     @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
@@ -46,30 +47,37 @@ public class ListGameRecordsHandlerV1 extends Operation {
      * fields as input parameter
      */
     private String namespace;
-    private String query;
-    private Integer limit;
-    private Integer offset;
+    private String userId;
+    private String publisherUserId;
+    private String clientId;
+    private String countryCode;
+    private List<AcceptAgreementRequest> body;
 
     /**
     * @param namespace required
-    * @param limit required
-    * @param offset required
+    * @param userId required
+    * @param clientId required
+    * @param countryCode required
     */
-    public ListGameRecordsHandlerV1(
+    public IndirectBulkAcceptVersionedPolicy(
             String namespace,
-            String query,
-            Integer limit,
-            Integer offset
+            String userId,
+            String publisherUserId,
+            String clientId,
+            String countryCode,
+            List<AcceptAgreementRequest> body
     )
     {
         this.namespace = namespace;
-        this.query = query;
-        this.limit = limit;
-        this.offset = offset;
+        this.userId = userId;
+        this.publisherUserId = publisherUserId;
+        this.clientId = clientId;
+        this.countryCode = countryCode;
+        this.body = body;
     }
 
     @JsonIgnore
-    public ListGameRecordsHandlerV1 createFromJson(String json) throws JsonProcessingException {
+    public IndirectBulkAcceptVersionedPolicy createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -85,6 +93,9 @@ public class ListGameRecordsHandlerV1 extends Operation {
         if (this.namespace != null){
             pathParams.put("namespace", this.namespace);
         }
+        if (this.userId != null){
+            pathParams.put("userId", this.userId);
+        }
         return pathParams;
     }
 
@@ -92,12 +103,17 @@ public class ListGameRecordsHandlerV1 extends Operation {
     @JsonIgnore
     public Map<String, String> getQueryParams(){
         Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("query", this.query);
-        queryParams.put("limit", this.limit == null ? null : String.valueOf(this.limit));
-        queryParams.put("offset", this.offset == null ? null : String.valueOf(this.offset));
+        queryParams.put("publisherUserId", this.publisherUserId);
+        queryParams.put("clientId", this.clientId);
+        queryParams.put("countryCode", this.countryCode);
         return queryParams;
     }
 
+    @Override
+    @JsonIgnore
+    public List<AcceptAgreementRequest> getBodyParams(){
+        return this.body;
+    }
 
 
     @Override
@@ -110,9 +126,10 @@ public class ListGameRecordsHandlerV1 extends Operation {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("namespace","namespace");
-        result.put("query","query");
-        result.put("limit","limit");
-        result.put("offset","offset");
+        result.put("userId","userId");
+        result.put("publisherUserId","publisherUserId");
+        result.put("clientId","clientId");
+        result.put("countryCode","countryCode");
         return result;
     }
 
@@ -120,9 +137,10 @@ public class ListGameRecordsHandlerV1 extends Operation {
     public List<String> getAllRequiredFields() {
         return Arrays.asList(
             "namespace",
+            "userId",
 
-            "limit",
-            "offset"
+            "clientId",
+            "countryCode"
         );
     }
 
@@ -132,10 +150,13 @@ public class ListGameRecordsHandlerV1 extends Operation {
         if(this.namespace == null) {
             return false;
         }
-        if(this.limit == null) {
+        if(this.userId == null) {
             return false;
         }
-        if(this.offset == null) {
+        if(this.clientId == null) {
+            return false;
+        }
+        if(this.countryCode == null) {
             return false;
         }
         return true;
@@ -143,10 +164,10 @@ public class ListGameRecordsHandlerV1 extends Operation {
 
     @Override
     @JsonIgnore
-    public ModelsListGameRecordKeys parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public AcceptAgreementResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
-            return new ModelsListGameRecordKeys().createFromJson(json);
+            return new AcceptAgreementResponse().createFromJson(json);
         }
         throw new ResponseException(code, json);
     }

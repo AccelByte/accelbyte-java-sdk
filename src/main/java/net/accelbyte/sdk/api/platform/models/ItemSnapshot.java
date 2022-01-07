@@ -49,6 +49,9 @@ public class ItemSnapshot extends Model {
     @JsonProperty("itemIds")
     private List<String> itemIds;
 
+    @JsonProperty("itemQty")
+    private Map<String, Integer> itemQty;
+
     @JsonProperty("itemType")
     private String itemType;
 
@@ -135,6 +138,7 @@ public class ItemSnapshot extends Model {
         result.put("features", "features");
         result.put("itemId", "itemId");
         result.put("itemIds", "itemIds");
+        result.put("itemQty", "itemQty");
         result.put("itemType", "itemType");
         result.put("language", "language");
         result.put("listable", "listable");

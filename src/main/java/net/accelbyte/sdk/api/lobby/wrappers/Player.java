@@ -67,10 +67,10 @@ public class Player {
             );
     }
 
-    public Integer adminBulkBlockPlayersV1(AdminBulkBlockPlayersV1 input) throws ResponseException, IOException {
+    public void adminBulkBlockPlayersV1(AdminBulkBlockPlayersV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
+            input
+                .handleEmptyResponse(
             httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
             );
     }

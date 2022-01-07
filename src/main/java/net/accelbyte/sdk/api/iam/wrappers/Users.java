@@ -587,6 +587,14 @@ public class Users {
             );
     }
 
+    public ModelListUserInformationResult adminListUserIDByUserIDsV3(AdminListUserIDByUserIDsV3 input) throws ResponseException, IOException {
+        HttpResponse httpResponse = sdk.runRequest(input);
+            return input
+                .parseResponse(
+            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+            );
+    }
+
     public ModelInviteUserResponseV3 adminInviteUserV3(AdminInviteUserV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
             return input
@@ -899,7 +907,15 @@ public class Users {
             );
     }
 
-    public ModelListBulkUserGameResponse publicBulkGetUsers(PublicBulkGetUsers input) throws ResponseException, IOException {
+    public void checkUserAvailability(CheckUserAvailability input) throws ResponseException, IOException {
+        HttpResponse httpResponse = sdk.runRequest(input);
+            input
+                .handleEmptyResponse(
+            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+            );
+    }
+
+    public ModelListBulkUserResponse publicBulkGetUsers(PublicBulkGetUsers input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
             return input
                 .parseResponse(

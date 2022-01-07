@@ -46,24 +46,21 @@ public class AdminGetClientsByNamespaceV3 extends Operation {
      * fields as input parameter
      */
     private String namespace;
-    private String after;
-    private String before;
     private Integer limit;
+    private String offset;
 
     /**
     * @param namespace required
     */
     public AdminGetClientsByNamespaceV3(
             String namespace,
-            String after,
-            String before,
-            Integer limit
+            Integer limit,
+            String offset
     )
     {
         this.namespace = namespace;
-        this.after = after;
-        this.before = before;
         this.limit = limit;
+        this.offset = offset;
     }
 
     @JsonIgnore
@@ -90,9 +87,8 @@ public class AdminGetClientsByNamespaceV3 extends Operation {
     @JsonIgnore
     public Map<String, String> getQueryParams(){
         Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("after", this.after);
-        queryParams.put("before", this.before);
         queryParams.put("limit", this.limit == null ? null : String.valueOf(this.limit));
+        queryParams.put("offset", this.offset);
         return queryParams;
     }
 
@@ -108,9 +104,8 @@ public class AdminGetClientsByNamespaceV3 extends Operation {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("namespace","namespace");
-        result.put("after","after");
-        result.put("before","before");
         result.put("limit","limit");
+        result.put("offset","offset");
         return result;
     }
 

@@ -132,11 +132,10 @@ public class AdminBulkBlockPlayersV1 extends Operation {
 
     @Override
     @JsonIgnore
-    public Integer parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
-        if(code == 204){
-            return new ObjectMapper().readValue(json, Integer.class);
+        if(code != 204){
+            throw new ResponseException(code, json);
         }
-        throw new ResponseException(code, json);
     }
 }

@@ -1,4 +1,4 @@
-package net.accelbyte.sdk.api.group.models;
+package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,25 +17,29 @@ import java.util.Map;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ModelsUpdateGroupCustomRuleRequestV1 extends Model {
+public class ModelInputValidationDataPublic extends Model {
 
-    @JsonProperty("groupCustomRule")
-    private Map<String, ?> groupCustomRule;
+    @JsonProperty("field")
+    private String field;
+
+    @JsonProperty("validation")
+    private ModelValidationDetailPublic validation;
 
     @JsonIgnore
-    public ModelsUpdateGroupCustomRuleRequestV1 createFromJson(String json) throws JsonProcessingException {
+    public ModelInputValidationDataPublic createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<ModelsUpdateGroupCustomRuleRequestV1> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateGroupCustomRuleRequestV1>>() {});
+    public List<ModelInputValidationDataPublic> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelInputValidationDataPublic>>() {});
     }
 
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("groupCustomRule", "groupCustomRule");
+        result.put("field", "field");
+        result.put("validation", "validation");
         return result;
     }
 }

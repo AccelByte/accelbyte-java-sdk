@@ -1,4 +1,4 @@
-package net.accelbyte.sdk.api.legal.operations.agreement;
+package net.accelbyte.sdk.api.group.operations.group;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -8,9 +8,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.accelbyte.sdk.api.legal.models.*;
-import net.accelbyte.sdk.api.legal.models.AcceptAgreementResponse;
-import net.accelbyte.sdk.api.legal.models.AcceptAgreementRequest;
+import net.accelbyte.sdk.api.group.models.*;
+import net.accelbyte.sdk.api.group.models.ModelsGroupResponseV1;
+import net.accelbyte.sdk.api.group.models.ModelsUpdateGroupRequestV1;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -21,18 +21,18 @@ import java.util.*;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class IndirectBulkAcceptVersionedPolicy extends Operation {
+public class UpdatePatchSingleGroupPublicV1 extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/agreement/public/agreements/policies/users/{userId}";
+    private String url = "/group/v1/public/namespaces/{namespace}/groups/{groupId}";
 
     @JsonIgnore
-    private String method = "POST";
+    private String method = "PATCH";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList();
+    private List<String> consumes = Arrays.asList("application/json");
 
     @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
@@ -46,23 +46,28 @@ public class IndirectBulkAcceptVersionedPolicy extends Operation {
     /**
      * fields as input parameter
      */
-    private String userId;
-    private List<AcceptAgreementRequest> body;
+    private String groupId;
+    private String namespace;
+    private ModelsUpdateGroupRequestV1 body;
 
     /**
-    * @param userId required
+    * @param groupId required
+    * @param namespace required
+    * @param body required
     */
-    public IndirectBulkAcceptVersionedPolicy(
-            String userId,
-            List<AcceptAgreementRequest> body
+    public UpdatePatchSingleGroupPublicV1(
+            String groupId,
+            String namespace,
+            ModelsUpdateGroupRequestV1 body
     )
     {
-        this.userId = userId;
+        this.groupId = groupId;
+        this.namespace = namespace;
         this.body = body;
     }
 
     @JsonIgnore
-    public IndirectBulkAcceptVersionedPolicy createFromJson(String json) throws JsonProcessingException {
+    public UpdatePatchSingleGroupPublicV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -75,8 +80,11 @@ public class IndirectBulkAcceptVersionedPolicy extends Operation {
     @JsonIgnore
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
-        if (this.userId != null){
-            pathParams.put("userId", this.userId);
+        if (this.groupId != null){
+            pathParams.put("groupId", this.groupId);
+        }
+        if (this.namespace != null){
+            pathParams.put("namespace", this.namespace);
         }
         return pathParams;
     }
@@ -84,7 +92,7 @@ public class IndirectBulkAcceptVersionedPolicy extends Operation {
 
     @Override
     @JsonIgnore
-    public List<AcceptAgreementRequest> getBodyParams(){
+    public ModelsUpdateGroupRequestV1 getBodyParams(){
         return this.body;
     }
 
@@ -98,21 +106,26 @@ public class IndirectBulkAcceptVersionedPolicy extends Operation {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("userId","userId");
+        result.put("groupId","groupId");
+        result.put("namespace","namespace");
         return result;
     }
 
     @JsonIgnore
     public List<String> getAllRequiredFields() {
         return Arrays.asList(
-            "userId"
+            "groupId",
+            "namespace"
         );
     }
 
     @Override
     @JsonIgnore
     public boolean isValid() {
-        if(this.userId == null) {
+        if(this.groupId == null) {
+            return false;
+        }
+        if(this.namespace == null) {
             return false;
         }
         return true;
@@ -120,10 +133,10 @@ public class IndirectBulkAcceptVersionedPolicy extends Operation {
 
     @Override
     @JsonIgnore
-    public AcceptAgreementResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public ModelsGroupResponseV1 parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
-        if(code == 201){
-            return new AcceptAgreementResponse().createFromJson(json);
+        if(code == 200){
+            return new ModelsGroupResponseV1().createFromJson(json);
         }
         throw new ResponseException(code, json);
     }

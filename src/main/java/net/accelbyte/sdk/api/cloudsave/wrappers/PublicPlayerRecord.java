@@ -19,6 +19,14 @@ public class PublicPlayerRecord {
         this.sdk = sdk;
     }
 
+    public ModelsBulkGetPlayerRecordResponse bulkGetPlayerPublicRecordHandlerV1(BulkGetPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
+        HttpResponse httpResponse = sdk.runRequest(input);
+            return input
+                .parseResponse(
+            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+            );
+    }
+
     public void publicDeletePlayerPublicRecordHandlerV1(PublicDeletePlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
             input
