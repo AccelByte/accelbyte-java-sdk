@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+apply from: "repositories.gradle"
+apply from: "shared-dependencies.gradle"
+
+compileJava.options.encoding = 'UTF-8'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compileOnly sharedDependencies.lombok
+    annotationProcessor sharedDependencies.lombok
+    implementation sharedDependencies.okhttp
+    implementation sharedDependencies.apacheHttpClient
+    implementation sharedDependencies.jackson.databind
+}
+
+test {
+    useJUnitPlatform()
+}
