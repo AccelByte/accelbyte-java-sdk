@@ -3,11 +3,16 @@ package net.accelbyte.sdk.core.util;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class Helper {
 
@@ -49,5 +54,36 @@ public class Helper {
             digest = md.digest();
         }
         return Base64.getUrlEncoder().withoutPadding().encodeToString(digest);
+    }
+
+    public static String getHost(String url) throws URISyntaxException {
+        URI uri;
+        uri = new URI(url);
+        String domain = uri.getHost();
+        return domain.startsWith("www.") ? domain.substring(4) : domain;
+    }
+
+    public static Map<String, String> parseWSM(String message) {
+        Map<String, String> result = new HashMap<>();
+        String[] lines = message.split("\n");
+        for (String part : lines) {
+            String[] parts = part.split(": ", 2);
+            if (parts.length >= 2) {
+                result.put(parts[0], parts[1]);
+            }
+        }
+        return result;
+    }
+
+    public static String getWSMType(Map<String, String> parsedWSM) {
+        if (parsedWSM.get("type") != null) {
+            return parsedWSM.get("type");
+        }
+        return "";
+    }
+
+    public static String generateUUID() {
+        String uuid = UUID.randomUUID().toString();
+        return uuid.replace("-", "");
     }
 }
