@@ -4,10 +4,9 @@
 
 ### 1. Adding SDK to gradle file
 
-Add this code below to `build.gradle` file on your project,
-Replace `{VERSION}` with a specific release version tag.
-check available tag in this repo : <a href="https://github.com/AccelByte/accelbyte-java-sdk">accelbyte-java-sdk</a>:
-
+Add this code below to `build.gradle` file on your project.
+Replace `{VERSION}` with a specific release tag version and without the `v` charracter.
+Check available tag in this repo <a href="https://github.com/AccelByte/accelbyte-java-sdk/releases">release tag</a>
 ```java
 repositories {
     mavenCentral()
@@ -77,9 +76,9 @@ if (!login) {
 
 ## Logging Out
 ```java
-boolean login = sdk.logout();
+boolean logout = sdk.logout();
 if (!logout) {
-    // unsuccessful login handling ...
+    // unsuccessful logout handling ...
 }
 ```
 
