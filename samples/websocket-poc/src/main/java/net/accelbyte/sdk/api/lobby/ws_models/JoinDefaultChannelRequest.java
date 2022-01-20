@@ -1,38 +1,41 @@
 package net.accelbyte.sdk.api.lobby.ws_models;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
-import static net.accelbyte.sdk.core.util.Helper.generateUUID;
-import static net.accelbyte.sdk.core.util.Helper.parseWSM;
+import static net.accelbyte.sdk.core.util.Helper.*;
 
 @Getter
 @Setter
 public class JoinDefaultChannelRequest {
+
     private String id;
 
     private JoinDefaultChannelRequest() {
+
     }
 
     @Builder
-    public JoinDefaultChannelRequest(String id) {
+    public JoinDefaultChannelRequest (
+        String id
+    ) {
         this.id = id;
     }
 
-    public static String getType() {
+    public static String getType(){
         return "joinDefaultChannelRequest";
     }
 
     public static JoinDefaultChannelRequest createFromWSM(String message) {
         JoinDefaultChannelRequest result = new JoinDefaultChannelRequest();
         Map<String, String> response = parseWSM(message);
-        if (response.get("id") != null) {
-            result.id = response.get("id");
-        }
+        result.id = response.get("id") != null ? response.get("id") : null;
         return result;
     }
 
@@ -55,7 +58,7 @@ public class JoinDefaultChannelRequest {
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id", "id");
+        result.put("id","id");
         return result;
     }
 }
