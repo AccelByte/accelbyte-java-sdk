@@ -1,5 +1,9 @@
 package net.accelbyte.sdk.core.util;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,10 +13,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.util.Base64;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class Helper {
 
@@ -86,4 +87,44 @@ public class Helper {
         String uuid = UUID.randomUUID().toString();
         return uuid.replace("-", "");
     }
+
+    public static <T> String listToWSMList(List<T> inputs) {
+        StringBuilder result = new StringBuilder();
+        if (!inputs.isEmpty()) {
+            for (T input : inputs) {
+                if (result.length() > 0) {
+                    result.append(",");
+                }
+                result.append(input);
+            }
+            result.insert(0, "[");
+            result.append("]");
+        }
+        return result.toString();
+    }
+
+    public static <T> Map<String, T> convertJsonToMap (String json) {
+        try {
+            return new ObjectMapper().readValue(json, new TypeReference<Map<String, T>>() {});
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return new HashMap<>();
+    }
+
+    public static List<String> convertWSMListToListString (String json) {
+        String result = json.substring(1, json.length() - 1);
+        return new ArrayList<>(Arrays.asList( result.split(",")));
+    }
+
+    public static List<Integer> convertWSMListToListInteger (String json) {
+        String list = json.substring(1, json.length() - 1);
+        List<String> stringList = new ArrayList<>(Arrays.asList(list.split(",")));
+        List<Integer> result = new ArrayList<>();
+        for (String val: stringList){
+            result.add(Integer.valueOf(val));
+        }
+        return result;
+    }
+
 }
