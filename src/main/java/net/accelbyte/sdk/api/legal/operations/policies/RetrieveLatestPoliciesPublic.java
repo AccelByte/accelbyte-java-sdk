@@ -14,6 +14,7 @@ import net.accelbyte.sdk.core.ResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 @Getter
@@ -90,12 +91,12 @@ public class RetrieveLatestPoliciesPublic extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getQueryParams(){
-        Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("alwaysIncludeDefault", this.alwaysIncludeDefault == null ? null : String.valueOf(this.alwaysIncludeDefault));
-        queryParams.put("defaultOnEmpty", this.defaultOnEmpty == null ? null : String.valueOf(this.defaultOnEmpty));
-        queryParams.put("policyType", this.policyType);
-        queryParams.put("tags", this.tags);
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("alwaysIncludeDefault", this.alwaysIncludeDefault == null ? null : Arrays.asList(String.valueOf(this.alwaysIncludeDefault)));
+        queryParams.put("defaultOnEmpty", this.defaultOnEmpty == null ? null : Arrays.asList(String.valueOf(this.defaultOnEmpty)));
+        queryParams.put("policyType", this.policyType == null ? null : Arrays.asList(this.policyType));
+        queryParams.put("tags", this.tags == null ? null : Arrays.asList(this.tags));
         return queryParams;
     }
 
@@ -103,8 +104,8 @@ public class RetrieveLatestPoliciesPublic extends Operation {
 
     @Override
     @JsonIgnore
-    public String getFullUrl(String baseUrl) {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
+    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
+        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @JsonIgnore
@@ -142,5 +143,15 @@ public class RetrieveLatestPoliciesPublic extends Operation {
             return new ObjectMapper().readValue(json, new TypeReference<List<RetrievePolicyPublicResponse>>() {});
         }
         throw new ResponseException(code, json);
+    }
+
+    @Override
+    public Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("alwaysIncludeDefault", "None");
+        result.put("defaultOnEmpty", "None");
+        result.put("policyType", "None");
+        result.put("tags", "None");
+        return result;
     }
 }

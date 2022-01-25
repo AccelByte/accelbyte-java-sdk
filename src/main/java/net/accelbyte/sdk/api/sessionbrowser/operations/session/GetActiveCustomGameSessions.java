@@ -15,6 +15,7 @@ import net.accelbyte.sdk.core.ResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 @Getter
@@ -85,10 +86,10 @@ public class GetActiveCustomGameSessions extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getQueryParams(){
-        Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("server_region", this.serverRegion);
-        queryParams.put("session_id", this.sessionId);
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("server_region", this.serverRegion == null ? null : Arrays.asList(this.serverRegion));
+        queryParams.put("session_id", this.sessionId == null ? null : Arrays.asList(this.sessionId));
         return queryParams;
     }
 
@@ -96,8 +97,8 @@ public class GetActiveCustomGameSessions extends Operation {
 
     @Override
     @JsonIgnore
-    public String getFullUrl(String baseUrl) {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
+    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
+        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @JsonIgnore
@@ -133,5 +134,13 @@ public class GetActiveCustomGameSessions extends Operation {
             return new ModelsActiveCustomGameResponse().createFromJson(json);
         }
         throw new ResponseException(code, json);
+    }
+
+    @Override
+    public Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("server_region", "None");
+        result.put("session_id", "None");
+        return result;
     }
 }

@@ -15,6 +15,7 @@ import net.accelbyte.sdk.core.ResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 @Getter
@@ -121,22 +122,22 @@ public class QueryItems extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getQueryParams(){
-        Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("activeOnly", this.activeOnly == null ? null : String.valueOf(this.activeOnly));
-        queryParams.put("appType", this.appType);
-        queryParams.put("availableDate", this.availableDate);
-        queryParams.put("baseAppId", this.baseAppId);
-        queryParams.put("categoryPath", this.categoryPath);
-        queryParams.put("features", this.features);
-        queryParams.put("itemType", this.itemType);
-        queryParams.put("limit", this.limit == null ? null : String.valueOf(this.limit));
-        queryParams.put("offset", this.offset == null ? null : String.valueOf(this.offset));
-        queryParams.put("region", this.region);
-        queryParams.put("sortBy", this.sortBy);
-        queryParams.put("storeId", this.storeId);
-        queryParams.put("tags", this.tags);
-        queryParams.put("targetNamespace", this.targetNamespace);
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("activeOnly", this.activeOnly == null ? null : Arrays.asList(String.valueOf(this.activeOnly)));
+        queryParams.put("appType", this.appType == null ? null : Arrays.asList(this.appType));
+        queryParams.put("availableDate", this.availableDate == null ? null : Arrays.asList(this.availableDate));
+        queryParams.put("baseAppId", this.baseAppId == null ? null : Arrays.asList(this.baseAppId));
+        queryParams.put("categoryPath", this.categoryPath == null ? null : Arrays.asList(this.categoryPath));
+        queryParams.put("features", this.features == null ? null : Arrays.asList(this.features));
+        queryParams.put("itemType", this.itemType == null ? null : Arrays.asList(this.itemType));
+        queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+        queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+        queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
+        queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
+        queryParams.put("storeId", this.storeId == null ? null : Arrays.asList(this.storeId));
+        queryParams.put("tags", this.tags == null ? null : Arrays.asList(this.tags));
+        queryParams.put("targetNamespace", this.targetNamespace == null ? null : Arrays.asList(this.targetNamespace));
         return queryParams;
     }
 
@@ -144,8 +145,8 @@ public class QueryItems extends Operation {
 
     @Override
     @JsonIgnore
-    public String getFullUrl(String baseUrl) {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
+    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
+        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @JsonIgnore
@@ -193,5 +194,25 @@ public class QueryItems extends Operation {
             return new FullItemPagingSlicedResult().createFromJson(json);
         }
         throw new ResponseException(code, json);
+    }
+
+    @Override
+    public Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("activeOnly", "None");
+        result.put("appType", "None");
+        result.put("availableDate", "None");
+        result.put("baseAppId", "None");
+        result.put("categoryPath", "None");
+        result.put("features", "None");
+        result.put("itemType", "None");
+        result.put("limit", "None");
+        result.put("offset", "None");
+        result.put("region", "None");
+        result.put("sortBy", "None");
+        result.put("storeId", "None");
+        result.put("tags", "None");
+        result.put("targetNamespace", "None");
+        return result;
     }
 }

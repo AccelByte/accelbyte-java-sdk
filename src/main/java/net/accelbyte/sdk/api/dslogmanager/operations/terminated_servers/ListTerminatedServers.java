@@ -15,6 +15,7 @@ import net.accelbyte.sdk.core.ResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 @Getter
@@ -118,21 +119,21 @@ public class ListTerminatedServers extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getQueryParams(){
-        Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("deployment", this.deployment);
-        queryParams.put("end_date", this.endDate);
-        queryParams.put("game_mode", this.gameMode);
-        queryParams.put("limit", this.limit == null ? null : String.valueOf(this.limit));
-        queryParams.put("next", this.next);
-        queryParams.put("party_id", this.partyId);
-        queryParams.put("pod_name", this.podName);
-        queryParams.put("previous", this.previous);
-        queryParams.put("provider", this.provider);
-        queryParams.put("region", this.region);
-        queryParams.put("session_id", this.sessionId);
-        queryParams.put("start_date", this.startDate);
-        queryParams.put("user_id", this.userId);
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("deployment", this.deployment == null ? null : Arrays.asList(this.deployment));
+        queryParams.put("end_date", this.endDate == null ? null : Arrays.asList(this.endDate));
+        queryParams.put("game_mode", this.gameMode == null ? null : Arrays.asList(this.gameMode));
+        queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+        queryParams.put("next", this.next == null ? null : Arrays.asList(this.next));
+        queryParams.put("party_id", this.partyId == null ? null : Arrays.asList(this.partyId));
+        queryParams.put("pod_name", this.podName == null ? null : Arrays.asList(this.podName));
+        queryParams.put("previous", this.previous == null ? null : Arrays.asList(this.previous));
+        queryParams.put("provider", this.provider == null ? null : Arrays.asList(this.provider));
+        queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
+        queryParams.put("session_id", this.sessionId == null ? null : Arrays.asList(this.sessionId));
+        queryParams.put("start_date", this.startDate == null ? null : Arrays.asList(this.startDate));
+        queryParams.put("user_id", this.userId == null ? null : Arrays.asList(this.userId));
         return queryParams;
     }
 
@@ -140,8 +141,8 @@ public class ListTerminatedServers extends Operation {
 
     @Override
     @JsonIgnore
-    public String getFullUrl(String baseUrl) {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
+    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
+        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @JsonIgnore
@@ -188,5 +189,24 @@ public class ListTerminatedServers extends Operation {
             return new ModelsListTerminatedServersResponse().createFromJson(json);
         }
         throw new ResponseException(code, json);
+    }
+
+    @Override
+    public Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("deployment", "None");
+        result.put("end_date", "None");
+        result.put("game_mode", "None");
+        result.put("limit", "None");
+        result.put("next", "None");
+        result.put("party_id", "None");
+        result.put("pod_name", "None");
+        result.put("previous", "None");
+        result.put("provider", "None");
+        result.put("region", "None");
+        result.put("session_id", "None");
+        result.put("start_date", "None");
+        result.put("user_id", "None");
+        return result;
     }
 }

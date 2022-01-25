@@ -14,6 +14,7 @@ import net.accelbyte.sdk.core.ResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 @Getter
@@ -118,21 +119,21 @@ public class PlatformAuthenticationV3 extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getQueryParams(){
-        Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("code", this.code);
-        queryParams.put("error", this.error);
-        queryParams.put("openid.assoc_handle", this.openidAssocHandle);
-        queryParams.put("openid.claimed_id", this.openidClaimedId);
-        queryParams.put("openid.identity", this.openidIdentity);
-        queryParams.put("openid.mode", this.openidMode);
-        queryParams.put("openid.ns", this.openidNs);
-        queryParams.put("openid.op_endpoint", this.openidOpEndpoint);
-        queryParams.put("openid.response_nonce", this.openidResponseNonce);
-        queryParams.put("openid.return_to", this.openidReturnTo);
-        queryParams.put("openid.sig", this.openidSig);
-        queryParams.put("openid.signed", this.openidSigned);
-        queryParams.put("state", this.state);
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("code", this.code == null ? null : Arrays.asList(this.code));
+        queryParams.put("error", this.error == null ? null : Arrays.asList(this.error));
+        queryParams.put("openid.assoc_handle", this.openidAssocHandle == null ? null : Arrays.asList(this.openidAssocHandle));
+        queryParams.put("openid.claimed_id", this.openidClaimedId == null ? null : Arrays.asList(this.openidClaimedId));
+        queryParams.put("openid.identity", this.openidIdentity == null ? null : Arrays.asList(this.openidIdentity));
+        queryParams.put("openid.mode", this.openidMode == null ? null : Arrays.asList(this.openidMode));
+        queryParams.put("openid.ns", this.openidNs == null ? null : Arrays.asList(this.openidNs));
+        queryParams.put("openid.op_endpoint", this.openidOpEndpoint == null ? null : Arrays.asList(this.openidOpEndpoint));
+        queryParams.put("openid.response_nonce", this.openidResponseNonce == null ? null : Arrays.asList(this.openidResponseNonce));
+        queryParams.put("openid.return_to", this.openidReturnTo == null ? null : Arrays.asList(this.openidReturnTo));
+        queryParams.put("openid.sig", this.openidSig == null ? null : Arrays.asList(this.openidSig));
+        queryParams.put("openid.signed", this.openidSigned == null ? null : Arrays.asList(this.openidSigned));
+        queryParams.put("state", this.state == null ? null : Arrays.asList(this.state));
         return queryParams;
     }
 
@@ -140,8 +141,8 @@ public class PlatformAuthenticationV3 extends Operation {
 
     @Override
     @JsonIgnore
-    public String getFullUrl(String baseUrl) {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
+    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
+        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @JsonIgnore
@@ -204,5 +205,24 @@ public class PlatformAuthenticationV3 extends Operation {
             throw new ResponseException(code, json);
         }
         return json;
+    }
+
+    @Override
+    public Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("code", "None");
+        result.put("error", "None");
+        result.put("openid.assoc_handle", "None");
+        result.put("openid.claimed_id", "None");
+        result.put("openid.identity", "None");
+        result.put("openid.mode", "None");
+        result.put("openid.ns", "None");
+        result.put("openid.op_endpoint", "None");
+        result.put("openid.response_nonce", "None");
+        result.put("openid.return_to", "None");
+        result.put("openid.sig", "None");
+        result.put("openid.signed", "None");
+        result.put("state", "None");
+        return result;
     }
 }

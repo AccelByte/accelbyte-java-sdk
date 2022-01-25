@@ -15,6 +15,7 @@ import net.accelbyte.sdk.core.ResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 @Getter
@@ -98,12 +99,12 @@ public class PublicQueryUserStatItems extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getQueryParams(){
-        Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("limit", this.limit == null ? null : String.valueOf(this.limit));
-        queryParams.put("offset", this.offset == null ? null : String.valueOf(this.offset));
-        queryParams.put("statCodes", this.statCodes);
-        queryParams.put("tags", this.tags);
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+        queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+        queryParams.put("statCodes", this.statCodes == null ? null : Arrays.asList(this.statCodes));
+        queryParams.put("tags", this.tags == null ? null : Arrays.asList(this.tags));
         return queryParams;
     }
 
@@ -111,8 +112,8 @@ public class PublicQueryUserStatItems extends Operation {
 
     @Override
     @JsonIgnore
-    public String getFullUrl(String baseUrl) {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
+    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
+        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @JsonIgnore
@@ -155,5 +156,15 @@ public class PublicQueryUserStatItems extends Operation {
             return new UserStatItemPagingSlicedResult().createFromJson(json);
         }
         throw new ResponseException(code, json);
+    }
+
+    @Override
+    public Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("limit", "None");
+        result.put("offset", "None");
+        result.put("statCodes", "None");
+        result.put("tags", "None");
+        return result;
     }
 }

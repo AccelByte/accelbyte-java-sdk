@@ -15,6 +15,7 @@ import net.accelbyte.sdk.core.ResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 @Getter
@@ -104,14 +105,14 @@ public class PublicQueryUserEntitlements extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getQueryParams(){
-        Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("appType", this.appType);
-        queryParams.put("entitlementClazz", this.entitlementClazz);
-        queryParams.put("entitlementName", this.entitlementName);
-        queryParams.put("itemId", this.itemId == null ? null : String.valueOf(this.itemId));
-        queryParams.put("limit", this.limit == null ? null : String.valueOf(this.limit));
-        queryParams.put("offset", this.offset == null ? null : String.valueOf(this.offset));
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("appType", this.appType == null ? null : Arrays.asList(this.appType));
+        queryParams.put("entitlementClazz", this.entitlementClazz == null ? null : Arrays.asList(this.entitlementClazz));
+        queryParams.put("entitlementName", this.entitlementName == null ? null : Arrays.asList(this.entitlementName));
+        queryParams.put("itemId", this.itemId == null ? null : this.itemId);
+        queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+        queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
         return queryParams;
     }
 
@@ -119,8 +120,8 @@ public class PublicQueryUserEntitlements extends Operation {
 
     @Override
     @JsonIgnore
-    public String getFullUrl(String baseUrl) {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
+    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
+        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @JsonIgnore
@@ -165,5 +166,17 @@ public class PublicQueryUserEntitlements extends Operation {
             return new EntitlementPagingSlicedResult().createFromJson(json);
         }
         throw new ResponseException(code, json);
+    }
+
+    @Override
+    public Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("appType", "None");
+        result.put("entitlementClazz", "None");
+        result.put("entitlementName", "None");
+        result.put("itemId", "multi");
+        result.put("limit", "None");
+        result.put("offset", "None");
+        return result;
     }
 }

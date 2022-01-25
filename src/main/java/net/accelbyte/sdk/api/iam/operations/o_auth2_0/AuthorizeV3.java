@@ -14,6 +14,7 @@ import net.accelbyte.sdk.core.ResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 @Getter
@@ -91,16 +92,16 @@ public class AuthorizeV3 extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getQueryParams(){
-        Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("code_challenge", this.codeChallenge);
-        queryParams.put("code_challenge_method", this.codeChallengeMethod);
-        queryParams.put("redirect_uri", this.redirectUri);
-        queryParams.put("scope", this.scope);
-        queryParams.put("state", this.state);
-        queryParams.put("target_auth_page", this.targetAuthPage);
-        queryParams.put("client_id", this.clientId);
-        queryParams.put("response_type", this.responseType);
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("code_challenge", this.codeChallenge == null ? null : Arrays.asList(this.codeChallenge));
+        queryParams.put("code_challenge_method", this.codeChallengeMethod == null ? null : Arrays.asList(this.codeChallengeMethod));
+        queryParams.put("redirect_uri", this.redirectUri == null ? null : Arrays.asList(this.redirectUri));
+        queryParams.put("scope", this.scope == null ? null : Arrays.asList(this.scope));
+        queryParams.put("state", this.state == null ? null : Arrays.asList(this.state));
+        queryParams.put("target_auth_page", this.targetAuthPage == null ? null : Arrays.asList(this.targetAuthPage));
+        queryParams.put("client_id", this.clientId == null ? null : Arrays.asList(this.clientId));
+        queryParams.put("response_type", this.responseType == null ? null : Arrays.asList(this.responseType));
         return queryParams;
     }
 
@@ -108,8 +109,8 @@ public class AuthorizeV3 extends Operation {
 
     @Override
     @JsonIgnore
-    public String getFullUrl(String baseUrl) {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
+    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
+        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @JsonIgnore
@@ -160,5 +161,19 @@ public class AuthorizeV3 extends Operation {
             throw new ResponseException(code, json);
         }
         return json;
+    }
+
+    @Override
+    public Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("code_challenge", "None");
+        result.put("code_challenge_method", "None");
+        result.put("redirect_uri", "None");
+        result.put("scope", "None");
+        result.put("state", "None");
+        result.put("target_auth_page", "None");
+        result.put("client_id", "None");
+        result.put("response_type", "None");
+        return result;
     }
 }

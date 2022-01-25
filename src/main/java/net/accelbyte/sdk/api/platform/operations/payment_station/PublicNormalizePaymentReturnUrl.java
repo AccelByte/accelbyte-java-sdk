@@ -14,6 +14,7 @@ import net.accelbyte.sdk.core.ResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 @Getter
@@ -121,21 +122,21 @@ public class PublicNormalizePaymentReturnUrl extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getQueryParams(){
-        Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("PayerID", this.payerID);
-        queryParams.put("foreinginvoice", this.foreinginvoice);
-        queryParams.put("invoice_id", this.invoiceId);
-        queryParams.put("payload", this.payload);
-        queryParams.put("resultCode", this.resultCode);
-        queryParams.put("status", this.status);
-        queryParams.put("token", this.token);
-        queryParams.put("type", this.type);
-        queryParams.put("user_id", this.userId);
-        queryParams.put("orderNo", this.orderNo);
-        queryParams.put("paymentOrderNo", this.paymentOrderNo);
-        queryParams.put("paymentProvider", this.paymentProvider);
-        queryParams.put("returnUrl", this.returnUrl);
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("PayerID", this.payerID == null ? null : Arrays.asList(this.payerID));
+        queryParams.put("foreinginvoice", this.foreinginvoice == null ? null : Arrays.asList(this.foreinginvoice));
+        queryParams.put("invoice_id", this.invoiceId == null ? null : Arrays.asList(this.invoiceId));
+        queryParams.put("payload", this.payload == null ? null : Arrays.asList(this.payload));
+        queryParams.put("resultCode", this.resultCode == null ? null : Arrays.asList(this.resultCode));
+        queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));
+        queryParams.put("token", this.token == null ? null : Arrays.asList(this.token));
+        queryParams.put("type", this.type == null ? null : Arrays.asList(this.type));
+        queryParams.put("user_id", this.userId == null ? null : Arrays.asList(this.userId));
+        queryParams.put("orderNo", this.orderNo == null ? null : Arrays.asList(this.orderNo));
+        queryParams.put("paymentOrderNo", this.paymentOrderNo == null ? null : Arrays.asList(this.paymentOrderNo));
+        queryParams.put("paymentProvider", this.paymentProvider == null ? null : Arrays.asList(this.paymentProvider));
+        queryParams.put("returnUrl", this.returnUrl == null ? null : Arrays.asList(this.returnUrl));
         return queryParams;
     }
 
@@ -143,8 +144,8 @@ public class PublicNormalizePaymentReturnUrl extends Operation {
 
     @Override
     @JsonIgnore
-    public String getFullUrl(String baseUrl) {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
+    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
+        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @JsonIgnore
@@ -215,5 +216,24 @@ public class PublicNormalizePaymentReturnUrl extends Operation {
         if(code != 204){
             throw new ResponseException(code, json);
         }
+    }
+
+    @Override
+    public Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("PayerID", "None");
+        result.put("foreinginvoice", "None");
+        result.put("invoice_id", "None");
+        result.put("payload", "None");
+        result.put("resultCode", "None");
+        result.put("status", "None");
+        result.put("token", "None");
+        result.put("type", "None");
+        result.put("user_id", "None");
+        result.put("orderNo", "None");
+        result.put("paymentOrderNo", "None");
+        result.put("paymentProvider", "None");
+        result.put("returnUrl", "None");
+        return result;
     }
 }

@@ -15,6 +15,7 @@ import net.accelbyte.sdk.core.ResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 @Getter
@@ -101,13 +102,13 @@ public class QueryCodes extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getQueryParams(){
-        Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("activeOnly", this.activeOnly == null ? null : String.valueOf(this.activeOnly));
-        queryParams.put("batchNo", this.batchNo == null ? null : String.valueOf(this.batchNo));
-        queryParams.put("code", this.code);
-        queryParams.put("limit", this.limit == null ? null : String.valueOf(this.limit));
-        queryParams.put("offset", this.offset == null ? null : String.valueOf(this.offset));
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("activeOnly", this.activeOnly == null ? null : Arrays.asList(String.valueOf(this.activeOnly)));
+        queryParams.put("batchNo", this.batchNo == null ? null : Arrays.asList(String.valueOf(this.batchNo)));
+        queryParams.put("code", this.code == null ? null : Arrays.asList(this.code));
+        queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+        queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
         return queryParams;
     }
 
@@ -115,8 +116,8 @@ public class QueryCodes extends Operation {
 
     @Override
     @JsonIgnore
-    public String getFullUrl(String baseUrl) {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
+    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
+        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @JsonIgnore
@@ -160,5 +161,16 @@ public class QueryCodes extends Operation {
             return new CodeInfoPagingSlicedResult().createFromJson(json);
         }
         throw new ResponseException(code, json);
+    }
+
+    @Override
+    public Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("activeOnly", "None");
+        result.put("batchNo", "None");
+        result.put("code", "None");
+        result.put("limit", "None");
+        result.put("offset", "None");
+        return result;
     }
 }

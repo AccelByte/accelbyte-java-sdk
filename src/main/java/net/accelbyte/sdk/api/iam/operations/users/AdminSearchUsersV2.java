@@ -15,6 +15,7 @@ import net.accelbyte.sdk.core.ResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 @Getter
@@ -107,17 +108,17 @@ public class AdminSearchUsersV2 extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getQueryParams(){
-        Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("after", this.after);
-        queryParams.put("before", this.before);
-        queryParams.put("displayName", this.displayName);
-        queryParams.put("limit", this.limit);
-        queryParams.put("loginId", this.loginId);
-        queryParams.put("platformUserId", this.platformUserId);
-        queryParams.put("roleId", this.roleId);
-        queryParams.put("userId", this.userId);
-        queryParams.put("platformId", this.platformId);
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("after", this.after == null ? null : Arrays.asList(this.after));
+        queryParams.put("before", this.before == null ? null : Arrays.asList(this.before));
+        queryParams.put("displayName", this.displayName == null ? null : Arrays.asList(this.displayName));
+        queryParams.put("limit", this.limit == null ? null : Arrays.asList(this.limit));
+        queryParams.put("loginId", this.loginId == null ? null : Arrays.asList(this.loginId));
+        queryParams.put("platformUserId", this.platformUserId == null ? null : Arrays.asList(this.platformUserId));
+        queryParams.put("roleId", this.roleId == null ? null : Arrays.asList(this.roleId));
+        queryParams.put("userId", this.userId == null ? null : Arrays.asList(this.userId));
+        queryParams.put("platformId", this.platformId == null ? null : Arrays.asList(this.platformId));
         return queryParams;
     }
 
@@ -125,8 +126,8 @@ public class AdminSearchUsersV2 extends Operation {
 
     @Override
     @JsonIgnore
-    public String getFullUrl(String baseUrl) {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
+    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
+        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @JsonIgnore
@@ -181,5 +182,20 @@ public class AdminSearchUsersV2 extends Operation {
             return new ModelSearchUsersByPlatformIDResponse().createFromJson(json);
         }
         throw new ResponseException(code, json);
+    }
+
+    @Override
+    public Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("after", "None");
+        result.put("before", "None");
+        result.put("displayName", "None");
+        result.put("limit", "None");
+        result.put("loginId", "None");
+        result.put("platformUserId", "None");
+        result.put("roleId", "None");
+        result.put("userId", "None");
+        result.put("platformId", "None");
+        return result;
     }
 }

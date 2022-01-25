@@ -15,6 +15,7 @@ import net.accelbyte.sdk.core.ResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 @Getter
@@ -95,11 +96,11 @@ public class PublicExistsAnyUserActiveEntitlement extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getQueryParams(){
-        Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("appIds", this.appIds == null ? null : String.valueOf(this.appIds));
-        queryParams.put("itemIds", this.itemIds == null ? null : String.valueOf(this.itemIds));
-        queryParams.put("skus", this.skus == null ? null : String.valueOf(this.skus));
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("appIds", this.appIds == null ? null : this.appIds);
+        queryParams.put("itemIds", this.itemIds == null ? null : this.itemIds);
+        queryParams.put("skus", this.skus == null ? null : this.skus);
         return queryParams;
     }
 
@@ -107,8 +108,8 @@ public class PublicExistsAnyUserActiveEntitlement extends Operation {
 
     @Override
     @JsonIgnore
-    public String getFullUrl(String baseUrl) {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
+    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
+        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @JsonIgnore
@@ -150,5 +151,14 @@ public class PublicExistsAnyUserActiveEntitlement extends Operation {
             return new Ownership().createFromJson(json);
         }
         throw new ResponseException(code, json);
+    }
+
+    @Override
+    public Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("appIds", "multi");
+        result.put("itemIds", "multi");
+        result.put("skus", "multi");
+        return result;
     }
 }

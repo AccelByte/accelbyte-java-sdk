@@ -15,6 +15,7 @@ import net.accelbyte.sdk.core.ResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 @Getter
@@ -119,19 +120,19 @@ public class AdminSearchChannelSpecificContent extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getQueryParams(){
-        Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("creator", this.creator);
-        queryParams.put("isofficial", this.isofficial);
-        queryParams.put("limit", this.limit);
-        queryParams.put("name", this.name);
-        queryParams.put("offset", this.offset);
-        queryParams.put("orderby", this.orderby);
-        queryParams.put("sortby", this.sortby);
-        queryParams.put("subtype", this.subtype);
-        queryParams.put("tags", this.tags);
-        queryParams.put("type", this.type);
-        queryParams.put("userId", this.userId);
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("creator", this.creator == null ? null : Arrays.asList(this.creator));
+        queryParams.put("isofficial", this.isofficial == null ? null : Arrays.asList(this.isofficial));
+        queryParams.put("limit", this.limit == null ? null : Arrays.asList(this.limit));
+        queryParams.put("name", this.name == null ? null : Arrays.asList(this.name));
+        queryParams.put("offset", this.offset == null ? null : Arrays.asList(this.offset));
+        queryParams.put("orderby", this.orderby == null ? null : Arrays.asList(this.orderby));
+        queryParams.put("sortby", this.sortby == null ? null : Arrays.asList(this.sortby));
+        queryParams.put("subtype", this.subtype == null ? null : Arrays.asList(this.subtype));
+        queryParams.put("tags", this.tags == null ? null : Arrays.asList(this.tags));
+        queryParams.put("type", this.type == null ? null : Arrays.asList(this.type));
+        queryParams.put("userId", this.userId == null ? null : Arrays.asList(this.userId));
         return queryParams;
     }
 
@@ -139,8 +140,8 @@ public class AdminSearchChannelSpecificContent extends Operation {
 
     @Override
     @JsonIgnore
-    public String getFullUrl(String baseUrl) {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams());
+    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
+        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @JsonIgnore
@@ -190,5 +191,22 @@ public class AdminSearchChannelSpecificContent extends Operation {
             return new ModelsPaginatedContentDownloadResponse().createFromJson(json);
         }
         throw new ResponseException(code, json);
+    }
+
+    @Override
+    public Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("creator", "None");
+        result.put("isofficial", "None");
+        result.put("limit", "None");
+        result.put("name", "None");
+        result.put("offset", "None");
+        result.put("orderby", "None");
+        result.put("sortby", "None");
+        result.put("subtype", "None");
+        result.put("tags", "None");
+        result.put("type", "None");
+        result.put("userId", "None");
+        return result;
     }
 }
