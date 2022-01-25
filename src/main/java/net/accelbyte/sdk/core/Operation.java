@@ -62,6 +62,11 @@ public class Operation {
         // query params
         if (queryParams.size() > 0) {
             result.append("?");
+            Map<String, String> queryDelimiterMap =  new HashMap<>();
+            queryDelimiterMap.put("csv", ",");
+            queryDelimiterMap.put("ssv", " ");
+            queryDelimiterMap.put("tsv", "\t");
+            queryDelimiterMap.put("pipes", "|");
             StringBuilder queryParamBuilder = new StringBuilder();
             Iterator<Map.Entry<String, List<String>>> queryParamItr = queryParams.entrySet().iterator();
             while (queryParamItr.hasNext()) {
@@ -85,6 +90,7 @@ public class Operation {
                                 }
                             }
                         } else {
+                            String delimiter = queryDelimiterMap.get(collectionFormat) == null ? "," : queryDelimiterMap.get(collectionFormat);
                             collectionBuilder
                                     .append(qParams.getKey())
                                     .append("=");
@@ -92,7 +98,7 @@ public class Operation {
                             while (val.hasNext()) {
                                 collectionBuilder.append(URLEncoder.encode(val.next(), ENC));
                                 if (val.hasNext()) {
-                                    collectionBuilder.append(",");
+                                    collectionBuilder.append(delimiter);
                                 }
                             }
 
