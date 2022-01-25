@@ -3,7 +3,8 @@ ext {
             lombok          : "1.18.22",
             okhttp          : "4.9.1",
             jackson         : "2.13.0",
-            apacheHttpClient: "4.5.13"
+            apacheHttpClient: "4.5.13",
+            junit           : "5.8.1"
     ]
     sharedDependencies = [
             lombok          : "org.projectlombok:lombok:${dependencyVersions.lombok}",
@@ -11,6 +12,8 @@ ext {
             jackson         : [
                     databind: "com.fasterxml.jackson.core:jackson-databind:${dependencyVersions.jackson}",
             ],
-            apacheHttpClient: "org.apache.httpcomponents:httpclient:${dependencyVersions.apacheHttpClient}"
+            apacheHttpClient: "org.apache.httpcomponents:httpclient:${dependencyVersions.apacheHttpClient}",
+            junitApi        : "org.junit.jupiter:junit-jupiter-api:${dependencyVersions.junit}",
+            junitEngine     : "org.junit.jupiter:junit-jupiter-engine:${dependencyVersions.junit}",
     ]
 }

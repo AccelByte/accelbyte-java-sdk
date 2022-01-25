@@ -24,6 +24,8 @@ dependencies {
     implementation sharedDependencies.okhttp
     implementation sharedDependencies.apacheHttpClient
     implementation sharedDependencies.jackson.databind
+    testImplementation sharedDependencies.junitApi
+    testRuntimeOnly sharedDependencies.junitEngine
 }
 
 test {
