@@ -1,6 +1,6 @@
 package net.accelbyte.sdk.core.repository;
 
-public class ConfigRepositoryImpl implements ConfigRepository {
+public class DefaultConfigRepository implements ConfigRepository {
     private static final String CLIENT_ID = "AB_CLIENT_ID";
     private static final String CLIENT_SECRET = "AB_CLIENT_SECRET";
     private static final String BASE_URL = "AB_BASE_URL";
