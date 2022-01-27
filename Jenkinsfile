@@ -59,6 +59,11 @@ pipeline {
         sh "make build"
       }
     }
+    stage('Test'){
+      steps {
+        sh "make test"
+      }
+    }
   }
   post {
     success {
