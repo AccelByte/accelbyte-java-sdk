@@ -15,8 +15,24 @@ import java.util.Objects;
 
 public class OkhttpClient implements HttpClient {
 
+    private static final OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
+            .followRedirects(false).build();
+
     @Override
-    public HttpResponse sendRequest(Operation operation, String baseURL, Header header) throws IOException {
+    public HttpResponse sendRequest(Operation operation, String baseURL, Header header)
+            throws IllegalArgumentException, IOException, JsonProcessingException {
+        if (operation == null) {
+            throw new IllegalArgumentException("Operation cannot be null");
+        }
+
+        if (baseURL == null || baseURL.isEmpty()) {
+            throw new IllegalArgumentException("Base URL cannot be null or empty");
+        }
+
+        if (header == null) {
+            throw new IllegalArgumentException("Header cannot be null");
+        }
+
         String contentType = "";
         if (!operation.getConsumes().isEmpty()) {
             if (operation.getConsumes().get(0) != null) {
@@ -30,16 +46,14 @@ public class OkhttpClient implements HttpClient {
                 .headers(headers);
         if (operation.getBodyParams() != null) {
             JsonMapper mapper = new JsonMapper();
-            String json = "";
-            try {
-                json = mapper.writeValueAsString(operation.getBodyParams());
-            } catch (JsonProcessingException e) {
-                e.printStackTrace();
-            }
-            if (isMimeType(contentType)) {
-                requestBuilder.method(operation.getMethod(), RequestBody.create(json, MediaType.get(contentType)));
+            String json = mapper.writeValueAsString(operation.getBodyParams());
+            if (isMediaTypeJson(contentType)) {
+                requestBuilder.method(operation.getMethod(),
+                        RequestBody.create(json, MediaType.get(contentType)));
             } else {
-                requestBuilder.method(operation.getMethod(), RequestBody.create(operation.getBodyParams().toString(), MediaType.get(contentType)));
+                requestBuilder.method(operation.getMethod(),
+                        RequestBody.create(operation.getBodyParams().toString(),
+                                MediaType.get(contentType)));
             }
         }
         if (operation.getFormDataParams() != null) {
@@ -53,9 +67,6 @@ public class OkhttpClient implements HttpClient {
         }
         Request request = requestBuilder.build();
         // todo: make user can set timeout
-        OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
-                .followRedirects(false)
-                .build();
         InputStream payload = null;
         Response response = okHttpClient.newCall(request).execute();
         if (response.isRedirect()) {
@@ -70,16 +81,13 @@ public class OkhttpClient implements HttpClient {
         return new HttpResponse(response.code(), contentType, payload);
     }
 
-    public boolean isMimeType(String mimeType) {
-        if (mimeType == null) {
-            return false;
+    private static boolean isMediaTypeJson(String mediaType) {
+        if (mediaType.equals("application/json")) {
+            return true;
         }
-        String[] split = mimeType.split("/");
-        if (split.length != 2) {
-            return false;
+        if (mediaType.startsWith("application/") && mediaType.endsWith("+json")) {
+            return true;
         }
-        String main = split[0];
-        String sub = split[1];
-        return main.equals("application") && (sub.equals("json") || sub.endsWith("+json"));
+        return false;
     }
 }
