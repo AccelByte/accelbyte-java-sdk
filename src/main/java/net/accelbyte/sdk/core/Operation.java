@@ -37,7 +37,9 @@ public class Operation {
     protected String authorizationOverride = "";
 
     @JsonIgnore
-    public static String createFullUrl(String url, String baseUrl, Map<String, String> pathParams, Map<String, List<String>> queryParams, Map<String, String> collectionFormatMap) throws UnsupportedEncodingException {
+    public static String createFullUrl(String url, String baseUrl, Map<String, String> pathParams,
+            Map<String, List<String>> queryParams, Map<String, String> collectionFormatMap)
+            throws UnsupportedEncodingException {
         final String ENC = "UTF-8";
         StringBuilder result = new StringBuilder();
 
@@ -50,11 +52,7 @@ public class Operation {
         // path params
         if (pathParams.size() > 0) {
             for (Map.Entry<String, String> pathParam : pathParams.entrySet()) {
-                try {
-                    url = url.replace("{" + pathParam.getKey() + "}", URLEncoder.encode(pathParam.getValue(), ENC));
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
+                url = url.replace("{" + pathParam.getKey() + "}", URLEncoder.encode(pathParam.getValue(), ENC));
             }
         }
         result.append(url);
@@ -62,7 +60,7 @@ public class Operation {
         // query params
         if (queryParams.size() > 0) {
             result.append("?");
-            Map<String, String> queryDelimiterMap =  new HashMap<>();
+            Map<String, String> queryDelimiterMap = new HashMap<>();
             queryDelimiterMap.put("csv", ",");
             queryDelimiterMap.put("ssv", " ");
             queryDelimiterMap.put("tsv", "\t");
@@ -90,7 +88,8 @@ public class Operation {
                                 }
                             }
                         } else {
-                            String delimiter = queryDelimiterMap.get(collectionFormat) == null ? "," : queryDelimiterMap.get(collectionFormat);
+                            String delimiter = queryDelimiterMap.get(collectionFormat) == null ? ","
+                                    : queryDelimiterMap.get(collectionFormat);
                             collectionBuilder
                                     .append(qParams.getKey())
                                     .append("=");
@@ -160,17 +159,19 @@ public class Operation {
     }
 
     @JsonIgnore
-    public Object parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public Object parseResponse(int code, String contentTpe, InputStream payload)
+            throws ResponseException, IOException {
         return null;
     }
 
     @JsonIgnore
-    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public void handleEmptyResponse(int code, String contentTpe, InputStream payload)
+            throws ResponseException, IOException {
 
     }
 
     @JsonIgnore
-    public String convertInputStreamToString(InputStream is) throws IOException {
+    protected String convertInputStreamToString(InputStream is) throws IOException {
         return Helper.convertInputStreamToString(is);
     }
 
