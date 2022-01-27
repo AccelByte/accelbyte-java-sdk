@@ -43,9 +43,17 @@ public class Operation {
         final String ENC = "UTF-8";
         StringBuilder result = new StringBuilder();
 
+        if (url == null) {
+            throw new IllegalArgumentException("Path cannot be null");
+        }
+
+        if (baseUrl == null) {
+            throw new IllegalArgumentException("Base URL cannot be null");
+        }
+
         // base url
-        if (baseUrl != null && baseUrl.endsWith("/")) {
-            baseUrl = baseUrl.split("/")[0] + "//" + baseUrl.split("/")[2];
+        if (baseUrl.endsWith("/")) {
+            baseUrl = baseUrl.substring(0, baseUrl.length() - 1);
         }
         result.append(baseUrl);
 
@@ -60,58 +68,65 @@ public class Operation {
         // query params
         if (queryParams.size() > 0) {
             result.append("?");
-            Map<String, String> queryDelimiterMap = new HashMap<>();
-            queryDelimiterMap.put("csv", ",");
-            queryDelimiterMap.put("ssv", " ");
-            queryDelimiterMap.put("tsv", "\t");
-            queryDelimiterMap.put("pipes", "|");
             StringBuilder queryParamBuilder = new StringBuilder();
             Iterator<Map.Entry<String, List<String>>> queryParamItr = queryParams.entrySet().iterator();
             while (queryParamItr.hasNext()) {
                 Map.Entry<String, List<String>> qParams = queryParamItr.next();
-                if (qParams.getValue() != null) {
-                    if (qParams.getValue().size() > 1) {
-                        String collectionFormat = collectionFormatMap.get(qParams.getKey());
-                        StringBuilder collectionBuilder = new StringBuilder();
-                        if (collectionFormat != null && collectionFormat.equals("multi")) {
-                            Iterator<String> valItr = qParams.getValue().iterator();
-                            while (valItr.hasNext()) {
-                                String val = valItr.next();
-                                if (val != null) {
-                                    collectionBuilder
-                                            .append(qParams.getKey())
-                                            .append("=")
-                                            .append(URLEncoder.encode(val, ENC));
-                                    if (valItr.hasNext()) {
-                                        collectionBuilder.append("&");
-                                    }
-                                }
-                            }
-                        } else {
-                            String delimiter = queryDelimiterMap.get(collectionFormat) == null ? ","
-                                    : queryDelimiterMap.get(collectionFormat);
-                            collectionBuilder
-                                    .append(qParams.getKey())
-                                    .append("=");
-                            Iterator<String> val = qParams.getValue().iterator();
-                            while (val.hasNext()) {
-                                collectionBuilder.append(URLEncoder.encode(val.next(), ENC));
-                                if (val.hasNext()) {
-                                    collectionBuilder.append(delimiter);
-                                }
-                            }
-
-                        }
-                        queryParamBuilder.append(collectionBuilder);
-                    } else {
-                        queryParamBuilder.append(qParams.getKey());
-                        queryParamBuilder.append("=");
-                        queryParamBuilder.append(URLEncoder.encode(qParams.getValue().get(0), ENC));
-                    }
-                    if (queryParamItr.hasNext()) {
-                        queryParamBuilder.append("&");
-                    }
+                if (qParams.getValue() == null) {
+                    continue;
                 }
+                if (qParams.getValue().size() > 1) {
+                    String collectionFormat = collectionFormatMap.get(qParams.getKey());
+                    StringBuilder collectionBuilder = new StringBuilder();
+                    if (collectionFormat != null && collectionFormat.equals("multi")) {
+                        Iterator<String> valItr = qParams.getValue().iterator();
+                        while (valItr.hasNext()) {
+                            String val = valItr.next();
+                            if (val != null) {
+                                collectionBuilder
+                                        .append(qParams.getKey())
+                                        .append("=")
+                                        .append(URLEncoder.encode(val, ENC));
+                                if (valItr.hasNext()) {
+                                    collectionBuilder.append("&");
+                                }
+                            }
+                        }
+                    } else {
+                        String delimiter = null;
+                        if (collectionFormat == "csv") {
+                            delimiter = ",";
+                        } else if (collectionFormat == "ssv") {
+                            delimiter = " ";
+                        } else if (collectionFormat == "tsv") {
+                            delimiter = "\t";
+                        } else if (collectionFormat == "pipes") {
+                            delimiter = "|";
+                        } else {
+                            delimiter = ","; // Collection format CSV by default
+                        }
+                        collectionBuilder
+                                .append(qParams.getKey())
+                                .append("=");
+                        Iterator<String> val = qParams.getValue().iterator();
+                        while (val.hasNext()) {
+                            collectionBuilder.append(URLEncoder.encode(val.next(), ENC));
+                            if (val.hasNext()) {
+                                collectionBuilder.append(delimiter);
+                            }
+                        }
+
+                    }
+                    queryParamBuilder.append(collectionBuilder);
+                } else {
+                    queryParamBuilder.append(qParams.getKey());
+                    queryParamBuilder.append("=");
+                    queryParamBuilder.append(URLEncoder.encode(qParams.getValue().get(0), ENC));
+                }
+                if (queryParamItr.hasNext()) {
+                    queryParamBuilder.append("&");
+                }
+
             }
             result.append(queryParamBuilder);
         }
@@ -171,12 +186,12 @@ public class Operation {
     }
 
     @JsonIgnore
-    protected String convertInputStreamToString(InputStream is) throws IOException {
-        return Helper.convertInputStreamToString(is);
+    public Map<String, String> getCollectionFormatMap() {
+        return null;
     }
 
     @JsonIgnore
-    public Map<String, String> getCollectionFormatMap() {
-        return null;
+    protected String convertInputStreamToString(InputStream is) throws IOException {
+        return Helper.convertInputStreamToString(is);
     }
 }
