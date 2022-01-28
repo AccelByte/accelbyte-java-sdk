@@ -17,7 +17,7 @@ You have to declare these environment variables below:
 `AB_CLIENT_SECRET` (Required if you use private OAuth client only)
 
 
-###3. Build CLI the project using gradle:
+### 3. Build CLI the project using gradle:
 
 1. Open your terminal, change your directory to this CLI project root path file where this `README.md` file located
 2. execute `gradle fatJar` to build CLI project
