@@ -1,0 +1,3 @@
+rootProject.name = 'cli'
+include ':java-sdk-local'
+project(':java-sdk-local').projectDir = file('../../')
