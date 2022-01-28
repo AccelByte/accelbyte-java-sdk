@@ -25,6 +25,9 @@ public class IAPOrderInfo extends Model {
     @JsonProperty("credits")
     private List<CreditSummary> credits;
 
+    @JsonProperty("currencyCode")
+    private String currencyCode;
+
     @JsonProperty("entitlements")
     private List<EntitlementSummary> entitlements;
 
@@ -39,6 +42,9 @@ public class IAPOrderInfo extends Model {
 
     @JsonProperty("namespace")
     private String namespace;
+
+    @JsonProperty("price")
+    private Float price;
 
     @JsonProperty("productId")
     private String productId;
@@ -91,11 +97,13 @@ public class IAPOrderInfo extends Model {
         Map<String, String> result = new HashMap<>();
         result.put("createdAt", "createdAt");
         result.put("credits", "credits");
+        result.put("currencyCode", "currencyCode");
         result.put("entitlements", "entitlements");
         result.put("fulfilledTime", "fulfilledTime");
         result.put("iapOrderNo", "iapOrderNo");
         result.put("language", "language");
         result.put("namespace", "namespace");
+        result.put("price", "price");
         result.put("productId", "productId");
         result.put("quantity", "quantity");
         result.put("receiptData", "receiptData");

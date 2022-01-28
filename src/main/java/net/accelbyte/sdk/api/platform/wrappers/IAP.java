@@ -99,6 +99,30 @@ public class IAP {
             );
     }
 
+    public IAPItemConfigInfo getIAPItemConfig(GetIAPItemConfig input) throws ResponseException, IOException {
+        HttpResponse httpResponse = sdk.runRequest(input);
+            return input
+                .parseResponse(
+            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+            );
+    }
+
+    public IAPItemConfigInfo updateIAPItemConfig(UpdateIAPItemConfig input) throws ResponseException, IOException {
+        HttpResponse httpResponse = sdk.runRequest(input);
+            return input
+                .parseResponse(
+            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+            );
+    }
+
+    public void deleteIAPItemConfig(DeleteIAPItemConfig input) throws ResponseException, IOException {
+        HttpResponse httpResponse = sdk.runRequest(input);
+            input
+                .handleEmptyResponse(
+            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+            );
+    }
+
     public PlayStationIAPConfigInfo getPlayStationIAPConfig(GetPlayStationIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
             return input
@@ -204,6 +228,14 @@ public class IAP {
     }
 
     public IAPOrderPagingSlicedResult queryUserIAPOrders(QueryUserIAPOrders input) throws ResponseException, IOException {
+        HttpResponse httpResponse = sdk.runRequest(input);
+            return input
+                .parseResponse(
+            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+            );
+    }
+
+    public IAPOrderPagingSlicedResult queryAllUserIAPOrders(QueryAllUserIAPOrders input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
             return input
                 .parseResponse(

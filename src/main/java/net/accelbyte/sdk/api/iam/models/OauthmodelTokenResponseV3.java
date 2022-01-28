@@ -52,17 +52,26 @@ public class OauthmodelTokenResponseV3 extends Model {
     @JsonProperty("platform_user_id")
     private String platformUserId;
 
+    @JsonProperty("refresh_expires_in")
+    private Integer refreshExpiresIn;
+
     @JsonProperty("refresh_token")
     private String refreshToken;
 
     @JsonProperty("roles")
     private List<String> roles;
 
+    @JsonProperty("scope")
+    private String scope;
+
     @JsonProperty("token_type")
     private String tokenType;
 
     @JsonProperty("user_id")
     private String userId;
+
+    @JsonProperty("xuid")
+    private String xuid;
 
     @JsonIgnore
     public OauthmodelTokenResponseV3 createFromJson(String json) throws JsonProcessingException {
@@ -88,10 +97,13 @@ public class OauthmodelTokenResponseV3 extends Model {
         result.put("permissions", "permissions");
         result.put("platform_id", "platformId");
         result.put("platform_user_id", "platformUserId");
+        result.put("refresh_expires_in", "refreshExpiresIn");
         result.put("refresh_token", "refreshToken");
         result.put("roles", "roles");
+        result.put("scope", "scope");
         result.put("token_type", "tokenType");
         result.put("user_id", "userId");
+        result.put("xuid", "xuid");
         return result;
     }
 }

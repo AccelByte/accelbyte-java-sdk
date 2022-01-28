@@ -64,6 +64,9 @@ public class ModelThirdPartyLoginPlatformCredentialResponse extends Model {
     @JsonProperty("TeamID")
     private String teamID;
 
+    @JsonProperty("registeredDomains")
+    private List<AccountcommonRegisteredDomain> registeredDomains;
+
     @JsonIgnore
     public ModelThirdPartyLoginPlatformCredentialResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -92,6 +95,7 @@ public class ModelThirdPartyLoginPlatformCredentialResponse extends Model {
         result.put("RedirectUri", "redirectUri");
         result.put("Secret", "secret");
         result.put("TeamID", "teamID");
+        result.put("registeredDomains", "registeredDomains");
         return result;
     }
 }

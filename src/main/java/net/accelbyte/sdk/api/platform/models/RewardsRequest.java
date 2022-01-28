@@ -17,37 +17,29 @@ import java.util.Map;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PlayStationReconcileRequest extends Model {
+public class RewardsRequest extends Model {
 
-    @JsonProperty("currencyCode")
-    private String currencyCode;
+    @JsonProperty("rewards")
+    private List<PlatformReward> rewards;
 
-    @JsonProperty("price")
-    private Float price;
-
-    @JsonProperty("productId")
-    private String productId;
-
-    @JsonProperty("serviceLabel")
-    private Integer serviceLabel;
+    @JsonProperty("source")
+    private String source;
 
     @JsonIgnore
-    public PlayStationReconcileRequest createFromJson(String json) throws JsonProcessingException {
+    public RewardsRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<PlayStationReconcileRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<PlayStationReconcileRequest>>() {});
+    public List<RewardsRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<RewardsRequest>>() {});
     }
 
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("currencyCode", "currencyCode");
-        result.put("price", "price");
-        result.put("productId", "productId");
-        result.put("serviceLabel", "serviceLabel");
+        result.put("rewards", "rewards");
+        result.put("source", "source");
         return result;
     }
 }

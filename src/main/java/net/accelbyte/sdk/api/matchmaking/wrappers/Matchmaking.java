@@ -195,4 +195,12 @@ public class Matchmaking {
             );
     }
 
+    public ServiceGetSessionHistorySearchResponseV2 searchSessionsV2(SearchSessionsV2 input) throws ResponseException, IOException {
+        HttpResponse httpResponse = sdk.runRequest(input);
+            return input
+                .parseResponse(
+            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+            );
+    }
+
 }

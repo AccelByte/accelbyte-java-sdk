@@ -43,6 +43,14 @@ public class Fulfillment {
             );
     }
 
+    public void fulfillRewards(FulfillRewards input) throws ResponseException, IOException {
+        HttpResponse httpResponse = sdk.runRequest(input);
+            input
+                .handleEmptyResponse(
+            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+            );
+    }
+
     public FulfillmentResult publicRedeemCode(PublicRedeemCode input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
             return input

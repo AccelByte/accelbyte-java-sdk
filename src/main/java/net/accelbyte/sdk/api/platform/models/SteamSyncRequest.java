@@ -22,8 +22,17 @@ public class SteamSyncRequest extends Model {
     @JsonProperty("appId")
     private String appId;
 
+    @JsonProperty("currencyCode")
+    private String currencyCode;
+
     @JsonProperty("language")
     private String language;
+
+    @JsonProperty("price")
+    private Float price;
+
+    @JsonProperty("productId")
+    private String productId;
 
     @JsonProperty("region")
     private String region;
@@ -45,7 +54,10 @@ public class SteamSyncRequest extends Model {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("appId", "appId");
+        result.put("currencyCode", "currencyCode");
         result.put("language", "language");
+        result.put("price", "price");
+        result.put("productId", "productId");
         result.put("region", "region");
         result.put("steamId", "steamId");
         return result;

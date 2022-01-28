@@ -67,6 +67,22 @@ public class ThirdPartyCredential {
             );
     }
 
+    public ModelPlatformDomainResponse updateThirdPartyLoginPlatformDomainV3(UpdateThirdPartyLoginPlatformDomainV3 input) throws ResponseException, IOException {
+        HttpResponse httpResponse = sdk.runRequest(input);
+            return input
+                .parseResponse(
+            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+            );
+    }
+
+    public void deleteThirdPartyLoginPlatformDomainV3(DeleteThirdPartyLoginPlatformDomainV3 input) throws ResponseException, IOException {
+        HttpResponse httpResponse = sdk.runRequest(input);
+            input
+                .handleEmptyResponse(
+            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+            );
+    }
+
     public List<ModelPublicThirdPartyPlatformInfo> retrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3(RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = sdk.runRequest(input);
             return input

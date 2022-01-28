@@ -1,4 +1,4 @@
-package net.accelbyte.sdk.api.platform.models;
+package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,37 +17,25 @@ import java.util.Map;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class XblReconcileRequest extends Model {
+public class ModelPlatformDomainResponse extends Model {
 
-    @JsonProperty("currencyCode")
-    private String currencyCode;
-
-    @JsonProperty("price")
-    private Float price;
-
-    @JsonProperty("productId")
-    private String productId;
-
-    @JsonProperty("xstsToken")
-    private String xstsToken;
+    @JsonProperty("registeredDomains")
+    private List<AccountcommonRegisteredDomain> registeredDomains;
 
     @JsonIgnore
-    public XblReconcileRequest createFromJson(String json) throws JsonProcessingException {
+    public ModelPlatformDomainResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<XblReconcileRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<XblReconcileRequest>>() {});
+    public List<ModelPlatformDomainResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelPlatformDomainResponse>>() {});
     }
 
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("currencyCode", "currencyCode");
-        result.put("price", "price");
-        result.put("productId", "productId");
-        result.put("xstsToken", "xstsToken");
+        result.put("registeredDomains", "registeredDomains");
         return result;
     }
 }
