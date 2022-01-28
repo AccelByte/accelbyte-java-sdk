@@ -10,6 +10,7 @@ import okhttp3.*;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Objects;
 
@@ -70,7 +71,7 @@ public class OkhttpClient implements HttpClient {
         InputStream payload = null;
         Response response = okHttpClient.newCall(request).execute();
         if (response.isRedirect()) {
-            byte[] responseHeader = Objects.requireNonNull(response.header("Location")).getBytes();
+            byte[] responseHeader = Objects.requireNonNull(response.header("Location")).getBytes(StandardCharsets.UTF_8);
             payload = new ByteArrayInputStream(responseHeader);
             return new HttpResponse(response.code(), contentType, payload);
         }
