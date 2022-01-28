@@ -35,6 +35,7 @@ import picocli.CommandLine.Command;
                 PublicGetMessages.class,
                 PublicGetAllMatchmakingChannel.class,
                 PublicGetSingleMatchmakingChannel.class,
+                SearchSessionsV2.class,
                 VersionCheckHandler.class,
         }
 )

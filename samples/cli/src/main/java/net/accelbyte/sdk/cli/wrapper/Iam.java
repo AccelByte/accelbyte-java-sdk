@@ -149,6 +149,8 @@ import picocli.CommandLine.Command;
                 AddThirdPartyLoginPlatformCredentialV3.class,
                 DeleteThirdPartyLoginPlatformCredentialV3.class,
                 UpdateThirdPartyLoginPlatformCredentialV3.class,
+                UpdateThirdPartyLoginPlatformDomainV3.class,
+                DeleteThirdPartyLoginPlatformDomainV3.class,
                 RetrieveSSOLoginPlatformCredential.class,
                 AddSSOLoginPlatformCredential.class,
                 DeleteSSOLoginPlatformCredentialV3.class,

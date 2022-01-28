@@ -4,6 +4,7 @@ import net.accelbyte.sdk.cli.api.platform.fulfillment_script.*;
 import net.accelbyte.sdk.cli.api.platform.campaign.*;
 import net.accelbyte.sdk.cli.api.platform.category.*;
 import net.accelbyte.sdk.cli.api.platform.currency.*;
+import net.accelbyte.sdk.cli.api.platform.dlc.*;
 import net.accelbyte.sdk.cli.api.platform.entitlement.*;
 import net.accelbyte.sdk.cli.api.platform.fulfillment.*;
 import net.accelbyte.sdk.cli.api.platform.iap.*;
@@ -63,6 +64,12 @@ import picocli.CommandLine.Command;
                 DeleteCurrency.class,
                 GetCurrencyConfig.class,
                 GetCurrencySummary.class,
+                GetDLCItemConfig.class,
+                UpdateDLCItemConfig.class,
+                DeleteDLCItemConfig.class,
+                GetPlatformDLCConfig.class,
+                UpdatePlatformDLCConfig.class,
+                DeletePlatformDLCConfig.class,
                 QueryEntitlements.class,
                 GetEntitlement.class,
                 QueryFulfillmentHistories.class,
@@ -76,6 +83,9 @@ import picocli.CommandLine.Command;
                 UpdateGoogleIAPConfig.class,
                 DeleteGoogleIAPConfig.class,
                 UpdateGoogleP12File.class,
+                GetIAPItemConfig.class,
+                UpdateIAPItemConfig.class,
+                DeleteIAPItemConfig.class,
                 GetPlayStationIAPConfig.class,
                 UpdatePlaystationIAPConfig.class,
                 DeletePlaystationIAPConfig.class,
@@ -190,7 +200,9 @@ import picocli.CommandLine.Command;
                 RevokeUserEntitlement.class,
                 FulfillItem.class,
                 RedeemCode.class,
+                FulfillRewards.class,
                 QueryUserIAPOrders.class,
+                QueryAllUserIAPOrders.class,
                 MockFulfillIAPItem.class,
                 QueryUserOrders.class,
                 CountOfPurchasedItem.class,
@@ -295,6 +307,9 @@ import picocli.CommandLine.Command;
                 PublicGetMyEntitlementOwnershipBySku.class,
                 PublicGetEntitlementOwnershipToken.class,
                 PublicGetMyWallet.class,
+                PublicSyncPsnDlcInventory.class,
+                SyncSteamDLC.class,
+                SyncXboxDLC.class,
                 PublicQueryUserEntitlements.class,
                 PublicGetUserAppEntitlementByAppId.class,
                 PublicQueryUserEntitlementsByAppType.class,
