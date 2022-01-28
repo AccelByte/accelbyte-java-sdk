@@ -20,75 +20,147 @@ public class ImageConfig {
     }
 
     public void updateImage(UpdateImage input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public void createImage(CreateImage input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public ModelsImportResponse importImages(ImportImages input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public ModelsListImageResponse listImages(ListImages input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public void deleteImage(DeleteImage input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public List<ModelsImageRecord> exportImages(ExportImages input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public ModelsGetImageLimitResponse getImageLimit(GetImageLimit input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public ModelsGetImageDetailResponse getImageDetail(GetImageDetail input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public ModelsGetImageDetailResponse imageDetailClient(ImageDetailClient input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
 }

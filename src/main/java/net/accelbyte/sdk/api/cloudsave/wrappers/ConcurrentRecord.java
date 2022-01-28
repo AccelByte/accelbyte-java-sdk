@@ -20,19 +20,35 @@ public class ConcurrentRecord {
     }
 
     public void putGameRecordConcurrentHandlerV1(PutGameRecordConcurrentHandlerV1 input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public void putPlayerPublicRecordConcurrentHandlerV1(PutPlayerPublicRecordConcurrentHandlerV1 input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
 }

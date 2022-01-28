@@ -20,35 +20,67 @@ public class Operations {
     }
 
     public void getHealthcheckInfo(GetHealthcheckInfo input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public void handlerV3Healthz(HandlerV3Healthz input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public void versionCheckHandler(VersionCheckHandler input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
 }

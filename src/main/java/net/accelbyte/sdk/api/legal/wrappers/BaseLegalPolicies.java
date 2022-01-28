@@ -20,51 +20,99 @@ public class BaseLegalPolicies {
     }
 
     public List<RetrieveBasePolicyResponse> retrieveAllLegalPolicies(RetrieveAllLegalPolicies input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public CreateBasePolicyResponse createPolicy(CreatePolicy input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public RetrieveBasePolicyResponse retrieveSinglePolicy(RetrieveSinglePolicy input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public UpdateBasePolicyResponse partialUpdatePolicy(PartialUpdatePolicy input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public RetrievePolicyResponse retrievePolicyCountry(RetrievePolicyCountry input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public List<RetrievePolicyTypeResponse> retrieveAllPolicyTypes(RetrieveAllPolicyTypes input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
 }

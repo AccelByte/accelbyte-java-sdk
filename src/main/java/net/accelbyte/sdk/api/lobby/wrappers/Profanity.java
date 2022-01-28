@@ -20,107 +20,211 @@ public class Profanity {
     }
 
     public List<ModelsProfanityFilter> adminDebugProfanityFilters(AdminDebugProfanityFilters input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public ModelsAdminGetProfanityListFiltersV1Response adminGetProfanityListFiltersV1(AdminGetProfanityListFiltersV1 input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public void adminAddProfanityFilterIntoList(AdminAddProfanityFilterIntoList input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public void adminAddProfanityFilters(AdminAddProfanityFilters input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public void adminImportProfanityFiltersFromFile(AdminImportProfanityFiltersFromFile input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public List<ModelsProfanityFilter> adminDeleteProfanityFilter(AdminDeleteProfanityFilter input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public List<ModelsAdminGetProfanityListsListResponse> adminGetProfanityLists(AdminGetProfanityLists input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public void adminCreateProfanityList(AdminCreateProfanityList input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public void adminUpdateProfanityList(AdminUpdateProfanityList input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public void adminDeleteProfanityList(AdminDeleteProfanityList input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public ModelsProfanityRule adminGetProfanityRule(AdminGetProfanityRule input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public void adminSetProfanityRuleForNamespace(AdminSetProfanityRuleForNamespace input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public ModelsAdminVerifyMessageProfanityResponse adminVerifyMessageProfanityResponse(AdminVerifyMessageProfanityResponse input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
 }

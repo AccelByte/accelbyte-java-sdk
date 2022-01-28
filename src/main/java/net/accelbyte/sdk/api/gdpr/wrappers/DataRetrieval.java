@@ -20,107 +20,211 @@ public class DataRetrieval {
     }
 
     public List<String> getAdminEmailConfiguration(GetAdminEmailConfiguration input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public void updateAdminEmailConfiguration(UpdateAdminEmailConfiguration input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public void saveAdminEmailConfiguration(SaveAdminEmailConfiguration input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public void deleteAdminEmailConfiguration(DeleteAdminEmailConfiguration input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public ModelsListPersonalDataResponse adminGetListPersonalDataRequest(AdminGetListPersonalDataRequest input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public ModelsUserPersonalDataResponse adminGetUserPersonalDataRequests(AdminGetUserPersonalDataRequests input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public ModelsDataRetrievalResponse adminRequestDataRetrieval(AdminRequestDataRetrieval input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public void adminCancelUserPersonalDataRequest(AdminCancelUserPersonalDataRequest input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            input
-                .handleEmptyResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public ModelsUserDataURL adminGeneratePersonalDataURL(AdminGeneratePersonalDataURL input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public ModelsUserPersonalDataResponse publicGetUserPersonalDataRequests(PublicGetUserPersonalDataRequests input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public ModelsDataRetrievalResponse publicRequestDataRetrieval(PublicRequestDataRetrieval input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public ModelsListPersonalDataResponse publicCancelUserPersonalDataRequest(PublicCancelUserPersonalDataRequest input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
     public ModelsUserDataURL publicGeneratePersonalDataURL(PublicGeneratePersonalDataURL input) throws ResponseException, IOException {
-        HttpResponse httpResponse = sdk.runRequest(input);
-            return input
-                .parseResponse(
-            httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-            );
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
     }
 
 }
