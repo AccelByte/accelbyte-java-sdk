@@ -20,6 +20,9 @@ pipeline {
   agent {
     label "master"
   }
+  environment {
+    AB_NEXUS = credentials('nexus-accelbyte')
+  }
   stages {
     stage('Prepare') {
       steps {
@@ -32,7 +35,7 @@ pipeline {
     }
     stage('Push') {
       when {
-        expression { 
+        expression {
           return params.ACTION == 'PUSH' || params.ACTION == 'PUSH+RELEASE'
         }
       }
@@ -48,7 +51,7 @@ pipeline {
     }
     stage('Release') {
       when {
-        expression { 
+        expression {
           return params.ACTION == 'PUSH+RELEASE'
         }
       }
@@ -58,15 +61,16 @@ pipeline {
           sshagent(credentials: [githubSsh])
           {
             sh "git push ${githubUrl} ${params.RELEASE_TAG}"
-            
+
           }
           github.createRelease(githubPat, githubOwner, githubRepo, params.RELEASE_TAG)
+          sh "make publish AB_NEXUS_USERNAME=$AB_NEXUS_USR AB_NEXUS_PASSWORD=$AB_NEXUS_PSW"
         }
       }
     }
     stage('Pull') {
       when {
-        expression { 
+        expression {
           return params.ACTION == 'PULL'
         }
       }
@@ -90,10 +94,10 @@ pipeline {
       script {
         message = """
             :no_entry: <${env.BUILD_URL}|${env.JOB_NAME}-${env.BUILD_NUMBER}> *failed*
-            
+
             |*Action*
             |${params.ACTION}
-            
+
             |""".stripMargin()
         slackSend(channel: "#activity-justice-codegen-sdk", color: '#FF0000', message: message)
       }

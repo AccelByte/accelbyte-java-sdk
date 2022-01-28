@@ -17,3 +17,7 @@ samples:
 
 test:
 	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ gradle:jdk17 gradle test
+
+publish:
+	docker run -e AB_NEXUS_USERNAME=${AB_NEXUS_USERNAME} -e AB_NEXUS_PASSWORD=${AB_NEXUS_PASSWORD} -t --rm -u  \
+	$$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ gradle:jdk17 gradle publish
