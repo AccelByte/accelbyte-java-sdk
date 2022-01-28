@@ -7,7 +7,7 @@ import net.accelbyte.sdk.api.group.wrappers.MemberRequest;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.client.OkhttpClient;
-import net.accelbyte.sdk.core.repository.ConfigRepositoryImpl;
+import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import picocli.CommandLine;
@@ -44,7 +44,7 @@ public class GetGroupInvitationRequestPublicV1 implements Runnable {
             new MemberRequest(new AccelByteSDK(
                             new OkhttpClient(),
                             CLITokenRepositoryImpl.getInstance(),
-                            new ConfigRepositoryImpl()
+                            new DefaultConfigRepository()
                     ))
 
             .getGroupInvitationRequestPublicV1(

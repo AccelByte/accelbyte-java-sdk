@@ -9,9 +9,9 @@ import net.accelbyte.sdk.core.ResponseException;
 import net.accelbyte.sdk.core.client.HttpClient;
 import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
-import net.accelbyte.sdk.core.repository.ConfigRepositoryImpl;
+import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import net.accelbyte.sdk.core.repository.TokenRepository;
-import net.accelbyte.sdk.core.repository.TokenRepositoryImpl;
+import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 
 import java.io.IOException;
 
@@ -20,21 +20,21 @@ public class Main {
 
         // custom configuration
         HttpClient httpClient = new OkhttpClient();  // we can use another http implementation
-        TokenRepository tokenRepository = TokenRepositoryImpl.getInstance();  // can be customized
-        ConfigRepository configRepository = new ConfigRepositoryImpl();
+        TokenRepository tokenRepository = DefaultTokenRepository.getInstance();  // can be customized
+        ConfigRepository configRepository = new DefaultConfigRepository();
         AccelByteConfig sdkConfiguration = new AccelByteConfig(httpClient, tokenRepository, configRepository);
         AccelByteSDK customSDK = new AccelByteSDK(sdkConfiguration);
 
         // default configuration
         AccelByteSDK sdk = new AccelByteSDK(
                 new OkhttpClient(),
-                TokenRepositoryImpl.getInstance(),
-                new ConfigRepositoryImpl()
+                DefaultTokenRepository.getInstance(),
+                new DefaultConfigRepository()
         );
 
         // hardcode token here to test
         // (will be implemented this on login inside core SDK class -> something like: sdk.login(username, password))
-        TokenRepositoryImpl.getInstance().storeToken("");
+        DefaultTokenRepository.getInstance().storeToken("");
 
         //define sdk class and input parameter
         UserStatistic userStatistic = new UserStatistic(sdk);

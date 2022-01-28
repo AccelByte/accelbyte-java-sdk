@@ -4,8 +4,8 @@ import net.accelbyte.sdk.api.lobby.ws_models.JoinDefaultChannelRequest;
 import net.accelbyte.sdk.core.AccelByteConfig;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.client.OkhttpClient;
-import net.accelbyte.sdk.core.repository.ConfigRepositoryImpl;
-import net.accelbyte.sdk.core.repository.TokenRepositoryImpl;
+import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
+import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 import net.accelbyte.sdk.core.client.WebSocketClient;
 
 
@@ -14,8 +14,8 @@ public class Main {
 
        AccelByteConfig config = new AccelByteConfig(
                 new OkhttpClient(),
-                TokenRepositoryImpl.getInstance(),
-                new ConfigRepositoryImpl()
+                DefaultTokenRepository.getInstance(),
+                new DefaultConfigRepository()
         );
         AccelByteSDK sdk = new AccelByteSDK(config);
 
@@ -31,8 +31,8 @@ public class Main {
 
         // create websocket object
         WebSocketClient ws = WebSocketClient.create(
-                new ConfigRepositoryImpl(),
-                TokenRepositoryImpl.getInstance(),
+                new DefaultConfigRepository(),
+                DefaultTokenRepository.getInstance(),
                 listener
         );
 

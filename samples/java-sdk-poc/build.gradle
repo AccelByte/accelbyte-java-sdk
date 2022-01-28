@@ -22,7 +22,7 @@ dependencies {
 
     // a dependency on Jackson Databind
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
-    implementation 'net.accelbyte.sdk:sdk:0.2.0'
+    implementation project(':java-sdk-local')
 }
 
 test {

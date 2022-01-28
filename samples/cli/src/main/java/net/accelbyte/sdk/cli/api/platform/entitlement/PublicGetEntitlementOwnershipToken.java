@@ -7,7 +7,7 @@ import net.accelbyte.sdk.api.platform.wrappers.Entitlement;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.client.OkhttpClient;
-import net.accelbyte.sdk.core.repository.ConfigRepositoryImpl;
+import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import picocli.CommandLine;
@@ -47,7 +47,7 @@ public class PublicGetEntitlementOwnershipToken implements Runnable {
             new Entitlement(new AccelByteSDK(
                             new OkhttpClient(),
                             CLITokenRepositoryImpl.getInstance(),
-                            new ConfigRepositoryImpl()
+                            new DefaultConfigRepository()
                     ))
 
             .publicGetEntitlementOwnershipToken(

@@ -7,7 +7,7 @@ import net.accelbyte.sdk.api.group.wrappers.GroupRoles;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.client.OkhttpClient;
-import net.accelbyte.sdk.core.repository.ConfigRepositoryImpl;
+import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import picocli.CommandLine;
@@ -41,7 +41,7 @@ public class GetSingleMemberRoleAdminV1 implements Runnable {
             new GroupRoles(new AccelByteSDK(
                             new OkhttpClient(),
                             CLITokenRepositoryImpl.getInstance(),
-                            new ConfigRepositoryImpl()
+                            new DefaultConfigRepository()
                     ))
 
             .getSingleMemberRoleAdminV1(

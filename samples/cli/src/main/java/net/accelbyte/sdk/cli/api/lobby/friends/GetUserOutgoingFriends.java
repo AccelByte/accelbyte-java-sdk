@@ -7,7 +7,7 @@ import net.accelbyte.sdk.api.lobby.wrappers.Friends;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.client.OkhttpClient;
-import net.accelbyte.sdk.core.repository.ConfigRepositoryImpl;
+import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import picocli.CommandLine;
@@ -38,7 +38,7 @@ public class GetUserOutgoingFriends implements Runnable {
             new Friends(new AccelByteSDK(
                             new OkhttpClient(),
                             CLITokenRepositoryImpl.getInstance(),
-                            new ConfigRepositoryImpl()
+                            new DefaultConfigRepository()
                     ))
 
             .getUserOutgoingFriends(

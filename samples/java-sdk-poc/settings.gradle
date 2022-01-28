@@ -1,2 +1,4 @@
 rootProject.name = 'java-sdk-poc'
+include ':java-sdk-local'
+project(':java-sdk-local').projectDir = file('../../')
 

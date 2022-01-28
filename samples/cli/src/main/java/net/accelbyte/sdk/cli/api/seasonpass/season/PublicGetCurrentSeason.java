@@ -7,7 +7,7 @@ import net.accelbyte.sdk.api.seasonpass.wrappers.Season;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.client.OkhttpClient;
-import net.accelbyte.sdk.core.repository.ConfigRepositoryImpl;
+import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import picocli.CommandLine;
@@ -41,7 +41,7 @@ public class PublicGetCurrentSeason implements Runnable {
             new Season(new AccelByteSDK(
                             new OkhttpClient(),
                             CLITokenRepositoryImpl.getInstance(),
-                            new ConfigRepositoryImpl()
+                            new DefaultConfigRepository()
                     ))
 
             .publicGetCurrentSeason(

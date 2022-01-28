@@ -1,2 +1,4 @@
 rootProject.name = 'websocket-poc'
+include ':java-sdk-local'
+project(':java-sdk-local').projectDir = file('../../')
 

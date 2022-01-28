@@ -16,6 +16,7 @@ dependencies {
     implementation sharedDependencies.okhttp
     implementation sharedDependencies.apacheHttpClient
     implementation sharedDependencies.jackson.databind
+    implementation project(':java-sdk-local')
 }
 
 test {
