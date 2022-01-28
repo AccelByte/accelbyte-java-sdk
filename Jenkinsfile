@@ -62,6 +62,7 @@ pipeline {
     stage('Build') {
       steps {
         sh "make build"
+        sh "make samples"
       }
     }
     stage('Test') {
