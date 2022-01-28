@@ -3,20 +3,15 @@ package net.accelbyte.sdk.core.repository;
 public class DefaultTokenRepository implements TokenRepository {
     private String token = "";
 
-    private static DefaultTokenRepository instance = null;
-
     private DefaultTokenRepository() {
     }
 
+    private static final class InstanceHolder {
+        static final DefaultTokenRepository instance = new DefaultTokenRepository();
+    }
+
     public static DefaultTokenRepository getInstance() {
-        if (instance == null) {
-            synchronized (DefaultTokenRepository.class) {
-                if (instance == null) {
-                    instance = new DefaultTokenRepository();
-                }
-            }
-        }
-        return instance;
+        return InstanceHolder.instance;
     }
 
     @Override
