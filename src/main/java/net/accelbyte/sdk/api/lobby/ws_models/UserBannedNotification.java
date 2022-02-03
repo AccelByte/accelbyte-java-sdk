@@ -26,7 +26,6 @@ public class UserBannedNotification {
 
     public static UserBannedNotification createFromWSM(String message) {
         UserBannedNotification result = new UserBannedNotification();
-        Map<String, String> response = parseWSM(message);
         return result;
     }
 

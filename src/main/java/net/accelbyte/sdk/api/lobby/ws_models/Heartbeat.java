@@ -26,7 +26,6 @@ public class Heartbeat {
 
     public static Heartbeat createFromWSM(String message) {
         Heartbeat result = new Heartbeat();
-        Map<String, String> response = parseWSM(message);
         return result;
     }
 
