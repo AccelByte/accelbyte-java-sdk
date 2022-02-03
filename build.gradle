@@ -26,6 +26,7 @@ dependencies {
     implementation sharedDependencies.jackson.databind
     testImplementation sharedDependencies.junitApi
     testRuntimeOnly sharedDependencies.junitEngine
+    implementation sharedDependencies.apacheCommonIO
 }
 
 test {

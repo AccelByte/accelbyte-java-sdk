@@ -73,9 +73,9 @@ public class ImportImages extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getFormDataParams(){
-        Map<String, String> formDataParams = new HashMap<>();
-        formDataParams.put("file", this.file == null ? null : String.valueOf(this.file));
+    public Map<String, Object> getFormDataParams(){
+        Map<String, Object> formDataParams = new HashMap<>();
+        formDataParams.put("file", this.file);
         return formDataParams;
     }
 

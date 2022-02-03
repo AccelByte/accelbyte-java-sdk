@@ -94,8 +94,8 @@ public class TokenGrant extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getFormDataParams(){
-        Map<String, String> formDataParams = new HashMap<>();
+    public Map<String, Object> getFormDataParams(){
+        Map<String, Object> formDataParams = new HashMap<>();
         formDataParams.put("code", this.code);
         formDataParams.put("extend_exp", this.extendExp == null ? null : String.valueOf(this.extendExp));
         formDataParams.put("namespace", this.namespace);

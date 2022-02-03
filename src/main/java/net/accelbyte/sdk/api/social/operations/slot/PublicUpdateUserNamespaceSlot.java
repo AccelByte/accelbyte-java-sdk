@@ -119,11 +119,11 @@ public class PublicUpdateUserNamespaceSlot extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getFormDataParams(){
-        Map<String, String> formDataParams = new HashMap<>();
+    public Map<String, Object> getFormDataParams(){
+        Map<String, Object> formDataParams = new HashMap<>();
         formDataParams.put("checksum", this.checksum);
         formDataParams.put("customAttribute", this.customAttribute);
-        formDataParams.put("file", this.file == null ? null : String.valueOf(this.file));
+        formDataParams.put("file", this.file);
         return formDataParams;
     }
 

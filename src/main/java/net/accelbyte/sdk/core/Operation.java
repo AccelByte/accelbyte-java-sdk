@@ -164,7 +164,7 @@ public class Operation {
     }
 
     @JsonIgnore
-    public Map<String, String> getFormDataParams() {
+    public Map<String, Object> getFormDataParams() {
         return null;
     }
 

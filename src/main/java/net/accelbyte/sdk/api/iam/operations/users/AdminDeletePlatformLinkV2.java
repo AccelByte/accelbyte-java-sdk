@@ -98,8 +98,8 @@ public class AdminDeletePlatformLinkV2 extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getFormDataParams(){
-        Map<String, String> formDataParams = new HashMap<>();
+    public Map<String, Object> getFormDataParams(){
+        Map<String, Object> formDataParams = new HashMap<>();
         formDataParams.put("platform_namespace", this.platformNamespace);
         return formDataParams;
     }

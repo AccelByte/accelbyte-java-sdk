@@ -72,8 +72,8 @@ public class RevokeAUser extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getFormDataParams(){
-        Map<String, String> formDataParams = new HashMap<>();
+    public Map<String, Object> getFormDataParams(){
+        Map<String, Object> formDataParams = new HashMap<>();
         formDataParams.put("userID", this.userID);
         return formDataParams;
     }

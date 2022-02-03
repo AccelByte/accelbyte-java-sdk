@@ -4,7 +4,8 @@ ext {
             okhttp          : "4.9.1",
             jackson         : "2.13.0",
             apacheHttpClient: "4.5.13",
-            junit           : "5.8.1"
+            junit           : "5.8.1",
+            apacheCommonIO  : "2.11.0"
     ]
     sharedDependencies = [
             lombok          : "org.projectlombok:lombok:${dependencyVersions.lombok}",
@@ -15,5 +16,6 @@ ext {
             apacheHttpClient: "org.apache.httpcomponents:httpclient:${dependencyVersions.apacheHttpClient}",
             junitApi        : "org.junit.jupiter:junit-jupiter-api:${dependencyVersions.junit}",
             junitEngine     : "org.junit.jupiter:junit-jupiter-engine:${dependencyVersions.junit}",
+            apacheCommonIO  : "commons-io:commons-io:${dependencyVersions.apacheCommonIO}"
     ]
 }

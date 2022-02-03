@@ -91,8 +91,8 @@ public class PlatformTokenGrantV3 extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getFormDataParams(){
-        Map<String, String> formDataParams = new HashMap<>();
+    public Map<String, Object> getFormDataParams(){
+        Map<String, Object> formDataParams = new HashMap<>();
         formDataParams.put("client_id", this.clientId);
         formDataParams.put("device_id", this.deviceId);
         formDataParams.put("platform_token", this.platformToken);

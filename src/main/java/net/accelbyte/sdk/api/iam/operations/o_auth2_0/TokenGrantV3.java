@@ -88,8 +88,8 @@ public class TokenGrantV3 extends Operation {
 
     @Override
     @JsonIgnore
-    public Map<String, String> getFormDataParams(){
-        Map<String, String> formDataParams = new HashMap<>();
+    public Map<String, Object> getFormDataParams(){
+        Map<String, Object> formDataParams = new HashMap<>();
         formDataParams.put("client_id", this.clientId);
         formDataParams.put("code", this.code);
         formDataParams.put("code_verifier", this.codeVerifier);
