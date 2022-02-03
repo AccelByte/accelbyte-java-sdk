@@ -17,33 +17,27 @@ public class WebSocketClient {
 
     private WebSocket webSocket;
 
-    protected WebSocketClient() {
+    private WebSocketClient() {
 
     }
 
     public static WebSocketClient create(ConfigRepository configRepository, TokenRepository tokenRepository, WebSocketListener listener) {
         if (instance == null) {
-            synchronized (WebSocketClient.class) {
-                if (instance == null) {
-                    final WebSocketClient webSocketClient = new WebSocketClient();
-                    String host;
-                    try {
-                        host = Helper.getHost(configRepository.getBaseURL());
-                        OkHttpClient client = new OkHttpClient.Builder()
-                                .readTimeout(0, TimeUnit.SECONDS)
-                                .build();
-                        Request request = new Request.Builder()
-                                .url(String.format("wss://%s/lobby/", host))
-                                .addHeader("Authorization", String.format("Bearer %s", tokenRepository.getToken()))
-                                .build();
-                        webSocketClient.webSocket = client.newWebSocket(request, listener);
-                        client.dispatcher().executorService().shutdown();
-                        instance = webSocketClient;
-                    } catch (URISyntaxException e) {
-                        e.printStackTrace();
-                    }
-                }
-                return instance;
+            try {
+                WebSocketClient webSocketClient = new WebSocketClient();
+                String host = Helper.getHost(configRepository.getBaseURL());
+                OkHttpClient client = new OkHttpClient.Builder()
+                        .readTimeout(0, TimeUnit.SECONDS)
+                        .build();
+                Request request = new Request.Builder()
+                        .url(String.format("wss://%s/lobby/", host))
+                        .addHeader("Authorization", String.format("Bearer %s", tokenRepository.getToken()))
+                        .build();
+                webSocketClient.webSocket = client.newWebSocket(request, listener);
+                client.dispatcher().executorService().shutdown();
+                instance = webSocketClient;
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
             }
         }
         return instance;
