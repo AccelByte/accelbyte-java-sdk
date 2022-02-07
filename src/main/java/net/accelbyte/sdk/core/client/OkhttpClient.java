@@ -6,11 +6,9 @@ import net.accelbyte.sdk.core.Header;
 import net.accelbyte.sdk.core.HttpResponse;
 import net.accelbyte.sdk.core.Operation;
 import okhttp3.*;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
 import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -44,8 +42,8 @@ public class OkhttpClient implements HttpClient {
             throw new IllegalArgumentException("Header cannot be null");
         }
 
-        String contentType = "";
-        if (operation.getConsumes().get(0) != null && !operation.getConsumes().isEmpty()) {
+        String contentType = "application/json";
+        if (!operation.getConsumes().isEmpty()) {
             header.addHeaderData("Content-Type", operation.getConsumes().get(0));
             contentType = operation.getConsumes().get(0);
         }
