@@ -8,12 +8,14 @@ import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
+import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.*;
 
@@ -64,13 +66,20 @@ public class TokenGrant implements Runnable {
 
             .tokenGrant(
                 new net.accelbyte.sdk.api.iam.operations.o_auth.TokenGrant(
-                    code,
-                    extendExp,
-                    namespace,
-                    password,
-                    redirectUri,
-                    refreshToken,
-                    username,
+                    code
+                    ,
+                    extendExp
+                    ,
+                    namespace
+                    ,
+                    password
+                    ,
+                    redirectUri
+                    ,
+                    refreshToken
+                    ,
+                    username
+                    ,
                     grantType
                 )
             );

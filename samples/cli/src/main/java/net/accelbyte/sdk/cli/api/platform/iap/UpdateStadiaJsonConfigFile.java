@@ -8,12 +8,14 @@ import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
+import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.*;
 
@@ -26,7 +28,7 @@ public class UpdateStadiaJsonConfigFile implements Runnable {
     String namespace;
 
     @Option(names = {"--file"}, description = "file")
-    InputStream file;
+    File file;
 
 
     public static void main(String[] args) {
@@ -47,7 +49,7 @@ public class UpdateStadiaJsonConfigFile implements Runnable {
             .updateStadiaJsonConfigFile(
                 new net.accelbyte.sdk.api.platform.operations.iap.UpdateStadiaJsonConfigFile(
                     namespace,
-                    file
+                    FileUtils.openInputStream(file)
                 )
             );
             log.info("Operation successful");

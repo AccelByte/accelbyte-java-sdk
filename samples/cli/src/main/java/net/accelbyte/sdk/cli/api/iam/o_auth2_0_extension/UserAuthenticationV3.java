@@ -8,12 +8,14 @@ import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
+import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.*;
 
@@ -57,11 +59,16 @@ public class UserAuthenticationV3 implements Runnable {
 
             .userAuthenticationV3(
                 new net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.UserAuthenticationV3(
-                    clientId,
-                    extendExp,
-                    redirectUri,
-                    password,
-                    requestId,
+                    clientId
+                    ,
+                    extendExp
+                    ,
+                    redirectUri
+                    ,
+                    password
+                    ,
+                    requestId
+                    ,
                     userName
                 )
             );
