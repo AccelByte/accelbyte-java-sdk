@@ -45,7 +45,7 @@ public class VerifyToken implements Runnable {
 
             .verifyToken(
                 new net.accelbyte.sdk.api.iam.operations.o_auth.VerifyToken(
-                    token
+                    token != null ? token : null
                 )
             );
             log.info("Operation successful");

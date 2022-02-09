@@ -53,7 +53,7 @@ public class ImportStore implements Runnable {
                 new net.accelbyte.sdk.api.platform.operations.store.ImportStore(
                     namespace,
                     storeId,
-                    FileUtils.openInputStream(file)
+                    file != null ? FileUtils.openInputStream(file) : null
                 )
             );
             log.info("Operation successful");

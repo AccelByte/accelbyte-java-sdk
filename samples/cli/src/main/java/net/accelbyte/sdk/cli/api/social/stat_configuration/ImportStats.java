@@ -53,7 +53,7 @@ public class ImportStats implements Runnable {
                 new net.accelbyte.sdk.api.social.operations.stat_configuration.ImportStats(
                     namespace,
                     replaceExisting,
-                    FileUtils.openInputStream(file)
+                    file != null ? FileUtils.openInputStream(file) : null
                 )
             );
             log.info("Operation successful");

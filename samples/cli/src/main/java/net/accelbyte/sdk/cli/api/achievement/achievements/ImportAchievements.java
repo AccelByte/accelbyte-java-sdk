@@ -52,9 +52,9 @@ public class ImportAchievements implements Runnable {
             .importAchievements(
                 new net.accelbyte.sdk.api.achievement.operations.achievements.ImportAchievements(
                     namespace,
-                    FileUtils.openInputStream(file)
+                    file != null ? FileUtils.openInputStream(file) : null
                     ,
-                    strategy
+                    strategy != null ? strategy : null
                 )
             );
             log.info("Operation successful");

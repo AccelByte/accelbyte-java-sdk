@@ -59,17 +59,17 @@ public class UserAuthenticationV3 implements Runnable {
 
             .userAuthenticationV3(
                 new net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.UserAuthenticationV3(
-                    clientId
+                    clientId != null ? clientId : null
                     ,
-                    extendExp
+                    extendExp != null ? extendExp : null
                     ,
-                    redirectUri
+                    redirectUri != null ? redirectUri : null
                     ,
-                    password
+                    password != null ? password : null
                     ,
-                    requestId
+                    requestId != null ? requestId : null
                     ,
-                    userName
+                    userName != null ? userName : null
                 )
             );
             log.info("Operation successful");

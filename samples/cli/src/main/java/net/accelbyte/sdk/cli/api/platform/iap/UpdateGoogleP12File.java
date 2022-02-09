@@ -49,7 +49,7 @@ public class UpdateGoogleP12File implements Runnable {
             .updateGoogleP12File(
                 new net.accelbyte.sdk.api.platform.operations.iap.UpdateGoogleP12File(
                     namespace,
-                    FileUtils.openInputStream(file)
+                    file != null ? FileUtils.openInputStream(file) : null
                 )
             );
             log.info("Operation successful");

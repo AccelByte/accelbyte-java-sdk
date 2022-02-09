@@ -53,7 +53,7 @@ public class PublicSubmitUserAccountDeletionRequest implements Runnable {
                 new net.accelbyte.sdk.api.gdpr.operations.data_deletion.PublicSubmitUserAccountDeletionRequest(
                     namespace,
                     userId,
-                    password
+                    password != null ? password : null
                 )
             );
             log.info("Operation successful");

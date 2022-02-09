@@ -56,7 +56,7 @@ public class AdminDeletePlatformLinkV2 implements Runnable {
                     namespace,
                     platformId,
                     userId,
-                    platformNamespace
+                    platformNamespace != null ? platformNamespace : null
                 )
             );
             log.info("Operation successful");

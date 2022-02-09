@@ -52,9 +52,9 @@ public class ImportChannels implements Runnable {
             .importChannels(
                 new net.accelbyte.sdk.api.matchmaking.operations.matchmaking.ImportChannels(
                     namespace,
-                    FileUtils.openInputStream(file)
+                    file != null ? FileUtils.openInputStream(file) : null
                     ,
-                    strategy
+                    strategy != null ? strategy : null
                 )
             );
             log.info("Operation successful");

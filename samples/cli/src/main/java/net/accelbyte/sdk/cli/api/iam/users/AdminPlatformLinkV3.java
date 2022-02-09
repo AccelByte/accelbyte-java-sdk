@@ -56,7 +56,7 @@ public class AdminPlatformLinkV3 implements Runnable {
                     namespace,
                     platformId,
                     userId,
-                    ticket
+                    ticket != null ? ticket : null
                 )
             );
             log.info("Operation successful");

@@ -53,7 +53,7 @@ public class PublicRequestDataRetrieval implements Runnable {
                 new net.accelbyte.sdk.api.gdpr.operations.data_retrieval.PublicRequestDataRetrieval(
                     namespace,
                     userId,
-                    password
+                    password != null ? password : null
                 )
             );
             log.info("Operation successful");

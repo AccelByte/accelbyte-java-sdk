@@ -52,7 +52,7 @@ public class PublicValidateUserByUserIDAndPasswordV3 implements Runnable {
                 new net.accelbyte.sdk.api.iam.operations.users.PublicValidateUserByUserIDAndPasswordV3(
                     namespace,
                     userId,
-                    password
+                    password != null ? password : null
                 )
             );
             log.info("Operation successful");

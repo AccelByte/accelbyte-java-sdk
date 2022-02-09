@@ -44,7 +44,7 @@ public class RevokeToken implements Runnable {
 
             .revokeToken(
                 new net.accelbyte.sdk.api.iam.operations.o_auth.RevokeToken(
-                    token
+                    token != null ? token : null
                 )
             );
             log.info("Operation successful");

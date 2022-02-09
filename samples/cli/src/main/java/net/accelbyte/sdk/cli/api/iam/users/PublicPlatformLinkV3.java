@@ -55,9 +55,9 @@ public class PublicPlatformLinkV3 implements Runnable {
                 new net.accelbyte.sdk.api.iam.operations.users.PublicPlatformLinkV3(
                     namespace,
                     platformId,
-                    redirectUri
+                    redirectUri != null ? redirectUri : null
                     ,
-                    ticket
+                    ticket != null ? ticket : null
                 )
             );
             log.info("Operation successful");

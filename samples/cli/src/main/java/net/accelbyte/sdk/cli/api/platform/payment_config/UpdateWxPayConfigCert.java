@@ -49,7 +49,7 @@ public class UpdateWxPayConfigCert implements Runnable {
             .updateWxPayConfigCert(
                 new net.accelbyte.sdk.api.platform.operations.payment_config.UpdateWxPayConfigCert(
                     id,
-                    FileUtils.openInputStream(file)
+                    file != null ? FileUtils.openInputStream(file) : null
                 )
             );
             log.info("Operation successful");

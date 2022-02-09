@@ -53,7 +53,7 @@ public class UploadKeys implements Runnable {
                 new net.accelbyte.sdk.api.platform.operations.key_group.UploadKeys(
                     keyGroupId,
                     namespace,
-                    FileUtils.openInputStream(file)
+                    file != null ? FileUtils.openInputStream(file) : null
                 )
             );
             log.info("Operation successful");

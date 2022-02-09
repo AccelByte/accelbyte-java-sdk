@@ -60,17 +60,17 @@ public class TokenGrantV3 implements Runnable {
 
             .tokenGrantV3(
                 new net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenGrantV3(
-                    clientId
+                    clientId != null ? clientId : null
                     ,
-                    code
+                    code != null ? code : null
                     ,
-                    codeVerifier
+                    codeVerifier != null ? codeVerifier : null
                     ,
-                    redirectUri
+                    redirectUri != null ? redirectUri : null
                     ,
-                    refreshToken
+                    refreshToken != null ? refreshToken : null
                     ,
-                    grantType
+                    grantType != null ? grantType : null
                 )
             );
             log.info("Operation successful");

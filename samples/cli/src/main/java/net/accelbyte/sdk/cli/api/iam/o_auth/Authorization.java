@@ -62,19 +62,19 @@ public class Authorization implements Runnable {
 
             .authorization(
                 new net.accelbyte.sdk.api.iam.operations.o_auth.Authorization(
-                    login
+                    login != null ? login : null
                     ,
-                    password
+                    password != null ? password : null
                     ,
-                    scope
+                    scope != null ? scope : null
                     ,
-                    state
+                    state != null ? state : null
                     ,
-                    clientId
+                    clientId != null ? clientId : null
                     ,
-                    redirectUri
+                    redirectUri != null ? redirectUri : null
                     ,
-                    responseType
+                    responseType != null ? responseType : null
                 )
             );
             log.info("Operation successful");

@@ -49,7 +49,7 @@ public class UpdateStadiaJsonConfigFile implements Runnable {
             .updateStadiaJsonConfigFile(
                 new net.accelbyte.sdk.api.platform.operations.iap.UpdateStadiaJsonConfigFile(
                     namespace,
-                    FileUtils.openInputStream(file)
+                    file != null ? FileUtils.openInputStream(file) : null
                 )
             );
             log.info("Operation successful");

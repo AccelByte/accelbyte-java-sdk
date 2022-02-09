@@ -56,9 +56,9 @@ public class PlatformTokenRequestHandler implements Runnable {
                 new net.accelbyte.sdk.api.iam.operations.o_auth.PlatformTokenRequestHandler(
                     namespace,
                     platformId,
-                    deviceId
+                    deviceId != null ? deviceId : null
                     ,
-                    platformToken
+                    platformToken != null ? platformToken : null
                 )
             );
             log.info("Operation successful");

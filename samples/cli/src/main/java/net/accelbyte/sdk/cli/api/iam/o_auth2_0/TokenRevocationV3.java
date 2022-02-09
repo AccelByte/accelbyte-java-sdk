@@ -44,7 +44,7 @@ public class TokenRevocationV3 implements Runnable {
 
             .tokenRevocationV3(
                 new net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenRevocationV3(
-                    token
+                    token != null ? token : null
                 )
             );
             log.info("Operation successful");

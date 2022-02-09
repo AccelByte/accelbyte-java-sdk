@@ -53,7 +53,7 @@ public class AdminRequestDataRetrieval implements Runnable {
                 new net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminRequestDataRetrieval(
                     namespace,
                     userId,
-                    password
+                    password != null ? password : null
                 )
             );
             log.info("Operation successful");

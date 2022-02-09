@@ -52,9 +52,9 @@ public class UpdateXblBPCertFile implements Runnable {
             .updateXblBPCertFile(
                 new net.accelbyte.sdk.api.platform.operations.iap.UpdateXblBPCertFile(
                     namespace,
-                    FileUtils.openInputStream(file)
+                    file != null ? FileUtils.openInputStream(file) : null
                     ,
-                    password
+                    password != null ? password : null
                 )
             );
             log.info("Operation successful");

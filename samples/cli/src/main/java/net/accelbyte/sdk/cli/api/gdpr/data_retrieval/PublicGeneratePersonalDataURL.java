@@ -57,7 +57,7 @@ public class PublicGeneratePersonalDataURL implements Runnable {
                     namespace,
                     requestDate,
                     userId,
-                    password
+                    password != null ? password : null
                 )
             );
             log.info("Operation successful");

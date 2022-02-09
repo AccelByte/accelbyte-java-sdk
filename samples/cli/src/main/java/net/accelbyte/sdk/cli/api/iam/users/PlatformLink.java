@@ -56,7 +56,7 @@ public class PlatformLink implements Runnable {
                     namespace,
                     platformId,
                     userId,
-                    ticket
+                    ticket != null ? ticket : null
                 )
             );
             log.info("Operation successful");

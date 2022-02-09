@@ -66,21 +66,21 @@ public class TokenGrant implements Runnable {
 
             .tokenGrant(
                 new net.accelbyte.sdk.api.iam.operations.o_auth.TokenGrant(
-                    code
+                    code != null ? code : null
                     ,
-                    extendExp
+                    extendExp != null ? extendExp : null
                     ,
-                    namespace
+                    namespace != null ? namespace : null
                     ,
-                    password
+                    password != null ? password : null
                     ,
-                    redirectUri
+                    redirectUri != null ? redirectUri : null
                     ,
-                    refreshToken
+                    refreshToken != null ? refreshToken : null
                     ,
-                    username
+                    username != null ? username : null
                     ,
-                    grantType
+                    grantType != null ? grantType : null
                 )
             );
             log.info("Operation successful");

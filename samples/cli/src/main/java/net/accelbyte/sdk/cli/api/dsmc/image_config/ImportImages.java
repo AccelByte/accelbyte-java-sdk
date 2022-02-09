@@ -45,7 +45,7 @@ public class ImportImages implements Runnable {
 
             .importImages(
                 new net.accelbyte.sdk.api.dsmc.operations.image_config.ImportImages(
-                    FileUtils.openInputStream(file)
+                    file != null ? FileUtils.openInputStream(file) : null
                 )
             );
             log.info("Operation successful");

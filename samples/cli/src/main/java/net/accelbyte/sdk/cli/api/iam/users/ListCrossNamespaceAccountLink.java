@@ -55,9 +55,9 @@ public class ListCrossNamespaceAccountLink implements Runnable {
                 new net.accelbyte.sdk.api.iam.operations.users.ListCrossNamespaceAccountLink(
                     namespace,
                     userId,
-                    platformId
+                    platformId != null ? platformId : null
                     ,
-                    linkingToken
+                    linkingToken != null ? linkingToken : null
                 )
             );
             log.info("Operation successful");

@@ -49,7 +49,7 @@ public class ImportConfigV1 implements Runnable {
             .importConfigV1(
                 new net.accelbyte.sdk.api.dsmc.operations.config.ImportConfigV1(
                     namespace,
-                    FileUtils.openInputStream(file)
+                    file != null ? FileUtils.openInputStream(file) : null
                 )
             );
             log.info("Operation successful");

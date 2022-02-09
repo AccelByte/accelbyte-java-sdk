@@ -44,7 +44,7 @@ public class RevokeAUser implements Runnable {
 
             .revokeAUser(
                 new net.accelbyte.sdk.api.iam.operations.o_auth.RevokeAUser(
-                    userID
+                    userID != null ? userID : null
                 )
             );
             log.info("Operation successful");

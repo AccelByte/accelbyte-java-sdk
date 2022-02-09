@@ -71,11 +71,11 @@ public class PublicUpdateUserNamespaceSlot implements Runnable {
                     userId,
                     label,
                     tags,
-                    checksum
+                    checksum != null ? checksum : null
                     ,
-                    customAttribute
+                    customAttribute != null ? customAttribute : null
                     ,
-                    FileUtils.openInputStream(file)
+                    file != null ? FileUtils.openInputStream(file) : null
                 )
             );
             log.info("Operation successful");

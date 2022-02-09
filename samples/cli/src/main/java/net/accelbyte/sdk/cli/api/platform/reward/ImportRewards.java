@@ -52,7 +52,7 @@ public class ImportRewards implements Runnable {
                 new net.accelbyte.sdk.api.platform.operations.reward.ImportRewards(
                     namespace,
                     replaceExisting,
-                    FileUtils.openInputStream(file)
+                    file != null ? FileUtils.openInputStream(file) : null
                 )
             );
             log.info("Operation successful");
