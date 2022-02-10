@@ -101,7 +101,9 @@ public class AdminPlatformLinkV3 extends Operation {
     @JsonIgnore
     public Map<String, Object> getFormDataParams(){
         Map<String, Object> formDataParams = new HashMap<>();
-        formDataParams.put("ticket", this.ticket);
+        if (this.ticket != null) {
+            formDataParams.put("ticket", this.ticket);
+        }
         return formDataParams;
     }
 

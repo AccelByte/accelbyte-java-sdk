@@ -90,8 +90,12 @@ public class ImportAchievements extends Operation {
     @JsonIgnore
     public Map<String, Object> getFormDataParams(){
         Map<String, Object> formDataParams = new HashMap<>();
-        formDataParams.put("file", this.file);
-        formDataParams.put("strategy", this.strategy);
+        if (this.file != null) {
+            formDataParams.put("file", this.file);
+        }
+        if (this.strategy != null) {
+            formDataParams.put("strategy", this.strategy);
+        }
         return formDataParams;
     }
 

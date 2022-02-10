@@ -100,7 +100,9 @@ public class PublicDeletePlatformLinkV2 extends Operation {
     @JsonIgnore
     public Map<String, Object> getFormDataParams(){
         Map<String, Object> formDataParams = new HashMap<>();
-        formDataParams.put("platform_namespace", this.platformNamespace);
+        if (this.platformNamespace != null) {
+            formDataParams.put("platform_namespace", this.platformNamespace);
+        }
         return formDataParams;
     }
 

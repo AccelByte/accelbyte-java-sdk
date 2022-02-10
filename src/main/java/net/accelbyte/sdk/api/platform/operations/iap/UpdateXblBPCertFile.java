@@ -90,8 +90,12 @@ public class UpdateXblBPCertFile extends Operation {
     @JsonIgnore
     public Map<String, Object> getFormDataParams(){
         Map<String, Object> formDataParams = new HashMap<>();
-        formDataParams.put("file", this.file);
-        formDataParams.put("password", this.password);
+        if (this.file != null) {
+            formDataParams.put("file", this.file);
+        }
+        if (this.password != null) {
+            formDataParams.put("password", this.password);
+        }
         return formDataParams;
     }
 

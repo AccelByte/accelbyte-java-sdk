@@ -74,7 +74,9 @@ public class TokenRevocationV3 extends Operation {
     @JsonIgnore
     public Map<String, Object> getFormDataParams(){
         Map<String, Object> formDataParams = new HashMap<>();
-        formDataParams.put("token", this.token);
+        if (this.token != null) {
+            formDataParams.put("token", this.token);
+        }
         return formDataParams;
     }
 

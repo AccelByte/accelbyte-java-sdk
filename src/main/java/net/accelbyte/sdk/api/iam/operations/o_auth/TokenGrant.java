@@ -96,14 +96,30 @@ public class TokenGrant extends Operation {
     @JsonIgnore
     public Map<String, Object> getFormDataParams(){
         Map<String, Object> formDataParams = new HashMap<>();
-        formDataParams.put("code", this.code);
-        formDataParams.put("extend_exp", this.extendExp == null ? null : String.valueOf(this.extendExp));
-        formDataParams.put("namespace", this.namespace);
-        formDataParams.put("password", this.password);
-        formDataParams.put("redirect_uri", this.redirectUri);
-        formDataParams.put("refresh_token", this.refreshToken);
-        formDataParams.put("username", this.username);
-        formDataParams.put("grant_type", this.grantType);
+        if (this.code != null) {
+            formDataParams.put("code", this.code);
+        }
+        if (this.extendExp != null) {
+            formDataParams.put("extend_exp", this.extendExp == null ? null : String.valueOf(this.extendExp));
+        }
+        if (this.namespace != null) {
+            formDataParams.put("namespace", this.namespace);
+        }
+        if (this.password != null) {
+            formDataParams.put("password", this.password);
+        }
+        if (this.redirectUri != null) {
+            formDataParams.put("redirect_uri", this.redirectUri);
+        }
+        if (this.refreshToken != null) {
+            formDataParams.put("refresh_token", this.refreshToken);
+        }
+        if (this.username != null) {
+            formDataParams.put("username", this.username);
+        }
+        if (this.grantType != null) {
+            formDataParams.put("grant_type", this.grantType);
+        }
         return formDataParams;
     }
 

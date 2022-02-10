@@ -97,8 +97,12 @@ public class PlatformTokenRequestHandler extends Operation {
     @JsonIgnore
     public Map<String, Object> getFormDataParams(){
         Map<String, Object> formDataParams = new HashMap<>();
-        formDataParams.put("device_id", this.deviceId);
-        formDataParams.put("platform_token", this.platformToken);
+        if (this.deviceId != null) {
+            formDataParams.put("device_id", this.deviceId);
+        }
+        if (this.platformToken != null) {
+            formDataParams.put("platform_token", this.platformToken);
+        }
         return formDataParams;
     }
 

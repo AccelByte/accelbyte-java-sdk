@@ -90,12 +90,24 @@ public class TokenGrantV3 extends Operation {
     @JsonIgnore
     public Map<String, Object> getFormDataParams(){
         Map<String, Object> formDataParams = new HashMap<>();
-        formDataParams.put("client_id", this.clientId);
-        formDataParams.put("code", this.code);
-        formDataParams.put("code_verifier", this.codeVerifier);
-        formDataParams.put("redirect_uri", this.redirectUri);
-        formDataParams.put("refresh_token", this.refreshToken);
-        formDataParams.put("grant_type", this.grantType);
+        if (this.clientId != null) {
+            formDataParams.put("client_id", this.clientId);
+        }
+        if (this.code != null) {
+            formDataParams.put("code", this.code);
+        }
+        if (this.codeVerifier != null) {
+            formDataParams.put("code_verifier", this.codeVerifier);
+        }
+        if (this.redirectUri != null) {
+            formDataParams.put("redirect_uri", this.redirectUri);
+        }
+        if (this.refreshToken != null) {
+            formDataParams.put("refresh_token", this.refreshToken);
+        }
+        if (this.grantType != null) {
+            formDataParams.put("grant_type", this.grantType);
+        }
         return formDataParams;
     }
 

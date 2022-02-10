@@ -97,8 +97,12 @@ public class ListCrossNamespaceAccountLink extends Operation {
     @JsonIgnore
     public Map<String, Object> getFormDataParams(){
         Map<String, Object> formDataParams = new HashMap<>();
-        formDataParams.put("platformId", this.platformId);
-        formDataParams.put("linkingToken", this.linkingToken);
+        if (this.platformId != null) {
+            formDataParams.put("platformId", this.platformId);
+        }
+        if (this.linkingToken != null) {
+            formDataParams.put("linkingToken", this.linkingToken);
+        }
         return formDataParams;
     }
 

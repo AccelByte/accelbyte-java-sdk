@@ -94,13 +94,27 @@ public class Authorization extends Operation {
     @JsonIgnore
     public Map<String, Object> getFormDataParams(){
         Map<String, Object> formDataParams = new HashMap<>();
-        formDataParams.put("login", this.login);
-        formDataParams.put("password", this.password);
-        formDataParams.put("scope", this.scope);
-        formDataParams.put("state", this.state);
-        formDataParams.put("client_id", this.clientId);
-        formDataParams.put("redirect_uri", this.redirectUri);
-        formDataParams.put("response_type", this.responseType);
+        if (this.login != null) {
+            formDataParams.put("login", this.login);
+        }
+        if (this.password != null) {
+            formDataParams.put("password", this.password);
+        }
+        if (this.scope != null) {
+            formDataParams.put("scope", this.scope);
+        }
+        if (this.state != null) {
+            formDataParams.put("state", this.state);
+        }
+        if (this.clientId != null) {
+            formDataParams.put("client_id", this.clientId);
+        }
+        if (this.redirectUri != null) {
+            formDataParams.put("redirect_uri", this.redirectUri);
+        }
+        if (this.responseType != null) {
+            formDataParams.put("response_type", this.responseType);
+        }
         return formDataParams;
     }
 

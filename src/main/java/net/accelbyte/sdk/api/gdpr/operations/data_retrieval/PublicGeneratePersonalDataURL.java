@@ -102,7 +102,9 @@ public class PublicGeneratePersonalDataURL extends Operation {
     @JsonIgnore
     public Map<String, Object> getFormDataParams(){
         Map<String, Object> formDataParams = new HashMap<>();
-        formDataParams.put("password", this.password);
+        if (this.password != null) {
+            formDataParams.put("password", this.password);
+        }
         return formDataParams;
     }
 

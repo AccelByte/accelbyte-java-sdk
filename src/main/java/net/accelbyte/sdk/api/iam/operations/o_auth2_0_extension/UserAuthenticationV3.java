@@ -91,12 +91,24 @@ public class UserAuthenticationV3 extends Operation {
     @JsonIgnore
     public Map<String, Object> getFormDataParams(){
         Map<String, Object> formDataParams = new HashMap<>();
-        formDataParams.put("client_id", this.clientId);
-        formDataParams.put("extend_exp", this.extendExp == null ? null : String.valueOf(this.extendExp));
-        formDataParams.put("redirect_uri", this.redirectUri);
-        formDataParams.put("password", this.password);
-        formDataParams.put("request_id", this.requestId);
-        formDataParams.put("user_name", this.userName);
+        if (this.clientId != null) {
+            formDataParams.put("client_id", this.clientId);
+        }
+        if (this.extendExp != null) {
+            formDataParams.put("extend_exp", this.extendExp == null ? null : String.valueOf(this.extendExp));
+        }
+        if (this.redirectUri != null) {
+            formDataParams.put("redirect_uri", this.redirectUri);
+        }
+        if (this.password != null) {
+            formDataParams.put("password", this.password);
+        }
+        if (this.requestId != null) {
+            formDataParams.put("request_id", this.requestId);
+        }
+        if (this.userName != null) {
+            formDataParams.put("user_name", this.userName);
+        }
         return formDataParams;
     }
 

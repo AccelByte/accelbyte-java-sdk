@@ -113,9 +113,15 @@ public class PublicCreateUserNamespaceSlot extends Operation {
     @JsonIgnore
     public Map<String, Object> getFormDataParams(){
         Map<String, Object> formDataParams = new HashMap<>();
-        formDataParams.put("checksum", this.checksum);
-        formDataParams.put("customAttribute", this.customAttribute);
-        formDataParams.put("file", this.file);
+        if (this.checksum != null) {
+            formDataParams.put("checksum", this.checksum);
+        }
+        if (this.customAttribute != null) {
+            formDataParams.put("customAttribute", this.customAttribute);
+        }
+        if (this.file != null) {
+            formDataParams.put("file", this.file);
+        }
         return formDataParams;
     }
 

@@ -97,8 +97,12 @@ public class PublicPlatformLinkV3 extends Operation {
     @JsonIgnore
     public Map<String, Object> getFormDataParams(){
         Map<String, Object> formDataParams = new HashMap<>();
-        formDataParams.put("redirectUri", this.redirectUri);
-        formDataParams.put("ticket", this.ticket);
+        if (this.redirectUri != null) {
+            formDataParams.put("redirectUri", this.redirectUri);
+        }
+        if (this.ticket != null) {
+            formDataParams.put("ticket", this.ticket);
+        }
         return formDataParams;
     }
 

@@ -87,7 +87,9 @@ public class UpdateWxPayConfigCert extends Operation {
     @JsonIgnore
     public Map<String, Object> getFormDataParams(){
         Map<String, Object> formDataParams = new HashMap<>();
-        formDataParams.put("file", this.file);
+        if (this.file != null) {
+            formDataParams.put("file", this.file);
+        }
         return formDataParams;
     }
 
