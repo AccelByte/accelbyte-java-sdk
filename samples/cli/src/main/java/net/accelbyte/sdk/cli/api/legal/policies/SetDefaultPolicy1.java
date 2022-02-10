@@ -6,6 +6,7 @@ import net.accelbyte.sdk.api.legal.models.*;
 import net.accelbyte.sdk.api.legal.wrappers.Policies;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
+import net.accelbyte.sdk.core.ResponseException;
 import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import org.apache.commons.io.FileUtils;
@@ -16,11 +17,13 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import java.util.concurrent.Callable;
 
 @Command(name = "setDefaultPolicy1", mixinStandardHelpOptions = true)
-public class SetDefaultPolicy1 implements Runnable {
+public class SetDefaultPolicy1 implements Callable<Integer> {
 
     private static final Logger log = LogManager.getLogger(SetDefaultPolicy1.class);
 
@@ -34,7 +37,7 @@ public class SetDefaultPolicy1 implements Runnable {
         }
 
     @Override
-    public void run() {
+    public Integer call() {
         try {
             new Policies(new AccelByteSDK(
                             new OkhttpClient(),
@@ -48,8 +51,13 @@ public class SetDefaultPolicy1 implements Runnable {
                 )
             );
             log.info("Operation successful");
-        } catch (Exception e) {
-            log.error("Exception occur with message : [{}]", e.getMessage());
+            return 0;
+        } catch (ResponseException e) {
+            log.error("Response occur with message : [{}]", e.getMessage());
+            System.err.print(e.getHttpCode());
+        } catch (IOException e) {
+            log.error("IOException occur with message : [{}]", e.getMessage());
         }
+        return 1;
     }
 }

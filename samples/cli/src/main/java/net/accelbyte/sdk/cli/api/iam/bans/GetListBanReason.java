@@ -6,6 +6,7 @@ import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.api.iam.wrappers.Bans;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
+import net.accelbyte.sdk.core.ResponseException;
 import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import org.apache.commons.io.FileUtils;
@@ -16,11 +17,13 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import java.util.concurrent.Callable;
 
 @Command(name = "getListBanReason", mixinStandardHelpOptions = true)
-public class GetListBanReason implements Runnable {
+public class GetListBanReason implements Callable<Integer> {
 
     private static final Logger log = LogManager.getLogger(GetListBanReason.class);
 
@@ -31,7 +34,7 @@ public class GetListBanReason implements Runnable {
         }
 
     @Override
-    public void run() {
+    public Integer call() {
         try {
             AccountcommonBanReasons response =
             new Bans(new AccelByteSDK(
@@ -47,8 +50,13 @@ public class GetListBanReason implements Runnable {
             log.info("Operation successful");
             String result = new ObjectMapper().writeValueAsString(response);
             log.info("result: [{}]", result);
-        } catch (Exception e) {
-            log.error("Exception occur with message : [{}]", e.getMessage());
+            return 0;
+        } catch (ResponseException e) {
+            log.error("Response occur with message : [{}]", e.getMessage());
+            System.err.print(e.getHttpCode());
+        } catch (IOException e) {
+            log.error("IOException occur with message : [{}]", e.getMessage());
         }
+        return 1;
     }
 }

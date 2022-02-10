@@ -6,6 +6,7 @@ import net.accelbyte.sdk.api.ugc.models.*;
 import net.accelbyte.sdk.api.ugc.wrappers.PublicChannel;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
+import net.accelbyte.sdk.core.ResponseException;
 import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import org.apache.commons.io.FileUtils;
@@ -16,11 +17,13 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import java.util.concurrent.Callable;
 
 @Command(name = "getChannels", mixinStandardHelpOptions = true)
-public class GetChannels implements Runnable {
+public class GetChannels implements Callable<Integer> {
 
     private static final Logger log = LogManager.getLogger(GetChannels.class);
 
@@ -43,7 +46,7 @@ public class GetChannels implements Runnable {
         }
 
     @Override
-    public void run() {
+    public Integer call() {
         try {
             ModelsPaginatedGetChannelResponse response =
             new PublicChannel(new AccelByteSDK(
@@ -63,8 +66,13 @@ public class GetChannels implements Runnable {
             log.info("Operation successful");
             String result = new ObjectMapper().writeValueAsString(response);
             log.info("result: [{}]", result);
-        } catch (Exception e) {
-            log.error("Exception occur with message : [{}]", e.getMessage());
+            return 0;
+        } catch (ResponseException e) {
+            log.error("Response occur with message : [{}]", e.getMessage());
+            System.err.print(e.getHttpCode());
+        } catch (IOException e) {
+            log.error("IOException occur with message : [{}]", e.getMessage());
         }
+        return 1;
     }
 }

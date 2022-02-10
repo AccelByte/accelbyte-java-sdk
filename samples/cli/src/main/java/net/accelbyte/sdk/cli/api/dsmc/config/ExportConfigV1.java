@@ -6,6 +6,7 @@ import net.accelbyte.sdk.api.dsmc.models.*;
 import net.accelbyte.sdk.api.dsmc.wrappers.Config;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
+import net.accelbyte.sdk.core.ResponseException;
 import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import org.apache.commons.io.FileUtils;
@@ -16,11 +17,13 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import java.util.concurrent.Callable;
 
 @Command(name = "exportConfigV1", mixinStandardHelpOptions = true)
-public class ExportConfigV1 implements Runnable {
+public class ExportConfigV1 implements Callable<Integer> {
 
     private static final Logger log = LogManager.getLogger(ExportConfigV1.class);
 
@@ -34,7 +37,7 @@ public class ExportConfigV1 implements Runnable {
         }
 
     @Override
-    public void run() {
+    public Integer call() {
         try {
             ModelsDSMConfigExport response =
             new Config(new AccelByteSDK(
@@ -51,8 +54,13 @@ public class ExportConfigV1 implements Runnable {
             log.info("Operation successful");
             String result = new ObjectMapper().writeValueAsString(response);
             log.info("result: [{}]", result);
-        } catch (Exception e) {
-            log.error("Exception occur with message : [{}]", e.getMessage());
+            return 0;
+        } catch (ResponseException e) {
+            log.error("Response occur with message : [{}]", e.getMessage());
+            System.err.print(e.getHttpCode());
+        } catch (IOException e) {
+            log.error("IOException occur with message : [{}]", e.getMessage());
         }
+        return 1;
     }
 }
