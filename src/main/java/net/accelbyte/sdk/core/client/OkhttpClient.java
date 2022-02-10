@@ -51,6 +51,10 @@ public class OkhttpClient implements HttpClient {
         Request.Builder requestBuilder = new Request.Builder()
                 .url(operation.getFullUrl(baseURL))
                 .headers(headers);
+        RequestBody requestBody = RequestBody.create(new byte[0]);
+        if (!operation.getMethod().equals("GET")){
+            requestBuilder.method(operation.getMethod(), requestBody);
+        }
         if (operation.getBodyParams() != null) {
             JsonMapper mapper = new JsonMapper();
             String json = mapper.writeValueAsString(operation.getBodyParams());
@@ -70,7 +74,7 @@ public class OkhttpClient implements HttpClient {
                 for (Map.Entry<String, ?> entry : operation.getFormDataParams().entrySet()) {
                     if (entry.getValue() != null) {
                         if (entry.getValue() instanceof InputStream) {
-                            RequestBody requestBody = RequestBody.create(IOUtils.toByteArray((InputStream) entry.getValue()));
+                            requestBody = RequestBody.create(IOUtils.toByteArray((InputStream) entry.getValue()));
                             builder.addFormDataPart(entry.getKey(), String.valueOf(++filename), requestBody);
                         } else if (entry.getValue() instanceof String) {
                             builder.addFormDataPart(entry.getKey(), (String) entry.getValue());
