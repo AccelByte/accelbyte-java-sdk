@@ -67,8 +67,8 @@ public class OkhttpClient implements HttpClient {
                                 MediaType.get(contentType)));
             }
         }
-        if (operation.getFormDataParams() != null) {
-            if (operation.getConsumes().get(0) != null && operation.getConsumes().get(0).equals("multipart/form-data")) {
+        if (operation.getFormDataParams() != null && !operation.getFormDataParams().isEmpty()) {
+            if (operation.getConsumes().get(0).equals("multipart/form-data")) {
                 MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM);
                 int filename = 0;
                 for (Map.Entry<String, ?> entry : operation.getFormDataParams().entrySet()) {
