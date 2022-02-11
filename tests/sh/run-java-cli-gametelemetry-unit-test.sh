@@ -7,7 +7,7 @@
 #Instructions:
 #- Run the Justice SDK Mock Server first before running this script.
 
-MODULE_PATH='../../samples/cli'
+MODULE_PATH="${MODULE_PATH:-../../samples/cli}"
 JAR_PATH="${MODULE_PATH}/build/libs/cli.jar"
 TEMP_FILE='file.tmp'
 
@@ -63,8 +63,6 @@ create_file 'tmp.dat'
 
 echo 'TAP version 13'
 echo "1..$OPERATIONS_COUNT"
-
-${MODULE_PATH}/gradlew -p ${MODULE_PATH} fatJar
 
 java -jar ${JAR_PATH} loginClient
 
