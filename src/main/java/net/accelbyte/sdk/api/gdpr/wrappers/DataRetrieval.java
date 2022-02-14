@@ -195,12 +195,12 @@ public class DataRetrieval {
         }
     }
 
-    public ModelsListPersonalDataResponse publicCancelUserPersonalDataRequest(PublicCancelUserPersonalDataRequest input) throws ResponseException, IOException {
+    public void publicCancelUserPersonalDataRequest(PublicCancelUserPersonalDataRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
-          return input
-              .parseResponse(
+          input
+              .handleEmptyResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
           );
         }

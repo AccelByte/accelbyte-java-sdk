@@ -136,12 +136,11 @@ public class PublicCancelUserPersonalDataRequest extends Operation {
 
     @Override
     @JsonIgnore
-    public ModelsListPersonalDataResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
-        String json = this.convertInputStreamToString(payload);
-        if(code == 204){
-            return new ModelsListPersonalDataResponse().createFromJson(json);
+    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+        if(code >= 400 && code <= 599){
+            String json = this.convertInputStreamToString(payload);
+            throw new ResponseException(code, json);
         }
-        throw new ResponseException(code, json);
     }
 
 }

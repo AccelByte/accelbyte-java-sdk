@@ -146,8 +146,8 @@ public class PostPlayerRecordHandlerV1 extends Operation {
     @Override
     @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
-        String json = this.convertInputStreamToString(payload);
         if(code != 201){
+            String json = this.convertInputStreamToString(payload);
             throw new ResponseException(code, json);
         }
     }

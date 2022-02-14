@@ -122,8 +122,8 @@ public class BanUsers extends Operation {
     @Override
     @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
-        String json = this.convertInputStreamToString(payload);
-        if ( code == 400 || code == 404 || code == 422 || code == 500 ){
+        if(code >= 400 && code <= 599){
+            String json = this.convertInputStreamToString(payload);
             throw new ResponseException(code, json);
         }
     }

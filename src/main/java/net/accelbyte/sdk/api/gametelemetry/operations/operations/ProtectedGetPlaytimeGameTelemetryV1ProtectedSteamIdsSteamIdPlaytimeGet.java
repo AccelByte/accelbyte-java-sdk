@@ -114,7 +114,10 @@ public class ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytime
     public Integer parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
-            return new ObjectMapper().readValue(json, Integer.class);
+            try (Scanner scanner = new Scanner(json)) {
+                String result = scanner.nextLine();
+                return Integer.valueOf(result);
+            }
         }
         throw new ResponseException(code, json);
     }

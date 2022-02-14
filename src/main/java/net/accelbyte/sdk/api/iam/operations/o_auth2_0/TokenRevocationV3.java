@@ -111,8 +111,8 @@ public class TokenRevocationV3 extends Operation {
     @Override
     @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
-        String json = this.convertInputStreamToString(payload);
         if(code != 200){
+            String json = this.convertInputStreamToString(payload);
             throw new ResponseException(code, json);
         }
     }
