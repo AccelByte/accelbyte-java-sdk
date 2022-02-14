@@ -55,15 +55,14 @@ public class PublicVerifyHeadlessAccountV3 implements Callable<Integer> {
                     new ObjectMapper().readValue(body, ModelUpgradeHeadlessAccountV3Request.class)  
                 )
             );
-            log.info("Operation successful");
-            String result = new ObjectMapper().writeValueAsString(response);
-            log.info("result: [{}]", result);
+            String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+            log.info("Operation successful with response below:\n{}", responseString);
             return 0;
         } catch (ResponseException e) {
-            log.error("Response occur with message : [{}]", e.getMessage());
+            log.error("ResponseException occur with message below:\n{}", e.getMessage());
             System.err.print(e.getHttpCode());
         } catch (IOException e) {
-            log.error("IOException occur with message : [{}]", e.getMessage());
+            log.error("IOException occur with message below:\n{}", e.getMessage());
         }
         return 1;
     }

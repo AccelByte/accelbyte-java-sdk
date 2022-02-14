@@ -58,13 +58,12 @@ public class PublicReportUser implements Callable<Integer> {
                     new ObjectMapper().readValue(body, UserReportRequest.class)  
                 )
             );
-            log.info("Operation successful");
             return 0;
         } catch (ResponseException e) {
-            log.error("Response occur with message : [{}]", e.getMessage());
+            log.error("ResponseException occur with message below:\n{}", e.getMessage());
             System.err.print(e.getHttpCode());
         } catch (IOException e) {
-            log.error("IOException occur with message : [{}]", e.getMessage());
+            log.error("IOException occur with message below:\n{}", e.getMessage());
         }
         return 1;
     }
