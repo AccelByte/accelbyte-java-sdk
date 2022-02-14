@@ -25,11 +25,11 @@ public class FieldValidationError extends Model {
     @JsonProperty("errorField")
     private String errorField;
 
-    @JsonProperty("errorValue")
-    private String errorValue;
-
     @JsonProperty("errorMessage")
     private String errorMessage;
+
+    @JsonProperty("errorValue")
+    private String errorValue;
 
     @JsonProperty("messageVariables")
     private Map<String, String> messageVariables;
@@ -49,8 +49,8 @@ public class FieldValidationError extends Model {
         Map<String, String> result = new HashMap<>();
         result.put("errorCode", "errorCode");
         result.put("errorField", "errorField");
-        result.put("errorValue", "errorValue");
         result.put("errorMessage", "errorMessage");
+        result.put("errorValue", "errorValue");
         result.put("messageVariables", "messageVariables");
         return result;
     }

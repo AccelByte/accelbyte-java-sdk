@@ -37,6 +37,9 @@ public class ModelsConfigExport extends Model {
     @JsonProperty("concurrentUsersLimit")
     private Integer concurrentUsersLimit;
 
+    @JsonProperty("disablePartyInvitationToken")
+    private Boolean disablePartyInvitationToken;
+
     @JsonProperty("enableChat")
     private Boolean enableChat;
 
@@ -83,6 +86,7 @@ public class ModelsConfigExport extends Model {
         result.put("chatRateLimitBurst", "chatRateLimitBurst");
         result.put("chatRateLimitDuration", "chatRateLimitDuration");
         result.put("concurrentUsersLimit", "concurrentUsersLimit");
+        result.put("disablePartyInvitationToken", "disablePartyInvitationToken");
         result.put("enableChat", "enableChat");
         result.put("entitlementCheck", "entitlementCheck");
         result.put("entitlementItemID", "entitlementItemID");

@@ -28,14 +28,14 @@ public class Image extends Model {
     @JsonProperty("height")
     private Integer height;
 
-    @JsonProperty("width")
-    private Integer width;
-
     @JsonProperty("imageUrl")
     private String imageUrl;
 
     @JsonProperty("smallImageUrl")
     private String smallImageUrl;
+
+    @JsonProperty("width")
+    private Integer width;
 
     @JsonIgnore
     public Image createFromJson(String json) throws JsonProcessingException {
@@ -53,9 +53,9 @@ public class Image extends Model {
         result.put("as", "as");
         result.put("caption", "caption");
         result.put("height", "height");
-        result.put("width", "width");
         result.put("imageUrl", "imageUrl");
         result.put("smallImageUrl", "smallImageUrl");
+        result.put("width", "width");
         return result;
     }
 }

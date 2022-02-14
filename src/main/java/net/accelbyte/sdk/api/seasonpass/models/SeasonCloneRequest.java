@@ -19,14 +19,14 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SeasonCloneRequest extends Model {
 
+    @JsonProperty("end")
+    private String end;
+
     @JsonProperty("name")
     private String name;
 
     @JsonProperty("start")
     private String start;
-
-    @JsonProperty("end")
-    private String end;
 
     @JsonIgnore
     public SeasonCloneRequest createFromJson(String json) throws JsonProcessingException {
@@ -41,9 +41,9 @@ public class SeasonCloneRequest extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
+        result.put("end", "end");
         result.put("name", "name");
         result.put("start", "start");
-        result.put("end", "end");
         return result;
     }
 }

@@ -19,32 +19,32 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SeasonSummary extends Model {
 
+    @JsonProperty("end")
+    private String end;
+
     @JsonProperty("id")
     private String id;
-
-    @JsonProperty("namespace")
-    private String namespace;
 
     @JsonProperty("name")
     private String name;
 
-    @JsonProperty("start")
-    private String start;
-
-    @JsonProperty("end")
-    private String end;
+    @JsonProperty("namespace")
+    private String namespace;
 
     @JsonProperty("passCodes")
     private List<String> passCodes;
 
-    @JsonProperty("status")
-    private String status;
+    @JsonProperty("previous")
+    private SeasonSummary previous;
 
     @JsonProperty("publishedAt")
     private String publishedAt;
 
-    @JsonProperty("previous")
-    private SeasonSummary previous;
+    @JsonProperty("start")
+    private String start;
+
+    @JsonProperty("status")
+    private String status;
 
     @JsonIgnore
     public SeasonSummary createFromJson(String json) throws JsonProcessingException {
@@ -59,15 +59,15 @@ public class SeasonSummary extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id", "id");
-        result.put("namespace", "namespace");
-        result.put("name", "name");
-        result.put("start", "start");
         result.put("end", "end");
+        result.put("id", "id");
+        result.put("name", "name");
+        result.put("namespace", "namespace");
         result.put("passCodes", "passCodes");
-        result.put("status", "status");
-        result.put("publishedAt", "publishedAt");
         result.put("previous", "previous");
+        result.put("publishedAt", "publishedAt");
+        result.put("start", "start");
+        result.put("status", "status");
         return result;
     }
 }

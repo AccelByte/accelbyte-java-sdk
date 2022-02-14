@@ -31,11 +31,17 @@ public class RewardUpdate extends Model {
     @JsonProperty("maxAwardedPerUser")
     private Integer maxAwardedPerUser;
 
+    @JsonProperty("namespaceExpression")
+    private String namespaceExpression;
+
     @JsonProperty("rewardCode")
     private String rewardCode;
 
     @JsonProperty("rewardConditions")
     private List<RewardCondition> rewardConditions;
+
+    @JsonProperty("userIdExpression")
+    private String userIdExpression;
 
     @JsonIgnore
     public RewardUpdate createFromJson(String json) throws JsonProcessingException {
@@ -54,8 +60,10 @@ public class RewardUpdate extends Model {
         result.put("eventTopic", "eventTopic");
         result.put("maxAwarded", "maxAwarded");
         result.put("maxAwardedPerUser", "maxAwardedPerUser");
+        result.put("namespaceExpression", "namespaceExpression");
         result.put("rewardCode", "rewardCode");
         result.put("rewardConditions", "rewardConditions");
+        result.put("userIdExpression", "userIdExpression");
         return result;
     }
 }

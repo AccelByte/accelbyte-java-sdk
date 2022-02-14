@@ -19,23 +19,23 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RewardUpdate extends Model {
 
-    @JsonProperty("type")
-    private String type;
-
-    @JsonProperty("itemId")
-    private String itemId;
-
     @JsonProperty("currency")
     private RewardCurrency currency;
-
-    @JsonProperty("quantity")
-    private Integer quantity;
 
     @JsonProperty("image")
     private Image image;
 
+    @JsonProperty("itemId")
+    private String itemId;
+
     @JsonProperty("nullFields")
     private List<String> nullFields;
+
+    @JsonProperty("quantity")
+    private Integer quantity;
+
+    @JsonProperty("type")
+    private String type;
 
     @JsonIgnore
     public RewardUpdate createFromJson(String json) throws JsonProcessingException {
@@ -50,12 +50,12 @@ public class RewardUpdate extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("type", "type");
-        result.put("itemId", "itemId");
         result.put("currency", "currency");
-        result.put("quantity", "quantity");
         result.put("image", "image");
+        result.put("itemId", "itemId");
         result.put("nullFields", "nullFields");
+        result.put("quantity", "quantity");
+        result.put("type", "type");
         return result;
     }
 }

@@ -1,4 +1,4 @@
-package net.accelbyte.sdk.api.seasonpass.models;
+package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,33 +17,25 @@ import java.util.Map;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserPurchasable extends Model {
+public class GoogleReceiptResolveResult extends Model {
 
-    @JsonProperty("passItemId")
-    private String passItemId;
-
-    @JsonProperty("tierItemCount")
-    private Integer tierItemCount;
-
-    @JsonProperty("tierItemId")
-    private String tierItemId;
+    @JsonProperty("needConsume")
+    private Boolean needConsume;
 
     @JsonIgnore
-    public UserPurchasable createFromJson(String json) throws JsonProcessingException {
+    public GoogleReceiptResolveResult createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<UserPurchasable> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<UserPurchasable>>() {});
+    public List<GoogleReceiptResolveResult> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<GoogleReceiptResolveResult>>() {});
     }
 
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("passItemId", "passItemId");
-        result.put("tierItemCount", "tierItemCount");
-        result.put("tierItemId", "tierItemId");
+        result.put("needConsume", "needConsume");
         return result;
     }
 }

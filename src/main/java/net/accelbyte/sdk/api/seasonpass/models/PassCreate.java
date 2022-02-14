@@ -19,23 +19,23 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PassCreate extends Model {
 
+    @JsonProperty("autoEnroll")
+    private Boolean autoEnroll;
+
     @JsonProperty("code")
     private String code;
 
     @JsonProperty("displayOrder")
     private Integer displayOrder;
 
-    @JsonProperty("autoEnroll")
-    private Boolean autoEnroll;
-
-    @JsonProperty("passItemId")
-    private String passItemId;
+    @JsonProperty("images")
+    private List<Image> images;
 
     @JsonProperty("localizations")
     private Map<String, Localization> localizations;
 
-    @JsonProperty("images")
-    private List<Image> images;
+    @JsonProperty("passItemId")
+    private String passItemId;
 
     @JsonIgnore
     public PassCreate createFromJson(String json) throws JsonProcessingException {
@@ -50,12 +50,12 @@ public class PassCreate extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
+        result.put("autoEnroll", "autoEnroll");
         result.put("code", "code");
         result.put("displayOrder", "displayOrder");
-        result.put("autoEnroll", "autoEnroll");
-        result.put("passItemId", "passItemId");
-        result.put("localizations", "localizations");
         result.put("images", "images");
+        result.put("localizations", "localizations");
+        result.put("passItemId", "passItemId");
         return result;
     }
 }

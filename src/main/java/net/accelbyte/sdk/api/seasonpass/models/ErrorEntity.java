@@ -19,6 +19,9 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ErrorEntity extends Model {
 
+    @JsonProperty("devStackTrace")
+    private String devStackTrace;
+
     @JsonProperty("errorCode")
     private Integer errorCode;
 
@@ -27,9 +30,6 @@ public class ErrorEntity extends Model {
 
     @JsonProperty("messageVariables")
     private Map<String, String> messageVariables;
-
-    @JsonProperty("devStackTrace")
-    private String devStackTrace;
 
     @JsonIgnore
     public ErrorEntity createFromJson(String json) throws JsonProcessingException {
@@ -44,10 +44,10 @@ public class ErrorEntity extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
+        result.put("devStackTrace", "devStackTrace");
         result.put("errorCode", "errorCode");
         result.put("errorMessage", "errorMessage");
         result.put("messageVariables", "messageVariables");
-        result.put("devStackTrace", "devStackTrace");
         return result;
     }
 }

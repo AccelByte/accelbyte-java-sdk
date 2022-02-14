@@ -19,29 +19,20 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LocalizedPassInfo extends Model {
 
-    @JsonProperty("title")
-    private String title;
-
-    @JsonProperty("description")
-    private String description;
-
-    @JsonProperty("seasonId")
-    private String seasonId;
+    @JsonProperty("autoEnroll")
+    private Boolean autoEnroll;
 
     @JsonProperty("code")
     private String code;
 
-    @JsonProperty("namespace")
-    private String namespace;
+    @JsonProperty("createdAt")
+    private String createdAt;
+
+    @JsonProperty("description")
+    private String description;
 
     @JsonProperty("displayOrder")
     private String displayOrder;
-
-    @JsonProperty("autoEnroll")
-    private Boolean autoEnroll;
-
-    @JsonProperty("passItemId")
-    private String passItemId;
 
     @JsonProperty("images")
     private List<Image> images;
@@ -49,8 +40,17 @@ public class LocalizedPassInfo extends Model {
     @JsonProperty("language")
     private String language;
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+    @JsonProperty("namespace")
+    private String namespace;
+
+    @JsonProperty("passItemId")
+    private String passItemId;
+
+    @JsonProperty("seasonId")
+    private String seasonId;
+
+    @JsonProperty("title")
+    private String title;
 
     @JsonProperty("updatedAt")
     private String updatedAt;
@@ -68,17 +68,17 @@ public class LocalizedPassInfo extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("title", "title");
-        result.put("description", "description");
-        result.put("seasonId", "seasonId");
-        result.put("code", "code");
-        result.put("namespace", "namespace");
-        result.put("displayOrder", "displayOrder");
         result.put("autoEnroll", "autoEnroll");
-        result.put("passItemId", "passItemId");
+        result.put("code", "code");
+        result.put("createdAt", "createdAt");
+        result.put("description", "description");
+        result.put("displayOrder", "displayOrder");
         result.put("images", "images");
         result.put("language", "language");
-        result.put("createdAt", "createdAt");
+        result.put("namespace", "namespace");
+        result.put("passItemId", "passItemId");
+        result.put("seasonId", "seasonId");
+        result.put("title", "title");
         result.put("updatedAt", "updatedAt");
         return result;
     }

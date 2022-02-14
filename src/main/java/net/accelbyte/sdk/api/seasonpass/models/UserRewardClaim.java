@@ -22,11 +22,11 @@ public class UserRewardClaim extends Model {
     @JsonProperty("passCode")
     private String passCode;
 
-    @JsonProperty("tierIndex")
-    private Integer tierIndex;
-
     @JsonProperty("rewardCode")
     private String rewardCode;
+
+    @JsonProperty("tierIndex")
+    private Integer tierIndex;
 
     @JsonIgnore
     public UserRewardClaim createFromJson(String json) throws JsonProcessingException {
@@ -42,8 +42,8 @@ public class UserRewardClaim extends Model {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("passCode", "passCode");
-        result.put("tierIndex", "tierIndex");
         result.put("rewardCode", "rewardCode");
+        result.put("tierIndex", "tierIndex");
         return result;
     }
 }

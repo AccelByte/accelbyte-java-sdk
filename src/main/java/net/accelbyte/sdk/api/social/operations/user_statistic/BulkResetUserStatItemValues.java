@@ -1,4 +1,4 @@
-package net.accelbyte.sdk.api.platform.operations.iap;
+package net.accelbyte.sdk.api.social.operations.user_statistic;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -8,9 +8,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.models.GoogleReceiptResolveResult;
-import net.accelbyte.sdk.api.platform.models.GoogleIAPReceipt;
+import net.accelbyte.sdk.api.social.models.*;
+import net.accelbyte.sdk.api.social.models.ADTOObjectForResettingUserStatItems;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -22,18 +21,18 @@ import java.util.*;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PublicFulfillGoogleIAPItem extends Operation {
+public class BulkResetUserStatItemValues extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/platform/public/namespaces/{namespace}/users/{userId}/iap/google/receipt";
+    private String url = "/social/v2/admin/namespaces/{namespace}/users/{userId}/statitems/value/reset/bulk";
 
     @JsonIgnore
     private String method = "PUT";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList();
+    private List<String> consumes = Arrays.asList("application/json");
 
     @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
@@ -49,25 +48,28 @@ public class PublicFulfillGoogleIAPItem extends Operation {
      */
     private String namespace;
     private String userId;
-    private GoogleIAPReceipt body;
+    private String additionalKey;
+    private List<ADTOObjectForResettingUserStatItems> body;
 
     /**
     * @param namespace required
     * @param userId required
     */
-    public PublicFulfillGoogleIAPItem(
+    public BulkResetUserStatItemValues(
             String namespace,
             String userId,
-            GoogleIAPReceipt body
+            String additionalKey,
+            List<ADTOObjectForResettingUserStatItems> body
     )
     {
         this.namespace = namespace;
         this.userId = userId;
+        this.additionalKey = additionalKey;
         this.body = body;
     }
 
     @JsonIgnore
-    public PublicFulfillGoogleIAPItem createFromJson(String json) throws JsonProcessingException {
+    public BulkResetUserStatItemValues createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -89,10 +91,17 @@ public class PublicFulfillGoogleIAPItem extends Operation {
         return pathParams;
     }
 
+    @Override
+    @JsonIgnore
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("additionalKey", this.additionalKey == null ? null : Arrays.asList(this.additionalKey));
+        return queryParams;
+    }
 
     @Override
     @JsonIgnore
-    public GoogleIAPReceipt getBodyParams(){
+    public List<ADTOObjectForResettingUserStatItems> getBodyParams(){
         return this.body;
     }
 
@@ -108,6 +117,7 @@ public class PublicFulfillGoogleIAPItem extends Operation {
         Map<String, String> result = new HashMap<>();
         result.put("namespace","namespace");
         result.put("userId","userId");
+        result.put("additionalKey","additionalKey");
         return result;
     }
 
@@ -133,12 +143,18 @@ public class PublicFulfillGoogleIAPItem extends Operation {
 
     @Override
     @JsonIgnore
-    public GoogleReceiptResolveResult parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public List<BulkStatItemOperationResult> parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
-            return new GoogleReceiptResolveResult().createFromJson(json);
+            return new ObjectMapper().readValue(json, new TypeReference<List<BulkStatItemOperationResult>>() {});
         }
         throw new ResponseException(code, json);
     }
 
+    @Override
+    public Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("additionalKey", "None");
+        return result;
+    }
 }

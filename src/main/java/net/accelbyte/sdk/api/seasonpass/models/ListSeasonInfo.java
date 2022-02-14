@@ -19,35 +19,35 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ListSeasonInfo extends Model {
 
-    @JsonProperty("id")
-    private String id;
-
-    @JsonProperty("namespace")
-    private String namespace;
-
-    @JsonProperty("name")
-    private String name;
-
-    @JsonProperty("start")
-    private String start;
-
-    @JsonProperty("end")
-    private String end;
+    @JsonProperty("createdAt")
+    private String createdAt;
 
     @JsonProperty("defaultLanguage")
     private String defaultLanguage;
 
+    @JsonProperty("end")
+    private String end;
+
+    @JsonProperty("id")
+    private String id;
+
+    @JsonProperty("name")
+    private String name;
+
+    @JsonProperty("namespace")
+    private String namespace;
+
     @JsonProperty("passCodes")
     private List<String> passCodes;
-
-    @JsonProperty("status")
-    private String status;
 
     @JsonProperty("publishedAt")
     private String publishedAt;
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+    @JsonProperty("start")
+    private String start;
+
+    @JsonProperty("status")
+    private String status;
 
     @JsonProperty("updatedAt")
     private String updatedAt;
@@ -65,16 +65,16 @@ public class ListSeasonInfo extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id", "id");
-        result.put("namespace", "namespace");
-        result.put("name", "name");
-        result.put("start", "start");
-        result.put("end", "end");
-        result.put("defaultLanguage", "defaultLanguage");
-        result.put("passCodes", "passCodes");
-        result.put("status", "status");
-        result.put("publishedAt", "publishedAt");
         result.put("createdAt", "createdAt");
+        result.put("defaultLanguage", "defaultLanguage");
+        result.put("end", "end");
+        result.put("id", "id");
+        result.put("name", "name");
+        result.put("namespace", "namespace");
+        result.put("passCodes", "passCodes");
+        result.put("publishedAt", "publishedAt");
+        result.put("start", "start");
+        result.put("status", "status");
         result.put("updatedAt", "updatedAt");
         return result;
     }

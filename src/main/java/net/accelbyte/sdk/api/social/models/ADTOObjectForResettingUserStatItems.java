@@ -1,4 +1,4 @@
-package net.accelbyte.sdk.api.seasonpass.models;
+package net.accelbyte.sdk.api.social.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,33 +17,29 @@ import java.util.Map;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserPurchasable extends Model {
+public class ADTOObjectForResettingUserStatItems extends Model {
 
-    @JsonProperty("passItemId")
-    private String passItemId;
+    @JsonProperty("additionalData")
+    private Map<String, ?> additionalData;
 
-    @JsonProperty("tierItemCount")
-    private Integer tierItemCount;
-
-    @JsonProperty("tierItemId")
-    private String tierItemId;
+    @JsonProperty("statCode")
+    private String statCode;
 
     @JsonIgnore
-    public UserPurchasable createFromJson(String json) throws JsonProcessingException {
+    public ADTOObjectForResettingUserStatItems createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<UserPurchasable> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<UserPurchasable>>() {});
+    public List<ADTOObjectForResettingUserStatItems> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ADTOObjectForResettingUserStatItems>>() {});
     }
 
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("passItemId", "passItemId");
-        result.put("tierItemCount", "tierItemCount");
-        result.put("tierItemId", "tierItemId");
+        result.put("additionalData", "additionalData");
+        result.put("statCode", "statCode");
         return result;
     }
 }

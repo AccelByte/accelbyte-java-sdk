@@ -19,32 +19,32 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ListUserSeasonInfo extends Model {
 
-    @JsonProperty("id")
-    private String id;
-
-    @JsonProperty("namespace")
-    private String namespace;
-
-    @JsonProperty("userId")
-    private String userId;
-
-    @JsonProperty("seasonId")
-    private String seasonId;
-
-    @JsonProperty("enrolledAt")
-    private String enrolledAt;
+    @JsonProperty("cleared")
+    private Boolean cleared;
 
     @JsonProperty("currentTierIndex")
     private Integer currentTierIndex;
 
+    @JsonProperty("enrolledAt")
+    private String enrolledAt;
+
+    @JsonProperty("id")
+    private String id;
+
     @JsonProperty("lastTierIndex")
     private Integer lastTierIndex;
 
-    @JsonProperty("cleared")
-    private Boolean cleared;
+    @JsonProperty("namespace")
+    private String namespace;
 
     @JsonProperty("season")
     private SeasonSummary season;
+
+    @JsonProperty("seasonId")
+    private String seasonId;
+
+    @JsonProperty("userId")
+    private String userId;
 
     @JsonIgnore
     public ListUserSeasonInfo createFromJson(String json) throws JsonProcessingException {
@@ -59,15 +59,15 @@ public class ListUserSeasonInfo extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id", "id");
-        result.put("namespace", "namespace");
-        result.put("userId", "userId");
-        result.put("seasonId", "seasonId");
-        result.put("enrolledAt", "enrolledAt");
-        result.put("currentTierIndex", "currentTierIndex");
-        result.put("lastTierIndex", "lastTierIndex");
         result.put("cleared", "cleared");
+        result.put("currentTierIndex", "currentTierIndex");
+        result.put("enrolledAt", "enrolledAt");
+        result.put("id", "id");
+        result.put("lastTierIndex", "lastTierIndex");
+        result.put("namespace", "namespace");
         result.put("season", "season");
+        result.put("seasonId", "seasonId");
+        result.put("userId", "userId");
         return result;
     }
 }

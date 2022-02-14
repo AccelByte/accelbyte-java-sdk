@@ -1,4 +1,4 @@
-package net.accelbyte.sdk.api.seasonpass.models;
+package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,33 +17,33 @@ import java.util.Map;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserPurchasable extends Model {
+public class TwitchSyncRequest extends Model {
 
-    @JsonProperty("passItemId")
-    private String passItemId;
+    @JsonProperty("gameId")
+    private String gameId;
 
-    @JsonProperty("tierItemCount")
-    private Integer tierItemCount;
+    @JsonProperty("language")
+    private String language;
 
-    @JsonProperty("tierItemId")
-    private String tierItemId;
+    @JsonProperty("region")
+    private String region;
 
     @JsonIgnore
-    public UserPurchasable createFromJson(String json) throws JsonProcessingException {
+    public TwitchSyncRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<UserPurchasable> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<UserPurchasable>>() {});
+    public List<TwitchSyncRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<TwitchSyncRequest>>() {});
     }
 
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("passItemId", "passItemId");
-        result.put("tierItemCount", "tierItemCount");
-        result.put("tierItemId", "tierItemId");
+        result.put("gameId", "gameId");
+        result.put("language", "language");
+        result.put("region", "region");
         return result;
     }
 }

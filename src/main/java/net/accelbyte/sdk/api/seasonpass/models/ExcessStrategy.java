@@ -19,11 +19,11 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ExcessStrategy extends Model {
 
-    @JsonProperty("method")
-    private String method;
-
     @JsonProperty("currency")
     private String currency;
+
+    @JsonProperty("method")
+    private String method;
 
     @JsonProperty("percentPerExp")
     private Integer percentPerExp;
@@ -41,8 +41,8 @@ public class ExcessStrategy extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("method", "method");
         result.put("currency", "currency");
+        result.put("method", "method");
         result.put("percentPerExp", "percentPerExp");
         return result;
     }

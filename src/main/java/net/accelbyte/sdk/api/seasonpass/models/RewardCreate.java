@@ -22,20 +22,20 @@ public class RewardCreate extends Model {
     @JsonProperty("code")
     private String code;
 
-    @JsonProperty("type")
-    private String type;
+    @JsonProperty("currency")
+    private RewardCurrency currency;
+
+    @JsonProperty("image")
+    private Image image;
 
     @JsonProperty("itemId")
     private String itemId;
 
-    @JsonProperty("currency")
-    private RewardCurrency currency;
-
     @JsonProperty("quantity")
     private Integer quantity;
 
-    @JsonProperty("image")
-    private Image image;
+    @JsonProperty("type")
+    private String type;
 
     @JsonIgnore
     public RewardCreate createFromJson(String json) throws JsonProcessingException {
@@ -51,11 +51,11 @@ public class RewardCreate extends Model {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("code", "code");
-        result.put("type", "type");
-        result.put("itemId", "itemId");
         result.put("currency", "currency");
-        result.put("quantity", "quantity");
         result.put("image", "image");
+        result.put("itemId", "itemId");
+        result.put("quantity", "quantity");
+        result.put("type", "type");
         return result;
     }
 }

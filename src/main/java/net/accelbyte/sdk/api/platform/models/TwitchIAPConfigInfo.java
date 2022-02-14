@@ -1,4 +1,4 @@
-package net.accelbyte.sdk.api.seasonpass.models;
+package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,29 +17,37 @@ import java.util.Map;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RewardCurrency extends Model {
+public class TwitchIAPConfigInfo extends Model {
 
-    @JsonProperty("currencyCode")
-    private String currencyCode;
+    @JsonProperty("clientId")
+    private String clientId;
+
+    @JsonProperty("clientSecret")
+    private String clientSecret;
 
     @JsonProperty("namespace")
     private String namespace;
 
+    @JsonProperty("organizationId")
+    private String organizationId;
+
     @JsonIgnore
-    public RewardCurrency createFromJson(String json) throws JsonProcessingException {
+    public TwitchIAPConfigInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<RewardCurrency> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<RewardCurrency>>() {});
+    public List<TwitchIAPConfigInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<TwitchIAPConfigInfo>>() {});
     }
 
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("currencyCode", "currencyCode");
+        result.put("clientId", "clientId");
+        result.put("clientSecret", "clientSecret");
         result.put("namespace", "namespace");
+        result.put("organizationId", "organizationId");
         return result;
     }
 }

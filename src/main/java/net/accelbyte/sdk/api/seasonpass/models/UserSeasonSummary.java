@@ -19,17 +19,17 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserSeasonSummary extends Model {
 
-    @JsonProperty("id")
-    private String id;
+    @JsonProperty("cleared")
+    private Boolean cleared;
 
-    @JsonProperty("namespace")
-    private String namespace;
+    @JsonProperty("createdAt")
+    private String createdAt;
 
-    @JsonProperty("userId")
-    private String userId;
+    @JsonProperty("currentExp")
+    private Integer currentExp;
 
-    @JsonProperty("seasonId")
-    private String seasonId;
+    @JsonProperty("currentTierIndex")
+    private Integer currentTierIndex;
 
     @JsonProperty("enrolledAt")
     private String enrolledAt;
@@ -37,26 +37,26 @@ public class UserSeasonSummary extends Model {
     @JsonProperty("enrolledPasses")
     private List<String> enrolledPasses;
 
-    @JsonProperty("currentTierIndex")
-    private Integer currentTierIndex;
+    @JsonProperty("id")
+    private String id;
 
     @JsonProperty("lastTierIndex")
     private Integer lastTierIndex;
 
+    @JsonProperty("namespace")
+    private String namespace;
+
     @JsonProperty("requiredExp")
     private Integer requiredExp;
 
-    @JsonProperty("currentExp")
-    private Integer currentExp;
-
-    @JsonProperty("cleared")
-    private Boolean cleared;
-
-    @JsonProperty("createdAt")
-    private String createdAt;
+    @JsonProperty("seasonId")
+    private String seasonId;
 
     @JsonProperty("updatedAt")
     private String updatedAt;
+
+    @JsonProperty("userId")
+    private String userId;
 
     @JsonIgnore
     public UserSeasonSummary createFromJson(String json) throws JsonProcessingException {
@@ -71,19 +71,19 @@ public class UserSeasonSummary extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id", "id");
-        result.put("namespace", "namespace");
-        result.put("userId", "userId");
-        result.put("seasonId", "seasonId");
-        result.put("enrolledAt", "enrolledAt");
-        result.put("enrolledPasses", "enrolledPasses");
-        result.put("currentTierIndex", "currentTierIndex");
-        result.put("lastTierIndex", "lastTierIndex");
-        result.put("requiredExp", "requiredExp");
-        result.put("currentExp", "currentExp");
         result.put("cleared", "cleared");
         result.put("createdAt", "createdAt");
+        result.put("currentExp", "currentExp");
+        result.put("currentTierIndex", "currentTierIndex");
+        result.put("enrolledAt", "enrolledAt");
+        result.put("enrolledPasses", "enrolledPasses");
+        result.put("id", "id");
+        result.put("lastTierIndex", "lastTierIndex");
+        result.put("namespace", "namespace");
+        result.put("requiredExp", "requiredExp");
+        result.put("seasonId", "seasonId");
         result.put("updatedAt", "updatedAt");
+        result.put("userId", "userId");
         return result;
     }
 }

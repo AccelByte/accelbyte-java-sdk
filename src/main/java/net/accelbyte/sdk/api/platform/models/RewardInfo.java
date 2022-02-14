@@ -37,6 +37,9 @@ public class RewardInfo extends Model {
     @JsonProperty("namespace")
     private String namespace;
 
+    @JsonProperty("namespaceExpression")
+    private String namespaceExpression;
+
     @JsonProperty("rewardCode")
     private String rewardCode;
 
@@ -48,6 +51,9 @@ public class RewardInfo extends Model {
 
     @JsonProperty("updatedAt")
     private String updatedAt;
+
+    @JsonProperty("userIdExpression")
+    private String userIdExpression;
 
     @JsonIgnore
     public RewardInfo createFromJson(String json) throws JsonProcessingException {
@@ -68,10 +74,12 @@ public class RewardInfo extends Model {
         result.put("maxAwarded", "maxAwarded");
         result.put("maxAwardedPerUser", "maxAwardedPerUser");
         result.put("namespace", "namespace");
+        result.put("namespaceExpression", "namespaceExpression");
         result.put("rewardCode", "rewardCode");
         result.put("rewardConditions", "rewardConditions");
         result.put("rewardId", "rewardId");
         result.put("updatedAt", "updatedAt");
+        result.put("userIdExpression", "userIdExpression");
         return result;
     }
 }

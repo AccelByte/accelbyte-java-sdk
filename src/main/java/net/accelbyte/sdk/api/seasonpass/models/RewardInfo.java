@@ -19,23 +19,17 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RewardInfo extends Model {
 
-    @JsonProperty("namespace")
-    private String namespace;
-
-    @JsonProperty("seasonId")
-    private String seasonId;
-
     @JsonProperty("code")
     private String code;
 
-    @JsonProperty("type")
-    private String type;
+    @JsonProperty("currency")
+    private RewardCurrency currency;
+
+    @JsonProperty("image")
+    private Image image;
 
     @JsonProperty("itemId")
     private String itemId;
-
-    @JsonProperty("itemType")
-    private String itemType;
 
     @JsonProperty("itemName")
     private String itemName;
@@ -43,14 +37,20 @@ public class RewardInfo extends Model {
     @JsonProperty("itemSku")
     private String itemSku;
 
-    @JsonProperty("currency")
-    private RewardCurrency currency;
+    @JsonProperty("itemType")
+    private String itemType;
+
+    @JsonProperty("namespace")
+    private String namespace;
 
     @JsonProperty("quantity")
     private Integer quantity;
 
-    @JsonProperty("image")
-    private Image image;
+    @JsonProperty("seasonId")
+    private String seasonId;
+
+    @JsonProperty("type")
+    private String type;
 
     @JsonIgnore
     public RewardInfo createFromJson(String json) throws JsonProcessingException {
@@ -65,17 +65,17 @@ public class RewardInfo extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("namespace", "namespace");
-        result.put("seasonId", "seasonId");
         result.put("code", "code");
-        result.put("type", "type");
+        result.put("currency", "currency");
+        result.put("image", "image");
         result.put("itemId", "itemId");
-        result.put("itemType", "itemType");
         result.put("itemName", "itemName");
         result.put("itemSku", "itemSku");
-        result.put("currency", "currency");
+        result.put("itemType", "itemType");
+        result.put("namespace", "namespace");
         result.put("quantity", "quantity");
-        result.put("image", "image");
+        result.put("seasonId", "seasonId");
+        result.put("type", "type");
         return result;
     }
 }

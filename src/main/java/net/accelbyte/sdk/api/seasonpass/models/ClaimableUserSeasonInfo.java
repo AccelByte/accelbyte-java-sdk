@@ -19,35 +19,8 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ClaimableUserSeasonInfo extends Model {
 
-    @JsonProperty("id")
-    private String id;
-
-    @JsonProperty("namespace")
-    private String namespace;
-
-    @JsonProperty("userId")
-    private String userId;
-
-    @JsonProperty("seasonId")
-    private String seasonId;
-
-    @JsonProperty("enrolledAt")
-    private String enrolledAt;
-
-    @JsonProperty("enrolledPasses")
-    private List<String> enrolledPasses;
-
-    @JsonProperty("currentTierIndex")
-    private Integer currentTierIndex;
-
-    @JsonProperty("lastTierIndex")
-    private Integer lastTierIndex;
-
-    @JsonProperty("requiredExp")
-    private Integer requiredExp;
-
-    @JsonProperty("currentExp")
-    private Integer currentExp;
+    @JsonProperty("claimingRewards")
+    private Map<String, ?> claimingRewards;
 
     @JsonProperty("cleared")
     private Boolean cleared;
@@ -55,17 +28,44 @@ public class ClaimableUserSeasonInfo extends Model {
     @JsonProperty("createdAt")
     private String createdAt;
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
+    @JsonProperty("currentExp")
+    private Integer currentExp;
+
+    @JsonProperty("currentTierIndex")
+    private Integer currentTierIndex;
+
+    @JsonProperty("enrolledAt")
+    private String enrolledAt;
+
+    @JsonProperty("enrolledPasses")
+    private List<String> enrolledPasses;
+
+    @JsonProperty("id")
+    private String id;
+
+    @JsonProperty("lastTierIndex")
+    private Integer lastTierIndex;
+
+    @JsonProperty("namespace")
+    private String namespace;
+
+    @JsonProperty("requiredExp")
+    private Integer requiredExp;
 
     @JsonProperty("season")
     private SeasonSummary season;
 
+    @JsonProperty("seasonId")
+    private String seasonId;
+
     @JsonProperty("toClaimRewards")
     private Map<String, ?> toClaimRewards;
 
-    @JsonProperty("claimingRewards")
-    private Map<String, ?> claimingRewards;
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+
+    @JsonProperty("userId")
+    private String userId;
 
     @JsonIgnore
     public ClaimableUserSeasonInfo createFromJson(String json) throws JsonProcessingException {
@@ -80,22 +80,22 @@ public class ClaimableUserSeasonInfo extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id", "id");
-        result.put("namespace", "namespace");
-        result.put("userId", "userId");
-        result.put("seasonId", "seasonId");
-        result.put("enrolledAt", "enrolledAt");
-        result.put("enrolledPasses", "enrolledPasses");
-        result.put("currentTierIndex", "currentTierIndex");
-        result.put("lastTierIndex", "lastTierIndex");
-        result.put("requiredExp", "requiredExp");
-        result.put("currentExp", "currentExp");
+        result.put("claimingRewards", "claimingRewards");
         result.put("cleared", "cleared");
         result.put("createdAt", "createdAt");
-        result.put("updatedAt", "updatedAt");
+        result.put("currentExp", "currentExp");
+        result.put("currentTierIndex", "currentTierIndex");
+        result.put("enrolledAt", "enrolledAt");
+        result.put("enrolledPasses", "enrolledPasses");
+        result.put("id", "id");
+        result.put("lastTierIndex", "lastTierIndex");
+        result.put("namespace", "namespace");
+        result.put("requiredExp", "requiredExp");
         result.put("season", "season");
+        result.put("seasonId", "seasonId");
         result.put("toClaimRewards", "toClaimRewards");
-        result.put("claimingRewards", "claimingRewards");
+        result.put("updatedAt", "updatedAt");
+        result.put("userId", "userId");
         return result;
     }
 }

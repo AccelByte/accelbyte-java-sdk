@@ -9,8 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.models.GoogleReceiptResolveResult;
-import net.accelbyte.sdk.api.platform.models.GoogleIAPReceipt;
+import net.accelbyte.sdk.api.platform.models.TwitchIAPConfigInfo;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -22,15 +21,15 @@ import java.util.*;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PublicFulfillGoogleIAPItem extends Operation {
+public class GetTwitchIAPConfig extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/platform/public/namespaces/{namespace}/users/{userId}/iap/google/receipt";
+    private String url = "/platform/admin/namespaces/{namespace}/iap/config/twitch";
 
     @JsonIgnore
-    private String method = "PUT";
+    private String method = "GET";
 
     @JsonIgnore
     private List<String> consumes = Arrays.asList();
@@ -48,26 +47,19 @@ public class PublicFulfillGoogleIAPItem extends Operation {
      * fields as input parameter
      */
     private String namespace;
-    private String userId;
-    private GoogleIAPReceipt body;
 
     /**
     * @param namespace required
-    * @param userId required
     */
-    public PublicFulfillGoogleIAPItem(
-            String namespace,
-            String userId,
-            GoogleIAPReceipt body
+    public GetTwitchIAPConfig(
+            String namespace
     )
     {
         this.namespace = namespace;
-        this.userId = userId;
-        this.body = body;
     }
 
     @JsonIgnore
-    public PublicFulfillGoogleIAPItem createFromJson(String json) throws JsonProcessingException {
+    public GetTwitchIAPConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -83,18 +75,10 @@ public class PublicFulfillGoogleIAPItem extends Operation {
         if (this.namespace != null){
             pathParams.put("namespace", this.namespace);
         }
-        if (this.userId != null){
-            pathParams.put("userId", this.userId);
-        }
         return pathParams;
     }
 
 
-    @Override
-    @JsonIgnore
-    public GoogleIAPReceipt getBodyParams(){
-        return this.body;
-    }
 
 
     @Override
@@ -107,15 +91,13 @@ public class PublicFulfillGoogleIAPItem extends Operation {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("namespace","namespace");
-        result.put("userId","userId");
         return result;
     }
 
     @JsonIgnore
     public List<String> getAllRequiredFields() {
         return Arrays.asList(
-            "namespace",
-            "userId"
+            "namespace"
         );
     }
 
@@ -125,18 +107,15 @@ public class PublicFulfillGoogleIAPItem extends Operation {
         if(this.namespace == null) {
             return false;
         }
-        if(this.userId == null) {
-            return false;
-        }
         return true;
     }
 
     @Override
     @JsonIgnore
-    public GoogleReceiptResolveResult parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public TwitchIAPConfigInfo parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
-            return new GoogleReceiptResolveResult().createFromJson(json);
+            return new TwitchIAPConfigInfo().createFromJson(json);
         }
         throw new ResponseException(code, json);
     }

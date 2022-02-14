@@ -19,20 +19,11 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SeasonInfo extends Model {
 
-    @JsonProperty("id")
-    private String id;
+    @JsonProperty("autoClaim")
+    private Boolean autoClaim;
 
-    @JsonProperty("namespace")
-    private String namespace;
-
-    @JsonProperty("name")
-    private String name;
-
-    @JsonProperty("start")
-    private String start;
-
-    @JsonProperty("end")
-    private String end;
+    @JsonProperty("createdAt")
+    private String createdAt;
 
     @JsonProperty("defaultLanguage")
     private String defaultLanguage;
@@ -43,35 +34,44 @@ public class SeasonInfo extends Model {
     @JsonProperty("draftStoreId")
     private String draftStoreId;
 
+    @JsonProperty("end")
+    private String end;
+
+    @JsonProperty("excessStrategy")
+    private ExcessStrategy excessStrategy;
+
+    @JsonProperty("id")
+    private String id;
+
+    @JsonProperty("images")
+    private List<Image> images;
+
+    @JsonProperty("localizations")
+    private Map<String, Localization> localizations;
+
+    @JsonProperty("name")
+    private String name;
+
+    @JsonProperty("namespace")
+    private String namespace;
+
+    @JsonProperty("passCodes")
+    private List<String> passCodes;
+
+    @JsonProperty("publishedAt")
+    private String publishedAt;
+
+    @JsonProperty("start")
+    private String start;
+
+    @JsonProperty("status")
+    private String status;
+
     @JsonProperty("tierItemId")
     private String tierItemId;
 
     @JsonProperty("tierItemName")
     private String tierItemName;
-
-    @JsonProperty("autoClaim")
-    private Boolean autoClaim;
-
-    @JsonProperty("excessStrategy")
-    private ExcessStrategy excessStrategy;
-
-    @JsonProperty("localizations")
-    private Map<String, Localization> localizations;
-
-    @JsonProperty("images")
-    private List<Image> images;
-
-    @JsonProperty("passCodes")
-    private List<String> passCodes;
-
-    @JsonProperty("status")
-    private String status;
-
-    @JsonProperty("publishedAt")
-    private String publishedAt;
-
-    @JsonProperty("createdAt")
-    private String createdAt;
 
     @JsonProperty("updatedAt")
     private String updatedAt;
@@ -89,24 +89,24 @@ public class SeasonInfo extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id", "id");
-        result.put("namespace", "namespace");
-        result.put("name", "name");
-        result.put("start", "start");
-        result.put("end", "end");
+        result.put("autoClaim", "autoClaim");
+        result.put("createdAt", "createdAt");
         result.put("defaultLanguage", "defaultLanguage");
         result.put("defaultRequiredExp", "defaultRequiredExp");
         result.put("draftStoreId", "draftStoreId");
+        result.put("end", "end");
+        result.put("excessStrategy", "excessStrategy");
+        result.put("id", "id");
+        result.put("images", "images");
+        result.put("localizations", "localizations");
+        result.put("name", "name");
+        result.put("namespace", "namespace");
+        result.put("passCodes", "passCodes");
+        result.put("publishedAt", "publishedAt");
+        result.put("start", "start");
+        result.put("status", "status");
         result.put("tierItemId", "tierItemId");
         result.put("tierItemName", "tierItemName");
-        result.put("autoClaim", "autoClaim");
-        result.put("excessStrategy", "excessStrategy");
-        result.put("localizations", "localizations");
-        result.put("images", "images");
-        result.put("passCodes", "passCodes");
-        result.put("status", "status");
-        result.put("publishedAt", "publishedAt");
-        result.put("createdAt", "createdAt");
         result.put("updatedAt", "updatedAt");
         return result;
     }

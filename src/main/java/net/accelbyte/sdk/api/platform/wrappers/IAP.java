@@ -371,6 +371,54 @@ public class IAP {
         }
     }
 
+    public TwitchIAPConfigInfo getTwitchIAPConfig(GetTwitchIAPConfig input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    public TwitchIAPConfigInfo updateTwitchIAPConfig(UpdateTwitchIAPConfig input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    public void deleteTwitchIAPConfig(DeleteTwitchIAPConfig input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
     public XblIAPConfigInfo getXblIAPConfig(GetXblIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -515,12 +563,12 @@ public class IAP {
         }
     }
 
-    public void publicFulfillGoogleIAPItem(PublicFulfillGoogleIAPItem input) throws ResponseException, IOException {
+    public GoogleReceiptResolveResult publicFulfillGoogleIAPItem(PublicFulfillGoogleIAPItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
-          input
-              .handleEmptyResponse(
+          return input
+              .parseResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
           );
         }
@@ -564,6 +612,22 @@ public class IAP {
     }
 
     public void syncSteamInventory(SyncSteamInventory input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    public void syncTwitchDropsEntitlement(SyncTwitchDropsEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

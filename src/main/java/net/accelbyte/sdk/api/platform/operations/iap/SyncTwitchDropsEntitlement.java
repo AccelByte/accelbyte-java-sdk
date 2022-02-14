@@ -9,8 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.models.GoogleReceiptResolveResult;
-import net.accelbyte.sdk.api.platform.models.GoogleIAPReceipt;
+import net.accelbyte.sdk.api.platform.models.TwitchSyncRequest;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -22,12 +21,12 @@ import java.util.*;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PublicFulfillGoogleIAPItem extends Operation {
+public class SyncTwitchDropsEntitlement extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/platform/public/namespaces/{namespace}/users/{userId}/iap/google/receipt";
+    private String url = "/platform/public/namespaces/{namespace}/users/{userId}/iap/twitch/sync";
 
     @JsonIgnore
     private String method = "PUT";
@@ -49,16 +48,16 @@ public class PublicFulfillGoogleIAPItem extends Operation {
      */
     private String namespace;
     private String userId;
-    private GoogleIAPReceipt body;
+    private TwitchSyncRequest body;
 
     /**
     * @param namespace required
     * @param userId required
     */
-    public PublicFulfillGoogleIAPItem(
+    public SyncTwitchDropsEntitlement(
             String namespace,
             String userId,
-            GoogleIAPReceipt body
+            TwitchSyncRequest body
     )
     {
         this.namespace = namespace;
@@ -67,7 +66,7 @@ public class PublicFulfillGoogleIAPItem extends Operation {
     }
 
     @JsonIgnore
-    public PublicFulfillGoogleIAPItem createFromJson(String json) throws JsonProcessingException {
+    public SyncTwitchDropsEntitlement createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -92,7 +91,7 @@ public class PublicFulfillGoogleIAPItem extends Operation {
 
     @Override
     @JsonIgnore
-    public GoogleIAPReceipt getBodyParams(){
+    public TwitchSyncRequest getBodyParams(){
         return this.body;
     }
 
@@ -133,12 +132,11 @@ public class PublicFulfillGoogleIAPItem extends Operation {
 
     @Override
     @JsonIgnore
-    public GoogleReceiptResolveResult parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
-        String json = this.convertInputStreamToString(payload);
-        if(code == 200){
-            return new GoogleReceiptResolveResult().createFromJson(json);
+    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+        if(code != 204){
+            String json = this.convertInputStreamToString(payload);
+            throw new ResponseException(code, json);
         }
-        throw new ResponseException(code, json);
     }
 
 }

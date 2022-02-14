@@ -19,11 +19,11 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ClaimableRewards extends Model {
 
-    @JsonProperty("toClaimRewards")
-    private Map<String, ?> toClaimRewards;
-
     @JsonProperty("claimingRewards")
     private Map<String, ?> claimingRewards;
+
+    @JsonProperty("toClaimRewards")
+    private Map<String, ?> toClaimRewards;
 
     @JsonIgnore
     public ClaimableRewards createFromJson(String json) throws JsonProcessingException {
@@ -38,8 +38,8 @@ public class ClaimableRewards extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("toClaimRewards", "toClaimRewards");
         result.put("claimingRewards", "claimingRewards");
+        result.put("toClaimRewards", "toClaimRewards");
         return result;
     }
 }

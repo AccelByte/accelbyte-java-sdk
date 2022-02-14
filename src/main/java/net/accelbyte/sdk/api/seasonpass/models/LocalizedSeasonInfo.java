@@ -19,62 +19,62 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LocalizedSeasonInfo extends Model {
 
-    @JsonProperty("title")
-    private String title;
-
-    @JsonProperty("description")
-    private String description;
-
-    @JsonProperty("id")
-    private String id;
-
-    @JsonProperty("namespace")
-    private String namespace;
-
-    @JsonProperty("name")
-    private String name;
-
-    @JsonProperty("start")
-    private String start;
-
-    @JsonProperty("end")
-    private String end;
-
-    @JsonProperty("tierItemId")
-    private String tierItemId;
-
     @JsonProperty("autoClaim")
     private Boolean autoClaim;
-
-    @JsonProperty("images")
-    private List<Image> images;
-
-    @JsonProperty("passCodes")
-    private List<String> passCodes;
-
-    @JsonProperty("status")
-    private String status;
-
-    @JsonProperty("publishedAt")
-    private String publishedAt;
-
-    @JsonProperty("language")
-    private String language;
 
     @JsonProperty("createdAt")
     private String createdAt;
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
+    @JsonProperty("description")
+    private String description;
+
+    @JsonProperty("end")
+    private String end;
+
+    @JsonProperty("id")
+    private String id;
+
+    @JsonProperty("images")
+    private List<Image> images;
+
+    @JsonProperty("language")
+    private String language;
+
+    @JsonProperty("name")
+    private String name;
+
+    @JsonProperty("namespace")
+    private String namespace;
+
+    @JsonProperty("passCodes")
+    private List<String> passCodes;
 
     @JsonProperty("passes")
     private List<LocalizedPassInfo> passes;
 
+    @JsonProperty("publishedAt")
+    private String publishedAt;
+
     @JsonProperty("rewards")
     private Map<String, RewardInfo> rewards;
 
+    @JsonProperty("start")
+    private String start;
+
+    @JsonProperty("status")
+    private String status;
+
+    @JsonProperty("tierItemId")
+    private String tierItemId;
+
     @JsonProperty("tiers")
     private List<Tier> tiers;
+
+    @JsonProperty("title")
+    private String title;
+
+    @JsonProperty("updatedAt")
+    private String updatedAt;
 
     @JsonIgnore
     public LocalizedSeasonInfo createFromJson(String json) throws JsonProcessingException {
@@ -89,25 +89,25 @@ public class LocalizedSeasonInfo extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("title", "title");
-        result.put("description", "description");
-        result.put("id", "id");
-        result.put("namespace", "namespace");
-        result.put("name", "name");
-        result.put("start", "start");
-        result.put("end", "end");
-        result.put("tierItemId", "tierItemId");
         result.put("autoClaim", "autoClaim");
-        result.put("images", "images");
-        result.put("passCodes", "passCodes");
-        result.put("status", "status");
-        result.put("publishedAt", "publishedAt");
-        result.put("language", "language");
         result.put("createdAt", "createdAt");
-        result.put("updatedAt", "updatedAt");
+        result.put("description", "description");
+        result.put("end", "end");
+        result.put("id", "id");
+        result.put("images", "images");
+        result.put("language", "language");
+        result.put("name", "name");
+        result.put("namespace", "namespace");
+        result.put("passCodes", "passCodes");
         result.put("passes", "passes");
+        result.put("publishedAt", "publishedAt");
         result.put("rewards", "rewards");
+        result.put("start", "start");
+        result.put("status", "status");
+        result.put("tierItemId", "tierItemId");
         result.put("tiers", "tiers");
+        result.put("title", "title");
+        result.put("updatedAt", "updatedAt");
         return result;
     }
 }

@@ -19,14 +19,8 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SeasonUpdate extends Model {
 
-    @JsonProperty("name")
-    private String name;
-
-    @JsonProperty("start")
-    private String start;
-
-    @JsonProperty("end")
-    private String end;
+    @JsonProperty("autoClaim")
+    private Boolean autoClaim;
 
     @JsonProperty("defaultLanguage")
     private String defaultLanguage;
@@ -37,20 +31,26 @@ public class SeasonUpdate extends Model {
     @JsonProperty("draftStoreId")
     private String draftStoreId;
 
-    @JsonProperty("tierItemId")
-    private String tierItemId;
-
-    @JsonProperty("autoClaim")
-    private Boolean autoClaim;
+    @JsonProperty("end")
+    private String end;
 
     @JsonProperty("excessStrategy")
     private ExcessStrategy excessStrategy;
 
+    @JsonProperty("images")
+    private List<Image> images;
+
     @JsonProperty("localizations")
     private Map<String, Localization> localizations;
 
-    @JsonProperty("images")
-    private List<Image> images;
+    @JsonProperty("name")
+    private String name;
+
+    @JsonProperty("start")
+    private String start;
+
+    @JsonProperty("tierItemId")
+    private String tierItemId;
 
     @JsonIgnore
     public SeasonUpdate createFromJson(String json) throws JsonProcessingException {
@@ -65,17 +65,17 @@ public class SeasonUpdate extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("name", "name");
-        result.put("start", "start");
-        result.put("end", "end");
+        result.put("autoClaim", "autoClaim");
         result.put("defaultLanguage", "defaultLanguage");
         result.put("defaultRequiredExp", "defaultRequiredExp");
         result.put("draftStoreId", "draftStoreId");
-        result.put("tierItemId", "tierItemId");
-        result.put("autoClaim", "autoClaim");
+        result.put("end", "end");
         result.put("excessStrategy", "excessStrategy");
-        result.put("localizations", "localizations");
         result.put("images", "images");
+        result.put("localizations", "localizations");
+        result.put("name", "name");
+        result.put("start", "start");
+        result.put("tierItemId", "tierItemId");
         return result;
     }
 }

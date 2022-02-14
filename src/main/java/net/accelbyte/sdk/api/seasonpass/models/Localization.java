@@ -19,11 +19,11 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Localization extends Model {
 
-    @JsonProperty("title")
-    private String title;
-
     @JsonProperty("description")
     private String description;
+
+    @JsonProperty("title")
+    private String title;
 
     @JsonIgnore
     public Localization createFromJson(String json) throws JsonProcessingException {
@@ -38,8 +38,8 @@ public class Localization extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("title", "title");
         result.put("description", "description");
+        result.put("title", "title");
         return result;
     }
 }

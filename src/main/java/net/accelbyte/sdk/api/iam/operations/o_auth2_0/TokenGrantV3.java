@@ -49,8 +49,11 @@ public class TokenGrantV3 extends Operation {
     private String clientId;
     private String code;
     private String codeVerifier;
+    private Boolean extendExp;
+    private String password;
     private String redirectUri;
     private String refreshToken;
+    private String username;
     private String grantType;
 
     /**
@@ -60,16 +63,22 @@ public class TokenGrantV3 extends Operation {
             String clientId,
             String code,
             String codeVerifier,
+            Boolean extendExp,
+            String password,
             String redirectUri,
             String refreshToken,
+            String username,
             String grantType
     )
     {
         this.clientId = clientId;
         this.code = code;
         this.codeVerifier = codeVerifier;
+        this.extendExp = extendExp;
+        this.password = password;
         this.redirectUri = redirectUri;
         this.refreshToken = refreshToken;
+        this.username = username;
         this.grantType = grantType;
     }
 
@@ -99,11 +108,20 @@ public class TokenGrantV3 extends Operation {
         if (this.codeVerifier != null) {
             formDataParams.put("code_verifier", this.codeVerifier);
         }
+        if (this.extendExp != null) {
+            formDataParams.put("extend_exp", this.extendExp == null ? null : String.valueOf(this.extendExp));
+        }
+        if (this.password != null) {
+            formDataParams.put("password", this.password);
+        }
         if (this.redirectUri != null) {
             formDataParams.put("redirect_uri", this.redirectUri);
         }
         if (this.refreshToken != null) {
             formDataParams.put("refresh_token", this.refreshToken);
+        }
+        if (this.username != null) {
+            formDataParams.put("username", this.username);
         }
         if (this.grantType != null) {
             formDataParams.put("grant_type", this.grantType);
@@ -123,8 +141,11 @@ public class TokenGrantV3 extends Operation {
         result.put("client_id","clientId");
         result.put("code","code");
         result.put("code_verifier","codeVerifier");
+        result.put("extend_exp","extendExp");
+        result.put("password","password");
         result.put("redirect_uri","redirectUri");
         result.put("refresh_token","refreshToken");
+        result.put("username","username");
         result.put("grant_type","grantType");
         return result;
     }

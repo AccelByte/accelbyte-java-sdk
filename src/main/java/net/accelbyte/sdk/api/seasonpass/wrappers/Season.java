@@ -19,7 +19,39 @@ public class Season {
         this.sdk = sdk;
     }
 
-    public SeasonInfo unpublishSeason(UnpublishSeason input) throws ResponseException, IOException {
+    public ListSeasonInfoPagingSlicedResult querySeasons(QuerySeasons input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    public SeasonInfo createSeason(CreateSeason input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    public SeasonSummary getCurrentSeason(GetCurrentSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -99,23 +131,7 @@ public class Season {
         }
     }
 
-    public ListSeasonInfoPagingSlicedResult querySeasons(QuerySeasons input) throws ResponseException, IOException {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          return input
-              .parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
-    }
-
-    public SeasonInfo createSeason(CreateSeason input) throws ResponseException, IOException {
+    public SeasonInfo publishSeason(PublishSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -147,7 +163,7 @@ public class Season {
         }
     }
 
-    public SeasonInfo publishSeason(PublishSeason input) throws ResponseException, IOException {
+    public SeasonInfo unpublishSeason(UnpublishSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +179,7 @@ public class Season {
         }
     }
 
-    public SeasonSummary getCurrentSeason(GetCurrentSeason input) throws ResponseException, IOException {
+    public ListUserSeasonInfoPagingSlicedResult getUserParticipatedSeasons(GetUserParticipatedSeasons input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -195,7 +211,7 @@ public class Season {
         }
     }
 
-    public ClaimableUserSeasonInfo getUserSeason(GetUserSeason input) throws ResponseException, IOException {
+    public UserSeasonSummary getCurrentUserSeasonProgression(GetCurrentUserSeasonProgression input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -227,22 +243,6 @@ public class Season {
         }
     }
 
-    public UserSeasonSummary getCurrentUserSeasonProgression(GetCurrentUserSeasonProgression input) throws ResponseException, IOException {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          return input
-              .parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
-    }
-
     public void resetUserSeason(ResetUserSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -259,7 +259,7 @@ public class Season {
         }
     }
 
-    public ListUserSeasonInfoPagingSlicedResult getUserParticipatedSeasons(GetUserParticipatedSeasons input) throws ResponseException, IOException {
+    public ClaimableUserSeasonInfo getUserSeason(GetUserSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

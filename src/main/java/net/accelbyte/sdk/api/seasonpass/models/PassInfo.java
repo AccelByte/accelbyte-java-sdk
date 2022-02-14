@@ -19,20 +19,26 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PassInfo extends Model {
 
-    @JsonProperty("seasonId")
-    private String seasonId;
+    @JsonProperty("autoEnroll")
+    private Boolean autoEnroll;
 
     @JsonProperty("code")
     private String code;
 
-    @JsonProperty("namespace")
-    private String namespace;
+    @JsonProperty("createdAt")
+    private String createdAt;
 
     @JsonProperty("displayOrder")
     private String displayOrder;
 
-    @JsonProperty("autoEnroll")
-    private Boolean autoEnroll;
+    @JsonProperty("images")
+    private List<Image> images;
+
+    @JsonProperty("localizations")
+    private Map<String, Localization> localizations;
+
+    @JsonProperty("namespace")
+    private String namespace;
 
     @JsonProperty("passItemId")
     private String passItemId;
@@ -40,14 +46,8 @@ public class PassInfo extends Model {
     @JsonProperty("passItemName")
     private String passItemName;
 
-    @JsonProperty("localizations")
-    private Map<String, Localization> localizations;
-
-    @JsonProperty("images")
-    private List<Image> images;
-
-    @JsonProperty("createdAt")
-    private String createdAt;
+    @JsonProperty("seasonId")
+    private String seasonId;
 
     @JsonProperty("updatedAt")
     private String updatedAt;
@@ -65,16 +65,16 @@ public class PassInfo extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("seasonId", "seasonId");
-        result.put("code", "code");
-        result.put("namespace", "namespace");
-        result.put("displayOrder", "displayOrder");
         result.put("autoEnroll", "autoEnroll");
+        result.put("code", "code");
+        result.put("createdAt", "createdAt");
+        result.put("displayOrder", "displayOrder");
+        result.put("images", "images");
+        result.put("localizations", "localizations");
+        result.put("namespace", "namespace");
         result.put("passItemId", "passItemId");
         result.put("passItemName", "passItemName");
-        result.put("localizations", "localizations");
-        result.put("images", "images");
-        result.put("createdAt", "createdAt");
+        result.put("seasonId", "seasonId");
         result.put("updatedAt", "updatedAt");
         return result;
     }

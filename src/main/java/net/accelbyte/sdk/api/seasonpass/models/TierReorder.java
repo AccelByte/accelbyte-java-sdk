@@ -17,33 +17,25 @@ import java.util.Map;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserPurchasable extends Model {
+public class TierReorder extends Model {
 
-    @JsonProperty("passItemId")
-    private String passItemId;
-
-    @JsonProperty("tierItemCount")
-    private Integer tierItemCount;
-
-    @JsonProperty("tierItemId")
-    private String tierItemId;
+    @JsonProperty("newIndex")
+    private Integer newIndex;
 
     @JsonIgnore
-    public UserPurchasable createFromJson(String json) throws JsonProcessingException {
+    public TierReorder createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<UserPurchasable> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<UserPurchasable>>() {});
+    public List<TierReorder> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<TierReorder>>() {});
     }
 
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("passItemId", "passItemId");
-        result.put("tierItemCount", "tierItemCount");
-        result.put("tierItemId", "tierItemId");
+        result.put("newIndex", "newIndex");
         return result;
     }
 }
