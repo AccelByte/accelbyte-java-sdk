@@ -1660,7 +1660,7 @@ delete_file $TEMP_FILE
 
 #- 206 TokenGrantV3
 java -jar ${JAR_PATH} iam tokenGrantV3 \
-    --grantType 'authorization_code' \
+    --grantType 'client_credentials' \
     >$TEMP_FILE 2>&1
 update_status $? 'TokenGrantV3'
 delete_file $TEMP_FILE

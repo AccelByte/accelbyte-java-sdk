@@ -22,10 +22,10 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "publicFulfillGoogleIAPItem", mixinStandardHelpOptions = true)
-public class PublicFulfillGoogleIAPItem implements Callable<Integer> {
+@Command(name = "syncTwitchDropsEntitlement", mixinStandardHelpOptions = true)
+public class SyncTwitchDropsEntitlement implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(PublicFulfillGoogleIAPItem.class);
+    private static final Logger log = LogManager.getLogger(SyncTwitchDropsEntitlement.class);
 
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
@@ -38,29 +38,27 @@ public class PublicFulfillGoogleIAPItem implements Callable<Integer> {
 
 
     public static void main(String[] args) {
-            int exitCode = new CommandLine(new PublicFulfillGoogleIAPItem()).execute(args);
+            int exitCode = new CommandLine(new SyncTwitchDropsEntitlement()).execute(args);
             System.exit(exitCode);
         }
 
     @Override
     public Integer call() {
         try {
-            GoogleReceiptResolveResult response =
             new IAP(new AccelByteSDK(
                             new OkhttpClient(),
                             CLITokenRepositoryImpl.getInstance(),
                             new DefaultConfigRepository()
                     ))
 
-            .publicFulfillGoogleIAPItem(
-                new net.accelbyte.sdk.api.platform.operations.iap.PublicFulfillGoogleIAPItem(
+            .syncTwitchDropsEntitlement(
+                new net.accelbyte.sdk.api.platform.operations.iap.SyncTwitchDropsEntitlement(
                     namespace,
                     userId,
-                    new ObjectMapper().readValue(body, GoogleIAPReceipt.class)  
+                    new ObjectMapper().readValue(body, TwitchSyncRequest.class)  
                 )
             );
-            String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-            log.info("Operation successful with response below:\n{}", responseString);
+            log.info("Operation successful");
             return 0;
         } catch (ResponseException e) {
             log.error("ResponseException occur with message below:\n{}", e.getMessage());

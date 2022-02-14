@@ -11,7 +11,7 @@ MODULE_PATH="${MODULE_PATH:-../../samples/cli}"
 JAR_PATH="${MODULE_PATH}/build/libs/cli.jar"
 TEMP_FILE='file.tmp'
 
-OPERATIONS_COUNT=38
+OPERATIONS_COUNT=39
 
 FINISHED_COUNT=0
 SUCCESS_COUNT=0
@@ -66,326 +66,336 @@ echo "1..$OPERATIONS_COUNT"
 
 java -jar ${JAR_PATH} loginClient
 
-#- 1 GetPass
-java -jar ${JAR_PATH} seasonpass getPass \
-    --code 'FtBxyZcD' \
-    --namespace "test" \
-    --seasonId 'XBpGlsQu' \
-    >$TEMP_FILE 2>&1
-update_status $? 'GetPass'
-delete_file $TEMP_FILE
-
-#- 2 DeletePass
-java -jar ${JAR_PATH} seasonpass deletePass \
-    --code 'Ju8vMf0I' \
-    --namespace "test" \
-    --seasonId 'sJkTrd8I' \
-    >$TEMP_FILE 2>&1
-update_status $? 'DeletePass'
-delete_file $TEMP_FILE
-
-#- 3 UpdatePass
-java -jar ${JAR_PATH} seasonpass updatePass \
-    --code 'DcV2zXnT' \
-    --namespace "test" \
-    --seasonId 'KjXY1bPq' \
-    --body '{"displayOrder": 1, "autoEnroll": false, "passItemId": "iBxx9Cs1", "localizations": {"8EY84ekI": {"title": "tqRzHU1o", "description": "h570KQBV"}}, "images": [{"as": "aewc72kr", "caption": "Sha68n3Y", "height": 26, "width": 29, "imageUrl": "zp1C2KmI", "smallImageUrl": "QTuBdNEU"}]}' \
-    >$TEMP_FILE 2>&1
-update_status $? 'UpdatePass'
-delete_file $TEMP_FILE
-
-#- 4 QueryPasses
-java -jar ${JAR_PATH} seasonpass queryPasses \
-    --namespace "test" \
-    --seasonId 'sxFb8CJ1' \
-    >$TEMP_FILE 2>&1
-update_status $? 'QueryPasses'
-delete_file $TEMP_FILE
-
-#- 5 CreatePass
-java -jar ${JAR_PATH} seasonpass createPass \
-    --namespace "test" \
-    --seasonId '7M7DJZaM' \
-    --body '{"code": "SxECbZby", "displayOrder": 13, "autoEnroll": true, "passItemId": "oarORoeN", "localizations": {"HSb8Rh3k": {"title": "gs9qqJbn", "description": "QsoBgiVp"}}, "images": [{"as": "P8Cm3yvA", "caption": "SUoxdxxF", "height": 32, "width": 24, "imageUrl": "AGTJ8IEd", "smallImageUrl": "agEtp4w2"}]}' \
-    >$TEMP_FILE 2>&1
-update_status $? 'CreatePass'
-delete_file $TEMP_FILE
-
-#- 6 GetReward
-java -jar ${JAR_PATH} seasonpass getReward \
-    --code '9KOu9c19' \
-    --namespace "test" \
-    --seasonId 'R6XDqWHk' \
-    >$TEMP_FILE 2>&1
-update_status $? 'GetReward'
-delete_file $TEMP_FILE
-
-#- 7 DeleteReward
-java -jar ${JAR_PATH} seasonpass deleteReward \
-    --code 'kP8npLEK' \
-    --namespace "test" \
-    --seasonId 'MfjiX7jp' \
-    >$TEMP_FILE 2>&1
-update_status $? 'DeleteReward'
-delete_file $TEMP_FILE
-
-#- 8 UpdateReward
-java -jar ${JAR_PATH} seasonpass updateReward \
-    --code 'kVZk3IaQ' \
-    --namespace "test" \
-    --seasonId 'YEmqGodO' \
-    --body '{"type": "CURRENCY", "itemId": "Gt9gPOj0", "currency": {"namespace": "c6i0JkvI", "currencyCode": "as73ucYn"}, "quantity": 63, "image": {"as": "AJ3DK5T4", "caption": "Eogg0Y39", "height": 93, "width": 29, "imageUrl": "Ylpv5bVA", "smallImageUrl": "gtsDhUTD"}, "nullFields": ["UscbQDjb"]}' \
-    >$TEMP_FILE 2>&1
-update_status $? 'UpdateReward'
-delete_file $TEMP_FILE
-
-#- 9 QueryRewards
-java -jar ${JAR_PATH} seasonpass queryRewards \
-    --namespace "test" \
-    --seasonId 'TQuPMz2P' \
-    >$TEMP_FILE 2>&1
-update_status $? 'QueryRewards'
-delete_file $TEMP_FILE
-
-#- 10 CreateReward
-java -jar ${JAR_PATH} seasonpass createReward \
-    --namespace "test" \
-    --seasonId 'TRlkyU89' \
-    --body '{"code": "ZPOw6zPF", "type": "ITEM", "itemId": "wmzBBSMN", "currency": {"namespace": "coAAOjKN", "currencyCode": "jfcYHm09"}, "quantity": 0, "image": {"as": "YgBU1sqj", "caption": "yK0XH45P", "height": 0, "width": 87, "imageUrl": "SOFQBtu2", "smallImageUrl": "3REZ8hRV"}}' \
-    >$TEMP_FILE 2>&1
-update_status $? 'CreateReward'
-delete_file $TEMP_FILE
-
-#- 11 UnpublishSeason
-java -jar ${JAR_PATH} seasonpass unpublishSeason \
-    --namespace "test" \
-    --seasonId 'X7LGOvDd' \
-    >$TEMP_FILE 2>&1
-update_status $? 'UnpublishSeason'
-delete_file $TEMP_FILE
-
-#- 12 GetSeason
-java -jar ${JAR_PATH} seasonpass getSeason \
-    --namespace "test" \
-    --seasonId 'YiQS9i7m' \
-    >$TEMP_FILE 2>&1
-update_status $? 'GetSeason'
-delete_file $TEMP_FILE
-
-#- 13 DeleteSeason
-java -jar ${JAR_PATH} seasonpass deleteSeason \
-    --namespace "test" \
-    --seasonId 'V1C91pjG' \
-    >$TEMP_FILE 2>&1
-update_status $? 'DeleteSeason'
-delete_file $TEMP_FILE
-
-#- 14 UpdateSeason
-java -jar ${JAR_PATH} seasonpass updateSeason \
-    --namespace "test" \
-    --seasonId '9gpxL6yc' \
-    --body '{"name": "TQdvln2L", "start": "1984-06-12T00:00:00Z", "end": "1993-12-03T00:00:00Z", "defaultLanguage": "WEXL6LFE", "defaultRequiredExp": 67, "draftStoreId": "o9m126ZW", "tierItemId": "c8hHtWvb", "autoClaim": true, "excessStrategy": {"method": "NONE", "currency": "UqslArFP", "percentPerExp": 17}, "localizations": {"HUIvaCv8": {"title": "kU9dBBpd", "description": "sJLhsVyE"}}, "images": [{"as": "xrkxoot0", "caption": "B7WOferc", "height": 7, "width": 31, "imageUrl": "Mci37Ds7", "smallImageUrl": "YSfExaI3"}]}' \
-    >$TEMP_FILE 2>&1
-update_status $? 'UpdateSeason'
-delete_file $TEMP_FILE
-
-#- 15 CloneSeason
-java -jar ${JAR_PATH} seasonpass cloneSeason \
-    --namespace "test" \
-    --seasonId 'uzLteMbF' \
-    --body '{"name": "Alt4hr7H", "start": "1977-11-23T00:00:00Z", "end": "1996-02-29T00:00:00Z"}' \
-    >$TEMP_FILE 2>&1
-update_status $? 'CloneSeason'
-delete_file $TEMP_FILE
-
-#- 16 QuerySeasons
+#- 1 QuerySeasons
 java -jar ${JAR_PATH} seasonpass querySeasons \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'QuerySeasons'
 delete_file $TEMP_FILE
 
-#- 17 CreateSeason
+#- 2 CreateSeason
 java -jar ${JAR_PATH} seasonpass createSeason \
     --namespace "test" \
-    --body '{"name": "BA5ltAOX", "start": "1977-03-30T00:00:00Z", "end": "1987-02-03T00:00:00Z", "defaultLanguage": "h1dTdoTF", "defaultRequiredExp": 31, "draftStoreId": "BIcuC1dQ", "tierItemId": "Y93OJnJ6", "autoClaim": false, "excessStrategy": {"method": "CURRENCY", "currency": "D8ldz7Hu", "percentPerExp": 53}, "localizations": {"D79kdWun": {"title": "vizU0q1p", "description": "HyhhERoG"}}, "images": [{"as": "gdrysMiz", "caption": "BGSRdP2l", "height": 59, "width": 79, "imageUrl": "SZ8Aq0Xi", "smallImageUrl": "PLQXSe07"}]}' \
+    --body '{"autoClaim": true, "defaultLanguage": "tBxyZcDX", "defaultRequiredExp": 55, "draftStoreId": "pGlsQuJu", "end": "1981-11-03T00:00:00Z", "excessStrategy": {"currency": "f0IsJkTr", "method": "NONE", "percentPerExp": 68}, "images": [{"as": "DcV2zXnT", "caption": "KjXY1bPq", "height": 1, "imageUrl": "miBxx9Cs", "smallImageUrl": "18EY84ek", "width": 69}], "localizations": {"tqRzHU1o": {"description": "h570KQBV", "title": "aewc72kr"}}, "name": "Sha68n3Y", "start": "1977-04-27T00:00:00Z", "tierItemId": "zp1C2KmI"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'CreateSeason'
 delete_file $TEMP_FILE
 
-#- 18 RetireSeason
-java -jar ${JAR_PATH} seasonpass retireSeason \
-    --namespace "test" \
-    --seasonId 'ZddOGTMl' \
-    >$TEMP_FILE 2>&1
-update_status $? 'RetireSeason'
-delete_file $TEMP_FILE
-
-#- 19 PublishSeason
-java -jar ${JAR_PATH} seasonpass publishSeason \
-    --namespace "test" \
-    --seasonId 'JjBwj9HJ' \
-    >$TEMP_FILE 2>&1
-update_status $? 'PublishSeason'
-delete_file $TEMP_FILE
-
-#- 20 GetCurrentSeason
+#- 3 GetCurrentSeason
 java -jar ${JAR_PATH} seasonpass getCurrentSeason \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'GetCurrentSeason'
 delete_file $TEMP_FILE
 
-#- 21 UpdateTier
-java -jar ${JAR_PATH} seasonpass updateTier \
-    --id 'HQKseEdS' \
+#- 4 GetSeason
+java -jar ${JAR_PATH} seasonpass getSeason \
     --namespace "test" \
-    --seasonId 'XRDSvgua' \
-    --body '{"requiredExp": 40, "rewards": {"w1xT7eMw": ["Sl9MLH0N"]}}' \
+    --seasonId 'QTuBdNEU' \
     >$TEMP_FILE 2>&1
-update_status $? 'UpdateTier'
+update_status $? 'GetSeason'
 delete_file $TEMP_FILE
 
-#- 22 DeleteTier
-java -jar ${JAR_PATH} seasonpass deleteTier \
-    --id 'nTJ2ulNz' \
+#- 5 DeleteSeason
+java -jar ${JAR_PATH} seasonpass deleteSeason \
     --namespace "test" \
-    --seasonId 'BvwJaQa5' \
+    --seasonId 'sxFb8CJ1' \
     >$TEMP_FILE 2>&1
-update_status $? 'DeleteTier'
+update_status $? 'DeleteSeason'
 delete_file $TEMP_FILE
 
-#- 23 QueryTiers
+#- 6 UpdateSeason
+java -jar ${JAR_PATH} seasonpass updateSeason \
+    --namespace "test" \
+    --seasonId '7M7DJZaM' \
+    --body '{"autoClaim": true, "defaultLanguage": "ECbZbygy", "defaultRequiredExp": 29, "draftStoreId": "arORoeNH", "end": "1993-01-05T00:00:00Z", "excessStrategy": {"currency": "8Rh3kgs9", "method": "CURRENCY", "percentPerExp": 33}, "images": [{"as": "JbnQsoBg", "caption": "iVpP8Cm3", "height": 49, "imageUrl": "vASUoxdx", "smallImageUrl": "xFqmAGTJ", "width": 68}], "localizations": {"EdagEtp4": {"description": "w29KOu9c", "title": "19R6XDqW"}}, "name": "HkkP8npL", "start": "1986-10-17T00:00:00Z", "tierItemId": "MfjiX7jp"}' \
+    >$TEMP_FILE 2>&1
+update_status $? 'UpdateSeason'
+delete_file $TEMP_FILE
+
+#- 7 CloneSeason
+java -jar ${JAR_PATH} seasonpass cloneSeason \
+    --namespace "test" \
+    --seasonId 'kVZk3IaQ' \
+    --body '{"end": "1996-08-25T00:00:00Z", "name": "mqGodOEG", "start": "1980-02-22T00:00:00Z"}' \
+    >$TEMP_FILE 2>&1
+update_status $? 'CloneSeason'
+delete_file $TEMP_FILE
+
+#- 8 QueryPasses
+java -jar ${JAR_PATH} seasonpass queryPasses \
+    --namespace "test" \
+    --seasonId 'POj0c6i0' \
+    >$TEMP_FILE 2>&1
+update_status $? 'QueryPasses'
+delete_file $TEMP_FILE
+
+#- 9 CreatePass
+java -jar ${JAR_PATH} seasonpass createPass \
+    --namespace "test" \
+    --seasonId 'JkvIas73' \
+    --body '{"autoEnroll": true, "code": "cYnFAJ3D", "displayOrder": 72, "images": [{"as": "5T4Eogg0", "caption": "Y39UoYlp", "height": 43, "imageUrl": "5bVAgtsD", "smallImageUrl": "hUTDUscb", "width": 85}], "localizations": {"DjbTQuPM": {"description": "z2PTRlky", "title": "U89ZPOw6"}}, "passItemId": "zPFJ42cw"}' \
+    >$TEMP_FILE 2>&1
+update_status $? 'CreatePass'
+delete_file $TEMP_FILE
+
+#- 10 GetPass
+java -jar ${JAR_PATH} seasonpass getPass \
+    --code 'mzBBSMNc' \
+    --namespace "test" \
+    --seasonId 'oAAOjKNj' \
+    >$TEMP_FILE 2>&1
+update_status $? 'GetPass'
+delete_file $TEMP_FILE
+
+#- 11 DeletePass
+java -jar ${JAR_PATH} seasonpass deletePass \
+    --code 'fcYHm093' \
+    --namespace "test" \
+    --seasonId 'aYgBU1sq' \
+    >$TEMP_FILE 2>&1
+update_status $? 'DeletePass'
+delete_file $TEMP_FILE
+
+#- 12 UpdatePass
+java -jar ${JAR_PATH} seasonpass updatePass \
+    --code 'jyK0XH45' \
+    --namespace "test" \
+    --seasonId 'PaRSOFQB' \
+    --body '{"autoEnroll": true, "displayOrder": 41, "images": [{"as": "23REZ8hR", "caption": "VX7LGOvD", "height": 6, "imageUrl": "YiQS9i7m", "smallImageUrl": "V1C91pjG", "width": 13}], "localizations": {"pxL6ycTQ": {"description": "dvln2LAu", "title": "SQWEXL6L"}}, "passItemId": "FE1YHo9m"}' \
+    >$TEMP_FILE 2>&1
+update_status $? 'UpdatePass'
+delete_file $TEMP_FILE
+
+#- 13 PublishSeason
+java -jar ${JAR_PATH} seasonpass publishSeason \
+    --namespace "test" \
+    --seasonId '126ZWc8h' \
+    >$TEMP_FILE 2>&1
+update_status $? 'PublishSeason'
+delete_file $TEMP_FILE
+
+#- 14 RetireSeason
+java -jar ${JAR_PATH} seasonpass retireSeason \
+    --namespace "test" \
+    --seasonId 'HtWvbNYq' \
+    >$TEMP_FILE 2>&1
+update_status $? 'RetireSeason'
+delete_file $TEMP_FILE
+
+#- 15 QueryRewards
+java -jar ${JAR_PATH} seasonpass queryRewards \
+    --namespace "test" \
+    --seasonId 'gUqslArF' \
+    >$TEMP_FILE 2>&1
+update_status $? 'QueryRewards'
+delete_file $TEMP_FILE
+
+#- 16 CreateReward
+java -jar ${JAR_PATH} seasonpass createReward \
+    --namespace "test" \
+    --seasonId 'PiHUIvaC' \
+    --body '{"code": "v8kU9dBB", "currency": {"currencyCode": "pdsJLhsV", "namespace": "yExrkxoo"}, "image": {"as": "t0B7WOfe", "caption": "rcZdpMci", "height": 58, "imageUrl": "s7YSfExa", "smallImageUrl": "I3uzLteM", "width": 3}, "itemId": "FAlt4hr7", "quantity": 67, "type": "ITEM"}' \
+    >$TEMP_FILE 2>&1
+update_status $? 'CreateReward'
+delete_file $TEMP_FILE
+
+#- 17 GetReward
+java -jar ${JAR_PATH} seasonpass getReward \
+    --code 'OYiBA5lt' \
+    --namespace "test" \
+    --seasonId 'AOXmlG6e' \
+    >$TEMP_FILE 2>&1
+update_status $? 'GetReward'
+delete_file $TEMP_FILE
+
+#- 18 DeleteReward
+java -jar ${JAR_PATH} seasonpass deleteReward \
+    --code 'h1dTdoTF' \
+    --namespace "test" \
+    --seasonId 'pBIcuC1d' \
+    >$TEMP_FILE 2>&1
+update_status $? 'DeleteReward'
+delete_file $TEMP_FILE
+
+#- 19 UpdateReward
+java -jar ${JAR_PATH} seasonpass updateReward \
+    --code 'QY93OJnJ' \
+    --namespace "test" \
+    --seasonId '6Te9vD8l' \
+    --body '{"currency": {"currencyCode": "dz7Hu8AD", "namespace": "79kdWunv"}, "image": {"as": "izU0q1pH", "caption": "yhhERoGg", "height": 7, "imageUrl": "rysMizBG", "smallImageUrl": "SRdP2l7D", "width": 79}, "itemId": "SZ8Aq0Xi", "nullFields": ["PLQXSe07"], "quantity": 7, "type": "ITEM"}' \
+    >$TEMP_FILE 2>&1
+update_status $? 'UpdateReward'
+delete_file $TEMP_FILE
+
+#- 20 QueryTiers
 java -jar ${JAR_PATH} seasonpass queryTiers \
     --namespace "test" \
-    --seasonId '47JllvA8' \
+    --seasonId 'OGTMlJjB' \
     >$TEMP_FILE 2>&1
 update_status $? 'QueryTiers'
 delete_file $TEMP_FILE
 
-#- 24 CreateTier
+#- 21 CreateTier
 java -jar ${JAR_PATH} seasonpass createTier \
     --namespace "test" \
-    --seasonId 'RWSpabUt' \
-    --body '{"index": 47, "quantity": 21, "tier": {"requiredExp": 85, "rewards": {"xyWhfqoW": ["fJw2o8oW"]}}}' \
+    --seasonId 'wj9HJHQK' \
+    --body '{"index": 36, "quantity": 8, "tier": {"requiredExp": 60, "rewards": {"dSXRDSvg": ["uauw1xT7"]}}}' \
     >$TEMP_FILE 2>&1
 update_status $? 'CreateTier'
 delete_file $TEMP_FILE
 
-#- 25 ExistsAnyPassByPassCodes
-java -jar ${JAR_PATH} seasonpass existsAnyPassByPassCodes \
+#- 22 UpdateTier
+java -jar ${JAR_PATH} seasonpass updateTier \
+    --id 'eMwSl9ML' \
     --namespace "test" \
-    --userId 'UqvPCZ2H' \
+    --seasonId 'H0NnTJ2u' \
+    --body '{"requiredExp": 22, "rewards": {"NzBvwJaQ": ["a547Jllv"]}}' \
     >$TEMP_FILE 2>&1
-update_status $? 'ExistsAnyPassByPassCodes'
+update_status $? 'UpdateTier'
 delete_file $TEMP_FILE
 
-#- 26 GrantUserTier
-java -jar ${JAR_PATH} seasonpass grantUserTier \
+#- 23 DeleteTier
+java -jar ${JAR_PATH} seasonpass deleteTier \
+    --id 'A8RWSpab' \
     --namespace "test" \
-    --userId 'zT7NXmWD' \
-    --body '{"count": 23}' \
+    --seasonId 'Ut7xk6Qx' \
     >$TEMP_FILE 2>&1
-update_status $? 'GrantUserTier'
+update_status $? 'DeleteTier'
 delete_file $TEMP_FILE
 
-#- 27 GetUserSeason
-java -jar ${JAR_PATH} seasonpass getUserSeason \
+#- 24 ReorderTier
+java -jar ${JAR_PATH} seasonpass reorderTier \
+    --id 'yWhfqoWf' \
     --namespace "test" \
-    --seasonId 'XsuNIdQJ' \
-    --userId 'R5lsNOlv' \
+    --seasonId 'Jw2o8oWU' \
+    --body '{"newIndex": 32}' \
     >$TEMP_FILE 2>&1
-update_status $? 'GetUserSeason'
+update_status $? 'ReorderTier'
 delete_file $TEMP_FILE
 
-#- 28 CheckSeasonPurchasable
-java -jar ${JAR_PATH} seasonpass checkSeasonPurchasable \
+#- 25 UnpublishSeason
+java -jar ${JAR_PATH} seasonpass unpublishSeason \
     --namespace "test" \
-    --userId 'kfwaSbns' \
-    --body '{"passItemId": "uLCgToxu", "tierItemId": "VTekJgvg", "tierItemCount": 15}' \
+    --seasonId 'vPCZ2HzT' \
     >$TEMP_FILE 2>&1
-update_status $? 'CheckSeasonPurchasable'
+update_status $? 'UnpublishSeason'
 delete_file $TEMP_FILE
 
-#- 29 GetCurrentUserSeasonProgression
-java -jar ${JAR_PATH} seasonpass getCurrentUserSeasonProgression \
-    --namespace "test" \
-    --userId '5HIpH0Dv' \
-    >$TEMP_FILE 2>&1
-update_status $? 'GetCurrentUserSeasonProgression'
-delete_file $TEMP_FILE
-
-#- 30 ResetUserSeason
-java -jar ${JAR_PATH} seasonpass resetUserSeason \
-    --namespace "test" \
-    --userId 'iplEk4vj' \
-    >$TEMP_FILE 2>&1
-update_status $? 'ResetUserSeason'
-delete_file $TEMP_FILE
-
-#- 31 GrantUserPass
-java -jar ${JAR_PATH} seasonpass grantUserPass \
-    --namespace "test" \
-    --userId '3LDp4yqD' \
-    --body '{"passItemId": "t8QUZDpx", "passCode": "lHasinGc"}' \
-    >$TEMP_FILE 2>&1
-update_status $? 'GrantUserPass'
-delete_file $TEMP_FILE
-
-#- 32 GetUserParticipatedSeasons
+#- 26 GetUserParticipatedSeasons
 java -jar ${JAR_PATH} seasonpass getUserParticipatedSeasons \
     --namespace "test" \
-    --userId 'jrkmRMtt' \
+    --userId '7NXmWDlX' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetUserParticipatedSeasons'
 delete_file $TEMP_FILE
 
-#- 33 GrantUserExp
+#- 27 GrantUserExp
 java -jar ${JAR_PATH} seasonpass grantUserExp \
     --namespace "test" \
-    --userId 'gjDSaIVB' \
-    --body '{"exp": 25}' \
+    --userId 'suNIdQJR' \
+    --body '{"exp": 23}' \
     >$TEMP_FILE 2>&1
 update_status $? 'GrantUserExp'
 delete_file $TEMP_FILE
 
-#- 34 PublicGetCurrentSeason
+#- 28 GrantUserPass
+java -jar ${JAR_PATH} seasonpass grantUserPass \
+    --namespace "test" \
+    --userId 'sNOlvkfw' \
+    --body '{"passCode": "aSbnsuLC", "passItemId": "gToxuVTe"}' \
+    >$TEMP_FILE 2>&1
+update_status $? 'GrantUserPass'
+delete_file $TEMP_FILE
+
+#- 29 ExistsAnyPassByPassCodes
+java -jar ${JAR_PATH} seasonpass existsAnyPassByPassCodes \
+    --namespace "test" \
+    --userId 'kJgvg6h5' \
+    >$TEMP_FILE 2>&1
+update_status $? 'ExistsAnyPassByPassCodes'
+delete_file $TEMP_FILE
+
+#- 30 GetCurrentUserSeasonProgression
+java -jar ${JAR_PATH} seasonpass getCurrentUserSeasonProgression \
+    --namespace "test" \
+    --userId 'HIpH0Dvi' \
+    >$TEMP_FILE 2>&1
+update_status $? 'GetCurrentUserSeasonProgression'
+delete_file $TEMP_FILE
+
+#- 31 CheckSeasonPurchasable
+java -jar ${JAR_PATH} seasonpass checkSeasonPurchasable \
+    --namespace "test" \
+    --userId 'plEk4vj3' \
+    --body '{"passItemId": "LDp4yqDt", "tierItemCount": 85, "tierItemId": "UZDpxlHa"}' \
+    >$TEMP_FILE 2>&1
+update_status $? 'CheckSeasonPurchasable'
+delete_file $TEMP_FILE
+
+#- 32 ResetUserSeason
+java -jar ${JAR_PATH} seasonpass resetUserSeason \
+    --namespace "test" \
+    --userId 'sinGcjrk' \
+    >$TEMP_FILE 2>&1
+update_status $? 'ResetUserSeason'
+delete_file $TEMP_FILE
+
+#- 33 GrantUserTier
+java -jar ${JAR_PATH} seasonpass grantUserTier \
+    --namespace "test" \
+    --userId 'mRMttgjD' \
+    --body '{"count": 88}' \
+    >$TEMP_FILE 2>&1
+update_status $? 'GrantUserTier'
+delete_file $TEMP_FILE
+
+#- 34 GetUserSeason
+java -jar ${JAR_PATH} seasonpass getUserSeason \
+    --namespace "test" \
+    --seasonId 'aIVBmft3' \
+    --userId 'Udg7p9PG' \
+    >$TEMP_FILE 2>&1
+update_status $? 'GetUserSeason'
+delete_file $TEMP_FILE
+
+#- 35 PublicGetCurrentSeason
 java -jar ${JAR_PATH} seasonpass publicGetCurrentSeason \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetCurrentSeason'
 delete_file $TEMP_FILE
 
-#- 35 PublicClaimUserReward
-java -jar ${JAR_PATH} seasonpass publicClaimUserReward \
-    --namespace "test" \
-    --userId 'ft3Udg7p' \
-    --body '{"passCode": "9PGmY2H5", "tierIndex": 20, "rewardCode": "X4MsisSX"}' \
-    >$TEMP_FILE 2>&1
-update_status $? 'PublicClaimUserReward'
-delete_file $TEMP_FILE
-
 #- 36 PublicGetCurrentUserSeason
 java -jar ${JAR_PATH} seasonpass publicGetCurrentUserSeason \
     --namespace "test" \
-    --userId '28nARxWR' \
+    --userId 'mY2H5kX4' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetCurrentUserSeason'
 delete_file $TEMP_FILE
 
-#- 37 PublicBulkClaimUserRewards
+#- 37 PublicClaimUserReward
+java -jar ${JAR_PATH} seasonpass publicClaimUserReward \
+    --namespace "test" \
+    --userId 'MsisSX28' \
+    --body '{"passCode": "nARxWRpv", "rewardCode": "5ou5xtvd", "tierIndex": 80}' \
+    >$TEMP_FILE 2>&1
+update_status $? 'PublicClaimUserReward'
+delete_file $TEMP_FILE
+
+#- 38 PublicBulkClaimUserRewards
 java -jar ${JAR_PATH} seasonpass publicBulkClaimUserRewards \
     --namespace "test" \
-    --userId 'pv5ou5xt' \
+    --userId 'UfCt8UJC' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicBulkClaimUserRewards'
 delete_file $TEMP_FILE
 
-#- 38 PublicGetUserSeason
+#- 39 PublicGetUserSeason
 java -jar ${JAR_PATH} seasonpass publicGetUserSeason \
     --namespace "test" \
-    --seasonId 'vd28OUfC' \
-    --userId 't8UJC5fl' \
+    --seasonId '5flNyj6H' \
+    --userId 'sTtX8P3l' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserSeason'
 delete_file $TEMP_FILE

@@ -36,11 +36,20 @@ public class TokenGrantV3 implements Callable<Integer> {
     @Option(names = {"--codeVerifier"}, description = "codeVerifier")
     String codeVerifier;
 
+    @Option(names = {"--extendExp"}, description = "extendExp")
+    Boolean extendExp;
+
+    @Option(names = {"--password"}, description = "password")
+    String password;
+
     @Option(names = {"--redirectUri"}, description = "redirectUri")
     String redirectUri;
 
     @Option(names = {"--refreshToken"}, description = "refreshToken")
     String refreshToken;
+
+    @Option(names = {"--username"}, description = "username")
+    String username;
 
     @Option(names = {"--grantType"}, description = "grantType")
     String grantType;
@@ -69,9 +78,15 @@ public class TokenGrantV3 implements Callable<Integer> {
                     ,
                     codeVerifier != null ? codeVerifier : null
                     ,
+                    extendExp != null ? extendExp : null
+                    ,
+                    password != null ? password : null
+                    ,
                     redirectUri != null ? redirectUri : null
                     ,
                     refreshToken != null ? refreshToken : null
+                    ,
+                    username != null ? username : null
                     ,
                     grantType != null ? grantType : null
                 )

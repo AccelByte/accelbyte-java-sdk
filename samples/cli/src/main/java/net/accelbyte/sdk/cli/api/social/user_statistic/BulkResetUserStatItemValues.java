@@ -1,9 +1,9 @@
-package net.accelbyte.sdk.cli.api.platform.iap;
+package net.accelbyte.sdk.cli.api.social.user_statistic;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.wrappers.IAP;
+import net.accelbyte.sdk.api.social.models.*;
+import net.accelbyte.sdk.api.social.wrappers.UserStatistic;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
@@ -22,10 +22,10 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "publicFulfillGoogleIAPItem", mixinStandardHelpOptions = true)
-public class PublicFulfillGoogleIAPItem implements Callable<Integer> {
+@Command(name = "bulkResetUserStatItemValues", mixinStandardHelpOptions = true)
+public class BulkResetUserStatItemValues implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(PublicFulfillGoogleIAPItem.class);
+    private static final Logger log = LogManager.getLogger(BulkResetUserStatItemValues.class);
 
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
@@ -33,30 +33,35 @@ public class PublicFulfillGoogleIAPItem implements Callable<Integer> {
     @Option(names = {"--userId"}, description = "userId")
     String userId;
 
+    @Option(names = {"--additionalKey"}, description = "additionalKey")
+    String additionalKey;
+
     @Option(names = {"--body"}, description = "body")
     String body;
 
 
     public static void main(String[] args) {
-            int exitCode = new CommandLine(new PublicFulfillGoogleIAPItem()).execute(args);
+            int exitCode = new CommandLine(new BulkResetUserStatItemValues()).execute(args);
             System.exit(exitCode);
         }
 
     @Override
     public Integer call() {
         try {
-            GoogleReceiptResolveResult response =
-            new IAP(new AccelByteSDK(
+            List<BulkStatItemOperationResult> response =
+            new UserStatistic(new AccelByteSDK(
                             new OkhttpClient(),
                             CLITokenRepositoryImpl.getInstance(),
                             new DefaultConfigRepository()
                     ))
 
-            .publicFulfillGoogleIAPItem(
-                new net.accelbyte.sdk.api.platform.operations.iap.PublicFulfillGoogleIAPItem(
+            .bulkResetUserStatItemValues(
+                new net.accelbyte.sdk.api.social.operations.user_statistic.BulkResetUserStatItemValues(
                     namespace,
                     userId,
-                    new ObjectMapper().readValue(body, GoogleIAPReceipt.class)  
+                    additionalKey,
+                    new ObjectMapper().readValue(body, new TypeReference<List<ADTOObjectForResettingUserStatItems>>() {})
+ 
                 )
             );
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

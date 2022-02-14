@@ -212,14 +212,14 @@ java -jar ${JAR_PATH} gdpr publicRequestDataRetrieval \
 update_status $? 'PublicRequestDataRetrieval'
 delete_file $TEMP_FILE
 
-#- 19 PublicCancelUserPersonalDataRequest   # FIXME
-#java -jar ${JAR_PATH} gdpr publicCancelUserPersonalDataRequest \
-#    --namespace "test" \
-#    --requestDate '9qqJbnQs' \
-#    --userId 'oBgiVpP8' \
-#    >$TEMP_FILE 2>&1
-#update_status $? 'PublicCancelUserPersonalDataRequest'
-#delete_file $TEMP_FILE
+#- 19 PublicCancelUserPersonalDataRequest
+java -jar ${JAR_PATH} gdpr publicCancelUserPersonalDataRequest \
+    --namespace "test" \
+    --requestDate '9qqJbnQs' \
+    --userId 'oBgiVpP8' \
+    >$TEMP_FILE 2>&1
+update_status $? 'PublicCancelUserPersonalDataRequest'
+delete_file $TEMP_FILE
 
 #- 20 PublicGeneratePersonalDataURL
 java -jar ${JAR_PATH} gdpr publicGeneratePersonalDataURL \

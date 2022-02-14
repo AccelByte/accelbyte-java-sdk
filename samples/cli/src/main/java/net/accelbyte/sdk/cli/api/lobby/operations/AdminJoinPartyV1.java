@@ -1,9 +1,9 @@
-package net.accelbyte.sdk.cli.api.platform.iap;
+package net.accelbyte.sdk.cli.api.lobby.operations;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.wrappers.IAP;
+import net.accelbyte.sdk.api.lobby.models.*;
+import net.accelbyte.sdk.api.lobby.wrappers.Operations;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
@@ -22,45 +22,43 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "publicFulfillGoogleIAPItem", mixinStandardHelpOptions = true)
-public class PublicFulfillGoogleIAPItem implements Callable<Integer> {
+@Command(name = "adminJoinPartyV1", mixinStandardHelpOptions = true)
+public class AdminJoinPartyV1 implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(PublicFulfillGoogleIAPItem.class);
+    private static final Logger log = LogManager.getLogger(AdminJoinPartyV1.class);
 
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
 
+    @Option(names = {"--partyId"}, description = "partyId")
+    String partyId;
+
     @Option(names = {"--userId"}, description = "userId")
     String userId;
 
-    @Option(names = {"--body"}, description = "body")
-    String body;
-
 
     public static void main(String[] args) {
-            int exitCode = new CommandLine(new PublicFulfillGoogleIAPItem()).execute(args);
+            int exitCode = new CommandLine(new AdminJoinPartyV1()).execute(args);
             System.exit(exitCode);
         }
 
     @Override
     public Integer call() {
         try {
-            GoogleReceiptResolveResult response =
-            new IAP(new AccelByteSDK(
+            new Operations(new AccelByteSDK(
                             new OkhttpClient(),
                             CLITokenRepositoryImpl.getInstance(),
                             new DefaultConfigRepository()
                     ))
 
-            .publicFulfillGoogleIAPItem(
-                new net.accelbyte.sdk.api.platform.operations.iap.PublicFulfillGoogleIAPItem(
+            .adminJoinPartyV1(
+                new net.accelbyte.sdk.api.lobby.operations.operations.AdminJoinPartyV1(
                     namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, GoogleIAPReceipt.class)  
+                    partyId,
+                    userId
                 )
             );
-            String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-            log.info("Operation successful with response below:\n{}", responseString);
+            log.info("Operation successful");
             return 0;
         } catch (ResponseException e) {
             log.error("ResponseException occur with message below:\n{}", e.getMessage());

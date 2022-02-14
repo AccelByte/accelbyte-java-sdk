@@ -11,7 +11,7 @@ MODULE_PATH="${MODULE_PATH:-../../samples/cli}"
 JAR_PATH="${MODULE_PATH}/build/libs/cli.jar"
 TEMP_FILE='file.tmp'
 
-OPERATIONS_COUNT=68
+OPERATIONS_COUNT=69
 
 FINISHED_COUNT=0
 SUCCESS_COUNT=0
@@ -607,48 +607,57 @@ java -jar ${JAR_PATH} social bulkUpdateUserStatItem \
 update_status $? 'BulkUpdateUserStatItem'
 delete_file $TEMP_FILE
 
-#- 64 DeleteUserStatItems2
+#- 64 BulkResetUserStatItemValues
+java -jar ${JAR_PATH} social bulkResetUserStatItemValues \
+    --namespace "test" \
+    --userId 'm55gOeqQ' \
+    --body '[{"additionalData": {"IqcJVKmB": {}}, "statCode": "M1J1IbuT"}]' \
+    >$TEMP_FILE 2>&1
+update_status $? 'BulkResetUserStatItemValues'
+delete_file $TEMP_FILE
+
+#- 65 DeleteUserStatItems2
 java -jar ${JAR_PATH} social deleteUserStatItems2 \
     --namespace "test" \
-    --statCode 'm55gOeqQ' \
-    --userId 'IqcJVKmB' \
+    --statCode 'rrkbmuT1' \
+    --userId 'whOqmEnD' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteUserStatItems2'
 delete_file $TEMP_FILE
 
-#- 65 UpdateUserStatItemValue
+#- 66 UpdateUserStatItemValue
 java -jar ${JAR_PATH} social updateUserStatItemValue \
     --namespace "test" \
-    --statCode 'M1J1IbuT' \
-    --userId 'rrkbmuT1' \
-    --body '{"additionalData": {"whOqmEnD": {}}, "updateStrategy": "MAX", "value": 0.42244767130149086}' \
+    --statCode 'XIWrBPlS' \
+    --userId 'ay46mv71' \
+    --body '{"additionalData": {"BAZAOjtF": {}}, "updateStrategy": "MAX", "value": 0.19538688444595897}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateUserStatItemValue'
 delete_file $TEMP_FILE
 
-#- 66 BulkUpdateUserStatItem1
+#- 67 BulkUpdateUserStatItem1
 java -jar ${JAR_PATH} social bulkUpdateUserStatItem1 \
     --namespace "test" \
-    --body '[{"additionalData": {"lSay46mv": {}}, "additionalKey": "71BAZAOj", "statCode": "tFJ2vmTj", "updateStrategy": "MAX", "userId": "T7TZHWDd", "value": 0.45245199023493055}]' \
+    --body '[{"additionalData": {"j7tT7TZH": {}}, "additionalKey": "WDdCkIsZ", "statCode": "oArWwPHc", "updateStrategy": "MIN", "userId": "FAdAtYci", "value": 0.591101780521284}]' \
     >$TEMP_FILE 2>&1
 update_status $? 'BulkUpdateUserStatItem1'
 delete_file $TEMP_FILE
 
-#- 67 BulkUpdateUserStatItem2
+#- 68 BulkUpdateUserStatItem2
 java -jar ${JAR_PATH} social bulkUpdateUserStatItem2 \
     --namespace "test" \
-    --userId 'IsZoArWw' \
-    --body '[{"additionalData": {"PHcyFAdA": {}}, "statCode": "tYciLIgR", "updateStrategy": "MAX", "value": 0.49006656321603914}]' \
+    --userId 'IgRwFRr0' \
+    --body '[{"additionalData": {"gwB9tz3v": {}}, "statCode": "p99XVlV8", "updateStrategy": "MAX", "value": 0.5689362203332181}]' \
     >$TEMP_FILE 2>&1
 update_status $? 'BulkUpdateUserStatItem2'
 delete_file $TEMP_FILE
 
-#- 68 UpdateUserStatItemValue1
+#- 69 UpdateUserStatItemValue1
 java -jar ${JAR_PATH} social updateUserStatItemValue1 \
     --namespace "test" \
-    --statCode 'r0gwB9tz' \
-    --userId '3vp99XVl' \
-    --body '{"additionalData": {"V8rK3tE6": {}}, "updateStrategy": "INCREMENT", "value": 0.820145728309544}' \
+    --statCode 'tE6n0smi' \
+    --userId 'p1tw3L7c' \
+    --body '{"additionalData": {"Ud9pqtv6": {}}, "updateStrategy": "OVERRIDE", "value": 0.6502290130313825}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateUserStatItemValue1'
 delete_file $TEMP_FILE

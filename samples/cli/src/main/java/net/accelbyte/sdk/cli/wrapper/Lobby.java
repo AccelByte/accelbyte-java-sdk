@@ -56,6 +56,7 @@ import picocli.CommandLine.Command;
                 SendSpecificUserTemplatedNotificationV1Admin.class,
                 AdminGetPartyDataV1.class,
                 AdminUpdatePartyAttributesV1.class,
+                AdminJoinPartyV1.class,
                 AdminGetUserPartyV1.class,
                 AdminGetLobbyCCU.class,
                 AdminGetAllPlayerSessionAttribute.class,

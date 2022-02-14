@@ -22,41 +22,33 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "publicFulfillGoogleIAPItem", mixinStandardHelpOptions = true)
-public class PublicFulfillGoogleIAPItem implements Callable<Integer> {
+@Command(name = "getTwitchIAPConfig", mixinStandardHelpOptions = true)
+public class GetTwitchIAPConfig implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(PublicFulfillGoogleIAPItem.class);
+    private static final Logger log = LogManager.getLogger(GetTwitchIAPConfig.class);
 
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
 
-    @Option(names = {"--userId"}, description = "userId")
-    String userId;
-
-    @Option(names = {"--body"}, description = "body")
-    String body;
-
 
     public static void main(String[] args) {
-            int exitCode = new CommandLine(new PublicFulfillGoogleIAPItem()).execute(args);
+            int exitCode = new CommandLine(new GetTwitchIAPConfig()).execute(args);
             System.exit(exitCode);
         }
 
     @Override
     public Integer call() {
         try {
-            GoogleReceiptResolveResult response =
+            TwitchIAPConfigInfo response =
             new IAP(new AccelByteSDK(
                             new OkhttpClient(),
                             CLITokenRepositoryImpl.getInstance(),
                             new DefaultConfigRepository()
                     ))
 
-            .publicFulfillGoogleIAPItem(
-                new net.accelbyte.sdk.api.platform.operations.iap.PublicFulfillGoogleIAPItem(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, GoogleIAPReceipt.class)  
+            .getTwitchIAPConfig(
+                new net.accelbyte.sdk.api.platform.operations.iap.GetTwitchIAPConfig(
+                    namespace
                 )
             );
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
