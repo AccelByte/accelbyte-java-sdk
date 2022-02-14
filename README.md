@@ -150,7 +150,7 @@ public class Main {
 ```
 
 ## API Covered:
-All the REST-API from all AccelByte services are included (the websocket on lobby service is not covered yet).
+All the REST-API and websocket from all AccelByte services are included
 
 Below are the list of services covered on the SDK:
 1. achievement
