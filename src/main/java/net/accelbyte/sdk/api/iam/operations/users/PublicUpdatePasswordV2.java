@@ -18,6 +18,11 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicUpdatePasswordV2
+ *
+ * This endpoint need a valid user access token
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

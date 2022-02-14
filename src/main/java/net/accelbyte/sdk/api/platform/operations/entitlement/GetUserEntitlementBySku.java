@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getUserEntitlementBySku
+ *
+ * Get user entitlement by sku.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=2 (READ)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -17,6 +17,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminDeleteThirdPartyConfig
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:THIRDPARTY:CONFIG [DELETE]`
+ * with scope `social`
+ * delete third party config in a namespace.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

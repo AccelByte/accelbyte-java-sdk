@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminSaveUserRoleV3
+ *
+ * This endpoint requires ADMIN:NAMESPACE:{namespace}:ROLE:USER:{userId} [UPDATE]
+ * permission. User's roles will be updated with given roles (replacing current
+ * user's role). Request body need to specify allowed namespace for given role to
+ * support new role restriction. Skipped the check whether the user performing
+ * the request is a role manager / assigner since there is a plan to discard the
+ * role manager / assigner.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

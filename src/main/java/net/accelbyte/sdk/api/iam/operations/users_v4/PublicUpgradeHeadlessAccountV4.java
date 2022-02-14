@@ -19,6 +19,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicUpgradeHeadlessAccountV4
+ *
+ * Require valid user authorization Upgrade headless account to full account
+ * without verifying email address. Client does not need to provide verification
+ * code which sent to email address.
+ * action code : 10124
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

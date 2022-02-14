@@ -17,6 +17,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicListStores
+ *
+ * This API is used to list all stores in a namespace.
+ * 
+ * Other detail info:
+ * 
+ *   * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store)
+ *   *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store)
+ *   *  Returns : the list of stores
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

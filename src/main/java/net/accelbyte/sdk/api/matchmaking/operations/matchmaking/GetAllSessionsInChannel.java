@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetAllSessionsInChannel
+ *
+ * Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Read]
+ * Required Scope: social Get all sessions in a channel.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

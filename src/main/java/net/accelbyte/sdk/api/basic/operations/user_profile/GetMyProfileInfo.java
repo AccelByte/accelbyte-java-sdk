@@ -18,6 +18,22 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getMyProfileInfo
+ *
+ * Get my profile
+ *  Client with user token can get user profile in target namespace
+ * Other detail info:
+ * 
+ *   * Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=2 (READ)
+ *   *  Action code : 11403
+ *   *  Returns : user profile
+ *   *  Path's namespace :
+ *     * can be filled with publisher namespace in order to get publisher user profile
+ *     * can be filled with game namespace in order to get game user profile
+ *   *  Language : allowed format: en, en-US
+ *   *  Timezone : IANA time zone, e.g. Asia/Shanghai
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

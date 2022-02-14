@@ -19,6 +19,9 @@ public class GlobalStatistic {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetGlobalStatItems
+     */
     public GlobalStatItemPagingSlicedResult getGlobalStatItems(GetGlobalStatItems input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

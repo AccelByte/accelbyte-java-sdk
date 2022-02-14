@@ -17,6 +17,19 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * TokenRevocationV3
+ *
+ * 
+ * 
+ * This endpoint revokes a token.
+ * 
+ * This endpoint requires authorized requests header with Basic Authentication
+ * from client that establish the token.
+ * 
+ * 
+ * action code: 10706
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

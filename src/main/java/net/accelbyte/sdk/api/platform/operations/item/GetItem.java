@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getItem
+ *
+ * This API is used to get an item.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+ *   *  Returns : item data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

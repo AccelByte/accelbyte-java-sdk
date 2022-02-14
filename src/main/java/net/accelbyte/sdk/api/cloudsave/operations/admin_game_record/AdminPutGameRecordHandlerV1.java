@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminPutGameRecordHandlerV1
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [UPDATE]
+ * Required scope: social This endpoints is to replace game record data if exists
+ * or insert new data in namespace-level
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

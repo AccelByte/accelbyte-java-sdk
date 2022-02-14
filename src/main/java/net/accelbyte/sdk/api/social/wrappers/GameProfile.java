@@ -19,6 +19,9 @@ public class GameProfile {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetUserProfiles
+     */
     public List<GameProfileHeader> getUserProfiles(GetUserProfiles input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class GameProfile {
         }
     }
 
+    /**
+     * @see GetProfile
+     */
     public GameProfileInfo getProfile(GetProfile input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class GameProfile {
         }
     }
 
+    /**
+     * @see PublicGetUserGameProfiles
+     */
     public List<UserGameProfiles> publicGetUserGameProfiles(PublicGetUserGameProfiles input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class GameProfile {
         }
     }
 
+    /**
+     * @see PublicGetUserProfiles
+     */
     public List<GameProfileHeader> publicGetUserProfiles(PublicGetUserProfiles input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class GameProfile {
         }
     }
 
+    /**
+     * @see PublicCreateProfile
+     */
     public void publicCreateProfile(PublicCreateProfile input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class GameProfile {
         }
     }
 
+    /**
+     * @see PublicGetProfile
+     */
     public GameProfileInfo publicGetProfile(PublicGetProfile input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class GameProfile {
         }
     }
 
+    /**
+     * @see PublicUpdateProfile
+     */
     public GameProfileInfo publicUpdateProfile(PublicUpdateProfile input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class GameProfile {
         }
     }
 
+    /**
+     * @see PublicDeleteProfile
+     */
     public void publicDeleteProfile(PublicDeleteProfile input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class GameProfile {
         }
     }
 
+    /**
+     * @see PublicGetProfileAttribute
+     */
     public Attribute publicGetProfileAttribute(PublicGetProfileAttribute input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class GameProfile {
         }
     }
 
+    /**
+     * @see PublicUpdateAttribute
+     */
     public GameProfileInfo publicUpdateAttribute(PublicUpdateAttribute input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

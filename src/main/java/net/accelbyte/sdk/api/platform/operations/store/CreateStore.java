@@ -19,6 +19,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * createStore
+ *
+ * This API is used to create a non published store in a namespace.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=1 (CREATE)
+ *   *  Returns : created store data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

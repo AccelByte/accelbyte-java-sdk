@@ -17,6 +17,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * anonymizeOrder
+ *
+ * Anonymize order. At current it will only anonymize order, order history.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

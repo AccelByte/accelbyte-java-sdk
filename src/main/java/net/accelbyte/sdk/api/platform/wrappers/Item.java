@@ -19,6 +19,9 @@ public class Item {
         this.sdk = sdk;
     }
 
+    /**
+     * @see SyncInGameItem
+     */
     public FullItemInfo syncInGameItem(SyncInGameItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see CreateItem
+     */
     public FullItemInfo createItem(CreateItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see GetItemByAppId
+     */
     public FullItemInfo getItemByAppId(GetItemByAppId input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see QueryItems
+     */
     public FullItemPagingSlicedResult queryItems(QueryItems input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see ListBasicItemsByFeatures
+     */
     public List<BasicItem> listBasicItemsByFeatures(ListBasicItemsByFeatures input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see GetItemBySku
+     */
     public FullItemInfo getItemBySku(GetItemBySku input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see GetLocaleItemBySku
+     */
     public PopulatedItemInfo getLocaleItemBySku(GetLocaleItemBySku input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see GetItemIdBySku
+     */
     public ItemId getItemIdBySku(GetItemIdBySku input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see BulkGetLocaleItems
+     */
     public List<ItemInfo> bulkGetLocaleItems(BulkGetLocaleItems input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see SearchItems
+     */
     public FullItemPagingSlicedResult searchItems(SearchItems input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see QueryUncategorizedItems
+     */
     public FullItemPagingSlicedResult queryUncategorizedItems(QueryUncategorizedItems input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +228,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see GetItem
+     */
     public FullItemInfo getItem(GetItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -211,6 +247,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see UpdateItem
+     */
     public FullItemInfo updateItem(UpdateItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -227,6 +266,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see DeleteItem
+     */
     public void deleteItem(DeleteItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -243,6 +285,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see AcquireItem
+     */
     public ItemAcquireResult acquireItem(AcquireItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -259,6 +304,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see GetApp
+     */
     public FullAppInfo getApp(GetApp input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -275,6 +323,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see UpdateApp
+     */
     public FullAppInfo updateApp(UpdateApp input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -291,6 +342,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see DisableItem
+     */
     public FullItemInfo disableItem(DisableItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -307,6 +361,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see GetItemDynamicData
+     */
     public ItemDynamicDataInfo getItemDynamicData(GetItemDynamicData input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -323,6 +380,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see EnableItem
+     */
     public FullItemInfo enableItem(EnableItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -339,6 +399,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see FeatureItem
+     */
     public FullItemInfo featureItem(FeatureItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -355,6 +418,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see DefeatureItem
+     */
     public FullItemInfo defeatureItem(DefeatureItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -371,6 +437,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see GetLocaleItem
+     */
     public PopulatedItemInfo getLocaleItem(GetLocaleItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -387,6 +456,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see ReturnItem
+     */
     public void returnItem(ReturnItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -403,6 +475,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see PublicGetItemByAppId
+     */
     public ItemInfo publicGetItemByAppId(PublicGetItemByAppId input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -419,6 +494,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see PublicQueryItems
+     */
     public ItemPagingSlicedResult publicQueryItems(PublicQueryItems input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -435,6 +513,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see PublicGetItemBySku
+     */
     public ItemInfo publicGetItemBySku(PublicGetItemBySku input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -451,6 +532,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see PublicBulkGetItems
+     */
     public List<ItemInfo> publicBulkGetItems(PublicBulkGetItems input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -467,6 +551,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see PublicSearchItems
+     */
     public ItemPagingSlicedResult publicSearchItems(PublicSearchItems input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -483,6 +570,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see PublicGetApp
+     */
     public AppInfo publicGetApp(PublicGetApp input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -499,6 +589,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see PublicGetItemDynamicData
+     */
     public ItemDynamicDataInfo publicGetItemDynamicData(PublicGetItemDynamicData input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -515,6 +608,9 @@ public class Item {
         }
     }
 
+    /**
+     * @see PublicGetItem
+     */
     public PopulatedItemInfo publicGetItem(PublicGetItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

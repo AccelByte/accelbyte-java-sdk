@@ -19,6 +19,11 @@ public class UserInformation {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetUserActivitiesHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsEventResponse getUserActivitiesHandler(GetUserActivitiesHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +40,11 @@ public class UserInformation {
         }
     }
 
+    /**
+     * @see DeleteUserActivitiesHandler
+     * @deprecated
+     */
+    @Deprecated
     public void deleteUserActivitiesHandler(DeleteUserActivitiesHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +61,11 @@ public class UserInformation {
         }
     }
 
+    /**
+     * @see LastUserActivityTimeHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsUserLastActivity lastUserActivityTimeHandler(LastUserActivityTimeHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

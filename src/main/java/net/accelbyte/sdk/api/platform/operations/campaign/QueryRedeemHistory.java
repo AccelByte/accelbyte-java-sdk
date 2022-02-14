@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * queryRedeemHistory
+ *
+ * Query redeem history.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
+ *   *  Returns : slice of redeem history
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

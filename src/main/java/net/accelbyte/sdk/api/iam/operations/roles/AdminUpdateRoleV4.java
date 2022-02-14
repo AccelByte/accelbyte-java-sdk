@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminUpdateRoleV4
+ *
+ * Required permission ADMIN:ROLE [UPDATE] Update role request body: - roleName:
+ * specify role name, alphanumeric, cannot have special character (required) -
+ * adminRole: specify if role is for admin user (default false) - isWildcard:
+ * specify if role can be assigned to wildcard (*) namespace (default false)
+ * action code: 10402
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

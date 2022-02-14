@@ -19,6 +19,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * createPolicyVersion
+ *
+ * Create a version of a particular country-specific policy.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

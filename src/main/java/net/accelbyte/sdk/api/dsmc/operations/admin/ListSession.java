@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * ListSession
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:SESSION [READ] Required
+ * scope: social This endpoint lists all of sessions in a namespace managed by
+ * this service.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

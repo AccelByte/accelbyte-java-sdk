@@ -18,6 +18,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetItem
+ *
+ * This API is used to get an item in locale. If item not exist in specific
+ * region, default region item will return.
+ * 
+ * Other detail info:
+ * 
+ *   * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
+ *   *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
+ *   *  Returns : item data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

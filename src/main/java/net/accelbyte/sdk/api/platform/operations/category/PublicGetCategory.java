@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetCategory
+ *
+ * This API is used to get category by category path.
+ * 
+ * Other detail info:
+ * 
+ *   * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
+ *   *  Optional permission : resource="SANDBOX", action=1 (CREATE)(user with this permission can view draft store category)
+ *   *  Returns : category data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

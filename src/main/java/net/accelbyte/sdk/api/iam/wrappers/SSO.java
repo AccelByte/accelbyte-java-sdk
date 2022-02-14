@@ -19,6 +19,9 @@ public class SSO {
         this.sdk = sdk;
     }
 
+    /**
+     * @see LoginSSOClient
+     */
     public void loginSSOClient(LoginSSOClient input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class SSO {
         }
     }
 
+    /**
+     * @see LogoutSSOClient
+     */
     public void logoutSSOClient(LogoutSSOClient input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

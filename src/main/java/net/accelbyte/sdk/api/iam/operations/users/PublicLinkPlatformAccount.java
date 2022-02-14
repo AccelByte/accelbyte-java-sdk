@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicLinkPlatformAccount
+ *
+ * Update Platform Account relation to current User Account. Note: Game
+ * progression data (statistics, reward, etc) associated with previous User
+ * Account will not be transferred. If the data is tight to game user ID, the
+ * user will have the game progression data.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

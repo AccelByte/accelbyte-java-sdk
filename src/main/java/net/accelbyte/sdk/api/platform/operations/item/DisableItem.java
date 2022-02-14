@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * disableItem
+ *
+ * Disable an item.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+ *   *  Returns : updated item
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,56 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * postGameRecordHandlerV1
+ *
+ * Required Permission | `NAMESPACE:{namespace}:CLOUDSAVE:RECORD [CREATE]`
+ * ---|---
+ * Required Scope | `social`
+ * 
+ * If there's already record, the record will be merged with conditions: - If
+ * field name is already exist, the value will be replaced - If field name is
+ * not exists it will append the field and its value Example: Replace value in a
+ * specific JSON key
+ * 
+ * 
+ * 
+ *     // existed record
+ *     {
+ *         "foo": "bar"
+ *     }
+ * 
+ *     // new update (request body)
+ *     {
+ *         "foo": "barUpdated"
+ *     }
+ * 
+ *     // result
+ *     {
+ *         "foo": "barUpdated"
+ *     }
+ * 
+ * 
+ * Append new json item
+ * 
+ * 
+ * 
+ *     // existed record
+ *     {
+ *         "foo": "bar"
+ *     }
+ * 
+ *     // new update (request body)
+ *     {
+ *         "foo_new": "bar_new"
+ *     }
+ * 
+ *     // result
+ *     {
+ *         "foo": "bar",
+ *         "foo_new": "bar_new"
+ *     }
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

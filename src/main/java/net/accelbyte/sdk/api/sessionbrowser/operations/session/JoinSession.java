@@ -19,6 +19,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * JoinSession
+ *
+ * Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [READ]
+ * Required scope: social Join the specified session by session ID. Possible the
+ * game required a password to join
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

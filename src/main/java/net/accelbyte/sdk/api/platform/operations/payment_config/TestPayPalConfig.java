@@ -19,6 +19,25 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * testPayPalConfig
+ *
+ * Test PayPal configuration.
+ * 
+ * #### Check List:
+ * 
+ *   * clientID
+ *   * clientSecret
+ * 
+ * #### Non-check list:
+ * 
+ *   * webHookId
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+ *   *  Returns : test result
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

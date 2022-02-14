@@ -19,6 +19,9 @@ public class AdminType {
         this.sdk = sdk;
     }
 
+    /**
+     * @see AdminGetType
+     */
     public ModelsPaginatedGetTypeResponse adminGetType(AdminGetType input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class AdminType {
         }
     }
 
+    /**
+     * @see AdminCreateType
+     */
     public ModelsCreateTypeResponse adminCreateType(AdminCreateType input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class AdminType {
         }
     }
 
+    /**
+     * @see AdminUpdateType
+     */
     public ModelsCreateTypeResponse adminUpdateType(AdminUpdateType input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class AdminType {
         }
     }
 
+    /**
+     * @see AdminDeleteType
+     */
     public void adminDeleteType(AdminDeleteType input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

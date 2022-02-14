@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getCurrentSeason
+ *
+ * [SERVICE COMMUNICATION ONLY]This API is used to get current published season
+ * summary which includes previous published season summary if exists, season
+ * only located in non-publisher namespace.
+ * 
+ * Other detail info:
+ * 
+ *   * Returns : season summary data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

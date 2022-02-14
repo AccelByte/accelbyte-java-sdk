@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * DequeueSessionHandler
+ *
+ * Required Permission: NAMESPACE:{namespace}:SESSION [UPDATE] Required Scope:
+ * social Dequeues joinable session so that it will not be matched with player's
+ * match request tickets. This endpoint is intended to be called by game server
+ * to let matchmaker know that the game server does not want more players to its
+ * session, even though it is not full.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

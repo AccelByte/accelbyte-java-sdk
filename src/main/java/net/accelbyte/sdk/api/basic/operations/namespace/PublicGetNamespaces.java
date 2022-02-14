@@ -17,6 +17,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetNamespaces
+ *
+ * Get all namespaces.
+ * Other detail info:
+ * 
+ *   * Required permission : login user
+ *   *  Action code : 11303
+ *   *  Returns : list of namespaces
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

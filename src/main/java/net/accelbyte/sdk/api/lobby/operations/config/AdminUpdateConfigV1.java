@@ -19,6 +19,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminUpdateConfigV1
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:LOBBY:CONFIG [UPDATE]` with
+ * scope `social`
+ * update lobby config of a namespace.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

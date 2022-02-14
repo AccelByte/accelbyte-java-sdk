@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getUserRankingPublicV1
+ *
+ * 
+ * 
+ * Get user ranking in leaderboard
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

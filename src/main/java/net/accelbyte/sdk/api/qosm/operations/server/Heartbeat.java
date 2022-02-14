@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * Heartbeat
+ *
+ * ``` Required permission: QOS:SERVER [CREATE][UPDATE] Required scope: social
+ * This endpoint is intended to be called by QoS service to register and
+ * periodically let QoS Manager know that it is still alive. ```
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

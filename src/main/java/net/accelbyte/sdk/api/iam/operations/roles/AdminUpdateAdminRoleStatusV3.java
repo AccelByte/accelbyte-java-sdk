@@ -17,6 +17,20 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminUpdateAdminRoleStatusV3
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:ROLE [UPDATE]'
+ * 
+ * Admin roles has its members listed in the role.
+ * 
+ * Role can be set as admin role only when it has at least 1 manager.
+ * 
+ * 
+ * action code: 10412
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

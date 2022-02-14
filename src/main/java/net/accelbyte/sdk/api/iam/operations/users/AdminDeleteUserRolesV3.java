@@ -17,6 +17,11 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminDeleteUserRolesV3
+ *
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:ROLE:USER:{userId} [DELETE]'
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

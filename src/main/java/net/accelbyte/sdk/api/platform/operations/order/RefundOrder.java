@@ -19,6 +19,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * refundOrder
+ *
+ * Refund order by orderNo.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ORDER", action=4 (UPDATE)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

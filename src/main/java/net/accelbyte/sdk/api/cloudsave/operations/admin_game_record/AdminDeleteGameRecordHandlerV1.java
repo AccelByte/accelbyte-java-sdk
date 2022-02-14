@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminDeleteGameRecordHandlerV1
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [DELETE]
+ * Required scope: social This endpoints delete game record in namespace-level
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

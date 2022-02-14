@@ -17,6 +17,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * DeleteImage
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [UPDATE] Required
+ * scope: social This endpoint will delete an image that specified in the request
+ * parameter
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

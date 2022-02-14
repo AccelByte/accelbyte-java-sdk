@@ -19,6 +19,9 @@ public class ImageConfig {
         this.sdk = sdk;
     }
 
+    /**
+     * @see UpdateImage
+     */
     public void updateImage(UpdateImage input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class ImageConfig {
         }
     }
 
+    /**
+     * @see CreateImage
+     */
     public void createImage(CreateImage input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class ImageConfig {
         }
     }
 
+    /**
+     * @see ImportImages
+     */
     public ModelsImportResponse importImages(ImportImages input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class ImageConfig {
         }
     }
 
+    /**
+     * @see ListImages
+     */
     public ModelsListImageResponse listImages(ListImages input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class ImageConfig {
         }
     }
 
+    /**
+     * @see DeleteImage
+     */
     public void deleteImage(DeleteImage input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class ImageConfig {
         }
     }
 
+    /**
+     * @see ExportImages
+     */
     public List<ModelsImageRecord> exportImages(ExportImages input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class ImageConfig {
         }
     }
 
+    /**
+     * @see GetImageLimit
+     */
     public ModelsGetImageLimitResponse getImageLimit(GetImageLimit input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class ImageConfig {
         }
     }
 
+    /**
+     * @see GetImageDetail
+     */
     public ModelsGetImageDetailResponse getImageDetail(GetImageDetail input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class ImageConfig {
         }
     }
 
+    /**
+     * @see ImageDetailClient
+     */
     public ModelsGetImageDetailResponse imageDetailClient(ImageDetailClient input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

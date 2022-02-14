@@ -17,6 +17,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetCustomAttributesInfo
+ *
+ * Get custom attributes info.
+ * Other detail info:
+ * 
+ *   * Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2 (READ)
+ *   *  Action code : 11404
+ *   *  Returns : user custom attributes
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

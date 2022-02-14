@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getCurrencyConfig
+ *
+ * [SERVICE COMMUNICATION ONLY] Get currency config by code.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=2 (READ)
+ *   *  Returns : simplified Currency
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

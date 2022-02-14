@@ -19,6 +19,9 @@ public class InputValidations {
         this.sdk = sdk;
     }
 
+    /**
+     * @see AdminGetInputValidations
+     */
     public ModelInputValidationsResponse adminGetInputValidations(AdminGetInputValidations input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class InputValidations {
         }
     }
 
+    /**
+     * @see AdminUpdateInputValidations
+     */
     public void adminUpdateInputValidations(AdminUpdateInputValidations input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class InputValidations {
         }
     }
 
+    /**
+     * @see AdminResetInputValidations
+     */
     public void adminResetInputValidations(AdminResetInputValidations input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class InputValidations {
         }
     }
 
+    /**
+     * @see PublicGetInputValidations
+     */
     public ModelInputValidationsPublicResponse publicGetInputValidations(PublicGetInputValidations input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

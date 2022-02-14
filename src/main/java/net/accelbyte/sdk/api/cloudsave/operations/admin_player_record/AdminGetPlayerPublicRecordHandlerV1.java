@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminGetPlayerPublicRecordHandlerV1
+ *
+ * Required permission:
+ * ADMIN:NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [READ]
+ * Required scope: social Get a record in user-level (arbitrary JSON data) by its
+ * key.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

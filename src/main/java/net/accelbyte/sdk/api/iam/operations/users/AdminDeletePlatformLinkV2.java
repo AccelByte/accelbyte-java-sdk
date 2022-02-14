@@ -17,6 +17,32 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminDeletePlatformLinkV2
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [DELETE]'.
+ * 
+ * ## Supported platforms:
+ * 
+ *           * steam
+ *           * steamopenid
+ *           * facebook
+ *           * google
+ *           * oculus
+ *           * twitch
+ *           * android
+ *           * ios
+ *           * device
+ *           * discord
+ * 
+ * Delete link of user's account with platform. 'justice' platform might have
+ * multiple accounts from different namespaces linked. platform_namespace need to
+ * be specified when the platform ID is 'justice'.
+ * Delete link of justice platform will enable password token grant and password
+ * update.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

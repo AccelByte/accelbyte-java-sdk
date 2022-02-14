@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetPublisherUser
+ *
+ * 
+ * 
+ * Required permissions 'NAMESPACE:{namespace}:PUBLISHER:USER:{userId} [READ].
+ * 
+ * Restriction: Path Parameter namespace can be provided only with game namespace
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

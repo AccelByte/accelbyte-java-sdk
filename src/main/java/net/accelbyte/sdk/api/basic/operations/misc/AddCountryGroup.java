@@ -19,6 +19,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * addCountryGroup
+ *
+ * Add a country groups
+ * Country code must follow ISO3166-1 alpha-2.
+ * Other detail info:
+ * 
+ *   * Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=1 (CREATE)
+ *   *  Action code : 11201
+ *   *  Returns : newly created country group
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * ImageDetailClient
+ *
+ * Required permission: NAMESPACE:{namespace}:DSM:CONFIG [READ] Required scope:
+ * social This endpoint get specific version of dedicated servers images.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

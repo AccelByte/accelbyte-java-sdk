@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetActiveCustomGameSessions
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [READ]
+ * Required scope: social
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

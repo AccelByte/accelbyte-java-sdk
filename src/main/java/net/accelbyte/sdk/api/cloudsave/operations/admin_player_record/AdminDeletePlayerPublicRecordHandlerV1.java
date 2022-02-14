@@ -17,6 +17,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminDeletePlayerPublicRecordHandlerV1
+ *
+ * Required permission:
+ * ADMIN:NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [DELETE]
+ * Required scope: social Delete a public record (arbitrary JSON data) in user-
+ * level with given key.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

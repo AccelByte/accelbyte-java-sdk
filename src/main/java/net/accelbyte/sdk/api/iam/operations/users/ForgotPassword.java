@@ -18,6 +18,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * ForgotPassword
+ *
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:PASSWORD:USER [UPDATE]' or
+ * valid basic auth header
+ * 
+ *  Special note for publisher-game scenario: Game Client should provide game
+ * namespace path parameter and Publisher Client should provide publisher
+ * namespace path parameter.
+ * 
+ * The password reset code will be sent to the publisher account's email address.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

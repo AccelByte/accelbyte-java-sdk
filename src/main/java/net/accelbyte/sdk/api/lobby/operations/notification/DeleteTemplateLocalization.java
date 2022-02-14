@@ -17,6 +17,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * deleteTemplateLocalization
+ *
+ * Required permission : `NAMESPACE:{namespace}:TEMPLATE [DELETE]` with scope
+ * `social`
+ * Delete all template in a slug
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetDeployment
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [READ] Required
+ * scope: social This endpoint get a dedicated server deployment in a namespace
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -19,6 +19,9 @@ public class Config {
         this.sdk = sdk;
     }
 
+    /**
+     * @see AdminGetAllConfigV1
+     */
     public ModelsConfigList adminGetAllConfigV1(AdminGetAllConfigV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Config {
         }
     }
 
+    /**
+     * @see AdminGetConfigV1
+     */
     public ModelsConfigReq adminGetConfigV1(AdminGetConfigV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Config {
         }
     }
 
+    /**
+     * @see AdminUpdateConfigV1
+     */
     public ModelsConfigReq adminUpdateConfigV1(AdminUpdateConfigV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Config {
         }
     }
 
+    /**
+     * @see ExportConfig
+     */
     public List<ModelsConfigExport> exportConfig(ExportConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Config {
         }
     }
 
+    /**
+     * @see ImportConfig
+     */
     public ModelsImportConfigResponse importConfig(ImportConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

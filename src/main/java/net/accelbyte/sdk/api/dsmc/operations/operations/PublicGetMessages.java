@@ -17,6 +17,11 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetMessages
+ *
+ * get the list of messages.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

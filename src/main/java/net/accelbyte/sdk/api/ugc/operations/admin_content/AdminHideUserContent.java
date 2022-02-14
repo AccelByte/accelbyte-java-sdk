@@ -19,6 +19,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminHideUserContent
+ *
+ * Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT
+ * [UPDATE].
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

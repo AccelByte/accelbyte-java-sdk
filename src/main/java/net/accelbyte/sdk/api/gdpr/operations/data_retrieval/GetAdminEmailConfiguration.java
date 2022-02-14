@@ -17,6 +17,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetAdminEmailConfiguration
+ *
+ * Get list of admin email address configuration.
+ * 
+ * Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [READ]`
+ * and scope `account`
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicUpdatePasswordV3
+ *
+ * Required valid user authorization.
+ * action code: 10107
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

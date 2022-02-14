@@ -19,6 +19,9 @@ public class Agreement {
         this.sdk = sdk;
     }
 
+    /**
+     * @see RetrieveAcceptedAgreements
+     */
     public List<RetrieveAcceptedAgreementResponse> retrieveAcceptedAgreements(RetrieveAcceptedAgreements input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Agreement {
         }
     }
 
+    /**
+     * @see RetrieveAllUsersByPolicyVersion
+     */
     public List<PagedRetrieveUserAcceptedAgreementResponse> retrieveAllUsersByPolicyVersion(RetrieveAllUsersByPolicyVersion input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Agreement {
         }
     }
 
+    /**
+     * @see ChangePreferenceConsent
+     */
     public void changePreferenceConsent(ChangePreferenceConsent input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Agreement {
         }
     }
 
+    /**
+     * @see AcceptVersionedPolicy
+     */
     public void acceptVersionedPolicy(AcceptVersionedPolicy input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Agreement {
         }
     }
 
+    /**
+     * @see RetrieveAgreementsPublic
+     */
     public List<RetrieveAcceptedAgreementResponse> retrieveAgreementsPublic(RetrieveAgreementsPublic input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Agreement {
         }
     }
 
+    /**
+     * @see BulkAcceptVersionedPolicy
+     */
     public AcceptAgreementResponse bulkAcceptVersionedPolicy(BulkAcceptVersionedPolicy input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Agreement {
         }
     }
 
+    /**
+     * @see IndirectBulkAcceptVersionedPolicyV2
+     */
     public AcceptAgreementResponse indirectBulkAcceptVersionedPolicyV2(IndirectBulkAcceptVersionedPolicyV2 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Agreement {
         }
     }
 
+    /**
+     * @see IndirectBulkAcceptVersionedPolicy1
+     */
     public AcceptAgreementResponse indirectBulkAcceptVersionedPolicy1(IndirectBulkAcceptVersionedPolicy1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

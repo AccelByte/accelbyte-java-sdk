@@ -18,6 +18,11 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetAllTimeLeaderboardRankingPublicV2
+ *
+ * Get rankings in an all time leaderboard.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

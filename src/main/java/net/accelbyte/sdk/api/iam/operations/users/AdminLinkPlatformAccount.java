@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminLinkPlatformAccount
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
+ * 
+ * Force linking platform account to user User Account. This endpoint intended
+ * for admin to forcefully link account to user.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

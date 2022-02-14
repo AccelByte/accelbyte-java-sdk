@@ -19,6 +19,9 @@ public class OAuth {
         this.sdk = sdk;
     }
 
+    /**
+     * @see Authorization
+     */
     public String authorization(Authorization input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class OAuth {
         }
     }
 
+    /**
+     * @see GetJWKS
+     */
     public OauthcommonJWKSet getJWKS(GetJWKS input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,11 @@ public class OAuth {
         }
     }
 
+    /**
+     * @see PlatformTokenRequestHandler
+     * @deprecated
+     */
+    @Deprecated
     public OauthmodelTokenResponse platformTokenRequestHandler(PlatformTokenRequestHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +78,9 @@ public class OAuth {
         }
     }
 
+    /**
+     * @see RevokeUser
+     */
     public void revokeUser(RevokeUser input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +97,9 @@ public class OAuth {
         }
     }
 
+    /**
+     * @see GetRevocationList
+     */
     public OauthapiRevocationList getRevocationList(GetRevocationList input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +116,11 @@ public class OAuth {
         }
     }
 
+    /**
+     * @see RevokeToken
+     * @deprecated
+     */
+    @Deprecated
     public void revokeToken(RevokeToken input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +137,11 @@ public class OAuth {
         }
     }
 
+    /**
+     * @see RevokeAUser
+     * @deprecated
+     */
+    @Deprecated
     public void revokeAUser(RevokeAUser input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +158,9 @@ public class OAuth {
         }
     }
 
+    /**
+     * @see TokenGrant
+     */
     public OauthmodelTokenResponse tokenGrant(TokenGrant input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +177,9 @@ public class OAuth {
         }
     }
 
+    /**
+     * @see VerifyToken
+     */
     public OauthmodelTokenResponse verifyToken(VerifyToken input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

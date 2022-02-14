@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminListUsersV3
+ *
+ * This endpoint requires ADMIN:NAMESPACE:{namespace}:USER [READ] permission.
+ * Returns list of users ID and namespace with their Justice platform account,
+ * under a namespace. If user doesn't have Justice platform account, the
+ * linkedPlatforms will be empty array.'
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

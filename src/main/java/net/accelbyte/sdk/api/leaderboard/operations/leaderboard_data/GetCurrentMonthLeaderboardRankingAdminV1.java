@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetCurrentMonthLeaderboardRankingAdminV1
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+ * 
+ * Get rankings in current month leaderboard.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

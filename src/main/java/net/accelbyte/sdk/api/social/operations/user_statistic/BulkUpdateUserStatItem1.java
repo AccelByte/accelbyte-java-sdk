@@ -18,6 +18,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * bulkUpdateUserStatItem_1
+ *
+ * Public bulk update multiple user's statitems value with specific update
+ * strategy. There are four supported update strategies: + *OVERRIDE*: update
+ * user statitem with the new value + *INCREMENT*: increment user statitem with
+ * the specified value + *MAX*: update user statitem with the specified value if
+ * it's larger than the existing value + *MIN*: update user statitem with the
+ * specified value if it's lower than the existing value Other detail info: +
+ * *Required permission*: resource="NAMESPACE:{namespace}:STATITEM", action=4
+ * (UPDATE) + *Returns*: bulk updated result
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

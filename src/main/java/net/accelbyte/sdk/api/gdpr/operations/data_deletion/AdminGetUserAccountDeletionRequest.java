@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminGetUserAccountDeletionRequest
+ *
+ * 
+ * 
+ * Required permission
+ * `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId}[READ]` and scope
+ * `account`
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -19,6 +19,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updateGroupConfigurationGlobalRuleAdminV1
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [UPDATE]'
+ * 
+ * This endpoint is used to update existing global rule configuration based on
+ * the allowed action. It will replace the permission with the request
+ * 
+ * Action Code: 73106
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

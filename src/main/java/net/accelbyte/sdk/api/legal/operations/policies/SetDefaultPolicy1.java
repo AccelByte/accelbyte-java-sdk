@@ -17,6 +17,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * setDefaultPolicy_1
+ *
+ * Update a policy to be the default.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

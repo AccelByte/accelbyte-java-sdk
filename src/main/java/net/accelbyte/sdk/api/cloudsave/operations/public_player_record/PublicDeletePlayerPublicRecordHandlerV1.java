@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicDeletePlayerPublicRecordHandlerV1
+ *
+ * Required scope: social Required valid user authorization Delete player public
+ * record (arbitrary JSON data) in user-level with given key.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -19,6 +19,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * UpdateSession
+ *
+ * Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [UPDATE]
+ * Required scope: social Update game session, used to update the current player
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

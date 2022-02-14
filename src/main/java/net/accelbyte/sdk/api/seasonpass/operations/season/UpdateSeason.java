@@ -19,6 +19,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updateSeason
+ *
+ * This API is used to update a season. Only draft season can be updated.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
+ *   *  Returns : updated season
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

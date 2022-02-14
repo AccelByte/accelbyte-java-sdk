@@ -18,6 +18,19 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetAdminUsersByRoleID
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:USER [READ]'
+ * 
+ * This endpoint search admin users which have the roleId
+ * 
+ * Notes : this endpoint only accept admin role. Admin Role is role which have
+ * admin status and members. Use endpoint [GET] /roles/{roleId}/admin to check
+ * the role status
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

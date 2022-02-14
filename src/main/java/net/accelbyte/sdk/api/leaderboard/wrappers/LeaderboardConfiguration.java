@@ -19,6 +19,9 @@ public class LeaderboardConfiguration {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetLeaderboardConfigurationsAdminV1
+     */
     public ModelsGetAllLeaderboardConfigsResp getLeaderboardConfigurationsAdminV1(GetLeaderboardConfigurationsAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class LeaderboardConfiguration {
         }
     }
 
+    /**
+     * @see CreateLeaderboardConfigurationAdminV1
+     */
     public ModelsLeaderboardConfigReq createLeaderboardConfigurationAdminV1(CreateLeaderboardConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class LeaderboardConfiguration {
         }
     }
 
+    /**
+     * @see DeleteBulkLeaderboardConfigurationAdminV1
+     */
     public ModelsDeleteBulkLeaderboardsResp deleteBulkLeaderboardConfigurationAdminV1(DeleteBulkLeaderboardConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class LeaderboardConfiguration {
         }
     }
 
+    /**
+     * @see GetLeaderboardConfigurationAdminV1
+     */
     public ModelsGetLeaderboardConfigResp getLeaderboardConfigurationAdminV1(GetLeaderboardConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class LeaderboardConfiguration {
         }
     }
 
+    /**
+     * @see UpdateLeaderboardConfigurationAdminV1
+     */
     public ModelsGetLeaderboardConfigResp updateLeaderboardConfigurationAdminV1(UpdateLeaderboardConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class LeaderboardConfiguration {
         }
     }
 
+    /**
+     * @see DeleteLeaderboardConfigurationAdminV1
+     */
     public void deleteLeaderboardConfigurationAdminV1(DeleteLeaderboardConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class LeaderboardConfiguration {
         }
     }
 
+    /**
+     * @see GetLeaderboardConfigurationsPublicV1
+     */
     public ModelsGetAllLeaderboardConfigsPublicResp getLeaderboardConfigurationsPublicV1(GetLeaderboardConfigurationsPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class LeaderboardConfiguration {
         }
     }
 
+    /**
+     * @see CreateLeaderboardConfigurationPublicV1
+     */
     public ModelsLeaderboardConfigReq createLeaderboardConfigurationPublicV1(CreateLeaderboardConfigurationPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class LeaderboardConfiguration {
         }
     }
 
+    /**
+     * @see GetLeaderboardConfigurationsPublicV2
+     */
     public V2GetAllLeaderboardConfigsPublicResp getLeaderboardConfigurationsPublicV2(GetLeaderboardConfigurationsPublicV2 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

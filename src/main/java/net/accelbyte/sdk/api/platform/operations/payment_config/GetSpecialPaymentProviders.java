@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getSpecialPaymentProviders
+ *
+ * Get special payment providers, such as ALIPAY, WXPAY.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+ *   *  Returns : payment provider list
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

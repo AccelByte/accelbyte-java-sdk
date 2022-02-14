@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetUserEntitlementOwnershipByItemId
+ *
+ * Get user entitlement ownership by itemId.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=2 (READ)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

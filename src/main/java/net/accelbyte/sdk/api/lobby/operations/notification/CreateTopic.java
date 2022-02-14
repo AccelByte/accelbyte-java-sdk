@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * createTopic
+ *
+ * Required permission : `NAMESPACE:{namespace}:TOPIC [CREATE]` with scope
+ * `social`
+ * Create new notification topic.
+ * topic should be alphabets, no special char except underscore, uppercase and no
+ * spacing. for example: TOPIC_TEST. Already existing topic can not be created
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

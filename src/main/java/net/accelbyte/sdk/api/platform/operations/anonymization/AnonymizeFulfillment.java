@@ -17,6 +17,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * anonymizeFulfillment
+ *
+ * Anonymize fulfillment. At current it will only anonymize fulfillment history.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

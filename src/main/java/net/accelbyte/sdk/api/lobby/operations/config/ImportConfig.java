@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * ImportConfig
+ *
+ * Required permission ADMIN:NAMESPACE:{namespace}:LOBBY:CONFIG [UPDATE] Required
+ * Scope: social Import config configuration from file. The existing
+ * configuration will be replaced. The json file to import can be obtained from
+ * the /export endpoint.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

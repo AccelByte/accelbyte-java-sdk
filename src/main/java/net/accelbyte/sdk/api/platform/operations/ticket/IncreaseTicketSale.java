@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * increaseTicketSale
+ *
+ *  [SERVICE COMMUNICATION ONLY] increase ticket(code/key) sale.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:TICKET", action=4 (UPDATE)
+ *   *  Returns : Ticket sale increment result
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

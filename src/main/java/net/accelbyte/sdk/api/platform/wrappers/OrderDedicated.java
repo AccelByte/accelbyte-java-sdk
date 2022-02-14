@@ -19,6 +19,9 @@ public class OrderDedicated {
         this.sdk = sdk;
     }
 
+    /**
+     * @see SyncOrders
+     */
     public OrderSyncResult syncOrders(SyncOrders input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

@@ -17,6 +17,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * resetUserSeason
+ *
+ *  [TEST FACILITY ONLY] Forbidden in live environment. This API is used to reset
+ * user data in current season, it will not revoke the rewarded entitlements.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=8 (DELETE)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

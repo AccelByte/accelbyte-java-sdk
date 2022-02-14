@@ -17,6 +17,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetQRCode
+ *
+ * Get qrcode.
+ * Other detail info:
+ * 
+ *   * Returns : QRCode image stream
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

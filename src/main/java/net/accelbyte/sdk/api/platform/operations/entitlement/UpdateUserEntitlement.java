@@ -19,6 +19,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updateUserEntitlement
+ *
+ * Update user entitlement. If update CONSUMABLE entitlement useCount to 0, the
+ * status will be CONSUMED.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=4 (UPDATE)
+ *   *  Returns : updated entitlement
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

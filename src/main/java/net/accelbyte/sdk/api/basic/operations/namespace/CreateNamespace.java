@@ -19,6 +19,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * createNamespace
+ *
+ * Create a namespace.
+ * By default the namespace is enabled.
+ * Other detail info:
+ * 
+ *   * Required permission : resource= "ADMIN:NAMESPACE" , action=1 (CREATE)
+ *   *  Action code : 11301
+ *   *  Returns : created namespace
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

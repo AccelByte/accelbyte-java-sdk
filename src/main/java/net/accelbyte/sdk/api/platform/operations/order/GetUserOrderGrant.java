@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getUserOrderGrant
+ *
+ * Get user order grant that fulfilled by this order.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ORDER", action=2 (READ)
+ *   *  Returns : get order grant
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

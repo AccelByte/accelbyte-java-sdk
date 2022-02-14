@@ -17,6 +17,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminGetProfanityLists
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:PROFANITY [READ]` with
+ * scope `social`
+ * get lists
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

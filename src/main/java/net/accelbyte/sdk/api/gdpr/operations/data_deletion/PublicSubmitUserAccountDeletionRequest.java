@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicSubmitUserAccountDeletionRequest
+ *
+ * 
+ * 
+ * Requires valid user access token and password
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

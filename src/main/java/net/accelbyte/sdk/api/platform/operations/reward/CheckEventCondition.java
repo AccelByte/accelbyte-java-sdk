@@ -19,6 +19,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * checkEventCondition
+ *
+ *  [TEST FACILITY ONLY] Forbidden in live environment. Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:REWARD", action=2 (READ)
+ *   *  Returns : match result
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -17,6 +17,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * bulkGetLocaleItems
+ *
+ * This API is used to bulk get locale items. If item not exist in specific
+ * region, default region item will return.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+ *   *  Returns : the list of items info
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

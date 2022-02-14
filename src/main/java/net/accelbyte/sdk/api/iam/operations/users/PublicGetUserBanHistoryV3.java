@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicGetUserBanHistoryV3
+ *
+ * Required valid user authorization.
+ * 
+ * Notes:
+ * 
+ *                       * This endpoint retrieve the first page of the data if after and before parameters is empty
+ *                       * The pagination is not working yet
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

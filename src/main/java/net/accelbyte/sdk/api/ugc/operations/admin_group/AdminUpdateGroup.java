@@ -19,6 +19,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminUpdateGroup
+ *
+ * Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP
+ * [UPDATE] replace group name and contents with new ones.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

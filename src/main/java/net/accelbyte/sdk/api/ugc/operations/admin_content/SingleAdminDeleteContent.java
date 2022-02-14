@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * SingleAdminDeleteContent
+ *
+ * Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT
+ * [DELETE].
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

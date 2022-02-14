@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * ClaimServer
+ *
+ * Required permission: NAMESPACE:{namespace}:DSM:SESSION [UPDATE] Required
+ * scope: social This endpoint is intended to be called by game session manager
+ * (matchmaker, lobby, etc.) to claim a dedicated server. The dedicated server
+ * cannot be claimed unless the status is READY
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

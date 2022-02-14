@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * createTemplate
+ *
+ * Required permission : `NAMESPACE:{namespace}:TEMPLATE [CREATE]` with scope
+ * `social`
+ * Create new notification template. Include handlebars {{key}} for replaceable
+ * contexts. The the key inside handlebars will be the key to be replaced when
+ * sending notification. Already existing template with the same slug and
+ * language can not be created.
+ * Check model description for detailed input restrictions.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

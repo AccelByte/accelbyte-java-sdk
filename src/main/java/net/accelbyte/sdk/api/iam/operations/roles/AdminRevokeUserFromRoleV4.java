@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminRevokeUserFromRoleV4
+ *
+ * Required permission ADMIN:ROLE [UPDATE] Current implementation will revoke
+ * user from role in all assigned namespaces. Parameters: - userId: string
+ * (required) - namespace: string (userâs namespace) (required) action code:
+ * 10411
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * revokeUserEntitlements
+ *
+ * Revoke user's entitlements by ids.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=4 (UPDATE)
+ *   *  Returns : revoke entitlements count
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getUserSlotConfig
+ *
+ * GetÂ a user slot configuration in given namespace. In case the user slot
+ * configuration is not set, the namespace configuration will be returned.
+ * Other detail info:
+ * 
+ *   * Required permission: resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=2 (READ)
+ *   * Returns: slot config info
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

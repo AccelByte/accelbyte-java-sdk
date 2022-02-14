@@ -19,6 +19,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * platformSubscribeSubscription
+ *
+ * Free subscribe by platform, can used by other justice service to redeem/reward
+ * the subscription.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SUBSCRIPTION", action=1 (CREATE)
+ *   *  Returns : result subscription
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

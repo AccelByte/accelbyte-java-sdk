@@ -17,6 +17,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetDescendantCategories
+ *
+ * This API is used to get descendant categories by category path.
+ * 
+ * Other detail info:
+ * 
+ *   * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
+ *   *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
+ *   *  Returns : list of descendant categories data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

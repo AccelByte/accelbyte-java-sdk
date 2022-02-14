@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * ListImages
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [READ] Required
+ * scope: social This endpoint lists all of dedicated servers images.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

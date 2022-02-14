@@ -19,6 +19,9 @@ public class ConcurrentRecord {
         this.sdk = sdk;
     }
 
+    /**
+     * @see PutGameRecordConcurrentHandlerV1
+     */
     public void putGameRecordConcurrentHandlerV1(PutGameRecordConcurrentHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class ConcurrentRecord {
         }
     }
 
+    /**
+     * @see PutPlayerPublicRecordConcurrentHandlerV1
+     */
     public void putPlayerPublicRecordConcurrentHandlerV1(PutPlayerPublicRecordConcurrentHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

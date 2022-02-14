@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * RemovePlayerFromSession
+ *
+ * Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [UPDATE]
+ * Required scope: social Remove player from game session
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

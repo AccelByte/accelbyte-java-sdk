@@ -18,6 +18,11 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminGetUserByUserIdV3
+ *
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [READ]'
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

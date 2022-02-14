@@ -19,6 +19,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminVerifyMessageProfanityResponse
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:PROFANITY [READ]` with
+ * scope `social`
+ * verify a message directly from the UI or other services
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

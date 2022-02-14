@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicListAchievements
+ *
+ * 
+ * 
+ * Required permission `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope
+ * `social`
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

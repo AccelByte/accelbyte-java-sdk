@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getUserRankingAdminV1
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+ * 
+ * Get user ranking in leaderboard
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

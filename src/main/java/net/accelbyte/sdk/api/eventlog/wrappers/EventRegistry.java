@@ -19,6 +19,11 @@ public class EventRegistry {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetRegisteredEventsHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsEventRegistry getRegisteredEventsHandler(GetRegisteredEventsHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +40,11 @@ public class EventRegistry {
         }
     }
 
+    /**
+     * @see RegisterEventHandler
+     * @deprecated
+     */
+    @Deprecated
     public void registerEventHandler(RegisterEventHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +61,11 @@ public class EventRegistry {
         }
     }
 
+    /**
+     * @see GetRegisteredEventIDHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsEventRegistry getRegisteredEventIDHandler(GetRegisteredEventIDHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +82,11 @@ public class EventRegistry {
         }
     }
 
+    /**
+     * @see UpdateEventRegistryHandler
+     * @deprecated
+     */
+    @Deprecated
     public void updateEventRegistryHandler(UpdateEventRegistryHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +103,11 @@ public class EventRegistry {
         }
     }
 
+    /**
+     * @see UnregisterEventIDHandler
+     * @deprecated
+     */
+    @Deprecated
     public void unregisterEventIDHandler(UnregisterEventIDHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +124,11 @@ public class EventRegistry {
         }
     }
 
+    /**
+     * @see GetRegisteredEventsByEventTypeHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsEventRegistry getRegisteredEventsByEventTypeHandler(GetRegisteredEventsByEventTypeHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

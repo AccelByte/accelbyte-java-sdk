@@ -19,6 +19,9 @@ public class Payment {
         this.sdk = sdk;
     }
 
+    /**
+     * @see QueryPaymentNotifications
+     */
     public PaymentNotificationPagingSlicedResult queryPaymentNotifications(QueryPaymentNotifications input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Payment {
         }
     }
 
+    /**
+     * @see QueryPaymentOrders
+     */
     public PaymentOrderPagingSlicedResult queryPaymentOrders(QueryPaymentOrders input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Payment {
         }
     }
 
+    /**
+     * @see ListExtOrderNoByExtTxId
+     */
     public List<String> listExtOrderNoByExtTxId(ListExtOrderNoByExtTxId input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Payment {
         }
     }
 
+    /**
+     * @see GetPaymentOrder
+     */
     public PaymentOrderInfo getPaymentOrder(GetPaymentOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Payment {
         }
     }
 
+    /**
+     * @see ChargePaymentOrder
+     */
     public PaymentOrderInfo chargePaymentOrder(ChargePaymentOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Payment {
         }
     }
 
+    /**
+     * @see SimulatePaymentOrderNotification
+     */
     public NotificationProcessResult simulatePaymentOrderNotification(SimulatePaymentOrderNotification input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Payment {
         }
     }
 
+    /**
+     * @see GetPaymentOrderChargeStatus
+     */
     public PaymentOrderChargeStatus getPaymentOrderChargeStatus(GetPaymentOrderChargeStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Payment {
         }
     }
 
+    /**
+     * @see CreateUserPaymentOrder
+     */
     public PaymentOrderInfo createUserPaymentOrder(CreateUserPaymentOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class Payment {
         }
     }
 
+    /**
+     * @see RefundUserPaymentOrder
+     */
     public PaymentOrderInfo refundUserPaymentOrder(RefundUserPaymentOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

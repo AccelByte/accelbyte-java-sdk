@@ -17,6 +17,21 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * RevokeUser
+ *
+ * 
+ * 
+ * This endpoint requires all requests to have authorization header set with
+ * bearer token.
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
+ * 
+ * The endpoint revokes all access tokens and refresh tokens a user has prior the
+ * revocation time. It is a convenient feature for the developer (or admin) who
+ * wanted to revokes all user's access tokens and refresh tokens generated before
+ * some period of time.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

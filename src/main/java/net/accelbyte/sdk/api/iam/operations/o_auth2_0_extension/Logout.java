@@ -17,6 +17,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * Logout
+ *
+ * 
+ * 
+ * This endpoint is used to remove access_token cookie and refresh_token cookie.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

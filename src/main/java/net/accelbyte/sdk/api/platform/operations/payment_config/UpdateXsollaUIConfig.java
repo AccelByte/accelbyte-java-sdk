@@ -19,6 +19,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updateXsollaUIConfig
+ *
+ * Update xsolla UI configuration.Reference: [Xsolla
+ * Document](https://developers.xsolla.com/api.html#ui-integrations).
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+ *   *  Returns : updated payment merchant config
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

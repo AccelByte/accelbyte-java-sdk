@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * SearchSessions
+ *
+ * Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Read]
+ * Required Scope: social Search sessions.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

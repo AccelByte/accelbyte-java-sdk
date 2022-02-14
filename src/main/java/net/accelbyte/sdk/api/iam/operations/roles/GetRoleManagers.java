@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetRoleManagers
+ *
+ * 
+ * 
+ * Required permission 'ROLE [READ]'
+ * 
+ * Role can only be assigned to other users by the role's manager.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

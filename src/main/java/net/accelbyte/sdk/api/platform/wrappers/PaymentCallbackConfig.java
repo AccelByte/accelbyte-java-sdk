@@ -19,6 +19,9 @@ public class PaymentCallbackConfig {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetPaymentCallbackConfig
+     */
     public PaymentCallbackConfigInfo getPaymentCallbackConfig(GetPaymentCallbackConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class PaymentCallbackConfig {
         }
     }
 
+    /**
+     * @see UpdatePaymentCallbackConfig
+     */
     public PaymentCallbackConfigInfo updatePaymentCallbackConfig(UpdatePaymentCallbackConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

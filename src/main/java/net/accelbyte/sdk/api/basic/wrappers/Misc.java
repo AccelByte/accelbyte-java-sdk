@@ -19,6 +19,9 @@ public class Misc {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetCountries
+     */
     public List<CountryObject> getCountries(GetCountries input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Misc {
         }
     }
 
+    /**
+     * @see GetCountryGroups
+     */
     public List<RetrieveCountryGroupResponse> getCountryGroups(GetCountryGroups input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Misc {
         }
     }
 
+    /**
+     * @see AddCountryGroup
+     */
     public AddCountryGroupResponse addCountryGroup(AddCountryGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Misc {
         }
     }
 
+    /**
+     * @see UpdateCountryGroup
+     */
     public CountryGroupObject updateCountryGroup(UpdateCountryGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Misc {
         }
     }
 
+    /**
+     * @see DeleteCountryGroup
+     */
     public void deleteCountryGroup(DeleteCountryGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Misc {
         }
     }
 
+    /**
+     * @see GetLanguages
+     */
     public Map<String, ?> getLanguages(GetLanguages input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Misc {
         }
     }
 
+    /**
+     * @see GetTimeZones
+     */
     public List<String> getTimeZones(GetTimeZones input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Misc {
         }
     }
 
+    /**
+     * @see PublicGetTime
+     */
     public RetrieveTimeResponse publicGetTime(PublicGetTime input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class Misc {
         }
     }
 
+    /**
+     * @see PublicGetCountries
+     */
     public List<CountryObject> publicGetCountries(PublicGetCountries input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class Misc {
         }
     }
 
+    /**
+     * @see PublicGetLanguages
+     */
     public Map<String, ?> publicGetLanguages(PublicGetLanguages input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class Misc {
         }
     }
 
+    /**
+     * @see PublicGetTimeZones
+     */
     public List<String> publicGetTimeZones(PublicGetTimeZones input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

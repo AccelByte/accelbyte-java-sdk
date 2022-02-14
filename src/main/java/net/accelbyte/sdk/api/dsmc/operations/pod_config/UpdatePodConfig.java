@@ -19,6 +19,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * UpdatePodConfig
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [UPDATE] Required
+ * scope: social This endpoint update a dedicated servers pod config in a
+ * namespace.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetItemDynamicData
+ *
+ * Get item dynamic data for a published item.
+ * Other detail info:
+ * 
+ *   * Returns : item dynamic data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

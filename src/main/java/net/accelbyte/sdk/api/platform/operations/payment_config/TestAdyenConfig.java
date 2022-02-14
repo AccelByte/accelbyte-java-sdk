@@ -19,6 +19,31 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * testAdyenConfig
+ *
+ * Test adyen configuration.
+ * 
+ * #### Check List:
+ * 
+ *   * apiKey
+ *   * merchantAccount
+ * 
+ * #### Non-check list:
+ * 
+ *   * notificationHmacKey
+ *   * notificationUsername
+ *   * notificationPassword
+ *   * liveEndpointUrlPrefix
+ *   * allowedPaymentMethods
+ *   * blockedPaymentMethods
+ *   * settings
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+ *   *  Returns : test adyen config
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

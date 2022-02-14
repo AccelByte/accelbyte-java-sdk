@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * CountServerDetailed
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:SERVER [READ] Required
+ * scope: social This endpoint counts all of dedicated servers in a region
+ * managed by this service.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

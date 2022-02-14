@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminPutPlayerRecordHandlerV1
+ *
+ * Required permission:
+ * ADMIN:NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD [UPDATE] Required
+ * scope: social Save a record (arbitrary JSON data) in user-level. If a record
+ * already exist with given key, this endpoint will replace the record, else will
+ * create new Record. Record saved will be a private record.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

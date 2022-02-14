@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * testAliPayConfigById
+ *
+ * Test AliPay configuration in payment merchant config. Reference: [Alipay
+ * Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+ *   *  Returns : test alipay config
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

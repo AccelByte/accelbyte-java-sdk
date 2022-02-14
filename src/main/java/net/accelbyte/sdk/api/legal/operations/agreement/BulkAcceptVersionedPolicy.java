@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * bulkAcceptVersionedPolicy
+ *
+ * Accepts many legal policy versions all at once. Supply with localized version
+ * policy id to accept an agreement.
+ * Other detail info:
+ * 
+ *   * Required permission : login user
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

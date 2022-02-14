@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getPass
+ *
+ * This API is used to get a pass for a season.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
+ *   *  Returns : pass data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

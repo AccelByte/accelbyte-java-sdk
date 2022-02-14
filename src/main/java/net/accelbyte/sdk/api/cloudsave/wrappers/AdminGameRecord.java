@@ -19,6 +19,9 @@ public class AdminGameRecord {
         this.sdk = sdk;
     }
 
+    /**
+     * @see ListGameRecordsHandlerV1
+     */
     public ModelsListGameRecordKeys listGameRecordsHandlerV1(ListGameRecordsHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class AdminGameRecord {
         }
     }
 
+    /**
+     * @see AdminGetGameRecordHandlerV1
+     */
     public ModelsGameRecord adminGetGameRecordHandlerV1(AdminGetGameRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class AdminGameRecord {
         }
     }
 
+    /**
+     * @see AdminPutGameRecordHandlerV1
+     */
     public void adminPutGameRecordHandlerV1(AdminPutGameRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class AdminGameRecord {
         }
     }
 
+    /**
+     * @see AdminPostGameRecordHandlerV1
+     */
     public void adminPostGameRecordHandlerV1(AdminPostGameRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class AdminGameRecord {
         }
     }
 
+    /**
+     * @see AdminDeleteGameRecordHandlerV1
+     */
     public void adminDeleteGameRecordHandlerV1(AdminDeleteGameRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

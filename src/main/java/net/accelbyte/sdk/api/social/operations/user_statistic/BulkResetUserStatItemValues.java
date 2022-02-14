@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * bulkResetUserStatItemValues
+ *
+ * Bulk reset user's statitem values for given namespace and user. Other detail
+ * info: + *Required permission*:
+ * resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4
+ * (UPDATE) + *Returns*: bulk updated result
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

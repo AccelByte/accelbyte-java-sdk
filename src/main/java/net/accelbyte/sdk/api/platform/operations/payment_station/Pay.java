@@ -19,6 +19,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * pay
+ *
+ * Do payment(For now, this only support checkout.com).
+ * Other detail info:
+ * 
+ *   * Returns : Payment process result
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

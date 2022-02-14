@@ -19,6 +19,9 @@ public class DataRetrieval {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetAdminEmailConfiguration
+     */
     public List<String> getAdminEmailConfiguration(GetAdminEmailConfiguration input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class DataRetrieval {
         }
     }
 
+    /**
+     * @see UpdateAdminEmailConfiguration
+     */
     public void updateAdminEmailConfiguration(UpdateAdminEmailConfiguration input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class DataRetrieval {
         }
     }
 
+    /**
+     * @see SaveAdminEmailConfiguration
+     */
     public void saveAdminEmailConfiguration(SaveAdminEmailConfiguration input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class DataRetrieval {
         }
     }
 
+    /**
+     * @see DeleteAdminEmailConfiguration
+     */
     public void deleteAdminEmailConfiguration(DeleteAdminEmailConfiguration input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class DataRetrieval {
         }
     }
 
+    /**
+     * @see AdminGetListPersonalDataRequest
+     */
     public ModelsListPersonalDataResponse adminGetListPersonalDataRequest(AdminGetListPersonalDataRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class DataRetrieval {
         }
     }
 
+    /**
+     * @see AdminGetUserPersonalDataRequests
+     */
     public ModelsUserPersonalDataResponse adminGetUserPersonalDataRequests(AdminGetUserPersonalDataRequests input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class DataRetrieval {
         }
     }
 
+    /**
+     * @see AdminRequestDataRetrieval
+     */
     public ModelsDataRetrievalResponse adminRequestDataRetrieval(AdminRequestDataRetrieval input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class DataRetrieval {
         }
     }
 
+    /**
+     * @see AdminCancelUserPersonalDataRequest
+     */
     public void adminCancelUserPersonalDataRequest(AdminCancelUserPersonalDataRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class DataRetrieval {
         }
     }
 
+    /**
+     * @see AdminGeneratePersonalDataURL
+     */
     public ModelsUserDataURL adminGeneratePersonalDataURL(AdminGeneratePersonalDataURL input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class DataRetrieval {
         }
     }
 
+    /**
+     * @see PublicGetUserPersonalDataRequests
+     */
     public ModelsUserPersonalDataResponse publicGetUserPersonalDataRequests(PublicGetUserPersonalDataRequests input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class DataRetrieval {
         }
     }
 
+    /**
+     * @see PublicRequestDataRetrieval
+     */
     public ModelsDataRetrievalResponse publicRequestDataRetrieval(PublicRequestDataRetrieval input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +228,9 @@ public class DataRetrieval {
         }
     }
 
+    /**
+     * @see PublicCancelUserPersonalDataRequest
+     */
     public void publicCancelUserPersonalDataRequest(PublicCancelUserPersonalDataRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -211,6 +247,9 @@ public class DataRetrieval {
         }
     }
 
+    /**
+     * @see PublicGeneratePersonalDataURL
+     */
     public ModelsUserDataURL publicGeneratePersonalDataURL(PublicGeneratePersonalDataURL input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

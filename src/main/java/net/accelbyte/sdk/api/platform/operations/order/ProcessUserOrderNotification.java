@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * processUserOrderNotification
+ *
+ *  [SERVICE COMMUNICATION ONLY] This API is used as a web hook for payment
+ * notification from justice payment service.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ORDER", action=4 (UPDATE)
+ *   *  Returns : Process result
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

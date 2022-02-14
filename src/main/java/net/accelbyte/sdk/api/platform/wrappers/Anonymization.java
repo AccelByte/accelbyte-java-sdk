@@ -19,6 +19,9 @@ public class Anonymization {
         this.sdk = sdk;
     }
 
+    /**
+     * @see AnonymizeCampaign
+     */
     public void anonymizeCampaign(AnonymizeCampaign input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Anonymization {
         }
     }
 
+    /**
+     * @see AnonymizeEntitlement
+     */
     public void anonymizeEntitlement(AnonymizeEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Anonymization {
         }
     }
 
+    /**
+     * @see AnonymizeFulfillment
+     */
     public void anonymizeFulfillment(AnonymizeFulfillment input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Anonymization {
         }
     }
 
+    /**
+     * @see AnonymizeIntegration
+     */
     public void anonymizeIntegration(AnonymizeIntegration input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Anonymization {
         }
     }
 
+    /**
+     * @see AnonymizeOrder
+     */
     public void anonymizeOrder(AnonymizeOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Anonymization {
         }
     }
 
+    /**
+     * @see AnonymizePayment
+     */
     public void anonymizePayment(AnonymizePayment input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Anonymization {
         }
     }
 
+    /**
+     * @see AnonymizeSubscription
+     */
     public void anonymizeSubscription(AnonymizeSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Anonymization {
         }
     }
 
+    /**
+     * @see AnonymizeWallet
+     */
     public void anonymizeWallet(AnonymizeWallet input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

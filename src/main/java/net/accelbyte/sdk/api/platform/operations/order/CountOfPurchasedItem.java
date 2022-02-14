@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * countOfPurchasedItem
+ *
+ * This API is used to get the count of purchased item which is the order target.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ORDER", action=2 (READ)
+ *   *  Returns : Item purchased count
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

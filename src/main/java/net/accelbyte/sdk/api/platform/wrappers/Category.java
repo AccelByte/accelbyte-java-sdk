@@ -19,6 +19,9 @@ public class Category {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetRootCategories
+     */
     public List<FullCategoryInfo> getRootCategories(GetRootCategories input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Category {
         }
     }
 
+    /**
+     * @see CreateCategory
+     */
     public FullCategoryInfo createCategory(CreateCategory input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Category {
         }
     }
 
+    /**
+     * @see ListCategoriesBasic
+     */
     public List<BasicCategoryInfo> listCategoriesBasic(ListCategoriesBasic input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Category {
         }
     }
 
+    /**
+     * @see GetCategory
+     */
     public FullCategoryInfo getCategory(GetCategory input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Category {
         }
     }
 
+    /**
+     * @see UpdateCategory
+     */
     public FullCategoryInfo updateCategory(UpdateCategory input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Category {
         }
     }
 
+    /**
+     * @see DeleteCategory
+     */
     public FullCategoryInfo deleteCategory(DeleteCategory input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Category {
         }
     }
 
+    /**
+     * @see GetChildCategories
+     */
     public List<FullCategoryInfo> getChildCategories(GetChildCategories input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Category {
         }
     }
 
+    /**
+     * @see GetDescendantCategories
+     */
     public List<FullCategoryInfo> getDescendantCategories(GetDescendantCategories input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class Category {
         }
     }
 
+    /**
+     * @see PublicGetRootCategories
+     */
     public List<CategoryInfo> publicGetRootCategories(PublicGetRootCategories input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class Category {
         }
     }
 
+    /**
+     * @see DownloadCategories
+     */
     public List<HierarchicalCategoryInfo> downloadCategories(DownloadCategories input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class Category {
         }
     }
 
+    /**
+     * @see PublicGetCategory
+     */
     public CategoryInfo publicGetCategory(PublicGetCategory input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +228,9 @@ public class Category {
         }
     }
 
+    /**
+     * @see PublicGetChildCategories
+     */
     public List<CategoryInfo> publicGetChildCategories(PublicGetChildCategories input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -211,6 +247,9 @@ public class Category {
         }
     }
 
+    /**
+     * @see PublicGetDescendantCategories
+     */
     public List<CategoryInfo> publicGetDescendantCategories(PublicGetDescendantCategories input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

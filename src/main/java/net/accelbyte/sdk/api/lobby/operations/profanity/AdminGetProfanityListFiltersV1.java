@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminGetProfanityListFiltersV1
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:PROFANITY [READ]` with
+ * scope `social`
+ * get the list of filters inside the list.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

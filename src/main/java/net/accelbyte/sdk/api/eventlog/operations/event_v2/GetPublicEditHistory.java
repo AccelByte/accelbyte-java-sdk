@@ -18,6 +18,22 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetPublicEditHistory
+ *
+ * 
+ * 
+ * Available Type:
+ * 
+ *   * email
+ *   * password
+ *   * displayname
+ *   * dateofbirth
+ *   * country
+ *   * language
+ * 
+ * Requires a valid user access token
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

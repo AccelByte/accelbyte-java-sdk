@@ -19,6 +19,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updateStore
+ *
+ * This API is used to Update a store basic info.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
+ *   *  Returns : updated store data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -17,6 +17,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * importRewards
+ *
+ * Import reward configurations for a given namespace from file. At current, only
+ * JSON file is supported.
+ * 
+ * Other detail info:
+ * 
+ *   *  *Required permission*: resource="ADMIN:NAMESPACE:{namespace}:REWARD", action=1 (CREATE)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

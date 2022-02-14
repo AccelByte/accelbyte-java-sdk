@@ -19,6 +19,9 @@ public class PublicTag {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetTag
+     */
     public ModelsPaginatedGetTagResponse getTag(GetTag input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

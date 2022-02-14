@@ -18,6 +18,23 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetUserMapping
+ *
+ * 
+ * 
+ * This endpoint requires the client access token as the bearer token. Required
+ * permission 'ADMIN:NAMESPACE:{namespace}:JUSTICE:USER:{userId} [READ]'
+ * 
+ * This endpoint will support publisher access to game and game access to
+ * publisher
+ * 
+ * If targetNamespace filled with publisher namespace then this endpoint will
+ * return its game user id and game namespace
+ * 
+ * If targetNamespace filled with game namespace then this endpoint will return
+ * its publisher user id and publisher namespace
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

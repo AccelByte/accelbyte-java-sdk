@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminListAssignedUsersV4
+ *
+ * Required permission ADMIN:ROLE [READ] Query all users that has the specified
+ * role. action code: 10416
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

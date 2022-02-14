@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getKeyGroupDynamic
+ *
+ * Get key group dynamic.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=2 (READ)
+ *   *  Returns : key group info
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

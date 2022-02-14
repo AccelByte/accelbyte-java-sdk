@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminDeleteRoleV4
+ *
+ * Required permission ADMIN:ROLE [DELETE] Removes role ID from user's Roles and
+ * NamespaceRoles before deleting the role. action code: 10403
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

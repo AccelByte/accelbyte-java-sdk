@@ -17,6 +17,32 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PlatformUnlink
+ *
+ * 
+ * 
+ * Required permission 'NAMESPACE:{namespace}:USER:{userId} [UPDATE]'.
+ * 
+ * ## Supported platforms:
+ * 
+ *         * steam
+ *         * steamopenid
+ *         * facebook
+ *         * google
+ *         * oculus
+ *         * twitch
+ *         * android
+ *         * ios
+ *         * device
+ *         * justice : A user might have several 'justiceâ platform on different namespaces. Thatâs why the platform_namespace need to be specified when the platform ID is âjusticeâ. The platform_namespace is the designated userâs namespace.
+ * 
+ * Unlink user's account with platform. 'justice' platform might have multiple
+ * accounts from different namespaces linked. platform_namespace need to be
+ * specified when the platform ID is 'justice'.
+ * Unlinking justice platform will enable password token grant and password
+ * update.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

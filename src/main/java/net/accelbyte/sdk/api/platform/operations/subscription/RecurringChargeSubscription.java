@@ -18,6 +18,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * recurringChargeSubscription
+ *
+ *  [TEST FACILITY ONLY] Forbidden in live environment. Recurring charge
+ * subscription, it will trigger recurring charge if the USER subscription status
+ * is ACTIVE, nextBillingDate is before now and no fail recurring charge within
+ * X(default 12) hours.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SUBSCRIPTION", action=4 (UPDATE)
+ *   *  Returns : recurring charge result
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

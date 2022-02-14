@@ -19,6 +19,9 @@ public class KeyGroup {
         this.sdk = sdk;
     }
 
+    /**
+     * @see QueryKeyGroups
+     */
     public KeyGroupPagingSlicedResult queryKeyGroups(QueryKeyGroups input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class KeyGroup {
         }
     }
 
+    /**
+     * @see CreateKeyGroup
+     */
     public KeyGroupInfo createKeyGroup(CreateKeyGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class KeyGroup {
         }
     }
 
+    /**
+     * @see GetKeyGroup
+     */
     public KeyGroupInfo getKeyGroup(GetKeyGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class KeyGroup {
         }
     }
 
+    /**
+     * @see UpdateKeyGroup
+     */
     public KeyGroupInfo updateKeyGroup(UpdateKeyGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class KeyGroup {
         }
     }
 
+    /**
+     * @see GetKeyGroupDynamic
+     */
     public KeyGroupDynamicInfo getKeyGroupDynamic(GetKeyGroupDynamic input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class KeyGroup {
         }
     }
 
+    /**
+     * @see ListKeys
+     */
     public KeyPagingSliceResult listKeys(ListKeys input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class KeyGroup {
         }
     }
 
+    /**
+     * @see UploadKeys
+     */
     public BulkOperationResult uploadKeys(UploadKeys input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

@@ -19,6 +19,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminUpdateType
+ *
+ * Required permission ADMIN:NAMESPACE:{namespace}:UGCCONFIG [UPDATE] updates a
+ * type and subtype
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -19,6 +19,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * createUserPaymentOrder
+ *
+ *  [SERVICE COMMUNICATION ONLY] This API is used to create payment order from
+ * justice service. The result contains the payment station url.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:PAYMENT", action=1 (CREATE)
+ *   * It will be forbidden while the user is banned: PAYMENT_INITIATE or ORDER_AND_PAYMENT
+ *   *  Returns : created order
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

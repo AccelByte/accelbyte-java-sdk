@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetAdminInvitationV3
+ *
+ * Endpoint to validate user invitation. When not found, it could also means the
+ * invitation has expired.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

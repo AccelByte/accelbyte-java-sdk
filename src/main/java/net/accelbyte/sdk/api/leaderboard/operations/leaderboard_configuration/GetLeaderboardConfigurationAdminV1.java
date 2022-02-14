@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getLeaderboardConfigurationAdminV1
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+ * 
+ * This endpoint returns a leaderboard configuration
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

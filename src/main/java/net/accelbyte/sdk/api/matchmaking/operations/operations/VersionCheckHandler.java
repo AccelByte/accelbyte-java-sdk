@@ -17,6 +17,9 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * versionCheckHandler
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminVerifyAccountV3
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
+ * 
+ * Redeems a verification code sent to a user to verify the user's contact
+ * address is correct
+ * 
+ * Available ContactType : email or phone
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

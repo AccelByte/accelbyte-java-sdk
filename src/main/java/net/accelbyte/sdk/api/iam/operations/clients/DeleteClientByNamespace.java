@@ -17,6 +17,11 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * DeleteClientByNamespace
+ *
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:CLIENT:{clientId} [DELETE]'
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

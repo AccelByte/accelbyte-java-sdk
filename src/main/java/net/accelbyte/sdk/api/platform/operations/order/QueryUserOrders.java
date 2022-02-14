@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * queryUserOrders
+ *
+ * Query user orders.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ORDER", action=2 (READ)
+ *   *  Returns : get order
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

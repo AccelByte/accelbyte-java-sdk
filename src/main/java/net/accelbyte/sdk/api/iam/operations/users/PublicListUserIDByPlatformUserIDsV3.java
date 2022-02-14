@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicListUserIDByPlatformUserIDsV3
+ *
+ * List User ID By Platform User ID This endpoint intended to list game user ID
+ * from the given namespace This endpoint return list of user ID by given
+ * platform ID and list of platform user ID nintendo platform user ID : NSA ID
+ * need to be appended with Environment ID using colon as separator. e.g
+ * kmzwa8awaa:dd1
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

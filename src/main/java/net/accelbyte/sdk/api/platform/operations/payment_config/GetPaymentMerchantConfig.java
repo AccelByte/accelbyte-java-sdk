@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getPaymentMerchantConfig
+ *
+ * Get payment merchant config by id.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+ *   *  Returns : payment merchant config info
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

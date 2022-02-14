@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminGetGameRecordHandlerV1
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [READ]
+ * Required scope: social Get a record by its key in namespace-level.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

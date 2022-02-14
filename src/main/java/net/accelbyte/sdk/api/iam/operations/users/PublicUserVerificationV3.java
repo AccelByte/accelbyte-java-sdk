@@ -18,6 +18,20 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicUserVerificationV3
+ *
+ * 
+ * 
+ * Required valid user authorization
+ * 
+ * Redeems a verification code sent to a user to verify the user's contact
+ * address is correct
+ * 
+ * Available ContactType : email
+ * 
+ * action code: 10107
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

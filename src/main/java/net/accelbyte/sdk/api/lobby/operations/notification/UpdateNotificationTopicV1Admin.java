@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updateNotificationTopicV1Admin
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [UPDATE]` with
+ * scope `social`
+ * update topic information by topic name.
+ * topic should be alphabets, no special char except underscore, uppercase and no
+ * spacing. for example: TOPIC_TEST. Already existing topic can not be created
+ * Action Code: 50216
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -19,6 +19,9 @@ public class Profanity {
         this.sdk = sdk;
     }
 
+    /**
+     * @see AdminDebugProfanityFilters
+     */
     public List<ModelsProfanityFilter> adminDebugProfanityFilters(AdminDebugProfanityFilters input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Profanity {
         }
     }
 
+    /**
+     * @see AdminGetProfanityListFiltersV1
+     */
     public ModelsAdminGetProfanityListFiltersV1Response adminGetProfanityListFiltersV1(AdminGetProfanityListFiltersV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Profanity {
         }
     }
 
+    /**
+     * @see AdminAddProfanityFilterIntoList
+     */
     public void adminAddProfanityFilterIntoList(AdminAddProfanityFilterIntoList input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Profanity {
         }
     }
 
+    /**
+     * @see AdminAddProfanityFilters
+     */
     public void adminAddProfanityFilters(AdminAddProfanityFilters input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Profanity {
         }
     }
 
+    /**
+     * @see AdminImportProfanityFiltersFromFile
+     */
     public void adminImportProfanityFiltersFromFile(AdminImportProfanityFiltersFromFile input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Profanity {
         }
     }
 
+    /**
+     * @see AdminDeleteProfanityFilter
+     */
     public List<ModelsProfanityFilter> adminDeleteProfanityFilter(AdminDeleteProfanityFilter input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Profanity {
         }
     }
 
+    /**
+     * @see AdminGetProfanityLists
+     */
     public List<ModelsAdminGetProfanityListsListResponse> adminGetProfanityLists(AdminGetProfanityLists input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Profanity {
         }
     }
 
+    /**
+     * @see AdminCreateProfanityList
+     */
     public void adminCreateProfanityList(AdminCreateProfanityList input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class Profanity {
         }
     }
 
+    /**
+     * @see AdminUpdateProfanityList
+     */
     public void adminUpdateProfanityList(AdminUpdateProfanityList input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class Profanity {
         }
     }
 
+    /**
+     * @see AdminDeleteProfanityList
+     */
     public void adminDeleteProfanityList(AdminDeleteProfanityList input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class Profanity {
         }
     }
 
+    /**
+     * @see AdminGetProfanityRule
+     */
     public ModelsProfanityRule adminGetProfanityRule(AdminGetProfanityRule input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +228,9 @@ public class Profanity {
         }
     }
 
+    /**
+     * @see AdminSetProfanityRuleForNamespace
+     */
     public void adminSetProfanityRuleForNamespace(AdminSetProfanityRuleForNamespace input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -211,6 +247,9 @@ public class Profanity {
         }
     }
 
+    /**
+     * @see AdminVerifyMessageProfanityResponse
+     */
     public ModelsAdminVerifyMessageProfanityResponse adminVerifyMessageProfanityResponse(AdminVerifyMessageProfanityResponse input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

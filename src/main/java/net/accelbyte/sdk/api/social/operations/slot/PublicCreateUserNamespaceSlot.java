@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicCreateUserNamespaceSlot
+ *
+ * Creates a slot.
+ * Other detail info:
+ * 
+ *         *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=1 (CREATE)
+ *         *  Returns : created slot info
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

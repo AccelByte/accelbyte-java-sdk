@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetPaymentAccounts
+ *
+ * Get payment accounts.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:PAYMENT:ACCOUNT", action=2 (READ)
+ *   *  Returns : Payment account list
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

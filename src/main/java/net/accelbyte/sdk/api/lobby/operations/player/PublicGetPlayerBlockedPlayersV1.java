@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetPlayerBlockedPlayersV1
+ *
+ * Required valid user authorization
+ * 
+ * load blocked players in a namespace based on user id
+ * Action Code: 50101
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicQueryUserStatItems
+ *
+ * Public list all statItems by pagination.
+ * Other detail info:
+ * 
+ *               *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+ *               *  Returns : stat items
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * fulfillItem
+ *
+ * Fulfill item.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
+ *   *  Returns : fulfillment result
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

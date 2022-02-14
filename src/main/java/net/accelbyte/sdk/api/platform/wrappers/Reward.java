@@ -19,6 +19,9 @@ public class Reward {
         this.sdk = sdk;
     }
 
+    /**
+     * @see CreateReward
+     */
     public RewardInfo createReward(CreateReward input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Reward {
         }
     }
 
+    /**
+     * @see QueryRewards
+     */
     public RewardPagingSlicedResult queryRewards(QueryRewards input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Reward {
         }
     }
 
+    /**
+     * @see ExportRewards
+     */
     public void exportRewards(ExportRewards input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Reward {
         }
     }
 
+    /**
+     * @see ImportRewards
+     */
     public void importRewards(ImportRewards input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Reward {
         }
     }
 
+    /**
+     * @see GetReward
+     */
     public RewardInfo getReward(GetReward input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Reward {
         }
     }
 
+    /**
+     * @see UpdateReward
+     */
     public RewardInfo updateReward(UpdateReward input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Reward {
         }
     }
 
+    /**
+     * @see DeleteReward
+     */
     public RewardInfo deleteReward(DeleteReward input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Reward {
         }
     }
 
+    /**
+     * @see CheckEventCondition
+     */
     public ConditionMatchResult checkEventCondition(CheckEventCondition input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class Reward {
         }
     }
 
+    /**
+     * @see GetRewardByCode
+     */
     public RewardInfo getRewardByCode(GetRewardByCode input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class Reward {
         }
     }
 
+    /**
+     * @see QueryRewards1
+     */
     public RewardPagingSlicedResult queryRewards1(QueryRewards1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class Reward {
         }
     }
 
+    /**
+     * @see GetReward1
+     */
     public RewardInfo getReward1(GetReward1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

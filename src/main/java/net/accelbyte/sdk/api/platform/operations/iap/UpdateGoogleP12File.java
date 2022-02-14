@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updateGoogleP12File
+ *
+ * Upload google play p12 file.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+ *   *  Returns : updated google iap config
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

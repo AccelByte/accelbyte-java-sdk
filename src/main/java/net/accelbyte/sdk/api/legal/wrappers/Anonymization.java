@@ -19,6 +19,9 @@ public class Anonymization {
         this.sdk = sdk;
     }
 
+    /**
+     * @see AnonymizeUserAgreement
+     */
     public void anonymizeUserAgreement(AnonymizeUserAgreement input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

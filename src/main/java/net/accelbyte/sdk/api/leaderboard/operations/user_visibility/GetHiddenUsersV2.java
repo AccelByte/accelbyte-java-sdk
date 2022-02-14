@@ -18,6 +18,11 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetHiddenUsersV2
+ *
+ * Return hidden users on a leaderboard
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

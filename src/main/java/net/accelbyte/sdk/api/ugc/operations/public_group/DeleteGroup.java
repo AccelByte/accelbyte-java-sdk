@@ -17,6 +17,11 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * DeleteGroup
+ *
+ * Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [DELETE]
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

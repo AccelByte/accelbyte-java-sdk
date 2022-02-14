@@ -19,6 +19,9 @@ public class IAP {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetAppleIAPConfig
+     */
     public AppleIAPConfigInfo getAppleIAPConfig(GetAppleIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see UpdateAppleIAPConfig
+     */
     public AppleIAPConfigInfo updateAppleIAPConfig(UpdateAppleIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see DeleteAppleIAPConfig
+     */
     public void deleteAppleIAPConfig(DeleteAppleIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see GetEpicGamesIAPConfig
+     */
     public EpicGamesIAPConfigInfo getEpicGamesIAPConfig(GetEpicGamesIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see UpdateEpicGamesIAPConfig
+     */
     public EpicGamesIAPConfigInfo updateEpicGamesIAPConfig(UpdateEpicGamesIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see DeleteEpicGamesIAPConfig
+     */
     public void deleteEpicGamesIAPConfig(DeleteEpicGamesIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see GetGoogleIAPConfig
+     */
     public GoogleIAPConfigInfo getGoogleIAPConfig(GetGoogleIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see UpdateGoogleIAPConfig
+     */
     public GoogleIAPConfigInfo updateGoogleIAPConfig(UpdateGoogleIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see DeleteGoogleIAPConfig
+     */
     public void deleteGoogleIAPConfig(DeleteGoogleIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see UpdateGoogleP12File
+     */
     public GoogleIAPConfigInfo updateGoogleP12File(UpdateGoogleP12File input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see GetIAPItemConfig
+     */
     public IAPItemConfigInfo getIAPItemConfig(GetIAPItemConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +228,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see UpdateIAPItemConfig
+     */
     public IAPItemConfigInfo updateIAPItemConfig(UpdateIAPItemConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -211,6 +247,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see DeleteIAPItemConfig
+     */
     public void deleteIAPItemConfig(DeleteIAPItemConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -227,6 +266,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see GetPlayStationIAPConfig
+     */
     public PlayStationIAPConfigInfo getPlayStationIAPConfig(GetPlayStationIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -243,6 +285,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see UpdatePlaystationIAPConfig
+     */
     public PlayStationIAPConfigInfo updatePlaystationIAPConfig(UpdatePlaystationIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -259,6 +304,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see DeletePlaystationIAPConfig
+     */
     public void deletePlaystationIAPConfig(DeletePlaystationIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -275,6 +323,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see GetStadiaIAPConfig
+     */
     public StadiaIAPConfigInfo getStadiaIAPConfig(GetStadiaIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -291,6 +342,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see DeleteStadiaIAPConfig
+     */
     public void deleteStadiaIAPConfig(DeleteStadiaIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -307,6 +361,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see UpdateStadiaJsonConfigFile
+     */
     public StadiaIAPConfigInfo updateStadiaJsonConfigFile(UpdateStadiaJsonConfigFile input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -323,6 +380,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see GetSteamIAPConfig
+     */
     public SteamIAPConfig getSteamIAPConfig(GetSteamIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -339,6 +399,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see UpdateSteamIAPConfig
+     */
     public SteamIAPConfigInfo updateSteamIAPConfig(UpdateSteamIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -355,6 +418,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see DeleteSteamIAPConfig
+     */
     public void deleteSteamIAPConfig(DeleteSteamIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -371,6 +437,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see GetTwitchIAPConfig
+     */
     public TwitchIAPConfigInfo getTwitchIAPConfig(GetTwitchIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -387,6 +456,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see UpdateTwitchIAPConfig
+     */
     public TwitchIAPConfigInfo updateTwitchIAPConfig(UpdateTwitchIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -403,6 +475,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see DeleteTwitchIAPConfig
+     */
     public void deleteTwitchIAPConfig(DeleteTwitchIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -419,6 +494,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see GetXblIAPConfig
+     */
     public XblIAPConfigInfo getXblIAPConfig(GetXblIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -435,6 +513,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see UpdateXblIAPConfig
+     */
     public XblIAPConfigInfo updateXblIAPConfig(UpdateXblIAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -451,6 +532,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see DeleteXblAPConfig
+     */
     public void deleteXblAPConfig(DeleteXblAPConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -467,6 +551,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see UpdateXblBPCertFile
+     */
     public XblIAPConfigInfo updateXblBPCertFile(UpdateXblBPCertFile input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -483,6 +570,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see QueryUserIAPOrders
+     */
     public IAPOrderPagingSlicedResult queryUserIAPOrders(QueryUserIAPOrders input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -499,6 +589,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see QueryAllUserIAPOrders
+     */
     public IAPOrderPagingSlicedResult queryAllUserIAPOrders(QueryAllUserIAPOrders input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -515,6 +608,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see MockFulfillIAPItem
+     */
     public void mockFulfillIAPItem(MockFulfillIAPItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -531,6 +627,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see PublicFulfillAppleIAPItem
+     */
     public void publicFulfillAppleIAPItem(PublicFulfillAppleIAPItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -547,6 +646,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see SyncEpicGamesInventory
+     */
     public List<EpicGamesReconcileResult> syncEpicGamesInventory(SyncEpicGamesInventory input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -563,6 +665,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see PublicFulfillGoogleIAPItem
+     */
     public GoogleReceiptResolveResult publicFulfillGoogleIAPItem(PublicFulfillGoogleIAPItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -579,6 +684,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see PublicReconcilePlayStationStore
+     */
     public List<PlayStationReconcileResult> publicReconcilePlayStationStore(PublicReconcilePlayStationStore input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -595,6 +703,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see SyncStadiaEntitlement
+     */
     public void syncStadiaEntitlement(SyncStadiaEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -611,6 +722,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see SyncSteamInventory
+     */
     public void syncSteamInventory(SyncSteamInventory input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -627,6 +741,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see SyncTwitchDropsEntitlement
+     */
     public void syncTwitchDropsEntitlement(SyncTwitchDropsEntitlement input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -643,6 +760,9 @@ public class IAP {
         }
     }
 
+    /**
+     * @see SyncXboxInventory
+     */
     public List<XblReconcileResult> syncXboxInventory(SyncXboxInventory input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

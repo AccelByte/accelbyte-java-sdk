@@ -19,6 +19,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * bulkGetPlayerPublicRecordHandlerV1
+ *
+ * Required Permission | `NAMESPACE:{namespace}:PUBLIC:CLOUDSAVE:RECORD [READ]`
+ * ---|---
+ * Required Scope | `social`
+ * 
+ * Bulk get other player's record that is public by userIds, max allowed 20 at a
+ * time. Only record with `isPublic=true` that can be retrieved using this
+ * endpoint.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

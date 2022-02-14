@@ -19,6 +19,11 @@ public class EventDescriptions {
         this.sdk = sdk;
     }
 
+    /**
+     * @see AgentTypeDescriptionHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsMultipleAgentType agentTypeDescriptionHandler(AgentTypeDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +40,11 @@ public class EventDescriptions {
         }
     }
 
+    /**
+     * @see SpecificAgentTypeDescriptionHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsMultipleAgentType specificAgentTypeDescriptionHandler(SpecificAgentTypeDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +61,11 @@ public class EventDescriptions {
         }
     }
 
+    /**
+     * @see EventIDDescriptionHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsMultipleEventID eventIDDescriptionHandler(EventIDDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +82,11 @@ public class EventDescriptions {
         }
     }
 
+    /**
+     * @see SpecificEventIDDescriptionHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsMultipleEventID specificEventIDDescriptionHandler(SpecificEventIDDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +103,11 @@ public class EventDescriptions {
         }
     }
 
+    /**
+     * @see EventLevelDescriptionHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsMultipleEventLevel eventLevelDescriptionHandler(EventLevelDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +124,11 @@ public class EventDescriptions {
         }
     }
 
+    /**
+     * @see SpecificEventLevelDescriptionHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsMultipleEventLevel specificEventLevelDescriptionHandler(SpecificEventLevelDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +145,11 @@ public class EventDescriptions {
         }
     }
 
+    /**
+     * @see EventTypeDescriptionHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsMultipleEventType eventTypeDescriptionHandler(EventTypeDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +166,11 @@ public class EventDescriptions {
         }
     }
 
+    /**
+     * @see SpecificEventTypeDescriptionHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsMultipleEventType specificEventTypeDescriptionHandler(SpecificEventTypeDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +187,11 @@ public class EventDescriptions {
         }
     }
 
+    /**
+     * @see UXNameDescriptionHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsMultipleUX uxNameDescriptionHandler(UXNameDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +208,11 @@ public class EventDescriptions {
         }
     }
 
+    /**
+     * @see SpecificUXDescriptionHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsMultipleUX specificUXDescriptionHandler(SpecificUXDescriptionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

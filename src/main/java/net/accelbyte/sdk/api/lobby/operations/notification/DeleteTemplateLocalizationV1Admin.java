@@ -17,6 +17,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * deleteTemplateLocalizationV1Admin
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [DELETE]` with
+ * scope `social`
+ * delete template localization
+ * Action Code: 50209
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

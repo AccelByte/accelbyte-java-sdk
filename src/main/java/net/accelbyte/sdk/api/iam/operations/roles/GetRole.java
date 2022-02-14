@@ -18,6 +18,11 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetRole
+ *
+ * Required permission 'ROLE [READ]'
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

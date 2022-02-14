@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getConfig
+ *
+ * Get equ8 config.
+ * Other detail info:
+ * 
+ *   * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:EQU8CONFIG" , action=2 (READ)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

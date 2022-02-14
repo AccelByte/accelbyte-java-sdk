@@ -18,6 +18,27 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminRetrieveUserThirdPartyPlatformTokenV3
+ *
+ * Admin Retrieve User Third Party Platform Token
+ * 
+ * This endpoint used for retrieving third party platform token for user that
+ * login using third party. Passing platform group name or it's member will
+ * return same access token that can be used across the platform members.
+ * 
+ * Notes:
+ * 
+ *                 * Required permission: ADMIN:NAMESPACE:{namespace}:USER:{userId} [READ]
+ * 
+ * The third party platform and platform group covered for this is:
+ * 
+ *                 * (psn) ps4web
+ *                 * (psn) ps4
+ *                 * (psn) ps5
+ *                 * xbox live
+ *                 * steam
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

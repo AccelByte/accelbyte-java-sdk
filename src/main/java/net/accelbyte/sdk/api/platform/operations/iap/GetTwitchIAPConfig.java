@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getTwitchIAPConfig
+ *
+ * Get twitch iap config.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+ *   *  Returns : twitch iap config
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

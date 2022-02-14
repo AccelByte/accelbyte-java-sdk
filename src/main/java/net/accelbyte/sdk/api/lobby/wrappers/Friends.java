@@ -19,6 +19,9 @@ public class Friends {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetUserFriendsUpdated
+     */
     public List<ModelGetUserFriendsResponse> getUserFriendsUpdated(GetUserFriendsUpdated input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Friends {
         }
     }
 
+    /**
+     * @see GetUserIncomingFriends
+     */
     public List<ModelGetUserIncomingFriendsResponse> getUserIncomingFriends(GetUserIncomingFriends input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Friends {
         }
     }
 
+    /**
+     * @see GetUserOutgoingFriends
+     */
     public List<ModelGetUserOutgoingFriendsResponse> getUserOutgoingFriends(GetUserOutgoingFriends input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Friends {
         }
     }
 
+    /**
+     * @see UserRequestFriend
+     */
     public void userRequestFriend(UserRequestFriend input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Friends {
         }
     }
 
+    /**
+     * @see UserAcceptFriendRequest
+     */
     public void userAcceptFriendRequest(UserAcceptFriendRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Friends {
         }
     }
 
+    /**
+     * @see UserCancelFriendRequest
+     */
     public void userCancelFriendRequest(UserCancelFriendRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Friends {
         }
     }
 
+    /**
+     * @see UserRejectFriendRequest
+     */
     public void userRejectFriendRequest(UserRejectFriendRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Friends {
         }
     }
 
+    /**
+     * @see UserGetFriendshipStatus
+     */
     public ModelUserGetFriendshipStatusResponse userGetFriendshipStatus(UserGetFriendshipStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class Friends {
         }
     }
 
+    /**
+     * @see UserUnfriendRequest
+     */
     public void userUnfriendRequest(UserUnfriendRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class Friends {
         }
     }
 
+    /**
+     * @see AddFriendsWithoutConfirmation
+     */
     public void addFriendsWithoutConfirmation(AddFriendsWithoutConfirmation input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class Friends {
         }
     }
 
+    /**
+     * @see GetListOfFriends
+     */
     public ModelGetFriendsResponse getListOfFriends(GetListOfFriends input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

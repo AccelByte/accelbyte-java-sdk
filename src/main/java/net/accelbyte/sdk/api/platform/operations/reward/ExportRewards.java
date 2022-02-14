@@ -17,6 +17,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * exportRewards
+ *
+ * Export reward configurations for a given namespace into file. At current, only
+ * JSON file is supported.
+ * 
+ * Other detail info:
+ * 
+ *   *  *Required permission*: resource="ADMIN:NAMESPACE:{namespace}:REWARD", action=2 (READ)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

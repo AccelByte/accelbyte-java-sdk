@@ -17,6 +17,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetCountries
+ *
+ * List countries.
+ * Other detail info:
+ * 
+ *   * Returns : country code list
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

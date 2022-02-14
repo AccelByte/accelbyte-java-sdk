@@ -17,6 +17,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * UpdateAdminEmailConfiguration
+ *
+ * Update admin email address for receiving personal data request notification.
+ * 
+ * Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [UPDATE]`
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

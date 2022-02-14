@@ -19,6 +19,35 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updatePaymentProviderConfig
+ *
+ * Update payment provider config.
+ * 
+ * 
+ * 
+ *      Request Body Parameters:
+ * 
+ * 
+ *      Parameter| Type| Required| Description
+ *     ---|---|---|---
+ *     namespace| String| Yes| namespace, * indicates all namespace
+ *     region| String| Yes| region, * indicates all regions
+ *     aggregate| String| No| aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
+ *     specials| List| No| special payment provider, such as ALIPAY, WXPAY
+ * 
+ * payment provider applied has priority:
+ * 
+ *   1. namespace and region match
+ *   2. namespace matches and region is *
+ *   3. region matches and namespace is *
+ *   4. namespace and region are *
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+ *   *  Returns : payment provider config
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

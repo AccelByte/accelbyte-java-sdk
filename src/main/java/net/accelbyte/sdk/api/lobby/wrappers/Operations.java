@@ -19,6 +19,9 @@ public class Operations {
         this.sdk = sdk;
     }
 
+    /**
+     * @see AdminUpdatePartyAttributesV1
+     */
     public ModelsPartyData adminUpdatePartyAttributesV1(AdminUpdatePartyAttributesV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Operations {
         }
     }
 
+    /**
+     * @see AdminJoinPartyV1
+     */
     public void adminJoinPartyV1(AdminJoinPartyV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Operations {
         }
     }
 
+    /**
+     * @see PublicGetMessages
+     */
     public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

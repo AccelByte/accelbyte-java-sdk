@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updateNamespaceSlotConfig
+ *
+ * Update a slot namespace configuration.
+ * Other detail info:
+ * 
+ *   *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=4 (UPDATE)
+ *   *  Returns : updated namespace slot config
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetServerSession
+ *
+ * ``` Required permission: NAMESPACE:{namespace}:DSM:SERVER [UPDATE] Required
+ * scope: social This endpoint is intended to be called by dedicated server to
+ * query its session ID. DS should call this when it first receive player
+ * connection, to see if it is actually claimed```
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * CreateArchivedLeaderboardRankingDataV1Handler
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [CREATE]'
+ * 
+ * Archive leaderboard ranking data for specified leaderboard codes. NOTE: This
+ * will remove all data of the leaderboard on every slug, remove the leaderboard
+ * code on stat mapping, and remove the leaderboard on the queue reset. This will
+ * be a bulk endpoint
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

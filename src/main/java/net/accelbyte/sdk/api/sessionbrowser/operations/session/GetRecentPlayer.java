@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetRecentPlayer
+ *
+ * Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:RECENTPLAYER [READ]
+ * Required scope: social Query recent player by user ID
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

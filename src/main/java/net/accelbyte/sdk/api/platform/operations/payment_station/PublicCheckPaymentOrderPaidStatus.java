@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicCheckPaymentOrderPaidStatus
+ *
+ * Check payment order paid status.
+ * Other detail info:
+ * 
+ *   * Returns : Payment order paid result
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

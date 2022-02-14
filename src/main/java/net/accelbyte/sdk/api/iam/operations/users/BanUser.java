@@ -19,6 +19,11 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * BanUser
+ *
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:BAN:USER:{userId} [CREATE]'.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

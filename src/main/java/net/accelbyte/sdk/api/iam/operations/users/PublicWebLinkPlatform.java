@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicWebLinkPlatform
+ *
+ * This endpoint is used to generate third party login page which will redirected
+ * to establish endpoint.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

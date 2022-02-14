@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getUserSeason
+ *
+ * This API is used to get user season data, season only located in non-publisher
+ * namespace.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+ *   *  Returns : user season data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

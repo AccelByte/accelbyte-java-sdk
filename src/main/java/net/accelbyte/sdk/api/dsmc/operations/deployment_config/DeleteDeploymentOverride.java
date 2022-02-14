@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * DeleteDeploymentOverride
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [DELETE] Required
+ * scope: social This endpoint delete a dedicated server deployment override in a
+ * namespace
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

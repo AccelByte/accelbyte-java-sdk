@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicWebLinkPlatformEstablish
+ *
+ * This endpoint is used by third party to redirect the code for the purpose of
+ * linking the account third party to IAM account.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

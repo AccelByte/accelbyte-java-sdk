@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updateLocalizationTemplate
+ *
+ * Required permission : `NAMESPACE:{namespace}:TEMPLATE [UPDATE]` with scope
+ * `social`
+ * Modify draft template
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

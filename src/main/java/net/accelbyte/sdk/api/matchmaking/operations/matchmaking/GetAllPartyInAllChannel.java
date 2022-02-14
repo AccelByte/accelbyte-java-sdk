@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetAllPartyInAllChannel
+ *
+ * Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Read]
+ * Required Scope: social Get all parties queueing in all channels.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

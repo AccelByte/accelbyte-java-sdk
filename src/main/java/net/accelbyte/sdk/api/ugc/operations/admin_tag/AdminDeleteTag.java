@@ -17,6 +17,11 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminDeleteTag
+ *
+ * Required permission ADMIN:NAMESPACE:{namespace}:UGCCONFIG [DELETE]
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

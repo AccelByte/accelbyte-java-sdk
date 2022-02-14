@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * deleteNamespaceSlotConfig
+ *
+ * Deletes a namespace slot configuration, the configuration will be default
+ * after delete.
+ * Other detail info:
+ * 
+ *   *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=8 (DELETE)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -19,6 +19,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminUpdateUserRoleV4
+ *
+ * This endpoint requires ADMIN:NAMESPACE:{namespace}:ROLE:USER:* [UPDATE]
+ * permission. User's roles will be replaced with roles from request body.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getSlugTemplate
+ *
+ * Required permission : `NAMESPACE:{namespace}:TEMPLATE [READ]` with scope
+ * `social`
+ * Get all templates in a namespace
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

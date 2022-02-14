@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * resetUserStatItemValue
+ *
+ * Reset user's statitem value for a given namespace and user. User's statitem
+ * value will be reset to the default value defined in the statistic
+ * configuration. Other detail info: + *Required permission*:
+ * resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4
+ * (UPDATE) + *Returns*: updated user's statItem
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

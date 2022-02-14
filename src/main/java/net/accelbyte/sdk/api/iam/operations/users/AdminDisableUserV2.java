@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminDisableUserV2
+ *
+ * Required permissions 'ADMIN:NAMESPACE:{namespace}:USERSTATUS:USER:{userId}
+ * [UPDATE]'
+ * 
+ * For Deletion Account purpose fill the reason with:
+ * 
+ *           * DeactivateAccount : if your deletion request comes from user
+ *           * AdminDeactivateAccount : if your deletion request comes from admin
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

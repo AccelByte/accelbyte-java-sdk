@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getUserProfileInfo
+ *
+ * Get user profile.
+ * Other detail info:
+ * 
+ *   * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2 (READ)
+ *   *  Returns : user profile
+ *   *  Action code : 11403
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

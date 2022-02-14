@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * sendPartyFreeformNotificationV1Admin
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [CREATE]` with
+ * scope `social`
+ * Sends notification to a party.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

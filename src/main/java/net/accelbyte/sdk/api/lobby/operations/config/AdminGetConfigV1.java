@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminGetConfigV1
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:LOBBY:CONFIG [READ]` with
+ * scope `social`
+ * get lobby config of a namespace.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

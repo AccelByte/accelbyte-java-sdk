@@ -19,6 +19,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * UpdateOverrideRegionOverride
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [UPDATE] Required
+ * scope: social This endpoint update a dedicated servers deployment override in
+ * a namespace in a region for deployment overrides.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

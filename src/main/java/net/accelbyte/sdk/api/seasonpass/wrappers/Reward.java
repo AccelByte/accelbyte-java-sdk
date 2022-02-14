@@ -19,6 +19,9 @@ public class Reward {
         this.sdk = sdk;
     }
 
+    /**
+     * @see QueryRewards
+     */
     public List<RewardInfo> queryRewards(QueryRewards input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Reward {
         }
     }
 
+    /**
+     * @see CreateReward
+     */
     public RewardInfo createReward(CreateReward input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Reward {
         }
     }
 
+    /**
+     * @see GetReward
+     */
     public RewardInfo getReward(GetReward input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Reward {
         }
     }
 
+    /**
+     * @see DeleteReward
+     */
     public void deleteReward(DeleteReward input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Reward {
         }
     }
 
+    /**
+     * @see UpdateReward
+     */
     public RewardInfo updateReward(UpdateReward input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Reward {
         }
     }
 
+    /**
+     * @see PublicClaimUserReward
+     */
     public ClaimableRewards publicClaimUserReward(PublicClaimUserReward input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Reward {
         }
     }
 
+    /**
+     * @see PublicBulkClaimUserRewards
+     */
     public ClaimableRewards publicBulkClaimUserRewards(PublicBulkClaimUserRewards input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

@@ -19,6 +19,11 @@ public class Event {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetEventByNamespaceHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsEventResponse getEventByNamespaceHandler(GetEventByNamespaceHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +40,11 @@ public class Event {
         }
     }
 
+    /**
+     * @see PostEventHandler
+     * @deprecated
+     */
+    @Deprecated
     public void postEventHandler(PostEventHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +61,11 @@ public class Event {
         }
     }
 
+    /**
+     * @see GetEventByEventIDHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsEventResponse getEventByEventIDHandler(GetEventByEventIDHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +82,11 @@ public class Event {
         }
     }
 
+    /**
+     * @see GetEventByEventTypeHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsEventResponse getEventByEventTypeHandler(GetEventByEventTypeHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +103,11 @@ public class Event {
         }
     }
 
+    /**
+     * @see GetEventByEventTypeAndEventIDHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsEventResponse getEventByEventTypeAndEventIDHandler(GetEventByEventTypeAndEventIDHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +124,11 @@ public class Event {
         }
     }
 
+    /**
+     * @see GetEventByUserIDHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsEventResponse getEventByUserIDHandler(GetEventByUserIDHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +145,11 @@ public class Event {
         }
     }
 
+    /**
+     * @see GetEventByUserIDAndEventIDHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsEventResponse getEventByUserIDAndEventIDHandler(GetEventByUserIDAndEventIDHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +166,11 @@ public class Event {
         }
     }
 
+    /**
+     * @see GetEventByUserIDAndEventTypeHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsEventResponse getEventByUserIDAndEventTypeHandler(GetEventByUserIDAndEventTypeHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +187,11 @@ public class Event {
         }
     }
 
+    /**
+     * @see GetEventByUserEventIDAndEventTypeHandler
+     * @deprecated
+     */
+    @Deprecated
     public ModelsEventResponse getEventByUserEventIDAndEventTypeHandler(GetEventByUserEventIDAndEventTypeHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

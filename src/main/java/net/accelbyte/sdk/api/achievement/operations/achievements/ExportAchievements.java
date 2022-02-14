@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * ExportAchievements
+ *
+ * Required permission ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ] Required
+ * Scope: social
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

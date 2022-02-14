@@ -19,6 +19,9 @@ public class Configuration {
         this.sdk = sdk;
     }
 
+    /**
+     * @see ListGroupConfigurationAdminV1
+     */
     public ModelsListConfigurationResponseV1 listGroupConfigurationAdminV1(ListGroupConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Configuration {
         }
     }
 
+    /**
+     * @see CreateGroupConfigurationAdminV1
+     */
     public ModelsCreateGroupConfigurationResponseV1 createGroupConfigurationAdminV1(CreateGroupConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Configuration {
         }
     }
 
+    /**
+     * @see InitiateGroupConfigurationAdminV1
+     */
     public ModelsCreateGroupConfigurationResponseV1 initiateGroupConfigurationAdminV1(InitiateGroupConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Configuration {
         }
     }
 
+    /**
+     * @see GetGroupConfigurationAdminV1
+     */
     public ModelsGetGroupConfigurationResponseV1 getGroupConfigurationAdminV1(GetGroupConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Configuration {
         }
     }
 
+    /**
+     * @see DeleteGroupConfigurationV1
+     */
     public void deleteGroupConfigurationV1(DeleteGroupConfigurationV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Configuration {
         }
     }
 
+    /**
+     * @see UpdateGroupConfigurationAdminV1
+     */
     public ModelsUpdateGroupConfigurationResponseV1 updateGroupConfigurationAdminV1(UpdateGroupConfigurationAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Configuration {
         }
     }
 
+    /**
+     * @see UpdateGroupConfigurationGlobalRuleAdminV1
+     */
     public ModelsUpdateGroupConfigurationResponseV1 updateGroupConfigurationGlobalRuleAdminV1(UpdateGroupConfigurationGlobalRuleAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Configuration {
         }
     }
 
+    /**
+     * @see DeleteGroupConfigurationGlobalRuleAdminV1
+     */
     public ModelsUpdateGroupConfigurationResponseV1 deleteGroupConfigurationGlobalRuleAdminV1(DeleteGroupConfigurationGlobalRuleAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

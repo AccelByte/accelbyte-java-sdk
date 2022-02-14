@@ -19,6 +19,9 @@ public class TerminatedServers {
         this.sdk = sdk;
     }
 
+    /**
+     * @see ListTerminatedServers
+     */
     public ModelsListTerminatedServersResponse listTerminatedServers(ListTerminatedServers input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class TerminatedServers {
         }
     }
 
+    /**
+     * @see DownloadServerLogs
+     */
     public void downloadServerLogs(DownloadServerLogs input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class TerminatedServers {
         }
     }
 
+    /**
+     * @see CheckServerLogs
+     */
     public ModelsLogFileStatus checkServerLogs(CheckServerLogs input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

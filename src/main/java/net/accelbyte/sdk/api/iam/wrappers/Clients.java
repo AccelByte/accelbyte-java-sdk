@@ -19,6 +19,11 @@ public class Clients {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetClients
+     * @deprecated
+     */
+    @Deprecated
     public List<ClientmodelClientResponse> getClients(GetClients input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +40,11 @@ public class Clients {
         }
     }
 
+    /**
+     * @see CreateClient
+     * @deprecated
+     */
+    @Deprecated
     public ClientmodelClientCreationResponse createClient(CreateClient input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +61,9 @@ public class Clients {
         }
     }
 
+    /**
+     * @see GetClient
+     */
     public ClientmodelClientResponse getClient(GetClient input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +80,9 @@ public class Clients {
         }
     }
 
+    /**
+     * @see UpdateClient
+     */
     public ClientmodelClientResponse updateClient(UpdateClient input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +99,11 @@ public class Clients {
         }
     }
 
+    /**
+     * @see DeleteClient
+     * @deprecated
+     */
+    @Deprecated
     public void deleteClient(DeleteClient input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +120,9 @@ public class Clients {
         }
     }
 
+    /**
+     * @see UpdateClientPermission
+     */
     public void updateClientPermission(UpdateClientPermission input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +139,9 @@ public class Clients {
         }
     }
 
+    /**
+     * @see AddClientPermission
+     */
     public void addClientPermission(AddClientPermission input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +158,9 @@ public class Clients {
         }
     }
 
+    /**
+     * @see DeleteClientPermission
+     */
     public void deleteClientPermission(DeleteClientPermission input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +177,9 @@ public class Clients {
         }
     }
 
+    /**
+     * @see UpdateClientSecret
+     */
     public void updateClientSecret(UpdateClientSecret input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +196,9 @@ public class Clients {
         }
     }
 
+    /**
+     * @see GetClientsbyNamespace
+     */
     public List<ClientmodelClientResponse> getClientsbyNamespace(GetClientsbyNamespace input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +215,9 @@ public class Clients {
         }
     }
 
+    /**
+     * @see CreateClientByNamespace
+     */
     public ClientmodelClientCreationResponse createClientByNamespace(CreateClientByNamespace input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +234,9 @@ public class Clients {
         }
     }
 
+    /**
+     * @see DeleteClientByNamespace
+     */
     public void deleteClientByNamespace(DeleteClientByNamespace input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -211,6 +253,9 @@ public class Clients {
         }
     }
 
+    /**
+     * @see AdminGetClientsByNamespaceV3
+     */
     public ClientmodelClientsV3Response adminGetClientsByNamespaceV3(AdminGetClientsByNamespaceV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -227,6 +272,9 @@ public class Clients {
         }
     }
 
+    /**
+     * @see AdminCreateClientV3
+     */
     public ClientmodelClientV3Response adminCreateClientV3(AdminCreateClientV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -243,6 +291,9 @@ public class Clients {
         }
     }
 
+    /**
+     * @see AdminGetClientsbyNamespacebyIDV3
+     */
     public ClientmodelClientV3Response adminGetClientsbyNamespacebyIDV3(AdminGetClientsbyNamespacebyIDV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -259,6 +310,9 @@ public class Clients {
         }
     }
 
+    /**
+     * @see AdminDeleteClientV3
+     */
     public void adminDeleteClientV3(AdminDeleteClientV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -275,6 +329,9 @@ public class Clients {
         }
     }
 
+    /**
+     * @see AdminUpdateClientV3
+     */
     public ClientmodelClientV3Response adminUpdateClientV3(AdminUpdateClientV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -291,6 +348,9 @@ public class Clients {
         }
     }
 
+    /**
+     * @see AdminUpdateClientPermissionV3
+     */
     public void adminUpdateClientPermissionV3(AdminUpdateClientPermissionV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -307,6 +367,9 @@ public class Clients {
         }
     }
 
+    /**
+     * @see AdminAddClientPermissionsV3
+     */
     public void adminAddClientPermissionsV3(AdminAddClientPermissionsV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -323,6 +386,9 @@ public class Clients {
         }
     }
 
+    /**
+     * @see AdminDeleteClientPermissionV3
+     */
     public void adminDeleteClientPermissionV3(AdminDeleteClientPermissionV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

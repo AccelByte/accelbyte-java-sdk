@@ -19,6 +19,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminUpdateThirdPartyConfig
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:THIRDPARTY:CONFIG [UPDATE]`
+ * with scope `social`
+ * Update third party config in a namespace.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

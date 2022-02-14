@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * enableCode
+ *
+ * Enable code.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
+ *   *  Returns : enabled code
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

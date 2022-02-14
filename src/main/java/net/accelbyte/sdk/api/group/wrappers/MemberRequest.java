@@ -19,6 +19,9 @@ public class MemberRequest {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetGroupJoinRequestPublicV1
+     */
     public ModelsGetMemberRequestsListResponseV1 getGroupJoinRequestPublicV1(GetGroupJoinRequestPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class MemberRequest {
         }
     }
 
+    /**
+     * @see GetGroupInvitationRequestPublicV1
+     */
     public ModelsGetMemberRequestsListResponseV1 getGroupInvitationRequestPublicV1(GetGroupInvitationRequestPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

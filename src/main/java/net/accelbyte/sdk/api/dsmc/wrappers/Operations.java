@@ -19,6 +19,9 @@ public class Operations {
         this.sdk = sdk;
     }
 
+    /**
+     * @see PublicGetMessages
+     */
     public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

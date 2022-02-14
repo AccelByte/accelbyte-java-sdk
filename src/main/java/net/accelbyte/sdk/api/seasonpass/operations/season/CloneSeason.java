@@ -19,6 +19,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * cloneSeason
+ *
+ * This API is used to clone a season.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=1 (CREATE)
+ *   *  Returns : cloned season info
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -19,6 +19,9 @@ public class Pass {
         this.sdk = sdk;
     }
 
+    /**
+     * @see QueryPasses
+     */
     public List<PassInfo> queryPasses(QueryPasses input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Pass {
         }
     }
 
+    /**
+     * @see CreatePass
+     */
     public PassInfo createPass(CreatePass input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Pass {
         }
     }
 
+    /**
+     * @see GetPass
+     */
     public PassInfo getPass(GetPass input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Pass {
         }
     }
 
+    /**
+     * @see DeletePass
+     */
     public void deletePass(DeletePass input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Pass {
         }
     }
 
+    /**
+     * @see UpdatePass
+     */
     public PassInfo updatePass(UpdatePass input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Pass {
         }
     }
 
+    /**
+     * @see GrantUserPass
+     */
     public UserSeasonSummary grantUserPass(GrantUserPass input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

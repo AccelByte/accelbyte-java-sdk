@@ -18,6 +18,19 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicCreateProfile
+ *
+ * Create new profile for user.
+ * Other detail info:
+ * 
+ *         *  Required permission
+ * : resource="NAMESPACE:{namespace}:USER:{userId}:GAMEPROFILE", action=1
+ * (CREATE)
+ * 
+ *         *  Returns
+ * : created game profile
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

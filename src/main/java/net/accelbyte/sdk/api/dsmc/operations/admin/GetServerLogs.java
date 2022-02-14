@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getServerLogs
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:SERVER [READ] Required
+ * scope: social This endpoint queries a specified dedicated server's logs.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

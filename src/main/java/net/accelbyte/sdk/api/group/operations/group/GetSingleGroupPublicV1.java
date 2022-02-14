@@ -18,6 +18,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getSingleGroupPublicV1
+ *
+ * 
+ * 
+ * Required valid user authentication
+ * 
+ * Get single group information. This endpoint will show the group information by
+ * the groupId
+ * 
+ * Action Code: 73306
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

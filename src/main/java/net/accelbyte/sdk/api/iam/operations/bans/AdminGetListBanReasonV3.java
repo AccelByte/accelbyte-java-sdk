@@ -18,6 +18,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminGetListBanReasonV3
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:BAN [READ]'
+ * 
+ * Ban reasons is the code available to justify ban assignment. It is applicable
+ * globally for any namespace.
+ * 
+ * action code : 10202
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

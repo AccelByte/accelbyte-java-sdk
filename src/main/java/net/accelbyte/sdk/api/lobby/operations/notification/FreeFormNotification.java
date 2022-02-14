@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * freeFormNotification
+ *
+ * Required permission : `NAMESPACE:{namespace}:NOTIFICATION [CREATE]` with scope
+ * `social`
+ * Sends notification to all connected users in a namespace.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

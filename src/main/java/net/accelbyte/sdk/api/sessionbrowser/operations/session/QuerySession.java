@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * QuerySession
+ *
+ * Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [READ]
+ * Required scope: social Query available game session
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

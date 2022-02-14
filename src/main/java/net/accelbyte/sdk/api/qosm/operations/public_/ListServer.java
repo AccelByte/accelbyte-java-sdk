@@ -18,6 +18,20 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * ListServer
+ *
+ * ``` This endpoint lists all QoS services available in all regions. This
+ * endpoint is intended to be called by game client to find out all available
+ * regions. After getting a list of QoS on each region, game client is expected
+ * to ping each one with UDP connection as described below: 1. Make UDP
+ * connection to each QoS's IP:Port 2. Send string "PING" after connection
+ * established 3. Wait for string "PONG" response 4. Note the request-response
+ * latency for each QoS in each region The game then can use ping latency
+ * information to either: 1. Inform the player on these latencies and let player
+ * choose preferred region 2. Send the latency list to Matchmaking Service so
+ * that player can be matched with other players in nearby regions ```
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

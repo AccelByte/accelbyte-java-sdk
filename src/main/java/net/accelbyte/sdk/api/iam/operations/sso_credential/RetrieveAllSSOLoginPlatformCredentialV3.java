@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * RetrieveAllSSOLoginPlatformCredentialV3
+ *
+ * This is the API to Get All Active SSO Platform Credential. It needs
+ * ADMIN:NAMESPACE:{namespace}:PLATFORM:*:SSO [READ] resource
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

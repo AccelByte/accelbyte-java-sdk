@@ -19,6 +19,9 @@ public class PublicPlayerRecord {
         this.sdk = sdk;
     }
 
+    /**
+     * @see BulkGetPlayerPublicRecordHandlerV1
+     */
     public ModelsBulkGetPlayerRecordResponse bulkGetPlayerPublicRecordHandlerV1(BulkGetPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class PublicPlayerRecord {
         }
     }
 
+    /**
+     * @see PublicDeletePlayerPublicRecordHandlerV1
+     */
     public void publicDeletePlayerPublicRecordHandlerV1(PublicDeletePlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class PublicPlayerRecord {
         }
     }
 
+    /**
+     * @see GetPlayerRecordHandlerV1
+     */
     public ModelsPlayerRecord getPlayerRecordHandlerV1(GetPlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class PublicPlayerRecord {
         }
     }
 
+    /**
+     * @see PutPlayerRecordHandlerV1
+     */
     public void putPlayerRecordHandlerV1(PutPlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class PublicPlayerRecord {
         }
     }
 
+    /**
+     * @see PostPlayerRecordHandlerV1
+     */
     public void postPlayerRecordHandlerV1(PostPlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class PublicPlayerRecord {
         }
     }
 
+    /**
+     * @see DeletePlayerRecordHandlerV1
+     */
     public void deletePlayerRecordHandlerV1(DeletePlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class PublicPlayerRecord {
         }
     }
 
+    /**
+     * @see GetPlayerPublicRecordHandlerV1
+     */
     public ModelsPlayerRecord getPlayerPublicRecordHandlerV1(GetPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class PublicPlayerRecord {
         }
     }
 
+    /**
+     * @see PutPlayerPublicRecordHandlerV1
+     */
     public void putPlayerPublicRecordHandlerV1(PutPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class PublicPlayerRecord {
         }
     }
 
+    /**
+     * @see PostPlayerPublicRecordHandlerV1
+     */
     public void postPlayerPublicRecordHandlerV1(PostPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

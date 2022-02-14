@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * rollbackPublishedStore
+ *
+ * This API is used to rollback a published store.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
+ *   *  Returns : updated store info
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

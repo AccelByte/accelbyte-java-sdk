@@ -18,6 +18,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminRemoveRoleManagersV3
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:ROLE [UPDATE]'
+ * 
+ * Role can only be assigned to other users by the role's manager.
+ * 
+ * 
+ * action code: 10409
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

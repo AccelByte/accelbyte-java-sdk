@@ -19,6 +19,9 @@ public class PublicContent {
         this.sdk = sdk;
     }
 
+    /**
+     * @see SearchChannelSpecificContent
+     */
     public ModelsPaginatedContentDownloadResponse searchChannelSpecificContent(SearchChannelSpecificContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class PublicContent {
         }
     }
 
+    /**
+     * @see PublicSearchContent
+     */
     public ModelsPaginatedContentDownloadResponse publicSearchContent(PublicSearchContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class PublicContent {
         }
     }
 
+    /**
+     * @see DownloadContentByShareCode
+     */
     public ModelsContentDownloadResponse downloadContentByShareCode(DownloadContentByShareCode input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class PublicContent {
         }
     }
 
+    /**
+     * @see PublicDownloadContentByContentID
+     */
     public ModelsContentDownloadResponse publicDownloadContentByContentID(PublicDownloadContentByContentID input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class PublicContent {
         }
     }
 
+    /**
+     * @see PublicDownloadContentPreview
+     */
     public ModelsGetContentPreviewResponse publicDownloadContentPreview(PublicDownloadContentPreview input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,11 @@ public class PublicContent {
         }
     }
 
+    /**
+     * @see CreateContentDirect
+     * @deprecated
+     */
+    @Deprecated
     public ModelsCreateContentResponse createContentDirect(CreateContentDirect input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +135,9 @@ public class PublicContent {
         }
     }
 
+    /**
+     * @see CreateContentS3
+     */
     public ModelsCreateContentResponse createContentS3(CreateContentS3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +154,9 @@ public class PublicContent {
         }
     }
 
+    /**
+     * @see UpdateContentS3
+     */
     public ModelsCreateContentResponse updateContentS3(UpdateContentS3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +173,11 @@ public class PublicContent {
         }
     }
 
+    /**
+     * @see UpdateContentDirect
+     * @deprecated
+     */
+    @Deprecated
     public ModelsCreateContentResponse updateContentDirect(UpdateContentDirect input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +194,9 @@ public class PublicContent {
         }
     }
 
+    /**
+     * @see DeleteContent
+     */
     public void deleteContent(DeleteContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +213,9 @@ public class PublicContent {
         }
     }
 
+    /**
+     * @see PublicGetUserContent
+     */
     public ModelsPaginatedContentDownloadResponse publicGetUserContent(PublicGetUserContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +232,9 @@ public class PublicContent {
         }
     }
 
+    /**
+     * @see UpdateScreenshots
+     */
     public ModelsUpdateScreenshotResponse updateScreenshots(UpdateScreenshots input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -211,6 +251,9 @@ public class PublicContent {
         }
     }
 
+    /**
+     * @see UploadContentScreenshot
+     */
     public ModelsCreateScreenshotResponse uploadContentScreenshot(UploadContentScreenshot input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -227,6 +270,9 @@ public class PublicContent {
         }
     }
 
+    /**
+     * @see DeleteContentScreenshot
+     */
     public void deleteContentScreenshot(DeleteContentScreenshot input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updateKeyGroup
+ *
+ * Update key group.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=4 (UPDATE)
+ *   *  Returns : updated key group
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

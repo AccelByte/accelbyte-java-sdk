@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * unpublishSeason
+ *
+ * This API is used to unpublish a published season, if the season already
+ * started it will report error except with force.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
+ *   *  Returns : season info
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

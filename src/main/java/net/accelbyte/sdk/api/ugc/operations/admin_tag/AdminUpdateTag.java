@@ -19,6 +19,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminUpdateTag
+ *
+ * Required permission ADMIN:NAMESPACE:{namespace}:UGCCONFIG [UPDATE] updates a
+ * tag
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

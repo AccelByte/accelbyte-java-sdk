@@ -18,6 +18,22 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getGroupJoinRequestPublicV1
+ *
+ * 
+ * 
+ * Required valid user authentication
+ * 
+ * Required Member Role Permission: "GROUP:JOIN [READ]"
+ * 
+ * This endpoint is used to Get Group Join Request List
+ * 
+ * Get Group Join Request List for specific group. Group members needs to have
+ * permission and also belong to the group to access this endpoint
+ * 
+ * Action Code: 73501
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminRetrievePlayerRecords
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:RECORD [READ]
+ * Required scope: social Retrieve list of player records key and userID under
+ * given namespace.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

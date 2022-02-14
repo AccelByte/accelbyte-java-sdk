@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getStats
+ *
+ * List stats by pagination.
+ * Other detail info:
+ * 
+ *           *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:STAT", action=2 (READ)
+ *           *  Returns : stats
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

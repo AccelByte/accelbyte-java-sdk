@@ -18,6 +18,56 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * postPlayerRecordHandlerV1
+ *
+ * Required Permission | `NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD
+ * [WRITE]`
+ * ---|---
+ * Required Scope | `social`
+ * 
+ * Create player record if it is not exists otherwise merge with these criteria:
+ * - If field name is already exists, replace the value - If field name is not
+ * exists, append it Example Replace value:
+ * 
+ * 
+ * 
+ *         // existed record
+ *         {
+ *             "foo": "bar"
+ *         }
+ * 
+ *         // new record (request body)
+ *         {
+ *             "foo": "bar_updated"
+ *         }
+ * 
+ *         // result
+ *         {
+ *             "foo": "bar_updated"
+ *         }
+ * 
+ * 
+ * Append value:
+ * 
+ * 
+ * 
+ *         // existed record
+ *         {
+ *             "foo": "bar"
+ *         }
+ * 
+ *         // new record (request body)
+ *         {
+ *             "foo_new": "bar_new"
+ *         }
+ * 
+ *         // result
+ *         {
+ *             "foo": "bar",
+ *             "foo_new": "bar_new"
+ *         }
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -19,6 +19,9 @@ public class Session {
         this.sdk = sdk;
     }
 
+    /**
+     * @see CreateSession
+     */
     public ModelsSessionResponse createSession(CreateSession input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Session {
         }
     }
 
+    /**
+     * @see ClaimServer
+     */
     public void claimServer(ClaimServer input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Session {
         }
     }
 
+    /**
+     * @see GetSession
+     */
     public ModelsSessionResponse getSession(GetSession input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

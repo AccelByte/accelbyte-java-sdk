@@ -17,6 +17,11 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminDeleteAllUserChannels
+ *
+ * Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CHANNEL [DELETE]
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

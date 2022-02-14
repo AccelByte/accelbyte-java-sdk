@@ -19,6 +19,9 @@ public class Player {
         this.sdk = sdk;
     }
 
+    /**
+     * @see AdminGetLobbyCCU
+     */
     public ModelsGetLobbyCcuResponse adminGetLobbyCCU(AdminGetLobbyCCU input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Player {
         }
     }
 
+    /**
+     * @see AdminGetAllPlayerSessionAttribute
+     */
     public ModelsGetAllPlayerSessionAttributeResponse adminGetAllPlayerSessionAttribute(AdminGetAllPlayerSessionAttribute input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Player {
         }
     }
 
+    /**
+     * @see AdminSetPlayerSessionAttribute
+     */
     public void adminSetPlayerSessionAttribute(AdminSetPlayerSessionAttribute input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Player {
         }
     }
 
+    /**
+     * @see AdminGetPlayerSessionAttribute
+     */
     public ModelsGetPlayerSessionAttributeResponse adminGetPlayerSessionAttribute(AdminGetPlayerSessionAttribute input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Player {
         }
     }
 
+    /**
+     * @see AdminGetPlayerBlockedPlayersV1
+     */
     public ModelsGetAllPlayerBlockedUsersResponse adminGetPlayerBlockedPlayersV1(AdminGetPlayerBlockedPlayersV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Player {
         }
     }
 
+    /**
+     * @see AdminGetPlayerBlockedByPlayersV1
+     */
     public ModelsGetAllPlayerBlockedByUsersResponse adminGetPlayerBlockedByPlayersV1(AdminGetPlayerBlockedByPlayersV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Player {
         }
     }
 
+    /**
+     * @see AdminBulkBlockPlayersV1
+     */
     public void adminBulkBlockPlayersV1(AdminBulkBlockPlayersV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Player {
         }
     }
 
+    /**
+     * @see PublicGetPlayerBlockedPlayersV1
+     */
     public ModelsGetAllPlayerBlockedUsersResponse publicGetPlayerBlockedPlayersV1(PublicGetPlayerBlockedPlayersV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class Player {
         }
     }
 
+    /**
+     * @see PublicGetPlayerBlockedByPlayersV1
+     */
     public ModelsGetAllPlayerBlockedByUsersResponse publicGetPlayerBlockedByPlayersV1(PublicGetPlayerBlockedByPlayersV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

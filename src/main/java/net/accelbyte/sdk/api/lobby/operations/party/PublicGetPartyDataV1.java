@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetPartyDataV1
+ *
+ * Required valid user authorization
+ * 
+ * load personal party data in a namespace based on Party ID
+ * Action Code: 50101
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

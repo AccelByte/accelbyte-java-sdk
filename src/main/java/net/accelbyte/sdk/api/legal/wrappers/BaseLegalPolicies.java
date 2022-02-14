@@ -19,6 +19,9 @@ public class BaseLegalPolicies {
         this.sdk = sdk;
     }
 
+    /**
+     * @see RetrieveAllLegalPolicies
+     */
     public List<RetrieveBasePolicyResponse> retrieveAllLegalPolicies(RetrieveAllLegalPolicies input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class BaseLegalPolicies {
         }
     }
 
+    /**
+     * @see CreatePolicy
+     */
     public CreateBasePolicyResponse createPolicy(CreatePolicy input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class BaseLegalPolicies {
         }
     }
 
+    /**
+     * @see RetrieveSinglePolicy
+     */
     public RetrieveBasePolicyResponse retrieveSinglePolicy(RetrieveSinglePolicy input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class BaseLegalPolicies {
         }
     }
 
+    /**
+     * @see PartialUpdatePolicy
+     */
     public UpdateBasePolicyResponse partialUpdatePolicy(PartialUpdatePolicy input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class BaseLegalPolicies {
         }
     }
 
+    /**
+     * @see RetrievePolicyCountry
+     */
     public RetrievePolicyResponse retrievePolicyCountry(RetrievePolicyCountry input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class BaseLegalPolicies {
         }
     }
 
+    /**
+     * @see RetrieveAllPolicyTypes
+     */
     public List<RetrievePolicyTypeResponse> retrieveAllPolicyTypes(RetrieveAllPolicyTypes input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

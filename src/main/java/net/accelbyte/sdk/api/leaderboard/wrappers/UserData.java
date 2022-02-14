@@ -19,6 +19,9 @@ public class UserData {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetUserLeaderboardRankingsAdminV1
+     */
     public ModelsGetAllUserLeaderboardsResp getUserLeaderboardRankingsAdminV1(GetUserLeaderboardRankingsAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

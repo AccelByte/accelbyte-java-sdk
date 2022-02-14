@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getPaymentPublicConfig
+ *
+ * Get payment provider public config, at current only Strip provide public
+ * config.
+ * Other detail info:
+ * 
+ *   * Returns : Public config
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

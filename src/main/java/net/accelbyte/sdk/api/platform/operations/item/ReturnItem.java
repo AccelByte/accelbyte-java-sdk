@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * returnItem
+ *
+ *  [SERVICE COMMUNICATION ONLY] This api is used for returning a published item
+ * while the item is maxCount limited, it will increase the sale available count
+ * if orderNo already acquired.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

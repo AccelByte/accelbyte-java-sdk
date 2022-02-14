@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * createReward
+ *
+ * This API is used to create a reward.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:REWARD", action=1 (CREATE)
+ *   *  Returns : created reward data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

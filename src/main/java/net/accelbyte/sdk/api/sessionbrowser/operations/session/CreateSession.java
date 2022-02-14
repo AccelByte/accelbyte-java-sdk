@@ -19,6 +19,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * CreateSession
+ *
+ * Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [CREATE]
+ * Required scope: social This end point intended to be called directly by P2P
+ * game client host or by DSMC
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

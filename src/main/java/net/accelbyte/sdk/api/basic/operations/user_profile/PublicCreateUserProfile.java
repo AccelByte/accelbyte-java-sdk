@@ -19,6 +19,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicCreateUserProfile
+ *
+ * Create user profile.
+ * Other detail info:
+ * 
+ *   * Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=1 (CREATE)
+ *   *  Action code : 11401
+ *   *  Language : allowed format: en, en-US
+ *   *  Timezone : IANA time zone, e.g. Asia/Shanghai
+ *   *  Returns : Created user profile
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

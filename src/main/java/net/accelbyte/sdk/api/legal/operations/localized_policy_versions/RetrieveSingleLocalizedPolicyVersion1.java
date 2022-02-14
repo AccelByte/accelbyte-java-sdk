@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * retrieveSingleLocalizedPolicyVersion_1
+ *
+ * Retrieve specific localized policy version including the policy version and
+ * base policy version where the localized policy version located.
+ * Other detail info:
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

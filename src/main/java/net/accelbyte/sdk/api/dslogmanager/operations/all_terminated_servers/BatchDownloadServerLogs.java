@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * batchDownloadServerLogs
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSLM:LOG [READ] Required
+ * scope: social This endpoint will download dedicated server's log file (.zip).
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

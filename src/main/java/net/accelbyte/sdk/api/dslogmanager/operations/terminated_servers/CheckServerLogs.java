@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * checkServerLogs
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSLM:LOG [READ] Required
+ * scope: social This endpoint will check log file existence before download
+ * file.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

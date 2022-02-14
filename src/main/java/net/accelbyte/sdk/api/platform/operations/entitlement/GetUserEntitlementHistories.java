@@ -17,6 +17,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getUserEntitlementHistories
+ *
+ * Get user entitlement histories.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=2 (READ)
+ *   *  Returns : list of entitlement history
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -19,6 +19,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * changeNamespaceStatus
+ *
+ * Change a namespace status.
+ * Other detail info:
+ * 
+ *   * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:NAMESPACE" , action=4 (UPDATE)
+ *   * Action code : 11306
+ *   *  Returns : updated namespace
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

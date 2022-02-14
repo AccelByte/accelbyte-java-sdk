@@ -19,6 +19,9 @@ public class AdminChannel {
         this.sdk = sdk;
     }
 
+    /**
+     * @see SingleAdminGetChannel
+     */
     public ModelsPaginatedGetChannelResponse singleAdminGetChannel(SingleAdminGetChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class AdminChannel {
         }
     }
 
+    /**
+     * @see AdminCreateChannel
+     */
     public ModelsChannelResponse adminCreateChannel(AdminCreateChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class AdminChannel {
         }
     }
 
+    /**
+     * @see SingleAdminUpdateChannel
+     */
     public ModelsChannelResponse singleAdminUpdateChannel(SingleAdminUpdateChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class AdminChannel {
         }
     }
 
+    /**
+     * @see SingleAdminDeleteChannel
+     */
     public void singleAdminDeleteChannel(SingleAdminDeleteChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class AdminChannel {
         }
     }
 
+    /**
+     * @see AdminGetChannel
+     */
     public ModelsPaginatedGetChannelResponse adminGetChannel(AdminGetChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class AdminChannel {
         }
     }
 
+    /**
+     * @see AdminUpdateChannel
+     */
     public ModelsChannelResponse adminUpdateChannel(AdminUpdateChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class AdminChannel {
         }
     }
 
+    /**
+     * @see AdminDeleteChannel
+     */
     public void adminDeleteChannel(AdminDeleteChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * createCurrency
+ *
+ * Create a currency.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=1 (CREATE)
+ *   *  Returns : created currency
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -17,6 +17,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetLanguages
+ *
+ * List languages.
+ * Other detail info:
+ * 
+ *   * Returns : language list
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

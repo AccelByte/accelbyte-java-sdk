@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * syncSteamDLC
+ *
+ * Sync steam dlc.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
+ *   *  Returns :
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

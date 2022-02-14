@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * createStat_1
+ *
+ * Create stat.
+ * Other detail info:
+ * 
+ *               *  Required permission : resource="NAMESPACE:{namespace}:STAT", action=1 (CREATE)
+ *               *  Returns : created stat template
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

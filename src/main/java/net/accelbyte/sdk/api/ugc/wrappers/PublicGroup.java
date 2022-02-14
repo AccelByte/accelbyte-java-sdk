@@ -19,6 +19,9 @@ public class PublicGroup {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetGroups
+     */
     public ModelsPaginatedGroupResponse getGroups(GetGroups input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class PublicGroup {
         }
     }
 
+    /**
+     * @see CreateGroup
+     */
     public ModelsCreateGroupResponse createGroup(CreateGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class PublicGroup {
         }
     }
 
+    /**
+     * @see GetGroup
+     */
     public ModelsCreateGroupResponse getGroup(GetGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class PublicGroup {
         }
     }
 
+    /**
+     * @see UpdateGroup
+     */
     public ModelsCreateGroupResponse updateGroup(UpdateGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class PublicGroup {
         }
     }
 
+    /**
+     * @see DeleteGroup
+     */
     public void deleteGroup(DeleteGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class PublicGroup {
         }
     }
 
+    /**
+     * @see GetGroupContent
+     */
     public ModelsPaginatedContentDownloadResponse getGroupContent(GetGroupContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

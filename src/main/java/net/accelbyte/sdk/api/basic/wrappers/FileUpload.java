@@ -19,6 +19,9 @@ public class FileUpload {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GeneratedUploadUrl
+     */
     public FileUploadUrlInfo generatedUploadUrl(GeneratedUploadUrl input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class FileUpload {
         }
     }
 
+    /**
+     * @see GeneratedUserUploadContentUrl
+     */
     public FileUploadUrlInfo generatedUserUploadContentUrl(GeneratedUserUploadContentUrl input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class FileUpload {
         }
     }
 
+    /**
+     * @see PublicGeneratedUploadUrl
+     */
     public FileUploadUrlInfo publicGeneratedUploadUrl(PublicGeneratedUploadUrl input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class FileUpload {
         }
     }
 
+    /**
+     * @see PublicGeneratedUserUploadContentUrl
+     */
     public FileUploadUrlInfo publicGeneratedUserUploadContentUrl(PublicGeneratedUserUploadContentUrl input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

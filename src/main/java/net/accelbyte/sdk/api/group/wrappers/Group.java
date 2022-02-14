@@ -19,6 +19,9 @@ public class Group {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetGroupListAdminV1
+     */
     public ModelsGetGroupsListResponseV1 getGroupListAdminV1(GetGroupListAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Group {
         }
     }
 
+    /**
+     * @see GetSingleGroupAdminV1
+     */
     public ModelsGroupResponseV1 getSingleGroupAdminV1(GetSingleGroupAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Group {
         }
     }
 
+    /**
+     * @see DeleteGroupAdminV1
+     */
     public void deleteGroupAdminV1(DeleteGroupAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Group {
         }
     }
 
+    /**
+     * @see GetGroupListPublicV1
+     */
     public ModelsGetGroupsListResponseV1 getGroupListPublicV1(GetGroupListPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Group {
         }
     }
 
+    /**
+     * @see CreateNewGroupPublicV1
+     */
     public ModelsGroupResponseV1 createNewGroupPublicV1(CreateNewGroupPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Group {
         }
     }
 
+    /**
+     * @see GetSingleGroupPublicV1
+     */
     public ModelsGroupResponseV1 getSingleGroupPublicV1(GetSingleGroupPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Group {
         }
     }
 
+    /**
+     * @see UpdateSingleGroupV1
+     */
     public ModelsGroupResponseV1 updateSingleGroupV1(UpdateSingleGroupV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Group {
         }
     }
 
+    /**
+     * @see DeleteGroupPublicV1
+     */
     public void deleteGroupPublicV1(DeleteGroupPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class Group {
         }
     }
 
+    /**
+     * @see UpdatePatchSingleGroupPublicV1
+     */
     public ModelsGroupResponseV1 updatePatchSingleGroupPublicV1(UpdatePatchSingleGroupPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class Group {
         }
     }
 
+    /**
+     * @see UpdateGroupCustomAttributesPublicV1
+     */
     public ModelsGroupResponseV1 updateGroupCustomAttributesPublicV1(UpdateGroupCustomAttributesPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class Group {
         }
     }
 
+    /**
+     * @see UpdateGroupCustomRulePublicV1
+     */
     public ModelsGroupResponseV1 updateGroupCustomRulePublicV1(UpdateGroupCustomRulePublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +228,9 @@ public class Group {
         }
     }
 
+    /**
+     * @see UpdateGroupPredefinedRulePublicV1
+     */
     public ModelsGroupResponseV1 updateGroupPredefinedRulePublicV1(UpdateGroupPredefinedRulePublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -211,6 +247,9 @@ public class Group {
         }
     }
 
+    /**
+     * @see DeleteGroupPredefinedRulePublicV1
+     */
     public void deleteGroupPredefinedRulePublicV1(DeleteGroupPredefinedRulePublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

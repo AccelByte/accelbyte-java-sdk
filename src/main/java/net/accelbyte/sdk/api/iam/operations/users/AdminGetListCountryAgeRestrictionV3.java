@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminGetListCountryAgeRestrictionV3
+ *
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:AGERESTRICTION [READ]
+ * action code : 10139
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

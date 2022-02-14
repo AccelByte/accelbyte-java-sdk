@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getBannedUsers
+ *
+ * Get banned status.
+ * Unbanned users will not return, for example: request has 8 userIds, only 5 of
+ * then were banned, then the api will these 5 user status.Other detail info:
+ * 
+ *   * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=2 (READ)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

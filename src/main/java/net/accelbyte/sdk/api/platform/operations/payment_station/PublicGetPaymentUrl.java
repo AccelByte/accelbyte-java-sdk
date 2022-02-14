@@ -19,6 +19,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetPaymentUrl
+ *
+ * Get payment url.
+ * Other detail info:
+ * 
+ *   * Returns : Get payment link
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

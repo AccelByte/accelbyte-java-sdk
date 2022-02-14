@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getLocaleItem
+ *
+ * This API is used to get an item in specific locale. If item not exist in
+ * specific region, default region item will return.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+ *   *  Returns : item data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

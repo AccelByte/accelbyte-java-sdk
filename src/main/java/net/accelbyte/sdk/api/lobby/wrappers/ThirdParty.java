@@ -19,6 +19,9 @@ public class ThirdParty {
         this.sdk = sdk;
     }
 
+    /**
+     * @see AdminGetThirdPartyConfig
+     */
     public ModelsGetConfigResponse adminGetThirdPartyConfig(AdminGetThirdPartyConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class ThirdParty {
         }
     }
 
+    /**
+     * @see AdminUpdateThirdPartyConfig
+     */
     public ModelsUpdateConfigResponse adminUpdateThirdPartyConfig(AdminUpdateThirdPartyConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class ThirdParty {
         }
     }
 
+    /**
+     * @see AdminCreateThirdPartyConfig
+     */
     public ModelsCreateConfigResponse adminCreateThirdPartyConfig(AdminCreateThirdPartyConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class ThirdParty {
         }
     }
 
+    /**
+     * @see AdminDeleteThirdPartyConfig
+     */
     public void adminDeleteThirdPartyConfig(AdminDeleteThirdPartyConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getUserVerificationCode
+ *
+ * [WARNING] This endpoint is only for testing purpose.
+ * This endpoint get active user verification code. There are 3 scenario of
+ * getting verification codes : after account registration, after reset password
+ * request, and after headless account upgrade. All of them will be returned on
+ * this endpoint. Required permission
+ * 'ADMIN:NAMESPACE:{namespace}:USER:{userId}:CODE' [READ]
+ * action code: 10146
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

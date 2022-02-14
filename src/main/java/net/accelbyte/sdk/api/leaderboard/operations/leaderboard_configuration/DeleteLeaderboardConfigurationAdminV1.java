@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * deleteLeaderboardConfigurationAdminV1
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
+ * 
+ * This endpoint delete a leaderboard configuration
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

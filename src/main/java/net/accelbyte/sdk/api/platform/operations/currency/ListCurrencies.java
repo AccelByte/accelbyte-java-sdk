@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * listCurrencies
+ *
+ * List currencies of a namespace.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=2 (READ)
+ *   *  Returns : Currency List
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * queryRewards
+ *
+ * This API is used to query rewards by criteria.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:REWARD", action=2 (READ)
+ *   *  Returns : the list of rewards
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

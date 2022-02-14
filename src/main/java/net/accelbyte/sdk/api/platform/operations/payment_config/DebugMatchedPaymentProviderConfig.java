@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * debugMatchedPaymentProviderConfig
+ *
+ * Debug matched payment provider config.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+ *   *  Returns : payment provider config
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,20 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminAddRoleManagersV3
+ *
+ * 
+ * 
+ * Role can only be assigned to other users by the role's manager.
+ * 
+ * 
+ * 
+ * Required permission 'ADMIN:ROLE [UPDATE]'
+ * 
+ * 
+ * action code: 10408
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

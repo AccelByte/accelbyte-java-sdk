@@ -18,6 +18,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicUpdateUserV2
+ *
+ * 
+ * 
+ * This Endpoint support update user based on given data. Single request can
+ * update single field or multi fields.
+ * 
+ * This endpoint require valid user access token to accessed.
+ * 
+ * Supported field {Country, DisplayName, LanguageTag}
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * bulkEnableCodes
+ *
+ * Bulk enable campaign codes.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
+ *   *  Returns : the number of code actually enabled
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

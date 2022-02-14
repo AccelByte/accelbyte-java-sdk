@@ -19,6 +19,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * CreateUserFromInvitationV3
+ *
+ * This endpoint create user from saved roles when creating invitation and
+ * submitted data. User will be able to login after completing submitting the
+ * data through this endpoint. Available Authentication Types: EMAILPASSWD: an
+ * authentication type used for new user registration through email. Country use
+ * ISO3166-1 alpha-2 two letter, e.g. US. Date of Birth format : YYYY-MM-DD, e.g.
+ * 2019-04-29.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

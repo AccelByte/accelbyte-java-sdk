@@ -18,6 +18,20 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGeneratedUserUploadContentUrl
+ *
+ * Generate an upload URL for user content. It's valid for 10 minutes.
+ * There are 2 kinds of storage limitation per user : maximum file count and
+ * maximum file size.
+ * Other detail info:
+ * 
+ *   * Required permission : resource = "NAMESPACE:{namespace}:USER:{userId}:FILEUPLOAD" , action=1 (CREATE)
+ *   *  Action code : 11102
+ *   *  Default maximum file count per user : 10 files
+ *   *  Default maximum file size per user : 104857600 bytes
+ *   *  Returns : URL data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

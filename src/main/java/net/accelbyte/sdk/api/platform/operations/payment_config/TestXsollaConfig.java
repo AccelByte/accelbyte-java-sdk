@@ -19,6 +19,27 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * testXsollaConfig
+ *
+ * Check xsolla configuration, Reference: [Xsolla
+ * Document](https://developers.xsolla.com/?#simple-checkout).
+ * 
+ * #### Check List:
+ * 
+ *   * merchantId
+ *   * projectId
+ *   * apiKey
+ * 
+ * #### Non-check list:
+ * 
+ *   * projectSecretKey
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+ *   *  Returns : test result
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

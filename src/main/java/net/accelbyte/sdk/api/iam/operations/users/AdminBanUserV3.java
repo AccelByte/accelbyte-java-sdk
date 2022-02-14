@@ -19,6 +19,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminBanUserV3
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:BAN:USER:{userId} [CREATE]'.
+ * 
+ * Bans a user with specific type of ban. Ban types and reason can be queried.
+ * 
+ * action code : 10141
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

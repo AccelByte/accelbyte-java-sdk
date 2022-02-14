@@ -17,6 +17,11 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3
+ *
+ * This is the Public API to Get All Active 3rd Platform Credential.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

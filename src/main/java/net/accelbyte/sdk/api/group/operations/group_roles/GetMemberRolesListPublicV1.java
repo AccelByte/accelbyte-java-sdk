@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getMemberRolesListPublicV1
+ *
+ * 
+ * 
+ * Required Member Role Permission: "GROUP:ROLE [READ]"
+ * 
+ * This endpoint is used to get list of member roles
+ * 
+ * Action Code: 73201
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

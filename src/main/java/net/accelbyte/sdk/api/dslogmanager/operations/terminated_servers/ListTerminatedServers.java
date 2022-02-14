@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * listTerminatedServers
+ *
+ * ``` Required permission: ADMIN:NAMESPACE:{namespace}:DSLM:SERVER [READ] This
+ * endpoint used to retrieve terminated servers in a namespace ```
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

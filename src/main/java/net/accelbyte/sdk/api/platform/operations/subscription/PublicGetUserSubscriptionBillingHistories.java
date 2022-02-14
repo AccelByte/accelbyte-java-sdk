@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetUserSubscriptionBillingHistories
+ *
+ * Get user subscription billing histories.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SUBSCRIPTION", action=2 (READ)
+ *   *  Returns : paginated subscription history
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

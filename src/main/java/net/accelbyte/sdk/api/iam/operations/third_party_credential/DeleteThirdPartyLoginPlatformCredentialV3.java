@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * DeleteThirdPartyLoginPlatformCredentialV3
+ *
+ * This is the API to Delete 3rd Platform Credential. It needs
+ * ADMIN:NAMESPACE:{namespace}:PLATFORM:{platformId}:CLIENT [DELETE] resource
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

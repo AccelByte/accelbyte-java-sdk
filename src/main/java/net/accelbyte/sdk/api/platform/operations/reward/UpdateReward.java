@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updateReward
+ *
+ * This API is used to update a reward.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:REWARD", action=4 (UPDATE)
+ *   *  Returns : reward instance
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminGetRoleAdminStatusV3
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:ROLE [READ]'
+ * 
+ * Admin roles has its members listed in the role.
+ * 
+ * action code: 10420
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

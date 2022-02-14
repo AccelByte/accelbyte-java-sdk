@@ -19,6 +19,9 @@ public class Admin {
         this.sdk = sdk;
     }
 
+    /**
+     * @see ListServer
+     */
     public ModelsListServerResponse listServer(ListServer input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Admin {
         }
     }
 
+    /**
+     * @see CountServer
+     */
     public ModelsCountServerResponse countServer(CountServer input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Admin {
         }
     }
 
+    /**
+     * @see CountServerDetailed
+     */
     public ModelsDetailedCountServerResponse countServerDetailed(CountServerDetailed input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Admin {
         }
     }
 
+    /**
+     * @see ListLocalServer
+     */
     public ModelsListServerResponse listLocalServer(ListLocalServer input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Admin {
         }
     }
 
+    /**
+     * @see DeleteLocalServer
+     */
     public void deleteLocalServer(DeleteLocalServer input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Admin {
         }
     }
 
+    /**
+     * @see GetServer
+     */
     public ModelsServer getServer(GetServer input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Admin {
         }
     }
 
+    /**
+     * @see DeleteServer
+     */
     public void deleteServer(DeleteServer input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Admin {
         }
     }
 
+    /**
+     * @see GetServerLogs
+     */
     public ModelsServerLogs getServerLogs(GetServerLogs input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class Admin {
         }
     }
 
+    /**
+     * @see ListSession
+     */
     public ModelsListSessionResponse listSession(ListSession input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class Admin {
         }
     }
 
+    /**
+     * @see CountSession
+     */
     public ModelsCountSessionResponse countSession(CountSession input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class Admin {
         }
     }
 
+    /**
+     * @see DeleteSession
+     */
     public void deleteSession(DeleteSession input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

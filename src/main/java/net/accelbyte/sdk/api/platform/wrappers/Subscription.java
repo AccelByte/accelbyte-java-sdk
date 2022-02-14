@@ -19,6 +19,9 @@ public class Subscription {
         this.sdk = sdk;
     }
 
+    /**
+     * @see QuerySubscriptions
+     */
     public SubscriptionPagingSlicedResult querySubscriptions(QuerySubscriptions input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Subscription {
         }
     }
 
+    /**
+     * @see RecurringChargeSubscription
+     */
     public RecurringChargeResult recurringChargeSubscription(RecurringChargeSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Subscription {
         }
     }
 
+    /**
+     * @see QueryUserSubscriptions
+     */
     public SubscriptionPagingSlicedResult queryUserSubscriptions(QueryUserSubscriptions input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Subscription {
         }
     }
 
+    /**
+     * @see GetUserSubscriptionActivities
+     */
     public SubscriptionActivityPagingSlicedResult getUserSubscriptionActivities(GetUserSubscriptionActivities input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Subscription {
         }
     }
 
+    /**
+     * @see PlatformSubscribeSubscription
+     */
     public SubscriptionInfo platformSubscribeSubscription(PlatformSubscribeSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Subscription {
         }
     }
 
+    /**
+     * @see CheckUserSubscriptionSubscribableByItemId
+     */
     public Subscribable checkUserSubscriptionSubscribableByItemId(CheckUserSubscriptionSubscribableByItemId input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Subscription {
         }
     }
 
+    /**
+     * @see GetUserSubscription
+     */
     public SubscriptionInfo getUserSubscription(GetUserSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Subscription {
         }
     }
 
+    /**
+     * @see DeleteUserSubscription
+     */
     public void deleteUserSubscription(DeleteUserSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class Subscription {
         }
     }
 
+    /**
+     * @see CancelSubscription
+     */
     public SubscriptionInfo cancelSubscription(CancelSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class Subscription {
         }
     }
 
+    /**
+     * @see GrantDaysToSubscription
+     */
     public SubscriptionInfo grantDaysToSubscription(GrantDaysToSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class Subscription {
         }
     }
 
+    /**
+     * @see GetUserSubscriptionBillingHistories
+     */
     public BillingHistoryPagingSlicedResult getUserSubscriptionBillingHistories(GetUserSubscriptionBillingHistories input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +228,9 @@ public class Subscription {
         }
     }
 
+    /**
+     * @see ProcessUserSubscriptionNotification
+     */
     public void processUserSubscriptionNotification(ProcessUserSubscriptionNotification input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -211,6 +247,9 @@ public class Subscription {
         }
     }
 
+    /**
+     * @see PublicQueryUserSubscriptions
+     */
     public SubscriptionPagingSlicedResult publicQueryUserSubscriptions(PublicQueryUserSubscriptions input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -227,6 +266,9 @@ public class Subscription {
         }
     }
 
+    /**
+     * @see PublicSubscribeSubscription
+     */
     public void publicSubscribeSubscription(PublicSubscribeSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -243,6 +285,9 @@ public class Subscription {
         }
     }
 
+    /**
+     * @see PublicCheckUserSubscriptionSubscribableByItemId
+     */
     public Subscribable publicCheckUserSubscriptionSubscribableByItemId(PublicCheckUserSubscriptionSubscribableByItemId input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -259,6 +304,9 @@ public class Subscription {
         }
     }
 
+    /**
+     * @see PublicGetUserSubscription
+     */
     public SubscriptionInfo publicGetUserSubscription(PublicGetUserSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -275,6 +323,9 @@ public class Subscription {
         }
     }
 
+    /**
+     * @see PublicChangeSubscriptionBillingAccount
+     */
     public SubscriptionInfo publicChangeSubscriptionBillingAccount(PublicChangeSubscriptionBillingAccount input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -291,6 +342,9 @@ public class Subscription {
         }
     }
 
+    /**
+     * @see PublicCancelSubscription
+     */
     public SubscriptionInfo publicCancelSubscription(PublicCancelSubscription input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -307,6 +361,9 @@ public class Subscription {
         }
     }
 
+    /**
+     * @see PublicGetUserSubscriptionBillingHistories
+     */
     public BillingHistoryPagingSlicedResult publicGetUserSubscriptionBillingHistories(PublicGetUserSubscriptionBillingHistories input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

@@ -19,6 +19,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updateUserProfile
+ *
+ * Update user profile.
+ * Other detail info:
+ * 
+ *   * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
+ *   *  Action code : 11402
+ *   *  Returns : Updated user profile
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,20 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicUpdateUserEmailAddressV4
+ *
+ * 
+ * 
+ * The endpoint to update my email address.
+ * 
+ * It requires a verification code from
+ * 
+ * 
+ *                                                                                                 /users/me/code/request
+ * 
+ * with UpdateEmailAddress context.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

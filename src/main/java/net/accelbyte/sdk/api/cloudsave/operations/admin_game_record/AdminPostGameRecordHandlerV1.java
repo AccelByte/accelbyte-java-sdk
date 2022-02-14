@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminPostGameRecordHandlerV1
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [WRITE]
+ * Required scope: social This endpoints is to create new game record in
+ * namespace-level.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

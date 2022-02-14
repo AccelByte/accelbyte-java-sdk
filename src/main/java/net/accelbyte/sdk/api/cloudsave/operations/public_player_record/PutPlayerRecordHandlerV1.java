@@ -18,6 +18,34 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * putPlayerRecordHandlerV1
+ *
+ * Required Permission | `NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD
+ * [UPDATE]`
+ * ---|---
+ * Required Scope | `social`
+ * 
+ * This endpoint will create new record if it is not exists and it will replace
+ * if already exists. Example Replace record
+ * 
+ * 
+ * 
+ *     // existed record
+ *     {
+ *         "foo": "bar"
+ *     }
+ * 
+ *     // new record (request body)
+ *     {
+ *         "foo_new": "bar_new"
+ *     }
+ * 
+ *     // result
+ *     {
+ *         "foo_new": "bar_new"
+ *     }
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

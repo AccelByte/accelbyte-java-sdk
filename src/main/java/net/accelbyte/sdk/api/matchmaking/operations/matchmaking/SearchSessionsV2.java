@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * SearchSessionsV2
+ *
+ * Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Read]
+ * Required Scope: social Search sessions. Optimize the query by differentiating
+ * query with filter namespace only and filter with namespace & other filter
+ * (partyID, userID, matchID). Query with filter namespace only will not group
+ * whole session data while query with filter namespace & other filter will
+ * include session data.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

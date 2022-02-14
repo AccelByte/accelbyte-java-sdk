@@ -19,6 +19,9 @@ public class PublicDownloadCount {
         this.sdk = sdk;
     }
 
+    /**
+     * @see AddDownloadCount
+     */
     public ModelsAddDownloadCountResponse addDownloadCount(AddDownloadCount input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

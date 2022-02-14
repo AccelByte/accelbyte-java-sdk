@@ -19,6 +19,9 @@ public class SSOCredential {
         this.sdk = sdk;
     }
 
+    /**
+     * @see RetrieveAllSSOLoginPlatformCredentialV3
+     */
     public List<ModelSSOPlatformCredentialResponse> retrieveAllSSOLoginPlatformCredentialV3(RetrieveAllSSOLoginPlatformCredentialV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class SSOCredential {
         }
     }
 
+    /**
+     * @see RetrieveSSOLoginPlatformCredential
+     */
     public ModelSSOPlatformCredentialResponse retrieveSSOLoginPlatformCredential(RetrieveSSOLoginPlatformCredential input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class SSOCredential {
         }
     }
 
+    /**
+     * @see AddSSOLoginPlatformCredential
+     */
     public ModelSSOPlatformCredentialResponse addSSOLoginPlatformCredential(AddSSOLoginPlatformCredential input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class SSOCredential {
         }
     }
 
+    /**
+     * @see DeleteSSOLoginPlatformCredentialV3
+     */
     public void deleteSSOLoginPlatformCredentialV3(DeleteSSOLoginPlatformCredentialV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class SSOCredential {
         }
     }
 
+    /**
+     * @see UpdateSSOPlatformCredential
+     */
     public ModelSSOPlatformCredentialResponse updateSSOPlatformCredential(UpdateSSOPlatformCredential input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

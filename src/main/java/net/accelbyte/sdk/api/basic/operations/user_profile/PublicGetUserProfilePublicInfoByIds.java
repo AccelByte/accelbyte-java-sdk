@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetUserProfilePublicInfoByIds
+ *
+ * Get user public profile by ids.
+ * Other detail info:
+ * 
+ *   * Action code : 11405
+ *   *  Returns : user public profiles
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

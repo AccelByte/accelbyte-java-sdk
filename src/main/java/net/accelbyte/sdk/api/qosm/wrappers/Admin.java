@@ -19,6 +19,9 @@ public class Admin {
         this.sdk = sdk;
     }
 
+    /**
+     * @see DeleteServer
+     */
     public void deleteServer(DeleteServer input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Admin {
         }
     }
 
+    /**
+     * @see SetServerAlias
+     */
     public void setServerAlias(SetServerAlias input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

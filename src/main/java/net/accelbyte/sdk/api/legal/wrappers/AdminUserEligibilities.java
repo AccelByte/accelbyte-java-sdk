@@ -19,6 +19,9 @@ public class AdminUserEligibilities {
         this.sdk = sdk;
     }
 
+    /**
+     * @see AdminRetrieveEligibilities
+     */
     public RetrieveUserEligibilitiesIndirectResponse adminRetrieveEligibilities(AdminRetrieveEligibilities input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * ListServer
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:SERVER [READ] Required
+ * scope: social This endpoint lists all of dedicated servers in a namespace
+ * managed by this service.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

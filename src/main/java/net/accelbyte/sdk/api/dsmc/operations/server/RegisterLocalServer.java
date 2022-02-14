@@ -19,6 +19,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * RegisterLocalServer
+ *
+ * ``` Required permission: NAMESPACE:{namespace}:DSM:SERVER [UPDATE] Required
+ * scope: social Use the alternative GET of the same endpoint to upgrade DS
+ * connection to DSM via websocket. This endpoint is intended to be called by
+ * local dedicated server to let DSM know that it is ready for use. Use local DS
+ * only for development purposes since DSM wouldn't be able to properly manage
+ * local DS in production. This MUST be called by DS after it is ready to accept
+ * match data and incoming client connections. Upon successfully calling this
+ * endpoint, the dedicated server is listed under READY local servers.```
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

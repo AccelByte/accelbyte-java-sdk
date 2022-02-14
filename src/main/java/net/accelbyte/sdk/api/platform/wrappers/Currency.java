@@ -19,6 +19,9 @@ public class Currency {
         this.sdk = sdk;
     }
 
+    /**
+     * @see ListCurrencies
+     */
     public List<CurrencyInfo> listCurrencies(ListCurrencies input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Currency {
         }
     }
 
+    /**
+     * @see CreateCurrency
+     */
     public CurrencyInfo createCurrency(CreateCurrency input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Currency {
         }
     }
 
+    /**
+     * @see UpdateCurrency
+     */
     public CurrencyInfo updateCurrency(UpdateCurrency input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Currency {
         }
     }
 
+    /**
+     * @see DeleteCurrency
+     */
     public CurrencyInfo deleteCurrency(DeleteCurrency input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Currency {
         }
     }
 
+    /**
+     * @see GetCurrencyConfig
+     */
     public CurrencyConfig getCurrencyConfig(GetCurrencyConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Currency {
         }
     }
 
+    /**
+     * @see GetCurrencySummary
+     */
     public CurrencySummary getCurrencySummary(GetCurrencySummary input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Currency {
         }
     }
 
+    /**
+     * @see PublicListCurrencies
+     */
     public List<CurrencyInfo> publicListCurrencies(PublicListCurrencies input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

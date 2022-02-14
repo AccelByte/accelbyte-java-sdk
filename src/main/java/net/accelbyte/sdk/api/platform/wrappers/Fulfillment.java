@@ -19,6 +19,9 @@ public class Fulfillment {
         this.sdk = sdk;
     }
 
+    /**
+     * @see QueryFulfillmentHistories
+     */
     public FulfillmentHistoryPagingSlicedResult queryFulfillmentHistories(QueryFulfillmentHistories input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Fulfillment {
         }
     }
 
+    /**
+     * @see FulfillItem
+     */
     public FulfillmentResult fulfillItem(FulfillItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Fulfillment {
         }
     }
 
+    /**
+     * @see RedeemCode
+     */
     public FulfillmentResult redeemCode(RedeemCode input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Fulfillment {
         }
     }
 
+    /**
+     * @see FulfillRewards
+     */
     public void fulfillRewards(FulfillRewards input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Fulfillment {
         }
     }
 
+    /**
+     * @see PublicRedeemCode
+     */
     public FulfillmentResult publicRedeemCode(PublicRedeemCode input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

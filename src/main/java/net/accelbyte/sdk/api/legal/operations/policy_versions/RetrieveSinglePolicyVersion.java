@@ -17,6 +17,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * retrieveSinglePolicyVersion
+ *
+ * Retrieve a version of a particular country specific policy. If version is not
+ * provided, the Legal Service will assume caller requesting all versions from
+ * country-specific policy.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

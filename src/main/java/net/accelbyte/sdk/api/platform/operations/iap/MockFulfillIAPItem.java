@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * mockFulfillIAPItem
+ *
+ *  [TEST FACILITY ONLY] Forbidden in live environment. Mock fulfill iap item
+ * without validate receipt.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+ *   *  Returns :
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

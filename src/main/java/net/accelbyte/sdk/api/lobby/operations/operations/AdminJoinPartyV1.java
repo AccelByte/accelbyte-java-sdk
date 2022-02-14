@@ -17,6 +17,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminJoinPartyV1
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:PARTY:STORAGE [UPDATE]`
+ * with scope `social`
+ * admin join a player into a party.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

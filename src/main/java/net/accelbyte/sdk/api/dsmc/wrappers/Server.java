@@ -19,6 +19,9 @@ public class Server {
         this.sdk = sdk;
     }
 
+    /**
+     * @see DeregisterLocalServer
+     */
     public void deregisterLocalServer(DeregisterLocalServer input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Server {
         }
     }
 
+    /**
+     * @see RegisterLocalServer
+     */
     public ModelsServer registerLocalServer(RegisterLocalServer input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Server {
         }
     }
 
+    /**
+     * @see RegisterServer
+     */
     public ModelsServer registerServer(RegisterServer input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Server {
         }
     }
 
+    /**
+     * @see ShutdownServer
+     */
     public void shutdownServer(ShutdownServer input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Server {
         }
     }
 
+    /**
+     * @see GetServerSession
+     */
     public ModelsServerSessionResponse getServerSession(GetServerSession input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

@@ -19,6 +19,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updatePlaystationIAPConfig
+ *
+ * Update playstation iap config. Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+ *   *  Returns : updated playstation iap config
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

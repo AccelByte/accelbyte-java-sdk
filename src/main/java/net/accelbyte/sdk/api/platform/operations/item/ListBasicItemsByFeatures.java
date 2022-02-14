@@ -17,6 +17,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * listBasicItemsByFeatures
+ *
+ *  [SERVICE COMMUNICATION ONLY] This API is used to list basic items by
+ * features.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+ *   *  Returns : the list of basic items
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

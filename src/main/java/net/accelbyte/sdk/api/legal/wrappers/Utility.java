@@ -19,6 +19,9 @@ public class Utility {
         this.sdk = sdk;
     }
 
+    /**
+     * @see CheckReadiness
+     */
     public LegalReadinessStatusResponse checkReadiness(CheckReadiness input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

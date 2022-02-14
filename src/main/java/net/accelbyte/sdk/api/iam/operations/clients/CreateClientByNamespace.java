@@ -19,6 +19,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * CreateClientByNamespace
+ *
+ * 
+ * 
+ * ## The endpoint is going to be deprecated. Please use this instead:
+ * /v3/admin/namespaces/{namespace}/clients
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:CLIENT [CREATE]'
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

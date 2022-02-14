@@ -17,6 +17,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * deleteNotificationTemplateSlugV1Admin
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [DELETE]` with
+ * scope `social`
+ * Delete template slug in notification template
+ * Action Code: 50206
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

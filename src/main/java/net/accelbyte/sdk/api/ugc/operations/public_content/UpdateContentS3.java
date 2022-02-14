@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * UpdateContentS3
+ *
+ * Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE]. All
+ * request body are required except payload, preview, tags, and contentType.
+ * contentType values is used to enforce the Content-Type header needed by the
+ * client to upload the content using the S3 presigned URL. If not specified, it
+ * will use fileExtension value.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

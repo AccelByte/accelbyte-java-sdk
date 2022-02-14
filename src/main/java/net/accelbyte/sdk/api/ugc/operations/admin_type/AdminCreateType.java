@@ -19,6 +19,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminCreateType
+ *
+ * Required permission ADMIN:NAMESPACE:{namespace}:UGCCONFIG [CREATE] creates a
+ * new type and subtype
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

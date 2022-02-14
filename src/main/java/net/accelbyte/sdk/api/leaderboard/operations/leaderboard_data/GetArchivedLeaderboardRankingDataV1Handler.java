@@ -17,6 +17,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetArchivedLeaderboardRankingDataV1Handler
+ *
+ * 
+ * 
+ * Get signed url in an all time leaderboard that archived. NOTE: This will be a
+ * bulk endpoint to get sign url
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

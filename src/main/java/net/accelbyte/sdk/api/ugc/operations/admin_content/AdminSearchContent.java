@@ -18,6 +18,11 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminSearchContent
+ *
+ * Required permission ADMIN:NAMESPACE:{namespace}:USER:*:CONTENT [CREATE]
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

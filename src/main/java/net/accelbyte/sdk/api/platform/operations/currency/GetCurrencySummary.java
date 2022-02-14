@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getCurrencySummary
+ *
+ * Get currency summary by code.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=2 (READ)
+ *   *  Returns : simplified Currency
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

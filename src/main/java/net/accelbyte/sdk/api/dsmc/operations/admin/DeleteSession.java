@@ -17,6 +17,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * DeleteSession
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:SESSION [DELETE] Required
+ * scope: social This endpoint deletes a specified session and its corresponding
+ * match result from DB.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

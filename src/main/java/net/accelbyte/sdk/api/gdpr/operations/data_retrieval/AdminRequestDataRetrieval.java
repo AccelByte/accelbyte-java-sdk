@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminRequestDataRetrieval
+ *
+ * 
+ * 
+ * Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId}
+ * [CREATE]` and scope `account`
+ * 
+ * If admin request data for themselves, password is need to be set
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getSingleTemplateLocalizationV1Admin
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [READ]` with
+ * scope `social`
+ * Get a template localization
+ * Action Code: 50207
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

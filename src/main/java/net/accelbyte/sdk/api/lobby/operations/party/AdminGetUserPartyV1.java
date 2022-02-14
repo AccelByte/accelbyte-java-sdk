@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminGetUserPartyV1
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:PARTY:STORAGE [READ]` with
+ * scope `social`
+ * get party data in a namespace.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

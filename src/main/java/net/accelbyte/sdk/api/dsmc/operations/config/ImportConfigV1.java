@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * importConfigV1
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [CREATE] Required
+ * scope: social This endpoint import a dedicated servers config in a namespace.
+ * If there is an existing configuration, the configuration would be replaced.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * acquireUserTicket
+ *
+ *  [SERVICE COMMUNICATION ONLY] Acquire ticket(code/key) based on booth name.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:TICKET", action=1 (CREATE)
+ *   *  Returns : acquire result
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -19,6 +19,9 @@ public class PaymentStation {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetPaymentCustomization
+     */
     public Customization getPaymentCustomization(GetPaymentCustomization input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class PaymentStation {
         }
     }
 
+    /**
+     * @see PublicGetPaymentUrl
+     */
     public PaymentUrl publicGetPaymentUrl(PublicGetPaymentUrl input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class PaymentStation {
         }
     }
 
+    /**
+     * @see PublicGetPaymentMethods
+     */
     public List<PaymentMethod> publicGetPaymentMethods(PublicGetPaymentMethods input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class PaymentStation {
         }
     }
 
+    /**
+     * @see PublicGetUnpaidPaymentOrder
+     */
     public PaymentOrderDetails publicGetUnpaidPaymentOrder(PublicGetUnpaidPaymentOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class PaymentStation {
         }
     }
 
+    /**
+     * @see Pay
+     */
     public PaymentProcessResult pay(Pay input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class PaymentStation {
         }
     }
 
+    /**
+     * @see PublicCheckPaymentOrderPaidStatus
+     */
     public PaymentOrderPaidResult publicCheckPaymentOrderPaidStatus(PublicCheckPaymentOrderPaidStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class PaymentStation {
         }
     }
 
+    /**
+     * @see GetPaymentPublicConfig
+     */
     public Map<String, ?> getPaymentPublicConfig(GetPaymentPublicConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class PaymentStation {
         }
     }
 
+    /**
+     * @see PublicGetQRCode
+     */
     public InputStream publicGetQRCode(PublicGetQRCode input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class PaymentStation {
         }
     }
 
+    /**
+     * @see PublicNormalizePaymentReturnUrl
+     */
     public void publicNormalizePaymentReturnUrl(PublicNormalizePaymentReturnUrl input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class PaymentStation {
         }
     }
 
+    /**
+     * @see GetPaymentTaxValue
+     */
     public TaxResult getPaymentTaxValue(GetPaymentTaxValue input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

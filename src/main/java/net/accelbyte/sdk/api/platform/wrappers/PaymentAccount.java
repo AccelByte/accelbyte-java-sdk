@@ -19,6 +19,9 @@ public class PaymentAccount {
         this.sdk = sdk;
     }
 
+    /**
+     * @see PublicGetPaymentAccounts
+     */
     public List<net.accelbyte.sdk.api.platform.models.PaymentAccount> publicGetPaymentAccounts(PublicGetPaymentAccounts input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class PaymentAccount {
         }
     }
 
+    /**
+     * @see PublicDeletePaymentAccount
+     */
     public void publicDeletePaymentAccount(PublicDeletePaymentAccount input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

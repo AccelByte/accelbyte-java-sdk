@@ -18,6 +18,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminGetInputValidations
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:CONFIGURATION'[READ]
+ * 
+ * This endpoint is to get list of input validation configuration.
+ * 
+ * `regex` parameter will be returned if `isCustomRegex` is true. Otherwise, it
+ * will be empty.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

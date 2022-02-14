@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * queryKeyGroups
+ *
+ * Query key groups, if name is presented, it's fuzzy match.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=2 (READ)
+ *   *  Returns : slice of key group
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

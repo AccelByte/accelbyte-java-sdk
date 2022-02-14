@@ -17,6 +17,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * retrieveEligibilitiesPublic
+ *
+ * Retrieve the active policies and its conformance status by user.
+ * This process supports cross-namespace checking, that means if the active
+ * policy already accepted by the same user in other namespace, then it will be
+ * considered as eligible.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : login user
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

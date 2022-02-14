@@ -19,6 +19,9 @@ public class EQU8Config {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetConfig
+     */
     public Equ8Config getConfig(GetConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class EQU8Config {
         }
     }
 
+    /**
+     * @see DeleteConfig
+     */
     public void deleteConfig(DeleteConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class EQU8Config {
         }
     }
 
+    /**
+     * @see UpdateConfig
+     */
     public Equ8Config updateConfig(UpdateConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

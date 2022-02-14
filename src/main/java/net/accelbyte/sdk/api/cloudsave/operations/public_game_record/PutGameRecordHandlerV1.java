@@ -18,6 +18,34 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * putGameRecordHandlerV1
+ *
+ * Required Permission | `NAMESPACE:{namespace}:CLOUDSAVE:RECORD [UPDATE]`
+ * ---|---
+ * Required Scope | `social`
+ * 
+ * If record already exists, it will be replaced with the one from request body
+ * (all fields will be deleted). If record is not exists, it will create a new
+ * one with value from request body. Example: Replace all records
+ * 
+ * 
+ * 
+ *         // existed record
+ *         {
+ *             "foo": "bar"
+ *         }
+ * 
+ *         // new update (request body)
+ *         {
+ *             "foo_new": "bar_new"
+ *         }
+ * 
+ *         // result
+ *         {
+ *             "foo_new": "bar_new"
+ *         }
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

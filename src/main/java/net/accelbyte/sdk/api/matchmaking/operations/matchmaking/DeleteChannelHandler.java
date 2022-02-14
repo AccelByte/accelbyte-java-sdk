@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * DeleteChannelHandler
+ *
+ * Required Permission: NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Delete]
+ * Required Scope: social Deletes a matchmaking channel. Matchmaking channels is
+ * a list of pool name that is eligible for matchmaking processes. GameMode
+ * isolates each matchmaking pools. Trying to delete non-existent channel will
+ * result deletion success
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

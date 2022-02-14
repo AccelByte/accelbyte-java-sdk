@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getReward
+ *
+ * This API is used to get reward by reward Id.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:REWARD", action=2 (READ)
+ *   *  Returns : reward instance
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

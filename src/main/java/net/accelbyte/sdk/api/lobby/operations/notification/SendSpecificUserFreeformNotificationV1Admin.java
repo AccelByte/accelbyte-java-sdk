@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * sendSpecificUserFreeformNotificationV1Admin
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [CREATE]` with
+ * scope `social`
+ * Sends notification to a user. Action Code: 50211
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

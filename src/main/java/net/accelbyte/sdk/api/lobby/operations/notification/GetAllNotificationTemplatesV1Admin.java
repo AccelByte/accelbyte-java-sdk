@@ -17,6 +17,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getAllNotificationTemplatesV1Admin
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [READ]` with
+ * scope `social`
+ * Get all templates in a namespace
+ * Action Code: 50203
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

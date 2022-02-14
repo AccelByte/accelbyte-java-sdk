@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * queryPaymentOrders
+ *
+ * Query payment orders.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=2 (READ)
+ *   *  Returns : query payment orders
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

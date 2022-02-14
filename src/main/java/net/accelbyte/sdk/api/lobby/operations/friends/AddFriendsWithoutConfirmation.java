@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * addFriendsWithoutConfirmation
+ *
+ * Required permission : `NAMESPACE:{namespace}:USER:{userId}:FRIENDS [CREATE]`
+ * with scope `social`
+ * friends request in a namespace.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

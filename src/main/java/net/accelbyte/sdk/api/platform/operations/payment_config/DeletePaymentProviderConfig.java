@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * deletePaymentProviderConfig
+ *
+ * Delete payment provider config.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=8 (DELETE)
+ *   *  Returns : payment provider config
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

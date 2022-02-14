@@ -18,6 +18,19 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * deleteGroupConfigurationGlobalRuleAdminV1
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [UPDATE]'
+ * 
+ * This endpoint is used to delete existing global rule configuration based on
+ * the allowed action. It will not give any error if the allowed action is not
+ * existed in the global rule
+ * 
+ * Action Code: 73105
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -17,6 +17,19 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * deleteGroupConfigurationV1
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [DELETE]'
+ * 
+ * This endpoint is used to delete group configuration. This Configuration is
+ * used to be the main rule of the service. Each namespace will have its own
+ * configuration
+ * 
+ * Action Code: 73101
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminRemoveRoleAdminV3
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:ROLE [UPDATE]'
+ * 
+ * code: 10413
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -17,6 +17,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * listCategoriesBasic
+ *
+ * This API is used to list all categories' basic info of a store ordered by
+ * category path.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
+ *   *  Returns : list of categories' paths
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

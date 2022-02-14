@@ -19,6 +19,9 @@ public class Public {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetDefaultProvider
+     */
     public ModelsDefaultProvider getDefaultProvider(GetDefaultProvider input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Public {
         }
     }
 
+    /**
+     * @see ListProviders
+     */
     public List<String> listProviders(ListProviders input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Public {
         }
     }
 
+    /**
+     * @see ListProvidersByRegion
+     */
     public ModelsDefaultProvider listProvidersByRegion(ListProvidersByRegion input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

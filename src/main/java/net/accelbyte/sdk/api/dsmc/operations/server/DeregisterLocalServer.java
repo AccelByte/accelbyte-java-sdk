@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * DeregisterLocalServer
+ *
+ * ``` Required permission: NAMESPACE:{namespace}:DSM:SERVER [UPDATE] Required
+ * scope: social This endpoint is intended to be called by local dedicated server
+ * to let DSM know that it is shutting down. Calling this will remove the server
+ * records from DB.```
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

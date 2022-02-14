@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AddUserIntoSessionInChannel
+ *
+ * Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Create]
+ * Required Scope: social Add user into the session in a channel.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

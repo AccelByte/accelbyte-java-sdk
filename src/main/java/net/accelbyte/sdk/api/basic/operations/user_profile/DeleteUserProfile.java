@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * deleteUserProfile
+ *
+ * Delete user profile.
+ * Other detail info:
+ * 
+ *   * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=8 (DELETE)
+ *   *  Action code : 11407
+ *   *  Returns : Delete user profile
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

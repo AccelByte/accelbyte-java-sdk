@@ -19,6 +19,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminAddUserRoleV4
+ *
+ * This endpoint requires ADMIN:NAMESPACE:{namespace}:ROLE:USER:* [UPDATE]
+ * permission. New role will be appended to user's current roles. Request body
+ * need to specify allowed namespace for given role to support new role
+ * restriction. Skipped the check whether the user performing the request is a
+ * role manager / assigner since there is a plan to discard the role manager /
+ * assigner.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

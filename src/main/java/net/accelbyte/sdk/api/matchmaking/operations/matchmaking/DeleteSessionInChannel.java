@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * DeleteSessionInChannel
+ *
+ * Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Delete]
+ * Required Scope: social Delete a session in a channel.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

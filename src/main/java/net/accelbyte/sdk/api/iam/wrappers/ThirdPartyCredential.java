@@ -19,6 +19,9 @@ public class ThirdPartyCredential {
         this.sdk = sdk;
     }
 
+    /**
+     * @see RetrieveAllThirdPartyLoginPlatformCredentialV3
+     */
     public List<ModelThirdPartyLoginPlatformCredentialResponse> retrieveAllThirdPartyLoginPlatformCredentialV3(RetrieveAllThirdPartyLoginPlatformCredentialV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class ThirdPartyCredential {
         }
     }
 
+    /**
+     * @see RetrieveAllActiveThirdPartyLoginPlatformCredentialV3
+     */
     public List<ModelThirdPartyLoginPlatformCredentialResponse> retrieveAllActiveThirdPartyLoginPlatformCredentialV3(RetrieveAllActiveThirdPartyLoginPlatformCredentialV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class ThirdPartyCredential {
         }
     }
 
+    /**
+     * @see RetrieveThirdPartyLoginPlatformCredentialV3
+     */
     public ModelThirdPartyLoginPlatformCredentialResponse retrieveThirdPartyLoginPlatformCredentialV3(RetrieveThirdPartyLoginPlatformCredentialV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class ThirdPartyCredential {
         }
     }
 
+    /**
+     * @see AddThirdPartyLoginPlatformCredentialV3
+     */
     public ModelThirdPartyLoginPlatformCredentialResponse addThirdPartyLoginPlatformCredentialV3(AddThirdPartyLoginPlatformCredentialV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class ThirdPartyCredential {
         }
     }
 
+    /**
+     * @see DeleteThirdPartyLoginPlatformCredentialV3
+     */
     public void deleteThirdPartyLoginPlatformCredentialV3(DeleteThirdPartyLoginPlatformCredentialV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class ThirdPartyCredential {
         }
     }
 
+    /**
+     * @see UpdateThirdPartyLoginPlatformCredentialV3
+     */
     public ModelThirdPartyLoginPlatformCredentialResponse updateThirdPartyLoginPlatformCredentialV3(UpdateThirdPartyLoginPlatformCredentialV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class ThirdPartyCredential {
         }
     }
 
+    /**
+     * @see UpdateThirdPartyLoginPlatformDomainV3
+     */
     public ModelPlatformDomainResponse updateThirdPartyLoginPlatformDomainV3(UpdateThirdPartyLoginPlatformDomainV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class ThirdPartyCredential {
         }
     }
 
+    /**
+     * @see DeleteThirdPartyLoginPlatformDomainV3
+     */
     public void deleteThirdPartyLoginPlatformDomainV3(DeleteThirdPartyLoginPlatformDomainV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class ThirdPartyCredential {
         }
     }
 
+    /**
+     * @see RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3
+     */
     public List<ModelPublicThirdPartyPlatformInfo> retrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3(RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

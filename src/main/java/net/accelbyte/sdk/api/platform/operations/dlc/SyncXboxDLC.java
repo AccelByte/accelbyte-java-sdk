@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * syncXboxDLC
+ *
+ * Sync Xbox inventory's dlc items.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
+ *   *  Returns :
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getCode
+ *
+ * Get campaign code, it will check code whether available to redeem if
+ * redeemable true.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ) (READ)
+ *   *  Returns : code info
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

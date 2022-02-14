@@ -18,6 +18,26 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * acceptGroupJoinRequestPublicV1
+ *
+ * 
+ * 
+ * Required valid user authentication
+ * 
+ * Required Member Role Permission: "GROUP:JOIN [CREATE]"
+ * 
+ * This endpoint is used to accept group join request.
+ * 
+ * Accept group join request. If specific user is not asked to join the specific
+ * group ID, it will show the the error to show if the user is not asked to join
+ * yet.
+ * 
+ * This endpoint will also check if the specific user is already joined to
+ * specific group
+ * 
+ * Action Code: 73407
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

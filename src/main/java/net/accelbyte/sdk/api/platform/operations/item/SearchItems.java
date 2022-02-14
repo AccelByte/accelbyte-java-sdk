@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * searchItems
+ *
+ * This API is used to search items by keyword in title, description and long
+ * description within a store.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+ *   *  Returns : the list of items
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

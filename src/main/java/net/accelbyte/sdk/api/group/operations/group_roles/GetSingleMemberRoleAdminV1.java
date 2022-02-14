@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getSingleMemberRoleAdminV1
+ *
+ * 
+ * 
+ * Required permission ADMIN:NAMESPACE:{namespace}:GROUP:ROLE [READ]
+ * 
+ * This endpoint is used to get member role based on the role ID
+ * 
+ * Action Code: 73203
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

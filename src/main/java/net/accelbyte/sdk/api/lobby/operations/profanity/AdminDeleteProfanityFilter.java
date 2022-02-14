@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminDeleteProfanityFilter
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:PROFANITY [DELETE]` with
+ * scope `social`
+ * delete the filter from the list
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

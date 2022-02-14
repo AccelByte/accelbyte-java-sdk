@@ -19,6 +19,9 @@ public class UserInfo {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetUserInfoStatus
+     */
     public List<RetrieveUserInfoCacheStatusResponse> getUserInfoStatus(GetUserInfoStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class UserInfo {
         }
     }
 
+    /**
+     * @see SyncUserInfo
+     */
     public void syncUserInfo(SyncUserInfo input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class UserInfo {
         }
     }
 
+    /**
+     * @see InvalidateUserInfoCache
+     */
     public void invalidateUserInfoCache(InvalidateUserInfoCache input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

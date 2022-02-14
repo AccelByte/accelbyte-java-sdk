@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * UpdateThirdPartyLoginPlatformDomainV3
+ *
+ * 
+ * 
+ * This is the API to set 3rd Platform domain.
+ * 
+ * It needs ADMIN:NAMESPACE:{namespace}:CLIENTDOMAIN [UPDATE] resource.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

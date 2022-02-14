@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * CheckUserAvailability
+ *
+ * Check user's account availability. Available field : - displayName If request
+ * include access token with user ID data, that user ID will be excluded from
+ * availability check. For example, in case user update his emailAddress, he can
+ * use his own emailAddress to update his account. Response Code : - Account
+ * Available : 404 (not found) - Account Not Available : 204 (no content)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

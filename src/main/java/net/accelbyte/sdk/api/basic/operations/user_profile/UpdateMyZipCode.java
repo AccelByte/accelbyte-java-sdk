@@ -19,6 +19,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updateMyZipCode
+ *
+ * Update my zip code.
+ * Other detail info:
+ * 
+ *   * Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=4 (UPDATE)
+ *   *  Action code : 11408
+ *   *  Returns : user zip code
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

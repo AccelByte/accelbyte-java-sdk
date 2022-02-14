@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * testXsollaConfigById
+ *
+ * Test xsolla configuration in payment merchant config. Reference: [Xsolla
+ * Document](https://developers.xsolla.com/?#simple-checkout).
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+ *   *  Returns : test xsolla config
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

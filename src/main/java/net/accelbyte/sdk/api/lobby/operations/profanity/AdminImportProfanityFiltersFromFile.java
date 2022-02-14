@@ -17,6 +17,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminImportProfanityFiltersFromFile
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:PROFANITY [CREATE]` with
+ * scope `social`
+ * import a file with filters
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

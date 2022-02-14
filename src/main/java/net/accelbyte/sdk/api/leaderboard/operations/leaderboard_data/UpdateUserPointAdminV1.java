@@ -19,6 +19,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updateUserPointAdminV1
+ *
+ * 
+ * 
+ * Update user point in a leaderboard. This endpoint uses for test utility only.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission: resource="ADMIN:NAMESPACE:{namespace}:USER:(userId):LEADERBOARD", action=4 (UPDATE)
+ *   * Returns: user ranking
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

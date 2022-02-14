@@ -19,6 +19,9 @@ public class Presence {
         this.sdk = sdk;
     }
 
+    /**
+     * @see UsersPresenceHandlerV1
+     */
     public HandlersGetUsersPresenceResponse usersPresenceHandlerV1(UsersPresenceHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

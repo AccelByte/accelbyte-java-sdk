@@ -18,6 +18,11 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * ListProvidersByRegion
+ *
+ * This endpoint returns the providers by region.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

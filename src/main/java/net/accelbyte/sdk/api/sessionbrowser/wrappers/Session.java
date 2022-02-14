@@ -19,6 +19,9 @@ public class Session {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetTotalActiveSession
+     */
     public ModelsCountActiveSessionResponse getTotalActiveSession(GetTotalActiveSession input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Session {
         }
     }
 
+    /**
+     * @see GetActiveCustomGameSessions
+     */
     public ModelsActiveCustomGameResponse getActiveCustomGameSessions(GetActiveCustomGameSessions input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Session {
         }
     }
 
+    /**
+     * @see GetActiveMatchmakingGameSessions
+     */
     public ModelsActiveMatchmakingGameResponse getActiveMatchmakingGameSessions(GetActiveMatchmakingGameSessions input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Session {
         }
     }
 
+    /**
+     * @see AdminGetSession
+     */
     public ModelsAdminSessionResponse adminGetSession(AdminGetSession input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Session {
         }
     }
 
+    /**
+     * @see QuerySession
+     */
     public ModelsSessionQueryResponse querySession(QuerySession input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Session {
         }
     }
 
+    /**
+     * @see CreateSession
+     */
     public ModelsSessionResponse createSession(CreateSession input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Session {
         }
     }
 
+    /**
+     * @see GetSessionByUserIDs
+     */
     public ModelsSessionByUserIDsResponse getSessionByUserIDs(GetSessionByUserIDs input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Session {
         }
     }
 
+    /**
+     * @see GetSession
+     */
     public ModelsSessionResponse getSession(GetSession input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class Session {
         }
     }
 
+    /**
+     * @see UpdateSession
+     */
     public ModelsSessionResponse updateSession(UpdateSession input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class Session {
         }
     }
 
+    /**
+     * @see DeleteSession
+     */
     public ModelsSessionResponse deleteSession(DeleteSession input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class Session {
         }
     }
 
+    /**
+     * @see JoinSession
+     */
     public ModelsSessionResponse joinSession(JoinSession input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +228,9 @@ public class Session {
         }
     }
 
+    /**
+     * @see DeleteSessionLocalDS
+     */
     public ModelsSessionResponse deleteSessionLocalDS(DeleteSessionLocalDS input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -211,6 +247,9 @@ public class Session {
         }
     }
 
+    /**
+     * @see AddPlayerToSession
+     */
     public ModelsAddPlayerResponse addPlayerToSession(AddPlayerToSession input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -227,6 +266,9 @@ public class Session {
         }
     }
 
+    /**
+     * @see RemovePlayerFromSession
+     */
     public ModelsAddPlayerResponse removePlayerFromSession(RemovePlayerFromSession input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -243,6 +285,9 @@ public class Session {
         }
     }
 
+    /**
+     * @see GetRecentPlayer
+     */
     public ModelsRecentPlayerQueryResponse getRecentPlayer(GetRecentPlayer input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

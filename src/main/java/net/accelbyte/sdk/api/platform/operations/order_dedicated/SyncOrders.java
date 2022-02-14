@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * syncOrders
+ *
+ * Sync orders. If response contains nextEvaluatedKey, please use it as query
+ * param in the next call to fetch the next batch, a batch has 1000 elements or
+ * less.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:ORDER", action=2 (READ)
+ *   *  Returns : sync orders
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

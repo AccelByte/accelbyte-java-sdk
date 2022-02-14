@@ -19,6 +19,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicVerifyHeadlessAccountV3
+ *
+ * 
+ * 
+ * Require valid user authorization
+ * action code : 10124
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

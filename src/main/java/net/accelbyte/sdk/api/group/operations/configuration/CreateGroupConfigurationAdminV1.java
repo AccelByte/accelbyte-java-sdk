@@ -19,6 +19,29 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * createGroupConfigurationAdminV1
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [CREATE]'
+ * 
+ * This endpoint is used to create new configuration. Before creating the
+ * configuration, make sure that member role for admin and group member are
+ * already created before.
+ * 
+ * For each of the global rule, it will be the rule detail that consists of these
+ * fields:
+ * 
+ *   * ruleAttribute : attribute of the player that needs to be checked
+ *   * ruleCriteria : criteria of the value. The value will be in enum of EQUAL, MINIMUM, MAXIMUM
+ *   * ruleValue : value that needs to be checked
+ * 
+ * Allowed Action can only be filled with any available action in the Group
+ * Service. For the configuration, the only value is "createGroup"
+ * 
+ * Action Code: 73103
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

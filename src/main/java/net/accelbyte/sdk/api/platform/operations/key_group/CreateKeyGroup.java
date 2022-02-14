@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * createKeyGroup
+ *
+ * Create key group.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=1 (CREATE)
+ *   *  Returns : created key group
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -19,6 +19,9 @@ public class SSOSAML20 {
         this.sdk = sdk;
     }
 
+    /**
+     * @see PlatformAuthenticateSAMLV3Handler
+     */
     public String platformAuthenticateSAMLV3Handler(PlatformAuthenticateSAMLV3Handler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

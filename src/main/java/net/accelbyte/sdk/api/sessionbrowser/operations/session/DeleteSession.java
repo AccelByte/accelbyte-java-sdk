@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * DeleteSession
+ *
+ * Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [DELETE]
+ * Required scope: social Delete the session by session ID
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

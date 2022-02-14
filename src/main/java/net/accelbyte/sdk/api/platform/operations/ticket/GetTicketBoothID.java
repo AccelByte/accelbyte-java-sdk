@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getTicketBoothID
+ *
+ * Get ticket(code/key) booth ID.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:TICKET", action=2 (READ)
+ *   *  Returns : ticket booth id
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

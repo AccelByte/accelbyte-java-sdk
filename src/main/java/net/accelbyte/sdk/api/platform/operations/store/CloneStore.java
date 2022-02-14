@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * cloneStore
+ *
+ * This API is used to clone a store. Usually clone a draft store to published
+ * store because published store can't directly edit content.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=1 (CREATE)
+ *   *  Returns : clone store info
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

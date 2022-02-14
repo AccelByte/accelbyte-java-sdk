@@ -19,6 +19,9 @@ public class SlotConfig {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetNamespaceSlotConfig
+     */
     public NamespaceSlotConfigInfo getNamespaceSlotConfig(GetNamespaceSlotConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class SlotConfig {
         }
     }
 
+    /**
+     * @see UpdateNamespaceSlotConfig
+     */
     public NamespaceSlotConfigInfo updateNamespaceSlotConfig(UpdateNamespaceSlotConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class SlotConfig {
         }
     }
 
+    /**
+     * @see DeleteNamespaceSlotConfig
+     */
     public void deleteNamespaceSlotConfig(DeleteNamespaceSlotConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class SlotConfig {
         }
     }
 
+    /**
+     * @see GetUserSlotConfig
+     */
     public UserSlotConfigInfo getUserSlotConfig(GetUserSlotConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class SlotConfig {
         }
     }
 
+    /**
+     * @see UpdateUserSlotConfig
+     */
     public UserSlotConfigInfo updateUserSlotConfig(UpdateUserSlotConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class SlotConfig {
         }
     }
 
+    /**
+     * @see DeleteUserSlotConfig
+     */
     public void deleteUserSlotConfig(DeleteUserSlotConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

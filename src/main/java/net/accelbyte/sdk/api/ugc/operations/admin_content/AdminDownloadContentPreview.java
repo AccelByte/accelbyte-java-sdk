@@ -18,6 +18,11 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminDownloadContentPreview
+ *
+ * Required permission ADMIN:NAMESPACE:{namespace}:USER:*:CONTENT [READ]
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

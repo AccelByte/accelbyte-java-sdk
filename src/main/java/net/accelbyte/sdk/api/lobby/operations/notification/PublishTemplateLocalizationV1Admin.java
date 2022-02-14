@@ -17,6 +17,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publishTemplateLocalizationV1Admin
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [CREATE]` with
+ * scope `social`
+ * Publish notification template draft. Empty draft can not be published.
+ * Action Code: 50210
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

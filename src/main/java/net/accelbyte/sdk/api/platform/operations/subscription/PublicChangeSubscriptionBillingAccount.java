@@ -18,6 +18,19 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicChangeSubscriptionBillingAccount
+ *
+ * Request to change a subscription billing account, this will guide user to
+ * payment station. The actual change will happen at the 0 payment notification
+ * successfully handled.
+ * Only ACTIVE USER subscription with real currency billing account can be
+ * changed.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SUBSCRIPTION", action=4 (UPDATE)
+ *   *  Returns : updated subscription
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

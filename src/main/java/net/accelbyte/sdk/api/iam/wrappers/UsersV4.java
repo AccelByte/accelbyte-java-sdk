@@ -19,6 +19,9 @@ public class UsersV4 {
         this.sdk = sdk;
     }
 
+    /**
+     * @see AdminUpdateUserV4
+     */
     public ModelUserResponseV3 adminUpdateUserV4(AdminUpdateUserV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class UsersV4 {
         }
     }
 
+    /**
+     * @see AdminUpdateUserEmailAddressV4
+     */
     public void adminUpdateUserEmailAddressV4(AdminUpdateUserEmailAddressV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class UsersV4 {
         }
     }
 
+    /**
+     * @see AdminListUserRolesV4
+     */
     public ModelListUserRolesV4Response adminListUserRolesV4(AdminListUserRolesV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class UsersV4 {
         }
     }
 
+    /**
+     * @see AdminUpdateUserRoleV4
+     */
     public ModelListUserRolesV4Response adminUpdateUserRoleV4(AdminUpdateUserRoleV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class UsersV4 {
         }
     }
 
+    /**
+     * @see AdminAddUserRoleV4
+     */
     public ModelListUserRolesV4Response adminAddUserRoleV4(AdminAddUserRoleV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class UsersV4 {
         }
     }
 
+    /**
+     * @see AdminRemoveUserRoleV4
+     */
     public void adminRemoveUserRoleV4(AdminRemoveUserRoleV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class UsersV4 {
         }
     }
 
+    /**
+     * @see AdminUpdateMyUserV4
+     */
     public ModelUserResponseV3 adminUpdateMyUserV4(AdminUpdateMyUserV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class UsersV4 {
         }
     }
 
+    /**
+     * @see AdminInviteUserV4
+     */
     public ModelInviteUserResponseV3 adminInviteUserV4(AdminInviteUserV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class UsersV4 {
         }
     }
 
+    /**
+     * @see PublicCreateTestUserV4
+     */
     public AccountCreateUserResponseV4 publicCreateTestUserV4(PublicCreateTestUserV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class UsersV4 {
         }
     }
 
+    /**
+     * @see PublicCreateUserV4
+     */
     public AccountCreateUserResponseV4 publicCreateUserV4(PublicCreateUserV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class UsersV4 {
         }
     }
 
+    /**
+     * @see CreateUserFromInvitationV4
+     */
     public AccountCreateUserResponseV4 createUserFromInvitationV4(CreateUserFromInvitationV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +228,9 @@ public class UsersV4 {
         }
     }
 
+    /**
+     * @see PublicUpdateUserV4
+     */
     public ModelUserResponseV3 publicUpdateUserV4(PublicUpdateUserV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -211,6 +247,9 @@ public class UsersV4 {
         }
     }
 
+    /**
+     * @see PublicUpdateUserEmailAddressV4
+     */
     public void publicUpdateUserEmailAddressV4(PublicUpdateUserEmailAddressV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -227,6 +266,9 @@ public class UsersV4 {
         }
     }
 
+    /**
+     * @see PublicUpgradeHeadlessAccountWithVerificationCodeV4
+     */
     public AccountUserResponseV4 publicUpgradeHeadlessAccountWithVerificationCodeV4(PublicUpgradeHeadlessAccountWithVerificationCodeV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -243,6 +285,9 @@ public class UsersV4 {
         }
     }
 
+    /**
+     * @see PublicUpgradeHeadlessAccountV4
+     */
     public AccountUserResponseV4 publicUpgradeHeadlessAccountV4(PublicUpgradeHeadlessAccountV4 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

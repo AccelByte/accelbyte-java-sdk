@@ -19,6 +19,9 @@ public class Server {
         this.sdk = sdk;
     }
 
+    /**
+     * @see Heartbeat
+     */
     public void heartbeat(Heartbeat input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

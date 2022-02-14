@@ -18,6 +18,22 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminGetUserPlatformAccountsV3
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [READ]'.
+ * 
+ * ## Justice Platform Account
+ * 
+ * The permission âADMIN:NAMESPACE:{namespace}:JUSTICE:USER:{userId}â [READ]
+ * is required in order to read the UserID who linked with the user.
+ * 
+ * 
+ * Gets platform accounts that are already linked with user account
+ * action code : 10128
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

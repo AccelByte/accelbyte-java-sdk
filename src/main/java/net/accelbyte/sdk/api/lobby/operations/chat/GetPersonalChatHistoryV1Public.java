@@ -17,6 +17,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getPersonalChatHistoryV1Public
+ *
+ * Required valid user authorization
+ * 
+ * load personal chat history in a namespace based on Friend User ID
+ * Action Code: 50101
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -19,6 +19,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * UpdateSSOPlatformCredential
+ *
+ * This is the API to Delete SSO Platform Credential. It needs
+ * ADMIN:NAMESPACE:{namespace}:PLATFORM:{platformId}:SSO [UPDATE] resource
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

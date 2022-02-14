@@ -19,6 +19,9 @@ public class Public {
         this.sdk = sdk;
     }
 
+    /**
+     * @see ListServer
+     */
     public ModelsListServerResponse listServer(ListServer input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

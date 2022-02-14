@@ -19,6 +19,9 @@ public class PublicLike {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetLikedContent
+     */
     public ModelsPaginatedContentDownloadResponse getLikedContent(GetLikedContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class PublicLike {
         }
     }
 
+    /**
+     * @see UpdateContentLikeStatus
+     */
     public ModelsContentLikeResponse updateContentLikeStatus(UpdateContentLikeStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

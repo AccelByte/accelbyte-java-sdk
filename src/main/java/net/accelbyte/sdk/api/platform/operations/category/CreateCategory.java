@@ -19,6 +19,26 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * createCategory
+ *
+ * This API is used to create category.
+ * 
+ * A category is a path separated by "/". A category also has localized display
+ * names. Example:
+ * 
+ * 
+ * 
+ *     {
+ *         "categoryPath": "/games",
+ *         "localizationDisplayNames": {"en" : "Games"}
+ *     }
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=1 (CREATE)
+ *   *  Returns : created category data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

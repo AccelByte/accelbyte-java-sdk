@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetImageLimit
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [READ] Required
+ * scope: social This endpoint get ds image limit for specific namespace
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

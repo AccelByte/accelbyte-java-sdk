@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetRegisteredEventsByEventTypeHandler
+ *
+ * Required permission `ADMIN:NAMESPACE:{namespace}:EVENT [READ]`and scope
+ * `analytics`
+ *
+ * @deprecated
+ */
+@Deprecated
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

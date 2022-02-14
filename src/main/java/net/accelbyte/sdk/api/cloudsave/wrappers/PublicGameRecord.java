@@ -19,6 +19,9 @@ public class PublicGameRecord {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetGameRecordHandlerV1
+     */
     public ModelsGameRecord getGameRecordHandlerV1(GetGameRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class PublicGameRecord {
         }
     }
 
+    /**
+     * @see PutGameRecordHandlerV1
+     */
     public void putGameRecordHandlerV1(PutGameRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class PublicGameRecord {
         }
     }
 
+    /**
+     * @see PostGameRecordHandlerV1
+     */
     public void postGameRecordHandlerV1(PostGameRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class PublicGameRecord {
         }
     }
 
+    /**
+     * @see DeleteGameRecordHandlerV1
+     */
     public void deleteGameRecordHandlerV1(DeleteGameRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

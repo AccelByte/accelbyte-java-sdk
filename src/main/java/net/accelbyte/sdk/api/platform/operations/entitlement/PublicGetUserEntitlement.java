@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetUserEntitlement
+ *
+ * Get user entitlement.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=2 (READ)
+ *   *  Returns : entitlement
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

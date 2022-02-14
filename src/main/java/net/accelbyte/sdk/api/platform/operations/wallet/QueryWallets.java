@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * queryWallets
+ *
+ * Query wallets.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:WALLET", action=2 (READ)
+ *   *  Returns : paginated wallets info
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

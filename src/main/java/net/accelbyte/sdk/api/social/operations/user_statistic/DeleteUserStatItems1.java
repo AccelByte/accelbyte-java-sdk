@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * deleteUserStatItems_1
+ *
+ * Delete user's statItems given stat code.
+ * Other detail info:
+ * 
+ *                 *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=8 (DELETE)
+ *                 *  Returns : no content
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -19,6 +19,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * acquireItem
+ *
+ *  [SERVICE COMMUNICATION ONLY] This api is used for acquiring a published item
+ * while the item is maxCount limited, it will decrease the sale available count.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+ *   *  Returns : acquire result
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

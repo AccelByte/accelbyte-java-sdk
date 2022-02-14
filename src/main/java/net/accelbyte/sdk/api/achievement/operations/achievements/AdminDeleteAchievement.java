@@ -17,6 +17,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminDeleteAchievement
+ *
+ * 
+ * 
+ * Required permission `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [DELETE]` and
+ * scope `social`
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

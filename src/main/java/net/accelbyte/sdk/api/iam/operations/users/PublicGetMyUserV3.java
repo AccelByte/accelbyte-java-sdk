@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicGetMyUserV3
+ *
+ * 
+ * 
+ * Require valid user authorization
+ * Get my user data
+ * action code : 10147
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

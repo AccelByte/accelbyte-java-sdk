@@ -19,6 +19,9 @@ public class Ticket {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetTicketDynamic
+     */
     public TicketDynamicInfo getTicketDynamic(GetTicketDynamic input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Ticket {
         }
     }
 
+    /**
+     * @see DecreaseTicketSale
+     */
     public void decreaseTicketSale(DecreaseTicketSale input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Ticket {
         }
     }
 
+    /**
+     * @see GetTicketBoothID
+     */
     public TicketBoothID getTicketBoothID(GetTicketBoothID input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Ticket {
         }
     }
 
+    /**
+     * @see IncreaseTicketSale
+     */
     public TicketSaleIncrementResult increaseTicketSale(IncreaseTicketSale input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Ticket {
         }
     }
 
+    /**
+     * @see AcquireUserTicket
+     */
     public TicketAcquireResult acquireUserTicket(AcquireUserTicket input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

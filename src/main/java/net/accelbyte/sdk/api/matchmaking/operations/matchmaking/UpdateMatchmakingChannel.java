@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * UpdateMatchmakingChannel
+ *
+ * Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Update]
+ * Required Scope: social Update channel based on namespace and channel name
+ * Action Code: 510111
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

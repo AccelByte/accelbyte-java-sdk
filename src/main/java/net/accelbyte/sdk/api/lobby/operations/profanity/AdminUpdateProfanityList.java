@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminUpdateProfanityList
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:PROFANITY [UPDATE]` with
+ * scope `social`
+ * update the list
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

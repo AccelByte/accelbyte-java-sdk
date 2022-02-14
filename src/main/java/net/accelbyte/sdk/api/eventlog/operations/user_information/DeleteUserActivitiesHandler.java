@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * DeleteUserActivitiesHandler
+ *
+ * Required permission `NAMESPACE:{namespace}:EVENT [UPDATE]`and scope
+ * `analytics`
+ *
+ * @deprecated
+ */
+@Deprecated
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

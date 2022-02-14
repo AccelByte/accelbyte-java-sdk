@@ -19,6 +19,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * testFulfillmentScriptEval
+ *
+ *  [TEST FACILITY ONLY] Test eval fulfillment script.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:FULFILLMENT", action=2 (READ)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

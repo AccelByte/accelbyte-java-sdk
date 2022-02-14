@@ -17,6 +17,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminVerifyUserWithoutVerificationCodeV3
+ *
+ * 
+ * 
+ * This endpoint force verify user. Required permission
+ * ADMIN:NAMESPACE:{namespace}:USER:{userId} [UPDATE]
+ * 
+ * action code: 10118
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

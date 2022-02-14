@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getTicketDynamic
+ *
+ *  [SERVICE COMMUNICATION ONLY] Get ticket(code/key) dynamic based on booth
+ * name.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:TICKET", action=2 (READ)
+ *   *  Returns : ticket dynamic
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

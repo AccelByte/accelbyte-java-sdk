@@ -17,6 +17,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * DeleteServer
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:SERVER [DELETE] Required
+ * scope: social This endpoint deletes a specified dedicated server from DB and
+ * terminates the DS pod.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

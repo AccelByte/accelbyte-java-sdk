@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * banUsers
+ *
+ * Ban user.
+ * actionId: 1 means permanent ban, actionId: 10 means Temporary ban.Other detail
+ * info:
+ * 
+ *   * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=4 (UPDATE)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

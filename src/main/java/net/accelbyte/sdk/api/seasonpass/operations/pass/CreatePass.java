@@ -19,6 +19,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * createPass
+ *
+ * This API is used to create a pass for a draft season.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=1 (CREATE)
+ *   *  Returns : created pass
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

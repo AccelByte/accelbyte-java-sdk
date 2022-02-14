@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicGetUserPlatformAccountsV3
+ *
+ * 
+ * 
+ * This endpoint retrieves platform accounts linked to user. Required valid user
+ * authorization.
+ * action code: 10128
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

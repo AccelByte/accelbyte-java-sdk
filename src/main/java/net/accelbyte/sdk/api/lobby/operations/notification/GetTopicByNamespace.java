@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getTopicByNamespace
+ *
+ * Required permission : `NAMESPACE:{namespace}:TOPIC [READ]` with scope `social`
+ * get topic by namespace.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

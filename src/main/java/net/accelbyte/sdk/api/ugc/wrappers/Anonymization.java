@@ -19,6 +19,9 @@ public class Anonymization {
         this.sdk = sdk;
     }
 
+    /**
+     * @see AdminDeleteAllUserChannels
+     */
     public void adminDeleteAllUserChannels(AdminDeleteAllUserChannels input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Anonymization {
         }
     }
 
+    /**
+     * @see AdminDeleteAllUserContents
+     */
     public void adminDeleteAllUserContents(AdminDeleteAllUserContents input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Anonymization {
         }
     }
 
+    /**
+     * @see AdminDeleteAllUserGroup
+     */
     public void adminDeleteAllUserGroup(AdminDeleteAllUserGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Anonymization {
         }
     }
 
+    /**
+     * @see AdminDeleteAllUserStates
+     */
     public void adminDeleteAllUserStates(AdminDeleteAllUserStates input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Anonymization {
         }
     }
 
+    /**
+     * @see DeleteAllUserChannel
+     */
     public void deleteAllUserChannel(DeleteAllUserChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Anonymization {
         }
     }
 
+    /**
+     * @see DeleteAllUserContents
+     */
     public void deleteAllUserContents(DeleteAllUserContents input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Anonymization {
         }
     }
 
+    /**
+     * @see DeleteAllUserGroup
+     */
     public void deleteAllUserGroup(DeleteAllUserGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Anonymization {
         }
     }
 
+    /**
+     * @see DeleteAllUserStates
+     */
     public void deleteAllUserStates(DeleteAllUserStates input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

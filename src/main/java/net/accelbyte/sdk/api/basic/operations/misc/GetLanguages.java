@@ -17,6 +17,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getLanguages
+ *
+ * List languages.
+ * Other detail info:
+ * 
+ *   * Required permission : login user
+ *   *  Action code : 11206
+ *   *  Returns : language list
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

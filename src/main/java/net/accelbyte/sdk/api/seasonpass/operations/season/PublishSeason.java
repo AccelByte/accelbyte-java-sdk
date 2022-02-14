@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publishSeason
+ *
+ * This API is used to publish a draft season, only one published season allowed
+ * at same time in a namespace.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
+ *   *  Returns : published season
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

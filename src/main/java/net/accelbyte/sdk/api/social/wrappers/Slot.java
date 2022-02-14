@@ -19,6 +19,9 @@ public class Slot {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetUserNamespaceSlots
+     */
     public List<SlotInfo> getUserNamespaceSlots(GetUserNamespaceSlots input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Slot {
         }
     }
 
+    /**
+     * @see GetSlotData
+     */
     public InputStream getSlotData(GetSlotData input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Slot {
         }
     }
 
+    /**
+     * @see PublicGetUserNamespaceSlots
+     */
     public List<SlotInfo> publicGetUserNamespaceSlots(PublicGetUserNamespaceSlots input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Slot {
         }
     }
 
+    /**
+     * @see PublicCreateUserNamespaceSlot
+     */
     public void publicCreateUserNamespaceSlot(PublicCreateUserNamespaceSlot input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Slot {
         }
     }
 
+    /**
+     * @see PublicGetSlotData
+     */
     public InputStream publicGetSlotData(PublicGetSlotData input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Slot {
         }
     }
 
+    /**
+     * @see PublicUpdateUserNamespaceSlot
+     */
     public SlotInfo publicUpdateUserNamespaceSlot(PublicUpdateUserNamespaceSlot input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Slot {
         }
     }
 
+    /**
+     * @see PublicDeleteUserNamespaceSlot
+     */
     public void publicDeleteUserNamespaceSlot(PublicDeleteUserNamespaceSlot input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Slot {
         }
     }
 
+    /**
+     * @see PublicUpdateUserNamespaceSlotMetadata
+     */
     public SlotInfo publicUpdateUserNamespaceSlotMetadata(PublicUpdateUserNamespaceSlotMetadata input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

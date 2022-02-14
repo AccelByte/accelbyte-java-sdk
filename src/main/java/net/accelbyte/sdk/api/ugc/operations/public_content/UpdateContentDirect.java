@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * UpdateContentDirect
+ *
+ * Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE]. All
+ * request body are required except preview and tags.
+ *
+ * @deprecated
+ */
+@Deprecated
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

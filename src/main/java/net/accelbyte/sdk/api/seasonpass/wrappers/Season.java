@@ -19,6 +19,9 @@ public class Season {
         this.sdk = sdk;
     }
 
+    /**
+     * @see QuerySeasons
+     */
     public ListSeasonInfoPagingSlicedResult querySeasons(QuerySeasons input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Season {
         }
     }
 
+    /**
+     * @see CreateSeason
+     */
     public SeasonInfo createSeason(CreateSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Season {
         }
     }
 
+    /**
+     * @see GetCurrentSeason
+     */
     public SeasonSummary getCurrentSeason(GetCurrentSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Season {
         }
     }
 
+    /**
+     * @see GetSeason
+     */
     public SeasonInfo getSeason(GetSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Season {
         }
     }
 
+    /**
+     * @see DeleteSeason
+     */
     public void deleteSeason(DeleteSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Season {
         }
     }
 
+    /**
+     * @see UpdateSeason
+     */
     public SeasonInfo updateSeason(UpdateSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Season {
         }
     }
 
+    /**
+     * @see CloneSeason
+     */
     public SeasonInfo cloneSeason(CloneSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Season {
         }
     }
 
+    /**
+     * @see PublishSeason
+     */
     public SeasonInfo publishSeason(PublishSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class Season {
         }
     }
 
+    /**
+     * @see RetireSeason
+     */
     public SeasonInfo retireSeason(RetireSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class Season {
         }
     }
 
+    /**
+     * @see UnpublishSeason
+     */
     public SeasonInfo unpublishSeason(UnpublishSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class Season {
         }
     }
 
+    /**
+     * @see GetUserParticipatedSeasons
+     */
     public ListUserSeasonInfoPagingSlicedResult getUserParticipatedSeasons(GetUserParticipatedSeasons input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +228,9 @@ public class Season {
         }
     }
 
+    /**
+     * @see ExistsAnyPassByPassCodes
+     */
     public Ownership existsAnyPassByPassCodes(ExistsAnyPassByPassCodes input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -211,6 +247,9 @@ public class Season {
         }
     }
 
+    /**
+     * @see GetCurrentUserSeasonProgression
+     */
     public UserSeasonSummary getCurrentUserSeasonProgression(GetCurrentUserSeasonProgression input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -227,6 +266,9 @@ public class Season {
         }
     }
 
+    /**
+     * @see CheckSeasonPurchasable
+     */
     public void checkSeasonPurchasable(CheckSeasonPurchasable input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -243,6 +285,9 @@ public class Season {
         }
     }
 
+    /**
+     * @see ResetUserSeason
+     */
     public void resetUserSeason(ResetUserSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -259,6 +304,9 @@ public class Season {
         }
     }
 
+    /**
+     * @see GetUserSeason
+     */
     public ClaimableUserSeasonInfo getUserSeason(GetUserSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -275,6 +323,9 @@ public class Season {
         }
     }
 
+    /**
+     * @see PublicGetCurrentSeason
+     */
     public LocalizedSeasonInfo publicGetCurrentSeason(PublicGetCurrentSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -291,6 +342,9 @@ public class Season {
         }
     }
 
+    /**
+     * @see PublicGetCurrentUserSeason
+     */
     public ClaimableUserSeasonInfo publicGetCurrentUserSeason(PublicGetCurrentUserSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -307,6 +361,9 @@ public class Season {
         }
     }
 
+    /**
+     * @see PublicGetUserSeason
+     */
     public ClaimableUserSeasonInfo publicGetUserSeason(PublicGetUserSeason input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

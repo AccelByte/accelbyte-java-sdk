@@ -19,6 +19,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updateMemberRolePermissionAdminV1
+ *
+ * 
+ * 
+ * Required permission ADMIN:NAMESPACE:{namespace}:GROUP:ROLE [UPDATE]
+ * 
+ * This endpoint is used to update member role permission. It will replace the
+ * existing permission based on the request from this endpoint
+ * 
+ * Action Code: 73205
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

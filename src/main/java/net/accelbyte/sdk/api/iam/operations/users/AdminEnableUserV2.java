@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminEnableUserV2
+ *
+ * Required permissions 'ADMIN:NAMESPACE:{namespace}:USERSTATUS:USER:{userId}
+ * [UPDATE]'
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

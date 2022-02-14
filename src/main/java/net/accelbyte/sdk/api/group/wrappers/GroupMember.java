@@ -19,6 +19,9 @@ public class GroupMember {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetGroupMembersListAdminV1
+     */
     public ModelsGetGroupMemberListResponseV1 getGroupMembersListAdminV1(GetGroupMembersListAdminV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class GroupMember {
         }
     }
 
+    /**
+     * @see AcceptGroupInvitationPublicV1
+     */
     public ModelsMemberRequestGroupResponseV1 acceptGroupInvitationPublicV1(AcceptGroupInvitationPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class GroupMember {
         }
     }
 
+    /**
+     * @see RejectGroupInvitationPublicV1
+     */
     public ModelsMemberRequestGroupResponseV1 rejectGroupInvitationPublicV1(RejectGroupInvitationPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class GroupMember {
         }
     }
 
+    /**
+     * @see JoinGroupV1
+     */
     public ModelsJoinGroupResponseV1 joinGroupV1(JoinGroupV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class GroupMember {
         }
     }
 
+    /**
+     * @see CancelGroupJoinRequestV1
+     */
     public ModelsMemberRequestGroupResponseV1 cancelGroupJoinRequestV1(CancelGroupJoinRequestV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class GroupMember {
         }
     }
 
+    /**
+     * @see GetGroupMembersListPublicV1
+     */
     public ModelsGetGroupMemberListResponseV1 getGroupMembersListPublicV1(GetGroupMembersListPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class GroupMember {
         }
     }
 
+    /**
+     * @see LeaveGroupPublicV1
+     */
     public ModelsLeaveGroupResponseV1 leaveGroupPublicV1(LeaveGroupPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class GroupMember {
         }
     }
 
+    /**
+     * @see GetUserGroupInformationPublicV1
+     */
     public ModelsGetUserGroupInformationResponseV1 getUserGroupInformationPublicV1(GetUserGroupInformationPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class GroupMember {
         }
     }
 
+    /**
+     * @see InviteGroupPublicV1
+     */
     public ModelsUserInvitationResponseV1 inviteGroupPublicV1(InviteGroupPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class GroupMember {
         }
     }
 
+    /**
+     * @see AcceptGroupJoinRequestPublicV1
+     */
     public ModelsMemberRequestGroupResponseV1 acceptGroupJoinRequestPublicV1(AcceptGroupJoinRequestPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class GroupMember {
         }
     }
 
+    /**
+     * @see RejectGroupJoinRequestPublicV1
+     */
     public ModelsMemberRequestGroupResponseV1 rejectGroupJoinRequestPublicV1(RejectGroupJoinRequestPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +228,9 @@ public class GroupMember {
         }
     }
 
+    /**
+     * @see KickGroupMemberPublicV1
+     */
     public ModelsKickGroupMemberResponseV1 kickGroupMemberPublicV1(KickGroupMemberPublicV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

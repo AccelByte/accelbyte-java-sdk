@@ -19,6 +19,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * createSeason
+ *
+ * This API is used to create a season, season only allowed in non-publisher
+ * namespace.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=1 (CREATE)
+ *   *  Returns : created season
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

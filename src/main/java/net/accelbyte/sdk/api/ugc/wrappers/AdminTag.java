@@ -19,6 +19,9 @@ public class AdminTag {
         this.sdk = sdk;
     }
 
+    /**
+     * @see AdminGetTag
+     */
     public ModelsPaginatedGetTagResponse adminGetTag(AdminGetTag input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class AdminTag {
         }
     }
 
+    /**
+     * @see AdminCreateTag
+     */
     public ModelsCreateTagResponse adminCreateTag(AdminCreateTag input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class AdminTag {
         }
     }
 
+    /**
+     * @see AdminUpdateTag
+     */
     public ModelsCreateTagResponse adminUpdateTag(AdminUpdateTag input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class AdminTag {
         }
     }
 
+    /**
+     * @see AdminDeleteTag
+     */
     public void adminDeleteTag(AdminDeleteTag input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

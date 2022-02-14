@@ -19,6 +19,9 @@ public class SocialMatchmaking {
         this.sdk = sdk;
     }
 
+    /**
+     * @see UpdatePlayTimeWeight
+     */
     public ModelsUpdatePlayerPlaytimeWeightResponse updatePlayTimeWeight(UpdatePlayTimeWeight input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

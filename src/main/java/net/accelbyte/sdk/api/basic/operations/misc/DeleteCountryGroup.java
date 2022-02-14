@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * deleteCountryGroup
+ *
+ * Delete a country groups by its country group code. This endpoint usually used
+ * for testing purpose to cleanup test data.
+ * Other detail info:
+ * 
+ *   * Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=8 (DELETE)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetSingleMatchmakingChannel
+ *
+ * Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [READ]
+ * Required Scope: social Reads single channel based on namespace and channel
+ * name Action Code: 510112
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

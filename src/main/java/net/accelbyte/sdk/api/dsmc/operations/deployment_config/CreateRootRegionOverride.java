@@ -19,6 +19,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * CreateRootRegionOverride
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [CREATE] Required
+ * scope: social This endpoint creates a dedicated servers deployment override in
+ * a namespace in a region for root deployment.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

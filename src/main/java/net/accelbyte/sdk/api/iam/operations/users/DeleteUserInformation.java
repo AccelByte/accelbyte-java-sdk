@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * DeleteUserInformation
+ *
+ * Required permissions 'ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId}
+ * [DELETE]'.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

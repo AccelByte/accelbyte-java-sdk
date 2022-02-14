@@ -18,6 +18,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetRevocationList
+ *
+ * 
+ * 
+ * This endpoint will return a list of revoked users and revoked tokens. List of
+ * revoked tokens in bloom filter format. This endpoint requires all requests to
+ * have Authorization header set with Basic access authentication constructed
+ * from client id and client secret.
+ * 
+ * The bloom filter uses MurmurHash3 algorithm for hashing the values
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

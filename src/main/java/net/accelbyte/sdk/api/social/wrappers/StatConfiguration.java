@@ -19,6 +19,9 @@ public class StatConfiguration {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetStats
+     */
     public StatPagingSlicedResult getStats(GetStats input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class StatConfiguration {
         }
     }
 
+    /**
+     * @see CreateStat
+     */
     public StatInfo createStat(CreateStat input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class StatConfiguration {
         }
     }
 
+    /**
+     * @see ExportStats
+     */
     public void exportStats(ExportStats input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class StatConfiguration {
         }
     }
 
+    /**
+     * @see ImportStats
+     */
     public StatImportInfo importStats(ImportStats input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class StatConfiguration {
         }
     }
 
+    /**
+     * @see QueryStats
+     */
     public StatPagingSlicedResult queryStats(QueryStats input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class StatConfiguration {
         }
     }
 
+    /**
+     * @see GetStat
+     */
     public StatInfo getStat(GetStat input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class StatConfiguration {
         }
     }
 
+    /**
+     * @see DeleteStat
+     */
     public void deleteStat(DeleteStat input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class StatConfiguration {
         }
     }
 
+    /**
+     * @see UpdateStat
+     */
     public StatInfo updateStat(UpdateStat input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class StatConfiguration {
         }
     }
 
+    /**
+     * @see CreateStat1
+     */
     public StatInfo createStat1(CreateStat1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

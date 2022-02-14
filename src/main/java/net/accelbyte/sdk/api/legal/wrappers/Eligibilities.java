@@ -19,6 +19,9 @@ public class Eligibilities {
         this.sdk = sdk;
     }
 
+    /**
+     * @see RetrieveEligibilitiesPublic
+     */
     public List<RetrieveUserEligibilitiesResponse> retrieveEligibilitiesPublic(RetrieveEligibilitiesPublic input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Eligibilities {
         }
     }
 
+    /**
+     * @see RetrieveEligibilitiesPublicIndirect
+     */
     public RetrieveUserEligibilitiesIndirectResponse retrieveEligibilitiesPublicIndirect(RetrieveEligibilitiesPublicIndirect input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

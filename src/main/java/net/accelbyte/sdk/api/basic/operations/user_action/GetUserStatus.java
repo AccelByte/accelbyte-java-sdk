@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getUserStatus
+ *
+ * Get user status.
+ * If actionId does not exist, then the user is not banned.If actionId and
+ * expires exist, then the user is temporarily banned, if expires does not exist,
+ * then the user is permanently banned.Other detail info:
+ * 
+ *   * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=2 (READ)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

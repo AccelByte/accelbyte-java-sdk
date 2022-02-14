@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminGetBansTypeWithNamespaceV3
+ *
+ * Required permission 'ADMIN:BAN [READ]'
+ * Ban type is the code available for ban assignment. It is applicable globally
+ * for any namespace.
+ * action code : 10201
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

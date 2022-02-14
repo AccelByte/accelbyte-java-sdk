@@ -18,6 +18,20 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getGroupInvitationRequestPublicV1
+ *
+ * 
+ * 
+ * Required valid user authentication
+ * 
+ * This endpoint is used to Get Group Invitation Request List
+ * 
+ * Get Group Invitation Request List for specific group. It will check any group
+ * invitation for this user
+ * 
+ * Action Code: 73502
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

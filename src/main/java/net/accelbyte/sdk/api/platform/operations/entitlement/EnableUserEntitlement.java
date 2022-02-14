@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * enableUserEntitlement
+ *
+ * Enable user entitlement.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=4 (UPDATE)
+ *   *  Returns : enable entitlement
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

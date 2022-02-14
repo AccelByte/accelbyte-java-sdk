@@ -17,6 +17,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publishTemplate
+ *
+ * Required permission : `NAMESPACE:{namespace}:TEMPLATE [CREATE]` with scope
+ * `social`
+ * Publish notification template draft. Empty draft can not be published.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

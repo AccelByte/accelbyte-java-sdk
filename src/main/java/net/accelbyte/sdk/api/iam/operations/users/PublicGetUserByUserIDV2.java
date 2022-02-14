@@ -18,6 +18,9 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicGetUserByUserIDV2
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

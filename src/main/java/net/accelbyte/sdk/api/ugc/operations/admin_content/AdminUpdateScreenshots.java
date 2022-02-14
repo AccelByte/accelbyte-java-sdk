@@ -19,6 +19,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminUpdateScreenshots
+ *
+ * Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT
+ * [UPDATE]. Maximum description length: 1024.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

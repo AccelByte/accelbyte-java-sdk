@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * queryCampaigns
+ *
+ * Query campaigns, if name is presented, it's fuzzy match.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ) (READ)
+ *   *  Returns : slice of campaigns
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

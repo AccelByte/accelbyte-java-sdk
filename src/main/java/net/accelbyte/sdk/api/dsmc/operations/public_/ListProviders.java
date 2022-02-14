@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * ListProviders
+ *
+ * This endpoints returns list of supported providers. Armada is the default
+ * provider.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

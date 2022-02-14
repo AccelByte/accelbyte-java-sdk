@@ -19,6 +19,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminAssignUserToRoleV4
+ *
+ * Required permission ADMIN:ROLE [UPDATE] Parameters: - userId: string
+ * (required) - namespace: string (userâs namespace) (required) -
+ * assignedNamespaces: array of string (namespaces to be assigned on role)
+ * (required) action code: 10410
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

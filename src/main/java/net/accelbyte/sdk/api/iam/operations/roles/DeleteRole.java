@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * DeleteRole
+ *
+ * Required permission 'ROLE:ADMIN [DELETE]' or 'ADMIN:ROLE [DELETE]'
+ * 
+ * Required Permission 'ROLE:ADMIN [DELETE]' is going to be DEPRECATED for
+ * security purpose. It is going to be deprecated on 31 JANUARY 2019 , please use
+ * permission 'ADMIN:ROLE [DELETE]' instead.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

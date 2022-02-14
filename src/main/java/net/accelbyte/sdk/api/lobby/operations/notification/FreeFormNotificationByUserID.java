@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * freeFormNotificationByUserID
+ *
+ * Required permission : `NAMESPACE:{namespace}:USER:{userId}:NOTIFICATION
+ * [CREATE]` with scope `social`
+ * Sends notification to a user.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

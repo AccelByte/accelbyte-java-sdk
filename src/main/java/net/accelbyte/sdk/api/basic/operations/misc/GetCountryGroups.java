@@ -17,6 +17,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getCountryGroups
+ *
+ * List country groups. Will return all available country groups if the query
+ * param is not specified
+ * Other detail info:
+ * 
+ *   * Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=2 (READ)
+ *   *  Action code : 11203
+ *   *  Returns : list of country groups
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

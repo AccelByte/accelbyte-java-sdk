@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetSessionHistoryDetailed
+ *
+ * Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Read]
+ * Required Scope: social Get session history detailed.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

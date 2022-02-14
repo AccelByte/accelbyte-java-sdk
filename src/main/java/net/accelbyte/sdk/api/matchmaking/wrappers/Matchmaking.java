@@ -19,6 +19,9 @@ public class Matchmaking {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetAllChannelsHandler
+     */
     public ModelsGetChannelsResponse getAllChannelsHandler(GetAllChannelsHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see CreateChannelHandler
+     */
     public ModelsCreateChannelResponse createChannelHandler(CreateChannelHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see DeleteChannelHandler
+     */
     public void deleteChannelHandler(DeleteChannelHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see StoreMatchResults
+     */
     public ModelsMatchResultResponse storeMatchResults(StoreMatchResults input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see QueueSessionHandler
+     */
     public void queueSessionHandler(QueueSessionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see DequeueSessionHandler
+     */
     public void dequeueSessionHandler(DequeueSessionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see QuerySessionHandler
+     */
     public ModelsMatchmakingResult querySessionHandler(QuerySessionHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see GetAllPartyInAllChannel
+     */
     public Map<String, List<ModelsMatchingParty>> getAllPartyInAllChannel(GetAllPartyInAllChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see BulkGetSessions
+     */
     public List<ModelsMatchmakingResult> bulkGetSessions(BulkGetSessions input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see ExportChannels
+     */
     public List<ModelsChannelV1> exportChannels(ExportChannels input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see ImportChannels
+     */
     public ModelsImportConfigResponse importChannels(ImportChannels input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +228,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see GetSingleMatchmakingChannel
+     */
     public ModelsChannelV1 getSingleMatchmakingChannel(GetSingleMatchmakingChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -211,6 +247,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see UpdateMatchmakingChannel
+     */
     public void updateMatchmakingChannel(UpdateMatchmakingChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -227,6 +266,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see GetAllPartyInChannel
+     */
     public List<ModelsMatchingParty> getAllPartyInChannel(GetAllPartyInChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -243,6 +285,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see GetAllSessionsInChannel
+     */
     public List<ModelsMatchmakingResult> getAllSessionsInChannel(GetAllSessionsInChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -259,6 +304,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see AddUserIntoSessionInChannel
+     */
     public void addUserIntoSessionInChannel(AddUserIntoSessionInChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -275,6 +323,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see DeleteSessionInChannel
+     */
     public void deleteSessionInChannel(DeleteSessionInChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -291,6 +342,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see DeleteUserFromSessionInChannel
+     */
     public void deleteUserFromSessionInChannel(DeleteUserFromSessionInChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -307,6 +361,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see SearchSessions
+     */
     public ServiceGetSessionHistorySearchResponse searchSessions(SearchSessions input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -323,6 +380,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see GetSessionHistoryDetailed
+     */
     public List<ServiceGetSessionHistoryDetailedResponseItem> getSessionHistoryDetailed(GetSessionHistoryDetailed input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -339,6 +399,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see PublicGetAllMatchmakingChannel
+     */
     public List<ModelsChannelV1> publicGetAllMatchmakingChannel(PublicGetAllMatchmakingChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -355,6 +418,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see PublicGetSingleMatchmakingChannel
+     */
     public ModelsChannelV1 publicGetSingleMatchmakingChannel(PublicGetSingleMatchmakingChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -371,6 +437,9 @@ public class Matchmaking {
         }
     }
 
+    /**
+     * @see SearchSessionsV2
+     */
     public ServiceGetSessionHistorySearchResponseV2 searchSessionsV2(SearchSessionsV2 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

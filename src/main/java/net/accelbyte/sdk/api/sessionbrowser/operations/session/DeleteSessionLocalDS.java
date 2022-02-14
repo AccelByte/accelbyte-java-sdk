@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * DeleteSessionLocalDS
+ *
+ * Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [DELETE]
+ * Required scope: social Only use for local DS entry, will error when calling
+ * non local DS entry
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

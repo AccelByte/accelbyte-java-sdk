@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * bulkCreateUserStatItems
+ *
+ * Bulk create user's statItems.
+ * Other detail info:
+ * 
+ *           *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE)
+ *           *  Returns : bulk created result
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

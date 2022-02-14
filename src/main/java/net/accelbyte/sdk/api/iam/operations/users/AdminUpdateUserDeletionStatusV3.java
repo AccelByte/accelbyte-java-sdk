@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminUpdateUserDeletionStatusV3
+ *
+ * Required permissions 'ADMIN:NAMESPACE:{namespace}:DELETIONSTATUS:USER:{userId}
+ * [UPDATE]'
+ * action code : 10144
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

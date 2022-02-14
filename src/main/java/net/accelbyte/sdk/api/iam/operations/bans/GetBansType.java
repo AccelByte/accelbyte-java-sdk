@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetBansType
+ *
+ * Required permission 'BAN:ADMIN [READ]' or 'ADMIN:BAN [READ]'
+ * 
+ * Required Permission 'BAN:ADMIN [READ]' is going to be DEPRECATED for security
+ * purpose. It is going to be deprecated on 31 JANUARY 2019 , please use
+ * permission 'ADMIN:BAN [READ]' instead.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -19,6 +19,11 @@ public class AdminContent {
         this.sdk = sdk;
     }
 
+    /**
+     * @see AdminUploadContentDirect
+     * @deprecated
+     */
+    @Deprecated
     public ModelsCreateContentResponse adminUploadContentDirect(AdminUploadContentDirect input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +40,9 @@ public class AdminContent {
         }
     }
 
+    /**
+     * @see AdminUploadContentS3
+     */
     public ModelsCreateContentResponse adminUploadContentS3(AdminUploadContentS3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +59,9 @@ public class AdminContent {
         }
     }
 
+    /**
+     * @see SingleAdminUpdateContentS3
+     */
     public ModelsCreateContentResponse singleAdminUpdateContentS3(SingleAdminUpdateContentS3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +78,9 @@ public class AdminContent {
         }
     }
 
+    /**
+     * @see AdminSearchChannelSpecificContent
+     */
     public ModelsPaginatedContentDownloadResponse adminSearchChannelSpecificContent(AdminSearchChannelSpecificContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +97,11 @@ public class AdminContent {
         }
     }
 
+    /**
+     * @see SingleAdminUpdateContentDirect
+     * @deprecated
+     */
+    @Deprecated
     public ModelsCreateContentResponse singleAdminUpdateContentDirect(SingleAdminUpdateContentDirect input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +118,9 @@ public class AdminContent {
         }
     }
 
+    /**
+     * @see SingleAdminDeleteContent
+     */
     public void singleAdminDeleteContent(SingleAdminDeleteContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +137,9 @@ public class AdminContent {
         }
     }
 
+    /**
+     * @see SingleAdminGetContent
+     */
     public ModelsPaginatedContentDownloadResponse singleAdminGetContent(SingleAdminGetContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +156,9 @@ public class AdminContent {
         }
     }
 
+    /**
+     * @see AdminSearchContent
+     */
     public ModelsPaginatedContentDownloadResponse adminSearchContent(AdminSearchContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +175,9 @@ public class AdminContent {
         }
     }
 
+    /**
+     * @see AdminGetSpecificContent
+     */
     public ModelsContentDownloadResponse adminGetSpecificContent(AdminGetSpecificContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +194,9 @@ public class AdminContent {
         }
     }
 
+    /**
+     * @see AdminDownloadContentPreview
+     */
     public ModelsGetContentPreviewResponse adminDownloadContentPreview(AdminDownloadContentPreview input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +213,9 @@ public class AdminContent {
         }
     }
 
+    /**
+     * @see AdminUpdateScreenshots
+     */
     public ModelsUpdateScreenshotResponse adminUpdateScreenshots(AdminUpdateScreenshots input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +232,9 @@ public class AdminContent {
         }
     }
 
+    /**
+     * @see AdminUploadContentScreenshot
+     */
     public ModelsCreateScreenshotResponse adminUploadContentScreenshot(AdminUploadContentScreenshot input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -211,6 +251,9 @@ public class AdminContent {
         }
     }
 
+    /**
+     * @see AdminDeleteContentScreenshot
+     */
     public void adminDeleteContentScreenshot(AdminDeleteContentScreenshot input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -227,6 +270,9 @@ public class AdminContent {
         }
     }
 
+    /**
+     * @see AdminUpdateContentS3
+     */
     public ModelsCreateContentResponse adminUpdateContentS3(AdminUpdateContentS3 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -243,6 +289,11 @@ public class AdminContent {
         }
     }
 
+    /**
+     * @see AdminUpdateContentDirect
+     * @deprecated
+     */
+    @Deprecated
     public ModelsCreateContentResponse adminUpdateContentDirect(AdminUpdateContentDirect input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -259,6 +310,9 @@ public class AdminContent {
         }
     }
 
+    /**
+     * @see AdminDeleteContent
+     */
     public void adminDeleteContent(AdminDeleteContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -275,6 +329,9 @@ public class AdminContent {
         }
     }
 
+    /**
+     * @see AdminGetContent
+     */
     public ModelsPaginatedContentDownloadResponse adminGetContent(AdminGetContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -291,6 +348,9 @@ public class AdminContent {
         }
     }
 
+    /**
+     * @see AdminHideUserContent
+     */
     public ModelsCreateContentResponse adminHideUserContent(AdminHideUserContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

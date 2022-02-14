@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updateUserSlotConfig
+ *
+ * Update a user slot configuration in given namespace.
+ * Other detail info:
+ * 
+ *     *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=4 (UPDATE)
+ *     *  Returns : updated slot config
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -19,6 +19,9 @@ public class Chat {
         this.sdk = sdk;
     }
 
+    /**
+     * @see PersonalChatHistory
+     */
     public List<ModelChatMessageResponse> personalChatHistory(PersonalChatHistory input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Chat {
         }
     }
 
+    /**
+     * @see AdminChatHistory
+     */
     public List<ModelChatMessageResponse> adminChatHistory(AdminChatHistory input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Chat {
         }
     }
 
+    /**
+     * @see GetPersonalChatHistoryV1Public
+     */
     public List<ModelChatMessageResponse> getPersonalChatHistoryV1Public(GetPersonalChatHistoryV1Public input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

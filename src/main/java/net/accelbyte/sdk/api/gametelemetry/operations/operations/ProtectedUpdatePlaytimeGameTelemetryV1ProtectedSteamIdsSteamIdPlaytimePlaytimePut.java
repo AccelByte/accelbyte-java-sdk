@@ -17,6 +17,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * protected_update_playtime_game_telemetry_v1_protected_steamIds__steamId__playtime__playtime__put
+ *
+ * This endpoint requires valid JWT token. This endpoint does not require
+ * permission. This endpoint update player's total playtime in a specific game
+ * (AppId) from service's cache.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

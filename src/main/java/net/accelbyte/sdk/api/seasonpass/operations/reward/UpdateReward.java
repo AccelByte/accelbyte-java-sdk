@@ -19,6 +19,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updateReward
+ *
+ * This API is used to update a reward. Only draft season reward can be updated.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
+ *   *  Returns : updated reward
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

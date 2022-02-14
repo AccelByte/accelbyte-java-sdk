@@ -17,6 +17,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * retrieveLatestPolicies
+ *
+ * Retrieve all active latest policies based on a country.
+ * Other detail info:
+ * 
+ *   * Leave the policyType empty if you want to be responded with all policy type
+ *   *  Fill the tags if you want to filter the responded policy by tags
+ *   *  Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

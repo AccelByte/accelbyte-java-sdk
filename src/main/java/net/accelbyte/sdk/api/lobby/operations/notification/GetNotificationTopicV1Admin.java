@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getNotificationTopicV1Admin
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [READ]` with
+ * scope `social`
+ * get topic information by topic name.
+ * Action Code: 50215
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

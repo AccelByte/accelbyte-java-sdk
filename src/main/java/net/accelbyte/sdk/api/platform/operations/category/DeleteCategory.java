@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * deleteCategory
+ *
+ * This API is used to delete category by category path.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=8 (DELETE)
+ *   *  Returns : the deleted category data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

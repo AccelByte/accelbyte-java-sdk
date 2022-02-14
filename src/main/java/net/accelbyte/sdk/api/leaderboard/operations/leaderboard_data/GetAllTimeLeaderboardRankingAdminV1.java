@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetAllTimeLeaderboardRankingAdminV1
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+ * 
+ * Get rankings in an all time leaderboard.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

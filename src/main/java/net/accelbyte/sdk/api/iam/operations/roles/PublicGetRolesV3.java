@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicGetRolesV3
+ *
+ * 
+ * This endpoint is used to get all non-admin role.
+ * 
+ * action code: 10418
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

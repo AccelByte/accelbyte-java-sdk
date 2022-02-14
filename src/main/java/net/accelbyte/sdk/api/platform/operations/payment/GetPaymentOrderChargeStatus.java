@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getPaymentOrderChargeStatus
+ *
+ * Get payment order charge status.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=2 (READ)
+ *   *  Returns : payment order charge status
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

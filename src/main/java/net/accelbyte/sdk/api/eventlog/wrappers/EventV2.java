@@ -19,6 +19,9 @@ public class EventV2 {
         this.sdk = sdk;
     }
 
+    /**
+     * @see QueryEventStreamHandler
+     */
     public ModelsEventResponseV2 queryEventStreamHandler(QueryEventStreamHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class EventV2 {
         }
     }
 
+    /**
+     * @see GetEventSpecificUserV2Handler
+     */
     public ModelsEventResponseV2 getEventSpecificUserV2Handler(GetEventSpecificUserV2Handler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class EventV2 {
         }
     }
 
+    /**
+     * @see GetPublicEditHistory
+     */
     public ModelsEventResponseV2 getPublicEditHistory(GetPublicEditHistory input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class EventV2 {
         }
     }
 
+    /**
+     * @see GetUserEventsV2Public
+     */
     public ModelsEventResponseV2 getUserEventsV2Public(GetUserEventsV2Public input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

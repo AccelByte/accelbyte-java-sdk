@@ -18,6 +18,19 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getGroupListPublicV1
+ *
+ * 
+ * 
+ * Required valid user authentication
+ * 
+ * Get list of groups. This endpoint will only show OPEN and PUBLIC group type.
+ * This endpoint can search based on the group name by filling the "groupName"
+ * query parameter
+ * 
+ * Action Code: 73303
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

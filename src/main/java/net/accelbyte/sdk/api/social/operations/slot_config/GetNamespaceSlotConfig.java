@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getNamespaceSlotConfig
+ *
+ * Get slot configuration for a given namespace. In case slot configuration is
+ * not set, the default will be returned.
+ * Other detail info:
+ * 
+ *   *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=2 (READ)
+ *   *  Returns : namespace slot config info
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

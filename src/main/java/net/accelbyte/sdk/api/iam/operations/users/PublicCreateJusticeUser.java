@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicCreateJusticeUser
+ *
+ * Create Justice User from Publisher User information. It will check first if
+ * Justice User on target namespace already exist.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

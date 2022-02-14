@@ -19,6 +19,9 @@ public class Namespace {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetNamespaces
+     */
     public List<NamespaceInfo> getNamespaces(GetNamespaces input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Namespace {
         }
     }
 
+    /**
+     * @see CreateNamespace
+     */
     public NamespaceInfo createNamespace(CreateNamespace input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Namespace {
         }
     }
 
+    /**
+     * @see GetNamespace
+     */
     public NamespaceInfo getNamespace(GetNamespace input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Namespace {
         }
     }
 
+    /**
+     * @see DeleteNamespace
+     */
     public NamespaceInfo deleteNamespace(DeleteNamespace input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Namespace {
         }
     }
 
+    /**
+     * @see UpdateNamespace
+     */
     public NamespaceInfo updateNamespace(UpdateNamespace input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Namespace {
         }
     }
 
+    /**
+     * @see GetNamespacePublisher
+     */
     public NamespacePublisherInfo getNamespacePublisher(GetNamespacePublisher input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Namespace {
         }
     }
 
+    /**
+     * @see ChangeNamespaceStatus
+     */
     public NamespaceInfo changeNamespaceStatus(ChangeNamespaceStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Namespace {
         }
     }
 
+    /**
+     * @see PublicGetNamespaces
+     */
     public List<NamespaceInfo> publicGetNamespaces(PublicGetNamespaces input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class Namespace {
         }
     }
 
+    /**
+     * @see PublicGetNamespacePublisher
+     */
     public NamespacePublisherInfo publicGetNamespacePublisher(PublicGetNamespacePublisher input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

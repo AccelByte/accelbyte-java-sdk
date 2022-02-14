@@ -17,6 +17,11 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminGetUserBanV2
+ *
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:BAN:USER:{userId} [READ]'.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

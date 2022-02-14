@@ -19,6 +19,11 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * UpdateUserFollowStatus
+ *
+ * Requires valid user token
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

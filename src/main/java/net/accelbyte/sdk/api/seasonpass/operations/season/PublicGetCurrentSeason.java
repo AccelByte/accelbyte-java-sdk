@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetCurrentSeason
+ *
+ * This API is used to get current published season, season only located in non-
+ * publisher namespace.
+ * 
+ * Other detail info:
+ * 
+ *   * Returns : localized season data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

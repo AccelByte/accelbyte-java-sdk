@@ -19,6 +19,9 @@ public class DataDeletion {
         this.sdk = sdk;
     }
 
+    /**
+     * @see AdminGetListDeletionDataRequest
+     */
     public ModelsListDeletionDataResponse adminGetListDeletionDataRequest(AdminGetListDeletionDataRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class DataDeletion {
         }
     }
 
+    /**
+     * @see AdminGetUserAccountDeletionRequest
+     */
     public ModelsDeletionData adminGetUserAccountDeletionRequest(AdminGetUserAccountDeletionRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class DataDeletion {
         }
     }
 
+    /**
+     * @see AdminSubmitUserAccountDeletionRequest
+     */
     public ModelsRequestDeleteResponse adminSubmitUserAccountDeletionRequest(AdminSubmitUserAccountDeletionRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class DataDeletion {
         }
     }
 
+    /**
+     * @see AdminCancelUserAccountDeletionRequest
+     */
     public void adminCancelUserAccountDeletionRequest(AdminCancelUserAccountDeletionRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class DataDeletion {
         }
     }
 
+    /**
+     * @see PublicSubmitUserAccountDeletionRequest
+     */
     public ModelsRequestDeleteResponse publicSubmitUserAccountDeletionRequest(PublicSubmitUserAccountDeletionRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class DataDeletion {
         }
     }
 
+    /**
+     * @see PublicCancelUserAccountDeletionRequest
+     */
     public void publicCancelUserAccountDeletionRequest(PublicCancelUserAccountDeletionRequest input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class DataDeletion {
         }
     }
 
+    /**
+     * @see PublicGetUserAccountDeletionStatus
+     */
     public ModelsDeletionStatus publicGetUserAccountDeletionStatus(PublicGetUserAccountDeletionStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

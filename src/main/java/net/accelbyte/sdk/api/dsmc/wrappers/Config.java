@@ -19,6 +19,9 @@ public class Config {
         this.sdk = sdk;
     }
 
+    /**
+     * @see ListConfig
+     */
     public ModelsListConfigResponse listConfig(ListConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,11 @@ public class Config {
         }
     }
 
+    /**
+     * @see SaveConfig
+     * @deprecated
+     */
+    @Deprecated
     public void saveConfig(SaveConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +59,9 @@ public class Config {
         }
     }
 
+    /**
+     * @see GetConfig
+     */
     public ModelsDSMConfigRecord getConfig(GetConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +78,9 @@ public class Config {
         }
     }
 
+    /**
+     * @see CreateConfig
+     */
     public ModelsDSMConfigRecord createConfig(CreateConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +97,9 @@ public class Config {
         }
     }
 
+    /**
+     * @see DeleteConfig
+     */
     public void deleteConfig(DeleteConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +116,9 @@ public class Config {
         }
     }
 
+    /**
+     * @see UpdateConfig
+     */
     public ModelsDSMConfigRecord updateConfig(UpdateConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +135,9 @@ public class Config {
         }
     }
 
+    /**
+     * @see ClearCache
+     */
     public void clearCache(ClearCache input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +154,9 @@ public class Config {
         }
     }
 
+    /**
+     * @see AddPort
+     */
     public ModelsDSMConfigRecord addPort(AddPort input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +173,9 @@ public class Config {
         }
     }
 
+    /**
+     * @see DeletePort
+     */
     public ModelsDSMConfigRecord deletePort(DeletePort input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +192,9 @@ public class Config {
         }
     }
 
+    /**
+     * @see UpdatePort
+     */
     public ModelsDSMConfigRecord updatePort(UpdatePort input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +211,9 @@ public class Config {
         }
     }
 
+    /**
+     * @see ExportConfigV1
+     */
     public ModelsDSMConfigExport exportConfigV1(ExportConfigV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +230,9 @@ public class Config {
         }
     }
 
+    /**
+     * @see ImportConfigV1
+     */
     public ModelsImportResponse importConfigV1(ImportConfigV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

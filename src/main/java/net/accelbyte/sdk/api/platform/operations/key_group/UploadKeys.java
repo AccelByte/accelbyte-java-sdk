@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * uploadKeys
+ *
+ * This API is used to upload keys with csv format to a key group.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=4 (UPDATE)
+ *   *  Returns : item data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

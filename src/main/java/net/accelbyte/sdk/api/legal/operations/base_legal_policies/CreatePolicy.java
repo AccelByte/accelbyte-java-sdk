@@ -19,6 +19,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * createPolicy
+ *
+ * Create a legal policy.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

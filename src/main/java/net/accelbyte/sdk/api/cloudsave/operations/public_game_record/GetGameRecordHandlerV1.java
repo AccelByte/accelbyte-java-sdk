@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getGameRecordHandlerV1
+ *
+ * Required Permission | `NAMESPACE:{namespace}:CLOUDSAVE:RECORD [READ]`
+ * ---|---
+ * Required Scope | `social`
+ * 
+ * Get game record by its key.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

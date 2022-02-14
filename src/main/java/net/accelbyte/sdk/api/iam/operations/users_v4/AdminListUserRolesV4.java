@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminListUserRolesV4
+ *
+ * This endpoint requires ADMIN:NAMESPACE:{namespace}:ROLE:USER:* [READ]
+ * permission. List roles assigned to a user
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

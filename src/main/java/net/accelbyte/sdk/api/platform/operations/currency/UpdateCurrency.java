@@ -19,6 +19,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * updateCurrency
+ *
+ * Update a currency by currency code.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=4 (UPDATE)
+ *   *  Returns : updated currency
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

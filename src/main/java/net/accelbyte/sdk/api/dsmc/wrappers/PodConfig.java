@@ -19,6 +19,9 @@ public class PodConfig {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetAllPodConfig
+     */
     public ModelsListPodConfigResponse getAllPodConfig(GetAllPodConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class PodConfig {
         }
     }
 
+    /**
+     * @see GetPodConfig
+     */
     public ModelsPodConfigRecord getPodConfig(GetPodConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class PodConfig {
         }
     }
 
+    /**
+     * @see CreatePodConfig
+     */
     public ModelsPodConfigRecord createPodConfig(CreatePodConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class PodConfig {
         }
     }
 
+    /**
+     * @see DeletePodConfig
+     */
     public void deletePodConfig(DeletePodConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class PodConfig {
         }
     }
 
+    /**
+     * @see UpdatePodConfig
+     */
     public ModelsPodConfigRecord updatePodConfig(UpdatePodConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

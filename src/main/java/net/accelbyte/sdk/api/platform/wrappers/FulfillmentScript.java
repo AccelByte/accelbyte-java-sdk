@@ -19,6 +19,9 @@ public class FulfillmentScript {
         this.sdk = sdk;
     }
 
+    /**
+     * @see ListFulfillmentScripts
+     */
     public List<FulfillmentScriptInfo> listFulfillmentScripts(ListFulfillmentScripts input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class FulfillmentScript {
         }
     }
 
+    /**
+     * @see TestFulfillmentScriptEval
+     */
     public FulfillmentScriptEvalTestResult testFulfillmentScriptEval(TestFulfillmentScriptEval input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class FulfillmentScript {
         }
     }
 
+    /**
+     * @see GetFulfillmentScript
+     */
     public FulfillmentScriptInfo getFulfillmentScript(GetFulfillmentScript input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class FulfillmentScript {
         }
     }
 
+    /**
+     * @see CreateFulfillmentScript
+     */
     public FulfillmentScriptInfo createFulfillmentScript(CreateFulfillmentScript input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class FulfillmentScript {
         }
     }
 
+    /**
+     * @see DeleteFulfillmentScript
+     */
     public void deleteFulfillmentScript(DeleteFulfillmentScript input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class FulfillmentScript {
         }
     }
 
+    /**
+     * @see UpdateFulfillmentScript
+     */
     public FulfillmentScriptInfo updateFulfillmentScript(UpdateFulfillmentScript input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

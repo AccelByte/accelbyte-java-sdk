@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * deleteReward
+ *
+ * This API is used to delete a reward by reward Id.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:REWARD", action=8 (DELETE)
+ *   *  Returns : the deleted reward data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminGetListPersonalDataRequest
+ *
+ * 
+ * 
+ * Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER [READ]` and
+ * scope `account`
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getPlayerPublicRecordHandlerV1
+ *
+ * Required Permission |
+ * `NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [READ]`
+ * ---|---
+ * Required Scope | `social`
+ * 
+ * Get other player's record that is public. Only record with `isPublic=true`
+ * that can be retrieved using this endpoint.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

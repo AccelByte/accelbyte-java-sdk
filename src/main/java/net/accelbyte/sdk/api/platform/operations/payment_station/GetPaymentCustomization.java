@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getPaymentCustomization
+ *
+ * Get payment provider customization, at current only Adyen provide
+ * customization.
+ * Other detail info:
+ * 
+ *   * Returns : customization
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

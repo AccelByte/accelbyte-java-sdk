@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicGetUserByUserIdV3
+ *
+ * 
+ * 
+ * This endpoint retrieve user attributes. action code: 10129
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

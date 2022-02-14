@@ -19,6 +19,9 @@ public class PublicType {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetType
+     */
     public ModelsPaginatedGetTypeResponse getType(GetType input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

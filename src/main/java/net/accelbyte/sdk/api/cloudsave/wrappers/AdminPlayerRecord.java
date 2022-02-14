@@ -19,6 +19,11 @@ public class AdminPlayerRecord {
         this.sdk = sdk;
     }
 
+    /**
+     * @see ListPlayerRecordHandlerV1
+     * @deprecated
+     */
+    @Deprecated
     public ModelsListPlayerRecordKeys listPlayerRecordHandlerV1(ListPlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +40,9 @@ public class AdminPlayerRecord {
         }
     }
 
+    /**
+     * @see AdminRetrievePlayerRecords
+     */
     public ModelsListPlayerRecordKeys adminRetrievePlayerRecords(AdminRetrievePlayerRecords input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +59,9 @@ public class AdminPlayerRecord {
         }
     }
 
+    /**
+     * @see AdminGetPlayerRecordHandlerV1
+     */
     public ModelsPlayerRecord adminGetPlayerRecordHandlerV1(AdminGetPlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +78,9 @@ public class AdminPlayerRecord {
         }
     }
 
+    /**
+     * @see AdminPutPlayerRecordHandlerV1
+     */
     public void adminPutPlayerRecordHandlerV1(AdminPutPlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +97,9 @@ public class AdminPlayerRecord {
         }
     }
 
+    /**
+     * @see AdminPostPlayerRecordHandlerV1
+     */
     public void adminPostPlayerRecordHandlerV1(AdminPostPlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +116,9 @@ public class AdminPlayerRecord {
         }
     }
 
+    /**
+     * @see AdminDeletePlayerRecordHandlerV1
+     */
     public void adminDeletePlayerRecordHandlerV1(AdminDeletePlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +135,9 @@ public class AdminPlayerRecord {
         }
     }
 
+    /**
+     * @see AdminGetPlayerPublicRecordHandlerV1
+     */
     public ModelsPlayerRecord adminGetPlayerPublicRecordHandlerV1(AdminGetPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +154,9 @@ public class AdminPlayerRecord {
         }
     }
 
+    /**
+     * @see AdminPutPlayerPublicRecordHandlerV1
+     */
     public void adminPutPlayerPublicRecordHandlerV1(AdminPutPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +173,9 @@ public class AdminPlayerRecord {
         }
     }
 
+    /**
+     * @see AdminPostPlayerPublicRecordHandlerV1
+     */
     public void adminPostPlayerPublicRecordHandlerV1(AdminPostPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +192,9 @@ public class AdminPlayerRecord {
         }
     }
 
+    /**
+     * @see AdminDeletePlayerPublicRecordHandlerV1
+     */
     public void adminDeletePlayerPublicRecordHandlerV1(AdminDeletePlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

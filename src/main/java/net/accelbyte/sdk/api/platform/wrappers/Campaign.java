@@ -19,6 +19,9 @@ public class Campaign {
         this.sdk = sdk;
     }
 
+    /**
+     * @see QueryCampaigns
+     */
     public CampaignPagingSlicedResult queryCampaigns(QueryCampaigns input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Campaign {
         }
     }
 
+    /**
+     * @see CreateCampaign
+     */
     public CampaignInfo createCampaign(CreateCampaign input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Campaign {
         }
     }
 
+    /**
+     * @see GetCampaign
+     */
     public CampaignInfo getCampaign(GetCampaign input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Campaign {
         }
     }
 
+    /**
+     * @see UpdateCampaign
+     */
     public CampaignInfo updateCampaign(UpdateCampaign input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Campaign {
         }
     }
 
+    /**
+     * @see GetCampaignDynamic
+     */
     public CampaignDynamicInfo getCampaignDynamic(GetCampaignDynamic input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Campaign {
         }
     }
 
+    /**
+     * @see QueryCodes
+     */
     public CodeInfoPagingSlicedResult queryCodes(QueryCodes input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Campaign {
         }
     }
 
+    /**
+     * @see CreateCodes
+     */
     public CodeCreateResult createCodes(CreateCodes input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Campaign {
         }
     }
 
+    /**
+     * @see Download
+     */
     public void download(Download input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class Campaign {
         }
     }
 
+    /**
+     * @see BulkDisableCodes
+     */
     public BulkOperationResult bulkDisableCodes(BulkDisableCodes input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class Campaign {
         }
     }
 
+    /**
+     * @see BulkEnableCodes
+     */
     public BulkOperationResult bulkEnableCodes(BulkEnableCodes input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class Campaign {
         }
     }
 
+    /**
+     * @see QueryRedeemHistory
+     */
     public RedeemHistoryPagingSlicedResult queryRedeemHistory(QueryRedeemHistory input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +228,9 @@ public class Campaign {
         }
     }
 
+    /**
+     * @see GetCode
+     */
     public CodeInfo getCode(GetCode input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -211,6 +247,9 @@ public class Campaign {
         }
     }
 
+    /**
+     * @see DisableCode
+     */
     public CodeInfo disableCode(DisableCode input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -227,6 +266,9 @@ public class Campaign {
         }
     }
 
+    /**
+     * @see EnableCode
+     */
     public CodeInfo enableCode(EnableCode input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -243,6 +285,9 @@ public class Campaign {
         }
     }
 
+    /**
+     * @see ApplyUserRedemption
+     */
     public RedeemResult applyUserRedemption(ApplyUserRedemption input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

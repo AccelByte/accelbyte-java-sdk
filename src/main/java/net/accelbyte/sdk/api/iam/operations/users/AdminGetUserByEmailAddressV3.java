@@ -18,6 +18,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminGetUserByEmailAddressV3
+ *
+ * 
+ * 
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:USER [READ]'
+ * 
+ * This endpoint search user who owns the given email address
+ * 
+ * 
+ * action code : 10132
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -17,6 +17,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * ExportConfig
+ *
+ * Required permission ADMIN:NAMESPACE:{namespace}:LOBBY:CONFIG [READ] Required
+ * Scope: social Export lobby configuration to a json file. The file can then be
+ * imported from the /import endpoint.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

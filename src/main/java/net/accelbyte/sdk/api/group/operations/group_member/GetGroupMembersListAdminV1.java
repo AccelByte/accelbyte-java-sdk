@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getGroupMembersListAdminV1
+ *
+ * 
+ * 
+ * Required permission ADMIN:NAMESPACE:{namespace}:GROUP:MEMBER [READ]
+ * 
+ * This endpoint is used to get list of group members.
+ * 
+ * Action Code: 73410
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

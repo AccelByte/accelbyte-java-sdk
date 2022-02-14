@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * listPlayerRecordHandlerV1
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [READ]
+ * Required scope: social Retrieve list of player records key and userID under
+ * given namespace.
+ *
+ * @deprecated
+ */
+@Deprecated
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

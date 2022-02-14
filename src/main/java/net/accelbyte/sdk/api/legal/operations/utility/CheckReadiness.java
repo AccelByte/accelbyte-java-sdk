@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * checkReadiness
+ *
+ * Readiness status defined as at least one legal basePolicy is present and
+ * having active basePolicy.
+ * Other detail info:
+ * 
+ *     * Required permission : resource="NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

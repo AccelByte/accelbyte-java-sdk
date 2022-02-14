@@ -18,6 +18,28 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * acceptGroupInvitationPublicV1
+ *
+ * 
+ * 
+ * Required valid user authentication
+ * 
+ * This endpoint is used to accept group invitation.
+ * 
+ * Accept group invitation. If specific user is not invited in the specific group
+ * ID, it will show the the error to show if the user is not invited yet.
+ * 
+ * This endpoint will also check if the user who access this endpoint is already
+ * joined to specific group
+ * 
+ * Accessing this endpoint will make all requests (invite / join request) will be
+ * deleted for the user who access this endpoint
+ * 
+ * Existing members will receive notification of newly accepted member.
+ * 
+ * Action Code: 73401
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

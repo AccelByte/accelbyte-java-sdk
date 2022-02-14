@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminGetPlayerBlockedByPlayersV1
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:USER:{userId}:PLAYER:BLOCK
+ * [READ]` with scope `social`
+ * load get players who blocked this player in a namespace based on user id
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminDeleteClientPermissionV3
+ *
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:CLIENT [UPDATE]'
+ * action code : 10304
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

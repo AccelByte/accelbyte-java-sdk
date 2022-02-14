@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * generatedUploadUrl
+ *
+ * Generate an upload URL. It's valid for 10 minutes.
+ * Other detail info:
+ * 
+ *   * Required permission : resource = "ADMIN:NAMESPACE:{namespace}:FILEUPLOAD" , action=1 (CREATE)
+ *   *  Action code : 11101
+ *   *  Returns : URL data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

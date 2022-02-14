@@ -19,6 +19,9 @@ public class DLC {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetDLCItemConfig
+     */
     public DLCItemConfigInfo getDLCItemConfig(GetDLCItemConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class DLC {
         }
     }
 
+    /**
+     * @see UpdateDLCItemConfig
+     */
     public DLCItemConfigInfo updateDLCItemConfig(UpdateDLCItemConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class DLC {
         }
     }
 
+    /**
+     * @see DeleteDLCItemConfig
+     */
     public void deleteDLCItemConfig(DeleteDLCItemConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class DLC {
         }
     }
 
+    /**
+     * @see GetPlatformDLCConfig
+     */
     public PlatformDLCConfigInfo getPlatformDLCConfig(GetPlatformDLCConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class DLC {
         }
     }
 
+    /**
+     * @see UpdatePlatformDLCConfig
+     */
     public PlatformDLCConfigInfo updatePlatformDLCConfig(UpdatePlatformDLCConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class DLC {
         }
     }
 
+    /**
+     * @see DeletePlatformDLCConfig
+     */
     public void deletePlatformDLCConfig(DeletePlatformDLCConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class DLC {
         }
     }
 
+    /**
+     * @see PublicSyncPsnDlcInventory
+     */
     public void publicSyncPsnDlcInventory(PublicSyncPsnDlcInventory input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class DLC {
         }
     }
 
+    /**
+     * @see SyncSteamDLC
+     */
     public void syncSteamDLC(SyncSteamDLC input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class DLC {
         }
     }
 
+    /**
+     * @see SyncXboxDLC
+     */
     public void syncXboxDLC(SyncXboxDLC input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

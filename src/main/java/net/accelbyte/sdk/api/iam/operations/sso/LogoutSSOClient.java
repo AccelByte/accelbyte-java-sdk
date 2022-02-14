@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * LogoutSSOClient
+ *
+ * Logout user's session on platform that logged in using SSO. Supported
+ * platforms: - discourse
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

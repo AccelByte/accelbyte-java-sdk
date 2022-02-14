@@ -19,6 +19,9 @@ public class AdminGroup {
         this.sdk = sdk;
     }
 
+    /**
+     * @see SingleAdminGetAllGroups
+     */
     public ModelsPaginatedGroupResponse singleAdminGetAllGroups(SingleAdminGetAllGroups input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class AdminGroup {
         }
     }
 
+    /**
+     * @see AdminCreateGroup
+     */
     public ModelsCreateGroupResponse adminCreateGroup(AdminCreateGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class AdminGroup {
         }
     }
 
+    /**
+     * @see SingleAdminGetGroup
+     */
     public ModelsCreateGroupResponse singleAdminGetGroup(SingleAdminGetGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class AdminGroup {
         }
     }
 
+    /**
+     * @see SingleAdminUpdateGroup
+     */
     public ModelsCreateGroupResponse singleAdminUpdateGroup(SingleAdminUpdateGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class AdminGroup {
         }
     }
 
+    /**
+     * @see SingleAdminDeleteGroup
+     */
     public void singleAdminDeleteGroup(SingleAdminDeleteGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class AdminGroup {
         }
     }
 
+    /**
+     * @see SingleAdminGetGroupContents
+     */
     public ModelsPaginatedContentDownloadResponse singleAdminGetGroupContents(SingleAdminGetGroupContents input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class AdminGroup {
         }
     }
 
+    /**
+     * @see AdminGetAllGroups
+     */
     public ModelsPaginatedGroupResponse adminGetAllGroups(AdminGetAllGroups input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class AdminGroup {
         }
     }
 
+    /**
+     * @see AdminGetGroup
+     */
     public ModelsCreateGroupResponse adminGetGroup(AdminGetGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class AdminGroup {
         }
     }
 
+    /**
+     * @see AdminUpdateGroup
+     */
     public ModelsCreateGroupResponse adminUpdateGroup(AdminUpdateGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class AdminGroup {
         }
     }
 
+    /**
+     * @see AdminDeleteGroup
+     */
     public void adminDeleteGroup(AdminDeleteGroup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class AdminGroup {
         }
     }
 
+    /**
+     * @see AdminGetGroupContents
+     */
     public ModelsPaginatedContentDownloadResponse adminGetGroupContents(AdminGetGroupContents input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

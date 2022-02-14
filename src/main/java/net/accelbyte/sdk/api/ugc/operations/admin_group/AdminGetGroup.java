@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminGetGroup
+ *
+ * Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP
+ * [READ].
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

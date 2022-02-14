@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getGlobalStatItems
+ *
+ * List global statItems by pagination.
+ * Other detail info:
+ * 
+ *         *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=2 (READ)
+ *         *  Returns : stat items
+ * ul
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

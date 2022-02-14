@@ -19,6 +19,9 @@ public class UserAction {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetActions
+     */
     public List<Action> getActions(GetActions input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class UserAction {
         }
     }
 
+    /**
+     * @see BanUsers
+     */
     public void banUsers(BanUsers input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class UserAction {
         }
     }
 
+    /**
+     * @see GetBannedUsers
+     */
     public List<ADTOObjectForEqu8UserBanStatus> getBannedUsers(GetBannedUsers input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class UserAction {
         }
     }
 
+    /**
+     * @see ReportUser
+     */
     public void reportUser(ReportUser input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class UserAction {
         }
     }
 
+    /**
+     * @see GetUserStatus
+     */
     public ADTOObjectForEqu8UserStatus getUserStatus(GetUserStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class UserAction {
         }
     }
 
+    /**
+     * @see UnBanUsers
+     */
     public void unBanUsers(UnBanUsers input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class UserAction {
         }
     }
 
+    /**
+     * @see PublicReportUser
+     */
     public void publicReportUser(PublicReportUser input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

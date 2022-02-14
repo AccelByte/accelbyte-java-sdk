@@ -18,6 +18,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicGetMyAppEntitlementOwnershipByAppId
+ *
+ * Get my app entitlement ownership by appId.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="NAMESPACE:{namespace}:ENTITLEMENT", action=2 (READ)
+ *   *  Path's namespace :
+ *     * can be filled with publisher namespace in order to get publisher namespace app entitlement ownership
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

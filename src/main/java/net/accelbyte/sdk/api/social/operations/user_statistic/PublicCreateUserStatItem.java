@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicCreateUserStatItem
+ *
+ * Create user's statItem.
+ * Other detail info:
+ * 
+ *                 *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE)
+ *                 *  Returns : created user's statItem
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

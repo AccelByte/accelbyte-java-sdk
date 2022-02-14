@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminCreateProfanityList
+ *
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:PROFANITY [CREATE]` with
+ * scope `social`
+ * create a new list
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

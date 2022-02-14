@@ -19,6 +19,9 @@ public class Order {
         this.sdk = sdk;
     }
 
+    /**
+     * @see QueryOrders
+     */
     public OrderPagingResult queryOrders(QueryOrders input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Order {
         }
     }
 
+    /**
+     * @see GetOrderStatistics
+     */
     public OrderStatistics getOrderStatistics(GetOrderStatistics input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Order {
         }
     }
 
+    /**
+     * @see GetOrder
+     */
     public OrderInfo getOrder(GetOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Order {
         }
     }
 
+    /**
+     * @see RefundOrder
+     */
     public OrderInfo refundOrder(RefundOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Order {
         }
     }
 
+    /**
+     * @see QueryUserOrders
+     */
     public OrderPagingSlicedResult queryUserOrders(QueryUserOrders input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Order {
         }
     }
 
+    /**
+     * @see CountOfPurchasedItem
+     */
     public PurchasedItemCount countOfPurchasedItem(CountOfPurchasedItem input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Order {
         }
     }
 
+    /**
+     * @see GetUserOrder
+     */
     public OrderInfo getUserOrder(GetUserOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Order {
         }
     }
 
+    /**
+     * @see UpdateUserOrderStatus
+     */
     public OrderInfo updateUserOrderStatus(UpdateUserOrderStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class Order {
         }
     }
 
+    /**
+     * @see FulfillUserOrder
+     */
     public OrderInfo fulfillUserOrder(FulfillUserOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class Order {
         }
     }
 
+    /**
+     * @see GetUserOrderGrant
+     */
     public OrderGrantInfo getUserOrderGrant(GetUserOrderGrant input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class Order {
         }
     }
 
+    /**
+     * @see GetUserOrderHistories
+     */
     public List<OrderHistoryInfo> getUserOrderHistories(GetUserOrderHistories input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +228,9 @@ public class Order {
         }
     }
 
+    /**
+     * @see ProcessUserOrderNotification
+     */
     public void processUserOrderNotification(ProcessUserOrderNotification input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -211,6 +247,9 @@ public class Order {
         }
     }
 
+    /**
+     * @see DownloadUserOrderReceipt
+     */
     public void downloadUserOrderReceipt(DownloadUserOrderReceipt input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -227,6 +266,9 @@ public class Order {
         }
     }
 
+    /**
+     * @see PublicQueryUserOrders
+     */
     public OrderPagingSlicedResult publicQueryUserOrders(PublicQueryUserOrders input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -243,6 +285,9 @@ public class Order {
         }
     }
 
+    /**
+     * @see PublicCreateUserOrder
+     */
     public OrderInfo publicCreateUserOrder(PublicCreateUserOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -259,6 +304,9 @@ public class Order {
         }
     }
 
+    /**
+     * @see PublicGetUserOrder
+     */
     public OrderInfo publicGetUserOrder(PublicGetUserOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -275,6 +323,9 @@ public class Order {
         }
     }
 
+    /**
+     * @see PublicCancelUserOrder
+     */
     public OrderInfo publicCancelUserOrder(PublicCancelUserOrder input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -291,6 +342,9 @@ public class Order {
         }
     }
 
+    /**
+     * @see PublicGetUserOrderHistories
+     */
     public List<OrderHistoryInfo> publicGetUserOrderHistories(PublicGetUserOrderHistories input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -307,6 +361,9 @@ public class Order {
         }
     }
 
+    /**
+     * @see PublicDownloadUserOrderReceipt
+     */
     public void publicDownloadUserOrderReceipt(PublicDownloadUserOrderReceipt input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

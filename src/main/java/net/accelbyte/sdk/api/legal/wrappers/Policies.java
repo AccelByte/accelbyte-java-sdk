@@ -19,6 +19,9 @@ public class Policies {
         this.sdk = sdk;
     }
 
+    /**
+     * @see RetrievePolicies
+     */
     public List<RetrievePolicyResponse> retrievePolicies(RetrievePolicies input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Policies {
         }
     }
 
+    /**
+     * @see UpdatePolicy
+     */
     public void updatePolicy(UpdatePolicy input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Policies {
         }
     }
 
+    /**
+     * @see SetDefaultPolicy1
+     */
     public void setDefaultPolicy1(SetDefaultPolicy1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Policies {
         }
     }
 
+    /**
+     * @see RetrieveLatestPolicies
+     */
     public List<RetrievePolicyPublicResponse> retrieveLatestPolicies(RetrieveLatestPolicies input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Policies {
         }
     }
 
+    /**
+     * @see RetrieveLatestPoliciesPublic
+     */
     public List<RetrievePolicyPublicResponse> retrieveLatestPoliciesPublic(RetrieveLatestPoliciesPublic input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Policies {
         }
     }
 
+    /**
+     * @see RetrieveLatestPoliciesByNamespaceAndCountryPublic
+     */
     public List<RetrievePolicyPublicResponse> retrieveLatestPoliciesByNamespaceAndCountryPublic(RetrieveLatestPoliciesByNamespaceAndCountryPublic input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

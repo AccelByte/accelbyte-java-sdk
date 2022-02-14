@@ -18,6 +18,22 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminUpdateUserEmailAddressV4
+ *
+ * 
+ * 
+ * Required permission
+ * 
+ * 
+ *                                                                                                 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
+ * 
+ * 
+ * 
+ * This is the endpoint for an admin to update a user email address. This
+ * endpoint need a valid user token from an admin to verify its identity (email)
+ * before updating a user.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

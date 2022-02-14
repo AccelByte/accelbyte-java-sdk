@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AdminGetListJusticePlatformAccounts
+ *
+ * This endpoint gets list justice platform account by providing publisher
+ * namespace and publisher userID.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

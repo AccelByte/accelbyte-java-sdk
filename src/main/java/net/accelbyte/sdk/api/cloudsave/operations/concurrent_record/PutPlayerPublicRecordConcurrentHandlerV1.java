@@ -18,6 +18,43 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * putPlayerPublicRecordConcurrentHandlerV1
+ *
+ * Required Permission |
+ * `NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [UPDATE]`
+ * ---|---
+ * Required Scope | `social`
+ * 
+ * If the record is not exist, it will create. If the record already exist, it
+ * will replace the record instead. And this operation can only be applied to
+ * record with `isPublic=true`. Example Replace record
+ * 
+ * 
+ * 
+ *     // existed record
+ *     {
+ *         "foo": "bar"
+ *     }
+ * 
+ *     // new record (request body)
+ *     {
+ *         "foo_new": "bar_new"
+ *     }
+ * 
+ *     // result
+ *     {
+ *         "foo_new": "bar_new"
+ *     }
+ * 
+ * 
+ * Optimistic Concurrency Control
+ * This endpoint implement optimistic concurrency control to avoid race
+ * condition. If the record has been updated since the client fetch it, the
+ * server will return HTTP status code 412 (precondition failed) and client need
+ * to redo the operation (fetch data and do update). Otherwise, the server will
+ * process the request.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

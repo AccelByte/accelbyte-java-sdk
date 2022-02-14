@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * adminGetUserProfilePublicInfoByIds
+ *
+ * Admin get user public profile by ids.
+ * Other detail info:
+ * 
+ *   * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:PROFILE" , action=2 (GET)
+ *   *  Action code : 11405
+ *   *  Returns : user public profiles
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

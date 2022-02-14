@@ -18,6 +18,19 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicSearchItems
+ *
+ * This API is used to search items by keyword in title, description and long
+ * description, It's language constrained, also if item not exist in specific
+ * region, default region item will return.
+ * 
+ * Other detail info:
+ * 
+ *   * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
+ *   *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
+ *   *  Returns : the list of items
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

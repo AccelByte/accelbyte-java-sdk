@@ -19,6 +19,9 @@ public class Operations {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetHealthcheckInfo
+     */
     public void getHealthcheckInfo(GetHealthcheckInfo input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Operations {
         }
     }
 
+    /**
+     * @see HandlerV3Healthz
+     */
     public void handlerV3Healthz(HandlerV3Healthz input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Operations {
         }
     }
 
+    /**
+     * @see PublicGetMessages
+     */
     public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Operations {
         }
     }
 
+    /**
+     * @see VersionCheckHandler
+     */
     public void versionCheckHandler(VersionCheckHandler input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

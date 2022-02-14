@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getUserStatItems
+ *
+ * List user's statItems.
+ * Other detail info:
+ * 
+ *           *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+ *           *  Returns : stat items
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

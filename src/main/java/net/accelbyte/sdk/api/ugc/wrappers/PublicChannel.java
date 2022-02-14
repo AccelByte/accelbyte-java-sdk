@@ -19,6 +19,9 @@ public class PublicChannel {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetChannels
+     */
     public ModelsPaginatedGetChannelResponse getChannels(GetChannels input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class PublicChannel {
         }
     }
 
+    /**
+     * @see CreateChannel
+     */
     public ModelsChannelResponse createChannel(CreateChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class PublicChannel {
         }
     }
 
+    /**
+     * @see UpdateChannel
+     */
     public ModelsChannelResponse updateChannel(UpdateChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class PublicChannel {
         }
     }
 
+    /**
+     * @see DeleteChannel
+     */
     public void deleteChannel(DeleteChannel input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

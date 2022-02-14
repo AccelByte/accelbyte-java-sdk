@@ -19,6 +19,9 @@ public class LocalizedPolicyVersions {
         this.sdk = sdk;
     }
 
+    /**
+     * @see RetrieveLocalizedPolicyVersions
+     */
     public List<RetrieveLocalizedPolicyVersionResponse> retrieveLocalizedPolicyVersions(RetrieveLocalizedPolicyVersions input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class LocalizedPolicyVersions {
         }
     }
 
+    /**
+     * @see CreateLocalizedPolicyVersion
+     */
     public CreateLocalizedPolicyVersionResponse createLocalizedPolicyVersion(CreateLocalizedPolicyVersion input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class LocalizedPolicyVersions {
         }
     }
 
+    /**
+     * @see RetrieveSingleLocalizedPolicyVersion
+     */
     public UpdateLocalizedPolicyVersionResponse retrieveSingleLocalizedPolicyVersion(RetrieveSingleLocalizedPolicyVersion input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class LocalizedPolicyVersions {
         }
     }
 
+    /**
+     * @see UpdateLocalizedPolicyVersion
+     */
     public UpdateLocalizedPolicyVersionResponse updateLocalizedPolicyVersion(UpdateLocalizedPolicyVersion input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class LocalizedPolicyVersions {
         }
     }
 
+    /**
+     * @see RequestPresignedURL
+     */
     public UploadLocalizedPolicyVersionAttachmentResponse requestPresignedURL(RequestPresignedURL input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class LocalizedPolicyVersions {
         }
     }
 
+    /**
+     * @see SetDefaultPolicy
+     */
     public void setDefaultPolicy(SetDefaultPolicy input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class LocalizedPolicyVersions {
         }
     }
 
+    /**
+     * @see RetrieveSingleLocalizedPolicyVersion1
+     */
     public RetrieveLocalizedPolicyVersionPublicResponse retrieveSingleLocalizedPolicyVersion1(RetrieveSingleLocalizedPolicyVersion1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

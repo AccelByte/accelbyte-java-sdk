@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * VerifyToken
+ *
+ * This endpoint requires all requests to have Authorization header set with
+ * Basic access authentication constructed from client id and client secret.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

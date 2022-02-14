@@ -19,6 +19,9 @@ public class PolicyVersions {
         this.sdk = sdk;
     }
 
+    /**
+     * @see UpdatePolicyVersion
+     */
     public UpdatePolicyVersionResponse updatePolicyVersion(UpdatePolicyVersion input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class PolicyVersions {
         }
     }
 
+    /**
+     * @see PublishPolicyVersion
+     */
     public void publishPolicyVersion(PublishPolicyVersion input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class PolicyVersions {
         }
     }
 
+    /**
+     * @see RetrieveSinglePolicyVersion
+     */
     public List<RetrievePolicyVersionResponse> retrieveSinglePolicyVersion(RetrieveSinglePolicyVersion input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class PolicyVersions {
         }
     }
 
+    /**
+     * @see CreatePolicyVersion
+     */
     public CreatePolicyVersionResponse createPolicyVersion(CreatePolicyVersion input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class PolicyVersions {
         }
     }
 
+    /**
+     * @see RetrievePolicyVersions
+     */
     public List<RetrievePolicyVersionResponse> retrievePolicyVersions(RetrievePolicyVersions input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

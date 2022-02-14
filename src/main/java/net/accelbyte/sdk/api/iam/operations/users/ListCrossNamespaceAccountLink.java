@@ -17,6 +17,25 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * ListCrossNamespaceAccountLink
+ *
+ * 
+ * 
+ * ## The endpoint is going to be deprecated at 9 July, 2018. Please use this
+ * instead: /users/{userId}/platforms/{platformId}/link
+ * 
+ * Required permission 'NAMESPACE:{namespace}:USER:{userId} [UPDATE]'.
+ * 
+ * Access token from original namespace is needed as authorization header. Access
+ * token from designated account needed as form parameter to verify the ownership
+ * of that account. When platformID (device platfom ID) is specified, platform
+ * login method for that specific platform ID is removed. This means to protect
+ * account from second hand device usage.
+ *
+ * @deprecated
+ */
+@Deprecated
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

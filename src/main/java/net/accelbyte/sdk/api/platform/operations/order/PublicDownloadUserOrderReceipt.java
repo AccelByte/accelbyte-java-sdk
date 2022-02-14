@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * publicDownloadUserOrderReceipt
+ *
+ * Download user order receipt by orderNo.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:ORDER", action=2 (READ)
+ *   *  Returns : order receipt pdf
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

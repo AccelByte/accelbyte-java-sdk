@@ -19,6 +19,9 @@ public class PaymentDedicated {
         this.sdk = sdk;
     }
 
+    /**
+     * @see CreatePaymentOrderByDedicated
+     */
     public PaymentOrderCreateResult createPaymentOrderByDedicated(CreatePaymentOrderByDedicated input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class PaymentDedicated {
         }
     }
 
+    /**
+     * @see RefundPaymentOrderByDedicated
+     */
     public PaymentOrderRefundResult refundPaymentOrderByDedicated(RefundPaymentOrderByDedicated input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class PaymentDedicated {
         }
     }
 
+    /**
+     * @see SyncPaymentOrders
+     */
     public PaymentOrderSyncResult syncPaymentOrders(SyncPaymentOrders input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

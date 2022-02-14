@@ -17,6 +17,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * acceptVersionedPolicy
+ *
+ * Accepts a legal policy version. Supply with localized version policy id to
+ * accept an agreement.
+ * Other detail info:
+ * 
+ *   * Required permission : login user
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

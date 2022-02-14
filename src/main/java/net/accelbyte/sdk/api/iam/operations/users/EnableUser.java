@@ -17,6 +17,20 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * EnableUser
+ *
+ * 
+ * 
+ * ## The endpoint is going to be deprecated. Please use this instead:
+ * iam/v2/admin/namespaces/{namespace}/users/{userId}/enable
+ * 
+ * Required permissions 'ADMIN:NAMESPACE:{namespace}:USERSTATUS:USER:{userId}
+ * [UPDATE]'
+ *
+ * @deprecated
+ */
+@Deprecated
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

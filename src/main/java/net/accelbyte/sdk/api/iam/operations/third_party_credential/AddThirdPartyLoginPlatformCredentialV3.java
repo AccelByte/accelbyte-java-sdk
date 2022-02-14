@@ -19,6 +19,18 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AddThirdPartyLoginPlatformCredentialV3
+ *
+ * 
+ * 
+ * This is the API to Add 3rd Platform Credential.
+ * 
+ * It needs ADMIN:NAMESPACE:{namespace}:PLATFORM:{platformId}:CLIENT [CREATE]
+ * resource.
+ * 
+ * The secret for apple is base64 encoded private key.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

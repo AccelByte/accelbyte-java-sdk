@@ -19,6 +19,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * AddPlayerToSession
+ *
+ * Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [UPDATE]
+ * Required scope: social Add player to game session
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

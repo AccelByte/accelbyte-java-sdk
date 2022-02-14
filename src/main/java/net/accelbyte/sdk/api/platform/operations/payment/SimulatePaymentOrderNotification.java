@@ -19,6 +19,17 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * simulatePaymentOrderNotification
+ *
+ *  [TEST FACILITY ONLY] Forbidden in live environment. Simulate payment
+ * notification on sandbox payment order, usually for test usage to simulate real
+ * currency payment notification.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=4 (UPDATE)
+ *   *  Returns : notification process result
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

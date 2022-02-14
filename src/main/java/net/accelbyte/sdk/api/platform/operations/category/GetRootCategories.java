@@ -17,6 +17,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getRootCategories
+ *
+ * This API is used to get root categories.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
+ *   *  Returns : root category data
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

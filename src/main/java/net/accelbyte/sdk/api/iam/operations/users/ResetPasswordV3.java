@@ -18,6 +18,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * ResetPasswordV3
+ *
+ * 
+ * 
+ * action code: 10105
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

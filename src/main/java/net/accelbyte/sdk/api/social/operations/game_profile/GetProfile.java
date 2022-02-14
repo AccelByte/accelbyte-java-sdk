@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * getProfile
+ *
+ * Returns profile for a user.
+ * Other detail info:
+ * 
+ *         *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:GAMEPROFILE", action=2 (READ)
+ *         *  Returns : game profile info
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

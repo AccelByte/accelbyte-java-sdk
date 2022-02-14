@@ -19,6 +19,9 @@ public class PublicFollow {
         this.sdk = sdk;
     }
 
+    /**
+     * @see GetFollowedContent
+     */
     public ModelsPaginatedContentDownloadResponse getFollowedContent(GetFollowedContent input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class PublicFollow {
         }
     }
 
+    /**
+     * @see GetFollowedUsers
+     */
     public ModelsPaginatedCreatorOverviewResponse getFollowedUsers(GetFollowedUsers input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class PublicFollow {
         }
     }
 
+    /**
+     * @see UpdateUserFollowStatus
+     */
     public ModelsUserFollowResponse updateUserFollowStatus(UpdateUserFollowStatus input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

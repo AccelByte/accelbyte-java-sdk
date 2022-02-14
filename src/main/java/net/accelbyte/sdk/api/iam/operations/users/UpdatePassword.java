@@ -18,6 +18,21 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * UpdatePassword
+ *
+ * 
+ * 
+ * ## The endpoint is going to be deprecated. Admin user please use this instead:
+ * iam/v2/admin/namespaces/{namespace}/users/{userId}/password
+ * 
+ * +
+ * 
+ * Required permission 'NAMESPACE:{namespace}:PASSWORD:USER:{userId} [UPDATE]'
+ *
+ * @deprecated
+ */
+@Deprecated
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

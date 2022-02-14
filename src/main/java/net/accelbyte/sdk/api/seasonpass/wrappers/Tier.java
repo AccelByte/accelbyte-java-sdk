@@ -19,6 +19,9 @@ public class Tier {
         this.sdk = sdk;
     }
 
+    /**
+     * @see QueryTiers
+     */
     public TierPagingSlicedResult queryTiers(QueryTiers input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Tier {
         }
     }
 
+    /**
+     * @see CreateTier
+     */
     public List<net.accelbyte.sdk.api.seasonpass.models.Tier> createTier(CreateTier input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Tier {
         }
     }
 
+    /**
+     * @see UpdateTier
+     */
     public net.accelbyte.sdk.api.seasonpass.models.Tier updateTier(UpdateTier input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Tier {
         }
     }
 
+    /**
+     * @see DeleteTier
+     */
     public void deleteTier(DeleteTier input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Tier {
         }
     }
 
+    /**
+     * @see ReorderTier
+     */
     public net.accelbyte.sdk.api.seasonpass.models.Tier reorderTier(ReorderTier input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Tier {
         }
     }
 
+    /**
+     * @see GrantUserExp
+     */
     public UserSeasonSummary grantUserExp(GrantUserExp input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Tier {
         }
     }
 
+    /**
+     * @see GrantUserTier
+     */
     public UserSeasonSummary grantUserTier(GrantUserTier input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

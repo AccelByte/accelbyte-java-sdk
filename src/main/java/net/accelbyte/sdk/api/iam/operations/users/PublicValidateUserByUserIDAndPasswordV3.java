@@ -17,6 +17,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * PublicValidateUserByUserIDAndPasswordV3
+ *
+ * This endpoint is used to validate the user password. Required valid user
+ * authorization and valid user ID.
+ * 
+ * Notes:
+ * 
+ *                           * This endpoint validate the user password by specifying the userId and password
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

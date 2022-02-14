@@ -18,6 +18,16 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * queryUserEntitlementsByAppType
+ *
+ * Query app entitlements by appType.
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=2
+ *   *  Returns : app entitlement pagination
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

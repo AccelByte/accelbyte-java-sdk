@@ -19,6 +19,9 @@ public class Store {
         this.sdk = sdk;
     }
 
+    /**
+     * @see ListStores
+     */
     public List<StoreInfo> listStores(ListStores input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Store {
         }
     }
 
+    /**
+     * @see CreateStore
+     */
     public StoreInfo createStore(CreateStore input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Store {
         }
     }
 
+    /**
+     * @see ImportStore
+     */
     public StoreInfo importStore(ImportStore input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Store {
         }
     }
 
+    /**
+     * @see GetPublishedStore
+     */
     public StoreInfo getPublishedStore(GetPublishedStore input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class Store {
         }
     }
 
+    /**
+     * @see DeletePublishedStore
+     */
     public StoreInfo deletePublishedStore(DeletePublishedStore input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class Store {
         }
     }
 
+    /**
+     * @see GetPublishedStoreBackup
+     */
     public StoreBackupInfo getPublishedStoreBackup(GetPublishedStoreBackup input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class Store {
         }
     }
 
+    /**
+     * @see RollbackPublishedStore
+     */
     public StoreInfo rollbackPublishedStore(RollbackPublishedStore input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class Store {
         }
     }
 
+    /**
+     * @see GetStore
+     */
     public StoreInfo getStore(GetStore input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class Store {
         }
     }
 
+    /**
+     * @see UpdateStore
+     */
     public StoreInfo updateStore(UpdateStore input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class Store {
         }
     }
 
+    /**
+     * @see DeleteStore
+     */
     public StoreInfo deleteStore(DeleteStore input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class Store {
         }
     }
 
+    /**
+     * @see CloneStore
+     */
     public StoreInfo cloneStore(CloneStore input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +228,9 @@ public class Store {
         }
     }
 
+    /**
+     * @see ExportStore
+     */
     public void exportStore(ExportStore input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -211,6 +247,9 @@ public class Store {
         }
     }
 
+    /**
+     * @see PublicListStores
+     */
     public List<StoreInfo> publicListStores(PublicListStores input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

@@ -19,6 +19,9 @@ public class Party {
         this.sdk = sdk;
     }
 
+    /**
+     * @see AdminGetPartyDataV1
+     */
     public ModelsPartyData adminGetPartyDataV1(AdminGetPartyDataV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class Party {
         }
     }
 
+    /**
+     * @see AdminGetUserPartyV1
+     */
     public ModelsPartyData adminGetUserPartyV1(AdminGetUserPartyV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class Party {
         }
     }
 
+    /**
+     * @see PublicGetPartyDataV1
+     */
     public ModelsPartyData publicGetPartyDataV1(PublicGetPartyDataV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class Party {
         }
     }
 
+    /**
+     * @see PublicUpdatePartyAttributesV1
+     */
     public ModelsPartyData publicUpdatePartyAttributesV1(PublicUpdatePartyAttributesV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

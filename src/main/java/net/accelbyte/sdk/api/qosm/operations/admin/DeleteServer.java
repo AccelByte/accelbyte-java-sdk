@@ -17,6 +17,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * DeleteServer
+ *
+ * ``` Required permission: ADMIN:QOS:SERVER [DELETE] Required scope: social This
+ * endpoint delete a registered QoS service record. ```
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * RetrieveThirdPartyLoginPlatformCredentialV3
+ *
+ * This is the API to Get 3rd Platform Credential. It needs
+ * ADMIN:NAMESPACE:{namespace}:PLATFORM:{platformId}:CLIENT [READ] resource
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

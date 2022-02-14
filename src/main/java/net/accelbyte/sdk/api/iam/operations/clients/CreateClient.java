@@ -19,6 +19,19 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * CreateClient
+ *
+ * 
+ * 
+ * ## The endpoint is going to be deprecated at 16 August, 2018. Please use this
+ * instead: namespaces/{namespace}/clients
+ * 
+ * Required permission 'CLIENT:ADMIN [CREATE]'
+ *
+ * @deprecated
+ */
+@Deprecated
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

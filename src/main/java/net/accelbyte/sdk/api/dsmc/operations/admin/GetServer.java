@@ -18,6 +18,12 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * GetServer
+ *
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:SERVER [READ] Required
+ * scope: social This endpoint queries a specified dedicated server from DB.
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

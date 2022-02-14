@@ -17,6 +17,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * bulkFetchStatItems
+ *
+ * Bulk fetch multiple user's statitem value for a given namespace and statCode.
+ * Other detail info: + *Required permission*:
+ * resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=2 (READ) + *Returns*:
+ * list of user's statItem
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

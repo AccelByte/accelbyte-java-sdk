@@ -19,6 +19,9 @@ public class AllTerminatedServers {
         this.sdk = sdk;
     }
 
+    /**
+     * @see BatchDownloadServerLogs
+     */
     public void batchDownloadServerLogs(BatchDownloadServerLogs input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class AllTerminatedServers {
         }
     }
 
+    /**
+     * @see ListAllTerminatedServers
+     */
     public ModelsListTerminatedServersResponse listAllTerminatedServers(ListAllTerminatedServers input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

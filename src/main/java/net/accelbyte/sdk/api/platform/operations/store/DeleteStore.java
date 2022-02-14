@@ -18,6 +18,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * deleteStore
+ *
+ * This API is used to delete a store. Only non published store can be deleted.
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
+ *   *  Returns : store
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

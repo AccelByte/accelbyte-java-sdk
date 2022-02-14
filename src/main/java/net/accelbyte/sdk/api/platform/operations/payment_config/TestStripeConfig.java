@@ -19,6 +19,26 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * testStripeConfig
+ *
+ * Test stripe configuration.
+ * 
+ * #### Check List:
+ * 
+ *   * secretKey
+ *   * allowedPaymentMethodTypes
+ * 
+ * #### Non-check list:
+ * 
+ *   * publishableKey
+ *   * webhookSecret
+ * 
+ * Other detail info:
+ * 
+ *   * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+ *   *  Returns : test adyen config
+ */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

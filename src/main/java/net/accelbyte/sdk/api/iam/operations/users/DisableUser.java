@@ -18,6 +18,27 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+/**
+ * DisableUser
+ *
+ * 
+ * 
+ * ## The endpoint is going to be deprecated. Please use this instead:
+ * iam/v2/admin/namespaces/{namespace}/users/{userId}/disable
+ * 
+ * +
+ * 
+ * Required permissions 'ADMIN:NAMESPACE:{namespace}:USERSTATUS:USER:{userId}
+ * [UPDATE]'
+ * 
+ * For Deletion Account purpose fill the reason with:
+ * 
+ *     * DeactivateAccount : if your deletion request comes from user
+ *     * AdminDeactivateAccount : if your deletion request comes from admin
+ *
+ * @deprecated
+ */
+@Deprecated
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)

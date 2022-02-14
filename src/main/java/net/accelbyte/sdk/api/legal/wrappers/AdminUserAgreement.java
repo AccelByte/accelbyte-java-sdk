@@ -19,6 +19,9 @@ public class AdminUserAgreement {
         this.sdk = sdk;
     }
 
+    /**
+     * @see IndirectBulkAcceptVersionedPolicy
+     */
     public AcceptAgreementResponse indirectBulkAcceptVersionedPolicy(IndirectBulkAcceptVersionedPolicy input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

@@ -19,6 +19,9 @@ public class PaymentConfig {
         this.sdk = sdk;
     }
 
+    /**
+     * @see TestAdyenConfig
+     */
     public TestResult testAdyenConfig(TestAdyenConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -35,6 +38,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see TestAliPayConfig
+     */
     public TestResult testAliPayConfig(TestAliPayConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -51,6 +57,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see TestCheckoutConfig
+     */
     public TestResult testCheckoutConfig(TestCheckoutConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -67,6 +76,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see DebugMatchedPaymentMerchantConfig
+     */
     public PaymentMerchantConfigInfo debugMatchedPaymentMerchantConfig(DebugMatchedPaymentMerchantConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -83,6 +95,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see TestPayPalConfig
+     */
     public TestResult testPayPalConfig(TestPayPalConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -99,6 +114,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see TestStripeConfig
+     */
     public TestResult testStripeConfig(TestStripeConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -115,6 +133,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see TestWxPayConfig
+     */
     public TestResult testWxPayConfig(TestWxPayConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -131,6 +152,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see TestXsollaConfig
+     */
     public TestResult testXsollaConfig(TestXsollaConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -147,6 +171,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see GetPaymentMerchantConfig
+     */
     public PaymentMerchantConfigInfo getPaymentMerchantConfig(GetPaymentMerchantConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -163,6 +190,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see UpdateAdyenConfig
+     */
     public PaymentMerchantConfigInfo updateAdyenConfig(UpdateAdyenConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -179,6 +209,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see TestAdyenConfigById
+     */
     public TestResult testAdyenConfigById(TestAdyenConfigById input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -195,6 +228,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see UpdateAliPayConfig
+     */
     public PaymentMerchantConfigInfo updateAliPayConfig(UpdateAliPayConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -211,6 +247,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see TestAliPayConfigById
+     */
     public TestResult testAliPayConfigById(TestAliPayConfigById input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -227,6 +266,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see UpdateCheckoutConfig
+     */
     public PaymentMerchantConfigInfo updateCheckoutConfig(UpdateCheckoutConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -243,6 +285,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see TestCheckoutConfigById
+     */
     public TestResult testCheckoutConfigById(TestCheckoutConfigById input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -259,6 +304,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see UpdatePayPalConfig
+     */
     public PaymentMerchantConfigInfo updatePayPalConfig(UpdatePayPalConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -275,6 +323,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see TestPayPalConfigById
+     */
     public TestResult testPayPalConfigById(TestPayPalConfigById input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -291,6 +342,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see UpdateStripeConfig
+     */
     public PaymentMerchantConfigInfo updateStripeConfig(UpdateStripeConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -307,6 +361,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see TestStripeConfigById
+     */
     public TestResult testStripeConfigById(TestStripeConfigById input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -323,6 +380,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see UpdateWxPayConfig
+     */
     public PaymentMerchantConfigInfo updateWxPayConfig(UpdateWxPayConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -339,6 +399,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see UpdateWxPayConfigCert
+     */
     public PaymentMerchantConfigInfo updateWxPayConfigCert(UpdateWxPayConfigCert input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -355,6 +418,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see TestWxPayConfigById
+     */
     public TestResult testWxPayConfigById(TestWxPayConfigById input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -371,6 +437,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see UpdateXsollaConfig
+     */
     public PaymentMerchantConfigInfo updateXsollaConfig(UpdateXsollaConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -387,6 +456,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see TestXsollaConfigById
+     */
     public TestResult testXsollaConfigById(TestXsollaConfigById input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -403,6 +475,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see UpdateXsollaUIConfig
+     */
     public PaymentMerchantConfigInfo updateXsollaUIConfig(UpdateXsollaUIConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -419,6 +494,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see QueryPaymentProviderConfig
+     */
     public PaymentProviderConfigPagingSlicedResult queryPaymentProviderConfig(QueryPaymentProviderConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -435,6 +513,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see CreatePaymentProviderConfig
+     */
     public PaymentProviderConfigInfo createPaymentProviderConfig(CreatePaymentProviderConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -451,6 +532,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see GetAggregatePaymentProviders
+     */
     public List<String> getAggregatePaymentProviders(GetAggregatePaymentProviders input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -467,6 +551,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see DebugMatchedPaymentProviderConfig
+     */
     public PaymentProviderConfigInfo debugMatchedPaymentProviderConfig(DebugMatchedPaymentProviderConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -483,6 +570,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see GetSpecialPaymentProviders
+     */
     public List<String> getSpecialPaymentProviders(GetSpecialPaymentProviders input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -499,6 +589,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see UpdatePaymentProviderConfig
+     */
     public PaymentProviderConfigInfo updatePaymentProviderConfig(UpdatePaymentProviderConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -515,6 +608,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see DeletePaymentProviderConfig
+     */
     public void deletePaymentProviderConfig(DeletePaymentProviderConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -531,6 +627,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see GetPaymentTaxConfig
+     */
     public PaymentTaxConfigInfo getPaymentTaxConfig(GetPaymentTaxConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
@@ -547,6 +646,9 @@ public class PaymentConfig {
         }
     }
 
+    /**
+     * @see UpdatePaymentTaxConfig
+     */
     public PaymentTaxConfigInfo updatePaymentTaxConfig(UpdatePaymentTaxConfig input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
