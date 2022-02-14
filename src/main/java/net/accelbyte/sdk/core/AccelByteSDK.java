@@ -107,6 +107,9 @@ public class AccelByteSDK {
                     codeVerifier,
                     null,
                     null,
+                    null,
+                    null,
+                    null,
                     "authorization_code");
             OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
             this.sdkConfiguration.getTokenRepository().storeToken(token.getAccessToken());
@@ -120,6 +123,9 @@ public class AccelByteSDK {
     public boolean loginClient() {
         try {
             TokenGrantV3 tokenGrantV3 = new TokenGrantV3(
+                    null,
+                    null,
+                    null,
                     null,
                     null,
                     null,
