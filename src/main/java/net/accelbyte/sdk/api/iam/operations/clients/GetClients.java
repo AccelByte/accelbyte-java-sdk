@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.clients;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,8 +28,10 @@ import java.util.*;
  *
  * 
  * 
- * ## The endpoint is going to be deprecated at 10 August, 2018. Please use this
- * instead: namespaces/{namespace}/clients
+ * ## The endpoint is going to be deprecated at 10 August, 2018. Please use this instead: namespaces/{namespace}/clients
+ * 
+ * 
+ * 
  * 
  * Required permission 'CLIENT [READ]'
  *

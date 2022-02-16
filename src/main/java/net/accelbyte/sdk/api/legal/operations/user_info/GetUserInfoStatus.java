@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.legal.operations.user_info;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,8 +28,7 @@ import java.util.*;
  *
  * Get user info cache last updated time per namespace.
  * The query parameter namespaces can be a list of namespace separated by comma.
- * If query parameter namespaces is empty, user info cache status for all
- * available namespaces will be returned.
+ * If query parameter namespaces is empty, user info cache status for all available namespaces will be returned.
  * Other detail info:
  * 
  *   * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.sso;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,8 +26,10 @@ import java.util.*;
 /**
  * LogoutSSOClient
  *
- * Logout user's session on platform that logged in using SSO. Supported
- * platforms: - discourse
+ * Logout user's session on platform that logged in using SSO.
+ * 
+ * Supported platforms:
+ * - discourse
  */
 @Getter
 @Setter

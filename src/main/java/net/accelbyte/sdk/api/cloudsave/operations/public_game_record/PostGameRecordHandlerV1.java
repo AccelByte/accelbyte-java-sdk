@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.cloudsave.operations.public_game_record;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,13 +28,21 @@ import java.util.*;
  * postGameRecordHandlerV1
  *
  * Required Permission | `NAMESPACE:{namespace}:CLOUDSAVE:RECORD [CREATE]`
- * ---|---
- * Required Scope | `social`
+ * --------------------|---------------------------------------------------
+ * Required Scope      | `social`
  * 
- * If there's already record, the record will be merged with conditions: - If
- * field name is already exist, the value will be replaced - If field name is
- * not exists it will append the field and its value Example: Replace value in a
- * specific JSON key
+ * 
+ * 
+ * 
+ * 
+ * If there's already record, the record will be merged with conditions:
+ * - If field name is already exist, the value will be replaced
+ * - If field name is not exists it will append the field and its value
+ * 
+ * Example:
+ * 
+ * Replace value in a specific JSON key
+ * 
  * 
  * 
  * 
@@ -48,7 +62,10 @@ import java.util.*;
  *     }
  * 
  * 
+ * 
+ * 
  * Append new json item
+ * 
  * 
  * 
  * 

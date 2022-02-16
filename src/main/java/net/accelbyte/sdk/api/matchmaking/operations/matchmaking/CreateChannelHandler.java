@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.matchmaking.operations.matchmaking;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,14 +29,23 @@ import java.util.*;
  * CreateChannelHandler
  *
  * Required Permission: NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [CREATE]
- * Required Scope: social Creates a new matchmaking channel. Matchmaking channels
- * is a list of pool name that is eligible for matchmaking processes. GameMode
- * isolates each matchmaking pools. If match timeout is set to 0, by default,
- * incoming matchmaking requests will be timed out after 1 hour. If max worker
- * delay is set to 0, by default, it will wait for at max ~8 seconds during low
- * volume. Rule Set Matching Rule used to classify the player. Player that has
- * matched criteria will be grouped together within an ally. Valid value for
- * criteria is "distance"
+ * 
+ * Required Scope: social
+ * 
+ * Creates a new matchmaking channel.
+ * 
+ * Matchmaking channels is a list of pool name that is eligible for matchmaking processes.
+ * GameMode isolates each matchmaking pools.
+ * 
+ * If match timeout is set to 0, by default, incoming matchmaking requests will be timed out after 1 hour.
+ * 
+ * If max worker delay is set to 0, by default, it will wait for at max ~8 seconds during low volume.
+ * 
+ * Rule Set
+ * 
+ * Matching Rule used to classify the player. Player that has matched criteria will be grouped together within an ally.
+ * 
+ * Valid value for criteria is "distance"
  */
 @Getter
 @Setter

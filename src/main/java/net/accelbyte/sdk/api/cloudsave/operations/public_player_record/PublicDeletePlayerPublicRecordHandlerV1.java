@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.cloudsave.operations.public_player_record;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,8 +26,11 @@ import java.util.*;
 /**
  * publicDeletePlayerPublicRecordHandlerV1
  *
- * Required scope: social Required valid user authorization Delete player public
- * record (arbitrary JSON data) in user-level with given key.
+ * Required scope: social
+ * 
+ * Required valid user authorization
+ * 
+ * Delete player public record (arbitrary JSON data) in user-level with given key.
  */
 @Getter
 @Setter

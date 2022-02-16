@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,14 +29,14 @@ import java.util.*;
  *
  * 
  * 
- * ## The endpoint is deprecated. Please use this instead:
- * iam/v3/admin/namespaces/{namespace}/users/search
+ * ## The endpoint is deprecated. Please use this instead: iam/v3/admin/namespaces/{namespace}/users/search
  * 
- * Search all users that match the query on these fields: all login IDs (email
- * address, phone number, and platform user id), userID, display name, and on the
- * specified namespace. If the query is not defined, then it searches all users
- * on the specified namespace. Required permission
- * 'ADMIN:NAMESPACE:{namespace}:USER:* [READ]'
+ * 
+ * 
+ * 
+ * Search all users that match the query on these fields: all login IDs (email address, phone number, and platform user id),
+ * userID, display name, and on the specified namespace. If the query is not defined, then it searches all users on the specified namespace.
+ * Required permission 'ADMIN:NAMESPACE:{namespace}:USER:* [READ]'
  *
  * @deprecated
  */

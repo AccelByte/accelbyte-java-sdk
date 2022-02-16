@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.sso_credential;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,7 @@ import java.util.*;
 /**
  * RetrieveSSOLoginPlatformCredential
  *
- * This is the API to Get SSO Platform Credential. It needs
- * ADMIN:NAMESPACE:{namespace}:PLATFORM:{platformId}:SSO [READ] resource
+ * This is the API to Get SSO Platform Credential. It needs ADMIN:NAMESPACE:{namespace}:PLATFORM:{platformId}:SSO [READ] resource
  */
 @Getter
 @Setter

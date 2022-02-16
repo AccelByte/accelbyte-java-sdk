@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.cloudsave.operations.public_player_record;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,17 +27,26 @@ import java.util.*;
 /**
  * postPlayerPublicRecordHandlerV1
  *
- * Required Permission |
- * `NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [WRITE]`
- * ---|---
- * Required Scope | `social`
+ * Required Permission | `NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [WRITE]`
+ * --------------------|-----------------------------------------------------------------------
+ * Required Scope      | `social`
  * 
- * This endpoint will create or update player record with `isPublic=true` meaning
- * that the record will be available for other player to be retrieved. Other
- * player can only retrieve the record and not create, update or even delete.
- * This endpoint will create public player record if it is not exists otherwise
- * merge with these criteria: - If field name is already exists, replace the
- * value - If field name is not exists, append it Example Replace value:
+ * 
+ * 
+ * 
+ * 
+ * This endpoint will create or update player record with `isPublic=true` meaning that the
+ * record will be available for other player to be retrieved. Other player can only retrieve the record
+ * and not create, update or even delete.
+ * 
+ * This endpoint will create public player record if it is not exists otherwise merge with these criteria:
+ * - If field name is already exists, replace the value
+ * - If field name is not exists, append it
+ * 
+ * Example
+ * 
+ * Replace value:
+ * 
  * 
  * 
  * 
@@ -51,7 +66,10 @@ import java.util.*;
  *         }
  * 
  * 
+ * 
+ * 
  * Append value:
+ * 
  * 
  * 
  * 

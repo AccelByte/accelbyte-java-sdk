@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.group.operations.group;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -24,8 +30,13 @@ import java.util.*;
  * 
  * Required Permission: "ADMIN:NAMESPACE:{namespace}:GROUP:{groupId} [DELETE]"
  * 
- * Delete existing group. It will check whether the groupID is exist before doing
- * the process to delete the group.
+ * 
+ * 
+ * 
+ * Delete existing group. It will check whether the groupID is exist before doing the process to delete the group.
+ * 
+ * 
+ * 
  * 
  * Action Code: 73302
  */

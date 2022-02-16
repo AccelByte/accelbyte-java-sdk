@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.sso_credential;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,22 +28,19 @@ import java.util.*;
 /**
  * AddSSOLoginPlatformCredential
  *
- * This is the API to Add SSO Platform Credential. It needs
- * ADMIN:NAMESPACE:{namespace}:PLATFORM:{platformId}:SSO [CREATE] resource.
+ * This is the API to Add SSO Platform Credential. It needs ADMIN:NAMESPACE:{namespace}:PLATFORM:{platformId}:SSO [CREATE] resource.
  * 
  * ## Supported platforms:
  * 
+ * 
+ * 
  *           * discourse
- * the ssoUrl of the discourse is the discourse forum url. example:
- * https://forum.example.com
+ * the ssoUrl of the discourse is the discourse forum url. example: https://forum.example.com
  * 
  *           * azure with SAML
  *  appId is an application identifier in IdP, in azure it's called EntityID
- * acsUrl is an endpoint on the service provider where the identity provider will
- * redirect to with its authentication response. example:
- * /iam/v3/sso/saml/azuresaml/authenticate federationMetadataUrl is an endpoint
- * on the Identity Provider(IdP) to get IdP federation metadata for service
- * provider to build trust relationship
+ * acsUrl is an endpoint on the service provider where the identity provider will redirect to with its authentication response. example: /iam/v3/sso/saml/azuresaml/authenticate
+ * federationMetadataUrl is an endpoint on the Identity Provider(IdP) to get IdP federation metadata for service provider to build trust relationship
  */
 @Getter
 @Setter

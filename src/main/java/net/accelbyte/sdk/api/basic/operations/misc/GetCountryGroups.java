@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.basic.operations.misc;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,8 +26,7 @@ import java.util.*;
 /**
  * getCountryGroups
  *
- * List country groups. Will return all available country groups if the query
- * param is not specified
+ * List country groups. Will return all available country groups if the query param is not specified
  * Other detail info:
  * 
  *   * Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=2 (READ)

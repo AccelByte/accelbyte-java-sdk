@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.social.operations.slot;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -24,7 +30,6 @@ import java.util.*;
  *
  * Updates the slot metadata.
  * Other detail info:
- * 
  *         *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=4 (UPDATE)
  *         *  Returns : updated slot
  */

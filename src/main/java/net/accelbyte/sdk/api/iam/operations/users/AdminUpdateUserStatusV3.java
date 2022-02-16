@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,17 +27,26 @@ import java.util.*;
 /**
  * AdminUpdateUserStatusV3
  *
- * Required permissions 'ADMIN:NAMESPACE:{namespace}:USERSTATUS:USER:{userId}
- * [UPDATE]'
+ * Required permissions 'ADMIN:NAMESPACE:{namespace}:USERSTATUS:USER:{userId} [UPDATE]'
  * 
- * This endpoint disable or enable user account. Set the enable status on the
- * request body to true to enable user account or set to false to disable it.
+ * 
+ * This endpoint disable or enable user account. Set the enable status on the request body to true to enable user account or set to false to disable it.
+ * 
+ * 
+ * 
  * 
  * Disable user for Account Disable purpose fill the reason with:
  * 
+ * 
+ * 
+ * 
  *                 * AdminDeactivateAccount : if your disable account request comes from admin
  * 
+ * 
+ * 
+ * 
  * Enable user ignore field 'reason' in the request body.
+ * 
  * 
  * 
  * action code : 10143

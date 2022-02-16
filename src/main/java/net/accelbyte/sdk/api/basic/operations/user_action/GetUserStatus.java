@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.basic.operations.user_action;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,9 +28,7 @@ import java.util.*;
  * getUserStatus
  *
  * Get user status.
- * If actionId does not exist, then the user is not banned.If actionId and
- * expires exist, then the user is temporarily banned, if expires does not exist,
- * then the user is permanently banned.Other detail info:
+ * If actionId does not exist, then the user is not banned.If actionId and expires exist, then the user is temporarily banned, if expires does not exist, then the user is permanently banned.Other detail info:
  * 
  *   * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=2 (READ)
  */

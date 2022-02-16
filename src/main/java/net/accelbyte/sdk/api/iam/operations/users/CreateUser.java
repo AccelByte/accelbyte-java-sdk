@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -26,10 +32,24 @@ import java.util.*;
  * 
  * Required permission 'NAMESPACE:{namespace}:USER [CREATE]'.
  * 
+ * 
+ * 
+ * 
  * Available Authentication Types:
  * 
- *   1. EMAILPASSWD : an authentication type used for new user registration through email.
- *   2. PHONEPASSWD : an authentication type used for new user registration through phone number.
+ * 
+ * 
+ * 
+ * 
+ * 
+ *   1.  EMAILPASSWD : an authentication type used for new user registration through email.
+ * 
+ * 
+ *   2.  PHONEPASSWD : an authentication type used for new user registration through phone number.
+ * 
+ * 
+ * 
+ * 
  * 
  * Country use ISO3166-1 alpha-2 two letter, e.g. US.
  */

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.payment_config;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,7 @@ import java.util.*;
 /**
  * testAliPayConfigById
  *
- * Test AliPay configuration in payment merchant config. Reference: [Alipay
- * Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
+ * Test AliPay configuration in payment merchant config. Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
  * Other detail info:
  * 
  *   * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)

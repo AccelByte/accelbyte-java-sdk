@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,8 +28,7 @@ import java.util.*;
  *
  * 
  * 
- * Get signed url in an all time leaderboard that archived. NOTE: This will be a
- * bulk endpoint to get sign url
+ * Get signed url in an all time leaderboard that archived. NOTE: This will be a bulk endpoint to get sign url
  */
 @Getter
 @Setter

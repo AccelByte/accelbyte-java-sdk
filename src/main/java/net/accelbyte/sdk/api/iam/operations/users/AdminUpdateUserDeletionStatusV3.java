@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,7 @@ import java.util.*;
 /**
  * AdminUpdateUserDeletionStatusV3
  *
- * Required permissions 'ADMIN:NAMESPACE:{namespace}:DELETIONSTATUS:USER:{userId}
- * [UPDATE]'
+ * Required permissions 'ADMIN:NAMESPACE:{namespace}:DELETIONSTATUS:USER:{userId} [UPDATE]'
  * action code : 10144
  */
 @Getter

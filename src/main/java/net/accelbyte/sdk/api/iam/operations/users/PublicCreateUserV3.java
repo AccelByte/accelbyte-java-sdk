@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -24,16 +30,28 @@ import java.util.*;
  *
  * 
  * 
+ * 
  * Available Authentication Types:
  * 
- *                   1. EMAILPASSWD : an authentication type used for new user registration through email.
+ * 
+ * 
+ * 
+ *                   1.  EMAILPASSWD : an authentication type used for new user registration through email.
+ * 
+ * 
+ * 
  * 
  * Country use ISO3166-1 alpha-2 two letter, e.g. US.
  * 
+ * 
+ * 
+ * 
  * Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
  * 
- * This endpoint support accepting agreements for the created user. Supply the
- * accepted agreements in acceptedPolicies attribute.
+ * 
+ * 
+ * 
+ * This endpoint support accepting agreements for the created user. Supply the accepted agreements in acceptedPolicies attribute.
  */
 @Getter
 @Setter

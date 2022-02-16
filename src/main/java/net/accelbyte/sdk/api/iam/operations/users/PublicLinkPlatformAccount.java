@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,10 +27,9 @@ import java.util.*;
 /**
  * PublicLinkPlatformAccount
  *
- * Update Platform Account relation to current User Account. Note: Game
- * progression data (statistics, reward, etc) associated with previous User
- * Account will not be transferred. If the data is tight to game user ID, the
- * user will have the game progression data.
+ * Update Platform Account relation to current User Account.
+ * Note: Game progression data (statistics, reward, etc) associated with previous User Account will not be
+ * transferred. If the data is tight to game user ID, the user will have the game progression data.
  */
 @Getter
 @Setter

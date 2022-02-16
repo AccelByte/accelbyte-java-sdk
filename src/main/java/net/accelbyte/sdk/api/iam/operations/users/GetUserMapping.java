@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,17 +29,22 @@ import java.util.*;
  *
  * 
  * 
- * This endpoint requires the client access token as the bearer token. Required
- * permission 'ADMIN:NAMESPACE:{namespace}:JUSTICE:USER:{userId} [READ]'
+ * This endpoint requires the client access token as the bearer token. Required permission 'ADMIN:NAMESPACE:{namespace}:JUSTICE:USER:{userId} [READ]'
  * 
- * This endpoint will support publisher access to game and game access to
- * publisher
  * 
- * If targetNamespace filled with publisher namespace then this endpoint will
- * return its game user id and game namespace
  * 
- * If targetNamespace filled with game namespace then this endpoint will return
- * its publisher user id and publisher namespace
+ * 
+ * This endpoint will support publisher access to game and game access to publisher
+ * 
+ * 
+ * 
+ * 
+ * If targetNamespace filled with publisher namespace then this endpoint will return its game user id and game namespace
+ * 
+ * 
+ * 
+ * 
+ * If targetNamespace filled with game namespace then this endpoint will return its publisher user id and publisher namespace
  */
 @Getter
 @Setter

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.legal.operations.admin_user_agreement;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,9 +28,7 @@ import java.util.*;
 /**
  * indirectBulkAcceptVersionedPolicy
  *
- * Accepts many legal policy versions all at once. Supply with localized version
- * policy id and userId to accept an agreement. Other detail info:
- * 
+ * Accepts many legal policy versions all at once. Supply with localized version policy id and userId to accept an agreement. Other detail info:
  *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:LEGAL", action=1 (CREATE)
  */
 @Getter

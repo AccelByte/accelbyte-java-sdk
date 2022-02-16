@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.group.operations.group;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -26,12 +32,20 @@ import java.util.*;
  * 
  * Requires valid user authentication
  * 
+ * 
+ * 
+ * 
  * Required Member Role Permission: "GROUP [UPDATE]"
  * 
- * This endpoint replaces current group custom attributes entirely. This endpoint
- * will check the group ID of the user based on the access token and compare it
- * with the group ID in path parameter. It will also check the member role of the
- * user based on the access token
+ * 
+ * 
+ * 
+ * This endpoint replaces current group custom attributes entirely.
+ * This endpoint will check the group ID of the user based on the access token and compare it with the group ID in path parameter.
+ * It will also check the member role of the user based on the access token
+ * 
+ * 
+ * 
  * 
  * Action Code: 73311
  */

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.dsmc.operations.session;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,12 +27,13 @@ import java.util.*;
 /**
  * GetSession
  *
- * Required permission: NAMESPACE:{namespace}:DSM:SESSION [READ] Required scope:
- * social This endpoint is intended to be called by game session manager
- * (matchmaker, lobby, etc.) to query the status of dedicated server that is
- * created for the session. The server is ready to use when the status is READY.
- * At which point, the game session manager can claim the server using the GET
- * /namespaces/{namespace}/sessions/{sessionID}/claim endpoint
+ * Required permission: NAMESPACE:{namespace}:DSM:SESSION [READ]
+ * 
+ * Required scope: social
+ * 
+ * This endpoint is intended to be called by game session manager (matchmaker, lobby, etc.) to query the status of dedicated server that is created for the session.
+ * 
+ * The server is ready to use when the status is READY. At which point, the game session manager can claim the server using the GET /namespaces/{namespace}/sessions/{sessionID}/claim endpoint
  */
 @Getter
 @Setter

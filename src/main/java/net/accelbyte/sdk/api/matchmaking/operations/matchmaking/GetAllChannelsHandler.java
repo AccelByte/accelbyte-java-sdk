@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.matchmaking.operations.matchmaking;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,11 @@ import java.util.*;
 /**
  * GetAllChannelsHandler
  *
- * Required Permission: NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [READ] Required
- * Scope: social Reads all available channels in a namespace
+ * Required Permission: NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [READ]
+ * 
+ * Required Scope: social
+ * 
+ * Reads all available channels in a namespace
  */
 @Getter
 @Setter

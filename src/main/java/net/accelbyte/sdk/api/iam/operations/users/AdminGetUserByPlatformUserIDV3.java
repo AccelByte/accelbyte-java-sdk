@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,9 +27,11 @@ import java.util.*;
 /**
  * AdminGetUserByPlatformUserIDV3
  *
- * Get User By Platform User ID This endpoint return user information by given
- * platform ID and platform user ID nintendo platform user ID : NSA ID need to be
- * appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
+ * Get User By Platform User ID
+ * 
+ * This endpoint return user information by given platform ID and platform user ID
+ * 
+ * nintendo platform user ID : NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
  */
 @Getter
 @Setter

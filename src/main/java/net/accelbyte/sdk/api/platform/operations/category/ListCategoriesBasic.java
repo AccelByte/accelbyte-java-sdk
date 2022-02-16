@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.category;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,8 +26,7 @@ import java.util.*;
 /**
  * listCategoriesBasic
  *
- * This API is used to list all categories' basic info of a store ordered by
- * category path.
+ * This API is used to list all categories' basic info of a store ordered by category path.
  * 
  * Other detail info:
  * 

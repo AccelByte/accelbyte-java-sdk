@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,17 +29,24 @@ import java.util.*;
  *
  * 
  * 
- * ## The endpoint is going to be deprecated. Please use this instead:
- * iam/v2/admin/namespaces/{namespace}/users/{userId}/disable
+ * ## The endpoint is going to be deprecated. Please use this instead: iam/v2/admin/namespaces/{namespace}/users/{userId}/disable
+ * 
  * 
  * +
  * 
- * Required permissions 'ADMIN:NAMESPACE:{namespace}:USERSTATUS:USER:{userId}
- * [UPDATE]'
+ * Required permissions 'ADMIN:NAMESPACE:{namespace}:USERSTATUS:USER:{userId} [UPDATE]'
+ * 
+ * 
+ * 
  * 
  * For Deletion Account purpose fill the reason with:
  * 
+ * 
+ * 
+ * 
  *     * DeactivateAccount : if your deletion request comes from user
+ * 
+ * 
  *     * AdminDeactivateAccount : if your deletion request comes from admin
  *
  * @deprecated

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.roles;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,11 +28,14 @@ import java.util.*;
 /**
  * AdminCreateRoleV4
  *
- * Required permission: ADMIN:ROLE [CREATE] Create role request body: -
- * roleName: specify role name, alphanumeric, cannot have special character
- * (required) - adminRole: specify if role is for admin user (default false) -
- * isWildcard: specify if role can be assigned to wildcard (*) namespace (default
- * false) action code: 10401
+ * Required permission: ADMIN:ROLE [CREATE]
+ * 
+ * Create role request body:
+ * - roleName: specify role name, alphanumeric, cannot have special character (required)
+ * - adminRole: specify if role is for admin user (default false)
+ * - isWildcard: specify if role can be assigned to wildcard (*) namespace (default false)
+ * 
+ * action code: 10401
  */
 @Getter
 @Setter

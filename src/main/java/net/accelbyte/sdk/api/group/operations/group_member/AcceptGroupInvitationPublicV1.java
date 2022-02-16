@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.group.operations.group_member;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,18 +31,33 @@ import java.util.*;
  * 
  * Required valid user authentication
  * 
+ * 
+ * 
+ * 
  * This endpoint is used to accept group invitation.
  * 
- * Accept group invitation. If specific user is not invited in the specific group
- * ID, it will show the the error to show if the user is not invited yet.
  * 
- * This endpoint will also check if the user who access this endpoint is already
- * joined to specific group
  * 
- * Accessing this endpoint will make all requests (invite / join request) will be
- * deleted for the user who access this endpoint
+ * 
+ * Accept group invitation. If specific user is not invited in the specific group ID, it will show the the error to show if the user is not invited yet.
+ * 
+ * 
+ * 
+ * 
+ * This endpoint will also check if the user who access this endpoint is already joined to specific group
+ * 
+ * 
+ * 
+ * 
+ * Accessing this endpoint will make all requests (invite / join request) will be deleted for the user who access this endpoint
+ * 
+ * 
+ * 
  * 
  * Existing members will receive notification of newly accepted member.
+ * 
+ * 
+ * 
  * 
  * Action Code: 73401
  */

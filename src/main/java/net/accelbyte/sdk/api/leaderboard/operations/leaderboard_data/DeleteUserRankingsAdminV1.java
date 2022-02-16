@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,11 +26,12 @@ import java.util.*;
 /**
  * deleteUserRankingsAdminV1
  *
- * Delete user ranking across leaderboard Required permission:
- * ADMIN:NAMESPACE:{namespace}:LEADERBOARD:USER [DELETE] Remove entry with
- * provided userId from leaderboard. If leaderboard with given leaderboard code
- * not found, it will return http status not found (404). If the leaderboard is
- * found and no entry found in it, it will still return success (204)
+ * Delete user ranking across leaderboard
+ * Required permission: ADMIN:NAMESPACE:{namespace}:LEADERBOARD:USER [DELETE]
+ * 
+ * Remove entry with provided userId from leaderboard.
+ * If leaderboard with given leaderboard code not found, it will return http status not found (404).
+ * If the leaderboard is found and no entry found in it, it will still return success (204)
  */
 @Getter
 @Setter

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.dsmc.operations.admin;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,11 @@ import java.util.*;
 /**
  * GetServer
  *
- * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:SERVER [READ] Required
- * scope: social This endpoint queries a specified dedicated server from DB.
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:SERVER [READ]
+ * 
+ * Required scope: social
+ * 
+ * This endpoint queries a specified dedicated server from DB.
  */
 @Getter
 @Setter

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.lobby.operations.notification;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,9 +27,10 @@ import java.util.*;
 /**
  * sendMultipleUsersFreeformNotificationV1Admin
  *
- * Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [CREATE]` with
- * scope `social`
- * Sends notification to multiple user. Action Code: 50211
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [CREATE]` with scope `social`
+ * 
+ * Sends notification to multiple user.
+ * Action Code: 50211
  */
 @Getter
 @Setter

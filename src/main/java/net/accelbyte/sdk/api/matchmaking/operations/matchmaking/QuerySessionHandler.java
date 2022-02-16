@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.matchmaking.operations.matchmaking;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,11 +27,15 @@ import java.util.*;
 /**
  * QuerySessionHandler
  *
- * Required Permission: NAMESPACE:{namespace}:SESSION [READ] Required Scope:
- * social Queries the specified session's status. Game servers are expected to
- * call this periodically as long as it has a session in queue to see if there
- * are new players being matched to the session. Possible session statuses are
- * "sessionInQueue", "sessionFull", and "sessionTimeout".
+ * Required Permission: NAMESPACE:{namespace}:SESSION [READ]
+ * 
+ * Required Scope: social
+ * 
+ * Queries the specified session's status. Game servers are expected to
+ * call this periodically as long as it has a session in queue to see
+ * if there are new players being matched to the session.
+ * 
+ * Possible session statuses are "sessionInQueue", "sessionFull", and "sessionTimeout".
  */
 @Getter
 @Setter

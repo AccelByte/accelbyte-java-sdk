@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.cloudsave.operations.admin_game_record;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,8 +28,10 @@ import java.util.*;
  * adminPutGameRecordHandlerV1
  *
  * Required permission: ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [UPDATE]
- * Required scope: social This endpoints is to replace game record data if exists
- * or insert new data in namespace-level
+ * 
+ * Required scope: social
+ * 
+ * This endpoints is to replace game record data if exists or insert new data in namespace-level
  */
 @Getter
 @Setter

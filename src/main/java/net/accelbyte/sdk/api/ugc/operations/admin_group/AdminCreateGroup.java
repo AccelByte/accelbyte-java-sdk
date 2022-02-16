@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.ugc.operations.admin_group;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,8 +28,7 @@ import java.util.*;
 /**
  * AdminCreateGroup
  *
- * Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP
- * [CREATE]
+ * Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [CREATE]
  */
 @Getter
 @Setter

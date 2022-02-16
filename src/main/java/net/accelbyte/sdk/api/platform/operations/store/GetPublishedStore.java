@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.store;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,7 @@ import java.util.*;
 /**
  * getPublishedStore
  *
- * This API is used to get a published store basic info, exclude category and
- * item information.
+ * This API is used to get a published store basic info, exclude category and item information.
  * 
  * Other detail info:
  * 

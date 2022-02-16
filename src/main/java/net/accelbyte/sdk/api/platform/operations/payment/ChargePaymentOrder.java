@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.payment;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,9 +28,7 @@ import java.util.*;
 /**
  * chargePaymentOrder
  *
- *  [TEST FACILITY ONLY] Forbidden in live environment. Charge payment order
- * without payment flow for unpaid payment order, usually for test usage to
- * simulate real currency payment process.
+ *  [TEST FACILITY ONLY] Forbidden in live environment. Charge payment order without payment flow for unpaid payment order, usually for test usage to simulate real currency payment process.
  * Other detail info:
  * 
  *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=4 (UPDATE)

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,16 +28,20 @@ import java.util.*;
  *
  * 
  * 
- * ## The endpoint is going to be deprecated at 9 July, 2018. Please use this
- * instead: /users/{userId}/platforms/{platformId}/link
+ * ## The endpoint is going to be deprecated at 9 July, 2018. Please use this instead: /users/{userId}/platforms/{platformId}/link
+ * 
+ * 
+ * 
  * 
  * Required permission 'NAMESPACE:{namespace}:USER:{userId} [UPDATE]'.
  * 
- * Access token from original namespace is needed as authorization header. Access
- * token from designated account needed as form parameter to verify the ownership
- * of that account. When platformID (device platfom ID) is specified, platform
- * login method for that specific platform ID is removed. This means to protect
- * account from second hand device usage.
+ * 
+ * 
+ * 
+ * 
+ * Access token from original namespace is needed as authorization header. Access token from designated account needed as form parameter to verify the ownership of that account.
+ * When platformID (device platfom ID) is specified, platform login method for that specific platform ID is removed.
+ * This means to protect account from second hand device usage.
  *
  * @deprecated
  */

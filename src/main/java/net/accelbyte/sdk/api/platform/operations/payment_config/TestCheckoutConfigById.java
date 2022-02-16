@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.payment_config;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,7 +28,6 @@ import java.util.*;
  * testCheckoutConfigById
  *
  * Test checkout.com configuration in payment merchant config. Other detail info:
- * 
  *   * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
  *   *  Returns : test result
  */

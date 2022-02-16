@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.sso_saml_2_0;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,15 +26,18 @@ import java.util.*;
 /**
  * platformAuthenticateSAMLV3Handler
  *
- * This endpoint authenticates user platform for SAML protocol. It validates user
- * to its respective platforms. Deactivated or login-banned users are unable to
- * login.
+ * This endpoint authenticates user platform for SAML protocol. It validates user to its
+ * respective platforms. Deactivated or login-banned users are unable to login.
+ * 
+ * 
  * 
  * ## Supported platforms:
  * 
+ * 
+ * 
  *                           * azure
- * Microsoft login page will redirects to this endpoint after login success as
- * previously defined on authentication request SAML
+ * Microsoft login page will redirects to this endpoint after login success
+ * as previously defined on authentication request SAML
  */
 @Getter
 @Setter

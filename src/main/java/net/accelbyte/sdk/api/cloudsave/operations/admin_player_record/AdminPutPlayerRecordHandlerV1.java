@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.cloudsave.operations.admin_player_record;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,11 +27,13 @@ import java.util.*;
 /**
  * adminPutPlayerRecordHandlerV1
  *
- * Required permission:
- * ADMIN:NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD [UPDATE] Required
- * scope: social Save a record (arbitrary JSON data) in user-level. If a record
- * already exist with given key, this endpoint will replace the record, else will
- * create new Record. Record saved will be a private record.
+ * Required permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD [UPDATE]
+ * 
+ * Required scope: social
+ * 
+ * Save a record (arbitrary JSON data) in user-level.
+ * If a record already exist with given key, this endpoint will replace the record, else will create new Record.
+ * Record saved will be a private record.
  */
 @Getter
 @Setter

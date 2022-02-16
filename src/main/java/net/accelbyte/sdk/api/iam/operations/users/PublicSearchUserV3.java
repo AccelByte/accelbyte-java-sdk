@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,9 +31,12 @@ import java.util.*;
  * 
  * Requires valid user access token
  * 
- * This endpoint search all users on the specified namespace that match the query
- * on these fields: display name, and username. The query length should greater
- * than 1ï¼otherwise will not query the database. The default limit value is 100
+ * 
+ * 
+ * 
+ * This endpoint search all users on the specified namespace that match the query on these fields: display name, and username.
+ * The query length should greater than 1ï¼otherwise will not query the database. The default limit value is 100
+ * 
  * 
  * 
  * action code : 10132

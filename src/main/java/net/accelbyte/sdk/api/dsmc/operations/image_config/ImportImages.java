@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.dsmc.operations.image_config;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,12 +27,23 @@ import java.util.*;
 /**
  * ImportImages
  *
- * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [CREATE] Required
- * scope: social This endpoint import a dedicated servers images in a namespace.
- * The image will be upsert. Existing version will be replaced with imported
- * image, will create new one if not found. Example data inside imported file [ {
- * "namespace": "dewa", "image": "123456789.dkr.ecr.us-west-2.amazonaws.com/ds-
- * dewa:0.0.1-alpha", "version": "0.0.1", "persistent": true } ]
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [CREATE]
+ * 
+ * Required scope: social
+ * 
+ * This endpoint import a dedicated servers images in a namespace.
+ * 
+ * The image will be upsert. Existing version will be replaced with imported image, will create new one if not found.
+ * 
+ * Example data inside imported file
+ * [
+ * {
+ * "namespace": "dewa",
+ * "image": "123456789.dkr.ecr.us-west-2.amazonaws.com/ds-dewa:0.0.1-alpha",
+ * "version": "0.0.1",
+ * "persistent": true
+ * }
+ * ]
  */
 @Getter
 @Setter

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.matchmaking.operations.matchmaking;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,7 +28,10 @@ import java.util.*;
  * AddUserIntoSessionInChannel
  *
  * Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Create]
- * Required Scope: social Add user into the session in a channel.
+ * 
+ * Required Scope: social
+ * 
+ * Add user into the session in a channel.
  */
 @Getter
 @Setter

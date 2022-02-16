@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,11 +26,16 @@ import java.util.*;
 /**
  * CheckUserAvailability
  *
- * Check user's account availability. Available field : - displayName If request
- * include access token with user ID data, that user ID will be excluded from
- * availability check. For example, in case user update his emailAddress, he can
- * use his own emailAddress to update his account. Response Code : - Account
- * Available : 404 (not found) - Account Not Available : 204 (no content)
+ * Check user's account availability.
+ * Available field :
+ * - displayName
+ * 
+ * If request include access token with user ID data, that user ID will be excluded from availability check.
+ * For example, in case user update his emailAddress, he can use his own emailAddress to update his account.
+ * 
+ * Response Code :
+ * - Account Available : 404 (not found)
+ * - Account Not Available : 204 (no content)
  */
 @Getter
 @Setter

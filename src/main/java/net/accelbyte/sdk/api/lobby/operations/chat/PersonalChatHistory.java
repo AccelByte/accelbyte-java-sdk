@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.lobby.operations.chat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,8 +26,8 @@ import java.util.*;
 /**
  * personalChatHistory
  *
- * Required permission : `NAMESPACE:{namespace}:USER:{userId}:CHAT [READ]` with
- * scope `social`
+ * Required permission : `NAMESPACE:{namespace}:USER:{userId}:CHAT [READ]` with scope `social`
+ * 
  * load personal chat history in a namespace.
  */
 @Getter

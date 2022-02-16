@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.social.operations.slot_config;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,10 +26,8 @@ import java.util.*;
 /**
  * deleteUserSlotConfig
  *
- * Deletes a user slot configuration in given namespace, the namespace slot
- * configuration will be returned after delete.
+ * Deletes a user slot configuration in given namespace, the namespace slot configuration will be returned after delete.
  * Other detail info:
- * 
  *       *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=8 (DELETE)
  */
 @Getter

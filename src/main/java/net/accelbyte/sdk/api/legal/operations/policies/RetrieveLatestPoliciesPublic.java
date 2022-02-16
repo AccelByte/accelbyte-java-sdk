@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.legal.operations.policies;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,8 +26,7 @@ import java.util.*;
 /**
  * retrieveLatestPoliciesPublic
  *
- * Retrieve all active latest policies based on a namespace and country. The
- * country will be read from user token.
+ * Retrieve all active latest policies based on a namespace and country. The country will be read from user token.
  * Other detail info:
  * 
  *   * Leave the policyType empty if you want to be responded with all policy type

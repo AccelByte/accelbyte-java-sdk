@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.wallet;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,8 +28,7 @@ import java.util.*;
 /**
  * creditUserWallet
  *
- * Credit a user wallet by currency code, if wallet not exists, it will create a
- * new wallet.
+ * Credit a user wallet by currency code, if wallet not exists, it will create a new wallet.
  * Other detail info:
  * 
  *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:WALLET", action=4 (UPDATE)

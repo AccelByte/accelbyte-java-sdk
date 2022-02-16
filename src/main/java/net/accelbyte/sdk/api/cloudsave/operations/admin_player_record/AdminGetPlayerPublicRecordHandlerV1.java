@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.cloudsave.operations.admin_player_record;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,10 +27,11 @@ import java.util.*;
 /**
  * adminGetPlayerPublicRecordHandlerV1
  *
- * Required permission:
- * ADMIN:NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [READ]
- * Required scope: social Get a record in user-level (arbitrary JSON data) by its
- * key.
+ * Required permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [READ]
+ * 
+ * Required scope: social
+ * 
+ * Get a record in user-level (arbitrary JSON data) by its key.
  */
 @Getter
 @Setter

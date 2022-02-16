@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.dsmc.operations.config;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,12 @@ import java.util.*;
 /**
  * importConfigV1
  *
- * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [CREATE] Required
- * scope: social This endpoint import a dedicated servers config in a namespace.
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [CREATE]
+ * 
+ * Required scope: social
+ * 
+ * This endpoint import a dedicated servers config in a namespace.
+ * 
  * If there is an existing configuration, the configuration would be replaced.
  */
 @Getter

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.lobby.operations.notification;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,11 +26,13 @@ import java.util.*;
 /**
  * deleteNotificationTopicV1Admin
  *
- * Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [DELETE]` with
- * scope `social`
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [DELETE]` with scope `social`
+ * 
  * delete topic information by topic name.
- * topic should be alphabets, no special char except underscore, uppercase and no
- * spacing. for example: TOPIC_TEST. Already existing topic can not be created
+ * 
+ * topic should be alphabets, no special char except underscore, uppercase and no spacing. for example: TOPIC_TEST.
+ * Already existing topic can not be created
+ * 
  * Action Code: 50217
  */
 @Getter

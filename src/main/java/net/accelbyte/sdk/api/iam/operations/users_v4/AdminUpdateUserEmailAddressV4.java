@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users_v4;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,14 +31,15 @@ import java.util.*;
  * 
  * Required permission
  * 
- * 
  *                                                                                                 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
  * 
  * 
  * 
- * This is the endpoint for an admin to update a user email address. This
- * endpoint need a valid user token from an admin to verify its identity (email)
- * before updating a user.
+ * 
+ * 
+ * 
+ * This is the endpoint for an admin to update a user email address.
+ * This endpoint need a valid user token from an admin to verify its identity (email) before updating a user.
  */
 @Getter
 @Setter

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.sessionbrowser.operations.session;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,7 +28,10 @@ import java.util.*;
  * DeleteSession
  *
  * Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [DELETE]
- * Required scope: social Delete the session by session ID
+ * 
+ * Required scope: social
+ * 
+ * Delete the session by session ID
  */
 @Getter
 @Setter

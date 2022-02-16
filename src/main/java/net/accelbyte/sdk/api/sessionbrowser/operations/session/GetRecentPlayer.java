@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.sessionbrowser.operations.session;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,7 +28,10 @@ import java.util.*;
  * GetRecentPlayer
  *
  * Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:RECENTPLAYER [READ]
- * Required scope: social Query recent player by user ID
+ * 
+ * Required scope: social
+ * 
+ * Query recent player by user ID
  */
 @Getter
 @Setter

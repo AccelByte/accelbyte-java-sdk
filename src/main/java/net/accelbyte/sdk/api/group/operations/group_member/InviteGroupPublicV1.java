@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.group.operations.group_member;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,15 +31,28 @@ import java.util.*;
  * 
  * Required valid user authentication
  * 
+ * 
+ * 
+ * 
  * Required Member Role Permission: "GROUP:INVITE [CREATE]"
+ * 
+ * 
+ * 
  * 
  * This endpoint is used to invite specific user to the group.
  * 
- * invite specific user to the group. If specific user is already have the join
- * request to the group, this endpoint will notify if this user already have join
- * request that needs to be accepted / rejected
+ * 
+ * 
+ * 
+ * invite specific user to the group. If specific user is already have the join request to the group, this endpoint will notify if this user already have join request that needs to be accepted / rejected
+ * 
+ * 
+ * 
  * 
  * Invited user will receive notification through lobby.
+ * 
+ * 
+ * 
  * 
  * Action Code: 73406
  */

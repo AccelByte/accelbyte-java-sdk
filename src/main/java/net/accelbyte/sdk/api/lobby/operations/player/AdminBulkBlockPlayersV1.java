@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.lobby.operations.player;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,8 @@ import java.util.*;
 /**
  * adminBulkBlockPlayersV1
  *
- * Required permission : `ADMIN:NAMESPACE:{namespace}:USER:{userId}:PLAYER:BLOCK
- * [CREATE]` with scope `social`
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:USER:{userId}:PLAYER:BLOCK [CREATE]` with scope `social`
+ * 
  * Bulk block player in a namespace by list of user id
  */
 @Getter

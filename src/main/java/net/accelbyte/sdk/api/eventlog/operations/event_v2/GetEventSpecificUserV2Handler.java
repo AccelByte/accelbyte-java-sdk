@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.eventlog.operations.event_v2;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,7 @@ import java.util.*;
 /**
  * GetEventSpecificUserV2Handler
  *
- * Required permission `ADMIN:NAMESPACE:{namespace}:EVENT [READ]`and scope
- * `analytics`
+ * Required permission `ADMIN:NAMESPACE:{namespace}:EVENT [READ]`and scope `analytics`
  */
 @Getter
 @Setter

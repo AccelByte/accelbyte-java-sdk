@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.subscription;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,11 +27,8 @@ import java.util.*;
 /**
  * publicChangeSubscriptionBillingAccount
  *
- * Request to change a subscription billing account, this will guide user to
- * payment station. The actual change will happen at the 0 payment notification
- * successfully handled.
- * Only ACTIVE USER subscription with real currency billing account can be
- * changed.
+ * Request to change a subscription billing account, this will guide user to payment station. The actual change will happen at the 0 payment notification successfully handled.
+ * Only ACTIVE USER subscription with real currency billing account can be changed.
  * Other detail info:
  * 
  *   * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SUBSCRIPTION", action=4 (UPDATE)

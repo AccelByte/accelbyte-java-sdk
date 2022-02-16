@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.cloudsave.operations.public_player_record;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,14 +27,22 @@ import java.util.*;
 /**
  * postPlayerRecordHandlerV1
  *
- * Required Permission | `NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD
- * [WRITE]`
- * ---|---
- * Required Scope | `social`
+ * Required Permission | `NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD [WRITE]`
+ * --------------------|----------------------------------------------------------------
+ * Required Scope      | `social`
+ * 
+ * 
+ * 
+ * 
  * 
  * Create player record if it is not exists otherwise merge with these criteria:
- * - If field name is already exists, replace the value - If field name is not
- * exists, append it Example Replace value:
+ * - If field name is already exists, replace the value
+ * - If field name is not exists, append it
+ * 
+ * Example
+ * 
+ * Replace value:
+ * 
  * 
  * 
  * 
@@ -48,7 +62,10 @@ import java.util.*;
  *         }
  * 
  * 
+ * 
+ * 
  * Append value:
+ * 
  * 
  * 
  * 

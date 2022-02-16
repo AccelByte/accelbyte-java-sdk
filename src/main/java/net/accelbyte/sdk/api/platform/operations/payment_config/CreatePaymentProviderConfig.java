@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.payment_config;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -29,12 +35,14 @@ import java.util.*;
  *      Request Body Parameters:
  * 
  * 
- *      Parameter| Type| Required| Description
- *     ---|---|---|---
- *     namespace| String| Yes| namespace, * indicates all namespace
- *     region| String| Yes| region, * indicates all regions
- *     aggregate| String| No| aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
- *     specials| List| No| special payment provider, such as ALIPAY, WXPAY
+ *      Parameter | Type   | Required | Description
+ *     -----------|--------|----------|-----------------------------------------------------------
+ *     namespace  | String | Yes      | namespace, * indicates all namespace
+ *     region     | String | Yes      | region, * indicates all regions
+ *     aggregate  | String | No       | aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
+ *     specials   | List   | No       | special payment provider, such as ALIPAY, WXPAY
+ * 
+ * 
  * 
  * payment provider applied has priority:
  * 
@@ -44,7 +52,6 @@ import java.util.*;
  *   4. namespace and region are *
  * 
  * Other detail info:
- * 
  *   * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=1 (CREATE)
  *   *  Returns : payment provider config
  */

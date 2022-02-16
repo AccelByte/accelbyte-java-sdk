@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.dlc;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,7 +29,6 @@ import java.util.*;
  * updateDLCItemConfig
  *
  * Update DLC item config. Other detail info:
- * 
  *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:DLC:CONFIG", action=4 (UPDATE)
  *   *  Returns : updated DLC item config
  */

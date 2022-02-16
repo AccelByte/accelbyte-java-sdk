@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.legal.operations.agreement;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,8 +26,7 @@ import java.util.*;
 /**
  * retrieveAcceptedAgreements
  *
- * This API will return all accepted Legal Agreements for specified user. Other
- * detail info:
+ * This API will return all accepted Legal Agreements for specified user. Other detail info:
  * 
  *   * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
  */

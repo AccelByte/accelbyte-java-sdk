@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,8 +29,8 @@ import java.util.*;
  *
  * 
  * 
- * This endpoint retrieves platform accounts linked to user. Required valid user
- * authorization.
+ * This endpoint retrieves platform accounts linked to user. Required valid user authorization.
+ * 
  * action code: 10128
  */
 @Getter

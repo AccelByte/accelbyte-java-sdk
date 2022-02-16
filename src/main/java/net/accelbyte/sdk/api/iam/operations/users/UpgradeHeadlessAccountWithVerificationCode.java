@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -24,12 +30,9 @@ import java.util.*;
  *
  * Required permission 'NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
  * 
- * The endpoint upgrades a headless account by linking the headless account with
- * the email address and the password. By upgrading the headless account into a
- * full account, the user could use the email address and password for using
- * Justice IAM. The endpoint is a shortcut for upgrading a headless account and
- * verifying the email address in one call. In order to get a verification code
- * for the endpoint, please check the send verification code endpoint.
+ * 
+ * The endpoint upgrades a headless account by linking the headless account with the email address and the password. By upgrading the headless account into a full account, the user could use the email address and password for using Justice IAM.
+ * The endpoint is a shortcut for upgrading a headless account and verifying the email address in one call. In order to get a verification code for the endpoint, please check the send verification code endpoint.
  */
 @Getter
 @Setter

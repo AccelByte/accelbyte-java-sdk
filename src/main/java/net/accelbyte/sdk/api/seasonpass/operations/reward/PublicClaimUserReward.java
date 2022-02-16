@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.seasonpass.operations.reward;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,8 +28,7 @@ import java.util.*;
 /**
  * publicClaimUserReward
  *
- * This API is used to claim reward, season only located in non-publisher
- * namespace.
+ * This API is used to claim reward, season only located in non-publisher namespace.
  * 
  * Other detail info:
  * 

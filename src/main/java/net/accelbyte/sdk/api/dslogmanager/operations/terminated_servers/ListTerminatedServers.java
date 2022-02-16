@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,11 @@ import java.util.*;
 /**
  * listTerminatedServers
  *
- * ``` Required permission: ADMIN:NAMESPACE:{namespace}:DSLM:SERVER [READ] This
- * endpoint used to retrieve terminated servers in a namespace ```
+ * ```
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSLM:SERVER [READ]
+ * 
+ * This endpoint used to retrieve terminated servers in a namespace
+ * ```
  */
 @Getter
 @Setter

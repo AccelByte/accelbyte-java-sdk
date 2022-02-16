@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.payment_dedicated;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,9 +27,7 @@ import java.util.*;
 /**
  * syncPaymentOrders
  *
- * Sync payment orders. If response contains nextEvaluatedKey, please use it as
- * query param in the next call to fetch the next batch, a batch has 1000
- * elements or less.
+ * Sync payment orders. If response contains nextEvaluatedKey, please use it as query param in the next call to fetch the next batch, a batch has 1000 elements or less.
  * Other detail info:
  * 
  *   * Required permission : resource="ADMIN:PAYMENT", action=2 (READ)

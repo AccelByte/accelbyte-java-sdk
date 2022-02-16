@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.payment_config;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,7 @@ import java.util.*;
 /**
  * testWxPayConfigById
  *
- * Test WxPay configuration in payment merchant config. Reference: [WxPay
- * Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1).
+ * Test WxPay configuration in payment merchant config. Reference: [WxPay Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1).
  * Other detail info:
  * 
  *   * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)

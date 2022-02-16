@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.entitlement;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,10 +27,8 @@ import java.util.*;
 /**
  * disableUserEntitlement
  *
- * Disable user entitlement if entitlement, only active entitlement can be
- * disable, disabled entitlement can't consume.
- *  Like revoke, it will lose the entitlement ownership, except disabled
- * entitlement can enable.
+ * Disable user entitlement if entitlement, only active entitlement can be disable, disabled entitlement can't consume.
+ *  Like revoke, it will lose the entitlement ownership, except disabled entitlement can enable.
  * Other detail info:
  * 
  *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=4 (UPDATE)

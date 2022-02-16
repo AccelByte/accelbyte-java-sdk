@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.dsmc.operations.server;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,10 +27,14 @@ import java.util.*;
 /**
  * DeregisterLocalServer
  *
- * ``` Required permission: NAMESPACE:{namespace}:DSM:SERVER [UPDATE] Required
- * scope: social This endpoint is intended to be called by local dedicated server
- * to let DSM know that it is shutting down. Calling this will remove the server
- * records from DB.```
+ * ```
+ * Required permission: NAMESPACE:{namespace}:DSM:SERVER [UPDATE]
+ * Required scope: social
+ * 
+ * This endpoint is intended to be called by local dedicated server
+ * to let DSM know that it is shutting down.
+ * 
+ * Calling this will remove the server records from DB.```
  */
 @Getter
 @Setter

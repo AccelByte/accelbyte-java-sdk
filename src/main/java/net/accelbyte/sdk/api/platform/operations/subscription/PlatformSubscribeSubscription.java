@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.subscription;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,8 +28,7 @@ import java.util.*;
 /**
  * platformSubscribeSubscription
  *
- * Free subscribe by platform, can used by other justice service to redeem/reward
- * the subscription.
+ * Free subscribe by platform, can used by other justice service to redeem/reward the subscription.
  * Other detail info:
  * 
  *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SUBSCRIPTION", action=1 (CREATE)

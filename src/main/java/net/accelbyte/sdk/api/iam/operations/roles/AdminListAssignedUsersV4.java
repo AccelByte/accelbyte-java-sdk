@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.roles;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,9 @@ import java.util.*;
 /**
  * AdminListAssignedUsersV4
  *
- * Required permission ADMIN:ROLE [READ] Query all users that has the specified
- * role. action code: 10416
+ * Required permission ADMIN:ROLE [READ]
+ * Query all users that has the specified role.
+ * action code: 10416
  */
 @Getter
 @Setter

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.group.operations.configuration;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,17 +31,37 @@ import java.util.*;
  * 
  * Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [CREATE]'
  * 
- * This endpoint is used to initiate configuration. This endpoint will
- * automatically create default configuration and member roles with default
- * permission
+ * 
+ * 
+ * 
+ * This endpoint is used to initiate configuration. This endpoint will automatically create default configuration and member roles with default permission
+ * 
+ * 
+ * 
  * 
  * Default Permission for admin role will cover these permission:
  * 
+ * 
+ * 
+ * 
+ * 
+ * 
  *   * Permission to invite user to group
+ * 
+ * 
  *   * Permission to accept or reject join request
+ * 
+ * 
  *   * Permission to kick group member
  * 
+ * 
+ * 
+ * 
+ * 
  * Default max member value will be 50 and global rules will be empty
+ * 
+ * 
+ * 
  * 
  * Action Code: 73104
  */

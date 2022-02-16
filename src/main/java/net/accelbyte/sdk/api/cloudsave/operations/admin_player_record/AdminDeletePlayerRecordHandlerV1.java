@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.cloudsave.operations.admin_player_record;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,10 +26,11 @@ import java.util.*;
 /**
  * adminDeletePlayerRecordHandlerV1
  *
- * Required permission:
- * ADMIN:NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD [DELETE] Required
- * scope: social Delete a record (arbitrary JSON data) in user-level with given
- * key. It will delete the record whether it's private or public record.
+ * Required permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD [DELETE]
+ * 
+ * Required scope: social
+ * 
+ * Delete a record (arbitrary JSON data) in user-level with given key. It will delete the record whether it's private or public record.
  */
 @Getter
 @Setter

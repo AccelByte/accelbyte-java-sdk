@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.social.operations.slot_config;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,7 @@ import java.util.*;
 /**
  * getUserSlotConfig
  *
- * GetÂ a user slot configuration in given namespace. In case the user slot
- * configuration is not set, the namespace configuration will be returned.
+ * GetÂ a user slot configuration in given namespace. In case the user slot configuration is not set, the namespace configuration will be returned.
  * Other detail info:
  * 
  *   * Required permission: resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=2 (READ)

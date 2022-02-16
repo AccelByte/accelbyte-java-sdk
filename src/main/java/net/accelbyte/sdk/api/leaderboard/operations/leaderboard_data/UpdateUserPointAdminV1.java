@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -26,9 +32,19 @@ import java.util.*;
  * 
  * Update user point in a leaderboard. This endpoint uses for test utility only.
  * 
+ * 
+ * 
+ * 
  * Other detail info:
  * 
+ * 
+ * 
+ * 
+ * 
+ * 
  *   * Required permission: resource="ADMIN:NAMESPACE:{namespace}:USER:(userId):LEADERBOARD", action=4 (UPDATE)
+ * 
+ * 
  *   * Returns: user ranking
  */
 @Getter

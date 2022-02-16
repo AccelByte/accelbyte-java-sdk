@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.gdpr.operations.data_retrieval;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,11 +26,10 @@ import java.util.*;
 /**
  * DeleteAdminEmailConfiguration
  *
- * Delete a list of admin email addresses to stop receiving personal data request
- * notification.
+ * Delete a list of admin email addresses to stop receiving personal data request notification.
  * 
- * Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [DELETE]`
- * and scope `account`
+ * 
+ * Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [DELETE]` and scope `account`
  */
 @Getter
 @Setter

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.basic.operations.user_action;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,8 +29,7 @@ import java.util.*;
  * banUsers
  *
  * Ban user.
- * actionId: 1 means permanent ban, actionId: 10 means Temporary ban.Other detail
- * info:
+ * actionId: 1 means permanent ban, actionId: 10 means Temporary ban.Other detail info:
  * 
  *   * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=4 (UPDATE)
  */

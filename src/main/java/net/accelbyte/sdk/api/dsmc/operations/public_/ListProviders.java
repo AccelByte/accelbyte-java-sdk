@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.dsmc.operations.public_;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,8 +26,7 @@ import java.util.*;
 /**
  * ListProviders
  *
- * This endpoints returns list of supported providers. Armada is the default
- * provider.
+ * This endpoints returns list of supported providers. Armada is the default provider.
  */
 @Getter
 @Setter

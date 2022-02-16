@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,10 +28,11 @@ import java.util.*;
 /**
  * AdminUpdateUserBanV3
  *
- * Required permission ADMIN:NAMESPACE:{namespace}:BAN:USER:{userId} [UPDATE]
- * Set ban status for a single user for a specific ban. Retrieve user ban and
- * choose the ban ID. Set the form parameter to true/false to enable or disable
- * the ban.
+ * Required permission ADMIN:NAMESPACE:{namespace}:BAN:USER:{userId}
+ * [UPDATE]
+ * Set ban status for a single user for a specific ban. Retrieve
+ * user ban and choose the ban ID. Set the form parameter to true/false to enable
+ * or disable the ban.
  * action code : 10142'
  */
 @Getter

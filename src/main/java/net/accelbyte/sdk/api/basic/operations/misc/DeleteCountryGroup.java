@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.basic.operations.misc;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,8 +26,7 @@ import java.util.*;
 /**
  * deleteCountryGroup
  *
- * Delete a country groups by its country group code. This endpoint usually used
- * for testing purpose to cleanup test data.
+ * Delete a country groups by its country group code. This endpoint usually used for testing purpose to cleanup test data.
  * Other detail info:
  * 
  *   * Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=8 (DELETE)

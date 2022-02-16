@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.group.operations.group_member;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,12 +31,23 @@ import java.util.*;
  * 
  * Required valid user authentication
  * 
+ * 
+ * 
+ * 
  * Required Member Role Permission: "GROUP:KICK [CREATE]"
+ * 
+ * 
+ * 
  * 
  * This endpoint is used to kick group member.
  * 
- * Kick group member. This endpoint will check the member and group information,
- * and also the role permission of the the user who accesses this endpoint
+ * 
+ * 
+ * 
+ * Kick group member. This endpoint will check the member and group information, and also the role permission of the the user who accesses this endpoint
+ * 
+ * 
+ * 
  * 
  * Action Code: 73409
  */

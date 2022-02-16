@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.gametelemetry.operations.operations;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,25 +27,39 @@ import java.util.*;
 /**
  * protected_save_events_game_telemetry_v1_protected_events_post
  *
- * This endpoint requires valid JWT token. This endpoint does not require
- * permission. This endpoint send events into designated streaming pipeline and
- * each request can contain single or multiple events.
+ * This endpoint requires valid JWT token.
+ * This endpoint does not require permission.
  * 
- * Format of the event: - **EventNamespace (required)**: namespace of the
- * relevant game with domain name format.
+ * This endpoint send events into designated streaming pipeline and each request can contain single or multiple events.
+ * 
+ * 
+ * Format of the event:
+ * 
+ * - **EventNamespace (required)**: namespace of the relevant game with domain name format.
+ * 
  * 
  * Only accept input with valid characters. Allowed characters: Aa-Zz0-9_.-
+ * 
+ * 
+ * 
  * 
  * Example: io.accelbyte.justice.dev.samplegame
  * 
+ * 
+ * 
  * - **EventName (required)**: name of the event.
+ * 
  * 
  * Only accept input with valid characters. Allowed characters: Aa-Zz0-9_.-
  * 
+ * 
+ * 
+ * 
  * Example: player_killed, mission_accomplished
  * 
- * - **Payload (required)**: an arbitrary json with the payload of the said
- * event
+ * 
+ * 
+ * - **Payload (required)**: an arbitrary json with the payload of the said event
  */
 @Getter
 @Setter

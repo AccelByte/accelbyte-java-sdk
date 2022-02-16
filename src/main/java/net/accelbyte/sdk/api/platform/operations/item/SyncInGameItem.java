@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.item;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,11 +28,9 @@ import java.util.*;
 /**
  * syncInGameItem
  *
- * This API is used to sync an in game item in game namespace to publisher
- * namespace, at current BUNDLE can't be synced.
+ * This API is used to sync an in game item in game namespace to publisher namespace, at current BUNDLE can't be synced.
  * 
- * The synced item has an additional field targetItemId besides targetNamespace,
- * mostly this item should not modified manually again.
+ * The synced item has an additional field targetItemId besides targetNamespace, mostly this item should not modified manually again.
  * 
  * Other detail info:
  * 

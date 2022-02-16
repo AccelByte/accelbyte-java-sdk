@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.lobby.operations.config;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,10 +27,13 @@ import java.util.*;
 /**
  * ImportConfig
  *
- * Required permission ADMIN:NAMESPACE:{namespace}:LOBBY:CONFIG [UPDATE] Required
- * Scope: social Import config configuration from file. The existing
- * configuration will be replaced. The json file to import can be obtained from
- * the /export endpoint.
+ * 
+ * Required permission ADMIN:NAMESPACE:{namespace}:LOBBY:CONFIG [UPDATE]
+ * 
+ * Required Scope: social
+ * 
+ * Import config configuration from file. The existing configuration will be replaced.
+ * The json file to import can be obtained from the /export endpoint.
  */
 @Getter
 @Setter

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.dsmc.operations.server;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,11 +28,15 @@ import java.util.*;
 /**
  * RegisterServer
  *
- * ``` Required permission: NAMESPACE:{namespace}:DSM:SERVER [UPDATE] Required
- * scope: social This endpoint is intended to be called by dedicated server to
- * let DSM know that it is ready for use. This MUST be called by DS after it is
- * ready to accept match data and incoming client connections. Upon successfully
- * calling this endpoint, the dedicated server is listed under READY servers.```
+ * ```
+ * Required permission: NAMESPACE:{namespace}:DSM:SERVER [UPDATE]
+ * Required scope: social
+ * 
+ * This endpoint is intended to be called by dedicated server to let DSM know that it is ready for use.
+ * This MUST be called by DS after it is ready to accept match data and incoming client connections.
+ * 
+ * Upon successfully calling this endpoint, the dedicated
+ * server is listed under READY servers.```
  */
 @Getter
 @Setter

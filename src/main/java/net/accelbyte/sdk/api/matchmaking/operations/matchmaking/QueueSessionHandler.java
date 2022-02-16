@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.matchmaking.operations.matchmaking;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,17 +27,21 @@ import java.util.*;
 /**
  * QueueSessionHandler
  *
- * Required Permission: NAMESPACE:{namespace}:SESSION [CREATE] Required Scope:
- * social Queues joinable session so that it will be matched with player's match
- * request tickets. The session queued must be in a channel/game mode that is set
- * to have joinable flag. The session will be in queue until it is full or
- * expired. Both the number of players and session queue timeout can be set in
- * the channel's config. This endpoint is intended to be called by game server to
- * let matchmaker know that the game server is ready for receiving more players
- * through matchmaking tickets to its session. If a session is already queued,
- * and game server wants to modify the data or renew the queue timeout (e.g. some
- * player left and more empty slot opened up), simply call this endpoint with the
- * updated session data.
+ * Required Permission: NAMESPACE:{namespace}:SESSION [CREATE]
+ * 
+ * Required Scope: social
+ * 
+ * Queues joinable session so that it will be matched with player's match request tickets.
+ * The session queued must be in a channel/game mode that is set to have joinable flag.
+ * The session will be in queue until it is full or expired.
+ * Both the number of players and session queue timeout can be set in the channel's config.
+ * 
+ * This endpoint is intended to be called by game server to let matchmaker know that
+ * the game server is ready for receiving more players through matchmaking tickets to its session.
+ * 
+ * If a session is already queued, and game server wants to modify the data or
+ * renew the queue timeout (e.g. some player left and more empty slot opened up),
+ * simply call this endpoint with the updated session data.
  */
 @Getter
 @Setter

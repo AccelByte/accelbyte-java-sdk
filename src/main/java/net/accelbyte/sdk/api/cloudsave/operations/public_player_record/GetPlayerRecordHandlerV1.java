@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.cloudsave.operations.public_player_record;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,10 +27,13 @@ import java.util.*;
 /**
  * getPlayerRecordHandlerV1
  *
- * Required Permission | `NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD
- * [READ]`
- * ---|---
- * Required Scope | `social`
+ * Required Permission | `NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD [READ]`
+ * --------------------|---------------------------------------------------------------
+ * Required Scope      | `social`
+ * 
+ * 
+ * 
+ * 
  * 
  * Get player record by its key
  */

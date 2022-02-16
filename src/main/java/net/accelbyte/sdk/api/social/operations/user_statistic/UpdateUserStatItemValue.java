@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.social.operations.user_statistic;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,18 +28,19 @@ import java.util.*;
 /**
  * updateUserStatItemValue
  *
- * Update user's statitem value for a given namespace and user with a certain
- * update strategy. There are four supported update strategies: + *OVERRIDE*:
- * update user statitem with the new value + *INCREMENT*: increment user
- * statitem with the specified value + *MAX*: update user statitem with the
- * specified value if it's larger than the existing value + *MIN*: update user
- * statitem with the specified value if it's lower than the existing value The
- * *additionalKey* parameter will be suffixed to *userId* and is used to support
- * multi level user's statitems, such as character's statitems. If provided,
- * user's statitems will be saved with key: *userId_additionalKey* Other detail
- * info: + *Required permission*:
- * resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4
- * (UPDATE) + *Returns*: updated user's statItem
+ * Update user's statitem value for a given namespace and user with a certain update strategy.
+ * There are four supported update strategies:
+ * + *OVERRIDE*: update user statitem with the new value
+ * + *INCREMENT*: increment user statitem with the specified value
+ * + *MAX*: update user statitem with the specified value if it's larger than the existing value
+ * + *MIN*: update user statitem with the specified value if it's lower than the existing value
+ * 
+ * The *additionalKey* parameter will be suffixed to *userId* and is used to support multi level user's statitems, such as character's statitems.
+ * If provided, user's statitems will be saved with key: *userId_additionalKey*
+ * 
+ * Other detail info:
+ * + *Required permission*: resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
+ * + *Returns*: updated user's statItem
  */
 @Getter
 @Setter

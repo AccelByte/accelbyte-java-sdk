@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.third_party_credential;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,8 +26,7 @@ import java.util.*;
 /**
  * DeleteThirdPartyLoginPlatformCredentialV3
  *
- * This is the API to Delete 3rd Platform Credential. It needs
- * ADMIN:NAMESPACE:{namespace}:PLATFORM:{platformId}:CLIENT [DELETE] resource
+ * This is the API to Delete 3rd Platform Credential. It needs ADMIN:NAMESPACE:{namespace}:PLATFORM:{platformId}:CLIENT [DELETE] resource
  */
 @Getter
 @Setter

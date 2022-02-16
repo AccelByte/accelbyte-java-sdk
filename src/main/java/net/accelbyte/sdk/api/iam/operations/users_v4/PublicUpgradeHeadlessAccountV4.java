@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users_v4;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,9 +28,9 @@ import java.util.*;
 /**
  * PublicUpgradeHeadlessAccountV4
  *
- * Require valid user authorization Upgrade headless account to full account
- * without verifying email address. Client does not need to provide verification
- * code which sent to email address.
+ * Require valid user authorization
+ * Upgrade headless account to full account without verifying email address. Client does not need to provide verification code which sent to email address.
+ * 
  * action code : 10124
  */
 @Getter

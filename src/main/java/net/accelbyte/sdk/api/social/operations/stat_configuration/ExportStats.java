@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.social.operations.stat_configuration;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,11 +26,9 @@ import java.util.*;
 /**
  * exportStats
  *
- * Export all stat configurations for a given namespace into file At current,
- * only JSON file is supported.
+ * Export all stat configurations for a given namespace into file At current, only JSON file is supported.
  * 
  * Other detail info:
- * 
  *           *  *Required permission*: resource="ADMIN:NAMESPACE:{namespace}:STAT", action=2 (READ)
  */
 @Getter

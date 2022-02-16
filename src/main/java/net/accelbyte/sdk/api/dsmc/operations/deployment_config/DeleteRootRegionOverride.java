@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.dsmc.operations.deployment_config;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,9 +27,11 @@ import java.util.*;
 /**
  * DeleteRootRegionOverride
  *
- * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [DELETE] Required
- * scope: social This endpoint delete a dedicated server deployment override in a
- * namespace in a region for root deployment
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [DELETE]
+ * 
+ * Required scope: social
+ * 
+ * This endpoint delete a dedicated server deployment override in a namespace in a region for root deployment
  */
 @Getter
 @Setter

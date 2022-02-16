@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.input_validations;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,10 +31,15 @@ import java.util.*;
  * 
  * No role required
  * 
+ * 
+ * 
+ * 
  * This endpoint is to get list of input validation configuration.
  * 
- * `regex` parameter will be returned if `isCustomRegex` is true. Otherwise, it
- * will be empty.
+ * 
+ * 
+ * 
+ * `regex` parameter will be returned if `isCustomRegex` is true. Otherwise, it will be empty.
  */
 @Getter
 @Setter

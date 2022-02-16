@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.group.operations.configuration;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -26,8 +32,13 @@ import java.util.*;
  * 
  * Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [UPDATE]'
  * 
- * This endpoint is used to update existing global rule configuration based on
- * the allowed action. It will replace the permission with the request
+ * 
+ * 
+ * 
+ * This endpoint is used to update existing global rule configuration based on the allowed action. It will replace the permission with the request
+ * 
+ * 
+ * 
  * 
  * Action Code: 73106
  */

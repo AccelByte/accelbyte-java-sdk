@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,10 +31,11 @@ import java.util.*;
  * 
  * Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [CREATE]'
  * 
- * Archive leaderboard ranking data for specified leaderboard codes. NOTE: This
- * will remove all data of the leaderboard on every slug, remove the leaderboard
- * code on stat mapping, and remove the leaderboard on the queue reset. This will
- * be a bulk endpoint
+ * 
+ * 
+ * 
+ * Archive leaderboard ranking data for specified leaderboard codes. NOTE: This will remove all data of the leaderboard on every slug,
+ * remove the leaderboard code on stat mapping, and remove the leaderboard on the queue reset. This will be a bulk endpoint
  */
 @Getter
 @Setter

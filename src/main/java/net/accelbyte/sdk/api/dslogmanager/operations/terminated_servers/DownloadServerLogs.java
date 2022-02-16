@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,8 +26,11 @@ import java.util.*;
 /**
  * downloadServerLogs
  *
- * Required permission: ADMIN:NAMESPACE:{namespace}:DSLM:LOG [READ] Required
- * scope: social This endpoint will download dedicated server's log file (.log).
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSLM:LOG [READ]
+ * 
+ * Required scope: social
+ * 
+ * This endpoint will download dedicated server's log file (.log).
  */
 @Getter
 @Setter

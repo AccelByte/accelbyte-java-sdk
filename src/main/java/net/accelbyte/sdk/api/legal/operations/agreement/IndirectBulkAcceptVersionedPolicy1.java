@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.legal.operations.agreement;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,16 +28,14 @@ import java.util.*;
 /**
  * indirectBulkAcceptVersionedPolicy_1
  *
- * Accepts many legal policy versions all at once. Supply with localized version
- * policy id and userId to accept an agreement. This endpoint used by
- * Authentication Service during new user registration.
+ * Accepts many legal policy versions all at once. Supply with localized version policy id and userId to accept an agreement. This endpoint used by Authentication Service during new user registration.
  * 
  * Available Extra Information to return:
+ * 
  * 
  *   * userIds : List of userId mapping ( IMPORTANT: GOING TO DEPRECATE )
  * 
  * Other detail info:
- * 
  *   * Required permission : login user
  */
 @Getter

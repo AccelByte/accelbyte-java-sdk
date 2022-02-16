@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.o_auth2_0;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -24,8 +30,10 @@ import java.util.*;
  * 
  * This endpoint revokes a token.
  * 
- * This endpoint requires authorized requests header with Basic Authentication
- * from client that establish the token.
+ * 
+ * 
+ * 
+ * This endpoint requires authorized requests header with Basic Authentication from client that establish the token.
  * 
  * 
  * action code: 10706

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.o_auth2_0;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,12 +29,20 @@ import java.util.*;
  *
  * 
  * 
- * This endpoint will return a list of revoked users and revoked tokens. List of
- * revoked tokens in bloom filter format.
+ * This endpoint will return a list of revoked users and revoked tokens. List of revoked tokens in bloom filter format.
+ * 
+ * 
+ * 
  * 
  * This endpoint requires authorized requests header with valid access token.
  * 
+ * 
+ * 
+ * 
  * The bloom filter uses MurmurHash3 algorithm for hashing the values
+ * 
+ * 
+ * 
  * 
  * action code : 10708
  */

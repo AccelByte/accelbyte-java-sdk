@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.matchmaking.operations.matchmaking;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,11 +28,11 @@ import java.util.*;
  * SearchSessionsV2
  *
  * Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Read]
- * Required Scope: social Search sessions. Optimize the query by differentiating
- * query with filter namespace only and filter with namespace & other filter
- * (partyID, userID, matchID). Query with filter namespace only will not group
- * whole session data while query with filter namespace & other filter will
- * include session data.
+ * 
+ * Required Scope: social
+ * 
+ * Search sessions. Optimize the query by differentiating query with filter namespace only and filter with namespace & other filter (partyID, userID, matchID).
+ * Query with filter namespace only will not group whole session data while query with filter namespace & other filter will include session data.
  */
 @Getter
 @Setter

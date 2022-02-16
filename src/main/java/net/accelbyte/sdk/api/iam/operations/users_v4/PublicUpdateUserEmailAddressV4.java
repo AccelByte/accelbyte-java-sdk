@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users_v4;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,8 +31,10 @@ import java.util.*;
  * 
  * The endpoint to update my email address.
  * 
- * It requires a verification code from
  * 
+ * 
+ * 
+ * It requires a verification code from
  * 
  *                                                                                                 /users/me/code/request
  * 

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.item;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,7 @@ import java.util.*;
 /**
  * searchItems
  *
- * This API is used to search items by keyword in title, description and long
- * description within a store.
+ * This API is used to search items by keyword in title, description and long description within a store.
  * 
  * Other detail info:
  * 

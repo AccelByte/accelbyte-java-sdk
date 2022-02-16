@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.group.operations.group_roles;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,7 +31,13 @@ import java.util.*;
  * 
  * Required permission ADMIN:NAMESPACE:{namespace}:GROUP:ROLE [READ]
  * 
+ * 
+ * 
+ * 
  * This endpoint is used to get member role based on the role ID
+ * 
+ * 
+ * 
  * 
  * Action Code: 73203
  */

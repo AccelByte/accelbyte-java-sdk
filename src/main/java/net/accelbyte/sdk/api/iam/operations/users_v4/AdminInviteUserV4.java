@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users_v4;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,13 +28,13 @@ import java.util.*;
 /**
  * AdminInviteUserV4
  *
- * Required permission 'ADMIN:USER:INVITE [CREATE] Use this endpoint to invite
- * admin or non-admin user and assign role to them. The role must be scoped to
- * namespace. An admin user can only assign role with namespaces that the admin
- * user has required permission which is same as the required permission of
- * endpoint: [AdminAddUserRoleV4]. Role is optional, if not specified then it
- * will only assign User role The invited admin will also assigned with "User"
- * role by default.
+ * Required permission 'ADMIN:USER:INVITE [CREATE]
+ * 
+ * Use this endpoint to invite admin or non-admin user and assign role to them. The role must be scoped to namespace. An admin user can only
+ * assign role with namespaces that the admin user has required permission which is same as the required permission of endpoint: [AdminAddUserRoleV4].
+ * Role is optional, if not specified then it will only assign User role
+ * 
+ * The invited admin will also assigned with "User" role by default.
  */
 @Getter
 @Setter

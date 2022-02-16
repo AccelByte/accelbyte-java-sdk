@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.social.operations.game_profile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,7 +28,6 @@ import java.util.*;
  *
  * Returns all profiles' header for a user.
  * Other detail info:
- * 
  *         *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:GAMEPROFILE", action=2 (READ)
  *         *  Returns : list of profiles
  */

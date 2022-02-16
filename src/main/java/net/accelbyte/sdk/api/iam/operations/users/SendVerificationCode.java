@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,28 +29,32 @@ import java.util.*;
  *
  * Required permission 'NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
  * 
- * The verification code is sent to either the phone number or email address. It
- * depends on the LoginID's value.
+ * 
+ * The verification code is sent to either the phone number or email address. It depends on the LoginID's value.
+ * 
+ * 
+ * 
  * 
  * Available contexts for use :
  * 
+ * 
+ * 
+ * 
  *         1. UserAccountRegistration
  * 
- * a context type used for verifying email address in user account registration.
- * It returns 409 if the email address already verified. It is the default
- * context if the Context field is empty
+ * a context type used for verifying email address in user account registration. It returns 409 if the email address already verified. It is the default context if the Context field is empty
+ * 
+ * 
  * 
  *         2. UpdateEmailAddress
  * 
- * a context type used for verify user before updating email address.(Without
- * email address verified checking)
+ * a context type used for verify user before updating email address.(Without email address verified checking)
+ * 
+ * 
  * 
  *         3. upgradeHeadlessAccount
  * 
- * The context is intended to be used whenever the email address wanted to be
- * automatically verified on upgrading a headless account. If this context used,
- * IAM rejects the request if the loginId field's value is already used by others
- * by returning HTTP Status Code 409.
+ * The context is intended to be used whenever the email address wanted to be automatically verified on upgrading a headless account. If this context used, IAM rejects the request if the loginId field's value is already used by others by returning HTTP Status Code 409.
  */
 @Getter
 @Setter

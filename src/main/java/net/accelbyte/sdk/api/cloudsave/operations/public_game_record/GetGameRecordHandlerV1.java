@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.cloudsave.operations.public_game_record;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,8 +28,11 @@ import java.util.*;
  * getGameRecordHandlerV1
  *
  * Required Permission | `NAMESPACE:{namespace}:CLOUDSAVE:RECORD [READ]`
- * ---|---
- * Required Scope | `social`
+ * --------------------|-------------------------------------------------
+ * Required Scope      | `social`
+ * 
+ * 
+ * 
  * 
  * Get game record by its key.
  */

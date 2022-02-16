@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.group.operations.group_member;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,7 +31,13 @@ import java.util.*;
  * 
  * Requires valid user authentication
  * 
+ * 
+ * 
+ * 
  * This endpoint allows user to cancel request to join specific group.
+ * 
+ * 
+ * 
  * 
  * Action Code: 73411
  */

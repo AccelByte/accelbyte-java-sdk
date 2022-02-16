@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.ugc.operations.public_content;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,6 +29,7 @@ import java.util.*;
  * UpdateScreenshots
  *
  * Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE].
+ * 
  * Maximum description length: 1024.
  */
 @Getter

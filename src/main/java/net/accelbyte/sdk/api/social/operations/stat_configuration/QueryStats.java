@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.social.operations.stat_configuration;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,7 +29,6 @@ import java.util.*;
  *
  * Query stats stats by keyword.
  * Other detail info:
- * 
  *           *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:STAT", action=2 (READ)
  *           *  Returns : stats
  */

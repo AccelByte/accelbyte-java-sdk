@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.dsmc.operations.session;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,10 +27,11 @@ import java.util.*;
 /**
  * ClaimServer
  *
- * Required permission: NAMESPACE:{namespace}:DSM:SESSION [UPDATE] Required
- * scope: social This endpoint is intended to be called by game session manager
- * (matchmaker, lobby, etc.) to claim a dedicated server. The dedicated server
- * cannot be claimed unless the status is READY
+ * Required permission: NAMESPACE:{namespace}:DSM:SESSION [UPDATE]
+ * 
+ * Required scope: social
+ * 
+ * This endpoint is intended to be called by game session manager (matchmaker, lobby, etc.) to claim a dedicated server. The dedicated server cannot be claimed unless the status is READY
  */
 @Getter
 @Setter

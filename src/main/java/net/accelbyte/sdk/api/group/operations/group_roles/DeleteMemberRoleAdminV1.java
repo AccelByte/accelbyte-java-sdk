@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.group.operations.group_roles;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -24,8 +30,13 @@ import java.util.*;
  * 
  * Required permission ADMIN:NAMESPACE:{namespace}:GROUP:ROLE [DELETE]
  * 
- * This endpoint is used to delete member role. Any member role can't be deleted
- * if the specific role is applied to the configuration (admin and member role)
+ * 
+ * 
+ * 
+ * This endpoint is used to delete member role. Any member role can't be deleted if the specific role is applied to the configuration (admin and member role)
+ * 
+ * 
+ * 
  * 
  * Action Code: 73207
  */

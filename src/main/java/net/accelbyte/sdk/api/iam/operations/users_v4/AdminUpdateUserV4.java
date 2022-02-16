@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users_v4;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -24,22 +30,33 @@ import java.util.*;
  *
  * 
  * 
- * This endpoint requires ADMIN:NAMESPACE:{namespace}:USER:{userId} [UPDATE]
- * permission
+ * This endpoint requires ADMIN:NAMESPACE:{namespace}:USER:{userId} [UPDATE] permission
  * 
  * 
  * 
- * This Endpoint support update user based on given data. Single request can
- * update single field or multi fields.
+ * 
+ * 
+ * This Endpoint support update user based on given data. Single request can update single field or multi fields.
+ * 
+ * 
+ * 
  * 
  * Supported field {country, displayName, languageTag, dateOfBirth}
  * 
+ * 
+ * 
+ * 
  * Country use ISO3166-1 alpha-2 two letter, e.g. US.
+ * 
+ * 
+ * 
  * 
  * Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
  * 
  * 
- * Several case of updating email address
+ * 
+ *  Several case of updating email address
+ * 
  * 
  * action code : 10103
  */

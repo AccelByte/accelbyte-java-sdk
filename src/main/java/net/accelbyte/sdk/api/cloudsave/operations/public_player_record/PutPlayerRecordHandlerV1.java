@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.cloudsave.operations.public_player_record;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,13 +27,20 @@ import java.util.*;
 /**
  * putPlayerRecordHandlerV1
  *
- * Required Permission | `NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD
- * [UPDATE]`
- * ---|---
- * Required Scope | `social`
+ * Required Permission | `NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD [UPDATE]`
+ * --------------------|-----------------------------------------------------------------
+ * Required Scope      | `social`
  * 
- * This endpoint will create new record if it is not exists and it will replace
- * if already exists. Example Replace record
+ * 
+ * 
+ * 
+ * 
+ * This endpoint will create new record if it is not exists and it will replace if already exists.
+ * 
+ * Example
+ * 
+ * Replace record
+ * 
  * 
  * 
  * 

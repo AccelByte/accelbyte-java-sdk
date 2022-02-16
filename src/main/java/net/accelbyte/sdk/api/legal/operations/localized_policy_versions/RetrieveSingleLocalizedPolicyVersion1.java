@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.legal.operations.localized_policy_versions;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,7 @@ import java.util.*;
 /**
  * retrieveSingleLocalizedPolicyVersion_1
  *
- * Retrieve specific localized policy version including the policy version and
- * base policy version where the localized policy version located.
+ * Retrieve specific localized policy version including the policy version and base policy version where the localized policy version located.
  * Other detail info:
  */
 @Getter

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.cloudsave.operations.public_player_record;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,12 +29,15 @@ import java.util.*;
  * bulkGetPlayerPublicRecordHandlerV1
  *
  * Required Permission | `NAMESPACE:{namespace}:PUBLIC:CLOUDSAVE:RECORD [READ]`
- * ---|---
- * Required Scope | `social`
+ * --------------------|--------------------------------------------------------
+ * Required Scope      | `social`
  * 
- * Bulk get other player's record that is public by userIds, max allowed 20 at a
- * time. Only record with `isPublic=true` that can be retrieved using this
- * endpoint.
+ * 
+ * 
+ * 
+ * 
+ * Bulk get other player's record that is public by userIds, max allowed 20 at a time. Only record with `isPublic=true` that can be
+ * retrieved using this endpoint.
  */
 @Getter
 @Setter

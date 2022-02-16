@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.dsmc.operations.admin;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,9 +27,11 @@ import java.util.*;
 /**
  * ListSession
  *
- * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:SESSION [READ] Required
- * scope: social This endpoint lists all of sessions in a namespace managed by
- * this service.
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:SESSION [READ]
+ * 
+ * Required scope: social
+ * 
+ * This endpoint lists all of sessions in a namespace managed by this service.
  */
 @Getter
 @Setter

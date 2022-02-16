@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.seasonpass.operations.season;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,8 +26,7 @@ import java.util.*;
 /**
  * resetUserSeason
  *
- *  [TEST FACILITY ONLY] Forbidden in live environment. This API is used to reset
- * user data in current season, it will not revoke the rewarded entitlements.
+ *  [TEST FACILITY ONLY] Forbidden in live environment. This API is used to reset user data in current season, it will not revoke the rewarded entitlements.
  * 
  * Other detail info:
  * 

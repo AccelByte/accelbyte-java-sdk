@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.group.operations.member_request;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,12 +31,23 @@ import java.util.*;
  * 
  * Required valid user authentication
  * 
+ * 
+ * 
+ * 
  * Required Member Role Permission: "GROUP:JOIN [READ]"
+ * 
+ * 
+ * 
  * 
  * This endpoint is used to Get Group Join Request List
  * 
- * Get Group Join Request List for specific group. Group members needs to have
- * permission and also belong to the group to access this endpoint
+ * 
+ * 
+ * 
+ * Get Group Join Request List for specific group. Group members needs to have permission and also belong to the group to access this endpoint
+ * 
+ * 
+ * 
  * 
  * Action Code: 73501
  */

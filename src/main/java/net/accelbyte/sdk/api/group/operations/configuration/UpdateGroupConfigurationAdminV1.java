@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.group.operations.configuration;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -26,9 +32,13 @@ import java.util.*;
  * 
  * Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [UPDATE]'
  * 
- * This endpoint is used to update existing configuration. groupAdminRoleId and
- * groupMemberRoleId won't be able to be updated. User can try to change the
- * member role permission instead for each of those member role
+ * 
+ * 
+ * 
+ * This endpoint is used to update existing configuration. groupAdminRoleId and groupMemberRoleId won't be able to be updated. User can try to change the member role permission instead for each of those member role
+ * 
+ * 
+ * 
  * 
  * Action Code: 73102
  */

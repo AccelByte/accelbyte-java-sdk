@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.basic.operations.user_profile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,10 +29,7 @@ import java.util.*;
  * updateMyProfile
  *
  * Update my profile.
- * Updates user profile in the target namespace (namespace in the path). If
- * token's namespace doesn't match the target namespace, the service
- * automatically maps the token's user ID into the user ID in the target
- * namespace. The endpoint returns the updated user profile on a successful call.
+ * Updates user profile in the target namespace (namespace in the path). If token's namespace doesn't match the target namespace, the service automatically maps the token's user ID into the user ID in the target namespace. The endpoint returns the updated user profile on a successful call.
  * Other detail info:
  * 
  *   * Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=4 (UPDATE)

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.o_auth2_0;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,11 +29,15 @@ import java.util.*;
  *
  * 
  * 
- * This endpoint returns information about an access token intended to be used by
- * resource servers or other internal servers.
+ * This endpoint returns information about an access token intended to be used by resource servers or other internal servers.
  * 
- * This endpoint requires authorized requests header with valid basic or bearer
- * token.
+ * 
+ * 
+ * 
+ * This endpoint requires authorized requests header with valid basic or bearer token.
+ * 
+ * 
+ * 
  * 
  * action code : 10705
  */

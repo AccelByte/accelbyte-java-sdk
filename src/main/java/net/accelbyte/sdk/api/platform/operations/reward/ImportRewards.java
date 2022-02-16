@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.reward;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,8 +26,7 @@ import java.util.*;
 /**
  * importRewards
  *
- * Import reward configurations for a given namespace from file. At current, only
- * JSON file is supported.
+ * Import reward configurations for a given namespace from file. At current, only JSON file is supported.
  * 
  * Other detail info:
  * 

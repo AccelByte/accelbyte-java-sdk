@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users_v4;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -24,18 +30,26 @@ import java.util.*;
  *
  * Create a test user and not send verification code email
  * 
- * Required attributes: - verified: this new user is verified or not -
- * authType: possible value is EMAILPASSWD - emailAddress: 5 to 254 characters
- * - username: 3 to 48 characters, case insensitive, alphanumeric with allowed
- * symbols underscore (_) and dot (.) - password: 8 to 32 characters, satisfy at
- * least 3 out of 4 conditions(uppercase, lowercase letters, numbers and special
- * characters) and should not have more than 2 equal characters in a row. -
- * country: ISO3166-1 alpha-2 two letter, e.g. US. - dateOfBirth: YYYY-MM-DD,
- * e.g. 1990-01-01. valid values are between 1905-01-01 until current date.
- * Not required attributes: - displayName: 1 to 48 characters
  * 
- * This endpoint support accepting agreements for the created user. Supply the
- * accepted agreements in acceptedPolicies attribute.
+ * 
+ * Required attributes:
+ * - verified: this new user is verified or not
+ * - authType: possible value is EMAILPASSWD
+ * - emailAddress: 5 to 254 characters
+ * - username: 3 to 48 characters, case insensitive, alphanumeric with allowed symbols underscore (_) and dot (.)
+ * - password: 8 to 32 characters, satisfy at least 3 out of 4 conditions(uppercase, lowercase letters, numbers and special characters) and should not have more than 2 equal characters in a row.
+ * - country: ISO3166-1 alpha-2 two letter, e.g. US.
+ * - dateOfBirth: YYYY-MM-DD, e.g. 1990-01-01. valid values are between 1905-01-01 until current date.
+ * 
+ * 
+ * Not required attributes:
+ * - displayName: 1 to 48 characters
+ * 
+ * 
+ * 
+ * 
+ * 
+ * This endpoint support accepting agreements for the created user. Supply the accepted agreements in acceptedPolicies attribute.
  */
 @Getter
 @Setter

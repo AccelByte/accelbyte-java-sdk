@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users_v4;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,8 +28,9 @@ import java.util.*;
 /**
  * AdminUpdateUserRoleV4
  *
- * This endpoint requires ADMIN:NAMESPACE:{namespace}:ROLE:USER:* [UPDATE]
- * permission. User's roles will be replaced with roles from request body.
+ * This endpoint requires ADMIN:NAMESPACE:{namespace}:ROLE:USER:* [UPDATE] permission.
+ * 
+ * User's roles will be replaced with roles from request body.
  */
 @Getter
 @Setter

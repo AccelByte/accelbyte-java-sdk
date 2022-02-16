@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.legal.operations.policy_versions;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,9 +26,7 @@ import java.util.*;
 /**
  * retrieveSinglePolicyVersion
  *
- * Retrieve a version of a particular country specific policy. If version is not
- * provided, the Legal Service will assume caller requesting all versions from
- * country-specific policy.
+ * Retrieve a version of a particular country specific policy. If version is not provided, the Legal Service will assume caller requesting all versions from country-specific policy.
  * Other detail info:
  * 
  *   * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.group.operations.group;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,7 +31,13 @@ import java.util.*;
  * 
  * Required Permission: "ADMIN:NAMESPACE:{namespace}:GROUP [READ]"
  * 
+ * 
+ * 
+ * 
  * Get list of groups. This endpoint will show any types of group
+ * 
+ * 
+ * 
  * 
  * Action Code: 73301
  */

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.matchmaking.operations.matchmaking;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,8 +28,12 @@ import java.util.*;
  * GetSingleMatchmakingChannel
  *
  * Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [READ]
- * Required Scope: social Reads single channel based on namespace and channel
- * name Action Code: 510112
+ * 
+ * Required Scope: social
+ * 
+ * Reads single channel based on namespace and channel name
+ * 
+ * Action Code: 510112
  */
 @Getter
 @Setter

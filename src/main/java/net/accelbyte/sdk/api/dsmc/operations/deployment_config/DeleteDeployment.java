@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.dsmc.operations.deployment_config;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,9 +26,11 @@ import java.util.*;
 /**
  * DeleteDeployment
  *
- * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [READ] Required
- * scope: social This endpoint delete a dedicated server deployment in a
- * namespace
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [READ]
+ * 
+ * Required scope: social
+ * 
+ * This endpoint delete a dedicated server deployment in a namespace
  */
 @Getter
 @Setter

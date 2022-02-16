@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.legal.operations.utility;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,10 +27,8 @@ import java.util.*;
 /**
  * checkReadiness
  *
- * Readiness status defined as at least one legal basePolicy is present and
- * having active basePolicy.
+ * Readiness status defined as at least one legal basePolicy is present and having active basePolicy.
  * Other detail info:
- * 
  *     * Required permission : resource="NAMESPACE:{namespace}:LEGAL", action=2 (READ)
  */
 @Getter

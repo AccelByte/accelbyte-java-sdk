@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.dsmc.operations.admin;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,9 +26,11 @@ import java.util.*;
 /**
  * DeleteServer
  *
- * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:SERVER [DELETE] Required
- * scope: social This endpoint deletes a specified dedicated server from DB and
- * terminates the DS pod.
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:SERVER [DELETE]
+ * 
+ * Required scope: social
+ * 
+ * This endpoint deletes a specified dedicated server from DB and terminates the DS pod.
  */
 @Getter
 @Setter

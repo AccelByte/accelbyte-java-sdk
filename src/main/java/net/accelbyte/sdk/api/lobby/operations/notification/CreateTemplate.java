@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.lobby.operations.notification;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,12 +27,12 @@ import java.util.*;
 /**
  * createTemplate
  *
- * Required permission : `NAMESPACE:{namespace}:TEMPLATE [CREATE]` with scope
- * `social`
- * Create new notification template. Include handlebars {{key}} for replaceable
- * contexts. The the key inside handlebars will be the key to be replaced when
- * sending notification. Already existing template with the same slug and
- * language can not be created.
+ * Required permission : `NAMESPACE:{namespace}:TEMPLATE [CREATE]` with scope `social`
+ * 
+ * Create new notification template. Include handlebars {{key}} for replaceable contexts. The the key inside
+ * handlebars will be the key to be replaced when sending notification. Already existing template with the same
+ * slug and language can not be created.
+ * 
  * Check model description for detailed input restrictions.
  */
 @Getter

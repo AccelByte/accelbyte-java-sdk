@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.store;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,7 @@ import java.util.*;
 /**
  * cloneStore
  *
- * This API is used to clone a store. Usually clone a draft store to published
- * store because published store can't directly edit content.
+ * This API is used to clone a store. Usually clone a draft store to published store because published store can't directly edit content.
  * 
  * Other detail info:
  * 

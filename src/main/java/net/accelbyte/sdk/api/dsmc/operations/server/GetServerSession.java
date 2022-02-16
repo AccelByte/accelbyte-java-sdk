@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.dsmc.operations.server;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,10 +27,14 @@ import java.util.*;
 /**
  * GetServerSession
  *
- * ``` Required permission: NAMESPACE:{namespace}:DSM:SERVER [UPDATE] Required
- * scope: social This endpoint is intended to be called by dedicated server to
- * query its session ID. DS should call this when it first receive player
- * connection, to see if it is actually claimed```
+ * ```
+ * Required permission: NAMESPACE:{namespace}:DSM:SERVER [UPDATE]
+ * Required scope: social
+ * 
+ * This endpoint is intended to be called by dedicated server
+ * to query its session ID.
+ * DS should call this when it first receive player connection,
+ * to see if it is actually claimed```
  */
 @Getter
 @Setter

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.roles;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,9 +28,9 @@ import java.util.*;
  *
  * Required permission 'ROLE:ADMIN [DELETE]' or 'ADMIN:ROLE [DELETE]'
  * 
- * Required Permission 'ROLE:ADMIN [DELETE]' is going to be DEPRECATED for
- * security purpose. It is going to be deprecated on 31 JANUARY 2019 , please use
- * permission 'ADMIN:ROLE [DELETE]' instead.
+ * 
+ * Required Permission 'ROLE:ADMIN [DELETE]' is going to be DEPRECATED for security purpose.
+ * It is going to be deprecated on 31 JANUARY 2019 , please use permission 'ADMIN:ROLE [DELETE]' instead.
  */
 @Getter
 @Setter

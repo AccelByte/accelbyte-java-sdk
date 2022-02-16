@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.matchmaking.operations.matchmaking;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,7 +27,10 @@ import java.util.*;
  * DeleteUserFromSessionInChannel
  *
  * Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Delete]
- * Required Scope: social Delete a user from a session in the channel.
+ * 
+ * Required Scope: social
+ * 
+ * Delete a user from a session in the channel.
  */
 @Getter
 @Setter

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.lobby.operations.third_party;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,8 @@ import java.util.*;
 /**
  * adminGetThirdPartyConfig
  *
- * Required permission : `ADMIN:NAMESPACE:{namespace}:THIRDPARTY:CONFIG [READ]`
- * with scope `social`
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:THIRDPARTY:CONFIG [READ]` with scope `social`
+ * 
  * get third party config for specified namespace.
  */
 @Getter

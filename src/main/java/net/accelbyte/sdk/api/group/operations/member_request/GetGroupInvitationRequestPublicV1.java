@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.group.operations.member_request;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,10 +31,18 @@ import java.util.*;
  * 
  * Required valid user authentication
  * 
+ * 
+ * 
+ * 
  * This endpoint is used to Get Group Invitation Request List
  * 
- * Get Group Invitation Request List for specific group. It will check any group
- * invitation for this user
+ * 
+ * 
+ * 
+ * Get Group Invitation Request List for specific group. It will check any group invitation for this user
+ * 
+ * 
+ * 
  * 
  * Action Code: 73502
  */

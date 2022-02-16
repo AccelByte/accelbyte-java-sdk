@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.payment;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,8 +28,7 @@ import java.util.*;
 /**
  * refundUserPaymentOrder
  *
- *  [SERVICE COMMUNICATION ONLY] This API is used to refund order by
- * paymentOrderNo from justice service.
+ *  [SERVICE COMMUNICATION ONLY] This API is used to refund order by paymentOrderNo from justice service.
  * Other detail info:
  * 
  *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:PAYMENT", action=4 (UPDATE)

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -24,22 +30,44 @@ import java.util.*;
  * 
  * ## Supported platforms:
  * 
+ * 
+ * 
+ * 
  *           * steam
+ * 
+ * 
  *           * steamopenid
+ * 
+ * 
  *           * facebook
+ * 
+ * 
  *           * google
+ * 
+ * 
  *           * oculus
+ * 
+ * 
  *           * twitch
+ * 
+ * 
  *           * android
+ * 
+ * 
  *           * ios
+ * 
+ * 
  *           * device
+ * 
+ * 
  *           * discord
  * 
- * Delete link of user's account with platform. 'justice' platform might have
- * multiple accounts from different namespaces linked. platform_namespace need to
- * be specified when the platform ID is 'justice'.
- * Delete link of justice platform will enable password token grant and password
- * update.
+ * 
+ * 
+ * 
+ * Delete link of user's account with platform. 'justice' platform might have multiple accounts from different namespaces linked. platform_namespace need to be specified when the platform ID is 'justice'.
+ * 
+ * Delete link of justice platform will enable password token grant and password update.
  */
 @Getter
 @Setter

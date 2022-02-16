@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.o_auth;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,7 @@ import java.util.*;
 /**
  * VerifyToken
  *
- * This endpoint requires all requests to have Authorization header set with
- * Basic access authentication constructed from client id and client secret.
+ * This endpoint requires all requests to have Authorization header set with Basic access authentication constructed from client id and client secret.
  */
 @Getter
 @Setter

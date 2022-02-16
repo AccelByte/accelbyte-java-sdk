@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.item;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,9 +27,7 @@ import java.util.*;
 /**
  * returnItem
  *
- *  [SERVICE COMMUNICATION ONLY] This api is used for returning a published item
- * while the item is maxCount limited, it will increase the sale available count
- * if orderNo already acquired.
+ *  [SERVICE COMMUNICATION ONLY] This api is used for returning a published item while the item is maxCount limited, it will increase the sale available count if orderNo already acquired.
  * Other detail info:
  * 
  *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)

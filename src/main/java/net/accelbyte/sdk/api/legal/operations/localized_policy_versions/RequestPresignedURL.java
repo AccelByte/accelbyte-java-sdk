@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.legal.operations.localized_policy_versions;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,8 +28,7 @@ import java.util.*;
 /**
  * requestPresignedURL
  *
- * Request presigned URL for upload attachment for a particular localized version
- * of base policy.
+ * Request presigned URL for upload attachment for a particular localized version of base policy.
  * Other detail info:
  * 
  *   * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)

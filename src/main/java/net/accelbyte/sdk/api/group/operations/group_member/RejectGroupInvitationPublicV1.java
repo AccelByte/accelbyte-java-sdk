@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.group.operations.group_member;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,10 +31,18 @@ import java.util.*;
  * 
  * Required valid user authentication
  * 
+ * 
+ * 
+ * 
  * This endpoint is used to reject group invitation.
  * 
- * Reject group invitation. If specific user is not invited in the specific group
- * ID, it will show the the error to show if the user is not invited yet.
+ * 
+ * 
+ * 
+ * Reject group invitation. If specific user is not invited in the specific group ID, it will show the the error to show if the user is not invited yet.
+ * 
+ * 
+ * 
  * 
  * Action Code: 73402
  */

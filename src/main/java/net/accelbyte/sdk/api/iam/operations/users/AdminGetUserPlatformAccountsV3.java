@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,13 +31,21 @@ import java.util.*;
  * 
  * Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [READ]'.
  * 
+ * 
+ * 
+ * 
  * ## Justice Platform Account
+ * 
+ * 
+ * 
  * 
  * The permission âADMIN:NAMESPACE:{namespace}:JUSTICE:USER:{userId}â [READ]
  * is required in order to read the UserID who linked with the user.
  * 
  * 
+ * 
  * Gets platform accounts that are already linked with user account
+ * 
  * action code : 10128
  */
 @Getter

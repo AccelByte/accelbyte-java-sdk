@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.seasonpass.operations.season;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,9 +27,7 @@ import java.util.*;
 /**
  * getCurrentSeason
  *
- * [SERVICE COMMUNICATION ONLY]This API is used to get current published season
- * summary which includes previous published season summary if exists, season
- * only located in non-publisher namespace.
+ * [SERVICE COMMUNICATION ONLY]This API is used to get current published season summary which includes previous published season summary if exists, season only located in non-publisher namespace.
  * 
  * Other detail info:
  * 

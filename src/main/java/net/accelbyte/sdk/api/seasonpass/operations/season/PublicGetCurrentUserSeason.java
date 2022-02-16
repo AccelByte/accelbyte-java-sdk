@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.seasonpass.operations.season;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,9 +27,7 @@ import java.util.*;
 /**
  * publicGetCurrentUserSeason
  *
- * This API is used to get current user season data, it will auto enroll if
- * there's no user season but active published season exist, season only located
- * in non-publisher namespace.
+ * This API is used to get current user season data, it will auto enroll if there's no user season but active published season exist, season only located in non-publisher namespace.
  * 
  * Other detail info:
  * 

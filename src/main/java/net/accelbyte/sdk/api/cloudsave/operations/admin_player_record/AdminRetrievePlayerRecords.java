@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.cloudsave.operations.admin_player_record;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,8 +28,10 @@ import java.util.*;
  * AdminRetrievePlayerRecords
  *
  * Required permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:RECORD [READ]
- * Required scope: social Retrieve list of player records key and userID under
- * given namespace.
+ * 
+ * Required scope: social
+ * 
+ * Retrieve list of player records key and userID under given namespace.
  */
 @Getter
 @Setter

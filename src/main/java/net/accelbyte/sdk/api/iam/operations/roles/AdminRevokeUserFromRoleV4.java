@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.roles;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,10 +27,15 @@ import java.util.*;
 /**
  * AdminRevokeUserFromRoleV4
  *
- * Required permission ADMIN:ROLE [UPDATE] Current implementation will revoke
- * user from role in all assigned namespaces. Parameters: - userId: string
- * (required) - namespace: string (userâs namespace) (required) action code:
- * 10411
+ * Required permission ADMIN:ROLE [UPDATE]
+ * 
+ * Current implementation will revoke user from role in all assigned namespaces.
+ * 
+ * Parameters:
+ * - userId: string (required)
+ * - namespace: string (userâs namespace) (required)
+ * 
+ * action code: 10411
  */
 @Getter
 @Setter

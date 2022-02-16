@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,9 +29,15 @@ import java.util.*;
  *
  * Required valid user authorization.
  * 
+ * 
  * Notes:
  * 
+ * 
+ * 
+ * 
  *                       * This endpoint retrieve the first page of the data if after and before parameters is empty
+ * 
+ * 
  *                       * The pagination is not working yet
  */
 @Getter

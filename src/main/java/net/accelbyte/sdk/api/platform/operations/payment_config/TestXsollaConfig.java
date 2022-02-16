@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.payment_config;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,8 +28,7 @@ import java.util.*;
 /**
  * testXsollaConfig
  *
- * Check xsolla configuration, Reference: [Xsolla
- * Document](https://developers.xsolla.com/?#simple-checkout).
+ * Check xsolla configuration, Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
  * 
  * #### Check List:
  * 
@@ -31,12 +36,13 @@ import java.util.*;
  *   * projectId
  *   * apiKey
  * 
+ * 
+ * 
  * #### Non-check list:
  * 
  *   * projectSecretKey
  * 
  * Other detail info:
- * 
  *   * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
  *   *  Returns : test result
  */

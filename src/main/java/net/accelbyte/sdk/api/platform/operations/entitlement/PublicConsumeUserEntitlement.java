@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.entitlement;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,8 +28,7 @@ import java.util.*;
 /**
  * publicConsumeUserEntitlement
  *
- * Consume user entitlement. If the entitlement useCount is 0, the status will be
- * CONSUMED.
+ * Consume user entitlement. If the entitlement useCount is 0, the status will be CONSUMED.
  * Other detail info:
  * 
  *   * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=4 (UPDATE)

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.dsmc.operations.pod_config;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,9 +28,11 @@ import java.util.*;
 /**
  * UpdatePodConfig
  *
- * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [UPDATE] Required
- * scope: social This endpoint update a dedicated servers pod config in a
- * namespace.
+ * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [UPDATE]
+ * 
+ * Required scope: social
+ * 
+ * This endpoint update a dedicated servers pod config in a namespace.
  */
 @Getter
 @Setter

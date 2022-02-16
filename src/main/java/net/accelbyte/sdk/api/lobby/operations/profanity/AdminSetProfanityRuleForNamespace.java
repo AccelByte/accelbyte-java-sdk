@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.lobby.operations.profanity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,8 @@ import java.util.*;
 /**
  * adminSetProfanityRuleForNamespace
  *
- * Required permission : `ADMIN:NAMESPACE:{namespace}:PROFANITY [UPDATE]` with
- * scope `social`
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:PROFANITY [UPDATE]` with scope `social`
+ * 
  * set current profanity rule
  */
 @Getter

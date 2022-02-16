@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.item;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,8 +27,7 @@ import java.util.*;
 /**
  * publicGetItem
  *
- * This API is used to get an item in locale. If item not exist in specific
- * region, default region item will return.
+ * This API is used to get an item in locale. If item not exist in specific region, default region item will return.
  * 
  * Other detail info:
  * 

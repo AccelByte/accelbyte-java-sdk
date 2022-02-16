@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,6 +31,9 @@ import java.util.*;
  * 
  * 
  * Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
+ * 
+ * 
+ * 
  * 
  * This endpoint delete multiple leaderboards configuration in one request
  */

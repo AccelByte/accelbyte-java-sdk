@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.cloudsave.operations.public_player_record;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,14 +27,21 @@ import java.util.*;
 /**
  * putPlayerPublicRecordHandlerV1
  *
- * Required Permission |
- * `NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [UPDATE]`
- * ---|---
- * Required Scope | `social`
+ * Required Permission | `NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [UPDATE]`
+ * --------------------|------------------------------------------------------------------------
+ * Required Scope      | `social`
  * 
- * If the record is not exist, it will create. If the record already exist, it
- * will replace the record instead. And this operation can only be applied to
- * record with `isPublic=true`. Example Replace record
+ * 
+ * 
+ * 
+ * 
+ * If the record is not exist, it will create. If the record already exist, it will replace the record
+ * instead. And this operation can only be applied to record with `isPublic=true`.
+ * 
+ * Example
+ * 
+ * Replace record
+ * 
  * 
  * 
  * 

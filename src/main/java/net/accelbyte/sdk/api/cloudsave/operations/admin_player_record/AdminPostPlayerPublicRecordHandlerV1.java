@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.cloudsave.operations.admin_player_record;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,13 +27,15 @@ import java.util.*;
 /**
  * adminPostPlayerPublicRecordHandlerV1
  *
- * Required permission:
- * ADMIN:NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [CREATE]
- * Required scope: social Save a record (arbitrary JSON data) in user-level. If a
- * record already exist with given record key, this endpoint will try to merge.
- * Same top level key inside body will be replaced, different top level key will
- * be appended. Record saved will be a public record. If existing record is not
- * public (is_public false) then this endpoint won't make it public.
+ * Required permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [CREATE]
+ * 
+ * Required scope: social
+ * 
+ * Save a record (arbitrary JSON data) in user-level.
+ * If a record already exist with given record key, this endpoint will try to merge.
+ * Same top level key inside body will be replaced, different top level key will be appended.
+ * Record saved will be a public record.
+ * If existing record is not public (is_public false) then this endpoint won't make it public.
  */
 @Getter
 @Setter

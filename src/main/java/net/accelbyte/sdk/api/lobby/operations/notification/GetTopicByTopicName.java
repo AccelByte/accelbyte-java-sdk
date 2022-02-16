@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.lobby.operations.notification;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,6 +28,7 @@ import java.util.*;
  * getTopicByTopicName
  *
  * Required permission : `NAMESPACE:{namespace}:TOPIC [READ]` with scope `social`
+ * 
  * get topic information by topic name.
  */
 @Getter

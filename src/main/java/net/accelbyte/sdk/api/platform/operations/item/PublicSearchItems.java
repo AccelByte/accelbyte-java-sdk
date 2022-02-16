@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
 package net.accelbyte.sdk.api.platform.operations.item;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,9 +27,7 @@ import java.util.*;
 /**
  * publicSearchItems
  *
- * This API is used to search items by keyword in title, description and long
- * description, It's language constrained, also if item not exist in specific
- * region, default region item will return.
+ * This API is used to search items by keyword in title, description and long description, It's language constrained, also if item not exist in specific region, default region item will return.
  * 
  * Other detail info:
  * 
