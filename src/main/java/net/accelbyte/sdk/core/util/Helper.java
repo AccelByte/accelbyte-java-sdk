@@ -121,4 +121,17 @@ public class Helper {
         return result;
     }
 
+    public static String generateAmazonTraceId(String version) {
+        long time = System.currentTimeMillis() / 1000L;
+        String timeHexa = Long.toHexString(time);
+        byte[] bytes = new byte[12];
+        new Random().nextBytes(bytes);
+        StringBuilder guid = new StringBuilder();
+        for (byte b : bytes) {
+            String st = String.format("%02x", b);
+            guid.append(st);
+        }
+        return String.format("%s-%s-%s", version, timeHexa, guid);
+    }
+
 }

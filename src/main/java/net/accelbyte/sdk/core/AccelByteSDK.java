@@ -56,6 +56,10 @@ public class AccelByteSDK {
                 header.setBasicAuthorization(Credentials.basic(clientId, clientSecret));
             }
         }
+        if (sdkConfiguration.getConfigRepository().isAmazonTraceId()) {
+            String version = sdkConfiguration.getConfigRepository().getAmazonTraceIdVersion();
+            header.setAmazonTraceId(Helper.generateAmazonTraceId(version));
+        }
         return sdkConfiguration.getHttpClient().sendRequest(operation, baseUrl, header);
     }
 
