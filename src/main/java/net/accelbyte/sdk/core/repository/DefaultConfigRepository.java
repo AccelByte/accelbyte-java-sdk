@@ -10,8 +10,8 @@ public class DefaultConfigRepository implements ConfigRepository {
     private static final String CLIENT_ID = "AB_CLIENT_ID";
     private static final String CLIENT_SECRET = "AB_CLIENT_SECRET";
     private static final String BASE_URL = "AB_BASE_URL";
-    private boolean amazonTraceId;
-    private String amazonTraceIdVersion;
+    private boolean amazonTraceId = true;
+    private String amazonTraceIdVersion = "1";
 
     @Override
     public String getClientId() {
