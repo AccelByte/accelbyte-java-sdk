@@ -6,12 +6,16 @@
 
 package net.accelbyte.sdk.core.repository;
 
+import net.accelbyte.sdk.core.AppInfo;
+
 public class DefaultConfigRepository implements ConfigRepository {
     private static final String CLIENT_ID = "AB_CLIENT_ID";
     private static final String CLIENT_SECRET = "AB_CLIENT_SECRET";
     private static final String BASE_URL = "AB_BASE_URL";
+    private AppInfo appInfo = new AppInfo();
     private boolean amazonTraceId = true;
     private String amazonTraceIdVersion = "1";
+    private boolean clientInfoHeader = true;
 
     @Override
     public String getClientId() {
@@ -59,4 +63,24 @@ public class DefaultConfigRepository implements ConfigRepository {
         return this.amazonTraceIdVersion;
     }
 
+    @Override
+    public void activateClientInfoHeader(AppInfo appInfo) {
+        this.clientInfoHeader = true;
+        this.appInfo = appInfo != null ? appInfo : new AppInfo();
+    }
+
+    @Override
+    public void deactivateClientInfoHeader() {
+        this.clientInfoHeader = false;
+    }
+
+    @Override
+    public AppInfo getAppInfo() {
+        return this.appInfo;
+    }
+
+    @Override
+    public boolean isClientInfoHeader() {
+        return this.clientInfoHeader;
+    }
 }

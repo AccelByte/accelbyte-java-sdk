@@ -6,6 +6,8 @@
 
 package net.accelbyte.sdk.core.repository;
 
+import net.accelbyte.sdk.core.AppInfo;
+
 public interface ConfigRepository {
     String getClientId();
     String getClientSecret();
@@ -14,4 +16,8 @@ public interface ConfigRepository {
     void activateAmazonTraceId(String version);
     void deactivateAmazonTraceId();
     String getAmazonTraceIdVersion();
+    boolean isClientInfoHeader();
+    void activateClientInfoHeader(AppInfo appInfo);
+    void deactivateClientInfoHeader();
+    AppInfo getAppInfo();
 }

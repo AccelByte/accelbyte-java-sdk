@@ -17,6 +17,7 @@ import java.util.Map;
 public class Header {
     public static final String AUTHORIZATION_KEY = "Authorization";
     public static final String X_AMZN_TRACE_ID = "X-Amzn-Trace-Id";
+    public static final String USER_AGENT = "User-Agent";
     private Map<String, String> headerData = new HashMap<>();
 
     public void setBearerAuthorization(String bearer) {
@@ -29,6 +30,10 @@ public class Header {
 
     public void setAmazonTraceId(String id) {
         this.headerData.put(X_AMZN_TRACE_ID, id);
+    }
+
+    public void setUserAgent(String value){
+        this.headerData.put(USER_AGENT, value);
     }
 
     public void addHeaderData(String key, String value) {

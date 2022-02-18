@@ -66,6 +66,15 @@ public class AccelByteSDK {
             String version = sdkConfiguration.getConfigRepository().getAmazonTraceIdVersion();
             header.setAmazonTraceId(Helper.generateAmazonTraceId(version));
         }
+        if (sdkConfiguration.getConfigRepository().isClientInfoHeader()) {
+            String productName = SDKInfo.getInstance().getSdkName();
+            String productVersion = SDKInfo.getInstance().getSdkVersion();
+            AppInfo appInfo = sdkConfiguration.getConfigRepository().getAppInfo();
+            String appName = appInfo.getAppName();
+            String appVersion = appInfo.getAppVersion();
+            String userAgent = String.format("%s/%s (%s/%s)", productName, productVersion, appName, appVersion);
+            header.setUserAgent(userAgent);
+        }
         return sdkConfiguration.getHttpClient().sendRequest(operation, baseUrl, header);
     }
 
