@@ -84,15 +84,13 @@ public class AccelByteSDK {
         String clientId = this.sdkConfiguration.getConfigRepository().getClientId();
         try {
             OAuth20 oAuth20 = new OAuth20(this);
-            AuthorizeV3 authorizeV3 = new AuthorizeV3(
-                    codeChallenge,
-                    "S256",
-                    null,
-                    "commerce account social publishing analytics",
-                    null,
-                    null,
-                    clientId,
-                    "code");
+            AuthorizeV3 authorizeV3 = AuthorizeV3.builder()
+                    .codeChallenge(codeChallenge)
+                    .codeChallengeMethod("S256")
+                    .scope("commerce account social publishing analytics")
+                    .clientId(clientId)
+                    .responseType("code")
+                    .build();
             String response = oAuth20.authorizeV3(authorizeV3);
             // todo: change this to simple regex
             List<NameValuePair> params = URLEncodedUtils.parse(new URI(response), StandardCharsets.UTF_8);
@@ -104,13 +102,12 @@ public class AccelByteSDK {
                 }
             }
             OAuth20Extension oAuth20Extension = new OAuth20Extension(this);
-            UserAuthenticationV3 userAuthenticationV3 = new UserAuthenticationV3(
-                    clientId,
-                    null,
-                    null,
-                    password,
-                    requestId,
-                    username);
+            UserAuthenticationV3 userAuthenticationV3 = UserAuthenticationV3.builder()
+                    .clientId(clientId)
+                    .userName(username)
+                    .password(password)
+                    .requestId(requestId)
+                    .build();
             response = oAuth20Extension.userAuthenticationV3(userAuthenticationV3);
             params = URLEncodedUtils.parse(new URI(response), StandardCharsets.UTF_8);
             String code = null;
@@ -120,16 +117,12 @@ public class AccelByteSDK {
                     break;
                 }
             }
-            TokenGrantV3 tokenGrantV3 = new TokenGrantV3(
-                    clientId,
-                    code,
-                    codeVerifier,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    "authorization_code");
+            TokenGrantV3 tokenGrantV3 = TokenGrantV3.builder()
+                    .clientId(clientId)
+                    .code(code)
+                    .codeVerifier(codeVerifier)
+                    .grantType("authorization_code")
+                    .build();
             OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
             this.sdkConfiguration.getTokenRepository().storeToken(token.getAccessToken());
             return true;
