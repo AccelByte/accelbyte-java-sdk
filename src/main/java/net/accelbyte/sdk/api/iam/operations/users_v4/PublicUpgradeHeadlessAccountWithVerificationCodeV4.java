@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -87,6 +88,7 @@ public class PublicUpgradeHeadlessAccountWithVerificationCodeV4 extends Operatio
     * @param namespace required
     * @param body required
     */
+    @Builder
     public PublicUpgradeHeadlessAccountWithVerificationCodeV4(
             String namespace,
             AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4 body

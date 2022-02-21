@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -69,6 +70,7 @@ public class AdminUpdatePartyAttributesV1 extends Operation {
     * @param partyId required
     * @param body required
     */
+    @Builder
     public AdminUpdatePartyAttributesV1(
             String namespace,
             String partyId,

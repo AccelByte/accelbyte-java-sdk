@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -85,6 +86,7 @@ public class UpdateSingleGroupV1 extends Operation {
     * @param namespace required
     * @param body required
     */
+    @Builder
     public UpdateSingleGroupV1(
             String groupId,
             String namespace,

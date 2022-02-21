@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -113,6 +114,7 @@ public class PlatformAuthenticationV3 extends Operation {
     * @param platformId required
     * @param state required
     */
+    @Builder
     public PlatformAuthenticationV3(
             String platformId,
             String code,

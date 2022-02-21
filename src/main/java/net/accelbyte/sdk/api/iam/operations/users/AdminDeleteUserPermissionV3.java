@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -67,6 +68,7 @@ public class AdminDeleteUserPermissionV3 extends Operation {
     * @param resource required
     * @param userId required
     */
+    @Builder
     public AdminDeleteUserPermissionV3(
             Integer action,
             String namespace,

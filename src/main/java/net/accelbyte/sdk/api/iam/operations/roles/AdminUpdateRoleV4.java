@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -72,6 +73,7 @@ public class AdminUpdateRoleV4 extends Operation {
     * @param roleId required
     * @param body required
     */
+    @Builder
     public AdminUpdateRoleV4(
             String roleId,
             ModelRoleV4Request body

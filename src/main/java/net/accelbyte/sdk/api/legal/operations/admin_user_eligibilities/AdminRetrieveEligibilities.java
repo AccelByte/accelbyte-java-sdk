@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -73,6 +74,7 @@ public class AdminRetrieveEligibilities extends Operation {
     * @param clientId required
     * @param countryCode required
     */
+    @Builder
     public AdminRetrieveEligibilities(
             String namespace,
             String userId,

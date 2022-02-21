@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -69,6 +70,7 @@ public class PublicGetProfile extends Operation {
     * @param profileId required
     * @param userId required
     */
+    @Builder
     public PublicGetProfile(
             String namespace,
             String profileId,

@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -79,6 +80,7 @@ public class AdminBanUserV3 extends Operation {
     * @param userId required
     * @param body required
     */
+    @Builder
     public AdminBanUserV3(
             String namespace,
             String userId,

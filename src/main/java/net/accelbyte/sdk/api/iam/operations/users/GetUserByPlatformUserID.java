@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -66,6 +67,7 @@ public class GetUserByPlatformUserID extends Operation {
     * @param platformID required
     * @param platformUserID required
     */
+    @Builder
     public GetUserByPlatformUserID(
             String namespace,
             String platformID,

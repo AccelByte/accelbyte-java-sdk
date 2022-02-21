@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -104,6 +105,7 @@ public class AuthCodeRequestV3 extends Operation {
     * @param platformId required
     * @param requestId required
     */
+    @Builder
     public AuthCodeRequestV3(
             String platformId,
             String clientId,

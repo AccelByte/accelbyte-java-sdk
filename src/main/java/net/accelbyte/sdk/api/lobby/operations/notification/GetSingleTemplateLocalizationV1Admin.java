@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -70,6 +71,7 @@ public class GetSingleTemplateLocalizationV1Admin extends Operation {
     * @param templateLanguage required
     * @param templateSlug required
     */
+    @Builder
     public GetSingleTemplateLocalizationV1Admin(
             String namespace,
             String templateLanguage,

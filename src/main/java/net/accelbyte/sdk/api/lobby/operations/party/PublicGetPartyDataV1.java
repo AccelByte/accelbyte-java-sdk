@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -69,6 +70,7 @@ public class PublicGetPartyDataV1 extends Operation {
     * @param namespace required
     * @param partyId required
     */
+    @Builder
     public PublicGetPartyDataV1(
             String namespace,
             String partyId

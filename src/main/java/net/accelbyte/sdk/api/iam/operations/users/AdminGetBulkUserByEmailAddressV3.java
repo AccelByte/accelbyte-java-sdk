@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -76,6 +77,7 @@ public class AdminGetBulkUserByEmailAddressV3 extends Operation {
     * @param namespace required
     * @param body required
     */
+    @Builder
     public AdminGetBulkUserByEmailAddressV3(
             String namespace,
             ModelListEmailAddressRequest body
