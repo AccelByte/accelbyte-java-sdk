@@ -6,6 +6,7 @@
 
 package net.accelbyte.sdk.cli;
 
+import net.accelbyte.sdk.api.lobby.ws_models.ErrorNotif;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.cli.utils.CLIHelper;
 import net.accelbyte.sdk.core.client.WebSocketClient;
@@ -30,7 +31,10 @@ public class LobbyWebsocket implements Callable<Integer> {
     String message;
 
     @Option(names = {"-t", "--timeout"}, description = "timeout in millisecond")
-    int timeOut = 5000; // if it takes longer than timeout with no expected response, then exit 1
+    long timeOut = 5000; // if it takes longer than timeout with no expected response, then exit 1
+
+    @Option(names = {"-u", "--unitTest"}, description = "unit test mode")
+    boolean unitTest = false;
 
     public static void main(String[] args) {
         int exitCode = new CommandLine(new LobbyWebsocket()).execute(args);
@@ -58,15 +62,28 @@ public class LobbyWebsocket implements Callable<Integer> {
 
         long startTime = System.currentTimeMillis();
         while ((System.currentTimeMillis() - startTime) < timeOut) {
-            if (listener.getMessage() != null && CLIHelper.getResponseTypeOf(requestType).equals(listener.getResponseType())) {
-                log.info("Operation successful with response below:\n{}", listener.getMessage());
-                return 0;
+            if (listener.getMessage() != null) {
+                String response = listener.getMessage();
+                String responseType = listener.getResponseType();
+                if (!unitTest && responseType.equals(CLIHelper.getResponseTypeOf(requestType))) {
+                    log.info("Operation successful with response below:\n{}", response);
+                    ws.close(1000, "normal close");
+                    return 0;
+                } else if (unitTest && response.equals(fullMessage)) {
+                    log.info("Operation successful with response below:\n{}", response);
+                    ws.close(1000, "normal close");
+                    return 0;
+                } else if (unitTest && responseType.equals(ErrorNotif.getType())) {
+                    log.error("Operation unsuccessful with response below\n{}", response);
+                    ws.close(1000, "normal close");
+                    return 1;
+                }
             } else {
                 Thread.sleep(100);
             }
         }
-        ws.close(1000, "normal close");
         log.error("Operation unsuccessful");
+        ws.close(1000, "normal close");
         return 1;
     }
 
