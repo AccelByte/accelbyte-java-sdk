@@ -20,6 +20,7 @@ import java.util.concurrent.Callable;
                 Login.class,
                 Logout.class,
                 LoginClient.class,
+                LobbyWebsocket.class,
                 Achievement.class,
                 Basic.class,
                 Cloudsave.class,
