@@ -8,7 +8,7 @@
     },
     "description": "Justice Platform Service",
     "title": "justice-platform-service",
-    "version": "4.2.0"
+    "version": "4.3.2"
   },
   "schemes": [
     "https"
@@ -24776,6 +24776,10 @@
     },
     "GoogleIAPReceipt": {
       "properties": {
+        "autoAck": {
+          "description": "If invoke Google play's Acknowledge after sync an durable item",
+          "type": "boolean"
+        },
         "language": {
           "description": "language value from language tag, allowed format: en, en-US",
           "type": "string"
