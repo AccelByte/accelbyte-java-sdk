@@ -20,10 +20,10 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class PersonalChatHistoryResponse {
-    private String id;
-    private String code;
-    private String friendId;
     private String chat;
+    private Integer code;
+    private String friendId;
+    private String id;
 
     private PersonalChatHistoryResponse() {
 
@@ -31,15 +31,15 @@ public class PersonalChatHistoryResponse {
 
     @Builder
     public PersonalChatHistoryResponse (
-        String id,
-        String code,
+        String chat,
+        Integer code,
         String friendId,
-        String chat
+        String id
     ) {
-        this.id = id;
+        this.chat = chat;
         this.code = code;
         this.friendId = friendId;
-        this.chat = chat;
+        this.id = id;
     }
 
     public static String getType(){
@@ -49,26 +49,21 @@ public class PersonalChatHistoryResponse {
     public static PersonalChatHistoryResponse createFromWSM(String message) {
         PersonalChatHistoryResponse result = new PersonalChatHistoryResponse();
         Map<String, String> response = parseWSM(message);
-        result.id = response.get("id") != null ? response.get("id") : null;
-        result.code = response.get("code") != null ? response.get("code") : null;
-        result.friendId = response.get("friendId") != null ? response.get("friendId") : null;
         result.chat = response.get("chat") != null ? response.get("chat") : null;
+        result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
+        result.friendId = response.get("friendId") != null ? response.get("friendId") : null;
+        result.id = response.get("id") != null ? response.get("id") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(PersonalChatHistoryResponse.getType());
-        if (id != null) {
+        if (chat != null) {
             stringBuilder
                     .append("\n")
-                    .append("id: ")
-                    .append(id);
-        } else {
-            stringBuilder
-                    .append("\n")
-                    .append("id: ")
-                    .append(generateUUID());
+                    .append("chat: ")
+                    .append(chat);
         }
         if (code != null) {
             stringBuilder
@@ -82,21 +77,26 @@ public class PersonalChatHistoryResponse {
                     .append("friendId: ")
                     .append(friendId);
         }
-        if (chat != null) {
+        if (id != null) {
             stringBuilder
                     .append("\n")
-                    .append("chat: ")
-                    .append(chat);
+                    .append("id: ")
+                    .append(id);
+        } else {
+            stringBuilder
+                    .append("\n")
+                    .append("id: ")
+                    .append(generateUUID());
         }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
+        result.put("chat","chat");
         result.put("code","code");
         result.put("friendId","friendId");
-        result.put("chat","chat");
+        result.put("id","id");
         return result;
     }
 }

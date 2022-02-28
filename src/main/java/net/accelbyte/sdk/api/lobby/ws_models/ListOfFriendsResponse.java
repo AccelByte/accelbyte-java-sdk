@@ -20,9 +20,9 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class ListOfFriendsResponse {
-    private String id;
-    private String code;
+    private Integer code;
     private List<String> friendIds;
+    private String id;
 
     private ListOfFriendsResponse() {
 
@@ -30,13 +30,13 @@ public class ListOfFriendsResponse {
 
     @Builder
     public ListOfFriendsResponse (
-        String id,
-        String code,
-        List<String> friendIds
+        Integer code,
+        List<String> friendIds,
+        String id
     ) {
-        this.id = id;
         this.code = code;
         this.friendIds = friendIds;
+        this.id = id;
     }
 
     public static String getType(){
@@ -46,26 +46,15 @@ public class ListOfFriendsResponse {
     public static ListOfFriendsResponse createFromWSM(String message) {
         ListOfFriendsResponse result = new ListOfFriendsResponse();
         Map<String, String> response = parseWSM(message);
-        result.id = response.get("id") != null ? response.get("id") : null;
-        result.code = response.get("code") != null ? response.get("code") : null;
+        result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
         result.friendIds = response.get("friendIds") != null ? convertWSMListToListString(response.get("friendIds")) : null;
+        result.id = response.get("id") != null ? response.get("id") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(ListOfFriendsResponse.getType());
-        if (id != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("id: ")
-                    .append(id);
-        } else {
-            stringBuilder
-                    .append("\n")
-                    .append("id: ")
-                    .append(generateUUID());
-        }
         if (code != null) {
             stringBuilder
                     .append("\n")
@@ -78,14 +67,25 @@ public class ListOfFriendsResponse {
                     .append("friendIds: ")
                     .append(listToWSMList(friendIds));
         }
+        if (id != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("id: ")
+                    .append(id);
+        } else {
+            stringBuilder
+                    .append("\n")
+                    .append("id: ")
+                    .append(generateUUID());
+        }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
         result.put("code","code");
         result.put("friendIds","friendIds");
+        result.put("id","id");
         return result;
     }
 }

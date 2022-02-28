@@ -20,8 +20,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class ListIncomingFriendsResponse {
+    private Integer code;
     private String id;
-    private String code;
     private List<String> userIds;
 
     private ListIncomingFriendsResponse() {
@@ -30,12 +30,12 @@ public class ListIncomingFriendsResponse {
 
     @Builder
     public ListIncomingFriendsResponse (
+        Integer code,
         String id,
-        String code,
         List<String> userIds
     ) {
-        this.id = id;
         this.code = code;
+        this.id = id;
         this.userIds = userIds;
     }
 
@@ -46,8 +46,8 @@ public class ListIncomingFriendsResponse {
     public static ListIncomingFriendsResponse createFromWSM(String message) {
         ListIncomingFriendsResponse result = new ListIncomingFriendsResponse();
         Map<String, String> response = parseWSM(message);
+        result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
         result.id = response.get("id") != null ? response.get("id") : null;
-        result.code = response.get("code") != null ? response.get("code") : null;
         result.userIds = response.get("userIds") != null ? convertWSMListToListString(response.get("userIds")) : null;
         return result;
     }
@@ -55,6 +55,12 @@ public class ListIncomingFriendsResponse {
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(ListIncomingFriendsResponse.getType());
+        if (code != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("code: ")
+                    .append(code);
+        }
         if (id != null) {
             stringBuilder
                     .append("\n")
@@ -65,12 +71,6 @@ public class ListIncomingFriendsResponse {
                     .append("\n")
                     .append("id: ")
                     .append(generateUUID());
-        }
-        if (code != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("code: ")
-                    .append(code);
         }
         if (userIds != null) {
             stringBuilder
@@ -83,8 +83,8 @@ public class ListIncomingFriendsResponse {
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
         result.put("code","code");
+        result.put("id","id");
         result.put("userIds","userIds");
         return result;
     }

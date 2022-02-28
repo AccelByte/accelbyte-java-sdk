@@ -20,8 +20,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class PartyKickNotif {
-    private String partyId;
     private String leaderId;
+    private String partyId;
     private String userId;
 
     private PartyKickNotif() {
@@ -30,12 +30,12 @@ public class PartyKickNotif {
 
     @Builder
     public PartyKickNotif (
-        String partyId,
         String leaderId,
+        String partyId,
         String userId
     ) {
-        this.partyId = partyId;
         this.leaderId = leaderId;
+        this.partyId = partyId;
         this.userId = userId;
     }
 
@@ -46,8 +46,8 @@ public class PartyKickNotif {
     public static PartyKickNotif createFromWSM(String message) {
         PartyKickNotif result = new PartyKickNotif();
         Map<String, String> response = parseWSM(message);
-        result.partyId = response.get("partyId") != null ? response.get("partyId") : null;
         result.leaderId = response.get("leaderId") != null ? response.get("leaderId") : null;
+        result.partyId = response.get("partyId") != null ? response.get("partyId") : null;
         result.userId = response.get("userId") != null ? response.get("userId") : null;
         return result;
     }
@@ -55,17 +55,17 @@ public class PartyKickNotif {
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(PartyKickNotif.getType());
-        if (partyId != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("partyId: ")
-                    .append(partyId);
-        }
         if (leaderId != null) {
             stringBuilder
                     .append("\n")
                     .append("leaderId: ")
                     .append(leaderId);
+        }
+        if (partyId != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("partyId: ")
+                    .append(partyId);
         }
         if (userId != null) {
             stringBuilder
@@ -78,8 +78,8 @@ public class PartyKickNotif {
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("partyId","partyId");
         result.put("leaderId","leaderId");
+        result.put("partyId","partyId");
         result.put("userId","userId");
         return result;
     }

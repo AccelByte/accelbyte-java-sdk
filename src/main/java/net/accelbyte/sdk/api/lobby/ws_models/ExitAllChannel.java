@@ -20,8 +20,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class ExitAllChannel {
-    private String userId;
     private String namespace;
+    private String userId;
 
     private ExitAllChannel() {
 
@@ -29,11 +29,11 @@ public class ExitAllChannel {
 
     @Builder
     public ExitAllChannel (
-        String userId,
-        String namespace
+        String namespace,
+        String userId
     ) {
-        this.userId = userId;
         this.namespace = namespace;
+        this.userId = userId;
     }
 
     public static String getType(){
@@ -43,33 +43,33 @@ public class ExitAllChannel {
     public static ExitAllChannel createFromWSM(String message) {
         ExitAllChannel result = new ExitAllChannel();
         Map<String, String> response = parseWSM(message);
-        result.userId = response.get("userId") != null ? response.get("userId") : null;
         result.namespace = response.get("namespace") != null ? response.get("namespace") : null;
+        result.userId = response.get("userId") != null ? response.get("userId") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(ExitAllChannel.getType());
-        if (userId != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("userId: ")
-                    .append(userId);
-        }
         if (namespace != null) {
             stringBuilder
                     .append("\n")
                     .append("namespace: ")
                     .append(namespace);
         }
+        if (userId != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("userId: ")
+                    .append(userId);
+        }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("userId","userId");
         result.put("namespace","namespace");
+        result.put("userId","userId");
         return result;
     }
 }

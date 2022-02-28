@@ -20,9 +20,9 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class SetUserStatusRequest {
-    private String id;
-    private Integer availability;
     private String activity;
+    private Integer availability;
+    private String id;
 
     private SetUserStatusRequest() {
 
@@ -30,13 +30,13 @@ public class SetUserStatusRequest {
 
     @Builder
     public SetUserStatusRequest (
-        String id,
+        String activity,
         Integer availability,
-        String activity
+        String id
     ) {
-        this.id = id;
-        this.availability = availability;
         this.activity = activity;
+        this.availability = availability;
+        this.id = id;
     }
 
     public static String getType(){
@@ -46,15 +46,27 @@ public class SetUserStatusRequest {
     public static SetUserStatusRequest createFromWSM(String message) {
         SetUserStatusRequest result = new SetUserStatusRequest();
         Map<String, String> response = parseWSM(message);
-        result.id = response.get("id") != null ? response.get("id") : null;
-        result.availability = response.get("availability") != null ? Integer.valueOf(response.get("availability")) : null;
         result.activity = response.get("activity") != null ? response.get("activity") : null;
+        result.availability = response.get("availability") != null ? Integer.valueOf(response.get("availability")) : null;
+        result.id = response.get("id") != null ? response.get("id") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(SetUserStatusRequest.getType());
+        if (activity != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("activity: ")
+                    .append(activity);
+        }
+        if (availability != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("availability: ")
+                    .append(availability);
+        }
         if (id != null) {
             stringBuilder
                     .append("\n")
@@ -66,26 +78,14 @@ public class SetUserStatusRequest {
                     .append("id: ")
                     .append(generateUUID());
         }
-        if (availability != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("availability: ")
-                    .append(availability);
-        }
-        if (activity != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("activity: ")
-                    .append(activity);
-        }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
-        result.put("availability","availability");
         result.put("activity","activity");
+        result.put("availability","availability");
+        result.put("id","id");
         return result;
     }
 }

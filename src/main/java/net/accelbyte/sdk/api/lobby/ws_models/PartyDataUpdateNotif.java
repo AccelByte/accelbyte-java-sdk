@@ -20,12 +20,12 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class PartyDataUpdateNotif {
-    private String partyId;
-    private String leader;
-    private String namespace;
-    private List<String> members;
-    private List<String> invitees;
     private Map<String, ?> customAttributes;
+    private List<String> invitees;
+    private String leader;
+    private List<String> members;
+    private String namespace;
+    private String partyId;
     private Integer updatedAt;
 
     private PartyDataUpdateNotif() {
@@ -34,20 +34,20 @@ public class PartyDataUpdateNotif {
 
     @Builder
     public PartyDataUpdateNotif (
-        String partyId,
-        String leader,
-        String namespace,
-        List<String> members,
-        List<String> invitees,
         Map<String, ?> customAttributes,
+        List<String> invitees,
+        String leader,
+        List<String> members,
+        String namespace,
+        String partyId,
         Integer updatedAt
     ) {
-        this.partyId = partyId;
-        this.leader = leader;
-        this.namespace = namespace;
-        this.members = members;
-        this.invitees = invitees;
         this.customAttributes = customAttributes;
+        this.invitees = invitees;
+        this.leader = leader;
+        this.members = members;
+        this.namespace = namespace;
+        this.partyId = partyId;
         this.updatedAt = updatedAt;
     }
 
@@ -58,12 +58,12 @@ public class PartyDataUpdateNotif {
     public static PartyDataUpdateNotif createFromWSM(String message) {
         PartyDataUpdateNotif result = new PartyDataUpdateNotif();
         Map<String, String> response = parseWSM(message);
-        result.partyId = response.get("partyId") != null ? response.get("partyId") : null;
-        result.leader = response.get("leader") != null ? response.get("leader") : null;
-        result.namespace = response.get("namespace") != null ? response.get("namespace") : null;
-        result.members = response.get("members") != null ? convertWSMListToListString(response.get("members")) : null;
-        result.invitees = response.get("invitees") != null ? convertWSMListToListString(response.get("invitees")) : null;
         result.customAttributes = response.get("customAttributes") != null ? convertJsonToMap(response.get("customAttributes")) : null;
+        result.invitees = response.get("invitees") != null ? convertWSMListToListString(response.get("invitees")) : null;
+        result.leader = response.get("leader") != null ? response.get("leader") : null;
+        result.members = response.get("members") != null ? convertWSMListToListString(response.get("members")) : null;
+        result.namespace = response.get("namespace") != null ? response.get("namespace") : null;
+        result.partyId = response.get("partyId") != null ? response.get("partyId") : null;
         result.updatedAt = response.get("updatedAt") != null ? Integer.valueOf(response.get("updatedAt")) : null;
         return result;
     }
@@ -71,36 +71,6 @@ public class PartyDataUpdateNotif {
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(PartyDataUpdateNotif.getType());
-        if (partyId != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("partyId: ")
-                    .append(partyId);
-        }
-        if (leader != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("leader: ")
-                    .append(leader);
-        }
-        if (namespace != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("namespace: ")
-                    .append(namespace);
-        }
-        if (members != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("members: ")
-                    .append(listToWSMList(members));
-        }
-        if (invitees != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("invitees: ")
-                    .append(listToWSMList(invitees));
-        }
         if (customAttributes != null) {
             try {
                 String json = new ObjectMapper().writeValueAsString(customAttributes);
@@ -111,6 +81,36 @@ public class PartyDataUpdateNotif {
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
             }
+        }
+        if (invitees != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("invitees: ")
+                    .append(listToWSMList(invitees));
+        }
+        if (leader != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("leader: ")
+                    .append(leader);
+        }
+        if (members != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("members: ")
+                    .append(listToWSMList(members));
+        }
+        if (namespace != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("namespace: ")
+                    .append(namespace);
+        }
+        if (partyId != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("partyId: ")
+                    .append(partyId);
         }
         if (updatedAt != null) {
             stringBuilder
@@ -123,12 +123,12 @@ public class PartyDataUpdateNotif {
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("partyId","partyId");
-        result.put("leader","leader");
-        result.put("namespace","namespace");
-        result.put("members","members");
-        result.put("invitees","invitees");
         result.put("customAttributes","customAttributes");
+        result.put("invitees","invitees");
+        result.put("leader","leader");
+        result.put("members","members");
+        result.put("namespace","namespace");
+        result.put("partyId","partyId");
         result.put("updatedAt","updatedAt");
         return result;
     }

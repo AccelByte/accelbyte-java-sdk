@@ -20,14 +20,14 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class PartyInfoResponse {
+    private Integer code;
+    private Map<String, ?> customAttributes;
     private String id;
-    private String code;
-    private String partyId;
+    private String invitationToken;
+    private String invitees;
     private String leaderId;
     private String members;
-    private String invitees;
-    private String invitationToken;
-    private Map<String, ?> customAttributes;
+    private String partyId;
 
     private PartyInfoResponse() {
 
@@ -35,23 +35,23 @@ public class PartyInfoResponse {
 
     @Builder
     public PartyInfoResponse (
+        Integer code,
+        Map<String, ?> customAttributes,
         String id,
-        String code,
-        String partyId,
+        String invitationToken,
+        String invitees,
         String leaderId,
         String members,
-        String invitees,
-        String invitationToken,
-        Map<String, ?> customAttributes
+        String partyId
     ) {
-        this.id = id;
         this.code = code;
-        this.partyId = partyId;
+        this.customAttributes = customAttributes;
+        this.id = id;
+        this.invitationToken = invitationToken;
+        this.invitees = invitees;
         this.leaderId = leaderId;
         this.members = members;
-        this.invitees = invitees;
-        this.invitationToken = invitationToken;
-        this.customAttributes = customAttributes;
+        this.partyId = partyId;
     }
 
     public static String getType(){
@@ -61,20 +61,37 @@ public class PartyInfoResponse {
     public static PartyInfoResponse createFromWSM(String message) {
         PartyInfoResponse result = new PartyInfoResponse();
         Map<String, String> response = parseWSM(message);
+        result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
+        result.customAttributes = response.get("customAttributes") != null ? convertJsonToMap(response.get("customAttributes")) : null;
         result.id = response.get("id") != null ? response.get("id") : null;
-        result.code = response.get("code") != null ? response.get("code") : null;
-        result.partyId = response.get("partyId") != null ? response.get("partyId") : null;
+        result.invitationToken = response.get("invitationToken") != null ? response.get("invitationToken") : null;
+        result.invitees = response.get("invitees") != null ? response.get("invitees") : null;
         result.leaderId = response.get("leaderId") != null ? response.get("leaderId") : null;
         result.members = response.get("members") != null ? response.get("members") : null;
-        result.invitees = response.get("invitees") != null ? response.get("invitees") : null;
-        result.invitationToken = response.get("invitationToken") != null ? response.get("invitationToken") : null;
-        result.customAttributes = response.get("customAttributes") != null ? convertJsonToMap(response.get("customAttributes")) : null;
+        result.partyId = response.get("partyId") != null ? response.get("partyId") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(PartyInfoResponse.getType());
+        if (code != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("code: ")
+                    .append(code);
+        }
+        if (customAttributes != null) {
+            try {
+                String json = new ObjectMapper().writeValueAsString(customAttributes);
+                stringBuilder
+                    .append("\n")
+                    .append("customAttributes: ")
+                    .append(json);
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
+        }
         if (id != null) {
             stringBuilder
                     .append("\n")
@@ -86,17 +103,17 @@ public class PartyInfoResponse {
                     .append("id: ")
                     .append(generateUUID());
         }
-        if (code != null) {
+        if (invitationToken != null) {
             stringBuilder
                     .append("\n")
-                    .append("code: ")
-                    .append(code);
+                    .append("invitationToken: ")
+                    .append(invitationToken);
         }
-        if (partyId != null) {
+        if (invitees != null) {
             stringBuilder
                     .append("\n")
-                    .append("partyId: ")
-                    .append(partyId);
+                    .append("invitees: ")
+                    .append(invitees);
         }
         if (leaderId != null) {
             stringBuilder
@@ -110,42 +127,25 @@ public class PartyInfoResponse {
                     .append("members: ")
                     .append(members);
         }
-        if (invitees != null) {
+        if (partyId != null) {
             stringBuilder
                     .append("\n")
-                    .append("invitees: ")
-                    .append(invitees);
-        }
-        if (invitationToken != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("invitationToken: ")
-                    .append(invitationToken);
-        }
-        if (customAttributes != null) {
-            try {
-                String json = new ObjectMapper().writeValueAsString(customAttributes);
-                stringBuilder
-                    .append("\n")
-                    .append("customAttributes: ")
-                    .append(json);
-            } catch (JsonProcessingException e) {
-                e.printStackTrace();
-            }
+                    .append("partyId: ")
+                    .append(partyId);
         }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
         result.put("code","code");
-        result.put("partyId","partyId");
+        result.put("customAttributes","customAttributes");
+        result.put("id","id");
+        result.put("invitationToken","invitationToken");
+        result.put("invitees","invitees");
         result.put("leaderId","leaderId");
         result.put("members","members");
-        result.put("invitees","invitees");
-        result.put("invitationToken","invitationToken");
-        result.put("customAttributes","customAttributes");
+        result.put("partyId","partyId");
         return result;
     }
 }

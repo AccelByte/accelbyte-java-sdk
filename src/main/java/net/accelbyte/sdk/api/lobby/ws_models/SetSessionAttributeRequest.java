@@ -21,8 +21,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Setter
 public class SetSessionAttributeRequest {
     private String id;
-    private String namespace;
     private String key;
+    private String namespace;
     private String value;
 
     private SetSessionAttributeRequest() {
@@ -32,13 +32,13 @@ public class SetSessionAttributeRequest {
     @Builder
     public SetSessionAttributeRequest (
         String id,
-        String namespace,
         String key,
+        String namespace,
         String value
     ) {
         this.id = id;
-        this.namespace = namespace;
         this.key = key;
+        this.namespace = namespace;
         this.value = value;
     }
 
@@ -50,8 +50,8 @@ public class SetSessionAttributeRequest {
         SetSessionAttributeRequest result = new SetSessionAttributeRequest();
         Map<String, String> response = parseWSM(message);
         result.id = response.get("id") != null ? response.get("id") : null;
-        result.namespace = response.get("namespace") != null ? response.get("namespace") : null;
         result.key = response.get("key") != null ? response.get("key") : null;
+        result.namespace = response.get("namespace") != null ? response.get("namespace") : null;
         result.value = response.get("value") != null ? response.get("value") : null;
         return result;
     }
@@ -70,17 +70,17 @@ public class SetSessionAttributeRequest {
                     .append("id: ")
                     .append(generateUUID());
         }
-        if (namespace != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("namespace: ")
-                    .append(namespace);
-        }
         if (key != null) {
             stringBuilder
                     .append("\n")
                     .append("key: ")
                     .append(key);
+        }
+        if (namespace != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("namespace: ")
+                    .append(namespace);
         }
         if (value != null) {
             stringBuilder
@@ -94,8 +94,8 @@ public class SetSessionAttributeRequest {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("id","id");
-        result.put("namespace","namespace");
         result.put("key","key");
+        result.put("namespace","namespace");
         result.put("value","value");
         return result;
     }

@@ -21,8 +21,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Setter
 public class PartyRejectRequest {
     private String id;
-    private String partyId;
     private String invitationToken;
+    private String partyId;
 
     private PartyRejectRequest() {
 
@@ -31,12 +31,12 @@ public class PartyRejectRequest {
     @Builder
     public PartyRejectRequest (
         String id,
-        String partyId,
-        String invitationToken
+        String invitationToken,
+        String partyId
     ) {
         this.id = id;
-        this.partyId = partyId;
         this.invitationToken = invitationToken;
+        this.partyId = partyId;
     }
 
     public static String getType(){
@@ -47,8 +47,8 @@ public class PartyRejectRequest {
         PartyRejectRequest result = new PartyRejectRequest();
         Map<String, String> response = parseWSM(message);
         result.id = response.get("id") != null ? response.get("id") : null;
-        result.partyId = response.get("partyId") != null ? response.get("partyId") : null;
         result.invitationToken = response.get("invitationToken") != null ? response.get("invitationToken") : null;
+        result.partyId = response.get("partyId") != null ? response.get("partyId") : null;
         return result;
     }
 
@@ -66,17 +66,17 @@ public class PartyRejectRequest {
                     .append("id: ")
                     .append(generateUUID());
         }
-        if (partyId != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("partyId: ")
-                    .append(partyId);
-        }
         if (invitationToken != null) {
             stringBuilder
                     .append("\n")
                     .append("invitationToken: ")
                     .append(invitationToken);
+        }
+        if (partyId != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("partyId: ")
+                    .append(partyId);
         }
         return stringBuilder.toString();
     }
@@ -84,8 +84,8 @@ public class PartyRejectRequest {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("id","id");
-        result.put("partyId","partyId");
         result.put("invitationToken","invitationToken");
+        result.put("partyId","partyId");
         return result;
     }
 }

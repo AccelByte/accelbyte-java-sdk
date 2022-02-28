@@ -20,8 +20,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class UnblockPlayerNotif {
-    private String userId;
     private String unblockedUserId;
+    private String userId;
 
     private UnblockPlayerNotif() {
 
@@ -29,11 +29,11 @@ public class UnblockPlayerNotif {
 
     @Builder
     public UnblockPlayerNotif (
-        String userId,
-        String unblockedUserId
+        String unblockedUserId,
+        String userId
     ) {
-        this.userId = userId;
         this.unblockedUserId = unblockedUserId;
+        this.userId = userId;
     }
 
     public static String getType(){
@@ -43,33 +43,33 @@ public class UnblockPlayerNotif {
     public static UnblockPlayerNotif createFromWSM(String message) {
         UnblockPlayerNotif result = new UnblockPlayerNotif();
         Map<String, String> response = parseWSM(message);
-        result.userId = response.get("userId") != null ? response.get("userId") : null;
         result.unblockedUserId = response.get("unblockedUserId") != null ? response.get("unblockedUserId") : null;
+        result.userId = response.get("userId") != null ? response.get("userId") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(UnblockPlayerNotif.getType());
-        if (userId != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("userId: ")
-                    .append(userId);
-        }
         if (unblockedUserId != null) {
             stringBuilder
                     .append("\n")
                     .append("unblockedUserId: ")
                     .append(unblockedUserId);
         }
+        if (userId != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("userId: ")
+                    .append(userId);
+        }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("userId","userId");
         result.put("unblockedUserId","unblockedUserId");
+        result.put("userId","userId");
         return result;
     }
 }

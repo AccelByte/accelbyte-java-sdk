@@ -20,8 +20,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class PartyRejectResponse {
+    private Integer code;
     private String id;
-    private String code;
     private String partyId;
 
     private PartyRejectResponse() {
@@ -30,12 +30,12 @@ public class PartyRejectResponse {
 
     @Builder
     public PartyRejectResponse (
+        Integer code,
         String id,
-        String code,
         String partyId
     ) {
-        this.id = id;
         this.code = code;
+        this.id = id;
         this.partyId = partyId;
     }
 
@@ -46,8 +46,8 @@ public class PartyRejectResponse {
     public static PartyRejectResponse createFromWSM(String message) {
         PartyRejectResponse result = new PartyRejectResponse();
         Map<String, String> response = parseWSM(message);
+        result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
         result.id = response.get("id") != null ? response.get("id") : null;
-        result.code = response.get("code") != null ? response.get("code") : null;
         result.partyId = response.get("partyId") != null ? response.get("partyId") : null;
         return result;
     }
@@ -55,6 +55,12 @@ public class PartyRejectResponse {
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(PartyRejectResponse.getType());
+        if (code != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("code: ")
+                    .append(code);
+        }
         if (id != null) {
             stringBuilder
                     .append("\n")
@@ -65,12 +71,6 @@ public class PartyRejectResponse {
                     .append("\n")
                     .append("id: ")
                     .append(generateUUID());
-        }
-        if (code != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("code: ")
-                    .append(code);
         }
         if (partyId != null) {
             stringBuilder
@@ -83,8 +83,8 @@ public class PartyRejectResponse {
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
         result.put("code","code");
+        result.put("id","id");
         result.put("partyId","partyId");
         return result;
     }

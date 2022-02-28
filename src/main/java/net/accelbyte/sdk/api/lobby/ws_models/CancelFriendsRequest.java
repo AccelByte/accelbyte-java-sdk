@@ -20,8 +20,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class CancelFriendsRequest {
-    private String id;
     private String friendId;
+    private String id;
 
     private CancelFriendsRequest() {
 
@@ -29,11 +29,11 @@ public class CancelFriendsRequest {
 
     @Builder
     public CancelFriendsRequest (
-        String id,
-        String friendId
+        String friendId,
+        String id
     ) {
-        this.id = id;
         this.friendId = friendId;
+        this.id = id;
     }
 
     public static String getType(){
@@ -43,14 +43,20 @@ public class CancelFriendsRequest {
     public static CancelFriendsRequest createFromWSM(String message) {
         CancelFriendsRequest result = new CancelFriendsRequest();
         Map<String, String> response = parseWSM(message);
-        result.id = response.get("id") != null ? response.get("id") : null;
         result.friendId = response.get("friendId") != null ? response.get("friendId") : null;
+        result.id = response.get("id") != null ? response.get("id") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(CancelFriendsRequest.getType());
+        if (friendId != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("friendId: ")
+                    .append(friendId);
+        }
         if (id != null) {
             stringBuilder
                     .append("\n")
@@ -62,19 +68,13 @@ public class CancelFriendsRequest {
                     .append("id: ")
                     .append(generateUUID());
         }
-        if (friendId != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("friendId: ")
-                    .append(friendId);
-        }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
         result.put("friendId","friendId");
+        result.put("id","id");
         return result;
     }
 }

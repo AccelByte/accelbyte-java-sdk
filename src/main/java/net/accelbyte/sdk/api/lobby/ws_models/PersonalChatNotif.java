@@ -20,11 +20,11 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class PersonalChatNotif {
-    private String id;
     private String from;
-    private String to;
+    private String id;
     private String payload;
     private Integer receivedAt;
+    private String to;
 
     private PersonalChatNotif() {
 
@@ -32,17 +32,17 @@ public class PersonalChatNotif {
 
     @Builder
     public PersonalChatNotif (
-        String id,
         String from,
-        String to,
+        String id,
         String payload,
-        Integer receivedAt
+        Integer receivedAt,
+        String to
     ) {
-        this.id = id;
         this.from = from;
-        this.to = to;
+        this.id = id;
         this.payload = payload;
         this.receivedAt = receivedAt;
+        this.to = to;
     }
 
     public static String getType(){
@@ -52,17 +52,23 @@ public class PersonalChatNotif {
     public static PersonalChatNotif createFromWSM(String message) {
         PersonalChatNotif result = new PersonalChatNotif();
         Map<String, String> response = parseWSM(message);
-        result.id = response.get("id") != null ? response.get("id") : null;
         result.from = response.get("from") != null ? response.get("from") : null;
-        result.to = response.get("to") != null ? response.get("to") : null;
+        result.id = response.get("id") != null ? response.get("id") : null;
         result.payload = response.get("payload") != null ? response.get("payload") : null;
         result.receivedAt = response.get("receivedAt") != null ? Integer.valueOf(response.get("receivedAt")) : null;
+        result.to = response.get("to") != null ? response.get("to") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(PersonalChatNotif.getType());
+        if (from != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("from: ")
+                    .append(from);
+        }
         if (id != null) {
             stringBuilder
                     .append("\n")
@@ -73,18 +79,6 @@ public class PersonalChatNotif {
                     .append("\n")
                     .append("id: ")
                     .append(generateUUID());
-        }
-        if (from != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("from: ")
-                    .append(from);
-        }
-        if (to != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("to: ")
-                    .append(to);
         }
         if (payload != null) {
             stringBuilder
@@ -98,16 +92,22 @@ public class PersonalChatNotif {
                     .append("receivedAt: ")
                     .append(receivedAt);
         }
+        if (to != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("to: ")
+                    .append(to);
+        }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
         result.put("from","from");
-        result.put("to","to");
+        result.put("id","id");
         result.put("payload","payload");
         result.put("receivedAt","receivedAt");
+        result.put("to","to");
         return result;
     }
 }

@@ -20,8 +20,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class SendChannelChatRequest {
-    private String id;
     private String channelSlug;
+    private String id;
     private String payload;
 
     private SendChannelChatRequest() {
@@ -30,12 +30,12 @@ public class SendChannelChatRequest {
 
     @Builder
     public SendChannelChatRequest (
-        String id,
         String channelSlug,
+        String id,
         String payload
     ) {
-        this.id = id;
         this.channelSlug = channelSlug;
+        this.id = id;
         this.payload = payload;
     }
 
@@ -46,8 +46,8 @@ public class SendChannelChatRequest {
     public static SendChannelChatRequest createFromWSM(String message) {
         SendChannelChatRequest result = new SendChannelChatRequest();
         Map<String, String> response = parseWSM(message);
-        result.id = response.get("id") != null ? response.get("id") : null;
         result.channelSlug = response.get("channelSlug") != null ? response.get("channelSlug") : null;
+        result.id = response.get("id") != null ? response.get("id") : null;
         result.payload = response.get("payload") != null ? response.get("payload") : null;
         return result;
     }
@@ -55,6 +55,12 @@ public class SendChannelChatRequest {
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(SendChannelChatRequest.getType());
+        if (channelSlug != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("channelSlug: ")
+                    .append(channelSlug);
+        }
         if (id != null) {
             stringBuilder
                     .append("\n")
@@ -65,12 +71,6 @@ public class SendChannelChatRequest {
                     .append("\n")
                     .append("id: ")
                     .append(generateUUID());
-        }
-        if (channelSlug != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("channelSlug: ")
-                    .append(channelSlug);
         }
         if (payload != null) {
             stringBuilder
@@ -83,8 +83,8 @@ public class SendChannelChatRequest {
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
         result.put("channelSlug","channelSlug");
+        result.put("id","id");
         result.put("payload","payload");
         return result;
     }

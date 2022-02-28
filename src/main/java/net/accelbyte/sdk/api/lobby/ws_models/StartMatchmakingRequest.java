@@ -20,12 +20,12 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class StartMatchmakingRequest {
-    private String id;
-    private String gameMode;
-    private Integer priority;
-    private Map<String, ?> partyAttributes;
-    private String tempParty;
     private String extraAttributes;
+    private String gameMode;
+    private String id;
+    private Map<String, ?> partyAttributes;
+    private Integer priority;
+    private String tempParty;
 
     private StartMatchmakingRequest() {
 
@@ -33,19 +33,19 @@ public class StartMatchmakingRequest {
 
     @Builder
     public StartMatchmakingRequest (
-        String id,
+        String extraAttributes,
         String gameMode,
-        Integer priority,
+        String id,
         Map<String, ?> partyAttributes,
-        String tempParty,
-        String extraAttributes
+        Integer priority,
+        String tempParty
     ) {
-        this.id = id;
-        this.gameMode = gameMode;
-        this.priority = priority;
-        this.partyAttributes = partyAttributes;
-        this.tempParty = tempParty;
         this.extraAttributes = extraAttributes;
+        this.gameMode = gameMode;
+        this.id = id;
+        this.partyAttributes = partyAttributes;
+        this.priority = priority;
+        this.tempParty = tempParty;
     }
 
     public static String getType(){
@@ -55,18 +55,30 @@ public class StartMatchmakingRequest {
     public static StartMatchmakingRequest createFromWSM(String message) {
         StartMatchmakingRequest result = new StartMatchmakingRequest();
         Map<String, String> response = parseWSM(message);
-        result.id = response.get("id") != null ? response.get("id") : null;
-        result.gameMode = response.get("gameMode") != null ? response.get("gameMode") : null;
-        result.priority = response.get("priority") != null ? Integer.valueOf(response.get("priority")) : null;
-        result.partyAttributes = response.get("partyAttributes") != null ? convertJsonToMap(response.get("partyAttributes")) : null;
-        result.tempParty = response.get("tempParty") != null ? response.get("tempParty") : null;
         result.extraAttributes = response.get("extraAttributes") != null ? response.get("extraAttributes") : null;
+        result.gameMode = response.get("gameMode") != null ? response.get("gameMode") : null;
+        result.id = response.get("id") != null ? response.get("id") : null;
+        result.partyAttributes = response.get("partyAttributes") != null ? convertJsonToMap(response.get("partyAttributes")) : null;
+        result.priority = response.get("priority") != null ? Integer.valueOf(response.get("priority")) : null;
+        result.tempParty = response.get("tempParty") != null ? response.get("tempParty") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(StartMatchmakingRequest.getType());
+        if (extraAttributes != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("extraAttributes: ")
+                    .append(extraAttributes);
+        }
+        if (gameMode != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("gameMode: ")
+                    .append(gameMode);
+        }
         if (id != null) {
             stringBuilder
                     .append("\n")
@@ -77,18 +89,6 @@ public class StartMatchmakingRequest {
                     .append("\n")
                     .append("id: ")
                     .append(generateUUID());
-        }
-        if (gameMode != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("gameMode: ")
-                    .append(gameMode);
-        }
-        if (priority != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("priority: ")
-                    .append(priority);
         }
         if (partyAttributes != null) {
             try {
@@ -101,29 +101,29 @@ public class StartMatchmakingRequest {
                 e.printStackTrace();
             }
         }
+        if (priority != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("priority: ")
+                    .append(priority);
+        }
         if (tempParty != null) {
             stringBuilder
                     .append("\n")
                     .append("tempParty: ")
                     .append(tempParty);
         }
-        if (extraAttributes != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("extraAttributes: ")
-                    .append(extraAttributes);
-        }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
-        result.put("gameMode","gameMode");
-        result.put("priority","priority");
-        result.put("partyAttributes","partyAttributes");
-        result.put("tempParty","tempParty");
         result.put("extraAttributes","extraAttributes");
+        result.put("gameMode","gameMode");
+        result.put("id","id");
+        result.put("partyAttributes","partyAttributes");
+        result.put("priority","priority");
+        result.put("tempParty","tempParty");
         return result;
     }
 }

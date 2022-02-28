@@ -20,8 +20,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class PartyLeaveNotif {
-    private String userId;
     private String leaderId;
+    private String userId;
 
     private PartyLeaveNotif() {
 
@@ -29,11 +29,11 @@ public class PartyLeaveNotif {
 
     @Builder
     public PartyLeaveNotif (
-        String userId,
-        String leaderId
+        String leaderId,
+        String userId
     ) {
-        this.userId = userId;
         this.leaderId = leaderId;
+        this.userId = userId;
     }
 
     public static String getType(){
@@ -43,33 +43,33 @@ public class PartyLeaveNotif {
     public static PartyLeaveNotif createFromWSM(String message) {
         PartyLeaveNotif result = new PartyLeaveNotif();
         Map<String, String> response = parseWSM(message);
-        result.userId = response.get("userId") != null ? response.get("userId") : null;
         result.leaderId = response.get("leaderId") != null ? response.get("leaderId") : null;
+        result.userId = response.get("userId") != null ? response.get("userId") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(PartyLeaveNotif.getType());
-        if (userId != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("userId: ")
-                    .append(userId);
-        }
         if (leaderId != null) {
             stringBuilder
                     .append("\n")
                     .append("leaderId: ")
                     .append(leaderId);
         }
+        if (userId != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("userId: ")
+                    .append(userId);
+        }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("userId","userId");
         result.put("leaderId","leaderId");
+        result.put("userId","userId");
         return result;
     }
 }

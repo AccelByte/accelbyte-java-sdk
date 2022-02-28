@@ -20,8 +20,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class PartyKickResponse {
+    private Integer code;
     private String id;
-    private String code;
 
     private PartyKickResponse() {
 
@@ -29,11 +29,11 @@ public class PartyKickResponse {
 
     @Builder
     public PartyKickResponse (
-        String id,
-        String code
+        Integer code,
+        String id
     ) {
-        this.id = id;
         this.code = code;
+        this.id = id;
     }
 
     public static String getType(){
@@ -43,14 +43,20 @@ public class PartyKickResponse {
     public static PartyKickResponse createFromWSM(String message) {
         PartyKickResponse result = new PartyKickResponse();
         Map<String, String> response = parseWSM(message);
+        result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
         result.id = response.get("id") != null ? response.get("id") : null;
-        result.code = response.get("code") != null ? response.get("code") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(PartyKickResponse.getType());
+        if (code != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("code: ")
+                    .append(code);
+        }
         if (id != null) {
             stringBuilder
                     .append("\n")
@@ -62,19 +68,13 @@ public class PartyKickResponse {
                     .append("id: ")
                     .append(generateUUID());
         }
-        if (code != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("code: ")
-                    .append(code);
-        }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
         result.put("code","code");
+        result.put("id","id");
         return result;
     }
 }

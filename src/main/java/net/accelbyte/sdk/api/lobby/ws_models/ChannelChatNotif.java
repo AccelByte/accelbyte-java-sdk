@@ -20,8 +20,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class ChannelChatNotif {
-    private String from;
     private String channelSlug;
+    private String from;
     private String payload;
     private String sentAt;
 
@@ -31,13 +31,13 @@ public class ChannelChatNotif {
 
     @Builder
     public ChannelChatNotif (
-        String from,
         String channelSlug,
+        String from,
         String payload,
         String sentAt
     ) {
-        this.from = from;
         this.channelSlug = channelSlug;
+        this.from = from;
         this.payload = payload;
         this.sentAt = sentAt;
     }
@@ -49,8 +49,8 @@ public class ChannelChatNotif {
     public static ChannelChatNotif createFromWSM(String message) {
         ChannelChatNotif result = new ChannelChatNotif();
         Map<String, String> response = parseWSM(message);
-        result.from = response.get("from") != null ? response.get("from") : null;
         result.channelSlug = response.get("channelSlug") != null ? response.get("channelSlug") : null;
+        result.from = response.get("from") != null ? response.get("from") : null;
         result.payload = response.get("payload") != null ? response.get("payload") : null;
         result.sentAt = response.get("sentAt") != null ? response.get("sentAt") : null;
         return result;
@@ -59,17 +59,17 @@ public class ChannelChatNotif {
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(ChannelChatNotif.getType());
-        if (from != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("from: ")
-                    .append(from);
-        }
         if (channelSlug != null) {
             stringBuilder
                     .append("\n")
                     .append("channelSlug: ")
                     .append(channelSlug);
+        }
+        if (from != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("from: ")
+                    .append(from);
         }
         if (payload != null) {
             stringBuilder
@@ -88,8 +88,8 @@ public class ChannelChatNotif {
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("from","from");
         result.put("channelSlug","channelSlug");
+        result.put("from","from");
         result.put("payload","payload");
         result.put("sentAt","sentAt");
         return result;

@@ -20,8 +20,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class CancelMatchmakingResponse {
+    private Integer code;
     private String id;
-    private String code;
 
     private CancelMatchmakingResponse() {
 
@@ -29,11 +29,11 @@ public class CancelMatchmakingResponse {
 
     @Builder
     public CancelMatchmakingResponse (
-        String id,
-        String code
+        Integer code,
+        String id
     ) {
-        this.id = id;
         this.code = code;
+        this.id = id;
     }
 
     public static String getType(){
@@ -43,14 +43,20 @@ public class CancelMatchmakingResponse {
     public static CancelMatchmakingResponse createFromWSM(String message) {
         CancelMatchmakingResponse result = new CancelMatchmakingResponse();
         Map<String, String> response = parseWSM(message);
+        result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
         result.id = response.get("id") != null ? response.get("id") : null;
-        result.code = response.get("code") != null ? response.get("code") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(CancelMatchmakingResponse.getType());
+        if (code != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("code: ")
+                    .append(code);
+        }
         if (id != null) {
             stringBuilder
                     .append("\n")
@@ -62,19 +68,13 @@ public class CancelMatchmakingResponse {
                     .append("id: ")
                     .append(generateUUID());
         }
-        if (code != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("code: ")
-                    .append(code);
-        }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
         result.put("code","code");
+        result.put("id","id");
         return result;
     }
 }

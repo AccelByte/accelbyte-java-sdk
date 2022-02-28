@@ -20,9 +20,9 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class JoinDefaultChannelResponse {
-    private String id;
-    private String code;
     private String channelSlug;
+    private Integer code;
+    private String id;
 
     private JoinDefaultChannelResponse() {
 
@@ -30,13 +30,13 @@ public class JoinDefaultChannelResponse {
 
     @Builder
     public JoinDefaultChannelResponse (
-        String id,
-        String code,
-        String channelSlug
+        String channelSlug,
+        Integer code,
+        String id
     ) {
-        this.id = id;
-        this.code = code;
         this.channelSlug = channelSlug;
+        this.code = code;
+        this.id = id;
     }
 
     public static String getType(){
@@ -46,15 +46,27 @@ public class JoinDefaultChannelResponse {
     public static JoinDefaultChannelResponse createFromWSM(String message) {
         JoinDefaultChannelResponse result = new JoinDefaultChannelResponse();
         Map<String, String> response = parseWSM(message);
-        result.id = response.get("id") != null ? response.get("id") : null;
-        result.code = response.get("code") != null ? response.get("code") : null;
         result.channelSlug = response.get("channelSlug") != null ? response.get("channelSlug") : null;
+        result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
+        result.id = response.get("id") != null ? response.get("id") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(JoinDefaultChannelResponse.getType());
+        if (channelSlug != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("channelSlug: ")
+                    .append(channelSlug);
+        }
+        if (code != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("code: ")
+                    .append(code);
+        }
         if (id != null) {
             stringBuilder
                     .append("\n")
@@ -66,26 +78,14 @@ public class JoinDefaultChannelResponse {
                     .append("id: ")
                     .append(generateUUID());
         }
-        if (code != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("code: ")
-                    .append(code);
-        }
-        if (channelSlug != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("channelSlug: ")
-                    .append(channelSlug);
-        }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
-        result.put("code","code");
         result.put("channelSlug","channelSlug");
+        result.put("code","code");
+        result.put("id","id");
         return result;
     }
 }

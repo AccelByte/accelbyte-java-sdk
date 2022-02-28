@@ -20,8 +20,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class CancelMatchmakingRequest {
-    private String id;
     private String gameMode;
+    private String id;
     private Boolean isTempParty;
 
     private CancelMatchmakingRequest() {
@@ -30,12 +30,12 @@ public class CancelMatchmakingRequest {
 
     @Builder
     public CancelMatchmakingRequest (
-        String id,
         String gameMode,
+        String id,
         Boolean isTempParty
     ) {
-        this.id = id;
         this.gameMode = gameMode;
+        this.id = id;
         this.isTempParty = isTempParty;
     }
 
@@ -46,8 +46,8 @@ public class CancelMatchmakingRequest {
     public static CancelMatchmakingRequest createFromWSM(String message) {
         CancelMatchmakingRequest result = new CancelMatchmakingRequest();
         Map<String, String> response = parseWSM(message);
-        result.id = response.get("id") != null ? response.get("id") : null;
         result.gameMode = response.get("gameMode") != null ? response.get("gameMode") : null;
+        result.id = response.get("id") != null ? response.get("id") : null;
         result.isTempParty = response.get("isTempParty") != null ? Boolean.valueOf(response.get("isTempParty")) : null;
         return result;
     }
@@ -55,6 +55,12 @@ public class CancelMatchmakingRequest {
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(CancelMatchmakingRequest.getType());
+        if (gameMode != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("gameMode: ")
+                    .append(gameMode);
+        }
         if (id != null) {
             stringBuilder
                     .append("\n")
@@ -65,12 +71,6 @@ public class CancelMatchmakingRequest {
                     .append("\n")
                     .append("id: ")
                     .append(generateUUID());
-        }
-        if (gameMode != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("gameMode: ")
-                    .append(gameMode);
         }
         if (isTempParty != null) {
             stringBuilder
@@ -83,8 +83,8 @@ public class CancelMatchmakingRequest {
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
         result.put("gameMode","gameMode");
+        result.put("id","id");
         result.put("isTempParty","isTempParty");
         return result;
     }

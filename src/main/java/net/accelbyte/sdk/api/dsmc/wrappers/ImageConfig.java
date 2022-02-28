@@ -83,6 +83,25 @@ public class ImageConfig {
     }
 
     /**
+     * @see CreateImagePatch
+     */
+    public void createImagePatch(CreateImagePatch input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
      * @see ListImages
      */
     public ModelsListImageResponse listImages(ListImages input) throws ResponseException, IOException {
@@ -159,9 +178,66 @@ public class ImageConfig {
     }
 
     /**
+     * @see DeleteImagePatch
+     */
+    public void deleteImagePatch(DeleteImagePatch input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
      * @see GetImageDetail
      */
     public ModelsGetImageDetailResponse getImageDetail(GetImageDetail input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see GetImagePatches
+     */
+    public ModelsListImagePatchesResponse getImagePatches(GetImagePatches input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see GetImagePatchDetail
+     */
+    public ModelsGetImagePatchDetailResponse getImagePatchDetail(GetImagePatchDetail input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

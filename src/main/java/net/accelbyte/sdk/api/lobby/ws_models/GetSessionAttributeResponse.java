@@ -20,8 +20,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class GetSessionAttributeResponse {
+    private Integer code;
     private String id;
-    private String code;
     private String value;
 
     private GetSessionAttributeResponse() {
@@ -30,12 +30,12 @@ public class GetSessionAttributeResponse {
 
     @Builder
     public GetSessionAttributeResponse (
+        Integer code,
         String id,
-        String code,
         String value
     ) {
-        this.id = id;
         this.code = code;
+        this.id = id;
         this.value = value;
     }
 
@@ -46,8 +46,8 @@ public class GetSessionAttributeResponse {
     public static GetSessionAttributeResponse createFromWSM(String message) {
         GetSessionAttributeResponse result = new GetSessionAttributeResponse();
         Map<String, String> response = parseWSM(message);
+        result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
         result.id = response.get("id") != null ? response.get("id") : null;
-        result.code = response.get("code") != null ? response.get("code") : null;
         result.value = response.get("value") != null ? response.get("value") : null;
         return result;
     }
@@ -55,6 +55,12 @@ public class GetSessionAttributeResponse {
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(GetSessionAttributeResponse.getType());
+        if (code != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("code: ")
+                    .append(code);
+        }
         if (id != null) {
             stringBuilder
                     .append("\n")
@@ -65,12 +71,6 @@ public class GetSessionAttributeResponse {
                     .append("\n")
                     .append("id: ")
                     .append(generateUUID());
-        }
-        if (code != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("code: ")
-                    .append(code);
         }
         if (value != null) {
             stringBuilder
@@ -83,8 +83,8 @@ public class GetSessionAttributeResponse {
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
         result.put("code","code");
+        result.put("id","id");
         result.put("value","value");
         return result;
     }

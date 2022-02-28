@@ -21,8 +21,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Setter
 public class PartyGetInvitedNotif {
     private String from;
-    private String partyId;
     private String invitationToken;
+    private String partyId;
 
     private PartyGetInvitedNotif() {
 
@@ -31,12 +31,12 @@ public class PartyGetInvitedNotif {
     @Builder
     public PartyGetInvitedNotif (
         String from,
-        String partyId,
-        String invitationToken
+        String invitationToken,
+        String partyId
     ) {
         this.from = from;
-        this.partyId = partyId;
         this.invitationToken = invitationToken;
+        this.partyId = partyId;
     }
 
     public static String getType(){
@@ -47,8 +47,8 @@ public class PartyGetInvitedNotif {
         PartyGetInvitedNotif result = new PartyGetInvitedNotif();
         Map<String, String> response = parseWSM(message);
         result.from = response.get("from") != null ? response.get("from") : null;
-        result.partyId = response.get("partyId") != null ? response.get("partyId") : null;
         result.invitationToken = response.get("invitationToken") != null ? response.get("invitationToken") : null;
+        result.partyId = response.get("partyId") != null ? response.get("partyId") : null;
         return result;
     }
 
@@ -61,17 +61,17 @@ public class PartyGetInvitedNotif {
                     .append("from: ")
                     .append(from);
         }
-        if (partyId != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("partyId: ")
-                    .append(partyId);
-        }
         if (invitationToken != null) {
             stringBuilder
                     .append("\n")
                     .append("invitationToken: ")
                     .append(invitationToken);
+        }
+        if (partyId != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("partyId: ")
+                    .append(partyId);
         }
         return stringBuilder.toString();
     }
@@ -79,8 +79,8 @@ public class PartyGetInvitedNotif {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("from","from");
-        result.put("partyId","partyId");
         result.put("invitationToken","invitationToken");
+        result.put("partyId","partyId");
         return result;
     }
 }

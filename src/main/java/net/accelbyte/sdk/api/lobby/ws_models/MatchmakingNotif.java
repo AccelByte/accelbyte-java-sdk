@@ -20,12 +20,12 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class MatchmakingNotif {
-    private String status;
-    private String matchId;
-    private List<String> partyMember;
     private List<String> counterPartyMember;
+    private String matchId;
     private String message;
+    private List<String> partyMember;
     private Integer readyDuration;
+    private String status;
 
     private MatchmakingNotif() {
 
@@ -33,19 +33,19 @@ public class MatchmakingNotif {
 
     @Builder
     public MatchmakingNotif (
-        String status,
-        String matchId,
-        List<String> partyMember,
         List<String> counterPartyMember,
+        String matchId,
         String message,
-        Integer readyDuration
+        List<String> partyMember,
+        Integer readyDuration,
+        String status
     ) {
-        this.status = status;
-        this.matchId = matchId;
-        this.partyMember = partyMember;
         this.counterPartyMember = counterPartyMember;
+        this.matchId = matchId;
         this.message = message;
+        this.partyMember = partyMember;
         this.readyDuration = readyDuration;
+        this.status = status;
     }
 
     public static String getType(){
@@ -55,23 +55,23 @@ public class MatchmakingNotif {
     public static MatchmakingNotif createFromWSM(String message) {
         MatchmakingNotif result = new MatchmakingNotif();
         Map<String, String> response = parseWSM(message);
-        result.status = response.get("status") != null ? response.get("status") : null;
-        result.matchId = response.get("matchId") != null ? response.get("matchId") : null;
-        result.partyMember = response.get("partyMember") != null ? convertWSMListToListString(response.get("partyMember")) : null;
         result.counterPartyMember = response.get("counterPartyMember") != null ? convertWSMListToListString(response.get("counterPartyMember")) : null;
+        result.matchId = response.get("matchId") != null ? response.get("matchId") : null;
         result.message = response.get("message") != null ? response.get("message") : null;
+        result.partyMember = response.get("partyMember") != null ? convertWSMListToListString(response.get("partyMember")) : null;
         result.readyDuration = response.get("readyDuration") != null ? Integer.valueOf(response.get("readyDuration")) : null;
+        result.status = response.get("status") != null ? response.get("status") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(MatchmakingNotif.getType());
-        if (status != null) {
+        if (counterPartyMember != null) {
             stringBuilder
                     .append("\n")
-                    .append("status: ")
-                    .append(status);
+                    .append("counterPartyMember: ")
+                    .append(listToWSMList(counterPartyMember));
         }
         if (matchId != null) {
             stringBuilder
@@ -79,23 +79,17 @@ public class MatchmakingNotif {
                     .append("matchId: ")
                     .append(matchId);
         }
-        if (partyMember != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("partyMember: ")
-                    .append(listToWSMList(partyMember));
-        }
-        if (counterPartyMember != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("counterPartyMember: ")
-                    .append(listToWSMList(counterPartyMember));
-        }
         if (message != null) {
             stringBuilder
                     .append("\n")
                     .append("message: ")
                     .append(message);
+        }
+        if (partyMember != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("partyMember: ")
+                    .append(listToWSMList(partyMember));
         }
         if (readyDuration != null) {
             stringBuilder
@@ -103,17 +97,23 @@ public class MatchmakingNotif {
                     .append("readyDuration: ")
                     .append(readyDuration);
         }
+        if (status != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("status: ")
+                    .append(status);
+        }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("status","status");
-        result.put("matchId","matchId");
-        result.put("partyMember","partyMember");
         result.put("counterPartyMember","counterPartyMember");
+        result.put("matchId","matchId");
         result.put("message","message");
+        result.put("partyMember","partyMember");
         result.put("readyDuration","readyDuration");
+        result.put("status","status");
         return result;
     }
 }

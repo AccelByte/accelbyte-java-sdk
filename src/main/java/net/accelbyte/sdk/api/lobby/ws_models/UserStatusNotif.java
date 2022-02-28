@@ -20,10 +20,10 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class UserStatusNotif {
-    private String userId;
-    private Integer availability;
     private String activity;
+    private Integer availability;
     private String lastSeenAt;
+    private String userId;
 
     private UserStatusNotif() {
 
@@ -31,15 +31,15 @@ public class UserStatusNotif {
 
     @Builder
     public UserStatusNotif (
-        String userId,
-        Integer availability,
         String activity,
-        String lastSeenAt
+        Integer availability,
+        String lastSeenAt,
+        String userId
     ) {
-        this.userId = userId;
-        this.availability = availability;
         this.activity = activity;
+        this.availability = availability;
         this.lastSeenAt = lastSeenAt;
+        this.userId = userId;
     }
 
     public static String getType(){
@@ -49,21 +49,21 @@ public class UserStatusNotif {
     public static UserStatusNotif createFromWSM(String message) {
         UserStatusNotif result = new UserStatusNotif();
         Map<String, String> response = parseWSM(message);
-        result.userId = response.get("userId") != null ? response.get("userId") : null;
-        result.availability = response.get("availability") != null ? Integer.valueOf(response.get("availability")) : null;
         result.activity = response.get("activity") != null ? response.get("activity") : null;
+        result.availability = response.get("availability") != null ? Integer.valueOf(response.get("availability")) : null;
         result.lastSeenAt = response.get("lastSeenAt") != null ? response.get("lastSeenAt") : null;
+        result.userId = response.get("userId") != null ? response.get("userId") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(UserStatusNotif.getType());
-        if (userId != null) {
+        if (activity != null) {
             stringBuilder
                     .append("\n")
-                    .append("userId: ")
-                    .append(userId);
+                    .append("activity: ")
+                    .append(activity);
         }
         if (availability != null) {
             stringBuilder
@@ -71,27 +71,27 @@ public class UserStatusNotif {
                     .append("availability: ")
                     .append(availability);
         }
-        if (activity != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("activity: ")
-                    .append(activity);
-        }
         if (lastSeenAt != null) {
             stringBuilder
                     .append("\n")
                     .append("lastSeenAt: ")
                     .append(lastSeenAt);
         }
+        if (userId != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("userId: ")
+                    .append(userId);
+        }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("userId","userId");
-        result.put("availability","availability");
         result.put("activity","activity");
+        result.put("availability","availability");
         result.put("lastSeenAt","lastSeenAt");
+        result.put("userId","userId");
         return result;
     }
 }

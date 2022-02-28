@@ -20,8 +20,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class OnlineFriends {
+    private Integer code;
     private String id;
-    private String code;
     private List<String> onlineFriendIds;
 
     private OnlineFriends() {
@@ -30,12 +30,12 @@ public class OnlineFriends {
 
     @Builder
     public OnlineFriends (
+        Integer code,
         String id,
-        String code,
         List<String> onlineFriendIds
     ) {
-        this.id = id;
         this.code = code;
+        this.id = id;
         this.onlineFriendIds = onlineFriendIds;
     }
 
@@ -46,8 +46,8 @@ public class OnlineFriends {
     public static OnlineFriends createFromWSM(String message) {
         OnlineFriends result = new OnlineFriends();
         Map<String, String> response = parseWSM(message);
+        result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
         result.id = response.get("id") != null ? response.get("id") : null;
-        result.code = response.get("code") != null ? response.get("code") : null;
         result.onlineFriendIds = response.get("onlineFriendIds") != null ? convertWSMListToListString(response.get("onlineFriendIds")) : null;
         return result;
     }
@@ -55,6 +55,12 @@ public class OnlineFriends {
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(OnlineFriends.getType());
+        if (code != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("code: ")
+                    .append(code);
+        }
         if (id != null) {
             stringBuilder
                     .append("\n")
@@ -65,12 +71,6 @@ public class OnlineFriends {
                     .append("\n")
                     .append("id: ")
                     .append(generateUUID());
-        }
-        if (code != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("code: ")
-                    .append(code);
         }
         if (onlineFriendIds != null) {
             stringBuilder
@@ -83,8 +83,8 @@ public class OnlineFriends {
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
         result.put("code","code");
+        result.put("id","id");
         result.put("onlineFriendIds","onlineFriendIds");
         return result;
     }

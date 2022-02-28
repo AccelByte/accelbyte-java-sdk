@@ -20,13 +20,13 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class PartyPromoteLeaderResponse {
+    private Integer code;
     private String id;
-    private String code;
-    private String partyId;
+    private String invitationToken;
+    private String invitees;
     private String leaderId;
     private String members;
-    private String invitees;
-    private String invitationToken;
+    private String partyId;
 
     private PartyPromoteLeaderResponse() {
 
@@ -34,21 +34,21 @@ public class PartyPromoteLeaderResponse {
 
     @Builder
     public PartyPromoteLeaderResponse (
+        Integer code,
         String id,
-        String code,
-        String partyId,
+        String invitationToken,
+        String invitees,
         String leaderId,
         String members,
-        String invitees,
-        String invitationToken
+        String partyId
     ) {
-        this.id = id;
         this.code = code;
-        this.partyId = partyId;
+        this.id = id;
+        this.invitationToken = invitationToken;
+        this.invitees = invitees;
         this.leaderId = leaderId;
         this.members = members;
-        this.invitees = invitees;
-        this.invitationToken = invitationToken;
+        this.partyId = partyId;
     }
 
     public static String getType(){
@@ -58,19 +58,25 @@ public class PartyPromoteLeaderResponse {
     public static PartyPromoteLeaderResponse createFromWSM(String message) {
         PartyPromoteLeaderResponse result = new PartyPromoteLeaderResponse();
         Map<String, String> response = parseWSM(message);
+        result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
         result.id = response.get("id") != null ? response.get("id") : null;
-        result.code = response.get("code") != null ? response.get("code") : null;
-        result.partyId = response.get("partyId") != null ? response.get("partyId") : null;
+        result.invitationToken = response.get("invitationToken") != null ? response.get("invitationToken") : null;
+        result.invitees = response.get("invitees") != null ? response.get("invitees") : null;
         result.leaderId = response.get("leaderId") != null ? response.get("leaderId") : null;
         result.members = response.get("members") != null ? response.get("members") : null;
-        result.invitees = response.get("invitees") != null ? response.get("invitees") : null;
-        result.invitationToken = response.get("invitationToken") != null ? response.get("invitationToken") : null;
+        result.partyId = response.get("partyId") != null ? response.get("partyId") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(PartyPromoteLeaderResponse.getType());
+        if (code != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("code: ")
+                    .append(code);
+        }
         if (id != null) {
             stringBuilder
                     .append("\n")
@@ -82,17 +88,17 @@ public class PartyPromoteLeaderResponse {
                     .append("id: ")
                     .append(generateUUID());
         }
-        if (code != null) {
+        if (invitationToken != null) {
             stringBuilder
                     .append("\n")
-                    .append("code: ")
-                    .append(code);
+                    .append("invitationToken: ")
+                    .append(invitationToken);
         }
-        if (partyId != null) {
+        if (invitees != null) {
             stringBuilder
                     .append("\n")
-                    .append("partyId: ")
-                    .append(partyId);
+                    .append("invitees: ")
+                    .append(invitees);
         }
         if (leaderId != null) {
             stringBuilder
@@ -106,30 +112,24 @@ public class PartyPromoteLeaderResponse {
                     .append("members: ")
                     .append(members);
         }
-        if (invitees != null) {
+        if (partyId != null) {
             stringBuilder
                     .append("\n")
-                    .append("invitees: ")
-                    .append(invitees);
-        }
-        if (invitationToken != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("invitationToken: ")
-                    .append(invitationToken);
+                    .append("partyId: ")
+                    .append(partyId);
         }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
         result.put("code","code");
-        result.put("partyId","partyId");
+        result.put("id","id");
+        result.put("invitationToken","invitationToken");
+        result.put("invitees","invitees");
         result.put("leaderId","leaderId");
         result.put("members","members");
-        result.put("invitees","invitees");
-        result.put("invitationToken","invitationToken");
+        result.put("partyId","partyId");
         return result;
     }
 }

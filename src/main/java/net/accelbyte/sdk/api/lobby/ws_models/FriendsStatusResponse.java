@@ -20,11 +20,11 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class FriendsStatusResponse {
-    private String id;
-    private String code;
-    private List<String> friendIds;
-    private List<Integer> availability;
     private List<String> activity;
+    private List<Integer> availability;
+    private Integer code;
+    private List<String> friendIds;
+    private String id;
     private List<String> lastSeenAt;
 
     private FriendsStatusResponse() {
@@ -33,18 +33,18 @@ public class FriendsStatusResponse {
 
     @Builder
     public FriendsStatusResponse (
-        String id,
-        String code,
-        List<String> friendIds,
-        List<Integer> availability,
         List<String> activity,
+        List<Integer> availability,
+        Integer code,
+        List<String> friendIds,
+        String id,
         List<String> lastSeenAt
     ) {
-        this.id = id;
+        this.activity = activity;
+        this.availability = availability;
         this.code = code;
         this.friendIds = friendIds;
-        this.availability = availability;
-        this.activity = activity;
+        this.id = id;
         this.lastSeenAt = lastSeenAt;
     }
 
@@ -55,11 +55,11 @@ public class FriendsStatusResponse {
     public static FriendsStatusResponse createFromWSM(String message) {
         FriendsStatusResponse result = new FriendsStatusResponse();
         Map<String, String> response = parseWSM(message);
-        result.id = response.get("id") != null ? response.get("id") : null;
-        result.code = response.get("code") != null ? response.get("code") : null;
-        result.friendIds = response.get("friendIds") != null ? convertWSMListToListString(response.get("friendIds")) : null;
-        result.availability = response.get("availability") != null ? convertWSMListToListInteger(response.get("availability")) : null;
         result.activity = response.get("activity") != null ? convertWSMListToListString(response.get("activity")) : null;
+        result.availability = response.get("availability") != null ? convertWSMListToListInteger(response.get("availability")) : null;
+        result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
+        result.friendIds = response.get("friendIds") != null ? convertWSMListToListString(response.get("friendIds")) : null;
+        result.id = response.get("id") != null ? response.get("id") : null;
         result.lastSeenAt = response.get("lastSeenAt") != null ? convertWSMListToListString(response.get("lastSeenAt")) : null;
         return result;
     }
@@ -67,16 +67,17 @@ public class FriendsStatusResponse {
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(FriendsStatusResponse.getType());
-        if (id != null) {
+        if (activity != null) {
             stringBuilder
                     .append("\n")
-                    .append("id: ")
-                    .append(id);
-        } else {
+                    .append("activity: ")
+                    .append(listToWSMList(activity));
+        }
+        if (availability != null) {
             stringBuilder
                     .append("\n")
-                    .append("id: ")
-                    .append(generateUUID());
+                    .append("availability: ")
+                    .append(listToWSMList(availability));
         }
         if (code != null) {
             stringBuilder
@@ -90,17 +91,16 @@ public class FriendsStatusResponse {
                     .append("friendIds: ")
                     .append(listToWSMList(friendIds));
         }
-        if (availability != null) {
+        if (id != null) {
             stringBuilder
                     .append("\n")
-                    .append("availability: ")
-                    .append(listToWSMList(availability));
-        }
-        if (activity != null) {
+                    .append("id: ")
+                    .append(id);
+        } else {
             stringBuilder
                     .append("\n")
-                    .append("activity: ")
-                    .append(listToWSMList(activity));
+                    .append("id: ")
+                    .append(generateUUID());
         }
         if (lastSeenAt != null) {
             stringBuilder
@@ -113,11 +113,11 @@ public class FriendsStatusResponse {
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
+        result.put("activity","activity");
+        result.put("availability","availability");
         result.put("code","code");
         result.put("friendIds","friendIds");
-        result.put("availability","availability");
-        result.put("activity","activity");
+        result.put("id","id");
         result.put("lastSeenAt","lastSeenAt");
         return result;
     }

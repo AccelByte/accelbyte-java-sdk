@@ -20,9 +20,9 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class BlockPlayerRequest {
+    private String blockUserId;
     private String id;
     private String namespace;
-    private String blockUserId;
 
     private BlockPlayerRequest() {
 
@@ -30,13 +30,13 @@ public class BlockPlayerRequest {
 
     @Builder
     public BlockPlayerRequest (
+        String blockUserId,
         String id,
-        String namespace,
-        String blockUserId
+        String namespace
     ) {
+        this.blockUserId = blockUserId;
         this.id = id;
         this.namespace = namespace;
-        this.blockUserId = blockUserId;
     }
 
     public static String getType(){
@@ -46,15 +46,21 @@ public class BlockPlayerRequest {
     public static BlockPlayerRequest createFromWSM(String message) {
         BlockPlayerRequest result = new BlockPlayerRequest();
         Map<String, String> response = parseWSM(message);
+        result.blockUserId = response.get("blockUserId") != null ? response.get("blockUserId") : null;
         result.id = response.get("id") != null ? response.get("id") : null;
         result.namespace = response.get("namespace") != null ? response.get("namespace") : null;
-        result.blockUserId = response.get("blockUserId") != null ? response.get("blockUserId") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(BlockPlayerRequest.getType());
+        if (blockUserId != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("blockUserId: ")
+                    .append(blockUserId);
+        }
         if (id != null) {
             stringBuilder
                     .append("\n")
@@ -72,20 +78,14 @@ public class BlockPlayerRequest {
                     .append("namespace: ")
                     .append(namespace);
         }
-        if (blockUserId != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("blockUserId: ")
-                    .append(blockUserId);
-        }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
+        result.put("blockUserId","blockUserId");
         result.put("id","id");
         result.put("namespace","namespace");
-        result.put("blockUserId","blockUserId");
         return result;
     }
 }

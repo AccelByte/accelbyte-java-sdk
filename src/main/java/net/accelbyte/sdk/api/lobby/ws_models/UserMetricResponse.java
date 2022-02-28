@@ -20,8 +20,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class UserMetricResponse {
+    private Integer code;
     private String id;
-    private String code;
     private Integer playerCount;
 
     private UserMetricResponse() {
@@ -30,12 +30,12 @@ public class UserMetricResponse {
 
     @Builder
     public UserMetricResponse (
+        Integer code,
         String id,
-        String code,
         Integer playerCount
     ) {
-        this.id = id;
         this.code = code;
+        this.id = id;
         this.playerCount = playerCount;
     }
 
@@ -46,8 +46,8 @@ public class UserMetricResponse {
     public static UserMetricResponse createFromWSM(String message) {
         UserMetricResponse result = new UserMetricResponse();
         Map<String, String> response = parseWSM(message);
+        result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
         result.id = response.get("id") != null ? response.get("id") : null;
-        result.code = response.get("code") != null ? response.get("code") : null;
         result.playerCount = response.get("playerCount") != null ? Integer.valueOf(response.get("playerCount")) : null;
         return result;
     }
@@ -55,6 +55,12 @@ public class UserMetricResponse {
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(UserMetricResponse.getType());
+        if (code != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("code: ")
+                    .append(code);
+        }
         if (id != null) {
             stringBuilder
                     .append("\n")
@@ -65,12 +71,6 @@ public class UserMetricResponse {
                     .append("\n")
                     .append("id: ")
                     .append(generateUUID());
-        }
-        if (code != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("code: ")
-                    .append(code);
         }
         if (playerCount != null) {
             stringBuilder
@@ -83,8 +83,8 @@ public class UserMetricResponse {
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
         result.put("code","code");
+        result.put("id","id");
         result.put("playerCount","playerCount");
         return result;
     }

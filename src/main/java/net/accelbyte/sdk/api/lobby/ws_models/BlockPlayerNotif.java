@@ -20,8 +20,8 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class BlockPlayerNotif {
-    private String userId;
     private String blockedUserId;
+    private String userId;
 
     private BlockPlayerNotif() {
 
@@ -29,11 +29,11 @@ public class BlockPlayerNotif {
 
     @Builder
     public BlockPlayerNotif (
-        String userId,
-        String blockedUserId
+        String blockedUserId,
+        String userId
     ) {
-        this.userId = userId;
         this.blockedUserId = blockedUserId;
+        this.userId = userId;
     }
 
     public static String getType(){
@@ -43,33 +43,33 @@ public class BlockPlayerNotif {
     public static BlockPlayerNotif createFromWSM(String message) {
         BlockPlayerNotif result = new BlockPlayerNotif();
         Map<String, String> response = parseWSM(message);
-        result.userId = response.get("userId") != null ? response.get("userId") : null;
         result.blockedUserId = response.get("blockedUserId") != null ? response.get("blockedUserId") : null;
+        result.userId = response.get("userId") != null ? response.get("userId") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(BlockPlayerNotif.getType());
-        if (userId != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("userId: ")
-                    .append(userId);
-        }
         if (blockedUserId != null) {
             stringBuilder
                     .append("\n")
                     .append("blockedUserId: ")
                     .append(blockedUserId);
         }
+        if (userId != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("userId: ")
+                    .append(userId);
+        }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("userId","userId");
         result.put("blockedUserId","blockedUserId");
+        result.put("userId","userId");
         return result;
     }
 }

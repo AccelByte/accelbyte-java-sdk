@@ -20,10 +20,10 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class BlockPlayerResponse {
-    private String id;
-    private String code;
-    private String namespace;
     private String blockUserId;
+    private Integer code;
+    private String id;
+    private String namespace;
 
     private BlockPlayerResponse() {
 
@@ -31,15 +31,15 @@ public class BlockPlayerResponse {
 
     @Builder
     public BlockPlayerResponse (
+        String blockUserId,
+        Integer code,
         String id,
-        String code,
-        String namespace,
-        String blockUserId
+        String namespace
     ) {
-        this.id = id;
-        this.code = code;
-        this.namespace = namespace;
         this.blockUserId = blockUserId;
+        this.code = code;
+        this.id = id;
+        this.namespace = namespace;
     }
 
     public static String getType(){
@@ -49,16 +49,28 @@ public class BlockPlayerResponse {
     public static BlockPlayerResponse createFromWSM(String message) {
         BlockPlayerResponse result = new BlockPlayerResponse();
         Map<String, String> response = parseWSM(message);
-        result.id = response.get("id") != null ? response.get("id") : null;
-        result.code = response.get("code") != null ? response.get("code") : null;
-        result.namespace = response.get("namespace") != null ? response.get("namespace") : null;
         result.blockUserId = response.get("blockUserId") != null ? response.get("blockUserId") : null;
+        result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
+        result.id = response.get("id") != null ? response.get("id") : null;
+        result.namespace = response.get("namespace") != null ? response.get("namespace") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(BlockPlayerResponse.getType());
+        if (blockUserId != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("blockUserId: ")
+                    .append(blockUserId);
+        }
+        if (code != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("code: ")
+                    .append(code);
+        }
         if (id != null) {
             stringBuilder
                     .append("\n")
@@ -70,33 +82,21 @@ public class BlockPlayerResponse {
                     .append("id: ")
                     .append(generateUUID());
         }
-        if (code != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("code: ")
-                    .append(code);
-        }
         if (namespace != null) {
             stringBuilder
                     .append("\n")
                     .append("namespace: ")
                     .append(namespace);
         }
-        if (blockUserId != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("blockUserId: ")
-                    .append(blockUserId);
-        }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
-        result.put("code","code");
-        result.put("namespace","namespace");
         result.put("blockUserId","blockUserId");
+        result.put("code","code");
+        result.put("id","id");
+        result.put("namespace","namespace");
         return result;
     }
 }

@@ -27,6 +27,9 @@ import java.util.Map;
 @NoArgsConstructor
 public class GoogleIAPReceipt extends Model {
 
+    @JsonProperty("autoAck")
+    private Boolean autoAck;
+
     @JsonProperty("language")
     private String language;
 
@@ -61,6 +64,7 @@ public class GoogleIAPReceipt extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
+        result.put("autoAck", "autoAck");
         result.put("language", "language");
         result.put("orderId", "orderId");
         result.put("packageName", "packageName");

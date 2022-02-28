@@ -20,9 +20,9 @@ import static net.accelbyte.sdk.core.util.Helper.*;
 @Getter
 @Setter
 public class GetAllSessionAttributeResponse {
-    private String id;
-    private String code;
     private Map<String, String> attributes;
+    private Integer code;
+    private String id;
 
     private GetAllSessionAttributeResponse() {
 
@@ -30,13 +30,13 @@ public class GetAllSessionAttributeResponse {
 
     @Builder
     public GetAllSessionAttributeResponse (
-        String id,
-        String code,
-        Map<String, String> attributes
+        Map<String, String> attributes,
+        Integer code,
+        String id
     ) {
-        this.id = id;
-        this.code = code;
         this.attributes = attributes;
+        this.code = code;
+        this.id = id;
     }
 
     public static String getType(){
@@ -46,32 +46,15 @@ public class GetAllSessionAttributeResponse {
     public static GetAllSessionAttributeResponse createFromWSM(String message) {
         GetAllSessionAttributeResponse result = new GetAllSessionAttributeResponse();
         Map<String, String> response = parseWSM(message);
-        result.id = response.get("id") != null ? response.get("id") : null;
-        result.code = response.get("code") != null ? response.get("code") : null;
         result.attributes = response.get("attributes") != null ? convertJsonToMap(response.get("attributes")) : null;
+        result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
+        result.id = response.get("id") != null ? response.get("id") : null;
         return result;
     }
 
     public String toWSM() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("type: ").append(GetAllSessionAttributeResponse.getType());
-        if (id != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("id: ")
-                    .append(id);
-        } else {
-            stringBuilder
-                    .append("\n")
-                    .append("id: ")
-                    .append(generateUUID());
-        }
-        if (code != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("code: ")
-                    .append(code);
-        }
         if (attributes != null) {
             try {
                 String json = new ObjectMapper().writeValueAsString(attributes);
@@ -83,14 +66,31 @@ public class GetAllSessionAttributeResponse {
                 e.printStackTrace();
             }
         }
+        if (code != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("code: ")
+                    .append(code);
+        }
+        if (id != null) {
+            stringBuilder
+                    .append("\n")
+                    .append("id: ")
+                    .append(id);
+        } else {
+            stringBuilder
+                    .append("\n")
+                    .append("id: ")
+                    .append(generateUUID());
+        }
         return stringBuilder.toString();
     }
 
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("id","id");
-        result.put("code","code");
         result.put("attributes","attributes");
+        result.put("code","code");
+        result.put("id","id");
         return result;
     }
 }

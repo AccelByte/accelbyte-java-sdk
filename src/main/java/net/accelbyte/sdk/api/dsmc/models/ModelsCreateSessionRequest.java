@@ -45,6 +45,9 @@ public class ModelsCreateSessionRequest extends Model {
     @JsonProperty("namespace")
     private String namespace;
 
+    @JsonProperty("notification_payload")
+    private ModelsMatchResultNotificationPayload notificationPayload;
+
     @JsonProperty("pod_name")
     private String podName;
 
@@ -73,6 +76,7 @@ public class ModelsCreateSessionRequest extends Model {
         result.put("game_mode", "gameMode");
         result.put("matching_allies", "matchingAllies");
         result.put("namespace", "namespace");
+        result.put("notification_payload", "notificationPayload");
         result.put("pod_name", "podName");
         result.put("region", "region");
         result.put("session_id", "sessionId");
