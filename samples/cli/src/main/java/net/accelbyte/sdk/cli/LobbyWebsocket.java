@@ -21,6 +21,7 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
+import java.net.MalformedURLException;
 import java.util.concurrent.Callable;
 
 @Command(name = "lobbyWebsocket", mixinStandardHelpOptions = true)
@@ -46,30 +47,29 @@ public class LobbyWebsocket implements Callable<Integer> {
 
         // create listener object
         Listener listener = new Listener();
-
+        WebSocketClient ws = null;
+        if (!unitTest) {
+            message = message + "\n" + Helper.generateUUID();
+        }
         // create websocket object
-        WebSocketClient ws = WebSocketClient.create(
+        ws = WebSocketClient.create(
                 new DefaultConfigRepository(),
                 CLITokenRepositoryImpl.getInstance(),
                 listener
         );
-
-        String fullMessage = message + "\n" + Helper.generateUUID();
-        String requestType = CLIHelper.getLobbyWsMessageType(fullMessage);
-
-        // send message asynchronously
-        ws.sendMessage(fullMessage);
-
+        String requestType = CLIHelper.getLobbyWsMessageType(message);
         long startTime = System.currentTimeMillis();
+        ws.sendMessage(message);
         while ((System.currentTimeMillis() - startTime) < timeOut) {
             if (listener.getMessage() != null) {
+                log.info(listener.getMessage());
                 String response = listener.getMessage();
                 String responseType = listener.getResponseType();
                 if (!unitTest && responseType.equals(CLIHelper.getResponseTypeOf(requestType))) {
                     log.info("Operation successful with response below:\n{}", response);
                     ws.close(1000, "normal close");
                     return 0;
-                } else if (unitTest && response.equals(fullMessage)) {
+                } else if (unitTest && response.equals(message)) {
                     log.info("Operation successful with response below:\n{}", response);
                     ws.close(1000, "normal close");
                     return 0;
@@ -88,7 +88,6 @@ public class LobbyWebsocket implements Callable<Integer> {
     }
 
     public static class Listener extends WebSocketListener {
-
         private String message;
         private String responseType;
 

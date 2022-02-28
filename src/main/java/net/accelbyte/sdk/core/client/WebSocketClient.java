@@ -8,13 +8,11 @@ package net.accelbyte.sdk.core.client;
 
 import net.accelbyte.sdk.core.repository.ConfigRepository;
 import net.accelbyte.sdk.core.repository.TokenRepository;
-import net.accelbyte.sdk.core.util.Helper;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 
-import java.net.URISyntaxException;
 import java.util.concurrent.TimeUnit;
 
 public class WebSocketClient {
@@ -28,23 +26,23 @@ public class WebSocketClient {
     }
 
     public static WebSocketClient create(ConfigRepository configRepository, TokenRepository tokenRepository, WebSocketListener listener) {
+        String baseURL = configRepository.getBaseURL();
+        if (baseURL == null || baseURL.isEmpty()) {
+            throw new IllegalArgumentException("Base URL cannot be null or empty");
+        }
         if (instance == null) {
-            try {
-                WebSocketClient webSocketClient = new WebSocketClient();
-                String host = Helper.getHost(configRepository.getBaseURL());
-                OkHttpClient client = new OkHttpClient.Builder()
-                        .readTimeout(0, TimeUnit.SECONDS)
-                        .build();
-                Request request = new Request.Builder()
-                        .url(String.format("wss://%s/lobby/", host))
-                        .addHeader("Authorization", String.format("Bearer %s", tokenRepository.getToken()))
-                        .build();
-                webSocketClient.webSocket = client.newWebSocket(request, listener);
-                client.dispatcher().executorService().shutdown();
-                instance = webSocketClient;
-            } catch (URISyntaxException e) {
-                e.printStackTrace();
-            }
+            WebSocketClient webSocketClient = new WebSocketClient();
+            String url = configRepository.getBaseURL()+"/lobby/";
+            OkHttpClient client = new OkHttpClient.Builder()
+                    .readTimeout(0, TimeUnit.SECONDS)
+                    .build();
+            Request request = new Request.Builder()
+                    .url(url)
+                    .addHeader("Authorization", String.format("Bearer %s", tokenRepository.getToken()))
+                    .build();
+            webSocketClient.webSocket = client.newWebSocket(request, listener);
+            client.dispatcher().executorService().shutdown();
+            instance = webSocketClient;
         }
         return instance;
     }

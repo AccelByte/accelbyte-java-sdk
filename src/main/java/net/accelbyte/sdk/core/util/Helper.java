@@ -13,8 +13,10 @@ import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -57,10 +59,9 @@ public class Helper {
         return Base64.getUrlEncoder().withoutPadding().encodeToString(digest);
     }
 
-    public static String getHost(String url) throws URISyntaxException {
-        URI uri;
-        uri = new URI(url);
-        String domain = uri.getHost();
+    public static String getHost(String url) throws MalformedURLException {
+        URL myUrl = new URL(url);
+        String domain = myUrl.getHost();
         return domain.startsWith("www.") ? domain.substring(4) : domain;
     }
 

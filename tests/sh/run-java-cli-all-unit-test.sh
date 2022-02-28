@@ -51,3 +51,4 @@ run_script ./run-java-cli-cloudsave-unit-test.sh
 run_script ./run-java-cli-dslogmanager-unit-test.sh
 run_script ./run-java-cli-basic-unit-test.sh
 run_script ./run-java-cli-gametelemetry-unit-test.sh
+run_script ./run-java-ws-cli-unit-test.sh
