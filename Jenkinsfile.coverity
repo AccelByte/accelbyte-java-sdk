@@ -16,7 +16,7 @@ pipeline {
     stage('Coverity') {
       agent {
         docker {
-          image 'plavjanik/coverity-oss'
+          image 'dhanarab/cov-analysis:2021.12-1'
           reuseNode true
         }
       }
