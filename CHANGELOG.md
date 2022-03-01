@@ -1,3 +1,26 @@
+<a name="v0.5.0"></a>
+## [v0.5.0] - 2022-03-01
+
+### Feat
+- **api:** add documentation and deprecated annotation
+- **core:** add optional 'X-Amzn-Trace-Id' header in each request
+- **core** inject 'User-Agent' automatically in each request
+- **api** add builder feature to the operation class constructor
+- **api** add builder pattern to the model classes
+- **samples** add cli app for lobby websocket
+- **samples** add unit test mode to websocket cli app
+
+### Chore
+- add copyright header
+- add gradle properties for faster build
+
+### Fix
+- **core** add 'X-Amzn-Trace-Id' header in each request to be default
+- **core** change login operation to use builder pattern
+- add missing copyright header
+- add missing shebang
+
+
 <a name="v0.4.0"></a>
 ## [v0.4.0] - 2022-02-15
 
@@ -138,6 +161,7 @@
   - platform
     - add, update endpoints
 
+[v0.5.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.2.0...v0.3.0
 [v0.2.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.1.0...v0.2.0
