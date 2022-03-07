@@ -9,6 +9,7 @@ package net.accelbyte.sdk.cli;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.client.OkhttpClient;
+import net.accelbyte.sdk.core.logging.OkhttpLogger;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,8 +28,10 @@ public class Login implements Runnable {
 
     @Override
     public void run() {
+        OkhttpClient httpClient = new OkhttpClient();
+        httpClient.setLogger(new OkhttpLogger());
         AccelByteSDK sdk = new AccelByteSDK(
-                new OkhttpClient(),
+                httpClient,
                 CLITokenRepositoryImpl.getInstance(),
                 new DefaultConfigRepository()
         );

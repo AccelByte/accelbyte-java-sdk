@@ -9,9 +9,12 @@ package net.accelbyte.sdk.core.client;
 import net.accelbyte.sdk.core.Header;
 import net.accelbyte.sdk.core.HttpResponse;
 import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.logging.HttpLogger;
 
 import java.io.IOException;
 
-public interface HttpClient {
+public interface HttpClient<T extends HttpLogger<?, ?>> {
     HttpResponse sendRequest(Operation operation, String baseURL, Header header) throws IOException;
+
+    void setLogger(T logger);
 }

@@ -33,7 +33,7 @@ public class AccelByteSDK {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public AccelByteSDK(HttpClient httpClient, TokenRepository tokenRepository, ConfigRepository configRepository) {
+    public AccelByteSDK(HttpClient<?> httpClient, TokenRepository tokenRepository, ConfigRepository configRepository) {
         this.sdkConfiguration = new AccelByteConfig(httpClient, tokenRepository, configRepository) {
         };
     }
