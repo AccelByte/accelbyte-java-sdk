@@ -12,7 +12,7 @@ import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
-import net.accelbyte.sdk.core.client.WebSocketClient;
+import net.accelbyte.sdk.core.client.OkhttpWebSocketClient;
 
 
 public class Main {
@@ -36,7 +36,7 @@ public class Main {
         Listener listener = new Listener();
 
         // create websocket object
-        WebSocketClient ws = WebSocketClient.create(
+        OkhttpWebSocketClient ws = OkhttpWebSocketClient.create(
                 new DefaultConfigRepository(),
                 DefaultTokenRepository.getInstance(),
                 listener

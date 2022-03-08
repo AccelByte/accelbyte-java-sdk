@@ -15,23 +15,23 @@ import okhttp3.WebSocketListener;
 
 import java.util.concurrent.TimeUnit;
 
-public class WebSocketClient {
+public class OkhttpWebSocketClient {
 
-    private static WebSocketClient instance = null;
+    private static OkhttpWebSocketClient instance = null;
 
     private WebSocket webSocket;
 
-    private WebSocketClient() {
+    private OkhttpWebSocketClient() {
 
     }
 
-    public static WebSocketClient create(ConfigRepository configRepository, TokenRepository tokenRepository, WebSocketListener listener) {
+    public static OkhttpWebSocketClient create(ConfigRepository configRepository, TokenRepository tokenRepository, WebSocketListener listener) {
         String baseURL = configRepository.getBaseURL();
         if (baseURL == null || baseURL.isEmpty()) {
             throw new IllegalArgumentException("Base URL cannot be null or empty");
         }
         if (instance == null) {
-            WebSocketClient webSocketClient = new WebSocketClient();
+            OkhttpWebSocketClient webSocketClient = new OkhttpWebSocketClient();
             String url = configRepository.getBaseURL()+"/lobby/";
             OkHttpClient client = new OkHttpClient.Builder()
                     .readTimeout(0, TimeUnit.SECONDS)

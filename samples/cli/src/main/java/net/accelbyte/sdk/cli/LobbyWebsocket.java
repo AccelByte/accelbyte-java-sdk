@@ -9,7 +9,7 @@ package net.accelbyte.sdk.cli;
 import net.accelbyte.sdk.api.lobby.ws_models.ErrorNotif;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.cli.utils.CLIHelper;
-import net.accelbyte.sdk.core.client.WebSocketClient;
+import net.accelbyte.sdk.core.client.OkhttpWebSocketClient;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import net.accelbyte.sdk.core.util.Helper;
 import okhttp3.WebSocket;
@@ -47,12 +47,12 @@ public class LobbyWebsocket implements Callable<Integer> {
 
         // create listener object
         Listener listener = new Listener();
-        WebSocketClient ws = null;
+        OkhttpWebSocketClient ws = null;
         if (!unitTest) {
             message = message + "\n" + Helper.generateUUID();
         }
         // create websocket object
-        ws = WebSocketClient.create(
+        ws = OkhttpWebSocketClient.create(
                 new DefaultConfigRepository(),
                 CLITokenRepositoryImpl.getInstance(),
                 listener
