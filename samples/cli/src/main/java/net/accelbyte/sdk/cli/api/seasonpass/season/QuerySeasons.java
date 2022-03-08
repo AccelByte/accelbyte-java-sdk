@@ -14,6 +14,7 @@ import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
 import net.accelbyte.sdk.core.client.OkhttpClient;
+import net.accelbyte.sdk.core.logging.OkhttpLogger;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -46,21 +47,25 @@ public class QuerySeasons implements Callable<Integer> {
     List<String> status;
 
 
+    @Option(names = {"--logging"}, description = "logger")
+    boolean logging;
+
     public static void main(String[] args) {
-            int exitCode = new CommandLine(new QuerySeasons()).execute(args);
-            System.exit(exitCode);
-        }
+        int exitCode = new CommandLine(new QuerySeasons()).execute(args);
+        System.exit(exitCode);
+    }
 
     @Override
     public Integer call() {
         try {
+            OkhttpClient httpClient = new OkhttpClient();
+            if (logging) {
+                httpClient.setLogger(new OkhttpLogger());
+            }
+            AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
+            
             ListSeasonInfoPagingSlicedResult response =
-            new Season(new AccelByteSDK(
-                            new OkhttpClient(),
-                            CLITokenRepositoryImpl.getInstance(),
-                            new DefaultConfigRepository()
-                    ))
-
+            new Season(sdk)
             .querySeasons(
                 new net.accelbyte.sdk.api.seasonpass.operations.season.QuerySeasons(
                     namespace,

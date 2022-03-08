@@ -14,6 +14,7 @@ import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
 import net.accelbyte.sdk.core.client.OkhttpClient;
+import net.accelbyte.sdk.core.logging.OkhttpLogger;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -46,21 +47,25 @@ public class PlatformTokenRequestHandler implements Callable<Integer> {
     String platformToken;
 
 
+    @Option(names = {"--logging"}, description = "logger")
+    boolean logging;
+
     public static void main(String[] args) {
-            int exitCode = new CommandLine(new PlatformTokenRequestHandler()).execute(args);
-            System.exit(exitCode);
-        }
+        int exitCode = new CommandLine(new PlatformTokenRequestHandler()).execute(args);
+        System.exit(exitCode);
+    }
 
     @Override
     public Integer call() {
         try {
+            OkhttpClient httpClient = new OkhttpClient();
+            if (logging) {
+                httpClient.setLogger(new OkhttpLogger());
+            }
+            AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
+            
             OauthmodelTokenResponse response =
-            new OAuth(new AccelByteSDK(
-                            new OkhttpClient(),
-                            CLITokenRepositoryImpl.getInstance(),
-                            new DefaultConfigRepository()
-                    ))
-
+            new OAuth(sdk)
             .platformTokenRequestHandler(
                 new net.accelbyte.sdk.api.iam.operations.o_auth.PlatformTokenRequestHandler(
                     namespace,

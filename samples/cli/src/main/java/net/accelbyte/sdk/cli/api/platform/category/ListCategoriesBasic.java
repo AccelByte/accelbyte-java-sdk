@@ -14,6 +14,7 @@ import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
 import net.accelbyte.sdk.core.client.OkhttpClient;
+import net.accelbyte.sdk.core.logging.OkhttpLogger;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -40,21 +41,25 @@ public class ListCategoriesBasic implements Callable<Integer> {
     String storeId;
 
 
+    @Option(names = {"--logging"}, description = "logger")
+    boolean logging;
+
     public static void main(String[] args) {
-            int exitCode = new CommandLine(new ListCategoriesBasic()).execute(args);
-            System.exit(exitCode);
-        }
+        int exitCode = new CommandLine(new ListCategoriesBasic()).execute(args);
+        System.exit(exitCode);
+    }
 
     @Override
     public Integer call() {
         try {
+            OkhttpClient httpClient = new OkhttpClient();
+            if (logging) {
+                httpClient.setLogger(new OkhttpLogger());
+            }
+            AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
+            
             List<BasicCategoryInfo> response =
-            new Category(new AccelByteSDK(
-                            new OkhttpClient(),
-                            CLITokenRepositoryImpl.getInstance(),
-                            new DefaultConfigRepository()
-                    ))
-
+            new Category(sdk)
             .listCategoriesBasic(
                 new net.accelbyte.sdk.api.platform.operations.category.ListCategoriesBasic(
                     namespace,

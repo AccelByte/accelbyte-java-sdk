@@ -14,6 +14,7 @@ import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
 import net.accelbyte.sdk.core.client.OkhttpClient;
+import net.accelbyte.sdk.core.logging.OkhttpLogger;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -40,21 +41,25 @@ public class RegisterLocalServer implements Callable<Integer> {
     String body;
 
 
+    @Option(names = {"--logging"}, description = "logger")
+    boolean logging;
+
     public static void main(String[] args) {
-            int exitCode = new CommandLine(new RegisterLocalServer()).execute(args);
-            System.exit(exitCode);
-        }
+        int exitCode = new CommandLine(new RegisterLocalServer()).execute(args);
+        System.exit(exitCode);
+    }
 
     @Override
     public Integer call() {
         try {
+            OkhttpClient httpClient = new OkhttpClient();
+            if (logging) {
+                httpClient.setLogger(new OkhttpLogger());
+            }
+            AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
+            
             ModelsServer response =
-            new Server(new AccelByteSDK(
-                            new OkhttpClient(),
-                            CLITokenRepositoryImpl.getInstance(),
-                            new DefaultConfigRepository()
-                    ))
-
+            new Server(sdk)
             .registerLocalServer(
                 new net.accelbyte.sdk.api.dsmc.operations.server.RegisterLocalServer(
                     namespace,
