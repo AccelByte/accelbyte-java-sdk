@@ -22,12 +22,16 @@ targetCompatibility = 1.8
 dependencies {
     compileOnly sharedDependencies.lombok
     annotationProcessor sharedDependencies.lombok
+
     implementation sharedDependencies.okhttp
     implementation sharedDependencies.apacheHttpClient
     implementation sharedDependencies.jackson.databind
-    testImplementation sharedDependencies.junitApi
-    testRuntimeOnly sharedDependencies.junitEngine
     implementation sharedDependencies.apacheCommonIO
+
+    testCompileOnly sharedDependencies.lombok
+    testAnnotationProcessor sharedDependencies.lombok
+    testRuntimeOnly sharedDependencies.junitEngine
+    testImplementation sharedDependencies.junitApi
 }
 
 // https://stackoverflow.com/a/57141028
