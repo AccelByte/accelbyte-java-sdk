@@ -1,29 +1,87 @@
+<a name="v0.6.0"></a>
+## [v0.6.0]
+### Chore
+- **spec:** update spec
+- **sdk:** regenerate sdk
+- **samples:** regenerate cli
+- **tests:** regenerate cli tests
+- **core!:** rename WebSocketClient to OkhttpWebSocketClient for consistency
+
+### Feat
+- **logging:** initial logging implementation
+
+
 <a name="v0.5.0"></a>
-## [v0.5.0] - 2022-03-01
+## [v0.5.0] - 2022-03-02
+### Chore
+- update changelog
+- version bump
+- add gradle properties for faster build
+- add copyright header
+- **api:** regenerate services
+- **sample:** regenerate cli
+- **spec:** update spec files
+- **test:** regenerate test
+
+### Ci
+- **coverity:** use updated cov-analysis
+- **github:** run github jenkins job in codegen build machine
 
 ### Feat
 - **api:** add documentation and deprecated annotation
+- **api:** add builder pattern to the model classes
+- **api:** add builder feature to the operation class constructor
+- **core:** inject 'User-Agent' automatically in each request
 - **core:** add optional 'X-Amzn-Trace-Id' header in each request
-- **core** inject 'User-Agent' automatically in each request
-- **api** add builder feature to the operation class constructor
-- **api** add builder pattern to the model classes
-- **samples** add cli app for lobby websocket
-- **samples** add unit test mode to websocket cli app
-
-### Chore
-- add copyright header
-- add gradle properties for faster build
+- **samples:** add cli app for lobby websocket
+- **samples:** add unit test mode to websocket cli app
 
 ### Fix
-- **core** add 'X-Amzn-Trace-Id' header in each request to be default
-- **core** change login operation to use builder pattern
-- add missing copyright header
 - add missing shebang
+- add missing copyright header
+- **core:** change login operation to use builder pattern
+- **core:** add 'X-Amzn-Trace-Id' header in each request to be default
+
+### Test
+- add unit test against mock server for websocket api
 
 
 <a name="v0.4.0"></a>
-## [v0.4.0] - 2022-02-15
+## [v0.4.0] - 2022-02-14
+### Chore
+- version bump
+- **api:** regenerate services
+- **specs:** regenerate test files
+- **specs:** update spec files
 
+### Ci
+- **nightly:** initial commit
+
+### Docs
+- update changelog
+- update readme file
+
+### Feat
+- **test:** add unit tests against mock server
+
+### Fix
+- **api:** incorrect form data params value assignment
+- **api:** response message handling
+- **core:** adjust login method to the new sdk version
+- **core:** invalid request method and body
+- **core:** invalid get form data params checking
+- **core:** change function for converting inputstream to string
+- **core:** set default content type if not declared
+- **makefile:** test_cli not tty error in jenkins
+- **sample:** change input stream to file for cli input
+- **sample:** invalid exit code on cli apps
+- **samples:** set null on unfilled parameter in form data
+- **samples:** response handling and log
+- **tests:** change unit test parameters
+
+
+<a name="v0.3.0"></a>
+## [v0.3.0] - 2022-02-02
 ### Chore
 - version bump
 - fix broken gradle files
@@ -48,67 +106,6 @@
 - add junit
 - **api:** add websocket message models
 - **api:** add function to get collection format and array query string
-- **core:** add logic to handle array within query string
-- **core:** add helper functions for websocket implementation
-- **sample:** add java sdk cli
-- **samples:** update dependency
-- **samples:** java-sdk-poc - get dependency from nexus
-- **samples:** java sdk websocket poc
-- **test:** add unit tests against mock server
-
-### Fix
-- upload file handling
-- **api:** delete unnecessary variable
-- **api:** incorrect form data params value assignment
-- **core:** set encoding to utf8 instead of system default
-- **core:** handle tsv, ssv, pipes collection format
-- **core:** invalid get form data params checking
-- **core:** invalid request method and body
-- **core:** set default content type if not declared
-- **core:** websocket singleton object
-- **core:** thread safe singleton declaration
-- **okhttpclient:** use shared okhttpclient and don't swallow jsonprocessingexception
-- **operation:** revise create url a little bit
-- **operation:** make convertInputStreamToString protected
-- **sample:** invalid exit code on cli apps
-- **sample:** change input stream to file for cli input
-- **samples:** set null on unfilled parameter in form data
-- **samples:** change websocket class implementation
-- **wrappers:** close httpresponse payload stream after parsing
-
-### Test
-- add test for all collection format type
-- add test for query string params
-
-<a name="v0.3.0"></a>
-## [v0.3.0] - 2022-02-03
-
-### Breaking change
-- **core:** rename TokenRepositoryImpl to DefaultTokenRepository
-- **core:** rename ConfigRepositoryImpl to DefaultConfigRepository
-
-### Chore
-- fix broken gradle files
-- publish to nexus on release stage
-- add missing timestamp check
-- add test stage
-- **api:** regenerate services
-- **samples:** regenerate cli
-- **spec:** update spec files
-- **spec:** add timestamp and lobby wsm spec
-
-### Ci
-- build samples
-- **coverity:** initial commit
-
-### Docs
-- **samples:** fix readme cli
-
-### Feat
-- websocket core class
-- add junit
-- **api:** add websocket message models
-- **api:** add function to get collection format and array query string
 - **core:** add helper functions for websocket implementation
 - **core:** add logic to handle array within query string
 - **sample:** add java sdk cli
@@ -117,9 +114,9 @@
 - **samples:** java sdk websocket poc
 
 ### Fix
-- **core:** websocket singleton object
-- **api:** delete unnecessary variable
 - upload file handling
+- **api:** delete unnecessary variable
+- **core:** websocket singleton object
 - **core:** set encoding to utf8 instead of system default
 - **core:** thread safe singleton declaration
 - **core:** handle tsv, ssv, pipes collection format
@@ -132,35 +129,71 @@
 ### Test
 - add test for all collection format type
 - add test for query string params
+
 
 <a name="v0.2.0"></a>
 ## [v0.2.0] - 2022-01-19
+### Chore
+- version bump
+- **api:** regenerate services
+- **spec:** update spec files
+
+### Docs
+- add changelog
+- update readme
 
 ### Feat
 - add spec files
-- add license to gradle
 
 ### Fix
 - keep tokengrantv3 security while login
-- README.md
 
-### Chore
-- **spec:** update spec files
-- **api:** regenerate services
-- update APIs:
-  - cloudsave
-    - add, update endpoints
-  - group
-    - update endpoints
-  - iam
-    - add, update endpoints
-  - legal
-    - add, update endpoints
-  - lobby
-    - update endpoints
-  - platform
-    - add, update endpoints
 
+<a name="v0.1.0"></a>
+## v0.1.0 - 2022-01-06
+### Ci
+- add Jenkinsfile.github
+- initial commit
+
+### Docs
+- update README.md
+- add README.md
+- add license
+
+### Feat
+- add publish gradle
+- add logout function
+- add login functions
+- add generated wrapper classes
+- add generated operation classes
+- add generated model classes for platform
+- add generated model classes except platform
+- add core package
+- add root package and gradle
+- add java sdk sample project structure
+
+### Fix
+- group name
+- envar name
+- root project name
+- change envar name
+- remove invalid todo
+- add json ignore properties
+- add json ignore
+- form data params handling
+- form data params key
+- root project name
+- core classes
+- security type
+- return type for auth functions
+- generated operation classes constructor
+- operation core class
+
+### Refactor
+- replace unnecessary object
+
+
+[v0.6.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.5.0...HEAD
 [v0.5.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.2.0...v0.3.0
