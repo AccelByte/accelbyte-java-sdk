@@ -49,8 +49,14 @@ public class PublicNormalizePaymentReturnUrl implements Callable<Integer> {
     @Option(names = {"--payload"}, description = "payload")
     String payload;
 
+    @Option(names = {"--redirectResult"}, description = "redirectResult")
+    String redirectResult;
+
     @Option(names = {"--resultCode"}, description = "resultCode")
     String resultCode;
+
+    @Option(names = {"--sessionId"}, description = "sessionId")
+    String sessionId;
 
     @Option(names = {"--status"}, description = "status")
     String status;
@@ -102,7 +108,9 @@ public class PublicNormalizePaymentReturnUrl implements Callable<Integer> {
                     foreinginvoice,
                     invoiceId,
                     payload,
+                    redirectResult,
                     resultCode,
+                    sessionId,
                     status,
                     token,
                     type,
