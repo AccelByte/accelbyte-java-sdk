@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+#Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
 #This is licensed software from AccelByte Inc, for limitations
 #and restrictions contact your company contract manager.
 
@@ -1798,21 +1798,21 @@ delete_file $TEMP_FILE
 
 #- 212 TestAdyenConfig
 java -jar ${JAR_PATH} platform testAdyenConfig \
-    --body '{"allowedPaymentMethods": ["FpHxMYF8"], "apiKey": "36075xEp", "authoriseAsCapture": true, "blockedPaymentMethods": ["dnYtpja5"], "liveEndpointUrlPrefix": "ig2isQZg", "merchantAccount": "a6Vy76iz", "notificationHmacKey": "PiQRjYa8", "notificationPassword": "fv5fIt22", "notificationUsername": "tIZhjhgk", "returnUrl": "igW22zXM", "settings": "WXfbcM0G"}' \
+    --body '{"allowedPaymentMethods": ["FpHxMYF8"], "apiKey": "36075xEp", "authoriseAsCapture": true, "blockedPaymentMethods": ["dnYtpja5"], "clientKey": "ig2isQZg", "dropInSettings": "a6Vy76iz", "liveEndpointUrlPrefix": "PiQRjYa8", "merchantAccount": "fv5fIt22", "notificationHmacKey": "tIZhjhgk", "notificationPassword": "igW22zXM", "notificationUsername": "WXfbcM0G", "returnUrl": "IALIbFCQ", "settings": "gBcLNT6i"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'TestAdyenConfig'
 delete_file $TEMP_FILE
 
 #- 213 TestAliPayConfig
 java -jar ${JAR_PATH} platform testAliPayConfig \
-    --body '{"appId": "IALIbFCQ", "privateKey": "gBcLNT6i", "publicKey": "OQVYx5rW", "returnUrl": "2gMsI1aY"}' \
+    --body '{"appId": "OQVYx5rW", "privateKey": "2gMsI1aY", "publicKey": "BitSn3UD", "returnUrl": "eKj97I4W"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'TestAliPayConfig'
 delete_file $TEMP_FILE
 
 #- 214 TestCheckoutConfig
 java -jar ${JAR_PATH} platform testCheckoutConfig \
-    --body '{"publicKey": "BitSn3UD", "secretKey": "eKj97I4W"}' \
+    --body '{"publicKey": "YXLqjN7k", "secretKey": "tOBTraBx"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'TestCheckoutConfig'
 delete_file $TEMP_FILE
@@ -1825,155 +1825,155 @@ delete_file $TEMP_FILE
 
 #- 216 TestPayPalConfig
 java -jar ${JAR_PATH} platform testPayPalConfig \
-    --body '{"clientID": "YXLqjN7k", "clientSecret": "tOBTraBx", "returnUrl": "WRTVuYEq", "webHookId": "GlKDwTKX"}' \
+    --body '{"clientID": "WRTVuYEq", "clientSecret": "GlKDwTKX", "returnUrl": "BrXiQcd9", "webHookId": "IW8kiCKe"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'TestPayPalConfig'
 delete_file $TEMP_FILE
 
 #- 217 TestStripeConfig
 java -jar ${JAR_PATH} platform testStripeConfig \
-    --body '{"allowedPaymentMethodTypes": ["BrXiQcd9"], "publishableKey": "IW8kiCKe", "secretKey": "QJWZBvcq", "webhookSecret": "1ETvWBxY"}' \
+    --body '{"allowedPaymentMethodTypes": ["QJWZBvcq"], "publishableKey": "1ETvWBxY", "secretKey": "ZJh7B8gb", "webhookSecret": "nSu9M2Ox"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'TestStripeConfig'
 delete_file $TEMP_FILE
 
 #- 218 TestWxPayConfig
 java -jar ${JAR_PATH} platform testWxPayConfig \
-    --body '{"appId": "ZJh7B8gb", "key": "nSu9M2Ox", "mchid": "D2udaeYp", "returnUrl": "CXYSMiy8"}' \
+    --body '{"appId": "D2udaeYp", "key": "CXYSMiy8", "mchid": "7CTqEQBg", "returnUrl": "36my3sY2"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'TestWxPayConfig'
 delete_file $TEMP_FILE
 
 #- 219 TestXsollaConfig
 java -jar ${JAR_PATH} platform testXsollaConfig \
-    --body '{"apiKey": "7CTqEQBg", "flowCompletionUrl": "36my3sY2", "merchantId": 4, "projectId": 22, "projectSecretKey": "rDcain0c"}' \
+    --body '{"apiKey": "clrDcain", "flowCompletionUrl": "0cOVF1zH", "merchantId": 45, "projectId": 58, "projectSecretKey": "TI0sJ1Q0"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'TestXsollaConfig'
 delete_file $TEMP_FILE
 
 #- 220 GetPaymentMerchantConfig
 java -jar ${JAR_PATH} platform getPaymentMerchantConfig \
-    --id 'OVF1zHwD' \
+    --id 'kphMTggS' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetPaymentMerchantConfig'
 delete_file $TEMP_FILE
 
 #- 221 UpdateAdyenConfig
 java -jar ${JAR_PATH} platform updateAdyenConfig \
-    --id 'TI0sJ1Q0' \
-    --body '{"allowedPaymentMethods": ["kphMTggS"], "apiKey": "P2SLcuAP", "authoriseAsCapture": true, "blockedPaymentMethods": ["U971Czw2"], "liveEndpointUrlPrefix": "nbg8C7Mv", "merchantAccount": "ywhu6MjO", "notificationHmacKey": "juGzo1Fz", "notificationPassword": "4tU0aSn9", "notificationUsername": "8N8qOUA0", "returnUrl": "z92RaDe8", "settings": "ngT8LRQk"}' \
+    --id 'P2SLcuAP' \
+    --body '{"allowedPaymentMethods": ["7vU971Cz"], "apiKey": "w2nbg8C7", "authoriseAsCapture": true, "blockedPaymentMethods": ["ywhu6MjO"], "clientKey": "juGzo1Fz", "dropInSettings": "4tU0aSn9", "liveEndpointUrlPrefix": "8N8qOUA0", "merchantAccount": "z92RaDe8", "notificationHmacKey": "ngT8LRQk", "notificationPassword": "MnG1LZyF", "notificationUsername": "2mdYY6ZM", "returnUrl": "fuTYTKsu", "settings": "e48qBEBN"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateAdyenConfig'
 delete_file $TEMP_FILE
 
 #- 222 TestAdyenConfigById
 java -jar ${JAR_PATH} platform testAdyenConfigById \
-    --id 'MnG1LZyF' \
+    --id 'AV5BTe6e' \
     >$TEMP_FILE 2>&1
 update_status $? 'TestAdyenConfigById'
 delete_file $TEMP_FILE
 
 #- 223 UpdateAliPayConfig
 java -jar ${JAR_PATH} platform updateAliPayConfig \
-    --id '2mdYY6ZM' \
-    --body '{"appId": "fuTYTKsu", "privateKey": "e48qBEBN", "publicKey": "AV5BTe6e", "returnUrl": "c1zA92UR"}' \
+    --id 'c1zA92UR' \
+    --body '{"appId": "CLSGPmRB", "privateKey": "ZWunHW7M", "publicKey": "Yvr6QA7P", "returnUrl": "pepc92HA"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateAliPayConfig'
 delete_file $TEMP_FILE
 
 #- 224 TestAliPayConfigById
 java -jar ${JAR_PATH} platform testAliPayConfigById \
-    --id 'CLSGPmRB' \
+    --id '94eACdey' \
     >$TEMP_FILE 2>&1
 update_status $? 'TestAliPayConfigById'
 delete_file $TEMP_FILE
 
 #- 225 UpdateCheckoutConfig
 java -jar ${JAR_PATH} platform updateCheckoutConfig \
-    --id 'ZWunHW7M' \
-    --body '{"publicKey": "Yvr6QA7P", "secretKey": "pepc92HA"}' \
+    --id 'fUpgiPpf' \
+    --body '{"publicKey": "8nxKJ3dn", "secretKey": "mtPwa64Y"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateCheckoutConfig'
 delete_file $TEMP_FILE
 
 #- 226 TestCheckoutConfigById
 java -jar ${JAR_PATH} platform testCheckoutConfigById \
-    --id '94eACdey' \
+    --id '4gPEKMhh' \
     >$TEMP_FILE 2>&1
 update_status $? 'TestCheckoutConfigById'
 delete_file $TEMP_FILE
 
 #- 227 UpdatePayPalConfig
 java -jar ${JAR_PATH} platform updatePayPalConfig \
-    --id 'fUpgiPpf' \
-    --body '{"clientID": "8nxKJ3dn", "clientSecret": "mtPwa64Y", "returnUrl": "4gPEKMhh", "webHookId": "u9a6f3xJ"}' \
+    --id 'u9a6f3xJ' \
+    --body '{"clientID": "NtUlKLlI", "clientSecret": "IAeHbm5M", "returnUrl": "6LsY1VMu", "webHookId": "IEcRls68"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdatePayPalConfig'
 delete_file $TEMP_FILE
 
 #- 228 TestPayPalConfigById
 java -jar ${JAR_PATH} platform testPayPalConfigById \
-    --id 'NtUlKLlI' \
+    --id 'M3MPMRPB' \
     >$TEMP_FILE 2>&1
 update_status $? 'TestPayPalConfigById'
 delete_file $TEMP_FILE
 
 #- 229 UpdateStripeConfig
 java -jar ${JAR_PATH} platform updateStripeConfig \
-    --id 'IAeHbm5M' \
-    --body '{"allowedPaymentMethodTypes": ["6LsY1VMu"], "publishableKey": "IEcRls68", "secretKey": "M3MPMRPB", "webhookSecret": "epyyMz6z"}' \
+    --id 'epyyMz6z' \
+    --body '{"allowedPaymentMethodTypes": ["fR1pvTYY"], "publishableKey": "tDOiEi4R", "secretKey": "uEcHCSGh", "webhookSecret": "pOZQFlwO"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateStripeConfig'
 delete_file $TEMP_FILE
 
 #- 230 TestStripeConfigById
 java -jar ${JAR_PATH} platform testStripeConfigById \
-    --id 'fR1pvTYY' \
+    --id 'iuKGDFgK' \
     >$TEMP_FILE 2>&1
 update_status $? 'TestStripeConfigById'
 delete_file $TEMP_FILE
 
 #- 231 UpdateWxPayConfig
 java -jar ${JAR_PATH} platform updateWxPayConfig \
-    --id 'tDOiEi4R' \
-    --body '{"appId": "uEcHCSGh", "key": "pOZQFlwO", "mchid": "iuKGDFgK", "returnUrl": "49YuKnXk"}' \
+    --id '49YuKnXk' \
+    --body '{"appId": "s0m8ANrc", "key": "Ral7ta3f", "mchid": "ojA3h4MM", "returnUrl": "W3AJ5zls"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateWxPayConfig'
 delete_file $TEMP_FILE
 
 #- 232 UpdateWxPayConfigCert
 java -jar ${JAR_PATH} platform updateWxPayConfigCert \
-    --id 's0m8ANrc' \
+    --id 'FBwjvLYv' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateWxPayConfigCert'
 delete_file $TEMP_FILE
 
 #- 233 TestWxPayConfigById
 java -jar ${JAR_PATH} platform testWxPayConfigById \
-    --id 'Ral7ta3f' \
+    --id 'mg6avudQ' \
     >$TEMP_FILE 2>&1
 update_status $? 'TestWxPayConfigById'
 delete_file $TEMP_FILE
 
 #- 234 UpdateXsollaConfig
 java -jar ${JAR_PATH} platform updateXsollaConfig \
-    --id 'ojA3h4MM' \
-    --body '{"apiKey": "W3AJ5zls", "flowCompletionUrl": "FBwjvLYv", "merchantId": 25, "projectId": 12, "projectSecretKey": "6avudQFF"}' \
+    --id 'FF1CPNY9' \
+    --body '{"apiKey": "u2dVYdgl", "flowCompletionUrl": "OOoCeK0k", "merchantId": 83, "projectId": 73, "projectSecretKey": "mBqVux3l"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateXsollaConfig'
 delete_file $TEMP_FILE
 
 #- 235 TestXsollaConfigById
 java -jar ${JAR_PATH} platform testXsollaConfigById \
-    --id '1CPNY9u2' \
+    --id 'XcD8aert' \
     >$TEMP_FILE 2>&1
 update_status $? 'TestXsollaConfigById'
 delete_file $TEMP_FILE
 
 #- 236 UpdateXsollaUIConfig
 java -jar ${JAR_PATH} platform updateXsollaUIConfig \
-    --id 'dVYdglOO' \
-    --body '{"device": "DESKTOP", "showCloseButton": true, "size": "SMALL", "theme": "DEFAULT_DARK"}' \
+    --id 'AVCqs8XT' \
+    --body '{"device": "MOBILE", "showCloseButton": true, "size": "SMALL", "theme": "DEFAULT_DARK"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateXsollaUIConfig'
 delete_file $TEMP_FILE
@@ -1986,7 +1986,7 @@ delete_file $TEMP_FILE
 
 #- 238 CreatePaymentProviderConfig
 java -jar ${JAR_PATH} platform createPaymentProviderConfig \
-    --body '{"aggregate": "XSOLLA", "namespace": "PKmBqVux", "region": "3lXcD8ae", "sandboxTaxJarApiToken": "rtAVCqs8", "specials": ["ALIPAY"], "taxJarApiToken": "y3nJ06Kk", "taxJarEnabled": true, "useGlobalTaxJarApiToken": false}' \
+    --body '{"aggregate": "XSOLLA", "namespace": "seA0ARj9", "region": "ricfayvn", "sandboxTaxJarApiToken": "hi8MDdY4", "specials": ["STRIPE"], "taxJarApiToken": "aUkYnQp5", "taxJarEnabled": false, "useGlobalTaxJarApiToken": false}' \
     >$TEMP_FILE 2>&1
 update_status $? 'CreatePaymentProviderConfig'
 delete_file $TEMP_FILE
@@ -2011,15 +2011,15 @@ delete_file $TEMP_FILE
 
 #- 242 UpdatePaymentProviderConfig
 java -jar ${JAR_PATH} platform updatePaymentProviderConfig \
-    --id 'A0ARj9ri' \
-    --body '{"aggregate": "XSOLLA", "namespace": "fayvnhi8", "region": "MDdY4WLH", "sandboxTaxJarApiToken": "oaUkYnQp", "specials": ["XSOLLA"], "taxJarApiToken": "gdmVE8Im", "taxJarEnabled": false, "useGlobalTaxJarApiToken": true}' \
+    --id 'dmVE8Imi' \
+    --body '{"aggregate": "ADYEN", "namespace": "NtQxqWRK", "region": "HohODoWO", "sandboxTaxJarApiToken": "r98kjBUa", "specials": ["CHECKOUT"], "taxJarApiToken": "9jjz2Frg", "taxJarEnabled": false, "useGlobalTaxJarApiToken": false}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdatePaymentProviderConfig'
 delete_file $TEMP_FILE
 
 #- 243 DeletePaymentProviderConfig
 java -jar ${JAR_PATH} platform deletePaymentProviderConfig \
-    --id 'NtQxqWRK' \
+    --id 'GrcB7dIO' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeletePaymentProviderConfig'
 delete_file $TEMP_FILE
@@ -2032,15 +2032,15 @@ delete_file $TEMP_FILE
 
 #- 245 UpdatePaymentTaxConfig
 java -jar ${JAR_PATH} platform updatePaymentTaxConfig \
-    --body '{"sandboxTaxJarApiToken": "HohODoWO", "taxJarApiToken": "r98kjBUa", "taxJarEnabled": true, "taxJarProductCodesMapping": {"9jjz2Frg": "iaGrcB7d"}}' \
+    --body '{"sandboxTaxJarApiToken": "VKIPSJJH", "taxJarApiToken": "o5W8tKH8", "taxJarEnabled": false, "taxJarProductCodesMapping": {"u9SdbxSX": "crEFCwqe"}}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdatePaymentTaxConfig'
 delete_file $TEMP_FILE
 
 #- 246 SyncPaymentOrders
 java -jar ${JAR_PATH} platform syncPaymentOrders \
-    --end 'IOVKIPSJ' \
-    --start 'JHo5W8tK' \
+    --end 'GNLdIBRd' \
+    --start 'liFQVMKE' \
     >$TEMP_FILE 2>&1
 update_status $? 'SyncPaymentOrders'
 delete_file $TEMP_FILE
@@ -2061,7 +2061,7 @@ delete_file $TEMP_FILE
 
 #- 249 PublicGetCategory
 java -jar ${JAR_PATH} platform publicGetCategory \
-    --categoryPath 'H8ou9Sdb' \
+    --categoryPath 'zVUWlUWD' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetCategory'
@@ -2069,7 +2069,7 @@ delete_file $TEMP_FILE
 
 #- 250 PublicGetChildCategories
 java -jar ${JAR_PATH} platform publicGetChildCategories \
-    --categoryPath 'xSXcrEFC' \
+    --categoryPath 's2x1EQU0' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetChildCategories'
@@ -2077,7 +2077,7 @@ delete_file $TEMP_FILE
 
 #- 251 PublicGetDescendantCategories
 java -jar ${JAR_PATH} platform publicGetDescendantCategories \
-    --categoryPath 'wqeGNLdI' \
+    --categoryPath 'oepEvcja' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetDescendantCategories'
@@ -2093,7 +2093,7 @@ delete_file $TEMP_FILE
 #- 253 PublicGetItemByAppId
 java -jar ${JAR_PATH} platform publicGetItemByAppId \
     --namespace "test" \
-    --appId 'BRdliFQV' \
+    --appId 'SgEh6jJn' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetItemByAppId'
 delete_file $TEMP_FILE
@@ -2108,7 +2108,7 @@ delete_file $TEMP_FILE
 #- 255 PublicGetItemBySku
 java -jar ${JAR_PATH} platform publicGetItemBySku \
     --namespace "test" \
-    --sku 'MKEzVUWl' \
+    --sku 'FxinIHJ1' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetItemBySku'
 delete_file $TEMP_FILE
@@ -2116,7 +2116,7 @@ delete_file $TEMP_FILE
 #- 256 PublicBulkGetItems
 java -jar ${JAR_PATH} platform publicBulkGetItems \
     --namespace "test" \
-    --itemIds 'UWDs2x1E' \
+    --itemIds 'o7aq5Zzn' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicBulkGetItems'
 delete_file $TEMP_FILE
@@ -2124,15 +2124,15 @@ delete_file $TEMP_FILE
 #- 257 PublicSearchItems
 java -jar ${JAR_PATH} platform publicSearchItems \
     --namespace "test" \
-    --keyword 'QU0oepEv' \
-    --language 'cjaSgEh6' \
+    --keyword 'd5eacobT' \
+    --language 'suRlhreQ' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicSearchItems'
 delete_file $TEMP_FILE
 
 #- 258 PublicGetApp
 java -jar ${JAR_PATH} platform publicGetApp \
-    --itemId 'jJnFxinI' \
+    --itemId 'VFID3o8h' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetApp'
@@ -2140,7 +2140,7 @@ delete_file $TEMP_FILE
 
 #- 259 PublicGetItemDynamicData
 java -jar ${JAR_PATH} platform publicGetItemDynamicData \
-    --itemId 'HJ1o7aq5' \
+    --itemId 'JWVjKIOA' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetItemDynamicData'
@@ -2148,25 +2148,19 @@ delete_file $TEMP_FILE
 
 #- 260 PublicGetItem
 java -jar ${JAR_PATH} platform publicGetItem \
-    --itemId 'Zznd5eac' \
+    --itemId 'w70DvAHh' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetItem'
 delete_file $TEMP_FILE
 
 #- 261 GetPaymentCustomization
-java -jar ${JAR_PATH} platform getPaymentCustomization \
-    --namespace "test" \
-    --paymentProvider 'PAYPAL' \
-    --region 'bTsuRlhr' \
-    >$TEMP_FILE 2>&1
-update_status $? 'GetPaymentCustomization'
-delete_file $TEMP_FILE
+update_status 0 'GetPaymentCustomization (skipped deprecated)'
 
 #- 262 PublicGetPaymentUrl
 java -jar ${JAR_PATH} platform publicGetPaymentUrl \
     --namespace "test" \
-    --body '{"paymentOrderNo": "eQVFID3o", "paymentProvider": "XSOLLA", "returnUrl": "JWVjKIOA", "ui": "w70DvAHh", "zipCode": "SGWUvzq1"}' \
+    --body '{"paymentOrderNo": "SGWUvzq1", "paymentProvider": "WALLET", "returnUrl": "3IBC4vQF", "ui": "sUJPfiaJ", "zipCode": "p1rt7OBg"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetPaymentUrl'
 delete_file $TEMP_FILE
@@ -2174,7 +2168,7 @@ delete_file $TEMP_FILE
 #- 263 PublicGetPaymentMethods
 java -jar ${JAR_PATH} platform publicGetPaymentMethods \
     --namespace "test" \
-    --paymentOrderNo 'Za3IBC4v' \
+    --paymentOrderNo 'BCe6N0eI' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetPaymentMethods'
 delete_file $TEMP_FILE
@@ -2182,7 +2176,7 @@ delete_file $TEMP_FILE
 #- 264 PublicGetUnpaidPaymentOrder
 java -jar ${JAR_PATH} platform publicGetUnpaidPaymentOrder \
     --namespace "test" \
-    --paymentOrderNo 'QFsUJPfi' \
+    --paymentOrderNo '65Mn5tng' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUnpaidPaymentOrder'
 delete_file $TEMP_FILE
@@ -2190,8 +2184,8 @@ delete_file $TEMP_FILE
 #- 265 Pay
 java -jar ${JAR_PATH} platform pay \
     --namespace "test" \
-    --paymentOrderNo 'aJp1rt7O' \
-    --body '{"token": "BgBCe6N0"}' \
+    --paymentOrderNo 'EYXgPVT5' \
+    --body '{"token": "CqXDZBVM"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'Pay'
 delete_file $TEMP_FILE
@@ -2199,7 +2193,7 @@ delete_file $TEMP_FILE
 #- 266 PublicCheckPaymentOrderPaidStatus
 java -jar ${JAR_PATH} platform publicCheckPaymentOrderPaidStatus \
     --namespace "test" \
-    --paymentOrderNo 'eI65Mn5t' \
+    --paymentOrderNo 'JyJeKFO9' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicCheckPaymentOrderPaidStatus'
 delete_file $TEMP_FILE
@@ -2207,8 +2201,8 @@ delete_file $TEMP_FILE
 #- 267 GetPaymentPublicConfig
 java -jar ${JAR_PATH} platform getPaymentPublicConfig \
     --namespace "test" \
-    --paymentProvider 'PAYPAL' \
-    --region 'gEYXgPVT' \
+    --paymentProvider 'XSOLLA' \
+    --region 'taZvJoKS' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetPaymentPublicConfig'
 delete_file $TEMP_FILE
@@ -2216,7 +2210,7 @@ delete_file $TEMP_FILE
 #- 268 PublicGetQRCode
 java -jar ${JAR_PATH} platform publicGetQRCode \
     --namespace "test" \
-    --code '5CqXDZBV' \
+    --code '0OxyipZu' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetQRCode'
 delete_file $TEMP_FILE
@@ -2224,10 +2218,10 @@ delete_file $TEMP_FILE
 #- 269 PublicNormalizePaymentReturnUrl
 java -jar ${JAR_PATH} platform publicNormalizePaymentReturnUrl \
     --namespace "test" \
-    --orderNo 'MJyJeKFO' \
-    --paymentOrderNo '92YDtaZv' \
-    --paymentProvider 'PAYPAL' \
-    --returnUrl 'KS0Oxyip' \
+    --orderNo 'O4N9S2YC' \
+    --paymentOrderNo 'gHa6XBcv' \
+    --paymentProvider 'CHECKOUT' \
+    --returnUrl '5rUtWHCn' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicNormalizePaymentReturnUrl'
 delete_file $TEMP_FILE
@@ -2235,8 +2229,8 @@ delete_file $TEMP_FILE
 #- 270 GetPaymentTaxValue
 java -jar ${JAR_PATH} platform getPaymentTaxValue \
     --namespace "test" \
-    --paymentOrderNo 'ZuO4N9S2' \
-    --paymentProvider 'XSOLLA' \
+    --paymentOrderNo 'hmzzppV7' \
+    --paymentProvider 'STRIPE' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetPaymentTaxValue'
 delete_file $TEMP_FILE
@@ -2244,7 +2238,7 @@ delete_file $TEMP_FILE
 #- 271 GetRewardByCode
 java -jar ${JAR_PATH} platform getRewardByCode \
     --namespace "test" \
-    --rewardCode 'gHa6XBcv' \
+    --rewardCode 'KNKYUQVB' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetRewardByCode'
 delete_file $TEMP_FILE
@@ -2259,7 +2253,7 @@ delete_file $TEMP_FILE
 #- 273 GetReward1
 java -jar ${JAR_PATH} platform getReward1 \
     --namespace "test" \
-    --rewardId 'GRYk5rUt' \
+    --rewardId 'XymWcNlH' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetReward1'
 delete_file $TEMP_FILE
@@ -2281,7 +2275,7 @@ delete_file $TEMP_FILE
 #- 276 PublicGetMyAppEntitlementOwnershipByAppId
 java -jar ${JAR_PATH} platform publicGetMyAppEntitlementOwnershipByAppId \
     --namespace "test" \
-    --appId 'WHCnhmzz' \
+    --appId 'aFxYaGHU' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetMyAppEntitlementOwnershipByAppId'
 delete_file $TEMP_FILE
@@ -2289,7 +2283,7 @@ delete_file $TEMP_FILE
 #- 277 PublicGetMyEntitlementOwnershipByItemId
 java -jar ${JAR_PATH} platform publicGetMyEntitlementOwnershipByItemId \
     --namespace "test" \
-    --itemId 'ppV7tKNK' \
+    --itemId 'pmBFyOrF' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetMyEntitlementOwnershipByItemId'
 delete_file $TEMP_FILE
@@ -2297,7 +2291,7 @@ delete_file $TEMP_FILE
 #- 278 PublicGetMyEntitlementOwnershipBySku
 java -jar ${JAR_PATH} platform publicGetMyEntitlementOwnershipBySku \
     --namespace "test" \
-    --sku 'YUQVBXym' \
+    --sku 'KtxGNAi0' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetMyEntitlementOwnershipBySku'
 delete_file $TEMP_FILE
@@ -2311,7 +2305,7 @@ delete_file $TEMP_FILE
 
 #- 280 PublicGetMyWallet
 java -jar ${JAR_PATH} platform publicGetMyWallet \
-    --currencyCode 'WcNlHaFx' \
+    --currencyCode 'fq4xChPL' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetMyWallet'
@@ -2320,8 +2314,8 @@ delete_file $TEMP_FILE
 #- 281 PublicSyncPsnDlcInventory
 java -jar ${JAR_PATH} platform publicSyncPsnDlcInventory \
     --namespace "test" \
-    --userId 'YaGHUpmB' \
-    --body '{"serviceLabel": 62}' \
+    --userId 'd2lOopc7' \
+    --body '{"serviceLabel": 99}' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicSyncPsnDlcInventory'
 delete_file $TEMP_FILE
@@ -2329,8 +2323,8 @@ delete_file $TEMP_FILE
 #- 282 SyncSteamDLC
 java -jar ${JAR_PATH} platform syncSteamDLC \
     --namespace "test" \
-    --userId 'yOrFKtxG' \
-    --body '{"appId": "NAi0fq4x", "steamId": "ChPLd2lO"}' \
+    --userId 'oVpdd6rC' \
+    --body '{"appId": "pyMrnH9Y", "steamId": "HXh7KnCV"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'SyncSteamDLC'
 delete_file $TEMP_FILE
@@ -2338,8 +2332,8 @@ delete_file $TEMP_FILE
 #- 283 SyncXboxDLC
 java -jar ${JAR_PATH} platform syncXboxDLC \
     --namespace "test" \
-    --userId 'opc7XoVp' \
-    --body '{"xstsToken": "dd6rCpyM"}' \
+    --userId 'OKY2zsBR' \
+    --body '{"xstsToken": "Gtd8QY2O"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'SyncXboxDLC'
 delete_file $TEMP_FILE
@@ -2347,7 +2341,7 @@ delete_file $TEMP_FILE
 #- 284 PublicQueryUserEntitlements
 java -jar ${JAR_PATH} platform publicQueryUserEntitlements \
     --namespace "test" \
-    --userId 'rnH9YHXh' \
+    --userId 'Lbijrvfr' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicQueryUserEntitlements'
 delete_file $TEMP_FILE
@@ -2355,8 +2349,8 @@ delete_file $TEMP_FILE
 #- 285 PublicGetUserAppEntitlementByAppId
 java -jar ${JAR_PATH} platform publicGetUserAppEntitlementByAppId \
     --namespace "test" \
-    --userId '7KnCVOKY' \
-    --appId '2zsBRGtd' \
+    --userId '8hknjWUW' \
+    --appId 'dMUXHvw4' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserAppEntitlementByAppId'
 delete_file $TEMP_FILE
@@ -2364,8 +2358,8 @@ delete_file $TEMP_FILE
 #- 286 PublicQueryUserEntitlementsByAppType
 java -jar ${JAR_PATH} platform publicQueryUserEntitlementsByAppType \
     --namespace "test" \
-    --userId '8QY2OLbi' \
-    --appType 'DLC' \
+    --userId 'pNlGLjdB' \
+    --appType 'GAME' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicQueryUserEntitlementsByAppType'
 delete_file $TEMP_FILE
@@ -2373,8 +2367,8 @@ delete_file $TEMP_FILE
 #- 287 PublicGetUserEntitlementByItemId
 java -jar ${JAR_PATH} platform publicGetUserEntitlementByItemId \
     --namespace "test" \
-    --userId 'rvfr8hkn' \
-    --itemId 'jWUWdMUX' \
+    --userId 'LM079pDA' \
+    --itemId 'bTgmsEYE' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserEntitlementByItemId'
 delete_file $TEMP_FILE
@@ -2382,8 +2376,8 @@ delete_file $TEMP_FILE
 #- 288 PublicGetUserEntitlementBySku
 java -jar ${JAR_PATH} platform publicGetUserEntitlementBySku \
     --namespace "test" \
-    --userId 'Hvw4pNlG' \
-    --sku 'LjdBxLM0' \
+    --userId 'q2GkYK1v' \
+    --sku 'Ym9flXQ7' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserEntitlementBySku'
 delete_file $TEMP_FILE
@@ -2391,7 +2385,7 @@ delete_file $TEMP_FILE
 #- 289 PublicExistsAnyUserActiveEntitlement
 java -jar ${JAR_PATH} platform publicExistsAnyUserActiveEntitlement \
     --namespace "test" \
-    --userId '79pDAbTg' \
+    --userId 'CQoemnQG' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicExistsAnyUserActiveEntitlement'
 delete_file $TEMP_FILE
@@ -2399,8 +2393,8 @@ delete_file $TEMP_FILE
 #- 290 PublicGetUserAppEntitlementOwnershipByAppId
 java -jar ${JAR_PATH} platform publicGetUserAppEntitlementOwnershipByAppId \
     --namespace "test" \
-    --userId 'msEYEq2G' \
-    --appId 'kYK1vYm9' \
+    --userId '0dH0NVM9' \
+    --appId 'VEHTPqDh' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserAppEntitlementOwnershipByAppId'
 delete_file $TEMP_FILE
@@ -2408,8 +2402,8 @@ delete_file $TEMP_FILE
 #- 291 PublicGetUserEntitlementOwnershipByItemId
 java -jar ${JAR_PATH} platform publicGetUserEntitlementOwnershipByItemId \
     --namespace "test" \
-    --userId 'flXQ7CQo' \
-    --itemId 'emnQG0dH' \
+    --userId 'kcu5vnz6' \
+    --itemId 'GiNMboBJ' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserEntitlementOwnershipByItemId'
 delete_file $TEMP_FILE
@@ -2417,27 +2411,27 @@ delete_file $TEMP_FILE
 #- 292 PublicGetUserEntitlementOwnershipBySku
 java -jar ${JAR_PATH} platform publicGetUserEntitlementOwnershipBySku \
     --namespace "test" \
-    --userId '0NVM9VEH' \
-    --sku 'TPqDhkcu' \
+    --userId 'Hml0LJmp' \
+    --sku 'Pi4mqhru' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserEntitlementOwnershipBySku'
 delete_file $TEMP_FILE
 
 #- 293 PublicGetUserEntitlement
 java -jar ${JAR_PATH} platform publicGetUserEntitlement \
-    --entitlementId '5vnz6GiN' \
+    --entitlementId 'iCZLGGP5' \
     --namespace "test" \
-    --userId 'MboBJHml' \
+    --userId 'UXkHNTMa' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserEntitlement'
 delete_file $TEMP_FILE
 
 #- 294 PublicConsumeUserEntitlement
 java -jar ${JAR_PATH} platform publicConsumeUserEntitlement \
-    --entitlementId '0LJmpPi4' \
+    --entitlementId 'pp5Sbons' \
     --namespace "test" \
-    --userId 'mqhruiCZ' \
-    --body '{"useCount": 74}' \
+    --userId 'UJKADr60' \
+    --body '{"useCount": 61}' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicConsumeUserEntitlement'
 delete_file $TEMP_FILE
@@ -2445,8 +2439,8 @@ delete_file $TEMP_FILE
 #- 295 PublicRedeemCode
 java -jar ${JAR_PATH} platform publicRedeemCode \
     --namespace "test" \
-    --userId 'GGP5UXkH' \
-    --body '{"code": "NTMapp5S", "language": "bonsUJKA", "region": "Dr60EkdF"}' \
+    --userId 'kdFrpLsG' \
+    --body '{"code": "t9yTXWUS", "language": "CQcMsHN7", "region": "reI22ks7"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicRedeemCode'
 delete_file $TEMP_FILE
@@ -2454,8 +2448,8 @@ delete_file $TEMP_FILE
 #- 296 PublicFulfillAppleIAPItem
 java -jar ${JAR_PATH} platform publicFulfillAppleIAPItem \
     --namespace "test" \
-    --userId 'rpLsGt9y' \
-    --body '{"excludeOldTransactions": true, "language": "QcMsHN7r", "productId": "eI22ks7I", "receiptData": "12tAZc8s", "region": "xxLx9XQe", "transactionId": "qNWLm8cN"}' \
+    --userId 'I12tAZc8' \
+    --body '{"excludeOldTransactions": true, "language": "xxLx9XQe", "productId": "qNWLm8cN", "receiptData": "JbYH5J4W", "region": "iJLv9NvH", "transactionId": "wtw2Mjcy"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicFulfillAppleIAPItem'
 delete_file $TEMP_FILE
@@ -2463,8 +2457,8 @@ delete_file $TEMP_FILE
 #- 297 SyncEpicGamesInventory
 java -jar ${JAR_PATH} platform syncEpicGamesInventory \
     --namespace "test" \
-    --userId 'JbYH5J4W' \
-    --body '{"epicGamesJwtToken": "iJLv9NvH"}' \
+    --userId '9ZL6Zs5B' \
+    --body '{"epicGamesJwtToken": "u2XYopLW"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'SyncEpicGamesInventory'
 delete_file $TEMP_FILE
@@ -2472,8 +2466,8 @@ delete_file $TEMP_FILE
 #- 298 PublicFulfillGoogleIAPItem
 java -jar ${JAR_PATH} platform publicFulfillGoogleIAPItem \
     --namespace "test" \
-    --userId 'wtw2Mjcy' \
-    --body '{"autoAck": true, "language": "5Bu2XYop", "orderId": "LWZeUKJJ", "packageName": "NftRpGgk", "productId": "1iseREzz", "purchaseTime": 86, "purchaseToken": "G6z9wmuH", "region": "ddyOdibI"}' \
+    --userId 'ZeUKJJNf' \
+    --body '{"autoAck": true, "language": "RpGgk1is", "orderId": "eREzzRG6", "packageName": "z9wmuHdd", "productId": "yOdibI1L", "purchaseTime": 95, "purchaseToken": "yqbdY8DG", "region": "ZKAuoIKz"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicFulfillGoogleIAPItem'
 delete_file $TEMP_FILE
@@ -2481,8 +2475,8 @@ delete_file $TEMP_FILE
 #- 299 PublicReconcilePlayStationStore
 java -jar ${JAR_PATH} platform publicReconcilePlayStationStore \
     --namespace "test" \
-    --userId '1LVyqbdY' \
-    --body '{"currencyCode": "8DGZKAuo", "price": 0.545408047519613, "productId": "Kz3Pp3zL", "serviceLabel": 97}' \
+    --userId '3Pp3zLWU' \
+    --body '{"currencyCode": "xMzMtSmM", "price": 0.19846848254847427, "productId": "P8nG0FoQ", "serviceLabel": 83}' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicReconcilePlayStationStore'
 delete_file $TEMP_FILE
@@ -2490,8 +2484,8 @@ delete_file $TEMP_FILE
 #- 300 SyncStadiaEntitlement
 java -jar ${JAR_PATH} platform syncStadiaEntitlement \
     --namespace "test" \
-    --userId 'UxMzMtSm' \
-    --body '{"appId": "MmZP8nG0", "language": "FoQP8q7a", "region": "Ssb85gAh", "stadiaPlayerId": "9RD3ZzN6"}' \
+    --userId '8q7aSsb8' \
+    --body '{"appId": "5gAh9RD3", "language": "ZzN6N1iJ", "region": "8ltt9IRq", "stadiaPlayerId": "Cflgln6r"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'SyncStadiaEntitlement'
 delete_file $TEMP_FILE
@@ -2499,8 +2493,8 @@ delete_file $TEMP_FILE
 #- 301 SyncSteamInventory
 java -jar ${JAR_PATH} platform syncSteamInventory \
     --namespace "test" \
-    --userId 'N1iJ8ltt' \
-    --body '{"appId": "9IRqCflg", "currencyCode": "ln6r5f0s", "language": "5H6lCf3Q", "price": 0.5255558268132179, "productId": "11hLLCgw", "region": "5av4LExd", "steamId": "abD8g2cv"}' \
+    --userId '5f0s5H6l' \
+    --body '{"appId": "Cf3QHa11", "currencyCode": "hLLCgw5a", "language": "v4LExdab", "price": 0.4652651246103652, "productId": "g2cvHfMR", "region": "upDA5xbj", "steamId": "s3XRdHUJ"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'SyncSteamInventory'
 delete_file $TEMP_FILE
@@ -2508,8 +2502,8 @@ delete_file $TEMP_FILE
 #- 302 SyncTwitchDropsEntitlement
 java -jar ${JAR_PATH} platform syncTwitchDropsEntitlement \
     --namespace "test" \
-    --userId 'HfMRupDA' \
-    --body '{"gameId": "5xbjs3XR", "language": "dHUJ0GCm", "region": "flIXkgJ6"}' \
+    --userId '0GCmflIX' \
+    --body '{"gameId": "kgJ6zkTw", "language": "oakq7sEe", "region": "jFZ1NtON"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'SyncTwitchDropsEntitlement'
 delete_file $TEMP_FILE
@@ -2517,8 +2511,8 @@ delete_file $TEMP_FILE
 #- 303 SyncXboxInventory
 java -jar ${JAR_PATH} platform syncXboxInventory \
     --namespace "test" \
-    --userId 'zkTwoakq' \
-    --body '{"currencyCode": "7sEejFZ1", "price": 0.6098341965022664, "productId": "ONXb9w9h", "xstsToken": "sQHszIsf"}' \
+    --userId 'Xb9w9hsQ' \
+    --body '{"currencyCode": "HszIsfrl", "price": 0.39589349599752466, "productId": "pQdd58dZ", "xstsToken": "P5RvrinN"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'SyncXboxInventory'
 delete_file $TEMP_FILE
@@ -2526,7 +2520,7 @@ delete_file $TEMP_FILE
 #- 304 PublicQueryUserOrders
 java -jar ${JAR_PATH} platform publicQueryUserOrders \
     --namespace "test" \
-    --userId 'rlzKpQdd' \
+    --userId 'tvBtqFSk' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicQueryUserOrders'
 delete_file $TEMP_FILE
@@ -2534,8 +2528,8 @@ delete_file $TEMP_FILE
 #- 305 PublicCreateUserOrder
 java -jar ${JAR_PATH} platform publicCreateUserOrder \
     --namespace "test" \
-    --userId '58dZP5Rv' \
-    --body '{"currencyCode": "rinNtvBt", "discountedPrice": 32, "ext": {"FSkA68mI": {}}, "itemId": "VYJ5pSVx", "language": "BsLhty3p", "price": 9, "quantity": 4, "region": "ToXA4M1o", "returnUrl": "UFPhgo7Z"}' \
+    --userId 'A68mIVYJ' \
+    --body '{"currencyCode": "5pSVxBsL", "discountedPrice": 14, "ext": {"ty3pecTo": {}}, "itemId": "XA4M1oUF", "language": "Phgo7Z6m", "price": 44, "quantity": 78, "region": "C4FY69mM", "returnUrl": "87joJNOG"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicCreateUserOrder'
 delete_file $TEMP_FILE
@@ -2543,8 +2537,8 @@ delete_file $TEMP_FILE
 #- 306 PublicGetUserOrder
 java -jar ${JAR_PATH} platform publicGetUserOrder \
     --namespace "test" \
-    --orderNo '6mwNC4FY' \
-    --userId '69mM87jo' \
+    --orderNo 'B83Ns6Hl' \
+    --userId '5Poab6lK' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserOrder'
 delete_file $TEMP_FILE
@@ -2552,8 +2546,8 @@ delete_file $TEMP_FILE
 #- 307 PublicCancelUserOrder
 java -jar ${JAR_PATH} platform publicCancelUserOrder \
     --namespace "test" \
-    --orderNo 'JNOGB83N' \
-    --userId 's6Hl5Poa' \
+    --orderNo 'oVqNBUzI' \
+    --userId 'xOfglquS' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicCancelUserOrder'
 delete_file $TEMP_FILE
@@ -2561,8 +2555,8 @@ delete_file $TEMP_FILE
 #- 308 PublicGetUserOrderHistories
 java -jar ${JAR_PATH} platform publicGetUserOrderHistories \
     --namespace "test" \
-    --orderNo 'b6lKoVqN' \
-    --userId 'BUzIxOfg' \
+    --orderNo '2q2DoWr9' \
+    --userId 'zvFtKa2m' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserOrderHistories'
 delete_file $TEMP_FILE
@@ -2570,8 +2564,8 @@ delete_file $TEMP_FILE
 #- 309 PublicDownloadUserOrderReceipt
 java -jar ${JAR_PATH} platform publicDownloadUserOrderReceipt \
     --namespace "test" \
-    --orderNo 'lquS2q2D' \
-    --userId 'oWr9zvFt' \
+    --orderNo 'OAqOokV1' \
+    --userId 'plxQ2Yri' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicDownloadUserOrderReceipt'
 delete_file $TEMP_FILE
@@ -2579,17 +2573,17 @@ delete_file $TEMP_FILE
 #- 310 PublicGetPaymentAccounts
 java -jar ${JAR_PATH} platform publicGetPaymentAccounts \
     --namespace "test" \
-    --userId 'Ka2mOAqO' \
+    --userId 'TPfipD67' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetPaymentAccounts'
 delete_file $TEMP_FILE
 
 #- 311 PublicDeletePaymentAccount
 java -jar ${JAR_PATH} platform publicDeletePaymentAccount \
-    --id 'okV1plxQ' \
+    --id 'jI2hiZkr' \
     --namespace "test" \
     --type 'paypal' \
-    --userId 'iTPfipD6' \
+    --userId 'Lnh2U1RQ' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicDeletePaymentAccount'
 delete_file $TEMP_FILE
@@ -2597,7 +2591,7 @@ delete_file $TEMP_FILE
 #- 312 PublicQueryUserSubscriptions
 java -jar ${JAR_PATH} platform publicQueryUserSubscriptions \
     --namespace "test" \
-    --userId '7jI2hiZk' \
+    --userId 'lMxkfNMP' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicQueryUserSubscriptions'
 delete_file $TEMP_FILE
@@ -2605,8 +2599,8 @@ delete_file $TEMP_FILE
 #- 313 PublicSubscribeSubscription
 java -jar ${JAR_PATH} platform publicSubscribeSubscription \
     --namespace "test" \
-    --userId 'rtLnh2U1' \
-    --body '{"currencyCode": "RQlMxkfN", "itemId": "MPNtqv2T", "language": "Mz1b7Snz", "region": "kXOek83I", "returnUrl": "gm1wkSWs", "source": "YvAsu18o"}' \
+    --userId 'Ntqv2TMz' \
+    --body '{"currencyCode": "1b7SnzkX", "itemId": "Oek83Igm", "language": "1wkSWsYv", "region": "Asu18obU", "returnUrl": "dc8mbvXc", "source": "wcgMqOXM"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicSubscribeSubscription'
 delete_file $TEMP_FILE
@@ -2614,8 +2608,8 @@ delete_file $TEMP_FILE
 #- 314 PublicCheckUserSubscriptionSubscribableByItemId
 java -jar ${JAR_PATH} platform publicCheckUserSubscriptionSubscribableByItemId \
     --namespace "test" \
-    --userId 'bUdc8mbv' \
-    --itemId 'XcwcgMqO' \
+    --userId 'ziXrVdsE' \
+    --itemId 'c3ClFP3m' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicCheckUserSubscriptionSubscribableByItemId'
 delete_file $TEMP_FILE
@@ -2623,8 +2617,8 @@ delete_file $TEMP_FILE
 #- 315 PublicGetUserSubscription
 java -jar ${JAR_PATH} platform publicGetUserSubscription \
     --namespace "test" \
-    --subscriptionId 'XMziXrVd' \
-    --userId 'sEc3ClFP' \
+    --subscriptionId 'JwusCBTe' \
+    --userId '4kLcuqL4' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserSubscription'
 delete_file $TEMP_FILE
@@ -2632,8 +2626,8 @@ delete_file $TEMP_FILE
 #- 316 PublicChangeSubscriptionBillingAccount
 java -jar ${JAR_PATH} platform publicChangeSubscriptionBillingAccount \
     --namespace "test" \
-    --subscriptionId '3mJwusCB' \
-    --userId 'Te4kLcuq' \
+    --subscriptionId '0NYgekRa' \
+    --userId 'vpaGTA9B' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicChangeSubscriptionBillingAccount'
 delete_file $TEMP_FILE
@@ -2641,9 +2635,9 @@ delete_file $TEMP_FILE
 #- 317 PublicCancelSubscription
 java -jar ${JAR_PATH} platform publicCancelSubscription \
     --namespace "test" \
-    --subscriptionId 'L40NYgek' \
-    --userId 'RavpaGTA' \
-    --body '{"immediate": true, "reason": "TyCCyN4F"}' \
+    --subscriptionId 'TyCCyN4F' \
+    --userId 'w9i6mI2W' \
+    --body '{"immediate": true, "reason": "jjCqPVyY"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicCancelSubscription'
 delete_file $TEMP_FILE
@@ -2651,26 +2645,26 @@ delete_file $TEMP_FILE
 #- 318 PublicGetUserSubscriptionBillingHistories
 java -jar ${JAR_PATH} platform publicGetUserSubscriptionBillingHistories \
     --namespace "test" \
-    --subscriptionId 'w9i6mI2W' \
-    --userId '3tjjCqPV' \
+    --subscriptionId 's01hEYzW' \
+    --userId 'w3qrcxM0' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserSubscriptionBillingHistories'
 delete_file $TEMP_FILE
 
 #- 319 PublicGetWallet
 java -jar ${JAR_PATH} platform publicGetWallet \
-    --currencyCode 'yYs01hEY' \
+    --currencyCode 'DPAXQBNM' \
     --namespace "test" \
-    --userId 'zWw3qrcx' \
+    --userId 'P7j3xfPa' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetWallet'
 delete_file $TEMP_FILE
 
 #- 320 PublicListUserWalletTransactions
 java -jar ${JAR_PATH} platform publicListUserWalletTransactions \
-    --currencyCode 'M0DPAXQB' \
+    --currencyCode 'oZaWFspk' \
     --namespace "test" \
-    --userId 'NMP7j3xf' \
+    --userId 'U5kn6PlP' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicListUserWalletTransactions'
 delete_file $TEMP_FILE

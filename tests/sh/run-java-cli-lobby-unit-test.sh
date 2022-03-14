@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+#Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
 #This is licensed software from AccelByte Inc, for limitations
 #and restrictions contact your company contract manager.
 
@@ -181,7 +181,7 @@ delete_file $TEMP_FILE
 
 #- 15 AdminUpdateConfigV1
 java -jar ${JAR_PATH} lobby adminUpdateConfigV1 \
-    --body '{"autoKickOnDisconnect": false, "autoKickOnDisconnectDelay": 29, "cancelTicketOnDisconnect": true, "chatRateLimitBurst": 31, "chatRateLimitDuration": 56, "concurrentUsersLimit": 72, "disablePartyInvitationToken": false, "enableChat": true, "entitlementCheck": true, "entitlementItemID": "dNEUsxFb", "generalRateLimitBurst": 56, "generalRateLimitDuration": 70, "maxPartyMember": 76, "profanityFilter": true, "readyConsentTimeout": 70}' \
+    --body '{"allowInviteNonConnectedUser": false, "autoKickOnDisconnect": false, "autoKickOnDisconnectDelay": 51, "cancelTicketOnDisconnect": false, "chatRateLimitBurst": 56, "chatRateLimitDuration": 72, "concurrentUsersLimit": 24, "disablePartyInvitationToken": true, "enableChat": true, "entitlementCheck": false, "entitlementItemID": "NEUsxFb8", "generalRateLimitBurst": 56, "generalRateLimitDuration": 70, "maxPartyMember": 76, "profanityFilter": true, "readyConsentTimeout": 70}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdateConfigV1'
