@@ -39,6 +39,12 @@ public class PaymentUrl extends Model {
     @JsonProperty("returnUrl")
     private String returnUrl;
 
+    @JsonProperty("sessionData")
+    private String sessionData;
+
+    @JsonProperty("sessionId")
+    private String sessionId;
+
     @JsonIgnore
     public PaymentUrl createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -56,6 +62,8 @@ public class PaymentUrl extends Model {
         result.put("paymentType", "paymentType");
         result.put("paymentUrl", "paymentUrl");
         result.put("returnUrl", "returnUrl");
+        result.put("sessionData", "sessionData");
+        result.put("sessionId", "sessionId");
         return result;
     }
 }

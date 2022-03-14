@@ -45,6 +45,9 @@ public class ModelUserCreateFromInvitationRequestV4 extends Model {
     @JsonProperty("password")
     private String password;
 
+    @JsonProperty("reachMinimumAge")
+    private Boolean reachMinimumAge;
+
     @JsonProperty("username")
     private String username;
 
@@ -67,6 +70,7 @@ public class ModelUserCreateFromInvitationRequestV4 extends Model {
         result.put("dateOfBirth", "dateOfBirth");
         result.put("displayName", "displayName");
         result.put("password", "password");
+        result.put("reachMinimumAge", "reachMinimumAge");
         result.put("username", "username");
         return result;
     }

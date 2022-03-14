@@ -36,6 +36,9 @@ public class ModelUserVerificationRequest extends Model {
     @JsonProperty("LanguageTag")
     private String languageTag;
 
+    @JsonProperty("validateOnly")
+    private Boolean validateOnly;
+
     @JsonIgnore
     public ModelUserVerificationRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -52,6 +55,7 @@ public class ModelUserVerificationRequest extends Model {
         result.put("Code", "code");
         result.put("ContactType", "contactType");
         result.put("LanguageTag", "languageTag");
+        result.put("validateOnly", "validateOnly");
         return result;
     }
 }

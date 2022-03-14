@@ -27,6 +27,9 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelRoleUpdateRequestV3 extends Model {
 
+    @JsonProperty("deletable")
+    private Boolean deletable;
+
     @JsonProperty("isWildcard")
     private Boolean isWildcard;
 
@@ -46,6 +49,7 @@ public class ModelRoleUpdateRequestV3 extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
+        result.put("deletable", "deletable");
         result.put("isWildcard", "isWildcard");
         result.put("roleName", "roleName");
         return result;

@@ -27,6 +27,9 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsConfig extends Model {
 
+    @JsonProperty("allowInviteNonConnectedUser")
+    private Boolean allowInviteNonConnectedUser;
+
     @JsonProperty("autoKickOnDisconnect")
     private Boolean autoKickOnDisconnect;
 
@@ -88,6 +91,7 @@ public class ModelsConfig extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
+        result.put("allowInviteNonConnectedUser", "allowInviteNonConnectedUser");
         result.put("autoKickOnDisconnect", "autoKickOnDisconnect");
         result.put("autoKickOnDisconnectDelay", "autoKickOnDisconnectDelay");
         result.put("cancelTicketOnDisconnect", "cancelTicketOnDisconnect");

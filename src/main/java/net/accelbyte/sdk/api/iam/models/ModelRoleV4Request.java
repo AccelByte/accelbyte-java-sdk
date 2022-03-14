@@ -30,6 +30,9 @@ public class ModelRoleV4Request extends Model {
     @JsonProperty("adminRole")
     private Boolean adminRole;
 
+    @JsonProperty("deletable")
+    private Boolean deletable;
+
     @JsonProperty("isWildcard")
     private Boolean isWildcard;
 
@@ -50,6 +53,7 @@ public class ModelRoleV4Request extends Model {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("adminRole", "adminRole");
+        result.put("deletable", "deletable");
         result.put("isWildcard", "isWildcard");
         result.put("roleName", "roleName");
         return result;

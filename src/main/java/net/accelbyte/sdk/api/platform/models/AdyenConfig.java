@@ -39,6 +39,12 @@ public class AdyenConfig extends Model {
     @JsonProperty("blockedPaymentMethods")
     private List<String> blockedPaymentMethods;
 
+    @JsonProperty("clientKey")
+    private String clientKey;
+
+    @JsonProperty("dropInSettings")
+    private String dropInSettings;
+
     @JsonProperty("liveEndpointUrlPrefix")
     private String liveEndpointUrlPrefix;
 
@@ -77,6 +83,8 @@ public class AdyenConfig extends Model {
         result.put("apiKey", "apiKey");
         result.put("authoriseAsCapture", "authoriseAsCapture");
         result.put("blockedPaymentMethods", "blockedPaymentMethods");
+        result.put("clientKey", "clientKey");
+        result.put("dropInSettings", "dropInSettings");
         result.put("liveEndpointUrlPrefix", "liveEndpointUrlPrefix");
         result.put("merchantAccount", "merchantAccount");
         result.put("notificationHmacKey", "notificationHmacKey");

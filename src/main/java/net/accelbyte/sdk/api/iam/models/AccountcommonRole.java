@@ -30,6 +30,9 @@ public class AccountcommonRole extends Model {
     @JsonProperty("AdminRole")
     private Boolean adminRole;
 
+    @JsonProperty("Deletable")
+    private Boolean deletable;
+
     @JsonProperty("IsWildcard")
     private Boolean isWildcard;
 
@@ -62,6 +65,7 @@ public class AccountcommonRole extends Model {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("AdminRole", "adminRole");
+        result.put("Deletable", "deletable");
         result.put("IsWildcard", "isWildcard");
         result.put("Managers", "managers");
         result.put("Members", "members");

@@ -39,6 +39,9 @@ public class ClientmodelClientUpdateV3Request extends Model {
     @JsonProperty("clientPermissions")
     private List<AccountcommonPermissionV3> clientPermissions;
 
+    @JsonProperty("deletable")
+    private Boolean deletable;
+
     @JsonProperty("namespace")
     private String namespace;
 
@@ -62,6 +65,7 @@ public class ClientmodelClientUpdateV3Request extends Model {
         result.put("baseUri", "baseUri");
         result.put("clientName", "clientName");
         result.put("clientPermissions", "clientPermissions");
+        result.put("deletable", "deletable");
         result.put("namespace", "namespace");
         result.put("redirectUri", "redirectUri");
         return result;

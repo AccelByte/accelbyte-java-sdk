@@ -83,7 +83,9 @@ public class PublicNormalizePaymentReturnUrl extends Operation {
     private String foreinginvoice;
     private String invoiceId;
     private String payload;
+    private String redirectResult;
     private String resultCode;
+    private String sessionId;
     private String status;
     private String token;
     private String type;
@@ -107,7 +109,9 @@ public class PublicNormalizePaymentReturnUrl extends Operation {
             String foreinginvoice,
             String invoiceId,
             String payload,
+            String redirectResult,
             String resultCode,
+            String sessionId,
             String status,
             String token,
             String type,
@@ -123,7 +127,9 @@ public class PublicNormalizePaymentReturnUrl extends Operation {
         this.foreinginvoice = foreinginvoice;
         this.invoiceId = invoiceId;
         this.payload = payload;
+        this.redirectResult = redirectResult;
         this.resultCode = resultCode;
+        this.sessionId = sessionId;
         this.status = status;
         this.token = token;
         this.type = type;
@@ -162,7 +168,9 @@ public class PublicNormalizePaymentReturnUrl extends Operation {
         queryParams.put("foreinginvoice", this.foreinginvoice == null ? null : Arrays.asList(this.foreinginvoice));
         queryParams.put("invoice_id", this.invoiceId == null ? null : Arrays.asList(this.invoiceId));
         queryParams.put("payload", this.payload == null ? null : Arrays.asList(this.payload));
+        queryParams.put("redirectResult", this.redirectResult == null ? null : Arrays.asList(this.redirectResult));
         queryParams.put("resultCode", this.resultCode == null ? null : Arrays.asList(this.resultCode));
+        queryParams.put("sessionId", this.sessionId == null ? null : Arrays.asList(this.sessionId));
         queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));
         queryParams.put("token", this.token == null ? null : Arrays.asList(this.token));
         queryParams.put("type", this.type == null ? null : Arrays.asList(this.type));
@@ -190,7 +198,9 @@ public class PublicNormalizePaymentReturnUrl extends Operation {
         result.put("foreinginvoice","foreinginvoice");
         result.put("invoice_id","invoiceId");
         result.put("payload","payload");
+        result.put("redirectResult","redirectResult");
         result.put("resultCode","resultCode");
+        result.put("sessionId","sessionId");
         result.put("status","status");
         result.put("token","token");
         result.put("type","type");
@@ -206,6 +216,8 @@ public class PublicNormalizePaymentReturnUrl extends Operation {
     public List<String> getAllRequiredFields() {
         return Arrays.asList(
             "namespace",
+
+
 
 
 
@@ -259,7 +271,9 @@ public class PublicNormalizePaymentReturnUrl extends Operation {
         result.put("foreinginvoice", "None");
         result.put("invoice_id", "None");
         result.put("payload", "None");
+        result.put("redirectResult", "None");
         result.put("resultCode", "None");
+        result.put("sessionId", "None");
         result.put("status", "None");
         result.put("token", "None");
         result.put("type", "None");

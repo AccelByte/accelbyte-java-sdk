@@ -30,6 +30,9 @@ public class ModelRoleCreateV3Request extends Model {
     @JsonProperty("adminRole")
     private Boolean adminRole;
 
+    @JsonProperty("deletable")
+    private Boolean deletable;
+
     @JsonProperty("isWildcard")
     private Boolean isWildcard;
 
@@ -59,6 +62,7 @@ public class ModelRoleCreateV3Request extends Model {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("adminRole", "adminRole");
+        result.put("deletable", "deletable");
         result.put("isWildcard", "isWildcard");
         result.put("managers", "managers");
         result.put("members", "members");

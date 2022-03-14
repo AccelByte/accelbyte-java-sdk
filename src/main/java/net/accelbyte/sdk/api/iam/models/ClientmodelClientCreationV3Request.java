@@ -42,6 +42,9 @@ public class ClientmodelClientCreationV3Request extends Model {
     @JsonProperty("clientPermissions")
     private List<AccountcommonPermissionV3> clientPermissions;
 
+    @JsonProperty("deletable")
+    private Boolean deletable;
+
     @JsonProperty("namespace")
     private String namespace;
 
@@ -72,6 +75,7 @@ public class ClientmodelClientCreationV3Request extends Model {
         result.put("clientId", "clientId");
         result.put("clientName", "clientName");
         result.put("clientPermissions", "clientPermissions");
+        result.put("deletable", "deletable");
         result.put("namespace", "namespace");
         result.put("oauthClientType", "oauthClientType");
         result.put("redirectUri", "redirectUri");

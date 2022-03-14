@@ -45,6 +45,9 @@ public class ModelUserCreateFromInvitationRequestV3 extends Model {
     @JsonProperty("password")
     private String password;
 
+    @JsonProperty("reachMinimumAge")
+    private Boolean reachMinimumAge;
+
     @JsonIgnore
     public ModelUserCreateFromInvitationRequestV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -64,6 +67,7 @@ public class ModelUserCreateFromInvitationRequestV3 extends Model {
         result.put("dateOfBirth", "dateOfBirth");
         result.put("displayName", "displayName");
         result.put("password", "password");
+        result.put("reachMinimumAge", "reachMinimumAge");
         return result;
     }
 }

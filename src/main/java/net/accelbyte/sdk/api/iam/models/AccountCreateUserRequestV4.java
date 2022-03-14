@@ -33,6 +33,9 @@ public class AccountCreateUserRequestV4 extends Model {
     @JsonProperty("authType")
     private String authType;
 
+    @JsonProperty("code")
+    private String code;
+
     @JsonProperty("country")
     private String country;
 
@@ -50,6 +53,9 @@ public class AccountCreateUserRequestV4 extends Model {
 
     @JsonProperty("passwordMD5Sum")
     private String passwordMD5Sum;
+
+    @JsonProperty("reachMinimumAge")
+    private Boolean reachMinimumAge;
 
     @JsonProperty("username")
     private String username;
@@ -69,12 +75,14 @@ public class AccountCreateUserRequestV4 extends Model {
         Map<String, String> result = new HashMap<>();
         result.put("acceptedPolicies", "acceptedPolicies");
         result.put("authType", "authType");
+        result.put("code", "code");
         result.put("country", "country");
         result.put("dateOfBirth", "dateOfBirth");
         result.put("displayName", "displayName");
         result.put("emailAddress", "emailAddress");
         result.put("password", "password");
         result.put("passwordMD5Sum", "passwordMD5Sum");
+        result.put("reachMinimumAge", "reachMinimumAge");
         result.put("username", "username");
         return result;
     }

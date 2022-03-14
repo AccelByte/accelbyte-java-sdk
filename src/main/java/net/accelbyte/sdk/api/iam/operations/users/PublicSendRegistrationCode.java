@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.platform.operations.payment_station;
+package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,8 +15,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.models.Customization;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.iam.models.ModelSendRegisterVerificationCodeRequest;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -26,28 +26,27 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
- * getPaymentCustomization
+ * PublicSendRegistrationCode
  *
- * Get payment provider customization, at current only Adyen provide customization. This api has been deprecated, pls use /public/namespaces/{namespace}/payment/publicconfig to get adyen config
- * Other detail info:
+ * This endpoint will validate the request's email address.
  * 
- *   * Returns : customization
- *
- * @deprecated
+ * If it already been used, will response 409.
+ * 
+ * If it is available, we will send a verification code to this email address.
+ * This code can be verified by this endpoint.
  */
-@Deprecated
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GetPaymentCustomization extends Operation {
+public class PublicSendRegistrationCode extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/platform/public/namespaces/{namespace}/payment/customization";
+    private String url = "/iam/v3/public/namespaces/{namespace}/users/code/request";
 
     @JsonIgnore
-    private String method = "GET";
+    private String method = "POST";
 
     @JsonIgnore
     private List<String> consumes = Arrays.asList("application/json");
@@ -65,31 +64,24 @@ public class GetPaymentCustomization extends Operation {
      * fields as input parameter
      */
     private String namespace;
-    private Boolean sandbox;
-    private String paymentProvider;
-    private String region;
+    private ModelSendRegisterVerificationCodeRequest body;
 
     /**
     * @param namespace required
-    * @param paymentProvider required
-    * @param region required
+    * @param body required
     */
     @Builder
-    public GetPaymentCustomization(
+    public PublicSendRegistrationCode(
             String namespace,
-            Boolean sandbox,
-            String paymentProvider,
-            String region
+            ModelSendRegisterVerificationCodeRequest body
     )
     {
         this.namespace = namespace;
-        this.sandbox = sandbox;
-        this.paymentProvider = paymentProvider;
-        this.region = region;
+        this.body = body;
     }
 
     @JsonIgnore
-    public GetPaymentCustomization createFromJson(String json) throws JsonProcessingException {
+    public PublicSendRegistrationCode createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -108,16 +100,12 @@ public class GetPaymentCustomization extends Operation {
         return pathParams;
     }
 
+
     @Override
     @JsonIgnore
-    public Map<String, List<String>> getQueryParams(){
-        Map<String, List<String>> queryParams = new HashMap<>();
-        queryParams.put("sandbox", this.sandbox == null ? null : Arrays.asList(String.valueOf(this.sandbox)));
-        queryParams.put("paymentProvider", this.paymentProvider == null ? null : Arrays.asList(this.paymentProvider));
-        queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
-        return queryParams;
+    public ModelSendRegisterVerificationCodeRequest getBodyParams(){
+        return this.body;
     }
-
 
 
     @Override
@@ -130,19 +118,13 @@ public class GetPaymentCustomization extends Operation {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("namespace","namespace");
-        result.put("sandbox","sandbox");
-        result.put("paymentProvider","paymentProvider");
-        result.put("region","region");
         return result;
     }
 
     @JsonIgnore
     public List<String> getAllRequiredFields() {
         return Arrays.asList(
-            "namespace",
-
-            "paymentProvider",
-            "region"
+            "namespace"
         );
     }
 
@@ -152,31 +134,16 @@ public class GetPaymentCustomization extends Operation {
         if(this.namespace == null) {
             return false;
         }
-        if(this.paymentProvider == null) {
-            return false;
-        }
-        if(this.region == null) {
-            return false;
-        }
         return true;
     }
 
     @Override
     @JsonIgnore
-    public Customization parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
-        String json = this.convertInputStreamToString(payload);
-        if(code == 200){
-            return new Customization().createFromJson(json);
+    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+        if(code != 204){
+            String json = this.convertInputStreamToString(payload);
+            throw new ResponseException(code, json);
         }
-        throw new ResponseException(code, json);
     }
 
-    @Override
-    public Map<String, String> getCollectionFormatMap() {
-        Map<String, String> result = new HashMap<>();
-        result.put("sandbox", "None");
-        result.put("paymentProvider", "None");
-        result.put("region", "None");
-        return result;
-    }
 }

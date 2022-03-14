@@ -27,7 +27,9 @@ public class PaymentStation {
 
     /**
      * @see GetPaymentCustomization
+     * @deprecated
      */
+    @Deprecated
     public Customization getPaymentCustomization(GetPaymentCustomization input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {

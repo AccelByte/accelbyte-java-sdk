@@ -36,6 +36,9 @@ public class ModelUserCreateRequestV3 extends Model {
     @JsonProperty("authType")
     private String authType;
 
+    @JsonProperty("code")
+    private String code;
+
     @JsonProperty("country")
     private String country;
 
@@ -50,6 +53,9 @@ public class ModelUserCreateRequestV3 extends Model {
 
     @JsonProperty("password")
     private String password;
+
+    @JsonProperty("reachMinimumAge")
+    private Boolean reachMinimumAge;
 
     @JsonIgnore
     public ModelUserCreateRequestV3 createFromJson(String json) throws JsonProcessingException {
@@ -67,11 +73,13 @@ public class ModelUserCreateRequestV3 extends Model {
         result.put("PasswordMD5Sum", "passwordMD5Sum");
         result.put("acceptedPolicies", "acceptedPolicies");
         result.put("authType", "authType");
+        result.put("code", "code");
         result.put("country", "country");
         result.put("dateOfBirth", "dateOfBirth");
         result.put("displayName", "displayName");
         result.put("emailAddress", "emailAddress");
         result.put("password", "password");
+        result.put("reachMinimumAge", "reachMinimumAge");
         return result;
     }
 }

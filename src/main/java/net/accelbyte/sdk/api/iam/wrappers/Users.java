@@ -1045,6 +1045,25 @@ public class Users {
     }
 
     /**
+     * @see PublicGetCountryAgeRestriction
+     */
+    public List<AccountcommonCountryAgeRestriction> publicGetCountryAgeRestriction(PublicGetCountryAgeRestriction input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
      * @see PublicCreateUserV2
      */
     public ModelUserCreateResponse publicCreateUserV2(PublicCreateUserV2 input) throws ResponseException, IOException {
@@ -2174,6 +2193,44 @@ public class Users {
           httpResponse = sdk.runRequest(input);
           return input
               .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see PublicSendRegistrationCode
+     */
+    public void publicSendRegistrationCode(PublicSendRegistrationCode input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see PublicVerifyRegistrationCode
+     */
+    public void publicVerifyRegistrationCode(PublicVerifyRegistrationCode input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
           );
         }

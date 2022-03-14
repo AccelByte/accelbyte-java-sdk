@@ -73,6 +73,9 @@ import java.util.*;
  * 
  * 
  *           * clientPermissions : Contains the client's permissions
+ * 
+ * 
+ *           * deletable : The flag to identify whether client is deletable (optional). default value: true
  */
 @Getter
 @Setter

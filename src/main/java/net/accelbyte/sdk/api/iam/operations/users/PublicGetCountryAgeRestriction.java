@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.platform.operations.payment_station;
+package net.accelbyte.sdk.api.iam.operations.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,8 +15,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.models.Customization;
+import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -26,31 +25,23 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
- * getPaymentCustomization
- *
- * Get payment provider customization, at current only Adyen provide customization. This api has been deprecated, pls use /public/namespaces/{namespace}/payment/publicconfig to get adyen config
- * Other detail info:
- * 
- *   * Returns : customization
- *
- * @deprecated
+ * PublicGetCountryAgeRestriction
  */
-@Deprecated
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GetPaymentCustomization extends Operation {
+public class PublicGetCountryAgeRestriction extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/platform/public/namespaces/{namespace}/payment/customization";
+    private String url = "/iam/v2/public/namespaces/{namespace}/countries/{countryCode}/agerestrictions";
 
     @JsonIgnore
     private String method = "GET";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList("application/json");
+    private List<String> consumes = Arrays.asList();
 
     @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
@@ -64,32 +55,25 @@ public class GetPaymentCustomization extends Operation {
     /**
      * fields as input parameter
      */
+    private String countryCode;
     private String namespace;
-    private Boolean sandbox;
-    private String paymentProvider;
-    private String region;
 
     /**
+    * @param countryCode required
     * @param namespace required
-    * @param paymentProvider required
-    * @param region required
     */
     @Builder
-    public GetPaymentCustomization(
-            String namespace,
-            Boolean sandbox,
-            String paymentProvider,
-            String region
+    public PublicGetCountryAgeRestriction(
+            String countryCode,
+            String namespace
     )
     {
+        this.countryCode = countryCode;
         this.namespace = namespace;
-        this.sandbox = sandbox;
-        this.paymentProvider = paymentProvider;
-        this.region = region;
     }
 
     @JsonIgnore
-    public GetPaymentCustomization createFromJson(String json) throws JsonProcessingException {
+    public PublicGetCountryAgeRestriction createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -102,21 +86,15 @@ public class GetPaymentCustomization extends Operation {
     @JsonIgnore
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
+        if (this.countryCode != null){
+            pathParams.put("countryCode", this.countryCode);
+        }
         if (this.namespace != null){
             pathParams.put("namespace", this.namespace);
         }
         return pathParams;
     }
 
-    @Override
-    @JsonIgnore
-    public Map<String, List<String>> getQueryParams(){
-        Map<String, List<String>> queryParams = new HashMap<>();
-        queryParams.put("sandbox", this.sandbox == null ? null : Arrays.asList(String.valueOf(this.sandbox)));
-        queryParams.put("paymentProvider", this.paymentProvider == null ? null : Arrays.asList(this.paymentProvider));
-        queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
-        return queryParams;
-    }
 
 
 
@@ -129,33 +107,26 @@ public class GetPaymentCustomization extends Operation {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
+        result.put("countryCode","countryCode");
         result.put("namespace","namespace");
-        result.put("sandbox","sandbox");
-        result.put("paymentProvider","paymentProvider");
-        result.put("region","region");
         return result;
     }
 
     @JsonIgnore
     public List<String> getAllRequiredFields() {
         return Arrays.asList(
-            "namespace",
-
-            "paymentProvider",
-            "region"
+            "countryCode",
+            "namespace"
         );
     }
 
     @Override
     @JsonIgnore
     public boolean isValid() {
+        if(this.countryCode == null) {
+            return false;
+        }
         if(this.namespace == null) {
-            return false;
-        }
-        if(this.paymentProvider == null) {
-            return false;
-        }
-        if(this.region == null) {
             return false;
         }
         return true;
@@ -163,20 +134,12 @@ public class GetPaymentCustomization extends Operation {
 
     @Override
     @JsonIgnore
-    public Customization parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public List<AccountcommonCountryAgeRestriction> parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
-            return new Customization().createFromJson(json);
+            return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonCountryAgeRestriction>>() {});
         }
         throw new ResponseException(code, json);
     }
 
-    @Override
-    public Map<String, String> getCollectionFormatMap() {
-        Map<String, String> result = new HashMap<>();
-        result.put("sandbox", "None");
-        result.put("paymentProvider", "None");
-        result.put("region", "None");
-        return result;
-    }
 }

@@ -25,49 +25,29 @@ import java.util.Map;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ModelUpgradeHeadlessAccountWithVerificationCodeRequestV3 extends Model {
-
-    @JsonProperty("code")
-    private String code;
-
-    @JsonProperty("country")
-    private String country;
-
-    @JsonProperty("dateOfBirth")
-    private String dateOfBirth;
-
-    @JsonProperty("displayName")
-    private String displayName;
+public class ModelSendRegisterVerificationCodeRequest extends Model {
 
     @JsonProperty("emailAddress")
     private String emailAddress;
 
-    @JsonProperty("password")
-    private String password;
-
-    @JsonProperty("validateOnly")
-    private Boolean validateOnly;
+    @JsonProperty("languageTag")
+    private String languageTag;
 
     @JsonIgnore
-    public ModelUpgradeHeadlessAccountWithVerificationCodeRequestV3 createFromJson(String json) throws JsonProcessingException {
+    public ModelSendRegisterVerificationCodeRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<ModelUpgradeHeadlessAccountWithVerificationCodeRequestV3> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelUpgradeHeadlessAccountWithVerificationCodeRequestV3>>() {});
+    public List<ModelSendRegisterVerificationCodeRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelSendRegisterVerificationCodeRequest>>() {});
     }
 
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("code", "code");
-        result.put("country", "country");
-        result.put("dateOfBirth", "dateOfBirth");
-        result.put("displayName", "displayName");
         result.put("emailAddress", "emailAddress");
-        result.put("password", "password");
-        result.put("validateOnly", "validateOnly");
+        result.put("languageTag", "languageTag");
         return result;
     }
 }

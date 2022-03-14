@@ -45,8 +45,14 @@ public class AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4 extends 
     @JsonProperty("password")
     private String password;
 
+    @JsonProperty("reachMinimumAge")
+    private Boolean reachMinimumAge;
+
     @JsonProperty("username")
     private String username;
+
+    @JsonProperty("validateOnly")
+    private Boolean validateOnly;
 
     @JsonIgnore
     public AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4 createFromJson(String json) throws JsonProcessingException {
@@ -67,7 +73,9 @@ public class AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4 extends 
         result.put("displayName", "displayName");
         result.put("emailAddress", "emailAddress");
         result.put("password", "password");
+        result.put("reachMinimumAge", "reachMinimumAge");
         result.put("username", "username");
+        result.put("validateOnly", "validateOnly");
         return result;
     }
 }
