@@ -60,454 +60,622 @@ echo "1..$OPERATIONS_COUNT"
 
     java -jar ${JAR_PATH} loginClient
 
-    #- 1 HandlersGetUsersPresenceResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: handlers.GetUsersPresenceResponse\nbusy: 62\ndata: [{'activity': 'tBxyZcDX', 'availability': 'BpGlsQuJ', 'lastSeenAt': 'u8vMf0Is', 'namespace': 'JkTrd8ID', 'userID': 'cV2zXnTK'}]\ninvisible: 18\noffline: 99\nonline: 3' -u \
+    #- 1 AcceptFriendsNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: acceptFriendsNotif\nfriendId: FtBxyZcD' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'HandlersGetUsersPresenceResponse'
+        update_status $? 'AcceptFriendsNotif'
         delete_file $TEMP_FILE
 
-    #- 2 HandlersUserPresence
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: handlers.UserPresence\nactivity: PqamiBxx\navailability: 9Cs18EY8\nlastSeenAt: 4ekItqRz\nnamespace: HU1oh570\nuserID: KQBVaewc' -u \
+    #- 2 AcceptFriendsRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: acceptFriendsRequest\nid: Ju8vMf0I\nfriendId: XBpGlsQu' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'HandlersUserPresence'
+        update_status $? 'AcceptFriendsRequest'
         delete_file $TEMP_FILE
 
-    #- 3 LogAppMessageDeclaration
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: log.AppMessageDeclaration\nAttributes: [72krSha6]\nCode: 8n3Ynozp\nCodeName: 1C2KmIQT\nSection: uBdNEUsx\nService: Fb8CJ17M\nText: 7DJZaMSx' -u \
+    #- 3 AcceptFriendsResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: acceptFriendsResponse\nid: JkTrd8ID\ncode: 36' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'LogAppMessageDeclaration'
+        update_status $? 'AcceptFriendsResponse'
         delete_file $TEMP_FILE
 
-    #- 4 ModelBulkAddFriendsRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.BulkAddFriendsRequest\nfriendIds: [ECbZbygy]' -u \
+    #- 4 BlockPlayerNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: blockPlayerNotif\nblockedUserId: cV2zXnTK\nuserId: jXY1bPqa' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelBulkAddFriendsRequest'
+        update_status $? 'BlockPlayerNotif'
         delete_file $TEMP_FILE
 
-    #- 5 ModelBulkUsersFreeFormNotificationRequestV1
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.BulkUsersFreeFormNotificationRequestV1\nmessage: oarORoeN\ntopicName: HSb8Rh3k\nuserIds: [gs9qqJbn]' -u \
+    #- 5 BlockPlayerRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: blockPlayerRequest\nid: 18EY84ek\nblockUserId: miBxx9Cs\nnamespace: ItqRzHU1' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelBulkUsersFreeFormNotificationRequestV1'
+        update_status $? 'BlockPlayerRequest'
         delete_file $TEMP_FILE
 
-    #- 6 ModelChatMessageResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.ChatMessageResponse\nid: P8Cm3yvA\nfrom: QsoBgiVp\npayload: SUoxdxxF\nreceivedAt: 32\nto: mAGTJ8IE' -u \
+    #- 6 BlockPlayerResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: blockPlayerResponse\nid: aewc72kr\nblockUserId: oh570KQB\ncode: 95\nnamespace: Sha68n3Y' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelChatMessageResponse'
+        update_status $? 'BlockPlayerResponse'
         delete_file $TEMP_FILE
 
-    #- 7 ModelCreateTemplateRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.CreateTemplateRequest\ntemplateContent: dagEtp4w\ntemplateLanguage: 29KOu9c1\ntemplateSlug: 9R6XDqWH' -u \
+    #- 7 CancelFriendsNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: cancelFriendsNotif\nuserId: nozp1C2K' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelCreateTemplateRequest'
+        update_status $? 'CancelFriendsNotif'
         delete_file $TEMP_FILE
 
-    #- 8 ModelCreateTopicRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.CreateTopicRequest\ndescription: kkP8npLE\ntopic: KMfjiX7j' -u \
+    #- 8 CancelFriendsRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: cancelFriendsRequest\nid: EUsxFb8C\nfriendId: mIQTuBdN' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelCreateTopicRequest'
+        update_status $? 'CancelFriendsRequest'
         delete_file $TEMP_FILE
 
-    #- 9 ModelCreateTopicRequestV1
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.CreateTopicRequestV1\ndescription: pkVZk3Ia\ntopicName: QYEmqGod' -u \
+    #- 9 CancelFriendsResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: cancelFriendsResponse\nid: 17M7DJZa\ncode: 70' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelCreateTopicRequestV1'
+        update_status $? 'CancelFriendsResponse'
         delete_file $TEMP_FILE
 
-    #- 10 ModelFreeFormNotificationRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.FreeFormNotificationRequest\nmessage: OEGt9gPO\ntopic: j0c6i0Jk' -u \
+    #- 10 CancelMatchmakingRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: cancelMatchmakingRequest\nid: ygyoarOR\ngameMode: MSxECbZb\nisTempParty: False' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelFreeFormNotificationRequest'
+        update_status $? 'CancelMatchmakingRequest'
         delete_file $TEMP_FILE
 
-    #- 11 ModelFreeFormNotificationRequestV1
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.FreeFormNotificationRequestV1\nmessage: vIas73uc\ntopicName: YnFAJ3DK' -u \
+    #- 11 CancelMatchmakingResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: cancelMatchmakingResponse\nid: NHSb8Rh3\ncode: 8' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelFreeFormNotificationRequestV1'
+        update_status $? 'CancelMatchmakingResponse'
         delete_file $TEMP_FILE
 
-    #- 12 ModelGetAllNotificationTemplateSlugResp
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.GetAllNotificationTemplateSlugResp\ndata: [{'lastDraftAt': '5T4Eogg0', 'lastPublishedAt': 'Y39UoYlp', 'templateContent': {'draft': 'v5bVAgts', 'published': 'DhUTDUsc'}, 'templateLanguage': 'bQDjbTQu'}]\npaging: {"first":"PMz2PTRl","last":"kyU89ZPO","next":"w6zPFJ42","previous":"cwmzBBSM"}' -u \
+    #- 12 ChannelChatNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: channelChatNotif\nchannelSlug: kgs9qqJb\nfrom: nQsoBgiV\npayload: pP8Cm3yv\nsentAt: ASUoxdxx' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelGetAllNotificationTemplateSlugResp'
+        update_status $? 'ChannelChatNotif'
         delete_file $TEMP_FILE
 
-    #- 13 ModelGetAllNotificationTopicsResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.GetAllNotificationTopicsResponse\ndata: [{'createdAt': 78, 'description': 'coAAOjKN', 'namespace': 'jfcYHm09', 'topicName': '3aYgBU1s'}]\npaging: {"first":"qjyK0XH4","last":"5PaRSOFQ","next":"Btu23REZ","previous":"8hRVX7LG"}' -u \
+    #- 13 ClientResetRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: clientResetRequest\nnamespace: FqmAGTJ8\nuserId: IEdagEtp' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelGetAllNotificationTopicsResponse'
+        update_status $? 'ClientResetRequest'
         delete_file $TEMP_FILE
 
-    #- 14 ModelGetFriendsResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.GetFriendsResponse\nfriendIDs: [OvDdYiQS]\npaging: {"first":"9i7mV1C9","last":"1pjG9gpx","next":"L6ycTQdv","previous":"ln2LAuSQ"}' -u \
+    #- 14 ConnectNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: connectNotif\nlobbySessionId: 4w29KOu9' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelGetFriendsResponse'
+        update_status $? 'ConnectNotif'
         delete_file $TEMP_FILE
 
-    #- 15 ModelGetUserFriendsResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.GetUserFriendsResponse\nfriendIDs: [WEXL6LFE]\npaging: {"first":"1YHo9m12","last":"6ZWc8hHt","next":"WvbNYqgU","previous":"qslArFPi"}' -u \
+    #- 15 DisconnectNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: disconnectNotif\nconnectionId: c19R6XDq\nnamespace: WHkkP8np' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelGetUserFriendsResponse'
+        update_status $? 'DisconnectNotif'
         delete_file $TEMP_FILE
 
-    #- 16 ModelGetUserIncomingFriendsResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.GetUserIncomingFriendsResponse\nfriendIDs: [HUIvaCv8]\npaging: {"first":"kU9dBBpd","last":"sJLhsVyE","next":"xrkxoot0","previous":"B7WOferc"}' -u \
+    #- 16 DsNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: dsNotif\nalternateIps: [LEKMfjiX]\ncustomAttribute: 7jpkVZk3\ndeployment: IaQYEmqG\ngameVersion: odOEGt9g\nimageVersion: POj0c6i0\nip: JkvIas73\nisOK: True\nisOverrideGameVersion: False\nlastUpdate: YnFAJ3DK\nmatchId: 5T4Eogg0\nmessage: Y39UoYlp\nnamespace: v5bVAgts\npodName: DhUTDUsc\nport: 2\nports: {"QDjbTQuP":76}\nprotocol: z2PTRlky\nprovider: U89ZPOw6\nregion: zPFJ42cw\nsessionId: mzBBSMNc\nstatus: oAAOjKNj' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelGetUserIncomingFriendsResponse'
+        update_status $? 'DsNotif'
         delete_file $TEMP_FILE
 
-    #- 17 ModelGetUserOutgoingFriendsResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.GetUserOutgoingFriendsResponse\nfriendIDs: [ZdpMci37]\npaging: {"first":"Ds7YSfEx","last":"aI3uzLte","next":"MbFAlt4h","previous":"r7HmOYiB"}' -u \
+    #- 17 ErrorNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: errorNotif\nmessage: fcYHm093' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelGetUserOutgoingFriendsResponse'
+        update_status $? 'ErrorNotif'
         delete_file $TEMP_FILE
 
-    #- 18 ModelLocalization
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.Localization\nlastDraftAt: A5ltAOXm\nlastPublishedAt: lG6eh1dT\ntemplateContent: {"draft":"doTFpBIc","published":"uC1dQY93"}\ntemplateLanguage: OJnJ6Te9' -u \
+    #- 18 ExitAllChannel
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: exitAllChannel\nnamespace: aYgBU1sq\nuserId: jyK0XH45' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelLocalization'
+        update_status $? 'ExitAllChannel'
         delete_file $TEMP_FILE
 
-    #- 19 ModelNotificationTemplateResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.NotificationTemplateResponse\ntemplateLocalizations: [{'lastDraftAt': 'vD8ldz7H', 'lastPublishedAt': 'u8AD79kd', 'templateContent': {'draft': 'WunvizU0', 'published': 'q1pHyhhE'}, 'templateLanguage': 'RoGgdrys'}]\ntemplateSlug: MizBGSRd' -u \
+    #- 19 FriendsStatusRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: friendsStatusRequest\nid: PaRSOFQB' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelNotificationTemplateResponse'
+        update_status $? 'FriendsStatusRequest'
         delete_file $TEMP_FILE
 
-    #- 20 ModelNotificationTopicResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.NotificationTopicResponse\ncreatedAt: 82\ndescription: 2l7DNSZ8\nnamespace: Aq0XiPLQ\ntopic: XSe07Zdd' -u \
+    #- 20 FriendsStatusResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: friendsStatusResponse\nid: dYiQS9i7\nactivity: [tu23REZ8]\navailability: [15]\ncode: 87\nfriendIds: [VX7LGOvD]\nlastSeenAt: [mV1C91pj]' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelNotificationTopicResponse'
+        update_status $? 'FriendsStatusResponse'
         delete_file $TEMP_FILE
 
-    #- 21 ModelNotificationTopicResponseV1
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.NotificationTopicResponseV1\ncreatedAt: 80\ndescription: GTMlJjBw\nnamespace: j9HJHQKs\ntopicName: eEdSXRDS' -u \
+    #- 21 GetAllSessionAttributeRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: getAllSessionAttributeRequest\nid: G9gpxL6y' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelNotificationTopicResponseV1'
+        update_status $? 'GetAllSessionAttributeRequest'
         delete_file $TEMP_FILE
 
-    #- 22 ModelNotificationWithTemplateRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.NotificationWithTemplateRequest\ntemplateContext: {"vguauw1x":"T7eMwSl9"}\ntemplateLanguage: MLH0NnTJ\ntemplateSlug: 2ulNzBvw\ntopic: JaQa547J' -u \
+    #- 22 GetAllSessionAttributeResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: getAllSessionAttributeResponse\nid: 6LFE1YHo\nattributes: {"cTQdvln2":"LAuSQWEX"}\ncode: 74' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelNotificationWithTemplateRequest'
+        update_status $? 'GetAllSessionAttributeResponse'
         delete_file $TEMP_FILE
 
-    #- 23 ModelNotificationWithTemplateRequestV1
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.NotificationWithTemplateRequestV1\ntemplateContext: {"llvA8RWS":"pabUt7xk"}\ntemplateLanguage: 6QxyWhfq\ntemplateSlug: oWfJw2o8\ntopicName: oWUqvPCZ' -u \
+    #- 23 GetFriendshipStatusRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: getFriendshipStatusRequest\nid: 8hHtWvbN\nfriendId: 9m126ZWc' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelNotificationWithTemplateRequestV1'
+        update_status $? 'GetFriendshipStatusRequest'
         delete_file $TEMP_FILE
 
-    #- 24 ModelPagination
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.Pagination\nfirst: 2HzT7NXm\nlast: WDlXsuNI\nnext: dQJR5lsN\nprevious: OlvkfwaS' -u \
+    #- 24 GetFriendshipStatusResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: getFriendshipStatusResponse\nid: PiHUIvaC\ncode: 33\nfriendshipStatus: gUqslArF' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelPagination'
+        update_status $? 'GetFriendshipStatusResponse'
         delete_file $TEMP_FILE
 
-    #- 25 ModelRequestFriendsRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.RequestFriendsRequest\nfriendId: bnsuLCgT' -u \
+    #- 25 GetSessionAttributeRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: getSessionAttributeRequest\nid: v8kU9dBB\nkey: pdsJLhsV' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelRequestFriendsRequest'
+        update_status $? 'GetSessionAttributeRequest'
         delete_file $TEMP_FILE
 
-    #- 26 ModelTemplateContent
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.TemplateContent\ndraft: oxuVTekJ\npublished: gvg6h5HI' -u \
+    #- 26 GetSessionAttributeResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: getSessionAttributeResponse\nid: Exrkxoot\ncode: 49\nvalue: 0B7WOfer' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelTemplateContent'
+        update_status $? 'GetSessionAttributeResponse'
         delete_file $TEMP_FILE
 
-    #- 27 ModelTemplateLocalization
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.TemplateLocalization\nlastDraftAt: pH0Dvipl\nlastPublishedAt: Ek4vj3LD\ntemplateContent: {"draft":"p4yqDt8Q","published":"UZDpxlHa"}\ntemplateLanguage: sinGcjrk\ntemplateSlug: mRMttgjD' -u \
+    #- 27 Heartbeat
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: heartbeat' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelTemplateLocalization'
+        update_status $? 'Heartbeat'
         delete_file $TEMP_FILE
 
-    #- 28 ModelTemplateLocalizationResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.TemplateLocalizationResponse\nfirst: SaIVBmft\nlast: 3Udg7p9P\nnext: GmY2H5kX\nprevious: 4MsisSX2\ntemplateLocalization: [{'lastDraftAt': '8nARxWRp', 'lastPublishedAt': 'v5ou5xtv', 'templateContent': {'draft': 'd28OUfCt', 'published': '8UJC5flN'}, 'templateLanguage': 'yj6HsTtX', 'templateSlug': '8P3llnaa'}]' -u \
+    #- 28 JoinDefaultChannelRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: joinDefaultChannelRequest\nid: cZdpMci3' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelTemplateLocalizationResponse'
+        update_status $? 'JoinDefaultChannelRequest'
         delete_file $TEMP_FILE
 
-    #- 29 ModelTemplateResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.TemplateResponse\nlocalizations: [{'lastDraftAt': 'S9lqyygP', 'lastPublishedAt': 'cfkJIxfQ', 'templateContent': {'draft': 'Zza8kNVb', 'published': 'DxVMq7HJ'}, 'templateLanguage': 'k0F89xAc'}]\ntemplateSlug: 3YVfaENt' -u \
+    #- 29 JoinDefaultChannelResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: joinDefaultChannelResponse\nid: aI3uzLte\nchannelSlug: 7Ds7YSfE\ncode: 46' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelTemplateResponse'
+        update_status $? 'JoinDefaultChannelResponse'
         delete_file $TEMP_FILE
 
-    #- 30 ModelTopicByNamespacesResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.TopicByNamespacesResponse\nfirst: rl0pTKZT\nlast: XqzHuBMY\nnext: QSA2jz1Z\nprevious: OpdOjSyM\ntopics: [{'createdAt': 6, 'description': 'dB41JuMf', 'namespace': '7RUyBHRj', 'topic': '8IiRimRl'}]' -u \
+    #- 30 ListIncomingFriendsRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: listIncomingFriendsRequest\nid: MbFAlt4h' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelTopicByNamespacesResponse'
+        update_status $? 'ListIncomingFriendsRequest'
         delete_file $TEMP_FILE
 
-    #- 31 ModelUpdateTemplateRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.UpdateTemplateRequest\ntemplateContent: lHT6Dc40' -u \
+    #- 31 ListIncomingFriendsResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: listIncomingFriendsResponse\nid: 7HmOYiBA\ncode: 35\nuserIds: [5ltAOXml]' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelUpdateTemplateRequest'
+        update_status $? 'ListIncomingFriendsResponse'
         delete_file $TEMP_FILE
 
-    #- 32 ModelUpdateTopicRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.UpdateTopicRequest\ndescription: vFFA6gpU' -u \
+    #- 32 ListOfFriendsRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: listOfFriendsRequest\nid: oTFpBIcu\nfriendId: G6eh1dTd' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelUpdateTopicRequest'
+        update_status $? 'ListOfFriendsRequest'
         delete_file $TEMP_FILE
 
-    #- 33 ModelUserAcceptFriendRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.UserAcceptFriendRequest\nfriendId: 7EW3x1dC' -u \
+    #- 33 ListOfFriendsResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: listOfFriendsResponse\nid: nJ6Te9vD\ncode: 57\nfriendIds: [1dQY93OJ]' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelUserAcceptFriendRequest'
+        update_status $? 'ListOfFriendsResponse'
         delete_file $TEMP_FILE
 
-    #- 34 ModelUserCancelFriendRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.UserCancelFriendRequest\nfriendId: pm55gOeq' -u \
+    #- 34 ListOnlineFriendsRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: listOnlineFriendsRequest\nid: 8ldz7Hu8' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelUserCancelFriendRequest'
+        update_status $? 'ListOnlineFriendsRequest'
         delete_file $TEMP_FILE
 
-    #- 35 ModelUserGetFriendshipStatusResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.UserGetFriendshipStatusResponse\ncode: 84\nname: IqcJVKmB' -u \
+    #- 35 ListOutgoingFriendsRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: listOutgoingFriendsRequest\nid: AD79kdWu' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelUserGetFriendshipStatusResponse'
+        update_status $? 'ListOutgoingFriendsRequest'
         delete_file $TEMP_FILE
 
-    #- 36 ModelUserRejectFriendRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.UserRejectFriendRequest\nfriendId: M1J1IbuT' -u \
+    #- 36 ListOutgoingFriendsResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: listOutgoingFriendsResponse\nid: HyhhERoG\ncode: 26\nfriendIds: [vizU0q1p]' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelUserRejectFriendRequest'
+        update_status $? 'ListOutgoingFriendsResponse'
         delete_file $TEMP_FILE
 
-    #- 37 ModelUserUnfriendRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: model.UserUnfriendRequest\nfriendId: rrkbmuT1' -u \
+    #- 37 MatchmakingNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: matchmakingNotif\ncounterPartyMember: [gdrysMiz]\nmatchId: BGSRdP2l\nmessage: 7DNSZ8Aq\npartyMember: [0XiPLQXS]\nreadyDuration: 9\nstatus: 07ZddOGT' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelUserUnfriendRequest'
+        update_status $? 'MatchmakingNotif'
         delete_file $TEMP_FILE
 
-    #- 38 ModelsAdminAddProfanityFilterIntoListRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.AdminAddProfanityFilterIntoListRequest\nfilter: whOqmEnD\nnote: XIWrBPlS' -u \
+    #- 38 MessageNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: messageNotif\nid: HJHQKseE\nfrom: MlJjBwj9\npayload: dSXRDSvg\nsentAt: 41\nto: auw1xT7e\ntopic: MwSl9MLH' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsAdminAddProfanityFilterIntoListRequest'
+        update_status $? 'MessageNotif'
         delete_file $TEMP_FILE
 
-    #- 39 ModelsAdminAddProfanityFiltersFilterRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.AdminAddProfanityFiltersFilterRequest\nfilter: ay46mv71\nnote: BAZAOjtF' -u \
+    #- 39 OfflineNotificationRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: offlineNotificationRequest\nid: 0NnTJ2ul' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsAdminAddProfanityFiltersFilterRequest'
+        update_status $? 'OfflineNotificationRequest'
         delete_file $TEMP_FILE
 
-    #- 40 ModelsAdminAddProfanityFiltersRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.AdminAddProfanityFiltersRequest\nfilters: [{'filter': 'J2vmTj7t', 'note': 'T7TZHWDd'}]' -u \
+    #- 40 OfflineNotificationResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: offlineNotificationResponse\nid: zBvwJaQa\ncode: 79' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsAdminAddProfanityFiltersRequest'
+        update_status $? 'OfflineNotificationResponse'
         delete_file $TEMP_FILE
 
-    #- 41 ModelsAdminCreateProfanityListRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.AdminCreateProfanityListRequest\nisEnabled: True\nisMandatory: False\nname: IsZoArWw' -u \
+    #- 41 OnlineFriends
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: onlineFriends\nid: llvA8RWS\ncode: 71\nonlineFriendIds: [pabUt7xk]' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsAdminCreateProfanityListRequest'
+        update_status $? 'OnlineFriends'
         delete_file $TEMP_FILE
 
-    #- 42 ModelsAdminDeleteProfanityFilterRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.AdminDeleteProfanityFilterRequest\nfilter: PHcyFAdA' -u \
+    #- 42 PartyChatNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyChatNotif\nid: oWfJw2o8\nfrom: 6QxyWhfq\npayload: oWUqvPCZ\nreceivedAt: 66\nto: zT7NXmWD' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsAdminDeleteProfanityFilterRequest'
+        update_status $? 'PartyChatNotif'
         delete_file $TEMP_FILE
 
-    #- 43 ModelsAdminGetProfanityListFiltersV1Response
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.AdminGetProfanityListFiltersV1Response\nfilters: [{'filter': 'tYciLIgR', 'listName': 'wFRr0gwB', 'namespace': '9tz3vp99', 'note': 'XVlV8rK3'}]' -u \
+    #- 43 PartyChatRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyChatRequest\nid: JR5lsNOl\nfrom: lXsuNIdQ\npayload: vkfwaSbn\nreceivedAt: 37\nto: uLCgToxu' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsAdminGetProfanityListFiltersV1Response'
+        update_status $? 'PartyChatRequest'
         delete_file $TEMP_FILE
 
-    #- 44 ModelsAdminGetProfanityListsListResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.AdminGetProfanityListsListResponse\nisEnabled: True\nisMandatory: True\nname: 6n0smip1' -u \
+    #- 44 PartyChatResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyChatResponse\nid: TekJgvg6\ncode: 94' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsAdminGetProfanityListsListResponse'
+        update_status $? 'PartyChatResponse'
         delete_file $TEMP_FILE
 
-    #- 45 ModelsAdminSetProfanityRuleForNamespaceRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.AdminSetProfanityRuleForNamespaceRequest\nrule: tw3L7cUd' -u \
+    #- 45 PartyCreateRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyCreateRequest\nid: h5HIpH0D' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsAdminSetProfanityRuleForNamespaceRequest'
+        update_status $? 'PartyCreateRequest'
         delete_file $TEMP_FILE
 
-    #- 46 ModelsAdminUpdateProfanityList
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.AdminUpdateProfanityList\nisEnabled: False\nisMandatory: True\nnewName: tv6JfPZw' -u \
+    #- 46 PartyCreateResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyCreateResponse\nid: iplEk4vj\ncode: 42\ninvitationToken: 3LDp4yqD\ninvitees: t8QUZDpx\nleaderId: lHasinGc\nmembers: jrkmRMtt\npartyId: gjDSaIVB' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsAdminUpdateProfanityList'
+        update_status $? 'PartyCreateResponse'
         delete_file $TEMP_FILE
 
-    #- 47 ModelsAdminVerifyMessageProfanityRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.AdminVerifyMessageProfanityRequest\nmessage: cCVOXcVa\nprofanityLevel: 80TmCwtD' -u \
+    #- 47 PartyDataUpdateNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyDataUpdateNotif\ncustomAttributes: {"mft3Udg7":{}}\ninvitees: [p9PGmY2H]\nleader: 5kX4Msis\nmembers: [SX28nARx]\nnamespace: WRpv5ou5\npartyId: xtvd28OU\nupdatedAt: 10' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsAdminVerifyMessageProfanityRequest'
+        update_status $? 'PartyDataUpdateNotif'
         delete_file $TEMP_FILE
 
-    #- 48 ModelsAdminVerifyMessageProfanityResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.AdminVerifyMessageProfanityResponse\nfilteredMessage: 2lAH01o6\nhasProfanity: False' -u \
+    #- 48 PartyGetInvitedNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyGetInvitedNotif\nfrom: Ct8UJC5f\ninvitationToken: lNyj6HsT\npartyId: tX8P3lln' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsAdminVerifyMessageProfanityResponse'
+        update_status $? 'PartyGetInvitedNotif'
         delete_file $TEMP_FILE
 
-    #- 49 ModelsBlockedByPlayerData
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.BlockedByPlayerData\nblockedAt: 1972-08-08T00:00:00Z\nuserId: IgzrDyWp' -u \
+    #- 49 PartyInfoRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyInfoRequest\nid: aaS9lqyy' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsBlockedByPlayerData'
+        update_status $? 'PartyInfoRequest'
         delete_file $TEMP_FILE
 
-    #- 50 ModelsBlockedPlayerData
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.BlockedPlayerData\nblockedAt: 1986-08-09T00:00:00Z\nblockedUserId: YGmmBawM' -u \
+    #- 50 PartyInfoResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyInfoResponse\nid: QZza8kNV\ncode: 12\ncustomAttributes: {"PcfkJIxf":{}}\ninvitationToken: bDxVMq7H\ninvitees: Jk0F89xA\nleaderId: c3YVfaEN\nmembers: trl0pTKZ\npartyId: TXqzHuBM' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsBlockedPlayerData'
+        update_status $? 'PartyInfoResponse'
         delete_file $TEMP_FILE
 
-    #- 51 ModelsConfig
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.Config\nallowInviteNonConnectedUser: True\nautoKickOnDisconnect: False\nautoKickOnDisconnectDelay: 73\ncancelTicketOnDisconnect: True\nchatRateLimitBurst: 79\nchatRateLimitDuration: 30\nconcurrentUsersLimit: 7\ndisablePartyInvitationToken: True\nenableChat: False\nentitlementCheck: True\nentitlementItemID: m8xwUfzO\ngeneralRateLimitBurst: 23\ngeneralRateLimitDuration: 85\nmaxPartyMember: 16\nnamespace: ZY4NbOQX\nprofanityFilter: True\nreadyConsentTimeout: 81' -u \
+    #- 51 PartyInviteNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyInviteNotif\ninviteeId: YQSA2jz1\ninviterId: ZOpdOjSy' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsConfig'
+        update_status $? 'PartyInviteNotif'
         delete_file $TEMP_FILE
 
-    #- 52 ModelsConfigExport
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.ConfigExport\nallowInviteNonConnectedUser: True\nautoKickOnDisconnect: True\nautoKickOnDisconnectDelay: 41\ncancelTicketOnDisconnect: True\nchatRateLimitBurst: 39\nchatRateLimitDuration: 79\nconcurrentUsersLimit: 23\ndisablePartyInvitationToken: True\nenableChat: False\nentitlementCheck: False\nentitlementItemID: K4DEUJRV\ngeneralRateLimitBurst: 72\ngeneralRateLimitDuration: 22\nmaxPartyMember: 60\nnamespace: b0R1XRb0\nprofanityFilter: True\nreadyConsentTimeout: 88' -u \
+    #- 52 PartyInviteRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyInviteRequest\nid: Mf7RUyBH\nfriendId: MddB41Ju' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsConfigExport'
+        update_status $? 'PartyInviteRequest'
         delete_file $TEMP_FILE
 
-    #- 53 ModelsConfigList
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.ConfigList\nconfigs: [{'allowInviteNonConnectedUser': True, 'autoKickOnDisconnect': False, 'autoKickOnDisconnectDelay': 8, 'cancelTicketOnDisconnect': False, 'chatRateLimitBurst': 26, 'chatRateLimitDuration': 13, 'concurrentUsersLimit': 34, 'disablePartyInvitationToken': False, 'enableChat': True, 'entitlementCheck': True, 'entitlementItemID': 'aPBtkZMi', 'generalRateLimitBurst': 28, 'generalRateLimitDuration': 44, 'maxPartyMember': 5, 'namespace': 'yhloVS3r', 'profanityFilter': False, 'readyConsentTimeout': 84}]' -u \
+    #- 53 PartyInviteResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyInviteResponse\nid: j8IiRimR\ncode: 87' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsConfigList'
+        update_status $? 'PartyInviteResponse'
         delete_file $TEMP_FILE
 
-    #- 54 ModelsConfigReq
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.ConfigReq\nallowInviteNonConnectedUser: True\nautoKickOnDisconnect: False\nautoKickOnDisconnectDelay: 61\ncancelTicketOnDisconnect: False\nchatRateLimitBurst: 56\nchatRateLimitDuration: 60\nconcurrentUsersLimit: 95\ndisablePartyInvitationToken: False\nenableChat: False\nentitlementCheck: False\nentitlementItemID: ypWjDNhz\ngeneralRateLimitBurst: 57\ngeneralRateLimitDuration: 75\nmaxPartyMember: 36\nprofanityFilter: True\nreadyConsentTimeout: 44' -u \
+    #- 54 PartyJoinNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyJoinNotif\nuserId: llHT6Dc4' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsConfigReq'
+        update_status $? 'PartyJoinNotif'
         delete_file $TEMP_FILE
 
-    #- 55 ModelsCreateConfigRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.CreateConfigRequest\napiKey: O763iEkl' -u \
+    #- 55 PartyJoinRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyJoinRequest\nid: 0vFFA6gp\ninvitationToken: U7EW3x1d\npartyId: Cpm55gOe' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsCreateConfigRequest'
+        update_status $? 'PartyJoinRequest'
         delete_file $TEMP_FILE
 
-    #- 56 ModelsCreateConfigResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.CreateConfigResponse\napiKey: kzLm88Lp\nnamespace: LuYRO3C5' -u \
+    #- 56 PartyJoinResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyJoinResponse\nid: QIqcJVKm\ncode: 33\ninvitationToken: BM1J1Ibu\ninvitees: TrrkbmuT\nleaderId: 1whOqmEn\nmembers: DXIWrBPl\npartyId: Say46mv7' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsCreateConfigResponse'
+        update_status $? 'PartyJoinResponse'
         delete_file $TEMP_FILE
 
-    #- 57 ModelsDebugProfanityFilterRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.DebugProfanityFilterRequest\ntext: 5yHpwK2J' -u \
+    #- 57 PartyKickNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyKickNotif\nleaderId: 1BAZAOjt\npartyId: FJ2vmTj7\nuserId: tT7TZHWD' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsDebugProfanityFilterRequest'
+        update_status $? 'PartyKickNotif'
         delete_file $TEMP_FILE
 
-    #- 58 ModelsGetAllPlayerBlockedByUsersResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.GetAllPlayerBlockedByUsersResponse\ndata: [{'blockedAt': '1971-05-15T00:00:00Z', 'userId': 'enDGn7a2'}]' -u \
+    #- 58 PartyKickRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyKickRequest\nid: dCkIsZoA\nmemberId: rWwPHcyF' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsGetAllPlayerBlockedByUsersResponse'
+        update_status $? 'PartyKickRequest'
         delete_file $TEMP_FILE
 
-    #- 59 ModelsGetAllPlayerBlockedUsersResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.GetAllPlayerBlockedUsersResponse\ndata: [{'blockedAt': '1990-05-02T00:00:00Z', 'blockedUserId': 'lWiLjq06'}]' -u \
+    #- 59 PartyKickResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyKickResponse\nid: dAtYciLI\ncode: 52' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsGetAllPlayerBlockedUsersResponse'
+        update_status $? 'PartyKickResponse'
         delete_file $TEMP_FILE
 
-    #- 60 ModelsGetAllPlayerSessionAttributeResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.GetAllPlayerSessionAttributeResponse\nattributes: {"n6a0rW8E":"fkpaXtwY"}' -u \
+    #- 60 PartyLeaveNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyLeaveNotif\nleaderId: gRwFRr0g\nuserId: wB9tz3vp' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsGetAllPlayerSessionAttributeResponse'
+        update_status $? 'PartyLeaveNotif'
         delete_file $TEMP_FILE
 
-    #- 61 ModelsGetConfigResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.GetConfigResponse\napiKey: ZJaQ4Wbw\nnamespace: NmsFYetj' -u \
+    #- 61 PartyLeaveRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyLeaveRequest\nid: 99XVlV8r\nignoreUserRegistry: True' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsGetConfigResponse'
+        update_status $? 'PartyLeaveRequest'
         delete_file $TEMP_FILE
 
-    #- 62 ModelsGetLobbyCcuResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.GetLobbyCcuResponse\ncountCurrentUsers: 61' -u \
+    #- 62 PartyLeaveResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyLeaveResponse\nid: 6n0smip1\ncode: 61' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsGetLobbyCcuResponse'
+        update_status $? 'PartyLeaveResponse'
         delete_file $TEMP_FILE
 
-    #- 63 ModelsGetPlayerSessionAttributeResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.GetPlayerSessionAttributeResponse\nkey: urH8eloJ\nvalue: zNKtRUaT' -u \
+    #- 63 PartyPromoteLeaderRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyPromoteLeaderRequest\nid: tw3L7cUd\nnewLeaderUserId: 9pqtv6Jf' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsGetPlayerSessionAttributeResponse'
+        update_status $? 'PartyPromoteLeaderRequest'
         delete_file $TEMP_FILE
 
-    #- 64 ModelsImportConfigResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.ImportConfigResponse\nfailedConfigs: [z1ETdsmw]\nignoredConfigs: [zjkkn9oi]\nnewConfigs: [Ql05g7cO]\nreplacedConfigs: [3ZMb6Ojl]' -u \
+    #- 64 PartyPromoteLeaderResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyPromoteLeaderResponse\nid: ZwcCVOXc\ncode: 83\ninvitationToken: Va80TmCw\ninvitees: tD2lAH01\nleaderId: o6NdcBIg\nmembers: zrDyWpFB\npartyId: YGmmBawM' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsImportConfigResponse'
+        update_status $? 'PartyPromoteLeaderResponse'
         delete_file $TEMP_FILE
 
-    #- 65 ModelsListBlockedPlayerRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.ListBlockedPlayerRequest\nlistBlockedUserId: [o6DMNpP2]' -u \
+    #- 65 PartyRejectNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyRejectNotif\nleaderId: yoKyNpdA\npartyId: asm8xwUf\nuserId: zOlQiZY4' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsListBlockedPlayerRequest'
+        update_status $? 'PartyRejectNotif'
         delete_file $TEMP_FILE
 
-    #- 66 ModelsPartyData
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.PartyData\ncustom_attribute: {"qMrTQ1Up":{}}\ninvitees: [jfU6wJhy]\nleader: 1jOVkkUl\nmembers: [S79527EZ]\nnamespace: 25Ia8uCe\npartyId: ZFlLtEVp\nupdatedAt: 58' -u \
+    #- 66 PartyRejectRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyRejectRequest\nid: NbOQXJ7u\ninvitationToken: OTzNMvuq\npartyId: 2tNl4CX4' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsPartyData'
+        update_status $? 'PartyRejectRequest'
         delete_file $TEMP_FILE
 
-    #- 67 ModelsPartyPUTCustomAttributesRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.PartyPUTCustomAttributesRequest\ncustom_attribute: {"AEbA82jy":{}}\nupdatedAt: 23' -u \
+    #- 67 PartyRejectResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: partyRejectResponse\nid: jiK4DEUJ\ncode: 68\npartyId: RVK3l9Eb' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsPartyPUTCustomAttributesRequest'
+        update_status $? 'PartyRejectResponse'
         delete_file $TEMP_FILE
 
-    #- 68 ModelsProfanityFilter
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.ProfanityFilter\nfilter: q0pDE5xR\nlistName: wh5b45eb\nnamespace: pcM7ScSs\nnote: 3UOpAwIp' -u \
+    #- 68 PersonalChatHistoryRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: personalChatHistoryRequest\nid: H8vS1sme\nfriendId: 0R1XRb0R' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsProfanityFilter'
+        update_status $? 'PersonalChatHistoryRequest'
         delete_file $TEMP_FILE
 
-    #- 69 ModelsProfanityRule
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.ProfanityRule\nNamespace: 9rRtn1Pc\nRule: CxdbumeY' -u \
+    #- 69 PersonalChatHistoryResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: personalChatHistoryResponse\nid: io4wcyhl\nchat: OlngrdTX\ncode: 56\nfriendId: zaPBtkZM' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsProfanityRule'
+        update_status $? 'PersonalChatHistoryResponse'
         delete_file $TEMP_FILE
 
-    #- 70 ModelsSetPlayerSessionAttributeRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.SetPlayerSessionAttributeRequest\nattributes: {"gOdEBWRQ":"iW3KFfU8"}' -u \
+    #- 70 PersonalChatNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: personalChatNotif\nid: QtcEmCEV\nfrom: oVS3rYp8\npayload: c75Ufeyp\nreceivedAt: 96\nto: jDNhzCL5' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsSetPlayerSessionAttributeRequest'
+        update_status $? 'PersonalChatNotif'
         delete_file $TEMP_FILE
 
-    #- 71 ModelsUpdateConfigRequest
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.UpdateConfigRequest\napiKey: icH4081g' -u \
+    #- 71 PersonalChatRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: personalChatRequest\nid: 63iEklkz\nfrom: sWS2qwO7\npayload: Lm88LpLu\nreceivedAt: 86\nto: O3C55yHp' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsUpdateConfigRequest'
+        update_status $? 'PersonalChatRequest'
         delete_file $TEMP_FILE
 
-    #- 72 ModelsUpdateConfigResponse
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: models.UpdateConfigResponse\napiKey: RB1GyLfL\nnamespace: g4RYuEbg' -u \
+    #- 72 PersonalChatResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: personalChatResponse\nid: K2JaqenD\ncode: 45' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ModelsUpdateConfigResponse'
+        update_status $? 'PersonalChatResponse'
         delete_file $TEMP_FILE
 
-    #- 73 ResponseError
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: response.Error\nerrorCode: 93\nerrorMessage: DEcJyIvs' -u \
+    #- 73 RejectFriendsNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: rejectFriendsNotif\nuserId: Gn7a2NUp' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'ResponseError'
+        update_status $? 'RejectFriendsNotif'
         delete_file $TEMP_FILE
 
-    #- 74 RestapiErrorResponseBody
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: restapi.ErrorResponseBody\nErrorCode: 83\nErrorMessage: wOr0BmV5' -u \
+    #- 74 RejectFriendsRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: rejectFriendsRequest\nid: n6a0rW8E\nfriendId: lWiLjq06' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'RestapiErrorResponseBody'
+        update_status $? 'RejectFriendsRequest'
         delete_file $TEMP_FILE
 
-    #- 75 RestapiErrorResponseV1
-    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: restapi.ErrorResponseV1\nerrorCode: 16\nerrorMessage: FvfwFjTS' -u \
+    #- 75 RejectFriendsResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: rejectFriendsResponse\nid: kpaXtwYZ\ncode: 11' -u \
         >$TEMP_FILE 2>&1
-        update_status $? 'RestapiErrorResponseV1'
+        update_status $? 'RejectFriendsResponse'
+        delete_file $TEMP_FILE
+
+    #- 76 RematchmakingNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: rematchmakingNotif\nbanDuration: 70' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'RematchmakingNotif'
+        delete_file $TEMP_FILE
+
+    #- 77 RequestFriendsNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: requestFriendsNotif\nfriendId: aQ4WbwNm' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'RequestFriendsNotif'
+        delete_file $TEMP_FILE
+
+    #- 78 RequestFriendsRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: requestFriendsRequest\nid: rH8eloJz\nfriendId: sFYetjEu' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'RequestFriendsRequest'
+        delete_file $TEMP_FILE
+
+    #- 79 RequestFriendsResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: requestFriendsResponse\nid: KtRUaTz1\ncode: 78' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'RequestFriendsResponse'
+        delete_file $TEMP_FILE
+
+    #- 80 SendChannelChatRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: sendChannelChatRequest\nid: kkn9oiQl\nchannelSlug: ETdsmwzj\npayload: 05g7cO3Z' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'SendChannelChatRequest'
+        delete_file $TEMP_FILE
+
+    #- 81 SendChannelChatResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: sendChannelChatResponse\nid: b6Ojlo6D\ncode: 76' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'SendChannelChatResponse'
+        delete_file $TEMP_FILE
+
+    #- 82 SetReadyConsentNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: setReadyConsentNotif\nmatchId: MNpP2qMr\nuserId: TQ1UpjfU' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'SetReadyConsentNotif'
+        delete_file $TEMP_FILE
+
+    #- 83 SetReadyConsentRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: setReadyConsentRequest\nid: 6wJhy1jO\nmatchId: VkkUlS79' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'SetReadyConsentRequest'
+        delete_file $TEMP_FILE
+
+    #- 84 SetReadyConsentResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: setReadyConsentResponse\nid: Z25Ia8uC\ncode: 60' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'SetReadyConsentResponse'
+        delete_file $TEMP_FILE
+
+    #- 85 SetSessionAttributeRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: setSessionAttributeRequest\nid: eZFlLtEV\nkey: pDAEbA82\nnamespace: jy74lq0p\nvalue: DE5xRwh5' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'SetSessionAttributeRequest'
+        delete_file $TEMP_FILE
+
+    #- 86 SetSessionAttributeResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: setSessionAttributeResponse\nid: 45ebpcM7\ncode: 2' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'SetSessionAttributeResponse'
+        delete_file $TEMP_FILE
+
+    #- 87 SetUserStatusRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: setUserStatusRequest\nid: wIp9rRtn\nactivity: ScSs3UOp\navailability: 53' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'SetUserStatusRequest'
+        delete_file $TEMP_FILE
+
+    #- 88 SetUserStatusResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: setUserStatusResponse\nid: cCxdbume\ncode: 82' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'SetUserStatusResponse'
+        delete_file $TEMP_FILE
+
+    #- 89 ShutdownNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: shutdownNotif\nmessage: YgOdEBWR' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'ShutdownNotif'
+        delete_file $TEMP_FILE
+
+    #- 90 SignalingP2PNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: signalingP2PNotif\ndestinationId: QiW3KFfU\nmessage: 8icH4081' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'SignalingP2PNotif'
+        delete_file $TEMP_FILE
+
+    #- 91 StartMatchmakingRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: startMatchmakingRequest\nid: gUDEcJyI\nextraAttributes: gRB1GyLf\ngameMode: Lg4RYuEb\npartyAttributes: {"vsPwOr0B":{}}\npriority: 25\ntempParty: V5iFvfwF' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'StartMatchmakingRequest'
+        delete_file $TEMP_FILE
+
+    #- 92 StartMatchmakingResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: startMatchmakingResponse\nid: TSmIEqoL\ncode: 19' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'StartMatchmakingResponse'
+        delete_file $TEMP_FILE
+
+    #- 93 SystemComponentsStatus
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: systemComponentsStatus\ncomponents: {"yLeUGmom":true}' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'SystemComponentsStatus'
+        delete_file $TEMP_FILE
+
+    #- 94 UnblockPlayerNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: unblockPlayerNotif\nunblockedUserId: XTZ0v8pq\nuserId: Lfc5SwGn' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'UnblockPlayerNotif'
+        delete_file $TEMP_FILE
+
+    #- 95 UnblockPlayerRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: unblockPlayerRequest\nid: ReUULDX4\nnamespace: QUIbb5nh\nunblockedUserId: 68ZnyUtR' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'UnblockPlayerRequest'
+        delete_file $TEMP_FILE
+
+    #- 96 UnblockPlayerResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: unblockPlayerResponse\nid: W9hNBSFT\ncode: 42\nnamespace: tFrOmjkF\nunblockedUserId: rFVA8t0x' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'UnblockPlayerResponse'
+        delete_file $TEMP_FILE
+
+    #- 97 UnfriendNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: unfriendNotif\nfriendId: F34Xpt6Z' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'UnfriendNotif'
+        delete_file $TEMP_FILE
+
+    #- 98 UnfriendRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: unfriendRequest\nid: 2a0nI2oo\nfriendId: lTTic0kr' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'UnfriendRequest'
+        delete_file $TEMP_FILE
+
+    #- 99 UnfriendResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: unfriendResponse\nid: HCJK5sp0\ncode: 92' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'UnfriendResponse'
+        delete_file $TEMP_FILE
+
+    #- 100 UserBannedNotification
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: userBannedNotification' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'UserBannedNotification'
+        delete_file $TEMP_FILE
+
+    #- 101 UserMetricRequest
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: userMetricRequest\nid: aCvIq3aH' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'UserMetricRequest'
+        delete_file $TEMP_FILE
+
+    #- 102 UserMetricResponse
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: userMetricResponse\nid: YIlewLRu\ncode: 94\nplayerCount: 67' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'UserMetricResponse'
+        delete_file $TEMP_FILE
+
+    #- 103 UserStatusNotif
+    java -jar ${JAR_PATH} lobbyWebsocket -m $'type: userStatusNotif\nactivity: Y83bGj0H\navailability: 90\nlastSeenAt: eeWXlIcR\nuserId: idqctDpy' -u \
+        >$TEMP_FILE 2>&1
+        update_status $? 'UserStatusNotif'
         delete_file $TEMP_FILE
 
 delete_file 'tmp.dat'
