@@ -53,10 +53,10 @@ public class SearchSessionsV2 implements Callable<Integer> {
     String userID;
 
     @Option(names = {"--limit"}, description = "limit")
-    Float limit;
+    Integer limit;
 
     @Option(names = {"--offset"}, description = "offset")
-    Float offset;
+    Integer offset;
 
 
     @Option(names = {"--logging"}, description = "logger")

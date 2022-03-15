@@ -41,13 +41,13 @@ public class GetEventByUserIDHandler implements Callable<Integer> {
     String userId;
 
     @Option(names = {"--offset"}, description = "offset")
-    Float offset;
+    Integer offset;
 
     @Option(names = {"--endDate"}, description = "endDate")
     String endDate;
 
     @Option(names = {"--pageSize"}, description = "pageSize")
-    Float pageSize;
+    Integer pageSize;
 
     @Option(names = {"--startDate"}, description = "startDate")
     String startDate;

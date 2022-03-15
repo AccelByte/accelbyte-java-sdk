@@ -44,10 +44,10 @@ public class GetPublicEditHistory implements Callable<Integer> {
     String endDate;
 
     @Option(names = {"--offset"}, description = "offset")
-    Float offset;
+    Integer offset;
 
     @Option(names = {"--pageSize"}, description = "pageSize")
-    Float pageSize;
+    Integer pageSize;
 
     @Option(names = {"--startDate"}, description = "startDate")
     String startDate;

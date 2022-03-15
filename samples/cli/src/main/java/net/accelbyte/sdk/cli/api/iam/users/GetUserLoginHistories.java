@@ -47,7 +47,7 @@ public class GetUserLoginHistories implements Callable<Integer> {
     Float before;
 
     @Option(names = {"--limit"}, description = "limit")
-    Float limit;
+    Integer limit;
 
 
     @Option(names = {"--logging"}, description = "logger")
