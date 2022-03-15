@@ -63,8 +63,8 @@ public class GetUserActivitiesHandler extends Operation {
      */
     private String namespace;
     private String userId;
-    private Float offset;
-    private Float pageSize;
+    private Integer offset;
+    private Integer pageSize;
 
     /**
     * @param namespace required
@@ -75,8 +75,8 @@ public class GetUserActivitiesHandler extends Operation {
     public GetUserActivitiesHandler(
             String namespace,
             String userId,
-            Float offset,
-            Float pageSize
+            Integer offset,
+            Integer pageSize
     )
     {
         this.namespace = namespace;

@@ -59,7 +59,7 @@ public class TokenRevocationV3 extends Operation {
     private List<String> produces = Arrays.asList("application/json");
 
     @JsonIgnore
-    private String security = "Basic";
+    private String security = "Bearer";
 
     @JsonIgnore
     private String locationQuery = null;

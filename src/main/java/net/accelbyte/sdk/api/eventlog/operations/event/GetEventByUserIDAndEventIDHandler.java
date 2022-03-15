@@ -64,9 +64,9 @@ public class GetEventByUserIDAndEventIDHandler extends Operation {
     private Float eventId;
     private String namespace;
     private String userId;
-    private Float offset;
+    private Integer offset;
     private String endDate;
-    private Float pageSize;
+    private Integer pageSize;
     private String startDate;
 
     /**
@@ -82,9 +82,9 @@ public class GetEventByUserIDAndEventIDHandler extends Operation {
             Float eventId,
             String namespace,
             String userId,
-            Float offset,
+            Integer offset,
             String endDate,
-            Float pageSize,
+            Integer pageSize,
             String startDate
     )
     {

@@ -74,8 +74,8 @@ public class QueryEventStreamHandler extends Operation {
      */
     private String namespace;
     private String endDate;
-    private Float offset;
-    private Float pageSize;
+    private Integer offset;
+    private Integer pageSize;
     private String startDate;
     private ModelsGenericQueryPayload body;
 
@@ -87,8 +87,8 @@ public class QueryEventStreamHandler extends Operation {
     public QueryEventStreamHandler(
             String namespace,
             String endDate,
-            Float offset,
-            Float pageSize,
+            Integer offset,
+            Integer pageSize,
             String startDate,
             ModelsGenericQueryPayload body
     )

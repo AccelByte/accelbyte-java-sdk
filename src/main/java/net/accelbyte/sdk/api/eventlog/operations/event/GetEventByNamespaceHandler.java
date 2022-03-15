@@ -62,9 +62,9 @@ public class GetEventByNamespaceHandler extends Operation {
      * fields as input parameter
      */
     private String namespace;
-    private Float offset;
+    private Integer offset;
     private String endDate;
-    private Float pageSize;
+    private Integer pageSize;
     private String startDate;
 
     /**
@@ -76,9 +76,9 @@ public class GetEventByNamespaceHandler extends Operation {
     @Builder
     public GetEventByNamespaceHandler(
             String namespace,
-            Float offset,
+            Integer offset,
             String endDate,
-            Float pageSize,
+            Integer pageSize,
             String startDate
     )
     {

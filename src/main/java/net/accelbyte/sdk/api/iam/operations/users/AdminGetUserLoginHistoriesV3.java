@@ -69,7 +69,7 @@ public class AdminGetUserLoginHistoriesV3 extends Operation {
     private String userId;
     private Float after;
     private Float before;
-    private Float limit;
+    private Integer limit;
 
     /**
     * @param namespace required
@@ -81,7 +81,7 @@ public class AdminGetUserLoginHistoriesV3 extends Operation {
             String userId,
             Float after,
             Float before,
-            Float limit
+            Integer limit
     )
     {
         this.namespace = namespace;

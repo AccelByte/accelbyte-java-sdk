@@ -64,8 +64,8 @@ public class GetUserEventsV2Public extends Operation {
     private String userId;
     private String endDate;
     private String eventName;
-    private Float offset;
-    private Float pageSize;
+    private Integer offset;
+    private Integer pageSize;
     private String startDate;
 
     /**
@@ -78,8 +78,8 @@ public class GetUserEventsV2Public extends Operation {
             String userId,
             String endDate,
             String eventName,
-            Float offset,
-            Float pageSize,
+            Integer offset,
+            Integer pageSize,
             String startDate
     )
     {

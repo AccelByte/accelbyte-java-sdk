@@ -91,8 +91,8 @@ public class GetPublicEditHistory extends Operation {
     private String namespace;
     private String userId;
     private String endDate;
-    private Float offset;
-    private Float pageSize;
+    private Integer offset;
+    private Integer pageSize;
     private String startDate;
     private String type;
 
@@ -105,8 +105,8 @@ public class GetPublicEditHistory extends Operation {
             String namespace,
             String userId,
             String endDate,
-            Float offset,
-            Float pageSize,
+            Integer offset,
+            Integer pageSize,
             String startDate,
             String type
     )

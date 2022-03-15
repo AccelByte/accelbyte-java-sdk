@@ -68,8 +68,8 @@ public class SearchSessions extends Operation {
     private String matchID;
     private String partyID;
     private String userID;
-    private Float limit;
-    private Float offset;
+    private Integer limit;
+    private Integer offset;
 
     /**
     * @param namespace required
@@ -84,8 +84,8 @@ public class SearchSessions extends Operation {
             String matchID,
             String partyID,
             String userID,
-            Float limit,
-            Float offset
+            Integer limit,
+            Integer offset
     )
     {
         this.namespace = namespace;
