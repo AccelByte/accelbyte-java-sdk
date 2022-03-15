@@ -238,15 +238,15 @@ delete_file $TEMP_FILE
 #- 22 SearchSessions
 java -jar ${JAR_PATH} matchmaking searchSessions \
     --namespace "test" \
-    --limit '0.3615313562180734' \
-    --offset '0.22741613764270863' \
+    --limit '46' \
+    --offset '29' \
     >$TEMP_FILE 2>&1
 update_status $? 'SearchSessions'
 delete_file $TEMP_FILE
 
 #- 23 GetSessionHistoryDetailed
 java -jar ${JAR_PATH} matchmaking getSessionHistoryDetailed \
-    --matchID '0B7WOfer' \
+    --matchID 'ot0B7WOf' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'GetSessionHistoryDetailed'
@@ -267,7 +267,7 @@ delete_file $TEMP_FILE
 
 #- 26 PublicGetSingleMatchmakingChannel
 java -jar ${JAR_PATH} matchmaking publicGetSingleMatchmakingChannel \
-    --channelName 'cZdpMci3' \
+    --channelName 'ercZdpMc' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetSingleMatchmakingChannel'
@@ -276,8 +276,8 @@ delete_file $TEMP_FILE
 #- 27 SearchSessionsV2
 java -jar ${JAR_PATH} matchmaking searchSessionsV2 \
     --namespace "test" \
-    --limit '0.9303222928912993' \
-    --offset '0.2857255039397766' \
+    --limit '17' \
+    --offset '58' \
     >$TEMP_FILE 2>&1
 update_status $? 'SearchSessionsV2'
 delete_file $TEMP_FILE
