@@ -288,7 +288,7 @@ delete_file $TEMP_FILE
 java -jar ${JAR_PATH} basic updateUserProfile \
     --namespace "test" \
     --userId 'GodOEGt9' \
-    --body '{"avatarLargeUrl": "gPOj0c6i", "avatarSmallUrl": "0JkvIas7", "avatarUrl": "3ucYnFAJ", "customAttributes": {"3DK5T4Eo": {}}, "dateOfBirth": "1974-02-20", "firstName": "0Y39UoYl", "language": "pv5bVAgt", "lastName": "sDhUTDUs", "status": "ACTIVE", "timeZone": "bQDjbTQu", "zipCode": "PMz2PTRl"}' \
+    --body '{"avatarLargeUrl": "gPOj0c6i", "avatarSmallUrl": "0JkvIas7", "avatarUrl": "3ucYnFAJ", "customAttributes": {"3DK5T4Eo": {}}, "dateOfBirth": "1323-10-31", "firstName": "gtsDhUTD", "language": "SCBq_tqUp_uz", "lastName": "POw6zPFJ", "status": "ACTIVE", "timeZone": "wmzBBSMN", "zipCode": "coAAOjKN"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateUserProfile'
 delete_file $TEMP_FILE
@@ -296,7 +296,7 @@ delete_file $TEMP_FILE
 #- 30 DeleteUserProfile
 java -jar ${JAR_PATH} basic deleteUserProfile \
     --namespace "test" \
-    --userId 'kyU89ZPO' \
+    --userId 'jfcYHm09' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteUserProfile'
 delete_file $TEMP_FILE
@@ -304,7 +304,7 @@ delete_file $TEMP_FILE
 #- 31 GetCustomAttributesInfo
 java -jar ${JAR_PATH} basic getCustomAttributesInfo \
     --namespace "test" \
-    --userId 'w6zPFJ42' \
+    --userId '3aYgBU1s' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetCustomAttributesInfo'
 delete_file $TEMP_FILE
@@ -312,8 +312,8 @@ delete_file $TEMP_FILE
 #- 32 UpdateCustomAttributesPartially
 java -jar ${JAR_PATH} basic updateCustomAttributesPartially \
     --namespace "test" \
-    --userId 'cwmzBBSM' \
-    --body '{"NcoAAOjK": {}}' \
+    --userId 'qjyK0XH4' \
+    --body '{"5PaRSOFQ": {}}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateCustomAttributesPartially'
 delete_file $TEMP_FILE
@@ -321,7 +321,7 @@ delete_file $TEMP_FILE
 #- 33 GetPrivateCustomAttributesInfo
 java -jar ${JAR_PATH} basic getPrivateCustomAttributesInfo \
     --namespace "test" \
-    --userId 'NjfcYHm0' \
+    --userId 'Btu23REZ' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetPrivateCustomAttributesInfo'
 delete_file $TEMP_FILE
@@ -329,8 +329,8 @@ delete_file $TEMP_FILE
 #- 34 UpdatePrivateCustomAttributesPartially
 java -jar ${JAR_PATH} basic updatePrivateCustomAttributesPartially \
     --namespace "test" \
-    --userId '93aYgBU1' \
-    --body '{"sqjyK0XH": {}}' \
+    --userId '8hRVX7LG' \
+    --body '{"OvDdYiQS": {}}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdatePrivateCustomAttributesPartially'
 delete_file $TEMP_FILE
@@ -338,8 +338,8 @@ delete_file $TEMP_FILE
 #- 35 UpdateUserProfileStatus
 java -jar ${JAR_PATH} basic updateUserProfileStatus \
     --namespace "test" \
-    --userId '45PaRSOF' \
-    --body '{"status": "INACTIVE"}' \
+    --userId '9i7mV1C9' \
+    --body '{"status": "ACTIVE"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateUserProfileStatus'
 delete_file $TEMP_FILE
@@ -358,9 +358,9 @@ delete_file $TEMP_FILE
 
 #- 38 PublicGeneratedUploadUrl
 java -jar ${JAR_PATH} basic publicGeneratedUploadUrl \
-    --folder 'tu23REZ8' \
+    --folder 'jG9gpxL6' \
     --namespace "test" \
-    --fileType 'hRVX7LGO' \
+    --fileType 'ycTQdvln' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGeneratedUploadUrl'
 delete_file $TEMP_FILE
@@ -389,7 +389,7 @@ delete_file $TEMP_FILE
 #- 42 PublicGetUserProfilePublicInfoByIds
 java -jar ${JAR_PATH} basic publicGetUserProfilePublicInfoByIds \
     --namespace "test" \
-    --userIds 'vDdYiQS9' \
+    --userIds '2LAuSQWE' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserProfilePublicInfoByIds'
 delete_file $TEMP_FILE
@@ -411,7 +411,7 @@ delete_file $TEMP_FILE
 #- 45 UpdateMyProfile
 java -jar ${JAR_PATH} basic updateMyProfile \
     --namespace "test" \
-    --body '{"avatarLargeUrl": "i7mV1C91", "avatarSmallUrl": "pjG9gpxL", "avatarUrl": "6ycTQdvl", "customAttributes": {"n2LAuSQW": {}}, "dateOfBirth": "1986-10-24", "firstName": "6LFE1YHo", "language": "9m126ZWc", "lastName": "8hHtWvbN", "privateCustomAttributes": {"YqgUqslA": {}}, "timeZone": "rFPiHUIv", "zipCode": "aCv8kU9d"}' \
+    --body '{"avatarLargeUrl": "XL6LFE1Y", "avatarSmallUrl": "Ho9m126Z", "avatarUrl": "Wc8hHtWv", "customAttributes": {"bNYqgUqs": {}}, "dateOfBirth": "6472-10-22", "firstName": "U9dBBpds", "language": "lHSv-RKXO", "lastName": "t0B7WOfe", "privateCustomAttributes": {"rcZdpMci": {}}, "timeZone": "37Ds7YSf", "zipCode": "ExaI3uzL"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateMyProfile'
 delete_file $TEMP_FILE
@@ -419,7 +419,7 @@ delete_file $TEMP_FILE
 #- 46 CreateMyProfile
 java -jar ${JAR_PATH} basic createMyProfile \
     --namespace "test" \
-    --body '{"avatarLargeUrl": "BBpdsJLh", "avatarSmallUrl": "sVyExrkx", "avatarUrl": "oot0B7WO", "customAttributes": {"fercZdpM": {}}, "dateOfBirth": "1972-03-11", "firstName": "37Ds7YSf", "language": "ExaI3uzL", "lastName": "teMbFAlt", "privateCustomAttributes": {"4hr7HmOY": {}}, "timeZone": "iBA5ltAO"}' \
+    --body '{"avatarLargeUrl": "teMbFAlt", "avatarSmallUrl": "4hr7HmOY", "avatarUrl": "iBA5ltAO", "customAttributes": {"XmlG6eh1": {}}, "dateOfBirth": "0373-12-06", "firstName": "C1dQY93O", "language": "NjtE-DZhU-wU", "lastName": "nvizU0q1", "privateCustomAttributes": {"pHyhhERo": {}}, "timeZone": "GgdrysMi"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'CreateMyProfile'
 delete_file $TEMP_FILE
@@ -433,7 +433,7 @@ delete_file $TEMP_FILE
 
 #- 48 UpdateMyZipCode
 java -jar ${JAR_PATH} basic updateMyZipCode \
-    --userZipCodeUpdate '{"zipCode": "XmlG6eh1"}' \
+    --userZipCodeUpdate '{"zipCode": "zBGSRdP2"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateMyZipCode'
@@ -442,8 +442,8 @@ delete_file $TEMP_FILE
 #- 49 PublicReportUser
 java -jar ${JAR_PATH} basic publicReportUser \
     --namespace "test" \
-    --userId 'dTdoTFpB' \
-    --body '{"category": "IcuC1dQY", "description": "93OJnJ6T", "gameSessionId": "e9vD8ldz", "subcategory": "7Hu8AD79", "userId": "kdWunviz"}' \
+    --userId 'l7DNSZ8A' \
+    --body '{"category": "q0XiPLQX", "description": "Se07ZddO", "gameSessionId": "GTMlJjBw", "subcategory": "j9HJHQKs", "userId": "eEdSXRDS"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicReportUser'
 delete_file $TEMP_FILE
@@ -451,8 +451,8 @@ delete_file $TEMP_FILE
 #- 50 PublicGeneratedUserUploadContentUrl
 java -jar ${JAR_PATH} basic publicGeneratedUserUploadContentUrl \
     --namespace "test" \
-    --userId 'U0q1pHyh' \
-    --fileType 'hERoGgdr' \
+    --userId 'vguauw1x' \
+    --fileType 'T7eMwSl9' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGeneratedUserUploadContentUrl'
 delete_file $TEMP_FILE
@@ -460,7 +460,7 @@ delete_file $TEMP_FILE
 #- 51 PublicGetUserProfileInfo
 java -jar ${JAR_PATH} basic publicGetUserProfileInfo \
     --namespace "test" \
-    --userId 'ysMizBGS' \
+    --userId 'MLH0NnTJ' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserProfileInfo'
 delete_file $TEMP_FILE
@@ -468,8 +468,8 @@ delete_file $TEMP_FILE
 #- 52 PublicUpdateUserProfile
 java -jar ${JAR_PATH} basic publicUpdateUserProfile \
     --namespace "test" \
-    --userId 'RdP2l7DN' \
-    --body '{"avatarLargeUrl": "SZ8Aq0Xi", "avatarSmallUrl": "PLQXSe07", "avatarUrl": "ZddOGTMl", "customAttributes": {"JjBwj9HJ": {}}, "dateOfBirth": "1987-12-05", "firstName": "KseEdSXR", "language": "DSvguauw", "lastName": "1xT7eMwS", "timeZone": "l9MLH0Nn", "zipCode": "TJ2ulNzB"}' \
+    --userId '2ulNzBvw' \
+    --body '{"avatarLargeUrl": "JaQa547J", "avatarSmallUrl": "llvA8RWS", "avatarUrl": "pabUt7xk", "customAttributes": {"6QxyWhfq": {}}, "dateOfBirth": "1853-05-28", "firstName": "zT7NXmWD", "language": "xS_SnoL_As", "lastName": "bnsuLCgT", "timeZone": "oxuVTekJ", "zipCode": "gvg6h5HI"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicUpdateUserProfile'
 delete_file $TEMP_FILE
@@ -477,8 +477,8 @@ delete_file $TEMP_FILE
 #- 53 PublicCreateUserProfile
 java -jar ${JAR_PATH} basic publicCreateUserProfile \
     --namespace "test" \
-    --userId 'vwJaQa54' \
-    --body '{"avatarLargeUrl": "7JllvA8R", "avatarSmallUrl": "WSpabUt7", "avatarUrl": "xk6QxyWh", "customAttributes": {"fqoWfJw2": {}}, "dateOfBirth": "1978-04-24", "firstName": "WUqvPCZ2", "language": "HzT7NXmW", "lastName": "DlXsuNId", "timeZone": "QJR5lsNO"}' \
+    --userId 'pH0Dvipl' \
+    --body '{"avatarLargeUrl": "Ek4vj3LD", "avatarSmallUrl": "p4yqDt8Q", "avatarUrl": "UZDpxlHa", "customAttributes": {"sinGcjrk": {}}, "dateOfBirth": "9441-08-30", "firstName": "IVBmft3U", "language": "GP", "lastName": "X4MsisSX", "timeZone": "28nARxWR"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicCreateUserProfile'
 delete_file $TEMP_FILE
@@ -486,7 +486,7 @@ delete_file $TEMP_FILE
 #- 54 PublicGetCustomAttributesInfo
 java -jar ${JAR_PATH} basic publicGetCustomAttributesInfo \
     --namespace "test" \
-    --userId 'lvkfwaSb' \
+    --userId 'pv5ou5xt' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetCustomAttributesInfo'
 delete_file $TEMP_FILE
@@ -494,8 +494,8 @@ delete_file $TEMP_FILE
 #- 55 PublicUpdateCustomAttributesPartially
 java -jar ${JAR_PATH} basic publicUpdateCustomAttributesPartially \
     --namespace "test" \
-    --userId 'nsuLCgTo' \
-    --body '{"xuVTekJg": {}}' \
+    --userId 'vd28OUfC' \
+    --body '{"t8UJC5fl": {}}' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicUpdateCustomAttributesPartially'
 delete_file $TEMP_FILE
@@ -503,7 +503,7 @@ delete_file $TEMP_FILE
 #- 56 PublicGetUserProfilePublicInfo
 java -jar ${JAR_PATH} basic publicGetUserProfilePublicInfo \
     --namespace "test" \
-    --userId 'vg6h5HIp' \
+    --userId 'Nyj6HsTt' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserProfilePublicInfo'
 delete_file $TEMP_FILE
@@ -511,7 +511,7 @@ delete_file $TEMP_FILE
 #- 57 PublicUpdateUserProfileStatus
 java -jar ${JAR_PATH} basic publicUpdateUserProfileStatus \
     --namespace "test" \
-    --userId 'H0DviplE' \
+    --userId 'X8P3llna' \
     --body '{"status": "ACTIVE"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicUpdateUserProfileStatus'
