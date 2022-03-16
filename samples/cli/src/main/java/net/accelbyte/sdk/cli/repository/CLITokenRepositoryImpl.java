@@ -20,7 +20,7 @@ import java.nio.file.Paths;
 public class CLITokenRepositoryImpl implements TokenRepository {
 
     private static final Logger log = LogManager.getLogger(CLITokenRepositoryImpl.class);
-    private static final String DATA_STORE_FILE_NAME = "data-store.yaml";
+    private static final String DATA_STORE_FILE_NAME = "accelbyte-java-sdk-cli.yaml";
     private static CLITokenRepositoryImpl instance = null;
 
     private CLITokenRepositoryImpl() {
@@ -42,7 +42,8 @@ public class CLITokenRepositoryImpl implements TokenRepository {
         try {
             File file = new File(getDataStorePath());
             ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-            DataStore dataStore = mapper.readValue(file, DataStore.class);
+            DataStore dataStore = file.exists() ? 
+                    mapper.readValue(file, DataStore.class) : new DataStore();
             return dataStore.getAccessToken();
         } catch (Exception e) {
             log.error("File not found with exception: {}", e.getMessage());
@@ -55,7 +56,8 @@ public class CLITokenRepositoryImpl implements TokenRepository {
         try {
             File file = new File(getDataStorePath());
             ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-            DataStore dataStore = mapper.readValue(file, DataStore.class);
+            DataStore dataStore = file.exists() ? 
+                    mapper.readValue(file, DataStore.class) : new DataStore();
             dataStore.setAccessToken("");
             mapper.writeValue(file, dataStore);
         } catch (NullPointerException e) {
@@ -68,7 +70,8 @@ public class CLITokenRepositoryImpl implements TokenRepository {
         try {
             File file = new File(getDataStorePath());
             ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-            DataStore dataStore = mapper.readValue(file, DataStore.class);
+            DataStore dataStore = file.exists() ? 
+                    mapper.readValue(file, DataStore.class) : new DataStore();
             dataStore.setAccessToken(token);
             mapper.writeValue(file, dataStore);
         } catch (NullPointerException e) {
@@ -77,11 +80,7 @@ public class CLITokenRepositoryImpl implements TokenRepository {
     }
 
     private String getDataStorePath() {
-        // get path on: ./build/resources/main/data-store.yaml
-        String main = CLITokenRepositoryImpl.class.getProtectionDomain().getCodeSource().getLocation().getFile();
-        Path path = Paths.get(main);
-        Path subPath = path.subpath(0, path.getNameCount() - 2);
-        String buildDir = path.getRoot() + subPath.toString();
-        return buildDir + "/resources/main/" + DATA_STORE_FILE_NAME;
+        Path dataStorePath = Paths.get(System.getProperty("java.io.tmpdir"), DATA_STORE_FILE_NAME);
+        return dataStorePath.toString();
     }
 }
