@@ -57,6 +57,11 @@ pipeline {
             sh "[ -f spec/TIMESTAMP ] || exit 1"  // Make sure TIMESTAMP file is present in spec directory
           }
         }
+        stage('Lint Source Code') {
+          steps {
+            sh "make lint"
+          }
+        }
       }
     }
     stage('Build') {
@@ -72,6 +77,9 @@ pipeline {
     }
   }
   post {
+    always {
+      archiveArtifacts artifacts: 'build/reports/**'
+    }
     success {
       script {
         if (bitbucketCommitHref) {
