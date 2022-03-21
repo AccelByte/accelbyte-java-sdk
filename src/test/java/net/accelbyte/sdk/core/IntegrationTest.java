@@ -12,17 +12,21 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
+import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import net.accelbyte.sdk.api.achievement.models.ModelsAchievementRequest;
@@ -53,6 +57,14 @@ import net.accelbyte.sdk.api.cloudsave.wrappers.PublicGameRecord;
 import net.accelbyte.sdk.api.dslogmanager.models.ModelsListTerminatedServersResponse;
 import net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers.ListTerminatedServers;
 import net.accelbyte.sdk.api.dslogmanager.wrappers.TerminatedServers;
+import net.accelbyte.sdk.api.dsmc.models.ModelsClaimSessionRequest;
+import net.accelbyte.sdk.api.dsmc.models.ModelsListServerResponse;
+import net.accelbyte.sdk.api.dsmc.models.ModelsRequestMatchMember;
+import net.accelbyte.sdk.api.dsmc.models.ModelsRequestMatchingAlly;
+import net.accelbyte.sdk.api.dsmc.models.ModelsRequestMatchParty;
+import net.accelbyte.sdk.api.dsmc.operations.admin.ListLocalServer;
+import net.accelbyte.sdk.api.dsmc.operations.session.ClaimServer;
+import net.accelbyte.sdk.api.dsmc.wrappers.Admin;
 import net.accelbyte.sdk.api.eventlog.models.ModelsEventResponseV2;
 import net.accelbyte.sdk.api.eventlog.models.ModelsGenericQueryPayload;
 import net.accelbyte.sdk.api.eventlog.operations.event_v2.GetEventSpecificUserV2Handler;
@@ -63,19 +75,26 @@ import net.accelbyte.sdk.api.gdpr.operations.data_retrieval.GetAdminEmailConfigu
 import net.accelbyte.sdk.api.gdpr.operations.data_retrieval.SaveAdminEmailConfiguration;
 import net.accelbyte.sdk.api.gdpr.operations.data_retrieval.UpdateAdminEmailConfiguration;
 import net.accelbyte.sdk.api.gdpr.wrappers.DataRetrieval;
+import net.accelbyte.sdk.api.group.models.ModelsCreateGroupConfigurationRequestV1;
+import net.accelbyte.sdk.api.group.models.ModelsCreateGroupConfigurationResponseV1;
 import net.accelbyte.sdk.api.group.models.ModelsGroupResponseV1;
 import net.accelbyte.sdk.api.group.models.ModelsPublicCreateNewGroupRequestV1;
 import net.accelbyte.sdk.api.group.models.ModelsUpdateGroupRequestV1;
+import net.accelbyte.sdk.api.group.operations.configuration.CreateGroupConfigurationAdminV1;
+import net.accelbyte.sdk.api.group.operations.configuration.DeleteGroupConfigurationV1;
 import net.accelbyte.sdk.api.group.operations.group.CreateNewGroupPublicV1;
 import net.accelbyte.sdk.api.group.operations.group.DeleteGroupPublicV1;
 import net.accelbyte.sdk.api.group.operations.group.GetSingleGroupPublicV1;
 import net.accelbyte.sdk.api.group.operations.group.UpdateSingleGroupV1;
+import net.accelbyte.sdk.api.group.wrappers.Configuration;
 import net.accelbyte.sdk.api.group.wrappers.Group;
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserRequestV4;
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserResponseV4;
+import net.accelbyte.sdk.api.iam.models.ModelPublicUserResponse;
 import net.accelbyte.sdk.api.iam.models.ModelUserResponse;
 import net.accelbyte.sdk.api.iam.models.ModelUserUpdateRequest;
 import net.accelbyte.sdk.api.iam.operations.users.DeleteUser;
+import net.accelbyte.sdk.api.iam.operations.users.GetUserByLoginID;
 import net.accelbyte.sdk.api.iam.operations.users.GetUserByUserID;
 import net.accelbyte.sdk.api.iam.operations.users.UpdateUser;
 import net.accelbyte.sdk.api.iam.operations.users_v4.PublicCreateUserV4;
@@ -92,9 +111,34 @@ import net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.De
 import net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.GetLeaderboardConfigurationAdminV1;
 import net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.UpdateLeaderboardConfigurationAdminV1;
 import net.accelbyte.sdk.api.leaderboard.wrappers.LeaderboardConfiguration;
+import net.accelbyte.sdk.api.legal.models.AcceptAgreementRequest;
 import net.accelbyte.sdk.api.legal.models.RetrieveAcceptedAgreementResponse;
+import net.accelbyte.sdk.api.legal.operations.agreement.ChangePreferenceConsent;
 import net.accelbyte.sdk.api.legal.operations.agreement.RetrieveAgreementsPublic;
 import net.accelbyte.sdk.api.legal.wrappers.Agreement;
+import net.accelbyte.sdk.api.lobby.models.ModelFreeFormNotificationRequest;
+import net.accelbyte.sdk.api.lobby.operations.notification.FreeFormNotification;
+import net.accelbyte.sdk.api.lobby.wrappers.Notification;
+import net.accelbyte.sdk.api.lobby.ws_models.PartyCreateRequest;
+import net.accelbyte.sdk.api.matchmaking.models.ModelsAllianceFlexingRule;
+import net.accelbyte.sdk.api.matchmaking.models.ModelsAllianceRule;
+import net.accelbyte.sdk.api.matchmaking.models.ModelsChannelRequest;
+import net.accelbyte.sdk.api.matchmaking.models.ModelsChannelV1;
+import net.accelbyte.sdk.api.matchmaking.models.ModelsCreateChannelResponse;
+import net.accelbyte.sdk.api.matchmaking.models.ModelsFlexingRule;
+import net.accelbyte.sdk.api.matchmaking.models.ModelsMatchOption;
+import net.accelbyte.sdk.api.matchmaking.models.ModelsMatchOptionRule;
+import net.accelbyte.sdk.api.matchmaking.models.ModelsMatchingRule;
+import net.accelbyte.sdk.api.matchmaking.models.ModelsMatchmakingResult;
+import net.accelbyte.sdk.api.matchmaking.models.ModelsRuleSet;
+import net.accelbyte.sdk.api.matchmaking.models.ModelsSubGameMode;
+import net.accelbyte.sdk.api.matchmaking.models.ModelsUpdateChannelRequest;
+import net.accelbyte.sdk.api.matchmaking.operations.matchmaking.CreateChannelHandler;
+import net.accelbyte.sdk.api.matchmaking.operations.matchmaking.DeleteChannelHandler;
+import net.accelbyte.sdk.api.matchmaking.operations.matchmaking.GetAllSessionsInChannel;
+import net.accelbyte.sdk.api.matchmaking.operations.matchmaking.GetSingleMatchmakingChannel;
+import net.accelbyte.sdk.api.matchmaking.operations.matchmaking.UpdateMatchmakingChannel;
+import net.accelbyte.sdk.api.matchmaking.wrappers.Matchmaking;
 import net.accelbyte.sdk.api.platform.models.StoreCreate;
 import net.accelbyte.sdk.api.platform.models.StoreInfo;
 import net.accelbyte.sdk.api.platform.models.StoreUpdate;
@@ -114,12 +158,20 @@ import net.accelbyte.sdk.api.sessionbrowser.operations.session.UpdateSession;
 import net.accelbyte.sdk.api.sessionbrowser.wrappers.Session;
 import net.accelbyte.sdk.api.social.models.StatCreate;
 import net.accelbyte.sdk.api.social.models.StatInfo;
+import net.accelbyte.sdk.api.social.models.StatItemInc;
+import net.accelbyte.sdk.api.social.models.StatItemIncResult;
 import net.accelbyte.sdk.api.social.models.StatUpdate;
+import net.accelbyte.sdk.api.social.models.UserStatItemPagingSlicedResult;
 import net.accelbyte.sdk.api.social.operations.stat_configuration.CreateStat;
 import net.accelbyte.sdk.api.social.operations.stat_configuration.DeleteStat;
 import net.accelbyte.sdk.api.social.operations.stat_configuration.GetStat;
 import net.accelbyte.sdk.api.social.operations.stat_configuration.UpdateStat;
+import net.accelbyte.sdk.api.social.operations.user_statistic.CreateUserStatItem;
+import net.accelbyte.sdk.api.social.operations.user_statistic.DeleteUserStatItems;
+import net.accelbyte.sdk.api.social.operations.user_statistic.GetUserStatItems;
+import net.accelbyte.sdk.api.social.operations.user_statistic.IncUserStatItemValue;
 import net.accelbyte.sdk.api.social.wrappers.StatConfiguration;
+import net.accelbyte.sdk.api.social.wrappers.UserStatistic;
 import net.accelbyte.sdk.api.ugc.models.ModelsCreateTagRequest;
 import net.accelbyte.sdk.api.ugc.models.ModelsCreateTagResponse;
 import net.accelbyte.sdk.api.ugc.models.ModelsPaginatedGetTagResponse;
@@ -129,28 +181,34 @@ import net.accelbyte.sdk.api.ugc.operations.admin_tag.AdminGetTag;
 import net.accelbyte.sdk.api.ugc.operations.admin_tag.AdminUpdateTag;
 import net.accelbyte.sdk.api.ugc.wrappers.AdminTag;
 import net.accelbyte.sdk.core.client.OkhttpClient;
+import net.accelbyte.sdk.core.client.OkhttpWebSocketClient;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
+import okhttp3.WebSocket;
+import okhttp3.WebSocketListener;
 
 public class IntegrationTest {
         private static AccelByteSDK _sdk;
 
         @BeforeAll
         static void setup() {
-                _sdk = new AccelByteSDK(
+                AccelByteConfig sdkConfig = new AccelByteConfig(
                                 new OkhttpClient(),
                                 DefaultTokenRepository.getInstance(),
                                 new DefaultConfigRepository());
 
-                String baseUrl = _sdk.getSdkConfiguration()
+                String baseUrl = sdkConfig
                                 .getConfigRepository()
                                 .getBaseURL();
-                String clientId = _sdk.getSdkConfiguration()
+                String clientId = sdkConfig
                                 .getConfigRepository()
                                 .getClientId();
-                String clientSecret = _sdk.getSdkConfiguration()
+                String clientSecret = sdkConfig
                                 .getConfigRepository()
                                 .getClientSecret();
+
+                _sdk = new AccelByteSDK(sdkConfig);
+
                 String username = System.getenv("AB_USERNAME");
                 String password = System.getenv("AB_PASSWORD");
                 String namespace = System.getenv("AB_NAMESPACE");
@@ -176,6 +234,8 @@ public class IntegrationTest {
                 Assertions.assertTrue(isLoginUserOk);
                 Assertions.assertTrue(token != null && !token.isEmpty());
         }
+
+        // Admin integration tests
 
         @Test
         public void AchievementServiceTests() throws ResponseException, IOException {
@@ -463,7 +523,6 @@ public class IntegrationTest {
         }
 
         @Test
-        @Disabled("Error permission")
         public void GDPRServiceTests() throws ResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String emailToTest = "dummy@example.com";
@@ -486,24 +545,55 @@ public class IntegrationTest {
 
                 wGdprRetrieval.updateAdminEmailConfiguration(UpdateAdminEmailConfiguration.builder()
                                 .namespace(namespace)
-                                .body(Arrays.asList(new String[] {anotherEmailToTest}))
+                                .body(Arrays.asList(new String[] { anotherEmailToTest }))
                                 .build());
 
                 wGdprRetrieval.deleteAdminEmailConfiguration(
                                 DeleteAdminEmailConfiguration.builder()
                                                 .namespace(namespace)
-                                                .emails(Arrays.asList(new String[] {emailToTest }))
+                                                .emails(Arrays.asList(new String[] { anotherEmailToTest }))
                                                 .build());
         }
 
         @Test
-        @Disabled("Error 73331 unable to create group: , userID: 6bf0e538f8b4423eb9d8b9e577aa860e, details: global configuration not found")
         public void GroupServiceTests() throws ResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
+                final String configurationCode = "csharpServerSdkConfigCode";
                 final String groupName = "Java SDK Test Group";
                 final String groupDescriptionUpdated = "Updated description.";
 
+                Configuration wConfig = new Configuration(_sdk);
                 Group wGroup = new Group(_sdk);
+
+                // Create group configuration
+
+                ModelsCreateGroupConfigurationRequestV1 gcRequest = ModelsCreateGroupConfigurationRequestV1.builder()
+                                .configurationCode(configurationCode)
+                                .description("CSharp SDK Test Configuration Group")
+                                .groupMaxMember(50)
+                                .name("CSharp SDK Test Configuration Group")
+                                .groupAdminRoleId("623295c3000e792bf1e902b7")
+                                .groupMemberRoleId("623295c3000e792bf1e902b8")
+                                .build();
+
+                try {
+                        ModelsCreateGroupConfigurationResponseV1 gcResp = wConfig.createGroupConfigurationAdminV1(
+                                        CreateGroupConfigurationAdminV1.builder()
+                                                        .namespace(namespace)
+                                                        .body(gcRequest)
+                                                        .build());
+
+                        Assertions.assertNotNull(gcResp);
+                } catch (ResponseException rex) {
+                        boolean isAlreadyExist = rex.getErrorMessage()
+                                        .contains("73130"); // unable to create global
+                                                            // configuration: global
+                                                            // configuration already exist
+
+                        if (!isAlreadyExist) {
+                                throw rex;
+                        }
+                }
 
                 // Create a group
 
@@ -513,7 +603,7 @@ public class IntegrationTest {
                                 .groupDescription("Yeah, anything is welcome here.")
                                 .groupMaxMember(100)
                                 .groupRegion("us-west-1")
-                                .configurationCode("initialConfigurationCode")
+                                .configurationCode(configurationCode)
                                 .build();
 
                 ModelsGroupResponseV1 cGroup = wGroup.createNewGroupPublicV1(CreateNewGroupPublicV1.builder()
@@ -567,6 +657,14 @@ public class IntegrationTest {
                                         .groupId(group_id)
                                         .build());
                 });
+
+                // Delete group configuration
+
+                wConfig.deleteGroupConfigurationV1(
+                                DeleteGroupConfigurationV1.builder()
+                                                .namespace(namespace)
+                                                .configurationCode(configurationCode)
+                                                .build());
         }
 
         @Test
@@ -743,6 +841,21 @@ public class IntegrationTest {
                                 .retrieveAgreementsPublic(RetrieveAgreementsPublic.builder().build());
 
                 Assertions.assertNotNull(aggrs);
+
+                List<AcceptAgreementRequest> aggreementRequests = Arrays.asList(new AcceptAgreementRequest[] {
+                                AcceptAgreementRequest.builder()
+                                                .localizedPolicyVersionId("152b9b0f-7b8e-4a9e-8a9d-8c82420ad8b3")
+                                                .policyVersionId("a76ea12c-14fd-46c5-886f-fd3d0ded4408")
+                                                .policyId("6adb3d65-b428-4dbc-a08d-e5126c644557") // The marketing
+                                                                                                  // policy
+                                                .isAccepted(true)
+                                                .build()
+                });
+
+                wLegalAgreement.changePreferenceConsent(
+                                ChangePreferenceConsent.builder()
+                                                .body(aggreementRequests)
+                                                .build());
         }
 
         @Test
@@ -753,7 +866,8 @@ public class IntegrationTest {
                 final String storeDescriptionUpdated = "Updated description.";
 
                 Store wStore = new Store(_sdk);
-                String store_id = "";
+
+                // TODO Setup store
 
                 // Create a store
 
@@ -762,8 +876,8 @@ public class IntegrationTest {
                                 .description(storeDescription)
                                 .defaultLanguage("en")
                                 .defaultRegion("US")
-                                .supportedLanguages(Arrays.asList(new String[] {"en", "id" }))
-                                .supportedRegions(Arrays.asList(new String[] {"US", "ID"}))
+                                .supportedLanguages(Arrays.asList(new String[] { "en", "id" }))
+                                .supportedRegions(Arrays.asList(new String[] { "US", "ID" }))
                                 .build();
 
                 StoreInfo cStore = wStore.createStore(CreateStore.builder()
@@ -774,7 +888,7 @@ public class IntegrationTest {
                 Assertions.assertNotNull(cStore);
                 Assertions.assertEquals(storeTitle, cStore.getTitle());
 
-                store_id = cStore.getTitle();
+                String store_id = cStore.getStoreId();
 
                 // Get a store
 
@@ -899,7 +1013,7 @@ public class IntegrationTest {
                                 .defaultValue(50f)
                                 .incrementOnly(true)
                                 .setAsGlobal(false)
-                                .tags(Arrays.asList(new String[] {"java", "server_sdk", "test"}))
+                                .tags(Arrays.asList(new String[] { "java", "server_sdk", "test" }))
                                 .build();
 
                 StatInfo cStat = wStatConfig.createStat(
@@ -987,6 +1101,344 @@ public class IntegrationTest {
 
                 wAdminTag.adminDeleteTag(
                                 AdminDeleteTag.builder().namespace(namespace).tagId(tag_id).build());
+        }
+
+        // Client integration test
+
+        @Test
+        public void SocialServiceUserStatTests() throws ResponseException, IOException {
+                final String namespace = System.getenv("AB_NAMESPACE");
+                final String user_login_id = System.getenv("AB_USERNAME");
+                final String stat_code = "cs-server-sdk-test";
+
+                UserStatistic wUserStat = new UserStatistic(_sdk);
+
+                Users wUsers = new Users(_sdk);
+                ModelPublicUserResponse uResp = wUsers.getUserByLoginID(
+                                GetUserByLoginID.builder()
+                                                .namespace(namespace)
+                                                .loginId(user_login_id)
+                                                .build());
+
+                Assertions.assertNotNull(uResp);
+                String user_id = uResp.getUserId();
+
+                wUserStat.createUserStatItem(CreateUserStatItem.builder()
+                                .namespace(namespace)
+                                .userId(user_id)
+                                .statCode(stat_code)
+                                .build());
+
+                UserStatItemPagingSlicedResult gsResult = wUserStat.getUserStatItems(GetUserStatItems.builder()
+                                .namespace(namespace)
+                                .userId(user_id)
+                                .statCodes(stat_code)
+                                .offset(0)
+                                .limit(10)
+                                .build());
+
+                Assertions.assertNotNull(gsResult);
+                Assertions.assertTrue(gsResult.getData().size() > 0);
+
+                StatItemIncResult incResult = wUserStat.incUserStatItemValue(IncUserStatItemValue.builder()
+                                .namespace(namespace)
+                                .userId(user_id)
+                                .statCode(stat_code)
+                                .body(StatItemInc.builder().inc(5f).build())
+                                .build());
+
+                Assertions.assertNotNull(incResult);
+
+                wUserStat.deleteUserStatItems(DeleteUserStatItems.builder()
+                                .namespace(namespace)
+                                .userId(user_id)
+                                .statCode(stat_code)
+                                .build());
+        }
+
+        // Matchmaking integration test
+
+        @Test
+        public void DSMCListLocalServerTest() throws ResponseException, IOException {
+                final String namespace = System.getenv("AB_NAMESPACE");
+                Admin wDsmcAdmin = new Admin(_sdk);
+                ModelsListServerResponse serverResp = wDsmcAdmin.listLocalServer(ListLocalServer.builder()
+                                .namespace(namespace)
+                                .build());
+                Assertions.assertNotNull(serverResp);
+        }
+
+        @Test
+        public void DSMCServiceTests() throws ResponseException, IOException, InterruptedException {
+                final String usernameToTest = "dummy@example.com";
+                final String target_namespace = "armadademotestqa";
+                final String target_deployment = "deployruli";
+                final String game_mode = "soloyogs";
+                final String party_id = "PARTY_ID";
+                final String party_user_id = System.getenv("AB_USERNAME");
+
+                net.accelbyte.sdk.api.dsmc.wrappers.Session wSession = new net.accelbyte.sdk.api.dsmc.wrappers.Session(
+                                _sdk);
+                Admin wDsmcAdmin = new Admin(_sdk);
+
+                Session wSBSession = new Session(_sdk);
+
+                // Create a session
+
+                ModelsCreateSessionRequest createSession = ModelsCreateSessionRequest.builder()
+                                .sessionType("p2p")
+                                .gameVersion("0.3.0")
+                                .namespace(target_namespace)
+                                .username(usernameToTest)
+                                .gameSessionSetting(ModelsGameSessionSetting.builder()
+                                                .mode(game_mode)
+                                                .allowJoinInProgress(true)
+                                                .mapName("CSharp SDK Integration Test")
+                                                .maxPlayer(100)
+                                                .build())
+                                .build();
+
+                ModelsSessionResponse cResp = wSBSession.createSession(
+                                CreateSession.builder().namespace(target_namespace)
+                                                .body(createSession).build());
+
+                Assertions.assertNotNull(cResp);
+                Assertions.assertEquals(usernameToTest, cResp.getUsername());
+                String session_id = cResp.getSessionId();
+
+                // Create a session
+
+                net.accelbyte.sdk.api.dsmc.models.ModelsCreateSessionRequest sessionRequest = net.accelbyte.sdk.api.dsmc.models.ModelsCreateSessionRequest
+                                .builder()
+                                .clientVersion("0.3.0")
+                                .configuration("")
+                                .deployment(target_deployment)
+                                .gameMode(game_mode)
+                                .matchingAllies(Arrays.asList(new ModelsRequestMatchingAlly[] {
+                                                ModelsRequestMatchingAlly.builder()
+                                                                .matchingParties(Arrays
+                                                                                .asList(new ModelsRequestMatchParty[] {
+                                                                                                ModelsRequestMatchParty
+                                                                                                                .builder()
+                                                                                                                .partyAttributes(
+                                                                                                                                new HashMap<String, Object>())
+                                                                                                                .partyId(party_id)
+                                                                                                                .partyMembers(Arrays
+                                                                                                                                .asList(new ModelsRequestMatchMember[] {
+                                                                                                                                                ModelsRequestMatchMember
+                                                                                                                                                                .builder()
+                                                                                                                                                                .userId(party_user_id)
+                                                                                                                                                                .build()
+                                                                                                                                }))
+                                                                                                                .build()
+                                                                                }))
+                                                                .build()
+                                }))
+                                .region("")
+                                .podName("")
+                                .sessionId(session_id)
+                                .namespace(target_namespace)
+                                .build();
+
+                net.accelbyte.sdk.api.dsmc.models.ModelsSessionResponse csResp = wSession
+                                .createSession(net.accelbyte.sdk.api.dsmc.operations.session.CreateSession.builder()
+                                                .namespace(target_namespace)
+                                                .body(sessionRequest)
+                                                .build());
+                Assertions.assertNotNull(csResp);
+
+                csResp = wSession.getSession(net.accelbyte.sdk.api.dsmc.operations.session.GetSession.builder()
+                                .namespace(target_namespace)
+                                .sessionID(session_id)
+                                .build());
+                Assertions.assertNotNull(csResp);
+
+                // Waiting for the server to be ready
+
+                Thread.sleep(5000);
+
+                // Claim
+
+                ModelsClaimSessionRequest claimServer = ModelsClaimSessionRequest.builder()
+                                .sessionId(session_id)
+                                .build();
+
+                wSession.claimServer(ClaimServer.builder()
+                                .namespace(target_namespace)
+                                .body(claimServer)
+                                .build());
+
+                // Clean up
+
+                wDsmcAdmin.deleteSession(net.accelbyte.sdk.api.dsmc.operations.admin.DeleteSession.builder()
+                                .namespace(target_namespace)
+                                .sessionID(session_id)
+                                .build());
+
+                ModelsSessionResponse delResp = wSBSession.deleteSession(DeleteSession.builder()
+                                .namespace(target_namespace)
+                                .sessionID(session_id)
+                                .build());
+                Assertions.assertNotNull(delResp);
+        }
+
+        @Test
+        public void MatchmakingServiceApiTests() throws ResponseException, IOException {
+                final String namespace = System.getenv("AB_NAMESPACE");
+                final String channelName = "csharp_sdk_gm_" + GenerateRandomId(8);
+                final String channelDescription = "CSharp Server SDK Test";
+                final String channelDescriptionUpdated = "Updated description.";
+
+                Matchmaking wMatchmaking = new Matchmaking(_sdk);
+
+                // Create a channel
+
+                ModelsChannelRequest channelReq = ModelsChannelRequest.builder()
+                                .deployment("")
+                                .description(channelDescription)
+                                .findMatchTimeoutSeconds(3600)
+                                .gameMode(channelName)
+                                .joinable(false)
+                                .maxDelayMs(0)
+                                .sessionQueueTimeoutSeconds(0)
+                                .socialMatchmaking(false)
+                                .useSubGamemode(false)
+                                .ruleSet(ModelsRuleSet.builder()
+                                                .alliance(ModelsAllianceRule.builder()
+                                                                .maxNumber(2)
+                                                                .minNumber(2)
+                                                                .playerMaxNumber(1)
+                                                                .playerMinNumber(1)
+                                                                .build())
+                                                .allianceFlexingRule(new ArrayList<ModelsAllianceFlexingRule>())
+                                                .flexingRule(new ArrayList<ModelsFlexingRule>())
+                                                .matchOptions(ModelsMatchOptionRule.builder()
+                                                                .options(new ArrayList<ModelsMatchOption>())
+                                                                .build())
+                                                .matchingRule(new ArrayList<ModelsMatchingRule>())
+                                                .subGameModes(new HashMap<String, ModelsSubGameMode>())
+                                                .build())
+                                .build();
+
+                ModelsCreateChannelResponse cResp = wMatchmaking.createChannelHandler(CreateChannelHandler.builder()
+                                .namespace(namespace)
+                                .body(channelReq)
+                                .build());
+
+                Assertions.assertNotNull(cResp);
+                Assertions.assertEquals(channelName, cResp.getGameMode());
+
+                // Get a channel
+
+                ModelsChannelV1 gResp = wMatchmaking.getSingleMatchmakingChannel(GetSingleMatchmakingChannel.builder()
+                                .namespace(namespace)
+                                .channelName(channelName)
+                                .build());
+
+                Assertions.assertNotNull(gResp);
+                Assertions.assertEquals(channelDescription, gResp.getDescription());
+
+                // Get sessions in channel
+
+                List<ModelsMatchmakingResult> mResults = wMatchmaking
+                                .getAllSessionsInChannel(GetAllSessionsInChannel.builder()
+                                                .namespace(namespace)
+                                                .channelName(channelName)
+                                                .build());
+                Assertions.assertNotNull(mResults);
+
+                // Update a channel
+
+                ModelsUpdateChannelRequest updateChannel = ModelsUpdateChannelRequest.builder()
+                                .description(channelDescriptionUpdated)
+                                .build();
+
+                wMatchmaking.updateMatchmakingChannel(UpdateMatchmakingChannel.builder()
+                                .namespace(namespace)
+                                .channelName(channelName)
+                                .body(updateChannel)
+                                .build());
+
+                // Get a channel back to confirm update
+
+                gResp = wMatchmaking.getSingleMatchmakingChannel(GetSingleMatchmakingChannel.builder()
+                                .namespace(namespace)
+                                .channelName(channelName)
+                                .build());
+                Assertions.assertNotNull(gResp);
+                Assertions.assertEquals(channelDescriptionUpdated, gResp.getDescription());
+
+                // Delete a channel
+
+                wMatchmaking.deleteChannelHandler(DeleteChannelHandler.builder()
+                                .namespace(namespace)
+                                .channel(channelName)
+                                .build());
+
+                // Finally, recheck if the data is truly deleted
+
+                Assertions.assertThrows(ResponseException.class, () -> {
+                        wMatchmaking.getSingleMatchmakingChannel(GetSingleMatchmakingChannel.builder()
+                                        .namespace(namespace)
+                                        .channelName(channelName)
+                                        .build());
+                });
+        }
+
+        @Test
+        public void LobbyAPIServiceTests() throws ResponseException, IOException {
+                final String namespace = System.getenv("AB_NAMESPACE");
+
+                Notification wLobbyNotification = new Notification(_sdk);
+
+                // Sending a free from notification to all user(s)
+
+                ModelFreeFormNotificationRequest notifBody = ModelFreeFormNotificationRequest.builder()
+                                .topic("csharp_sdk_test")
+                                .message("This is integration test for CSharp Server SDK.")
+                                .build();
+
+                wLobbyNotification.freeFormNotification(FreeFormNotification.builder()
+                                .namespace(namespace)
+                                .body(notifBody)
+                                .build());
+        }
+
+        @Test
+        public void LobbyWebSocketServiceTests() throws InterruptedException {
+                final String request_id = GenerateRandomId(64);
+                final CountDownLatch response = new CountDownLatch(1);
+                final StringBuilder responseMessage = new StringBuilder();
+
+                WebSocketListener listener = new WebSocketListener() {
+                        @Override
+                        public void onMessage(@NotNull WebSocket webSocket, @NotNull String text) {
+                                if (response.getCount() > 0) {
+                                        responseMessage.append(text);
+                                        response.countDown();
+                                }
+                        }
+                };
+
+                OkhttpWebSocketClient ws = OkhttpWebSocketClient.create(
+                                new DefaultConfigRepository(),
+                                DefaultTokenRepository.getInstance(),
+                                listener);
+
+                String requestMessage = PartyCreateRequest.builder()
+                                .id(request_id)
+                                .build()
+                                .toWSM();
+
+                System.out.println(requestMessage + "\n");
+
+                ws.sendMessage(requestMessage);
+
+                response.await(10, TimeUnit.SECONDS);
+
+                System.out.println(responseMessage + "\n");
+
+                ws.close(1000, "normal close");
         }
 
         @AfterAll
