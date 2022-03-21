@@ -12,6 +12,8 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -189,21 +191,21 @@ public class IntegrationTest {
                 ModelsAchievementRequest newAchievement = ModelsAchievementRequest.builder()
                                 .achievementCode(achievementCode)
                                 .defaultLanguage("en")
-                                .name(Map.of("en", achievementName))
-                                .description(Map.of("en", achievementDesc))
+                                .name(Collections.singletonMap("en", achievementName))
+                                .description(Collections.singletonMap("en", achievementDesc))
                                 .goalValue(1000f)
                                 .statCode(achievementCode)
                                 .hidden(true)
                                 .incremental(false)
-                                .lockedIcons(List.of(ModelsIcon.builder()
+                                .lockedIcons(Arrays.asList(new ModelsIcon[] { ModelsIcon.builder()
                                                 .slug("shield-locked")
                                                 .url("https://cdn.demo.accelbyte.io/files/accelbyte/achievements/50000f325ef841a6972a005779e20991.png")
-                                                .build()))
-                                .unlockedIcons(List.of(ModelsIcon.builder()
+                                                .build() }))
+                                .unlockedIcons(Arrays.asList(new ModelsIcon[] { ModelsIcon.builder()
                                                 .slug("shield-unlocked")
                                                 .url("https://cdn.demo.accelbyte.io/files/accelbyte/achievements/fe89fd07102f4057be202fbd3fdd9a21.png")
-                                                .build()))
-                                .tags(List.of("sdk", "test", "java"))
+                                                .build() }))
+                                .tags(Arrays.asList(new String[] { "sdk", "test", "java" }))
                                 .build();
 
                 ModelsAchievementResponse cResp = wAchievements.adminCreateNewAchievement(
@@ -272,7 +274,7 @@ public class IntegrationTest {
         public void BasicServiceTests() throws ResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String profileFirstName = "Integration Test";
-                final String profileLastName = "CSharp Server SDK";
+                final String profileLastName = "Java Server SDK";
                 final LocalDate profileDateOfBirth = LocalDate.of(2022, 1, 1);
                 final String profileLanguage = "en";
                 final String profileTimeZone = "Asia/Jakarta";
@@ -472,7 +474,7 @@ public class IntegrationTest {
                 wGdprRetrieval.saveAdminEmailConfiguration(
                                 SaveAdminEmailConfiguration.builder()
                                                 .namespace(namespace)
-                                                .body(List.of(emailToTest))
+                                                .body(Arrays.asList(new String[] { emailToTest }))
                                                 .build());
 
                 List<String> emails = wGdprRetrieval.getAdminEmailConfiguration(
@@ -484,13 +486,13 @@ public class IntegrationTest {
 
                 wGdprRetrieval.updateAdminEmailConfiguration(UpdateAdminEmailConfiguration.builder()
                                 .namespace(namespace)
-                                .body(List.of(anotherEmailToTest))
+                                .body(Arrays.asList(new String[] {anotherEmailToTest}))
                                 .build());
 
                 wGdprRetrieval.deleteAdminEmailConfiguration(
                                 DeleteAdminEmailConfiguration.builder()
                                                 .namespace(namespace)
-                                                .emails(List.of(emailToTest))
+                                                .emails(Arrays.asList(new String[] {emailToTest }))
                                                 .build());
         }
 
@@ -498,7 +500,7 @@ public class IntegrationTest {
         @Disabled("Error 73331 unable to create group: , userID: 6bf0e538f8b4423eb9d8b9e577aa860e, details: global configuration not found")
         public void GroupServiceTests() throws ResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
-                final String groupName = "CSharp SDK Test Group";
+                final String groupName = "Java SDK Test Group";
                 final String groupDescriptionUpdated = "Updated description.";
 
                 Group wGroup = new Group(_sdk);
@@ -506,7 +508,7 @@ public class IntegrationTest {
                 // Create a group
 
                 ModelsPublicCreateNewGroupRequestV1 createGroup = ModelsPublicCreateNewGroupRequestV1.builder()
-                                .groupName("CSharp SDK Test Group")
+                                .groupName("Java SDK Test Group")
                                 .groupType("PUBLIC")
                                 .groupDescription("Yeah, anything is welcome here.")
                                 .groupMaxMember(100)
@@ -570,10 +572,10 @@ public class IntegrationTest {
         @Test
         public void IamServiceTests() throws ResponseException, IOException, IllegalArgumentException {
                 final String namespace = System.getenv("AB_NAMESPACE");
-                final String userName = ("csharpsdk_" + GenerateRandomId(8));
+                final String userName = ("javasdk_" + GenerateRandomId(8));
                 final String userPassword = GenerateRandomPassword(10);
                 final String userEmail = (userName + "@test.com");
-                final String userDisplayName = "CSharp Server SDK Test";
+                final String userDisplayName = "Java Server SDK Test";
                 final String userDateOfBirth = "1995-01-10";
                 final String userDateOfBirthUpdated = "1996-01-10";
 
@@ -652,10 +654,10 @@ public class IntegrationTest {
         @Test
         public void LeaderboardServiceTests() throws ResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
-                final String leaderboarsName = "CSharp SDK Leaderboard Test";
+                final String leaderboarsName = "Java SDK Leaderboard Test";
 
                 LeaderboardConfiguration wLeaderboard = new LeaderboardConfiguration(_sdk);
-                String leaderboard_code = "csharpsdklbtest" + java.util.UUID.randomUUID().toString().substring(0, 6);
+                String leaderboard_code = "javasdklbtest" + java.util.UUID.randomUUID().toString().substring(0, 6);
                 String start_time = Instant.now()
                                 .plus(31, ChronoUnit.DAYS)
                                 .atZone(ZoneId.systemDefault())
@@ -746,8 +748,8 @@ public class IntegrationTest {
         @Test
         public void PlatformServiceTests() throws ResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
-                final String storeTitle = "CSharp SDK Store Test";
-                final String storeDescription = "Description for CSharp Server SDK store service integration test.";
+                final String storeTitle = "Java SDK Store Test";
+                final String storeDescription = "Description for Java Server SDK store service integration test.";
                 final String storeDescriptionUpdated = "Updated description.";
 
                 Store wStore = new Store(_sdk);
@@ -760,8 +762,8 @@ public class IntegrationTest {
                                 .description(storeDescription)
                                 .defaultLanguage("en")
                                 .defaultRegion("US")
-                                .supportedLanguages(List.of("en", "id"))
-                                .supportedRegions(List.of("US", "ID"))
+                                .supportedLanguages(Arrays.asList(new String[] {"en", "id" }))
+                                .supportedRegions(Arrays.asList(new String[] {"US", "ID"}))
                                 .build();
 
                 StoreInfo cStore = wStore.createStore(CreateStore.builder()
@@ -826,7 +828,7 @@ public class IntegrationTest {
                                 .gameSessionSetting(ModelsGameSessionSetting.builder()
                                                 .mode("deathmatch")
                                                 .allowJoinInProgress(true)
-                                                .mapName("CSharp SDK Integration Test")
+                                                .mapName("Java SDK Integration Test")
                                                 .maxPlayer(100)
                                                 .build())
                                 .build();
@@ -881,15 +883,15 @@ public class IntegrationTest {
         public void SocialServiceTests() throws ResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
-                String stat_code = "csharpserversdkteststat";
+                String stat_code = "javaserversdkteststat";
 
                 StatConfiguration wStatConfig = new StatConfiguration(_sdk);
 
                 // Create a statistic
 
                 StatCreate createStat = StatCreate.builder()
-                                .name("CSharp Server SDK Test Stat")
-                                .description("CSharp server sdk integration test.")
+                                .name("Java Server SDK Test Stat")
+                                .description("Java server sdk integration test.")
                                 .statCode(stat_code)
                                 .setBy("SERVER")
                                 .minimum(0f)
@@ -897,7 +899,7 @@ public class IntegrationTest {
                                 .defaultValue(50f)
                                 .incrementOnly(true)
                                 .setAsGlobal(false)
-                                .tags(List.of("csharp", "server_sdk", "test"))
+                                .tags(Arrays.asList(new String[] {"java", "server_sdk", "test"}))
                                 .build();
 
                 StatInfo cStat = wStatConfig.createStat(
@@ -907,7 +909,7 @@ public class IntegrationTest {
                                                 .build());
 
                 Assertions.assertNotNull(cStat);
-                Assertions.assertEquals("CSharp Server SDK Test Stat", cStat.getName());
+                Assertions.assertEquals("Java Server SDK Test Stat", cStat.getName());
 
                 // Get a statistic
 
@@ -918,7 +920,7 @@ public class IntegrationTest {
                                                 .build());
 
                 Assertions.assertNotNull(gStat);
-                Assertions.assertEquals("CSharp Server SDK Test Stat", gStat.getName());
+                Assertions.assertEquals("Java Server SDK Test Stat", gStat.getName());
 
                 // Update a statistic
 
@@ -939,8 +941,8 @@ public class IntegrationTest {
         public void UGCServiceTests() throws ResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
-                String tag_name = "csharp_server_sdk_test";
-                String tag_name_u = "csharp_server_sdk_test_update";
+                String tag_name = "java_server_sdk_test";
+                String tag_name_u = "java_server_sdk_test_update";
 
                 AdminTag wAdminTag = new AdminTag(_sdk);
 
