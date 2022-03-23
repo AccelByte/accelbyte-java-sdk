@@ -71,15 +71,21 @@ pipeline {
       }
     }
     stage('Test') {
-      steps {
-        sh "make test"
+      stages {
+        stage('Unit Tests') {
+         steps {
+          sh "make test_core"
+         }
+         post {
+           always {
+             archiveArtifacts artifacts: 'build/reports/**'
+           }
+         }
+        }
       }
     }
   }
   post {
-    always {
-      archiveArtifacts artifacts: 'build/reports/**'
-    }
     success {
       script {
         if (bitbucketCommitHref) {

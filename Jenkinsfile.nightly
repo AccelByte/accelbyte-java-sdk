@@ -39,6 +39,16 @@ pipeline {
             sh "make test_cli SDK_MOCK_SERVER_PATH=.justice-codegen-sdk-mock-server"
           }
         }
+        stage('Integration Tests') {
+          options {
+            lock("justice-backend-demo")
+          }
+          steps {
+            withCredentials([file(credentialsId: 'justice-codegen-sdk-integration-test-env', variable: 'INTEGRATION_TEST_ENV_FILE_PATH')]) {
+              sh 'make test_integration INTEGRATION_TEST_ENV_FILE_PATH=$INTEGRATION_TEST_ENV_FILE_PATH'
+            }
+          }
+        }
       }
     }
   }

@@ -16,10 +16,17 @@ samples:
 	[ ! -f samples.err ] || (rm samples.err && exit 1)
 
 lint:
-	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ gradle:jdk17 gradle check
+	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ gradle:jdk17 \
+			gradle check
 
-test:
-	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ gradle:jdk17 gradle test
+test_core:
+	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ gradle:jdk17 \
+			gradle test --tests OperationTest
+	
+test_integration:
+	@test -n "$(INTEGRATION_TEST_ENV_FILE_PATH)" || (echo "INTEGRATION_TEST_ENV_FILE_PATH is not set" ; exit 1)
+	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ --env-file $(INTEGRATION_TEST_ENV_FILE_PATH) gradle:jdk17 \
+			gradle test --tests IntegrationTest
 
 test_cli:
 	@test -n "$(SDK_MOCK_SERVER_PATH)" || (echo "SDK_MOCK_SERVER_PATH is not set" ; exit 1)
