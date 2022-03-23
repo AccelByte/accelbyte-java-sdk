@@ -213,15 +213,15 @@ public class IntegrationTest {
                 String password = System.getenv("AB_PASSWORD");
                 String namespace = System.getenv("AB_NAMESPACE");
 
-                Assumptions.assumeTrue(baseUrl != null &&
+                Assertions.assertTrue(baseUrl != null &&
                                 !baseUrl.isEmpty());
-                Assumptions.assumeTrue(clientId != null &&
+                Assertions.assertTrue(clientId != null &&
                                 !clientId.isEmpty());
-                Assumptions.assumeTrue(clientSecret != null &&
+                Assertions.assertTrue(clientSecret != null &&
                                 !clientSecret.isEmpty());
-                Assumptions.assumeTrue(username != null && !username.isEmpty());
-                Assumptions.assumeTrue(password != null && !password.isEmpty());
-                Assumptions.assumeTrue(namespace != null && !namespace.isEmpty());
+                Assertions.assertTrue(username != null && !username.isEmpty());
+                Assertions.assertTrue(password != null && !password.isEmpty());
+                Assertions.assertTrue(namespace != null && !namespace.isEmpty());
 
                 boolean isLoginUserOk;
 
