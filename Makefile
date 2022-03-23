@@ -17,7 +17,7 @@ samples:
 
 lint:
 	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ gradle:jdk17 \
-			gradle check
+			gradle checkstyleMain
 
 test_core:
 	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ gradle:jdk17 \
