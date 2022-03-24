@@ -30,15 +30,6 @@ pipeline {
     }
     stage('Test') {
       stages {
-        stage('CLI Tests') {
-          steps {
-            sshagent(credentials: [bitbucketCredentialsSsh]) {
-              sh "rm -rf .justice-codegen-sdk-mock-server"
-              sh "git clone --depth 1 git@bitbucket.org:accelbyte/justice-codegen-sdk-mock-server.git .justice-codegen-sdk-mock-server"
-            }
-            sh "make test_cli SDK_MOCK_SERVER_PATH=.justice-codegen-sdk-mock-server"
-          }
-        }
         stage('Integration Tests') {
           options {
             lock("justice-backend-demo")
@@ -47,6 +38,20 @@ pipeline {
             withCredentials([file(credentialsId: 'justice-codegen-sdk-integration-test-env', variable: 'INTEGRATION_TEST_ENV_FILE_PATH')]) {
               sh 'make test_integration INTEGRATION_TEST_ENV_FILE_PATH=$INTEGRATION_TEST_ENV_FILE_PATH'
             }
+          }
+          post {
+            always {
+             archiveArtifacts artifacts: 'build/reports/**'
+            }
+          }
+        }
+        stage('CLI Tests') {
+          steps {
+            sshagent(credentials: [bitbucketCredentialsSsh]) {
+              sh "rm -rf .justice-codegen-sdk-mock-server"
+              sh "git clone --depth 1 git@bitbucket.org:accelbyte/justice-codegen-sdk-mock-server.git .justice-codegen-sdk-mock-server"
+            }
+            sh "make test_cli SDK_MOCK_SERVER_PATH=.justice-codegen-sdk-mock-server"
           }
         }
       }

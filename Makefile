@@ -21,12 +21,12 @@ lint:
 
 test_core:
 	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ gradle:jdk17 \
-			gradle test --tests OperationTest
+			gradle test -i --tests OperationTest
 	
 test_integration:
 	@test -n "$(INTEGRATION_TEST_ENV_FILE_PATH)" || (echo "INTEGRATION_TEST_ENV_FILE_PATH is not set" ; exit 1)
 	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ --env-file $(INTEGRATION_TEST_ENV_FILE_PATH) gradle:jdk17 \
-			gradle test --tests IntegrationTest
+			gradle test -i --tests IntegrationTest
 
 test_cli:
 	@test -n "$(SDK_MOCK_SERVER_PATH)" || (echo "SDK_MOCK_SERVER_PATH is not set" ; exit 1)

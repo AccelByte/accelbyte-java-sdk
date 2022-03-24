@@ -73,14 +73,14 @@ pipeline {
     stage('Test') {
       stages {
         stage('Unit Tests') {
-         steps {
-          sh "make test_core"
-         }
-         post {
-           always {
-             archiveArtifacts artifacts: 'build/reports/**'
-           }
-         }
+          steps {
+            sh "make test_core"
+          }
+          post {
+            always {
+              archiveArtifacts artifacts: 'build/reports/**'
+            }
+          }
         }
       }
     }
