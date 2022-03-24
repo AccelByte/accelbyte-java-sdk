@@ -1159,6 +1159,15 @@ public class IntegrationTest {
         // Matchmaking integration test
 
         @Test
+        public void MatchmakingTestSuite() throws ResponseException, IOException, InterruptedException
+        {
+                DSMCListLocalServerTest();
+                DSMCServiceTests();
+                MatchmakingServiceApiTests();
+                LobbyAPIServiceTests();
+                LobbyWebSocketServiceTests();
+        }
+
         public void DSMCListLocalServerTest() throws ResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 Admin wDsmcAdmin = new Admin(_sdk);
@@ -1168,7 +1177,6 @@ public class IntegrationTest {
                 Assertions.assertNotNull(serverResp);
         }
 
-        @Test
         public void DSMCServiceTests() throws ResponseException, IOException, InterruptedException {
                 final String usernameToTest = "dummy@example.com";
                 final String target_namespace = "armadademotestqa";
@@ -1282,7 +1290,6 @@ public class IntegrationTest {
                 Assertions.assertNotNull(delResp);
         }
 
-        @Test
         public void MatchmakingServiceApiTests() throws ResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String channelName = "csharp_sdk_gm_" + GenerateRandomId(8);
@@ -1385,7 +1392,6 @@ public class IntegrationTest {
                 });
         }
 
-        @Test
         public void LobbyAPIServiceTests() throws ResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
@@ -1404,7 +1410,6 @@ public class IntegrationTest {
                                 .build());
         }
 
-        @Test
         public void LobbyWebSocketServiceTests() throws InterruptedException {
                 final String request_id = GenerateRandomId(64);
                 final CountDownLatch response = new CountDownLatch(1);
