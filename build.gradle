@@ -42,5 +42,13 @@ checkstyle {
 }
 
 test {
-    useJUnitPlatform()
+    useJUnitPlatform {
+        includeTags('unit-test')
+    }
+}
+
+task testIntegration(type: Test) {
+    useJUnitPlatform {
+        includeTags('integration-test')
+    }
 }

@@ -25,8 +25,8 @@ import java.util.concurrent.TimeUnit;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import net.accelbyte.sdk.api.achievement.models.ModelsAchievementRequest;
@@ -187,6 +187,7 @@ import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 
+@Tag("integration-test")
 public class IntegrationTest {
         private static AccelByteSDK _sdk;
 

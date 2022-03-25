@@ -6,13 +6,15 @@
 
 package net.accelbyte.sdk.core;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class OperationTest {
+@Tag("unit-test")
+class CoreUnitTest {
 
     String namespace = "accelbyte";
     String userId = "511132939439";

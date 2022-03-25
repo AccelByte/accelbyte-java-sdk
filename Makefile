@@ -5,13 +5,13 @@
 .PHONY: build samples
 
 build:
-	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GRADLE_USER_HOME=/data/.gradle gradle:jdk17 gradle build -x test
+	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GRADLE_USER_HOME=/data/.gradle gradle:jdk17 gradle -i build -x test
 
 samples:
 	rm -f samples.err
 	find samples -type f -iname build.gradle -exec dirname {} \; | while read DIRECTORY; do \
 		echo "# $$DIRECTORY"; \
-		docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/$$DIRECTORY -e GRADLE_USER_HOME=/data/.gradle gradle:jdk17 gradle build -x test || touch samples.err; \
+		docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/$$DIRECTORY -e GRADLE_USER_HOME=/data/.gradle gradle:jdk17 gradle -i build -x test || touch samples.err; \
 	done
 	[ ! -f samples.err ] || (rm samples.err && exit 1)
 
@@ -21,17 +21,17 @@ lint:
 
 test_core:
 	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GRADLE_USER_HOME=/data/.gradle gradle:jdk17 \
-			gradle test -i --tests OperationTest
+			gradle -i test
 	
 test_integration:
 	@test -n "$(INTEGRATION_TEST_ENV_FILE_PATH)" || (echo "INTEGRATION_TEST_ENV_FILE_PATH is not set" ; exit 1)
 	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ --env-file $(INTEGRATION_TEST_ENV_FILE_PATH) -e GRADLE_USER_HOME=/data/.gradle gradle:jdk17 \
-			gradle test -i --tests IntegrationTest
+			gradle -i testIntegration
 
 test_cli:
 	@test -n "$(SDK_MOCK_SERVER_PATH)" || (echo "SDK_MOCK_SERVER_PATH is not set" ; exit 1)
 	rm -f test.err
-	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GRADLE_USER_HOME=/data/.gradle gradle:jdk17 sh -c 'cd samples/cli && gradle fatJar'
+	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GRADLE_USER_HOME=/data/.gradle gradle:jdk17 sh -c 'cd samples/cli && gradle -i fatJar'
 	bash -c 'sed -i "s/\r//" "$(SDK_MOCK_SERVER_PATH)/mock-server.sh" && \
 			trap "docker stop justice-codegen-sdk-mock-server" EXIT && \
 			(DOCKER_RUN_ARGS="-t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data -w /data --network host --name justice-codegen-sdk-mock-server" bash "$(SDK_MOCK_SERVER_PATH)/mock-server.sh" -s /data/spec &) && \
