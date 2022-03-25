@@ -1,3 +1,2 @@
-rootProject.name = 'cli'
-include ':java-server-sdk-local'
-project(':java-server-sdk-local').projectDir = file('../../')
+include ':accelbyte-java-sdk-local'
+project(':accelbyte-java-sdk-local').projectDir = file('../../')
