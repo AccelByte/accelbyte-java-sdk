@@ -181,37 +181,37 @@ delete_file $TEMP_FILE
 
 #- 15 AdminUpdateConfigV1
 java -jar ${JAR_PATH} lobby adminUpdateConfigV1 \
-    --body '{"allowInviteNonConnectedUser": false, "autoKickOnDisconnect": false, "autoKickOnDisconnectDelay": 51, "cancelTicketOnDisconnect": false, "chatRateLimitBurst": 56, "chatRateLimitDuration": 72, "concurrentUsersLimit": 24, "disablePartyInvitationToken": true, "enableChat": true, "entitlementCheck": false, "entitlementItemID": "NEUsxFb8", "generalRateLimitBurst": 56, "generalRateLimitDuration": 70, "maxPartyMember": 76, "profanityFilter": true, "readyConsentTimeout": 70}' \
+    --body '{"allowInviteNonConnectedUser": false, "autoKickOnDisconnect": false, "autoKickOnDisconnectDelay": 51, "cancelTicketOnDisconnect": false, "chatRateLimitBurst": 56, "chatRateLimitDuration": 72, "concurrentUsersLimit": 24, "disablePartyInvitationToken": true, "enableChat": true, "entitlementCheck": false, "entitlementItemID": "NEUsxFb8", "generalRateLimitBurst": 56, "generalRateLimitDuration": 70, "keepPresenceActivityOnDisconnect": true, "maxPartyMember": 70, "profanityFilter": false, "readyConsentTimeout": 77}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdateConfigV1'
 delete_file $TEMP_FILE
 
-#- 16 ExportConfig
-java -jar ${JAR_PATH} lobby exportConfig \
+#- 16 AdminExportConfigV1
+java -jar ${JAR_PATH} lobby adminExportConfigV1 \
     --namespace "test" \
     >$TEMP_FILE 2>&1
-update_status $? 'ExportConfig'
+update_status $? 'AdminExportConfigV1'
 delete_file $TEMP_FILE
 
-#- 17 ImportConfig
-java -jar ${JAR_PATH} lobby importConfig \
+#- 17 AdminImportConfigV1
+java -jar ${JAR_PATH} lobby adminImportConfigV1 \
     --namespace "test" \
     >$TEMP_FILE 2>&1
-update_status $? 'ImportConfig'
+update_status $? 'AdminImportConfigV1'
 delete_file $TEMP_FILE
 
 #- 18 GetListOfFriends
 java -jar ${JAR_PATH} lobby getListOfFriends \
     --namespace "test" \
-    --userId 'ZaMSxECb' \
+    --userId 'SxECbZby' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetListOfFriends'
 delete_file $TEMP_FILE
 
 #- 19 SendMultipleUsersFreeformNotificationV1Admin
 java -jar ${JAR_PATH} lobby sendMultipleUsersFreeformNotificationV1Admin \
-    --body '{"message": "Zbygyoar", "topicName": "ORoeNHSb", "userIds": ["8Rh3kgs9"]}' \
+    --body '{"message": "gyoarORo", "topicName": "eNHSb8Rh", "userIds": ["3kgs9qqJ"]}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'SendMultipleUsersFreeformNotificationV1Admin'
@@ -219,7 +219,7 @@ delete_file $TEMP_FILE
 
 #- 20 SendUsersFreeformNotificationV1Admin
 java -jar ${JAR_PATH} lobby sendUsersFreeformNotificationV1Admin \
-    --body '{"message": "qqJbnQso", "topicName": "BgiVpP8C"}' \
+    --body '{"message": "bnQsoBgi", "topicName": "VpP8Cm3y"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'SendUsersFreeformNotificationV1Admin'
@@ -227,18 +227,18 @@ delete_file $TEMP_FILE
 
 #- 21 SendPartyFreeformNotificationV1Admin
 java -jar ${JAR_PATH} lobby sendPartyFreeformNotificationV1Admin \
-    --body '{"message": "m3yvASUo", "topicName": "xdxxFqmA"}' \
+    --body '{"message": "vASUoxdx", "topicName": "xFqmAGTJ"}' \
     --namespace "test" \
-    --partyId 'GTJ8IEda' \
+    --partyId '8IEdagEt' \
     >$TEMP_FILE 2>&1
 update_status $? 'SendPartyFreeformNotificationV1Admin'
 delete_file $TEMP_FILE
 
 #- 22 SendPartyTemplatedNotificationV1Admin
 java -jar ${JAR_PATH} lobby sendPartyTemplatedNotificationV1Admin \
-    --body '{"templateContext": {"gEtp4w29": "KOu9c19R"}, "templateLanguage": "6XDqWHkk", "templateSlug": "P8npLEKM", "topicName": "fjiX7jpk"}' \
+    --body '{"templateContext": {"p4w29KOu": "9c19R6XD"}, "templateLanguage": "qWHkkP8n", "templateSlug": "pLEKMfji", "topicName": "X7jpkVZk"}' \
     --namespace "test" \
-    --partyId 'VZk3IaQY' \
+    --partyId '3IaQYEmq' \
     >$TEMP_FILE 2>&1
 update_status $? 'SendPartyTemplatedNotificationV1Admin'
 delete_file $TEMP_FILE
@@ -252,7 +252,7 @@ delete_file $TEMP_FILE
 
 #- 24 CreateNotificationTemplateV1Admin
 java -jar ${JAR_PATH} lobby createNotificationTemplateV1Admin \
-    --body '{"templateContent": "EmqGodOE", "templateLanguage": "Gt9gPOj0", "templateSlug": "c6i0JkvI"}' \
+    --body '{"templateContent": "GodOEGt9", "templateLanguage": "gPOj0c6i", "templateSlug": "0JkvIas7"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'CreateNotificationTemplateV1Admin'
@@ -260,7 +260,7 @@ delete_file $TEMP_FILE
 
 #- 25 SendUsersTemplatedNotificationV1Admin
 java -jar ${JAR_PATH} lobby sendUsersTemplatedNotificationV1Admin \
-    --body '{"templateContext": {"as73ucYn": "FAJ3DK5T"}, "templateLanguage": "4Eogg0Y3", "templateSlug": "9UoYlpv5", "topicName": "bVAgtsDh"}' \
+    --body '{"templateContext": {"3ucYnFAJ": "3DK5T4Eo"}, "templateLanguage": "gg0Y39Uo", "templateSlug": "Ylpv5bVA", "topicName": "gtsDhUTD"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'SendUsersTemplatedNotificationV1Admin'
@@ -269,7 +269,7 @@ delete_file $TEMP_FILE
 #- 26 GetTemplateSlugLocalizationsTemplateV1Admin
 java -jar ${JAR_PATH} lobby getTemplateSlugLocalizationsTemplateV1Admin \
     --namespace "test" \
-    --templateSlug 'UTDUscbQ' \
+    --templateSlug 'UscbQDjb' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetTemplateSlugLocalizationsTemplateV1Admin'
 delete_file $TEMP_FILE
@@ -277,7 +277,7 @@ delete_file $TEMP_FILE
 #- 27 DeleteNotificationTemplateSlugV1Admin
 java -jar ${JAR_PATH} lobby deleteNotificationTemplateSlugV1Admin \
     --namespace "test" \
-    --templateSlug 'DjbTQuPM' \
+    --templateSlug 'TQuPMz2P' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteNotificationTemplateSlugV1Admin'
 delete_file $TEMP_FILE
@@ -285,18 +285,18 @@ delete_file $TEMP_FILE
 #- 28 GetSingleTemplateLocalizationV1Admin
 java -jar ${JAR_PATH} lobby getSingleTemplateLocalizationV1Admin \
     --namespace "test" \
-    --templateLanguage 'z2PTRlky' \
-    --templateSlug 'U89ZPOw6' \
+    --templateLanguage 'TRlkyU89' \
+    --templateSlug 'ZPOw6zPF' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetSingleTemplateLocalizationV1Admin'
 delete_file $TEMP_FILE
 
 #- 29 UpdateTemplateLocalizationV1Admin
 java -jar ${JAR_PATH} lobby updateTemplateLocalizationV1Admin \
-    --body '{"templateContent": "zPFJ42cw"}' \
+    --body '{"templateContent": "J42cwmzB"}' \
     --namespace "test" \
-    --templateLanguage 'mzBBSMNc' \
-    --templateSlug 'oAAOjKNj' \
+    --templateLanguage 'BSMNcoAA' \
+    --templateSlug 'OjKNjfcY' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateTemplateLocalizationV1Admin'
 delete_file $TEMP_FILE
@@ -304,8 +304,8 @@ delete_file $TEMP_FILE
 #- 30 DeleteTemplateLocalizationV1Admin
 java -jar ${JAR_PATH} lobby deleteTemplateLocalizationV1Admin \
     --namespace "test" \
-    --templateLanguage 'fcYHm093' \
-    --templateSlug 'aYgBU1sq' \
+    --templateLanguage 'Hm093aYg' \
+    --templateSlug 'BU1sqjyK' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteTemplateLocalizationV1Admin'
 delete_file $TEMP_FILE
@@ -313,8 +313,8 @@ delete_file $TEMP_FILE
 #- 31 PublishTemplateLocalizationV1Admin
 java -jar ${JAR_PATH} lobby publishTemplateLocalizationV1Admin \
     --namespace "test" \
-    --templateLanguage 'jyK0XH45' \
-    --templateSlug 'PaRSOFQB' \
+    --templateLanguage '0XH45PaR' \
+    --templateSlug 'SOFQBtu2' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublishTemplateLocalizationV1Admin'
 delete_file $TEMP_FILE
@@ -328,7 +328,7 @@ delete_file $TEMP_FILE
 
 #- 33 CreateNotificationTopicV1Admin
 java -jar ${JAR_PATH} lobby createNotificationTopicV1Admin \
-    --body '{"description": "tu23REZ8", "topicName": "hRVX7LGO"}' \
+    --body '{"description": "3REZ8hRV", "topicName": "X7LGOvDd"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'CreateNotificationTopicV1Admin'
@@ -337,16 +337,16 @@ delete_file $TEMP_FILE
 #- 34 GetNotificationTopicV1Admin
 java -jar ${JAR_PATH} lobby getNotificationTopicV1Admin \
     --namespace "test" \
-    --topicName 'vDdYiQS9' \
+    --topicName 'YiQS9i7m' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetNotificationTopicV1Admin'
 delete_file $TEMP_FILE
 
 #- 35 UpdateNotificationTopicV1Admin
 java -jar ${JAR_PATH} lobby updateNotificationTopicV1Admin \
-    --body '{"description": "i7mV1C91"}' \
+    --body '{"description": "V1C91pjG"}' \
     --namespace "test" \
-    --topicName 'pjG9gpxL' \
+    --topicName '9gpxL6yc' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateNotificationTopicV1Admin'
 delete_file $TEMP_FILE
@@ -354,25 +354,25 @@ delete_file $TEMP_FILE
 #- 36 DeleteNotificationTopicV1Admin
 java -jar ${JAR_PATH} lobby deleteNotificationTopicV1Admin \
     --namespace "test" \
-    --topicName '6ycTQdvl' \
+    --topicName 'TQdvln2L' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteNotificationTopicV1Admin'
 delete_file $TEMP_FILE
 
 #- 37 SendSpecificUserFreeformNotificationV1Admin
 java -jar ${JAR_PATH} lobby sendSpecificUserFreeformNotificationV1Admin \
-    --body '{"message": "n2LAuSQW", "topicName": "EXL6LFE1"}' \
+    --body '{"message": "AuSQWEXL", "topicName": "6LFE1YHo"}' \
     --namespace "test" \
-    --userId 'YHo9m126' \
+    --userId '9m126ZWc' \
     >$TEMP_FILE 2>&1
 update_status $? 'SendSpecificUserFreeformNotificationV1Admin'
 delete_file $TEMP_FILE
 
 #- 38 SendSpecificUserTemplatedNotificationV1Admin
 java -jar ${JAR_PATH} lobby sendSpecificUserTemplatedNotificationV1Admin \
-    --body '{"templateContext": {"ZWc8hHtW": "vbNYqgUq"}, "templateLanguage": "slArFPiH", "templateSlug": "UIvaCv8k", "topicName": "U9dBBpds"}' \
+    --body '{"templateContext": {"8hHtWvbN": "YqgUqslA"}, "templateLanguage": "rFPiHUIv", "templateSlug": "aCv8kU9d", "topicName": "BBpdsJLh"}' \
     --namespace "test" \
-    --userId 'JLhsVyEx' \
+    --userId 'sVyExrkx' \
     >$TEMP_FILE 2>&1
 update_status $? 'SendSpecificUserTemplatedNotificationV1Admin'
 delete_file $TEMP_FILE
@@ -380,16 +380,16 @@ delete_file $TEMP_FILE
 #- 39 AdminGetPartyDataV1
 java -jar ${JAR_PATH} lobby adminGetPartyDataV1 \
     --namespace "test" \
-    --partyId 'rkxoot0B' \
+    --partyId 'oot0B7WO' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetPartyDataV1'
 delete_file $TEMP_FILE
 
 #- 40 AdminUpdatePartyAttributesV1
 java -jar ${JAR_PATH} lobby adminUpdatePartyAttributesV1 \
-    --body '{"custom_attribute": {"7WOfercZ": {}}, "updatedAt": 7}' \
+    --body '{"custom_attribute": {"fercZdpM": {}}, "updatedAt": 5}' \
     --namespace "test" \
-    --partyId 'pMci37Ds' \
+    --partyId 'i37Ds7YS' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdatePartyAttributesV1'
 delete_file $TEMP_FILE
@@ -397,8 +397,8 @@ delete_file $TEMP_FILE
 #- 41 AdminJoinPartyV1
 java -jar ${JAR_PATH} lobby adminJoinPartyV1 \
     --namespace "test" \
-    --partyId '7YSfExaI' \
-    --userId '3uzLteMb' \
+    --partyId 'fExaI3uz' \
+    --userId 'LteMbFAl' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminJoinPartyV1'
 delete_file $TEMP_FILE
@@ -406,7 +406,7 @@ delete_file $TEMP_FILE
 #- 42 AdminGetUserPartyV1
 java -jar ${JAR_PATH} lobby adminGetUserPartyV1 \
     --namespace "test" \
-    --userId 'FAlt4hr7' \
+    --userId 't4hr7HmO' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetUserPartyV1'
 delete_file $TEMP_FILE
@@ -421,25 +421,25 @@ delete_file $TEMP_FILE
 #- 44 AdminGetAllPlayerSessionAttribute
 java -jar ${JAR_PATH} lobby adminGetAllPlayerSessionAttribute \
     --namespace "test" \
-    --userId 'HmOYiBA5' \
+    --userId 'YiBA5ltA' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetAllPlayerSessionAttribute'
 delete_file $TEMP_FILE
 
 #- 45 AdminSetPlayerSessionAttribute
 java -jar ${JAR_PATH} lobby adminSetPlayerSessionAttribute \
-    --body '{"attributes": {"ltAOXmlG": "6eh1dTdo"}}' \
+    --body '{"attributes": {"OXmlG6eh": "1dTdoTFp"}}' \
     --namespace "test" \
-    --userId 'TFpBIcuC' \
+    --userId 'BIcuC1dQ' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminSetPlayerSessionAttribute'
 delete_file $TEMP_FILE
 
 #- 46 AdminGetPlayerSessionAttribute
 java -jar ${JAR_PATH} lobby adminGetPlayerSessionAttribute \
-    --attribute '1dQY93OJ' \
+    --attribute 'Y93OJnJ6' \
     --namespace "test" \
-    --userId 'nJ6Te9vD' \
+    --userId 'Te9vD8ld' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetPlayerSessionAttribute'
 delete_file $TEMP_FILE
@@ -447,7 +447,7 @@ delete_file $TEMP_FILE
 #- 47 AdminGetPlayerBlockedPlayersV1
 java -jar ${JAR_PATH} lobby adminGetPlayerBlockedPlayersV1 \
     --namespace "test" \
-    --userId '8ldz7Hu8' \
+    --userId 'z7Hu8AD7' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetPlayerBlockedPlayersV1'
 delete_file $TEMP_FILE
@@ -455,23 +455,23 @@ delete_file $TEMP_FILE
 #- 48 AdminGetPlayerBlockedByPlayersV1
 java -jar ${JAR_PATH} lobby adminGetPlayerBlockedByPlayersV1 \
     --namespace "test" \
-    --userId 'AD79kdWu' \
+    --userId '9kdWunvi' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetPlayerBlockedByPlayersV1'
 delete_file $TEMP_FILE
 
 #- 49 AdminBulkBlockPlayersV1
 java -jar ${JAR_PATH} lobby adminBulkBlockPlayersV1 \
-    --body '{"listBlockedUserId": ["nvizU0q1"]}' \
+    --body '{"listBlockedUserId": ["zU0q1pHy"]}' \
     --namespace "test" \
-    --userId 'pHyhhERo' \
+    --userId 'hhERoGgd' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminBulkBlockPlayersV1'
 delete_file $TEMP_FILE
 
 #- 50 AdminDebugProfanityFilters
 java -jar ${JAR_PATH} lobby adminDebugProfanityFilters \
-    --body '{"text": "GgdrysMi"}' \
+    --body '{"text": "rysMizBG"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminDebugProfanityFilters'
@@ -479,7 +479,7 @@ delete_file $TEMP_FILE
 
 #- 51 AdminGetProfanityListFiltersV1
 java -jar ${JAR_PATH} lobby adminGetProfanityListFiltersV1 \
-    --list 'zBGSRdP2' \
+    --list 'SRdP2l7D' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetProfanityListFiltersV1'
@@ -487,8 +487,8 @@ delete_file $TEMP_FILE
 
 #- 52 AdminAddProfanityFilterIntoList
 java -jar ${JAR_PATH} lobby adminAddProfanityFilterIntoList \
-    --body '{"filter": "l7DNSZ8A", "note": "q0XiPLQX"}' \
-    --list 'Se07ZddO' \
+    --body '{"filter": "NSZ8Aq0X", "note": "iPLQXSe0"}' \
+    --list '7ZddOGTM' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminAddProfanityFilterIntoList'
@@ -496,8 +496,8 @@ delete_file $TEMP_FILE
 
 #- 53 AdminAddProfanityFilters
 java -jar ${JAR_PATH} lobby adminAddProfanityFilters \
-    --body '{"filters": [{"filter": "GTMlJjBw", "note": "j9HJHQKs"}]}' \
-    --list 'eEdSXRDS' \
+    --body '{"filters": [{"filter": "lJjBwj9H", "note": "JHQKseEd"}]}' \
+    --list 'SXRDSvgu' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminAddProfanityFilters'
@@ -505,8 +505,8 @@ delete_file $TEMP_FILE
 
 #- 54 AdminImportProfanityFiltersFromFile
 java -jar ${JAR_PATH} lobby adminImportProfanityFiltersFromFile \
-    --body '[43]' \
-    --list 'guauw1xT' \
+    --body '[0]' \
+    --list 'uw1xT7eM' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminImportProfanityFiltersFromFile'
@@ -514,8 +514,8 @@ delete_file $TEMP_FILE
 
 #- 55 AdminDeleteProfanityFilter
 java -jar ${JAR_PATH} lobby adminDeleteProfanityFilter \
-    --body '{"filter": "7eMwSl9M"}' \
-    --list 'LH0NnTJ2' \
+    --body '{"filter": "wSl9MLH0"}' \
+    --list 'NnTJ2ulN' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminDeleteProfanityFilter'
@@ -530,7 +530,7 @@ delete_file $TEMP_FILE
 
 #- 57 AdminCreateProfanityList
 java -jar ${JAR_PATH} lobby adminCreateProfanityList \
-    --body '{"isEnabled": true, "isMandatory": false, "name": "NzBvwJaQ"}' \
+    --body '{"isEnabled": true, "isMandatory": true, "name": "vwJaQa54"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminCreateProfanityList'
@@ -538,8 +538,8 @@ delete_file $TEMP_FILE
 
 #- 58 AdminUpdateProfanityList
 java -jar ${JAR_PATH} lobby adminUpdateProfanityList \
-    --body '{"isEnabled": false, "isMandatory": false, "newName": "lvA8RWSp"}' \
-    --list 'abUt7xk6' \
+    --body '{"isEnabled": false, "isMandatory": false, "newName": "vA8RWSpa"}' \
+    --list 'bUt7xk6Q' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdateProfanityList'
@@ -547,7 +547,7 @@ delete_file $TEMP_FILE
 
 #- 59 AdminDeleteProfanityList
 java -jar ${JAR_PATH} lobby adminDeleteProfanityList \
-    --list 'QxyWhfqo' \
+    --list 'xyWhfqoW' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminDeleteProfanityList'
@@ -562,7 +562,7 @@ delete_file $TEMP_FILE
 
 #- 61 AdminSetProfanityRuleForNamespace
 java -jar ${JAR_PATH} lobby adminSetProfanityRuleForNamespace \
-    --body '{"rule": "WfJw2o8o"}' \
+    --body '{"rule": "fJw2o8oW"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminSetProfanityRuleForNamespace'
@@ -570,7 +570,7 @@ delete_file $TEMP_FILE
 
 #- 62 AdminVerifyMessageProfanityResponse
 java -jar ${JAR_PATH} lobby adminVerifyMessageProfanityResponse \
-    --body '{"message": "WUqvPCZ2", "profanityLevel": "HzT7NXmW"}' \
+    --body '{"message": "UqvPCZ2H", "profanityLevel": "zT7NXmWD"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminVerifyMessageProfanityResponse'
@@ -585,7 +585,7 @@ delete_file $TEMP_FILE
 
 #- 64 AdminUpdateThirdPartyConfig
 java -jar ${JAR_PATH} lobby adminUpdateThirdPartyConfig \
-    --body '{"apiKey": "DlXsuNId"}' \
+    --body '{"apiKey": "lXsuNIdQ"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdateThirdPartyConfig'
@@ -593,7 +593,7 @@ delete_file $TEMP_FILE
 
 #- 65 AdminCreateThirdPartyConfig
 java -jar ${JAR_PATH} lobby adminCreateThirdPartyConfig \
-    --body '{"apiKey": "QJR5lsNO"}' \
+    --body '{"apiKey": "JR5lsNOl"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminCreateThirdPartyConfig'
@@ -614,7 +614,7 @@ delete_file $TEMP_FILE
 
 #- 68 GetPersonalChatHistoryV1Public
 java -jar ${JAR_PATH} lobby getPersonalChatHistoryV1Public \
-    --friendId 'lvkfwaSb' \
+    --friendId 'vkfwaSbn' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'GetPersonalChatHistoryV1Public'
@@ -623,16 +623,16 @@ delete_file $TEMP_FILE
 #- 69 PublicGetPartyDataV1
 java -jar ${JAR_PATH} lobby publicGetPartyDataV1 \
     --namespace "test" \
-    --partyId 'nsuLCgTo' \
+    --partyId 'suLCgTox' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetPartyDataV1'
 delete_file $TEMP_FILE
 
 #- 70 PublicUpdatePartyAttributesV1
 java -jar ${JAR_PATH} lobby publicUpdatePartyAttributesV1 \
-    --body '{"custom_attribute": {"xuVTekJg": {}}, "updatedAt": 43}' \
+    --body '{"custom_attribute": {"uVTekJgv": {}}, "updatedAt": 13}' \
     --namespace "test" \
-    --partyId 'g6h5HIpH' \
+    --partyId '6h5HIpH0' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicUpdatePartyAttributesV1'
 delete_file $TEMP_FILE
@@ -654,14 +654,14 @@ delete_file $TEMP_FILE
 #- 73 UsersPresenceHandlerV1
 java -jar ${JAR_PATH} lobby usersPresenceHandlerV1 \
     --namespace "test" \
-    --userIds '0DviplEk' \
+    --userIds 'DviplEk4' \
     >$TEMP_FILE 2>&1
 update_status $? 'UsersPresenceHandlerV1'
 delete_file $TEMP_FILE
 
 #- 74 FreeFormNotification
 java -jar ${JAR_PATH} lobby freeFormNotification \
-    --body '{"message": "4vj3LDp4", "topic": "yqDt8QUZ"}' \
+    --body '{"message": "vj3LDp4y", "topic": "qDt8QUZD"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'FreeFormNotification'
@@ -669,7 +669,7 @@ delete_file $TEMP_FILE
 
 #- 75 NotificationWithTemplate
 java -jar ${JAR_PATH} lobby notificationWithTemplate \
-    --body '{"templateContext": {"DpxlHasi": "nGcjrkmR"}, "templateLanguage": "MttgjDSa", "templateSlug": "IVBmft3U", "topic": "dg7p9PGm"}' \
+    --body '{"templateContext": {"pxlHasin": "GcjrkmRM"}, "templateLanguage": "ttgjDSaI", "templateSlug": "VBmft3Ud", "topic": "g7p9PGmY"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'NotificationWithTemplate'
@@ -684,7 +684,7 @@ delete_file $TEMP_FILE
 
 #- 77 CreateTemplate
 java -jar ${JAR_PATH} lobby createTemplate \
-    --body '{"templateContent": "Y2H5kX4M", "templateLanguage": "sisSX28n", "templateSlug": "ARxWRpv5"}' \
+    --body '{"templateContent": "2H5kX4Ms", "templateLanguage": "isSX28nA", "templateSlug": "RxWRpv5o"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'CreateTemplate'
@@ -693,7 +693,7 @@ delete_file $TEMP_FILE
 #- 78 GetSlugTemplate
 java -jar ${JAR_PATH} lobby getSlugTemplate \
     --namespace "test" \
-    --templateSlug 'ou5xtvd2' \
+    --templateSlug 'u5xtvd28' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetSlugTemplate'
 delete_file $TEMP_FILE
@@ -701,7 +701,7 @@ delete_file $TEMP_FILE
 #- 79 DeleteTemplateSlug
 java -jar ${JAR_PATH} lobby deleteTemplateSlug \
     --namespace "test" \
-    --templateSlug '8OUfCt8U' \
+    --templateSlug 'OUfCt8UJ' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteTemplateSlug'
 delete_file $TEMP_FILE
@@ -709,18 +709,18 @@ delete_file $TEMP_FILE
 #- 80 GetLocalizationTemplate
 java -jar ${JAR_PATH} lobby getLocalizationTemplate \
     --namespace "test" \
-    --templateLanguage 'JC5flNyj' \
-    --templateSlug '6HsTtX8P' \
+    --templateLanguage 'C5flNyj6' \
+    --templateSlug 'HsTtX8P3' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetLocalizationTemplate'
 delete_file $TEMP_FILE
 
 #- 81 UpdateLocalizationTemplate
 java -jar ${JAR_PATH} lobby updateLocalizationTemplate \
-    --body '{"templateContent": "3llnaaS9"}' \
+    --body '{"templateContent": "llnaaS9l"}' \
     --namespace "test" \
-    --templateLanguage 'lqyygPcf' \
-    --templateSlug 'kJIxfQZz' \
+    --templateLanguage 'qyygPcfk' \
+    --templateSlug 'JIxfQZza' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateLocalizationTemplate'
 delete_file $TEMP_FILE
@@ -728,8 +728,8 @@ delete_file $TEMP_FILE
 #- 82 DeleteTemplateLocalization
 java -jar ${JAR_PATH} lobby deleteTemplateLocalization \
     --namespace "test" \
-    --templateLanguage 'a8kNVbDx' \
-    --templateSlug 'VMq7HJk0' \
+    --templateLanguage '8kNVbDxV' \
+    --templateSlug 'Mq7HJk0F' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteTemplateLocalization'
 delete_file $TEMP_FILE
@@ -737,8 +737,8 @@ delete_file $TEMP_FILE
 #- 83 PublishTemplate
 java -jar ${JAR_PATH} lobby publishTemplate \
     --namespace "test" \
-    --templateLanguage 'F89xAc3Y' \
-    --templateSlug 'VfaENtrl' \
+    --templateLanguage '89xAc3YV' \
+    --templateSlug 'faENtrl0' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublishTemplate'
 delete_file $TEMP_FILE
@@ -752,7 +752,7 @@ delete_file $TEMP_FILE
 
 #- 85 CreateTopic
 java -jar ${JAR_PATH} lobby createTopic \
-    --body '{"description": "0pTKZTXq", "topic": "zHuBMYQS"}' \
+    --body '{"description": "pTKZTXqz", "topic": "HuBMYQSA"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'CreateTopic'
@@ -761,16 +761,16 @@ delete_file $TEMP_FILE
 #- 86 GetTopicByTopicName
 java -jar ${JAR_PATH} lobby getTopicByTopicName \
     --namespace "test" \
-    --topic 'A2jz1ZOp' \
+    --topic '2jz1ZOpd' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetTopicByTopicName'
 delete_file $TEMP_FILE
 
 #- 87 UpdateTopicByTopicName
 java -jar ${JAR_PATH} lobby updateTopicByTopicName \
-    --body '{"description": "dOjSyMdd"}' \
+    --body '{"description": "OjSyMddB"}' \
     --namespace "test" \
-    --topic 'B41JuMf7' \
+    --topic '41JuMf7R' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateTopicByTopicName'
 delete_file $TEMP_FILE
@@ -778,25 +778,25 @@ delete_file $TEMP_FILE
 #- 88 DeleteTopicByTopicName
 java -jar ${JAR_PATH} lobby deleteTopicByTopicName \
     --namespace "test" \
-    --topic 'RUyBHRj8' \
+    --topic 'UyBHRj8I' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteTopicByTopicName'
 delete_file $TEMP_FILE
 
 #- 89 FreeFormNotificationByUserID
 java -jar ${JAR_PATH} lobby freeFormNotificationByUserID \
-    --body '{"message": "IiRimRll", "topic": "HT6Dc40v"}' \
+    --body '{"message": "iRimRllH", "topic": "T6Dc40vF"}' \
     --namespace "test" \
-    --userId 'FFA6gpU7' \
+    --userId 'FA6gpU7E' \
     >$TEMP_FILE 2>&1
 update_status $? 'FreeFormNotificationByUserID'
 delete_file $TEMP_FILE
 
 #- 90 NotificationWithTemplateByUserID
 java -jar ${JAR_PATH} lobby notificationWithTemplateByUserID \
-    --body '{"templateContext": {"EW3x1dCp": "m55gOeqQ"}, "templateLanguage": "IqcJVKmB", "templateSlug": "M1J1IbuT", "topic": "rrkbmuT1"}' \
+    --body '{"templateContext": {"W3x1dCpm": "55gOeqQI"}, "templateLanguage": "qcJVKmBM", "templateSlug": "1J1IbuTr", "topic": "rkbmuT1w"}' \
     --namespace "test" \
-    --userId 'whOqmEnD' \
+    --userId 'hOqmEnDX' \
     >$TEMP_FILE 2>&1
 update_status $? 'NotificationWithTemplateByUserID'
 delete_file $TEMP_FILE
