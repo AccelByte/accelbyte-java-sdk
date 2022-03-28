@@ -47,7 +47,7 @@ public class AdminSearchUsersV2 implements Callable<Integer> {
     String displayName;
 
     @Option(names = {"--limit"}, description = "limit")
-    String limit;
+    Integer limit;
 
     @Option(names = {"--loginId"}, description = "loginId")
     String loginId;

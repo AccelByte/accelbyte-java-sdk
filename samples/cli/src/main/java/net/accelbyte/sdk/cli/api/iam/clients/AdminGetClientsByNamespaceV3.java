@@ -41,7 +41,7 @@ public class AdminGetClientsByNamespaceV3 implements Callable<Integer> {
     Integer limit;
 
     @Option(names = {"--offset"}, description = "offset")
-    String offset;
+    Integer offset;
 
 
     @Option(names = {"--logging"}, description = "logger")

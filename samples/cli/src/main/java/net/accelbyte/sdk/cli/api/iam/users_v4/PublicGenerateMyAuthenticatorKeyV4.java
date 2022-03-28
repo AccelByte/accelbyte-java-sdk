@@ -4,12 +4,12 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.cli.api.lobby.config;
+package net.accelbyte.sdk.cli.api.iam.users_v4;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.accelbyte.sdk.api.lobby.models.*;
-import net.accelbyte.sdk.api.lobby.wrappers.Config;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.iam.wrappers.UsersV4;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
@@ -29,10 +29,10 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "importConfig", mixinStandardHelpOptions = true)
-public class ImportConfig implements Callable<Integer> {
+@Command(name = "publicGenerateMyAuthenticatorKeyV4", mixinStandardHelpOptions = true)
+public class PublicGenerateMyAuthenticatorKeyV4 implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(ImportConfig.class);
+    private static final Logger log = LogManager.getLogger(PublicGenerateMyAuthenticatorKeyV4.class);
 
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
@@ -42,7 +42,7 @@ public class ImportConfig implements Callable<Integer> {
     boolean logging;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new ImportConfig()).execute(args);
+        int exitCode = new CommandLine(new PublicGenerateMyAuthenticatorKeyV4()).execute(args);
         System.exit(exitCode);
     }
 
@@ -55,10 +55,10 @@ public class ImportConfig implements Callable<Integer> {
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             
-            ModelsImportConfigResponse response =
-            new Config(sdk)
-            .importConfig(
-                new net.accelbyte.sdk.api.lobby.operations.config.ImportConfig(
+            ModelAuthenticatorKeyResponseV4 response =
+            new UsersV4(sdk)
+            .publicGenerateMyAuthenticatorKeyV4(
+                new net.accelbyte.sdk.api.iam.operations.users_v4.PublicGenerateMyAuthenticatorKeyV4(
                     namespace
                 )
             );

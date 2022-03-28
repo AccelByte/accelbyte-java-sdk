@@ -47,13 +47,13 @@ public class SearchChannelSpecificContent implements Callable<Integer> {
     String isofficial;
 
     @Option(names = {"--limit"}, description = "limit")
-    String limit;
+    Integer limit;
 
     @Option(names = {"--name"}, description = "name")
     String name;
 
     @Option(names = {"--offset"}, description = "offset")
-    String offset;
+    Integer offset;
 
     @Option(names = {"--orderby"}, description = "orderby")
     String orderby;

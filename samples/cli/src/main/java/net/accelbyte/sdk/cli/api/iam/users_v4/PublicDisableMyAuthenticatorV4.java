@@ -4,12 +4,12 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.cli.api.lobby.config;
+package net.accelbyte.sdk.cli.api.iam.users_v4;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.accelbyte.sdk.api.lobby.models.*;
-import net.accelbyte.sdk.api.lobby.wrappers.Config;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.iam.wrappers.UsersV4;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
@@ -29,10 +29,10 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "exportConfig", mixinStandardHelpOptions = true)
-public class ExportConfig implements Callable<Integer> {
+@Command(name = "publicDisableMyAuthenticatorV4", mixinStandardHelpOptions = true)
+public class PublicDisableMyAuthenticatorV4 implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(ExportConfig.class);
+    private static final Logger log = LogManager.getLogger(PublicDisableMyAuthenticatorV4.class);
 
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
@@ -42,7 +42,7 @@ public class ExportConfig implements Callable<Integer> {
     boolean logging;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new ExportConfig()).execute(args);
+        int exitCode = new CommandLine(new PublicDisableMyAuthenticatorV4()).execute(args);
         System.exit(exitCode);
     }
 
@@ -55,15 +55,13 @@ public class ExportConfig implements Callable<Integer> {
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             
-            List<ModelsConfigExport> response =
-            new Config(sdk)
-            .exportConfig(
-                new net.accelbyte.sdk.api.lobby.operations.config.ExportConfig(
+            new UsersV4(sdk)
+            .publicDisableMyAuthenticatorV4(
+                new net.accelbyte.sdk.api.iam.operations.users_v4.PublicDisableMyAuthenticatorV4(
                     namespace
                 )
             );
-            String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-            log.info("Operation successful with response below:\n{}", responseString);
+            log.info("Operation successful");
             return 0;
         } catch (ResponseException e) {
             log.error("ResponseException occur with message below:\n{}", e.getMessage());

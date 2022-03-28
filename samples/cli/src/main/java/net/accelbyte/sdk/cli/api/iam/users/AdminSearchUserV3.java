@@ -47,7 +47,7 @@ public class AdminSearchUserV3 implements Callable<Integer> {
     Integer limit;
 
     @Option(names = {"--offset"}, description = "offset")
-    String offset;
+    Integer offset;
 
     @Option(names = {"--platformBy"}, description = "platformBy")
     String platformBy;

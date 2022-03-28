@@ -38,10 +38,10 @@ public class GetFollowedUsers implements Callable<Integer> {
     String namespace;
 
     @Option(names = {"--limit"}, description = "limit")
-    String limit;
+    Integer limit;
 
     @Option(names = {"--offset"}, description = "offset")
-    String offset;
+    Integer offset;
 
 
     @Option(names = {"--logging"}, description = "logger")

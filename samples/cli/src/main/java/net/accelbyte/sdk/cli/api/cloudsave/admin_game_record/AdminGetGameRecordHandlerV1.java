@@ -58,7 +58,7 @@ public class AdminGetGameRecordHandlerV1 implements Callable<Integer> {
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             
-            ModelsGameRecord response =
+            ModelsGameRecordResponse response =
             new AdminGameRecord(sdk)
             .adminGetGameRecordHandlerV1(
                 new net.accelbyte.sdk.api.cloudsave.operations.admin_game_record.AdminGetGameRecordHandlerV1(

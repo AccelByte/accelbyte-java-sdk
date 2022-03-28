@@ -23,6 +23,7 @@ import picocli.CommandLine.Command;
 @Command(name = "legal",
         mixinStandardHelpOptions = true,
         subcommands = {
+                ChangePreferenceConsent.class,
                 RetrieveAcceptedAgreements.class,
                 RetrieveAllUsersByPolicyVersion.class,
                 RetrieveAllLegalPolicies.class,
@@ -50,7 +51,7 @@ import picocli.CommandLine.Command;
                 SyncUserInfo.class,
                 InvalidateUserInfoCache.class,
                 AnonymizeUserAgreement.class,
-                ChangePreferenceConsent.class,
+                ChangePreferenceConsent1.class,
                 AcceptVersionedPolicy.class,
                 RetrieveAgreementsPublic.class,
                 BulkAcceptVersionedPolicy.class,

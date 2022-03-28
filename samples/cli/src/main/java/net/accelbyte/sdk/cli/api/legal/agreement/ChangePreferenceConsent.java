@@ -34,6 +34,12 @@ public class ChangePreferenceConsent implements Callable<Integer> {
 
     private static final Logger log = LogManager.getLogger(ChangePreferenceConsent.class);
 
+    @Option(names = {"--namespace"}, description = "namespace")
+    String namespace;
+
+    @Option(names = {"--userId"}, description = "userId")
+    String userId;
+
     @Option(names = {"--body"}, description = "body")
     String body;
 
@@ -58,6 +64,8 @@ public class ChangePreferenceConsent implements Callable<Integer> {
             new Agreement(sdk)
             .changePreferenceConsent(
                 new net.accelbyte.sdk.api.legal.operations.agreement.ChangePreferenceConsent(
+                    namespace,
+                    userId,
                     new ObjectMapper().readValue(body, new TypeReference<List<AcceptAgreementRequest>>() {})
  
                 )

@@ -47,7 +47,7 @@ public class QuerySession implements Callable<Integer> {
     String joinable;
 
     @Option(names = {"--limit"}, description = "limit")
-    String limit;
+    Integer limit;
 
     @Option(names = {"--matchExist"}, description = "matchExist")
     String matchExist;
@@ -56,7 +56,7 @@ public class QuerySession implements Callable<Integer> {
     String matchId;
 
     @Option(names = {"--offset"}, description = "offset")
-    String offset;
+    Integer offset;
 
     @Option(names = {"--serverStatus"}, description = "serverStatus")
     String serverStatus;
