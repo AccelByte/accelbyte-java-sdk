@@ -1,0 +1,2 @@
+include ':accelbyte-java-sdk-local'
+project(':accelbyte-java-sdk-local').projectDir = file('../../../')
