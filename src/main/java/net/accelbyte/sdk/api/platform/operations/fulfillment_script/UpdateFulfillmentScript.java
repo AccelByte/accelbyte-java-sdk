@@ -48,7 +48,7 @@ public class UpdateFulfillmentScript extends Operation {
     private String method = "PATCH";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList();
+    private List<String> consumes = Arrays.asList("application/json");
 
     @JsonIgnore
     private List<String> produces = Arrays.asList();

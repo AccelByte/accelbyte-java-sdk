@@ -30,7 +30,7 @@ public class AdminPlayerRecord {
      * @deprecated
      */
     @Deprecated
-    public ModelsListPlayerRecordKeys listPlayerRecordHandlerV1(ListPlayerRecordHandlerV1 input) throws ResponseException, IOException {
+    public ModelsListPlayerRecordKeysResponse listPlayerRecordHandlerV1(ListPlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class AdminPlayerRecord {
     /**
      * @see AdminRetrievePlayerRecords
      */
-    public ModelsListPlayerRecordKeys adminRetrievePlayerRecords(AdminRetrievePlayerRecords input) throws ResponseException, IOException {
+    public ModelsListPlayerRecordKeysResponse adminRetrievePlayerRecords(AdminRetrievePlayerRecords input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class AdminPlayerRecord {
     /**
      * @see AdminGetPlayerRecordHandlerV1
      */
-    public ModelsPlayerRecord adminGetPlayerRecordHandlerV1(AdminGetPlayerRecordHandlerV1 input) throws ResponseException, IOException {
+    public ModelsPlayerRecordResponse adminGetPlayerRecordHandlerV1(AdminGetPlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class AdminPlayerRecord {
     /**
      * @see AdminGetPlayerPublicRecordHandlerV1
      */
-    public ModelsPlayerRecord adminGetPlayerPublicRecordHandlerV1(AdminGetPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
+    public ModelsPlayerRecordResponse adminGetPlayerPublicRecordHandlerV1(AdminGetPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

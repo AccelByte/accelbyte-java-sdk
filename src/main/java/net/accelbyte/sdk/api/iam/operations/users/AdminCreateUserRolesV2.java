@@ -43,7 +43,7 @@ public class AdminCreateUserRolesV2 extends Operation {
     private String method = "POST";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList();
+    private List<String> consumes = Arrays.asList("application/json");
 
     @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");

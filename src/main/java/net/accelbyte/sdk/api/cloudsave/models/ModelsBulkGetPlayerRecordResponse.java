@@ -28,7 +28,7 @@ import java.util.Map;
 public class ModelsBulkGetPlayerRecordResponse extends Model {
 
     @JsonProperty("data")
-    private List<ModelsPlayerRecord> data;
+    private List<ModelsPlayerRecordResponse> data;
 
     @JsonIgnore
     public ModelsBulkGetPlayerRecordResponse createFromJson(String json) throws JsonProcessingException {

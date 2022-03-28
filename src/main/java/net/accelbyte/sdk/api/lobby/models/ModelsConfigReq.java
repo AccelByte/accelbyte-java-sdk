@@ -66,6 +66,9 @@ public class ModelsConfigReq extends Model {
     @JsonProperty("generalRateLimitDuration")
     private Integer generalRateLimitDuration;
 
+    @JsonProperty("keepPresenceActivityOnDisconnect")
+    private Boolean keepPresenceActivityOnDisconnect;
+
     @JsonProperty("maxPartyMember")
     private Integer maxPartyMember;
 
@@ -101,6 +104,7 @@ public class ModelsConfigReq extends Model {
         result.put("entitlementItemID", "entitlementItemID");
         result.put("generalRateLimitBurst", "generalRateLimitBurst");
         result.put("generalRateLimitDuration", "generalRateLimitDuration");
+        result.put("keepPresenceActivityOnDisconnect", "keepPresenceActivityOnDisconnect");
         result.put("maxPartyMember", "maxPartyMember");
         result.put("profanityFilter", "profanityFilter");
         result.put("readyConsentTimeout", "readyConsentTimeout");

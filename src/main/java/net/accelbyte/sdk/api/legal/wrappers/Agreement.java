@@ -26,6 +26,25 @@ public class Agreement {
     }
 
     /**
+     * @see ChangePreferenceConsent
+     */
+    public void changePreferenceConsent(ChangePreferenceConsent input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
      * @see RetrieveAcceptedAgreements
      */
     public List<RetrieveAcceptedAgreementResponse> retrieveAcceptedAgreements(RetrieveAcceptedAgreements input) throws ResponseException, IOException {
@@ -64,9 +83,9 @@ public class Agreement {
     }
 
     /**
-     * @see ChangePreferenceConsent
+     * @see ChangePreferenceConsent1
      */
-    public void changePreferenceConsent(ChangePreferenceConsent input) throws ResponseException, IOException {
+    public void changePreferenceConsent1(ChangePreferenceConsent1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

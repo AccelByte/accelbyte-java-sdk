@@ -35,7 +35,8 @@ import java.util.*;
  * 
  * 
  * 
- * Delete player record by its key
+ * Delete player record by its key.
+ * Only user that own the player record could delete it.
  */
 @Getter
 @Setter

@@ -28,13 +28,57 @@ import java.util.*;
 /**
  * adminPutPlayerPublicRecordHandlerV1
  *
- * Required permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [UPDATE]
+ * Required Permission | `ADMIN:NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [UPDATE]`
+ * --------------------|------------------------------------------------------------------------------
+ * Required Scope      | `social`
  * 
- * Required scope: social
  * 
- * Save a record (arbitrary JSON data) in user-level.
- * If a record already exist with given key, this endpoint will replace the record, else it will create new Record.
- * Record saved will be a public record.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * ## Description
+ * 
+ * 
+ * 
+ * This endpoints will create new player public record or replace the existing player public record.
+ * 
+ *  Replace behaviour:
+ * The existing value will be replaced completely with the new value.
+ * 
+ * Example
+ * - Existing JSON:
+ * 
+ * 
+ * 
+ *     { "data1": "value" }
+ * 
+ * 
+ * - New JSON:
+ * 
+ * 
+ * 
+ *     { "data2": "new value" }
+ * 
+ * 
+ * - Result:
+ * 
+ * 
+ * 
+ *     { "data2": "new value" }
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * ## Warning: Current Behaviour when Updating Private Record
+ * 
+ * 
+ * 
+ * When updating existing "Private Record", this endpoint will always convert the "Private Record" into "Public Record".
+ * This behaviour might be deprecated sooner, please don't rely with that behaviour.
  */
 @Getter
 @Setter

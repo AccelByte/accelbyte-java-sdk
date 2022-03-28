@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.cloudsave.models;
+package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -25,29 +25,29 @@ import java.util.Map;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ModelsPlayerRecordKey extends Model {
+public class ModelAuthenticatorKeyResponseV4 extends Model {
 
-    @JsonProperty("key")
-    private String key;
+    @JsonProperty("secretKey")
+    private String secretKey;
 
-    @JsonProperty("user_id")
-    private String userId;
+    @JsonProperty("uri")
+    private String uri;
 
     @JsonIgnore
-    public ModelsPlayerRecordKey createFromJson(String json) throws JsonProcessingException {
+    public ModelAuthenticatorKeyResponseV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<ModelsPlayerRecordKey> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPlayerRecordKey>>() {});
+    public List<ModelAuthenticatorKeyResponseV4> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelAuthenticatorKeyResponseV4>>() {});
     }
 
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("key", "key");
-        result.put("user_id", "userId");
+        result.put("secretKey", "secretKey");
+        result.put("uri", "uri");
         return result;
     }
 }

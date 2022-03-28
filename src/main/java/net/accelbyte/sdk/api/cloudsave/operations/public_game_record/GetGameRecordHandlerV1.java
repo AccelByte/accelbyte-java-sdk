@@ -16,7 +16,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import net.accelbyte.sdk.api.cloudsave.models.*;
-import net.accelbyte.sdk.api.cloudsave.models.ModelsGameRecord;
+import net.accelbyte.sdk.api.cloudsave.models.ModelsGameRecordResponse;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -144,10 +144,10 @@ public class GetGameRecordHandlerV1 extends Operation {
 
     @Override
     @JsonIgnore
-    public ModelsGameRecord parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public ModelsGameRecordResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
-            return new ModelsGameRecord().createFromJson(json);
+            return new ModelsGameRecordResponse().createFromJson(json);
         }
         throw new ResponseException(code, json);
     }

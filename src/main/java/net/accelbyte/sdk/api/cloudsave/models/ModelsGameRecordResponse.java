@@ -25,29 +25,45 @@ import java.util.Map;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ModelsListGameRecordKeys extends Model {
+public class ModelsGameRecordResponse extends Model {
 
-    @JsonProperty("data")
-    private List<String> data;
+    @JsonProperty("created_at")
+    private String createdAt;
 
-    @JsonProperty("paging")
-    private ModelsPagination paging;
+    @JsonProperty("key")
+    private String key;
+
+    @JsonProperty("namespace")
+    private String namespace;
+
+    @JsonProperty("set_by")
+    private String setBy;
+
+    @JsonProperty("updated_at")
+    private String updatedAt;
+
+    @JsonProperty("value")
+    private Map<String, ?> value;
 
     @JsonIgnore
-    public ModelsListGameRecordKeys createFromJson(String json) throws JsonProcessingException {
+    public ModelsGameRecordResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<ModelsListGameRecordKeys> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsListGameRecordKeys>>() {});
+    public List<ModelsGameRecordResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGameRecordResponse>>() {});
     }
 
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("data", "data");
-        result.put("paging", "paging");
+        result.put("created_at", "createdAt");
+        result.put("key", "key");
+        result.put("namespace", "namespace");
+        result.put("set_by", "setBy");
+        result.put("updated_at", "updatedAt");
+        result.put("value", "value");
         return result;
     }
 }

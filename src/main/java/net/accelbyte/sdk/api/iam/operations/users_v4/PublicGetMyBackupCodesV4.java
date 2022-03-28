@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.lobby.operations.config;
+package net.accelbyte.sdk.api.iam.operations.users_v4;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,8 +15,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.accelbyte.sdk.api.lobby.models.*;
-import net.accelbyte.sdk.api.lobby.models.ModelsImportConfigResponse;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.iam.models.ModelBackupCodesResponseV4;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -26,31 +26,33 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
- * ImportConfig
+ * PublicGetMyBackupCodesV4
  *
  * 
- * Required permission ADMIN:NAMESPACE:{namespace}:LOBBY:CONFIG [UPDATE]
  * 
- * Required Scope: social
+ * (In Development)This endpoint is used to get 8-digits backup codes.
+ * Each code is a one-time code and will be deleted once used.
  * 
- * Import config configuration from file. The existing configuration will be replaced.
- * The json file to import can be obtained from the /export endpoint.
+ * 
+ * 
+ * 
+ * This endpoint Requires valid user access token
  */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ImportConfig extends Operation {
+public class PublicGetMyBackupCodesV4 extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/lobby/v1/admin/config/namespaces/{namespace}/import";
+    private String url = "/iam/v4/public/namespaces/{namespace}/users/me/mfa/backupCode";
 
     @JsonIgnore
-    private String method = "POST";
+    private String method = "GET";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList("multipart/form-data");
+    private List<String> consumes = Arrays.asList();
 
     @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
@@ -70,7 +72,7 @@ public class ImportConfig extends Operation {
     * @param namespace required
     */
     @Builder
-    public ImportConfig(
+    public PublicGetMyBackupCodesV4(
             String namespace
     )
     {
@@ -78,7 +80,7 @@ public class ImportConfig extends Operation {
     }
 
     @JsonIgnore
-    public ImportConfig createFromJson(String json) throws JsonProcessingException {
+    public PublicGetMyBackupCodesV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -131,10 +133,10 @@ public class ImportConfig extends Operation {
 
     @Override
     @JsonIgnore
-    public ModelsImportConfigResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public ModelBackupCodesResponseV4 parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
-            return new ModelsImportConfigResponse().createFromJson(json);
+            return new ModelBackupCodesResponseV4().createFromJson(json);
         }
         throw new ResponseException(code, json);
     }

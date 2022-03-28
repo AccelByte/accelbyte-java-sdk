@@ -28,7 +28,7 @@ public class PublicGameRecord {
     /**
      * @see GetGameRecordHandlerV1
      */
-    public ModelsGameRecord getGameRecordHandlerV1(GetGameRecordHandlerV1 input) throws ResponseException, IOException {
+    public ModelsGameRecordResponse getGameRecordHandlerV1(GetGameRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

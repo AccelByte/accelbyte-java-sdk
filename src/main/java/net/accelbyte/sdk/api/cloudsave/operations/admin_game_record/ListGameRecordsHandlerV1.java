@@ -16,7 +16,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import net.accelbyte.sdk.api.cloudsave.models.*;
-import net.accelbyte.sdk.api.cloudsave.models.ModelsListGameRecordKeys;
+import net.accelbyte.sdk.api.cloudsave.models.ModelsListGameRecordKeysResponse;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -28,9 +28,9 @@ import java.util.*;
 /**
  * listGameRecordsHandlerV1
  *
- * Required permission: ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [READ]
+ * Required permission: `ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [READ]`
  * 
- * Required scope: social
+ * Required scope: `social`
  * 
  * Retrieve list of records key by namespace
  */
@@ -161,10 +161,10 @@ public class ListGameRecordsHandlerV1 extends Operation {
 
     @Override
     @JsonIgnore
-    public ModelsListGameRecordKeys parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public ModelsListGameRecordKeysResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
-            return new ModelsListGameRecordKeys().createFromJson(json);
+            return new ModelsListGameRecordKeysResponse().createFromJson(json);
         }
         throw new ResponseException(code, json);
     }

@@ -56,8 +56,8 @@ public class GetUserFriendsUpdated extends Operation {
      * fields as input parameter
      */
     private String namespace;
-    private String limit;
-    private String offset;
+    private Integer limit;
+    private Integer offset;
 
     /**
     * @param namespace required
@@ -65,8 +65,8 @@ public class GetUserFriendsUpdated extends Operation {
     @Builder
     public GetUserFriendsUpdated(
             String namespace,
-            String limit,
-            String offset
+            Integer limit,
+            Integer offset
     )
     {
         this.namespace = namespace;
@@ -98,8 +98,8 @@ public class GetUserFriendsUpdated extends Operation {
     @JsonIgnore
     public Map<String, List<String>> getQueryParams(){
         Map<String, List<String>> queryParams = new HashMap<>();
-        queryParams.put("limit", this.limit == null ? null : Arrays.asList(this.limit));
-        queryParams.put("offset", this.offset == null ? null : Arrays.asList(this.offset));
+        queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+        queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
         return queryParams;
     }
 

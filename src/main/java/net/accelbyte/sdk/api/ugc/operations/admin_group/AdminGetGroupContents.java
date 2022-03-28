@@ -61,8 +61,8 @@ public class AdminGetGroupContents extends Operation {
     private String groupId;
     private String namespace;
     private String userId;
-    private String limit;
-    private String offset;
+    private Integer limit;
+    private Integer offset;
 
     /**
     * @param groupId required
@@ -74,8 +74,8 @@ public class AdminGetGroupContents extends Operation {
             String groupId,
             String namespace,
             String userId,
-            String limit,
-            String offset
+            Integer limit,
+            Integer offset
     )
     {
         this.groupId = groupId;
@@ -115,8 +115,8 @@ public class AdminGetGroupContents extends Operation {
     @JsonIgnore
     public Map<String, List<String>> getQueryParams(){
         Map<String, List<String>> queryParams = new HashMap<>();
-        queryParams.put("limit", this.limit == null ? null : Arrays.asList(this.limit));
-        queryParams.put("offset", this.offset == null ? null : Arrays.asList(this.offset));
+        queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+        queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
         return queryParams;
     }
 

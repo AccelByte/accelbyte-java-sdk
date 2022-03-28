@@ -66,7 +66,7 @@ public class PublicPlayerRecord {
     /**
      * @see GetPlayerRecordHandlerV1
      */
-    public ModelsPlayerRecord getPlayerRecordHandlerV1(GetPlayerRecordHandlerV1 input) throws ResponseException, IOException {
+    public ModelsPlayerRecordResponse getPlayerRecordHandlerV1(GetPlayerRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -142,7 +142,7 @@ public class PublicPlayerRecord {
     /**
      * @see GetPlayerPublicRecordHandlerV1
      */
-    public ModelsPlayerRecord getPlayerPublicRecordHandlerV1(GetPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
+    public ModelsPlayerRecordResponse getPlayerPublicRecordHandlerV1(GetPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

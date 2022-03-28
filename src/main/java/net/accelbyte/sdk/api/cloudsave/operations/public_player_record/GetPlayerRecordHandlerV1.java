@@ -16,7 +16,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import net.accelbyte.sdk.api.cloudsave.models.*;
-import net.accelbyte.sdk.api.cloudsave.models.ModelsPlayerRecord;
+import net.accelbyte.sdk.api.cloudsave.models.ModelsPlayerRecordResponse;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -36,7 +36,8 @@ import java.util.*;
  * 
  * 
  * 
- * Get player record by its key
+ * Get player record by its key.
+ *  Private Record: Only user that own the player record could retrieve it.
  */
 @Getter
 @Setter
@@ -157,10 +158,10 @@ public class GetPlayerRecordHandlerV1 extends Operation {
 
     @Override
     @JsonIgnore
-    public ModelsPlayerRecord parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public ModelsPlayerRecordResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
-            return new ModelsPlayerRecord().createFromJson(json);
+            return new ModelsPlayerRecordResponse().createFromJson(json);
         }
         throw new ResponseException(code, json);
     }

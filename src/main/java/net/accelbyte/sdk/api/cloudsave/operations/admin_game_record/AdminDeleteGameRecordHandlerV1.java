@@ -27,9 +27,9 @@ import java.util.*;
 /**
  * adminDeleteGameRecordHandlerV1
  *
- * Required permission: ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [DELETE]
+ * Required permission: `ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [DELETE]`
  * 
- * Required scope: social
+ * Required scope: `social`
  * 
  * This endpoints delete game record in namespace-level
  */

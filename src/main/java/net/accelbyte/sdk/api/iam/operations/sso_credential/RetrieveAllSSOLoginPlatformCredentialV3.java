@@ -59,7 +59,7 @@ public class RetrieveAllSSOLoginPlatformCredentialV3 extends Operation {
      */
     private String namespace;
     private Integer limit;
-    private String offset;
+    private Integer offset;
 
     /**
     * @param namespace required
@@ -68,7 +68,7 @@ public class RetrieveAllSSOLoginPlatformCredentialV3 extends Operation {
     public RetrieveAllSSOLoginPlatformCredentialV3(
             String namespace,
             Integer limit,
-            String offset
+            Integer offset
     )
     {
         this.namespace = namespace;
@@ -101,7 +101,7 @@ public class RetrieveAllSSOLoginPlatformCredentialV3 extends Operation {
     public Map<String, List<String>> getQueryParams(){
         Map<String, List<String>> queryParams = new HashMap<>();
         queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
-        queryParams.put("offset", this.offset == null ? null : Arrays.asList(this.offset));
+        queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
         return queryParams;
     }
 

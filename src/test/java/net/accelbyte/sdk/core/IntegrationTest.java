@@ -48,7 +48,7 @@ import net.accelbyte.sdk.api.basic.operations.user_profile.DeleteUserProfile;
 import net.accelbyte.sdk.api.basic.operations.user_profile.GetMyProfileInfo;
 import net.accelbyte.sdk.api.basic.operations.user_profile.UpdateMyProfile;
 import net.accelbyte.sdk.api.basic.wrappers.UserProfile;
-import net.accelbyte.sdk.api.cloudsave.models.ModelsGameRecord;
+import net.accelbyte.sdk.api.cloudsave.models.ModelsGameRecordResponse;
 import net.accelbyte.sdk.api.cloudsave.operations.public_game_record.DeleteGameRecordHandlerV1;
 import net.accelbyte.sdk.api.cloudsave.operations.public_game_record.GetGameRecordHandlerV1;
 import net.accelbyte.sdk.api.cloudsave.operations.public_game_record.PostGameRecordHandlerV1;
@@ -416,7 +416,7 @@ public class IntegrationTest {
 
                 // Get game record
 
-                ModelsGameRecord gRecord = wPublicGameRecord.getGameRecordHandlerV1(GetGameRecordHandlerV1.builder()
+                ModelsGameRecordResponse gRecord = wPublicGameRecord.getGameRecordHandlerV1(GetGameRecordHandlerV1.builder()
                                 .namespace(namespace)
                                 .key(gameRecordKey)
                                 .build());
@@ -1078,8 +1078,8 @@ public class IntegrationTest {
                 ModelsPaginatedGetTagResponse gTag = wAdminTag.adminGetTag(
                                 AdminGetTag.builder()
                                                 .namespace(namespace)
-                                                .offset("0")
-                                                .limit("10")
+                                                .offset(0)
+                                                .limit(10)
                                                 .build());
 
                 Assertions.assertNotNull(gTag);

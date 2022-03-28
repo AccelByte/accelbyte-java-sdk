@@ -30,6 +30,9 @@ public class IAPItemEntry extends Model {
     @JsonProperty("itemIdentity")
     private String itemIdentity;
 
+    @JsonProperty("itemIdentityType")
+    private String itemIdentityType;
+
     @JsonProperty("platformProductIdMap")
     private Map<String, String> platformProductIdMap;
 
@@ -47,6 +50,7 @@ public class IAPItemEntry extends Model {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("itemIdentity", "itemIdentity");
+        result.put("itemIdentityType", "itemIdentityType");
         result.put("platformProductIdMap", "platformProductIdMap");
         return result;
     }

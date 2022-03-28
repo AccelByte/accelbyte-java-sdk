@@ -25,7 +25,7 @@ import java.util.Map;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ModelsPlayerRecord extends Model {
+public class ModelsPlayerRecordResponse extends Model {
 
     @JsonProperty("created_at")
     private String createdAt;
@@ -39,6 +39,9 @@ public class ModelsPlayerRecord extends Model {
     @JsonProperty("namespace")
     private String namespace;
 
+    @JsonProperty("set_by")
+    private String setBy;
+
     @JsonProperty("updated_at")
     private String updatedAt;
 
@@ -49,13 +52,13 @@ public class ModelsPlayerRecord extends Model {
     private Map<String, ?> value;
 
     @JsonIgnore
-    public ModelsPlayerRecord createFromJson(String json) throws JsonProcessingException {
+    public ModelsPlayerRecordResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<ModelsPlayerRecord> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPlayerRecord>>() {});
+    public List<ModelsPlayerRecordResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPlayerRecordResponse>>() {});
     }
 
     @JsonIgnore
@@ -65,6 +68,7 @@ public class ModelsPlayerRecord extends Model {
         result.put("is_public", "isPublic");
         result.put("key", "key");
         result.put("namespace", "namespace");
+        result.put("set_by", "setBy");
         result.put("updated_at", "updatedAt");
         result.put("user_id", "userId");
         result.put("value", "value");

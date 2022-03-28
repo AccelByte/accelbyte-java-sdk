@@ -62,7 +62,7 @@ public class AdminSearchUsersV2 extends Operation {
     private String after;
     private String before;
     private String displayName;
-    private String limit;
+    private Integer limit;
     private String loginId;
     private String platformUserId;
     private String roleId;
@@ -79,7 +79,7 @@ public class AdminSearchUsersV2 extends Operation {
             String after,
             String before,
             String displayName,
-            String limit,
+            Integer limit,
             String loginId,
             String platformUserId,
             String roleId,
@@ -126,7 +126,7 @@ public class AdminSearchUsersV2 extends Operation {
         queryParams.put("after", this.after == null ? null : Arrays.asList(this.after));
         queryParams.put("before", this.before == null ? null : Arrays.asList(this.before));
         queryParams.put("displayName", this.displayName == null ? null : Arrays.asList(this.displayName));
-        queryParams.put("limit", this.limit == null ? null : Arrays.asList(this.limit));
+        queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
         queryParams.put("loginId", this.loginId == null ? null : Arrays.asList(this.loginId));
         queryParams.put("platformUserId", this.platformUserId == null ? null : Arrays.asList(this.platformUserId));
         queryParams.put("roleId", this.roleId == null ? null : Arrays.asList(this.roleId));

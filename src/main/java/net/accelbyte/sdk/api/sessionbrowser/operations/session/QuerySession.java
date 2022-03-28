@@ -66,10 +66,10 @@ public class QuerySession extends Operation {
     private String gameMode;
     private String gameVersion;
     private String joinable;
-    private String limit;
+    private Integer limit;
     private String matchExist;
     private String matchId;
-    private String offset;
+    private Integer offset;
     private String serverStatus;
     private String userId;
     private String sessionType;
@@ -84,10 +84,10 @@ public class QuerySession extends Operation {
             String gameMode,
             String gameVersion,
             String joinable,
-            String limit,
+            Integer limit,
             String matchExist,
             String matchId,
-            String offset,
+            Integer offset,
             String serverStatus,
             String userId,
             String sessionType
@@ -133,10 +133,10 @@ public class QuerySession extends Operation {
         queryParams.put("game_mode", this.gameMode == null ? null : Arrays.asList(this.gameMode));
         queryParams.put("game_version", this.gameVersion == null ? null : Arrays.asList(this.gameVersion));
         queryParams.put("joinable", this.joinable == null ? null : Arrays.asList(this.joinable));
-        queryParams.put("limit", this.limit == null ? null : Arrays.asList(this.limit));
+        queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
         queryParams.put("match_exist", this.matchExist == null ? null : Arrays.asList(this.matchExist));
         queryParams.put("match_id", this.matchId == null ? null : Arrays.asList(this.matchId));
-        queryParams.put("offset", this.offset == null ? null : Arrays.asList(this.offset));
+        queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
         queryParams.put("server_status", this.serverStatus == null ? null : Arrays.asList(this.serverStatus));
         queryParams.put("user_id", this.userId == null ? null : Arrays.asList(this.userId));
         queryParams.put("session_type", this.sessionType == null ? null : Arrays.asList(this.sessionType));

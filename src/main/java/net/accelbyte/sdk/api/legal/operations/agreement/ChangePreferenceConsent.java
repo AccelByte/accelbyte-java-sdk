@@ -27,11 +27,6 @@ import java.util.*;
 
 /**
  * changePreferenceConsent
- *
- * Change marketing preference consent.
- * Other detail info:
- * 
- *   * Required permission : login user
  */
 @Getter
 @Setter
@@ -41,13 +36,13 @@ public class ChangePreferenceConsent extends Operation {
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/agreement/public/agreements/localized-policy-versions/preferences";
+    private String url = "/agreement/admin/agreements/localized-policy-versions/preferences/namespaces/{namespace}/userId/{userId}";
 
     @JsonIgnore
     private String method = "PATCH";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList();
+    private List<String> consumes = Arrays.asList("application/json");
 
     @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
@@ -61,15 +56,23 @@ public class ChangePreferenceConsent extends Operation {
     /**
      * fields as input parameter
      */
+    private String namespace;
+    private String userId;
     private List<AcceptAgreementRequest> body;
 
     /**
+    * @param namespace required
+    * @param userId required
     */
     @Builder
     public ChangePreferenceConsent(
+            String namespace,
+            String userId,
             List<AcceptAgreementRequest> body
     )
     {
+        this.namespace = namespace;
+        this.userId = userId;
         this.body = body;
     }
 
@@ -83,6 +86,18 @@ public class ChangePreferenceConsent extends Operation {
         return new ObjectMapper().writeValueAsString(this);
     }
 
+    @Override
+    @JsonIgnore
+    public Map<String, String> getPathParams(){
+        Map<String, String> pathParams = new HashMap<>();
+        if (this.namespace != null){
+            pathParams.put("namespace", this.namespace);
+        }
+        if (this.userId != null){
+            pathParams.put("userId", this.userId);
+        }
+        return pathParams;
+    }
 
 
     @Override
@@ -98,23 +113,38 @@ public class ChangePreferenceConsent extends Operation {
         return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
+    @JsonIgnore
+    public static Map<String, String> getFieldInfo() {
+        Map<String, String> result = new HashMap<>();
+        result.put("namespace","namespace");
+        result.put("userId","userId");
+        return result;
+    }
 
     @JsonIgnore
     public List<String> getAllRequiredFields() {
         return Arrays.asList(
+            "namespace",
+            "userId"
         );
     }
 
     @Override
     @JsonIgnore
     public boolean isValid() {
+        if(this.namespace == null) {
+            return false;
+        }
+        if(this.userId == null) {
+            return false;
+        }
         return true;
     }
 
     @Override
     @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
-        if(code != 200){
+        if(code != 200 && code != 204){
             String json = this.convertInputStreamToString(payload);
             throw new ResponseException(code, json);
         }

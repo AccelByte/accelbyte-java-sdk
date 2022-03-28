@@ -48,7 +48,7 @@ public class CheckEventCondition extends Operation {
     private String method = "PUT";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList();
+    private List<String> consumes = Arrays.asList("application/json");
 
     @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");

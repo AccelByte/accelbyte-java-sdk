@@ -28,7 +28,7 @@ public class AdminGameRecord {
     /**
      * @see ListGameRecordsHandlerV1
      */
-    public ModelsListGameRecordKeys listGameRecordsHandlerV1(ListGameRecordsHandlerV1 input) throws ResponseException, IOException {
+    public ModelsListGameRecordKeysResponse listGameRecordsHandlerV1(ListGameRecordsHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -47,7 +47,7 @@ public class AdminGameRecord {
     /**
      * @see AdminGetGameRecordHandlerV1
      */
-    public ModelsGameRecord adminGetGameRecordHandlerV1(AdminGetGameRecordHandlerV1 input) throws ResponseException, IOException {
+    public ModelsGameRecordResponse adminGetGameRecordHandlerV1(AdminGetGameRecordHandlerV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

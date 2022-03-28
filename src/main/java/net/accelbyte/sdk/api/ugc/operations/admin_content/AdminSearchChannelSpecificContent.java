@@ -62,9 +62,9 @@ public class AdminSearchChannelSpecificContent extends Operation {
     private String namespace;
     private String creator;
     private String isofficial;
-    private String limit;
+    private Integer limit;
     private String name;
-    private String offset;
+    private Integer offset;
     private String orderby;
     private String sortby;
     private String subtype;
@@ -82,9 +82,9 @@ public class AdminSearchChannelSpecificContent extends Operation {
             String namespace,
             String creator,
             String isofficial,
-            String limit,
+            Integer limit,
             String name,
-            String offset,
+            Integer offset,
             String orderby,
             String sortby,
             String subtype,
@@ -137,9 +137,9 @@ public class AdminSearchChannelSpecificContent extends Operation {
         Map<String, List<String>> queryParams = new HashMap<>();
         queryParams.put("creator", this.creator == null ? null : Arrays.asList(this.creator));
         queryParams.put("isofficial", this.isofficial == null ? null : Arrays.asList(this.isofficial));
-        queryParams.put("limit", this.limit == null ? null : Arrays.asList(this.limit));
+        queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
         queryParams.put("name", this.name == null ? null : Arrays.asList(this.name));
-        queryParams.put("offset", this.offset == null ? null : Arrays.asList(this.offset));
+        queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
         queryParams.put("orderby", this.orderby == null ? null : Arrays.asList(this.orderby));
         queryParams.put("sortby", this.sortby == null ? null : Arrays.asList(this.sortby));
         queryParams.put("subtype", this.subtype == null ? null : Arrays.asList(this.subtype));

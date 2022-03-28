@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.cloudsave.models;
+package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -25,29 +25,25 @@ import java.util.Map;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ModelsListPlayerRecordKeys extends Model {
+public class ModelCheckValidUserIDRequestV4 extends Model {
 
-    @JsonProperty("data")
-    private List<ModelsPlayerRecordKey> data;
-
-    @JsonProperty("paging")
-    private ModelsPagination paging;
+    @JsonProperty("userIds")
+    private List<String> userIds;
 
     @JsonIgnore
-    public ModelsListPlayerRecordKeys createFromJson(String json) throws JsonProcessingException {
+    public ModelCheckValidUserIDRequestV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<ModelsListPlayerRecordKeys> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsListPlayerRecordKeys>>() {});
+    public List<ModelCheckValidUserIDRequestV4> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelCheckValidUserIDRequestV4>>() {});
     }
 
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("data", "data");
-        result.put("paging", "paging");
+        result.put("userIds", "userIds");
         return result;
     }
 }

@@ -27,6 +27,9 @@ import java.util.Map;
 @NoArgsConstructor
 public class MockIAPReceipt extends Model {
 
+    @JsonProperty("itemIdentityType")
+    private String itemIdentityType;
+
     @JsonProperty("language")
     private String language;
 
@@ -52,6 +55,7 @@ public class MockIAPReceipt extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
+        result.put("itemIdentityType", "itemIdentityType");
         result.put("language", "language");
         result.put("productId", "productId");
         result.put("region", "region");

@@ -25,41 +25,29 @@ import java.util.Map;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ModelsGameRecord extends Model {
-
-    @JsonProperty("created_at")
-    private String createdAt;
+public class ModelsPlayerRecordKeyInfo extends Model {
 
     @JsonProperty("key")
     private String key;
 
-    @JsonProperty("namespace")
-    private String namespace;
-
-    @JsonProperty("updated_at")
-    private String updatedAt;
-
-    @JsonProperty("value")
-    private Map<String, ?> value;
+    @JsonProperty("user_id")
+    private String userId;
 
     @JsonIgnore
-    public ModelsGameRecord createFromJson(String json) throws JsonProcessingException {
+    public ModelsPlayerRecordKeyInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<ModelsGameRecord> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGameRecord>>() {});
+    public List<ModelsPlayerRecordKeyInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPlayerRecordKeyInfo>>() {});
     }
 
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("created_at", "createdAt");
         result.put("key", "key");
-        result.put("namespace", "namespace");
-        result.put("updated_at", "updatedAt");
-        result.put("value", "value");
+        result.put("user_id", "userId");
         return result;
     }
 }

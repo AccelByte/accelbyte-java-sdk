@@ -27,11 +27,11 @@ import java.util.*;
 /**
  * adminDeletePlayerRecordHandlerV1
  *
- * Required permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD [DELETE]
+ * Required permission: `ADMIN:NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD [DELETE]`
  * 
- * Required scope: social
+ * Required scope: `social`
  * 
- * Delete a record (arbitrary JSON data) in user-level with given key. It will delete the record whether it's private or public record.
+ * Delete a record (arbitrary JSON data) in user-level with given key.
  */
 @Getter
 @Setter

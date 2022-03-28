@@ -48,8 +48,14 @@ public class ModelsServer extends Model {
     @JsonProperty("ip")
     private String ip;
 
+    @JsonProperty("is_override_game_version")
+    private Boolean isOverrideGameVersion;
+
     @JsonProperty("last_update")
     private String lastUpdate;
+
+    @JsonProperty("match_id")
+    private String matchId;
 
     @JsonProperty("mem_limit")
     private Integer memLimit;
@@ -68,6 +74,9 @@ public class ModelsServer extends Model {
 
     @JsonProperty("ports")
     private Map<String, Integer> ports;
+
+    @JsonProperty("protocol")
+    private String protocol;
 
     @JsonProperty("provider")
     private String provider;
@@ -104,13 +113,16 @@ public class ModelsServer extends Model {
         result.put("game_version", "gameVersion");
         result.put("image_version", "imageVersion");
         result.put("ip", "ip");
+        result.put("is_override_game_version", "isOverrideGameVersion");
         result.put("last_update", "lastUpdate");
+        result.put("match_id", "matchId");
         result.put("mem_limit", "memLimit");
         result.put("namespace", "namespace");
         result.put("params", "params");
         result.put("pod_name", "podName");
         result.put("port", "port");
         result.put("ports", "ports");
+        result.put("protocol", "protocol");
         result.put("provider", "provider");
         result.put("region", "region");
         result.put("session_id", "sessionId");

@@ -101,7 +101,7 @@ public class AdminSearchUserV3 extends Operation {
     private String by;
     private String endDate;
     private Integer limit;
-    private String offset;
+    private Integer offset;
     private String platformBy;
     private String platformId;
     private String query;
@@ -116,7 +116,7 @@ public class AdminSearchUserV3 extends Operation {
             String by,
             String endDate,
             Integer limit,
-            String offset,
+            Integer offset,
             String platformBy,
             String platformId,
             String query,
@@ -161,7 +161,7 @@ public class AdminSearchUserV3 extends Operation {
         queryParams.put("by", this.by == null ? null : Arrays.asList(this.by));
         queryParams.put("endDate", this.endDate == null ? null : Arrays.asList(this.endDate));
         queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
-        queryParams.put("offset", this.offset == null ? null : Arrays.asList(this.offset));
+        queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
         queryParams.put("platformBy", this.platformBy == null ? null : Arrays.asList(this.platformBy));
         queryParams.put("platformId", this.platformId == null ? null : Arrays.asList(this.platformId));
         queryParams.put("query", this.query == null ? null : Arrays.asList(this.query));

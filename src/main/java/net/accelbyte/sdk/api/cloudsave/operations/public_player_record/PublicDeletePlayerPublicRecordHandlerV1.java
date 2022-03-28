@@ -27,7 +27,7 @@ import java.util.*;
 /**
  * publicDeletePlayerPublicRecordHandlerV1
  *
- * Required scope: social
+ * Required scope: `social`
  * 
  * Required valid user authorization
  * 

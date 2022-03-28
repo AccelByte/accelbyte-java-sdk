@@ -83,9 +83,9 @@ public class Config {
     }
 
     /**
-     * @see ExportConfig
+     * @see AdminExportConfigV1
      */
-    public List<ModelsConfigExport> exportConfig(ExportConfig input) throws ResponseException, IOException {
+    public ModelsConfigExport adminExportConfigV1(AdminExportConfigV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -102,9 +102,9 @@ public class Config {
     }
 
     /**
-     * @see ImportConfig
+     * @see AdminImportConfigV1
      */
-    public ModelsImportConfigResponse importConfig(ImportConfig input) throws ResponseException, IOException {
+    public ModelsImportConfigResponse adminImportConfigV1(AdminImportConfigV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
