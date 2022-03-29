@@ -1,14 +1,63 @@
-<a name="v0.6.0"></a>
-## [v0.6.0]
+<a name="v0.7.0"></a>
+## [v0.7.0]
+
 ### Chore
-- **spec:** update spec
-- **sdk:** regenerate sdk
+- bump version
+- add gradle check (checkstyle)
+- clean up build
+- clean up test
+- clean up checkstyle
+- **cli-test:** regenerate cli test for justice 3.19.0
+- **makefile:** improve speed
+- **samples:** remove redundant samples
+- **sdk:** regenerate sdk for justice 3.19.0
+- **spec:** update spec for justice 3.19.0
+
+### Ci
+- fix build (exclude test)
+- fix lint
+- integrate integration test
+- add gradle check + report
+- **nightly:** make integration test error more informative
+
+### Docs
+- update changelog
+- standardize readme.md
+
+### Fix
+- **core:** use builder for login client token grant v3
+- **samples:** cli not running in windows due to path issues
+
+### Test
+- **integration:** adjust matchmaking test order
+- **integration:** fix test setup
+- **integration:** fix remaining issues (legal consent, lobby ws, lobby, matchmaking, social)
+- **integration:** fix coverity build error
+- **integration:** initial implementation
+
+
+<a name="v0.6.0"></a>
+## [v0.6.0] - 2022-03-15
+### Chore
+- bump version
 - **samples:** regenerate cli
+- **samples:** regenerate cli
+- **sdk:** regenerate sdk
+- **sdk:** regenerate sdk
+- **spec:** update spec
+- **spec:** update spec
 - **tests:** regenerate cli tests
-- **core!:** rename WebSocketClient to OkhttpWebSocketClient for consistency
+- **tests:** regenerate cli tests
+
+### Docs
+- update changelog
 
 ### Feat
 - **logging:** initial logging implementation
+
+### Test
+- **cli:** fix language code format
+- **cli:** fix lobby ws cli test
 
 
 <a name="v0.5.0"></a>
@@ -193,7 +242,8 @@
 - replace unnecessary object
 
 
-[v0.6.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.5.0...HEAD
+[v0.7.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.6.0...v0.7.0
+[v0.6.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.5.0...v0.6.0
 [v0.5.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.2.0...v0.3.0
