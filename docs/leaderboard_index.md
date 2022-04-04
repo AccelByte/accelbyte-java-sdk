@@ -1,0 +1,95 @@
+# Leaderboard Service Index
+
+&nbsp;  
+
+## Operations
+
+### LeaderboardConfiguration Wrapper:  [LeaderboardConfiguration](../src/main/java/net/accelbyte/sdk/api/leaderboard/wrappers/LeaderboardConfiguration.java)
+| Endpoint | Method | ID | Class |
+|---|---|---|---|
+| `/leaderboard/v1/admin/namespaces/{namespace}/leaderboards` | GET | GetLeaderboardConfigurationsAdminV1 | [GetLeaderboardConfigurationsAdminV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_configuration/GetLeaderboardConfigurationsAdminV1.java) |
+| `/leaderboard/v1/admin/namespaces/{namespace}/leaderboards` | POST | CreateLeaderboardConfigurationAdminV1 | [CreateLeaderboardConfigurationAdminV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_configuration/CreateLeaderboardConfigurationAdminV1.java) |
+| `/leaderboard/v1/admin/namespaces/{namespace}/leaderboards/delete` | POST | DeleteBulkLeaderboardConfigurationAdminV1 | [DeleteBulkLeaderboardConfigurationAdminV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_configuration/DeleteBulkLeaderboardConfigurationAdminV1.java) |
+| `/leaderboard/v1/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}` | GET | GetLeaderboardConfigurationAdminV1 | [GetLeaderboardConfigurationAdminV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_configuration/GetLeaderboardConfigurationAdminV1.java) |
+| `/leaderboard/v1/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}` | PUT | UpdateLeaderboardConfigurationAdminV1 | [UpdateLeaderboardConfigurationAdminV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_configuration/UpdateLeaderboardConfigurationAdminV1.java) |
+| `/leaderboard/v1/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}` | DELETE | DeleteLeaderboardConfigurationAdminV1 | [DeleteLeaderboardConfigurationAdminV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_configuration/DeleteLeaderboardConfigurationAdminV1.java) |
+| `/leaderboard/v1/public/namespaces/{namespace}/leaderboards` | GET | GetLeaderboardConfigurationsPublicV1 | [GetLeaderboardConfigurationsPublicV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_configuration/GetLeaderboardConfigurationsPublicV1.java) |
+| `/leaderboard/v1/public/namespaces/{namespace}/leaderboards` | POST | CreateLeaderboardConfigurationPublicV1 | [CreateLeaderboardConfigurationPublicV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_configuration/CreateLeaderboardConfigurationPublicV1.java) |
+| `/leaderboard/v2/public/namespaces/{namespace}/leaderboards` | GET | GetLeaderboardConfigurationsPublicV2 | [GetLeaderboardConfigurationsPublicV2](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_configuration/GetLeaderboardConfigurationsPublicV2.java) |
+
+### LeaderboardData Wrapper:  [LeaderboardData](../src/main/java/net/accelbyte/sdk/api/leaderboard/wrappers/LeaderboardData.java)
+| Endpoint | Method | ID | Class |
+|---|---|---|---|
+| `/leaderboard/v1/admin/namespaces/{namespace}/leaderboards/archived` | GET | AdminGetArchivedLeaderboardRankingDataV1Handler | [AdminGetArchivedLeaderboardRankingDataV1Handler](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/AdminGetArchivedLeaderboardRankingDataV1Handler.java) |
+| `/leaderboard/v1/admin/namespaces/{namespace}/leaderboards/archived` | POST | CreateArchivedLeaderboardRankingDataV1Handler | [CreateArchivedLeaderboardRankingDataV1Handler](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/CreateArchivedLeaderboardRankingDataV1Handler.java) |
+| `/leaderboard/v1/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/alltime` | GET | GetAllTimeLeaderboardRankingAdminV1 | [GetAllTimeLeaderboardRankingAdminV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/GetAllTimeLeaderboardRankingAdminV1.java) |
+| `/leaderboard/v1/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/month` | GET | GetCurrentMonthLeaderboardRankingAdminV1 | [GetCurrentMonthLeaderboardRankingAdminV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/GetCurrentMonthLeaderboardRankingAdminV1.java) |
+| `/leaderboard/v1/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/season` | GET | GetCurrentSeasonLeaderboardRankingAdminV1 | [GetCurrentSeasonLeaderboardRankingAdminV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/GetCurrentSeasonLeaderboardRankingAdminV1.java) |
+| `/leaderboard/v1/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/today` | GET | GetTodayLeaderboardRankingAdminV1 | [GetTodayLeaderboardRankingAdminV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/GetTodayLeaderboardRankingAdminV1.java) |
+| `/leaderboard/v1/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/users/{userId}` | GET | GetUserRankingAdminV1 | [GetUserRankingAdminV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/GetUserRankingAdminV1.java) |
+| `/leaderboard/v1/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/users/{userId}` | PUT | UpdateUserPointAdminV1 | [UpdateUserPointAdminV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/UpdateUserPointAdminV1.java) |
+| `/leaderboard/v1/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/users/{userId}` | DELETE | DeleteUserRankingAdminV1 | [DeleteUserRankingAdminV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/DeleteUserRankingAdminV1.java) |
+| `/leaderboard/v1/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/week` | GET | GetCurrentWeekLeaderboardRankingAdminV1 | [GetCurrentWeekLeaderboardRankingAdminV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/GetCurrentWeekLeaderboardRankingAdminV1.java) |
+| `/leaderboard/v1/admin/namespaces/{namespace}/users/{userId}` | DELETE | DeleteUserRankingsAdminV1 | [DeleteUserRankingsAdminV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/DeleteUserRankingsAdminV1.java) |
+| `/leaderboard/v1/public/namespaces/{namespace}/leaderboards/{leaderboardCode}/alltime` | GET | GetAllTimeLeaderboardRankingPublicV1 | [GetAllTimeLeaderboardRankingPublicV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/GetAllTimeLeaderboardRankingPublicV1.java) |
+| `/leaderboard/v1/public/namespaces/{namespace}/leaderboards/{leaderboardCode}/archived` | GET | GetArchivedLeaderboardRankingDataV1Handler | [GetArchivedLeaderboardRankingDataV1Handler](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/GetArchivedLeaderboardRankingDataV1Handler.java) |
+| `/leaderboard/v1/public/namespaces/{namespace}/leaderboards/{leaderboardCode}/month` | GET | GetCurrentMonthLeaderboardRankingPublicV1 | [GetCurrentMonthLeaderboardRankingPublicV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/GetCurrentMonthLeaderboardRankingPublicV1.java) |
+| `/leaderboard/v1/public/namespaces/{namespace}/leaderboards/{leaderboardCode}/season` | GET | GetCurrentSeasonLeaderboardRankingPublicV1 | [GetCurrentSeasonLeaderboardRankingPublicV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/GetCurrentSeasonLeaderboardRankingPublicV1.java) |
+| `/leaderboard/v1/public/namespaces/{namespace}/leaderboards/{leaderboardCode}/today` | GET | GetTodayLeaderboardRankingPublicV1 | [GetTodayLeaderboardRankingPublicV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/GetTodayLeaderboardRankingPublicV1.java) |
+| `/leaderboard/v1/public/namespaces/{namespace}/leaderboards/{leaderboardCode}/users/{userId}` | GET | GetUserRankingPublicV1 | [GetUserRankingPublicV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/GetUserRankingPublicV1.java) |
+| `/leaderboard/v1/public/namespaces/{namespace}/leaderboards/{leaderboardCode}/users/{userId}` | DELETE | DeleteUserRankingPublicV1 | [DeleteUserRankingPublicV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/DeleteUserRankingPublicV1.java) |
+| `/leaderboard/v1/public/namespaces/{namespace}/leaderboards/{leaderboardCode}/week` | GET | GetCurrentWeekLeaderboardRankingPublicV1 | [GetCurrentWeekLeaderboardRankingPublicV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/GetCurrentWeekLeaderboardRankingPublicV1.java) |
+| `/leaderboard/v2/public/namespaces/{namespace}/leaderboards/{leaderboardCode}/alltime` | GET | GetAllTimeLeaderboardRankingPublicV2 | [GetAllTimeLeaderboardRankingPublicV2](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/GetAllTimeLeaderboardRankingPublicV2.java) |
+
+### UserData Wrapper:  [UserData](../src/main/java/net/accelbyte/sdk/api/leaderboard/wrappers/UserData.java)
+| Endpoint | Method | ID | Class |
+|---|---|---|---|
+| `/leaderboard/v1/admin/namespaces/{namespace}/users/{userId}/leaderboards` | GET | GetUserLeaderboardRankingsAdminV1 | [GetUserLeaderboardRankingsAdminV1](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/user_data/GetUserLeaderboardRankingsAdminV1.java) |
+
+### UserVisibility Wrapper:  [UserVisibility](../src/main/java/net/accelbyte/sdk/api/leaderboard/wrappers/UserVisibility.java)
+| Endpoint | Method | ID | Class |
+|---|---|---|---|
+| `/leaderboard/v2/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/users/hidden` | GET | GetHiddenUsersV2 | [GetHiddenUsersV2](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/user_visibility/GetHiddenUsersV2.java) |
+| `/leaderboard/v2/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/users/{userId}/visibility` | GET | GetUserVisibilityStatusV2 | [GetUserVisibilityStatusV2](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/user_visibility/GetUserVisibilityStatusV2.java) |
+| `/leaderboard/v2/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/users/{userId}/visibility` | PUT | SetUserLeaderboardVisibilityStatusV2 | [SetUserLeaderboardVisibilityStatusV2](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/user_visibility/SetUserLeaderboardVisibilityStatusV2.java) |
+| `/leaderboard/v2/admin/namespaces/{namespace}/users/{userId}/visibility` | PUT | SetUserVisibilityStatusV2 | [SetUserVisibilityStatusV2](../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/user_visibility/SetUserVisibilityStatusV2.java) |
+
+
+&nbsp;  
+
+## Models
+
+| Model | Class |
+|---|---|
+| `models.ArchiveLeaderboardReq` | [ModelsArchiveLeaderboardReq](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsArchiveLeaderboardReq.java) |
+| `models.ArchiveLeaderboardSignedURLResponse` | [ModelsArchiveLeaderboardSignedURLResponse](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsArchiveLeaderboardSignedURLResponse.java) |
+| `models.DailyConfig` | [ModelsDailyConfig](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsDailyConfig.java) |
+| `models.DeleteBulkLeaderboardFailedResp` | [ModelsDeleteBulkLeaderboardFailedResp](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsDeleteBulkLeaderboardFailedResp.java) |
+| `models.DeleteBulkLeaderboardsReq` | [ModelsDeleteBulkLeaderboardsReq](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsDeleteBulkLeaderboardsReq.java) |
+| `models.DeleteBulkLeaderboardsResp` | [ModelsDeleteBulkLeaderboardsResp](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsDeleteBulkLeaderboardsResp.java) |
+| `models.GetAllLeaderboardConfigsPublicResp` | [ModelsGetAllLeaderboardConfigsPublicResp](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsGetAllLeaderboardConfigsPublicResp.java) |
+| `models.GetAllLeaderboardConfigsResp` | [ModelsGetAllLeaderboardConfigsResp](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsGetAllLeaderboardConfigsResp.java) |
+| `models.GetAllUserLeaderboardsResp` | [ModelsGetAllUserLeaderboardsResp](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsGetAllUserLeaderboardsResp.java) |
+| `models.GetHiddenUserResponse` | [ModelsGetHiddenUserResponse](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsGetHiddenUserResponse.java) |
+| `models.GetLeaderboardConfigPublicResp` | [ModelsGetLeaderboardConfigPublicResp](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsGetLeaderboardConfigPublicResp.java) |
+| `models.GetLeaderboardConfigResp` | [ModelsGetLeaderboardConfigResp](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsGetLeaderboardConfigResp.java) |
+| `models.GetLeaderboardRankingResp` | [ModelsGetLeaderboardRankingResp](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsGetLeaderboardRankingResp.java) |
+| `models.GetUserVisibilityResponse` | [ModelsGetUserVisibilityResponse](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsGetUserVisibilityResponse.java) |
+| `models.LeaderboardConfigReq` | [ModelsLeaderboardConfigReq](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsLeaderboardConfigReq.java) |
+| `models.MonthlyConfig` | [ModelsMonthlyConfig](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsMonthlyConfig.java) |
+| `models.Pagination` | [ModelsPagination](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsPagination.java) |
+| `models.SetUserVisibilityRequest` | [ModelsSetUserVisibilityRequest](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsSetUserVisibilityRequest.java) |
+| `models.UpdateLeaderboardConfigReq` | [ModelsUpdateLeaderboardConfigReq](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsUpdateLeaderboardConfigReq.java) |
+| `models.UpdateUserPointAdminV1Request` | [ModelsUpdateUserPointAdminV1Request](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsUpdateUserPointAdminV1Request.java) |
+| `models.UpdateUserPointAdminV1Response` | [ModelsUpdateUserPointAdminV1Response](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsUpdateUserPointAdminV1Response.java) |
+| `models.UserLeaderboardRanking` | [ModelsUserLeaderboardRanking](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsUserLeaderboardRanking.java) |
+| `models.UserPoint` | [ModelsUserPoint](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsUserPoint.java) |
+| `models.UserRankingResponse` | [ModelsUserRankingResponse](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsUserRankingResponse.java) |
+| `models.UserRankingResponseDetail` | [ModelsUserRankingResponseDetail](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsUserRankingResponseDetail.java) |
+| `models.WeeklyConfig` | [ModelsWeeklyConfig](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsWeeklyConfig.java) |
+| `response.ErrorResponse` | [ResponseErrorResponse](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ResponseErrorResponse.java) |
+| `v2.Entry` | [V2Entry](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/V2Entry.java) |
+| `v2.GetAllLeaderboardConfigsPublicResp` | [V2GetAllLeaderboardConfigsPublicResp](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/V2GetAllLeaderboardConfigsPublicResp.java) |
+| `v2.GetLeaderboardConfigPublicResp` | [V2GetLeaderboardConfigPublicResp](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/V2GetLeaderboardConfigPublicResp.java) |
+| `v2.GetPublicLeaderboardRankingResponse` | [V2GetPublicLeaderboardRankingResponse](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/V2GetPublicLeaderboardRankingResponse.java) |
+| `v2.Pagination` | [V2Pagination](../src/main/java/net/accelbyte/sdk/api/leaderboard/models/V2Pagination.java) |
