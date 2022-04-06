@@ -77,11 +77,14 @@ import net.accelbyte.sdk.api.gdpr.operations.data_retrieval.UpdateAdminEmailConf
 import net.accelbyte.sdk.api.gdpr.wrappers.DataRetrieval;
 import net.accelbyte.sdk.api.group.models.ModelsCreateGroupConfigurationRequestV1;
 import net.accelbyte.sdk.api.group.models.ModelsCreateGroupConfigurationResponseV1;
+import net.accelbyte.sdk.api.group.models.ModelsGetGroupConfigurationResponseV1;
 import net.accelbyte.sdk.api.group.models.ModelsGroupResponseV1;
 import net.accelbyte.sdk.api.group.models.ModelsPublicCreateNewGroupRequestV1;
 import net.accelbyte.sdk.api.group.models.ModelsUpdateGroupRequestV1;
 import net.accelbyte.sdk.api.group.operations.configuration.CreateGroupConfigurationAdminV1;
 import net.accelbyte.sdk.api.group.operations.configuration.DeleteGroupConfigurationV1;
+import net.accelbyte.sdk.api.group.operations.configuration.GetGroupConfigurationAdminV1;
+import net.accelbyte.sdk.api.group.operations.configuration.InitiateGroupConfigurationAdminV1;
 import net.accelbyte.sdk.api.group.operations.group.CreateNewGroupPublicV1;
 import net.accelbyte.sdk.api.group.operations.group.DeleteGroupPublicV1;
 import net.accelbyte.sdk.api.group.operations.group.GetSingleGroupPublicV1;
@@ -569,12 +572,45 @@ public class IntegrationTest {
         @Test
         public void GroupServiceTests() throws ResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
+                final String initialConfigCode = "initialConfigurationCode";
                 final String configurationCode = "csharpServerSdkConfigCode";
                 final String groupName = "Java SDK Test Group";
                 final String groupDescriptionUpdated = "Updated description.";
+                String defaultAdminRoleId = "";
+                String defaultMemberRoleId = "";
 
                 Configuration wConfig = new Configuration(_sdk);
                 Group wGroup = new Group(_sdk);
+
+                try {
+                        ModelsGetGroupConfigurationResponseV1 gConfigCheck = wConfig
+                                        .getGroupConfigurationAdminV1(
+                                                        GetGroupConfigurationAdminV1.builder()
+                                                                        .namespace(namespace)
+                                                                        .configurationCode(initialConfigCode)
+                                                                        .build());
+
+                        Assertions.assertNotNull(gConfigCheck);
+
+                        defaultAdminRoleId = gConfigCheck.getGroupAdminRoleId();
+                        defaultMemberRoleId = gConfigCheck.getGroupMemberRoleId();
+                } catch (ResponseException rex) {
+                        boolean isInitialConfigurationNotAvailable = rex.getErrorMessage()
+                                        .contains("73131"); // No inital configuration yet
+
+                        if (isInitialConfigurationNotAvailable) {
+                                ModelsCreateGroupConfigurationResponseV1 iConfigResp = wConfig
+                                                .initiateGroupConfigurationAdminV1(
+                                                                InitiateGroupConfigurationAdminV1.builder()
+                                                                                .namespace(namespace)
+                                                                                .build());
+
+                                defaultAdminRoleId = iConfigResp.getGroupAdminRoleId();
+                                defaultMemberRoleId = iConfigResp.getGroupMemberRoleId();
+                        } else {
+                                throw rex;
+                        }
+                }
 
                 // Create group configuration
 
@@ -583,8 +619,8 @@ public class IntegrationTest {
                                 .description("CSharp SDK Test Configuration Group")
                                 .groupMaxMember(50)
                                 .name("CSharp SDK Test Configuration Group")
-                                .groupAdminRoleId("623295c3000e792bf1e902b7")
-                                .groupMemberRoleId("623295c3000e792bf1e902b8")
+                                .groupAdminRoleId(defaultAdminRoleId)
+                                .groupMemberRoleId(defaultMemberRoleId)
                                 .build();
 
                 try {
