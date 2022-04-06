@@ -92,7 +92,9 @@ import net.accelbyte.sdk.api.iam.models.AccountCreateUserRequestV4;
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserResponseV4;
 import net.accelbyte.sdk.api.iam.models.ModelPublicUserResponse;
 import net.accelbyte.sdk.api.iam.models.ModelUserResponse;
+import net.accelbyte.sdk.api.iam.models.ModelUserResponseV3;
 import net.accelbyte.sdk.api.iam.models.ModelUserUpdateRequest;
+import net.accelbyte.sdk.api.iam.operations.users.AdminGetMyUserV3;
 import net.accelbyte.sdk.api.iam.operations.users.DeleteUser;
 import net.accelbyte.sdk.api.iam.operations.users.GetUserByLoginID;
 import net.accelbyte.sdk.api.iam.operations.users.GetUserByUserID;
@@ -416,10 +418,11 @@ public class IntegrationTest {
 
                 // Get game record
 
-                ModelsGameRecordResponse gRecord = wPublicGameRecord.getGameRecordHandlerV1(GetGameRecordHandlerV1.builder()
-                                .namespace(namespace)
-                                .key(gameRecordKey)
-                                .build());
+                ModelsGameRecordResponse gRecord = wPublicGameRecord
+                                .getGameRecordHandlerV1(GetGameRecordHandlerV1.builder()
+                                                .namespace(namespace)
+                                                .key(gameRecordKey)
+                                                .build());
 
                 Assertions.assertNotNull(gRecord);
 
@@ -498,6 +501,13 @@ public class IntegrationTest {
         public void EventLogServiceTests() throws ResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
+                Users wUsers = new Users(_sdk);
+
+                ModelUserResponseV3 eMyUser = wUsers
+                                .adminGetMyUserV3(
+                                                new AdminGetMyUserV3());
+                Assertions.assertNotNull(eMyUser);
+
                 EventV2 wEvent = new EventV2(_sdk);
 
                 ModelsGenericQueryPayload eQueryPayload = ModelsGenericQueryPayload.builder()
@@ -515,7 +525,7 @@ public class IntegrationTest {
 
                 eResp = wEvent.getEventSpecificUserV2Handler(GetEventSpecificUserV2Handler.builder()
                                 .namespace(namespace)
-                                .userId("6bf0e538f8b4423eb9d8b9e577aa860e") // FIXME
+                                .userId(eMyUser.getUserId())
                                 .offset(0)
                                 .pageSize(10)
                                 .build());
@@ -1160,8 +1170,7 @@ public class IntegrationTest {
         // Matchmaking integration test
 
         @Test
-        public void MatchmakingTestSuite() throws ResponseException, IOException, InterruptedException
-        {
+        public void MatchmakingTestSuite() throws ResponseException, IOException, InterruptedException {
                 DSMCListLocalServerTest();
                 DSMCServiceTests();
                 MatchmakingServiceApiTests();
