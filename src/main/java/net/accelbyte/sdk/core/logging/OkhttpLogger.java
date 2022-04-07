@@ -117,9 +117,10 @@ public class OkhttpLogger implements HttpLogger<Request, Response> {
                 source.request(Long.MAX_VALUE);
                 final Buffer buffer = source.getBuffer().clone();
 
-                if (type.equals(MediaType.parse("application/json")) ||
-                        type.equals(MediaType.parse("text/json")) ||
-                        type.equals(MediaType.parse("text/plain"))) {
+                if (type != null &&
+                        (type.equals(MediaType.parse("application/json")) ||
+                                type.equals(MediaType.parse("text/json")) ||
+                                type.equals(MediaType.parse("text/plain")))) {
                     bw.write("body: " + buffer.readUtf8());
                     bw.newLine();
                 } else {
