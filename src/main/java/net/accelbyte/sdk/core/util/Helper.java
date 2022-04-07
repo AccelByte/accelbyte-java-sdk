@@ -14,16 +14,23 @@ import org.apache.commons.io.IOUtils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.UUID;
 
 public class Helper {
+    private static final Random random = new Random();
+    private static final SecureRandom secureRandom = new SecureRandom();
 
     private Helper() {
 
@@ -34,7 +41,6 @@ public class Helper {
     }
 
     public static String generateCodeVerifier() {
-        SecureRandom secureRandom = new SecureRandom();
         byte[] codeVerifier = new byte[32];
         secureRandom.nextBytes(codeVerifier);
         return Base64.getUrlEncoder().withoutPadding().encodeToString(codeVerifier);
@@ -132,7 +138,7 @@ public class Helper {
         long time = System.currentTimeMillis() / 1000L;
         String timeHexa = Long.toHexString(time);
         byte[] bytes = new byte[12];
-        new Random().nextBytes(bytes);
+        random.nextBytes(bytes);
         StringBuilder guid = new StringBuilder();
         for (byte b : bytes) {
             String st = String.format("%02x", b);
