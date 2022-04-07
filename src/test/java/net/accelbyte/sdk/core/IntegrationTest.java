@@ -775,6 +775,7 @@ public class IntegrationTest {
                                                 .build());
 
                 Assertions.assertNotNull(uuResp);
+                Assertions.assertNotNull(uuResp.getDateOfBirth());
                 Assertions.assertEquals(userDateOfBirthUpdated,
                                 Instant.parse(uuResp.getDateOfBirth())
                                                 .atZone(ZoneId.systemDefault())
@@ -792,7 +793,10 @@ public class IntegrationTest {
 
                 Assertions.assertThrows(ResponseException.class, () -> {
                         wIamUser.getUserByUserID(
-                                        GetUserByUserID.builder().namespace(namespace).userId(user_id).build());
+                                        GetUserByUserID.builder()
+                                                        .namespace(namespace)
+                                                        .userId(user_id)
+                                                        .build());
                 });
         }
 
