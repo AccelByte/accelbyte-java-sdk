@@ -7,9 +7,11 @@
 package net.accelbyte.sdk.core.logging;
 
 import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.FileOutputStream;
 import java.util.Base64;
+import java.nio.charset.StandardCharsets;
 
 import kotlin.Pair;
 import okhttp3.MediaType;
@@ -21,16 +23,17 @@ import okio.Buffer;
 import okio.BufferedSource;
 
 public class OkhttpLogger implements HttpLogger<Request, Response> {
-    private static final String FILE = "http_log.txt";
+    private static final String LOG_FILE_PATH = "http_log.txt";
 
     @Override
     public void logRequest(Request request) {
         try {
+            final FileOutputStream fos = new FileOutputStream(LOG_FILE_PATH, true);
+            final OutputStreamWriter osw = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
             BufferedWriter bw = null;
 
             try {
-                final FileWriter fw = new FileWriter(FILE, true);
-                bw = new BufferedWriter(fw);
+                bw = new BufferedWriter(osw);
 
                 bw.write("--- request");
                 bw.newLine();
@@ -89,11 +92,12 @@ public class OkhttpLogger implements HttpLogger<Request, Response> {
         long ts = System.currentTimeMillis();
 
         try {
+            final FileOutputStream fos = new FileOutputStream(LOG_FILE_PATH, true);
+            final OutputStreamWriter osw = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
             BufferedWriter bw = null;
 
             try {
-                final FileWriter fw = new FileWriter(FILE, true);
-                bw = new BufferedWriter(fw);
+                bw = new BufferedWriter(osw);
 
                 bw.write("--- response");
                 bw.newLine();
