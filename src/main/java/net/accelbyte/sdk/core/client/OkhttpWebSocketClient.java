@@ -22,17 +22,20 @@ public class OkhttpWebSocketClient {
     private WebSocket webSocket;
 
     private OkhttpWebSocketClient() {
-
+        
     }
 
-    public static OkhttpWebSocketClient create(ConfigRepository configRepository, TokenRepository tokenRepository, WebSocketListener listener) {
+    public static synchronized OkhttpWebSocketClient create(
+            ConfigRepository configRepository,
+            TokenRepository tokenRepository,
+            WebSocketListener listener) {
         String baseURL = configRepository.getBaseURL();
         if (baseURL == null || baseURL.isEmpty()) {
             throw new IllegalArgumentException("Base URL cannot be null or empty");
         }
         if (instance == null) {
             OkhttpWebSocketClient webSocketClient = new OkhttpWebSocketClient();
-            String url = configRepository.getBaseURL()+"/lobby/";
+            String url = configRepository.getBaseURL() + "/lobby/";
             OkHttpClient client = new OkHttpClient.Builder()
                     .readTimeout(0, TimeUnit.SECONDS)
                     .build();
