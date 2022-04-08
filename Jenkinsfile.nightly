@@ -58,7 +58,7 @@ pipeline {
           }
           post {
             always {
-              archiveArtifacts artifacts: 'build/reports/**'
+              junit 'build/test-results/integrationTest/*.xml'
             }
           }
         }
