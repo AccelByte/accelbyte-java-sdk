@@ -45,10 +45,18 @@ test {
     useJUnitPlatform {
         includeTags('unit-test')
     }
+    reports {
+        junitXml.enabled = true
+        html.enabled = false
+    }
 }
 
 task testIntegration(type: Test) {
     useJUnitPlatform {
         includeTags('integration-test')
+    }
+    reports {
+        junitXml.enabled = true
+        html.enabled = false
     }
 }

@@ -52,7 +52,7 @@ pipeline {
             sh "commitlint --color false --verbose --from ${env.BITBUCKET_PULL_REQUEST_LATEST_COMMIT_FROM_TARGET_BRANCH}"
           }
         }
-        stage('Lint spec') {
+        stage('Lint Spec') {
           steps {
             sh "[ -f spec/TIMESTAMP ] || exit 1"  // Make sure TIMESTAMP file is present in spec directory
           }
@@ -72,13 +72,13 @@ pipeline {
     }
     stage('Test') {
       stages {
-        stage('Unit Tests') {
+        stage('Unit Test Core') {
           steps {
             sh "make test_core"
           }
           post {
             always {
-              archiveArtifacts artifacts: 'build/reports/**'
+              junit 'build/test-results/test/*.xml'
             }
           }
         }
