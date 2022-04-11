@@ -12,7 +12,7 @@ import lombok.Getter;
 public class SDKInfo {
 
     private final String sdkName = "AccelByteJavaSDK";
-    private final String sdkVersion = "0.7.0";
+    private final String sdkVersion = "0.8.0";
 
     private SDKInfo() {
     }
