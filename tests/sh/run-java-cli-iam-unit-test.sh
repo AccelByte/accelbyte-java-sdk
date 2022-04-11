@@ -6,7 +6,7 @@
 
 #Meta:
 #- random seed: 256
-#- template file: java-cli-unit-test.j2
+#- template file: cli_test.j2
 
 #Instructions:
 #- Run the Justice SDK Mock Server first before running this script.
@@ -15,7 +15,7 @@ MODULE_PATH="${MODULE_PATH:-../../samples/cli}"
 JAR_PATH="${MODULE_PATH}/build/libs/cli.jar"
 TEMP_FILE='file.tmp'
 
-OPERATIONS_COUNT=296
+OPERATIONS_COUNT=298
 
 FINISHED_COUNT=0
 SUCCESS_COUNT=0
@@ -1039,9 +1039,9 @@ delete_file $TEMP_FILE
 
 #- 129 AddThirdPartyLoginPlatformCredentialV3
 java -jar ${JAR_PATH} iam addThirdPartyLoginPlatformCredentialV3 \
-    --body '{"ACSURL": "46QmCidg", "AWSCognitoRegion": "dpP7RTC5", "AWSCognitoUserPool": "87lmUmBz", "AppId": "iPZBnpOf", "ClientId": "kllxfq0N", "Environment": "srSjw5Ho", "FederationMetadataURL": "g0blM1d5", "IsActive": true, "KeyID": "YGczLINl", "OrganizationId": "EC0OEsE3", "RedirectUri": "yzIsUP0N", "Secret": "jluOrGZT", "TeamID": "zsLW7Fjf"}' \
+    --body '{"ACSURL": "46QmCidg", "AWSCognitoRegion": "dpP7RTC5", "AWSCognitoUserPool": "87lmUmBz", "AppId": "iPZBnpOf", "ClientId": "kllxfq0N", "Environment": "srSjw5Ho", "FederationMetadataURL": "g0blM1d5", "GenericOauthFlow": true, "IsActive": false, "Issuer": "zLINlEC0", "JWKSEndpoint": "OEsE3yzI", "KeyID": "sUP0Njlu", "OrganizationId": "OrGZTzsL", "PlatformName": "W7Fjfs9n", "RedirectUri": "IkcZ38fU", "Secret": "EanjKHbX", "TeamID": "fk1zxdzx", "TokenAuthenticationType": "g0UXcRyH", "TokenClaimsMapping": {"i3u8BzVW": "u1tOmhUt"}}' \
     --namespace "test" \
-    --platformId 's9nIkcZ3' \
+    --platformId 'CgcpvGrE' \
     >$TEMP_FILE 2>&1
 update_status $? 'AddThirdPartyLoginPlatformCredentialV3'
 delete_file $TEMP_FILE
@@ -1049,34 +1049,34 @@ delete_file $TEMP_FILE
 #- 130 DeleteThirdPartyLoginPlatformCredentialV3
 java -jar ${JAR_PATH} iam deleteThirdPartyLoginPlatformCredentialV3 \
     --namespace "test" \
-    --platformId '8fUEanjK' \
+    --platformId 'bcZUDExH' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteThirdPartyLoginPlatformCredentialV3'
 delete_file $TEMP_FILE
 
 #- 131 UpdateThirdPartyLoginPlatformCredentialV3
 java -jar ${JAR_PATH} iam updateThirdPartyLoginPlatformCredentialV3 \
-    --body '{"ACSURL": "HbXfk1zx", "AWSCognitoRegion": "dzxg0UXc", "AWSCognitoUserPool": "RyHi3u8B", "AppId": "zVWu1tOm", "ClientId": "hUtCgcpv", "Environment": "GrEbcZUD", "FederationMetadataURL": "ExH1tayO", "IsActive": true, "KeyID": "MRjMCtOJ", "OrganizationId": "sEijlrbp", "RedirectUri": "yyEcQxVg", "Secret": "JIjMZqcW", "TeamID": "fMl6dqrp"}' \
+    --body '{"ACSURL": "1tayOGXI", "AWSCognitoRegion": "HzMRjMCt", "AWSCognitoUserPool": "OJsEijlr", "AppId": "bpyyEcQx", "ClientId": "VgJIjMZq", "Environment": "cWfMl6dq", "FederationMetadataURL": "rpD4tnc3", "GenericOauthFlow": true, "IsActive": false, "Issuer": "dtPfAJEo", "JWKSEndpoint": "mwenJvQ8", "KeyID": "grtQSv6E", "OrganizationId": "cALcMIPm", "PlatformName": "s5bT51M4", "RedirectUri": "yko8S0En", "Secret": "GLvGvfuS", "TeamID": "yCTyjj4m", "TokenAuthenticationType": "CaiuMGKO", "TokenClaimsMapping": {"F5GJJooS": "XUl3YU35"}}' \
     --namespace "test" \
-    --platformId 'D4tnc3ZR' \
+    --platformId 'QHGpBABn' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateThirdPartyLoginPlatformCredentialV3'
 delete_file $TEMP_FILE
 
 #- 132 UpdateThirdPartyLoginPlatformDomainV3
 java -jar ${JAR_PATH} iam updateThirdPartyLoginPlatformDomainV3 \
-    --body '{"affectedClientIDs": ["B3IkdtPf"], "assignedNamespaces": ["AJEomwen"], "domain": "JvQ8grtQ", "roleId": "Sv6EcALc"}' \
+    --body '{"affectedClientIDs": ["OlxDznIC"], "assignedNamespaces": ["QVyqBg34"], "domain": "WTtDkn0r", "roleId": "tn6t0Yx4"}' \
     --namespace "test" \
-    --platformId 'MIPms5bT' \
+    --platformId 'z12EaQ1r' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateThirdPartyLoginPlatformDomainV3'
 delete_file $TEMP_FILE
 
 #- 133 DeleteThirdPartyLoginPlatformDomainV3
 java -jar ${JAR_PATH} iam deleteThirdPartyLoginPlatformDomainV3 \
-    --body '{"domain": "51M4yko8"}' \
+    --body '{"domain": "UQYCNTiD"}' \
     --namespace "test" \
-    --platformId 'S0EnGLvG' \
+    --platformId 'X4jE3M2I' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteThirdPartyLoginPlatformDomainV3'
 delete_file $TEMP_FILE
@@ -1084,16 +1084,16 @@ delete_file $TEMP_FILE
 #- 134 RetrieveSSOLoginPlatformCredential
 java -jar ${JAR_PATH} iam retrieveSSOLoginPlatformCredential \
     --namespace "test" \
-    --platformId 'vfuSyCTy' \
+    --platformId 'sTHu8QwN' \
     >$TEMP_FILE 2>&1
 update_status $? 'RetrieveSSOLoginPlatformCredential'
 delete_file $TEMP_FILE
 
 #- 135 AddSSOLoginPlatformCredential
 java -jar ${JAR_PATH} iam addSSOLoginPlatformCredential \
-    --body '{"acsUrl": "jj4mCaiu", "apiKey": "MGKOF5GJ", "appId": "JooSXUl3", "federationMetadataUrl": "YU35QHGp", "isActive": true, "redirectUri": "ABnOlxDz", "secret": "nICQVyqB", "ssoUrl": "g34WTtDk"}' \
+    --body '{"acsUrl": "yOlXfIWd", "apiKey": "0mcq5T4S", "appId": "Uc7cWfCK", "federationMetadataUrl": "K6Dij1gF", "isActive": false, "redirectUri": "enEMySPf", "secret": "hxBenDiT", "ssoUrl": "iAqFYmFK"}' \
     --namespace "test" \
-    --platformId 'n0rtn6t0' \
+    --platformId 'jaELmmll' \
     >$TEMP_FILE 2>&1
 update_status $? 'AddSSOLoginPlatformCredential'
 delete_file $TEMP_FILE
@@ -1101,16 +1101,16 @@ delete_file $TEMP_FILE
 #- 136 DeleteSSOLoginPlatformCredentialV3
 java -jar ${JAR_PATH} iam deleteSSOLoginPlatformCredentialV3 \
     --namespace "test" \
-    --platformId 'Yx4z12Ea' \
+    --platformId '6oexId1O' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteSSOLoginPlatformCredentialV3'
 delete_file $TEMP_FILE
 
 #- 137 UpdateSSOPlatformCredential
 java -jar ${JAR_PATH} iam updateSSOPlatformCredential \
-    --body '{"acsUrl": "Q1rUQYCN", "apiKey": "TiDX4jE3", "appId": "M2IsTHu8", "federationMetadataUrl": "QwNyOlXf", "isActive": false, "redirectUri": "0mcq5T4S", "secret": "Uc7cWfCK", "ssoUrl": "K6Dij1gF"}' \
+    --body '{"acsUrl": "KGUN2Uzn", "apiKey": "d7uVa7t1", "appId": "4yvSYSV5", "federationMetadataUrl": "2bHifCIf", "isActive": true, "redirectUri": "suu6Pkam", "secret": "6tFSYFt4", "ssoUrl": "ZxA2PzZF"}' \
     --namespace "test" \
-    --platformId 'cenEMySP' \
+    --platformId 'RkBNlg6h' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateSSOPlatformCredential'
 delete_file $TEMP_FILE
@@ -1118,8 +1118,8 @@ delete_file $TEMP_FILE
 #- 138 AdminGetUserByPlatformUserIDV3
 java -jar ${JAR_PATH} iam adminGetUserByPlatformUserIDV3 \
     --namespace "test" \
-    --platformId 'fhxBenDi' \
-    --platformUserId 'TiAqFYmF' \
+    --platformId 'n5qusKyZ' \
+    --platformUserId 'AuV6uUvq' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetUserByPlatformUserIDV3'
 delete_file $TEMP_FILE
@@ -1127,7 +1127,7 @@ delete_file $TEMP_FILE
 #- 139 GetAdminUsersByRoleIdV3
 java -jar ${JAR_PATH} iam getAdminUsersByRoleIdV3 \
     --namespace "test" \
-    --roleId 'KjaELmml' \
+    --roleId 'M0lV6UZM' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetAdminUsersByRoleIdV3'
 delete_file $TEMP_FILE
@@ -1141,7 +1141,7 @@ delete_file $TEMP_FILE
 
 #- 141 AdminListUserIDByUserIDsV3
 java -jar ${JAR_PATH} iam adminListUserIDByUserIDsV3 \
-    --body '{"userIds": ["l6oexId1"]}' \
+    --body '{"userIds": ["lEbxHNgJ"]}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminListUserIDByUserIDsV3'
@@ -1149,7 +1149,7 @@ delete_file $TEMP_FILE
 
 #- 142 AdminInviteUserV3
 java -jar ${JAR_PATH} iam adminInviteUserV3 \
-    --body '{"emailAddresses": ["OKGUN2Uz"], "isAdmin": false, "roles": ["d7uVa7t1"]}' \
+    --body '{"emailAddresses": ["RiQExaun"], "isAdmin": false, "roles": ["dAqnHUz4"]}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminInviteUserV3'
@@ -1171,7 +1171,7 @@ delete_file $TEMP_FILE
 
 #- 145 AdminGetBulkUserByEmailAddressV3
 java -jar ${JAR_PATH} iam adminGetBulkUserByEmailAddressV3 \
-    --body '{"listEmailAddressRequest": ["4yvSYSV5"]}' \
+    --body '{"listEmailAddressRequest": ["4tx4O6ha"]}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetBulkUserByEmailAddressV3'
@@ -1180,16 +1180,16 @@ delete_file $TEMP_FILE
 #- 146 AdminGetUserByUserIdV3
 java -jar ${JAR_PATH} iam adminGetUserByUserIdV3 \
     --namespace "test" \
-    --userId '2bHifCIf' \
+    --userId 'mPwNoi07' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetUserByUserIdV3'
 delete_file $TEMP_FILE
 
 #- 147 AdminUpdateUserV3
 java -jar ${JAR_PATH} iam adminUpdateUserV3 \
-    --body '{"country": "4tsuu6Pk", "dateOfBirth": "am6tFSYF", "displayName": "t4ZxA2Pz", "languageTag": "ZFRkBNlg", "userName": "6hn5qusK"}' \
+    --body '{"country": "1ezDK56J", "dateOfBirth": "FIGe1IMU", "displayName": "CLcN0Dsa", "languageTag": "D5FyBsFe", "userName": "9OYEJVsY"}' \
     --namespace "test" \
-    --userId 'yZAuV6uU' \
+    --userId 'ffmhyx6J' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdateUserV3'
 delete_file $TEMP_FILE
@@ -1197,44 +1197,44 @@ delete_file $TEMP_FILE
 #- 148 AdminGetUserBanV3
 java -jar ${JAR_PATH} iam adminGetUserBanV3 \
     --namespace "test" \
-    --userId 'vqM0lV6U' \
+    --userId '25PrM4S3' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetUserBanV3'
 delete_file $TEMP_FILE
 
 #- 149 AdminBanUserV3
 java -jar ${JAR_PATH} iam adminBanUserV3 \
-    --body '{"ban": "ZMlEbxHN", "comment": "gJRiQExa", "endDate": "unjdAqnH", "reason": "Uz44tx4O", "skipNotif": false}' \
+    --body '{"ban": "cB8m17hE", "comment": "eLLgoaYt", "endDate": "h6zcf8eA", "reason": "45OMvObW", "skipNotif": false}' \
     --namespace "test" \
-    --userId 'amPwNoi0' \
+    --userId 'jo9LfGee' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminBanUserV3'
 delete_file $TEMP_FILE
 
 #- 150 AdminUpdateUserBanV3
 java -jar ${JAR_PATH} iam adminUpdateUserBanV3 \
-    --body '{"enabled": false, "skipNotif": true}' \
-    --banId 'DK56JFIG' \
+    --body '{"enabled": false, "skipNotif": false}' \
+    --banId 'BGR6D1Zo' \
     --namespace "test" \
-    --userId 'e1IMUCLc' \
+    --userId 'ZEZQkJ8D' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdateUserBanV3'
 delete_file $TEMP_FILE
 
 #- 151 AdminSendVerificationCodeV3
 java -jar ${JAR_PATH} iam adminSendVerificationCodeV3 \
-    --body '{"context": "N0DsaD5F", "emailAddress": "yBsFe9OY", "languageTag": "EJVsYffm"}' \
+    --body '{"context": "SqFnhdKv", "emailAddress": "jFCFbSFl", "languageTag": "EWoMPdgK"}' \
     --namespace "test" \
-    --userId 'hyx6J25P' \
+    --userId '5zn62mhn' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminSendVerificationCodeV3'
 delete_file $TEMP_FILE
 
 #- 152 AdminVerifyAccountV3
 java -jar ${JAR_PATH} iam adminVerifyAccountV3 \
-    --body '{"Code": "rM4S3cB8", "ContactType": "m17hEeLL", "LanguageTag": "goaYth6z", "validateOnly": false}' \
+    --body '{"Code": "FSpCTlDN", "ContactType": "BOcygvv2", "LanguageTag": "LAgfBGVz", "validateOnly": false}' \
     --namespace "test" \
-    --userId 'f8eA45OM' \
+    --userId 'nbKYsB0g' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminVerifyAccountV3'
 delete_file $TEMP_FILE
@@ -1242,7 +1242,7 @@ delete_file $TEMP_FILE
 #- 153 GetUserVerificationCode
 java -jar ${JAR_PATH} iam getUserVerificationCode \
     --namespace "test" \
-    --userId 'vObWejo9' \
+    --userId 'qJ8VhYSi' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetUserVerificationCode'
 delete_file $TEMP_FILE
@@ -1250,25 +1250,25 @@ delete_file $TEMP_FILE
 #- 154 AdminGetUserDeletionStatusV3
 java -jar ${JAR_PATH} iam adminGetUserDeletionStatusV3 \
     --namespace "test" \
-    --userId 'LfGeegJM' \
+    --userId 'kJl2p9rB' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetUserDeletionStatusV3'
 delete_file $TEMP_FILE
 
 #- 155 AdminUpdateUserDeletionStatusV3
 java -jar ${JAR_PATH} iam adminUpdateUserDeletionStatusV3 \
-    --body '{"enabled": false}' \
+    --body '{"enabled": true}' \
     --namespace "test" \
-    --userId 'BGR6D1Zo' \
+    --userId '8N5egapq' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdateUserDeletionStatusV3'
 delete_file $TEMP_FILE
 
 #- 156 AdminUpgradeHeadlessAccountV3
 java -jar ${JAR_PATH} iam adminUpgradeHeadlessAccountV3 \
-    --body '{"code": "ZEZQkJ8D", "country": "SqFnhdKv", "dateOfBirth": "jFCFbSFl", "displayName": "EWoMPdgK", "emailAddress": "5zn62mhn", "password": "FSpCTlDN", "validateOnly": true}' \
+    --body '{"code": "xDy4cLfN", "country": "jzzEZYA8", "dateOfBirth": "jIkMJb7c", "displayName": "Z2bPsaLL", "emailAddress": "pEBVEMk5", "password": "AsKaF2P4", "validateOnly": false}' \
     --namespace "test" \
-    --userId 'Ocygvv2L' \
+    --userId 'XkI3zdiR' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpgradeHeadlessAccountV3'
 delete_file $TEMP_FILE
@@ -1276,7 +1276,7 @@ delete_file $TEMP_FILE
 #- 157 AdminDeleteUserInformationV3
 java -jar ${JAR_PATH} iam adminDeleteUserInformationV3 \
     --namespace "test" \
-    --userId 'AgfBGVza' \
+    --userId 'iC5IbPit' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminDeleteUserInformationV3'
 delete_file $TEMP_FILE
@@ -1284,44 +1284,44 @@ delete_file $TEMP_FILE
 #- 158 AdminGetUserLoginHistoriesV3
 java -jar ${JAR_PATH} iam adminGetUserLoginHistoriesV3 \
     --namespace "test" \
-    --userId 'nbKYsB0g' \
+    --userId '71JWlYCo' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetUserLoginHistoriesV3'
 delete_file $TEMP_FILE
 
 #- 159 AdminUpdateUserPermissionV3
 java -jar ${JAR_PATH} iam adminUpdateUserPermissionV3 \
-    --body '{"Permissions": [{"Action": 33, "Resource": "J8VhYSik", "SchedAction": 71, "SchedCron": "l2p9rBx8", "SchedRange": ["N5egapqx"]}]}' \
+    --body '{"Permissions": [{"Action": 16, "Resource": "4nDfPu5V", "SchedAction": 85, "SchedCron": "SYxEVOry", "SchedRange": ["VuZYmgUe"]}]}' \
     --namespace "test" \
-    --userId 'Dy4cLfNj' \
+    --userId 'EPB5AGPg' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdateUserPermissionV3'
 delete_file $TEMP_FILE
 
 #- 160 AdminAddUserPermissionsV3
 java -jar ${JAR_PATH} iam adminAddUserPermissionsV3 \
-    --body '{"Permissions": [{"Action": 51, "Resource": "zEZYA8jI", "SchedAction": 20, "SchedCron": "MJb7cZ2b", "SchedRange": ["PsaLLpEB"]}]}' \
+    --body '{"Permissions": [{"Action": 42, "Resource": "k0Zthaj0", "SchedAction": 60, "SchedCron": "BA4azRz0", "SchedRange": ["d56smobo"]}]}' \
     --namespace "test" \
-    --userId 'VEMk5AsK' \
+    --userId 'r4p1PlgQ' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminAddUserPermissionsV3'
 delete_file $TEMP_FILE
 
 #- 161 AdminDeleteUserPermissionBulkV3
 java -jar ${JAR_PATH} iam adminDeleteUserPermissionBulkV3 \
-    --body '[{"Action": 0, "Resource": "F2P44lXk"}]' \
+    --body '[{"Action": 55, "Resource": "9EcNGOeB"}]' \
     --namespace "test" \
-    --userId 'I3zdiRiC' \
+    --userId 'RY6G5ae0' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminDeleteUserPermissionBulkV3'
 delete_file $TEMP_FILE
 
 #- 162 AdminDeleteUserPermissionV3
 java -jar ${JAR_PATH} iam adminDeleteUserPermissionV3 \
-    --action '68' \
+    --action '7' \
     --namespace "test" \
-    --resource 'bPit71JW' \
-    --userId 'lYCoi4nD' \
+    --resource 'eDLaZ8JC' \
+    --userId 'vbeTfW0h' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminDeleteUserPermissionV3'
 delete_file $TEMP_FILE
@@ -1329,7 +1329,7 @@ delete_file $TEMP_FILE
 #- 163 AdminGetUserPlatformAccountsV3
 java -jar ${JAR_PATH} iam adminGetUserPlatformAccountsV3 \
     --namespace "test" \
-    --userId 'fPu5V6QS' \
+    --userId 'gzrabLJx' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetUserPlatformAccountsV3'
 delete_file $TEMP_FILE
@@ -1337,7 +1337,7 @@ delete_file $TEMP_FILE
 #- 164 AdminGetListJusticePlatformAccounts
 java -jar ${JAR_PATH} iam adminGetListJusticePlatformAccounts \
     --namespace "test" \
-    --userId 'YxEVOryV' \
+    --userId 'EwJrEBmQ' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetListJusticePlatformAccounts'
 delete_file $TEMP_FILE
@@ -1345,55 +1345,55 @@ delete_file $TEMP_FILE
 #- 165 AdminCreateJusticeUser
 java -jar ${JAR_PATH} iam adminCreateJusticeUser \
     --namespace "test" \
-    --targetNamespace 'uZYmgUeE' \
-    --userId 'PB5AGPgv' \
+    --targetNamespace '64haNOzl' \
+    --userId 'Gu68UYyu' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminCreateJusticeUser'
 delete_file $TEMP_FILE
 
 #- 166 AdminLinkPlatformAccount
 java -jar ${JAR_PATH} iam adminLinkPlatformAccount \
-    --body '{"platformId": "k0Zthaj0", "platformUserId": "EBA4azRz"}' \
+    --body '{"platformId": "pjdDetno", "platformUserId": "T0rfWtVP"}' \
     --namespace "test" \
-    --userId '0d56smob' \
+    --userId 'wQfq6V92' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminLinkPlatformAccount'
 delete_file $TEMP_FILE
 
 #- 167 AdminPlatformUnlinkV3
 java -jar ${JAR_PATH} iam adminPlatformUnlinkV3 \
-    --body '{"platformNamespace": "or4p1Plg"}' \
+    --body '{"platformNamespace": "gbfPouNd"}' \
     --namespace "test" \
-    --platformId 'QB9EcNGO' \
-    --userId 'eBRY6G5a' \
+    --platformId 'mP7fckVn' \
+    --userId 'uDGvYIb1' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminPlatformUnlinkV3'
 delete_file $TEMP_FILE
 
 #- 168 AdminPlatformLinkV3
 java -jar ${JAR_PATH} iam adminPlatformLinkV3 \
-    --ticket 'e07deDLa' \
+    --ticket 'p5tcR5z8' \
     --namespace "test" \
-    --platformId 'Z8JCvbeT' \
-    --userId 'fW0hgzra' \
+    --platformId 'ZJLjSHca' \
+    --userId 'R3X4tZmw' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminPlatformLinkV3'
 delete_file $TEMP_FILE
 
 #- 169 AdminDeleteUserRolesV3
 java -jar ${JAR_PATH} iam adminDeleteUserRolesV3 \
-    --body '["bLJxEwJr"]' \
+    --body '["r0QmOnsE"]' \
     --namespace "test" \
-    --userId 'EBmQ64ha' \
+    --userId 'g49eXp0x' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminDeleteUserRolesV3'
 delete_file $TEMP_FILE
 
 #- 170 AdminSaveUserRoleV3
 java -jar ${JAR_PATH} iam adminSaveUserRoleV3 \
-    --body '[{"namespace": "NOzlGu68", "roleId": "UYyupjdD"}]' \
+    --body '[{"namespace": "QkZ2Jjuw", "roleId": "WWy0tU11"}]' \
     --namespace "test" \
-    --userId 'etnoT0rf' \
+    --userId 'PCeSrvej' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminSaveUserRoleV3'
 delete_file $TEMP_FILE
@@ -1401,8 +1401,8 @@ delete_file $TEMP_FILE
 #- 171 AdminAddUserRoleV3
 java -jar ${JAR_PATH} iam adminAddUserRoleV3 \
     --namespace "test" \
-    --roleId 'WtVPwQfq' \
-    --userId '6V92gbfP' \
+    --roleId 'UKwVfF37' \
+    --userId 'Vr7mkDzF' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminAddUserRoleV3'
 delete_file $TEMP_FILE
@@ -1410,17 +1410,17 @@ delete_file $TEMP_FILE
 #- 172 AdminDeleteUserRoleV3
 java -jar ${JAR_PATH} iam adminDeleteUserRoleV3 \
     --namespace "test" \
-    --roleId 'ouNdmP7f' \
-    --userId 'ckVnuDGv' \
+    --roleId 'BI1VwhkV' \
+    --userId 'SKDlNFOU' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminDeleteUserRoleV3'
 delete_file $TEMP_FILE
 
 #- 173 AdminUpdateUserStatusV3
 java -jar ${JAR_PATH} iam adminUpdateUserStatusV3 \
-    --body '{"enabled": false, "reason": "1p5tcR5z"}' \
+    --body '{"enabled": true, "reason": "JsvTsqk9"}' \
     --namespace "test" \
-    --userId '8ZJLjSHc' \
+    --userId 'hg4hj6nU' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdateUserStatusV3'
 delete_file $TEMP_FILE
@@ -1428,7 +1428,7 @@ delete_file $TEMP_FILE
 #- 174 AdminVerifyUserWithoutVerificationCodeV3
 java -jar ${JAR_PATH} iam adminVerifyUserWithoutVerificationCodeV3 \
     --namespace "test" \
-    --userId 'aR3X4tZm' \
+    --userId 'debW6Usk' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminVerifyUserWithoutVerificationCodeV3'
 delete_file $TEMP_FILE
@@ -1441,129 +1441,129 @@ delete_file $TEMP_FILE
 
 #- 176 AdminCreateRoleV3
 java -jar ${JAR_PATH} iam adminCreateRoleV3 \
-    --body '{"adminRole": true, "deletable": true, "isWildcard": false, "managers": [{"displayName": "OnsEg49e", "namespace": "Xp0xQkZ2", "userId": "JjuwWWy0"}], "members": [{"displayName": "tU11PCeS", "namespace": "rvejUKwV", "userId": "fF37Vr7m"}], "permissions": [{"action": 20, "resource": "DzFBI1Vw", "schedAction": 14, "schedCron": "kVSKDlNF", "schedRange": ["OUHBJsvT"]}], "roleName": "sqk9hg4h"}' \
+    --body '{"adminRole": false, "deletable": false, "isWildcard": false, "managers": [{"displayName": "ZAk01f1K", "namespace": "xCtWADU2", "userId": "guN6U9w1"}], "members": [{"displayName": "3W1K9TZQ", "namespace": "4qRLEi5w", "userId": "owE36rfm"}], "permissions": [{"action": 76, "resource": "0CCs35TP", "schedAction": 92, "schedCron": "PLmsY8Wg", "schedRange": ["wSx1DI5G"]}], "roleName": "H9bv9ZTo"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminCreateRoleV3'
 delete_file $TEMP_FILE
 
 #- 177 AdminGetRoleV3
 java -jar ${JAR_PATH} iam adminGetRoleV3 \
-    --roleId 'j6nUdebW' \
+    --roleId '2HpA6pzj' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetRoleV3'
 delete_file $TEMP_FILE
 
 #- 178 AdminDeleteRoleV3
 java -jar ${JAR_PATH} iam adminDeleteRoleV3 \
-    --roleId '6UskbPkk' \
+    --roleId 'HpZO0E9i' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminDeleteRoleV3'
 delete_file $TEMP_FILE
 
 #- 179 AdminUpdateRoleV3
 java -jar ${JAR_PATH} iam adminUpdateRoleV3 \
-    --body '{"deletable": true, "isWildcard": false, "roleName": "01f1KxCt"}' \
-    --roleId 'WADU2guN' \
+    --body '{"deletable": false, "isWildcard": false, "roleName": "Bae3GOgb"}' \
+    --roleId 'Qrqra0Pt' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdateRoleV3'
 delete_file $TEMP_FILE
 
 #- 180 AdminGetRoleAdminStatusV3
 java -jar ${JAR_PATH} iam adminGetRoleAdminStatusV3 \
-    --roleId '6U9w13W1' \
+    --roleId 'kfvOpY2r' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetRoleAdminStatusV3'
 delete_file $TEMP_FILE
 
 #- 181 AdminUpdateAdminRoleStatusV3
 java -jar ${JAR_PATH} iam adminUpdateAdminRoleStatusV3 \
-    --roleId 'K9TZQ4qR' \
+    --roleId 'amp5lnBn' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdateAdminRoleStatusV3'
 delete_file $TEMP_FILE
 
 #- 182 AdminRemoveRoleAdminV3
 java -jar ${JAR_PATH} iam adminRemoveRoleAdminV3 \
-    --roleId 'LEi5wowE' \
+    --roleId '6xmBkfMt' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminRemoveRoleAdminV3'
 delete_file $TEMP_FILE
 
 #- 183 AdminGetRoleManagersV3
 java -jar ${JAR_PATH} iam adminGetRoleManagersV3 \
-    --roleId '36rfmM0C' \
+    --roleId 'C66hFq0k' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetRoleManagersV3'
 delete_file $TEMP_FILE
 
 #- 184 AdminAddRoleManagersV3
 java -jar ${JAR_PATH} iam adminAddRoleManagersV3 \
-    --body '{"managers": [{"displayName": "Cs35TPUP", "namespace": "LmsY8Wgw", "userId": "Sx1DI5GH"}]}' \
-    --roleId '9bv9ZTo2' \
+    --body '{"managers": [{"displayName": "POkORm2X", "namespace": "jlNEE5ec", "userId": "PzAmi0yS"}]}' \
+    --roleId 'JHfPloP1' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminAddRoleManagersV3'
 delete_file $TEMP_FILE
 
 #- 185 AdminRemoveRoleManagersV3
 java -jar ${JAR_PATH} iam adminRemoveRoleManagersV3 \
-    --body '{"managers": [{"displayName": "HpA6pzjH", "namespace": "pZO0E9iL", "userId": "gRPJK3nB"}]}' \
-    --roleId 'ae3GOgbQ' \
+    --body '{"managers": [{"displayName": "XkYK4MgI", "namespace": "sDSFMPyM", "userId": "hyw1OLZP"}]}' \
+    --roleId 'VwwxH4BI' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminRemoveRoleManagersV3'
 delete_file $TEMP_FILE
 
 #- 186 AdminGetRoleMembersV3
 java -jar ${JAR_PATH} iam adminGetRoleMembersV3 \
-    --roleId 'rqra0Ptk' \
+    --roleId 'DJuDoShM' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetRoleMembersV3'
 delete_file $TEMP_FILE
 
 #- 187 AdminAddRoleMembersV3
 java -jar ${JAR_PATH} iam adminAddRoleMembersV3 \
-    --body '{"members": [{"displayName": "fvOpY2ra", "namespace": "mp5lnBn6", "userId": "xmBkfMtC"}]}' \
-    --roleId '66hFq0kP' \
+    --body '{"members": [{"displayName": "Mftll8N0", "namespace": "VvChHz9u", "userId": "rmt7QWvE"}]}' \
+    --roleId '8s6Uz8BR' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminAddRoleMembersV3'
 delete_file $TEMP_FILE
 
 #- 188 AdminRemoveRoleMembersV3
 java -jar ${JAR_PATH} iam adminRemoveRoleMembersV3 \
-    --body '{"members": [{"displayName": "OkORm2Xj", "namespace": "lNEE5ecP", "userId": "zAmi0ySJ"}]}' \
-    --roleId 'HfPloP1X' \
+    --body '{"members": [{"displayName": "uYWDTtL6", "namespace": "MTTRkCbb", "userId": "9S5Q1IVH"}]}' \
+    --roleId 'GT88prRE' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminRemoveRoleMembersV3'
 delete_file $TEMP_FILE
 
 #- 189 AdminUpdateRolePermissionsV3
 java -jar ${JAR_PATH} iam adminUpdateRolePermissionsV3 \
-    --body '{"permissions": [{"action": 20, "resource": "YK4MgIsD", "schedAction": 89, "schedCron": "FMPyMhyw", "schedRange": ["1OLZPVww"]}]}' \
-    --roleId 'xH4BIDJu' \
+    --body '{"permissions": [{"action": 54, "resource": "gYOWdHJ9", "schedAction": 70, "schedCron": "umohtU13", "schedRange": ["gf7TRigN"]}]}' \
+    --roleId 'Zj5w5y3H' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdateRolePermissionsV3'
 delete_file $TEMP_FILE
 
 #- 190 AdminAddRolePermissionsV3
 java -jar ${JAR_PATH} iam adminAddRolePermissionsV3 \
-    --body '{"permissions": [{"action": 58, "resource": "oShMMftl", "schedAction": 23, "schedCron": "8N0VvChH", "schedRange": ["z9urmt7Q"]}]}' \
-    --roleId 'WvE8s6Uz' \
+    --body '{"permissions": [{"action": 25, "resource": "K8QVOa62", "schedAction": 9, "schedCron": "QZtbLLcF", "schedRange": ["671WLtv3"]}]}' \
+    --roleId '8Hecczop' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminAddRolePermissionsV3'
 delete_file $TEMP_FILE
 
 #- 191 AdminDeleteRolePermissionsV3
 java -jar ${JAR_PATH} iam adminDeleteRolePermissionsV3 \
-    --body '["8BRuYWDT"]' \
-    --roleId 'tL6MTTRk' \
+    --body '["FmeRwpcJ"]' \
+    --roleId 'BZyi3mLC' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminDeleteRolePermissionsV3'
 delete_file $TEMP_FILE
 
 #- 192 AdminDeleteRolePermissionV3
 java -jar ${JAR_PATH} iam adminDeleteRolePermissionV3 \
-    --action '56' \
-    --resource 'bb9S5Q1I' \
-    --roleId 'VHGT88pr' \
+    --action '72' \
+    --resource 'zekiSzey' \
+    --roleId 'olnOQt0j' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminDeleteRolePermissionV3'
 delete_file $TEMP_FILE
@@ -1576,9 +1576,9 @@ delete_file $TEMP_FILE
 
 #- 194 UserAuthenticationV3
 java -jar ${JAR_PATH} iam userAuthenticationV3 \
-    --password 'REBgYOWd' \
-    --requestId 'HJ9Jumoh' \
-    --userName 'tU13gf7T' \
+    --password 'oVHgCytC' \
+    --requestId '6lRG98Yx' \
+    --userName 'nHbRdoTK' \
     >$TEMP_FILE 2>&1
 update_status $? 'UserAuthenticationV3'
 delete_file $TEMP_FILE
@@ -1598,8 +1598,8 @@ delete_file $TEMP_FILE
 #- 197 AdminRetrieveUserThirdPartyPlatformTokenV3
 java -jar ${JAR_PATH} iam adminRetrieveUserThirdPartyPlatformTokenV3 \
     --namespace "test" \
-    --platformId 'RigNZj5w' \
-    --userId '5y3HmK8Q' \
+    --platformId 'KeuSjfZe' \
+    --userId '9i1osghF' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminRetrieveUserThirdPartyPlatformTokenV3'
 delete_file $TEMP_FILE
@@ -1607,14 +1607,14 @@ delete_file $TEMP_FILE
 #- 198 RevokeUserV3
 java -jar ${JAR_PATH} iam revokeUserV3 \
     --namespace "test" \
-    --userId 'VOa62eQZ' \
+    --userId '1hzi1Nl4' \
     >$TEMP_FILE 2>&1
 update_status $? 'RevokeUserV3'
 delete_file $TEMP_FILE
 
 #- 199 AuthorizeV3
 java -jar ${JAR_PATH} iam authorizeV3 \
-    --clientId 'tbLLcF67' \
+    --clientId '7syJ5ibz' \
     --responseType 'code' \
     >$TEMP_FILE 2>&1
 update_status $? 'AuthorizeV3'
@@ -1622,7 +1622,7 @@ delete_file $TEMP_FILE
 
 #- 200 TokenIntrospectionV3
 java -jar ${JAR_PATH} iam tokenIntrospectionV3 \
-    --token 'v38Heccz' \
+    --token 'CLIvWPVR' \
     >$TEMP_FILE 2>&1
 update_status $? 'TokenIntrospectionV3'
 delete_file $TEMP_FILE
@@ -1635,17 +1635,17 @@ delete_file $TEMP_FILE
 
 #- 202 Change2faMethod
 java -jar ${JAR_PATH} iam change2faMethod \
-    --factor 'opFmeRwp' \
-    --mfaToken 'cJBZyi3m' \
+    --factor 'sdEqA61y' \
+    --mfaToken 'TrMgsycT' \
     >$TEMP_FILE 2>&1
 update_status $? 'Change2faMethod'
 delete_file $TEMP_FILE
 
 #- 203 Verify2faCode
 java -jar ${JAR_PATH} iam verify2faCode \
-    --code 'LC4Kzeki' \
-    --factor 'SzeyolnO' \
-    --mfaToken 'Qt0joVHg' \
+    --code 'gmPzc20E' \
+    --factor 'uO5dMqGD' \
+    --mfaToken 'lSZPY07r' \
     --rememberDevice
     >$TEMP_FILE 2>&1
 update_status $? 'Verify2faCode'
@@ -1654,23 +1654,23 @@ delete_file $TEMP_FILE
 #- 204 RetrieveUserThirdPartyPlatformTokenV3
 java -jar ${JAR_PATH} iam retrieveUserThirdPartyPlatformTokenV3 \
     --namespace "test" \
-    --platformId 'CytC6lRG' \
-    --userId '98YxnHbR' \
+    --platformId 'EVSjzHjL' \
+    --userId '6ZbXjG6D' \
     >$TEMP_FILE 2>&1
 update_status $? 'RetrieveUserThirdPartyPlatformTokenV3'
 delete_file $TEMP_FILE
 
 #- 205 AuthCodeRequestV3
 java -jar ${JAR_PATH} iam authCodeRequestV3 \
-    --platformId 'doTKKeuS' \
-    --requestId 'jfZe9i1o' \
+    --platformId 'Smpp3op8' \
+    --requestId 'htaRLxtW' \
     >$TEMP_FILE 2>&1
 update_status $? 'AuthCodeRequestV3'
 delete_file $TEMP_FILE
 
 #- 206 PlatformTokenGrantV3
 java -jar ${JAR_PATH} iam platformTokenGrantV3 \
-    --platformId 'sghF1hzi' \
+    --platformId '4PvFkEST' \
     >$TEMP_FILE 2>&1
 update_status $? 'PlatformTokenGrantV3'
 delete_file $TEMP_FILE
@@ -1683,22 +1683,22 @@ delete_file $TEMP_FILE
 
 #- 208 TokenRevocationV3
 java -jar ${JAR_PATH} iam tokenRevocationV3 \
-    --token '1Nl47syJ' \
+    --token 'ULat5F1L' \
     >$TEMP_FILE 2>&1
 update_status $? 'TokenRevocationV3'
 delete_file $TEMP_FILE
 
 #- 209 TokenGrantV3
 java -jar ${JAR_PATH} iam tokenGrantV3 \
-    --grantType 'client_credentials' \
+    --grantType 'authorization_code' \
     >$TEMP_FILE 2>&1
 update_status $? 'TokenGrantV3'
 delete_file $TEMP_FILE
 
 #- 210 PlatformAuthenticationV3
 java -jar ${JAR_PATH} iam platformAuthenticationV3 \
-    --platformId 'bzSHZeCL' \
-    --state 'IvWPVRsd' \
+    --platformId '7cR7q6PW' \
+    --state 'hZmmKz41' \
     >$TEMP_FILE 2>&1
 update_status $? 'PlatformAuthenticationV3'
 delete_file $TEMP_FILE
@@ -1718,9 +1718,9 @@ delete_file $TEMP_FILE
 
 #- 213 PublicListUserIDByPlatformUserIDsV3
 java -jar ${JAR_PATH} iam publicListUserIDByPlatformUserIDsV3 \
-    --body '{"platformUserIds": ["EqA61yTr"]}' \
+    --body '{"platformUserIds": ["i1Tp78Fi"]}' \
     --namespace "test" \
-    --platformId 'MgsycTgm' \
+    --platformId 'pJHahViJ' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicListUserIDByPlatformUserIDsV3'
 delete_file $TEMP_FILE
@@ -1728,8 +1728,8 @@ delete_file $TEMP_FILE
 #- 214 PublicGetUserByPlatformUserIDV3
 java -jar ${JAR_PATH} iam publicGetUserByPlatformUserIDV3 \
     --namespace "test" \
-    --platformId 'Pzc20EuO' \
-    --platformUserId '5dMqGDlS' \
+    --platformId 'vLYW0kdm' \
+    --platformUserId 'lk2luqSO' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserByPlatformUserIDV3'
 delete_file $TEMP_FILE
@@ -1737,7 +1737,7 @@ delete_file $TEMP_FILE
 #- 215 PublicGetAsyncStatus
 java -jar ${JAR_PATH} iam publicGetAsyncStatus \
     --namespace "test" \
-    --requestId 'ZPY07rEV' \
+    --requestId 'OA2VOZBo' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetAsyncStatus'
 delete_file $TEMP_FILE
@@ -1751,7 +1751,7 @@ delete_file $TEMP_FILE
 
 #- 217 PublicCreateUserV3
 java -jar ${JAR_PATH} iam publicCreateUserV3 \
-    --body '{"PasswordMD5Sum": "SjzHjL6Z", "acceptedPolicies": [{"isAccepted": false, "localizedPolicyVersionId": "XjG6DSmp", "policyId": "p3op8hta", "policyVersionId": "RLxtW4Pv"}], "authType": "FkESTULa", "code": "t5F1Le7c", "country": "R7q6PWhZ", "dateOfBirth": "mmKz41i1", "displayName": "Tp78FipJ", "emailAddress": "HahViJvL", "password": "YW0kdmlk", "reachMinimumAge": false}' \
+    --body '{"PasswordMD5Sum": "NbB98PuS", "acceptedPolicies": [{"isAccepted": true, "localizedPolicyVersionId": "kqFzPwSM", "policyId": "XT53bBuL", "policyVersionId": "38beOYDV"}], "authType": "uHZQ9LYt", "code": "6w23Wf8i", "country": "EQo72sH0", "dateOfBirth": "aRdcDlDy", "displayName": "GcsfIuI4", "emailAddress": "Dv5lEJpK", "password": "1AyRlzsr", "reachMinimumAge": true}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicCreateUserV3'
@@ -1760,15 +1760,15 @@ delete_file $TEMP_FILE
 #- 218 CheckUserAvailability
 java -jar ${JAR_PATH} iam checkUserAvailability \
     --namespace "test" \
-    --field 'uqSOOA2V' \
-    --query 'OZBoNbB9' \
+    --field 'FZivQOHG' \
+    --query '6wVicNra' \
     >$TEMP_FILE 2>&1
 update_status $? 'CheckUserAvailability'
 delete_file $TEMP_FILE
 
 #- 219 PublicBulkGetUsers
 java -jar ${JAR_PATH} iam publicBulkGetUsers \
-    --body '{"userIds": ["8PuSGykq"]}' \
+    --body '{"userIds": ["tsvvHLmI"]}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicBulkGetUsers'
@@ -1776,7 +1776,7 @@ delete_file $TEMP_FILE
 
 #- 220 PublicSendRegistrationCode
 java -jar ${JAR_PATH} iam publicSendRegistrationCode \
-    --body '{"emailAddress": "FzPwSMXT", "languageTag": "53bBuL38"}' \
+    --body '{"emailAddress": "ohfNISLX", "languageTag": "MDWDdm5F"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicSendRegistrationCode'
@@ -1784,7 +1784,7 @@ delete_file $TEMP_FILE
 
 #- 221 PublicVerifyRegistrationCode
 java -jar ${JAR_PATH} iam publicVerifyRegistrationCode \
-    --body '{"code": "beOYDVuH", "emailAddress": "ZQ9LYt6w"}' \
+    --body '{"code": "E4lliQMn", "emailAddress": "utJbpEo4"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicVerifyRegistrationCode'
@@ -1792,7 +1792,7 @@ delete_file $TEMP_FILE
 
 #- 222 PublicForgotPasswordV3
 java -jar ${JAR_PATH} iam publicForgotPasswordV3 \
-    --body '{"emailAddress": "23Wf8iEQ", "languageTag": "o72sH0aR"}' \
+    --body '{"emailAddress": "mUNHFtdm", "languageTag": "l2xNviWa"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicForgotPasswordV3'
@@ -1800,7 +1800,7 @@ delete_file $TEMP_FILE
 
 #- 223 GetAdminInvitationV3
 java -jar ${JAR_PATH} iam getAdminInvitationV3 \
-    --invitationId 'dcDlDyGc' \
+    --invitationId 'cJc3Fm7Z' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'GetAdminInvitationV3'
@@ -1808,8 +1808,8 @@ delete_file $TEMP_FILE
 
 #- 224 CreateUserFromInvitationV3
 java -jar ${JAR_PATH} iam createUserFromInvitationV3 \
-    --body '{"acceptedPolicies": [{"isAccepted": true, "localizedPolicyVersionId": "fIuI4Dv5", "policyId": "lEJpK1Ay", "policyVersionId": "RlzsrRXE"}], "authType": "FZivQOHG", "country": "6wVicNra", "dateOfBirth": "tsvvHLmI", "displayName": "ohfNISLX", "password": "MDWDdm5F", "reachMinimumAge": true}' \
-    --invitationId '4lliQMnu' \
+    --body '{"acceptedPolicies": [{"isAccepted": true, "localizedPolicyVersionId": "uKgoCBqS", "policyId": "5uIdCbwC", "policyVersionId": "eeq9ouEd"}], "authType": "DtjOgsyp", "country": "Lkm2ZYew", "dateOfBirth": "5H7Zm0gn", "displayName": "Yyj6MXf9", "password": "G1ntyebv", "reachMinimumAge": false}' \
+    --invitationId 'eHenAALK' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'CreateUserFromInvitationV3'
@@ -1817,7 +1817,7 @@ delete_file $TEMP_FILE
 
 #- 225 UpdateUserV3
 java -jar ${JAR_PATH} iam updateUserV3 \
-    --body '{"country": "tJbpEo4m", "dateOfBirth": "UNHFtdml", "displayName": "2xNviWac", "languageTag": "Jc3Fm7Z5", "userName": "48uuKgoC"}' \
+    --body '{"country": "t7EfxIH4", "dateOfBirth": "46oUnP2S", "displayName": "74unXwg0", "languageTag": "JKqVWW1r", "userName": "jK1epwkA"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateUserV3'
@@ -1825,7 +1825,7 @@ delete_file $TEMP_FILE
 
 #- 226 PublicUpdateUserV3
 java -jar ${JAR_PATH} iam publicUpdateUserV3 \
-    --body '{"country": "BqS5uIdC", "dateOfBirth": "bwCeeq9o", "displayName": "uEdDtjOg", "languageTag": "sypLkm2Z", "userName": "Yew5H7Zm"}' \
+    --body '{"country": "vcsYvbgf", "dateOfBirth": "BVPpTa8Y", "displayName": "uq7TKiNX", "languageTag": "mz7eMrMD", "userName": "5TbaUxTC"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicUpdateUserV3'
@@ -1833,7 +1833,7 @@ delete_file $TEMP_FILE
 
 #- 227 PublicSendVerificationCodeV3
 java -jar ${JAR_PATH} iam publicSendVerificationCodeV3 \
-    --body '{"context": "0gnYyj6M", "emailAddress": "Xf9G1nty", "languageTag": "ebvoeHen"}' \
+    --body '{"context": "Tng0xjtd", "emailAddress": "Brjs3Kiy", "languageTag": "kt2Ck2gO"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicSendVerificationCodeV3'
@@ -1841,7 +1841,7 @@ delete_file $TEMP_FILE
 
 #- 228 PublicUserVerificationV3
 java -jar ${JAR_PATH} iam publicUserVerificationV3 \
-    --body '{"code": "AALKt7Ef", "contactType": "xIH446oU", "languageTag": "nP2S74un", "validateOnly": true}' \
+    --body '{"code": "lSatECZ2", "contactType": "UgwQLqDq", "languageTag": "YSxTPuVl", "validateOnly": true}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicUserVerificationV3'
@@ -1849,7 +1849,7 @@ delete_file $TEMP_FILE
 
 #- 229 PublicUpgradeHeadlessAccountV3
 java -jar ${JAR_PATH} iam publicUpgradeHeadlessAccountV3 \
-    --body '{"code": "g0JKqVWW", "country": "1rjK1epw", "dateOfBirth": "kAvcsYvb", "displayName": "gfBVPpTa", "emailAddress": "8Yuq7TKi", "password": "NXmz7eMr", "validateOnly": true}' \
+    --body '{"code": "qirdp3yx", "country": "nsETl1Sv", "dateOfBirth": "hQudsjIh", "displayName": "XdxiSoWp", "emailAddress": "nnxgX7BC", "password": "PMqzQIxi", "validateOnly": false}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicUpgradeHeadlessAccountV3'
@@ -1857,7 +1857,7 @@ delete_file $TEMP_FILE
 
 #- 230 PublicVerifyHeadlessAccountV3
 java -jar ${JAR_PATH} iam publicVerifyHeadlessAccountV3 \
-    --body '{"emailAddress": "5TbaUxTC", "password": "Tng0xjtd"}' \
+    --body '{"emailAddress": "hpNYsHtd", "password": "B3IkjuaZ"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicVerifyHeadlessAccountV3'
@@ -1865,7 +1865,7 @@ delete_file $TEMP_FILE
 
 #- 231 PublicUpdatePasswordV3
 java -jar ${JAR_PATH} iam publicUpdatePasswordV3 \
-    --body '{"languageTag": "Brjs3Kiy", "newPassword": "kt2Ck2gO", "oldPassword": "lSatECZ2"}' \
+    --body '{"languageTag": "qhJilrZk", "newPassword": "SSKgP5rx", "oldPassword": "CR77G9d5"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicUpdatePasswordV3'
@@ -1874,25 +1874,25 @@ delete_file $TEMP_FILE
 #- 232 PublicCreateJusticeUser
 java -jar ${JAR_PATH} iam publicCreateJusticeUser \
     --namespace "test" \
-    --targetNamespace 'UgwQLqDq' \
+    --targetNamespace 'CA1GORSb' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicCreateJusticeUser'
 delete_file $TEMP_FILE
 
 #- 233 PublicPlatformLinkV3
 java -jar ${JAR_PATH} iam publicPlatformLinkV3 \
-    --ticket 'YSxTPuVl' \
+    --ticket 'L9n0dbWD' \
     --namespace "test" \
-    --platformId 'Bqirdp3y' \
+    --platformId 'EupmdLQz' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicPlatformLinkV3'
 delete_file $TEMP_FILE
 
 #- 234 PublicPlatformUnlinkV3
 java -jar ${JAR_PATH} iam publicPlatformUnlinkV3 \
-    --body '{"platformNamespace": "xnsETl1S"}' \
+    --body '{"platformNamespace": "PnNfBAcW"}' \
     --namespace "test" \
-    --platformId 'vhQudsjI' \
+    --platformId 'ArbkCfdH' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicPlatformUnlinkV3'
 delete_file $TEMP_FILE
@@ -1900,7 +1900,7 @@ delete_file $TEMP_FILE
 #- 235 PublicWebLinkPlatform
 java -jar ${JAR_PATH} iam publicWebLinkPlatform \
     --namespace "test" \
-    --platformId 'hXdxiSoW' \
+    --platformId 'IZb03otq' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicWebLinkPlatform'
 delete_file $TEMP_FILE
@@ -1908,15 +1908,15 @@ delete_file $TEMP_FILE
 #- 236 PublicWebLinkPlatformEstablish
 java -jar ${JAR_PATH} iam publicWebLinkPlatformEstablish \
     --namespace "test" \
-    --platformId 'pnnxgX7B' \
-    --state 'CPMqzQIx' \
+    --platformId 'mBuS9V2p' \
+    --state 'CZ23UHmk' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicWebLinkPlatformEstablish'
 delete_file $TEMP_FILE
 
 #- 237 ResetPasswordV3
 java -jar ${JAR_PATH} iam resetPasswordV3 \
-    --body '{"code": "ibhpNYsH", "emailAddress": "tdB3Ikju", "newPassword": "aZqhJilr"}' \
+    --body '{"code": "0lpJ4JLl", "emailAddress": "01qi7L2o", "newPassword": "DUoVRUb3"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'ResetPasswordV3'
@@ -1925,7 +1925,7 @@ delete_file $TEMP_FILE
 #- 238 PublicGetUserByUserIdV3
 java -jar ${JAR_PATH} iam publicGetUserByUserIdV3 \
     --namespace "test" \
-    --userId 'ZkSSKgP5' \
+    --userId '9j22P4Sp' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserByUserIdV3'
 delete_file $TEMP_FILE
@@ -1933,7 +1933,7 @@ delete_file $TEMP_FILE
 #- 239 PublicGetUserBanHistoryV3
 java -jar ${JAR_PATH} iam publicGetUserBanHistoryV3 \
     --namespace "test" \
-    --userId 'rxCR77G9' \
+    --userId '09cKmjRU' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserBanHistoryV3'
 delete_file $TEMP_FILE
@@ -1941,7 +1941,7 @@ delete_file $TEMP_FILE
 #- 240 PublicGetUserLoginHistoriesV3
 java -jar ${JAR_PATH} iam publicGetUserLoginHistoriesV3 \
     --namespace "test" \
-    --userId 'd5CA1GOR' \
+    --userId 'bZVBVS7O' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserLoginHistoriesV3'
 delete_file $TEMP_FILE
@@ -1949,25 +1949,25 @@ delete_file $TEMP_FILE
 #- 241 PublicGetUserPlatformAccountsV3
 java -jar ${JAR_PATH} iam publicGetUserPlatformAccountsV3 \
     --namespace "test" \
-    --userId 'SbL9n0db' \
+    --userId 'K2Zrdcsc' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserPlatformAccountsV3'
 delete_file $TEMP_FILE
 
 #- 242 PublicLinkPlatformAccount
 java -jar ${JAR_PATH} iam publicLinkPlatformAccount \
-    --body '{"platformId": "WDEupmdL", "platformUserId": "QzPnNfBA"}' \
+    --body '{"platformId": "kMekROWZ", "platformUserId": "2KUTqkK2"}' \
     --namespace "test" \
-    --userId 'cWArbkCf' \
+    --userId 'eFaGLoSm' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicLinkPlatformAccount'
 delete_file $TEMP_FILE
 
 #- 243 PublicValidateUserByUserIDAndPasswordV3
 java -jar ${JAR_PATH} iam publicValidateUserByUserIDAndPasswordV3 \
-    --password 'dHIZb03o' \
+    --password 'EEPbLywJ' \
     --namespace "test" \
-    --userId 'tqmBuS9V' \
+    --userId 'syUie6fZ' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicValidateUserByUserIDAndPasswordV3'
 delete_file $TEMP_FILE
@@ -1980,7 +1980,7 @@ delete_file $TEMP_FILE
 
 #- 245 PublicGetRoleV3
 java -jar ${JAR_PATH} iam publicGetRoleV3 \
-    --roleId '2pCZ23UH' \
+    --roleId 'gLllUPsO' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetRoleV3'
 delete_file $TEMP_FILE
@@ -1993,29 +1993,29 @@ delete_file $TEMP_FILE
 
 #- 247 PlatformAuthenticateSAMLV3Handler
 java -jar ${JAR_PATH} iam platformAuthenticateSAMLV3Handler \
-    --platformId 'mk0lpJ4J' \
-    --state 'Ll01qi7L' \
+    --platformId '8lg46Si7' \
+    --state '006vL2w4' \
     >$TEMP_FILE 2>&1
 update_status $? 'PlatformAuthenticateSAMLV3Handler'
 delete_file $TEMP_FILE
 
 #- 248 LoginSSOClient
 java -jar ${JAR_PATH} iam loginSSOClient \
-    --platformId '2oDUoVRU' \
+    --platformId 'aajDAOx0' \
     >$TEMP_FILE 2>&1
 update_status $? 'LoginSSOClient'
 delete_file $TEMP_FILE
 
 #- 249 LogoutSSOClient
 java -jar ${JAR_PATH} iam logoutSSOClient \
-    --platformId 'b39j22P4' \
+    --platformId 'iJjYleak' \
     >$TEMP_FILE 2>&1
 update_status $? 'LogoutSSOClient'
 delete_file $TEMP_FILE
 
 #- 250 AdminBulkCheckValidUserIDV4
 java -jar ${JAR_PATH} iam adminBulkCheckValidUserIDV4 \
-    --body '{"userIds": ["Sp09cKmj"]}' \
+    --body '{"userIds": ["tqv2Wklj"]}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminBulkCheckValidUserIDV4'
@@ -2023,337 +2023,352 @@ delete_file $TEMP_FILE
 
 #- 251 AdminUpdateUserV4
 java -jar ${JAR_PATH} iam adminUpdateUserV4 \
-    --body '{"country": "RUbZVBVS", "dateOfBirth": "7OK2Zrdc", "displayName": "sckMekRO", "languageTag": "WZ2KUTqk", "userName": "K2eFaGLo"}' \
+    --body '{"country": "QuD5mnJO", "dateOfBirth": "NqHGq8mB", "displayName": "7mF2lMFc", "languageTag": "aghFXJIJ", "userName": "flRHFcsI"}' \
     --namespace "test" \
-    --userId 'SmEEPbLy' \
+    --userId 'qCy4xDif' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdateUserV4'
 delete_file $TEMP_FILE
 
 #- 252 AdminUpdateUserEmailAddressV4
 java -jar ${JAR_PATH} iam adminUpdateUserEmailAddressV4 \
-    --body '{"code": "wJsyUie6", "emailAddress": "fZgLllUP"}' \
+    --body '{"code": "SSQ5On2c", "emailAddress": "cEcl3xei"}' \
     --namespace "test" \
-    --userId 'sO8lg46S' \
+    --userId 'O4bwF5JO' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdateUserEmailAddressV4'
 delete_file $TEMP_FILE
 
-#- 253 AdminListUserRolesV4
+#- 253 AdminDisableUserMFAV4
+java -jar ${JAR_PATH} iam adminDisableUserMFAV4 \
+    --namespace "test" \
+    --userId 'jGoGxKM3' \
+    >$TEMP_FILE 2>&1
+update_status $? 'AdminDisableUserMFAV4'
+delete_file $TEMP_FILE
+
+#- 254 AdminListUserRolesV4
 java -jar ${JAR_PATH} iam adminListUserRolesV4 \
     --namespace "test" \
-    --userId 'i7006vL2' \
+    --userId 'qMce5tfL' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminListUserRolesV4'
 delete_file $TEMP_FILE
 
-#- 254 AdminUpdateUserRoleV4
+#- 255 AdminUpdateUserRoleV4
 java -jar ${JAR_PATH} iam adminUpdateUserRoleV4 \
-    --body '{"assignedNamespaces": ["w4aajDAO"], "roleId": "x0iJjYle"}' \
+    --body '{"assignedNamespaces": ["cpjFZMKC"], "roleId": "bp0pEbLC"}' \
     --namespace "test" \
-    --userId 'aktqv2Wk' \
+    --userId 'LFpHxMYF' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdateUserRoleV4'
 delete_file $TEMP_FILE
 
-#- 255 AdminAddUserRoleV4
+#- 256 AdminAddUserRoleV4
 java -jar ${JAR_PATH} iam adminAddUserRoleV4 \
-    --body '{"assignedNamespaces": ["ljQuD5mn"], "roleId": "JONqHGq8"}' \
+    --body '{"assignedNamespaces": ["836075xE"], "roleId": "pzdnYtpj"}' \
     --namespace "test" \
-    --userId 'mB7mF2lM' \
+    --userId 'a5ig2isQ' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminAddUserRoleV4'
 delete_file $TEMP_FILE
 
-#- 256 AdminRemoveUserRoleV4
+#- 257 AdminRemoveUserRoleV4
 java -jar ${JAR_PATH} iam adminRemoveUserRoleV4 \
-    --body '{"assignedNamespaces": ["FcaghFXJ"], "roleId": "IJflRHFc"}' \
+    --body '{"assignedNamespaces": ["Zga6Vy76"], "roleId": "izPiQRjY"}' \
     --namespace "test" \
-    --userId 'sIqCy4xD' \
+    --userId 'a8fv5fIt' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminRemoveUserRoleV4'
 delete_file $TEMP_FILE
 
-#- 257 AdminGetRolesV4
+#- 258 AdminGetRolesV4
 java -jar ${JAR_PATH} iam adminGetRolesV4 \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetRolesV4'
 delete_file $TEMP_FILE
 
-#- 258 AdminCreateRoleV4
+#- 259 AdminCreateRoleV4
 java -jar ${JAR_PATH} iam adminCreateRoleV4 \
-    --body '{"adminRole": false, "deletable": false, "isWildcard": false, "roleName": "2ccEcl3x"}' \
+    --body '{"adminRole": true, "deletable": false, "isWildcard": false, "roleName": "hgkigW22"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminCreateRoleV4'
 delete_file $TEMP_FILE
 
-#- 259 AdminGetRoleV4
+#- 260 AdminGetRoleV4
 java -jar ${JAR_PATH} iam adminGetRoleV4 \
-    --roleId 'eiO4bwF5' \
+    --roleId 'zXMWXfbc' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetRoleV4'
 delete_file $TEMP_FILE
 
-#- 260 AdminDeleteRoleV4
+#- 261 AdminDeleteRoleV4
 java -jar ${JAR_PATH} iam adminDeleteRoleV4 \
-    --roleId 'JOjGoGxK' \
+    --roleId 'M0GIALIb' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminDeleteRoleV4'
 delete_file $TEMP_FILE
 
-#- 261 AdminUpdateRoleV4
+#- 262 AdminUpdateRoleV4
 java -jar ${JAR_PATH} iam adminUpdateRoleV4 \
-    --body '{"adminRole": true, "deletable": false, "isWildcard": false, "roleName": "5tfLcpjF"}' \
-    --roleId 'ZMKCbp0p' \
+    --body '{"adminRole": true, "deletable": true, "isWildcard": false, "roleName": "BcLNT6iO"}' \
+    --roleId 'QVYx5rW2' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdateRoleV4'
 delete_file $TEMP_FILE
 
-#- 262 AdminUpdateRolePermissionsV4
+#- 263 AdminUpdateRolePermissionsV4
 java -jar ${JAR_PATH} iam adminUpdateRolePermissionsV4 \
-    --body '{"permissions": [{"action": 61, "resource": "bLCLFpHx", "schedAction": 77, "schedCron": "YF836075", "schedRange": ["xEpzdnYt"]}]}' \
-    --roleId 'pja5ig2i' \
+    --body '{"permissions": [{"action": 13, "resource": "MsI1aYBi", "schedAction": 38, "schedCron": "Sn3UDeKj", "schedRange": ["97I4WYXL"]}]}' \
+    --roleId 'qjN7ktOB' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdateRolePermissionsV4'
 delete_file $TEMP_FILE
 
-#- 263 AdminAddRolePermissionsV4
+#- 264 AdminAddRolePermissionsV4
 java -jar ${JAR_PATH} iam adminAddRolePermissionsV4 \
-    --body '{"permissions": [{"action": 36, "resource": "QZga6Vy7", "schedAction": 16, "schedCron": "zPiQRjYa", "schedRange": ["8fv5fIt2"]}]}' \
-    --roleId '2tIZhjhg' \
+    --body '{"permissions": [{"action": 91, "resource": "raBxWRTV", "schedAction": 41, "schedCron": "YEqGlKDw", "schedRange": ["TKXBrXiQ"]}]}' \
+    --roleId 'cd9IW8ki' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminAddRolePermissionsV4'
 delete_file $TEMP_FILE
 
-#- 264 AdminDeleteRolePermissionsV4
+#- 265 AdminDeleteRolePermissionsV4
 java -jar ${JAR_PATH} iam adminDeleteRolePermissionsV4 \
-    --body '["kigW22zX"]' \
-    --roleId 'MWXfbcM0' \
+    --body '["CKeQJWZB"]' \
+    --roleId 'vcq1ETvW' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminDeleteRolePermissionsV4'
 delete_file $TEMP_FILE
 
-#- 265 AdminListAssignedUsersV4
+#- 266 AdminListAssignedUsersV4
 java -jar ${JAR_PATH} iam adminListAssignedUsersV4 \
-    --roleId 'GIALIbFC' \
+    --roleId 'BxYZJh7B' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminListAssignedUsersV4'
 delete_file $TEMP_FILE
 
-#- 266 AdminAssignUserToRoleV4
+#- 267 AdminAssignUserToRoleV4
 java -jar ${JAR_PATH} iam adminAssignUserToRoleV4 \
-    --body '{"assignedNamespaces": ["QgBcLNT6"], "namespace": "iOQVYx5r", "userId": "W2gMsI1a"}' \
-    --roleId 'YBitSn3U' \
+    --body '{"assignedNamespaces": ["8gbnSu9M"], "namespace": "2OxD2uda", "userId": "eYpCXYSM"}' \
+    --roleId 'iy87CTqE' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminAssignUserToRoleV4'
 delete_file $TEMP_FILE
 
-#- 267 AdminRevokeUserFromRoleV4
+#- 268 AdminRevokeUserFromRoleV4
 java -jar ${JAR_PATH} iam adminRevokeUserFromRoleV4 \
-    --body '{"namespace": "DeKj97I4", "userId": "WYXLqjN7"}' \
-    --roleId 'ktOBTraB' \
+    --body '{"namespace": "QBg36my3", "userId": "sY2clrDc"}' \
+    --roleId 'ain0cOVF' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminRevokeUserFromRoleV4'
 delete_file $TEMP_FILE
 
-#- 268 AdminUpdateMyUserV4
+#- 269 AdminUpdateMyUserV4
 java -jar ${JAR_PATH} iam adminUpdateMyUserV4 \
-    --body '{"country": "xWRTVuYE", "dateOfBirth": "qGlKDwTK", "displayName": "XBrXiQcd", "languageTag": "9IW8kiCK", "userName": "eQJWZBvc"}' \
+    --body '{"country": "1zHwDTI0", "dateOfBirth": "sJ1Q0kph", "displayName": "MTggSP2S", "languageTag": "LcuAP7vU", "userName": "971Czw2n"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminUpdateMyUserV4'
 delete_file $TEMP_FILE
 
-#- 269 AdminDisableMyAuthenticatorV4
+#- 270 AdminDisableMyAuthenticatorV4
 java -jar ${JAR_PATH} iam adminDisableMyAuthenticatorV4 \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminDisableMyAuthenticatorV4'
 delete_file $TEMP_FILE
 
-#- 270 AdminEnableMyAuthenticatorV4
+#- 271 AdminEnableMyAuthenticatorV4
 java -jar ${JAR_PATH} iam adminEnableMyAuthenticatorV4 \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminEnableMyAuthenticatorV4'
 delete_file $TEMP_FILE
 
-#- 271 AdminGenerateMyAuthenticatorKeyV4
+#- 272 AdminGenerateMyAuthenticatorKeyV4
 java -jar ${JAR_PATH} iam adminGenerateMyAuthenticatorKeyV4 \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGenerateMyAuthenticatorKeyV4'
 delete_file $TEMP_FILE
 
-#- 272 AdminGetMyBackupCodesV4
+#- 273 AdminGetMyBackupCodesV4
 java -jar ${JAR_PATH} iam adminGetMyBackupCodesV4 \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetMyBackupCodesV4'
 delete_file $TEMP_FILE
 
-#- 273 AdminGenerateMyBackupCodesV4
+#- 274 AdminGenerateMyBackupCodesV4
 java -jar ${JAR_PATH} iam adminGenerateMyBackupCodesV4 \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGenerateMyBackupCodesV4'
 delete_file $TEMP_FILE
 
-#- 274 AdminDisableMyBackupCodesV4
+#- 275 AdminDisableMyBackupCodesV4
 java -jar ${JAR_PATH} iam adminDisableMyBackupCodesV4 \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminDisableMyBackupCodesV4'
 delete_file $TEMP_FILE
 
-#- 275 AdminDownloadMyBackupCodesV4
+#- 276 AdminDownloadMyBackupCodesV4
 java -jar ${JAR_PATH} iam adminDownloadMyBackupCodesV4 \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminDownloadMyBackupCodesV4'
 delete_file $TEMP_FILE
 
-#- 276 AdminEnableMyBackupCodesV4
+#- 277 AdminEnableMyBackupCodesV4
 java -jar ${JAR_PATH} iam adminEnableMyBackupCodesV4 \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminEnableMyBackupCodesV4'
 delete_file $TEMP_FILE
 
-#- 277 AdminGetMyEnabledFactorsV4
+#- 278 AdminGetMyEnabledFactorsV4
 java -jar ${JAR_PATH} iam adminGetMyEnabledFactorsV4 \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminGetMyEnabledFactorsV4'
 delete_file $TEMP_FILE
 
-#- 278 AdminMakeFactorMyDefaultV4
+#- 279 AdminMakeFactorMyDefaultV4
 java -jar ${JAR_PATH} iam adminMakeFactorMyDefaultV4 \
-    --factor 'q1ETvWBx' \
+    --factor 'bg8C7Mvy' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminMakeFactorMyDefaultV4'
 delete_file $TEMP_FILE
 
-#- 279 AdminInviteUserV4
+#- 280 AdminInviteUserV4
 java -jar ${JAR_PATH} iam adminInviteUserV4 \
-    --body '{"assignedNamespaces": ["YZJh7B8g"], "emailAddresses": ["bnSu9M2O"], "isAdmin": true, "roleId": "D2udaeYp"}' \
+    --body '{"assignedNamespaces": ["whu6MjOj"], "emailAddresses": ["uGzo1Fz4"], "isAdmin": true, "roleId": "U0aSn98N"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminInviteUserV4'
 delete_file $TEMP_FILE
 
-#- 280 PublicCreateTestUserV4
+#- 281 PublicCreateTestUserV4
 java -jar ${JAR_PATH} iam publicCreateTestUserV4 \
-    --body '{"acceptedPolicies": [{"isAccepted": true, "localizedPolicyVersionId": "XYSMiy87", "policyId": "CTqEQBg3", "policyVersionId": "6my3sY2c"}], "authType": "lrDcain0", "country": "cOVF1zHw", "dateOfBirth": "DTI0sJ1Q", "displayName": "0kphMTgg", "emailAddress": "SP2SLcuA", "password": "P7vU971C", "passwordMD5Sum": "zw2nbg8C", "username": "7Mvywhu6", "verified": false}' \
+    --body '{"acceptedPolicies": [{"isAccepted": true, "localizedPolicyVersionId": "OUA0z92R", "policyId": "aDe8ngT8", "policyVersionId": "LRQkMnG1"}], "authType": "LZyF2mdY", "country": "Y6ZMfuTY", "dateOfBirth": "TKsue48q", "displayName": "BEBNAV5B", "emailAddress": "Te6ec1zA", "password": "92URCLSG", "passwordMD5Sum": "PmRBZWun", "username": "HW7MYvr6", "verified": true}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicCreateTestUserV4'
 delete_file $TEMP_FILE
 
-#- 281 PublicCreateUserV4
+#- 282 PublicCreateUserV4
 java -jar ${JAR_PATH} iam publicCreateUserV4 \
-    --body '{"acceptedPolicies": [{"isAccepted": false, "localizedPolicyVersionId": "uGzo1Fz4", "policyId": "tU0aSn98", "policyVersionId": "N8qOUA0z"}], "authType": "92RaDe8n", "code": "gT8LRQkM", "country": "nG1LZyF2", "dateOfBirth": "mdYY6ZMf", "displayName": "uTYTKsue", "emailAddress": "48qBEBNA", "password": "V5BTe6ec", "passwordMD5Sum": "1zA92URC", "reachMinimumAge": false, "username": "RBZWunHW"}' \
+    --body '{"acceptedPolicies": [{"isAccepted": false, "localizedPolicyVersionId": "epc92HA9", "policyId": "4eACdeyf", "policyVersionId": "UpgiPpf8"}], "authType": "nxKJ3dnm", "code": "tPwa64Y4", "country": "gPEKMhhu", "dateOfBirth": "9a6f3xJN", "displayName": "tUlKLlII", "emailAddress": "AeHbm5M6", "password": "LsY1VMuI", "passwordMD5Sum": "EcRls68M", "reachMinimumAge": true, "username": "epyyMz6z"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicCreateUserV4'
 delete_file $TEMP_FILE
 
-#- 282 CreateUserFromInvitationV4
+#- 283 CreateUserFromInvitationV4
 java -jar ${JAR_PATH} iam createUserFromInvitationV4 \
-    --body '{"acceptedPolicies": [{"isAccepted": true, "localizedPolicyVersionId": "r6QA7Ppe", "policyId": "pc92HA94", "policyVersionId": "eACdeyfU"}], "authType": "pgiPpf8n", "country": "xKJ3dnmt", "dateOfBirth": "Pwa64Y4g", "displayName": "PEKMhhu9", "password": "a6f3xJNt", "reachMinimumAge": false, "username": "KLlIIAeH"}' \
-    --invitationId 'bm5M6LsY' \
+    --body '{"acceptedPolicies": [{"isAccepted": false, "localizedPolicyVersionId": "R1pvTYYt", "policyId": "DOiEi4Ru", "policyVersionId": "EcHCSGhp"}], "authType": "OZQFlwOi", "country": "uKGDFgK4", "dateOfBirth": "9YuKnXks", "displayName": "0m8ANrcR", "password": "al7ta3fo", "reachMinimumAge": false, "username": "A3h4MMW3"}' \
+    --invitationId 'AJ5zlsFB' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'CreateUserFromInvitationV4'
 delete_file $TEMP_FILE
 
-#- 283 PublicUpdateUserV4
+#- 284 PublicUpdateUserV4
 java -jar ${JAR_PATH} iam publicUpdateUserV4 \
-    --body '{"country": "1VMuIEcR", "dateOfBirth": "ls68M3MP", "displayName": "MRPBepyy", "languageTag": "Mz6zfR1p", "userName": "vTYYtDOi"}' \
+    --body '{"country": "wjvLYvmg", "dateOfBirth": "6avudQFF", "displayName": "1CPNY9u2", "languageTag": "dVYdglOO", "userName": "oCeK0kPK"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicUpdateUserV4'
 delete_file $TEMP_FILE
 
-#- 284 PublicUpdateUserEmailAddressV4
+#- 285 PublicUpdateUserEmailAddressV4
 java -jar ${JAR_PATH} iam publicUpdateUserEmailAddressV4 \
-    --body '{"code": "Ei4RuEcH", "emailAddress": "CSGhpOZQ"}' \
+    --body '{"code": "mBqVux3l", "emailAddress": "XcD8aert"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicUpdateUserEmailAddressV4'
 delete_file $TEMP_FILE
 
-#- 285 PublicUpgradeHeadlessAccountWithVerificationCodeV4
+#- 286 PublicUpgradeHeadlessAccountWithVerificationCodeV4
 java -jar ${JAR_PATH} iam publicUpgradeHeadlessAccountWithVerificationCodeV4 \
-    --body '{"code": "FlwOiuKG", "country": "DFgK49Yu", "dateOfBirth": "KnXks0m8", "displayName": "ANrcRal7", "emailAddress": "ta3fojA3", "password": "h4MMW3AJ", "reachMinimumAge": true, "username": "lsFBwjvL", "validateOnly": true}' \
+    --body '{"code": "AVCqs8XT", "country": "8xy3nJ06", "dateOfBirth": "KkseA0AR", "displayName": "j9ricfay", "emailAddress": "vnhi8MDd", "password": "Y4WLHoaU", "reachMinimumAge": false, "username": "YnQp5egd", "validateOnly": false}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicUpgradeHeadlessAccountWithVerificationCodeV4'
 delete_file $TEMP_FILE
 
-#- 286 PublicUpgradeHeadlessAccountV4
+#- 287 PublicUpgradeHeadlessAccountV4
 java -jar ${JAR_PATH} iam publicUpgradeHeadlessAccountV4 \
-    --body '{"emailAddress": "mg6avudQ", "password": "FF1CPNY9", "username": "u2dVYdgl"}' \
+    --body '{"emailAddress": "VE8ImivN", "password": "tQxqWRKH", "username": "ohODoWOr"}' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicUpgradeHeadlessAccountV4'
 delete_file $TEMP_FILE
 
-#- 287 PublicDisableMyAuthenticatorV4
+#- 288 PublicDisableMyAuthenticatorV4
 java -jar ${JAR_PATH} iam publicDisableMyAuthenticatorV4 \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicDisableMyAuthenticatorV4'
 delete_file $TEMP_FILE
 
-#- 288 PublicEnableMyAuthenticatorV4
+#- 289 PublicEnableMyAuthenticatorV4
 java -jar ${JAR_PATH} iam publicEnableMyAuthenticatorV4 \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicEnableMyAuthenticatorV4'
 delete_file $TEMP_FILE
 
-#- 289 PublicGenerateMyAuthenticatorKeyV4
+#- 290 PublicGenerateMyAuthenticatorKeyV4
 java -jar ${JAR_PATH} iam publicGenerateMyAuthenticatorKeyV4 \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGenerateMyAuthenticatorKeyV4'
 delete_file $TEMP_FILE
 
-#- 290 PublicGetMyBackupCodesV4
+#- 291 PublicGetMyBackupCodesV4
 java -jar ${JAR_PATH} iam publicGetMyBackupCodesV4 \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetMyBackupCodesV4'
 delete_file $TEMP_FILE
 
-#- 291 PublicGenerateMyBackupCodesV4
+#- 292 PublicGenerateMyBackupCodesV4
 java -jar ${JAR_PATH} iam publicGenerateMyBackupCodesV4 \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGenerateMyBackupCodesV4'
 delete_file $TEMP_FILE
 
-#- 292 PublicDisableMyBackupCodesV4
+#- 293 PublicDisableMyBackupCodesV4
 java -jar ${JAR_PATH} iam publicDisableMyBackupCodesV4 \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicDisableMyBackupCodesV4'
 delete_file $TEMP_FILE
 
-#- 293 PublicDownloadMyBackupCodesV4
+#- 294 PublicDownloadMyBackupCodesV4
 java -jar ${JAR_PATH} iam publicDownloadMyBackupCodesV4 \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicDownloadMyBackupCodesV4'
 delete_file $TEMP_FILE
 
-#- 294 PublicEnableMyBackupCodesV4
+#- 295 PublicEnableMyBackupCodesV4
 java -jar ${JAR_PATH} iam publicEnableMyBackupCodesV4 \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicEnableMyBackupCodesV4'
 delete_file $TEMP_FILE
 
-#- 295 PublicGetMyEnabledFactorsV4
+#- 296 PublicRemoveTrustedDeviceV4
+java -jar ${JAR_PATH} iam publicRemoveTrustedDeviceV4 \
+    --namespace "test" \
+    >$TEMP_FILE 2>&1
+update_status $? 'PublicRemoveTrustedDeviceV4'
+delete_file $TEMP_FILE
+
+#- 297 PublicGetMyEnabledFactorsV4
 java -jar ${JAR_PATH} iam publicGetMyEnabledFactorsV4 \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetMyEnabledFactorsV4'
 delete_file $TEMP_FILE
 
-#- 296 PublicMakeFactorMyDefaultV4
+#- 298 PublicMakeFactorMyDefaultV4
 java -jar ${JAR_PATH} iam publicMakeFactorMyDefaultV4 \
-    --factor 'OOoCeK0k' \
+    --factor '98kjBUas' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicMakeFactorMyDefaultV4'

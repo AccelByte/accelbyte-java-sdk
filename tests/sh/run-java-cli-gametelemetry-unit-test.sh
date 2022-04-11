@@ -6,7 +6,7 @@
 
 #Meta:
 #- random seed: 256
-#- template file: java-cli-unit-test.j2
+#- template file: cli_test.j2
 
 #Instructions:
 #- Run the Justice SDK Mock Server first before running this script.
@@ -15,7 +15,7 @@ MODULE_PATH="${MODULE_PATH:-../../samples/cli}"
 JAR_PATH="${MODULE_PATH}/build/libs/cli.jar"
 TEMP_FILE='file.tmp'
 
-OPERATIONS_COUNT=3
+OPERATIONS_COUNT=5
 
 FINISHED_COUNT=0
 SUCCESS_COUNT=0
@@ -70,21 +70,34 @@ echo "1..$OPERATIONS_COUNT"
 
 java -jar ${JAR_PATH} loginClient
 
-#- 1 ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost
+#- 1 AdminGetEventsGameTelemetryV1AdminEventsGet
+java -jar ${JAR_PATH} gametelemetry adminGetEventsGameTelemetryV1AdminEventsGet \
+    --namespace "test" \
+    >$TEMP_FILE 2>&1
+update_status $? 'AdminGetEventsGameTelemetryV1AdminEventsGet'
+delete_file $TEMP_FILE
+
+#- 2 AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet
+java -jar ${JAR_PATH} gametelemetry adminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet \
+    >$TEMP_FILE 2>&1
+update_status $? 'AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet'
+delete_file $TEMP_FILE
+
+#- 3 ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost
 java -jar ${JAR_PATH} gametelemetry protectedSaveEventsGameTelemetryV1ProtectedEventsPost \
     --body '[{"EventId": "FtBxyZcD", "EventName": "XBpGlsQu", "EventNamespace": "Ju8vMf0I", "EventTimestamp": "1980-10-10T00:00:00Z", "Payload": {"kTrd8IDc": {}}}]' \
     >$TEMP_FILE 2>&1
 update_status $? 'ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost'
 delete_file $TEMP_FILE
 
-#- 2 ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet
+#- 4 ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet
 java -jar ${JAR_PATH} gametelemetry protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet \
     --steamId 'V2zXnTKj' \
     >$TEMP_FILE 2>&1
 update_status $? 'ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet'
 delete_file $TEMP_FILE
 
-#- 3 ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
+#- 5 ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
 java -jar ${JAR_PATH} gametelemetry protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut \
     --playtime 'XY1bPqam' \
     --steamId 'iBxx9Cs1' \

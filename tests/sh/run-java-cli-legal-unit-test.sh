@@ -6,7 +6,7 @@
 
 #Meta:
 #- random seed: 256
-#- template file: java-cli-unit-test.j2
+#- template file: cli_test.j2
 
 #Instructions:
 #- Run the Justice SDK Mock Server first before running this script.
@@ -74,21 +74,21 @@ java -jar ${JAR_PATH} loginClient
 java -jar ${JAR_PATH} legal changePreferenceConsent \
     --namespace "test" \
     --userId 'FtBxyZcD' \
-    --body '[{"isAccepted": true, "localizedPolicyVersionId": "pGlsQuJu", "policyId": "8vMf0IsJ", "policyVersionId": "kTrd8IDc"}]' \
+    --body '[{"isAccepted": true, "isNeedToSendEventMarketing": false, "localizedPolicyVersionId": "GlsQuJu8", "policyId": "vMf0IsJk", "policyVersionId": "Trd8IDcV"}]' \
     >$TEMP_FILE 2>&1
 update_status $? 'ChangePreferenceConsent'
 delete_file $TEMP_FILE
 
 #- 2 RetrieveAcceptedAgreements
 java -jar ${JAR_PATH} legal retrieveAcceptedAgreements \
-    --userId 'V2zXnTKj' \
+    --userId '2zXnTKjX' \
     >$TEMP_FILE 2>&1
 update_status $? 'RetrieveAcceptedAgreements'
 delete_file $TEMP_FILE
 
 #- 3 RetrieveAllUsersByPolicyVersion
 java -jar ${JAR_PATH} legal retrieveAllUsersByPolicyVersion \
-    --policyVersionId 'XY1bPqam' \
+    --policyVersionId 'Y1bPqami' \
     >$TEMP_FILE 2>&1
 update_status $? 'RetrieveAllUsersByPolicyVersion'
 delete_file $TEMP_FILE
@@ -101,75 +101,75 @@ delete_file $TEMP_FILE
 
 #- 5 CreatePolicy
 java -jar ${JAR_PATH} legal createPolicy \
-    --body '{"affectedClientIds": ["iBxx9Cs1"], "affectedCountries": ["8EY84ekI"], "basePolicyName": "tqRzHU1o", "description": "h570KQBV", "namespace": "aewc72kr", "tags": ["Sha68n3Y"], "typeId": "nozp1C2K"}' \
+    --body '{"affectedClientIds": ["Bxx9Cs18"], "affectedCountries": ["EY84ekIt"], "basePolicyName": "qRzHU1oh", "description": "570KQBVa", "namespace": "ewc72krS", "tags": ["ha68n3Yn"], "typeId": "ozp1C2Km"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'CreatePolicy'
 delete_file $TEMP_FILE
 
 #- 6 RetrieveSinglePolicy
 java -jar ${JAR_PATH} legal retrieveSinglePolicy \
-    --basePolicyId 'mIQTuBdN' \
+    --basePolicyId 'IQTuBdNE' \
     >$TEMP_FILE 2>&1
 update_status $? 'RetrieveSinglePolicy'
 delete_file $TEMP_FILE
 
 #- 7 PartialUpdatePolicy
 java -jar ${JAR_PATH} legal partialUpdatePolicy \
-    --basePolicyId 'EUsxFb8C' \
-    --body '{"affectedClientIds": ["J17M7DJZ"], "affectedCountries": ["aMSxECbZ"], "basePolicyName": "bygyoarO", "description": "RoeNHSb8", "namespace": "Rh3kgs9q", "tags": ["qJbnQsoB"]}' \
+    --basePolicyId 'UsxFb8CJ' \
+    --body '{"affectedClientIds": ["17M7DJZa"], "affectedCountries": ["MSxECbZb"], "basePolicyName": "ygyoarOR", "description": "oeNHSb8R", "namespace": "h3kgs9qq", "tags": ["JbnQsoBg"]}' \
     >$TEMP_FILE 2>&1
 update_status $? 'PartialUpdatePolicy'
 delete_file $TEMP_FILE
 
 #- 8 RetrievePolicyCountry
 java -jar ${JAR_PATH} legal retrievePolicyCountry \
-    --basePolicyId 'giVpP8Cm' \
-    --countryCode '3yvASUox' \
+    --basePolicyId 'iVpP8Cm3' \
+    --countryCode 'yvASUoxd' \
     >$TEMP_FILE 2>&1
 update_status $? 'RetrievePolicyCountry'
 delete_file $TEMP_FILE
 
 #- 9 RetrieveLocalizedPolicyVersions
 java -jar ${JAR_PATH} legal retrieveLocalizedPolicyVersions \
-    --policyVersionId 'dxxFqmAG' \
+    --policyVersionId 'xxFqmAGT' \
     >$TEMP_FILE 2>&1
 update_status $? 'RetrieveLocalizedPolicyVersions'
 delete_file $TEMP_FILE
 
 #- 10 CreateLocalizedPolicyVersion
 java -jar ${JAR_PATH} legal createLocalizedPolicyVersion \
-    --policyVersionId 'TJ8IEdag' \
-    --body '{"contentType": "Etp4w29K", "description": "Ou9c19R6", "localeCode": "XDqWHkkP"}' \
+    --policyVersionId 'J8IEdagE' \
+    --body '{"contentType": "tp4w29KO", "description": "u9c19R6X", "localeCode": "DqWHkkP8"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'CreateLocalizedPolicyVersion'
 delete_file $TEMP_FILE
 
 #- 11 RetrieveSingleLocalizedPolicyVersion
 java -jar ${JAR_PATH} legal retrieveSingleLocalizedPolicyVersion \
-    --localizedPolicyVersionId '8npLEKMf' \
+    --localizedPolicyVersionId 'npLEKMfj' \
     >$TEMP_FILE 2>&1
 update_status $? 'RetrieveSingleLocalizedPolicyVersion'
 delete_file $TEMP_FILE
 
 #- 12 UpdateLocalizedPolicyVersion
 java -jar ${JAR_PATH} legal updateLocalizedPolicyVersion \
-    --localizedPolicyVersionId 'jiX7jpkV' \
-    --body '{"attachmentChecksum": "Zk3IaQYE", "attachmentLocation": "mqGodOEG", "attachmentVersionIdentifier": "t9gPOj0c", "contentType": "6i0JkvIa", "description": "s73ucYnF"}' \
+    --localizedPolicyVersionId 'iX7jpkVZ' \
+    --body '{"attachmentChecksum": "k3IaQYEm", "attachmentLocation": "qGodOEGt", "attachmentVersionIdentifier": "9gPOj0c6", "contentType": "i0JkvIas", "description": "73ucYnFA"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateLocalizedPolicyVersion'
 delete_file $TEMP_FILE
 
 #- 13 RequestPresignedURL
 java -jar ${JAR_PATH} legal requestPresignedURL \
-    --localizedPolicyVersionId 'AJ3DK5T4' \
-    --body '{"contentMD5": "Eogg0Y39", "contentType": "UoYlpv5b"}' \
+    --localizedPolicyVersionId 'J3DK5T4E' \
+    --body '{"contentMD5": "ogg0Y39U", "contentType": "oYlpv5bV"}' \
     >$TEMP_FILE 2>&1
 update_status $? 'RequestPresignedURL'
 delete_file $TEMP_FILE
 
 #- 14 SetDefaultPolicy
 java -jar ${JAR_PATH} legal setDefaultPolicy \
-    --localizedPolicyVersionId 'VAgtsDhU' \
+    --localizedPolicyVersionId 'AgtsDhUT' \
     >$TEMP_FILE 2>&1
 update_status $? 'SetDefaultPolicy'
 delete_file $TEMP_FILE
@@ -177,10 +177,10 @@ delete_file $TEMP_FILE
 #- 15 IndirectBulkAcceptVersionedPolicy
 java -jar ${JAR_PATH} legal indirectBulkAcceptVersionedPolicy \
     --namespace "test" \
-    --userId 'TDUscbQD' \
-    --clientId 'jbTQuPMz' \
-    --countryCode '2PTRlkyU' \
-    --body '[{"isAccepted": true, "localizedPolicyVersionId": "6zPFJ42c", "policyId": "wmzBBSMN", "policyVersionId": "coAAOjKN"}]' \
+    --userId 'DUscbQDj' \
+    --clientId 'bTQuPMz2' \
+    --countryCode 'PTRlkyU8' \
+    --body '[{"isAccepted": true, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "PFJ42cwm", "policyId": "zBBSMNco", "policyVersionId": "AAOjKNjf"}]' \
     >$TEMP_FILE 2>&1
 update_status $? 'IndirectBulkAcceptVersionedPolicy'
 delete_file $TEMP_FILE
@@ -188,39 +188,39 @@ delete_file $TEMP_FILE
 #- 16 AdminRetrieveEligibilities
 java -jar ${JAR_PATH} legal adminRetrieveEligibilities \
     --namespace "test" \
-    --userId 'jfcYHm09' \
-    --clientId '3aYgBU1s' \
-    --countryCode 'qjyK0XH4' \
+    --userId 'cYHm093a' \
+    --clientId 'YgBU1sqj' \
+    --countryCode 'yK0XH45P' \
     >$TEMP_FILE 2>&1
 update_status $? 'AdminRetrieveEligibilities'
 delete_file $TEMP_FILE
 
 #- 17 RetrievePolicies
 java -jar ${JAR_PATH} legal retrievePolicies \
-    --countryCode '5PaRSOFQ' \
+    --countryCode 'aRSOFQBt' \
     >$TEMP_FILE 2>&1
 update_status $? 'RetrievePolicies'
 delete_file $TEMP_FILE
 
 #- 18 UpdatePolicyVersion
 java -jar ${JAR_PATH} legal updatePolicyVersion \
-    --policyVersionId 'Btu23REZ' \
-    --body '{"description": "8hRVX7LG", "displayVersion": "OvDdYiQS", "isCommitted": false}' \
+    --policyVersionId 'u23REZ8h' \
+    --body '{"description": "RVX7LGOv", "displayVersion": "DdYiQS9i", "isCommitted": false}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdatePolicyVersion'
 delete_file $TEMP_FILE
 
 #- 19 PublishPolicyVersion
 java -jar ${JAR_PATH} legal publishPolicyVersion \
-    --policyVersionId '7mV1C91p' \
+    --policyVersionId 'V1C91pjG' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublishPolicyVersion'
 delete_file $TEMP_FILE
 
 #- 20 UpdatePolicy
 java -jar ${JAR_PATH} legal updatePolicy \
-    --policyId 'jG9gpxL6' \
-    --body '{"description": "ycTQdvln", "isDefaultOpted": true, "isMandatory": true, "policyName": "SQWEXL6L", "readableId": "FE1YHo9m", "shouldNotifyOnUpdate": false}' \
+    --policyId '9gpxL6yc' \
+    --body '{"description": "TQdvln2L", "isDefaultOpted": true, "isMandatory": true, "policyName": "SQWEXL6L", "readableId": "FE1YHo9m", "shouldNotifyOnUpdate": false}' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdatePolicy'
 delete_file $TEMP_FILE
@@ -282,14 +282,14 @@ delete_file $TEMP_FILE
 
 #- 29 ChangePreferenceConsent1
 java -jar ${JAR_PATH} legal changePreferenceConsent1 \
-    --body '[{"isAccepted": true, "localizedPolicyVersionId": "0B7WOfer", "policyId": "cZdpMci3", "policyVersionId": "7Ds7YSfE"}]' \
+    --body '[{"isAccepted": true, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "7WOfercZ", "policyId": "dpMci37D", "policyVersionId": "s7YSfExa"}]' \
     >$TEMP_FILE 2>&1
 update_status $? 'ChangePreferenceConsent1'
 delete_file $TEMP_FILE
 
 #- 30 AcceptVersionedPolicy
 java -jar ${JAR_PATH} legal acceptVersionedPolicy \
-    --localizedPolicyVersionId 'xaI3uzLt' \
+    --localizedPolicyVersionId 'I3uzLteM' \
     >$TEMP_FILE 2>&1
 update_status $? 'AcceptVersionedPolicy'
 delete_file $TEMP_FILE
@@ -302,26 +302,26 @@ delete_file $TEMP_FILE
 
 #- 32 BulkAcceptVersionedPolicy
 java -jar ${JAR_PATH} legal bulkAcceptVersionedPolicy \
-    --body '[{"isAccepted": false, "localizedPolicyVersionId": "MbFAlt4h", "policyId": "r7HmOYiB", "policyVersionId": "A5ltAOXm"}]' \
+    --body '[{"isAccepted": false, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "Alt4hr7H", "policyId": "mOYiBA5l", "policyVersionId": "tAOXmlG6"}]' \
     >$TEMP_FILE 2>&1
 update_status $? 'BulkAcceptVersionedPolicy'
 delete_file $TEMP_FILE
 
 #- 33 IndirectBulkAcceptVersionedPolicyV2
 java -jar ${JAR_PATH} legal indirectBulkAcceptVersionedPolicyV2 \
-    --clientId 'lG6eh1dT' \
-    --countryCode 'doTFpBIc' \
+    --clientId 'eh1dTdoT' \
+    --countryCode 'FpBIcuC1' \
     --namespace "test" \
-    --userId 'uC1dQY93' \
-    --body '[{"isAccepted": false, "localizedPolicyVersionId": "J6Te9vD8", "policyId": "ldz7Hu8A", "policyVersionId": "D79kdWun"}]' \
+    --userId 'dQY93OJn' \
+    --body '[{"isAccepted": false, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "D8ldz7Hu", "policyId": "8AD79kdW", "policyVersionId": "unvizU0q"}]' \
     >$TEMP_FILE 2>&1
 update_status $? 'IndirectBulkAcceptVersionedPolicyV2'
 delete_file $TEMP_FILE
 
 #- 34 IndirectBulkAcceptVersionedPolicy1
 java -jar ${JAR_PATH} legal indirectBulkAcceptVersionedPolicy1 \
-    --userId 'vizU0q1p' \
-    --body '[{"isAccepted": true, "localizedPolicyVersionId": "hhERoGgd", "policyId": "rysMizBG", "policyVersionId": "SRdP2l7D"}]' \
+    --userId '1pHyhhER' \
+    --body '[{"isAccepted": false, "isNeedToSendEventMarketing": false, "localizedPolicyVersionId": "drysMizB", "policyId": "GSRdP2l7", "policyVersionId": "DNSZ8Aq0"}]' \
     >$TEMP_FILE 2>&1
 update_status $? 'IndirectBulkAcceptVersionedPolicy1'
 delete_file $TEMP_FILE
@@ -335,17 +335,17 @@ delete_file $TEMP_FILE
 
 #- 36 RetrieveEligibilitiesPublicIndirect
 java -jar ${JAR_PATH} legal retrieveEligibilitiesPublicIndirect \
-    --clientId 'NSZ8Aq0X' \
-    --countryCode 'iPLQXSe0' \
+    --clientId 'XiPLQXSe' \
+    --countryCode '07ZddOGT' \
     --namespace "test" \
-    --userId '7ZddOGTM' \
+    --userId 'MlJjBwj9' \
     >$TEMP_FILE 2>&1
 update_status $? 'RetrieveEligibilitiesPublicIndirect'
 delete_file $TEMP_FILE
 
 #- 37 RetrieveSingleLocalizedPolicyVersion1
 java -jar ${JAR_PATH} legal retrieveSingleLocalizedPolicyVersion1 \
-    --localizedPolicyVersionId 'lJjBwj9H' \
+    --localizedPolicyVersionId 'HJHQKseE' \
     >$TEMP_FILE 2>&1
 update_status $? 'RetrieveSingleLocalizedPolicyVersion1'
 delete_file $TEMP_FILE
@@ -358,7 +358,7 @@ delete_file $TEMP_FILE
 
 #- 39 RetrieveLatestPolicies
 java -jar ${JAR_PATH} legal retrieveLatestPolicies \
-    --countryCode 'JHQKseEd' \
+    --countryCode 'dSXRDSvg' \
     >$TEMP_FILE 2>&1
 update_status $? 'RetrieveLatestPolicies'
 delete_file $TEMP_FILE
@@ -372,7 +372,7 @@ delete_file $TEMP_FILE
 
 #- 41 RetrieveLatestPoliciesByNamespaceAndCountryPublic
 java -jar ${JAR_PATH} legal retrieveLatestPoliciesByNamespaceAndCountryPublic \
-    --countryCode 'SXRDSvgu' \
+    --countryCode 'uauw1xT7' \
     --namespace "test" \
     >$TEMP_FILE 2>&1
 update_status $? 'RetrieveLatestPoliciesByNamespaceAndCountryPublic'

@@ -6,7 +6,7 @@
 
 #Meta:
 #- random seed: 256
-#- template file: java-cli-unit-test.j2
+#- template file: cli_test.j2
 
 #Instructions:
 #- Run the Justice SDK Mock Server first before running this script.
@@ -15,7 +15,7 @@ MODULE_PATH="${MODULE_PATH:-../../samples/cli}"
 JAR_PATH="${MODULE_PATH}/build/libs/cli.jar"
 TEMP_FILE='file.tmp'
 
-OPERATIONS_COUNT=84
+OPERATIONS_COUNT=87
 
 FINISHED_COUNT=0
 SUCCESS_COUNT=0
@@ -550,208 +550,232 @@ java -jar ${JAR_PATH} ugc getFollowedUsers \
 update_status $? 'GetFollowedUsers'
 delete_file $TEMP_FILE
 
-#- 61 GetChannels
-java -jar ${JAR_PATH} ugc getChannels \
+#- 61 GetCreator
+java -jar ${JAR_PATH} ugc getCreator \
     --namespace "test" \
     --userId 't7xk6Qxy' \
+    >$TEMP_FILE 2>&1
+update_status $? 'GetCreator'
+delete_file $TEMP_FILE
+
+#- 62 GetChannels
+java -jar ${JAR_PATH} ugc getChannels \
+    --namespace "test" \
+    --userId 'WhfqoWfJ' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetChannels'
 delete_file $TEMP_FILE
 
-#- 62 CreateChannel
+#- 63 CreateChannel
 java -jar ${JAR_PATH} ugc createChannel \
-    --body '{"name": "WhfqoWfJ"}' \
+    --body '{"name": "w2o8oWUq"}' \
     --namespace "test" \
-    --userId 'w2o8oWUq' \
+    --userId 'vPCZ2HzT' \
     >$TEMP_FILE 2>&1
 update_status $? 'CreateChannel'
 delete_file $TEMP_FILE
 
-#- 63 DeleteAllUserChannel
+#- 64 DeleteAllUserChannel
 java -jar ${JAR_PATH} ugc deleteAllUserChannel \
     --namespace "test" \
-    --userId 'vPCZ2HzT' \
+    --userId '7NXmWDlX' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteAllUserChannel'
 delete_file $TEMP_FILE
 
-#- 64 UpdateChannel
+#- 65 UpdateChannel
 java -jar ${JAR_PATH} ugc updateChannel \
-    --body '{"name": "7NXmWDlX"}' \
-    --channelId 'suNIdQJR' \
+    --body '{"name": "suNIdQJR"}' \
+    --channelId '5lsNOlvk' \
     --namespace "test" \
-    --userId '5lsNOlvk' \
+    --userId 'fwaSbnsu' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateChannel'
 delete_file $TEMP_FILE
 
-#- 65 DeleteChannel
+#- 66 DeleteChannel
 java -jar ${JAR_PATH} ugc deleteChannel \
-    --channelId 'fwaSbnsu' \
+    --channelId 'LCgToxuV' \
     --namespace "test" \
-    --userId 'LCgToxuV' \
+    --userId 'TekJgvg6' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteChannel'
 delete_file $TEMP_FILE
 
-#- 66 CreateContentDirect
+#- 67 CreateContentDirect
 update_status 0 'CreateContentDirect (skipped deprecated)'
 
-#- 67 CreateContentS3
+#- 68 CreateContentS3
 java -jar ${JAR_PATH} ugc createContentS3 \
-    --body '{"contentType": "TekJgvg6", "fileExtension": "h5HIpH0D", "name": "viplEk4v", "preview": "j3LDp4yq", "subType": "Dt8QUZDp", "tags": ["xlHasinG"], "type": "cjrkmRMt"}' \
-    --channelId 'tgjDSaIV' \
+    --body '{"contentType": "h5HIpH0D", "fileExtension": "viplEk4v", "name": "j3LDp4yq", "preview": "Dt8QUZDp", "subType": "xlHasinG", "tags": ["cjrkmRMt"], "type": "tgjDSaIV"}' \
+    --channelId 'Bmft3Udg' \
     --namespace "test" \
-    --userId 'Bmft3Udg' \
+    --userId '7p9PGmY2' \
     >$TEMP_FILE 2>&1
 update_status $? 'CreateContentS3'
 delete_file $TEMP_FILE
 
-#- 68 UpdateContentS3
+#- 69 UpdateContentS3
 java -jar ${JAR_PATH} ugc updateContentS3 \
-    --body '{"contentType": "7p9PGmY2", "fileExtension": "H5kX4Msi", "name": "sSX28nAR", "preview": "xWRpv5ou", "subType": "5xtvd28O", "tags": ["UfCt8UJC"], "type": "5flNyj6H"}' \
-    --channelId 'sTtX8P3l' \
-    --contentId 'lnaaS9lq' \
+    --body '{"contentType": "H5kX4Msi", "fileExtension": "sSX28nAR", "name": "xWRpv5ou", "preview": "5xtvd28O", "subType": "UfCt8UJC", "tags": ["5flNyj6H"], "type": "sTtX8P3l"}' \
+    --channelId 'lnaaS9lq' \
+    --contentId 'yygPcfkJ' \
     --namespace "test" \
-    --userId 'yygPcfkJ' \
+    --userId 'IxfQZza8' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateContentS3'
 delete_file $TEMP_FILE
 
-#- 69 UpdateContentDirect
+#- 70 UpdateContentDirect
 update_status 0 'UpdateContentDirect (skipped deprecated)'
 
-#- 70 DeleteContent
+#- 71 DeleteContent
 java -jar ${JAR_PATH} ugc deleteContent \
-    --channelId 'IxfQZza8' \
-    --contentId 'kNVbDxVM' \
+    --channelId 'kNVbDxVM' \
+    --contentId 'q7HJk0F8' \
     --namespace "test" \
-    --userId 'q7HJk0F8' \
+    --userId '9xAc3YVf' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteContent'
 delete_file $TEMP_FILE
 
-#- 71 PublicGetUserContent
+#- 72 PublicGetUserContent
 java -jar ${JAR_PATH} ugc publicGetUserContent \
     --namespace "test" \
-    --userId '9xAc3YVf' \
+    --userId 'aENtrl0p' \
     >$TEMP_FILE 2>&1
 update_status $? 'PublicGetUserContent'
 delete_file $TEMP_FILE
 
-#- 72 DeleteAllUserContents
+#- 73 DeleteAllUserContents
 java -jar ${JAR_PATH} ugc deleteAllUserContents \
     --namespace "test" \
-    --userId 'aENtrl0p' \
+    --userId 'TKZTXqzH' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteAllUserContents'
 delete_file $TEMP_FILE
 
-#- 73 UpdateScreenshots
+#- 74 UpdateScreenshots
 java -jar ${JAR_PATH} ugc updateScreenshots \
-    --body '{"screenshots": [{"description": "TKZTXqzH", "screenshotId": "uBMYQSA2"}]}' \
-    --contentId 'jz1ZOpdO' \
+    --body '{"screenshots": [{"description": "uBMYQSA2", "screenshotId": "jz1ZOpdO"}]}' \
+    --contentId 'jSyMddB4' \
     --namespace "test" \
-    --userId 'jSyMddB4' \
+    --userId '1JuMf7RU' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateScreenshots'
 delete_file $TEMP_FILE
 
-#- 74 UploadContentScreenshot
+#- 75 UploadContentScreenshot
 java -jar ${JAR_PATH} ugc uploadContentScreenshot \
-    --body '{"screenshots": [{"contentType": "1JuMf7RU", "description": "yBHRj8Ii", "fileExtension": "png"}]}' \
-    --contentId 'imRllHT6' \
+    --body '{"screenshots": [{"contentType": "yBHRj8Ii", "description": "RimRllHT", "fileExtension": "jfif"}]}' \
+    --contentId 'c40vFFA6' \
     --namespace "test" \
-    --userId 'Dc40vFFA' \
+    --userId 'gpU7EW3x' \
     >$TEMP_FILE 2>&1
 update_status $? 'UploadContentScreenshot'
 delete_file $TEMP_FILE
 
-#- 75 DeleteContentScreenshot
+#- 76 DeleteContentScreenshot
 java -jar ${JAR_PATH} ugc deleteContentScreenshot \
-    --contentId '6gpU7EW3' \
+    --contentId '1dCpm55g' \
     --namespace "test" \
-    --screenshotId 'x1dCpm55' \
-    --userId 'gOeqQIqc' \
+    --screenshotId 'OeqQIqcJ' \
+    --userId 'VKmBM1J1' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteContentScreenshot'
 delete_file $TEMP_FILE
 
-#- 76 UpdateUserFollowStatus
+#- 77 UpdateUserFollowStatus
 java -jar ${JAR_PATH} ugc updateUserFollowStatus \
     --body '{"followStatus": false}' \
     --namespace "test" \
-    --userId 'BM1J1Ibu' \
+    --userId 'uTrrkbmu' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateUserFollowStatus'
 delete_file $TEMP_FILE
 
-#- 77 GetGroups
+#- 78 GetPublicFollowers
+java -jar ${JAR_PATH} ugc getPublicFollowers \
+    --namespace "test" \
+    --userId 'T1whOqmE' \
+    >$TEMP_FILE 2>&1
+update_status $? 'GetPublicFollowers'
+delete_file $TEMP_FILE
+
+#- 79 GetPublicFollowing
+java -jar ${JAR_PATH} ugc getPublicFollowing \
+    --namespace "test" \
+    --userId 'nDXIWrBP' \
+    >$TEMP_FILE 2>&1
+update_status $? 'GetPublicFollowing'
+delete_file $TEMP_FILE
+
+#- 80 GetGroups
 java -jar ${JAR_PATH} ugc getGroups \
     --namespace "test" \
-    --userId 'TrrkbmuT' \
+    --userId 'lSay46mv' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetGroups'
 delete_file $TEMP_FILE
 
-#- 78 CreateGroup
+#- 81 CreateGroup
 java -jar ${JAR_PATH} ugc createGroup \
-    --body '{"contents": ["1whOqmEn"], "name": "DXIWrBPl"}' \
+    --body '{"contents": ["71BAZAOj"], "name": "tFJ2vmTj"}' \
     --namespace "test" \
-    --userId 'Say46mv7' \
+    --userId '7tT7TZHW' \
     >$TEMP_FILE 2>&1
 update_status $? 'CreateGroup'
 delete_file $TEMP_FILE
 
-#- 79 DeleteAllUserGroup
+#- 82 DeleteAllUserGroup
 java -jar ${JAR_PATH} ugc deleteAllUserGroup \
     --namespace "test" \
-    --userId '1BAZAOjt' \
+    --userId 'DdCkIsZo' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteAllUserGroup'
 delete_file $TEMP_FILE
 
-#- 80 GetGroup
+#- 83 GetGroup
 java -jar ${JAR_PATH} ugc getGroup \
-    --groupId 'FJ2vmTj7' \
+    --groupId 'ArWwPHcy' \
     --namespace "test" \
-    --userId 'tT7TZHWD' \
+    --userId 'FAdAtYci' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetGroup'
 delete_file $TEMP_FILE
 
-#- 81 UpdateGroup
+#- 84 UpdateGroup
 java -jar ${JAR_PATH} ugc updateGroup \
-    --body '{"contents": ["dCkIsZoA"], "name": "rWwPHcyF"}' \
-    --groupId 'AdAtYciL' \
+    --body '{"contents": ["LIgRwFRr"], "name": "0gwB9tz3"}' \
+    --groupId 'vp99XVlV' \
     --namespace "test" \
-    --userId 'IgRwFRr0' \
+    --userId '8rK3tE6n' \
     >$TEMP_FILE 2>&1
 update_status $? 'UpdateGroup'
 delete_file $TEMP_FILE
 
-#- 82 DeleteGroup
+#- 85 DeleteGroup
 java -jar ${JAR_PATH} ugc deleteGroup \
-    --groupId 'gwB9tz3v' \
+    --groupId '0smip1tw' \
     --namespace "test" \
-    --userId 'p99XVlV8' \
+    --userId '3L7cUd9p' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteGroup'
 delete_file $TEMP_FILE
 
-#- 83 GetGroupContent
+#- 86 GetGroupContent
 java -jar ${JAR_PATH} ugc getGroupContent \
-    --groupId 'rK3tE6n0' \
+    --groupId 'qtv6JfPZ' \
     --namespace "test" \
-    --userId 'smip1tw3' \
+    --userId 'wcCVOXcV' \
     >$TEMP_FILE 2>&1
 update_status $? 'GetGroupContent'
 delete_file $TEMP_FILE
 
-#- 84 DeleteAllUserStates
+#- 87 DeleteAllUserStates
 java -jar ${JAR_PATH} ugc deleteAllUserStates \
     --namespace "test" \
-    --userId 'L7cUd9pq' \
+    --userId 'a80TmCwt' \
     >$TEMP_FILE 2>&1
 update_status $? 'DeleteAllUserStates'
 delete_file $TEMP_FILE
