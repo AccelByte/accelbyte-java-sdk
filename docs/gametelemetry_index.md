@@ -4,12 +4,14 @@
 
 ## Operations
 
-### Operations Wrapper:  [Operations](../src/main/java/net/accelbyte/sdk/api/gametelemetry/wrappers/Operations.java)
+### Gametelemetry Operations Wrapper:  [GametelemetryOperations](../src/main/java/net/accelbyte/sdk/api/gametelemetry/wrappers/GametelemetryOperations.java)
 | Endpoint | Method | ID | Class |
 |---|---|---|---|
-| `/game-telemetry/v1/protected/events` | POST | ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost | [ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost](../src/main/java/net/accelbyte/sdk/api/gametelemetry/operations/operations/ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost.java) |
-| `/game-telemetry/v1/protected/steamIds/{steamId}/playtime` | GET | ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet | [ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet](../src/main/java/net/accelbyte/sdk/api/gametelemetry/operations/operations/ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet.java) |
-| `/game-telemetry/v1/protected/steamIds/{steamId}/playtime/{playtime}` | PUT | ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut | [ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut](../src/main/java/net/accelbyte/sdk/api/gametelemetry/operations/operations/ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut.java) |
+| `/game-telemetry/v1/admin/events` | GET | AdminGetEventsGameTelemetryV1AdminEventsGet | [AdminGetEventsGameTelemetryV1AdminEventsGet](../src/main/java/net/accelbyte/sdk/api/gametelemetry/operations/gametelemetry_operations/AdminGetEventsGameTelemetryV1AdminEventsGet.java) |
+| `/game-telemetry/v1/admin/telemetrynamespace` | GET | AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet | [AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet](../src/main/java/net/accelbyte/sdk/api/gametelemetry/operations/gametelemetry_operations/AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet.java) |
+| `/game-telemetry/v1/protected/events` | POST | ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost | [ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost](../src/main/java/net/accelbyte/sdk/api/gametelemetry/operations/gametelemetry_operations/ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost.java) |
+| `/game-telemetry/v1/protected/steamIds/{steamId}/playtime` | GET | ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet | [ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet](../src/main/java/net/accelbyte/sdk/api/gametelemetry/operations/gametelemetry_operations/ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet.java) |
+| `/game-telemetry/v1/protected/steamIds/{steamId}/playtime/{playtime}` | PUT | ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut | [ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut](../src/main/java/net/accelbyte/sdk/api/gametelemetry/operations/gametelemetry_operations/ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut.java) |
 
 
 &nbsp;  

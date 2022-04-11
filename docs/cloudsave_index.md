@@ -4,6 +4,12 @@
 
 ## Operations
 
+### AdminConcurrentRecord Wrapper:  [AdminConcurrentRecord](../src/main/java/net/accelbyte/sdk/api/cloudsave/wrappers/AdminConcurrentRecord.java)
+| Endpoint | Method | ID | Class |
+|---|---|---|---|
+| `/cloudsave/v1/admin/namespaces/{namespace}/concurrent/records/{key}` | PUT | AdminPutGameRecordConcurrentHandlerV1 | [AdminPutGameRecordConcurrentHandlerV1](../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_concurrent_record/AdminPutGameRecordConcurrentHandlerV1.java) |
+| `/cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/concurrent/records/{key}/public` | PUT | AdminPutPlayerPublicRecordConcurrentHandlerV1 | [AdminPutPlayerPublicRecordConcurrentHandlerV1](../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_concurrent_record/AdminPutPlayerPublicRecordConcurrentHandlerV1.java) |
+
 ### AdminGameRecord Wrapper:  [AdminGameRecord](../src/main/java/net/accelbyte/sdk/api/cloudsave/wrappers/AdminGameRecord.java)
 | Endpoint | Method | ID | Class |
 |---|---|---|---|
@@ -61,6 +67,7 @@
 
 | Model | Class |
 |---|---|
+| `models.AdminConcurrentRecordRequest` | [ModelsAdminConcurrentRecordRequest](../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsAdminConcurrentRecordRequest.java) |
 | `models.BulkGetPlayerRecordResponse` | [ModelsBulkGetPlayerRecordResponse](../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsBulkGetPlayerRecordResponse.java) |
 | `models.BulkUserIDsRequest` | [ModelsBulkUserIDsRequest](../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsBulkUserIDsRequest.java) |
 | `models.ConcurrentRecordRequest` | [ModelsConcurrentRecordRequest](../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsConcurrentRecordRequest.java) |

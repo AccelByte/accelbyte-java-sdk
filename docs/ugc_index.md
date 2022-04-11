@@ -104,6 +104,8 @@
 | `/ugc/v1/public/namespaces/{namespace}/contents/followed` | GET | GetFollowedContent | [GetFollowedContent](../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_follow/GetFollowedContent.java) |
 | `/ugc/v1/public/namespaces/{namespace}/users/followed` | GET | GetFollowedUsers | [GetFollowedUsers](../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_follow/GetFollowedUsers.java) |
 | `/ugc/v1/public/namespaces/{namespace}/users/{userId}/follow` | PUT | UpdateUserFollowStatus | [UpdateUserFollowStatus](../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_follow/UpdateUserFollowStatus.java) |
+| `/ugc/v1/public/namespaces/{namespace}/users/{userId}/followers` | GET | GetPublicFollowers | [GetPublicFollowers](../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_follow/GetPublicFollowers.java) |
+| `/ugc/v1/public/namespaces/{namespace}/users/{userId}/following` | GET | GetPublicFollowing | [GetPublicFollowing](../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_follow/GetPublicFollowing.java) |
 
 ### Public Like Wrapper:  [PublicLike](../src/main/java/net/accelbyte/sdk/api/ugc/wrappers/PublicLike.java)
 | Endpoint | Method | ID | Class |
@@ -125,6 +127,11 @@
 | Endpoint | Method | ID | Class |
 |---|---|---|---|
 | `/ugc/v1/public/namespaces/{namespace}/types` | GET | GetType | [GetType](../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_type/GetType.java) |
+
+### Public Creator Wrapper:  [PublicCreator](../src/main/java/net/accelbyte/sdk/api/ugc/wrappers/PublicCreator.java)
+| Endpoint | Method | ID | Class |
+|---|---|---|---|
+| `/ugc/v1/public/namespaces/{namespace}/users/{userId}` | GET | GetCreator | [GetCreator](../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_creator/GetCreator.java) |
 
 ### Public Channel Wrapper:  [PublicChannel](../src/main/java/net/accelbyte/sdk/api/ugc/wrappers/PublicChannel.java)
 | Endpoint | Method | ID | Class |

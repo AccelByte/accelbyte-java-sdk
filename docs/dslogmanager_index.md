@@ -17,10 +17,10 @@
 | `/dslogmanager/servers/logs/download` | POST | BatchDownloadServerLogs | [BatchDownloadServerLogs](../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/all_terminated_servers/BatchDownloadServerLogs.java) |
 | `/dslogmanager/servers/search` | GET | ListAllTerminatedServers | [ListAllTerminatedServers](../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/all_terminated_servers/ListAllTerminatedServers.java) |
 
-### Operations Wrapper:  [Operations](../src/main/java/net/accelbyte/sdk/api/dslogmanager/wrappers/Operations.java)
+### Dslogmanager Operations Wrapper:  [DslogmanagerOperations](../src/main/java/net/accelbyte/sdk/api/dslogmanager/wrappers/DslogmanagerOperations.java)
 | Endpoint | Method | ID | Class |
 |---|---|---|---|
-| `/dslogmanager/v1/messages` | GET | PublicGetMessages | [PublicGetMessages](../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/operations/PublicGetMessages.java) |
+| `/dslogmanager/v1/messages` | GET | PublicGetMessages | [PublicGetMessages](../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/dslogmanager_operations/PublicGetMessages.java) |
 
 
 &nbsp;  

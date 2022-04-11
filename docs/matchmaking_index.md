@@ -4,13 +4,13 @@
 
 ## Operations
 
-### Operations Wrapper:  [Operations](../src/main/java/net/accelbyte/sdk/api/matchmaking/wrappers/Operations.java)
+### Matchmaking Operations Wrapper:  [MatchmakingOperations](../src/main/java/net/accelbyte/sdk/api/matchmaking/wrappers/MatchmakingOperations.java)
 | Endpoint | Method | ID | Class |
 |---|---|---|---|
-| `/healthz` | GET | GetHealthcheckInfo | [GetHealthcheckInfo](../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/operations/GetHealthcheckInfo.java) |
-| `/matchmaking/healthz` | GET | HandlerV3Healthz | [HandlerV3Healthz](../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/operations/HandlerV3Healthz.java) |
-| `/matchmaking/v1/messages` | GET | PublicGetMessages | [PublicGetMessages](../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/operations/PublicGetMessages.java) |
-| `/matchmaking/version` | GET | VersionCheckHandler | [VersionCheckHandler](../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/operations/VersionCheckHandler.java) |
+| `/healthz` | GET | GetHealthcheckInfo | [GetHealthcheckInfo](../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/matchmaking_operations/GetHealthcheckInfo.java) |
+| `/matchmaking/healthz` | GET | HandlerV3Healthz | [HandlerV3Healthz](../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/matchmaking_operations/HandlerV3Healthz.java) |
+| `/matchmaking/v1/messages` | GET | PublicGetMessages | [PublicGetMessages](../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/matchmaking_operations/PublicGetMessages.java) |
+| `/matchmaking/version` | GET | VersionCheckHandler | [VersionCheckHandler](../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/matchmaking_operations/VersionCheckHandler.java) |
 
 ### Matchmaking Wrapper:  [Matchmaking](../src/main/java/net/accelbyte/sdk/api/matchmaking/wrappers/Matchmaking.java)
 | Endpoint | Method | ID | Class |

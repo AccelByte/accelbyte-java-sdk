@@ -102,10 +102,10 @@
 | `/dsmcontroller/public/providers` | GET | ListProviders | [ListProviders](../src/main/java/net/accelbyte/sdk/api/dsmc/operations/public_/ListProviders.java) |
 | `/dsmcontroller/public/providers/regions/{region}` | GET | ListProvidersByRegion | [ListProvidersByRegion](../src/main/java/net/accelbyte/sdk/api/dsmc/operations/public_/ListProvidersByRegion.java) |
 
-### Operations Wrapper:  [Operations](../src/main/java/net/accelbyte/sdk/api/dsmc/wrappers/Operations.java)
+### Dsmc Operations Wrapper:  [DsmcOperations](../src/main/java/net/accelbyte/sdk/api/dsmc/wrappers/DsmcOperations.java)
 | Endpoint | Method | ID | Class |
 |---|---|---|---|
-| `/dsmcontroller/v1/messages` | GET | PublicGetMessages | [PublicGetMessages](../src/main/java/net/accelbyte/sdk/api/dsmc/operations/operations/PublicGetMessages.java) |
+| `/dsmcontroller/v1/messages` | GET | PublicGetMessages | [PublicGetMessages](../src/main/java/net/accelbyte/sdk/api/dsmc/operations/dsmc_operations/PublicGetMessages.java) |
 
 
 &nbsp;  

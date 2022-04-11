@@ -318,6 +318,7 @@
 | `/iam/v4/admin/namespaces/{namespace}/users/bulk/validate` | POST | AdminBulkCheckValidUserIDV4 | [AdminBulkCheckValidUserIDV4](../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminBulkCheckValidUserIDV4.java) |
 | `/iam/v4/admin/namespaces/{namespace}/users/{userId}` | PUT | AdminUpdateUserV4 | [AdminUpdateUserV4](../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminUpdateUserV4.java) |
 | `/iam/v4/admin/namespaces/{namespace}/users/{userId}/email` | PUT | AdminUpdateUserEmailAddressV4 | [AdminUpdateUserEmailAddressV4](../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminUpdateUserEmailAddressV4.java) |
+| `/iam/v4/admin/namespaces/{namespace}/users/{userId}/mfa/disable` | DELETE | AdminDisableUserMFAV4 | [AdminDisableUserMFAV4](../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminDisableUserMFAV4.java) |
 | `/iam/v4/admin/namespaces/{namespace}/users/{userId}/roles` | GET | AdminListUserRolesV4 | [AdminListUserRolesV4](../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminListUserRolesV4.java) |
 | `/iam/v4/admin/namespaces/{namespace}/users/{userId}/roles` | PUT | AdminUpdateUserRoleV4 | [AdminUpdateUserRoleV4](../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminUpdateUserRoleV4.java) |
 | `/iam/v4/admin/namespaces/{namespace}/users/{userId}/roles` | POST | AdminAddUserRoleV4 | [AdminAddUserRoleV4](../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminAddUserRoleV4.java) |
@@ -349,6 +350,7 @@
 | `/iam/v4/public/namespaces/{namespace}/users/me/mfa/backupCode/disable` | DELETE | PublicDisableMyBackupCodesV4 | [PublicDisableMyBackupCodesV4](../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/PublicDisableMyBackupCodesV4.java) |
 | `/iam/v4/public/namespaces/{namespace}/users/me/mfa/backupCode/download` | GET | PublicDownloadMyBackupCodesV4 | [PublicDownloadMyBackupCodesV4](../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/PublicDownloadMyBackupCodesV4.java) |
 | `/iam/v4/public/namespaces/{namespace}/users/me/mfa/backupCode/enable` | POST | PublicEnableMyBackupCodesV4 | [PublicEnableMyBackupCodesV4](../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/PublicEnableMyBackupCodesV4.java) |
+| `/iam/v4/public/namespaces/{namespace}/users/me/mfa/device` | DELETE | PublicRemoveTrustedDeviceV4 | [PublicRemoveTrustedDeviceV4](../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/PublicRemoveTrustedDeviceV4.java) |
 | `/iam/v4/public/namespaces/{namespace}/users/me/mfa/factor` | GET | PublicGetMyEnabledFactorsV4 | [PublicGetMyEnabledFactorsV4](../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/PublicGetMyEnabledFactorsV4.java) |
 | `/iam/v4/public/namespaces/{namespace}/users/me/mfa/factor` | POST | PublicMakeFactorMyDefaultV4 | [PublicMakeFactorMyDefaultV4](../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/PublicMakeFactorMyDefaultV4.java) |
 

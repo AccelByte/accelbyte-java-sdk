@@ -84,12 +84,12 @@
 | `/lobby/v1/public/party/namespaces/{namespace}/parties/{partyId}` | GET | PublicGetPartyDataV1 | [PublicGetPartyDataV1](../src/main/java/net/accelbyte/sdk/api/lobby/operations/party/PublicGetPartyDataV1.java) |
 | `/lobby/v1/public/party/namespaces/{namespace}/parties/{partyId}/attributes` | PUT | PublicUpdatePartyAttributesV1 | [PublicUpdatePartyAttributesV1](../src/main/java/net/accelbyte/sdk/api/lobby/operations/party/PublicUpdatePartyAttributesV1.java) |
 
-### Operations Wrapper:  [Operations](../src/main/java/net/accelbyte/sdk/api/lobby/wrappers/Operations.java)
+### Lobby Operations Wrapper:  [LobbyOperations](../src/main/java/net/accelbyte/sdk/api/lobby/wrappers/LobbyOperations.java)
 | Endpoint | Method | ID | Class |
 |---|---|---|---|
-| `/lobby/v1/admin/party/namespaces/{namespace}/parties/{partyId}/attributes` | PUT | AdminUpdatePartyAttributesV1 | [AdminUpdatePartyAttributesV1](../src/main/java/net/accelbyte/sdk/api/lobby/operations/operations/AdminUpdatePartyAttributesV1.java) |
-| `/lobby/v1/admin/party/namespaces/{namespace}/parties/{partyId}/join/{userId}` | POST | AdminJoinPartyV1 | [AdminJoinPartyV1](../src/main/java/net/accelbyte/sdk/api/lobby/operations/operations/AdminJoinPartyV1.java) |
-| `/lobby/v1/messages` | GET | PublicGetMessages | [PublicGetMessages](../src/main/java/net/accelbyte/sdk/api/lobby/operations/operations/PublicGetMessages.java) |
+| `/lobby/v1/admin/party/namespaces/{namespace}/parties/{partyId}/attributes` | PUT | AdminUpdatePartyAttributesV1 | [AdminUpdatePartyAttributesV1](../src/main/java/net/accelbyte/sdk/api/lobby/operations/lobby_operations/AdminUpdatePartyAttributesV1.java) |
+| `/lobby/v1/admin/party/namespaces/{namespace}/parties/{partyId}/join/{userId}` | POST | AdminJoinPartyV1 | [AdminJoinPartyV1](../src/main/java/net/accelbyte/sdk/api/lobby/operations/lobby_operations/AdminJoinPartyV1.java) |
+| `/lobby/v1/messages` | GET | PublicGetMessages | [PublicGetMessages](../src/main/java/net/accelbyte/sdk/api/lobby/operations/lobby_operations/PublicGetMessages.java) |
 
 ### player Wrapper:  [Player](../src/main/java/net/accelbyte/sdk/api/lobby/wrappers/Player.java)
 | Endpoint | Method | ID | Class |
