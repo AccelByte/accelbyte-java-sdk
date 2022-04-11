@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.lobby.operations.operations;
+package net.accelbyte.sdk.api.lobby.operations.lobby_operations;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -16,6 +16,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import net.accelbyte.sdk.api.lobby.models.*;
+import net.accelbyte.sdk.api.lobby.models.ModelsPartyData;
+import net.accelbyte.sdk.api.lobby.models.ModelsPartyPUTCustomAttributesRequest;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -25,24 +27,24 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
- * adminJoinPartyV1
+ * adminUpdatePartyAttributesV1
  *
  * Required permission : `ADMIN:NAMESPACE:{namespace}:PARTY:STORAGE [UPDATE]` with scope `social`
  * 
- * admin join a player into a party.
+ * update party attributes in a namespace.
  */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AdminJoinPartyV1 extends Operation {
+public class AdminUpdatePartyAttributesV1 extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/lobby/v1/admin/party/namespaces/{namespace}/parties/{partyId}/join/{userId}";
+    private String url = "/lobby/v1/admin/party/namespaces/{namespace}/parties/{partyId}/attributes";
 
     @JsonIgnore
-    private String method = "POST";
+    private String method = "PUT";
 
     @JsonIgnore
     private List<String> consumes = Arrays.asList("application/json");
@@ -61,27 +63,27 @@ public class AdminJoinPartyV1 extends Operation {
      */
     private String namespace;
     private String partyId;
-    private String userId;
+    private ModelsPartyPUTCustomAttributesRequest body;
 
     /**
     * @param namespace required
     * @param partyId required
-    * @param userId required
+    * @param body required
     */
     @Builder
-    public AdminJoinPartyV1(
+    public AdminUpdatePartyAttributesV1(
             String namespace,
             String partyId,
-            String userId
+            ModelsPartyPUTCustomAttributesRequest body
     )
     {
         this.namespace = namespace;
         this.partyId = partyId;
-        this.userId = userId;
+        this.body = body;
     }
 
     @JsonIgnore
-    public AdminJoinPartyV1 createFromJson(String json) throws JsonProcessingException {
+    public AdminUpdatePartyAttributesV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -100,13 +102,15 @@ public class AdminJoinPartyV1 extends Operation {
         if (this.partyId != null){
             pathParams.put("partyId", this.partyId);
         }
-        if (this.userId != null){
-            pathParams.put("userId", this.userId);
-        }
         return pathParams;
     }
 
 
+    @Override
+    @JsonIgnore
+    public ModelsPartyPUTCustomAttributesRequest getBodyParams(){
+        return this.body;
+    }
 
 
     @Override
@@ -120,7 +124,6 @@ public class AdminJoinPartyV1 extends Operation {
         Map<String, String> result = new HashMap<>();
         result.put("namespace","namespace");
         result.put("partyId","partyId");
-        result.put("userId","userId");
         return result;
     }
 
@@ -128,8 +131,7 @@ public class AdminJoinPartyV1 extends Operation {
     public List<String> getAllRequiredFields() {
         return Arrays.asList(
             "namespace",
-            "partyId",
-            "userId"
+            "partyId"
         );
     }
 
@@ -142,19 +144,17 @@ public class AdminJoinPartyV1 extends Operation {
         if(this.partyId == null) {
             return false;
         }
-        if(this.userId == null) {
-            return false;
-        }
         return true;
     }
 
     @Override
     @JsonIgnore
-    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
-        if(code != 202){
-            String json = this.convertInputStreamToString(payload);
-            throw new ResponseException(code, json);
+    public ModelsPartyData parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+        String json = this.convertInputStreamToString(payload);
+        if(code == 200){
+            return new ModelsPartyData().createFromJson(json);
         }
+        throw new ResponseException(code, json);
     }
 
 }

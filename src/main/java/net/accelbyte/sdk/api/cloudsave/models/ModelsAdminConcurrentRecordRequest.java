@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.ugc.models;
+package net.accelbyte.sdk.api.cloudsave.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -25,41 +25,33 @@ import java.util.Map;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ModelsCreatorOverviewResponse extends Model {
+public class ModelsAdminConcurrentRecordRequest extends Model {
 
-    @JsonProperty("followCount")
-    private Integer followCount;
+    @JsonProperty("set_by")
+    private String setBy;
 
-    @JsonProperty("followingCount")
-    private Integer followingCount;
+    @JsonProperty("updatedAt")
+    private String updatedAt;
 
-    @JsonProperty("id")
-    private String id;
-
-    @JsonProperty("namespace")
-    private String namespace;
-
-    @JsonProperty("totalLikedContent")
-    private Integer totalLikedContent;
+    @JsonProperty("value")
+    private Map<String, ?> value;
 
     @JsonIgnore
-    public ModelsCreatorOverviewResponse createFromJson(String json) throws JsonProcessingException {
+    public ModelsAdminConcurrentRecordRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<ModelsCreatorOverviewResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreatorOverviewResponse>>() {});
+    public List<ModelsAdminConcurrentRecordRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAdminConcurrentRecordRequest>>() {});
     }
 
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("followCount", "followCount");
-        result.put("followingCount", "followingCount");
-        result.put("id", "id");
-        result.put("namespace", "namespace");
-        result.put("totalLikedContent", "totalLikedContent");
+        result.put("set_by", "setBy");
+        result.put("updatedAt", "updatedAt");
+        result.put("value", "value");
         return result;
     }
 }

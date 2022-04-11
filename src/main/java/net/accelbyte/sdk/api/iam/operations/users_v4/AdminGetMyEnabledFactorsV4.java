@@ -30,7 +30,7 @@ import java.util.*;
  *
  * 
  * 
- * (In Development)This endpoint is used to get user enabled factors.
+ * This endpoint is used to get user enabled factors.
  * 
  * 
  * 

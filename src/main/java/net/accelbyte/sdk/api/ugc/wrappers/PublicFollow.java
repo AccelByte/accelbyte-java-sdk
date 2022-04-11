@@ -82,4 +82,42 @@ public class PublicFollow {
         }
     }
 
+    /**
+     * @see GetPublicFollowers
+     */
+    public ModelsPaginatedCreatorOverviewResponse getPublicFollowers(GetPublicFollowers input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see GetPublicFollowing
+     */
+    public ModelsPaginatedCreatorOverviewResponse getPublicFollowing(GetPublicFollowing input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
 }

@@ -48,6 +48,9 @@ public class ServiceGetSessionHistorySearchResponseItemV2 extends Model {
     @JsonProperty("status")
     private String status;
 
+    @JsonProperty("sub_game_mode")
+    private List<String> subGameMode;
+
     @JsonIgnore
     public ServiceGetSessionHistorySearchResponseItemV2 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -68,6 +71,7 @@ public class ServiceGetSessionHistorySearchResponseItemV2 extends Model {
         result.put("match_id", "matchId");
         result.put("namespace", "namespace");
         result.put("status", "status");
+        result.put("sub_game_mode", "subGameMode");
         return result;
     }
 }

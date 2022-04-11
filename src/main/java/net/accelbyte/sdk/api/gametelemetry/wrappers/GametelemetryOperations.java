@@ -4,10 +4,10 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.matchmaking.wrappers;
+package net.accelbyte.sdk.api.gametelemetry.wrappers;
 
-import net.accelbyte.sdk.api.matchmaking.models.*;
-import net.accelbyte.sdk.api.matchmaking.operations.operations.*;
+import net.accelbyte.sdk.api.gametelemetry.models.*;
+import net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
 import net.accelbyte.sdk.core.ResponseException;
@@ -17,18 +17,18 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
-public class Operations {
+public class GametelemetryOperations {
 
     private AccelByteSDK sdk;
 
-    public Operations(AccelByteSDK sdk){
+    public GametelemetryOperations(AccelByteSDK sdk){
         this.sdk = sdk;
     }
 
     /**
-     * @see GetHealthcheckInfo
+     * @see AdminGetEventsGameTelemetryV1AdminEventsGet
      */
-    public void getHealthcheckInfo(GetHealthcheckInfo input) throws ResponseException, IOException {
+    public void adminGetEventsGameTelemetryV1AdminEventsGet(AdminGetEventsGameTelemetryV1AdminEventsGet input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -45,9 +45,9 @@ public class Operations {
     }
 
     /**
-     * @see HandlerV3Healthz
+     * @see AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet
      */
-    public void handlerV3Healthz(HandlerV3Healthz input) throws ResponseException, IOException {
+    public void adminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet(AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -64,9 +64,28 @@ public class Operations {
     }
 
     /**
-     * @see PublicGetMessages
+     * @see ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost
      */
-    public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws ResponseException, IOException {
+    public void protectedSaveEventsGameTelemetryV1ProtectedEventsPost(ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet
+     */
+    public Map<String, ?> protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -83,9 +102,9 @@ public class Operations {
     }
 
     /**
-     * @see VersionCheckHandler
+     * @see ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
      */
-    public void versionCheckHandler(VersionCheckHandler input) throws ResponseException, IOException {
+    public void protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut(ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.matchmaking.operations.operations;
+package net.accelbyte.sdk.api.dsmc.operations.dsmc_operations;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,7 +15,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.accelbyte.sdk.api.matchmaking.models.*;
+import net.accelbyte.sdk.api.dsmc.models.*;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -25,26 +25,28 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
- * handlerV3Healthz
+ * publicGetMessages
+ *
+ * get the list of messages.
  */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class HandlerV3Healthz extends Operation {
+public class PublicGetMessages extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/matchmaking/healthz";
+    private String url = "/dsmcontroller/v1/messages";
 
     @JsonIgnore
     private String method = "GET";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList();
+    private List<String> consumes = Arrays.asList("application/json");
 
     @JsonIgnore
-    private List<String> produces = Arrays.asList();
+    private List<String> produces = Arrays.asList("application/json");
 
     @JsonIgnore
     private String security = "Bearer";
@@ -59,13 +61,13 @@ public class HandlerV3Healthz extends Operation {
     /**
     */
     @Builder
-    public HandlerV3Healthz(
+    public PublicGetMessages(
     )
     {
     }
 
     @JsonIgnore
-    public HandlerV3Healthz createFromJson(String json) throws JsonProcessingException {
+    public PublicGetMessages createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -88,11 +90,12 @@ public class HandlerV3Healthz extends Operation {
 
     @Override
     @JsonIgnore
-    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
-        if(code != 200){
-            String json = this.convertInputStreamToString(payload);
-            throw new ResponseException(code, json);
+    public List<LogAppMessageDeclaration> parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+        String json = this.convertInputStreamToString(payload);
+        if(code == 200){
+            return new ObjectMapper().readValue(json, new TypeReference<List<LogAppMessageDeclaration>>() {});
         }
+        throw new ResponseException(code, json);
     }
 
 }

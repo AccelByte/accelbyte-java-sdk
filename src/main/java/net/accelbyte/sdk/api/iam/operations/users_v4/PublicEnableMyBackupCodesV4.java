@@ -30,7 +30,7 @@ import java.util.*;
  *
  * 
  * 
- * (In Development)This endpoint is used to enable 2FA backup codes.
+ * This endpoint is used to enable 2FA backup codes.
  * 
  * 
  * 

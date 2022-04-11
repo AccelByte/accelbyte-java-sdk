@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.iam.operations.users;
+package net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,9 +15,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.accelbyte.sdk.api.iam.models.*;
-import net.accelbyte.sdk.api.iam.models.ModelListBulkUserResponse;
-import net.accelbyte.sdk.api.iam.models.ModelUserIDsRequest;
+import net.accelbyte.sdk.api.gametelemetry.models.*;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -27,38 +25,28 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
- * PublicBulkGetUsers
+ * protected_update_playtime_game_telemetry_v1_protected_steamIds__steamId__playtime__playtime__put
  *
+ * This endpoint requires valid JWT token.
+ * This endpoint does not require permission.
  * 
- * 
- * Notes:
- * 
- * 
- * 
- * 
- *                   * This endpoint bulk get users' basic info by userId, max allowed 100 at a time
- * 
- * 
- *                   * If namespace is game, will search by game user Id, other wise will search by publisher namespace
- * 
- * 
- *                   * Result will include displayName(if it exists)
+ * This endpoint update player's total playtime in a specific game (AppId) from service's cache.
  */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PublicBulkGetUsers extends Operation {
+public class ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/iam/v3/public/namespaces/{namespace}/users/bulk/basic";
+    private String url = "/game-telemetry/v1/protected/steamIds/{steamId}/playtime/{playtime}";
 
     @JsonIgnore
-    private String method = "POST";
+    private String method = "PUT";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList("application/json");
+    private List<String> consumes = Arrays.asList();
 
     @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
@@ -72,25 +60,25 @@ public class PublicBulkGetUsers extends Operation {
     /**
      * fields as input parameter
      */
-    private String namespace;
-    private ModelUserIDsRequest body;
+    private String playtime;
+    private String steamId;
 
     /**
-    * @param namespace required
-    * @param body required
+    * @param playtime required
+    * @param steamId required
     */
     @Builder
-    public PublicBulkGetUsers(
-            String namespace,
-            ModelUserIDsRequest body
+    public ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut(
+            String playtime,
+            String steamId
     )
     {
-        this.namespace = namespace;
-        this.body = body;
+        this.playtime = playtime;
+        this.steamId = steamId;
     }
 
     @JsonIgnore
-    public PublicBulkGetUsers createFromJson(String json) throws JsonProcessingException {
+    public ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -103,18 +91,16 @@ public class PublicBulkGetUsers extends Operation {
     @JsonIgnore
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
+        if (this.playtime != null){
+            pathParams.put("playtime", this.playtime);
+        }
+        if (this.steamId != null){
+            pathParams.put("steamId", this.steamId);
         }
         return pathParams;
     }
 
 
-    @Override
-    @JsonIgnore
-    public ModelUserIDsRequest getBodyParams(){
-        return this.body;
-    }
 
 
     @Override
@@ -126,21 +112,26 @@ public class PublicBulkGetUsers extends Operation {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("namespace","namespace");
+        result.put("playtime","playtime");
+        result.put("steamId","steamId");
         return result;
     }
 
     @JsonIgnore
     public List<String> getAllRequiredFields() {
         return Arrays.asList(
-            "namespace"
+            "playtime",
+            "steamId"
         );
     }
 
     @Override
     @JsonIgnore
     public boolean isValid() {
-        if(this.namespace == null) {
+        if(this.playtime == null) {
+            return false;
+        }
+        if(this.steamId == null) {
             return false;
         }
         return true;
@@ -148,12 +139,11 @@ public class PublicBulkGetUsers extends Operation {
 
     @Override
     @JsonIgnore
-    public ModelListBulkUserResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
-        String json = this.convertInputStreamToString(payload);
-        if(code == 200){
-            return new ModelListBulkUserResponse().createFromJson(json);
+    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+        if(code != 200){
+            String json = this.convertInputStreamToString(payload);
+            throw new ResponseException(code, json);
         }
-        throw new ResponseException(code, json);
     }
 
 }

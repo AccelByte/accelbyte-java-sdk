@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.lobby.operations.operations;
+package net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,9 +15,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.accelbyte.sdk.api.lobby.models.*;
-import net.accelbyte.sdk.api.lobby.models.ModelsPartyData;
-import net.accelbyte.sdk.api.lobby.models.ModelsPartyPUTCustomAttributesRequest;
+import net.accelbyte.sdk.api.gametelemetry.models.*;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -27,27 +25,30 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
- * adminUpdatePartyAttributesV1
+ * protected_get_playtime_game_telemetry_v1_protected_steamIds__steamId__playtime_get
  *
- * Required permission : `ADMIN:NAMESPACE:{namespace}:PARTY:STORAGE [UPDATE]` with scope `social`
+ * This endpoint requires valid JWT token.
+ * This endpoint does not require permission.
  * 
- * update party attributes in a namespace.
+ * This endpoint retrieves player's total playtime in Steam for a specific game (AppId) and store them in service's cache.
+ * 
+ * Players' Steam account must be set into public to enable the service fetch their total playtime data.
  */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AdminUpdatePartyAttributesV1 extends Operation {
+public class ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/lobby/v1/admin/party/namespaces/{namespace}/parties/{partyId}/attributes";
+    private String url = "/game-telemetry/v1/protected/steamIds/{steamId}/playtime";
 
     @JsonIgnore
-    private String method = "PUT";
+    private String method = "GET";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList("application/json");
+    private List<String> consumes = Arrays.asList();
 
     @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
@@ -61,29 +62,21 @@ public class AdminUpdatePartyAttributesV1 extends Operation {
     /**
      * fields as input parameter
      */
-    private String namespace;
-    private String partyId;
-    private ModelsPartyPUTCustomAttributesRequest body;
+    private String steamId;
 
     /**
-    * @param namespace required
-    * @param partyId required
-    * @param body required
+    * @param steamId required
     */
     @Builder
-    public AdminUpdatePartyAttributesV1(
-            String namespace,
-            String partyId,
-            ModelsPartyPUTCustomAttributesRequest body
+    public ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(
+            String steamId
     )
     {
-        this.namespace = namespace;
-        this.partyId = partyId;
-        this.body = body;
+        this.steamId = steamId;
     }
 
     @JsonIgnore
-    public AdminUpdatePartyAttributesV1 createFromJson(String json) throws JsonProcessingException {
+    public ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -96,21 +89,13 @@ public class AdminUpdatePartyAttributesV1 extends Operation {
     @JsonIgnore
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        if (this.partyId != null){
-            pathParams.put("partyId", this.partyId);
+        if (this.steamId != null){
+            pathParams.put("steamId", this.steamId);
         }
         return pathParams;
     }
 
 
-    @Override
-    @JsonIgnore
-    public ModelsPartyPUTCustomAttributesRequest getBodyParams(){
-        return this.body;
-    }
 
 
     @Override
@@ -122,26 +107,21 @@ public class AdminUpdatePartyAttributesV1 extends Operation {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("namespace","namespace");
-        result.put("partyId","partyId");
+        result.put("steamId","steamId");
         return result;
     }
 
     @JsonIgnore
     public List<String> getAllRequiredFields() {
         return Arrays.asList(
-            "namespace",
-            "partyId"
+            "steamId"
         );
     }
 
     @Override
     @JsonIgnore
     public boolean isValid() {
-        if(this.namespace == null) {
-            return false;
-        }
-        if(this.partyId == null) {
+        if(this.steamId == null) {
             return false;
         }
         return true;
@@ -149,10 +129,10 @@ public class AdminUpdatePartyAttributesV1 extends Operation {
 
     @Override
     @JsonIgnore
-    public ModelsPartyData parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public Map<String, ?> parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
-            return new ModelsPartyData().createFromJson(json);
+            return new ObjectMapper().readValue(json, new TypeReference<Map<String, ?>>() {});
         }
         throw new ResponseException(code, json);
     }

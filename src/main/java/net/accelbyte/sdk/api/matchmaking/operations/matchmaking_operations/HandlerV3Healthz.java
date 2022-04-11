@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.matchmaking.operations.operations;
+package net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -25,28 +25,26 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
- * publicGetMessages
- *
- * get the list of messages.
+ * handlerV3Healthz
  */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PublicGetMessages extends Operation {
+public class HandlerV3Healthz extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/matchmaking/v1/messages";
+    private String url = "/matchmaking/healthz";
 
     @JsonIgnore
     private String method = "GET";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList("application/json");
+    private List<String> consumes = Arrays.asList();
 
     @JsonIgnore
-    private List<String> produces = Arrays.asList("application/json");
+    private List<String> produces = Arrays.asList();
 
     @JsonIgnore
     private String security = "Bearer";
@@ -61,13 +59,13 @@ public class PublicGetMessages extends Operation {
     /**
     */
     @Builder
-    public PublicGetMessages(
+    public HandlerV3Healthz(
     )
     {
     }
 
     @JsonIgnore
-    public PublicGetMessages createFromJson(String json) throws JsonProcessingException {
+    public HandlerV3Healthz createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -90,12 +88,11 @@ public class PublicGetMessages extends Operation {
 
     @Override
     @JsonIgnore
-    public List<LogAppMessageDeclaration> parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
-        String json = this.convertInputStreamToString(payload);
-        if(code == 200){
-            return new ObjectMapper().readValue(json, new TypeReference<List<LogAppMessageDeclaration>>() {});
+    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+        if(code != 200){
+            String json = this.convertInputStreamToString(payload);
+            throw new ResponseException(code, json);
         }
-        throw new ResponseException(code, json);
     }
 
 }

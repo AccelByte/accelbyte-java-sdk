@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.iam.operations.users;
+package net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,9 +15,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.accelbyte.sdk.api.iam.models.*;
-import net.accelbyte.sdk.api.iam.models.ModelListBulkUserResponse;
-import net.accelbyte.sdk.api.iam.models.ModelUserIDsRequest;
+import net.accelbyte.sdk.api.gametelemetry.models.*;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -27,38 +25,41 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
- * PublicBulkGetUsers
+ * admin_get_events_game_telemetry_v1_admin_events_get
  *
+ * This endpoint requires valid JWT token and permission **ADMIN:ANALYTICS:TELEMETRY:{EventNamespace}** **READ**.
+ * 
+ * This endpoint retrieve the latest event from each event name on specific namespace.
  * 
  * 
- * Notes:
+ * 
+ * Parameter:
+ * 
+ * - **Namespace (required) (case-sensitive)**: telemetry namespace.
+ * 
+ * 
+ * Only accept input with valid characters. Allowed characters: Aa-Zz0-9_.-
  * 
  * 
  * 
  * 
- *                   * This endpoint bulk get users' basic info by userId, max allowed 100 at a time
- * 
- * 
- *                   * If namespace is game, will search by game user Id, other wise will search by publisher namespace
- * 
- * 
- *                   * Result will include displayName(if it exists)
+ * Example: accelbyte or accelbyte.game2
  */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PublicBulkGetUsers extends Operation {
+public class AdminGetEventsGameTelemetryV1AdminEventsGet extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/iam/v3/public/namespaces/{namespace}/users/bulk/basic";
+    private String url = "/game-telemetry/v1/admin/events";
 
     @JsonIgnore
-    private String method = "POST";
+    private String method = "GET";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList("application/json");
+    private List<String> consumes = Arrays.asList();
 
     @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
@@ -73,24 +74,20 @@ public class PublicBulkGetUsers extends Operation {
      * fields as input parameter
      */
     private String namespace;
-    private ModelUserIDsRequest body;
 
     /**
     * @param namespace required
-    * @param body required
     */
     @Builder
-    public PublicBulkGetUsers(
-            String namespace,
-            ModelUserIDsRequest body
+    public AdminGetEventsGameTelemetryV1AdminEventsGet(
+            String namespace
     )
     {
         this.namespace = namespace;
-        this.body = body;
     }
 
     @JsonIgnore
-    public PublicBulkGetUsers createFromJson(String json) throws JsonProcessingException {
+    public AdminGetEventsGameTelemetryV1AdminEventsGet createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -99,22 +96,15 @@ public class PublicBulkGetUsers extends Operation {
         return new ObjectMapper().writeValueAsString(this);
     }
 
-    @Override
-    @JsonIgnore
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        return pathParams;
-    }
-
 
     @Override
     @JsonIgnore
-    public ModelUserIDsRequest getBodyParams(){
-        return this.body;
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("namespace", this.namespace == null ? null : Arrays.asList(this.namespace));
+        return queryParams;
     }
+
 
 
     @Override
@@ -148,12 +138,17 @@ public class PublicBulkGetUsers extends Operation {
 
     @Override
     @JsonIgnore
-    public ModelListBulkUserResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
-        String json = this.convertInputStreamToString(payload);
-        if(code == 200){
-            return new ModelListBulkUserResponse().createFromJson(json);
+    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+        if(code != 200){
+            String json = this.convertInputStreamToString(payload);
+            throw new ResponseException(code, json);
         }
-        throw new ResponseException(code, json);
     }
 
+    @Override
+    public Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("namespace", "None");
+        return result;
+    }
 }

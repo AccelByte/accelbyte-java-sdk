@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.iam.operations.users;
+package net.accelbyte.sdk.api.ugc.operations.public_follow;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,9 +15,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.accelbyte.sdk.api.iam.models.*;
-import net.accelbyte.sdk.api.iam.models.ModelListBulkUserResponse;
-import net.accelbyte.sdk.api.iam.models.ModelUserIDsRequest;
+import net.accelbyte.sdk.api.ugc.models.*;
+import net.accelbyte.sdk.api.ugc.models.ModelsPaginatedCreatorOverviewResponse;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -27,38 +26,23 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
- * PublicBulkGetUsers
- *
- * 
- * 
- * Notes:
- * 
- * 
- * 
- * 
- *                   * This endpoint bulk get users' basic info by userId, max allowed 100 at a time
- * 
- * 
- *                   * If namespace is game, will search by game user Id, other wise will search by publisher namespace
- * 
- * 
- *                   * Result will include displayName(if it exists)
+ * GetPublicFollowing
  */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PublicBulkGetUsers extends Operation {
+public class GetPublicFollowing extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/iam/v3/public/namespaces/{namespace}/users/bulk/basic";
+    private String url = "/ugc/v1/public/namespaces/{namespace}/users/{userId}/following";
 
     @JsonIgnore
-    private String method = "POST";
+    private String method = "GET";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList("application/json");
+    private List<String> consumes = Arrays.asList("application/json","application/octet-stream");
 
     @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
@@ -73,24 +57,30 @@ public class PublicBulkGetUsers extends Operation {
      * fields as input parameter
      */
     private String namespace;
-    private ModelUserIDsRequest body;
+    private String userId;
+    private String limit;
+    private String offset;
 
     /**
     * @param namespace required
-    * @param body required
+    * @param userId required
     */
     @Builder
-    public PublicBulkGetUsers(
+    public GetPublicFollowing(
             String namespace,
-            ModelUserIDsRequest body
+            String userId,
+            String limit,
+            String offset
     )
     {
         this.namespace = namespace;
-        this.body = body;
+        this.userId = userId;
+        this.limit = limit;
+        this.offset = offset;
     }
 
     @JsonIgnore
-    public PublicBulkGetUsers createFromJson(String json) throws JsonProcessingException {
+    public GetPublicFollowing createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -106,15 +96,21 @@ public class PublicBulkGetUsers extends Operation {
         if (this.namespace != null){
             pathParams.put("namespace", this.namespace);
         }
+        if (this.userId != null){
+            pathParams.put("userId", this.userId);
+        }
         return pathParams;
     }
 
-
     @Override
     @JsonIgnore
-    public ModelUserIDsRequest getBodyParams(){
-        return this.body;
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("limit", this.limit == null ? null : Arrays.asList(this.limit));
+        queryParams.put("offset", this.offset == null ? null : Arrays.asList(this.offset));
+        return queryParams;
     }
+
 
 
     @Override
@@ -127,13 +123,17 @@ public class PublicBulkGetUsers extends Operation {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("namespace","namespace");
+        result.put("userId","userId");
+        result.put("limit","limit");
+        result.put("offset","offset");
         return result;
     }
 
     @JsonIgnore
     public List<String> getAllRequiredFields() {
         return Arrays.asList(
-            "namespace"
+            "namespace",
+            "userId"
         );
     }
 
@@ -143,17 +143,27 @@ public class PublicBulkGetUsers extends Operation {
         if(this.namespace == null) {
             return false;
         }
+        if(this.userId == null) {
+            return false;
+        }
         return true;
     }
 
     @Override
     @JsonIgnore
-    public ModelListBulkUserResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public ModelsPaginatedCreatorOverviewResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
-            return new ModelListBulkUserResponse().createFromJson(json);
+            return new ModelsPaginatedCreatorOverviewResponse().createFromJson(json);
         }
         throw new ResponseException(code, json);
     }
 
+    @Override
+    public Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("limit", "None");
+        result.put("offset", "None");
+        return result;
+    }
 }

@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.iam.operations.users_v4;
+package net.accelbyte.sdk.api.dslogmanager.operations.dslogmanager_operations;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,8 +15,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.accelbyte.sdk.api.iam.models.*;
-import net.accelbyte.sdk.api.iam.models.ModelBackupCodesResponseV4;
+import net.accelbyte.sdk.api.dslogmanager.models.*;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -26,32 +25,25 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
- * AdminEnableMyBackupCodesV4
+ * publicGetMessages
  *
- * 
- * 
- * This endpoint is used to enable 2FA backup codes.
- * 
- * 
- * 
- * 
- * This endpoint Requires valid user access token
+ * get the list of messages.
  */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AdminEnableMyBackupCodesV4 extends Operation {
+public class PublicGetMessages extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/iam/v4/admin/users/me/mfa/backupCode/enable";
+    private String url = "/dslogmanager/v1/messages";
 
     @JsonIgnore
-    private String method = "POST";
+    private String method = "GET";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList();
+    private List<String> consumes = Arrays.asList("application/json");
 
     @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
@@ -69,13 +61,13 @@ public class AdminEnableMyBackupCodesV4 extends Operation {
     /**
     */
     @Builder
-    public AdminEnableMyBackupCodesV4(
+    public PublicGetMessages(
     )
     {
     }
 
     @JsonIgnore
-    public AdminEnableMyBackupCodesV4 createFromJson(String json) throws JsonProcessingException {
+    public PublicGetMessages createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -98,10 +90,10 @@ public class AdminEnableMyBackupCodesV4 extends Operation {
 
     @Override
     @JsonIgnore
-    public ModelBackupCodesResponseV4 parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public List<LogAppMessageDeclaration> parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
-            return new ModelBackupCodesResponseV4().createFromJson(json);
+            return new ObjectMapper().readValue(json, new TypeReference<List<LogAppMessageDeclaration>>() {});
         }
         throw new ResponseException(code, json);
     }

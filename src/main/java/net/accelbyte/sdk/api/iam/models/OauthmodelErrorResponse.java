@@ -27,6 +27,9 @@ import java.util.Map;
 @NoArgsConstructor
 public class OauthmodelErrorResponse extends Model {
 
+    @JsonProperty("default_factor")
+    private String defaultFactor;
+
     @JsonProperty("error")
     private String error;
 
@@ -35,6 +38,12 @@ public class OauthmodelErrorResponse extends Model {
 
     @JsonProperty("error_uri")
     private String errorUri;
+
+    @JsonProperty("factors")
+    private List<String> factors;
+
+    @JsonProperty("mfa_token")
+    private String mfaToken;
 
     @JsonIgnore
     public OauthmodelErrorResponse createFromJson(String json) throws JsonProcessingException {
@@ -49,9 +58,12 @@ public class OauthmodelErrorResponse extends Model {
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
+        result.put("default_factor", "defaultFactor");
         result.put("error", "error");
         result.put("error_description", "errorDescription");
         result.put("error_uri", "errorUri");
+        result.put("factors", "factors");
+        result.put("mfa_token", "mfaToken");
         return result;
     }
 }

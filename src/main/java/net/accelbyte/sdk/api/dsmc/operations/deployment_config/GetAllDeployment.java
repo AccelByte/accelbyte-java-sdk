@@ -64,6 +64,7 @@ public class GetAllDeployment extends Operation {
      */
     private String namespace;
     private Integer count;
+    private String name;
     private Integer offset;
 
     /**
@@ -73,11 +74,13 @@ public class GetAllDeployment extends Operation {
     public GetAllDeployment(
             String namespace,
             Integer count,
+            String name,
             Integer offset
     )
     {
         this.namespace = namespace;
         this.count = count;
+        this.name = name;
         this.offset = offset;
     }
 
@@ -106,6 +109,7 @@ public class GetAllDeployment extends Operation {
     public Map<String, List<String>> getQueryParams(){
         Map<String, List<String>> queryParams = new HashMap<>();
         queryParams.put("count", this.count == null ? null : Arrays.asList(String.valueOf(this.count)));
+        queryParams.put("name", this.name == null ? null : Arrays.asList(this.name));
         queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
         return queryParams;
     }
@@ -123,6 +127,7 @@ public class GetAllDeployment extends Operation {
         Map<String, String> result = new HashMap<>();
         result.put("namespace","namespace");
         result.put("count","count");
+        result.put("name","name");
         result.put("offset","offset");
         return result;
     }
@@ -157,6 +162,7 @@ public class GetAllDeployment extends Operation {
     public Map<String, String> getCollectionFormatMap() {
         Map<String, String> result = new HashMap<>();
         result.put("count", "None");
+        result.put("name", "None");
         result.put("offset", "None");
         return result;
     }

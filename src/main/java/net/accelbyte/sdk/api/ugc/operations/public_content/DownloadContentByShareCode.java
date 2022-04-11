@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * DownloadContentByShareCode
  *
- * Requires valid user token
+ * Public user can access without token or if token specified, requires valid user token
  */
 @Getter
 @Setter

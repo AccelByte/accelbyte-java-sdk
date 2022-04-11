@@ -48,14 +48,26 @@ public class ModelThirdPartyLoginPlatformCredentialRequest extends Model {
     @JsonProperty("FederationMetadataURL")
     private String federationMetadataURL;
 
+    @JsonProperty("GenericOauthFlow")
+    private Boolean genericOauthFlow;
+
     @JsonProperty("IsActive")
     private Boolean isActive;
+
+    @JsonProperty("Issuer")
+    private String issuer;
+
+    @JsonProperty("JWKSEndpoint")
+    private String jwksEndpoint;
 
     @JsonProperty("KeyID")
     private String keyID;
 
     @JsonProperty("OrganizationId")
     private String organizationId;
+
+    @JsonProperty("PlatformName")
+    private String platformName;
 
     @JsonProperty("RedirectUri")
     private String redirectUri;
@@ -65,6 +77,12 @@ public class ModelThirdPartyLoginPlatformCredentialRequest extends Model {
 
     @JsonProperty("TeamID")
     private String teamID;
+
+    @JsonProperty("TokenAuthenticationType")
+    private String tokenAuthenticationType;
+
+    @JsonProperty("TokenClaimsMapping")
+    private Map<String, String> tokenClaimsMapping;
 
     @JsonIgnore
     public ModelThirdPartyLoginPlatformCredentialRequest createFromJson(String json) throws JsonProcessingException {
@@ -86,12 +104,18 @@ public class ModelThirdPartyLoginPlatformCredentialRequest extends Model {
         result.put("ClientId", "clientId");
         result.put("Environment", "environment");
         result.put("FederationMetadataURL", "federationMetadataURL");
+        result.put("GenericOauthFlow", "genericOauthFlow");
         result.put("IsActive", "isActive");
+        result.put("Issuer", "issuer");
+        result.put("JWKSEndpoint", "jwksEndpoint");
         result.put("KeyID", "keyID");
         result.put("OrganizationId", "organizationId");
+        result.put("PlatformName", "platformName");
         result.put("RedirectUri", "redirectUri");
         result.put("Secret", "secret");
         result.put("TeamID", "teamID");
+        result.put("TokenAuthenticationType", "tokenAuthenticationType");
+        result.put("TokenClaimsMapping", "tokenClaimsMapping");
         return result;
     }
 }

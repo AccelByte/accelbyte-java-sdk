@@ -4,10 +4,10 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.dslogmanager.wrappers;
+package net.accelbyte.sdk.api.dsmc.wrappers;
 
-import net.accelbyte.sdk.api.dslogmanager.models.*;
-import net.accelbyte.sdk.api.dslogmanager.operations.operations.*;
+import net.accelbyte.sdk.api.dsmc.models.*;
+import net.accelbyte.sdk.api.dsmc.operations.dsmc_operations.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
 import net.accelbyte.sdk.core.ResponseException;
@@ -17,11 +17,11 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
-public class Operations {
+public class DsmcOperations {
 
     private AccelByteSDK sdk;
 
-    public Operations(AccelByteSDK sdk){
+    public DsmcOperations(AccelByteSDK sdk){
         this.sdk = sdk;
     }
 

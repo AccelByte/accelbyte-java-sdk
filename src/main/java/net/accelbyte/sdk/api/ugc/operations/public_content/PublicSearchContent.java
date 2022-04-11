@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * PublicSearchContent
  *
- * Requires valid user token
+ * Public user can access without token or if token specified, requires valid user token
  */
 @Getter
 @Setter

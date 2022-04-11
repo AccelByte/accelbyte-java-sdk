@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.gametelemetry.operations.operations;
+package net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -16,6 +16,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import net.accelbyte.sdk.api.gametelemetry.models.*;
+import net.accelbyte.sdk.api.gametelemetry.models.TelemetryBody;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -25,28 +26,67 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
- * protected_update_playtime_game_telemetry_v1_protected_steamIds__steamId__playtime__playtime__put
+ * protected_save_events_game_telemetry_v1_protected_events_post
  *
  * This endpoint requires valid JWT token.
  * This endpoint does not require permission.
  * 
- * This endpoint update player's total playtime in a specific game (AppId) from service's cache.
+ * This endpoint send events into designated streaming pipeline and each request can contain single or multiple events.
+ * 
+ * 
+ * Format of the event:
+ * 
+ * - **EventNamespace (required)**: namespace of the relevant game with domain name format.
+ * 
+ * 
+ * Only accept input with valid characters. Allowed characters: Aa-Zz0-9_.-
+ * 
+ * 
+ * 
+ * 
+ * It is encouraged to use alphanumeric only characters. _.- will be deprecated soon
+ * 
+ * 
+ * 
+ * 
+ * Example: io.accelbyte.justice.dev.samplegame
+ * 
+ * 
+ * 
+ * - **EventName (required)**: name of the event.
+ * 
+ * 
+ * Only accept input with valid characters. Allowed characters: Aa-Zz0-9_.-
+ * 
+ * 
+ * 
+ * 
+ * It is encouraged to use alphanumeric only characters. _.- will be deprecated soon
+ * 
+ * 
+ * 
+ * 
+ * Example: player_killed, mission_accomplished
+ * 
+ * 
+ * 
+ * - **Payload (required)**: an arbitrary json with the payload of the said event
  */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut extends Operation {
+public class ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/game-telemetry/v1/protected/steamIds/{steamId}/playtime/{playtime}";
+    private String url = "/game-telemetry/v1/protected/events";
 
     @JsonIgnore
-    private String method = "PUT";
+    private String method = "POST";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList();
+    private List<String> consumes = Arrays.asList("application/json");
 
     @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
@@ -60,25 +100,21 @@ public class ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlayt
     /**
      * fields as input parameter
      */
-    private String playtime;
-    private String steamId;
+    private List<TelemetryBody> body;
 
     /**
-    * @param playtime required
-    * @param steamId required
+    * @param body required
     */
     @Builder
-    public ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut(
-            String playtime,
-            String steamId
+    public ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost(
+            List<TelemetryBody> body
     )
     {
-        this.playtime = playtime;
-        this.steamId = steamId;
+        this.body = body;
     }
 
     @JsonIgnore
-    public ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut createFromJson(String json) throws JsonProcessingException {
+    public ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -87,20 +123,13 @@ public class ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlayt
         return new ObjectMapper().writeValueAsString(this);
     }
 
+
+
     @Override
     @JsonIgnore
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.playtime != null){
-            pathParams.put("playtime", this.playtime);
-        }
-        if (this.steamId != null){
-            pathParams.put("steamId", this.steamId);
-        }
-        return pathParams;
+    public List<TelemetryBody> getBodyParams(){
+        return this.body;
     }
-
-
 
 
     @Override
@@ -109,38 +138,23 @@ public class ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlayt
         return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("playtime","playtime");
-        result.put("steamId","steamId");
-        return result;
-    }
 
     @JsonIgnore
     public List<String> getAllRequiredFields() {
         return Arrays.asList(
-            "playtime",
-            "steamId"
         );
     }
 
     @Override
     @JsonIgnore
     public boolean isValid() {
-        if(this.playtime == null) {
-            return false;
-        }
-        if(this.steamId == null) {
-            return false;
-        }
         return true;
     }
 
     @Override
     @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
-        if(code != 200){
+        if(code != 204){
             String json = this.convertInputStreamToString(payload);
             throw new ResponseException(code, json);
         }

@@ -30,6 +30,9 @@ public class AcceptAgreementRequest extends Model {
     @JsonProperty("isAccepted")
     private Boolean isAccepted;
 
+    @JsonProperty("isNeedToSendEventMarketing")
+    private Boolean isNeedToSendEventMarketing;
+
     @JsonProperty("localizedPolicyVersionId")
     private String localizedPolicyVersionId;
 
@@ -53,6 +56,7 @@ public class AcceptAgreementRequest extends Model {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("isAccepted", "isAccepted");
+        result.put("isNeedToSendEventMarketing", "isNeedToSendEventMarketing");
         result.put("localizedPolicyVersionId", "localizedPolicyVersionId");
         result.put("policyId", "policyId");
         result.put("policyVersionId", "policyVersionId");

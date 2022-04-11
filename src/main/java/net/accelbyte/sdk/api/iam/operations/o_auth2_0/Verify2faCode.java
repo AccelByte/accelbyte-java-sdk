@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Verify2FACode
  *
- * Verify 2FA code(In Development)
+ * Verify 2FA code
  * 
  * 
  * 

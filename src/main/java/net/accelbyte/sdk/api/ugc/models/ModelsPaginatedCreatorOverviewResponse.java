@@ -30,6 +30,9 @@ public class ModelsPaginatedCreatorOverviewResponse extends Model {
     @JsonProperty("data")
     private List<ModelsCreatorOverviewResponse> data;
 
+    @JsonProperty("paging")
+    private ModelsPagingCursor paging;
+
     @JsonIgnore
     public ModelsPaginatedCreatorOverviewResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -44,6 +47,7 @@ public class ModelsPaginatedCreatorOverviewResponse extends Model {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("data", "data");
+        result.put("paging", "paging");
         return result;
     }
 }

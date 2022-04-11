@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.gametelemetry.operations.operations;
+package net.accelbyte.sdk.api.lobby.operations.lobby_operations;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,8 +15,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.accelbyte.sdk.api.gametelemetry.models.*;
-import net.accelbyte.sdk.api.gametelemetry.models.TelemetryBody;
+import net.accelbyte.sdk.api.lobby.models.*;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -26,51 +25,21 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
- * protected_save_events_game_telemetry_v1_protected_events_post
+ * adminJoinPartyV1
  *
- * This endpoint requires valid JWT token.
- * This endpoint does not require permission.
+ * Required permission : `ADMIN:NAMESPACE:{namespace}:PARTY:STORAGE [UPDATE]` with scope `social`
  * 
- * This endpoint send events into designated streaming pipeline and each request can contain single or multiple events.
- * 
- * 
- * Format of the event:
- * 
- * - **EventNamespace (required)**: namespace of the relevant game with domain name format.
- * 
- * 
- * Only accept input with valid characters. Allowed characters: Aa-Zz0-9_.-
- * 
- * 
- * 
- * 
- * Example: io.accelbyte.justice.dev.samplegame
- * 
- * 
- * 
- * - **EventName (required)**: name of the event.
- * 
- * 
- * Only accept input with valid characters. Allowed characters: Aa-Zz0-9_.-
- * 
- * 
- * 
- * 
- * Example: player_killed, mission_accomplished
- * 
- * 
- * 
- * - **Payload (required)**: an arbitrary json with the payload of the said event
+ * admin join a player into a party.
  */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost extends Operation {
+public class AdminJoinPartyV1 extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/game-telemetry/v1/protected/events";
+    private String url = "/lobby/v1/admin/party/namespaces/{namespace}/parties/{partyId}/join/{userId}";
 
     @JsonIgnore
     private String method = "POST";
@@ -90,21 +59,29 @@ public class ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost extends Opera
     /**
      * fields as input parameter
      */
-    private List<TelemetryBody> body;
+    private String namespace;
+    private String partyId;
+    private String userId;
 
     /**
-    * @param body required
+    * @param namespace required
+    * @param partyId required
+    * @param userId required
     */
     @Builder
-    public ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost(
-            List<TelemetryBody> body
+    public AdminJoinPartyV1(
+            String namespace,
+            String partyId,
+            String userId
     )
     {
-        this.body = body;
+        this.namespace = namespace;
+        this.partyId = partyId;
+        this.userId = userId;
     }
 
     @JsonIgnore
-    public ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost createFromJson(String json) throws JsonProcessingException {
+    public AdminJoinPartyV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -113,13 +90,23 @@ public class ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost extends Opera
         return new ObjectMapper().writeValueAsString(this);
     }
 
-
-
     @Override
     @JsonIgnore
-    public List<TelemetryBody> getBodyParams(){
-        return this.body;
+    public Map<String, String> getPathParams(){
+        Map<String, String> pathParams = new HashMap<>();
+        if (this.namespace != null){
+            pathParams.put("namespace", this.namespace);
+        }
+        if (this.partyId != null){
+            pathParams.put("partyId", this.partyId);
+        }
+        if (this.userId != null){
+            pathParams.put("userId", this.userId);
+        }
+        return pathParams;
     }
+
+
 
 
     @Override
@@ -128,23 +115,43 @@ public class ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost extends Opera
         return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
+    @JsonIgnore
+    public static Map<String, String> getFieldInfo() {
+        Map<String, String> result = new HashMap<>();
+        result.put("namespace","namespace");
+        result.put("partyId","partyId");
+        result.put("userId","userId");
+        return result;
+    }
 
     @JsonIgnore
     public List<String> getAllRequiredFields() {
         return Arrays.asList(
+            "namespace",
+            "partyId",
+            "userId"
         );
     }
 
     @Override
     @JsonIgnore
     public boolean isValid() {
+        if(this.namespace == null) {
+            return false;
+        }
+        if(this.partyId == null) {
+            return false;
+        }
+        if(this.userId == null) {
+            return false;
+        }
         return true;
     }
 
     @Override
     @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
-        if(code != 204){
+        if(code != 202){
             String json = this.convertInputStreamToString(payload);
             throw new ResponseException(code, json);
         }

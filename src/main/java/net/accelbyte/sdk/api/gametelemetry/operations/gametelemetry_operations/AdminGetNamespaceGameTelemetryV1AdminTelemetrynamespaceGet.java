@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.dslogmanager.operations.operations;
+package net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,7 +15,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.accelbyte.sdk.api.dslogmanager.models.*;
+import net.accelbyte.sdk.api.gametelemetry.models.*;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -25,25 +25,27 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
- * publicGetMessages
+ * admin_get_namespace_game_telemetry_v1_admin_telemetrynamespace_get
  *
- * get the list of messages.
+ * This endpoint requires valid JWT token and permission **ADMIN:ANALYTICS:TELEMETRY:{EventNamespace}** **READ**.
+ * 
+ * This endpoint retrieve namespace from kafka topic.
  */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PublicGetMessages extends Operation {
+public class AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/dslogmanager/v1/messages";
+    private String url = "/game-telemetry/v1/admin/telemetrynamespace";
 
     @JsonIgnore
     private String method = "GET";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList("application/json");
+    private List<String> consumes = Arrays.asList();
 
     @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
@@ -61,13 +63,13 @@ public class PublicGetMessages extends Operation {
     /**
     */
     @Builder
-    public PublicGetMessages(
+    public AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet(
     )
     {
     }
 
     @JsonIgnore
-    public PublicGetMessages createFromJson(String json) throws JsonProcessingException {
+    public AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -90,12 +92,11 @@ public class PublicGetMessages extends Operation {
 
     @Override
     @JsonIgnore
-    public List<LogAppMessageDeclaration> parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
-        String json = this.convertInputStreamToString(payload);
-        if(code == 200){
-            return new ObjectMapper().readValue(json, new TypeReference<List<LogAppMessageDeclaration>>() {});
+    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+        if(code != 200){
+            String json = this.convertInputStreamToString(payload);
+            throw new ResponseException(code, json);
         }
-        throw new ResponseException(code, json);
     }
 
 }

@@ -29,7 +29,7 @@ import java.util.*;
  *
  * 
  * 
- * (In Development)This endpoint is used to download backup codes.
+ * This endpoint is used to download backup codes.
  * 
  * 
  * 

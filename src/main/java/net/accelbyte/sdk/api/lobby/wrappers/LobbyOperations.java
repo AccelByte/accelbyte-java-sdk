@@ -4,10 +4,10 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.gametelemetry.wrappers;
+package net.accelbyte.sdk.api.lobby.wrappers;
 
-import net.accelbyte.sdk.api.gametelemetry.models.*;
-import net.accelbyte.sdk.api.gametelemetry.operations.operations.*;
+import net.accelbyte.sdk.api.lobby.models.*;
+import net.accelbyte.sdk.api.lobby.operations.lobby_operations.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
 import net.accelbyte.sdk.core.ResponseException;
@@ -17,37 +17,18 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
-public class Operations {
+public class LobbyOperations {
 
     private AccelByteSDK sdk;
 
-    public Operations(AccelByteSDK sdk){
+    public LobbyOperations(AccelByteSDK sdk){
         this.sdk = sdk;
     }
 
     /**
-     * @see ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost
+     * @see AdminUpdatePartyAttributesV1
      */
-    public void protectedSaveEventsGameTelemetryV1ProtectedEventsPost(ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost input) throws ResponseException, IOException {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          input
-              .handleEmptyResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
-    }
-
-    /**
-     * @see ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet
-     */
-    public Integer protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet input) throws ResponseException, IOException {
+    public ModelsPartyData adminUpdatePartyAttributesV1(AdminUpdatePartyAttributesV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -64,14 +45,33 @@ public class Operations {
     }
 
     /**
-     * @see ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
+     * @see AdminJoinPartyV1
      */
-    public void protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut(ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut input) throws ResponseException, IOException {
+    public void adminJoinPartyV1(AdminJoinPartyV1 input) throws ResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
           input
               .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see PublicGetMessages
+     */
+    public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
           );
         }

@@ -30,6 +30,9 @@ public class ModelsConfigReq extends Model {
     @JsonProperty("allowInviteNonConnectedUser")
     private Boolean allowInviteNonConnectedUser;
 
+    @JsonProperty("allowJoinPartyDuringMatchmaking")
+    private Boolean allowJoinPartyDuringMatchmaking;
+
     @JsonProperty("autoKickOnDisconnect")
     private Boolean autoKickOnDisconnect;
 
@@ -48,8 +51,8 @@ public class ModelsConfigReq extends Model {
     @JsonProperty("concurrentUsersLimit")
     private Integer concurrentUsersLimit;
 
-    @JsonProperty("disablePartyInvitationToken")
-    private Boolean disablePartyInvitationToken;
+    @JsonProperty("disableInvitationOnJoinParty")
+    private Boolean disableInvitationOnJoinParty;
 
     @JsonProperty("enableChat")
     private Boolean enableChat;
@@ -92,13 +95,14 @@ public class ModelsConfigReq extends Model {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         result.put("allowInviteNonConnectedUser", "allowInviteNonConnectedUser");
+        result.put("allowJoinPartyDuringMatchmaking", "allowJoinPartyDuringMatchmaking");
         result.put("autoKickOnDisconnect", "autoKickOnDisconnect");
         result.put("autoKickOnDisconnectDelay", "autoKickOnDisconnectDelay");
         result.put("cancelTicketOnDisconnect", "cancelTicketOnDisconnect");
         result.put("chatRateLimitBurst", "chatRateLimitBurst");
         result.put("chatRateLimitDuration", "chatRateLimitDuration");
         result.put("concurrentUsersLimit", "concurrentUsersLimit");
-        result.put("disablePartyInvitationToken", "disablePartyInvitationToken");
+        result.put("disableInvitationOnJoinParty", "disableInvitationOnJoinParty");
         result.put("enableChat", "enableChat");
         result.put("entitlementCheck", "entitlementCheck");
         result.put("entitlementItemID", "entitlementItemID");

@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.lobby.operations.operations;
+package net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,7 +15,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.accelbyte.sdk.api.lobby.models.*;
+import net.accelbyte.sdk.api.matchmaking.models.*;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -37,7 +37,7 @@ public class PublicGetMessages extends Operation {
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/lobby/v1/messages";
+    private String url = "/matchmaking/v1/messages";
 
     @JsonIgnore
     private String method = "GET";

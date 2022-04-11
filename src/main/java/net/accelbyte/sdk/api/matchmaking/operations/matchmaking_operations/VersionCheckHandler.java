@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.matchmaking.operations.operations;
+package net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -25,17 +25,17 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
- * GetHealthcheckInfo
+ * versionCheckHandler
  */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GetHealthcheckInfo extends Operation {
+public class VersionCheckHandler extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/healthz";
+    private String url = "/matchmaking/version";
 
     @JsonIgnore
     private String method = "GET";
@@ -59,13 +59,13 @@ public class GetHealthcheckInfo extends Operation {
     /**
     */
     @Builder
-    public GetHealthcheckInfo(
+    public VersionCheckHandler(
     )
     {
     }
 
     @JsonIgnore
-    public GetHealthcheckInfo createFromJson(String json) throws JsonProcessingException {
+    public VersionCheckHandler createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 

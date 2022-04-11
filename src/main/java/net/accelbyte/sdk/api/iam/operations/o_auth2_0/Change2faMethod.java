@@ -27,7 +27,7 @@ import java.util.*;
 /**
  * Change2FAMethod
  *
- * Change 2FA method(In Development)
+ * Change 2FA method
  * 
  * 
  * 

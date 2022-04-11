@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * PublicGetUserContent
  *
- * Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [READ].
+ * Public user can access without token or if token specified, required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [READ].
  */
 @Getter
 @Setter

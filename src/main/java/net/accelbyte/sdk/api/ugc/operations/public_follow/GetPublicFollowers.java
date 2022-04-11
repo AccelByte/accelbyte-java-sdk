@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.api.gametelemetry.operations.operations;
+package net.accelbyte.sdk.api.ugc.operations.public_follow;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,7 +15,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.accelbyte.sdk.api.gametelemetry.models.*;
+import net.accelbyte.sdk.api.ugc.models.*;
+import net.accelbyte.sdk.api.ugc.models.ModelsPaginatedCreatorOverviewResponse;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
 
@@ -25,30 +26,23 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
- * protected_get_playtime_game_telemetry_v1_protected_steamIds__steamId__playtime_get
- *
- * This endpoint requires valid JWT token.
- * This endpoint does not require permission.
- * 
- * This endpoint retrieves player's total playtime in Steam for a specific game (AppId) and store them in service's cache.
- * 
- * Players' Steam account must be set into public to enable the service fetch their total playtime data.
+ * GetPublicFollowers
  */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet extends Operation {
+public class GetPublicFollowers extends Operation {
     /**
      * generated field's value
      */
     @JsonIgnore
-    private String url = "/game-telemetry/v1/protected/steamIds/{steamId}/playtime";
+    private String url = "/ugc/v1/public/namespaces/{namespace}/users/{userId}/followers";
 
     @JsonIgnore
     private String method = "GET";
 
     @JsonIgnore
-    private List<String> consumes = Arrays.asList();
+    private List<String> consumes = Arrays.asList("application/json","application/octet-stream");
 
     @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
@@ -62,21 +56,31 @@ public class ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytime
     /**
      * fields as input parameter
      */
-    private String steamId;
+    private String namespace;
+    private String userId;
+    private String limit;
+    private String offset;
 
     /**
-    * @param steamId required
+    * @param namespace required
+    * @param userId required
     */
     @Builder
-    public ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(
-            String steamId
+    public GetPublicFollowers(
+            String namespace,
+            String userId,
+            String limit,
+            String offset
     )
     {
-        this.steamId = steamId;
+        this.namespace = namespace;
+        this.userId = userId;
+        this.limit = limit;
+        this.offset = offset;
     }
 
     @JsonIgnore
-    public ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet createFromJson(String json) throws JsonProcessingException {
+    public GetPublicFollowers createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
@@ -89,12 +93,23 @@ public class ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytime
     @JsonIgnore
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
-        if (this.steamId != null){
-            pathParams.put("steamId", this.steamId);
+        if (this.namespace != null){
+            pathParams.put("namespace", this.namespace);
+        }
+        if (this.userId != null){
+            pathParams.put("userId", this.userId);
         }
         return pathParams;
     }
 
+    @Override
+    @JsonIgnore
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("limit", this.limit == null ? null : Arrays.asList(this.limit));
+        queryParams.put("offset", this.offset == null ? null : Arrays.asList(this.offset));
+        return queryParams;
+    }
 
 
 
@@ -107,21 +122,28 @@ public class ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytime
     @JsonIgnore
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
-        result.put("steamId","steamId");
+        result.put("namespace","namespace");
+        result.put("userId","userId");
+        result.put("limit","limit");
+        result.put("offset","offset");
         return result;
     }
 
     @JsonIgnore
     public List<String> getAllRequiredFields() {
         return Arrays.asList(
-            "steamId"
+            "namespace",
+            "userId"
         );
     }
 
     @Override
     @JsonIgnore
     public boolean isValid() {
-        if(this.steamId == null) {
+        if(this.namespace == null) {
+            return false;
+        }
+        if(this.userId == null) {
             return false;
         }
         return true;
@@ -129,15 +151,19 @@ public class ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytime
 
     @Override
     @JsonIgnore
-    public Integer parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public ModelsPaginatedCreatorOverviewResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
-            try (Scanner scanner = new Scanner(json)) {
-                String result = scanner.nextLine();
-                return Integer.valueOf(result);
-            }
+            return new ModelsPaginatedCreatorOverviewResponse().createFromJson(json);
         }
         throw new ResponseException(code, json);
     }
 
+    @Override
+    public Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("limit", "None");
+        result.put("offset", "None");
+        return result;
+    }
 }

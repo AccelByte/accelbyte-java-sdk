@@ -83,6 +83,25 @@ public class UsersV4 {
     }
 
     /**
+     * @see AdminDisableUserMFAV4
+     */
+    public void adminDisableUserMFAV4(AdminDisableUserMFAV4 input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
      * @see AdminListUserRolesV4
      */
     public ModelListUserRolesV4Response adminListUserRolesV4(AdminListUserRolesV4 input) throws ResponseException, IOException {
@@ -661,6 +680,25 @@ public class UsersV4 {
           httpResponse = sdk.runRequest(input);
           return input
               .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see PublicRemoveTrustedDeviceV4
+     */
+    public void publicRemoveTrustedDeviceV4(PublicRemoveTrustedDeviceV4 input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
           );
         }

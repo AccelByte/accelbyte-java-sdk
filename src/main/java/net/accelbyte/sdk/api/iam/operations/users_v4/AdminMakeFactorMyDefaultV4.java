@@ -29,7 +29,7 @@ import java.util.*;
  *
  * 
  * 
- * (In Development)This endpoint is used to make 2FA factor default.
+ * This endpoint is used to make 2FA factor default.
  * 
  * 
  * 

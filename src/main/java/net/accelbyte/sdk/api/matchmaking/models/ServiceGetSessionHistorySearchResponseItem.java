@@ -69,6 +69,9 @@ public class ServiceGetSessionHistorySearchResponseItem extends Model {
     @JsonProperty("status")
     private String status;
 
+    @JsonProperty("sub_game_mode")
+    private List<String> subGameMode;
+
     @JsonIgnore
     public ServiceGetSessionHistorySearchResponseItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -96,6 +99,7 @@ public class ServiceGetSessionHistorySearchResponseItem extends Model {
         result.put("region", "region");
         result.put("server_name", "serverName");
         result.put("status", "status");
+        result.put("sub_game_mode", "subGameMode");
         return result;
     }
 }
