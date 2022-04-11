@@ -6,6 +6,7 @@
 
 package net.accelbyte.sdk.cli.wrapper;
 
+import net.accelbyte.sdk.cli.api.cloudsave.admin_concurrent_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.admin_game_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.admin_player_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.concurrent_record.*;
@@ -17,12 +18,14 @@ import picocli.CommandLine.Command;
 @Command(name = "cloudsave",
         mixinStandardHelpOptions = true,
         subcommands = {
+                AdminPutGameRecordConcurrentHandlerV1.class,
                 ListGameRecordsHandlerV1.class,
                 AdminGetGameRecordHandlerV1.class,
                 AdminPutGameRecordHandlerV1.class,
                 AdminPostGameRecordHandlerV1.class,
                 AdminDeleteGameRecordHandlerV1.class,
                 ListPlayerRecordHandlerV1.class,
+                AdminPutPlayerPublicRecordConcurrentHandlerV1.class,
                 AdminRetrievePlayerRecords.class,
                 AdminGetPlayerRecordHandlerV1.class,
                 AdminPutPlayerRecordHandlerV1.class,

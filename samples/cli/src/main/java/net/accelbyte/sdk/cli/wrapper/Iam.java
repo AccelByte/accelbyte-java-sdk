@@ -277,6 +277,7 @@ import picocli.CommandLine.Command;
                 AdminBulkCheckValidUserIDV4.class,
                 AdminUpdateUserV4.class,
                 AdminUpdateUserEmailAddressV4.class,
+                AdminDisableUserMFAV4.class,
                 AdminListUserRolesV4.class,
                 AdminUpdateUserRoleV4.class,
                 AdminAddUserRoleV4.class,
@@ -319,6 +320,7 @@ import picocli.CommandLine.Command;
                 PublicDisableMyBackupCodesV4.class,
                 PublicDownloadMyBackupCodesV4.class,
                 PublicEnableMyBackupCodesV4.class,
+                PublicRemoveTrustedDeviceV4.class,
                 PublicGetMyEnabledFactorsV4.class,
                 PublicMakeFactorMyDefaultV4.class,
         }

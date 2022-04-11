@@ -6,7 +6,7 @@
 
 package net.accelbyte.sdk.cli.wrapper;
 
-import net.accelbyte.sdk.cli.api.matchmaking.operations.*;
+import net.accelbyte.sdk.cli.api.matchmaking.matchmaking_operations.*;
 import net.accelbyte.sdk.cli.api.matchmaking.matchmaking.*;
 import net.accelbyte.sdk.cli.api.matchmaking.social_matchmaking.*;
 

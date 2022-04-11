@@ -4,12 +4,12 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.cli.api.lobby.operations;
+package net.accelbyte.sdk.cli.api.matchmaking.matchmaking_operations;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.accelbyte.sdk.api.lobby.models.*;
-import net.accelbyte.sdk.api.lobby.wrappers.Operations;
+import net.accelbyte.sdk.api.matchmaking.models.*;
+import net.accelbyte.sdk.api.matchmaking.wrappers.MatchmakingOperations;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
@@ -29,26 +29,17 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "adminUpdatePartyAttributesV1", mixinStandardHelpOptions = true)
-public class AdminUpdatePartyAttributesV1 implements Callable<Integer> {
+@Command(name = "versionCheckHandler", mixinStandardHelpOptions = true)
+public class VersionCheckHandler implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(AdminUpdatePartyAttributesV1.class);
-
-    @Option(names = {"--namespace"}, description = "namespace")
-    String namespace;
-
-    @Option(names = {"--partyId"}, description = "partyId")
-    String partyId;
-
-    @Option(names = {"--body"}, description = "body")
-    String body;
+    private static final Logger log = LogManager.getLogger(VersionCheckHandler.class);
 
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new AdminUpdatePartyAttributesV1()).execute(args);
+        int exitCode = new CommandLine(new VersionCheckHandler()).execute(args);
         System.exit(exitCode);
     }
 
@@ -61,17 +52,12 @@ public class AdminUpdatePartyAttributesV1 implements Callable<Integer> {
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             
-            ModelsPartyData response =
-            new Operations(sdk)
-            .adminUpdatePartyAttributesV1(
-                new net.accelbyte.sdk.api.lobby.operations.operations.AdminUpdatePartyAttributesV1(
-                    namespace,
-                    partyId,
-                    new ObjectMapper().readValue(body, ModelsPartyPUTCustomAttributesRequest.class)  
+            new MatchmakingOperations(sdk)
+            .versionCheckHandler(
+                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.VersionCheckHandler(
                 )
             );
-            String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-            log.info("Operation successful with response below:\n{}", responseString);
+            log.info("Operation successful");
             return 0;
         } catch (ResponseException e) {
             log.error("ResponseException occur with message below:\n{}", e.getMessage());

@@ -4,12 +4,12 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.cli.api.dsmc.deployment_config;
+package net.accelbyte.sdk.cli.api.matchmaking.matchmaking_operations;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.accelbyte.sdk.api.dsmc.models.*;
-import net.accelbyte.sdk.api.dsmc.wrappers.DeploymentConfig;
+import net.accelbyte.sdk.api.matchmaking.models.*;
+import net.accelbyte.sdk.api.matchmaking.wrappers.MatchmakingOperations;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
@@ -29,29 +29,17 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "getAllDeployment", mixinStandardHelpOptions = true)
-public class GetAllDeployment implements Callable<Integer> {
+@Command(name = "handlerV3Healthz", mixinStandardHelpOptions = true)
+public class HandlerV3Healthz implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(GetAllDeployment.class);
-
-    @Option(names = {"--namespace"}, description = "namespace")
-    String namespace;
-
-    @Option(names = {"--count"}, description = "count")
-    Integer count;
-
-    @Option(names = {"--name"}, description = "name")
-    String name;
-
-    @Option(names = {"--offset"}, description = "offset")
-    Integer offset;
+    private static final Logger log = LogManager.getLogger(HandlerV3Healthz.class);
 
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new GetAllDeployment()).execute(args);
+        int exitCode = new CommandLine(new HandlerV3Healthz()).execute(args);
         System.exit(exitCode);
     }
 
@@ -64,18 +52,12 @@ public class GetAllDeployment implements Callable<Integer> {
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             
-            ModelsListDeploymentResponse response =
-            new DeploymentConfig(sdk)
-            .getAllDeployment(
-                new net.accelbyte.sdk.api.dsmc.operations.deployment_config.GetAllDeployment(
-                    namespace,
-                    count,
-                    name,
-                    offset
+            new MatchmakingOperations(sdk)
+            .handlerV3Healthz(
+                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.HandlerV3Healthz(
                 )
             );
-            String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-            log.info("Operation successful with response below:\n{}", responseString);
+            log.info("Operation successful");
             return 0;
         } catch (ResponseException e) {
             log.error("ResponseException occur with message below:\n{}", e.getMessage());

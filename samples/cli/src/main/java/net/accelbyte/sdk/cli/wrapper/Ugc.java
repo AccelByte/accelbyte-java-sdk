@@ -18,6 +18,7 @@ import net.accelbyte.sdk.cli.api.ugc.public_like.*;
 import net.accelbyte.sdk.cli.api.ugc.public_download_count.*;
 import net.accelbyte.sdk.cli.api.ugc.public_tag.*;
 import net.accelbyte.sdk.cli.api.ugc.public_type.*;
+import net.accelbyte.sdk.cli.api.ugc.public_creator.*;
 import net.accelbyte.sdk.cli.api.ugc.public_channel.*;
 import net.accelbyte.sdk.cli.api.ugc.public_group.*;
 
@@ -86,6 +87,7 @@ import picocli.CommandLine.Command;
                 GetTag.class,
                 GetType.class,
                 GetFollowedUsers.class,
+                GetCreator.class,
                 GetChannels.class,
                 CreateChannel.class,
                 DeleteAllUserChannel.class,
@@ -102,6 +104,8 @@ import picocli.CommandLine.Command;
                 UploadContentScreenshot.class,
                 DeleteContentScreenshot.class,
                 UpdateUserFollowStatus.class,
+                GetPublicFollowers.class,
+                GetPublicFollowing.class,
                 GetGroups.class,
                 CreateGroup.class,
                 DeleteAllUserGroup.class,

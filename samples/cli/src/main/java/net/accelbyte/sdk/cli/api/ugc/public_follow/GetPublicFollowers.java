@@ -4,12 +4,12 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.cli.api.dsmc.deployment_config;
+package net.accelbyte.sdk.cli.api.ugc.public_follow;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.accelbyte.sdk.api.dsmc.models.*;
-import net.accelbyte.sdk.api.dsmc.wrappers.DeploymentConfig;
+import net.accelbyte.sdk.api.ugc.models.*;
+import net.accelbyte.sdk.api.ugc.wrappers.PublicFollow;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
@@ -29,29 +29,29 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "getAllDeployment", mixinStandardHelpOptions = true)
-public class GetAllDeployment implements Callable<Integer> {
+@Command(name = "getPublicFollowers", mixinStandardHelpOptions = true)
+public class GetPublicFollowers implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(GetAllDeployment.class);
+    private static final Logger log = LogManager.getLogger(GetPublicFollowers.class);
 
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
 
-    @Option(names = {"--count"}, description = "count")
-    Integer count;
+    @Option(names = {"--userId"}, description = "userId")
+    String userId;
 
-    @Option(names = {"--name"}, description = "name")
-    String name;
+    @Option(names = {"--limit"}, description = "limit")
+    String limit;
 
     @Option(names = {"--offset"}, description = "offset")
-    Integer offset;
+    String offset;
 
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new GetAllDeployment()).execute(args);
+        int exitCode = new CommandLine(new GetPublicFollowers()).execute(args);
         System.exit(exitCode);
     }
 
@@ -64,13 +64,13 @@ public class GetAllDeployment implements Callable<Integer> {
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             
-            ModelsListDeploymentResponse response =
-            new DeploymentConfig(sdk)
-            .getAllDeployment(
-                new net.accelbyte.sdk.api.dsmc.operations.deployment_config.GetAllDeployment(
+            ModelsPaginatedCreatorOverviewResponse response =
+            new PublicFollow(sdk)
+            .getPublicFollowers(
+                new net.accelbyte.sdk.api.ugc.operations.public_follow.GetPublicFollowers(
                     namespace,
-                    count,
-                    name,
+                    userId,
+                    limit,
                     offset
                 )
             );

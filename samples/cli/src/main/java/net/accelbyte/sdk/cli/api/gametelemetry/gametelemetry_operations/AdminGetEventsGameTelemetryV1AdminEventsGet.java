@@ -4,12 +4,12 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.cli.api.dsmc.deployment_config;
+package net.accelbyte.sdk.cli.api.gametelemetry.gametelemetry_operations;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.accelbyte.sdk.api.dsmc.models.*;
-import net.accelbyte.sdk.api.dsmc.wrappers.DeploymentConfig;
+import net.accelbyte.sdk.api.gametelemetry.models.*;
+import net.accelbyte.sdk.api.gametelemetry.wrappers.GametelemetryOperations;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
@@ -29,29 +29,20 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "getAllDeployment", mixinStandardHelpOptions = true)
-public class GetAllDeployment implements Callable<Integer> {
+@Command(name = "adminGetEventsGameTelemetryV1AdminEventsGet", mixinStandardHelpOptions = true)
+public class AdminGetEventsGameTelemetryV1AdminEventsGet implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(GetAllDeployment.class);
+    private static final Logger log = LogManager.getLogger(AdminGetEventsGameTelemetryV1AdminEventsGet.class);
 
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
-
-    @Option(names = {"--count"}, description = "count")
-    Integer count;
-
-    @Option(names = {"--name"}, description = "name")
-    String name;
-
-    @Option(names = {"--offset"}, description = "offset")
-    Integer offset;
 
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new GetAllDeployment()).execute(args);
+        int exitCode = new CommandLine(new AdminGetEventsGameTelemetryV1AdminEventsGet()).execute(args);
         System.exit(exitCode);
     }
 
@@ -64,18 +55,13 @@ public class GetAllDeployment implements Callable<Integer> {
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             
-            ModelsListDeploymentResponse response =
-            new DeploymentConfig(sdk)
-            .getAllDeployment(
-                new net.accelbyte.sdk.api.dsmc.operations.deployment_config.GetAllDeployment(
-                    namespace,
-                    count,
-                    name,
-                    offset
+            new GametelemetryOperations(sdk)
+            .adminGetEventsGameTelemetryV1AdminEventsGet(
+                new net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.AdminGetEventsGameTelemetryV1AdminEventsGet(
+                    namespace
                 )
             );
-            String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-            log.info("Operation successful with response below:\n{}", responseString);
+            log.info("Operation successful");
             return 0;
         } catch (ResponseException e) {
             log.error("ResponseException occur with message below:\n{}", e.getMessage());

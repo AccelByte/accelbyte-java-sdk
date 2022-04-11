@@ -4,12 +4,12 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.cli.api.gametelemetry.operations;
+package net.accelbyte.sdk.cli.api.gametelemetry.gametelemetry_operations;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.accelbyte.sdk.api.gametelemetry.models.*;
-import net.accelbyte.sdk.api.gametelemetry.wrappers.Operations;
+import net.accelbyte.sdk.api.gametelemetry.wrappers.GametelemetryOperations;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
@@ -29,20 +29,17 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet", mixinStandardHelpOptions = true)
-public class ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet implements Callable<Integer> {
+@Command(name = "adminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet", mixinStandardHelpOptions = true)
+public class AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet.class);
-
-    @Option(names = {"--steamId"}, description = "steamId")
-    String steamId;
+    private static final Logger log = LogManager.getLogger(AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet.class);
 
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet()).execute(args);
+        int exitCode = new CommandLine(new AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet()).execute(args);
         System.exit(exitCode);
     }
 
@@ -55,15 +52,12 @@ public class ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytime
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             
-            Integer response =
-            new Operations(sdk)
-            .protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(
-                new net.accelbyte.sdk.api.gametelemetry.operations.operations.ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(
-                    steamId
+            new GametelemetryOperations(sdk)
+            .adminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet(
+                new net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet(
                 )
             );
-            String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-            log.info("Operation successful with response below:\n{}", responseString);
+            log.info("Operation successful");
             return 0;
         } catch (ResponseException e) {
             log.error("ResponseException occur with message below:\n{}", e.getMessage());

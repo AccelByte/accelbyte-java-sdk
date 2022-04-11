@@ -4,12 +4,12 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.cli.api.gametelemetry.operations;
+package net.accelbyte.sdk.cli.api.gametelemetry.gametelemetry_operations;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.accelbyte.sdk.api.gametelemetry.models.*;
-import net.accelbyte.sdk.api.gametelemetry.wrappers.Operations;
+import net.accelbyte.sdk.api.gametelemetry.wrappers.GametelemetryOperations;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
@@ -55,9 +55,9 @@ public class ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost implements Ca
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             
-            new Operations(sdk)
+            new GametelemetryOperations(sdk)
             .protectedSaveEventsGameTelemetryV1ProtectedEventsPost(
-                new net.accelbyte.sdk.api.gametelemetry.operations.operations.ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost(
+                new net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost(
                     new ObjectMapper().readValue(body, new TypeReference<List<TelemetryBody>>() {})
  
                 )

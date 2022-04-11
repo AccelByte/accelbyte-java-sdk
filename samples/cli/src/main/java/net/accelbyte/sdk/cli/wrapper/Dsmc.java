@@ -14,7 +14,7 @@ import net.accelbyte.sdk.cli.api.dsmc.admin.*;
 import net.accelbyte.sdk.cli.api.dsmc.server.*;
 import net.accelbyte.sdk.cli.api.dsmc.session.*;
 import net.accelbyte.sdk.cli.api.dsmc.public_.*;
-import net.accelbyte.sdk.cli.api.dsmc.operations.*;
+import net.accelbyte.sdk.cli.api.dsmc.dsmc_operations.*;
 
 import picocli.CommandLine.Command;
 

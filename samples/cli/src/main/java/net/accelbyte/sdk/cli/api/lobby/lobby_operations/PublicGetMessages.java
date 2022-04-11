@@ -4,12 +4,12 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.cli.api.dsmc.deployment_config;
+package net.accelbyte.sdk.cli.api.lobby.lobby_operations;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.accelbyte.sdk.api.dsmc.models.*;
-import net.accelbyte.sdk.api.dsmc.wrappers.DeploymentConfig;
+import net.accelbyte.sdk.api.lobby.models.*;
+import net.accelbyte.sdk.api.lobby.wrappers.LobbyOperations;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
@@ -29,29 +29,17 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "getAllDeployment", mixinStandardHelpOptions = true)
-public class GetAllDeployment implements Callable<Integer> {
+@Command(name = "publicGetMessages", mixinStandardHelpOptions = true)
+public class PublicGetMessages implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(GetAllDeployment.class);
-
-    @Option(names = {"--namespace"}, description = "namespace")
-    String namespace;
-
-    @Option(names = {"--count"}, description = "count")
-    Integer count;
-
-    @Option(names = {"--name"}, description = "name")
-    String name;
-
-    @Option(names = {"--offset"}, description = "offset")
-    Integer offset;
+    private static final Logger log = LogManager.getLogger(PublicGetMessages.class);
 
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new GetAllDeployment()).execute(args);
+        int exitCode = new CommandLine(new PublicGetMessages()).execute(args);
         System.exit(exitCode);
     }
 
@@ -64,14 +52,10 @@ public class GetAllDeployment implements Callable<Integer> {
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             
-            ModelsListDeploymentResponse response =
-            new DeploymentConfig(sdk)
-            .getAllDeployment(
-                new net.accelbyte.sdk.api.dsmc.operations.deployment_config.GetAllDeployment(
-                    namespace,
-                    count,
-                    name,
-                    offset
+            List<LogAppMessageDeclaration> response =
+            new LobbyOperations(sdk)
+            .publicGetMessages(
+                new net.accelbyte.sdk.api.lobby.operations.lobby_operations.PublicGetMessages(
                 )
             );
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

@@ -11,7 +11,7 @@ import net.accelbyte.sdk.cli.api.lobby.chat.*;
 import net.accelbyte.sdk.cli.api.lobby.config.*;
 import net.accelbyte.sdk.cli.api.lobby.notification.*;
 import net.accelbyte.sdk.cli.api.lobby.party.*;
-import net.accelbyte.sdk.cli.api.lobby.operations.*;
+import net.accelbyte.sdk.cli.api.lobby.lobby_operations.*;
 import net.accelbyte.sdk.cli.api.lobby.player.*;
 import net.accelbyte.sdk.cli.api.lobby.profanity.*;
 import net.accelbyte.sdk.cli.api.lobby.third_party.*;

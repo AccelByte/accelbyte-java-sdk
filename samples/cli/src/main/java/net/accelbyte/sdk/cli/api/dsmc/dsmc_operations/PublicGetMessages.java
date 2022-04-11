@@ -4,12 +4,12 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.cli.api.matchmaking.operations;
+package net.accelbyte.sdk.cli.api.dsmc.dsmc_operations;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.accelbyte.sdk.api.matchmaking.models.*;
-import net.accelbyte.sdk.api.matchmaking.wrappers.Operations;
+import net.accelbyte.sdk.api.dsmc.models.*;
+import net.accelbyte.sdk.api.dsmc.wrappers.DsmcOperations;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
@@ -29,17 +29,17 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "versionCheckHandler", mixinStandardHelpOptions = true)
-public class VersionCheckHandler implements Callable<Integer> {
+@Command(name = "publicGetMessages", mixinStandardHelpOptions = true)
+public class PublicGetMessages implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(VersionCheckHandler.class);
+    private static final Logger log = LogManager.getLogger(PublicGetMessages.class);
 
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new VersionCheckHandler()).execute(args);
+        int exitCode = new CommandLine(new PublicGetMessages()).execute(args);
         System.exit(exitCode);
     }
 
@@ -52,12 +52,14 @@ public class VersionCheckHandler implements Callable<Integer> {
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             
-            new Operations(sdk)
-            .versionCheckHandler(
-                new net.accelbyte.sdk.api.matchmaking.operations.operations.VersionCheckHandler(
+            List<LogAppMessageDeclaration> response =
+            new DsmcOperations(sdk)
+            .publicGetMessages(
+                new net.accelbyte.sdk.api.dsmc.operations.dsmc_operations.PublicGetMessages(
                 )
             );
-            log.info("Operation successful");
+            String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+            log.info("Operation successful with response below:\n{}", responseString);
             return 0;
         } catch (ResponseException e) {
             log.error("ResponseException occur with message below:\n{}", e.getMessage());

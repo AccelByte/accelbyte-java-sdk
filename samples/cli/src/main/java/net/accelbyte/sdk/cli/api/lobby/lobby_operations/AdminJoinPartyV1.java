@@ -4,12 +4,12 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.cli.api.gametelemetry.operations;
+package net.accelbyte.sdk.cli.api.lobby.lobby_operations;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.accelbyte.sdk.api.gametelemetry.models.*;
-import net.accelbyte.sdk.api.gametelemetry.wrappers.Operations;
+import net.accelbyte.sdk.api.lobby.models.*;
+import net.accelbyte.sdk.api.lobby.wrappers.LobbyOperations;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
@@ -29,23 +29,26 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut", mixinStandardHelpOptions = true)
-public class ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut implements Callable<Integer> {
+@Command(name = "adminJoinPartyV1", mixinStandardHelpOptions = true)
+public class AdminJoinPartyV1 implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut.class);
+    private static final Logger log = LogManager.getLogger(AdminJoinPartyV1.class);
 
-    @Option(names = {"--playtime"}, description = "playtime")
-    String playtime;
+    @Option(names = {"--namespace"}, description = "namespace")
+    String namespace;
 
-    @Option(names = {"--steamId"}, description = "steamId")
-    String steamId;
+    @Option(names = {"--partyId"}, description = "partyId")
+    String partyId;
+
+    @Option(names = {"--userId"}, description = "userId")
+    String userId;
 
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut()).execute(args);
+        int exitCode = new CommandLine(new AdminJoinPartyV1()).execute(args);
         System.exit(exitCode);
     }
 
@@ -58,11 +61,12 @@ public class ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlayt
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             
-            new Operations(sdk)
-            .protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut(
-                new net.accelbyte.sdk.api.gametelemetry.operations.operations.ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut(
-                    playtime,
-                    steamId
+            new LobbyOperations(sdk)
+            .adminJoinPartyV1(
+                new net.accelbyte.sdk.api.lobby.operations.lobby_operations.AdminJoinPartyV1(
+                    namespace,
+                    partyId,
+                    userId
                 )
             );
             log.info("Operation successful");

@@ -4,12 +4,12 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.cli.api.matchmaking.operations;
+package net.accelbyte.sdk.cli.api.cloudsave.admin_concurrent_record;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.accelbyte.sdk.api.matchmaking.models.*;
-import net.accelbyte.sdk.api.matchmaking.wrappers.Operations;
+import net.accelbyte.sdk.api.cloudsave.models.*;
+import net.accelbyte.sdk.api.cloudsave.wrappers.AdminConcurrentRecord;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
@@ -29,17 +29,26 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "getHealthcheckInfo", mixinStandardHelpOptions = true)
-public class GetHealthcheckInfo implements Callable<Integer> {
+@Command(name = "adminPutGameRecordConcurrentHandlerV1", mixinStandardHelpOptions = true)
+public class AdminPutGameRecordConcurrentHandlerV1 implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(GetHealthcheckInfo.class);
+    private static final Logger log = LogManager.getLogger(AdminPutGameRecordConcurrentHandlerV1.class);
+
+    @Option(names = {"--key"}, description = "key")
+    String key;
+
+    @Option(names = {"--namespace"}, description = "namespace")
+    String namespace;
+
+    @Option(names = {"--body"}, description = "body")
+    String body;
 
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new GetHealthcheckInfo()).execute(args);
+        int exitCode = new CommandLine(new AdminPutGameRecordConcurrentHandlerV1()).execute(args);
         System.exit(exitCode);
     }
 
@@ -52,9 +61,12 @@ public class GetHealthcheckInfo implements Callable<Integer> {
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             
-            new Operations(sdk)
-            .getHealthcheckInfo(
-                new net.accelbyte.sdk.api.matchmaking.operations.operations.GetHealthcheckInfo(
+            new AdminConcurrentRecord(sdk)
+            .adminPutGameRecordConcurrentHandlerV1(
+                new net.accelbyte.sdk.api.cloudsave.operations.admin_concurrent_record.AdminPutGameRecordConcurrentHandlerV1(
+                    key,
+                    namespace,
+                    new ObjectMapper().readValue(body, ModelsAdminConcurrentRecordRequest.class)  
                 )
             );
             log.info("Operation successful");

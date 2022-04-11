@@ -4,12 +4,12 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.cli.api.dsmc.operations;
+package net.accelbyte.sdk.cli.api.lobby.lobby_operations;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.accelbyte.sdk.api.dsmc.models.*;
-import net.accelbyte.sdk.api.dsmc.wrappers.Operations;
+import net.accelbyte.sdk.api.lobby.models.*;
+import net.accelbyte.sdk.api.lobby.wrappers.LobbyOperations;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
@@ -29,17 +29,26 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "publicGetMessages", mixinStandardHelpOptions = true)
-public class PublicGetMessages implements Callable<Integer> {
+@Command(name = "adminUpdatePartyAttributesV1", mixinStandardHelpOptions = true)
+public class AdminUpdatePartyAttributesV1 implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(PublicGetMessages.class);
+    private static final Logger log = LogManager.getLogger(AdminUpdatePartyAttributesV1.class);
+
+    @Option(names = {"--namespace"}, description = "namespace")
+    String namespace;
+
+    @Option(names = {"--partyId"}, description = "partyId")
+    String partyId;
+
+    @Option(names = {"--body"}, description = "body")
+    String body;
 
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new PublicGetMessages()).execute(args);
+        int exitCode = new CommandLine(new AdminUpdatePartyAttributesV1()).execute(args);
         System.exit(exitCode);
     }
 
@@ -52,10 +61,13 @@ public class PublicGetMessages implements Callable<Integer> {
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             
-            List<LogAppMessageDeclaration> response =
-            new Operations(sdk)
-            .publicGetMessages(
-                new net.accelbyte.sdk.api.dsmc.operations.operations.PublicGetMessages(
+            ModelsPartyData response =
+            new LobbyOperations(sdk)
+            .adminUpdatePartyAttributesV1(
+                new net.accelbyte.sdk.api.lobby.operations.lobby_operations.AdminUpdatePartyAttributesV1(
+                    namespace,
+                    partyId,
+                    new ObjectMapper().readValue(body, ModelsPartyPUTCustomAttributesRequest.class)  
                 )
             );
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

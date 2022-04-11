@@ -4,12 +4,12 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.cli.api.dsmc.deployment_config;
+package net.accelbyte.sdk.cli.api.ugc.public_creator;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.accelbyte.sdk.api.dsmc.models.*;
-import net.accelbyte.sdk.api.dsmc.wrappers.DeploymentConfig;
+import net.accelbyte.sdk.api.ugc.models.*;
+import net.accelbyte.sdk.api.ugc.wrappers.PublicCreator;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
@@ -29,29 +29,23 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "getAllDeployment", mixinStandardHelpOptions = true)
-public class GetAllDeployment implements Callable<Integer> {
+@Command(name = "getCreator", mixinStandardHelpOptions = true)
+public class GetCreator implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(GetAllDeployment.class);
+    private static final Logger log = LogManager.getLogger(GetCreator.class);
 
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
 
-    @Option(names = {"--count"}, description = "count")
-    Integer count;
-
-    @Option(names = {"--name"}, description = "name")
-    String name;
-
-    @Option(names = {"--offset"}, description = "offset")
-    Integer offset;
+    @Option(names = {"--userId"}, description = "userId")
+    String userId;
 
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new GetAllDeployment()).execute(args);
+        int exitCode = new CommandLine(new GetCreator()).execute(args);
         System.exit(exitCode);
     }
 
@@ -64,14 +58,12 @@ public class GetAllDeployment implements Callable<Integer> {
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             
-            ModelsListDeploymentResponse response =
-            new DeploymentConfig(sdk)
-            .getAllDeployment(
-                new net.accelbyte.sdk.api.dsmc.operations.deployment_config.GetAllDeployment(
+            ModelsCreatorOverviewResponse response =
+            new PublicCreator(sdk)
+            .getCreator(
+                new net.accelbyte.sdk.api.ugc.operations.public_creator.GetCreator(
                     namespace,
-                    count,
-                    name,
-                    offset
+                    userId
                 )
             );
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

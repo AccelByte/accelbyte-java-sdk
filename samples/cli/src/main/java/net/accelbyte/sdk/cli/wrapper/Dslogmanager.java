@@ -8,7 +8,7 @@ package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.dslogmanager.terminated_servers.*;
 import net.accelbyte.sdk.cli.api.dslogmanager.all_terminated_servers.*;
-import net.accelbyte.sdk.cli.api.dslogmanager.operations.*;
+import net.accelbyte.sdk.cli.api.dslogmanager.dslogmanager_operations.*;
 
 import picocli.CommandLine.Command;
 

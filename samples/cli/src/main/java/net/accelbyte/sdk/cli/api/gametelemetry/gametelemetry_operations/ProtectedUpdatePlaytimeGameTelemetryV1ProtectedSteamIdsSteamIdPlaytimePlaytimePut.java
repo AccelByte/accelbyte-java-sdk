@@ -4,12 +4,12 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.cli.api.dslogmanager.operations;
+package net.accelbyte.sdk.cli.api.gametelemetry.gametelemetry_operations;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.accelbyte.sdk.api.dslogmanager.models.*;
-import net.accelbyte.sdk.api.dslogmanager.wrappers.Operations;
+import net.accelbyte.sdk.api.gametelemetry.models.*;
+import net.accelbyte.sdk.api.gametelemetry.wrappers.GametelemetryOperations;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.ResponseException;
@@ -29,17 +29,23 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "publicGetMessages", mixinStandardHelpOptions = true)
-public class PublicGetMessages implements Callable<Integer> {
+@Command(name = "protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut", mixinStandardHelpOptions = true)
+public class ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(PublicGetMessages.class);
+    private static final Logger log = LogManager.getLogger(ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut.class);
+
+    @Option(names = {"--playtime"}, description = "playtime")
+    String playtime;
+
+    @Option(names = {"--steamId"}, description = "steamId")
+    String steamId;
 
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new PublicGetMessages()).execute(args);
+        int exitCode = new CommandLine(new ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut()).execute(args);
         System.exit(exitCode);
     }
 
@@ -52,14 +58,14 @@ public class PublicGetMessages implements Callable<Integer> {
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             
-            List<LogAppMessageDeclaration> response =
-            new Operations(sdk)
-            .publicGetMessages(
-                new net.accelbyte.sdk.api.dslogmanager.operations.operations.PublicGetMessages(
+            new GametelemetryOperations(sdk)
+            .protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut(
+                new net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut(
+                    playtime,
+                    steamId
                 )
             );
-            String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-            log.info("Operation successful with response below:\n{}", responseString);
+            log.info("Operation successful");
             return 0;
         } catch (ResponseException e) {
             log.error("ResponseException occur with message below:\n{}", e.getMessage());
