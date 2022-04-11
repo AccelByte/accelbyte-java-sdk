@@ -1,6 +1,33 @@
-<a name="v0.7.0"></a>
-## [v0.7.0]
+<a name="v0.8.0"></a>
+## [v0.8.0] - 2022-04-11
+### Chore
+- bump version
+- **cli-test:** regenerate cli test for justice 3.20
+- **sdk:** regenerate sdk for justice 3.20
+- **spec:** update spec for justice 3.20
 
+### Ci
+- **nightly:** change integration test lock to justice-demo-serversdktest
+
+### Docs
+- update doc index
+- update changelog
+- added service indexes
+
+### Fix
+- **core:** random is instantiated but only used once in helper
+- **core:** do not rely on filewriter default encoding in okhttplogger
+- **core:** fix potential race condition on okhttpwebsocketclient create
+- **core:** potential null exception in okhttplogger
+
+### Test
+- **integration:** fix potential null exception
+- **integration:** fix group integration test
+- **integration:** fix event log integration test
+
+
+<a name="v0.7.0"></a>
+## [v0.7.0] - 2022-03-29
 ### Chore
 - bump version
 - add gradle check (checkstyle)
@@ -242,6 +269,7 @@
 - replace unnecessary object
 
 
+[v0.8.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.7.0...v0.8.0
 [v0.7.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.6.0...v0.7.0
 [v0.6.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.5.0...v0.6.0
 [v0.5.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.4.0...v0.5.0
