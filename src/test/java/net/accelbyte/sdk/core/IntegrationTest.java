@@ -900,6 +900,7 @@ public class IntegrationTest {
                                                 .policyId("6adb3d65-b428-4dbc-a08d-e5126c644557") // The marketing
                                                                                                   // policy
                                                 .isAccepted(true)
+                                                .isNeedToSendEventMarketing(false)
                                                 .build()
                 });
 
