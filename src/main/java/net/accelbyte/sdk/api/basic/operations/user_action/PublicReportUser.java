@@ -16,7 +16,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import net.accelbyte.sdk.api.basic.models.*;
-import net.accelbyte.sdk.api.basic.models.ErrorEntity;
 import net.accelbyte.sdk.api.basic.models.UserReportRequest;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.ResponseException;
@@ -151,7 +150,7 @@ public class PublicReportUser extends Operation {
     @Override
     @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
-        if(code >= 400 && code <= 599){
+        if(code != 204){
             String json = this.convertInputStreamToString(payload);
             throw new ResponseException(code, json);
         }

@@ -144,7 +144,7 @@ public class ChangePreferenceConsent extends Operation {
     @Override
     @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
-        if(code != 204){
+        if(code != 200){
             String json = this.convertInputStreamToString(payload);
             throw new ResponseException(code, json);
         }
