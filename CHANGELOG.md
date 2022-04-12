@@ -1,17 +1,19 @@
 <a name="v0.8.0"></a>
-## [v0.8.0] - 2022-04-11
+## [v0.8.0] - 2022-04-12
 ### Chore
 - bump version
 - **cli-test:** regenerate cli test for justice 3.20
 - **sdk:** regenerate sdk for justice 3.20
+- **sdk:** regenerate sdk for justice 3.20
+- **spec:** update spec for justice 3.20
 - **spec:** update spec for justice 3.20
 
 ### Ci
 - **nightly:** change integration test lock to justice-demo-serversdktest
 
 ### Docs
-- update doc index
 - update changelog
+- update doc index
 - added service indexes
 
 ### Fix
@@ -21,6 +23,7 @@
 - **core:** potential null exception in okhttplogger
 
 ### Test
+- **integration:** fix legal integration test
 - **integration:** fix potential null exception
 - **integration:** fix group integration test
 - **integration:** fix event log integration test
