@@ -58,7 +58,7 @@ pipeline {
           }
           post {
             always {
-              junit 'build/test-results/integrationTest/*.xml'
+              junit 'build/test-results/testIntegration/*.xml'
             }
           }
         }
