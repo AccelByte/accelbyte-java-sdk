@@ -2,7 +2,7 @@
 
 A software development kit (SDK) for interacting with AccelByte services written in Java.
 
-This SDK was generated from OpenAPI spec included in the [spec](spec) directory
+This SDK was generated from OpenAPI spec included in the [spec](spec) directory.
 
 ## Setup
 
@@ -29,11 +29,11 @@ dependencies {
 
 The following environment variables need to be set when using `DefaultConfigRepository`.
 
-| Name               | Required                                         | Example                          |
-|--------------------|--------------------------------------------------|----------------------------------|
-| `AB_BASE_URL`      | Yes                                              | https://demo.accelbyte.io         |
-| `AB_CLIENT_ID`     | Yes                                              | abcdef0123456789abcdef0123456789 |
-| `AB_CLIENT_SECRET` | Yes, but only if you use a private `AB_CLIENT_ID`| ab#c,d)ef(ab#c,d)ef(ab#c,d)ef(ab |
+| Name               | Required                                              | Example                          |
+|--------------------|-------------------------------------------------------|----------------------------------|
+| `AB_BASE_URL`      | Yes                                                   | https://demo.accelbyte.io        |
+| `AB_CLIENT_ID`     | Yes                                                   | abcdef0123456789abcdef0123456789 |
+| `AB_CLIENT_SECRET` | Yes, but only if you use a confidential `AB_CLIENT_ID`| ab#c,d)ef(ab#c,d)ef(ab#c,d)ef(ab |
 
 ## Usage
 
@@ -119,8 +119,10 @@ if (!logout) {
 
 ## Samples
 
-Sample apps are available in the [samples](samples) directory
+Sample apps are available in the [samples](samples) directory.
 
 ## Documentation
 
-For documentation about AccelByte services and SDK, see [docs.accelbyte.io](https://docs.accelbyte.io/)
+Reference about AccelByte service endpoints and their corresponding SDK API is available in [docs](docs) directory.
+
+For more information on how to use AccelByte services and SDKs, see [docs.accelbyte.io](https://docs.accelbyte.io/).
