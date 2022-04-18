@@ -16,16 +16,17 @@ import okhttp3.WebSocketListener;
 import java.util.concurrent.TimeUnit;
 
 public class OkhttpWebSocketClient {
+    private static final OkHttpClient client = new OkHttpClient.Builder()
+            .readTimeout(0, TimeUnit.SECONDS)
+            .build();
 
-    private static OkhttpWebSocketClient instance = null;
+    private WebSocket websocket;
 
-    private WebSocket webSocket;
-
-    private OkhttpWebSocketClient() {
-        
+    private OkhttpWebSocketClient(WebSocket websocket) {
+        this.websocket = websocket;
     }
 
-    public static synchronized OkhttpWebSocketClient create(
+    public static OkhttpWebSocketClient create(
             ConfigRepository configRepository,
             TokenRepository tokenRepository,
             WebSocketListener listener) {
@@ -33,32 +34,27 @@ public class OkhttpWebSocketClient {
         if (baseURL == null || baseURL.isEmpty()) {
             throw new IllegalArgumentException("Base URL cannot be null or empty");
         }
-        if (instance == null) {
-            OkhttpWebSocketClient webSocketClient = new OkhttpWebSocketClient();
-            String url = configRepository.getBaseURL() + "/lobby/";
-            OkHttpClient client = new OkHttpClient.Builder()
-                    .readTimeout(0, TimeUnit.SECONDS)
-                    .build();
-            Request request = new Request.Builder()
-                    .url(url)
-                    .addHeader("Authorization", String.format("Bearer %s", tokenRepository.getToken()))
-                    .build();
-            webSocketClient.webSocket = client.newWebSocket(request, listener);
-            client.dispatcher().executorService().shutdown();
-            instance = webSocketClient;
-        }
-        return instance;
+        String url = configRepository.getBaseURL() + "/lobby/";
+        Request request = new Request.Builder()
+                .url(url)
+                .addHeader("Authorization", String.format("Bearer %s",
+                        tokenRepository.getToken()))
+                .build();
+        WebSocket websocket = client.newWebSocket(request, listener);
+        OkhttpWebSocketClient websocketClient = new OkhttpWebSocketClient(websocket);
+
+        return websocketClient;
     }
 
     public void sendMessage(String message) {
-        if (this.webSocket != null) {
-            this.webSocket.send(message);
+        if (this.websocket != null) {
+            this.websocket.send(message);
         }
     }
 
     public void close(int code, String reason) {
-        if (this.webSocket != null) {
-            this.webSocket.close(code, reason);
+        if (this.websocket != null) {
+            this.websocket.close(code, reason);
         }
     }
 }
