@@ -31,7 +31,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
-import java.util.Objects;
 
 public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
     private static final OkHttpClient client = new OkHttpClient.Builder()
@@ -62,71 +61,80 @@ public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
             throw new IllegalArgumentException("Header cannot be null");
         }
 
-        String contentType = "application/json";
+        String requestContentType = "application/json"; // Default
 
         if (!operation.getConsumes().isEmpty()) {
-            contentType = operation.getConsumes().get(0);
-            header.addHeaderData("Content-Type", operation.getConsumes().get(0));
+            requestContentType = operation.getConsumes().get(0);
+            header.addHeaderData("Content-Type", requestContentType);
         }
 
-        Headers headers = Headers.of(header.getHeaderData());
-        Request.Builder requestBuilder = new Request.Builder()
-                .url(operation.getFullUrl(baseURL))
-                .headers(headers);
+        final Headers requestHeaders = Headers.of(header.getHeaderData());
+        final String requestUrl = operation.getFullUrl(baseURL);
+        final Request.Builder requestBuilder = new Request.Builder()
+                .url(requestUrl)
+                .headers(requestHeaders);
 
-        RequestBody requestBody = RequestBody.create(new byte[0]);
+        final String method = operation.getMethod();
 
-        if (!operation.getMethod().equals("GET")) {
-            requestBuilder.method(operation.getMethod(), requestBody);
-        }
+        if (!method.equals("GET")) {
+            final Object bodyParams = operation.getBodyParams();
+            final Map<String, ?> formDataParams = operation.getFormDataParams();
 
-        if (operation.getBodyParams() != null) {
-            JsonMapper mapper = new JsonMapper();
-            String json = mapper.writeValueAsString(operation.getBodyParams());
-            if (isMediaTypeJson(contentType)) {
-                requestBuilder.method(operation.getMethod(),
-                        RequestBody.create(json, MediaType.get(contentType)));
-            } else {
-                requestBuilder.method(operation.getMethod(),
-                        RequestBody.create(operation.getBodyParams().toString(),
-                                MediaType.get(contentType)));
-            }
-        }
+            RequestBody requestBody = RequestBody
+                    .create(new byte[0]); // Default
 
-        if (operation.getFormDataParams() != null && !operation.getFormDataParams().isEmpty()) {
-            if (operation.getConsumes().get(0).equals("multipart/form-data")) {
-                MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM);
-                int filename = 0;
-                for (Map.Entry<String, ?> entry : operation.getFormDataParams().entrySet()) {
-                    if (entry.getValue() != null) {
-                        if (entry.getValue() instanceof InputStream) {
-                            requestBody = RequestBody.create(IOUtils.toByteArray((InputStream) entry.getValue()));
-                            builder.addFormDataPart(entry.getKey(), String.valueOf(++filename), requestBody);
-                        } else if (entry.getValue() instanceof String) {
-                            builder.addFormDataPart(entry.getKey(), (String) entry.getValue());
-                        } else {
-                            builder.addFormDataPart(entry.getKey(), entry.getValue().toString());
+            if (bodyParams != null) {
+                if (isMediaTypeJson(requestContentType)) {
+                    final JsonMapper jsonMapper = new JsonMapper();
+                    final String bodyParamsJson = jsonMapper.writeValueAsString(
+                            bodyParams);
+                    requestBody = RequestBody.create(bodyParamsJson,
+                            MediaType.get(requestContentType));
+                } else {
+                    requestBody = RequestBody.create(bodyParams.toString(),
+                            MediaType.get(requestContentType));
+                }
+            } else if (formDataParams != null && !formDataParams.isEmpty()) {
+                if (requestContentType.equals("multipart/form-data")) {
+                    MultipartBody.Builder multipartBuilder = new MultipartBody.Builder()
+                            .setType(MultipartBody.FORM);
+                    int filename = 0;
+                    for (Map.Entry<String, ?> entry : formDataParams.entrySet()) {
+                        if (entry.getValue() != null) {
+                            if (entry.getValue() instanceof InputStream) {
+                                byte[] valueBytes = IOUtils.toByteArray(
+                                        (InputStream) entry.getValue());
+                                multipartBuilder.addFormDataPart(entry.getKey(),
+                                        String.valueOf(++filename),
+                                        RequestBody.create(valueBytes));
+                            } else if (entry.getValue() instanceof String) {
+                                multipartBuilder.addFormDataPart(entry.getKey(),
+                                        (String) entry.getValue());
+                            } else {
+                                multipartBuilder.addFormDataPart(entry.getKey(),
+                                        entry.getValue().toString());
+                            }
                         }
                     }
-                }
-                requestBuilder.method(operation.getMethod(), builder.build());
-            } else {
-                FormBody.Builder builder = new FormBody.Builder();
-                for (Map.Entry<String, ?> entry : operation.getFormDataParams().entrySet()) {
-                    if (entry.getValue() != null) {
-                        builder.add(entry.getKey(), (String) entry.getValue());
+                    requestBody = multipartBuilder.build();
+                } else {
+                    FormBody.Builder formBuilder = new FormBody.Builder();
+                    for (Map.Entry<String, ?> entry : formDataParams.entrySet()) {
+                        if (entry.getValue() != null) {
+                            formBuilder.add(entry.getKey(),
+                                    (String) entry.getValue());
+                        }
                     }
+                    requestBody = formBuilder.build();
                 }
-                requestBuilder.method(operation.getMethod(), builder.build());
             }
+            requestBuilder.method(method, requestBody);
         }
 
-        Request request = requestBuilder.build();
-
-        Builder builder = client.newBuilder();
+        Builder okHttpBuilder = client.newBuilder();
 
         if (logger != null) {
-            builder = builder.addNetworkInterceptor(new Interceptor() {
+            okHttpBuilder = okHttpBuilder.addNetworkInterceptor(new Interceptor() {
                 @Override
                 public Response intercept(Chain chain) throws IOException {
                     Request request = chain.request();
@@ -138,25 +146,30 @@ public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
             });
         }
 
-        OkHttpClient okHttpClient = builder.build();
-        Response response = okHttpClient.newCall(request).execute();
+        final Request request = requestBuilder.build();
+        final Response response = okHttpBuilder.build()
+                .newCall(request)
+                .execute();
 
+        String responseContentType = requestContentType; // default
         InputStream payload = null;
 
         if (response.isRedirect()) {
-            byte[] responseHeader = Objects
-                    .requireNonNull(response.header("Location"))
-                    .getBytes(StandardCharsets.UTF_8);
-            payload = new ByteArrayInputStream(responseHeader);
-            return new HttpResponse(response.code(), contentType, payload);
+            final String location = response.header("Location");
+            if (location == null) {
+                throw new IllegalArgumentException(
+                        "Redirect response location header cannot be null");
+            }
+            byte[] locationBytes = location.getBytes(StandardCharsets.UTF_8);
+            payload = new ByteArrayInputStream(locationBytes);
+        } else if (response.body() != null) {
+            responseContentType = String.valueOf(response.body().contentType());
+            payload = response.body().byteStream();
         }
 
-        if (response.body() != null) {
-            contentType = String.valueOf(Objects.requireNonNull(response.body()).contentType());
-            payload = Objects.requireNonNull(response.body()).byteStream();
-        }
-
-        return new HttpResponse(response.code(), contentType, payload);
+        return new HttpResponse(response.code(),
+                responseContentType,
+                payload);
     }
 
     @Override
