@@ -31,11 +31,18 @@ eval_tap() {
   rm -f $4
 }
 
+chmod +x ./ng
+trap "./ng ng-stop" EXIT
+java -jar build/install/cli/lib/nailgun-server-*.jar 1>&2 &
+(for i in $(seq 1 100); do bash -c "timeout 1 echo > /dev/tcp/127.0.0.1/2113" 2>/dev/null && exit 0 || sleep 1; done; exit 1) || exit 1
+for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
+./ng ng-cp 1>&2
+
 echo "TAP version 13"
 echo "1..7"
 
 #- 1 Login
-build/install/cli/bin/cli loginClient \
+./ng net.accelbyte.sdk.cli.Main loginClient \
     > test.out 2>&1
 eval_tap $? 1 'Login' test.out
 
@@ -47,38 +54,38 @@ fi
 touch "tmp.dat"
 
 #- 2 ListTerminatedServers
-build/install/cli/bin/cli dslogmanager listTerminatedServers \
+./ng net.accelbyte.sdk.cli.Main dslogmanager listTerminatedServers \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 2 'ListTerminatedServers' test.out
 
 #- 3 DownloadServerLogs
-build/install/cli/bin/cli dslogmanager downloadServerLogs \
+./ng net.accelbyte.sdk.cli.Main dslogmanager downloadServerLogs \
     --namespace "$AB_NAMESPACE" \
     --podName 'FtBxyZcD' \
     > test.out 2>&1
 eval_tap $? 3 'DownloadServerLogs' test.out
 
 #- 4 CheckServerLogs
-build/install/cli/bin/cli dslogmanager checkServerLogs \
+./ng net.accelbyte.sdk.cli.Main dslogmanager checkServerLogs \
     --namespace "$AB_NAMESPACE" \
     --podName 'XBpGlsQu' \
     > test.out 2>&1
 eval_tap $? 4 'CheckServerLogs' test.out
 
 #- 5 BatchDownloadServerLogs
-build/install/cli/bin/cli dslogmanager batchDownloadServerLogs \
+./ng net.accelbyte.sdk.cli.Main dslogmanager batchDownloadServerLogs \
     --body '{"Downloads": [{"alloc_id": "Ju8vMf0I", "namespace": "sJkTrd8I", "pod_name": "DcV2zXnT"}]}' \
     > test.out 2>&1
 eval_tap $? 5 'BatchDownloadServerLogs' test.out
 
 #- 6 ListAllTerminatedServers
-build/install/cli/bin/cli dslogmanager listAllTerminatedServers \
+./ng net.accelbyte.sdk.cli.Main dslogmanager listAllTerminatedServers \
     > test.out 2>&1
 eval_tap $? 6 'ListAllTerminatedServers' test.out
 
 #- 7 PublicGetMessages
-build/install/cli/bin/cli dslogmanager publicGetMessages \
+./ng net.accelbyte.sdk.cli.Main dslogmanager publicGetMessages \
     > test.out 2>&1
 eval_tap $? 7 'PublicGetMessages' test.out
 

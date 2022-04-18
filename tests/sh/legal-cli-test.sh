@@ -31,11 +31,18 @@ eval_tap() {
   rm -f $4
 }
 
+chmod +x ./ng
+trap "./ng ng-stop" EXIT
+java -jar build/install/cli/lib/nailgun-server-*.jar 1>&2 &
+(for i in $(seq 1 100); do bash -c "timeout 1 echo > /dev/tcp/127.0.0.1/2113" 2>/dev/null && exit 0 || sleep 1; done; exit 1) || exit 1
+for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
+./ng ng-cp 1>&2
+
 echo "TAP version 13"
 echo "1..43"
 
 #- 1 Login
-build/install/cli/bin/cli loginClient \
+./ng net.accelbyte.sdk.cli.Main loginClient \
     > test.out 2>&1
 eval_tap $? 1 'Login' test.out
 
@@ -47,7 +54,7 @@ fi
 touch "tmp.dat"
 
 #- 2 ChangePreferenceConsent
-build/install/cli/bin/cli legal changePreferenceConsent \
+./ng net.accelbyte.sdk.cli.Main legal changePreferenceConsent \
     --namespace "$AB_NAMESPACE" \
     --userId 'FtBxyZcD' \
     --body '[{"isAccepted": true, "isNeedToSendEventMarketing": false, "localizedPolicyVersionId": "GlsQuJu8", "policyId": "vMf0IsJk", "policyVersionId": "Trd8IDcV"}]' \
@@ -55,89 +62,89 @@ build/install/cli/bin/cli legal changePreferenceConsent \
 eval_tap $? 2 'ChangePreferenceConsent' test.out
 
 #- 3 RetrieveAcceptedAgreements
-build/install/cli/bin/cli legal retrieveAcceptedAgreements \
+./ng net.accelbyte.sdk.cli.Main legal retrieveAcceptedAgreements \
     --userId '2zXnTKjX' \
     > test.out 2>&1
 eval_tap $? 3 'RetrieveAcceptedAgreements' test.out
 
 #- 4 RetrieveAllUsersByPolicyVersion
-build/install/cli/bin/cli legal retrieveAllUsersByPolicyVersion \
+./ng net.accelbyte.sdk.cli.Main legal retrieveAllUsersByPolicyVersion \
     --policyVersionId 'Y1bPqami' \
     > test.out 2>&1
 eval_tap $? 4 'RetrieveAllUsersByPolicyVersion' test.out
 
 #- 5 RetrieveAllLegalPolicies
-build/install/cli/bin/cli legal retrieveAllLegalPolicies \
+./ng net.accelbyte.sdk.cli.Main legal retrieveAllLegalPolicies \
     > test.out 2>&1
 eval_tap $? 5 'RetrieveAllLegalPolicies' test.out
 
 #- 6 CreatePolicy
-build/install/cli/bin/cli legal createPolicy \
+./ng net.accelbyte.sdk.cli.Main legal createPolicy \
     --body '{"affectedClientIds": ["Bxx9Cs18"], "affectedCountries": ["EY84ekIt"], "basePolicyName": "qRzHU1oh", "description": "570KQBVa", "namespace": "ewc72krS", "tags": ["ha68n3Yn"], "typeId": "ozp1C2Km"}' \
     > test.out 2>&1
 eval_tap $? 6 'CreatePolicy' test.out
 
 #- 7 RetrieveSinglePolicy
-build/install/cli/bin/cli legal retrieveSinglePolicy \
+./ng net.accelbyte.sdk.cli.Main legal retrieveSinglePolicy \
     --basePolicyId 'IQTuBdNE' \
     > test.out 2>&1
 eval_tap $? 7 'RetrieveSinglePolicy' test.out
 
 #- 8 PartialUpdatePolicy
-build/install/cli/bin/cli legal partialUpdatePolicy \
+./ng net.accelbyte.sdk.cli.Main legal partialUpdatePolicy \
     --basePolicyId 'UsxFb8CJ' \
     --body '{"affectedClientIds": ["17M7DJZa"], "affectedCountries": ["MSxECbZb"], "basePolicyName": "ygyoarOR", "description": "oeNHSb8R", "namespace": "h3kgs9qq", "tags": ["JbnQsoBg"]}' \
     > test.out 2>&1
 eval_tap $? 8 'PartialUpdatePolicy' test.out
 
 #- 9 RetrievePolicyCountry
-build/install/cli/bin/cli legal retrievePolicyCountry \
+./ng net.accelbyte.sdk.cli.Main legal retrievePolicyCountry \
     --basePolicyId 'iVpP8Cm3' \
     --countryCode 'yvASUoxd' \
     > test.out 2>&1
 eval_tap $? 9 'RetrievePolicyCountry' test.out
 
 #- 10 RetrieveLocalizedPolicyVersions
-build/install/cli/bin/cli legal retrieveLocalizedPolicyVersions \
+./ng net.accelbyte.sdk.cli.Main legal retrieveLocalizedPolicyVersions \
     --policyVersionId 'xxFqmAGT' \
     > test.out 2>&1
 eval_tap $? 10 'RetrieveLocalizedPolicyVersions' test.out
 
 #- 11 CreateLocalizedPolicyVersion
-build/install/cli/bin/cli legal createLocalizedPolicyVersion \
+./ng net.accelbyte.sdk.cli.Main legal createLocalizedPolicyVersion \
     --policyVersionId 'J8IEdagE' \
     --body '{"contentType": "tp4w29KO", "description": "u9c19R6X", "localeCode": "DqWHkkP8"}' \
     > test.out 2>&1
 eval_tap $? 11 'CreateLocalizedPolicyVersion' test.out
 
 #- 12 RetrieveSingleLocalizedPolicyVersion
-build/install/cli/bin/cli legal retrieveSingleLocalizedPolicyVersion \
+./ng net.accelbyte.sdk.cli.Main legal retrieveSingleLocalizedPolicyVersion \
     --localizedPolicyVersionId 'npLEKMfj' \
     > test.out 2>&1
 eval_tap $? 12 'RetrieveSingleLocalizedPolicyVersion' test.out
 
 #- 13 UpdateLocalizedPolicyVersion
-build/install/cli/bin/cli legal updateLocalizedPolicyVersion \
+./ng net.accelbyte.sdk.cli.Main legal updateLocalizedPolicyVersion \
     --localizedPolicyVersionId 'iX7jpkVZ' \
     --body '{"attachmentChecksum": "k3IaQYEm", "attachmentLocation": "qGodOEGt", "attachmentVersionIdentifier": "9gPOj0c6", "contentType": "i0JkvIas", "description": "73ucYnFA"}' \
     > test.out 2>&1
 eval_tap $? 13 'UpdateLocalizedPolicyVersion' test.out
 
 #- 14 RequestPresignedURL
-build/install/cli/bin/cli legal requestPresignedURL \
+./ng net.accelbyte.sdk.cli.Main legal requestPresignedURL \
     --localizedPolicyVersionId 'J3DK5T4E' \
     --body '{"contentMD5": "ogg0Y39U", "contentType": "oYlpv5bV"}' \
     > test.out 2>&1
 eval_tap $? 14 'RequestPresignedURL' test.out
 
 #- 15 SetDefaultPolicy
-build/install/cli/bin/cli legal setDefaultPolicy \
+./ng net.accelbyte.sdk.cli.Main legal setDefaultPolicy \
     --localizedPolicyVersionId 'AgtsDhUT' \
     > test.out 2>&1
 eval_tap $? 15 'SetDefaultPolicy' test.out
 
 #- 16 IndirectBulkAcceptVersionedPolicy
-build/install/cli/bin/cli legal indirectBulkAcceptVersionedPolicy \
+./ng net.accelbyte.sdk.cli.Main legal indirectBulkAcceptVersionedPolicy \
     --namespace "$AB_NAMESPACE" \
     --userId 'DUscbQDj' \
     --clientId 'bTQuPMz2' \
@@ -147,7 +154,7 @@ build/install/cli/bin/cli legal indirectBulkAcceptVersionedPolicy \
 eval_tap $? 16 'IndirectBulkAcceptVersionedPolicy' test.out
 
 #- 17 AdminRetrieveEligibilities
-build/install/cli/bin/cli legal adminRetrieveEligibilities \
+./ng net.accelbyte.sdk.cli.Main legal adminRetrieveEligibilities \
     --namespace "$AB_NAMESPACE" \
     --userId 'cYHm093a' \
     --clientId 'YgBU1sqj' \
@@ -156,103 +163,103 @@ build/install/cli/bin/cli legal adminRetrieveEligibilities \
 eval_tap $? 17 'AdminRetrieveEligibilities' test.out
 
 #- 18 RetrievePolicies
-build/install/cli/bin/cli legal retrievePolicies \
+./ng net.accelbyte.sdk.cli.Main legal retrievePolicies \
     --countryCode 'aRSOFQBt' \
     > test.out 2>&1
 eval_tap $? 18 'RetrievePolicies' test.out
 
 #- 19 UpdatePolicyVersion
-build/install/cli/bin/cli legal updatePolicyVersion \
+./ng net.accelbyte.sdk.cli.Main legal updatePolicyVersion \
     --policyVersionId 'u23REZ8h' \
     --body '{"description": "RVX7LGOv", "displayVersion": "DdYiQS9i", "isCommitted": false}' \
     > test.out 2>&1
 eval_tap $? 19 'UpdatePolicyVersion' test.out
 
 #- 20 PublishPolicyVersion
-build/install/cli/bin/cli legal publishPolicyVersion \
+./ng net.accelbyte.sdk.cli.Main legal publishPolicyVersion \
     --policyVersionId 'V1C91pjG' \
     > test.out 2>&1
 eval_tap $? 20 'PublishPolicyVersion' test.out
 
 #- 21 UpdatePolicy
-build/install/cli/bin/cli legal updatePolicy \
+./ng net.accelbyte.sdk.cli.Main legal updatePolicy \
     --policyId '9gpxL6yc' \
     --body '{"description": "TQdvln2L", "isDefaultOpted": true, "isMandatory": true, "policyName": "SQWEXL6L", "readableId": "FE1YHo9m", "shouldNotifyOnUpdate": false}' \
     > test.out 2>&1
 eval_tap $? 21 'UpdatePolicy' test.out
 
 #- 22 SetDefaultPolicy1
-build/install/cli/bin/cli legal setDefaultPolicy1 \
+./ng net.accelbyte.sdk.cli.Main legal setDefaultPolicy1 \
     --policyId '8hHtWvbN' \
     > test.out 2>&1
 eval_tap $? 22 'SetDefaultPolicy1' test.out
 
 #- 23 RetrieveSinglePolicyVersion
-build/install/cli/bin/cli legal retrieveSinglePolicyVersion \
+./ng net.accelbyte.sdk.cli.Main legal retrieveSinglePolicyVersion \
     --policyId 'YqgUqslA' \
     > test.out 2>&1
 eval_tap $? 23 'RetrieveSinglePolicyVersion' test.out
 
 #- 24 CreatePolicyVersion
-build/install/cli/bin/cli legal createPolicyVersion \
+./ng net.accelbyte.sdk.cli.Main legal createPolicyVersion \
     --policyId 'rFPiHUIv' \
     --body '{"description": "aCv8kU9d", "displayVersion": "BBpdsJLh", "isCommitted": true}' \
     > test.out 2>&1
 eval_tap $? 24 'CreatePolicyVersion' test.out
 
 #- 25 RetrieveAllPolicyTypes
-build/install/cli/bin/cli legal retrieveAllPolicyTypes \
+./ng net.accelbyte.sdk.cli.Main legal retrieveAllPolicyTypes \
     --limit '95' \
     > test.out 2>&1
 eval_tap $? 25 'RetrieveAllPolicyTypes' test.out
 
 #- 26 GetUserInfoStatus
-build/install/cli/bin/cli legal getUserInfoStatus \
+./ng net.accelbyte.sdk.cli.Main legal getUserInfoStatus \
     > test.out 2>&1
 eval_tap $? 26 'GetUserInfoStatus' test.out
 
 #- 27 SyncUserInfo
-build/install/cli/bin/cli legal syncUserInfo \
+./ng net.accelbyte.sdk.cli.Main legal syncUserInfo \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 27 'SyncUserInfo' test.out
 
 #- 28 InvalidateUserInfoCache
-build/install/cli/bin/cli legal invalidateUserInfoCache \
+./ng net.accelbyte.sdk.cli.Main legal invalidateUserInfoCache \
     > test.out 2>&1
 eval_tap $? 28 'InvalidateUserInfoCache' test.out
 
 #- 29 AnonymizeUserAgreement
-build/install/cli/bin/cli legal anonymizeUserAgreement \
+./ng net.accelbyte.sdk.cli.Main legal anonymizeUserAgreement \
     --userId 'yExrkxoo' \
     > test.out 2>&1
 eval_tap $? 29 'AnonymizeUserAgreement' test.out
 
 #- 30 ChangePreferenceConsent1
-build/install/cli/bin/cli legal changePreferenceConsent1 \
+./ng net.accelbyte.sdk.cli.Main legal changePreferenceConsent1 \
     --body '[{"isAccepted": true, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "7WOfercZ", "policyId": "dpMci37D", "policyVersionId": "s7YSfExa"}]' \
     > test.out 2>&1
 eval_tap $? 30 'ChangePreferenceConsent1' test.out
 
 #- 31 AcceptVersionedPolicy
-build/install/cli/bin/cli legal acceptVersionedPolicy \
+./ng net.accelbyte.sdk.cli.Main legal acceptVersionedPolicy \
     --localizedPolicyVersionId 'I3uzLteM' \
     > test.out 2>&1
 eval_tap $? 31 'AcceptVersionedPolicy' test.out
 
 #- 32 RetrieveAgreementsPublic
-build/install/cli/bin/cli legal retrieveAgreementsPublic \
+./ng net.accelbyte.sdk.cli.Main legal retrieveAgreementsPublic \
     > test.out 2>&1
 eval_tap $? 32 'RetrieveAgreementsPublic' test.out
 
 #- 33 BulkAcceptVersionedPolicy
-build/install/cli/bin/cli legal bulkAcceptVersionedPolicy \
+./ng net.accelbyte.sdk.cli.Main legal bulkAcceptVersionedPolicy \
     --body '[{"isAccepted": false, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "Alt4hr7H", "policyId": "mOYiBA5l", "policyVersionId": "tAOXmlG6"}]' \
     > test.out 2>&1
 eval_tap $? 33 'BulkAcceptVersionedPolicy' test.out
 
 #- 34 IndirectBulkAcceptVersionedPolicyV2
-build/install/cli/bin/cli legal indirectBulkAcceptVersionedPolicyV2 \
+./ng net.accelbyte.sdk.cli.Main legal indirectBulkAcceptVersionedPolicyV2 \
     --clientId 'eh1dTdoT' \
     --countryCode 'FpBIcuC1' \
     --namespace "$AB_NAMESPACE" \
@@ -262,20 +269,20 @@ build/install/cli/bin/cli legal indirectBulkAcceptVersionedPolicyV2 \
 eval_tap $? 34 'IndirectBulkAcceptVersionedPolicyV2' test.out
 
 #- 35 IndirectBulkAcceptVersionedPolicy1
-build/install/cli/bin/cli legal indirectBulkAcceptVersionedPolicy1 \
+./ng net.accelbyte.sdk.cli.Main legal indirectBulkAcceptVersionedPolicy1 \
     --userId '1pHyhhER' \
     --body '[{"isAccepted": false, "isNeedToSendEventMarketing": false, "localizedPolicyVersionId": "drysMizB", "policyId": "GSRdP2l7", "policyVersionId": "DNSZ8Aq0"}]' \
     > test.out 2>&1
 eval_tap $? 35 'IndirectBulkAcceptVersionedPolicy1' test.out
 
 #- 36 RetrieveEligibilitiesPublic
-build/install/cli/bin/cli legal retrieveEligibilitiesPublic \
+./ng net.accelbyte.sdk.cli.Main legal retrieveEligibilitiesPublic \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 36 'RetrieveEligibilitiesPublic' test.out
 
 #- 37 RetrieveEligibilitiesPublicIndirect
-build/install/cli/bin/cli legal retrieveEligibilitiesPublicIndirect \
+./ng net.accelbyte.sdk.cli.Main legal retrieveEligibilitiesPublicIndirect \
     --clientId 'XiPLQXSe' \
     --countryCode '07ZddOGT' \
     --namespace "$AB_NAMESPACE" \
@@ -284,37 +291,37 @@ build/install/cli/bin/cli legal retrieveEligibilitiesPublicIndirect \
 eval_tap $? 37 'RetrieveEligibilitiesPublicIndirect' test.out
 
 #- 38 RetrieveSingleLocalizedPolicyVersion1
-build/install/cli/bin/cli legal retrieveSingleLocalizedPolicyVersion1 \
+./ng net.accelbyte.sdk.cli.Main legal retrieveSingleLocalizedPolicyVersion1 \
     --localizedPolicyVersionId 'HJHQKseE' \
     > test.out 2>&1
 eval_tap $? 38 'RetrieveSingleLocalizedPolicyVersion1' test.out
 
 #- 39 RetrievePolicyVersions
-build/install/cli/bin/cli legal retrievePolicyVersions \
+./ng net.accelbyte.sdk.cli.Main legal retrievePolicyVersions \
     > test.out 2>&1
 eval_tap $? 39 'RetrievePolicyVersions' test.out
 
 #- 40 RetrieveLatestPolicies
-build/install/cli/bin/cli legal retrieveLatestPolicies \
+./ng net.accelbyte.sdk.cli.Main legal retrieveLatestPolicies \
     --countryCode 'dSXRDSvg' \
     > test.out 2>&1
 eval_tap $? 40 'RetrieveLatestPolicies' test.out
 
 #- 41 RetrieveLatestPoliciesPublic
-build/install/cli/bin/cli legal retrieveLatestPoliciesPublic \
+./ng net.accelbyte.sdk.cli.Main legal retrieveLatestPoliciesPublic \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 41 'RetrieveLatestPoliciesPublic' test.out
 
 #- 42 RetrieveLatestPoliciesByNamespaceAndCountryPublic
-build/install/cli/bin/cli legal retrieveLatestPoliciesByNamespaceAndCountryPublic \
+./ng net.accelbyte.sdk.cli.Main legal retrieveLatestPoliciesByNamespaceAndCountryPublic \
     --countryCode 'uauw1xT7' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 42 'RetrieveLatestPoliciesByNamespaceAndCountryPublic' test.out
 
 #- 43 CheckReadiness
-build/install/cli/bin/cli legal checkReadiness \
+./ng net.accelbyte.sdk.cli.Main legal checkReadiness \
     > test.out 2>&1
 eval_tap $? 43 'CheckReadiness' test.out
 

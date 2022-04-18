@@ -31,11 +31,18 @@ eval_tap() {
   rm -f $4
 }
 
+chmod +x ./ng
+trap "./ng ng-stop" EXIT
+java -jar build/install/cli/lib/nailgun-server-*.jar 1>&2 &
+(for i in $(seq 1 100); do bash -c "timeout 1 echo > /dev/tcp/127.0.0.1/2113" 2>/dev/null && exit 0 || sleep 1; done; exit 1) || exit 1
+for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
+./ng ng-cp 1>&2
+
 echo "TAP version 13"
 echo "1..33"
 
 #- 1 Login
-build/install/cli/bin/cli loginClient \
+./ng net.accelbyte.sdk.cli.Main loginClient \
     > test.out 2>&1
 eval_tap $? 1 'Login' test.out
 
@@ -131,28 +138,28 @@ eval_tap 0 28 'UnregisterEventIDHandler # SKIP deprecated' test.out
 eval_tap 0 29 'GetRegisteredEventsByEventTypeHandler # SKIP deprecated' test.out
 
 #- 30 QueryEventStreamHandler
-build/install/cli/bin/cli eventlog queryEventStreamHandler \
+./ng net.accelbyte.sdk.cli.Main eventlog queryEventStreamHandler \
     --body '{"clientId": "FtBxyZcD", "eventName": "XBpGlsQu", "payloadQuery": {"Ju8vMf0I": {}}, "sessionId": "sJkTrd8I", "traceId": "DcV2zXnT", "userId": "KjXY1bPq", "version": 1}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 30 'QueryEventStreamHandler' test.out
 
 #- 31 GetEventSpecificUserV2Handler
-build/install/cli/bin/cli eventlog getEventSpecificUserV2Handler \
+./ng net.accelbyte.sdk.cli.Main eventlog getEventSpecificUserV2Handler \
     --namespace "$AB_NAMESPACE" \
     --userId 'miBxx9Cs' \
     > test.out 2>&1
 eval_tap $? 31 'GetEventSpecificUserV2Handler' test.out
 
 #- 32 GetPublicEditHistory
-build/install/cli/bin/cli eventlog getPublicEditHistory \
+./ng net.accelbyte.sdk.cli.Main eventlog getPublicEditHistory \
     --namespace "$AB_NAMESPACE" \
     --userId '18EY84ek' \
     > test.out 2>&1
 eval_tap $? 32 'GetPublicEditHistory' test.out
 
 #- 33 GetUserEventsV2Public
-build/install/cli/bin/cli eventlog getUserEventsV2Public \
+./ng net.accelbyte.sdk.cli.Main eventlog getUserEventsV2Public \
     --namespace "$AB_NAMESPACE" \
     --userId 'ItqRzHU1' \
     > test.out 2>&1

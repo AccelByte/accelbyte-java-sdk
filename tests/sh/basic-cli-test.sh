@@ -31,11 +31,18 @@ eval_tap() {
   rm -f $4
 }
 
+chmod +x ./ng
+trap "./ng ng-stop" EXIT
+java -jar build/install/cli/lib/nailgun-server-*.jar 1>&2 &
+(for i in $(seq 1 100); do bash -c "timeout 1 echo > /dev/tcp/127.0.0.1/2113" 2>/dev/null && exit 0 || sleep 1; done; exit 1) || exit 1
+for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
+./ng ng-cp 1>&2
+
 echo "TAP version 13"
 echo "1..58"
 
 #- 1 Login
-build/install/cli/bin/cli loginClient \
+./ng net.accelbyte.sdk.cli.Main loginClient \
     > test.out 2>&1
 eval_tap $? 1 'Login' test.out
 
@@ -47,97 +54,97 @@ fi
 touch "tmp.dat"
 
 #- 2 GetNamespaces
-build/install/cli/bin/cli basic getNamespaces \
+./ng net.accelbyte.sdk.cli.Main basic getNamespaces \
     > test.out 2>&1
 eval_tap $? 2 'GetNamespaces' test.out
 
 #- 3 CreateNamespace
-build/install/cli/bin/cli basic createNamespace \
+./ng net.accelbyte.sdk.cli.Main basic createNamespace \
     --body '{"displayName": "FtBxyZcD", "namespace": "XBpGlsQu"}' \
     > test.out 2>&1
 eval_tap $? 3 'CreateNamespace' test.out
 
 #- 4 GetNamespace
-build/install/cli/bin/cli basic getNamespace \
+./ng net.accelbyte.sdk.cli.Main basic getNamespace \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 4 'GetNamespace' test.out
 
 #- 5 DeleteNamespace
-build/install/cli/bin/cli basic deleteNamespace \
+./ng net.accelbyte.sdk.cli.Main basic deleteNamespace \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 5 'DeleteNamespace' test.out
 
 #- 6 GetActions
-build/install/cli/bin/cli basic getActions \
+./ng net.accelbyte.sdk.cli.Main basic getActions \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 6 'GetActions' test.out
 
 #- 7 BanUsers
-build/install/cli/bin/cli basic banUsers \
+./ng net.accelbyte.sdk.cli.Main basic banUsers \
     --namespace "$AB_NAMESPACE" \
     --body '{"actionId": 71, "comment": "u8vMf0Is", "userIds": ["JkTrd8ID"]}' \
     > test.out 2>&1
 eval_tap $? 7 'BanUsers' test.out
 
 #- 8 GetBannedUsers
-build/install/cli/bin/cli basic getBannedUsers \
+./ng net.accelbyte.sdk.cli.Main basic getBannedUsers \
     --namespace "$AB_NAMESPACE" \
     --userIds '["cV2zXnTK"]' \
     > test.out 2>&1
 eval_tap $? 8 'GetBannedUsers' test.out
 
 #- 9 ReportUser
-build/install/cli/bin/cli basic reportUser \
+./ng net.accelbyte.sdk.cli.Main basic reportUser \
     --namespace "$AB_NAMESPACE" \
     --body '{"category": "jXY1bPqa", "description": "miBxx9Cs", "gameSessionId": "18EY84ek", "subcategory": "ItqRzHU1", "userId": "oh570KQB"}' \
     > test.out 2>&1
 eval_tap $? 9 'ReportUser' test.out
 
 #- 10 GetUserStatus
-build/install/cli/bin/cli basic getUserStatus \
+./ng net.accelbyte.sdk.cli.Main basic getUserStatus \
     --namespace "$AB_NAMESPACE" \
     --userId 'Vaewc72k' \
     > test.out 2>&1
 eval_tap $? 10 'GetUserStatus' test.out
 
 #- 11 UnBanUsers
-build/install/cli/bin/cli basic unBanUsers \
+./ng net.accelbyte.sdk.cli.Main basic unBanUsers \
     --namespace "$AB_NAMESPACE" \
     --body '{"comment": "rSha68n3", "userIds": ["Ynozp1C2"]}' \
     > test.out 2>&1
 eval_tap $? 11 'UnBanUsers' test.out
 
 #- 12 UpdateNamespace
-build/install/cli/bin/cli basic updateNamespace \
+./ng net.accelbyte.sdk.cli.Main basic updateNamespace \
     --namespace "$AB_NAMESPACE" \
     --body '{"displayName": "KmIQTuBd"}' \
     > test.out 2>&1
 eval_tap $? 12 'UpdateNamespace' test.out
 
 #- 13 GetConfig
-build/install/cli/bin/cli basic getConfig \
+./ng net.accelbyte.sdk.cli.Main basic getConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 13 'GetConfig' test.out
 
 #- 14 DeleteConfig
-build/install/cli/bin/cli basic deleteConfig \
+./ng net.accelbyte.sdk.cli.Main basic deleteConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 14 'DeleteConfig' test.out
 
 #- 15 UpdateConfig
-build/install/cli/bin/cli basic updateConfig \
+./ng net.accelbyte.sdk.cli.Main basic updateConfig \
     --namespace "$AB_NAMESPACE" \
     --body '{"apiKey": "NEUsxFb8"}' \
     > test.out 2>&1
 eval_tap $? 15 'UpdateConfig' test.out
 
 #- 16 GeneratedUploadUrl
-build/install/cli/bin/cli basic generatedUploadUrl \
+./ng net.accelbyte.sdk.cli.Main basic generatedUploadUrl \
     --folder 'CJ17M7DJ' \
     --namespace "$AB_NAMESPACE" \
     --fileType 'ZaMSxECb' \
@@ -145,26 +152,26 @@ build/install/cli/bin/cli basic generatedUploadUrl \
 eval_tap $? 16 'GeneratedUploadUrl' test.out
 
 #- 17 GetCountries
-build/install/cli/bin/cli basic getCountries \
+./ng net.accelbyte.sdk.cli.Main basic getCountries \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 17 'GetCountries' test.out
 
 #- 18 GetCountryGroups
-build/install/cli/bin/cli basic getCountryGroups \
+./ng net.accelbyte.sdk.cli.Main basic getCountryGroups \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 18 'GetCountryGroups' test.out
 
 #- 19 AddCountryGroup
-build/install/cli/bin/cli basic addCountryGroup \
+./ng net.accelbyte.sdk.cli.Main basic addCountryGroup \
     --namespace "$AB_NAMESPACE" \
     --body '{"countries": [{"code": "Zbygyoar", "name": "ORoeNHSb"}], "countryGroupCode": "8Rh3kgs9", "countryGroupName": "qqJbnQso"}' \
     > test.out 2>&1
 eval_tap $? 19 'AddCountryGroup' test.out
 
 #- 20 UpdateCountryGroup
-build/install/cli/bin/cli basic updateCountryGroup \
+./ng net.accelbyte.sdk.cli.Main basic updateCountryGroup \
     --countryGroupCode 'BgiVpP8C' \
     --namespace "$AB_NAMESPACE" \
     --body '{"countries": [{"code": "m3yvASUo", "name": "xdxxFqmA"}], "countryGroupName": "GTJ8IEda"}' \
@@ -172,53 +179,53 @@ build/install/cli/bin/cli basic updateCountryGroup \
 eval_tap $? 20 'UpdateCountryGroup' test.out
 
 #- 21 DeleteCountryGroup
-build/install/cli/bin/cli basic deleteCountryGroup \
+./ng net.accelbyte.sdk.cli.Main basic deleteCountryGroup \
     --countryGroupCode 'gEtp4w29' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 21 'DeleteCountryGroup' test.out
 
 #- 22 GetLanguages
-build/install/cli/bin/cli basic getLanguages \
+./ng net.accelbyte.sdk.cli.Main basic getLanguages \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 22 'GetLanguages' test.out
 
 #- 23 GetTimeZones
-build/install/cli/bin/cli basic getTimeZones \
+./ng net.accelbyte.sdk.cli.Main basic getTimeZones \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 23 'GetTimeZones' test.out
 
 #- 24 AdminGetUserProfilePublicInfoByIds
-build/install/cli/bin/cli basic adminGetUserProfilePublicInfoByIds \
+./ng net.accelbyte.sdk.cli.Main basic adminGetUserProfilePublicInfoByIds \
     --namespace "$AB_NAMESPACE" \
     --body '{"userIds": ["KOu9c19R"]}' \
     > test.out 2>&1
 eval_tap $? 24 'AdminGetUserProfilePublicInfoByIds' test.out
 
 #- 25 GetNamespacePublisher
-build/install/cli/bin/cli basic getNamespacePublisher \
+./ng net.accelbyte.sdk.cli.Main basic getNamespacePublisher \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 25 'GetNamespacePublisher' test.out
 
 #- 26 ChangeNamespaceStatus
-build/install/cli/bin/cli basic changeNamespaceStatus \
+./ng net.accelbyte.sdk.cli.Main basic changeNamespaceStatus \
     --namespace "$AB_NAMESPACE" \
     --body '{"status": "INACTIVE"}' \
     > test.out 2>&1
 eval_tap $? 26 'ChangeNamespaceStatus' test.out
 
 #- 27 AnonymizeUserProfile
-build/install/cli/bin/cli basic anonymizeUserProfile \
+./ng net.accelbyte.sdk.cli.Main basic anonymizeUserProfile \
     --namespace "$AB_NAMESPACE" \
     --userId 'qWHkkP8n' \
     > test.out 2>&1
 eval_tap $? 27 'AnonymizeUserProfile' test.out
 
 #- 28 GeneratedUserUploadContentUrl
-build/install/cli/bin/cli basic generatedUserUploadContentUrl \
+./ng net.accelbyte.sdk.cli.Main basic generatedUserUploadContentUrl \
     --namespace "$AB_NAMESPACE" \
     --userId 'pLEKMfji' \
     --fileType 'X7jpkVZk' \
@@ -226,14 +233,14 @@ build/install/cli/bin/cli basic generatedUserUploadContentUrl \
 eval_tap $? 28 'GeneratedUserUploadContentUrl' test.out
 
 #- 29 GetUserProfileInfo
-build/install/cli/bin/cli basic getUserProfileInfo \
+./ng net.accelbyte.sdk.cli.Main basic getUserProfileInfo \
     --namespace "$AB_NAMESPACE" \
     --userId '3IaQYEmq' \
     > test.out 2>&1
 eval_tap $? 29 'GetUserProfileInfo' test.out
 
 #- 30 UpdateUserProfile
-build/install/cli/bin/cli basic updateUserProfile \
+./ng net.accelbyte.sdk.cli.Main basic updateUserProfile \
     --namespace "$AB_NAMESPACE" \
     --userId 'GodOEGt9' \
     --body '{"avatarLargeUrl": "gPOj0c6i", "avatarSmallUrl": "0JkvIas7", "avatarUrl": "3ucYnFAJ", "customAttributes": {"3DK5T4Eo": {}}, "dateOfBirth": "1323-10-31", "firstName": "gtsDhUTD", "language": "SCBq_tqUp_uz", "lastName": "POw6zPFJ", "status": "ACTIVE", "timeZone": "wmzBBSMN", "zipCode": "coAAOjKN"}' \
@@ -241,21 +248,21 @@ build/install/cli/bin/cli basic updateUserProfile \
 eval_tap $? 30 'UpdateUserProfile' test.out
 
 #- 31 DeleteUserProfile
-build/install/cli/bin/cli basic deleteUserProfile \
+./ng net.accelbyte.sdk.cli.Main basic deleteUserProfile \
     --namespace "$AB_NAMESPACE" \
     --userId 'jfcYHm09' \
     > test.out 2>&1
 eval_tap $? 31 'DeleteUserProfile' test.out
 
 #- 32 GetCustomAttributesInfo
-build/install/cli/bin/cli basic getCustomAttributesInfo \
+./ng net.accelbyte.sdk.cli.Main basic getCustomAttributesInfo \
     --namespace "$AB_NAMESPACE" \
     --userId '3aYgBU1s' \
     > test.out 2>&1
 eval_tap $? 32 'GetCustomAttributesInfo' test.out
 
 #- 33 UpdateCustomAttributesPartially
-build/install/cli/bin/cli basic updateCustomAttributesPartially \
+./ng net.accelbyte.sdk.cli.Main basic updateCustomAttributesPartially \
     --namespace "$AB_NAMESPACE" \
     --userId 'qjyK0XH4' \
     --body '{"5PaRSOFQ": {}}' \
@@ -263,14 +270,14 @@ build/install/cli/bin/cli basic updateCustomAttributesPartially \
 eval_tap $? 33 'UpdateCustomAttributesPartially' test.out
 
 #- 34 GetPrivateCustomAttributesInfo
-build/install/cli/bin/cli basic getPrivateCustomAttributesInfo \
+./ng net.accelbyte.sdk.cli.Main basic getPrivateCustomAttributesInfo \
     --namespace "$AB_NAMESPACE" \
     --userId 'Btu23REZ' \
     > test.out 2>&1
 eval_tap $? 34 'GetPrivateCustomAttributesInfo' test.out
 
 #- 35 UpdatePrivateCustomAttributesPartially
-build/install/cli/bin/cli basic updatePrivateCustomAttributesPartially \
+./ng net.accelbyte.sdk.cli.Main basic updatePrivateCustomAttributesPartially \
     --namespace "$AB_NAMESPACE" \
     --userId '8hRVX7LG' \
     --body '{"OvDdYiQS": {}}' \
@@ -278,7 +285,7 @@ build/install/cli/bin/cli basic updatePrivateCustomAttributesPartially \
 eval_tap $? 35 'UpdatePrivateCustomAttributesPartially' test.out
 
 #- 36 UpdateUserProfileStatus
-build/install/cli/bin/cli basic updateUserProfileStatus \
+./ng net.accelbyte.sdk.cli.Main basic updateUserProfileStatus \
     --namespace "$AB_NAMESPACE" \
     --userId '9i7mV1C9' \
     --body '{"status": "ACTIVE"}' \
@@ -286,17 +293,17 @@ build/install/cli/bin/cli basic updateUserProfileStatus \
 eval_tap $? 36 'UpdateUserProfileStatus' test.out
 
 #- 37 PublicGetTime
-build/install/cli/bin/cli basic publicGetTime \
+./ng net.accelbyte.sdk.cli.Main basic publicGetTime \
     > test.out 2>&1
 eval_tap $? 37 'PublicGetTime' test.out
 
 #- 38 PublicGetNamespaces
-build/install/cli/bin/cli basic publicGetNamespaces \
+./ng net.accelbyte.sdk.cli.Main basic publicGetNamespaces \
     > test.out 2>&1
 eval_tap $? 38 'PublicGetNamespaces' test.out
 
 #- 39 PublicGeneratedUploadUrl
-build/install/cli/bin/cli basic publicGeneratedUploadUrl \
+./ng net.accelbyte.sdk.cli.Main basic publicGeneratedUploadUrl \
     --folder 'jG9gpxL6' \
     --namespace "$AB_NAMESPACE" \
     --fileType 'ycTQdvln' \
@@ -304,71 +311,71 @@ build/install/cli/bin/cli basic publicGeneratedUploadUrl \
 eval_tap $? 39 'PublicGeneratedUploadUrl' test.out
 
 #- 40 PublicGetCountries
-build/install/cli/bin/cli basic publicGetCountries \
+./ng net.accelbyte.sdk.cli.Main basic publicGetCountries \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 40 'PublicGetCountries' test.out
 
 #- 41 PublicGetLanguages
-build/install/cli/bin/cli basic publicGetLanguages \
+./ng net.accelbyte.sdk.cli.Main basic publicGetLanguages \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 41 'PublicGetLanguages' test.out
 
 #- 42 PublicGetTimeZones
-build/install/cli/bin/cli basic publicGetTimeZones \
+./ng net.accelbyte.sdk.cli.Main basic publicGetTimeZones \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 42 'PublicGetTimeZones' test.out
 
 #- 43 PublicGetUserProfilePublicInfoByIds
-build/install/cli/bin/cli basic publicGetUserProfilePublicInfoByIds \
+./ng net.accelbyte.sdk.cli.Main basic publicGetUserProfilePublicInfoByIds \
     --namespace "$AB_NAMESPACE" \
     --userIds '2LAuSQWE' \
     > test.out 2>&1
 eval_tap $? 43 'PublicGetUserProfilePublicInfoByIds' test.out
 
 #- 44 PublicGetNamespacePublisher
-build/install/cli/bin/cli basic publicGetNamespacePublisher \
+./ng net.accelbyte.sdk.cli.Main basic publicGetNamespacePublisher \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 44 'PublicGetNamespacePublisher' test.out
 
 #- 45 GetMyProfileInfo
-build/install/cli/bin/cli basic getMyProfileInfo \
+./ng net.accelbyte.sdk.cli.Main basic getMyProfileInfo \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 45 'GetMyProfileInfo' test.out
 
 #- 46 UpdateMyProfile
-build/install/cli/bin/cli basic updateMyProfile \
+./ng net.accelbyte.sdk.cli.Main basic updateMyProfile \
     --namespace "$AB_NAMESPACE" \
     --body '{"avatarLargeUrl": "XL6LFE1Y", "avatarSmallUrl": "Ho9m126Z", "avatarUrl": "Wc8hHtWv", "customAttributes": {"bNYqgUqs": {}}, "dateOfBirth": "6472-10-22", "firstName": "U9dBBpds", "language": "lHSv-RKXO", "lastName": "t0B7WOfe", "privateCustomAttributes": {"rcZdpMci": {}}, "timeZone": "37Ds7YSf", "zipCode": "ExaI3uzL"}' \
     > test.out 2>&1
 eval_tap $? 46 'UpdateMyProfile' test.out
 
 #- 47 CreateMyProfile
-build/install/cli/bin/cli basic createMyProfile \
+./ng net.accelbyte.sdk.cli.Main basic createMyProfile \
     --namespace "$AB_NAMESPACE" \
     --body '{"avatarLargeUrl": "teMbFAlt", "avatarSmallUrl": "4hr7HmOY", "avatarUrl": "iBA5ltAO", "customAttributes": {"XmlG6eh1": {}}, "dateOfBirth": "0373-12-06", "firstName": "C1dQY93O", "language": "NjtE-DZhU-wU", "lastName": "nvizU0q1", "privateCustomAttributes": {"pHyhhERo": {}}, "timeZone": "GgdrysMi"}' \
     > test.out 2>&1
 eval_tap $? 47 'CreateMyProfile' test.out
 
 #- 48 GetMyZipCode
-build/install/cli/bin/cli basic getMyZipCode \
+./ng net.accelbyte.sdk.cli.Main basic getMyZipCode \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 48 'GetMyZipCode' test.out
 
 #- 49 UpdateMyZipCode
-build/install/cli/bin/cli basic updateMyZipCode \
+./ng net.accelbyte.sdk.cli.Main basic updateMyZipCode \
     --userZipCodeUpdate '{"zipCode": "zBGSRdP2"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 49 'UpdateMyZipCode' test.out
 
 #- 50 PublicReportUser
-build/install/cli/bin/cli basic publicReportUser \
+./ng net.accelbyte.sdk.cli.Main basic publicReportUser \
     --namespace "$AB_NAMESPACE" \
     --userId 'l7DNSZ8A' \
     --body '{"category": "q0XiPLQX", "description": "Se07ZddO", "gameSessionId": "GTMlJjBw", "subcategory": "j9HJHQKs", "userId": "eEdSXRDS"}' \
@@ -376,7 +383,7 @@ build/install/cli/bin/cli basic publicReportUser \
 eval_tap $? 50 'PublicReportUser' test.out
 
 #- 51 PublicGeneratedUserUploadContentUrl
-build/install/cli/bin/cli basic publicGeneratedUserUploadContentUrl \
+./ng net.accelbyte.sdk.cli.Main basic publicGeneratedUserUploadContentUrl \
     --namespace "$AB_NAMESPACE" \
     --userId 'vguauw1x' \
     --fileType 'T7eMwSl9' \
@@ -384,14 +391,14 @@ build/install/cli/bin/cli basic publicGeneratedUserUploadContentUrl \
 eval_tap $? 51 'PublicGeneratedUserUploadContentUrl' test.out
 
 #- 52 PublicGetUserProfileInfo
-build/install/cli/bin/cli basic publicGetUserProfileInfo \
+./ng net.accelbyte.sdk.cli.Main basic publicGetUserProfileInfo \
     --namespace "$AB_NAMESPACE" \
     --userId 'MLH0NnTJ' \
     > test.out 2>&1
 eval_tap $? 52 'PublicGetUserProfileInfo' test.out
 
 #- 53 PublicUpdateUserProfile
-build/install/cli/bin/cli basic publicUpdateUserProfile \
+./ng net.accelbyte.sdk.cli.Main basic publicUpdateUserProfile \
     --namespace "$AB_NAMESPACE" \
     --userId '2ulNzBvw' \
     --body '{"avatarLargeUrl": "JaQa547J", "avatarSmallUrl": "llvA8RWS", "avatarUrl": "pabUt7xk", "customAttributes": {"6QxyWhfq": {}}, "dateOfBirth": "1853-05-28", "firstName": "zT7NXmWD", "language": "xS_SnoL_As", "lastName": "bnsuLCgT", "timeZone": "oxuVTekJ", "zipCode": "gvg6h5HI"}' \
@@ -399,7 +406,7 @@ build/install/cli/bin/cli basic publicUpdateUserProfile \
 eval_tap $? 53 'PublicUpdateUserProfile' test.out
 
 #- 54 PublicCreateUserProfile
-build/install/cli/bin/cli basic publicCreateUserProfile \
+./ng net.accelbyte.sdk.cli.Main basic publicCreateUserProfile \
     --namespace "$AB_NAMESPACE" \
     --userId 'pH0Dvipl' \
     --body '{"avatarLargeUrl": "Ek4vj3LD", "avatarSmallUrl": "p4yqDt8Q", "avatarUrl": "UZDpxlHa", "customAttributes": {"sinGcjrk": {}}, "dateOfBirth": "9441-08-30", "firstName": "IVBmft3U", "language": "GP", "lastName": "X4MsisSX", "timeZone": "28nARxWR"}' \
@@ -407,14 +414,14 @@ build/install/cli/bin/cli basic publicCreateUserProfile \
 eval_tap $? 54 'PublicCreateUserProfile' test.out
 
 #- 55 PublicGetCustomAttributesInfo
-build/install/cli/bin/cli basic publicGetCustomAttributesInfo \
+./ng net.accelbyte.sdk.cli.Main basic publicGetCustomAttributesInfo \
     --namespace "$AB_NAMESPACE" \
     --userId 'pv5ou5xt' \
     > test.out 2>&1
 eval_tap $? 55 'PublicGetCustomAttributesInfo' test.out
 
 #- 56 PublicUpdateCustomAttributesPartially
-build/install/cli/bin/cli basic publicUpdateCustomAttributesPartially \
+./ng net.accelbyte.sdk.cli.Main basic publicUpdateCustomAttributesPartially \
     --namespace "$AB_NAMESPACE" \
     --userId 'vd28OUfC' \
     --body '{"t8UJC5fl": {}}' \
@@ -422,14 +429,14 @@ build/install/cli/bin/cli basic publicUpdateCustomAttributesPartially \
 eval_tap $? 56 'PublicUpdateCustomAttributesPartially' test.out
 
 #- 57 PublicGetUserProfilePublicInfo
-build/install/cli/bin/cli basic publicGetUserProfilePublicInfo \
+./ng net.accelbyte.sdk.cli.Main basic publicGetUserProfilePublicInfo \
     --namespace "$AB_NAMESPACE" \
     --userId 'Nyj6HsTt' \
     > test.out 2>&1
 eval_tap $? 57 'PublicGetUserProfilePublicInfo' test.out
 
 #- 58 PublicUpdateUserProfileStatus
-build/install/cli/bin/cli basic publicUpdateUserProfileStatus \
+./ng net.accelbyte.sdk.cli.Main basic publicUpdateUserProfileStatus \
     --namespace "$AB_NAMESPACE" \
     --userId 'X8P3llna' \
     --body '{"status": "ACTIVE"}' \

@@ -31,11 +31,18 @@ eval_tap() {
   rm -f $4
 }
 
+chmod +x ./ng
+trap "./ng ng-stop" EXIT
+java -jar build/install/cli/lib/nailgun-server-*.jar 1>&2 &
+(for i in $(seq 1 100); do bash -c "timeout 1 echo > /dev/tcp/127.0.0.1/2113" 2>/dev/null && exit 0 || sleep 1; done; exit 1) || exit 1
+for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
+./ng ng-cp 1>&2
+
 echo "TAP version 13"
 echo "1..15"
 
 #- 1 Login
-build/install/cli/bin/cli loginClient \
+./ng net.accelbyte.sdk.cli.Main loginClient \
     > test.out 2>&1
 eval_tap $? 1 'Login' test.out
 
@@ -47,39 +54,39 @@ fi
 touch "tmp.dat"
 
 #- 2 AdminListAchievements
-build/install/cli/bin/cli achievement adminListAchievements \
+./ng net.accelbyte.sdk.cli.Main achievement adminListAchievements \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 2 'AdminListAchievements' test.out
 
 #- 3 AdminCreateNewAchievement
-build/install/cli/bin/cli achievement adminCreateNewAchievement \
+./ng net.accelbyte.sdk.cli.Main achievement adminCreateNewAchievement \
     --body '{"achievementCode": "FtBxyZcD", "defaultLanguage": "XBpGlsQu", "description": {"Ju8vMf0I": "sJkTrd8I"}, "goalValue": 0.46848625686278056, "hidden": false, "incremental": true, "lockedIcons": [{"slug": "XnTKjXY1", "url": "bPqamiBx"}], "name": {"x9Cs18EY": "84ekItqR"}, "statCode": "zHU1oh57", "tags": ["0KQBVaew"], "unlockedIcons": [{"slug": "c72krSha", "url": "68n3Ynoz"}]}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 3 'AdminCreateNewAchievement' test.out
 
 #- 4 ExportAchievements
-build/install/cli/bin/cli achievement exportAchievements \
+./ng net.accelbyte.sdk.cli.Main achievement exportAchievements \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 4 'ExportAchievements' test.out
 
 #- 5 ImportAchievements
-build/install/cli/bin/cli achievement importAchievements \
+./ng net.accelbyte.sdk.cli.Main achievement importAchievements \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 5 'ImportAchievements' test.out
 
 #- 6 AdminGetAchievement
-build/install/cli/bin/cli achievement adminGetAchievement \
+./ng net.accelbyte.sdk.cli.Main achievement adminGetAchievement \
     --achievementCode 'p1C2KmIQ' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 6 'AdminGetAchievement' test.out
 
 #- 7 AdminUpdateAchievement
-build/install/cli/bin/cli achievement adminUpdateAchievement \
+./ng net.accelbyte.sdk.cli.Main achievement adminUpdateAchievement \
     --body '{"defaultLanguage": "TuBdNEUs", "description": {"xFb8CJ17": "M7DJZaMS"}, "goalValue": 0.3723261689885863, "hidden": true, "incremental": false, "lockedIcons": [{"slug": "Zbygyoar", "url": "ORoeNHSb"}], "name": {"8Rh3kgs9": "qqJbnQso"}, "statCode": "BgiVpP8C", "tags": ["m3yvASUo"], "unlockedIcons": [{"slug": "xdxxFqmA", "url": "GTJ8IEda"}]}' \
     --achievementCode 'gEtp4w29' \
     --namespace "$AB_NAMESPACE" \
@@ -87,14 +94,14 @@ build/install/cli/bin/cli achievement adminUpdateAchievement \
 eval_tap $? 7 'AdminUpdateAchievement' test.out
 
 #- 8 AdminDeleteAchievement
-build/install/cli/bin/cli achievement adminDeleteAchievement \
+./ng net.accelbyte.sdk.cli.Main achievement adminDeleteAchievement \
     --achievementCode 'KOu9c19R' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 8 'AdminDeleteAchievement' test.out
 
 #- 9 AdminUpdateAchievementListOrder
-build/install/cli/bin/cli achievement adminUpdateAchievementListOrder \
+./ng net.accelbyte.sdk.cli.Main achievement adminUpdateAchievementListOrder \
     --body '{"targetOrder": 98}' \
     --achievementCode 'DqWHkkP8' \
     --namespace "$AB_NAMESPACE" \
@@ -102,14 +109,14 @@ build/install/cli/bin/cli achievement adminUpdateAchievementListOrder \
 eval_tap $? 9 'AdminUpdateAchievementListOrder' test.out
 
 #- 10 AdminListUserAchievements
-build/install/cli/bin/cli achievement adminListUserAchievements \
+./ng net.accelbyte.sdk.cli.Main achievement adminListUserAchievements \
     --namespace "$AB_NAMESPACE" \
     --userId 'npLEKMfj' \
     > test.out 2>&1
 eval_tap $? 10 'AdminListUserAchievements' test.out
 
 #- 11 AdminUnlockAchievement
-build/install/cli/bin/cli achievement adminUnlockAchievement \
+./ng net.accelbyte.sdk.cli.Main achievement adminUnlockAchievement \
     --achievementCode 'iX7jpkVZ' \
     --namespace "$AB_NAMESPACE" \
     --userId 'k3IaQYEm' \
@@ -117,14 +124,14 @@ build/install/cli/bin/cli achievement adminUnlockAchievement \
 eval_tap $? 11 'AdminUnlockAchievement' test.out
 
 #- 12 PublicListAchievements
-build/install/cli/bin/cli achievement publicListAchievements \
+./ng net.accelbyte.sdk.cli.Main achievement publicListAchievements \
     --namespace "$AB_NAMESPACE" \
     --language 'qGodOEGt' \
     > test.out 2>&1
 eval_tap $? 12 'PublicListAchievements' test.out
 
 #- 13 PublicGetAchievement
-build/install/cli/bin/cli achievement publicGetAchievement \
+./ng net.accelbyte.sdk.cli.Main achievement publicGetAchievement \
     --achievementCode '9gPOj0c6' \
     --namespace "$AB_NAMESPACE" \
     --language 'i0JkvIas' \
@@ -132,14 +139,14 @@ build/install/cli/bin/cli achievement publicGetAchievement \
 eval_tap $? 13 'PublicGetAchievement' test.out
 
 #- 14 PublicListUserAchievements
-build/install/cli/bin/cli achievement publicListUserAchievements \
+./ng net.accelbyte.sdk.cli.Main achievement publicListUserAchievements \
     --namespace "$AB_NAMESPACE" \
     --userId '73ucYnFA' \
     > test.out 2>&1
 eval_tap $? 14 'PublicListUserAchievements' test.out
 
 #- 15 PublicUnlockAchievement
-build/install/cli/bin/cli achievement publicUnlockAchievement \
+./ng net.accelbyte.sdk.cli.Main achievement publicUnlockAchievement \
     --achievementCode 'J3DK5T4E' \
     --namespace "$AB_NAMESPACE" \
     --userId 'ogg0Y39U' \

@@ -31,11 +31,18 @@ eval_tap() {
   rm -f $4
 }
 
+chmod +x ./ng
+trap "./ng ng-stop" EXIT
+java -jar build/install/cli/lib/nailgun-server-*.jar 1>&2 &
+(for i in $(seq 1 100); do bash -c "timeout 1 echo > /dev/tcp/127.0.0.1/2113" 2>/dev/null && exit 0 || sleep 1; done; exit 1) || exit 1
+for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
+./ng ng-cp 1>&2
+
 echo "TAP version 13"
 echo "1..88"
 
 #- 1 Login
-build/install/cli/bin/cli loginClient \
+./ng net.accelbyte.sdk.cli.Main loginClient \
     > test.out 2>&1
 eval_tap $? 1 'Login' test.out
 
@@ -47,20 +54,20 @@ fi
 touch "tmp.dat"
 
 #- 2 SingleAdminGetChannel
-build/install/cli/bin/cli ugc singleAdminGetChannel \
+./ng net.accelbyte.sdk.cli.Main ugc singleAdminGetChannel \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 2 'SingleAdminGetChannel' test.out
 
 #- 3 AdminCreateChannel
-build/install/cli/bin/cli ugc adminCreateChannel \
+./ng net.accelbyte.sdk.cli.Main ugc adminCreateChannel \
     --body '{"name": "FtBxyZcD"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 3 'AdminCreateChannel' test.out
 
 #- 4 SingleAdminUpdateChannel
-build/install/cli/bin/cli ugc singleAdminUpdateChannel \
+./ng net.accelbyte.sdk.cli.Main ugc singleAdminUpdateChannel \
     --body '{"name": "XBpGlsQu"}' \
     --channelId 'Ju8vMf0I' \
     --namespace "$AB_NAMESPACE" \
@@ -68,7 +75,7 @@ build/install/cli/bin/cli ugc singleAdminUpdateChannel \
 eval_tap $? 4 'SingleAdminUpdateChannel' test.out
 
 #- 5 SingleAdminDeleteChannel
-build/install/cli/bin/cli ugc singleAdminDeleteChannel \
+./ng net.accelbyte.sdk.cli.Main ugc singleAdminDeleteChannel \
     --channelId 'sJkTrd8I' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
@@ -78,7 +85,7 @@ eval_tap $? 5 'SingleAdminDeleteChannel' test.out
 eval_tap 0 6 'AdminUploadContentDirect # SKIP deprecated' test.out
 
 #- 7 AdminUploadContentS3
-build/install/cli/bin/cli ugc adminUploadContentS3 \
+./ng net.accelbyte.sdk.cli.Main ugc adminUploadContentS3 \
     --body '{"contentType": "DcV2zXnT", "fileExtension": "KjXY1bPq", "name": "amiBxx9C", "preview": "s18EY84e", "subType": "kItqRzHU", "tags": ["1oh570KQ"], "type": "BVaewc72"}' \
     --channelId 'krSha68n' \
     --namespace "$AB_NAMESPACE" \
@@ -86,7 +93,7 @@ build/install/cli/bin/cli ugc adminUploadContentS3 \
 eval_tap $? 7 'AdminUploadContentS3' test.out
 
 #- 8 SingleAdminUpdateContentS3
-build/install/cli/bin/cli ugc singleAdminUpdateContentS3 \
+./ng net.accelbyte.sdk.cli.Main ugc singleAdminUpdateContentS3 \
     --body '{"contentType": "3Ynozp1C", "fileExtension": "2KmIQTuB", "name": "dNEUsxFb", "preview": "8CJ17M7D", "subType": "JZaMSxEC", "tags": ["bZbygyoa"], "type": "rORoeNHS"}' \
     --channelId 'b8Rh3kgs' \
     --contentId '9qqJbnQs' \
@@ -95,7 +102,7 @@ build/install/cli/bin/cli ugc singleAdminUpdateContentS3 \
 eval_tap $? 8 'SingleAdminUpdateContentS3' test.out
 
 #- 9 AdminSearchChannelSpecificContent
-build/install/cli/bin/cli ugc adminSearchChannelSpecificContent \
+./ng net.accelbyte.sdk.cli.Main ugc adminSearchChannelSpecificContent \
     --channelId 'oBgiVpP8' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
@@ -105,7 +112,7 @@ eval_tap $? 9 'AdminSearchChannelSpecificContent' test.out
 eval_tap 0 10 'SingleAdminUpdateContentDirect # SKIP deprecated' test.out
 
 #- 11 SingleAdminDeleteContent
-build/install/cli/bin/cli ugc singleAdminDeleteContent \
+./ng net.accelbyte.sdk.cli.Main ugc singleAdminDeleteContent \
     --channelId 'Cm3yvASU' \
     --contentId 'oxdxxFqm' \
     --namespace "$AB_NAMESPACE" \
@@ -113,33 +120,33 @@ build/install/cli/bin/cli ugc singleAdminDeleteContent \
 eval_tap $? 11 'SingleAdminDeleteContent' test.out
 
 #- 12 SingleAdminGetContent
-build/install/cli/bin/cli ugc singleAdminGetContent \
+./ng net.accelbyte.sdk.cli.Main ugc singleAdminGetContent \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 12 'SingleAdminGetContent' test.out
 
 #- 13 AdminSearchContent
-build/install/cli/bin/cli ugc adminSearchContent \
+./ng net.accelbyte.sdk.cli.Main ugc adminSearchContent \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 13 'AdminSearchContent' test.out
 
 #- 14 AdminGetSpecificContent
-build/install/cli/bin/cli ugc adminGetSpecificContent \
+./ng net.accelbyte.sdk.cli.Main ugc adminGetSpecificContent \
     --contentId 'AGTJ8IEd' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 14 'AdminGetSpecificContent' test.out
 
 #- 15 AdminDownloadContentPreview
-build/install/cli/bin/cli ugc adminDownloadContentPreview \
+./ng net.accelbyte.sdk.cli.Main ugc adminDownloadContentPreview \
     --contentId 'agEtp4w2' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 15 'AdminDownloadContentPreview' test.out
 
 #- 16 AdminUpdateScreenshots
-build/install/cli/bin/cli ugc adminUpdateScreenshots \
+./ng net.accelbyte.sdk.cli.Main ugc adminUpdateScreenshots \
     --body '{"screenshots": [{"description": "9KOu9c19", "screenshotId": "R6XDqWHk"}]}' \
     --contentId 'kP8npLEK' \
     --namespace "$AB_NAMESPACE" \
@@ -147,7 +154,7 @@ build/install/cli/bin/cli ugc adminUpdateScreenshots \
 eval_tap $? 16 'AdminUpdateScreenshots' test.out
 
 #- 17 AdminUploadContentScreenshot
-build/install/cli/bin/cli ugc adminUploadContentScreenshot \
+./ng net.accelbyte.sdk.cli.Main ugc adminUploadContentScreenshot \
     --body '{"screenshots": [{"contentType": "MfjiX7jp", "description": "kVZk3IaQ", "fileExtension": "jfif"}]}' \
     --contentId 'mqGodOEG' \
     --namespace "$AB_NAMESPACE" \
@@ -155,7 +162,7 @@ build/install/cli/bin/cli ugc adminUploadContentScreenshot \
 eval_tap $? 17 'AdminUploadContentScreenshot' test.out
 
 #- 18 AdminDeleteContentScreenshot
-build/install/cli/bin/cli ugc adminDeleteContentScreenshot \
+./ng net.accelbyte.sdk.cli.Main ugc adminDeleteContentScreenshot \
     --contentId 't9gPOj0c' \
     --namespace "$AB_NAMESPACE" \
     --screenshotId '6i0JkvIa' \
@@ -163,27 +170,27 @@ build/install/cli/bin/cli ugc adminDeleteContentScreenshot \
 eval_tap $? 18 'AdminDeleteContentScreenshot' test.out
 
 #- 19 SingleAdminGetAllGroups
-build/install/cli/bin/cli ugc singleAdminGetAllGroups \
+./ng net.accelbyte.sdk.cli.Main ugc singleAdminGetAllGroups \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 19 'SingleAdminGetAllGroups' test.out
 
 #- 20 AdminCreateGroup
-build/install/cli/bin/cli ugc adminCreateGroup \
+./ng net.accelbyte.sdk.cli.Main ugc adminCreateGroup \
     --body '{"contents": ["s73ucYnF"], "name": "AJ3DK5T4"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 20 'AdminCreateGroup' test.out
 
 #- 21 SingleAdminGetGroup
-build/install/cli/bin/cli ugc singleAdminGetGroup \
+./ng net.accelbyte.sdk.cli.Main ugc singleAdminGetGroup \
     --groupId 'Eogg0Y39' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 21 'SingleAdminGetGroup' test.out
 
 #- 22 SingleAdminUpdateGroup
-build/install/cli/bin/cli ugc singleAdminUpdateGroup \
+./ng net.accelbyte.sdk.cli.Main ugc singleAdminUpdateGroup \
     --body '{"contents": ["UoYlpv5b"], "name": "VAgtsDhU"}' \
     --groupId 'TDUscbQD' \
     --namespace "$AB_NAMESPACE" \
@@ -191,34 +198,34 @@ build/install/cli/bin/cli ugc singleAdminUpdateGroup \
 eval_tap $? 22 'SingleAdminUpdateGroup' test.out
 
 #- 23 SingleAdminDeleteGroup
-build/install/cli/bin/cli ugc singleAdminDeleteGroup \
+./ng net.accelbyte.sdk.cli.Main ugc singleAdminDeleteGroup \
     --groupId 'jbTQuPMz' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 23 'SingleAdminDeleteGroup' test.out
 
 #- 24 SingleAdminGetGroupContents
-build/install/cli/bin/cli ugc singleAdminGetGroupContents \
+./ng net.accelbyte.sdk.cli.Main ugc singleAdminGetGroupContents \
     --groupId '2PTRlkyU' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 24 'SingleAdminGetGroupContents' test.out
 
 #- 25 AdminGetTag
-build/install/cli/bin/cli ugc adminGetTag \
+./ng net.accelbyte.sdk.cli.Main ugc adminGetTag \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 25 'AdminGetTag' test.out
 
 #- 26 AdminCreateTag
-build/install/cli/bin/cli ugc adminCreateTag \
+./ng net.accelbyte.sdk.cli.Main ugc adminCreateTag \
     --body '{"tag": "89ZPOw6z"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 26 'AdminCreateTag' test.out
 
 #- 27 AdminUpdateTag
-build/install/cli/bin/cli ugc adminUpdateTag \
+./ng net.accelbyte.sdk.cli.Main ugc adminUpdateTag \
     --body '{"tag": "PFJ42cwm"}' \
     --namespace "$AB_NAMESPACE" \
     --tagId 'zBBSMNco' \
@@ -226,27 +233,27 @@ build/install/cli/bin/cli ugc adminUpdateTag \
 eval_tap $? 27 'AdminUpdateTag' test.out
 
 #- 28 AdminDeleteTag
-build/install/cli/bin/cli ugc adminDeleteTag \
+./ng net.accelbyte.sdk.cli.Main ugc adminDeleteTag \
     --namespace "$AB_NAMESPACE" \
     --tagId 'AAOjKNjf' \
     > test.out 2>&1
 eval_tap $? 28 'AdminDeleteTag' test.out
 
 #- 29 AdminGetType
-build/install/cli/bin/cli ugc adminGetType \
+./ng net.accelbyte.sdk.cli.Main ugc adminGetType \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 29 'AdminGetType' test.out
 
 #- 30 AdminCreateType
-build/install/cli/bin/cli ugc adminCreateType \
+./ng net.accelbyte.sdk.cli.Main ugc adminCreateType \
     --body '{"subtype": ["cYHm093a"], "type": "YgBU1sqj"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 30 'AdminCreateType' test.out
 
 #- 31 AdminUpdateType
-build/install/cli/bin/cli ugc adminUpdateType \
+./ng net.accelbyte.sdk.cli.Main ugc adminUpdateType \
     --body '{"subtype": ["yK0XH45P"], "type": "aRSOFQBt"}' \
     --namespace "$AB_NAMESPACE" \
     --typeId 'u23REZ8h' \
@@ -254,28 +261,28 @@ build/install/cli/bin/cli ugc adminUpdateType \
 eval_tap $? 31 'AdminUpdateType' test.out
 
 #- 32 AdminDeleteType
-build/install/cli/bin/cli ugc adminDeleteType \
+./ng net.accelbyte.sdk.cli.Main ugc adminDeleteType \
     --namespace "$AB_NAMESPACE" \
     --typeId 'RVX7LGOv' \
     > test.out 2>&1
 eval_tap $? 32 'AdminDeleteType' test.out
 
 #- 33 AdminGetChannel
-build/install/cli/bin/cli ugc adminGetChannel \
+./ng net.accelbyte.sdk.cli.Main ugc adminGetChannel \
     --namespace "$AB_NAMESPACE" \
     --userId 'DdYiQS9i' \
     > test.out 2>&1
 eval_tap $? 33 'AdminGetChannel' test.out
 
 #- 34 AdminDeleteAllUserChannels
-build/install/cli/bin/cli ugc adminDeleteAllUserChannels \
+./ng net.accelbyte.sdk.cli.Main ugc adminDeleteAllUserChannels \
     --namespace "$AB_NAMESPACE" \
     --userId '7mV1C91p' \
     > test.out 2>&1
 eval_tap $? 34 'AdminDeleteAllUserChannels' test.out
 
 #- 35 AdminUpdateChannel
-build/install/cli/bin/cli ugc adminUpdateChannel \
+./ng net.accelbyte.sdk.cli.Main ugc adminUpdateChannel \
     --body '{"name": "jG9gpxL6"}' \
     --channelId 'ycTQdvln' \
     --namespace "$AB_NAMESPACE" \
@@ -284,7 +291,7 @@ build/install/cli/bin/cli ugc adminUpdateChannel \
 eval_tap $? 35 'AdminUpdateChannel' test.out
 
 #- 36 AdminDeleteChannel
-build/install/cli/bin/cli ugc adminDeleteChannel \
+./ng net.accelbyte.sdk.cli.Main ugc adminDeleteChannel \
     --channelId 'XL6LFE1Y' \
     --namespace "$AB_NAMESPACE" \
     --userId 'Ho9m126Z' \
@@ -292,7 +299,7 @@ build/install/cli/bin/cli ugc adminDeleteChannel \
 eval_tap $? 36 'AdminDeleteChannel' test.out
 
 #- 37 AdminUpdateContentS3
-build/install/cli/bin/cli ugc adminUpdateContentS3 \
+./ng net.accelbyte.sdk.cli.Main ugc adminUpdateContentS3 \
     --body '{"contentType": "Wc8hHtWv", "fileExtension": "bNYqgUqs", "name": "lArFPiHU", "preview": "IvaCv8kU", "subType": "9dBBpdsJ", "tags": ["LhsVyExr"], "type": "kxoot0B7"}' \
     --channelId 'WOfercZd' \
     --contentId 'pMci37Ds' \
@@ -305,7 +312,7 @@ eval_tap $? 37 'AdminUpdateContentS3' test.out
 eval_tap 0 38 'AdminUpdateContentDirect # SKIP deprecated' test.out
 
 #- 39 AdminDeleteContent
-build/install/cli/bin/cli ugc adminDeleteContent \
+./ng net.accelbyte.sdk.cli.Main ugc adminDeleteContent \
     --channelId '3uzLteMb' \
     --contentId 'FAlt4hr7' \
     --namespace "$AB_NAMESPACE" \
@@ -314,21 +321,21 @@ build/install/cli/bin/cli ugc adminDeleteContent \
 eval_tap $? 39 'AdminDeleteContent' test.out
 
 #- 40 AdminGetContent
-build/install/cli/bin/cli ugc adminGetContent \
+./ng net.accelbyte.sdk.cli.Main ugc adminGetContent \
     --namespace "$AB_NAMESPACE" \
     --userId 'ltAOXmlG' \
     > test.out 2>&1
 eval_tap $? 40 'AdminGetContent' test.out
 
 #- 41 AdminDeleteAllUserContents
-build/install/cli/bin/cli ugc adminDeleteAllUserContents \
+./ng net.accelbyte.sdk.cli.Main ugc adminDeleteAllUserContents \
     --namespace "$AB_NAMESPACE" \
     --userId '6eh1dTdo' \
     > test.out 2>&1
 eval_tap $? 41 'AdminDeleteAllUserContents' test.out
 
 #- 42 AdminHideUserContent
-build/install/cli/bin/cli ugc adminHideUserContent \
+./ng net.accelbyte.sdk.cli.Main ugc adminHideUserContent \
     --body '{"isHidden": true}' \
     --contentId 'pBIcuC1d' \
     --namespace "$AB_NAMESPACE" \
@@ -337,21 +344,21 @@ build/install/cli/bin/cli ugc adminHideUserContent \
 eval_tap $? 42 'AdminHideUserContent' test.out
 
 #- 43 AdminGetAllGroups
-build/install/cli/bin/cli ugc adminGetAllGroups \
+./ng net.accelbyte.sdk.cli.Main ugc adminGetAllGroups \
     --namespace "$AB_NAMESPACE" \
     --userId '6Te9vD8l' \
     > test.out 2>&1
 eval_tap $? 43 'AdminGetAllGroups' test.out
 
 #- 44 AdminDeleteAllUserGroup
-build/install/cli/bin/cli ugc adminDeleteAllUserGroup \
+./ng net.accelbyte.sdk.cli.Main ugc adminDeleteAllUserGroup \
     --namespace "$AB_NAMESPACE" \
     --userId 'dz7Hu8AD' \
     > test.out 2>&1
 eval_tap $? 44 'AdminDeleteAllUserGroup' test.out
 
 #- 45 AdminGetGroup
-build/install/cli/bin/cli ugc adminGetGroup \
+./ng net.accelbyte.sdk.cli.Main ugc adminGetGroup \
     --groupId '79kdWunv' \
     --namespace "$AB_NAMESPACE" \
     --userId 'izU0q1pH' \
@@ -359,7 +366,7 @@ build/install/cli/bin/cli ugc adminGetGroup \
 eval_tap $? 45 'AdminGetGroup' test.out
 
 #- 46 AdminUpdateGroup
-build/install/cli/bin/cli ugc adminUpdateGroup \
+./ng net.accelbyte.sdk.cli.Main ugc adminUpdateGroup \
     --body '{"contents": ["yhhERoGg"], "name": "drysMizB"}' \
     --groupId 'GSRdP2l7' \
     --namespace "$AB_NAMESPACE" \
@@ -368,7 +375,7 @@ build/install/cli/bin/cli ugc adminUpdateGroup \
 eval_tap $? 46 'AdminUpdateGroup' test.out
 
 #- 47 AdminDeleteGroup
-build/install/cli/bin/cli ugc adminDeleteGroup \
+./ng net.accelbyte.sdk.cli.Main ugc adminDeleteGroup \
     --groupId 'XiPLQXSe' \
     --namespace "$AB_NAMESPACE" \
     --userId '07ZddOGT' \
@@ -376,7 +383,7 @@ build/install/cli/bin/cli ugc adminDeleteGroup \
 eval_tap $? 47 'AdminDeleteGroup' test.out
 
 #- 48 AdminGetGroupContents
-build/install/cli/bin/cli ugc adminGetGroupContents \
+./ng net.accelbyte.sdk.cli.Main ugc adminGetGroupContents \
     --groupId 'MlJjBwj9' \
     --namespace "$AB_NAMESPACE" \
     --userId 'HJHQKseE' \
@@ -384,60 +391,60 @@ build/install/cli/bin/cli ugc adminGetGroupContents \
 eval_tap $? 48 'AdminGetGroupContents' test.out
 
 #- 49 AdminDeleteAllUserStates
-build/install/cli/bin/cli ugc adminDeleteAllUserStates \
+./ng net.accelbyte.sdk.cli.Main ugc adminDeleteAllUserStates \
     --namespace "$AB_NAMESPACE" \
     --userId 'dSXRDSvg' \
     > test.out 2>&1
 eval_tap $? 49 'AdminDeleteAllUserStates' test.out
 
 #- 50 SearchChannelSpecificContent
-build/install/cli/bin/cli ugc searchChannelSpecificContent \
+./ng net.accelbyte.sdk.cli.Main ugc searchChannelSpecificContent \
     --channelId 'uauw1xT7' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 50 'SearchChannelSpecificContent' test.out
 
 #- 51 PublicSearchContent
-build/install/cli/bin/cli ugc publicSearchContent \
+./ng net.accelbyte.sdk.cli.Main ugc publicSearchContent \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 51 'PublicSearchContent' test.out
 
 #- 52 GetFollowedContent
-build/install/cli/bin/cli ugc getFollowedContent \
+./ng net.accelbyte.sdk.cli.Main ugc getFollowedContent \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 52 'GetFollowedContent' test.out
 
 #- 53 GetLikedContent
-build/install/cli/bin/cli ugc getLikedContent \
+./ng net.accelbyte.sdk.cli.Main ugc getLikedContent \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 53 'GetLikedContent' test.out
 
 #- 54 DownloadContentByShareCode
-build/install/cli/bin/cli ugc downloadContentByShareCode \
+./ng net.accelbyte.sdk.cli.Main ugc downloadContentByShareCode \
     --namespace "$AB_NAMESPACE" \
     --shareCode 'eMwSl9ML' \
     > test.out 2>&1
 eval_tap $? 54 'DownloadContentByShareCode' test.out
 
 #- 55 PublicDownloadContentByContentID
-build/install/cli/bin/cli ugc publicDownloadContentByContentID \
+./ng net.accelbyte.sdk.cli.Main ugc publicDownloadContentByContentID \
     --contentId 'H0NnTJ2u' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 55 'PublicDownloadContentByContentID' test.out
 
 #- 56 AddDownloadCount
-build/install/cli/bin/cli ugc addDownloadCount \
+./ng net.accelbyte.sdk.cli.Main ugc addDownloadCount \
     --contentId 'lNzBvwJa' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 56 'AddDownloadCount' test.out
 
 #- 57 UpdateContentLikeStatus
-build/install/cli/bin/cli ugc updateContentLikeStatus \
+./ng net.accelbyte.sdk.cli.Main ugc updateContentLikeStatus \
     --body '{"likeStatus": false}' \
     --contentId '547JllvA' \
     --namespace "$AB_NAMESPACE" \
@@ -445,46 +452,46 @@ build/install/cli/bin/cli ugc updateContentLikeStatus \
 eval_tap $? 57 'UpdateContentLikeStatus' test.out
 
 #- 58 PublicDownloadContentPreview
-build/install/cli/bin/cli ugc publicDownloadContentPreview \
+./ng net.accelbyte.sdk.cli.Main ugc publicDownloadContentPreview \
     --contentId '8RWSpabU' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 58 'PublicDownloadContentPreview' test.out
 
 #- 59 GetTag
-build/install/cli/bin/cli ugc getTag \
+./ng net.accelbyte.sdk.cli.Main ugc getTag \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 59 'GetTag' test.out
 
 #- 60 GetType
-build/install/cli/bin/cli ugc getType \
+./ng net.accelbyte.sdk.cli.Main ugc getType \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 60 'GetType' test.out
 
 #- 61 GetFollowedUsers
-build/install/cli/bin/cli ugc getFollowedUsers \
+./ng net.accelbyte.sdk.cli.Main ugc getFollowedUsers \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 61 'GetFollowedUsers' test.out
 
 #- 62 GetCreator
-build/install/cli/bin/cli ugc getCreator \
+./ng net.accelbyte.sdk.cli.Main ugc getCreator \
     --namespace "$AB_NAMESPACE" \
     --userId 't7xk6Qxy' \
     > test.out 2>&1
 eval_tap $? 62 'GetCreator' test.out
 
 #- 63 GetChannels
-build/install/cli/bin/cli ugc getChannels \
+./ng net.accelbyte.sdk.cli.Main ugc getChannels \
     --namespace "$AB_NAMESPACE" \
     --userId 'WhfqoWfJ' \
     > test.out 2>&1
 eval_tap $? 63 'GetChannels' test.out
 
 #- 64 CreateChannel
-build/install/cli/bin/cli ugc createChannel \
+./ng net.accelbyte.sdk.cli.Main ugc createChannel \
     --body '{"name": "w2o8oWUq"}' \
     --namespace "$AB_NAMESPACE" \
     --userId 'vPCZ2HzT' \
@@ -492,14 +499,14 @@ build/install/cli/bin/cli ugc createChannel \
 eval_tap $? 64 'CreateChannel' test.out
 
 #- 65 DeleteAllUserChannel
-build/install/cli/bin/cli ugc deleteAllUserChannel \
+./ng net.accelbyte.sdk.cli.Main ugc deleteAllUserChannel \
     --namespace "$AB_NAMESPACE" \
     --userId '7NXmWDlX' \
     > test.out 2>&1
 eval_tap $? 65 'DeleteAllUserChannel' test.out
 
 #- 66 UpdateChannel
-build/install/cli/bin/cli ugc updateChannel \
+./ng net.accelbyte.sdk.cli.Main ugc updateChannel \
     --body '{"name": "suNIdQJR"}' \
     --channelId '5lsNOlvk' \
     --namespace "$AB_NAMESPACE" \
@@ -508,7 +515,7 @@ build/install/cli/bin/cli ugc updateChannel \
 eval_tap $? 66 'UpdateChannel' test.out
 
 #- 67 DeleteChannel
-build/install/cli/bin/cli ugc deleteChannel \
+./ng net.accelbyte.sdk.cli.Main ugc deleteChannel \
     --channelId 'LCgToxuV' \
     --namespace "$AB_NAMESPACE" \
     --userId 'TekJgvg6' \
@@ -519,7 +526,7 @@ eval_tap $? 67 'DeleteChannel' test.out
 eval_tap 0 68 'CreateContentDirect # SKIP deprecated' test.out
 
 #- 69 CreateContentS3
-build/install/cli/bin/cli ugc createContentS3 \
+./ng net.accelbyte.sdk.cli.Main ugc createContentS3 \
     --body '{"contentType": "h5HIpH0D", "fileExtension": "viplEk4v", "name": "j3LDp4yq", "preview": "Dt8QUZDp", "subType": "xlHasinG", "tags": ["cjrkmRMt"], "type": "tgjDSaIV"}' \
     --channelId 'Bmft3Udg' \
     --namespace "$AB_NAMESPACE" \
@@ -528,7 +535,7 @@ build/install/cli/bin/cli ugc createContentS3 \
 eval_tap $? 69 'CreateContentS3' test.out
 
 #- 70 UpdateContentS3
-build/install/cli/bin/cli ugc updateContentS3 \
+./ng net.accelbyte.sdk.cli.Main ugc updateContentS3 \
     --body '{"contentType": "H5kX4Msi", "fileExtension": "sSX28nAR", "name": "xWRpv5ou", "preview": "5xtvd28O", "subType": "UfCt8UJC", "tags": ["5flNyj6H"], "type": "sTtX8P3l"}' \
     --channelId 'lnaaS9lq' \
     --contentId 'yygPcfkJ' \
@@ -541,7 +548,7 @@ eval_tap $? 70 'UpdateContentS3' test.out
 eval_tap 0 71 'UpdateContentDirect # SKIP deprecated' test.out
 
 #- 72 DeleteContent
-build/install/cli/bin/cli ugc deleteContent \
+./ng net.accelbyte.sdk.cli.Main ugc deleteContent \
     --channelId 'kNVbDxVM' \
     --contentId 'q7HJk0F8' \
     --namespace "$AB_NAMESPACE" \
@@ -550,21 +557,21 @@ build/install/cli/bin/cli ugc deleteContent \
 eval_tap $? 72 'DeleteContent' test.out
 
 #- 73 PublicGetUserContent
-build/install/cli/bin/cli ugc publicGetUserContent \
+./ng net.accelbyte.sdk.cli.Main ugc publicGetUserContent \
     --namespace "$AB_NAMESPACE" \
     --userId 'aENtrl0p' \
     > test.out 2>&1
 eval_tap $? 73 'PublicGetUserContent' test.out
 
 #- 74 DeleteAllUserContents
-build/install/cli/bin/cli ugc deleteAllUserContents \
+./ng net.accelbyte.sdk.cli.Main ugc deleteAllUserContents \
     --namespace "$AB_NAMESPACE" \
     --userId 'TKZTXqzH' \
     > test.out 2>&1
 eval_tap $? 74 'DeleteAllUserContents' test.out
 
 #- 75 UpdateScreenshots
-build/install/cli/bin/cli ugc updateScreenshots \
+./ng net.accelbyte.sdk.cli.Main ugc updateScreenshots \
     --body '{"screenshots": [{"description": "uBMYQSA2", "screenshotId": "jz1ZOpdO"}]}' \
     --contentId 'jSyMddB4' \
     --namespace "$AB_NAMESPACE" \
@@ -573,7 +580,7 @@ build/install/cli/bin/cli ugc updateScreenshots \
 eval_tap $? 75 'UpdateScreenshots' test.out
 
 #- 76 UploadContentScreenshot
-build/install/cli/bin/cli ugc uploadContentScreenshot \
+./ng net.accelbyte.sdk.cli.Main ugc uploadContentScreenshot \
     --body '{"screenshots": [{"contentType": "yBHRj8Ii", "description": "RimRllHT", "fileExtension": "jfif"}]}' \
     --contentId 'c40vFFA6' \
     --namespace "$AB_NAMESPACE" \
@@ -582,7 +589,7 @@ build/install/cli/bin/cli ugc uploadContentScreenshot \
 eval_tap $? 76 'UploadContentScreenshot' test.out
 
 #- 77 DeleteContentScreenshot
-build/install/cli/bin/cli ugc deleteContentScreenshot \
+./ng net.accelbyte.sdk.cli.Main ugc deleteContentScreenshot \
     --contentId '1dCpm55g' \
     --namespace "$AB_NAMESPACE" \
     --screenshotId 'OeqQIqcJ' \
@@ -591,7 +598,7 @@ build/install/cli/bin/cli ugc deleteContentScreenshot \
 eval_tap $? 77 'DeleteContentScreenshot' test.out
 
 #- 78 UpdateUserFollowStatus
-build/install/cli/bin/cli ugc updateUserFollowStatus \
+./ng net.accelbyte.sdk.cli.Main ugc updateUserFollowStatus \
     --body '{"followStatus": false}' \
     --namespace "$AB_NAMESPACE" \
     --userId 'uTrrkbmu' \
@@ -599,28 +606,28 @@ build/install/cli/bin/cli ugc updateUserFollowStatus \
 eval_tap $? 78 'UpdateUserFollowStatus' test.out
 
 #- 79 GetPublicFollowers
-build/install/cli/bin/cli ugc getPublicFollowers \
+./ng net.accelbyte.sdk.cli.Main ugc getPublicFollowers \
     --namespace "$AB_NAMESPACE" \
     --userId 'T1whOqmE' \
     > test.out 2>&1
 eval_tap $? 79 'GetPublicFollowers' test.out
 
 #- 80 GetPublicFollowing
-build/install/cli/bin/cli ugc getPublicFollowing \
+./ng net.accelbyte.sdk.cli.Main ugc getPublicFollowing \
     --namespace "$AB_NAMESPACE" \
     --userId 'nDXIWrBP' \
     > test.out 2>&1
 eval_tap $? 80 'GetPublicFollowing' test.out
 
 #- 81 GetGroups
-build/install/cli/bin/cli ugc getGroups \
+./ng net.accelbyte.sdk.cli.Main ugc getGroups \
     --namespace "$AB_NAMESPACE" \
     --userId 'lSay46mv' \
     > test.out 2>&1
 eval_tap $? 81 'GetGroups' test.out
 
 #- 82 CreateGroup
-build/install/cli/bin/cli ugc createGroup \
+./ng net.accelbyte.sdk.cli.Main ugc createGroup \
     --body '{"contents": ["71BAZAOj"], "name": "tFJ2vmTj"}' \
     --namespace "$AB_NAMESPACE" \
     --userId '7tT7TZHW' \
@@ -628,14 +635,14 @@ build/install/cli/bin/cli ugc createGroup \
 eval_tap $? 82 'CreateGroup' test.out
 
 #- 83 DeleteAllUserGroup
-build/install/cli/bin/cli ugc deleteAllUserGroup \
+./ng net.accelbyte.sdk.cli.Main ugc deleteAllUserGroup \
     --namespace "$AB_NAMESPACE" \
     --userId 'DdCkIsZo' \
     > test.out 2>&1
 eval_tap $? 83 'DeleteAllUserGroup' test.out
 
 #- 84 GetGroup
-build/install/cli/bin/cli ugc getGroup \
+./ng net.accelbyte.sdk.cli.Main ugc getGroup \
     --groupId 'ArWwPHcy' \
     --namespace "$AB_NAMESPACE" \
     --userId 'FAdAtYci' \
@@ -643,7 +650,7 @@ build/install/cli/bin/cli ugc getGroup \
 eval_tap $? 84 'GetGroup' test.out
 
 #- 85 UpdateGroup
-build/install/cli/bin/cli ugc updateGroup \
+./ng net.accelbyte.sdk.cli.Main ugc updateGroup \
     --body '{"contents": ["LIgRwFRr"], "name": "0gwB9tz3"}' \
     --groupId 'vp99XVlV' \
     --namespace "$AB_NAMESPACE" \
@@ -652,7 +659,7 @@ build/install/cli/bin/cli ugc updateGroup \
 eval_tap $? 85 'UpdateGroup' test.out
 
 #- 86 DeleteGroup
-build/install/cli/bin/cli ugc deleteGroup \
+./ng net.accelbyte.sdk.cli.Main ugc deleteGroup \
     --groupId '0smip1tw' \
     --namespace "$AB_NAMESPACE" \
     --userId '3L7cUd9p' \
@@ -660,7 +667,7 @@ build/install/cli/bin/cli ugc deleteGroup \
 eval_tap $? 86 'DeleteGroup' test.out
 
 #- 87 GetGroupContent
-build/install/cli/bin/cli ugc getGroupContent \
+./ng net.accelbyte.sdk.cli.Main ugc getGroupContent \
     --groupId 'qtv6JfPZ' \
     --namespace "$AB_NAMESPACE" \
     --userId 'wcCVOXcV' \
@@ -668,7 +675,7 @@ build/install/cli/bin/cli ugc getGroupContent \
 eval_tap $? 87 'GetGroupContent' test.out
 
 #- 88 DeleteAllUserStates
-build/install/cli/bin/cli ugc deleteAllUserStates \
+./ng net.accelbyte.sdk.cli.Main ugc deleteAllUserStates \
     --namespace "$AB_NAMESPACE" \
     --userId 'a80TmCwt' \
     > test.out 2>&1

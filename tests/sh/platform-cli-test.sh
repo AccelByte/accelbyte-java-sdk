@@ -31,11 +31,18 @@ eval_tap() {
   rm -f $4
 }
 
+chmod +x ./ng
+trap "./ng ng-stop" EXIT
+java -jar build/install/cli/lib/nailgun-server-*.jar 1>&2 &
+(for i in $(seq 1 100); do bash -c "timeout 1 echo > /dev/tcp/127.0.0.1/2113" 2>/dev/null && exit 0 || sleep 1; done; exit 1) || exit 1
+for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
+./ng ng-cp 1>&2
+
 echo "TAP version 13"
 echo "1..321"
 
 #- 1 Login
-build/install/cli/bin/cli loginClient \
+./ng net.accelbyte.sdk.cli.Main loginClient \
     > test.out 2>&1
 eval_tap $? 1 'Login' test.out
 
@@ -47,64 +54,64 @@ fi
 touch "tmp.dat"
 
 #- 2 ListFulfillmentScripts
-build/install/cli/bin/cli platform listFulfillmentScripts \
+./ng net.accelbyte.sdk.cli.Main platform listFulfillmentScripts \
     > test.out 2>&1
 eval_tap $? 2 'ListFulfillmentScripts' test.out
 
 #- 3 TestFulfillmentScriptEval
-build/install/cli/bin/cli platform testFulfillmentScriptEval \
+./ng net.accelbyte.sdk.cli.Main platform testFulfillmentScriptEval \
     --body '{"context": {"item": {"appId": "FtBxyZcD", "appType": "DEMO", "baseAppId": "pGlsQuJu", "boothName": "8vMf0IsJ", "boundItemIds": ["kTrd8IDc"], "categoryPath": "V2zXnTKj", "clazz": "XY1bPqam", "createdAt": "1975-08-05T00:00:00Z", "description": "xx9Cs18E", "displayOrder": 100, "entitlementType": "DURABLE", "ext": {"kItqRzHU": {}}, "features": ["1oh570KQ"], "images": [{"as": "BVaewc72", "caption": "krSha68n", "height": 100, "imageUrl": "nozp1C2K", "smallImageUrl": "mIQTuBdN", "width": 61}], "itemId": "UsxFb8CJ", "itemIds": ["17M7DJZa"], "itemQty": {"MSxECbZb": 49}, "itemType": "COINS", "language": "yoarORoe", "listable": false, "localExt": {"8Rh3kgs9": {}}, "longDescription": "qqJbnQso", "maxCount": 54, "maxCountPerUser": 12, "name": "iVpP8Cm3", "namespace": "yvASUoxd", "purchasable": true, "recurring": {"cycle": "QUARTERLY", "fixedFreeDays": 63, "fixedTrialCycles": 32, "graceDays": 24}, "region": "AGTJ8IEd", "regionData": [{"currencyCode": "agEtp4w2", "currencyNamespace": "9KOu9c19", "currencyType": "VIRTUAL", "discountAmount": 33, "discountExpireAt": "1995-09-24T00:00:00Z", "discountPercentage": 20, "discountPurchaseAt": "1976-11-25T00:00:00Z", "discountedPrice": 26, "expireAt": "1978-10-30T00:00:00Z", "price": 61, "purchaseAt": "1989-10-31T00:00:00Z", "trialPrice": 11}], "seasonType": "PASS", "sku": "iX7jpkVZ", "stackable": false, "status": "ACTIVE", "tags": ["QYEmqGod"], "targetCurrencyCode": "OEGt9gPO", "targetItemId": "j0c6i0Jk", "targetNamespace": "vIas73uc", "thumbnailUrl": "YnFAJ3DK", "title": "5T4Eogg0", "updatedAt": "1996-04-22T00:00:00Z", "useCount": 23}, "namespace": "pv5bVAgt", "order": {"currency": {"currencyCode": "sDhUTDUs", "currencySymbol": "cbQDjbTQ", "currencyType": "VIRTUAL", "decimals": 83, "namespace": "Mz2PTRlk"}, "ext": {"yU89ZPOw": {}}, "free": true}, "source": "GIFT"}, "script": "J42cwmzB", "type": "grantDays"}' \
     > test.out 2>&1
 eval_tap $? 3 'TestFulfillmentScriptEval' test.out
 
 #- 4 GetFulfillmentScript
-build/install/cli/bin/cli platform getFulfillmentScript \
+./ng net.accelbyte.sdk.cli.Main platform getFulfillmentScript \
     --id 'SMNcoAAO' \
     > test.out 2>&1
 eval_tap $? 4 'GetFulfillmentScript' test.out
 
 #- 5 CreateFulfillmentScript
-build/install/cli/bin/cli platform createFulfillmentScript \
+./ng net.accelbyte.sdk.cli.Main platform createFulfillmentScript \
     --id 'jKNjfcYH' \
     --body '{"grantDays": "m093aYgB"}' \
     > test.out 2>&1
 eval_tap $? 5 'CreateFulfillmentScript' test.out
 
 #- 6 DeleteFulfillmentScript
-build/install/cli/bin/cli platform deleteFulfillmentScript \
+./ng net.accelbyte.sdk.cli.Main platform deleteFulfillmentScript \
     --id 'U1sqjyK0' \
     > test.out 2>&1
 eval_tap $? 6 'DeleteFulfillmentScript' test.out
 
 #- 7 UpdateFulfillmentScript
-build/install/cli/bin/cli platform updateFulfillmentScript \
+./ng net.accelbyte.sdk.cli.Main platform updateFulfillmentScript \
     --id 'XH45PaRS' \
     --body '{"grantDays": "OFQBtu23"}' \
     > test.out 2>&1
 eval_tap $? 7 'UpdateFulfillmentScript' test.out
 
 #- 8 QueryCampaigns
-build/install/cli/bin/cli platform queryCampaigns \
+./ng net.accelbyte.sdk.cli.Main platform queryCampaigns \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 8 'QueryCampaigns' test.out
 
 #- 9 CreateCampaign
-build/install/cli/bin/cli platform createCampaign \
+./ng net.accelbyte.sdk.cli.Main platform createCampaign \
     --namespace "$AB_NAMESPACE" \
     --body '{"description": "REZ8hRVX", "items": [{"extraSubscriptionDays": 74, "itemId": "GOvDdYiQ", "itemName": "S9i7mV1C", "quantity": 30}], "maxRedeemCountPerCampaignPerUser": 18, "maxRedeemCountPerCode": 64, "maxRedeemCountPerCodePerUser": 13, "maxSaleCount": 31, "name": "xL6ycTQd", "redeemEnd": "1981-03-31T00:00:00Z", "redeemStart": "1977-10-25T00:00:00Z", "redeemType": "ITEM", "status": "INACTIVE", "tags": ["SQWEXL6L"], "type": "REDEMPTION"}' \
     > test.out 2>&1
 eval_tap $? 9 'CreateCampaign' test.out
 
 #- 10 GetCampaign
-build/install/cli/bin/cli platform getCampaign \
+./ng net.accelbyte.sdk.cli.Main platform getCampaign \
     --campaignId 'E1YHo9m1' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 10 'GetCampaign' test.out
 
 #- 11 UpdateCampaign
-build/install/cli/bin/cli platform updateCampaign \
+./ng net.accelbyte.sdk.cli.Main platform updateCampaign \
     --campaignId '26ZWc8hH' \
     --namespace "$AB_NAMESPACE" \
     --body '{"description": "tWvbNYqg", "items": [{"extraSubscriptionDays": 92, "itemId": "qslArFPi", "itemName": "HUIvaCv8", "quantity": 20}], "maxRedeemCountPerCampaignPerUser": 92, "maxRedeemCountPerCode": 6, "maxRedeemCountPerCodePerUser": 55, "maxSaleCount": 55, "name": "pdsJLhsV", "redeemEnd": "1983-09-03T00:00:00Z", "redeemStart": "1982-05-20T00:00:00Z", "redeemType": "ITEM", "status": "INACTIVE", "tags": ["oot0B7WO"]}' \
@@ -112,20 +119,20 @@ build/install/cli/bin/cli platform updateCampaign \
 eval_tap $? 11 'UpdateCampaign' test.out
 
 #- 12 GetCampaignDynamic
-build/install/cli/bin/cli platform getCampaignDynamic \
+./ng net.accelbyte.sdk.cli.Main platform getCampaignDynamic \
     --campaignId 'fercZdpM' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 12 'GetCampaignDynamic' test.out
 
 #- 13 GetRootCategories
-build/install/cli/bin/cli platform getRootCategories \
+./ng net.accelbyte.sdk.cli.Main platform getRootCategories \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 13 'GetRootCategories' test.out
 
 #- 14 CreateCategory
-build/install/cli/bin/cli platform createCategory \
+./ng net.accelbyte.sdk.cli.Main platform createCategory \
     --namespace "$AB_NAMESPACE" \
     --storeId 'ci37Ds7Y' \
     --body '{"categoryPath": "SfExaI3u", "localizationDisplayNames": {"zLteMbFA": "lt4hr7Hm"}}' \
@@ -133,20 +140,20 @@ build/install/cli/bin/cli platform createCategory \
 eval_tap $? 14 'CreateCategory' test.out
 
 #- 15 ListCategoriesBasic
-build/install/cli/bin/cli platform listCategoriesBasic \
+./ng net.accelbyte.sdk.cli.Main platform listCategoriesBasic \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 15 'ListCategoriesBasic' test.out
 
 #- 16 GetCategory
-build/install/cli/bin/cli platform getCategory \
+./ng net.accelbyte.sdk.cli.Main platform getCategory \
     --categoryPath 'OYiBA5lt' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 16 'GetCategory' test.out
 
 #- 17 UpdateCategory
-build/install/cli/bin/cli platform updateCategory \
+./ng net.accelbyte.sdk.cli.Main platform updateCategory \
     --categoryPath 'AOXmlG6e' \
     --namespace "$AB_NAMESPACE" \
     --storeId 'h1dTdoTF' \
@@ -155,7 +162,7 @@ build/install/cli/bin/cli platform updateCategory \
 eval_tap $? 17 'UpdateCategory' test.out
 
 #- 18 DeleteCategory
-build/install/cli/bin/cli platform deleteCategory \
+./ng net.accelbyte.sdk.cli.Main platform deleteCategory \
     --categoryPath '6Te9vD8l' \
     --namespace "$AB_NAMESPACE" \
     --storeId 'dz7Hu8AD' \
@@ -163,28 +170,28 @@ build/install/cli/bin/cli platform deleteCategory \
 eval_tap $? 18 'DeleteCategory' test.out
 
 #- 19 GetChildCategories
-build/install/cli/bin/cli platform getChildCategories \
+./ng net.accelbyte.sdk.cli.Main platform getChildCategories \
     --categoryPath '79kdWunv' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 19 'GetChildCategories' test.out
 
 #- 20 GetDescendantCategories
-build/install/cli/bin/cli platform getDescendantCategories \
+./ng net.accelbyte.sdk.cli.Main platform getDescendantCategories \
     --categoryPath 'izU0q1pH' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 20 'GetDescendantCategories' test.out
 
 #- 21 QueryCodes
-build/install/cli/bin/cli platform queryCodes \
+./ng net.accelbyte.sdk.cli.Main platform queryCodes \
     --campaignId 'yhhERoGg' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 21 'QueryCodes' test.out
 
 #- 22 CreateCodes
-build/install/cli/bin/cli platform createCodes \
+./ng net.accelbyte.sdk.cli.Main platform createCodes \
     --campaignId 'drysMizB' \
     --namespace "$AB_NAMESPACE" \
     --body '{"quantity": 65}' \
@@ -192,69 +199,69 @@ build/install/cli/bin/cli platform createCodes \
 eval_tap $? 22 'CreateCodes' test.out
 
 #- 23 Download
-build/install/cli/bin/cli platform download \
+./ng net.accelbyte.sdk.cli.Main platform download \
     --campaignId 'SRdP2l7D' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 23 'Download' test.out
 
 #- 24 BulkDisableCodes
-build/install/cli/bin/cli platform bulkDisableCodes \
+./ng net.accelbyte.sdk.cli.Main platform bulkDisableCodes \
     --campaignId 'NSZ8Aq0X' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 24 'BulkDisableCodes' test.out
 
 #- 25 BulkEnableCodes
-build/install/cli/bin/cli platform bulkEnableCodes \
+./ng net.accelbyte.sdk.cli.Main platform bulkEnableCodes \
     --campaignId 'iPLQXSe0' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 25 'BulkEnableCodes' test.out
 
 #- 26 QueryRedeemHistory
-build/install/cli/bin/cli platform queryRedeemHistory \
+./ng net.accelbyte.sdk.cli.Main platform queryRedeemHistory \
     --campaignId '7ZddOGTM' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 26 'QueryRedeemHistory' test.out
 
 #- 27 GetCode
-build/install/cli/bin/cli platform getCode \
+./ng net.accelbyte.sdk.cli.Main platform getCode \
     --code 'lJjBwj9H' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 27 'GetCode' test.out
 
 #- 28 DisableCode
-build/install/cli/bin/cli platform disableCode \
+./ng net.accelbyte.sdk.cli.Main platform disableCode \
     --code 'JHQKseEd' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 28 'DisableCode' test.out
 
 #- 29 EnableCode
-build/install/cli/bin/cli platform enableCode \
+./ng net.accelbyte.sdk.cli.Main platform enableCode \
     --code 'SXRDSvgu' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 29 'EnableCode' test.out
 
 #- 30 ListCurrencies
-build/install/cli/bin/cli platform listCurrencies \
+./ng net.accelbyte.sdk.cli.Main platform listCurrencies \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 30 'ListCurrencies' test.out
 
 #- 31 CreateCurrency
-build/install/cli/bin/cli platform createCurrency \
+./ng net.accelbyte.sdk.cli.Main platform createCurrency \
     --namespace "$AB_NAMESPACE" \
     --body '{"currencyCode": "auw1xT7e", "currencySymbol": "MwSl9MLH", "currencyType": "REAL", "decimals": 91, "localizationDescriptions": {"J2ulNzBv": "wJaQa547"}}' \
     > test.out 2>&1
 eval_tap $? 31 'CreateCurrency' test.out
 
 #- 32 UpdateCurrency
-build/install/cli/bin/cli platform updateCurrency \
+./ng net.accelbyte.sdk.cli.Main platform updateCurrency \
     --currencyCode 'JllvA8RW' \
     --namespace "$AB_NAMESPACE" \
     --body '{"localizationDescriptions": {"SpabUt7x": "k6QxyWhf"}}' \
@@ -262,267 +269,267 @@ build/install/cli/bin/cli platform updateCurrency \
 eval_tap $? 32 'UpdateCurrency' test.out
 
 #- 33 DeleteCurrency
-build/install/cli/bin/cli platform deleteCurrency \
+./ng net.accelbyte.sdk.cli.Main platform deleteCurrency \
     --currencyCode 'qoWfJw2o' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 33 'DeleteCurrency' test.out
 
 #- 34 GetCurrencyConfig
-build/install/cli/bin/cli platform getCurrencyConfig \
+./ng net.accelbyte.sdk.cli.Main platform getCurrencyConfig \
     --currencyCode '8oWUqvPC' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 34 'GetCurrencyConfig' test.out
 
 #- 35 GetCurrencySummary
-build/install/cli/bin/cli platform getCurrencySummary \
+./ng net.accelbyte.sdk.cli.Main platform getCurrencySummary \
     --currencyCode 'Z2HzT7NX' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 35 'GetCurrencySummary' test.out
 
 #- 36 GetDLCItemConfig
-build/install/cli/bin/cli platform getDLCItemConfig \
+./ng net.accelbyte.sdk.cli.Main platform getDLCItemConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 36 'GetDLCItemConfig' test.out
 
 #- 37 UpdateDLCItemConfig
-build/install/cli/bin/cli platform updateDLCItemConfig \
+./ng net.accelbyte.sdk.cli.Main platform updateDLCItemConfig \
     --namespace "$AB_NAMESPACE" \
     --body '{"data": [{"id": "mWDlXsuN", "rewards": [{"currency": {"currencyCode": "IdQJR5ls", "namespace": "NOlvkfwa"}, "item": {"itemId": "SbnsuLCg", "itemSku": "ToxuVTek", "itemType": "Jgvg6h5H"}, "quantity": 68, "type": "ITEM"}]}]}' \
     > test.out 2>&1
 eval_tap $? 37 'UpdateDLCItemConfig' test.out
 
 #- 38 DeleteDLCItemConfig
-build/install/cli/bin/cli platform deleteDLCItemConfig \
+./ng net.accelbyte.sdk.cli.Main platform deleteDLCItemConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 38 'DeleteDLCItemConfig' test.out
 
 #- 39 GetPlatformDLCConfig
-build/install/cli/bin/cli platform getPlatformDLCConfig \
+./ng net.accelbyte.sdk.cli.Main platform getPlatformDLCConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 39 'GetPlatformDLCConfig' test.out
 
 #- 40 UpdatePlatformDLCConfig
-build/install/cli/bin/cli platform updatePlatformDLCConfig \
+./ng net.accelbyte.sdk.cli.Main platform updatePlatformDLCConfig \
     --namespace "$AB_NAMESPACE" \
     --body '{"data": [{"platform": "XBOX", "platformDlcIdMap": {"0DviplEk": "4vj3LDp4"}}]}' \
     > test.out 2>&1
 eval_tap $? 40 'UpdatePlatformDLCConfig' test.out
 
 #- 41 DeletePlatformDLCConfig
-build/install/cli/bin/cli platform deletePlatformDLCConfig \
+./ng net.accelbyte.sdk.cli.Main platform deletePlatformDLCConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 41 'DeletePlatformDLCConfig' test.out
 
 #- 42 QueryEntitlements
-build/install/cli/bin/cli platform queryEntitlements \
+./ng net.accelbyte.sdk.cli.Main platform queryEntitlements \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 42 'QueryEntitlements' test.out
 
 #- 43 GetEntitlement
-build/install/cli/bin/cli platform getEntitlement \
+./ng net.accelbyte.sdk.cli.Main platform getEntitlement \
     --entitlementId 'yqDt8QUZ' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 43 'GetEntitlement' test.out
 
 #- 44 QueryFulfillmentHistories
-build/install/cli/bin/cli platform queryFulfillmentHistories \
+./ng net.accelbyte.sdk.cli.Main platform queryFulfillmentHistories \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 44 'QueryFulfillmentHistories' test.out
 
 #- 45 GetAppleIAPConfig
-build/install/cli/bin/cli platform getAppleIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform getAppleIAPConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 45 'GetAppleIAPConfig' test.out
 
 #- 46 UpdateAppleIAPConfig
-build/install/cli/bin/cli platform updateAppleIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform updateAppleIAPConfig \
     --namespace "$AB_NAMESPACE" \
     --body '{"bundleId": "DpxlHasi", "password": "nGcjrkmR"}' \
     > test.out 2>&1
 eval_tap $? 46 'UpdateAppleIAPConfig' test.out
 
 #- 47 DeleteAppleIAPConfig
-build/install/cli/bin/cli platform deleteAppleIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform deleteAppleIAPConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 47 'DeleteAppleIAPConfig' test.out
 
 #- 48 GetEpicGamesIAPConfig
-build/install/cli/bin/cli platform getEpicGamesIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform getEpicGamesIAPConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 48 'GetEpicGamesIAPConfig' test.out
 
 #- 49 UpdateEpicGamesIAPConfig
-build/install/cli/bin/cli platform updateEpicGamesIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform updateEpicGamesIAPConfig \
     --namespace "$AB_NAMESPACE" \
     --body '{"sandboxId": "MttgjDSa"}' \
     > test.out 2>&1
 eval_tap $? 49 'UpdateEpicGamesIAPConfig' test.out
 
 #- 50 DeleteEpicGamesIAPConfig
-build/install/cli/bin/cli platform deleteEpicGamesIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform deleteEpicGamesIAPConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 50 'DeleteEpicGamesIAPConfig' test.out
 
 #- 51 GetGoogleIAPConfig
-build/install/cli/bin/cli platform getGoogleIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform getGoogleIAPConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 51 'GetGoogleIAPConfig' test.out
 
 #- 52 UpdateGoogleIAPConfig
-build/install/cli/bin/cli platform updateGoogleIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform updateGoogleIAPConfig \
     --namespace "$AB_NAMESPACE" \
     --body '{"applicationName": "IVBmft3U", "serviceAccountId": "dg7p9PGm"}' \
     > test.out 2>&1
 eval_tap $? 52 'UpdateGoogleIAPConfig' test.out
 
 #- 53 DeleteGoogleIAPConfig
-build/install/cli/bin/cli platform deleteGoogleIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform deleteGoogleIAPConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 53 'DeleteGoogleIAPConfig' test.out
 
 #- 54 UpdateGoogleP12File
-build/install/cli/bin/cli platform updateGoogleP12File \
+./ng net.accelbyte.sdk.cli.Main platform updateGoogleP12File \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 54 'UpdateGoogleP12File' test.out
 
 #- 55 GetIAPItemConfig
-build/install/cli/bin/cli platform getIAPItemConfig \
+./ng net.accelbyte.sdk.cli.Main platform getIAPItemConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 55 'GetIAPItemConfig' test.out
 
 #- 56 UpdateIAPItemConfig
-build/install/cli/bin/cli platform updateIAPItemConfig \
+./ng net.accelbyte.sdk.cli.Main platform updateIAPItemConfig \
     --namespace "$AB_NAMESPACE" \
     --body '{"data": [{"itemIdentity": "Y2H5kX4M", "itemIdentityType": "ITEM_SKU", "platformProductIdMap": {"isSX28nA": "RxWRpv5o"}}]}' \
     > test.out 2>&1
 eval_tap $? 56 'UpdateIAPItemConfig' test.out
 
 #- 57 DeleteIAPItemConfig
-build/install/cli/bin/cli platform deleteIAPItemConfig \
+./ng net.accelbyte.sdk.cli.Main platform deleteIAPItemConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 57 'DeleteIAPItemConfig' test.out
 
 #- 58 GetPlayStationIAPConfig
-build/install/cli/bin/cli platform getPlayStationIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform getPlayStationIAPConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 58 'GetPlayStationIAPConfig' test.out
 
 #- 59 UpdatePlaystationIAPConfig
-build/install/cli/bin/cli platform updatePlaystationIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform updatePlaystationIAPConfig \
     --namespace "$AB_NAMESPACE" \
     --body '{"environment": "u5xtvd28"}' \
     > test.out 2>&1
 eval_tap $? 59 'UpdatePlaystationIAPConfig' test.out
 
 #- 60 DeletePlaystationIAPConfig
-build/install/cli/bin/cli platform deletePlaystationIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform deletePlaystationIAPConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 60 'DeletePlaystationIAPConfig' test.out
 
 #- 61 GetStadiaIAPConfig
-build/install/cli/bin/cli platform getStadiaIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform getStadiaIAPConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 61 'GetStadiaIAPConfig' test.out
 
 #- 62 DeleteStadiaIAPConfig
-build/install/cli/bin/cli platform deleteStadiaIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform deleteStadiaIAPConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 62 'DeleteStadiaIAPConfig' test.out
 
 #- 63 UpdateStadiaJsonConfigFile
-build/install/cli/bin/cli platform updateStadiaJsonConfigFile \
+./ng net.accelbyte.sdk.cli.Main platform updateStadiaJsonConfigFile \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 63 'UpdateStadiaJsonConfigFile' test.out
 
 #- 64 GetSteamIAPConfig
-build/install/cli/bin/cli platform getSteamIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform getSteamIAPConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 64 'GetSteamIAPConfig' test.out
 
 #- 65 UpdateSteamIAPConfig
-build/install/cli/bin/cli platform updateSteamIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform updateSteamIAPConfig \
     --namespace "$AB_NAMESPACE" \
     --body '{"publisherAuthenticationKey": "OUfCt8UJ"}' \
     > test.out 2>&1
 eval_tap $? 65 'UpdateSteamIAPConfig' test.out
 
 #- 66 DeleteSteamIAPConfig
-build/install/cli/bin/cli platform deleteSteamIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform deleteSteamIAPConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 66 'DeleteSteamIAPConfig' test.out
 
 #- 67 GetTwitchIAPConfig
-build/install/cli/bin/cli platform getTwitchIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform getTwitchIAPConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 67 'GetTwitchIAPConfig' test.out
 
 #- 68 UpdateTwitchIAPConfig
-build/install/cli/bin/cli platform updateTwitchIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform updateTwitchIAPConfig \
     --namespace "$AB_NAMESPACE" \
     --body '{"clientId": "C5flNyj6", "clientSecret": "HsTtX8P3", "organizationId": "llnaaS9l"}' \
     > test.out 2>&1
 eval_tap $? 68 'UpdateTwitchIAPConfig' test.out
 
 #- 69 DeleteTwitchIAPConfig
-build/install/cli/bin/cli platform deleteTwitchIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform deleteTwitchIAPConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 69 'DeleteTwitchIAPConfig' test.out
 
 #- 70 GetXblIAPConfig
-build/install/cli/bin/cli platform getXblIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform getXblIAPConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 70 'GetXblIAPConfig' test.out
 
 #- 71 UpdateXblIAPConfig
-build/install/cli/bin/cli platform updateXblIAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform updateXblIAPConfig \
     --namespace "$AB_NAMESPACE" \
     --body '{"relyingPartyCert": "qyygPcfk"}' \
     > test.out 2>&1
 eval_tap $? 71 'UpdateXblIAPConfig' test.out
 
 #- 72 DeleteXblAPConfig
-build/install/cli/bin/cli platform deleteXblAPConfig \
+./ng net.accelbyte.sdk.cli.Main platform deleteXblAPConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 72 'DeleteXblAPConfig' test.out
 
 #- 73 UpdateXblBPCertFile
-build/install/cli/bin/cli platform updateXblBPCertFile \
+./ng net.accelbyte.sdk.cli.Main platform updateXblBPCertFile \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 73 'UpdateXblBPCertFile' test.out
 
 #- 74 SyncInGameItem
-build/install/cli/bin/cli platform syncInGameItem \
+./ng net.accelbyte.sdk.cli.Main platform syncInGameItem \
     --namespace "$AB_NAMESPACE" \
     --storeId 'JIxfQZza' \
     --body '{"categoryPath": "8kNVbDxV", "targetItemId": "Mq7HJk0F", "targetNamespace": "89xAc3YV"}' \
@@ -530,7 +537,7 @@ build/install/cli/bin/cli platform syncInGameItem \
 eval_tap $? 74 'SyncInGameItem' test.out
 
 #- 75 CreateItem
-build/install/cli/bin/cli platform createItem \
+./ng net.accelbyte.sdk.cli.Main platform createItem \
     --namespace "$AB_NAMESPACE" \
     --storeId 'faENtrl0' \
     --body '{"appId": "pTKZTXqz", "appType": "DLC", "baseAppId": "BMYQSA2j", "boothName": "z1ZOpdOj", "categoryPath": "SyMddB41", "clazz": "JuMf7RUy", "displayOrder": 54, "entitlementType": "DURABLE", "ext": {"8IiRimRl": {}}, "features": ["lHT6Dc40"], "images": [{"as": "vFFA6gpU", "caption": "7EW3x1dC", "height": 30, "imageUrl": "m55gOeqQ", "smallImageUrl": "IqcJVKmB", "width": 76}], "itemIds": ["1J1IbuTr"], "itemQty": {"rkbmuT1w": 15}, "itemType": "CODE", "listable": false, "localizations": {"EnDXIWrB": {"description": "PlSay46m", "localExt": {"v71BAZAO": {}}, "longDescription": "jtFJ2vmT", "title": "j7tT7TZH"}}, "maxCount": 96, "maxCountPerUser": 59, "name": "dCkIsZoA", "purchasable": true, "recurring": {"cycle": "QUARTERLY", "fixedFreeDays": 83, "fixedTrialCycles": 66, "graceDays": 4}, "regionData": {"yFAdAtYc": [{"currencyCode": "iLIgRwFR", "currencyNamespace": "r0gwB9tz", "currencyType": "VIRTUAL", "discountAmount": 30, "discountExpireAt": "1995-03-26T00:00:00Z", "discountPercentage": 94, "discountPurchaseAt": "1979-10-18T00:00:00Z", "discountedPrice": 39, "expireAt": "1986-04-13T00:00:00Z", "price": 36, "purchaseAt": "1977-03-05T00:00:00Z", "trialPrice": 30}]}, "seasonType": "TIER", "sku": "w3L7cUd9", "stackable": false, "status": "INACTIVE", "tags": ["tv6JfPZw"], "targetCurrencyCode": "cCVOXcVa", "targetNamespace": "80TmCwtD", "thumbnailUrl": "2lAH01o6", "useCount": 79}' \
@@ -538,54 +545,54 @@ build/install/cli/bin/cli platform createItem \
 eval_tap $? 75 'CreateItem' test.out
 
 #- 76 GetItemByAppId
-build/install/cli/bin/cli platform getItemByAppId \
+./ng net.accelbyte.sdk.cli.Main platform getItemByAppId \
     --namespace "$AB_NAMESPACE" \
     --appId 'dcBIgzrD' \
     > test.out 2>&1
 eval_tap $? 76 'GetItemByAppId' test.out
 
 #- 77 QueryItems
-build/install/cli/bin/cli platform queryItems \
+./ng net.accelbyte.sdk.cli.Main platform queryItems \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 77 'QueryItems' test.out
 
 #- 78 ListBasicItemsByFeatures
-build/install/cli/bin/cli platform listBasicItemsByFeatures \
+./ng net.accelbyte.sdk.cli.Main platform listBasicItemsByFeatures \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 78 'ListBasicItemsByFeatures' test.out
 
 #- 79 GetItemBySku
-build/install/cli/bin/cli platform getItemBySku \
+./ng net.accelbyte.sdk.cli.Main platform getItemBySku \
     --namespace "$AB_NAMESPACE" \
     --sku 'yWpFBYGm' \
     > test.out 2>&1
 eval_tap $? 79 'GetItemBySku' test.out
 
 #- 80 GetLocaleItemBySku
-build/install/cli/bin/cli platform getLocaleItemBySku \
+./ng net.accelbyte.sdk.cli.Main platform getLocaleItemBySku \
     --namespace "$AB_NAMESPACE" \
     --sku 'mBawMyoK' \
     > test.out 2>&1
 eval_tap $? 80 'GetLocaleItemBySku' test.out
 
 #- 81 GetItemIdBySku
-build/install/cli/bin/cli platform getItemIdBySku \
+./ng net.accelbyte.sdk.cli.Main platform getItemIdBySku \
     --namespace "$AB_NAMESPACE" \
     --sku 'yNpdAasm' \
     > test.out 2>&1
 eval_tap $? 81 'GetItemIdBySku' test.out
 
 #- 82 BulkGetLocaleItems
-build/install/cli/bin/cli platform bulkGetLocaleItems \
+./ng net.accelbyte.sdk.cli.Main platform bulkGetLocaleItems \
     --namespace "$AB_NAMESPACE" \
     --itemIds '8xwUfzOl' \
     > test.out 2>&1
 eval_tap $? 82 'BulkGetLocaleItems' test.out
 
 #- 83 SearchItems
-build/install/cli/bin/cli platform searchItems \
+./ng net.accelbyte.sdk.cli.Main platform searchItems \
     --namespace "$AB_NAMESPACE" \
     --keyword 'QiZY4NbO' \
     --language 'QXJ7uOTz' \
@@ -593,20 +600,20 @@ build/install/cli/bin/cli platform searchItems \
 eval_tap $? 83 'SearchItems' test.out
 
 #- 84 QueryUncategorizedItems
-build/install/cli/bin/cli platform queryUncategorizedItems \
+./ng net.accelbyte.sdk.cli.Main platform queryUncategorizedItems \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 84 'QueryUncategorizedItems' test.out
 
 #- 85 GetItem
-build/install/cli/bin/cli platform getItem \
+./ng net.accelbyte.sdk.cli.Main platform getItem \
     --itemId 'NMvuq2tN' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 85 'GetItem' test.out
 
 #- 86 UpdateItem
-build/install/cli/bin/cli platform updateItem \
+./ng net.accelbyte.sdk.cli.Main platform updateItem \
     --itemId 'l4CX4Iji' \
     --namespace "$AB_NAMESPACE" \
     --storeId 'K4DEUJRV' \
@@ -615,14 +622,14 @@ build/install/cli/bin/cli platform updateItem \
 eval_tap $? 86 'UpdateItem' test.out
 
 #- 87 DeleteItem
-build/install/cli/bin/cli platform deleteItem \
+./ng net.accelbyte.sdk.cli.Main platform deleteItem \
     --itemId '8uCeZFlL' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 87 'DeleteItem' test.out
 
 #- 88 AcquireItem
-build/install/cli/bin/cli platform acquireItem \
+./ng net.accelbyte.sdk.cli.Main platform acquireItem \
     --itemId 'tEVpDAEb' \
     --namespace "$AB_NAMESPACE" \
     --body '{"count": 52, "orderNo": "82jy74lq"}' \
@@ -630,14 +637,14 @@ build/install/cli/bin/cli platform acquireItem \
 eval_tap $? 88 'AcquireItem' test.out
 
 #- 89 GetApp
-build/install/cli/bin/cli platform getApp \
+./ng net.accelbyte.sdk.cli.Main platform getApp \
     --itemId '0pDE5xRw' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 89 'GetApp' test.out
 
 #- 90 UpdateApp
-build/install/cli/bin/cli platform updateApp \
+./ng net.accelbyte.sdk.cli.Main platform updateApp \
     --itemId 'h5b45ebp' \
     --namespace "$AB_NAMESPACE" \
     --storeId 'cM7ScSs3' \
@@ -646,7 +653,7 @@ build/install/cli/bin/cli platform updateApp \
 eval_tap $? 90 'UpdateApp' test.out
 
 #- 91 DisableItem
-build/install/cli/bin/cli platform disableItem \
+./ng net.accelbyte.sdk.cli.Main platform disableItem \
     --itemId '6ZlTTic0' \
     --namespace "$AB_NAMESPACE" \
     --storeId 'kr2a0nI2' \
@@ -654,14 +661,14 @@ build/install/cli/bin/cli platform disableItem \
 eval_tap $? 91 'DisableItem' test.out
 
 #- 92 GetItemDynamicData
-build/install/cli/bin/cli platform getItemDynamicData \
+./ng net.accelbyte.sdk.cli.Main platform getItemDynamicData \
     --itemId 'oo7UHCJK' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 92 'GetItemDynamicData' test.out
 
 #- 93 EnableItem
-build/install/cli/bin/cli platform enableItem \
+./ng net.accelbyte.sdk.cli.Main platform enableItem \
     --itemId '5sp0aCvI' \
     --namespace "$AB_NAMESPACE" \
     --storeId 'q3aHVYIl' \
@@ -669,7 +676,7 @@ build/install/cli/bin/cli platform enableItem \
 eval_tap $? 93 'EnableItem' test.out
 
 #- 94 FeatureItem
-build/install/cli/bin/cli platform featureItem \
+./ng net.accelbyte.sdk.cli.Main platform featureItem \
     --feature 'ewLRuHY8' \
     --itemId '3bGj0HTe' \
     --namespace "$AB_NAMESPACE" \
@@ -678,7 +685,7 @@ build/install/cli/bin/cli platform featureItem \
 eval_tap $? 94 'FeatureItem' test.out
 
 #- 95 DefeatureItem
-build/install/cli/bin/cli platform defeatureItem \
+./ng net.accelbyte.sdk.cli.Main platform defeatureItem \
     --feature 'dqctDpyg' \
     --itemId 'Y0ax476E' \
     --namespace "$AB_NAMESPACE" \
@@ -687,14 +694,14 @@ build/install/cli/bin/cli platform defeatureItem \
 eval_tap $? 95 'DefeatureItem' test.out
 
 #- 96 GetLocaleItem
-build/install/cli/bin/cli platform getLocaleItem \
+./ng net.accelbyte.sdk.cli.Main platform getLocaleItem \
     --itemId '2JH0qhWI' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 96 'GetLocaleItem' test.out
 
 #- 97 ReturnItem
-build/install/cli/bin/cli platform returnItem \
+./ng net.accelbyte.sdk.cli.Main platform returnItem \
     --itemId 'wHWTgzJF' \
     --namespace "$AB_NAMESPACE" \
     --body '{"orderNo": "RYw6t1IK"}' \
@@ -702,27 +709,27 @@ build/install/cli/bin/cli platform returnItem \
 eval_tap $? 97 'ReturnItem' test.out
 
 #- 98 QueryKeyGroups
-build/install/cli/bin/cli platform queryKeyGroups \
+./ng net.accelbyte.sdk.cli.Main platform queryKeyGroups \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 98 'QueryKeyGroups' test.out
 
 #- 99 CreateKeyGroup
-build/install/cli/bin/cli platform createKeyGroup \
+./ng net.accelbyte.sdk.cli.Main platform createKeyGroup \
     --namespace "$AB_NAMESPACE" \
     --body '{"description": "ZLO6V4Od", "name": "e46QmCid", "status": "ACTIVE", "tags": ["dpP7RTC5"]}' \
     > test.out 2>&1
 eval_tap $? 99 'CreateKeyGroup' test.out
 
 #- 100 GetKeyGroup
-build/install/cli/bin/cli platform getKeyGroup \
+./ng net.accelbyte.sdk.cli.Main platform getKeyGroup \
     --keyGroupId '87lmUmBz' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 100 'GetKeyGroup' test.out
 
 #- 101 UpdateKeyGroup
-build/install/cli/bin/cli platform updateKeyGroup \
+./ng net.accelbyte.sdk.cli.Main platform updateKeyGroup \
     --keyGroupId 'iPZBnpOf' \
     --namespace "$AB_NAMESPACE" \
     --body '{"description": "kllxfq0N", "name": "srSjw5Ho", "status": "ACTIVE", "tags": ["0blM1d5M"]}' \
@@ -730,47 +737,47 @@ build/install/cli/bin/cli platform updateKeyGroup \
 eval_tap $? 101 'UpdateKeyGroup' test.out
 
 #- 102 GetKeyGroupDynamic
-build/install/cli/bin/cli platform getKeyGroupDynamic \
+./ng net.accelbyte.sdk.cli.Main platform getKeyGroupDynamic \
     --keyGroupId 'StYGczLI' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 102 'GetKeyGroupDynamic' test.out
 
 #- 103 ListKeys
-build/install/cli/bin/cli platform listKeys \
+./ng net.accelbyte.sdk.cli.Main platform listKeys \
     --keyGroupId 'NlEC0OEs' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 103 'ListKeys' test.out
 
 #- 104 UploadKeys
-build/install/cli/bin/cli platform uploadKeys \
+./ng net.accelbyte.sdk.cli.Main platform uploadKeys \
     --keyGroupId 'E3yzIsUP' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 104 'UploadKeys' test.out
 
 #- 105 QueryOrders
-build/install/cli/bin/cli platform queryOrders \
+./ng net.accelbyte.sdk.cli.Main platform queryOrders \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 105 'QueryOrders' test.out
 
 #- 106 GetOrderStatistics
-build/install/cli/bin/cli platform getOrderStatistics \
+./ng net.accelbyte.sdk.cli.Main platform getOrderStatistics \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 106 'GetOrderStatistics' test.out
 
 #- 107 GetOrder
-build/install/cli/bin/cli platform getOrder \
+./ng net.accelbyte.sdk.cli.Main platform getOrder \
     --namespace "$AB_NAMESPACE" \
     --orderNo '0NjluOrG' \
     > test.out 2>&1
 eval_tap $? 107 'GetOrder' test.out
 
 #- 108 RefundOrder
-build/install/cli/bin/cli platform refundOrder \
+./ng net.accelbyte.sdk.cli.Main platform refundOrder \
     --namespace "$AB_NAMESPACE" \
     --orderNo 'ZTzsLW7F' \
     --body '{"description": "jfs9nIkc"}' \
@@ -778,53 +785,53 @@ build/install/cli/bin/cli platform refundOrder \
 eval_tap $? 108 'RefundOrder' test.out
 
 #- 109 GetPaymentCallbackConfig
-build/install/cli/bin/cli platform getPaymentCallbackConfig \
+./ng net.accelbyte.sdk.cli.Main platform getPaymentCallbackConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 109 'GetPaymentCallbackConfig' test.out
 
 #- 110 UpdatePaymentCallbackConfig
-build/install/cli/bin/cli platform updatePaymentCallbackConfig \
+./ng net.accelbyte.sdk.cli.Main platform updatePaymentCallbackConfig \
     --namespace "$AB_NAMESPACE" \
     --body '{"dryRun": false, "notifyUrl": "UEanjKHb", "privateKey": "Xfk1zxdz"}' \
     > test.out 2>&1
 eval_tap $? 110 'UpdatePaymentCallbackConfig' test.out
 
 #- 111 QueryPaymentNotifications
-build/install/cli/bin/cli platform queryPaymentNotifications \
+./ng net.accelbyte.sdk.cli.Main platform queryPaymentNotifications \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 111 'QueryPaymentNotifications' test.out
 
 #- 112 QueryPaymentOrders
-build/install/cli/bin/cli platform queryPaymentOrders \
+./ng net.accelbyte.sdk.cli.Main platform queryPaymentOrders \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 112 'QueryPaymentOrders' test.out
 
 #- 113 CreatePaymentOrderByDedicated
-build/install/cli/bin/cli platform createPaymentOrderByDedicated \
+./ng net.accelbyte.sdk.cli.Main platform createPaymentOrderByDedicated \
     --namespace "$AB_NAMESPACE" \
     --body '{"currencyCode": "xg0UXcRy", "currencyNamespace": "Hi3u8BzV", "customParameters": {"Wu1tOmhU": {}}, "description": "tCgcpvGr", "extOrderNo": "EbcZUDEx", "extUserId": "H1tayOGX", "itemType": "SEASON", "language": "rJmc-IJLR", "metadata": {"pyyEcQxV": "gJIjMZqc"}, "notifyUrl": "WfMl6dqr", "omitNotification": false, "price": 59, "recurringPaymentOrderNo": "4tnc3ZRB", "region": "3IkdtPfA", "returnUrl": "JEomwenJ", "sandbox": true, "sku": "Q8grtQSv", "subscriptionId": "6EcALcMI", "targetNamespace": "Pms5bT51", "targetUserId": "M4yko8S0", "title": "EnGLvGvf"}' \
     > test.out 2>&1
 eval_tap $? 113 'CreatePaymentOrderByDedicated' test.out
 
 #- 114 ListExtOrderNoByExtTxId
-build/install/cli/bin/cli platform listExtOrderNoByExtTxId \
+./ng net.accelbyte.sdk.cli.Main platform listExtOrderNoByExtTxId \
     --namespace "$AB_NAMESPACE" \
     --extTxId 'uSyCTyjj' \
     > test.out 2>&1
 eval_tap $? 114 'ListExtOrderNoByExtTxId' test.out
 
 #- 115 GetPaymentOrder
-build/install/cli/bin/cli platform getPaymentOrder \
+./ng net.accelbyte.sdk.cli.Main platform getPaymentOrder \
     --namespace "$AB_NAMESPACE" \
     --paymentOrderNo '4mCaiuMG' \
     > test.out 2>&1
 eval_tap $? 115 'GetPaymentOrder' test.out
 
 #- 116 ChargePaymentOrder
-build/install/cli/bin/cli platform chargePaymentOrder \
+./ng net.accelbyte.sdk.cli.Main platform chargePaymentOrder \
     --namespace "$AB_NAMESPACE" \
     --paymentOrderNo 'KOF5GJJo' \
     --body '{"extTxId": "oSXUl3YU", "paymentMethod": "35QHGpBA", "paymentProvider": "WXPAY"}' \
@@ -832,7 +839,7 @@ build/install/cli/bin/cli platform chargePaymentOrder \
 eval_tap $? 116 'ChargePaymentOrder' test.out
 
 #- 117 RefundPaymentOrderByDedicated
-build/install/cli/bin/cli platform refundPaymentOrderByDedicated \
+./ng net.accelbyte.sdk.cli.Main platform refundPaymentOrderByDedicated \
     --namespace "$AB_NAMESPACE" \
     --paymentOrderNo 'nOlxDznI' \
     --body '{"description": "CQVyqBg3"}' \
@@ -840,7 +847,7 @@ build/install/cli/bin/cli platform refundPaymentOrderByDedicated \
 eval_tap $? 117 'RefundPaymentOrderByDedicated' test.out
 
 #- 118 SimulatePaymentOrderNotification
-build/install/cli/bin/cli platform simulatePaymentOrderNotification \
+./ng net.accelbyte.sdk.cli.Main platform simulatePaymentOrderNotification \
     --namespace "$AB_NAMESPACE" \
     --paymentOrderNo '4WTtDkn0' \
     --body '{"amount": 34, "currencyCode": "tn6t0Yx4", "notifyType": "REFUND", "paymentProvider": "PAYPAL", "salesTax": 1, "vat": 84}' \
@@ -848,47 +855,47 @@ build/install/cli/bin/cli platform simulatePaymentOrderNotification \
 eval_tap $? 118 'SimulatePaymentOrderNotification' test.out
 
 #- 119 GetPaymentOrderChargeStatus
-build/install/cli/bin/cli platform getPaymentOrderChargeStatus \
+./ng net.accelbyte.sdk.cli.Main platform getPaymentOrderChargeStatus \
     --namespace "$AB_NAMESPACE" \
     --paymentOrderNo '1rUQYCNT' \
     > test.out 2>&1
 eval_tap $? 119 'GetPaymentOrderChargeStatus' test.out
 
 #- 120 CreateReward
-build/install/cli/bin/cli platform createReward \
+./ng net.accelbyte.sdk.cli.Main platform createReward \
     --namespace "$AB_NAMESPACE" \
     --body '{"description": "iDX4jE3M", "eventTopic": "2IsTHu8Q", "maxAwarded": 44, "maxAwardedPerUser": 79, "namespaceExpression": "yOlXfIWd", "rewardCode": "0mcq5T4S", "rewardConditions": [{"condition": "Uc7cWfCK", "conditionName": "K6Dij1gF", "eventName": "cenEMySP", "rewardItems": [{"duration": 11, "itemId": "hxBenDiT", "quantity": 16}]}], "userIdExpression": "AqFYmFKj"}' \
     > test.out 2>&1
 eval_tap $? 120 'CreateReward' test.out
 
 #- 121 QueryRewards
-build/install/cli/bin/cli platform queryRewards \
+./ng net.accelbyte.sdk.cli.Main platform queryRewards \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 121 'QueryRewards' test.out
 
 #- 122 ExportRewards
-build/install/cli/bin/cli platform exportRewards \
+./ng net.accelbyte.sdk.cli.Main platform exportRewards \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 122 'ExportRewards' test.out
 
 #- 123 ImportRewards
-build/install/cli/bin/cli platform importRewards \
+./ng net.accelbyte.sdk.cli.Main platform importRewards \
     --namespace "$AB_NAMESPACE" \
     --replaceExisting
     > test.out 2>&1
 eval_tap $? 123 'ImportRewards' test.out
 
 #- 124 GetReward
-build/install/cli/bin/cli platform getReward \
+./ng net.accelbyte.sdk.cli.Main platform getReward \
     --namespace "$AB_NAMESPACE" \
     --rewardId 'aELmmll6' \
     > test.out 2>&1
 eval_tap $? 124 'GetReward' test.out
 
 #- 125 UpdateReward
-build/install/cli/bin/cli platform updateReward \
+./ng net.accelbyte.sdk.cli.Main platform updateReward \
     --namespace "$AB_NAMESPACE" \
     --rewardId 'oexId1OK' \
     --body '{"description": "GUN2Uznd", "eventTopic": "7uVa7t14", "maxAwarded": 48, "maxAwardedPerUser": 43, "namespaceExpression": "SYSV52bH", "rewardCode": "ifCIf4ts", "rewardConditions": [{"condition": "uu6Pkam6", "conditionName": "tFSYFt4Z", "eventName": "xA2PzZFR", "rewardItems": [{"duration": 20, "itemId": "BNlg6hn5", "quantity": 33}]}], "userIdExpression": "usKyZAuV"}' \
@@ -896,14 +903,14 @@ build/install/cli/bin/cli platform updateReward \
 eval_tap $? 125 'UpdateReward' test.out
 
 #- 126 DeleteReward
-build/install/cli/bin/cli platform deleteReward \
+./ng net.accelbyte.sdk.cli.Main platform deleteReward \
     --namespace "$AB_NAMESPACE" \
     --rewardId '6uUvqM0l' \
     > test.out 2>&1
 eval_tap $? 126 'DeleteReward' test.out
 
 #- 127 CheckEventCondition
-build/install/cli/bin/cli platform checkEventCondition \
+./ng net.accelbyte.sdk.cli.Main platform checkEventCondition \
     --namespace "$AB_NAMESPACE" \
     --rewardId 'V6UZMlEb' \
     --body '{"payload": {"xHNgJRiQ": {}}}' \
@@ -911,57 +918,57 @@ build/install/cli/bin/cli platform checkEventCondition \
 eval_tap $? 127 'CheckEventCondition' test.out
 
 #- 128 ListStores
-build/install/cli/bin/cli platform listStores \
+./ng net.accelbyte.sdk.cli.Main platform listStores \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 128 'ListStores' test.out
 
 #- 129 CreateStore
-build/install/cli/bin/cli platform createStore \
+./ng net.accelbyte.sdk.cli.Main platform createStore \
     --namespace "$AB_NAMESPACE" \
     --body '{"defaultLanguage": "ExaunjdA", "defaultRegion": "qnHUz44t", "description": "x4O6hamP", "supportedLanguages": ["wNoi071e"], "supportedRegions": ["zDK56JFI"], "title": "Ge1IMUCL"}' \
     > test.out 2>&1
 eval_tap $? 129 'CreateStore' test.out
 
 #- 130 ImportStore
-build/install/cli/bin/cli platform importStore \
+./ng net.accelbyte.sdk.cli.Main platform importStore \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 130 'ImportStore' test.out
 
 #- 131 GetPublishedStore
-build/install/cli/bin/cli platform getPublishedStore \
+./ng net.accelbyte.sdk.cli.Main platform getPublishedStore \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 131 'GetPublishedStore' test.out
 
 #- 132 DeletePublishedStore
-build/install/cli/bin/cli platform deletePublishedStore \
+./ng net.accelbyte.sdk.cli.Main platform deletePublishedStore \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 132 'DeletePublishedStore' test.out
 
 #- 133 GetPublishedStoreBackup
-build/install/cli/bin/cli platform getPublishedStoreBackup \
+./ng net.accelbyte.sdk.cli.Main platform getPublishedStoreBackup \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 133 'GetPublishedStoreBackup' test.out
 
 #- 134 RollbackPublishedStore
-build/install/cli/bin/cli platform rollbackPublishedStore \
+./ng net.accelbyte.sdk.cli.Main platform rollbackPublishedStore \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 134 'RollbackPublishedStore' test.out
 
 #- 135 GetStore
-build/install/cli/bin/cli platform getStore \
+./ng net.accelbyte.sdk.cli.Main platform getStore \
     --namespace "$AB_NAMESPACE" \
     --storeId 'cN0DsaD5' \
     > test.out 2>&1
 eval_tap $? 135 'GetStore' test.out
 
 #- 136 UpdateStore
-build/install/cli/bin/cli platform updateStore \
+./ng net.accelbyte.sdk.cli.Main platform updateStore \
     --namespace "$AB_NAMESPACE" \
     --storeId 'FyBsFe9O' \
     --body '{"defaultLanguage": "YEJVsYff", "defaultRegion": "mhyx6J25", "description": "PrM4S3cB", "supportedLanguages": ["8m17hEeL"], "supportedRegions": ["LgoaYth6"], "title": "zcf8eA45"}' \
@@ -969,48 +976,48 @@ build/install/cli/bin/cli platform updateStore \
 eval_tap $? 136 'UpdateStore' test.out
 
 #- 137 DeleteStore
-build/install/cli/bin/cli platform deleteStore \
+./ng net.accelbyte.sdk.cli.Main platform deleteStore \
     --namespace "$AB_NAMESPACE" \
     --storeId 'OMvObWej' \
     > test.out 2>&1
 eval_tap $? 137 'DeleteStore' test.out
 
 #- 138 CloneStore
-build/install/cli/bin/cli platform cloneStore \
+./ng net.accelbyte.sdk.cli.Main platform cloneStore \
     --namespace "$AB_NAMESPACE" \
     --storeId 'o9LfGeeg' \
     > test.out 2>&1
 eval_tap $? 138 'CloneStore' test.out
 
 #- 139 ExportStore
-build/install/cli/bin/cli platform exportStore \
+./ng net.accelbyte.sdk.cli.Main platform exportStore \
     --namespace "$AB_NAMESPACE" \
     --storeId 'JMaBGR6D' \
     > test.out 2>&1
 eval_tap $? 139 'ExportStore' test.out
 
 #- 140 QuerySubscriptions
-build/install/cli/bin/cli platform querySubscriptions \
+./ng net.accelbyte.sdk.cli.Main platform querySubscriptions \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 140 'QuerySubscriptions' test.out
 
 #- 141 RecurringChargeSubscription
-build/install/cli/bin/cli platform recurringChargeSubscription \
+./ng net.accelbyte.sdk.cli.Main platform recurringChargeSubscription \
     --namespace "$AB_NAMESPACE" \
     --subscriptionId '1ZoZEZQk' \
     > test.out 2>&1
 eval_tap $? 141 'RecurringChargeSubscription' test.out
 
 #- 142 GetTicketDynamic
-build/install/cli/bin/cli platform getTicketDynamic \
+./ng net.accelbyte.sdk.cli.Main platform getTicketDynamic \
     --boothName 'J8DSqFnh' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 142 'GetTicketDynamic' test.out
 
 #- 143 DecreaseTicketSale
-build/install/cli/bin/cli platform decreaseTicketSale \
+./ng net.accelbyte.sdk.cli.Main platform decreaseTicketSale \
     --boothName 'dKvjFCFb' \
     --namespace "$AB_NAMESPACE" \
     --body '{"orderNo": "SFlEWoMP"}' \
@@ -1018,14 +1025,14 @@ build/install/cli/bin/cli platform decreaseTicketSale \
 eval_tap $? 143 'DecreaseTicketSale' test.out
 
 #- 144 GetTicketBoothID
-build/install/cli/bin/cli platform getTicketBoothID \
+./ng net.accelbyte.sdk.cli.Main platform getTicketBoothID \
     --boothName 'dgK5zn62' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 144 'GetTicketBoothID' test.out
 
 #- 145 IncreaseTicketSale
-build/install/cli/bin/cli platform increaseTicketSale \
+./ng net.accelbyte.sdk.cli.Main platform increaseTicketSale \
     --boothName 'mhnFSpCT' \
     --namespace "$AB_NAMESPACE" \
     --body '{"count": 22, "orderNo": "DNBOcygv"}' \
@@ -1033,70 +1040,70 @@ build/install/cli/bin/cli platform increaseTicketSale \
 eval_tap $? 145 'IncreaseTicketSale' test.out
 
 #- 146 AnonymizeCampaign
-build/install/cli/bin/cli platform anonymizeCampaign \
+./ng net.accelbyte.sdk.cli.Main platform anonymizeCampaign \
     --namespace "$AB_NAMESPACE" \
     --userId 'v2LAgfBG' \
     > test.out 2>&1
 eval_tap $? 146 'AnonymizeCampaign' test.out
 
 #- 147 AnonymizeEntitlement
-build/install/cli/bin/cli platform anonymizeEntitlement \
+./ng net.accelbyte.sdk.cli.Main platform anonymizeEntitlement \
     --namespace "$AB_NAMESPACE" \
     --userId 'VzanbKYs' \
     > test.out 2>&1
 eval_tap $? 147 'AnonymizeEntitlement' test.out
 
 #- 148 AnonymizeFulfillment
-build/install/cli/bin/cli platform anonymizeFulfillment \
+./ng net.accelbyte.sdk.cli.Main platform anonymizeFulfillment \
     --namespace "$AB_NAMESPACE" \
     --userId 'B0gqJ8Vh' \
     > test.out 2>&1
 eval_tap $? 148 'AnonymizeFulfillment' test.out
 
 #- 149 AnonymizeIntegration
-build/install/cli/bin/cli platform anonymizeIntegration \
+./ng net.accelbyte.sdk.cli.Main platform anonymizeIntegration \
     --namespace "$AB_NAMESPACE" \
     --userId 'YSikJl2p' \
     > test.out 2>&1
 eval_tap $? 149 'AnonymizeIntegration' test.out
 
 #- 150 AnonymizeOrder
-build/install/cli/bin/cli platform anonymizeOrder \
+./ng net.accelbyte.sdk.cli.Main platform anonymizeOrder \
     --namespace "$AB_NAMESPACE" \
     --userId '9rBx8N5e' \
     > test.out 2>&1
 eval_tap $? 150 'AnonymizeOrder' test.out
 
 #- 151 AnonymizePayment
-build/install/cli/bin/cli platform anonymizePayment \
+./ng net.accelbyte.sdk.cli.Main platform anonymizePayment \
     --namespace "$AB_NAMESPACE" \
     --userId 'gapqxDy4' \
     > test.out 2>&1
 eval_tap $? 151 'AnonymizePayment' test.out
 
 #- 152 AnonymizeSubscription
-build/install/cli/bin/cli platform anonymizeSubscription \
+./ng net.accelbyte.sdk.cli.Main platform anonymizeSubscription \
     --namespace "$AB_NAMESPACE" \
     --userId 'cLfNjzzE' \
     > test.out 2>&1
 eval_tap $? 152 'AnonymizeSubscription' test.out
 
 #- 153 AnonymizeWallet
-build/install/cli/bin/cli platform anonymizeWallet \
+./ng net.accelbyte.sdk.cli.Main platform anonymizeWallet \
     --namespace "$AB_NAMESPACE" \
     --userId 'ZYA8jIkM' \
     > test.out 2>&1
 eval_tap $? 153 'AnonymizeWallet' test.out
 
 #- 154 QueryUserEntitlements
-build/install/cli/bin/cli platform queryUserEntitlements \
+./ng net.accelbyte.sdk.cli.Main platform queryUserEntitlements \
     --namespace "$AB_NAMESPACE" \
     --userId 'Jb7cZ2bP' \
     > test.out 2>&1
 eval_tap $? 154 'QueryUserEntitlements' test.out
 
 #- 155 GrantUserEntitlement
-build/install/cli/bin/cli platform grantUserEntitlement \
+./ng net.accelbyte.sdk.cli.Main platform grantUserEntitlement \
     --namespace "$AB_NAMESPACE" \
     --userId 'saLLpEBV' \
     --body '[{"endDate": "1986-11-02T00:00:00Z", "grantedCode": "k5AsKaF2", "itemId": "P44lXkI3", "itemNamespace": "zdiRiC5I", "language": "pI_OINd", "quantity": 83, "region": "u5V6QSYx", "source": "GIFT", "startDate": "1994-11-19T00:00:00Z", "storeId": "ryVuZYmg"}]' \
@@ -1104,7 +1111,7 @@ build/install/cli/bin/cli platform grantUserEntitlement \
 eval_tap $? 155 'GrantUserEntitlement' test.out
 
 #- 156 GetUserAppEntitlementByAppId
-build/install/cli/bin/cli platform getUserAppEntitlementByAppId \
+./ng net.accelbyte.sdk.cli.Main platform getUserAppEntitlementByAppId \
     --namespace "$AB_NAMESPACE" \
     --userId 'UeEPB5AG' \
     --appId 'Pgvk0Zth' \
@@ -1112,7 +1119,7 @@ build/install/cli/bin/cli platform getUserAppEntitlementByAppId \
 eval_tap $? 156 'GetUserAppEntitlementByAppId' test.out
 
 #- 157 QueryUserEntitlementsByAppType
-build/install/cli/bin/cli platform queryUserEntitlementsByAppType \
+./ng net.accelbyte.sdk.cli.Main platform queryUserEntitlementsByAppType \
     --namespace "$AB_NAMESPACE" \
     --userId 'aj0EBA4a' \
     --appType 'SOFTWARE' \
@@ -1120,7 +1127,7 @@ build/install/cli/bin/cli platform queryUserEntitlementsByAppType \
 eval_tap $? 157 'QueryUserEntitlementsByAppType' test.out
 
 #- 158 GetUserEntitlementByItemId
-build/install/cli/bin/cli platform getUserEntitlementByItemId \
+./ng net.accelbyte.sdk.cli.Main platform getUserEntitlementByItemId \
     --namespace "$AB_NAMESPACE" \
     --userId 'Rz0d56sm' \
     --itemId 'obor4p1P' \
@@ -1128,7 +1135,7 @@ build/install/cli/bin/cli platform getUserEntitlementByItemId \
 eval_tap $? 158 'GetUserEntitlementByItemId' test.out
 
 #- 159 GetUserEntitlementBySku
-build/install/cli/bin/cli platform getUserEntitlementBySku \
+./ng net.accelbyte.sdk.cli.Main platform getUserEntitlementBySku \
     --namespace "$AB_NAMESPACE" \
     --userId 'lgQB9EcN' \
     --sku 'GOeBRY6G' \
@@ -1136,14 +1143,14 @@ build/install/cli/bin/cli platform getUserEntitlementBySku \
 eval_tap $? 159 'GetUserEntitlementBySku' test.out
 
 #- 160 ExistsAnyUserActiveEntitlement
-build/install/cli/bin/cli platform existsAnyUserActiveEntitlement \
+./ng net.accelbyte.sdk.cli.Main platform existsAnyUserActiveEntitlement \
     --namespace "$AB_NAMESPACE" \
     --userId '5ae07deD' \
     > test.out 2>&1
 eval_tap $? 160 'ExistsAnyUserActiveEntitlement' test.out
 
 #- 161 ExistsAnyUserActiveEntitlementByItemIds
-build/install/cli/bin/cli platform existsAnyUserActiveEntitlementByItemIds \
+./ng net.accelbyte.sdk.cli.Main platform existsAnyUserActiveEntitlementByItemIds \
     --namespace "$AB_NAMESPACE" \
     --userId 'LaZ8JCvb' \
     --itemIds '["eTfW0hgz"]' \
@@ -1151,7 +1158,7 @@ build/install/cli/bin/cli platform existsAnyUserActiveEntitlementByItemIds \
 eval_tap $? 161 'ExistsAnyUserActiveEntitlementByItemIds' test.out
 
 #- 162 GetUserAppEntitlementOwnershipByAppId
-build/install/cli/bin/cli platform getUserAppEntitlementOwnershipByAppId \
+./ng net.accelbyte.sdk.cli.Main platform getUserAppEntitlementOwnershipByAppId \
     --namespace "$AB_NAMESPACE" \
     --userId 'rabLJxEw' \
     --appId 'JrEBmQ64' \
@@ -1159,7 +1166,7 @@ build/install/cli/bin/cli platform getUserAppEntitlementOwnershipByAppId \
 eval_tap $? 162 'GetUserAppEntitlementOwnershipByAppId' test.out
 
 #- 163 GetUserEntitlementOwnershipByItemId
-build/install/cli/bin/cli platform getUserEntitlementOwnershipByItemId \
+./ng net.accelbyte.sdk.cli.Main platform getUserEntitlementOwnershipByItemId \
     --namespace "$AB_NAMESPACE" \
     --userId 'haNOzlGu' \
     --itemId '68UYyupj' \
@@ -1167,7 +1174,7 @@ build/install/cli/bin/cli platform getUserEntitlementOwnershipByItemId \
 eval_tap $? 163 'GetUserEntitlementOwnershipByItemId' test.out
 
 #- 164 GetUserEntitlementOwnershipBySku
-build/install/cli/bin/cli platform getUserEntitlementOwnershipBySku \
+./ng net.accelbyte.sdk.cli.Main platform getUserEntitlementOwnershipBySku \
     --namespace "$AB_NAMESPACE" \
     --userId 'dDetnoT0' \
     --sku 'rfWtVPwQ' \
@@ -1175,7 +1182,7 @@ build/install/cli/bin/cli platform getUserEntitlementOwnershipBySku \
 eval_tap $? 164 'GetUserEntitlementOwnershipBySku' test.out
 
 #- 165 RevokeUserEntitlements
-build/install/cli/bin/cli platform revokeUserEntitlements \
+./ng net.accelbyte.sdk.cli.Main platform revokeUserEntitlements \
     --namespace "$AB_NAMESPACE" \
     --userId 'fq6V92gb' \
     --entitlementIds 'fPouNdmP' \
@@ -1183,7 +1190,7 @@ build/install/cli/bin/cli platform revokeUserEntitlements \
 eval_tap $? 165 'RevokeUserEntitlements' test.out
 
 #- 166 GetUserEntitlement
-build/install/cli/bin/cli platform getUserEntitlement \
+./ng net.accelbyte.sdk.cli.Main platform getUserEntitlement \
     --entitlementId '7fckVnuD' \
     --namespace "$AB_NAMESPACE" \
     --userId 'GvYIb1p5' \
@@ -1191,7 +1198,7 @@ build/install/cli/bin/cli platform getUserEntitlement \
 eval_tap $? 166 'GetUserEntitlement' test.out
 
 #- 167 UpdateUserEntitlement
-build/install/cli/bin/cli platform updateUserEntitlement \
+./ng net.accelbyte.sdk.cli.Main platform updateUserEntitlement \
     --entitlementId 'tcR5z8ZJ' \
     --namespace "$AB_NAMESPACE" \
     --userId 'LjSHcaR3' \
@@ -1200,7 +1207,7 @@ build/install/cli/bin/cli platform updateUserEntitlement \
 eval_tap $? 167 'UpdateUserEntitlement' test.out
 
 #- 168 ConsumeUserEntitlement
-build/install/cli/bin/cli platform consumeUserEntitlement \
+./ng net.accelbyte.sdk.cli.Main platform consumeUserEntitlement \
     --entitlementId '49eXp0xQ' \
     --namespace "$AB_NAMESPACE" \
     --userId 'kZ2JjuwW' \
@@ -1209,7 +1216,7 @@ build/install/cli/bin/cli platform consumeUserEntitlement \
 eval_tap $? 168 'ConsumeUserEntitlement' test.out
 
 #- 169 DisableUserEntitlement
-build/install/cli/bin/cli platform disableUserEntitlement \
+./ng net.accelbyte.sdk.cli.Main platform disableUserEntitlement \
     --entitlementId 'y0tU11PC' \
     --namespace "$AB_NAMESPACE" \
     --userId 'eSrvejUK' \
@@ -1217,7 +1224,7 @@ build/install/cli/bin/cli platform disableUserEntitlement \
 eval_tap $? 169 'DisableUserEntitlement' test.out
 
 #- 170 EnableUserEntitlement
-build/install/cli/bin/cli platform enableUserEntitlement \
+./ng net.accelbyte.sdk.cli.Main platform enableUserEntitlement \
     --entitlementId 'wVfF37Vr' \
     --namespace "$AB_NAMESPACE" \
     --userId '7mkDzFBI' \
@@ -1225,7 +1232,7 @@ build/install/cli/bin/cli platform enableUserEntitlement \
 eval_tap $? 170 'EnableUserEntitlement' test.out
 
 #- 171 GetUserEntitlementHistories
-build/install/cli/bin/cli platform getUserEntitlementHistories \
+./ng net.accelbyte.sdk.cli.Main platform getUserEntitlementHistories \
     --entitlementId '1VwhkVSK' \
     --namespace "$AB_NAMESPACE" \
     --userId 'DlNFOUHB' \
@@ -1233,7 +1240,7 @@ build/install/cli/bin/cli platform getUserEntitlementHistories \
 eval_tap $? 171 'GetUserEntitlementHistories' test.out
 
 #- 172 RevokeUserEntitlement
-build/install/cli/bin/cli platform revokeUserEntitlement \
+./ng net.accelbyte.sdk.cli.Main platform revokeUserEntitlement \
     --entitlementId 'JsvTsqk9' \
     --namespace "$AB_NAMESPACE" \
     --userId 'hg4hj6nU' \
@@ -1241,7 +1248,7 @@ build/install/cli/bin/cli platform revokeUserEntitlement \
 eval_tap $? 172 'RevokeUserEntitlement' test.out
 
 #- 173 FulfillItem
-build/install/cli/bin/cli platform fulfillItem \
+./ng net.accelbyte.sdk.cli.Main platform fulfillItem \
     --namespace "$AB_NAMESPACE" \
     --userId 'debW6Usk' \
     --body '{"duration": 3, "endDate": "1991-03-24T00:00:00Z", "itemId": "kZAk01f1", "itemSku": "KxCtWADU", "language": "2guN6U9w", "order": {"currency": {"currencyCode": "13W1K9TZ", "currencySymbol": "Q4qRLEi5", "currencyType": "VIRTUAL", "decimals": 29, "namespace": "wE36rfmM"}, "ext": {"0CCs35TP": {}}, "free": false}, "orderNo": "sY8WgwSx", "quantity": 58, "region": "I5GH9bv9", "source": "ACHIEVEMENT", "startDate": "1998-09-19T00:00:00Z", "storeId": "pA6pzjHp"}' \
@@ -1249,7 +1256,7 @@ build/install/cli/bin/cli platform fulfillItem \
 eval_tap $? 173 'FulfillItem' test.out
 
 #- 174 RedeemCode
-build/install/cli/bin/cli platform redeemCode \
+./ng net.accelbyte.sdk.cli.Main platform redeemCode \
     --namespace "$AB_NAMESPACE" \
     --userId 'ZO0E9iLg' \
     --body '{"code": "RPJK3nBa", "language": "go", "region": "Qrqra0Pt"}' \
@@ -1257,7 +1264,7 @@ build/install/cli/bin/cli platform redeemCode \
 eval_tap $? 174 'RedeemCode' test.out
 
 #- 175 FulfillRewards
-build/install/cli/bin/cli platform fulfillRewards \
+./ng net.accelbyte.sdk.cli.Main platform fulfillRewards \
     --namespace "$AB_NAMESPACE" \
     --userId 'kfvOpY2r' \
     --body '{"rewards": [{"currency": {"currencyCode": "amp5lnBn", "namespace": "6xmBkfMt"}, "item": {"itemId": "C66hFq0k", "itemSku": "POkORm2X", "itemType": "jlNEE5ec"}, "quantity": 83, "type": "CURRENCY"}], "source": "REWARD"}' \
@@ -1265,21 +1272,21 @@ build/install/cli/bin/cli platform fulfillRewards \
 eval_tap $? 175 'FulfillRewards' test.out
 
 #- 176 QueryUserIAPOrders
-build/install/cli/bin/cli platform queryUserIAPOrders \
+./ng net.accelbyte.sdk.cli.Main platform queryUserIAPOrders \
     --namespace "$AB_NAMESPACE" \
     --userId 'mi0ySJHf' \
     > test.out 2>&1
 eval_tap $? 176 'QueryUserIAPOrders' test.out
 
 #- 177 QueryAllUserIAPOrders
-build/install/cli/bin/cli platform queryAllUserIAPOrders \
+./ng net.accelbyte.sdk.cli.Main platform queryAllUserIAPOrders \
     --namespace "$AB_NAMESPACE" \
     --userId 'PloP1XkY' \
     > test.out 2>&1
 eval_tap $? 177 'QueryAllUserIAPOrders' test.out
 
 #- 178 MockFulfillIAPItem
-build/install/cli/bin/cli platform mockFulfillIAPItem \
+./ng net.accelbyte.sdk.cli.Main platform mockFulfillIAPItem \
     --namespace "$AB_NAMESPACE" \
     --userId 'K4MgIsDS' \
     --body '{"itemIdentityType": "ITEM_SKU", "language": "pYmH-WXhb-199", "productId": "ftll8N0V", "region": "vChHz9ur", "type": "STEAM"}' \
@@ -1287,14 +1294,14 @@ build/install/cli/bin/cli platform mockFulfillIAPItem \
 eval_tap $? 178 'MockFulfillIAPItem' test.out
 
 #- 179 QueryUserOrders
-build/install/cli/bin/cli platform queryUserOrders \
+./ng net.accelbyte.sdk.cli.Main platform queryUserOrders \
     --namespace "$AB_NAMESPACE" \
     --userId 't7QWvE8s' \
     > test.out 2>&1
 eval_tap $? 179 'QueryUserOrders' test.out
 
 #- 180 CountOfPurchasedItem
-build/install/cli/bin/cli platform countOfPurchasedItem \
+./ng net.accelbyte.sdk.cli.Main platform countOfPurchasedItem \
     --namespace "$AB_NAMESPACE" \
     --userId '6Uz8BRuY' \
     --itemId 'WDTtL6MT' \
@@ -1302,7 +1309,7 @@ build/install/cli/bin/cli platform countOfPurchasedItem \
 eval_tap $? 180 'CountOfPurchasedItem' test.out
 
 #- 181 GetUserOrder
-build/install/cli/bin/cli platform getUserOrder \
+./ng net.accelbyte.sdk.cli.Main platform getUserOrder \
     --namespace "$AB_NAMESPACE" \
     --orderNo 'TRkCbb9S' \
     --userId '5Q1IVHGT' \
@@ -1310,7 +1317,7 @@ build/install/cli/bin/cli platform getUserOrder \
 eval_tap $? 181 'GetUserOrder' test.out
 
 #- 182 UpdateUserOrderStatus
-build/install/cli/bin/cli platform updateUserOrderStatus \
+./ng net.accelbyte.sdk.cli.Main platform updateUserOrderStatus \
     --namespace "$AB_NAMESPACE" \
     --orderNo '88prREBg' \
     --userId 'YOWdHJ9J' \
@@ -1319,7 +1326,7 @@ build/install/cli/bin/cli platform updateUserOrderStatus \
 eval_tap $? 182 'UpdateUserOrderStatus' test.out
 
 #- 183 FulfillUserOrder
-build/install/cli/bin/cli platform fulfillUserOrder \
+./ng net.accelbyte.sdk.cli.Main platform fulfillUserOrder \
     --namespace "$AB_NAMESPACE" \
     --orderNo 'f7TRigNZ' \
     --userId 'j5w5y3Hm' \
@@ -1327,7 +1334,7 @@ build/install/cli/bin/cli platform fulfillUserOrder \
 eval_tap $? 183 'FulfillUserOrder' test.out
 
 #- 184 GetUserOrderGrant
-build/install/cli/bin/cli platform getUserOrderGrant \
+./ng net.accelbyte.sdk.cli.Main platform getUserOrderGrant \
     --namespace "$AB_NAMESPACE" \
     --orderNo 'K8QVOa62' \
     --userId 'eQZtbLLc' \
@@ -1335,7 +1342,7 @@ build/install/cli/bin/cli platform getUserOrderGrant \
 eval_tap $? 184 'GetUserOrderGrant' test.out
 
 #- 185 GetUserOrderHistories
-build/install/cli/bin/cli platform getUserOrderHistories \
+./ng net.accelbyte.sdk.cli.Main platform getUserOrderHistories \
     --namespace "$AB_NAMESPACE" \
     --orderNo 'F671WLtv' \
     --userId '38Hecczo' \
@@ -1343,7 +1350,7 @@ build/install/cli/bin/cli platform getUserOrderHistories \
 eval_tap $? 185 'GetUserOrderHistories' test.out
 
 #- 186 ProcessUserOrderNotification
-build/install/cli/bin/cli platform processUserOrderNotification \
+./ng net.accelbyte.sdk.cli.Main platform processUserOrderNotification \
     --namespace "$AB_NAMESPACE" \
     --orderNo 'pFmeRwpc' \
     --userId 'JBZyi3mL' \
@@ -1352,7 +1359,7 @@ build/install/cli/bin/cli platform processUserOrderNotification \
 eval_tap $? 186 'ProcessUserOrderNotification' test.out
 
 #- 187 DownloadUserOrderReceipt
-build/install/cli/bin/cli platform downloadUserOrderReceipt \
+./ng net.accelbyte.sdk.cli.Main platform downloadUserOrderReceipt \
     --namespace "$AB_NAMESPACE" \
     --orderNo 'lk2luqSO' \
     --userId 'OA2VOZBo' \
@@ -1360,7 +1367,7 @@ build/install/cli/bin/cli platform downloadUserOrderReceipt \
 eval_tap $? 187 'DownloadUserOrderReceipt' test.out
 
 #- 188 CreateUserPaymentOrder
-build/install/cli/bin/cli platform createUserPaymentOrder \
+./ng net.accelbyte.sdk.cli.Main platform createUserPaymentOrder \
     --namespace "$AB_NAMESPACE" \
     --userId 'NbB98PuS' \
     --body '{"currencyCode": "GykqFzPw", "currencyNamespace": "SMXT53bB", "customParameters": {"uL38beOY": {}}, "description": "DVuHZQ9L", "extOrderNo": "Yt6w23Wf", "extUserId": "8iEQo72s", "itemType": "APP", "language": "DCdL-SFiU-jP", "metadata": {"K1AyRlzs": "rRXEFZiv"}, "notifyUrl": "QOHG6wVi", "omitNotification": false, "price": 78, "recurringPaymentOrderNo": "ratsvvHL", "region": "mIohfNIS", "returnUrl": "LXMDWDdm", "sandbox": true, "sku": "E4lliQMn", "subscriptionId": "utJbpEo4", "title": "mUNHFtdm"}' \
@@ -1368,7 +1375,7 @@ build/install/cli/bin/cli platform createUserPaymentOrder \
 eval_tap $? 188 'CreateUserPaymentOrder' test.out
 
 #- 189 RefundUserPaymentOrder
-build/install/cli/bin/cli platform refundUserPaymentOrder \
+./ng net.accelbyte.sdk.cli.Main platform refundUserPaymentOrder \
     --namespace "$AB_NAMESPACE" \
     --paymentOrderNo 'l2xNviWa' \
     --userId 'cJc3Fm7Z' \
@@ -1377,7 +1384,7 @@ build/install/cli/bin/cli platform refundUserPaymentOrder \
 eval_tap $? 189 'RefundUserPaymentOrder' test.out
 
 #- 190 ApplyUserRedemption
-build/install/cli/bin/cli platform applyUserRedemption \
+./ng net.accelbyte.sdk.cli.Main platform applyUserRedemption \
     --namespace "$AB_NAMESPACE" \
     --userId 'CBqS5uId' \
     --body '{"code": "CbwCeeq9", "orderNo": "ouEdDtjO"}' \
@@ -1385,21 +1392,21 @@ build/install/cli/bin/cli platform applyUserRedemption \
 eval_tap $? 190 'ApplyUserRedemption' test.out
 
 #- 191 QueryUserSubscriptions
-build/install/cli/bin/cli platform queryUserSubscriptions \
+./ng net.accelbyte.sdk.cli.Main platform queryUserSubscriptions \
     --namespace "$AB_NAMESPACE" \
     --userId 'gsypLkm2' \
     > test.out 2>&1
 eval_tap $? 191 'QueryUserSubscriptions' test.out
 
 #- 192 GetUserSubscriptionActivities
-build/install/cli/bin/cli platform getUserSubscriptionActivities \
+./ng net.accelbyte.sdk.cli.Main platform getUserSubscriptionActivities \
     --namespace "$AB_NAMESPACE" \
     --userId 'ZYew5H7Z' \
     > test.out 2>&1
 eval_tap $? 192 'GetUserSubscriptionActivities' test.out
 
 #- 193 PlatformSubscribeSubscription
-build/install/cli/bin/cli platform platformSubscribeSubscription \
+./ng net.accelbyte.sdk.cli.Main platform platformSubscribeSubscription \
     --namespace "$AB_NAMESPACE" \
     --userId 'm0gnYyj6' \
     --body '{"grantDays": 76, "itemId": "Xf9G1nty", "language": "ebvoeHen", "reason": "AALKt7Ef", "region": "xIH446oU", "source": "nP2S74un"}' \
@@ -1407,7 +1414,7 @@ build/install/cli/bin/cli platform platformSubscribeSubscription \
 eval_tap $? 193 'PlatformSubscribeSubscription' test.out
 
 #- 194 CheckUserSubscriptionSubscribableByItemId
-build/install/cli/bin/cli platform checkUserSubscriptionSubscribableByItemId \
+./ng net.accelbyte.sdk.cli.Main platform checkUserSubscriptionSubscribableByItemId \
     --namespace "$AB_NAMESPACE" \
     --userId 'Xwg0JKqV' \
     --itemId 'WW1rjK1e' \
@@ -1415,7 +1422,7 @@ build/install/cli/bin/cli platform checkUserSubscriptionSubscribableByItemId \
 eval_tap $? 194 'CheckUserSubscriptionSubscribableByItemId' test.out
 
 #- 195 GetUserSubscription
-build/install/cli/bin/cli platform getUserSubscription \
+./ng net.accelbyte.sdk.cli.Main platform getUserSubscription \
     --namespace "$AB_NAMESPACE" \
     --subscriptionId 'pwkAvcsY' \
     --userId 'vbgfBVPp' \
@@ -1423,7 +1430,7 @@ build/install/cli/bin/cli platform getUserSubscription \
 eval_tap $? 195 'GetUserSubscription' test.out
 
 #- 196 DeleteUserSubscription
-build/install/cli/bin/cli platform deleteUserSubscription \
+./ng net.accelbyte.sdk.cli.Main platform deleteUserSubscription \
     --namespace "$AB_NAMESPACE" \
     --subscriptionId 'Ta8Yuq7T' \
     --userId 'KiNXmz7e' \
@@ -1431,7 +1438,7 @@ build/install/cli/bin/cli platform deleteUserSubscription \
 eval_tap $? 196 'DeleteUserSubscription' test.out
 
 #- 197 CancelSubscription
-build/install/cli/bin/cli platform cancelSubscription \
+./ng net.accelbyte.sdk.cli.Main platform cancelSubscription \
     --namespace "$AB_NAMESPACE" \
     --subscriptionId 'MrMD5Tba' \
     --userId 'UxTCTng0' \
@@ -1440,7 +1447,7 @@ build/install/cli/bin/cli platform cancelSubscription \
 eval_tap $? 197 'CancelSubscription' test.out
 
 #- 198 GrantDaysToSubscription
-build/install/cli/bin/cli platform grantDaysToSubscription \
+./ng net.accelbyte.sdk.cli.Main platform grantDaysToSubscription \
     --namespace "$AB_NAMESPACE" \
     --subscriptionId 'Kiykt2Ck' \
     --userId '2gOlSatE' \
@@ -1449,7 +1456,7 @@ build/install/cli/bin/cli platform grantDaysToSubscription \
 eval_tap $? 198 'GrantDaysToSubscription' test.out
 
 #- 199 GetUserSubscriptionBillingHistories
-build/install/cli/bin/cli platform getUserSubscriptionBillingHistories \
+./ng net.accelbyte.sdk.cli.Main platform getUserSubscriptionBillingHistories \
     --namespace "$AB_NAMESPACE" \
     --subscriptionId 'DqYSxTPu' \
     --userId 'VlBqirdp' \
@@ -1457,7 +1464,7 @@ build/install/cli/bin/cli platform getUserSubscriptionBillingHistories \
 eval_tap $? 199 'GetUserSubscriptionBillingHistories' test.out
 
 #- 200 ProcessUserSubscriptionNotification
-build/install/cli/bin/cli platform processUserSubscriptionNotification \
+./ng net.accelbyte.sdk.cli.Main platform processUserSubscriptionNotification \
     --namespace "$AB_NAMESPACE" \
     --subscriptionId '3yxnsETl' \
     --userId '1SvhQuds' \
@@ -1466,7 +1473,7 @@ build/install/cli/bin/cli platform processUserSubscriptionNotification \
 eval_tap $? 200 'ProcessUserSubscriptionNotification' test.out
 
 #- 201 AcquireUserTicket
-build/install/cli/bin/cli platform acquireUserTicket \
+./ng net.accelbyte.sdk.cli.Main platform acquireUserTicket \
     --boothName 'bLywJsyU' \
     --namespace "$AB_NAMESPACE" \
     --userId 'ie6fZgLl' \
@@ -1475,7 +1482,7 @@ build/install/cli/bin/cli platform acquireUserTicket \
 eval_tap $? 201 'AcquireUserTicket' test.out
 
 #- 202 CheckWallet
-build/install/cli/bin/cli platform checkWallet \
+./ng net.accelbyte.sdk.cli.Main platform checkWallet \
     --currencyCode '6Si7006v' \
     --namespace "$AB_NAMESPACE" \
     --userId 'L2w4aajD' \
@@ -1483,7 +1490,7 @@ build/install/cli/bin/cli platform checkWallet \
 eval_tap $? 202 'CheckWallet' test.out
 
 #- 203 CreditUserWallet
-build/install/cli/bin/cli platform creditUserWallet \
+./ng net.accelbyte.sdk.cli.Main platform creditUserWallet \
     --currencyCode 'AOx0iJjY' \
     --namespace "$AB_NAMESPACE" \
     --userId 'leaktqv2' \
@@ -1492,7 +1499,7 @@ build/install/cli/bin/cli platform creditUserWallet \
 eval_tap $? 203 'CreditUserWallet' test.out
 
 #- 204 PayWithUserWallet
-build/install/cli/bin/cli platform payWithUserWallet \
+./ng net.accelbyte.sdk.cli.Main platform payWithUserWallet \
     --currencyCode 'JONqHGq8' \
     --namespace "$AB_NAMESPACE" \
     --userId 'mB7mF2lM' \
@@ -1501,7 +1508,7 @@ build/install/cli/bin/cli platform payWithUserWallet \
 eval_tap $? 204 'PayWithUserWallet' test.out
 
 #- 205 GetUserWallet
-build/install/cli/bin/cli platform getUserWallet \
+./ng net.accelbyte.sdk.cli.Main platform getUserWallet \
     --namespace "$AB_NAMESPACE" \
     --userId 'caghFXJI' \
     --walletId 'JflRHFcs' \
@@ -1509,7 +1516,7 @@ build/install/cli/bin/cli platform getUserWallet \
 eval_tap $? 205 'GetUserWallet' test.out
 
 #- 206 DebitUserWallet
-build/install/cli/bin/cli platform debitUserWallet \
+./ng net.accelbyte.sdk.cli.Main platform debitUserWallet \
     --namespace "$AB_NAMESPACE" \
     --userId 'IqCy4xDi' \
     --walletId 'fSSQ5On2' \
@@ -1518,7 +1525,7 @@ build/install/cli/bin/cli platform debitUserWallet \
 eval_tap $? 206 'DebitUserWallet' test.out
 
 #- 207 DisableUserWallet
-build/install/cli/bin/cli platform disableUserWallet \
+./ng net.accelbyte.sdk.cli.Main platform disableUserWallet \
     --namespace "$AB_NAMESPACE" \
     --userId 'O4bwF5JO' \
     --walletId 'jGoGxKM3' \
@@ -1526,7 +1533,7 @@ build/install/cli/bin/cli platform disableUserWallet \
 eval_tap $? 207 'DisableUserWallet' test.out
 
 #- 208 EnableUserWallet
-build/install/cli/bin/cli platform enableUserWallet \
+./ng net.accelbyte.sdk.cli.Main platform enableUserWallet \
     --namespace "$AB_NAMESPACE" \
     --userId 'qMce5tfL' \
     --walletId 'cpjFZMKC' \
@@ -1534,7 +1541,7 @@ build/install/cli/bin/cli platform enableUserWallet \
 eval_tap $? 208 'EnableUserWallet' test.out
 
 #- 209 ListUserWalletTransactions
-build/install/cli/bin/cli platform listUserWalletTransactions \
+./ng net.accelbyte.sdk.cli.Main platform listUserWalletTransactions \
     --namespace "$AB_NAMESPACE" \
     --userId 'bp0pEbLC' \
     --walletId 'LFpHxMYF' \
@@ -1542,307 +1549,307 @@ build/install/cli/bin/cli platform listUserWalletTransactions \
 eval_tap $? 209 'ListUserWalletTransactions' test.out
 
 #- 210 QueryWallets
-build/install/cli/bin/cli platform queryWallets \
+./ng net.accelbyte.sdk.cli.Main platform queryWallets \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 210 'QueryWallets' test.out
 
 #- 211 GetWallet
-build/install/cli/bin/cli platform getWallet \
+./ng net.accelbyte.sdk.cli.Main platform getWallet \
     --namespace "$AB_NAMESPACE" \
     --walletId '836075xE' \
     > test.out 2>&1
 eval_tap $? 211 'GetWallet' test.out
 
 #- 212 SyncOrders
-build/install/cli/bin/cli platform syncOrders \
+./ng net.accelbyte.sdk.cli.Main platform syncOrders \
     --end 'pzdnYtpj' \
     --start 'a5ig2isQ' \
     > test.out 2>&1
 eval_tap $? 212 'SyncOrders' test.out
 
 #- 213 TestAdyenConfig
-build/install/cli/bin/cli platform testAdyenConfig \
+./ng net.accelbyte.sdk.cli.Main platform testAdyenConfig \
     --body '{"allowedPaymentMethods": ["Zga6Vy76"], "apiKey": "izPiQRjY", "authoriseAsCapture": false, "blockedPaymentMethods": ["8fv5fIt2"], "clientKey": "2tIZhjhg", "dropInSettings": "kigW22zX", "liveEndpointUrlPrefix": "MWXfbcM0", "merchantAccount": "GIALIbFC", "notificationHmacKey": "QgBcLNT6", "notificationPassword": "iOQVYx5r", "notificationUsername": "W2gMsI1a", "returnUrl": "YBitSn3U", "settings": "DeKj97I4"}' \
     > test.out 2>&1
 eval_tap $? 213 'TestAdyenConfig' test.out
 
 #- 214 TestAliPayConfig
-build/install/cli/bin/cli platform testAliPayConfig \
+./ng net.accelbyte.sdk.cli.Main platform testAliPayConfig \
     --body '{"appId": "WYXLqjN7", "privateKey": "ktOBTraB", "publicKey": "xWRTVuYE", "returnUrl": "qGlKDwTK"}' \
     > test.out 2>&1
 eval_tap $? 214 'TestAliPayConfig' test.out
 
 #- 215 TestCheckoutConfig
-build/install/cli/bin/cli platform testCheckoutConfig \
+./ng net.accelbyte.sdk.cli.Main platform testCheckoutConfig \
     --body '{"publicKey": "XBrXiQcd", "secretKey": "9IW8kiCK"}' \
     > test.out 2>&1
 eval_tap $? 215 'TestCheckoutConfig' test.out
 
 #- 216 DebugMatchedPaymentMerchantConfig
-build/install/cli/bin/cli platform debugMatchedPaymentMerchantConfig \
+./ng net.accelbyte.sdk.cli.Main platform debugMatchedPaymentMerchantConfig \
     > test.out 2>&1
 eval_tap $? 216 'DebugMatchedPaymentMerchantConfig' test.out
 
 #- 217 TestPayPalConfig
-build/install/cli/bin/cli platform testPayPalConfig \
+./ng net.accelbyte.sdk.cli.Main platform testPayPalConfig \
     --body '{"clientID": "eQJWZBvc", "clientSecret": "q1ETvWBx", "returnUrl": "YZJh7B8g", "webHookId": "bnSu9M2O"}' \
     > test.out 2>&1
 eval_tap $? 217 'TestPayPalConfig' test.out
 
 #- 218 TestStripeConfig
-build/install/cli/bin/cli platform testStripeConfig \
+./ng net.accelbyte.sdk.cli.Main platform testStripeConfig \
     --body '{"allowedPaymentMethodTypes": ["xD2udaeY"], "publishableKey": "pCXYSMiy", "secretKey": "87CTqEQB", "webhookSecret": "g36my3sY"}' \
     > test.out 2>&1
 eval_tap $? 218 'TestStripeConfig' test.out
 
 #- 219 TestWxPayConfig
-build/install/cli/bin/cli platform testWxPayConfig \
+./ng net.accelbyte.sdk.cli.Main platform testWxPayConfig \
     --body '{"appId": "2clrDcai", "key": "n0cOVF1z", "mchid": "HwDTI0sJ", "returnUrl": "1Q0kphMT"}' \
     > test.out 2>&1
 eval_tap $? 219 'TestWxPayConfig' test.out
 
 #- 220 TestXsollaConfig
-build/install/cli/bin/cli platform testXsollaConfig \
+./ng net.accelbyte.sdk.cli.Main platform testXsollaConfig \
     --body '{"apiKey": "ggSP2SLc", "flowCompletionUrl": "uAP7vU97", "merchantId": 56, "projectId": 50, "projectSecretKey": "w2nbg8C7"}' \
     > test.out 2>&1
 eval_tap $? 220 'TestXsollaConfig' test.out
 
 #- 221 GetPaymentMerchantConfig
-build/install/cli/bin/cli platform getPaymentMerchantConfig \
+./ng net.accelbyte.sdk.cli.Main platform getPaymentMerchantConfig \
     --id 'Mvywhu6M' \
     > test.out 2>&1
 eval_tap $? 221 'GetPaymentMerchantConfig' test.out
 
 #- 222 UpdateAdyenConfig
-build/install/cli/bin/cli platform updateAdyenConfig \
+./ng net.accelbyte.sdk.cli.Main platform updateAdyenConfig \
     --id 'jOjuGzo1' \
     --body '{"allowedPaymentMethods": ["Fz4tU0aS"], "apiKey": "n98N8qOU", "authoriseAsCapture": true, "blockedPaymentMethods": ["0z92RaDe"], "clientKey": "8ngT8LRQ", "dropInSettings": "kMnG1LZy", "liveEndpointUrlPrefix": "F2mdYY6Z", "merchantAccount": "MfuTYTKs", "notificationHmacKey": "ue48qBEB", "notificationPassword": "NAV5BTe6", "notificationUsername": "ec1zA92U", "returnUrl": "RCLSGPmR", "settings": "BZWunHW7"}' \
     > test.out 2>&1
 eval_tap $? 222 'UpdateAdyenConfig' test.out
 
 #- 223 TestAdyenConfigById
-build/install/cli/bin/cli platform testAdyenConfigById \
+./ng net.accelbyte.sdk.cli.Main platform testAdyenConfigById \
     --id 'MYvr6QA7' \
     > test.out 2>&1
 eval_tap $? 223 'TestAdyenConfigById' test.out
 
 #- 224 UpdateAliPayConfig
-build/install/cli/bin/cli platform updateAliPayConfig \
+./ng net.accelbyte.sdk.cli.Main platform updateAliPayConfig \
     --id 'Ppepc92H' \
     --body '{"appId": "A94eACde", "privateKey": "yfUpgiPp", "publicKey": "f8nxKJ3d", "returnUrl": "nmtPwa64"}' \
     > test.out 2>&1
 eval_tap $? 224 'UpdateAliPayConfig' test.out
 
 #- 225 TestAliPayConfigById
-build/install/cli/bin/cli platform testAliPayConfigById \
+./ng net.accelbyte.sdk.cli.Main platform testAliPayConfigById \
     --id 'Y4gPEKMh' \
     > test.out 2>&1
 eval_tap $? 225 'TestAliPayConfigById' test.out
 
 #- 226 UpdateCheckoutConfig
-build/install/cli/bin/cli platform updateCheckoutConfig \
+./ng net.accelbyte.sdk.cli.Main platform updateCheckoutConfig \
     --id 'hu9a6f3x' \
     --body '{"publicKey": "JNtUlKLl", "secretKey": "IIAeHbm5"}' \
     > test.out 2>&1
 eval_tap $? 226 'UpdateCheckoutConfig' test.out
 
 #- 227 TestCheckoutConfigById
-build/install/cli/bin/cli platform testCheckoutConfigById \
+./ng net.accelbyte.sdk.cli.Main platform testCheckoutConfigById \
     --id 'M6LsY1VM' \
     > test.out 2>&1
 eval_tap $? 227 'TestCheckoutConfigById' test.out
 
 #- 228 UpdatePayPalConfig
-build/install/cli/bin/cli platform updatePayPalConfig \
+./ng net.accelbyte.sdk.cli.Main platform updatePayPalConfig \
     --id 'uIEcRls6' \
     --body '{"clientID": "8M3MPMRP", "clientSecret": "BepyyMz6", "returnUrl": "zfR1pvTY", "webHookId": "YtDOiEi4"}' \
     > test.out 2>&1
 eval_tap $? 228 'UpdatePayPalConfig' test.out
 
 #- 229 TestPayPalConfigById
-build/install/cli/bin/cli platform testPayPalConfigById \
+./ng net.accelbyte.sdk.cli.Main platform testPayPalConfigById \
     --id 'RuEcHCSG' \
     > test.out 2>&1
 eval_tap $? 229 'TestPayPalConfigById' test.out
 
 #- 230 UpdateStripeConfig
-build/install/cli/bin/cli platform updateStripeConfig \
+./ng net.accelbyte.sdk.cli.Main platform updateStripeConfig \
     --id 'hpOZQFlw' \
     --body '{"allowedPaymentMethodTypes": ["OiuKGDFg"], "publishableKey": "K49YuKnX", "secretKey": "ks0m8ANr", "webhookSecret": "cRal7ta3"}' \
     > test.out 2>&1
 eval_tap $? 230 'UpdateStripeConfig' test.out
 
 #- 231 TestStripeConfigById
-build/install/cli/bin/cli platform testStripeConfigById \
+./ng net.accelbyte.sdk.cli.Main platform testStripeConfigById \
     --id 'fojA3h4M' \
     > test.out 2>&1
 eval_tap $? 231 'TestStripeConfigById' test.out
 
 #- 232 UpdateWxPayConfig
-build/install/cli/bin/cli platform updateWxPayConfig \
+./ng net.accelbyte.sdk.cli.Main platform updateWxPayConfig \
     --id 'MW3AJ5zl' \
     --body '{"appId": "sFBwjvLY", "key": "vmg6avud", "mchid": "QFF1CPNY", "returnUrl": "9u2dVYdg"}' \
     > test.out 2>&1
 eval_tap $? 232 'UpdateWxPayConfig' test.out
 
 #- 233 UpdateWxPayConfigCert
-build/install/cli/bin/cli platform updateWxPayConfigCert \
+./ng net.accelbyte.sdk.cli.Main platform updateWxPayConfigCert \
     --id 'lOOoCeK0' \
     > test.out 2>&1
 eval_tap $? 233 'UpdateWxPayConfigCert' test.out
 
 #- 234 TestWxPayConfigById
-build/install/cli/bin/cli platform testWxPayConfigById \
+./ng net.accelbyte.sdk.cli.Main platform testWxPayConfigById \
     --id 'kPKmBqVu' \
     > test.out 2>&1
 eval_tap $? 234 'TestWxPayConfigById' test.out
 
 #- 235 UpdateXsollaConfig
-build/install/cli/bin/cli platform updateXsollaConfig \
+./ng net.accelbyte.sdk.cli.Main platform updateXsollaConfig \
     --id 'x3lXcD8a' \
     --body '{"apiKey": "ertAVCqs", "flowCompletionUrl": "8XT8xy3n", "merchantId": 71, "projectId": 73, "projectSecretKey": "kseA0ARj"}' \
     > test.out 2>&1
 eval_tap $? 235 'UpdateXsollaConfig' test.out
 
 #- 236 TestXsollaConfigById
-build/install/cli/bin/cli platform testXsollaConfigById \
+./ng net.accelbyte.sdk.cli.Main platform testXsollaConfigById \
     --id '9ricfayv' \
     > test.out 2>&1
 eval_tap $? 236 'TestXsollaConfigById' test.out
 
 #- 237 UpdateXsollaUIConfig
-build/install/cli/bin/cli platform updateXsollaUIConfig \
+./ng net.accelbyte.sdk.cli.Main platform updateXsollaUIConfig \
     --id 'nhi8MDdY' \
     --body '{"device": "DESKTOP", "showCloseButton": false, "size": "LARGE", "theme": "DEFAULT"}' \
     > test.out 2>&1
 eval_tap $? 237 'UpdateXsollaUIConfig' test.out
 
 #- 238 QueryPaymentProviderConfig
-build/install/cli/bin/cli platform queryPaymentProviderConfig \
+./ng net.accelbyte.sdk.cli.Main platform queryPaymentProviderConfig \
     > test.out 2>&1
 eval_tap $? 238 'QueryPaymentProviderConfig' test.out
 
 #- 239 CreatePaymentProviderConfig
-build/install/cli/bin/cli platform createPaymentProviderConfig \
+./ng net.accelbyte.sdk.cli.Main platform createPaymentProviderConfig \
     --body '{"aggregate": "XSOLLA", "namespace": "Qp5egdmV", "region": "E8ImivNt", "sandboxTaxJarApiToken": "QxqWRKHo", "specials": ["XSOLLA"], "taxJarApiToken": "ODoWOr98", "taxJarEnabled": false, "useGlobalTaxJarApiToken": false}' \
     > test.out 2>&1
 eval_tap $? 239 'CreatePaymentProviderConfig' test.out
 
 #- 240 GetAggregatePaymentProviders
-build/install/cli/bin/cli platform getAggregatePaymentProviders \
+./ng net.accelbyte.sdk.cli.Main platform getAggregatePaymentProviders \
     > test.out 2>&1
 eval_tap $? 240 'GetAggregatePaymentProviders' test.out
 
 #- 241 DebugMatchedPaymentProviderConfig
-build/install/cli/bin/cli platform debugMatchedPaymentProviderConfig \
+./ng net.accelbyte.sdk.cli.Main platform debugMatchedPaymentProviderConfig \
     > test.out 2>&1
 eval_tap $? 241 'DebugMatchedPaymentProviderConfig' test.out
 
 #- 242 GetSpecialPaymentProviders
-build/install/cli/bin/cli platform getSpecialPaymentProviders \
+./ng net.accelbyte.sdk.cli.Main platform getSpecialPaymentProviders \
     > test.out 2>&1
 eval_tap $? 242 'GetSpecialPaymentProviders' test.out
 
 #- 243 UpdatePaymentProviderConfig
-build/install/cli/bin/cli platform updatePaymentProviderConfig \
+./ng net.accelbyte.sdk.cli.Main platform updatePaymentProviderConfig \
     --id 'BUas9jjz' \
     --body '{"aggregate": "ADYEN", "namespace": "rgiaGrcB", "region": "7dIOVKIP", "sandboxTaxJarApiToken": "SJJHo5W8", "specials": ["CHECKOUT"], "taxJarApiToken": "KH8ou9Sd", "taxJarEnabled": false, "useGlobalTaxJarApiToken": true}' \
     > test.out 2>&1
 eval_tap $? 243 'UpdatePaymentProviderConfig' test.out
 
 #- 244 DeletePaymentProviderConfig
-build/install/cli/bin/cli platform deletePaymentProviderConfig \
+./ng net.accelbyte.sdk.cli.Main platform deletePaymentProviderConfig \
     --id 'SXcrEFCw' \
     > test.out 2>&1
 eval_tap $? 244 'DeletePaymentProviderConfig' test.out
 
 #- 245 GetPaymentTaxConfig
-build/install/cli/bin/cli platform getPaymentTaxConfig \
+./ng net.accelbyte.sdk.cli.Main platform getPaymentTaxConfig \
     > test.out 2>&1
 eval_tap $? 245 'GetPaymentTaxConfig' test.out
 
 #- 246 UpdatePaymentTaxConfig
-build/install/cli/bin/cli platform updatePaymentTaxConfig \
+./ng net.accelbyte.sdk.cli.Main platform updatePaymentTaxConfig \
     --body '{"sandboxTaxJarApiToken": "qeGNLdIB", "taxJarApiToken": "RdliFQVM", "taxJarEnabled": true, "taxJarProductCodesMapping": {"zVUWlUWD": "s2x1EQU0"}}' \
     > test.out 2>&1
 eval_tap $? 246 'UpdatePaymentTaxConfig' test.out
 
 #- 247 SyncPaymentOrders
-build/install/cli/bin/cli platform syncPaymentOrders \
+./ng net.accelbyte.sdk.cli.Main platform syncPaymentOrders \
     --end 'oepEvcja' \
     --start 'SgEh6jJn' \
     > test.out 2>&1
 eval_tap $? 247 'SyncPaymentOrders' test.out
 
 #- 248 PublicGetRootCategories
-build/install/cli/bin/cli platform publicGetRootCategories \
+./ng net.accelbyte.sdk.cli.Main platform publicGetRootCategories \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 248 'PublicGetRootCategories' test.out
 
 #- 249 DownloadCategories
-build/install/cli/bin/cli platform downloadCategories \
+./ng net.accelbyte.sdk.cli.Main platform downloadCategories \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 249 'DownloadCategories' test.out
 
 #- 250 PublicGetCategory
-build/install/cli/bin/cli platform publicGetCategory \
+./ng net.accelbyte.sdk.cli.Main platform publicGetCategory \
     --categoryPath 'FxinIHJ1' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 250 'PublicGetCategory' test.out
 
 #- 251 PublicGetChildCategories
-build/install/cli/bin/cli platform publicGetChildCategories \
+./ng net.accelbyte.sdk.cli.Main platform publicGetChildCategories \
     --categoryPath 'o7aq5Zzn' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 251 'PublicGetChildCategories' test.out
 
 #- 252 PublicGetDescendantCategories
-build/install/cli/bin/cli platform publicGetDescendantCategories \
+./ng net.accelbyte.sdk.cli.Main platform publicGetDescendantCategories \
     --categoryPath 'd5eacobT' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 252 'PublicGetDescendantCategories' test.out
 
 #- 253 PublicListCurrencies
-build/install/cli/bin/cli platform publicListCurrencies \
+./ng net.accelbyte.sdk.cli.Main platform publicListCurrencies \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 253 'PublicListCurrencies' test.out
 
 #- 254 PublicGetItemByAppId
-build/install/cli/bin/cli platform publicGetItemByAppId \
+./ng net.accelbyte.sdk.cli.Main platform publicGetItemByAppId \
     --namespace "$AB_NAMESPACE" \
     --appId 'suRlhreQ' \
     > test.out 2>&1
 eval_tap $? 254 'PublicGetItemByAppId' test.out
 
 #- 255 PublicQueryItems
-build/install/cli/bin/cli platform publicQueryItems \
+./ng net.accelbyte.sdk.cli.Main platform publicQueryItems \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 255 'PublicQueryItems' test.out
 
 #- 256 PublicGetItemBySku
-build/install/cli/bin/cli platform publicGetItemBySku \
+./ng net.accelbyte.sdk.cli.Main platform publicGetItemBySku \
     --namespace "$AB_NAMESPACE" \
     --sku 'VFID3o8h' \
     > test.out 2>&1
 eval_tap $? 256 'PublicGetItemBySku' test.out
 
 #- 257 PublicBulkGetItems
-build/install/cli/bin/cli platform publicBulkGetItems \
+./ng net.accelbyte.sdk.cli.Main platform publicBulkGetItems \
     --namespace "$AB_NAMESPACE" \
     --itemIds 'JWVjKIOA' \
     > test.out 2>&1
 eval_tap $? 257 'PublicBulkGetItems' test.out
 
 #- 258 PublicSearchItems
-build/install/cli/bin/cli platform publicSearchItems \
+./ng net.accelbyte.sdk.cli.Main platform publicSearchItems \
     --namespace "$AB_NAMESPACE" \
     --keyword 'w70DvAHh' \
     --language 'SGWUvzq1' \
@@ -1850,21 +1857,21 @@ build/install/cli/bin/cli platform publicSearchItems \
 eval_tap $? 258 'PublicSearchItems' test.out
 
 #- 259 PublicGetApp
-build/install/cli/bin/cli platform publicGetApp \
+./ng net.accelbyte.sdk.cli.Main platform publicGetApp \
     --itemId 'Za3IBC4v' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 259 'PublicGetApp' test.out
 
 #- 260 PublicGetItemDynamicData
-build/install/cli/bin/cli platform publicGetItemDynamicData \
+./ng net.accelbyte.sdk.cli.Main platform publicGetItemDynamicData \
     --itemId 'QFsUJPfi' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 260 'PublicGetItemDynamicData' test.out
 
 #- 261 PublicGetItem
-build/install/cli/bin/cli platform publicGetItem \
+./ng net.accelbyte.sdk.cli.Main platform publicGetItem \
     --itemId 'aJp1rt7O' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
@@ -1874,28 +1881,28 @@ eval_tap $? 261 'PublicGetItem' test.out
 eval_tap 0 262 'GetPaymentCustomization # SKIP deprecated' test.out
 
 #- 263 PublicGetPaymentUrl
-build/install/cli/bin/cli platform publicGetPaymentUrl \
+./ng net.accelbyte.sdk.cli.Main platform publicGetPaymentUrl \
     --namespace "$AB_NAMESPACE" \
     --body '{"paymentOrderNo": "BgBCe6N0", "paymentProvider": "XSOLLA", "returnUrl": "I65Mn5tn", "ui": "gEYXgPVT", "zipCode": "5CqXDZBV"}' \
     > test.out 2>&1
 eval_tap $? 263 'PublicGetPaymentUrl' test.out
 
 #- 264 PublicGetPaymentMethods
-build/install/cli/bin/cli platform publicGetPaymentMethods \
+./ng net.accelbyte.sdk.cli.Main platform publicGetPaymentMethods \
     --namespace "$AB_NAMESPACE" \
     --paymentOrderNo 'MJyJeKFO' \
     > test.out 2>&1
 eval_tap $? 264 'PublicGetPaymentMethods' test.out
 
 #- 265 PublicGetUnpaidPaymentOrder
-build/install/cli/bin/cli platform publicGetUnpaidPaymentOrder \
+./ng net.accelbyte.sdk.cli.Main platform publicGetUnpaidPaymentOrder \
     --namespace "$AB_NAMESPACE" \
     --paymentOrderNo '92YDtaZv' \
     > test.out 2>&1
 eval_tap $? 265 'PublicGetUnpaidPaymentOrder' test.out
 
 #- 266 Pay
-build/install/cli/bin/cli platform pay \
+./ng net.accelbyte.sdk.cli.Main platform pay \
     --namespace "$AB_NAMESPACE" \
     --paymentOrderNo 'JoKS0Oxy' \
     --body '{"token": "ipZuO4N9"}' \
@@ -1903,14 +1910,14 @@ build/install/cli/bin/cli platform pay \
 eval_tap $? 266 'Pay' test.out
 
 #- 267 PublicCheckPaymentOrderPaidStatus
-build/install/cli/bin/cli platform publicCheckPaymentOrderPaidStatus \
+./ng net.accelbyte.sdk.cli.Main platform publicCheckPaymentOrderPaidStatus \
     --namespace "$AB_NAMESPACE" \
     --paymentOrderNo 'S2YCgHa6' \
     > test.out 2>&1
 eval_tap $? 267 'PublicCheckPaymentOrderPaidStatus' test.out
 
 #- 268 GetPaymentPublicConfig
-build/install/cli/bin/cli platform getPaymentPublicConfig \
+./ng net.accelbyte.sdk.cli.Main platform getPaymentPublicConfig \
     --namespace "$AB_NAMESPACE" \
     --paymentProvider 'WXPAY' \
     --region 'cvGRYk5r' \
@@ -1918,14 +1925,14 @@ build/install/cli/bin/cli platform getPaymentPublicConfig \
 eval_tap $? 268 'GetPaymentPublicConfig' test.out
 
 #- 269 PublicGetQRCode
-build/install/cli/bin/cli platform publicGetQRCode \
+./ng net.accelbyte.sdk.cli.Main platform publicGetQRCode \
     --namespace "$AB_NAMESPACE" \
     --code 'UtWHCnhm' \
     > test.out 2>&1
 eval_tap $? 269 'PublicGetQRCode' test.out
 
 #- 270 PublicNormalizePaymentReturnUrl
-build/install/cli/bin/cli platform publicNormalizePaymentReturnUrl \
+./ng net.accelbyte.sdk.cli.Main platform publicNormalizePaymentReturnUrl \
     --namespace "$AB_NAMESPACE" \
     --orderNo 'zzppV7tK' \
     --paymentOrderNo 'NKYUQVBX' \
@@ -1935,7 +1942,7 @@ build/install/cli/bin/cli platform publicNormalizePaymentReturnUrl \
 eval_tap $? 270 'PublicNormalizePaymentReturnUrl' test.out
 
 #- 271 GetPaymentTaxValue
-build/install/cli/bin/cli platform getPaymentTaxValue \
+./ng net.accelbyte.sdk.cli.Main platform getPaymentTaxValue \
     --namespace "$AB_NAMESPACE" \
     --paymentOrderNo 'xYaGHUpm' \
     --paymentProvider 'WXPAY' \
@@ -1943,73 +1950,73 @@ build/install/cli/bin/cli platform getPaymentTaxValue \
 eval_tap $? 271 'GetPaymentTaxValue' test.out
 
 #- 272 GetRewardByCode
-build/install/cli/bin/cli platform getRewardByCode \
+./ng net.accelbyte.sdk.cli.Main platform getRewardByCode \
     --namespace "$AB_NAMESPACE" \
     --rewardCode 'FyOrFKtx' \
     > test.out 2>&1
 eval_tap $? 272 'GetRewardByCode' test.out
 
 #- 273 QueryRewards1
-build/install/cli/bin/cli platform queryRewards1 \
+./ng net.accelbyte.sdk.cli.Main platform queryRewards1 \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 273 'QueryRewards1' test.out
 
 #- 274 GetReward1
-build/install/cli/bin/cli platform getReward1 \
+./ng net.accelbyte.sdk.cli.Main platform getReward1 \
     --namespace "$AB_NAMESPACE" \
     --rewardId 'GNAi0fq4' \
     > test.out 2>&1
 eval_tap $? 274 'GetReward1' test.out
 
 #- 275 PublicListStores
-build/install/cli/bin/cli platform publicListStores \
+./ng net.accelbyte.sdk.cli.Main platform publicListStores \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 275 'PublicListStores' test.out
 
 #- 276 PublicExistsAnyMyActiveEntitlement
-build/install/cli/bin/cli platform publicExistsAnyMyActiveEntitlement \
+./ng net.accelbyte.sdk.cli.Main platform publicExistsAnyMyActiveEntitlement \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 276 'PublicExistsAnyMyActiveEntitlement' test.out
 
 #- 277 PublicGetMyAppEntitlementOwnershipByAppId
-build/install/cli/bin/cli platform publicGetMyAppEntitlementOwnershipByAppId \
+./ng net.accelbyte.sdk.cli.Main platform publicGetMyAppEntitlementOwnershipByAppId \
     --namespace "$AB_NAMESPACE" \
     --appId 'xChPLd2l' \
     > test.out 2>&1
 eval_tap $? 277 'PublicGetMyAppEntitlementOwnershipByAppId' test.out
 
 #- 278 PublicGetMyEntitlementOwnershipByItemId
-build/install/cli/bin/cli platform publicGetMyEntitlementOwnershipByItemId \
+./ng net.accelbyte.sdk.cli.Main platform publicGetMyEntitlementOwnershipByItemId \
     --namespace "$AB_NAMESPACE" \
     --itemId 'Oopc7XoV' \
     > test.out 2>&1
 eval_tap $? 278 'PublicGetMyEntitlementOwnershipByItemId' test.out
 
 #- 279 PublicGetMyEntitlementOwnershipBySku
-build/install/cli/bin/cli platform publicGetMyEntitlementOwnershipBySku \
+./ng net.accelbyte.sdk.cli.Main platform publicGetMyEntitlementOwnershipBySku \
     --namespace "$AB_NAMESPACE" \
     --sku 'pdd6rCpy' \
     > test.out 2>&1
 eval_tap $? 279 'PublicGetMyEntitlementOwnershipBySku' test.out
 
 #- 280 PublicGetEntitlementOwnershipToken
-build/install/cli/bin/cli platform publicGetEntitlementOwnershipToken \
+./ng net.accelbyte.sdk.cli.Main platform publicGetEntitlementOwnershipToken \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 280 'PublicGetEntitlementOwnershipToken' test.out
 
 #- 281 PublicGetMyWallet
-build/install/cli/bin/cli platform publicGetMyWallet \
+./ng net.accelbyte.sdk.cli.Main platform publicGetMyWallet \
     --currencyCode 'MrnH9YHX' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 281 'PublicGetMyWallet' test.out
 
 #- 282 PublicSyncPsnDlcInventory
-build/install/cli/bin/cli platform publicSyncPsnDlcInventory \
+./ng net.accelbyte.sdk.cli.Main platform publicSyncPsnDlcInventory \
     --namespace "$AB_NAMESPACE" \
     --userId 'h7KnCVOK' \
     --body '{"serviceLabel": 51}' \
@@ -2017,7 +2024,7 @@ build/install/cli/bin/cli platform publicSyncPsnDlcInventory \
 eval_tap $? 282 'PublicSyncPsnDlcInventory' test.out
 
 #- 283 SyncSteamDLC
-build/install/cli/bin/cli platform syncSteamDLC \
+./ng net.accelbyte.sdk.cli.Main platform syncSteamDLC \
     --namespace "$AB_NAMESPACE" \
     --userId 'sBRGtd8Q' \
     --body '{"appId": "Y2OLbijr", "steamId": "vfr8hknj"}' \
@@ -2025,7 +2032,7 @@ build/install/cli/bin/cli platform syncSteamDLC \
 eval_tap $? 283 'SyncSteamDLC' test.out
 
 #- 284 SyncXboxDLC
-build/install/cli/bin/cli platform syncXboxDLC \
+./ng net.accelbyte.sdk.cli.Main platform syncXboxDLC \
     --namespace "$AB_NAMESPACE" \
     --userId 'WUWdMUXH' \
     --body '{"xstsToken": "vw4pNlGL"}' \
@@ -2033,14 +2040,14 @@ build/install/cli/bin/cli platform syncXboxDLC \
 eval_tap $? 284 'SyncXboxDLC' test.out
 
 #- 285 PublicQueryUserEntitlements
-build/install/cli/bin/cli platform publicQueryUserEntitlements \
+./ng net.accelbyte.sdk.cli.Main platform publicQueryUserEntitlements \
     --namespace "$AB_NAMESPACE" \
     --userId 'jdBxLM07' \
     > test.out 2>&1
 eval_tap $? 285 'PublicQueryUserEntitlements' test.out
 
 #- 286 PublicGetUserAppEntitlementByAppId
-build/install/cli/bin/cli platform publicGetUserAppEntitlementByAppId \
+./ng net.accelbyte.sdk.cli.Main platform publicGetUserAppEntitlementByAppId \
     --namespace "$AB_NAMESPACE" \
     --userId '9pDAbTgm' \
     --appId 'sEYEq2Gk' \
@@ -2048,7 +2055,7 @@ build/install/cli/bin/cli platform publicGetUserAppEntitlementByAppId \
 eval_tap $? 286 'PublicGetUserAppEntitlementByAppId' test.out
 
 #- 287 PublicQueryUserEntitlementsByAppType
-build/install/cli/bin/cli platform publicQueryUserEntitlementsByAppType \
+./ng net.accelbyte.sdk.cli.Main platform publicQueryUserEntitlementsByAppType \
     --namespace "$AB_NAMESPACE" \
     --userId 'YK1vYm9f' \
     --appType 'DLC' \
@@ -2056,7 +2063,7 @@ build/install/cli/bin/cli platform publicQueryUserEntitlementsByAppType \
 eval_tap $? 287 'PublicQueryUserEntitlementsByAppType' test.out
 
 #- 288 PublicGetUserEntitlementByItemId
-build/install/cli/bin/cli platform publicGetUserEntitlementByItemId \
+./ng net.accelbyte.sdk.cli.Main platform publicGetUserEntitlementByItemId \
     --namespace "$AB_NAMESPACE" \
     --userId 'XQ7CQoem' \
     --itemId 'nQG0dH0N' \
@@ -2064,7 +2071,7 @@ build/install/cli/bin/cli platform publicGetUserEntitlementByItemId \
 eval_tap $? 288 'PublicGetUserEntitlementByItemId' test.out
 
 #- 289 PublicGetUserEntitlementBySku
-build/install/cli/bin/cli platform publicGetUserEntitlementBySku \
+./ng net.accelbyte.sdk.cli.Main platform publicGetUserEntitlementBySku \
     --namespace "$AB_NAMESPACE" \
     --userId 'VM9VEHTP' \
     --sku 'qDhkcu5v' \
@@ -2072,14 +2079,14 @@ build/install/cli/bin/cli platform publicGetUserEntitlementBySku \
 eval_tap $? 289 'PublicGetUserEntitlementBySku' test.out
 
 #- 290 PublicExistsAnyUserActiveEntitlement
-build/install/cli/bin/cli platform publicExistsAnyUserActiveEntitlement \
+./ng net.accelbyte.sdk.cli.Main platform publicExistsAnyUserActiveEntitlement \
     --namespace "$AB_NAMESPACE" \
     --userId 'nz6GiNMb' \
     > test.out 2>&1
 eval_tap $? 290 'PublicExistsAnyUserActiveEntitlement' test.out
 
 #- 291 PublicGetUserAppEntitlementOwnershipByAppId
-build/install/cli/bin/cli platform publicGetUserAppEntitlementOwnershipByAppId \
+./ng net.accelbyte.sdk.cli.Main platform publicGetUserAppEntitlementOwnershipByAppId \
     --namespace "$AB_NAMESPACE" \
     --userId 'oBJHml0L' \
     --appId 'JmpPi4mq' \
@@ -2087,7 +2094,7 @@ build/install/cli/bin/cli platform publicGetUserAppEntitlementOwnershipByAppId \
 eval_tap $? 291 'PublicGetUserAppEntitlementOwnershipByAppId' test.out
 
 #- 292 PublicGetUserEntitlementOwnershipByItemId
-build/install/cli/bin/cli platform publicGetUserEntitlementOwnershipByItemId \
+./ng net.accelbyte.sdk.cli.Main platform publicGetUserEntitlementOwnershipByItemId \
     --namespace "$AB_NAMESPACE" \
     --userId 'hruiCZLG' \
     --itemId 'GP5UXkHN' \
@@ -2095,7 +2102,7 @@ build/install/cli/bin/cli platform publicGetUserEntitlementOwnershipByItemId \
 eval_tap $? 292 'PublicGetUserEntitlementOwnershipByItemId' test.out
 
 #- 293 PublicGetUserEntitlementOwnershipBySku
-build/install/cli/bin/cli platform publicGetUserEntitlementOwnershipBySku \
+./ng net.accelbyte.sdk.cli.Main platform publicGetUserEntitlementOwnershipBySku \
     --namespace "$AB_NAMESPACE" \
     --userId 'TMapp5Sb' \
     --sku 'onsUJKAD' \
@@ -2103,7 +2110,7 @@ build/install/cli/bin/cli platform publicGetUserEntitlementOwnershipBySku \
 eval_tap $? 293 'PublicGetUserEntitlementOwnershipBySku' test.out
 
 #- 294 PublicGetUserEntitlement
-build/install/cli/bin/cli platform publicGetUserEntitlement \
+./ng net.accelbyte.sdk.cli.Main platform publicGetUserEntitlement \
     --entitlementId 'r60EkdFr' \
     --namespace "$AB_NAMESPACE" \
     --userId 'pLsGt9yT' \
@@ -2111,7 +2118,7 @@ build/install/cli/bin/cli platform publicGetUserEntitlement \
 eval_tap $? 294 'PublicGetUserEntitlement' test.out
 
 #- 295 PublicConsumeUserEntitlement
-build/install/cli/bin/cli platform publicConsumeUserEntitlement \
+./ng net.accelbyte.sdk.cli.Main platform publicConsumeUserEntitlement \
     --entitlementId 'XWUSCQcM' \
     --namespace "$AB_NAMESPACE" \
     --userId 'sHN7reI2' \
@@ -2120,7 +2127,7 @@ build/install/cli/bin/cli platform publicConsumeUserEntitlement \
 eval_tap $? 295 'PublicConsumeUserEntitlement' test.out
 
 #- 296 PublicRedeemCode
-build/install/cli/bin/cli platform publicRedeemCode \
+./ng net.accelbyte.sdk.cli.Main platform publicRedeemCode \
     --namespace "$AB_NAMESPACE" \
     --userId 's7I12tAZ' \
     --body '{"code": "c8sxxLx9", "language": "EQnw", "region": "NJbYH5J4"}' \
@@ -2128,7 +2135,7 @@ build/install/cli/bin/cli platform publicRedeemCode \
 eval_tap $? 296 'PublicRedeemCode' test.out
 
 #- 297 PublicFulfillAppleIAPItem
-build/install/cli/bin/cli platform publicFulfillAppleIAPItem \
+./ng net.accelbyte.sdk.cli.Main platform publicFulfillAppleIAPItem \
     --namespace "$AB_NAMESPACE" \
     --userId 'WiJLv9Nv' \
     --body '{"excludeOldTransactions": true, "language": "WmJ-339", "productId": "WZeUKJJN", "receiptData": "ftRpGgk1", "region": "iseREzzR", "transactionId": "G6z9wmuH"}' \
@@ -2136,7 +2143,7 @@ build/install/cli/bin/cli platform publicFulfillAppleIAPItem \
 eval_tap $? 297 'PublicFulfillAppleIAPItem' test.out
 
 #- 298 SyncEpicGamesInventory
-build/install/cli/bin/cli platform syncEpicGamesInventory \
+./ng net.accelbyte.sdk.cli.Main platform syncEpicGamesInventory \
     --namespace "$AB_NAMESPACE" \
     --userId 'ddyOdibI' \
     --body '{"epicGamesJwtToken": "1LVyqbdY"}' \
@@ -2144,7 +2151,7 @@ build/install/cli/bin/cli platform syncEpicGamesInventory \
 eval_tap $? 298 'SyncEpicGamesInventory' test.out
 
 #- 299 PublicFulfillGoogleIAPItem
-build/install/cli/bin/cli platform publicFulfillGoogleIAPItem \
+./ng net.accelbyte.sdk.cli.Main platform publicFulfillGoogleIAPItem \
     --namespace "$AB_NAMESPACE" \
     --userId '8DGZKAuo' \
     --body '{"autoAck": true, "language": "PZlw-sMmM", "orderId": "G0FoQP8q", "packageName": "7aSsb85g", "productId": "Ah9RD3Zz", "purchaseTime": 78, "purchaseToken": "6N1iJ8lt", "region": "t9IRqCfl"}' \
@@ -2152,7 +2159,7 @@ build/install/cli/bin/cli platform publicFulfillGoogleIAPItem \
 eval_tap $? 299 'PublicFulfillGoogleIAPItem' test.out
 
 #- 300 PublicReconcilePlayStationStore
-build/install/cli/bin/cli platform publicReconcilePlayStationStore \
+./ng net.accelbyte.sdk.cli.Main platform publicReconcilePlayStationStore \
     --namespace "$AB_NAMESPACE" \
     --userId 'gln6r5f0' \
     --body '{"currencyCode": "s5H6lCf3", "price": 0.6656623819884346, "productId": "a11hLLCg", "serviceLabel": 45}' \
@@ -2160,7 +2167,7 @@ build/install/cli/bin/cli platform publicReconcilePlayStationStore \
 eval_tap $? 300 'PublicReconcilePlayStationStore' test.out
 
 #- 301 SyncStadiaEntitlement
-build/install/cli/bin/cli platform syncStadiaEntitlement \
+./ng net.accelbyte.sdk.cli.Main platform syncStadiaEntitlement \
     --namespace "$AB_NAMESPACE" \
     --userId '5av4LExd' \
     --body '{"appId": "abD8g2cv", "language": "FmrU-240", "region": "HUJ0GCmf", "stadiaPlayerId": "lIXkgJ6z"}' \
@@ -2168,7 +2175,7 @@ build/install/cli/bin/cli platform syncStadiaEntitlement \
 eval_tap $? 301 'SyncStadiaEntitlement' test.out
 
 #- 302 SyncSteamInventory
-build/install/cli/bin/cli platform syncSteamInventory \
+./ng net.accelbyte.sdk.cli.Main platform syncSteamInventory \
     --namespace "$AB_NAMESPACE" \
     --userId 'kTwoakq7' \
     --body '{"appId": "sEejFZ1N", "currencyCode": "tONXb9w9", "language": "Sq-FRLZ", "price": 0.6565137658214307, "productId": "d58dZP5R", "region": "vrinNtvB", "steamId": "tqFSkA68"}' \
@@ -2176,7 +2183,7 @@ build/install/cli/bin/cli platform syncSteamInventory \
 eval_tap $? 302 'SyncSteamInventory' test.out
 
 #- 303 SyncTwitchDropsEntitlement
-build/install/cli/bin/cli platform syncTwitchDropsEntitlement \
+./ng net.accelbyte.sdk.cli.Main platform syncTwitchDropsEntitlement \
     --namespace "$AB_NAMESPACE" \
     --userId 'mIVYJ5pS' \
     --body '{"gameId": "VxBsLhty", "language": "EC_133", "region": "wNC4FY69"}' \
@@ -2184,7 +2191,7 @@ build/install/cli/bin/cli platform syncTwitchDropsEntitlement \
 eval_tap $? 303 'SyncTwitchDropsEntitlement' test.out
 
 #- 304 SyncXboxInventory
-build/install/cli/bin/cli platform syncXboxInventory \
+./ng net.accelbyte.sdk.cli.Main platform syncXboxInventory \
     --namespace "$AB_NAMESPACE" \
     --userId 'mM87joJN' \
     --body '{"currencyCode": "OGB83Ns6", "price": 0.5299632339050114, "productId": "5Poab6lK", "xstsToken": "oVqNBUzI"}' \
@@ -2192,14 +2199,14 @@ build/install/cli/bin/cli platform syncXboxInventory \
 eval_tap $? 304 'SyncXboxInventory' test.out
 
 #- 305 PublicQueryUserOrders
-build/install/cli/bin/cli platform publicQueryUserOrders \
+./ng net.accelbyte.sdk.cli.Main platform publicQueryUserOrders \
     --namespace "$AB_NAMESPACE" \
     --userId 'xOfglquS' \
     > test.out 2>&1
 eval_tap $? 305 'PublicQueryUserOrders' test.out
 
 #- 306 PublicCreateUserOrder
-build/install/cli/bin/cli platform publicCreateUserOrder \
+./ng net.accelbyte.sdk.cli.Main platform publicCreateUserOrder \
     --namespace "$AB_NAMESPACE" \
     --userId '2q2DoWr9' \
     --body '{"currencyCode": "zvFtKa2m", "discountedPrice": 80, "ext": {"AqOokV1p": {}}, "itemId": "lxQ2YriT", "language": "FIPd", "price": 17, "quantity": 21, "region": "rtLnh2U1", "returnUrl": "RQlMxkfN"}' \
@@ -2207,7 +2214,7 @@ build/install/cli/bin/cli platform publicCreateUserOrder \
 eval_tap $? 306 'PublicCreateUserOrder' test.out
 
 #- 307 PublicGetUserOrder
-build/install/cli/bin/cli platform publicGetUserOrder \
+./ng net.accelbyte.sdk.cli.Main platform publicGetUserOrder \
     --namespace "$AB_NAMESPACE" \
     --orderNo 'MPNtqv2T' \
     --userId 'Mz1b7Snz' \
@@ -2215,7 +2222,7 @@ build/install/cli/bin/cli platform publicGetUserOrder \
 eval_tap $? 307 'PublicGetUserOrder' test.out
 
 #- 308 PublicCancelUserOrder
-build/install/cli/bin/cli platform publicCancelUserOrder \
+./ng net.accelbyte.sdk.cli.Main platform publicCancelUserOrder \
     --namespace "$AB_NAMESPACE" \
     --orderNo 'kXOek83I' \
     --userId 'gm1wkSWs' \
@@ -2223,7 +2230,7 @@ build/install/cli/bin/cli platform publicCancelUserOrder \
 eval_tap $? 308 'PublicCancelUserOrder' test.out
 
 #- 309 PublicGetUserOrderHistories
-build/install/cli/bin/cli platform publicGetUserOrderHistories \
+./ng net.accelbyte.sdk.cli.Main platform publicGetUserOrderHistories \
     --namespace "$AB_NAMESPACE" \
     --orderNo 'YvAsu18o' \
     --userId 'bUdc8mbv' \
@@ -2231,7 +2238,7 @@ build/install/cli/bin/cli platform publicGetUserOrderHistories \
 eval_tap $? 309 'PublicGetUserOrderHistories' test.out
 
 #- 310 PublicDownloadUserOrderReceipt
-build/install/cli/bin/cli platform publicDownloadUserOrderReceipt \
+./ng net.accelbyte.sdk.cli.Main platform publicDownloadUserOrderReceipt \
     --namespace "$AB_NAMESPACE" \
     --orderNo 'XcwcgMqO' \
     --userId 'XMziXrVd' \
@@ -2239,14 +2246,14 @@ build/install/cli/bin/cli platform publicDownloadUserOrderReceipt \
 eval_tap $? 310 'PublicDownloadUserOrderReceipt' test.out
 
 #- 311 PublicGetPaymentAccounts
-build/install/cli/bin/cli platform publicGetPaymentAccounts \
+./ng net.accelbyte.sdk.cli.Main platform publicGetPaymentAccounts \
     --namespace "$AB_NAMESPACE" \
     --userId 'sEc3ClFP' \
     > test.out 2>&1
 eval_tap $? 311 'PublicGetPaymentAccounts' test.out
 
 #- 312 PublicDeletePaymentAccount
-build/install/cli/bin/cli platform publicDeletePaymentAccount \
+./ng net.accelbyte.sdk.cli.Main platform publicDeletePaymentAccount \
     --id '3mJwusCB' \
     --namespace "$AB_NAMESPACE" \
     --type 'card' \
@@ -2255,14 +2262,14 @@ build/install/cli/bin/cli platform publicDeletePaymentAccount \
 eval_tap $? 312 'PublicDeletePaymentAccount' test.out
 
 #- 313 PublicQueryUserSubscriptions
-build/install/cli/bin/cli platform publicQueryUserSubscriptions \
+./ng net.accelbyte.sdk.cli.Main platform publicQueryUserSubscriptions \
     --namespace "$AB_NAMESPACE" \
     --userId '0NYgekRa' \
     > test.out 2>&1
 eval_tap $? 313 'PublicQueryUserSubscriptions' test.out
 
 #- 314 PublicSubscribeSubscription
-build/install/cli/bin/cli platform publicSubscribeSubscription \
+./ng net.accelbyte.sdk.cli.Main platform publicSubscribeSubscription \
     --namespace "$AB_NAMESPACE" \
     --userId 'vpaGTA9B' \
     --body '{"currencyCode": "TyCCyN4F", "itemId": "w9i6mI2W", "language": "JJc-HeyZ-597", "region": "PAXQBNMP", "returnUrl": "7j3xfPao", "source": "ZaWFspkU"}' \
@@ -2270,7 +2277,7 @@ build/install/cli/bin/cli platform publicSubscribeSubscription \
 eval_tap $? 314 'PublicSubscribeSubscription' test.out
 
 #- 315 PublicCheckUserSubscriptionSubscribableByItemId
-build/install/cli/bin/cli platform publicCheckUserSubscriptionSubscribableByItemId \
+./ng net.accelbyte.sdk.cli.Main platform publicCheckUserSubscriptionSubscribableByItemId \
     --namespace "$AB_NAMESPACE" \
     --userId '5kn6PlPq' \
     --itemId 'D4AgfasB' \
@@ -2278,7 +2285,7 @@ build/install/cli/bin/cli platform publicCheckUserSubscriptionSubscribableByItem
 eval_tap $? 315 'PublicCheckUserSubscriptionSubscribableByItemId' test.out
 
 #- 316 PublicGetUserSubscription
-build/install/cli/bin/cli platform publicGetUserSubscription \
+./ng net.accelbyte.sdk.cli.Main platform publicGetUserSubscription \
     --namespace "$AB_NAMESPACE" \
     --subscriptionId 'fclBhZjZ' \
     --userId 'bLnmghKw' \
@@ -2286,7 +2293,7 @@ build/install/cli/bin/cli platform publicGetUserSubscription \
 eval_tap $? 316 'PublicGetUserSubscription' test.out
 
 #- 317 PublicChangeSubscriptionBillingAccount
-build/install/cli/bin/cli platform publicChangeSubscriptionBillingAccount \
+./ng net.accelbyte.sdk.cli.Main platform publicChangeSubscriptionBillingAccount \
     --namespace "$AB_NAMESPACE" \
     --subscriptionId 'PyVIn3qa' \
     --userId 'HP7KNuly' \
@@ -2294,7 +2301,7 @@ build/install/cli/bin/cli platform publicChangeSubscriptionBillingAccount \
 eval_tap $? 317 'PublicChangeSubscriptionBillingAccount' test.out
 
 #- 318 PublicCancelSubscription
-build/install/cli/bin/cli platform publicCancelSubscription \
+./ng net.accelbyte.sdk.cli.Main platform publicCancelSubscription \
     --namespace "$AB_NAMESPACE" \
     --subscriptionId 'frENVQkp' \
     --userId 'caWHf6T2' \
@@ -2303,7 +2310,7 @@ build/install/cli/bin/cli platform publicCancelSubscription \
 eval_tap $? 318 'PublicCancelSubscription' test.out
 
 #- 319 PublicGetUserSubscriptionBillingHistories
-build/install/cli/bin/cli platform publicGetUserSubscriptionBillingHistories \
+./ng net.accelbyte.sdk.cli.Main platform publicGetUserSubscriptionBillingHistories \
     --namespace "$AB_NAMESPACE" \
     --subscriptionId 'c9efJI02' \
     --userId 'TZxrgLBF' \
@@ -2311,7 +2318,7 @@ build/install/cli/bin/cli platform publicGetUserSubscriptionBillingHistories \
 eval_tap $? 319 'PublicGetUserSubscriptionBillingHistories' test.out
 
 #- 320 PublicGetWallet
-build/install/cli/bin/cli platform publicGetWallet \
+./ng net.accelbyte.sdk.cli.Main platform publicGetWallet \
     --currencyCode 'JEkphFz0' \
     --namespace "$AB_NAMESPACE" \
     --userId 'h6WpoVpV' \
@@ -2319,7 +2326,7 @@ build/install/cli/bin/cli platform publicGetWallet \
 eval_tap $? 320 'PublicGetWallet' test.out
 
 #- 321 PublicListUserWalletTransactions
-build/install/cli/bin/cli platform publicListUserWalletTransactions \
+./ng net.accelbyte.sdk.cli.Main platform publicListUserWalletTransactions \
     --currencyCode 'c2HBBmj6' \
     --namespace "$AB_NAMESPACE" \
     --userId 'cEi02hXl' \

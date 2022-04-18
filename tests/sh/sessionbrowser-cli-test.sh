@@ -31,11 +31,18 @@ eval_tap() {
   rm -f $4
 }
 
+chmod +x ./ng
+trap "./ng ng-stop" EXIT
+java -jar build/install/cli/lib/nailgun-server-*.jar 1>&2 &
+(for i in $(seq 1 100); do bash -c "timeout 1 echo > /dev/tcp/127.0.0.1/2113" 2>/dev/null && exit 0 || sleep 1; done; exit 1) || exit 1
+for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
+./ng ng-cp 1>&2
+
 echo "TAP version 13"
 echo "1..16"
 
 #- 1 Login
-build/install/cli/bin/cli loginClient \
+./ng net.accelbyte.sdk.cli.Main loginClient \
     > test.out 2>&1
 eval_tap $? 1 'Login' test.out
 
@@ -47,60 +54,60 @@ fi
 touch "tmp.dat"
 
 #- 2 GetTotalActiveSession
-build/install/cli/bin/cli sessionbrowser getTotalActiveSession \
+./ng net.accelbyte.sdk.cli.Main sessionbrowser getTotalActiveSession \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 2 'GetTotalActiveSession' test.out
 
 #- 3 GetActiveCustomGameSessions
-build/install/cli/bin/cli sessionbrowser getActiveCustomGameSessions \
+./ng net.accelbyte.sdk.cli.Main sessionbrowser getActiveCustomGameSessions \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 3 'GetActiveCustomGameSessions' test.out
 
 #- 4 GetActiveMatchmakingGameSessions
-build/install/cli/bin/cli sessionbrowser getActiveMatchmakingGameSessions \
+./ng net.accelbyte.sdk.cli.Main sessionbrowser getActiveMatchmakingGameSessions \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 4 'GetActiveMatchmakingGameSessions' test.out
 
 #- 5 AdminGetSession
-build/install/cli/bin/cli sessionbrowser adminGetSession \
+./ng net.accelbyte.sdk.cli.Main sessionbrowser adminGetSession \
     --namespace "$AB_NAMESPACE" \
     --sessionID 'FtBxyZcD' \
     > test.out 2>&1
 eval_tap $? 5 'AdminGetSession' test.out
 
 #- 6 QuerySession
-build/install/cli/bin/cli sessionbrowser querySession \
+./ng net.accelbyte.sdk.cli.Main sessionbrowser querySession \
     --namespace "$AB_NAMESPACE" \
     --sessionType 'XBpGlsQu' \
     > test.out 2>&1
 eval_tap $? 6 'QuerySession' test.out
 
 #- 7 CreateSession
-build/install/cli/bin/cli sessionbrowser createSession \
+./ng net.accelbyte.sdk.cli.Main sessionbrowser createSession \
     --body '{"game_session_setting": {"allow_join_in_progress": true, "current_internal_player": 42, "current_player": 77, "map_name": "f0IsJkTr", "max_internal_player": 6, "max_player": 68, "mode": "DcV2zXnT", "num_bot": 72, "password": "jXY1bPqa", "settings": {"miBxx9Cs": {}}}, "game_version": "18EY84ek", "namespace": "ItqRzHU1", "session_type": "oh570KQB", "username": "Vaewc72k"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 7 'CreateSession' test.out
 
 #- 8 GetSessionByUserIDs
-build/install/cli/bin/cli sessionbrowser getSessionByUserIDs \
+./ng net.accelbyte.sdk.cli.Main sessionbrowser getSessionByUserIDs \
     --namespace "$AB_NAMESPACE" \
     --userIds 'rSha68n3' \
     > test.out 2>&1
 eval_tap $? 8 'GetSessionByUserIDs' test.out
 
 #- 9 GetSession
-build/install/cli/bin/cli sessionbrowser getSession \
+./ng net.accelbyte.sdk.cli.Main sessionbrowser getSession \
     --namespace "$AB_NAMESPACE" \
     --sessionID 'Ynozp1C2' \
     > test.out 2>&1
 eval_tap $? 9 'GetSession' test.out
 
 #- 10 UpdateSession
-build/install/cli/bin/cli sessionbrowser updateSession \
+./ng net.accelbyte.sdk.cli.Main sessionbrowser updateSession \
     --body '{"game_current_player": 72, "game_max_player": 24}' \
     --namespace "$AB_NAMESPACE" \
     --sessionID 'IQTuBdNE' \
@@ -108,14 +115,14 @@ build/install/cli/bin/cli sessionbrowser updateSession \
 eval_tap $? 10 'UpdateSession' test.out
 
 #- 11 DeleteSession
-build/install/cli/bin/cli sessionbrowser deleteSession \
+./ng net.accelbyte.sdk.cli.Main sessionbrowser deleteSession \
     --namespace "$AB_NAMESPACE" \
     --sessionID 'UsxFb8CJ' \
     > test.out 2>&1
 eval_tap $? 11 'DeleteSession' test.out
 
 #- 12 JoinSession
-build/install/cli/bin/cli sessionbrowser joinSession \
+./ng net.accelbyte.sdk.cli.Main sessionbrowser joinSession \
     --body '{"password": "17M7DJZa"}' \
     --namespace "$AB_NAMESPACE" \
     --sessionID 'MSxECbZb' \
@@ -123,14 +130,14 @@ build/install/cli/bin/cli sessionbrowser joinSession \
 eval_tap $? 12 'JoinSession' test.out
 
 #- 13 DeleteSessionLocalDS
-build/install/cli/bin/cli sessionbrowser deleteSessionLocalDS \
+./ng net.accelbyte.sdk.cli.Main sessionbrowser deleteSessionLocalDS \
     --namespace "$AB_NAMESPACE" \
     --sessionID 'ygyoarOR' \
     > test.out 2>&1
 eval_tap $? 13 'DeleteSessionLocalDS' test.out
 
 #- 14 AddPlayerToSession
-build/install/cli/bin/cli sessionbrowser addPlayerToSession \
+./ng net.accelbyte.sdk.cli.Main sessionbrowser addPlayerToSession \
     --body '{"as_spectator": false, "user_id": "eNHSb8Rh"}' \
     --namespace "$AB_NAMESPACE" \
     --sessionID '3kgs9qqJ' \
@@ -138,7 +145,7 @@ build/install/cli/bin/cli sessionbrowser addPlayerToSession \
 eval_tap $? 14 'AddPlayerToSession' test.out
 
 #- 15 RemovePlayerFromSession
-build/install/cli/bin/cli sessionbrowser removePlayerFromSession \
+./ng net.accelbyte.sdk.cli.Main sessionbrowser removePlayerFromSession \
     --namespace "$AB_NAMESPACE" \
     --sessionID 'bnQsoBgi' \
     --userID 'VpP8Cm3y' \
@@ -146,7 +153,7 @@ build/install/cli/bin/cli sessionbrowser removePlayerFromSession \
 eval_tap $? 15 'RemovePlayerFromSession' test.out
 
 #- 16 GetRecentPlayer
-build/install/cli/bin/cli sessionbrowser getRecentPlayer \
+./ng net.accelbyte.sdk.cli.Main sessionbrowser getRecentPlayer \
     --namespace "$AB_NAMESPACE" \
     --userID 'vASUoxdx' \
     > test.out 2>&1
