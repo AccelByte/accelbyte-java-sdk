@@ -4,6 +4,8 @@
 # This is licensed software from AccelByte Inc, for limitations
 # and restrictions contact your company contract manager.
 
+# Code generated. DO NOT EDIT.
+
 # Meta:
 # - random seed: 256
 # - template file: cli_test.j2
@@ -29,13 +31,11 @@ eval_tap() {
   rm -f $4
 }
 
-CLI_JAR="${CLI_JAR:-../../samples/cli/build/libs/cli.jar}"
-
 echo "TAP version 13"
 echo "1..88"
 
 #- 1 Login
-java -jar "${CLI_JAR}" loginClient \
+build/install/cli/bin/cli loginClient \
     > test.out 2>&1
 eval_tap $? 1 'Login' test.out
 
@@ -47,20 +47,20 @@ fi
 touch "tmp.dat"
 
 #- 2 SingleAdminGetChannel
-java -jar "${CLI_JAR}" ugc singleAdminGetChannel \
+build/install/cli/bin/cli ugc singleAdminGetChannel \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 2 'SingleAdminGetChannel' test.out
 
 #- 3 AdminCreateChannel
-java -jar "${CLI_JAR}" ugc adminCreateChannel \
+build/install/cli/bin/cli ugc adminCreateChannel \
     --body '{"name": "FtBxyZcD"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 3 'AdminCreateChannel' test.out
 
 #- 4 SingleAdminUpdateChannel
-java -jar "${CLI_JAR}" ugc singleAdminUpdateChannel \
+build/install/cli/bin/cli ugc singleAdminUpdateChannel \
     --body '{"name": "XBpGlsQu"}' \
     --channelId 'Ju8vMf0I' \
     --namespace "$AB_NAMESPACE" \
@@ -68,7 +68,7 @@ java -jar "${CLI_JAR}" ugc singleAdminUpdateChannel \
 eval_tap $? 4 'SingleAdminUpdateChannel' test.out
 
 #- 5 SingleAdminDeleteChannel
-java -jar "${CLI_JAR}" ugc singleAdminDeleteChannel \
+build/install/cli/bin/cli ugc singleAdminDeleteChannel \
     --channelId 'sJkTrd8I' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
@@ -78,7 +78,7 @@ eval_tap $? 5 'SingleAdminDeleteChannel' test.out
 eval_tap 0 6 'AdminUploadContentDirect # SKIP deprecated' test.out
 
 #- 7 AdminUploadContentS3
-java -jar "${CLI_JAR}" ugc adminUploadContentS3 \
+build/install/cli/bin/cli ugc adminUploadContentS3 \
     --body '{"contentType": "DcV2zXnT", "fileExtension": "KjXY1bPq", "name": "amiBxx9C", "preview": "s18EY84e", "subType": "kItqRzHU", "tags": ["1oh570KQ"], "type": "BVaewc72"}' \
     --channelId 'krSha68n' \
     --namespace "$AB_NAMESPACE" \
@@ -86,7 +86,7 @@ java -jar "${CLI_JAR}" ugc adminUploadContentS3 \
 eval_tap $? 7 'AdminUploadContentS3' test.out
 
 #- 8 SingleAdminUpdateContentS3
-java -jar "${CLI_JAR}" ugc singleAdminUpdateContentS3 \
+build/install/cli/bin/cli ugc singleAdminUpdateContentS3 \
     --body '{"contentType": "3Ynozp1C", "fileExtension": "2KmIQTuB", "name": "dNEUsxFb", "preview": "8CJ17M7D", "subType": "JZaMSxEC", "tags": ["bZbygyoa"], "type": "rORoeNHS"}' \
     --channelId 'b8Rh3kgs' \
     --contentId '9qqJbnQs' \
@@ -95,7 +95,7 @@ java -jar "${CLI_JAR}" ugc singleAdminUpdateContentS3 \
 eval_tap $? 8 'SingleAdminUpdateContentS3' test.out
 
 #- 9 AdminSearchChannelSpecificContent
-java -jar "${CLI_JAR}" ugc adminSearchChannelSpecificContent \
+build/install/cli/bin/cli ugc adminSearchChannelSpecificContent \
     --channelId 'oBgiVpP8' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
@@ -105,7 +105,7 @@ eval_tap $? 9 'AdminSearchChannelSpecificContent' test.out
 eval_tap 0 10 'SingleAdminUpdateContentDirect # SKIP deprecated' test.out
 
 #- 11 SingleAdminDeleteContent
-java -jar "${CLI_JAR}" ugc singleAdminDeleteContent \
+build/install/cli/bin/cli ugc singleAdminDeleteContent \
     --channelId 'Cm3yvASU' \
     --contentId 'oxdxxFqm' \
     --namespace "$AB_NAMESPACE" \
@@ -113,33 +113,33 @@ java -jar "${CLI_JAR}" ugc singleAdminDeleteContent \
 eval_tap $? 11 'SingleAdminDeleteContent' test.out
 
 #- 12 SingleAdminGetContent
-java -jar "${CLI_JAR}" ugc singleAdminGetContent \
+build/install/cli/bin/cli ugc singleAdminGetContent \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 12 'SingleAdminGetContent' test.out
 
 #- 13 AdminSearchContent
-java -jar "${CLI_JAR}" ugc adminSearchContent \
+build/install/cli/bin/cli ugc adminSearchContent \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 13 'AdminSearchContent' test.out
 
 #- 14 AdminGetSpecificContent
-java -jar "${CLI_JAR}" ugc adminGetSpecificContent \
+build/install/cli/bin/cli ugc adminGetSpecificContent \
     --contentId 'AGTJ8IEd' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 14 'AdminGetSpecificContent' test.out
 
 #- 15 AdminDownloadContentPreview
-java -jar "${CLI_JAR}" ugc adminDownloadContentPreview \
+build/install/cli/bin/cli ugc adminDownloadContentPreview \
     --contentId 'agEtp4w2' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 15 'AdminDownloadContentPreview' test.out
 
 #- 16 AdminUpdateScreenshots
-java -jar "${CLI_JAR}" ugc adminUpdateScreenshots \
+build/install/cli/bin/cli ugc adminUpdateScreenshots \
     --body '{"screenshots": [{"description": "9KOu9c19", "screenshotId": "R6XDqWHk"}]}' \
     --contentId 'kP8npLEK' \
     --namespace "$AB_NAMESPACE" \
@@ -147,7 +147,7 @@ java -jar "${CLI_JAR}" ugc adminUpdateScreenshots \
 eval_tap $? 16 'AdminUpdateScreenshots' test.out
 
 #- 17 AdminUploadContentScreenshot
-java -jar "${CLI_JAR}" ugc adminUploadContentScreenshot \
+build/install/cli/bin/cli ugc adminUploadContentScreenshot \
     --body '{"screenshots": [{"contentType": "MfjiX7jp", "description": "kVZk3IaQ", "fileExtension": "jfif"}]}' \
     --contentId 'mqGodOEG' \
     --namespace "$AB_NAMESPACE" \
@@ -155,7 +155,7 @@ java -jar "${CLI_JAR}" ugc adminUploadContentScreenshot \
 eval_tap $? 17 'AdminUploadContentScreenshot' test.out
 
 #- 18 AdminDeleteContentScreenshot
-java -jar "${CLI_JAR}" ugc adminDeleteContentScreenshot \
+build/install/cli/bin/cli ugc adminDeleteContentScreenshot \
     --contentId 't9gPOj0c' \
     --namespace "$AB_NAMESPACE" \
     --screenshotId '6i0JkvIa' \
@@ -163,27 +163,27 @@ java -jar "${CLI_JAR}" ugc adminDeleteContentScreenshot \
 eval_tap $? 18 'AdminDeleteContentScreenshot' test.out
 
 #- 19 SingleAdminGetAllGroups
-java -jar "${CLI_JAR}" ugc singleAdminGetAllGroups \
+build/install/cli/bin/cli ugc singleAdminGetAllGroups \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 19 'SingleAdminGetAllGroups' test.out
 
 #- 20 AdminCreateGroup
-java -jar "${CLI_JAR}" ugc adminCreateGroup \
+build/install/cli/bin/cli ugc adminCreateGroup \
     --body '{"contents": ["s73ucYnF"], "name": "AJ3DK5T4"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 20 'AdminCreateGroup' test.out
 
 #- 21 SingleAdminGetGroup
-java -jar "${CLI_JAR}" ugc singleAdminGetGroup \
+build/install/cli/bin/cli ugc singleAdminGetGroup \
     --groupId 'Eogg0Y39' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 21 'SingleAdminGetGroup' test.out
 
 #- 22 SingleAdminUpdateGroup
-java -jar "${CLI_JAR}" ugc singleAdminUpdateGroup \
+build/install/cli/bin/cli ugc singleAdminUpdateGroup \
     --body '{"contents": ["UoYlpv5b"], "name": "VAgtsDhU"}' \
     --groupId 'TDUscbQD' \
     --namespace "$AB_NAMESPACE" \
@@ -191,34 +191,34 @@ java -jar "${CLI_JAR}" ugc singleAdminUpdateGroup \
 eval_tap $? 22 'SingleAdminUpdateGroup' test.out
 
 #- 23 SingleAdminDeleteGroup
-java -jar "${CLI_JAR}" ugc singleAdminDeleteGroup \
+build/install/cli/bin/cli ugc singleAdminDeleteGroup \
     --groupId 'jbTQuPMz' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 23 'SingleAdminDeleteGroup' test.out
 
 #- 24 SingleAdminGetGroupContents
-java -jar "${CLI_JAR}" ugc singleAdminGetGroupContents \
+build/install/cli/bin/cli ugc singleAdminGetGroupContents \
     --groupId '2PTRlkyU' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 24 'SingleAdminGetGroupContents' test.out
 
 #- 25 AdminGetTag
-java -jar "${CLI_JAR}" ugc adminGetTag \
+build/install/cli/bin/cli ugc adminGetTag \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 25 'AdminGetTag' test.out
 
 #- 26 AdminCreateTag
-java -jar "${CLI_JAR}" ugc adminCreateTag \
+build/install/cli/bin/cli ugc adminCreateTag \
     --body '{"tag": "89ZPOw6z"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 26 'AdminCreateTag' test.out
 
 #- 27 AdminUpdateTag
-java -jar "${CLI_JAR}" ugc adminUpdateTag \
+build/install/cli/bin/cli ugc adminUpdateTag \
     --body '{"tag": "PFJ42cwm"}' \
     --namespace "$AB_NAMESPACE" \
     --tagId 'zBBSMNco' \
@@ -226,27 +226,27 @@ java -jar "${CLI_JAR}" ugc adminUpdateTag \
 eval_tap $? 27 'AdminUpdateTag' test.out
 
 #- 28 AdminDeleteTag
-java -jar "${CLI_JAR}" ugc adminDeleteTag \
+build/install/cli/bin/cli ugc adminDeleteTag \
     --namespace "$AB_NAMESPACE" \
     --tagId 'AAOjKNjf' \
     > test.out 2>&1
 eval_tap $? 28 'AdminDeleteTag' test.out
 
 #- 29 AdminGetType
-java -jar "${CLI_JAR}" ugc adminGetType \
+build/install/cli/bin/cli ugc adminGetType \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 29 'AdminGetType' test.out
 
 #- 30 AdminCreateType
-java -jar "${CLI_JAR}" ugc adminCreateType \
+build/install/cli/bin/cli ugc adminCreateType \
     --body '{"subtype": ["cYHm093a"], "type": "YgBU1sqj"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 30 'AdminCreateType' test.out
 
 #- 31 AdminUpdateType
-java -jar "${CLI_JAR}" ugc adminUpdateType \
+build/install/cli/bin/cli ugc adminUpdateType \
     --body '{"subtype": ["yK0XH45P"], "type": "aRSOFQBt"}' \
     --namespace "$AB_NAMESPACE" \
     --typeId 'u23REZ8h' \
@@ -254,28 +254,28 @@ java -jar "${CLI_JAR}" ugc adminUpdateType \
 eval_tap $? 31 'AdminUpdateType' test.out
 
 #- 32 AdminDeleteType
-java -jar "${CLI_JAR}" ugc adminDeleteType \
+build/install/cli/bin/cli ugc adminDeleteType \
     --namespace "$AB_NAMESPACE" \
     --typeId 'RVX7LGOv' \
     > test.out 2>&1
 eval_tap $? 32 'AdminDeleteType' test.out
 
 #- 33 AdminGetChannel
-java -jar "${CLI_JAR}" ugc adminGetChannel \
+build/install/cli/bin/cli ugc adminGetChannel \
     --namespace "$AB_NAMESPACE" \
     --userId 'DdYiQS9i' \
     > test.out 2>&1
 eval_tap $? 33 'AdminGetChannel' test.out
 
 #- 34 AdminDeleteAllUserChannels
-java -jar "${CLI_JAR}" ugc adminDeleteAllUserChannels \
+build/install/cli/bin/cli ugc adminDeleteAllUserChannels \
     --namespace "$AB_NAMESPACE" \
     --userId '7mV1C91p' \
     > test.out 2>&1
 eval_tap $? 34 'AdminDeleteAllUserChannels' test.out
 
 #- 35 AdminUpdateChannel
-java -jar "${CLI_JAR}" ugc adminUpdateChannel \
+build/install/cli/bin/cli ugc adminUpdateChannel \
     --body '{"name": "jG9gpxL6"}' \
     --channelId 'ycTQdvln' \
     --namespace "$AB_NAMESPACE" \
@@ -284,7 +284,7 @@ java -jar "${CLI_JAR}" ugc adminUpdateChannel \
 eval_tap $? 35 'AdminUpdateChannel' test.out
 
 #- 36 AdminDeleteChannel
-java -jar "${CLI_JAR}" ugc adminDeleteChannel \
+build/install/cli/bin/cli ugc adminDeleteChannel \
     --channelId 'XL6LFE1Y' \
     --namespace "$AB_NAMESPACE" \
     --userId 'Ho9m126Z' \
@@ -292,7 +292,7 @@ java -jar "${CLI_JAR}" ugc adminDeleteChannel \
 eval_tap $? 36 'AdminDeleteChannel' test.out
 
 #- 37 AdminUpdateContentS3
-java -jar "${CLI_JAR}" ugc adminUpdateContentS3 \
+build/install/cli/bin/cli ugc adminUpdateContentS3 \
     --body '{"contentType": "Wc8hHtWv", "fileExtension": "bNYqgUqs", "name": "lArFPiHU", "preview": "IvaCv8kU", "subType": "9dBBpdsJ", "tags": ["LhsVyExr"], "type": "kxoot0B7"}' \
     --channelId 'WOfercZd' \
     --contentId 'pMci37Ds' \
@@ -305,7 +305,7 @@ eval_tap $? 37 'AdminUpdateContentS3' test.out
 eval_tap 0 38 'AdminUpdateContentDirect # SKIP deprecated' test.out
 
 #- 39 AdminDeleteContent
-java -jar "${CLI_JAR}" ugc adminDeleteContent \
+build/install/cli/bin/cli ugc adminDeleteContent \
     --channelId '3uzLteMb' \
     --contentId 'FAlt4hr7' \
     --namespace "$AB_NAMESPACE" \
@@ -314,21 +314,21 @@ java -jar "${CLI_JAR}" ugc adminDeleteContent \
 eval_tap $? 39 'AdminDeleteContent' test.out
 
 #- 40 AdminGetContent
-java -jar "${CLI_JAR}" ugc adminGetContent \
+build/install/cli/bin/cli ugc adminGetContent \
     --namespace "$AB_NAMESPACE" \
     --userId 'ltAOXmlG' \
     > test.out 2>&1
 eval_tap $? 40 'AdminGetContent' test.out
 
 #- 41 AdminDeleteAllUserContents
-java -jar "${CLI_JAR}" ugc adminDeleteAllUserContents \
+build/install/cli/bin/cli ugc adminDeleteAllUserContents \
     --namespace "$AB_NAMESPACE" \
     --userId '6eh1dTdo' \
     > test.out 2>&1
 eval_tap $? 41 'AdminDeleteAllUserContents' test.out
 
 #- 42 AdminHideUserContent
-java -jar "${CLI_JAR}" ugc adminHideUserContent \
+build/install/cli/bin/cli ugc adminHideUserContent \
     --body '{"isHidden": true}' \
     --contentId 'pBIcuC1d' \
     --namespace "$AB_NAMESPACE" \
@@ -337,21 +337,21 @@ java -jar "${CLI_JAR}" ugc adminHideUserContent \
 eval_tap $? 42 'AdminHideUserContent' test.out
 
 #- 43 AdminGetAllGroups
-java -jar "${CLI_JAR}" ugc adminGetAllGroups \
+build/install/cli/bin/cli ugc adminGetAllGroups \
     --namespace "$AB_NAMESPACE" \
     --userId '6Te9vD8l' \
     > test.out 2>&1
 eval_tap $? 43 'AdminGetAllGroups' test.out
 
 #- 44 AdminDeleteAllUserGroup
-java -jar "${CLI_JAR}" ugc adminDeleteAllUserGroup \
+build/install/cli/bin/cli ugc adminDeleteAllUserGroup \
     --namespace "$AB_NAMESPACE" \
     --userId 'dz7Hu8AD' \
     > test.out 2>&1
 eval_tap $? 44 'AdminDeleteAllUserGroup' test.out
 
 #- 45 AdminGetGroup
-java -jar "${CLI_JAR}" ugc adminGetGroup \
+build/install/cli/bin/cli ugc adminGetGroup \
     --groupId '79kdWunv' \
     --namespace "$AB_NAMESPACE" \
     --userId 'izU0q1pH' \
@@ -359,7 +359,7 @@ java -jar "${CLI_JAR}" ugc adminGetGroup \
 eval_tap $? 45 'AdminGetGroup' test.out
 
 #- 46 AdminUpdateGroup
-java -jar "${CLI_JAR}" ugc adminUpdateGroup \
+build/install/cli/bin/cli ugc adminUpdateGroup \
     --body '{"contents": ["yhhERoGg"], "name": "drysMizB"}' \
     --groupId 'GSRdP2l7' \
     --namespace "$AB_NAMESPACE" \
@@ -368,7 +368,7 @@ java -jar "${CLI_JAR}" ugc adminUpdateGroup \
 eval_tap $? 46 'AdminUpdateGroup' test.out
 
 #- 47 AdminDeleteGroup
-java -jar "${CLI_JAR}" ugc adminDeleteGroup \
+build/install/cli/bin/cli ugc adminDeleteGroup \
     --groupId 'XiPLQXSe' \
     --namespace "$AB_NAMESPACE" \
     --userId '07ZddOGT' \
@@ -376,7 +376,7 @@ java -jar "${CLI_JAR}" ugc adminDeleteGroup \
 eval_tap $? 47 'AdminDeleteGroup' test.out
 
 #- 48 AdminGetGroupContents
-java -jar "${CLI_JAR}" ugc adminGetGroupContents \
+build/install/cli/bin/cli ugc adminGetGroupContents \
     --groupId 'MlJjBwj9' \
     --namespace "$AB_NAMESPACE" \
     --userId 'HJHQKseE' \
@@ -384,60 +384,60 @@ java -jar "${CLI_JAR}" ugc adminGetGroupContents \
 eval_tap $? 48 'AdminGetGroupContents' test.out
 
 #- 49 AdminDeleteAllUserStates
-java -jar "${CLI_JAR}" ugc adminDeleteAllUserStates \
+build/install/cli/bin/cli ugc adminDeleteAllUserStates \
     --namespace "$AB_NAMESPACE" \
     --userId 'dSXRDSvg' \
     > test.out 2>&1
 eval_tap $? 49 'AdminDeleteAllUserStates' test.out
 
 #- 50 SearchChannelSpecificContent
-java -jar "${CLI_JAR}" ugc searchChannelSpecificContent \
+build/install/cli/bin/cli ugc searchChannelSpecificContent \
     --channelId 'uauw1xT7' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 50 'SearchChannelSpecificContent' test.out
 
 #- 51 PublicSearchContent
-java -jar "${CLI_JAR}" ugc publicSearchContent \
+build/install/cli/bin/cli ugc publicSearchContent \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 51 'PublicSearchContent' test.out
 
 #- 52 GetFollowedContent
-java -jar "${CLI_JAR}" ugc getFollowedContent \
+build/install/cli/bin/cli ugc getFollowedContent \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 52 'GetFollowedContent' test.out
 
 #- 53 GetLikedContent
-java -jar "${CLI_JAR}" ugc getLikedContent \
+build/install/cli/bin/cli ugc getLikedContent \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 53 'GetLikedContent' test.out
 
 #- 54 DownloadContentByShareCode
-java -jar "${CLI_JAR}" ugc downloadContentByShareCode \
+build/install/cli/bin/cli ugc downloadContentByShareCode \
     --namespace "$AB_NAMESPACE" \
     --shareCode 'eMwSl9ML' \
     > test.out 2>&1
 eval_tap $? 54 'DownloadContentByShareCode' test.out
 
 #- 55 PublicDownloadContentByContentID
-java -jar "${CLI_JAR}" ugc publicDownloadContentByContentID \
+build/install/cli/bin/cli ugc publicDownloadContentByContentID \
     --contentId 'H0NnTJ2u' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 55 'PublicDownloadContentByContentID' test.out
 
 #- 56 AddDownloadCount
-java -jar "${CLI_JAR}" ugc addDownloadCount \
+build/install/cli/bin/cli ugc addDownloadCount \
     --contentId 'lNzBvwJa' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 56 'AddDownloadCount' test.out
 
 #- 57 UpdateContentLikeStatus
-java -jar "${CLI_JAR}" ugc updateContentLikeStatus \
+build/install/cli/bin/cli ugc updateContentLikeStatus \
     --body '{"likeStatus": false}' \
     --contentId '547JllvA' \
     --namespace "$AB_NAMESPACE" \
@@ -445,46 +445,46 @@ java -jar "${CLI_JAR}" ugc updateContentLikeStatus \
 eval_tap $? 57 'UpdateContentLikeStatus' test.out
 
 #- 58 PublicDownloadContentPreview
-java -jar "${CLI_JAR}" ugc publicDownloadContentPreview \
+build/install/cli/bin/cli ugc publicDownloadContentPreview \
     --contentId '8RWSpabU' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 58 'PublicDownloadContentPreview' test.out
 
 #- 59 GetTag
-java -jar "${CLI_JAR}" ugc getTag \
+build/install/cli/bin/cli ugc getTag \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 59 'GetTag' test.out
 
 #- 60 GetType
-java -jar "${CLI_JAR}" ugc getType \
+build/install/cli/bin/cli ugc getType \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 60 'GetType' test.out
 
 #- 61 GetFollowedUsers
-java -jar "${CLI_JAR}" ugc getFollowedUsers \
+build/install/cli/bin/cli ugc getFollowedUsers \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 61 'GetFollowedUsers' test.out
 
 #- 62 GetCreator
-java -jar "${CLI_JAR}" ugc getCreator \
+build/install/cli/bin/cli ugc getCreator \
     --namespace "$AB_NAMESPACE" \
     --userId 't7xk6Qxy' \
     > test.out 2>&1
 eval_tap $? 62 'GetCreator' test.out
 
 #- 63 GetChannels
-java -jar "${CLI_JAR}" ugc getChannels \
+build/install/cli/bin/cli ugc getChannels \
     --namespace "$AB_NAMESPACE" \
     --userId 'WhfqoWfJ' \
     > test.out 2>&1
 eval_tap $? 63 'GetChannels' test.out
 
 #- 64 CreateChannel
-java -jar "${CLI_JAR}" ugc createChannel \
+build/install/cli/bin/cli ugc createChannel \
     --body '{"name": "w2o8oWUq"}' \
     --namespace "$AB_NAMESPACE" \
     --userId 'vPCZ2HzT' \
@@ -492,14 +492,14 @@ java -jar "${CLI_JAR}" ugc createChannel \
 eval_tap $? 64 'CreateChannel' test.out
 
 #- 65 DeleteAllUserChannel
-java -jar "${CLI_JAR}" ugc deleteAllUserChannel \
+build/install/cli/bin/cli ugc deleteAllUserChannel \
     --namespace "$AB_NAMESPACE" \
     --userId '7NXmWDlX' \
     > test.out 2>&1
 eval_tap $? 65 'DeleteAllUserChannel' test.out
 
 #- 66 UpdateChannel
-java -jar "${CLI_JAR}" ugc updateChannel \
+build/install/cli/bin/cli ugc updateChannel \
     --body '{"name": "suNIdQJR"}' \
     --channelId '5lsNOlvk' \
     --namespace "$AB_NAMESPACE" \
@@ -508,7 +508,7 @@ java -jar "${CLI_JAR}" ugc updateChannel \
 eval_tap $? 66 'UpdateChannel' test.out
 
 #- 67 DeleteChannel
-java -jar "${CLI_JAR}" ugc deleteChannel \
+build/install/cli/bin/cli ugc deleteChannel \
     --channelId 'LCgToxuV' \
     --namespace "$AB_NAMESPACE" \
     --userId 'TekJgvg6' \
@@ -519,7 +519,7 @@ eval_tap $? 67 'DeleteChannel' test.out
 eval_tap 0 68 'CreateContentDirect # SKIP deprecated' test.out
 
 #- 69 CreateContentS3
-java -jar "${CLI_JAR}" ugc createContentS3 \
+build/install/cli/bin/cli ugc createContentS3 \
     --body '{"contentType": "h5HIpH0D", "fileExtension": "viplEk4v", "name": "j3LDp4yq", "preview": "Dt8QUZDp", "subType": "xlHasinG", "tags": ["cjrkmRMt"], "type": "tgjDSaIV"}' \
     --channelId 'Bmft3Udg' \
     --namespace "$AB_NAMESPACE" \
@@ -528,7 +528,7 @@ java -jar "${CLI_JAR}" ugc createContentS3 \
 eval_tap $? 69 'CreateContentS3' test.out
 
 #- 70 UpdateContentS3
-java -jar "${CLI_JAR}" ugc updateContentS3 \
+build/install/cli/bin/cli ugc updateContentS3 \
     --body '{"contentType": "H5kX4Msi", "fileExtension": "sSX28nAR", "name": "xWRpv5ou", "preview": "5xtvd28O", "subType": "UfCt8UJC", "tags": ["5flNyj6H"], "type": "sTtX8P3l"}' \
     --channelId 'lnaaS9lq' \
     --contentId 'yygPcfkJ' \
@@ -541,7 +541,7 @@ eval_tap $? 70 'UpdateContentS3' test.out
 eval_tap 0 71 'UpdateContentDirect # SKIP deprecated' test.out
 
 #- 72 DeleteContent
-java -jar "${CLI_JAR}" ugc deleteContent \
+build/install/cli/bin/cli ugc deleteContent \
     --channelId 'kNVbDxVM' \
     --contentId 'q7HJk0F8' \
     --namespace "$AB_NAMESPACE" \
@@ -550,21 +550,21 @@ java -jar "${CLI_JAR}" ugc deleteContent \
 eval_tap $? 72 'DeleteContent' test.out
 
 #- 73 PublicGetUserContent
-java -jar "${CLI_JAR}" ugc publicGetUserContent \
+build/install/cli/bin/cli ugc publicGetUserContent \
     --namespace "$AB_NAMESPACE" \
     --userId 'aENtrl0p' \
     > test.out 2>&1
 eval_tap $? 73 'PublicGetUserContent' test.out
 
 #- 74 DeleteAllUserContents
-java -jar "${CLI_JAR}" ugc deleteAllUserContents \
+build/install/cli/bin/cli ugc deleteAllUserContents \
     --namespace "$AB_NAMESPACE" \
     --userId 'TKZTXqzH' \
     > test.out 2>&1
 eval_tap $? 74 'DeleteAllUserContents' test.out
 
 #- 75 UpdateScreenshots
-java -jar "${CLI_JAR}" ugc updateScreenshots \
+build/install/cli/bin/cli ugc updateScreenshots \
     --body '{"screenshots": [{"description": "uBMYQSA2", "screenshotId": "jz1ZOpdO"}]}' \
     --contentId 'jSyMddB4' \
     --namespace "$AB_NAMESPACE" \
@@ -573,7 +573,7 @@ java -jar "${CLI_JAR}" ugc updateScreenshots \
 eval_tap $? 75 'UpdateScreenshots' test.out
 
 #- 76 UploadContentScreenshot
-java -jar "${CLI_JAR}" ugc uploadContentScreenshot \
+build/install/cli/bin/cli ugc uploadContentScreenshot \
     --body '{"screenshots": [{"contentType": "yBHRj8Ii", "description": "RimRllHT", "fileExtension": "jfif"}]}' \
     --contentId 'c40vFFA6' \
     --namespace "$AB_NAMESPACE" \
@@ -582,7 +582,7 @@ java -jar "${CLI_JAR}" ugc uploadContentScreenshot \
 eval_tap $? 76 'UploadContentScreenshot' test.out
 
 #- 77 DeleteContentScreenshot
-java -jar "${CLI_JAR}" ugc deleteContentScreenshot \
+build/install/cli/bin/cli ugc deleteContentScreenshot \
     --contentId '1dCpm55g' \
     --namespace "$AB_NAMESPACE" \
     --screenshotId 'OeqQIqcJ' \
@@ -591,7 +591,7 @@ java -jar "${CLI_JAR}" ugc deleteContentScreenshot \
 eval_tap $? 77 'DeleteContentScreenshot' test.out
 
 #- 78 UpdateUserFollowStatus
-java -jar "${CLI_JAR}" ugc updateUserFollowStatus \
+build/install/cli/bin/cli ugc updateUserFollowStatus \
     --body '{"followStatus": false}' \
     --namespace "$AB_NAMESPACE" \
     --userId 'uTrrkbmu' \
@@ -599,28 +599,28 @@ java -jar "${CLI_JAR}" ugc updateUserFollowStatus \
 eval_tap $? 78 'UpdateUserFollowStatus' test.out
 
 #- 79 GetPublicFollowers
-java -jar "${CLI_JAR}" ugc getPublicFollowers \
+build/install/cli/bin/cli ugc getPublicFollowers \
     --namespace "$AB_NAMESPACE" \
     --userId 'T1whOqmE' \
     > test.out 2>&1
 eval_tap $? 79 'GetPublicFollowers' test.out
 
 #- 80 GetPublicFollowing
-java -jar "${CLI_JAR}" ugc getPublicFollowing \
+build/install/cli/bin/cli ugc getPublicFollowing \
     --namespace "$AB_NAMESPACE" \
     --userId 'nDXIWrBP' \
     > test.out 2>&1
 eval_tap $? 80 'GetPublicFollowing' test.out
 
 #- 81 GetGroups
-java -jar "${CLI_JAR}" ugc getGroups \
+build/install/cli/bin/cli ugc getGroups \
     --namespace "$AB_NAMESPACE" \
     --userId 'lSay46mv' \
     > test.out 2>&1
 eval_tap $? 81 'GetGroups' test.out
 
 #- 82 CreateGroup
-java -jar "${CLI_JAR}" ugc createGroup \
+build/install/cli/bin/cli ugc createGroup \
     --body '{"contents": ["71BAZAOj"], "name": "tFJ2vmTj"}' \
     --namespace "$AB_NAMESPACE" \
     --userId '7tT7TZHW' \
@@ -628,14 +628,14 @@ java -jar "${CLI_JAR}" ugc createGroup \
 eval_tap $? 82 'CreateGroup' test.out
 
 #- 83 DeleteAllUserGroup
-java -jar "${CLI_JAR}" ugc deleteAllUserGroup \
+build/install/cli/bin/cli ugc deleteAllUserGroup \
     --namespace "$AB_NAMESPACE" \
     --userId 'DdCkIsZo' \
     > test.out 2>&1
 eval_tap $? 83 'DeleteAllUserGroup' test.out
 
 #- 84 GetGroup
-java -jar "${CLI_JAR}" ugc getGroup \
+build/install/cli/bin/cli ugc getGroup \
     --groupId 'ArWwPHcy' \
     --namespace "$AB_NAMESPACE" \
     --userId 'FAdAtYci' \
@@ -643,7 +643,7 @@ java -jar "${CLI_JAR}" ugc getGroup \
 eval_tap $? 84 'GetGroup' test.out
 
 #- 85 UpdateGroup
-java -jar "${CLI_JAR}" ugc updateGroup \
+build/install/cli/bin/cli ugc updateGroup \
     --body '{"contents": ["LIgRwFRr"], "name": "0gwB9tz3"}' \
     --groupId 'vp99XVlV' \
     --namespace "$AB_NAMESPACE" \
@@ -652,7 +652,7 @@ java -jar "${CLI_JAR}" ugc updateGroup \
 eval_tap $? 85 'UpdateGroup' test.out
 
 #- 86 DeleteGroup
-java -jar "${CLI_JAR}" ugc deleteGroup \
+build/install/cli/bin/cli ugc deleteGroup \
     --groupId '0smip1tw' \
     --namespace "$AB_NAMESPACE" \
     --userId '3L7cUd9p' \
@@ -660,7 +660,7 @@ java -jar "${CLI_JAR}" ugc deleteGroup \
 eval_tap $? 86 'DeleteGroup' test.out
 
 #- 87 GetGroupContent
-java -jar "${CLI_JAR}" ugc getGroupContent \
+build/install/cli/bin/cli ugc getGroupContent \
     --groupId 'qtv6JfPZ' \
     --namespace "$AB_NAMESPACE" \
     --userId 'wcCVOXcV' \
@@ -668,7 +668,7 @@ java -jar "${CLI_JAR}" ugc getGroupContent \
 eval_tap $? 87 'GetGroupContent' test.out
 
 #- 88 DeleteAllUserStates
-java -jar "${CLI_JAR}" ugc deleteAllUserStates \
+build/install/cli/bin/cli ugc deleteAllUserStates \
     --namespace "$AB_NAMESPACE" \
     --userId 'a80TmCwt' \
     > test.out 2>&1

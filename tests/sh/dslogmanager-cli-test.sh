@@ -4,6 +4,8 @@
 # This is licensed software from AccelByte Inc, for limitations
 # and restrictions contact your company contract manager.
 
+# Code generated. DO NOT EDIT.
+
 # Meta:
 # - random seed: 256
 # - template file: cli_test.j2
@@ -29,13 +31,11 @@ eval_tap() {
   rm -f $4
 }
 
-CLI_JAR="${CLI_JAR:-../../samples/cli/build/libs/cli.jar}"
-
 echo "TAP version 13"
 echo "1..7"
 
 #- 1 Login
-java -jar "${CLI_JAR}" loginClient \
+build/install/cli/bin/cli loginClient \
     > test.out 2>&1
 eval_tap $? 1 'Login' test.out
 
@@ -47,38 +47,38 @@ fi
 touch "tmp.dat"
 
 #- 2 ListTerminatedServers
-java -jar "${CLI_JAR}" dslogmanager listTerminatedServers \
+build/install/cli/bin/cli dslogmanager listTerminatedServers \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 2 'ListTerminatedServers' test.out
 
 #- 3 DownloadServerLogs
-java -jar "${CLI_JAR}" dslogmanager downloadServerLogs \
+build/install/cli/bin/cli dslogmanager downloadServerLogs \
     --namespace "$AB_NAMESPACE" \
     --podName 'FtBxyZcD' \
     > test.out 2>&1
 eval_tap $? 3 'DownloadServerLogs' test.out
 
 #- 4 CheckServerLogs
-java -jar "${CLI_JAR}" dslogmanager checkServerLogs \
+build/install/cli/bin/cli dslogmanager checkServerLogs \
     --namespace "$AB_NAMESPACE" \
     --podName 'XBpGlsQu' \
     > test.out 2>&1
 eval_tap $? 4 'CheckServerLogs' test.out
 
 #- 5 BatchDownloadServerLogs
-java -jar "${CLI_JAR}" dslogmanager batchDownloadServerLogs \
+build/install/cli/bin/cli dslogmanager batchDownloadServerLogs \
     --body '{"Downloads": [{"alloc_id": "Ju8vMf0I", "namespace": "sJkTrd8I", "pod_name": "DcV2zXnT"}]}' \
     > test.out 2>&1
 eval_tap $? 5 'BatchDownloadServerLogs' test.out
 
 #- 6 ListAllTerminatedServers
-java -jar "${CLI_JAR}" dslogmanager listAllTerminatedServers \
+build/install/cli/bin/cli dslogmanager listAllTerminatedServers \
     > test.out 2>&1
 eval_tap $? 6 'ListAllTerminatedServers' test.out
 
 #- 7 PublicGetMessages
-java -jar "${CLI_JAR}" dslogmanager publicGetMessages \
+build/install/cli/bin/cli dslogmanager publicGetMessages \
     > test.out 2>&1
 eval_tap $? 7 'PublicGetMessages' test.out
 

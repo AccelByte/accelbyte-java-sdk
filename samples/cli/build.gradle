@@ -14,19 +14,8 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
-mainClassName = 'net.accelbyte.sdk.cli.Main'
-task fatJar(type: Jar) {
-    duplicatesStrategy = 'include'
-    manifest {
-        attributes(
-        'Main-Class': "${mainClassName}"
-        )
-    }
-    archiveBaseName = "${rootProject.name}"
-    from {
-        configurations.runtimeClasspath.filter{ it.exists() }.collect { it.isDirectory() ? it : zipTree(it) }
-    }
-    with jar
+application {
+    mainClass = 'net.accelbyte.sdk.cli.Main'
 }
 
 dependencies {
@@ -47,3 +36,18 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+// mainClassName = 'net.accelbyte.sdk.cli.Main'
+// task fatJar(type: Jar) {
+//     duplicatesStrategy = 'include'
+//     manifest {
+//         attributes(
+//         'Main-Class': "${mainClassName}"
+//         )
+//     }
+//     archiveBaseName = "${rootProject.name}"
+//     from {
+//         configurations.runtimeClasspath.filter{ it.exists() }.collect { it.isDirectory() ? it : zipTree(it) }
+//     }
+//     with jar
+// }

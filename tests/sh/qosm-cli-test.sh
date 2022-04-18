@@ -4,6 +4,8 @@
 # This is licensed software from AccelByte Inc, for limitations
 # and restrictions contact your company contract manager.
 
+# Code generated. DO NOT EDIT.
+
 # Meta:
 # - random seed: 256
 # - template file: cli_test.j2
@@ -29,13 +31,11 @@ eval_tap() {
   rm -f $4
 }
 
-CLI_JAR="${CLI_JAR:-../../samples/cli/build/libs/cli.jar}"
-
 echo "TAP version 13"
 echo "1..5"
 
 #- 1 Login
-java -jar "${CLI_JAR}" loginClient \
+build/install/cli/bin/cli loginClient \
     > test.out 2>&1
 eval_tap $? 1 'Login' test.out
 
@@ -47,25 +47,25 @@ fi
 touch "tmp.dat"
 
 #- 2 DeleteServer
-java -jar "${CLI_JAR}" qosm deleteServer \
+build/install/cli/bin/cli qosm deleteServer \
     --region 'FtBxyZcD' \
     > test.out 2>&1
 eval_tap $? 2 'DeleteServer' test.out
 
 #- 3 SetServerAlias
-java -jar "${CLI_JAR}" qosm setServerAlias \
+build/install/cli/bin/cli qosm setServerAlias \
     --body '{"alias": "XBpGlsQu"}' \
     --region 'Ju8vMf0I' \
     > test.out 2>&1
 eval_tap $? 3 'SetServerAlias' test.out
 
 #- 4 ListServer
-java -jar "${CLI_JAR}" qosm listServer \
+build/install/cli/bin/cli qosm listServer \
     > test.out 2>&1
 eval_tap $? 4 'ListServer' test.out
 
 #- 5 Heartbeat
-java -jar "${CLI_JAR}" qosm heartbeat \
+build/install/cli/bin/cli qosm heartbeat \
     --body '{"ip": "sJkTrd8I", "port": 59, "region": "cV2zXnTK"}' \
     > test.out 2>&1
 eval_tap $? 5 'Heartbeat' test.out

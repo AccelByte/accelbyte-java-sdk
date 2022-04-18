@@ -4,6 +4,8 @@
 # This is licensed software from AccelByte Inc, for limitations
 # and restrictions contact your company contract manager.
 
+# Code generated. DO NOT EDIT.
+
 # Meta:
 # - random seed: 256
 # - template file: cli_test.j2
@@ -29,13 +31,11 @@ eval_tap() {
   rm -f $4
 }
 
-CLI_JAR="${CLI_JAR:-../../samples/cli/build/libs/cli.jar}"
-
 echo "TAP version 13"
 echo "1..29"
 
 #- 1 Login
-java -jar "${CLI_JAR}" loginClient \
+build/install/cli/bin/cli loginClient \
     > test.out 2>&1
 eval_tap $? 1 'Login' test.out
 
@@ -47,103 +47,103 @@ fi
 touch "tmp.dat"
 
 #- 2 GetHealthcheckInfo
-java -jar "${CLI_JAR}" matchmaking getHealthcheckInfo \
+build/install/cli/bin/cli matchmaking getHealthcheckInfo \
     > test.out 2>&1
 eval_tap $? 2 'GetHealthcheckInfo' test.out
 
 #- 3 HandlerV3Healthz
-java -jar "${CLI_JAR}" matchmaking handlerV3Healthz \
+build/install/cli/bin/cli matchmaking handlerV3Healthz \
     > test.out 2>&1
 eval_tap $? 3 'HandlerV3Healthz' test.out
 
 #- 4 GetAllChannelsHandler
-java -jar "${CLI_JAR}" matchmaking getAllChannelsHandler \
+build/install/cli/bin/cli matchmaking getAllChannelsHandler \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 4 'GetAllChannelsHandler' test.out
 
 #- 5 CreateChannelHandler
-java -jar "${CLI_JAR}" matchmaking createChannelHandler \
+build/install/cli/bin/cli matchmaking createChannelHandler \
     --body '{"deployment": "FtBxyZcD", "description": "XBpGlsQu", "find_match_timeout_seconds": 71, "game_mode": "u8vMf0Is", "joinable": false, "max_delay_ms": 90, "rule_set": {"alliance": {"max_number": 34, "min_number": 6, "player_max_number": 68, "player_min_number": 59}, "alliance_flexing_rule": [{"duration": 4, "max_number": 95, "min_number": 51, "player_max_number": 98, "player_min_number": 27}], "flexing_rule": [{"attribute": "TKjXY1bP", "criteria": "qamiBxx9", "duration": 57, "reference": 0.2813861209359233}], "match_options": {"options": [{"name": "8EY84ekI", "type": "tqRzHU1o"}]}, "matching_rule": [{"attribute": "h570KQBV", "criteria": "aewc72kr", "reference": 0.698496946052087}], "sub_game_modes": {"a68n3Yno": {"alliance": {"max_number": 51, "min_number": 31, "player_max_number": 56, "player_min_number": 72}, "alliance_flexing_rule": [{"duration": 24, "max_number": 68, "min_number": 85, "player_max_number": 91, "player_min_number": 41}], "name": "BdNEUsxF"}}}, "session_queue_timeout_seconds": 2, "social_matchmaking": true, "use_sub_gamemode": true}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 5 'CreateChannelHandler' test.out
 
 #- 6 DeleteChannelHandler
-java -jar "${CLI_JAR}" matchmaking deleteChannelHandler \
+build/install/cli/bin/cli matchmaking deleteChannelHandler \
     --channel 'JZaMSxEC' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 6 'DeleteChannelHandler' test.out
 
 #- 7 StoreMatchResults
-java -jar "${CLI_JAR}" matchmaking storeMatchResults \
+build/install/cli/bin/cli matchmaking storeMatchResults \
     --body '{"match_id": "bZbygyoa", "players": [{"results": [{"attribute": "rORoeNHS", "value": 0.019251152430858398}], "user_id": "Rh3kgs9q"}]}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 7 'StoreMatchResults' test.out
 
 #- 8 QueueSessionHandler
-java -jar "${CLI_JAR}" matchmaking queueSessionHandler \
+build/install/cli/bin/cli matchmaking queueSessionHandler \
     --body '{"channel": "qJbnQsoB", "client_version": "giVpP8Cm", "deployment": "3yvASUox", "game_mode": "dxxFqmAG", "joinable": true, "match_id": "dagEtp4w", "matching_allies": [{"matching_parties": [{"first_ticket_created_at": 73, "party_attributes": {"Ou9c19R6": {}}, "party_id": "XDqWHkkP", "party_members": [{"extra_attributes": {"8npLEKMf": {}}, "user_id": "jiX7jpkV"}]}]}], "namespace": "Zk3IaQYE", "party_attributes": {"mqGodOEG": {}}, "party_id": "t9gPOj0c", "queued_at": 16, "region": "0JkvIas7", "server_name": "3ucYnFAJ", "status": "3DK5T4Eo", "updated_at": "1974-02-20T00:00:00Z"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 8 'QueueSessionHandler' test.out
 
 #- 9 DequeueSessionHandler
-java -jar "${CLI_JAR}" matchmaking dequeueSessionHandler \
+build/install/cli/bin/cli matchmaking dequeueSessionHandler \
     --body '{"match_id": "0Y39UoYl"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 9 'DequeueSessionHandler' test.out
 
 #- 10 QuerySessionHandler
-java -jar "${CLI_JAR}" matchmaking querySessionHandler \
+build/install/cli/bin/cli matchmaking querySessionHandler \
     --matchID 'pv5bVAgt' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 10 'QuerySessionHandler' test.out
 
 #- 11 UpdatePlayTimeWeight
-java -jar "${CLI_JAR}" matchmaking updatePlayTimeWeight \
+build/install/cli/bin/cli matchmaking updatePlayTimeWeight \
     --body '{"playtime": 36, "userID": "DhUTDUsc", "weight": 0.018605669361531185}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 11 'UpdatePlayTimeWeight' test.out
 
 #- 12 GetAllPartyInAllChannel
-java -jar "${CLI_JAR}" matchmaking getAllPartyInAllChannel \
+build/install/cli/bin/cli matchmaking getAllPartyInAllChannel \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 12 'GetAllPartyInAllChannel' test.out
 
 #- 13 BulkGetSessions
-java -jar "${CLI_JAR}" matchmaking bulkGetSessions \
+build/install/cli/bin/cli matchmaking bulkGetSessions \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 13 'BulkGetSessions' test.out
 
 #- 14 ExportChannels
-java -jar "${CLI_JAR}" matchmaking exportChannels \
+build/install/cli/bin/cli matchmaking exportChannels \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 14 'ExportChannels' test.out
 
 #- 15 ImportChannels
-java -jar "${CLI_JAR}" matchmaking importChannels \
+build/install/cli/bin/cli matchmaking importChannels \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 15 'ImportChannels' test.out
 
 #- 16 GetSingleMatchmakingChannel
-java -jar "${CLI_JAR}" matchmaking getSingleMatchmakingChannel \
+build/install/cli/bin/cli matchmaking getSingleMatchmakingChannel \
     --channelName 'DjbTQuPM' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 16 'GetSingleMatchmakingChannel' test.out
 
 #- 17 UpdateMatchmakingChannel
-java -jar "${CLI_JAR}" matchmaking updateMatchmakingChannel \
+build/install/cli/bin/cli matchmaking updateMatchmakingChannel \
     --body '{"deployment": "z2PTRlky", "description": "U89ZPOw6", "findMatchTimeoutSeconds": 50, "joinable": true, "max_delay_ms": 71, "ruleSet": {"alliance": {"maxNumber": 5, "minNumber": 45, "playerMaxNumber": 25, "playerMinNumber": 50}, "alliance_flexing_rule": [{"duration": 55, "max_number": 54, "min_number": 88, "player_max_number": 76, "player_min_number": 78}], "flexingRules": [{"attribute": "coAAOjKN", "criteria": "jfcYHm09", "duration": 0, "reference": 0.7842530988331963}], "match_options": {"options": [{"name": "BU1sqjyK", "type": "0XH45PaR"}]}, "matchingRules": [{"attribute": "SOFQBtu2", "criteria": "3REZ8hRV", "reference": 0.772246792360384}], "sub_game_modes": {}}, "sessionQueueTimeoutSeconds": 74, "socialMatchmaking": true, "use_sub_gamemode": true}' \
     --channelName 'dYiQS9i7' \
     --namespace "$AB_NAMESPACE" \
@@ -151,21 +151,21 @@ java -jar "${CLI_JAR}" matchmaking updateMatchmakingChannel \
 eval_tap $? 17 'UpdateMatchmakingChannel' test.out
 
 #- 18 GetAllPartyInChannel
-java -jar "${CLI_JAR}" matchmaking getAllPartyInChannel \
+build/install/cli/bin/cli matchmaking getAllPartyInChannel \
     --channelName 'mV1C91pj' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 18 'GetAllPartyInChannel' test.out
 
 #- 19 GetAllSessionsInChannel
-java -jar "${CLI_JAR}" matchmaking getAllSessionsInChannel \
+build/install/cli/bin/cli matchmaking getAllSessionsInChannel \
     --channelName 'G9gpxL6y' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 19 'GetAllSessionsInChannel' test.out
 
 #- 20 AddUserIntoSessionInChannel
-java -jar "${CLI_JAR}" matchmaking addUserIntoSessionInChannel \
+build/install/cli/bin/cli matchmaking addUserIntoSessionInChannel \
     --body '{"blocked_players": ["cTQdvln2"], "party_id": "LAuSQWEX", "user_id": "L6LFE1YH"}' \
     --channelName 'o9m126ZW' \
     --matchID 'c8hHtWvb' \
@@ -174,7 +174,7 @@ java -jar "${CLI_JAR}" matchmaking addUserIntoSessionInChannel \
 eval_tap $? 20 'AddUserIntoSessionInChannel' test.out
 
 #- 21 DeleteSessionInChannel
-java -jar "${CLI_JAR}" matchmaking deleteSessionInChannel \
+build/install/cli/bin/cli matchmaking deleteSessionInChannel \
     --channelName 'NYqgUqsl' \
     --matchID 'ArFPiHUI' \
     --namespace "$AB_NAMESPACE" \
@@ -182,7 +182,7 @@ java -jar "${CLI_JAR}" matchmaking deleteSessionInChannel \
 eval_tap $? 21 'DeleteSessionInChannel' test.out
 
 #- 22 DeleteUserFromSessionInChannel
-java -jar "${CLI_JAR}" matchmaking deleteUserFromSessionInChannel \
+build/install/cli/bin/cli matchmaking deleteUserFromSessionInChannel \
     --channelName 'vaCv8kU9' \
     --matchID 'dBBpdsJL' \
     --namespace "$AB_NAMESPACE" \
@@ -191,7 +191,7 @@ java -jar "${CLI_JAR}" matchmaking deleteUserFromSessionInChannel \
 eval_tap $? 22 'DeleteUserFromSessionInChannel' test.out
 
 #- 23 SearchSessions
-java -jar "${CLI_JAR}" matchmaking searchSessions \
+build/install/cli/bin/cli matchmaking searchSessions \
     --namespace "$AB_NAMESPACE" \
     --limit '46' \
     --offset '29' \
@@ -199,32 +199,32 @@ java -jar "${CLI_JAR}" matchmaking searchSessions \
 eval_tap $? 23 'SearchSessions' test.out
 
 #- 24 GetSessionHistoryDetailed
-java -jar "${CLI_JAR}" matchmaking getSessionHistoryDetailed \
+build/install/cli/bin/cli matchmaking getSessionHistoryDetailed \
     --matchID 'ot0B7WOf' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 24 'GetSessionHistoryDetailed' test.out
 
 #- 25 PublicGetMessages
-java -jar "${CLI_JAR}" matchmaking publicGetMessages \
+build/install/cli/bin/cli matchmaking publicGetMessages \
     > test.out 2>&1
 eval_tap $? 25 'PublicGetMessages' test.out
 
 #- 26 PublicGetAllMatchmakingChannel
-java -jar "${CLI_JAR}" matchmaking publicGetAllMatchmakingChannel \
+build/install/cli/bin/cli matchmaking publicGetAllMatchmakingChannel \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 26 'PublicGetAllMatchmakingChannel' test.out
 
 #- 27 PublicGetSingleMatchmakingChannel
-java -jar "${CLI_JAR}" matchmaking publicGetSingleMatchmakingChannel \
+build/install/cli/bin/cli matchmaking publicGetSingleMatchmakingChannel \
     --channelName 'ercZdpMc' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 27 'PublicGetSingleMatchmakingChannel' test.out
 
 #- 28 SearchSessionsV2
-java -jar "${CLI_JAR}" matchmaking searchSessionsV2 \
+build/install/cli/bin/cli matchmaking searchSessionsV2 \
     --namespace "$AB_NAMESPACE" \
     --limit '17' \
     --offset '58' \
@@ -232,7 +232,7 @@ java -jar "${CLI_JAR}" matchmaking searchSessionsV2 \
 eval_tap $? 28 'SearchSessionsV2' test.out
 
 #- 29 VersionCheckHandler
-java -jar "${CLI_JAR}" matchmaking versionCheckHandler \
+build/install/cli/bin/cli matchmaking versionCheckHandler \
     > test.out 2>&1
 eval_tap $? 29 'VersionCheckHandler' test.out
 

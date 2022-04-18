@@ -4,6 +4,8 @@
 # This is licensed software from AccelByte Inc, for limitations
 # and restrictions contact your company contract manager.
 
+# Code generated. DO NOT EDIT.
+
 # Meta:
 # - random seed: 256
 # - template file: cli_test.j2
@@ -29,13 +31,11 @@ eval_tap() {
   rm -f $4
 }
 
-CLI_JAR="${CLI_JAR:-../../samples/cli/build/libs/cli.jar}"
-
 echo "TAP version 13"
 echo "1..33"
 
 #- 1 Login
-java -jar "${CLI_JAR}" loginClient \
+build/install/cli/bin/cli loginClient \
     > test.out 2>&1
 eval_tap $? 1 'Login' test.out
 
@@ -131,28 +131,28 @@ eval_tap 0 28 'UnregisterEventIDHandler # SKIP deprecated' test.out
 eval_tap 0 29 'GetRegisteredEventsByEventTypeHandler # SKIP deprecated' test.out
 
 #- 30 QueryEventStreamHandler
-java -jar "${CLI_JAR}" eventlog queryEventStreamHandler \
+build/install/cli/bin/cli eventlog queryEventStreamHandler \
     --body '{"clientId": "FtBxyZcD", "eventName": "XBpGlsQu", "payloadQuery": {"Ju8vMf0I": {}}, "sessionId": "sJkTrd8I", "traceId": "DcV2zXnT", "userId": "KjXY1bPq", "version": 1}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 30 'QueryEventStreamHandler' test.out
 
 #- 31 GetEventSpecificUserV2Handler
-java -jar "${CLI_JAR}" eventlog getEventSpecificUserV2Handler \
+build/install/cli/bin/cli eventlog getEventSpecificUserV2Handler \
     --namespace "$AB_NAMESPACE" \
     --userId 'miBxx9Cs' \
     > test.out 2>&1
 eval_tap $? 31 'GetEventSpecificUserV2Handler' test.out
 
 #- 32 GetPublicEditHistory
-java -jar "${CLI_JAR}" eventlog getPublicEditHistory \
+build/install/cli/bin/cli eventlog getPublicEditHistory \
     --namespace "$AB_NAMESPACE" \
     --userId '18EY84ek' \
     > test.out 2>&1
 eval_tap $? 32 'GetPublicEditHistory' test.out
 
 #- 33 GetUserEventsV2Public
-java -jar "${CLI_JAR}" eventlog getUserEventsV2Public \
+build/install/cli/bin/cli eventlog getUserEventsV2Public \
     --namespace "$AB_NAMESPACE" \
     --userId 'ItqRzHU1' \
     > test.out 2>&1

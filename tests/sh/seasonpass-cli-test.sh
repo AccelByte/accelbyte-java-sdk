@@ -4,6 +4,8 @@
 # This is licensed software from AccelByte Inc, for limitations
 # and restrictions contact your company contract manager.
 
+# Code generated. DO NOT EDIT.
+
 # Meta:
 # - random seed: 256
 # - template file: cli_test.j2
@@ -29,13 +31,11 @@ eval_tap() {
   rm -f $4
 }
 
-CLI_JAR="${CLI_JAR:-../../samples/cli/build/libs/cli.jar}"
-
 echo "TAP version 13"
 echo "1..40"
 
 #- 1 Login
-java -jar "${CLI_JAR}" loginClient \
+build/install/cli/bin/cli loginClient \
     > test.out 2>&1
 eval_tap $? 1 'Login' test.out
 
@@ -47,40 +47,40 @@ fi
 touch "tmp.dat"
 
 #- 2 QuerySeasons
-java -jar "${CLI_JAR}" seasonpass querySeasons \
+build/install/cli/bin/cli seasonpass querySeasons \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 2 'QuerySeasons' test.out
 
 #- 3 CreateSeason
-java -jar "${CLI_JAR}" seasonpass createSeason \
+build/install/cli/bin/cli seasonpass createSeason \
     --namespace "$AB_NAMESPACE" \
     --body '{"autoClaim": true, "defaultLanguage": "tBxyZcDX", "defaultRequiredExp": 55, "draftStoreId": "pGlsQuJu", "end": "1981-11-03T00:00:00Z", "excessStrategy": {"currency": "f0IsJkTr", "method": "NONE", "percentPerExp": 68}, "images": [{"as": "DcV2zXnT", "caption": "KjXY1bPq", "height": 1, "imageUrl": "miBxx9Cs", "smallImageUrl": "18EY84ek", "width": 69}], "localizations": {"tqRzHU1o": {"description": "h570KQBV", "title": "aewc72kr"}}, "name": "Sha68n3Y", "start": "1977-04-27T00:00:00Z", "tierItemId": "zp1C2KmI"}' \
     > test.out 2>&1
 eval_tap $? 3 'CreateSeason' test.out
 
 #- 4 GetCurrentSeason
-java -jar "${CLI_JAR}" seasonpass getCurrentSeason \
+build/install/cli/bin/cli seasonpass getCurrentSeason \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 4 'GetCurrentSeason' test.out
 
 #- 5 GetSeason
-java -jar "${CLI_JAR}" seasonpass getSeason \
+build/install/cli/bin/cli seasonpass getSeason \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'QTuBdNEU' \
     > test.out 2>&1
 eval_tap $? 5 'GetSeason' test.out
 
 #- 6 DeleteSeason
-java -jar "${CLI_JAR}" seasonpass deleteSeason \
+build/install/cli/bin/cli seasonpass deleteSeason \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'sxFb8CJ1' \
     > test.out 2>&1
 eval_tap $? 6 'DeleteSeason' test.out
 
 #- 7 UpdateSeason
-java -jar "${CLI_JAR}" seasonpass updateSeason \
+build/install/cli/bin/cli seasonpass updateSeason \
     --namespace "$AB_NAMESPACE" \
     --seasonId '7M7DJZaM' \
     --body '{"autoClaim": true, "defaultLanguage": "ECbZbygy", "defaultRequiredExp": 29, "draftStoreId": "arORoeNH", "end": "1993-01-05T00:00:00Z", "excessStrategy": {"currency": "8Rh3kgs9", "method": "CURRENCY", "percentPerExp": 33}, "images": [{"as": "JbnQsoBg", "caption": "iVpP8Cm3", "height": 49, "imageUrl": "vASUoxdx", "smallImageUrl": "xFqmAGTJ", "width": 68}], "localizations": {"EdagEtp4": {"description": "w29KOu9c", "title": "19R6XDqW"}}, "name": "HkkP8npL", "start": "1986-10-17T00:00:00Z", "tierItemId": "MfjiX7jp"}' \
@@ -88,7 +88,7 @@ java -jar "${CLI_JAR}" seasonpass updateSeason \
 eval_tap $? 7 'UpdateSeason' test.out
 
 #- 8 CloneSeason
-java -jar "${CLI_JAR}" seasonpass cloneSeason \
+build/install/cli/bin/cli seasonpass cloneSeason \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'kVZk3IaQ' \
     --body '{"end": "1996-08-25T00:00:00Z", "name": "mqGodOEG", "start": "1980-02-22T00:00:00Z"}' \
@@ -96,14 +96,14 @@ java -jar "${CLI_JAR}" seasonpass cloneSeason \
 eval_tap $? 8 'CloneSeason' test.out
 
 #- 9 QueryPasses
-java -jar "${CLI_JAR}" seasonpass queryPasses \
+build/install/cli/bin/cli seasonpass queryPasses \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'POj0c6i0' \
     > test.out 2>&1
 eval_tap $? 9 'QueryPasses' test.out
 
 #- 10 CreatePass
-java -jar "${CLI_JAR}" seasonpass createPass \
+build/install/cli/bin/cli seasonpass createPass \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'JkvIas73' \
     --body '{"autoEnroll": true, "code": "cYnFAJ3D", "displayOrder": 72, "images": [{"as": "5T4Eogg0", "caption": "Y39UoYlp", "height": 43, "imageUrl": "5bVAgtsD", "smallImageUrl": "hUTDUscb", "width": 85}], "localizations": {"DjbTQuPM": {"description": "z2PTRlky", "title": "U89ZPOw6"}}, "passItemId": "zPFJ42cw"}' \
@@ -111,7 +111,7 @@ java -jar "${CLI_JAR}" seasonpass createPass \
 eval_tap $? 10 'CreatePass' test.out
 
 #- 11 GetPass
-java -jar "${CLI_JAR}" seasonpass getPass \
+build/install/cli/bin/cli seasonpass getPass \
     --code 'mzBBSMNc' \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'oAAOjKNj' \
@@ -119,7 +119,7 @@ java -jar "${CLI_JAR}" seasonpass getPass \
 eval_tap $? 11 'GetPass' test.out
 
 #- 12 DeletePass
-java -jar "${CLI_JAR}" seasonpass deletePass \
+build/install/cli/bin/cli seasonpass deletePass \
     --code 'fcYHm093' \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'aYgBU1sq' \
@@ -127,7 +127,7 @@ java -jar "${CLI_JAR}" seasonpass deletePass \
 eval_tap $? 12 'DeletePass' test.out
 
 #- 13 UpdatePass
-java -jar "${CLI_JAR}" seasonpass updatePass \
+build/install/cli/bin/cli seasonpass updatePass \
     --code 'jyK0XH45' \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'PaRSOFQB' \
@@ -136,28 +136,28 @@ java -jar "${CLI_JAR}" seasonpass updatePass \
 eval_tap $? 13 'UpdatePass' test.out
 
 #- 14 PublishSeason
-java -jar "${CLI_JAR}" seasonpass publishSeason \
+build/install/cli/bin/cli seasonpass publishSeason \
     --namespace "$AB_NAMESPACE" \
     --seasonId '126ZWc8h' \
     > test.out 2>&1
 eval_tap $? 14 'PublishSeason' test.out
 
 #- 15 RetireSeason
-java -jar "${CLI_JAR}" seasonpass retireSeason \
+build/install/cli/bin/cli seasonpass retireSeason \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'HtWvbNYq' \
     > test.out 2>&1
 eval_tap $? 15 'RetireSeason' test.out
 
 #- 16 QueryRewards
-java -jar "${CLI_JAR}" seasonpass queryRewards \
+build/install/cli/bin/cli seasonpass queryRewards \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'gUqslArF' \
     > test.out 2>&1
 eval_tap $? 16 'QueryRewards' test.out
 
 #- 17 CreateReward
-java -jar "${CLI_JAR}" seasonpass createReward \
+build/install/cli/bin/cli seasonpass createReward \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'PiHUIvaC' \
     --body '{"code": "v8kU9dBB", "currency": {"currencyCode": "pdsJLhsV", "namespace": "yExrkxoo"}, "image": {"as": "t0B7WOfe", "caption": "rcZdpMci", "height": 58, "imageUrl": "s7YSfExa", "smallImageUrl": "I3uzLteM", "width": 3}, "itemId": "FAlt4hr7", "quantity": 67, "type": "ITEM"}' \
@@ -165,7 +165,7 @@ java -jar "${CLI_JAR}" seasonpass createReward \
 eval_tap $? 17 'CreateReward' test.out
 
 #- 18 GetReward
-java -jar "${CLI_JAR}" seasonpass getReward \
+build/install/cli/bin/cli seasonpass getReward \
     --code 'OYiBA5lt' \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'AOXmlG6e' \
@@ -173,7 +173,7 @@ java -jar "${CLI_JAR}" seasonpass getReward \
 eval_tap $? 18 'GetReward' test.out
 
 #- 19 DeleteReward
-java -jar "${CLI_JAR}" seasonpass deleteReward \
+build/install/cli/bin/cli seasonpass deleteReward \
     --code 'h1dTdoTF' \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'pBIcuC1d' \
@@ -181,7 +181,7 @@ java -jar "${CLI_JAR}" seasonpass deleteReward \
 eval_tap $? 19 'DeleteReward' test.out
 
 #- 20 UpdateReward
-java -jar "${CLI_JAR}" seasonpass updateReward \
+build/install/cli/bin/cli seasonpass updateReward \
     --code 'QY93OJnJ' \
     --namespace "$AB_NAMESPACE" \
     --seasonId '6Te9vD8l' \
@@ -190,14 +190,14 @@ java -jar "${CLI_JAR}" seasonpass updateReward \
 eval_tap $? 20 'UpdateReward' test.out
 
 #- 21 QueryTiers
-java -jar "${CLI_JAR}" seasonpass queryTiers \
+build/install/cli/bin/cli seasonpass queryTiers \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'OGTMlJjB' \
     > test.out 2>&1
 eval_tap $? 21 'QueryTiers' test.out
 
 #- 22 CreateTier
-java -jar "${CLI_JAR}" seasonpass createTier \
+build/install/cli/bin/cli seasonpass createTier \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'wj9HJHQK' \
     --body '{"index": 36, "quantity": 8, "tier": {"requiredExp": 60, "rewards": {"dSXRDSvg": ["uauw1xT7"]}}}' \
@@ -205,7 +205,7 @@ java -jar "${CLI_JAR}" seasonpass createTier \
 eval_tap $? 22 'CreateTier' test.out
 
 #- 23 UpdateTier
-java -jar "${CLI_JAR}" seasonpass updateTier \
+build/install/cli/bin/cli seasonpass updateTier \
     --id 'eMwSl9ML' \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'H0NnTJ2u' \
@@ -214,7 +214,7 @@ java -jar "${CLI_JAR}" seasonpass updateTier \
 eval_tap $? 23 'UpdateTier' test.out
 
 #- 24 DeleteTier
-java -jar "${CLI_JAR}" seasonpass deleteTier \
+build/install/cli/bin/cli seasonpass deleteTier \
     --id 'A8RWSpab' \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'Ut7xk6Qx' \
@@ -222,7 +222,7 @@ java -jar "${CLI_JAR}" seasonpass deleteTier \
 eval_tap $? 24 'DeleteTier' test.out
 
 #- 25 ReorderTier
-java -jar "${CLI_JAR}" seasonpass reorderTier \
+build/install/cli/bin/cli seasonpass reorderTier \
     --id 'yWhfqoWf' \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'Jw2o8oWU' \
@@ -231,21 +231,21 @@ java -jar "${CLI_JAR}" seasonpass reorderTier \
 eval_tap $? 25 'ReorderTier' test.out
 
 #- 26 UnpublishSeason
-java -jar "${CLI_JAR}" seasonpass unpublishSeason \
+build/install/cli/bin/cli seasonpass unpublishSeason \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'vPCZ2HzT' \
     > test.out 2>&1
 eval_tap $? 26 'UnpublishSeason' test.out
 
 #- 27 GetUserParticipatedSeasons
-java -jar "${CLI_JAR}" seasonpass getUserParticipatedSeasons \
+build/install/cli/bin/cli seasonpass getUserParticipatedSeasons \
     --namespace "$AB_NAMESPACE" \
     --userId '7NXmWDlX' \
     > test.out 2>&1
 eval_tap $? 27 'GetUserParticipatedSeasons' test.out
 
 #- 28 GrantUserExp
-java -jar "${CLI_JAR}" seasonpass grantUserExp \
+build/install/cli/bin/cli seasonpass grantUserExp \
     --namespace "$AB_NAMESPACE" \
     --userId 'suNIdQJR' \
     --body '{"exp": 23}' \
@@ -253,7 +253,7 @@ java -jar "${CLI_JAR}" seasonpass grantUserExp \
 eval_tap $? 28 'GrantUserExp' test.out
 
 #- 29 GrantUserPass
-java -jar "${CLI_JAR}" seasonpass grantUserPass \
+build/install/cli/bin/cli seasonpass grantUserPass \
     --namespace "$AB_NAMESPACE" \
     --userId 'sNOlvkfw' \
     --body '{"passCode": "aSbnsuLC", "passItemId": "gToxuVTe"}' \
@@ -261,21 +261,21 @@ java -jar "${CLI_JAR}" seasonpass grantUserPass \
 eval_tap $? 29 'GrantUserPass' test.out
 
 #- 30 ExistsAnyPassByPassCodes
-java -jar "${CLI_JAR}" seasonpass existsAnyPassByPassCodes \
+build/install/cli/bin/cli seasonpass existsAnyPassByPassCodes \
     --namespace "$AB_NAMESPACE" \
     --userId 'kJgvg6h5' \
     > test.out 2>&1
 eval_tap $? 30 'ExistsAnyPassByPassCodes' test.out
 
 #- 31 GetCurrentUserSeasonProgression
-java -jar "${CLI_JAR}" seasonpass getCurrentUserSeasonProgression \
+build/install/cli/bin/cli seasonpass getCurrentUserSeasonProgression \
     --namespace "$AB_NAMESPACE" \
     --userId 'HIpH0Dvi' \
     > test.out 2>&1
 eval_tap $? 31 'GetCurrentUserSeasonProgression' test.out
 
 #- 32 CheckSeasonPurchasable
-java -jar "${CLI_JAR}" seasonpass checkSeasonPurchasable \
+build/install/cli/bin/cli seasonpass checkSeasonPurchasable \
     --namespace "$AB_NAMESPACE" \
     --userId 'plEk4vj3' \
     --body '{"passItemId": "LDp4yqDt", "tierItemCount": 85, "tierItemId": "UZDpxlHa"}' \
@@ -283,14 +283,14 @@ java -jar "${CLI_JAR}" seasonpass checkSeasonPurchasable \
 eval_tap $? 32 'CheckSeasonPurchasable' test.out
 
 #- 33 ResetUserSeason
-java -jar "${CLI_JAR}" seasonpass resetUserSeason \
+build/install/cli/bin/cli seasonpass resetUserSeason \
     --namespace "$AB_NAMESPACE" \
     --userId 'sinGcjrk' \
     > test.out 2>&1
 eval_tap $? 33 'ResetUserSeason' test.out
 
 #- 34 GrantUserTier
-java -jar "${CLI_JAR}" seasonpass grantUserTier \
+build/install/cli/bin/cli seasonpass grantUserTier \
     --namespace "$AB_NAMESPACE" \
     --userId 'mRMttgjD' \
     --body '{"count": 88}' \
@@ -298,7 +298,7 @@ java -jar "${CLI_JAR}" seasonpass grantUserTier \
 eval_tap $? 34 'GrantUserTier' test.out
 
 #- 35 GetUserSeason
-java -jar "${CLI_JAR}" seasonpass getUserSeason \
+build/install/cli/bin/cli seasonpass getUserSeason \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'aIVBmft3' \
     --userId 'Udg7p9PG' \
@@ -306,20 +306,20 @@ java -jar "${CLI_JAR}" seasonpass getUserSeason \
 eval_tap $? 35 'GetUserSeason' test.out
 
 #- 36 PublicGetCurrentSeason
-java -jar "${CLI_JAR}" seasonpass publicGetCurrentSeason \
+build/install/cli/bin/cli seasonpass publicGetCurrentSeason \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 36 'PublicGetCurrentSeason' test.out
 
 #- 37 PublicGetCurrentUserSeason
-java -jar "${CLI_JAR}" seasonpass publicGetCurrentUserSeason \
+build/install/cli/bin/cli seasonpass publicGetCurrentUserSeason \
     --namespace "$AB_NAMESPACE" \
     --userId 'mY2H5kX4' \
     > test.out 2>&1
 eval_tap $? 37 'PublicGetCurrentUserSeason' test.out
 
 #- 38 PublicClaimUserReward
-java -jar "${CLI_JAR}" seasonpass publicClaimUserReward \
+build/install/cli/bin/cli seasonpass publicClaimUserReward \
     --namespace "$AB_NAMESPACE" \
     --userId 'MsisSX28' \
     --body '{"passCode": "nARxWRpv", "rewardCode": "5ou5xtvd", "tierIndex": 80}' \
@@ -327,14 +327,14 @@ java -jar "${CLI_JAR}" seasonpass publicClaimUserReward \
 eval_tap $? 38 'PublicClaimUserReward' test.out
 
 #- 39 PublicBulkClaimUserRewards
-java -jar "${CLI_JAR}" seasonpass publicBulkClaimUserRewards \
+build/install/cli/bin/cli seasonpass publicBulkClaimUserRewards \
     --namespace "$AB_NAMESPACE" \
     --userId 'UfCt8UJC' \
     > test.out 2>&1
 eval_tap $? 39 'PublicBulkClaimUserRewards' test.out
 
 #- 40 PublicGetUserSeason
-java -jar "${CLI_JAR}" seasonpass publicGetUserSeason \
+build/install/cli/bin/cli seasonpass publicGetUserSeason \
     --namespace "$AB_NAMESPACE" \
     --seasonId '5flNyj6H' \
     --userId 'sTtX8P3l' \

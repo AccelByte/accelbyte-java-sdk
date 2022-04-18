@@ -4,6 +4,8 @@
 # This is licensed software from AccelByte Inc, for limitations
 # and restrictions contact your company contract manager.
 
+# Code generated. DO NOT EDIT.
+
 # Meta:
 # - random seed: 256
 # - template file: cli_test.j2
@@ -29,13 +31,11 @@ eval_tap() {
   rm -f $4
 }
 
-CLI_JAR="${CLI_JAR:-../../samples/cli/build/libs/cli.jar}"
-
 echo "TAP version 13"
 echo "1..58"
 
 #- 1 Login
-java -jar "${CLI_JAR}" loginClient \
+build/install/cli/bin/cli loginClient \
     > test.out 2>&1
 eval_tap $? 1 'Login' test.out
 
@@ -47,97 +47,97 @@ fi
 touch "tmp.dat"
 
 #- 2 GetNamespaces
-java -jar "${CLI_JAR}" basic getNamespaces \
+build/install/cli/bin/cli basic getNamespaces \
     > test.out 2>&1
 eval_tap $? 2 'GetNamespaces' test.out
 
 #- 3 CreateNamespace
-java -jar "${CLI_JAR}" basic createNamespace \
+build/install/cli/bin/cli basic createNamespace \
     --body '{"displayName": "FtBxyZcD", "namespace": "XBpGlsQu"}' \
     > test.out 2>&1
 eval_tap $? 3 'CreateNamespace' test.out
 
 #- 4 GetNamespace
-java -jar "${CLI_JAR}" basic getNamespace \
+build/install/cli/bin/cli basic getNamespace \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 4 'GetNamespace' test.out
 
 #- 5 DeleteNamespace
-java -jar "${CLI_JAR}" basic deleteNamespace \
+build/install/cli/bin/cli basic deleteNamespace \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 5 'DeleteNamespace' test.out
 
 #- 6 GetActions
-java -jar "${CLI_JAR}" basic getActions \
+build/install/cli/bin/cli basic getActions \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 6 'GetActions' test.out
 
 #- 7 BanUsers
-java -jar "${CLI_JAR}" basic banUsers \
+build/install/cli/bin/cli basic banUsers \
     --namespace "$AB_NAMESPACE" \
     --body '{"actionId": 71, "comment": "u8vMf0Is", "userIds": ["JkTrd8ID"]}' \
     > test.out 2>&1
 eval_tap $? 7 'BanUsers' test.out
 
 #- 8 GetBannedUsers
-java -jar "${CLI_JAR}" basic getBannedUsers \
+build/install/cli/bin/cli basic getBannedUsers \
     --namespace "$AB_NAMESPACE" \
     --userIds '["cV2zXnTK"]' \
     > test.out 2>&1
 eval_tap $? 8 'GetBannedUsers' test.out
 
 #- 9 ReportUser
-java -jar "${CLI_JAR}" basic reportUser \
+build/install/cli/bin/cli basic reportUser \
     --namespace "$AB_NAMESPACE" \
     --body '{"category": "jXY1bPqa", "description": "miBxx9Cs", "gameSessionId": "18EY84ek", "subcategory": "ItqRzHU1", "userId": "oh570KQB"}' \
     > test.out 2>&1
 eval_tap $? 9 'ReportUser' test.out
 
 #- 10 GetUserStatus
-java -jar "${CLI_JAR}" basic getUserStatus \
+build/install/cli/bin/cli basic getUserStatus \
     --namespace "$AB_NAMESPACE" \
     --userId 'Vaewc72k' \
     > test.out 2>&1
 eval_tap $? 10 'GetUserStatus' test.out
 
 #- 11 UnBanUsers
-java -jar "${CLI_JAR}" basic unBanUsers \
+build/install/cli/bin/cli basic unBanUsers \
     --namespace "$AB_NAMESPACE" \
     --body '{"comment": "rSha68n3", "userIds": ["Ynozp1C2"]}' \
     > test.out 2>&1
 eval_tap $? 11 'UnBanUsers' test.out
 
 #- 12 UpdateNamespace
-java -jar "${CLI_JAR}" basic updateNamespace \
+build/install/cli/bin/cli basic updateNamespace \
     --namespace "$AB_NAMESPACE" \
     --body '{"displayName": "KmIQTuBd"}' \
     > test.out 2>&1
 eval_tap $? 12 'UpdateNamespace' test.out
 
 #- 13 GetConfig
-java -jar "${CLI_JAR}" basic getConfig \
+build/install/cli/bin/cli basic getConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 13 'GetConfig' test.out
 
 #- 14 DeleteConfig
-java -jar "${CLI_JAR}" basic deleteConfig \
+build/install/cli/bin/cli basic deleteConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 14 'DeleteConfig' test.out
 
 #- 15 UpdateConfig
-java -jar "${CLI_JAR}" basic updateConfig \
+build/install/cli/bin/cli basic updateConfig \
     --namespace "$AB_NAMESPACE" \
     --body '{"apiKey": "NEUsxFb8"}' \
     > test.out 2>&1
 eval_tap $? 15 'UpdateConfig' test.out
 
 #- 16 GeneratedUploadUrl
-java -jar "${CLI_JAR}" basic generatedUploadUrl \
+build/install/cli/bin/cli basic generatedUploadUrl \
     --folder 'CJ17M7DJ' \
     --namespace "$AB_NAMESPACE" \
     --fileType 'ZaMSxECb' \
@@ -145,26 +145,26 @@ java -jar "${CLI_JAR}" basic generatedUploadUrl \
 eval_tap $? 16 'GeneratedUploadUrl' test.out
 
 #- 17 GetCountries
-java -jar "${CLI_JAR}" basic getCountries \
+build/install/cli/bin/cli basic getCountries \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 17 'GetCountries' test.out
 
 #- 18 GetCountryGroups
-java -jar "${CLI_JAR}" basic getCountryGroups \
+build/install/cli/bin/cli basic getCountryGroups \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 18 'GetCountryGroups' test.out
 
 #- 19 AddCountryGroup
-java -jar "${CLI_JAR}" basic addCountryGroup \
+build/install/cli/bin/cli basic addCountryGroup \
     --namespace "$AB_NAMESPACE" \
     --body '{"countries": [{"code": "Zbygyoar", "name": "ORoeNHSb"}], "countryGroupCode": "8Rh3kgs9", "countryGroupName": "qqJbnQso"}' \
     > test.out 2>&1
 eval_tap $? 19 'AddCountryGroup' test.out
 
 #- 20 UpdateCountryGroup
-java -jar "${CLI_JAR}" basic updateCountryGroup \
+build/install/cli/bin/cli basic updateCountryGroup \
     --countryGroupCode 'BgiVpP8C' \
     --namespace "$AB_NAMESPACE" \
     --body '{"countries": [{"code": "m3yvASUo", "name": "xdxxFqmA"}], "countryGroupName": "GTJ8IEda"}' \
@@ -172,53 +172,53 @@ java -jar "${CLI_JAR}" basic updateCountryGroup \
 eval_tap $? 20 'UpdateCountryGroup' test.out
 
 #- 21 DeleteCountryGroup
-java -jar "${CLI_JAR}" basic deleteCountryGroup \
+build/install/cli/bin/cli basic deleteCountryGroup \
     --countryGroupCode 'gEtp4w29' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 21 'DeleteCountryGroup' test.out
 
 #- 22 GetLanguages
-java -jar "${CLI_JAR}" basic getLanguages \
+build/install/cli/bin/cli basic getLanguages \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 22 'GetLanguages' test.out
 
 #- 23 GetTimeZones
-java -jar "${CLI_JAR}" basic getTimeZones \
+build/install/cli/bin/cli basic getTimeZones \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 23 'GetTimeZones' test.out
 
 #- 24 AdminGetUserProfilePublicInfoByIds
-java -jar "${CLI_JAR}" basic adminGetUserProfilePublicInfoByIds \
+build/install/cli/bin/cli basic adminGetUserProfilePublicInfoByIds \
     --namespace "$AB_NAMESPACE" \
     --body '{"userIds": ["KOu9c19R"]}' \
     > test.out 2>&1
 eval_tap $? 24 'AdminGetUserProfilePublicInfoByIds' test.out
 
 #- 25 GetNamespacePublisher
-java -jar "${CLI_JAR}" basic getNamespacePublisher \
+build/install/cli/bin/cli basic getNamespacePublisher \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 25 'GetNamespacePublisher' test.out
 
 #- 26 ChangeNamespaceStatus
-java -jar "${CLI_JAR}" basic changeNamespaceStatus \
+build/install/cli/bin/cli basic changeNamespaceStatus \
     --namespace "$AB_NAMESPACE" \
     --body '{"status": "INACTIVE"}' \
     > test.out 2>&1
 eval_tap $? 26 'ChangeNamespaceStatus' test.out
 
 #- 27 AnonymizeUserProfile
-java -jar "${CLI_JAR}" basic anonymizeUserProfile \
+build/install/cli/bin/cli basic anonymizeUserProfile \
     --namespace "$AB_NAMESPACE" \
     --userId 'qWHkkP8n' \
     > test.out 2>&1
 eval_tap $? 27 'AnonymizeUserProfile' test.out
 
 #- 28 GeneratedUserUploadContentUrl
-java -jar "${CLI_JAR}" basic generatedUserUploadContentUrl \
+build/install/cli/bin/cli basic generatedUserUploadContentUrl \
     --namespace "$AB_NAMESPACE" \
     --userId 'pLEKMfji' \
     --fileType 'X7jpkVZk' \
@@ -226,14 +226,14 @@ java -jar "${CLI_JAR}" basic generatedUserUploadContentUrl \
 eval_tap $? 28 'GeneratedUserUploadContentUrl' test.out
 
 #- 29 GetUserProfileInfo
-java -jar "${CLI_JAR}" basic getUserProfileInfo \
+build/install/cli/bin/cli basic getUserProfileInfo \
     --namespace "$AB_NAMESPACE" \
     --userId '3IaQYEmq' \
     > test.out 2>&1
 eval_tap $? 29 'GetUserProfileInfo' test.out
 
 #- 30 UpdateUserProfile
-java -jar "${CLI_JAR}" basic updateUserProfile \
+build/install/cli/bin/cli basic updateUserProfile \
     --namespace "$AB_NAMESPACE" \
     --userId 'GodOEGt9' \
     --body '{"avatarLargeUrl": "gPOj0c6i", "avatarSmallUrl": "0JkvIas7", "avatarUrl": "3ucYnFAJ", "customAttributes": {"3DK5T4Eo": {}}, "dateOfBirth": "1323-10-31", "firstName": "gtsDhUTD", "language": "SCBq_tqUp_uz", "lastName": "POw6zPFJ", "status": "ACTIVE", "timeZone": "wmzBBSMN", "zipCode": "coAAOjKN"}' \
@@ -241,21 +241,21 @@ java -jar "${CLI_JAR}" basic updateUserProfile \
 eval_tap $? 30 'UpdateUserProfile' test.out
 
 #- 31 DeleteUserProfile
-java -jar "${CLI_JAR}" basic deleteUserProfile \
+build/install/cli/bin/cli basic deleteUserProfile \
     --namespace "$AB_NAMESPACE" \
     --userId 'jfcYHm09' \
     > test.out 2>&1
 eval_tap $? 31 'DeleteUserProfile' test.out
 
 #- 32 GetCustomAttributesInfo
-java -jar "${CLI_JAR}" basic getCustomAttributesInfo \
+build/install/cli/bin/cli basic getCustomAttributesInfo \
     --namespace "$AB_NAMESPACE" \
     --userId '3aYgBU1s' \
     > test.out 2>&1
 eval_tap $? 32 'GetCustomAttributesInfo' test.out
 
 #- 33 UpdateCustomAttributesPartially
-java -jar "${CLI_JAR}" basic updateCustomAttributesPartially \
+build/install/cli/bin/cli basic updateCustomAttributesPartially \
     --namespace "$AB_NAMESPACE" \
     --userId 'qjyK0XH4' \
     --body '{"5PaRSOFQ": {}}' \
@@ -263,14 +263,14 @@ java -jar "${CLI_JAR}" basic updateCustomAttributesPartially \
 eval_tap $? 33 'UpdateCustomAttributesPartially' test.out
 
 #- 34 GetPrivateCustomAttributesInfo
-java -jar "${CLI_JAR}" basic getPrivateCustomAttributesInfo \
+build/install/cli/bin/cli basic getPrivateCustomAttributesInfo \
     --namespace "$AB_NAMESPACE" \
     --userId 'Btu23REZ' \
     > test.out 2>&1
 eval_tap $? 34 'GetPrivateCustomAttributesInfo' test.out
 
 #- 35 UpdatePrivateCustomAttributesPartially
-java -jar "${CLI_JAR}" basic updatePrivateCustomAttributesPartially \
+build/install/cli/bin/cli basic updatePrivateCustomAttributesPartially \
     --namespace "$AB_NAMESPACE" \
     --userId '8hRVX7LG' \
     --body '{"OvDdYiQS": {}}' \
@@ -278,7 +278,7 @@ java -jar "${CLI_JAR}" basic updatePrivateCustomAttributesPartially \
 eval_tap $? 35 'UpdatePrivateCustomAttributesPartially' test.out
 
 #- 36 UpdateUserProfileStatus
-java -jar "${CLI_JAR}" basic updateUserProfileStatus \
+build/install/cli/bin/cli basic updateUserProfileStatus \
     --namespace "$AB_NAMESPACE" \
     --userId '9i7mV1C9' \
     --body '{"status": "ACTIVE"}' \
@@ -286,17 +286,17 @@ java -jar "${CLI_JAR}" basic updateUserProfileStatus \
 eval_tap $? 36 'UpdateUserProfileStatus' test.out
 
 #- 37 PublicGetTime
-java -jar "${CLI_JAR}" basic publicGetTime \
+build/install/cli/bin/cli basic publicGetTime \
     > test.out 2>&1
 eval_tap $? 37 'PublicGetTime' test.out
 
 #- 38 PublicGetNamespaces
-java -jar "${CLI_JAR}" basic publicGetNamespaces \
+build/install/cli/bin/cli basic publicGetNamespaces \
     > test.out 2>&1
 eval_tap $? 38 'PublicGetNamespaces' test.out
 
 #- 39 PublicGeneratedUploadUrl
-java -jar "${CLI_JAR}" basic publicGeneratedUploadUrl \
+build/install/cli/bin/cli basic publicGeneratedUploadUrl \
     --folder 'jG9gpxL6' \
     --namespace "$AB_NAMESPACE" \
     --fileType 'ycTQdvln' \
@@ -304,71 +304,71 @@ java -jar "${CLI_JAR}" basic publicGeneratedUploadUrl \
 eval_tap $? 39 'PublicGeneratedUploadUrl' test.out
 
 #- 40 PublicGetCountries
-java -jar "${CLI_JAR}" basic publicGetCountries \
+build/install/cli/bin/cli basic publicGetCountries \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 40 'PublicGetCountries' test.out
 
 #- 41 PublicGetLanguages
-java -jar "${CLI_JAR}" basic publicGetLanguages \
+build/install/cli/bin/cli basic publicGetLanguages \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 41 'PublicGetLanguages' test.out
 
 #- 42 PublicGetTimeZones
-java -jar "${CLI_JAR}" basic publicGetTimeZones \
+build/install/cli/bin/cli basic publicGetTimeZones \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 42 'PublicGetTimeZones' test.out
 
 #- 43 PublicGetUserProfilePublicInfoByIds
-java -jar "${CLI_JAR}" basic publicGetUserProfilePublicInfoByIds \
+build/install/cli/bin/cli basic publicGetUserProfilePublicInfoByIds \
     --namespace "$AB_NAMESPACE" \
     --userIds '2LAuSQWE' \
     > test.out 2>&1
 eval_tap $? 43 'PublicGetUserProfilePublicInfoByIds' test.out
 
 #- 44 PublicGetNamespacePublisher
-java -jar "${CLI_JAR}" basic publicGetNamespacePublisher \
+build/install/cli/bin/cli basic publicGetNamespacePublisher \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 44 'PublicGetNamespacePublisher' test.out
 
 #- 45 GetMyProfileInfo
-java -jar "${CLI_JAR}" basic getMyProfileInfo \
+build/install/cli/bin/cli basic getMyProfileInfo \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 45 'GetMyProfileInfo' test.out
 
 #- 46 UpdateMyProfile
-java -jar "${CLI_JAR}" basic updateMyProfile \
+build/install/cli/bin/cli basic updateMyProfile \
     --namespace "$AB_NAMESPACE" \
     --body '{"avatarLargeUrl": "XL6LFE1Y", "avatarSmallUrl": "Ho9m126Z", "avatarUrl": "Wc8hHtWv", "customAttributes": {"bNYqgUqs": {}}, "dateOfBirth": "6472-10-22", "firstName": "U9dBBpds", "language": "lHSv-RKXO", "lastName": "t0B7WOfe", "privateCustomAttributes": {"rcZdpMci": {}}, "timeZone": "37Ds7YSf", "zipCode": "ExaI3uzL"}' \
     > test.out 2>&1
 eval_tap $? 46 'UpdateMyProfile' test.out
 
 #- 47 CreateMyProfile
-java -jar "${CLI_JAR}" basic createMyProfile \
+build/install/cli/bin/cli basic createMyProfile \
     --namespace "$AB_NAMESPACE" \
     --body '{"avatarLargeUrl": "teMbFAlt", "avatarSmallUrl": "4hr7HmOY", "avatarUrl": "iBA5ltAO", "customAttributes": {"XmlG6eh1": {}}, "dateOfBirth": "0373-12-06", "firstName": "C1dQY93O", "language": "NjtE-DZhU-wU", "lastName": "nvizU0q1", "privateCustomAttributes": {"pHyhhERo": {}}, "timeZone": "GgdrysMi"}' \
     > test.out 2>&1
 eval_tap $? 47 'CreateMyProfile' test.out
 
 #- 48 GetMyZipCode
-java -jar "${CLI_JAR}" basic getMyZipCode \
+build/install/cli/bin/cli basic getMyZipCode \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 48 'GetMyZipCode' test.out
 
 #- 49 UpdateMyZipCode
-java -jar "${CLI_JAR}" basic updateMyZipCode \
+build/install/cli/bin/cli basic updateMyZipCode \
     --userZipCodeUpdate '{"zipCode": "zBGSRdP2"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 49 'UpdateMyZipCode' test.out
 
 #- 50 PublicReportUser
-java -jar "${CLI_JAR}" basic publicReportUser \
+build/install/cli/bin/cli basic publicReportUser \
     --namespace "$AB_NAMESPACE" \
     --userId 'l7DNSZ8A' \
     --body '{"category": "q0XiPLQX", "description": "Se07ZddO", "gameSessionId": "GTMlJjBw", "subcategory": "j9HJHQKs", "userId": "eEdSXRDS"}' \
@@ -376,7 +376,7 @@ java -jar "${CLI_JAR}" basic publicReportUser \
 eval_tap $? 50 'PublicReportUser' test.out
 
 #- 51 PublicGeneratedUserUploadContentUrl
-java -jar "${CLI_JAR}" basic publicGeneratedUserUploadContentUrl \
+build/install/cli/bin/cli basic publicGeneratedUserUploadContentUrl \
     --namespace "$AB_NAMESPACE" \
     --userId 'vguauw1x' \
     --fileType 'T7eMwSl9' \
@@ -384,14 +384,14 @@ java -jar "${CLI_JAR}" basic publicGeneratedUserUploadContentUrl \
 eval_tap $? 51 'PublicGeneratedUserUploadContentUrl' test.out
 
 #- 52 PublicGetUserProfileInfo
-java -jar "${CLI_JAR}" basic publicGetUserProfileInfo \
+build/install/cli/bin/cli basic publicGetUserProfileInfo \
     --namespace "$AB_NAMESPACE" \
     --userId 'MLH0NnTJ' \
     > test.out 2>&1
 eval_tap $? 52 'PublicGetUserProfileInfo' test.out
 
 #- 53 PublicUpdateUserProfile
-java -jar "${CLI_JAR}" basic publicUpdateUserProfile \
+build/install/cli/bin/cli basic publicUpdateUserProfile \
     --namespace "$AB_NAMESPACE" \
     --userId '2ulNzBvw' \
     --body '{"avatarLargeUrl": "JaQa547J", "avatarSmallUrl": "llvA8RWS", "avatarUrl": "pabUt7xk", "customAttributes": {"6QxyWhfq": {}}, "dateOfBirth": "1853-05-28", "firstName": "zT7NXmWD", "language": "xS_SnoL_As", "lastName": "bnsuLCgT", "timeZone": "oxuVTekJ", "zipCode": "gvg6h5HI"}' \
@@ -399,7 +399,7 @@ java -jar "${CLI_JAR}" basic publicUpdateUserProfile \
 eval_tap $? 53 'PublicUpdateUserProfile' test.out
 
 #- 54 PublicCreateUserProfile
-java -jar "${CLI_JAR}" basic publicCreateUserProfile \
+build/install/cli/bin/cli basic publicCreateUserProfile \
     --namespace "$AB_NAMESPACE" \
     --userId 'pH0Dvipl' \
     --body '{"avatarLargeUrl": "Ek4vj3LD", "avatarSmallUrl": "p4yqDt8Q", "avatarUrl": "UZDpxlHa", "customAttributes": {"sinGcjrk": {}}, "dateOfBirth": "9441-08-30", "firstName": "IVBmft3U", "language": "GP", "lastName": "X4MsisSX", "timeZone": "28nARxWR"}' \
@@ -407,14 +407,14 @@ java -jar "${CLI_JAR}" basic publicCreateUserProfile \
 eval_tap $? 54 'PublicCreateUserProfile' test.out
 
 #- 55 PublicGetCustomAttributesInfo
-java -jar "${CLI_JAR}" basic publicGetCustomAttributesInfo \
+build/install/cli/bin/cli basic publicGetCustomAttributesInfo \
     --namespace "$AB_NAMESPACE" \
     --userId 'pv5ou5xt' \
     > test.out 2>&1
 eval_tap $? 55 'PublicGetCustomAttributesInfo' test.out
 
 #- 56 PublicUpdateCustomAttributesPartially
-java -jar "${CLI_JAR}" basic publicUpdateCustomAttributesPartially \
+build/install/cli/bin/cli basic publicUpdateCustomAttributesPartially \
     --namespace "$AB_NAMESPACE" \
     --userId 'vd28OUfC' \
     --body '{"t8UJC5fl": {}}' \
@@ -422,14 +422,14 @@ java -jar "${CLI_JAR}" basic publicUpdateCustomAttributesPartially \
 eval_tap $? 56 'PublicUpdateCustomAttributesPartially' test.out
 
 #- 57 PublicGetUserProfilePublicInfo
-java -jar "${CLI_JAR}" basic publicGetUserProfilePublicInfo \
+build/install/cli/bin/cli basic publicGetUserProfilePublicInfo \
     --namespace "$AB_NAMESPACE" \
     --userId 'Nyj6HsTt' \
     > test.out 2>&1
 eval_tap $? 57 'PublicGetUserProfilePublicInfo' test.out
 
 #- 58 PublicUpdateUserProfileStatus
-java -jar "${CLI_JAR}" basic publicUpdateUserProfileStatus \
+build/install/cli/bin/cli basic publicUpdateUserProfileStatus \
     --namespace "$AB_NAMESPACE" \
     --userId 'X8P3llna' \
     --body '{"status": "ACTIVE"}' \

@@ -33,7 +33,7 @@ test_integration:
 test_cli:
 	@test -n "$(SDK_MOCK_SERVER_PATH)" || (echo "SDK_MOCK_SERVER_PATH is not set" ; exit 1)
 	rm -f test.err
-	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GRADLE_USER_HOME=/data/.gradle gradle:jdk8 sh -c 'cd samples/cli && gradle -i fatJar'
+	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/samples/cli -e GRADLE_USER_HOME=/data/.gradle gradle:jdk8 gradle installDist
 	sed -i "s/\r//" "$(SDK_MOCK_SERVER_PATH)/mock-server.sh" && \
 			trap "docker stop -t 1 justice-codegen-sdk-mock-server" EXIT && \
 			(DOCKER_RUN_ARGS="-t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data -w /data --network host --name justice-codegen-sdk-mock-server" bash "$(SDK_MOCK_SERVER_PATH)/mock-server.sh" -s /data/spec &) && \
@@ -41,8 +41,8 @@ test_cli:
 			sed -i "s/\r//" tests/sh/* && \
 			rm -f tests/sh/*.tap && \
 			for FILE in $$(ls tests/sh/*.sh); do \
-					(set -o pipefail; docker run --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data -w /data --network host -e GRADLE_USER_HOME=/data/.gradle -e CLI_JAR="samples/cli/build/libs/cli.jar" gradle:jdk8 \
-							bash "$${FILE}" | tee "$${FILE}.tap") || touch test.err; \
+					(set -o pipefail; docker run --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data -w /data/samples/cli  --network host -e GRADLE_USER_HOME=/data/.gradle gradle:jdk8 \
+							bash "/data/$${FILE}" | tee "$${FILE}.tap") || touch test.err; \
 			done
 	[ ! -f test.err ]
 
