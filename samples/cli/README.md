@@ -1,51 +1,59 @@
 # AccelByte Java SDK CLI
 
+A CLI sample app to showcase AccelByte Java SDK.
+
+## Prerequsites
+
+- Java 8 or above
+
+## Building
+
+1. Change your working directory to this CLI project root path where this `README.md` file located
+2. Execute `gradlew installDist` to build CLI project
+
 ## Setup
 
-### 1. Requirement
+This CLI sample app requires the following environment variables to be declared.
 
-- Gradle
-- JVM version 8 or above
+* `AB_BASE_URL` (Required)
 
-### 2. Set the environment variables :
-You have to declare these environment variables below:
+* `AB_CLIENT_ID` (Required)
 
-`AB_BASE_URL` (Required)
+* `AB_CLIENT_SECRET` (Required if you use confidential OAuth client only)
 
-`AB_CLIENT_ID` (Required)
+## Usage
 
-`AB_CLIENT_SECRET` (Required if you use private OAuth client only)
+### Login
+Before you execute the API, execute the login command first. This operation will save your access token and use it for the next API call.
 
+```
+build\install\cli\bin login -u myUsername -p myPassword
+```
 
-### 3. Build CLI the project using gradle:
+### Calling a Service Endpoint
 
-1. Open your terminal, change your directory to this CLI project root path file where this `README.md` file located
-2. execute `gradle fatJar` to build CLI project
-3. Change your directory to `./build/libs` after building process successful
-4. Execute cli with `java -jar cli.jar`, e.g : `java -jar cli.jar -h`
+To call a service endpoint, the CLI command structure is shown below.
 
-## Demo
+```
+build\install\cli\bin <service name> <operation> --<parameter> <parameter value>
+```
 
-### Login first
-Before you execute the API, execute the login command first. This operation will save your access token and use it for other API call. Login command: 
+Example:
 
-`java -jar cli.jar login -u myUsername -p myPassword`
-
-### Execute command to call the API
-To call the API, the command structure will be:
-
-`java -jar cli.jar <service name> <operation> --<parameter> <parameter value>`
-
-example:
-
-`java -jar cli.jar basic publicGetCountries --namespace accelbyte`
-
+```
+build\install\cli\bin basic publicGetCountries --namespace accelbyte
+```
 
 ### Help
-You can use help to see the parameter required or the list of the service. example:
 
-`java -jar cli.jar -h`
+You can use help to see the parameter required or the list of services.
+
+```
+build\install\cli\bin -h
+```
 
 or
 
-`java -jar cli.jar iam -h`
+```
+build\install\cli\bin iam -h
+```
