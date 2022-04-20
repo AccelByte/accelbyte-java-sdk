@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,24 @@ public class ModelsCreateScreenshotRequestItem extends Model {
     @JsonProperty("fileExtension")
     private String fileExtension;
 
+
+    
+    public String getFileExtension() {
+        return this.fileExtension;
+    }
+    
+    public FileExtension getFileExtensionAsEnum() {
+        return FileExtension.valueOf(this.fileExtension);
+    }
+    
+    public void setFileExtension(final String fileExtension) {
+        this.fileExtension = fileExtension;
+    }
+    
+    public void setFileExtensionFromEnum(final FileExtension fileExtension) {
+        this.fileExtension = fileExtension.toString();
+    }
+
     @JsonIgnore
     public ModelsCreateScreenshotRequestItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +74,40 @@ public class ModelsCreateScreenshotRequestItem extends Model {
         result.put("description", "description");
         result.put("fileExtension", "fileExtension");
         return result;
+    }
+    
+    public enum FileExtension {
+        Pjp("Pjp"),
+        Jpg("Jpg"),
+        Jpeg("Jpeg"),
+        Jfif("Jfif"),
+        Bmp("Bmp"),
+        Png("Png");
+
+        private String value;
+
+        FileExtension(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class ModelsCreateScreenshotRequestItemBuilder {
+        private String fileExtension;
+        
+        
+        public ModelsCreateScreenshotRequestItemBuilder fileExtension(final String fileExtension) {
+            this.fileExtension = fileExtension;
+            return this;
+        }
+        
+        public ModelsCreateScreenshotRequestItemBuilder fileExtensionFromEnum(final FileExtension fileExtension) {
+            this.fileExtension = fileExtension.toString();
+            return this;
+        }
     }
 }

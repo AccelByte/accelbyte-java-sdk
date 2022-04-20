@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -56,6 +57,24 @@ public class SeasonSummary extends Model {
     @JsonProperty("status")
     private String status;
 
+
+    
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public Status getStatusAsEnum() {
+        return Status.valueOf(this.status);
+    }
+    
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+    
+    public void setStatusFromEnum(final Status status) {
+        this.status = status.toString();
+    }
+
     @JsonIgnore
     public SeasonSummary createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -79,5 +98,37 @@ public class SeasonSummary extends Model {
         result.put("start", "start");
         result.put("status", "status");
         return result;
+    }
+    
+    public enum Status {
+        DRAFT("DRAFT"),
+        PUBLISHED("PUBLISHED"),
+        RETIRED("RETIRED");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class SeasonSummaryBuilder {
+        private String status;
+        
+        
+        public SeasonSummaryBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public SeasonSummaryBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
     }
 }

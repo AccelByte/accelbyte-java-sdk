@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -77,6 +78,8 @@ public class PaymentMerchantConfigInfo extends Model {
     @JsonProperty("xsollaPaywallConfig")
     private XsollaPaywallConfig xsollaPaywallConfig;
 
+
+
     @JsonIgnore
     public PaymentMerchantConfigInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -107,5 +110,9 @@ public class PaymentMerchantConfigInfo extends Model {
         result.put("xsollaConfig", "xsollaConfig");
         result.put("xsollaPaywallConfig", "xsollaPaywallConfig");
         return result;
+    }
+    
+    public static class PaymentMerchantConfigInfoBuilder {
+        
     }
 }

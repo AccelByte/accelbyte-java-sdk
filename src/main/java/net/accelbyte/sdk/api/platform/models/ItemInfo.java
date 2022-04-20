@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -155,6 +156,88 @@ public class ItemInfo extends Model {
     @JsonProperty("useCount")
     private Integer useCount;
 
+
+    
+    public String getAppType() {
+        return this.appType;
+    }
+    
+    public AppType getAppTypeAsEnum() {
+        return AppType.valueOf(this.appType);
+    }
+    
+    public void setAppType(final String appType) {
+        this.appType = appType;
+    }
+    
+    public void setAppTypeFromEnum(final AppType appType) {
+        this.appType = appType.toString();
+    }
+    
+    public String getEntitlementType() {
+        return this.entitlementType;
+    }
+    
+    public EntitlementType getEntitlementTypeAsEnum() {
+        return EntitlementType.valueOf(this.entitlementType);
+    }
+    
+    public void setEntitlementType(final String entitlementType) {
+        this.entitlementType = entitlementType;
+    }
+    
+    public void setEntitlementTypeFromEnum(final EntitlementType entitlementType) {
+        this.entitlementType = entitlementType.toString();
+    }
+    
+    public String getItemType() {
+        return this.itemType;
+    }
+    
+    public ItemType getItemTypeAsEnum() {
+        return ItemType.valueOf(this.itemType);
+    }
+    
+    public void setItemType(final String itemType) {
+        this.itemType = itemType;
+    }
+    
+    public void setItemTypeFromEnum(final ItemType itemType) {
+        this.itemType = itemType.toString();
+    }
+    
+    public String getSeasonType() {
+        return this.seasonType;
+    }
+    
+    public SeasonType getSeasonTypeAsEnum() {
+        return SeasonType.valueOf(this.seasonType);
+    }
+    
+    public void setSeasonType(final String seasonType) {
+        this.seasonType = seasonType;
+    }
+    
+    public void setSeasonTypeFromEnum(final SeasonType seasonType) {
+        this.seasonType = seasonType.toString();
+    }
+    
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public Status getStatusAsEnum() {
+        return Status.valueOf(this.status);
+    }
+    
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+    
+    public void setStatusFromEnum(final Status status) {
+        this.status = status.toString();
+    }
+
     @JsonIgnore
     public ItemInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -211,5 +294,152 @@ public class ItemInfo extends Model {
         result.put("updatedAt", "updatedAt");
         result.put("useCount", "useCount");
         return result;
+    }
+    
+    public enum AppType {
+        GAME("GAME"),
+        SOFTWARE("SOFTWARE"),
+        DLC("DLC"),
+        DEMO("DEMO");
+
+        private String value;
+
+        AppType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum EntitlementType {
+        DURABLE("DURABLE"),
+        CONSUMABLE("CONSUMABLE");
+
+        private String value;
+
+        EntitlementType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum ItemType {
+        APP("APP"),
+        COINS("COINS"),
+        INGAMEITEM("INGAMEITEM"),
+        BUNDLE("BUNDLE"),
+        CODE("CODE"),
+        SUBSCRIPTION("SUBSCRIPTION"),
+        SEASON("SEASON"),
+        MEDIA("MEDIA");
+
+        private String value;
+
+        ItemType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum SeasonType {
+        PASS("PASS"),
+        TIER("TIER");
+
+        private String value;
+
+        SeasonType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Status {
+        ACTIVE("ACTIVE"),
+        INACTIVE("INACTIVE");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class ItemInfoBuilder {
+        private String appType;
+        private String entitlementType;
+        private String itemType;
+        private String seasonType;
+        private String status;
+        
+        
+        public ItemInfoBuilder appType(final String appType) {
+            this.appType = appType;
+            return this;
+        }
+        
+        public ItemInfoBuilder appTypeFromEnum(final AppType appType) {
+            this.appType = appType.toString();
+            return this;
+        }
+        
+        public ItemInfoBuilder entitlementType(final String entitlementType) {
+            this.entitlementType = entitlementType;
+            return this;
+        }
+        
+        public ItemInfoBuilder entitlementTypeFromEnum(final EntitlementType entitlementType) {
+            this.entitlementType = entitlementType.toString();
+            return this;
+        }
+        
+        public ItemInfoBuilder itemType(final String itemType) {
+            this.itemType = itemType;
+            return this;
+        }
+        
+        public ItemInfoBuilder itemTypeFromEnum(final ItemType itemType) {
+            this.itemType = itemType.toString();
+            return this;
+        }
+        
+        public ItemInfoBuilder seasonType(final String seasonType) {
+            this.seasonType = seasonType;
+            return this;
+        }
+        
+        public ItemInfoBuilder seasonTypeFromEnum(final SeasonType seasonType) {
+            this.seasonType = seasonType.toString();
+            return this;
+        }
+        
+        public ItemInfoBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public ItemInfoBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
     }
 }

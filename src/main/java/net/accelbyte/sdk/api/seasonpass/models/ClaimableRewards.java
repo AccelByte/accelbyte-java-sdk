@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class ClaimableRewards extends Model {
     @JsonProperty("toClaimRewards")
     private Map<String, ?> toClaimRewards;
 
+
+
     @JsonIgnore
     public ClaimableRewards createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class ClaimableRewards extends Model {
         result.put("claimingRewards", "claimingRewards");
         result.put("toClaimRewards", "toClaimRewards");
         return result;
+    }
+    
+    public static class ClaimableRewardsBuilder {
+        
     }
 }

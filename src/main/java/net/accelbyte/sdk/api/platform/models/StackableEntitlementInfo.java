@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -104,6 +105,88 @@ public class StackableEntitlementInfo extends Model {
     @JsonProperty("userId")
     private String userId;
 
+
+    
+    public String getAppType() {
+        return this.appType;
+    }
+    
+    public AppType getAppTypeAsEnum() {
+        return AppType.valueOf(this.appType);
+    }
+    
+    public void setAppType(final String appType) {
+        this.appType = appType;
+    }
+    
+    public void setAppTypeFromEnum(final AppType appType) {
+        this.appType = appType.toString();
+    }
+    
+    public String getClazz() {
+        return this.clazz;
+    }
+    
+    public Clazz getClazzAsEnum() {
+        return Clazz.valueOf(this.clazz);
+    }
+    
+    public void setClazz(final String clazz) {
+        this.clazz = clazz;
+    }
+    
+    public void setClazzFromEnum(final Clazz clazz) {
+        this.clazz = clazz.toString();
+    }
+    
+    public String getSource() {
+        return this.source;
+    }
+    
+    public Source getSourceAsEnum() {
+        return Source.valueOf(this.source);
+    }
+    
+    public void setSource(final String source) {
+        this.source = source;
+    }
+    
+    public void setSourceFromEnum(final Source source) {
+        this.source = source.toString();
+    }
+    
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public Status getStatusAsEnum() {
+        return Status.valueOf(this.status);
+    }
+    
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+    
+    public void setStatusFromEnum(final Status status) {
+        this.status = status.toString();
+    }
+    
+    public String getType() {
+        return this.type;
+    }
+    
+    public Type getTypeAsEnum() {
+        return Type.valueOf(this.type);
+    }
+    
+    public void setType(final String type) {
+        this.type = type;
+    }
+    
+    public void setTypeFromEnum(final Type type) {
+        this.type = type.toString();
+    }
+
     @JsonIgnore
     public StackableEntitlementInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -143,5 +226,158 @@ public class StackableEntitlementInfo extends Model {
         result.put("useCount", "useCount");
         result.put("userId", "userId");
         return result;
+    }
+    
+    public enum AppType {
+        GAME("GAME"),
+        SOFTWARE("SOFTWARE"),
+        DLC("DLC"),
+        DEMO("DEMO");
+
+        private String value;
+
+        AppType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Clazz {
+        APP("APP"),
+        ENTITLEMENT("ENTITLEMENT"),
+        CODE("CODE"),
+        SUBSCRIPTION("SUBSCRIPTION"),
+        MEDIA("MEDIA");
+
+        private String value;
+
+        Clazz(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Source {
+        PURCHASE("PURCHASE"),
+        IAP("IAP"),
+        PROMOTION("PROMOTION"),
+        ACHIEVEMENT("ACHIEVEMENT"),
+        REFERRALBONUS("REFERRALBONUS"),
+        REDEEMCODE("REDEEMCODE"),
+        REWARD("REWARD"),
+        GIFT("GIFT"),
+        OTHER("OTHER");
+
+        private String value;
+
+        Source(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Status {
+        ACTIVE("ACTIVE"),
+        INACTIVE("INACTIVE"),
+        CONSUMED("CONSUMED"),
+        REVOKED("REVOKED");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Type {
+        DURABLE("DURABLE"),
+        CONSUMABLE("CONSUMABLE");
+
+        private String value;
+
+        Type(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class StackableEntitlementInfoBuilder {
+        private String appType;
+        private String clazz;
+        private String source;
+        private String status;
+        private String type;
+        
+        
+        public StackableEntitlementInfoBuilder appType(final String appType) {
+            this.appType = appType;
+            return this;
+        }
+        
+        public StackableEntitlementInfoBuilder appTypeFromEnum(final AppType appType) {
+            this.appType = appType.toString();
+            return this;
+        }
+        
+        public StackableEntitlementInfoBuilder clazz(final String clazz) {
+            this.clazz = clazz;
+            return this;
+        }
+        
+        public StackableEntitlementInfoBuilder clazzFromEnum(final Clazz clazz) {
+            this.clazz = clazz.toString();
+            return this;
+        }
+        
+        public StackableEntitlementInfoBuilder source(final String source) {
+            this.source = source;
+            return this;
+        }
+        
+        public StackableEntitlementInfoBuilder sourceFromEnum(final Source source) {
+            this.source = source.toString();
+            return this;
+        }
+        
+        public StackableEntitlementInfoBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public StackableEntitlementInfoBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
+        
+        public StackableEntitlementInfoBuilder type(final String type) {
+            this.type = type;
+            return this;
+        }
+        
+        public StackableEntitlementInfoBuilder typeFromEnum(final Type type) {
+            this.type = type.toString();
+            return this;
+        }
     }
 }

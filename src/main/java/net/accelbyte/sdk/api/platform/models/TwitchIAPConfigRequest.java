@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class TwitchIAPConfigRequest extends Model {
     @JsonProperty("organizationId")
     private String organizationId;
 
+
+
     @JsonIgnore
     public TwitchIAPConfigRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class TwitchIAPConfigRequest extends Model {
         result.put("clientSecret", "clientSecret");
         result.put("organizationId", "organizationId");
         return result;
+    }
+    
+    public static class TwitchIAPConfigRequestBuilder {
+        
     }
 }

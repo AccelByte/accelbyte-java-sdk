@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -47,6 +48,40 @@ public class PaymentOrderNotifySimulation extends Model {
     @JsonProperty("vat")
     private Integer vat;
 
+
+    
+    public String getNotifyType() {
+        return this.notifyType;
+    }
+    
+    public NotifyType getNotifyTypeAsEnum() {
+        return NotifyType.valueOf(this.notifyType);
+    }
+    
+    public void setNotifyType(final String notifyType) {
+        this.notifyType = notifyType;
+    }
+    
+    public void setNotifyTypeFromEnum(final NotifyType notifyType) {
+        this.notifyType = notifyType.toString();
+    }
+    
+    public String getPaymentProvider() {
+        return this.paymentProvider;
+    }
+    
+    public PaymentProvider getPaymentProviderAsEnum() {
+        return PaymentProvider.valueOf(this.paymentProvider);
+    }
+    
+    public void setPaymentProvider(final String paymentProvider) {
+        this.paymentProvider = paymentProvider;
+    }
+    
+    public void setPaymentProviderFromEnum(final PaymentProvider paymentProvider) {
+        this.paymentProvider = paymentProvider.toString();
+    }
+
     @JsonIgnore
     public PaymentOrderNotifySimulation createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -67,5 +102,69 @@ public class PaymentOrderNotifySimulation extends Model {
         result.put("salesTax", "salesTax");
         result.put("vat", "vat");
         return result;
+    }
+    
+    public enum NotifyType {
+        CHARGE("CHARGE"),
+        REFUND("REFUND");
+
+        private String value;
+
+        NotifyType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum PaymentProvider {
+        WALLET("WALLET"),
+        XSOLLA("XSOLLA"),
+        ADYEN("ADYEN"),
+        STRIPE("STRIPE"),
+        CHECKOUT("CHECKOUT"),
+        ALIPAY("ALIPAY"),
+        WXPAY("WXPAY"),
+        PAYPAL("PAYPAL");
+
+        private String value;
+
+        PaymentProvider(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class PaymentOrderNotifySimulationBuilder {
+        private String notifyType;
+        private String paymentProvider;
+        
+        
+        public PaymentOrderNotifySimulationBuilder notifyType(final String notifyType) {
+            this.notifyType = notifyType;
+            return this;
+        }
+        
+        public PaymentOrderNotifySimulationBuilder notifyTypeFromEnum(final NotifyType notifyType) {
+            this.notifyType = notifyType.toString();
+            return this;
+        }
+        
+        public PaymentOrderNotifySimulationBuilder paymentProvider(final String paymentProvider) {
+            this.paymentProvider = paymentProvider;
+            return this;
+        }
+        
+        public PaymentOrderNotifySimulationBuilder paymentProviderFromEnum(final PaymentProvider paymentProvider) {
+            this.paymentProvider = paymentProvider.toString();
+            return this;
+        }
     }
 }

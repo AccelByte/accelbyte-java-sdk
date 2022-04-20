@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,24 @@ public class FulfillmentScriptEvalTestRequest extends Model {
     @JsonProperty("type")
     private String type;
 
+
+    
+    public String getType() {
+        return this.type;
+    }
+    
+    public Type getTypeAsEnum() {
+        return Type.valueOf(this.type);
+    }
+    
+    public void setType(final String type) {
+        this.type = type;
+    }
+    
+    public void setTypeFromEnum(final Type type) {
+        this.type = type.toString();
+    }
+
     @JsonIgnore
     public FulfillmentScriptEvalTestRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +74,35 @@ public class FulfillmentScriptEvalTestRequest extends Model {
         result.put("script", "script");
         result.put("type", "type");
         return result;
+    }
+    
+    public enum Type {
+        GrantDays("GrantDays");
+
+        private String value;
+
+        Type(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class FulfillmentScriptEvalTestRequestBuilder {
+        private String type;
+        
+        
+        public FulfillmentScriptEvalTestRequestBuilder type(final String type) {
+            this.type = type;
+            return this;
+        }
+        
+        public FulfillmentScriptEvalTestRequestBuilder typeFromEnum(final Type type) {
+            this.type = type.toString();
+            return this;
+        }
     }
 }

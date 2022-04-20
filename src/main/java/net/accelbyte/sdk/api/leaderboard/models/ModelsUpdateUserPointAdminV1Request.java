@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class ModelsUpdateUserPointAdminV1Request extends Model {
     @JsonProperty("latestValue")
     private Float latestValue;
 
+
+
     @JsonIgnore
     public ModelsUpdateUserPointAdminV1Request createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class ModelsUpdateUserPointAdminV1Request extends Model {
         result.put("inc", "inc");
         result.put("latestValue", "latestValue");
         return result;
+    }
+    
+    public static class ModelsUpdateUserPointAdminV1RequestBuilder {
+        
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -41,6 +42,24 @@ public class FulfillmentScriptContext extends Model {
     @JsonProperty("source")
     private String source;
 
+
+    
+    public String getSource() {
+        return this.source;
+    }
+    
+    public Source getSourceAsEnum() {
+        return Source.valueOf(this.source);
+    }
+    
+    public void setSource(final String source) {
+        this.source = source;
+    }
+    
+    public void setSourceFromEnum(final Source source) {
+        this.source = source.toString();
+    }
+
     @JsonIgnore
     public FulfillmentScriptContext createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -59,5 +78,44 @@ public class FulfillmentScriptContext extends Model {
         result.put("order", "order");
         result.put("source", "source");
         return result;
+    }
+    
+    public enum Source {
+        PURCHASE("PURCHASE"),
+        IAP("IAP"),
+        PROMOTION("PROMOTION"),
+        ACHIEVEMENT("ACHIEVEMENT"),
+        REFERRALBONUS("REFERRALBONUS"),
+        REDEEMCODE("REDEEMCODE"),
+        REWARD("REWARD"),
+        GIFT("GIFT"),
+        DLC("DLC"),
+        OTHER("OTHER");
+
+        private String value;
+
+        Source(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class FulfillmentScriptContextBuilder {
+        private String source;
+        
+        
+        public FulfillmentScriptContextBuilder source(final String source) {
+            this.source = source;
+            return this;
+        }
+        
+        public FulfillmentScriptContextBuilder sourceFromEnum(final Source source) {
+            this.source = source.toString();
+            return this;
+        }
     }
 }

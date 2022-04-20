@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -50,6 +51,8 @@ public class ModelsCreateContentRequestS3 extends Model {
     @JsonProperty("type")
     private String type;
 
+
+
     @JsonIgnore
     public ModelsCreateContentRequestS3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -71,5 +74,9 @@ public class ModelsCreateContentRequestS3 extends Model {
         result.put("tags", "tags");
         result.put("type", "type");
         return result;
+    }
+    
+    public static class ModelsCreateContentRequestS3Builder {
+        
     }
 }

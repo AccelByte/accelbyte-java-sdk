@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,24 @@ public class TicketBoothID extends Model {
     @JsonProperty("type")
     private String type;
 
+
+    
+    public String getType() {
+        return this.type;
+    }
+    
+    public Type getTypeAsEnum() {
+        return Type.valueOf(this.type);
+    }
+    
+    public void setType(final String type) {
+        this.type = type;
+    }
+    
+    public void setTypeFromEnum(final Type type) {
+        this.type = type.toString();
+    }
+
     @JsonIgnore
     public TicketBoothID createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +70,36 @@ public class TicketBoothID extends Model {
         result.put("id", "id");
         result.put("type", "type");
         return result;
+    }
+    
+    public enum Type {
+        CAMPAIGN("CAMPAIGN"),
+        KEYGROUP("KEYGROUP");
+
+        private String value;
+
+        Type(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class TicketBoothIDBuilder {
+        private String type;
+        
+        
+        public TicketBoothIDBuilder type(final String type) {
+            this.type = type;
+            return this;
+        }
+        
+        public TicketBoothIDBuilder typeFromEnum(final Type type) {
+            this.type = type.toString();
+            return this;
+        }
     }
 }

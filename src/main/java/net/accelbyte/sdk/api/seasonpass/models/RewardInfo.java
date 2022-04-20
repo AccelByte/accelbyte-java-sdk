@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -62,6 +63,40 @@ public class RewardInfo extends Model {
     @JsonProperty("type")
     private String type;
 
+
+    
+    public String getItemType() {
+        return this.itemType;
+    }
+    
+    public ItemType getItemTypeAsEnum() {
+        return ItemType.valueOf(this.itemType);
+    }
+    
+    public void setItemType(final String itemType) {
+        this.itemType = itemType;
+    }
+    
+    public void setItemTypeFromEnum(final ItemType itemType) {
+        this.itemType = itemType.toString();
+    }
+    
+    public String getType() {
+        return this.type;
+    }
+    
+    public Type getTypeAsEnum() {
+        return Type.valueOf(this.type);
+    }
+    
+    public void setType(final String type) {
+        this.type = type;
+    }
+    
+    public void setTypeFromEnum(final Type type) {
+        this.type = type.toString();
+    }
+
     @JsonIgnore
     public RewardInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -87,5 +122,68 @@ public class RewardInfo extends Model {
         result.put("seasonId", "seasonId");
         result.put("type", "type");
         return result;
+    }
+    
+    public enum ItemType {
+        APP("APP"),
+        COINS("COINS"),
+        INGAMEITEM("INGAMEITEM"),
+        BUNDLE("BUNDLE"),
+        CODE("CODE"),
+        SUBSCRIPTION("SUBSCRIPTION"),
+        SEASON("SEASON");
+
+        private String value;
+
+        ItemType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Type {
+        ITEM("ITEM"),
+        CURRENCY("CURRENCY");
+
+        private String value;
+
+        Type(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class RewardInfoBuilder {
+        private String itemType;
+        private String type;
+        
+        
+        public RewardInfoBuilder itemType(final String itemType) {
+            this.itemType = itemType;
+            return this;
+        }
+        
+        public RewardInfoBuilder itemTypeFromEnum(final ItemType itemType) {
+            this.itemType = itemType.toString();
+            return this;
+        }
+        
+        public RewardInfoBuilder type(final String type) {
+            this.type = type;
+            return this;
+        }
+        
+        public RewardInfoBuilder typeFromEnum(final Type type) {
+            this.type = type.toString();
+            return this;
+        }
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -41,6 +42,8 @@ public class PaymentProcessResult extends Model {
     @JsonProperty("success")
     private Boolean success;
 
+
+
     @JsonIgnore
     public PaymentProcessResult createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -59,5 +62,9 @@ public class PaymentProcessResult extends Model {
         result.put("redirectUrl", "redirectUrl");
         result.put("success", "success");
         return result;
+    }
+    
+    public static class PaymentProcessResultBuilder {
+        
     }
 }

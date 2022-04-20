@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -86,6 +87,8 @@ public class ModelThirdPartyLoginPlatformCredentialRequest extends Model {
     @JsonProperty("TokenClaimsMapping")
     private Map<String, String> tokenClaimsMapping;
 
+
+
     @JsonIgnore
     public ModelThirdPartyLoginPlatformCredentialRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -119,5 +122,9 @@ public class ModelThirdPartyLoginPlatformCredentialRequest extends Model {
         result.put("TokenAuthenticationType", "tokenAuthenticationType");
         result.put("TokenClaimsMapping", "tokenClaimsMapping");
         return result;
+    }
+    
+    public static class ModelThirdPartyLoginPlatformCredentialRequestBuilder {
+        
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class OrderSummary extends Model {
     @JsonProperty("free")
     private Boolean free;
 
+
+
     @JsonIgnore
     public OrderSummary createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class OrderSummary extends Model {
         result.put("ext", "ext");
         result.put("free", "free");
         return result;
+    }
+    
+    public static class OrderSummaryBuilder {
+        
     }
 }

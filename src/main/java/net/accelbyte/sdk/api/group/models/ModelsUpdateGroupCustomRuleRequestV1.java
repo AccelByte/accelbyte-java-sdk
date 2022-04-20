@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +32,8 @@ public class ModelsUpdateGroupCustomRuleRequestV1 extends Model {
 
     @JsonProperty("groupCustomRule")
     private Map<String, ?> groupCustomRule;
+
+
 
     @JsonIgnore
     public ModelsUpdateGroupCustomRuleRequestV1 createFromJson(String json) throws JsonProcessingException {
@@ -47,5 +50,9 @@ public class ModelsUpdateGroupCustomRuleRequestV1 extends Model {
         Map<String, String> result = new HashMap<>();
         result.put("groupCustomRule", "groupCustomRule");
         return result;
+    }
+    
+    public static class ModelsUpdateGroupCustomRuleRequestV1Builder {
+        
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class DLCItem extends Model {
     @JsonProperty("rewards")
     private List<PlatformReward> rewards;
 
+
+
     @JsonIgnore
     public DLCItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class DLCItem extends Model {
         result.put("id", "id");
         result.put("rewards", "rewards");
         return result;
+    }
+    
+    public static class DLCItemBuilder {
+        
     }
 }

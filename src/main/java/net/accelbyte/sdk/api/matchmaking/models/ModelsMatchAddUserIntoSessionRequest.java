@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class ModelsMatchAddUserIntoSessionRequest extends Model {
     @JsonProperty("user_id")
     private String userId;
 
+
+
     @JsonIgnore
     public ModelsMatchAddUserIntoSessionRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class ModelsMatchAddUserIntoSessionRequest extends Model {
         result.put("party_id", "partyId");
         result.put("user_id", "userId");
         return result;
+    }
+    
+    public static class ModelsMatchAddUserIntoSessionRequestBuilder {
+        
     }
 }

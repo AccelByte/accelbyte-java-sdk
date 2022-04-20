@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +32,24 @@ public class NamespaceStatusUpdate extends Model {
 
     @JsonProperty("status")
     private String status;
+
+
+    
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public Status getStatusAsEnum() {
+        return Status.valueOf(this.status);
+    }
+    
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+    
+    public void setStatusFromEnum(final Status status) {
+        this.status = status.toString();
+    }
 
     @JsonIgnore
     public NamespaceStatusUpdate createFromJson(String json) throws JsonProcessingException {
@@ -47,5 +66,36 @@ public class NamespaceStatusUpdate extends Model {
         Map<String, String> result = new HashMap<>();
         result.put("status", "status");
         return result;
+    }
+    
+    public enum Status {
+        ACTIVE("ACTIVE"),
+        INACTIVE("INACTIVE");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class NamespaceStatusUpdateBuilder {
+        private String status;
+        
+        
+        public NamespaceStatusUpdateBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public NamespaceStatusUpdateBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
     }
 }

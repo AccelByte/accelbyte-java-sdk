@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class ModelUserPasswordUpdateV3Request extends Model {
     @JsonProperty("oldPassword")
     private String oldPassword;
 
+
+
     @JsonIgnore
     public ModelUserPasswordUpdateV3Request createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class ModelUserPasswordUpdateV3Request extends Model {
         result.put("newPassword", "newPassword");
         result.put("oldPassword", "oldPassword");
         return result;
+    }
+    
+    public static class ModelUserPasswordUpdateV3RequestBuilder {
+        
     }
 }

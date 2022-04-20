@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -62,6 +63,8 @@ public class SeasonUpdate extends Model {
     @JsonProperty("tierItemId")
     private String tierItemId;
 
+
+
     @JsonIgnore
     public SeasonUpdate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -87,5 +90,9 @@ public class SeasonUpdate extends Model {
         result.put("start", "start");
         result.put("tierItemId", "tierItemId");
         return result;
+    }
+    
+    public static class SeasonUpdateBuilder {
+        
     }
 }

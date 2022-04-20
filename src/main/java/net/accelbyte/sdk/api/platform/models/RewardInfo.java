@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -65,6 +66,8 @@ public class RewardInfo extends Model {
     @JsonProperty("userIdExpression")
     private String userIdExpression;
 
+
+
     @JsonIgnore
     public RewardInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -91,5 +94,9 @@ public class RewardInfo extends Model {
         result.put("updatedAt", "updatedAt");
         result.put("userIdExpression", "userIdExpression");
         return result;
+    }
+    
+    public static class RewardInfoBuilder {
+        
     }
 }

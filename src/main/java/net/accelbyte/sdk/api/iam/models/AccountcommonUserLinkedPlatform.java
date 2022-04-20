@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -56,6 +57,8 @@ public class AccountcommonUserLinkedPlatform extends Model {
     @JsonProperty("XUID")
     private String xuid;
 
+
+
     @JsonIgnore
     public AccountcommonUserLinkedPlatform createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -79,5 +82,9 @@ public class AccountcommonUserLinkedPlatform extends Model {
         result.put("UserId", "userId");
         result.put("XUID", "xuid");
         return result;
+    }
+    
+    public static class AccountcommonUserLinkedPlatformBuilder {
+        
     }
 }

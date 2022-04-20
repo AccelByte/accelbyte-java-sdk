@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class RecurringChargeResult extends Model {
     @JsonProperty("triggered")
     private Boolean triggered;
 
+
+
     @JsonIgnore
     public RecurringChargeResult createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class RecurringChargeResult extends Model {
         result.put("detail", "detail");
         result.put("triggered", "triggered");
         return result;
+    }
+    
+    public static class RecurringChargeResultBuilder {
+        
     }
 }

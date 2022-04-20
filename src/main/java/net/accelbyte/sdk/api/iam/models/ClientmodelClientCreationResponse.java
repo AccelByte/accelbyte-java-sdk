@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -44,6 +45,8 @@ public class ClientmodelClientCreationResponse extends Model {
     @JsonProperty("RedirectUri")
     private String redirectUri;
 
+
+
     @JsonIgnore
     public ClientmodelClientCreationResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -63,5 +66,9 @@ public class ClientmodelClientCreationResponse extends Model {
         result.put("Namespace", "namespace");
         result.put("RedirectUri", "redirectUri");
         return result;
+    }
+    
+    public static class ClientmodelClientCreationResponseBuilder {
+        
     }
 }

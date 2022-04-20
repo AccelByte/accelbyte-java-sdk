@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -50,6 +51,8 @@ public class ModelsGenericQueryPayload extends Model {
     @JsonProperty("version")
     private Integer version;
 
+
+
     @JsonIgnore
     public ModelsGenericQueryPayload createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -71,5 +74,9 @@ public class ModelsGenericQueryPayload extends Model {
         result.put("userId", "userId");
         result.put("version", "version");
         return result;
+    }
+    
+    public static class ModelsGenericQueryPayloadBuilder {
+        
     }
 }

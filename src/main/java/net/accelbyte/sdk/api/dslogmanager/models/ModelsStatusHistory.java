@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class ModelsStatusHistory extends Model {
     @JsonProperty("time_stamp")
     private String timeStamp;
 
+
+
     @JsonIgnore
     public ModelsStatusHistory createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class ModelsStatusHistory extends Model {
         result.put("status", "status");
         result.put("time_stamp", "timeStamp");
         return result;
+    }
+    
+    public static class ModelsStatusHistoryBuilder {
+        
     }
 }

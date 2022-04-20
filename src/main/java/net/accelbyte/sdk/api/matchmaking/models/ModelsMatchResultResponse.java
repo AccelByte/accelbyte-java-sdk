@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class ModelsMatchResultResponse extends Model {
     @JsonProperty("players")
     private List<ModelsPlayerResultResponse> players;
 
+
+
     @JsonIgnore
     public ModelsMatchResultResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class ModelsMatchResultResponse extends Model {
         result.put("match_id", "matchId");
         result.put("players", "players");
         return result;
+    }
+    
+    public static class ModelsMatchResultResponseBuilder {
+        
     }
 }

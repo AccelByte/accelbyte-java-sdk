@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -47,6 +48,8 @@ public class StoreCreate extends Model {
     @JsonProperty("title")
     private String title;
 
+
+
     @JsonIgnore
     public StoreCreate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -67,5 +70,9 @@ public class StoreCreate extends Model {
         result.put("supportedRegions", "supportedRegions");
         result.put("title", "title");
         return result;
+    }
+    
+    public static class StoreCreateBuilder {
+        
     }
 }

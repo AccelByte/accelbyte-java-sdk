@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class UploadPolicyVersionAttachmentRequest extends Model {
     @JsonProperty("contentType")
     private String contentType;
 
+
+
     @JsonIgnore
     public UploadPolicyVersionAttachmentRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class UploadPolicyVersionAttachmentRequest extends Model {
         result.put("contentMD5", "contentMD5");
         result.put("contentType", "contentType");
         return result;
+    }
+    
+    public static class UploadPolicyVersionAttachmentRequestBuilder {
+        
     }
 }

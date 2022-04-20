@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -47,6 +48,8 @@ public class ModelsRuleSet extends Model {
     @JsonProperty("sub_game_modes")
     private Map<String, ModelsSubGameMode> subGameModes;
 
+
+
     @JsonIgnore
     public ModelsRuleSet createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -67,5 +70,9 @@ public class ModelsRuleSet extends Model {
         result.put("matching_rule", "matchingRule");
         result.put("sub_game_modes", "subGameModes");
         return result;
+    }
+    
+    public static class ModelsRuleSetBuilder {
+        
     }
 }

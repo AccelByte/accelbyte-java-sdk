@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,24 @@ public class PaymentMethod extends Model {
     @JsonProperty("paymentProvider")
     private String paymentProvider;
 
+
+    
+    public String getPaymentProvider() {
+        return this.paymentProvider;
+    }
+    
+    public PaymentProvider getPaymentProviderAsEnum() {
+        return PaymentProvider.valueOf(this.paymentProvider);
+    }
+    
+    public void setPaymentProvider(final String paymentProvider) {
+        this.paymentProvider = paymentProvider;
+    }
+    
+    public void setPaymentProviderFromEnum(final PaymentProvider paymentProvider) {
+        this.paymentProvider = paymentProvider.toString();
+    }
+
     @JsonIgnore
     public PaymentMethod createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +70,42 @@ public class PaymentMethod extends Model {
         result.put("name", "name");
         result.put("paymentProvider", "paymentProvider");
         return result;
+    }
+    
+    public enum PaymentProvider {
+        WALLET("WALLET"),
+        XSOLLA("XSOLLA"),
+        ADYEN("ADYEN"),
+        STRIPE("STRIPE"),
+        CHECKOUT("CHECKOUT"),
+        ALIPAY("ALIPAY"),
+        WXPAY("WXPAY"),
+        PAYPAL("PAYPAL");
+
+        private String value;
+
+        PaymentProvider(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class PaymentMethodBuilder {
+        private String paymentProvider;
+        
+        
+        public PaymentMethodBuilder paymentProvider(final String paymentProvider) {
+            this.paymentProvider = paymentProvider;
+            return this;
+        }
+        
+        public PaymentMethodBuilder paymentProviderFromEnum(final PaymentProvider paymentProvider) {
+            this.paymentProvider = paymentProvider.toString();
+            return this;
+        }
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -41,6 +42,8 @@ public class ModelNotificationWithTemplateRequestV1 extends Model {
     @JsonProperty("topicName")
     private String topicName;
 
+
+
     @JsonIgnore
     public ModelNotificationWithTemplateRequestV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -59,5 +62,9 @@ public class ModelNotificationWithTemplateRequestV1 extends Model {
         result.put("templateSlug", "templateSlug");
         result.put("topicName", "topicName");
         return result;
+    }
+    
+    public static class ModelNotificationWithTemplateRequestV1Builder {
+        
     }
 }

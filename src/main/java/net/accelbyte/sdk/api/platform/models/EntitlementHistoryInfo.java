@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -53,6 +54,24 @@ public class EntitlementHistoryInfo extends Model {
     @JsonProperty("userId")
     private String userId;
 
+
+    
+    public String getAction() {
+        return this.action;
+    }
+    
+    public Action getActionAsEnum() {
+        return Action.valueOf(this.action);
+    }
+    
+    public void setAction(final String action) {
+        this.action = action;
+    }
+    
+    public void setActionFromEnum(final Action action) {
+        this.action = action.toString();
+    }
+
     @JsonIgnore
     public EntitlementHistoryInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -75,5 +94,40 @@ public class EntitlementHistoryInfo extends Model {
         result.put("useCount", "useCount");
         result.put("userId", "userId");
         return result;
+    }
+    
+    public enum Action {
+        GRANT("GRANT"),
+        UPDATE("UPDATE"),
+        DECREMENT("DECREMENT"),
+        REVOKE("REVOKE"),
+        DISABLE("DISABLE"),
+        ENABLE("ENABLE");
+
+        private String value;
+
+        Action(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class EntitlementHistoryInfoBuilder {
+        private String action;
+        
+        
+        public EntitlementHistoryInfoBuilder action(final String action) {
+            this.action = action;
+            return this;
+        }
+        
+        public EntitlementHistoryInfoBuilder actionFromEnum(final Action action) {
+            this.action = action.toString();
+            return this;
+        }
     }
 }

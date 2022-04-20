@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class AccountcommonInputValidationDescription extends Model {
     @JsonProperty("message")
     private List<String> message;
 
+
+
     @JsonIgnore
     public AccountcommonInputValidationDescription createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class AccountcommonInputValidationDescription extends Model {
         result.put("language", "language");
         result.put("message", "message");
         return result;
+    }
+    
+    public static class AccountcommonInputValidationDescriptionBuilder {
+        
     }
 }

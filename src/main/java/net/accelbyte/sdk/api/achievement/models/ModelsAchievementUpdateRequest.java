@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -59,6 +60,8 @@ public class ModelsAchievementUpdateRequest extends Model {
     @JsonProperty("unlockedIcons")
     private List<ModelsIcon> unlockedIcons;
 
+
+
     @JsonIgnore
     public ModelsAchievementUpdateRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -83,5 +86,9 @@ public class ModelsAchievementUpdateRequest extends Model {
         result.put("tags", "tags");
         result.put("unlockedIcons", "unlockedIcons");
         return result;
+    }
+    
+    public static class ModelsAchievementUpdateRequestBuilder {
+        
     }
 }

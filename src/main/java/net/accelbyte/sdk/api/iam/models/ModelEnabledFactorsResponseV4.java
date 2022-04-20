@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class ModelEnabledFactorsResponseV4 extends Model {
     @JsonProperty("enabled")
     private List<String> enabled;
 
+
+
     @JsonIgnore
     public ModelEnabledFactorsResponseV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class ModelEnabledFactorsResponseV4 extends Model {
         result.put("default", "default");
         result.put("enabled", "enabled");
         return result;
+    }
+    
+    public static class ModelEnabledFactorsResponseV4Builder {
+        
     }
 }

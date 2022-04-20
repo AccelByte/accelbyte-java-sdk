@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -41,6 +42,8 @@ public class ModelUserVerificationRequest extends Model {
     @JsonProperty("validateOnly")
     private Boolean validateOnly;
 
+
+
     @JsonIgnore
     public ModelUserVerificationRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -59,5 +62,9 @@ public class ModelUserVerificationRequest extends Model {
         result.put("LanguageTag", "languageTag");
         result.put("validateOnly", "validateOnly");
         return result;
+    }
+    
+    public static class ModelUserVerificationRequestBuilder {
+        
     }
 }

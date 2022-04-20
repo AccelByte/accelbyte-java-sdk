@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -59,6 +60,8 @@ public class AccountCreateTestUserRequestV4 extends Model {
     @JsonProperty("verified")
     private Boolean verified;
 
+
+
     @JsonIgnore
     public AccountCreateTestUserRequestV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -83,5 +86,9 @@ public class AccountCreateTestUserRequestV4 extends Model {
         result.put("username", "username");
         result.put("verified", "verified");
         return result;
+    }
+    
+    public static class AccountCreateTestUserRequestV4Builder {
+        
     }
 }

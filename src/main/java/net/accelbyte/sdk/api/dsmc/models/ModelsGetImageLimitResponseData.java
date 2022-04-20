@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class ModelsGetImageLimitResponseData extends Model {
     @JsonProperty("image_limit")
     private Integer imageLimit;
 
+
+
     @JsonIgnore
     public ModelsGetImageLimitResponseData createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class ModelsGetImageLimitResponseData extends Model {
         result.put("image_count", "imageCount");
         result.put("image_limit", "imageLimit");
         return result;
+    }
+    
+    public static class ModelsGetImageLimitResponseDataBuilder {
+        
     }
 }

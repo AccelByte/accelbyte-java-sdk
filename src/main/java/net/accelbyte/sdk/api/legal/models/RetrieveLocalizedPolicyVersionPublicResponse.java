@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -74,6 +75,8 @@ public class RetrieveLocalizedPolicyVersionPublicResponse extends Model {
     @JsonProperty("updatedAt")
     private String updatedAt;
 
+
+
     @JsonIgnore
     public RetrieveLocalizedPolicyVersionPublicResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -103,5 +106,9 @@ public class RetrieveLocalizedPolicyVersionPublicResponse extends Model {
         result.put("tags", "tags");
         result.put("updatedAt", "updatedAt");
         return result;
+    }
+    
+    public static class RetrieveLocalizedPolicyVersionPublicResponseBuilder {
+        
     }
 }

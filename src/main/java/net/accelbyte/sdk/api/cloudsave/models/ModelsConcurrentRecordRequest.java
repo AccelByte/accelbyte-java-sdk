@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class ModelsConcurrentRecordRequest extends Model {
     @JsonProperty("value")
     private Map<String, ?> value;
 
+
+
     @JsonIgnore
     public ModelsConcurrentRecordRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class ModelsConcurrentRecordRequest extends Model {
         result.put("updatedAt", "updatedAt");
         result.put("value", "value");
         return result;
+    }
+    
+    public static class ModelsConcurrentRecordRequestBuilder {
+        
     }
 }

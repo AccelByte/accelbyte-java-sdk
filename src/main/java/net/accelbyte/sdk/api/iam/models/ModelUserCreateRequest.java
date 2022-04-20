@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -47,6 +48,8 @@ public class ModelUserCreateRequest extends Model {
     @JsonProperty("PasswordMD5Sum")
     private String passwordMD5Sum;
 
+
+
     @JsonIgnore
     public ModelUserCreateRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -67,5 +70,9 @@ public class ModelUserCreateRequest extends Model {
         result.put("Password", "password");
         result.put("PasswordMD5Sum", "passwordMD5Sum");
         return result;
+    }
+    
+    public static class ModelUserCreateRequestBuilder {
+        
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -41,6 +42,8 @@ public class GoogleIAPConfigInfo extends Model {
     @JsonProperty("serviceAccountId")
     private String serviceAccountId;
 
+
+
     @JsonIgnore
     public GoogleIAPConfigInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -59,5 +62,9 @@ public class GoogleIAPConfigInfo extends Model {
         result.put("p12FileName", "p12FileName");
         result.put("serviceAccountId", "serviceAccountId");
         return result;
+    }
+    
+    public static class GoogleIAPConfigInfoBuilder {
+        
     }
 }

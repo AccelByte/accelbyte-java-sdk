@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -53,6 +54,8 @@ public class ModelsPlayerRecordResponse extends Model {
     @JsonProperty("value")
     private Map<String, ?> value;
 
+
+
     @JsonIgnore
     public ModelsPlayerRecordResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -75,5 +78,9 @@ public class ModelsPlayerRecordResponse extends Model {
         result.put("user_id", "userId");
         result.put("value", "value");
         return result;
+    }
+    
+    public static class ModelsPlayerRecordResponseBuilder {
+        
     }
 }

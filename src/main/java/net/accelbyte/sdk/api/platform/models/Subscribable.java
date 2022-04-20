@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +32,8 @@ public class Subscribable extends Model {
 
     @JsonProperty("subscribable")
     private Boolean subscribable;
+
+
 
     @JsonIgnore
     public Subscribable createFromJson(String json) throws JsonProcessingException {
@@ -47,5 +50,9 @@ public class Subscribable extends Model {
         Map<String, String> result = new HashMap<>();
         result.put("subscribable", "subscribable");
         return result;
+    }
+    
+    public static class SubscribableBuilder {
+        
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -179,6 +180,72 @@ public class PaymentOrder extends Model {
     @JsonProperty("zipCode")
     private String zipCode;
 
+
+    
+    public String getChannel() {
+        return this.channel;
+    }
+    
+    public Channel getChannelAsEnum() {
+        return Channel.valueOf(this.channel);
+    }
+    
+    public void setChannel(final String channel) {
+        this.channel = channel;
+    }
+    
+    public void setChannelFromEnum(final Channel channel) {
+        this.channel = channel.toString();
+    }
+    
+    public String getItemType() {
+        return this.itemType;
+    }
+    
+    public ItemType getItemTypeAsEnum() {
+        return ItemType.valueOf(this.itemType);
+    }
+    
+    public void setItemType(final String itemType) {
+        this.itemType = itemType;
+    }
+    
+    public void setItemTypeFromEnum(final ItemType itemType) {
+        this.itemType = itemType.toString();
+    }
+    
+    public String getPaymentProvider() {
+        return this.paymentProvider;
+    }
+    
+    public PaymentProvider getPaymentProviderAsEnum() {
+        return PaymentProvider.valueOf(this.paymentProvider);
+    }
+    
+    public void setPaymentProvider(final String paymentProvider) {
+        this.paymentProvider = paymentProvider;
+    }
+    
+    public void setPaymentProviderFromEnum(final PaymentProvider paymentProvider) {
+        this.paymentProvider = paymentProvider.toString();
+    }
+    
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public Status getStatusAsEnum() {
+        return Status.valueOf(this.status);
+    }
+    
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+    
+    public void setStatusFromEnum(final Status status) {
+        this.status = status.toString();
+    }
+
     @JsonIgnore
     public PaymentOrder createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -243,5 +310,140 @@ public class PaymentOrder extends Model {
         result.put("vat", "vat");
         result.put("zipCode", "zipCode");
         return result;
+    }
+    
+    public enum Channel {
+        EXTERNAL("EXTERNAL"),
+        INTERNAL("INTERNAL");
+
+        private String value;
+
+        Channel(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum ItemType {
+        APP("APP"),
+        COINS("COINS"),
+        INGAMEITEM("INGAMEITEM"),
+        BUNDLE("BUNDLE"),
+        CODE("CODE"),
+        SUBSCRIPTION("SUBSCRIPTION"),
+        SEASON("SEASON"),
+        MEDIA("MEDIA");
+
+        private String value;
+
+        ItemType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum PaymentProvider {
+        WALLET("WALLET"),
+        XSOLLA("XSOLLA"),
+        ADYEN("ADYEN"),
+        STRIPE("STRIPE"),
+        CHECKOUT("CHECKOUT"),
+        ALIPAY("ALIPAY"),
+        WXPAY("WXPAY"),
+        PAYPAL("PAYPAL");
+
+        private String value;
+
+        PaymentProvider(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Status {
+        INIT("INIT"),
+        AUTHORISED("AUTHORISED"),
+        AUTHORISEFAILED("AUTHORISEFAILED"),
+        CHARGED("CHARGED"),
+        CHARGEFAILED("CHARGEFAILED"),
+        NOTIFICATIONOFCHARGEBACK("NOTIFICATIONOFCHARGEBACK"),
+        REQUESTFORINFORMATION("REQUESTFORINFORMATION"),
+        CHARGEBACK("CHARGEBACK"),
+        CHARGEBACKREVERSED("CHARGEBACKREVERSED"),
+        REFUNDING("REFUNDING"),
+        REFUNDED("REFUNDED"),
+        REFUNDFAILED("REFUNDFAILED"),
+        DELETED("DELETED");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class PaymentOrderBuilder {
+        private String channel;
+        private String itemType;
+        private String paymentProvider;
+        private String status;
+        
+        
+        public PaymentOrderBuilder channel(final String channel) {
+            this.channel = channel;
+            return this;
+        }
+        
+        public PaymentOrderBuilder channelFromEnum(final Channel channel) {
+            this.channel = channel.toString();
+            return this;
+        }
+        
+        public PaymentOrderBuilder itemType(final String itemType) {
+            this.itemType = itemType;
+            return this;
+        }
+        
+        public PaymentOrderBuilder itemTypeFromEnum(final ItemType itemType) {
+            this.itemType = itemType.toString();
+            return this;
+        }
+        
+        public PaymentOrderBuilder paymentProvider(final String paymentProvider) {
+            this.paymentProvider = paymentProvider;
+            return this;
+        }
+        
+        public PaymentOrderBuilder paymentProviderFromEnum(final PaymentProvider paymentProvider) {
+            this.paymentProvider = paymentProvider.toString();
+            return this;
+        }
+        
+        public PaymentOrderBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public PaymentOrderBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
     }
 }

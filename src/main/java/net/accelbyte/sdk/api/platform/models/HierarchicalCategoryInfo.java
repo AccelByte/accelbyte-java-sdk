@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -53,6 +54,8 @@ public class HierarchicalCategoryInfo extends Model {
     @JsonProperty("updatedAt")
     private String updatedAt;
 
+
+
     @JsonIgnore
     public HierarchicalCategoryInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -75,5 +78,9 @@ public class HierarchicalCategoryInfo extends Model {
         result.put("root", "root");
         result.put("updatedAt", "updatedAt");
         return result;
+    }
+    
+    public static class HierarchicalCategoryInfoBuilder {
+        
     }
 }

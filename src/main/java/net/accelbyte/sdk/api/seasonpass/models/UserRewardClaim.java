@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class UserRewardClaim extends Model {
     @JsonProperty("tierIndex")
     private Integer tierIndex;
 
+
+
     @JsonIgnore
     public UserRewardClaim createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class UserRewardClaim extends Model {
         result.put("rewardCode", "rewardCode");
         result.put("tierIndex", "tierIndex");
         return result;
+    }
+    
+    public static class UserRewardClaimBuilder {
+        
     }
 }

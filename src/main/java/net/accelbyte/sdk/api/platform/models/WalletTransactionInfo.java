@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -62,6 +63,24 @@ public class WalletTransactionInfo extends Model {
     @JsonProperty("walletId")
     private String walletId;
 
+
+    
+    public String getWalletAction() {
+        return this.walletAction;
+    }
+    
+    public WalletAction getWalletActionAsEnum() {
+        return WalletAction.valueOf(this.walletAction);
+    }
+    
+    public void setWalletAction(final String walletAction) {
+        this.walletAction = walletAction;
+    }
+    
+    public void setWalletActionFromEnum(final WalletAction walletAction) {
+        this.walletAction = walletAction.toString();
+    }
+
     @JsonIgnore
     public WalletTransactionInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -87,5 +106,37 @@ public class WalletTransactionInfo extends Model {
         result.put("walletAction", "walletAction");
         result.put("walletId", "walletId");
         return result;
+    }
+    
+    public enum WalletAction {
+        CREDIT("CREDIT"),
+        PAYMENT("PAYMENT"),
+        DEBIT("DEBIT");
+
+        private String value;
+
+        WalletAction(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class WalletTransactionInfoBuilder {
+        private String walletAction;
+        
+        
+        public WalletTransactionInfoBuilder walletAction(final String walletAction) {
+            this.walletAction = walletAction;
+            return this;
+        }
+        
+        public WalletTransactionInfoBuilder walletActionFromEnum(final WalletAction walletAction) {
+            this.walletAction = walletAction.toString();
+            return this;
+        }
     }
 }

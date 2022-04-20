@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class ModelsAgentType extends Model {
     @JsonProperty("Description")
     private String description;
 
+
+
     @JsonIgnore
     public ModelsAgentType createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class ModelsAgentType extends Model {
         result.put("AgentType", "agentType");
         result.put("Description", "description");
         return result;
+    }
+    
+    public static class ModelsAgentTypeBuilder {
+        
     }
 }

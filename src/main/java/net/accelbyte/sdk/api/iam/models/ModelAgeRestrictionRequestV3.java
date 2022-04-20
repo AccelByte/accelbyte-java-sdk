@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class ModelAgeRestrictionRequestV3 extends Model {
     @JsonProperty("enable")
     private Boolean enable;
 
+
+
     @JsonIgnore
     public ModelAgeRestrictionRequestV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class ModelAgeRestrictionRequestV3 extends Model {
         result.put("ageRestriction", "ageRestriction");
         result.put("enable", "enable");
         return result;
+    }
+    
+    public static class ModelAgeRestrictionRequestV3Builder {
+        
     }
 }

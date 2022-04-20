@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -83,6 +84,56 @@ public class CampaignInfo extends Model {
     @JsonProperty("updatedAt")
     private String updatedAt;
 
+
+    
+    public String getRedeemType() {
+        return this.redeemType;
+    }
+    
+    public RedeemType getRedeemTypeAsEnum() {
+        return RedeemType.valueOf(this.redeemType);
+    }
+    
+    public void setRedeemType(final String redeemType) {
+        this.redeemType = redeemType;
+    }
+    
+    public void setRedeemTypeFromEnum(final RedeemType redeemType) {
+        this.redeemType = redeemType.toString();
+    }
+    
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public Status getStatusAsEnum() {
+        return Status.valueOf(this.status);
+    }
+    
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+    
+    public void setStatusFromEnum(final Status status) {
+        this.status = status.toString();
+    }
+    
+    public String getType() {
+        return this.type;
+    }
+    
+    public Type getTypeAsEnum() {
+        return Type.valueOf(this.type);
+    }
+    
+    public void setType(final String type) {
+        this.type = type;
+    }
+    
+    public void setTypeFromEnum(final Type type) {
+        this.type = type.toString();
+    }
+
     @JsonIgnore
     public CampaignInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -115,5 +166,88 @@ public class CampaignInfo extends Model {
         result.put("type", "type");
         result.put("updatedAt", "updatedAt");
         return result;
+    }
+    
+    public enum RedeemType {
+        ITEM("ITEM");
+
+        private String value;
+
+        RedeemType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Status {
+        ACTIVE("ACTIVE"),
+        INACTIVE("INACTIVE");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Type {
+        REDEMPTION("REDEMPTION");
+
+        private String value;
+
+        Type(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class CampaignInfoBuilder {
+        private String redeemType;
+        private String status;
+        private String type;
+        
+        
+        public CampaignInfoBuilder redeemType(final String redeemType) {
+            this.redeemType = redeemType;
+            return this;
+        }
+        
+        public CampaignInfoBuilder redeemTypeFromEnum(final RedeemType redeemType) {
+            this.redeemType = redeemType.toString();
+            return this;
+        }
+        
+        public CampaignInfoBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public CampaignInfoBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
+        
+        public CampaignInfoBuilder type(final String type) {
+            this.type = type;
+            return this;
+        }
+        
+        public CampaignInfoBuilder typeFromEnum(final Type type) {
+            this.type = type.toString();
+            return this;
+        }
     }
 }

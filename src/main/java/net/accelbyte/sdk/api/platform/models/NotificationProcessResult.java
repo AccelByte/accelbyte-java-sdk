@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -41,6 +42,24 @@ public class NotificationProcessResult extends Model {
     @JsonProperty("status")
     private String status;
 
+
+    
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public Status getStatusAsEnum() {
+        return Status.valueOf(this.status);
+    }
+    
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+    
+    public void setStatusFromEnum(final Status status) {
+        this.status = status.toString();
+    }
+
     @JsonIgnore
     public NotificationProcessResult createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -59,5 +78,38 @@ public class NotificationProcessResult extends Model {
         result.put("severity", "severity");
         result.put("status", "status");
         return result;
+    }
+    
+    public enum Status {
+        PROCESSED("PROCESSED"),
+        ERROR("ERROR"),
+        WARN("WARN"),
+        IGNORED("IGNORED");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class NotificationProcessResultBuilder {
+        private String status;
+        
+        
+        public NotificationProcessResultBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public NotificationProcessResultBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
     }
 }

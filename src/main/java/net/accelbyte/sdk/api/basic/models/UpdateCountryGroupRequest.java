@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class UpdateCountryGroupRequest extends Model {
     @JsonProperty("countryGroupName")
     private String countryGroupName;
 
+
+
     @JsonIgnore
     public UpdateCountryGroupRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class UpdateCountryGroupRequest extends Model {
         result.put("countries", "countries");
         result.put("countryGroupName", "countryGroupName");
         return result;
+    }
+    
+    public static class UpdateCountryGroupRequestBuilder {
+        
     }
 }

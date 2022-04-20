@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -41,6 +42,8 @@ public class AccountcommonRegisteredDomain extends Model {
     @JsonProperty("roleId")
     private String roleId;
 
+
+
     @JsonIgnore
     public AccountcommonRegisteredDomain createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -59,5 +62,9 @@ public class AccountcommonRegisteredDomain extends Model {
         result.put("namespaces", "namespaces");
         result.put("roleId", "roleId");
         return result;
+    }
+    
+    public static class AccountcommonRegisteredDomainBuilder {
+        
     }
 }

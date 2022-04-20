@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -86,6 +87,24 @@ public class PaymentOrderCreate extends Model {
     @JsonProperty("title")
     private String title;
 
+
+    
+    public String getItemType() {
+        return this.itemType;
+    }
+    
+    public ItemType getItemTypeAsEnum() {
+        return ItemType.valueOf(this.itemType);
+    }
+    
+    public void setItemType(final String itemType) {
+        this.itemType = itemType;
+    }
+    
+    public void setItemTypeFromEnum(final ItemType itemType) {
+        this.itemType = itemType.toString();
+    }
+
     @JsonIgnore
     public PaymentOrderCreate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -119,5 +138,42 @@ public class PaymentOrderCreate extends Model {
         result.put("subscriptionId", "subscriptionId");
         result.put("title", "title");
         return result;
+    }
+    
+    public enum ItemType {
+        APP("APP"),
+        COINS("COINS"),
+        INGAMEITEM("INGAMEITEM"),
+        BUNDLE("BUNDLE"),
+        CODE("CODE"),
+        SUBSCRIPTION("SUBSCRIPTION"),
+        SEASON("SEASON"),
+        MEDIA("MEDIA");
+
+        private String value;
+
+        ItemType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class PaymentOrderCreateBuilder {
+        private String itemType;
+        
+        
+        public PaymentOrderCreateBuilder itemType(final String itemType) {
+            this.itemType = itemType;
+            return this;
+        }
+        
+        public PaymentOrderCreateBuilder itemTypeFromEnum(final ItemType itemType) {
+            this.itemType = itemType.toString();
+            return this;
+        }
     }
 }

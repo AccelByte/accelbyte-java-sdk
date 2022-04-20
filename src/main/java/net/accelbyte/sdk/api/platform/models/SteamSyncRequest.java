@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -50,6 +51,8 @@ public class SteamSyncRequest extends Model {
     @JsonProperty("steamId")
     private String steamId;
 
+
+
     @JsonIgnore
     public SteamSyncRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -71,5 +74,9 @@ public class SteamSyncRequest extends Model {
         result.put("region", "region");
         result.put("steamId", "steamId");
         return result;
+    }
+    
+    public static class SteamSyncRequestBuilder {
+        
     }
 }

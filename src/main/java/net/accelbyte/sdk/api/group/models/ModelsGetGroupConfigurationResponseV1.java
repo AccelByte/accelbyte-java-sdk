@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -53,6 +54,8 @@ public class ModelsGetGroupConfigurationResponseV1 extends Model {
     @JsonProperty("namespace")
     private String namespace;
 
+
+
     @JsonIgnore
     public ModelsGetGroupConfigurationResponseV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -75,5 +78,9 @@ public class ModelsGetGroupConfigurationResponseV1 extends Model {
         result.put("name", "name");
         result.put("namespace", "namespace");
         return result;
+    }
+    
+    public static class ModelsGetGroupConfigurationResponseV1Builder {
+        
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class ModelsRequestMatchParty extends Model {
     @JsonProperty("party_members")
     private List<ModelsRequestMatchMember> partyMembers;
 
+
+
     @JsonIgnore
     public ModelsRequestMatchParty createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class ModelsRequestMatchParty extends Model {
         result.put("party_id", "partyId");
         result.put("party_members", "partyMembers");
         return result;
+    }
+    
+    public static class ModelsRequestMatchPartyBuilder {
+        
     }
 }

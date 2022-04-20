@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -59,6 +60,24 @@ public class EntitlementGrant extends Model {
     @JsonProperty("storeId")
     private String storeId;
 
+
+    
+    public String getSource() {
+        return this.source;
+    }
+    
+    public Source getSourceAsEnum() {
+        return Source.valueOf(this.source);
+    }
+    
+    public void setSource(final String source) {
+        this.source = source;
+    }
+    
+    public void setSourceFromEnum(final Source source) {
+        this.source = source.toString();
+    }
+
     @JsonIgnore
     public EntitlementGrant createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -83,5 +102,43 @@ public class EntitlementGrant extends Model {
         result.put("startDate", "startDate");
         result.put("storeId", "storeId");
         return result;
+    }
+    
+    public enum Source {
+        PURCHASE("PURCHASE"),
+        IAP("IAP"),
+        PROMOTION("PROMOTION"),
+        ACHIEVEMENT("ACHIEVEMENT"),
+        REFERRALBONUS("REFERRALBONUS"),
+        REDEEMCODE("REDEEMCODE"),
+        REWARD("REWARD"),
+        GIFT("GIFT"),
+        OTHER("OTHER");
+
+        private String value;
+
+        Source(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class EntitlementGrantBuilder {
+        private String source;
+        
+        
+        public EntitlementGrantBuilder source(final String source) {
+            this.source = source;
+            return this;
+        }
+        
+        public EntitlementGrantBuilder sourceFromEnum(final Source source) {
+            this.source = source.toString();
+            return this;
+        }
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -59,6 +60,44 @@ public class PaymentProviderConfigInfo extends Model {
     @JsonProperty("useGlobalTaxJarApiToken")
     private Boolean useGlobalTaxJarApiToken;
 
+
+    
+    public String getAggregate() {
+        return this.aggregate;
+    }
+    
+    public Aggregate getAggregateAsEnum() {
+        return Aggregate.valueOf(this.aggregate);
+    }
+    
+    public void setAggregate(final String aggregate) {
+        this.aggregate = aggregate;
+    }
+    
+    public void setAggregateFromEnum(final Aggregate aggregate) {
+        this.aggregate = aggregate.toString();
+    }
+    
+    public List<String> getSpecials() {
+        return this.specials;
+    }
+    
+    public List<Specials> getSpecialsAsEnum() {
+        ArrayList<Specials> en = new ArrayList<Specials>();
+        for(String e : this.specials) en.add(Specials.valueOf(e));
+        return en;
+    }
+    
+    public void setSpecials(final List<String> specials) {
+        this.specials = specials;
+    }
+    
+    public void setSpecialsFromEnum(final List<Specials> specials) {
+        ArrayList<String> en = new ArrayList<String>();
+        for(Specials e : specials) en.add(e.toString());
+        this.specials = en;
+    }
+
     @JsonIgnore
     public PaymentProviderConfigInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -83,5 +122,71 @@ public class PaymentProviderConfigInfo extends Model {
         result.put("taxJarEnabled", "taxJarEnabled");
         result.put("useGlobalTaxJarApiToken", "useGlobalTaxJarApiToken");
         return result;
+    }
+    
+    public enum Aggregate {
+        XSOLLA("XSOLLA"),
+        ADYEN("ADYEN");
+
+        private String value;
+
+        Aggregate(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Specials {
+        WALLET("WALLET"),
+        XSOLLA("XSOLLA"),
+        ADYEN("ADYEN"),
+        STRIPE("STRIPE"),
+        CHECKOUT("CHECKOUT"),
+        ALIPAY("ALIPAY"),
+        WXPAY("WXPAY"),
+        PAYPAL("PAYPAL");
+
+        private String value;
+
+        Specials(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class PaymentProviderConfigInfoBuilder {
+        private String aggregate;
+        private List<String> specials;
+        
+        
+        public PaymentProviderConfigInfoBuilder aggregate(final String aggregate) {
+            this.aggregate = aggregate;
+            return this;
+        }
+        
+        public PaymentProviderConfigInfoBuilder aggregateFromEnum(final Aggregate aggregate) {
+            this.aggregate = aggregate.toString();
+            return this;
+        }
+        
+        public PaymentProviderConfigInfoBuilder specials(final List<String> specials) {
+            this.specials = specials;
+            return this;
+        }
+        
+        public PaymentProviderConfigInfoBuilder specialsFromEnum(final List<Specials> specials) {
+            ArrayList<String> en = new ArrayList<String>();
+            for(Specials e : specials) en.add(e.toString());
+            this.specials = en;
+            return this;
+        }
     }
 }

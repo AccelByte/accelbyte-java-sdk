@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,24 @@ public class PlatformDlcEntry extends Model {
     @JsonProperty("platformDlcIdMap")
     private Map<String, String> platformDlcIdMap;
 
+
+    
+    public String getPlatform() {
+        return this.platform;
+    }
+    
+    public Platform getPlatformAsEnum() {
+        return Platform.valueOf(this.platform);
+    }
+    
+    public void setPlatform(final String platform) {
+        this.platform = platform;
+    }
+    
+    public void setPlatformFromEnum(final Platform platform) {
+        this.platform = platform.toString();
+    }
+
     @JsonIgnore
     public PlatformDlcEntry createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +70,37 @@ public class PlatformDlcEntry extends Model {
         result.put("platform", "platform");
         result.put("platformDlcIdMap", "platformDlcIdMap");
         return result;
+    }
+    
+    public enum Platform {
+        PSN("PSN"),
+        STEAM("STEAM"),
+        XBOX("XBOX");
+
+        private String value;
+
+        Platform(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class PlatformDlcEntryBuilder {
+        private String platform;
+        
+        
+        public PlatformDlcEntryBuilder platform(final String platform) {
+            this.platform = platform;
+            return this;
+        }
+        
+        public PlatformDlcEntryBuilder platformFromEnum(final Platform platform) {
+            this.platform = platform.toString();
+            return this;
+        }
     }
 }

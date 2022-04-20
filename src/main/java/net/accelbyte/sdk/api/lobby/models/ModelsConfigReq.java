@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -83,6 +84,8 @@ public class ModelsConfigReq extends Model {
     @JsonProperty("readyConsentTimeout")
     private Integer readyConsentTimeout;
 
+
+
     @JsonIgnore
     public ModelsConfigReq createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -115,5 +118,9 @@ public class ModelsConfigReq extends Model {
         result.put("profanityFilter", "profanityFilter");
         result.put("readyConsentTimeout", "readyConsentTimeout");
         return result;
+    }
+    
+    public static class ModelsConfigReqBuilder {
+        
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +32,8 @@ public class ModelRoleMembersRequest extends Model {
 
     @JsonProperty("Members")
     private List<AccountcommonRoleMember> members;
+
+
 
     @JsonIgnore
     public ModelRoleMembersRequest createFromJson(String json) throws JsonProcessingException {
@@ -47,5 +50,9 @@ public class ModelRoleMembersRequest extends Model {
         Map<String, String> result = new HashMap<>();
         result.put("Members", "members");
         return result;
+    }
+    
+    public static class ModelRoleMembersRequestBuilder {
+        
     }
 }

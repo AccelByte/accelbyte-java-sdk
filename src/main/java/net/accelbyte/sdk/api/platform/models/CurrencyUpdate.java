@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +32,8 @@ public class CurrencyUpdate extends Model {
 
     @JsonProperty("localizationDescriptions")
     private Map<String, String> localizationDescriptions;
+
+
 
     @JsonIgnore
     public CurrencyUpdate createFromJson(String json) throws JsonProcessingException {
@@ -47,5 +50,9 @@ public class CurrencyUpdate extends Model {
         Map<String, String> result = new HashMap<>();
         result.put("localizationDescriptions", "localizationDescriptions");
         return result;
+    }
+    
+    public static class CurrencyUpdateBuilder {
+        
     }
 }

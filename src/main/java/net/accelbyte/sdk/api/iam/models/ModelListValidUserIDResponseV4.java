@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +32,8 @@ public class ModelListValidUserIDResponseV4 extends Model {
 
     @JsonProperty("data")
     private List<ModelValidUserIDResponseV4> data;
+
+
 
     @JsonIgnore
     public ModelListValidUserIDResponseV4 createFromJson(String json) throws JsonProcessingException {
@@ -47,5 +50,9 @@ public class ModelListValidUserIDResponseV4 extends Model {
         Map<String, String> result = new HashMap<>();
         result.put("data", "data");
         return result;
+    }
+    
+    public static class ModelListValidUserIDResponseV4Builder {
+        
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class PlayStationIAPConfigInfo extends Model {
     @JsonProperty("namespace")
     private String namespace;
 
+
+
     @JsonIgnore
     public PlayStationIAPConfigInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class PlayStationIAPConfigInfo extends Model {
         result.put("environment", "environment");
         result.put("namespace", "namespace");
         return result;
+    }
+    
+    public static class PlayStationIAPConfigInfoBuilder {
+        
     }
 }

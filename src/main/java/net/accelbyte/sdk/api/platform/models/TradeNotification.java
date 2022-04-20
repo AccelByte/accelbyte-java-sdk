@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -146,6 +147,40 @@ public class TradeNotification extends Model {
     @JsonProperty("vat")
     private Integer vat;
 
+
+    
+    public String getPaymentProvider() {
+        return this.paymentProvider;
+    }
+    
+    public PaymentProvider getPaymentProviderAsEnum() {
+        return PaymentProvider.valueOf(this.paymentProvider);
+    }
+    
+    public void setPaymentProvider(final String paymentProvider) {
+        this.paymentProvider = paymentProvider;
+    }
+    
+    public void setPaymentProviderFromEnum(final PaymentProvider paymentProvider) {
+        this.paymentProvider = paymentProvider.toString();
+    }
+    
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public Status getStatusAsEnum() {
+        return Status.valueOf(this.status);
+    }
+    
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+    
+    public void setStatusFromEnum(final Status status) {
+        this.status = status.toString();
+    }
+
     @JsonIgnore
     public TradeNotification createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -199,5 +234,80 @@ public class TradeNotification extends Model {
         result.put("userId", "userId");
         result.put("vat", "vat");
         return result;
+    }
+    
+    public enum PaymentProvider {
+        WALLET("WALLET"),
+        XSOLLA("XSOLLA"),
+        ADYEN("ADYEN"),
+        STRIPE("STRIPE"),
+        CHECKOUT("CHECKOUT"),
+        ALIPAY("ALIPAY"),
+        WXPAY("WXPAY"),
+        PAYPAL("PAYPAL");
+
+        private String value;
+
+        PaymentProvider(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Status {
+        INIT("INIT"),
+        AUTHORISED("AUTHORISED"),
+        AUTHORISEFAILED("AUTHORISEFAILED"),
+        CHARGED("CHARGED"),
+        CHARGEFAILED("CHARGEFAILED"),
+        NOTIFICATIONOFCHARGEBACK("NOTIFICATIONOFCHARGEBACK"),
+        REQUESTFORINFORMATION("REQUESTFORINFORMATION"),
+        CHARGEBACK("CHARGEBACK"),
+        CHARGEBACKREVERSED("CHARGEBACKREVERSED"),
+        REFUNDING("REFUNDING"),
+        REFUNDED("REFUNDED"),
+        REFUNDFAILED("REFUNDFAILED"),
+        DELETED("DELETED");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class TradeNotificationBuilder {
+        private String paymentProvider;
+        private String status;
+        
+        
+        public TradeNotificationBuilder paymentProvider(final String paymentProvider) {
+            this.paymentProvider = paymentProvider;
+            return this;
+        }
+        
+        public TradeNotificationBuilder paymentProviderFromEnum(final PaymentProvider paymentProvider) {
+            this.paymentProvider = paymentProvider.toString();
+            return this;
+        }
+        
+        public TradeNotificationBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public TradeNotificationBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -59,6 +60,8 @@ public class ModelsLeaderboardConfigReq extends Model {
     @JsonProperty("weekly")
     private ModelsWeeklyConfig weekly;
 
+
+
     @JsonIgnore
     public ModelsLeaderboardConfigReq createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -83,5 +86,9 @@ public class ModelsLeaderboardConfigReq extends Model {
         result.put("statCode", "statCode");
         result.put("weekly", "weekly");
         return result;
+    }
+    
+    public static class ModelsLeaderboardConfigReqBuilder {
+        
     }
 }

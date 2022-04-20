@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class FulfillmentScriptEvalTestResult extends Model {
     @JsonProperty("result")
     private Map<String, ?> result;
 
+
+
     @JsonIgnore
     public FulfillmentScriptEvalTestResult createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class FulfillmentScriptEvalTestResult extends Model {
         result.put("errorStackTrace", "errorStackTrace");
         result.put("result", "result");
         return result;
+    }
+    
+    public static class FulfillmentScriptEvalTestResultBuilder {
+        
     }
 }

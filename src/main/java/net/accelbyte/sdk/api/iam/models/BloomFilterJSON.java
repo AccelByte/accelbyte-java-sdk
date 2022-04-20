@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class BloomFilterJSON extends Model {
     @JsonProperty("m")
     private Integer m;
 
+
+
     @JsonIgnore
     public BloomFilterJSON createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class BloomFilterJSON extends Model {
         result.put("k", "k");
         result.put("m", "m");
         return result;
+    }
+    
+    public static class BloomFilterJSONBuilder {
+        
     }
 }

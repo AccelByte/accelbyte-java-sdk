@@ -18,11 +18,14 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ModelsGameRecordRequest extends Model {
+
+
 
     @JsonIgnore
     public ModelsGameRecordRequest createFromJson(String json) throws JsonProcessingException {
@@ -38,5 +41,9 @@ public class ModelsGameRecordRequest extends Model {
     public static Map<String, String> getFieldInfo() {
         Map<String, String> result = new HashMap<>();
         return result;
+    }
+    
+    public static class ModelsGameRecordRequestBuilder {
+        
     }
 }

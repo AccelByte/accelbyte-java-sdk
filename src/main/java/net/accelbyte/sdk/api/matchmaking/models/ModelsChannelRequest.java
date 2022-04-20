@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -59,6 +60,8 @@ public class ModelsChannelRequest extends Model {
     @JsonProperty("use_sub_gamemode")
     private Boolean useSubGamemode;
 
+
+
     @JsonIgnore
     public ModelsChannelRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -83,5 +86,9 @@ public class ModelsChannelRequest extends Model {
         result.put("social_matchmaking", "socialMatchmaking");
         result.put("use_sub_gamemode", "useSubGamemode");
         return result;
+    }
+    
+    public static class ModelsChannelRequestBuilder {
+        
     }
 }

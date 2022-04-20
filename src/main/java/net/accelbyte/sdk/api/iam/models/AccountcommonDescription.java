@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class AccountcommonDescription extends Model {
     @JsonProperty("zh-CN")
     private String zhCN;
 
+
+
     @JsonIgnore
     public AccountcommonDescription createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class AccountcommonDescription extends Model {
         result.put("en-US", "enUS");
         result.put("zh-CN", "zhCN");
         return result;
+    }
+    
+    public static class AccountcommonDescriptionBuilder {
+        
     }
 }

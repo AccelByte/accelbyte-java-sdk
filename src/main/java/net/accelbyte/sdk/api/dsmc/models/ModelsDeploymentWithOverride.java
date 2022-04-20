@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -80,6 +81,8 @@ public class ModelsDeploymentWithOverride extends Model {
     @JsonProperty("use_buffer_percent")
     private Boolean useBufferPercent;
 
+
+
     @JsonIgnore
     public ModelsDeploymentWithOverride createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -111,5 +114,9 @@ public class ModelsDeploymentWithOverride extends Model {
         result.put("updatedAt", "updatedAt");
         result.put("use_buffer_percent", "useBufferPercent");
         return result;
+    }
+    
+    public static class ModelsDeploymentWithOverrideBuilder {
+        
     }
 }

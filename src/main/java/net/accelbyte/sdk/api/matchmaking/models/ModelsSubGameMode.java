@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class ModelsSubGameMode extends Model {
     @JsonProperty("name")
     private String name;
 
+
+
     @JsonIgnore
     public ModelsSubGameMode createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class ModelsSubGameMode extends Model {
         result.put("alliance_flexing_rule", "allianceFlexingRule");
         result.put("name", "name");
         return result;
+    }
+    
+    public static class ModelsSubGameModeBuilder {
+        
     }
 }

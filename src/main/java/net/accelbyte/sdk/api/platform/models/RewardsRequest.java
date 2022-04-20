@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,24 @@ public class RewardsRequest extends Model {
     @JsonProperty("source")
     private String source;
 
+
+    
+    public String getSource() {
+        return this.source;
+    }
+    
+    public Source getSourceAsEnum() {
+        return Source.valueOf(this.source);
+    }
+    
+    public void setSource(final String source) {
+        this.source = source;
+    }
+    
+    public void setSourceFromEnum(final Source source) {
+        this.source = source.toString();
+    }
+
     @JsonIgnore
     public RewardsRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +70,44 @@ public class RewardsRequest extends Model {
         result.put("rewards", "rewards");
         result.put("source", "source");
         return result;
+    }
+    
+    public enum Source {
+        PURCHASE("PURCHASE"),
+        IAP("IAP"),
+        PROMOTION("PROMOTION"),
+        ACHIEVEMENT("ACHIEVEMENT"),
+        REFERRALBONUS("REFERRALBONUS"),
+        REDEEMCODE("REDEEMCODE"),
+        REWARD("REWARD"),
+        GIFT("GIFT"),
+        DLC("DLC"),
+        OTHER("OTHER");
+
+        private String value;
+
+        Source(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class RewardsRequestBuilder {
+        private String source;
+        
+        
+        public RewardsRequestBuilder source(final String source) {
+            this.source = source;
+            return this;
+        }
+        
+        public RewardsRequestBuilder sourceFromEnum(final Source source) {
+            this.source = source.toString();
+            return this;
+        }
     }
 }

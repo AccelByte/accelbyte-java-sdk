@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class ValidationErrorEntity extends Model {
     @JsonProperty("errors")
     private List<FieldValidationError> errors;
 
+
+
     @JsonIgnore
     public ValidationErrorEntity createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class ValidationErrorEntity extends Model {
         result.put("errorMessage", "errorMessage");
         result.put("errors", "errors");
         return result;
+    }
+    
+    public static class ValidationErrorEntityBuilder {
+        
     }
 }

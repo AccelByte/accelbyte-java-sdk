@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -47,6 +48,8 @@ public class LogAppMessageDeclaration extends Model {
     @JsonProperty("Text")
     private String text;
 
+
+
     @JsonIgnore
     public LogAppMessageDeclaration createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -67,5 +70,9 @@ public class LogAppMessageDeclaration extends Model {
         result.put("Service", "service");
         result.put("Text", "text");
         return result;
+    }
+    
+    public static class LogAppMessageDeclarationBuilder {
+        
     }
 }

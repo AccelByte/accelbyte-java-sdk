@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -65,6 +66,40 @@ public class CampaignUpdate extends Model {
     @JsonProperty("tags")
     private List<String> tags;
 
+
+    
+    public String getRedeemType() {
+        return this.redeemType;
+    }
+    
+    public RedeemType getRedeemTypeAsEnum() {
+        return RedeemType.valueOf(this.redeemType);
+    }
+    
+    public void setRedeemType(final String redeemType) {
+        this.redeemType = redeemType;
+    }
+    
+    public void setRedeemTypeFromEnum(final RedeemType redeemType) {
+        this.redeemType = redeemType.toString();
+    }
+    
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public Status getStatusAsEnum() {
+        return Status.valueOf(this.status);
+    }
+    
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+    
+    public void setStatusFromEnum(final Status status) {
+        this.status = status.toString();
+    }
+
     @JsonIgnore
     public CampaignUpdate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -91,5 +126,62 @@ public class CampaignUpdate extends Model {
         result.put("status", "status");
         result.put("tags", "tags");
         return result;
+    }
+    
+    public enum RedeemType {
+        ITEM("ITEM");
+
+        private String value;
+
+        RedeemType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Status {
+        ACTIVE("ACTIVE"),
+        INACTIVE("INACTIVE");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class CampaignUpdateBuilder {
+        private String redeemType;
+        private String status;
+        
+        
+        public CampaignUpdateBuilder redeemType(final String redeemType) {
+            this.redeemType = redeemType;
+            return this;
+        }
+        
+        public CampaignUpdateBuilder redeemTypeFromEnum(final RedeemType redeemType) {
+            this.redeemType = redeemType.toString();
+            return this;
+        }
+        
+        public CampaignUpdateBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public CampaignUpdateBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
     }
 }

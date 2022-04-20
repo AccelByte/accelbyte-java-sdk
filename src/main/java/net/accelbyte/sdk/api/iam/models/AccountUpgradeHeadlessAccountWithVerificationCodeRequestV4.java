@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -56,6 +57,8 @@ public class AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4 extends 
     @JsonProperty("validateOnly")
     private Boolean validateOnly;
 
+
+
     @JsonIgnore
     public AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -79,5 +82,9 @@ public class AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4 extends 
         result.put("username", "username");
         result.put("validateOnly", "validateOnly");
         return result;
+    }
+    
+    public static class AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4Builder {
+        
     }
 }

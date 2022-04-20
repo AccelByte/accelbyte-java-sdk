@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -47,6 +48,8 @@ public class ModelsUpdateGroupRequestV1 extends Model {
     @JsonProperty("groupType")
     private String groupType;
 
+
+
     @JsonIgnore
     public ModelsUpdateGroupRequestV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -67,5 +70,9 @@ public class ModelsUpdateGroupRequestV1 extends Model {
         result.put("groupRegion", "groupRegion");
         result.put("groupType", "groupType");
         return result;
+    }
+    
+    public static class ModelsUpdateGroupRequestV1Builder {
+        
     }
 }

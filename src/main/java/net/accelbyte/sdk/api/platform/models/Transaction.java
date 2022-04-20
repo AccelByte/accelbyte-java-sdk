@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -86,6 +87,56 @@ public class Transaction extends Model {
     @JsonProperty("vat")
     private Integer vat;
 
+
+    
+    public String getProvider() {
+        return this.provider;
+    }
+    
+    public Provider getProviderAsEnum() {
+        return Provider.valueOf(this.provider);
+    }
+    
+    public void setProvider(final String provider) {
+        this.provider = provider;
+    }
+    
+    public void setProviderFromEnum(final Provider provider) {
+        this.provider = provider.toString();
+    }
+    
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public Status getStatusAsEnum() {
+        return Status.valueOf(this.status);
+    }
+    
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+    
+    public void setStatusFromEnum(final Status status) {
+        this.status = status.toString();
+    }
+    
+    public String getType() {
+        return this.type;
+    }
+    
+    public Type getTypeAsEnum() {
+        return Type.valueOf(this.type);
+    }
+    
+    public void setType(final String type) {
+        this.type = type;
+    }
+    
+    public void setTypeFromEnum(final Type type) {
+        this.type = type.toString();
+    }
+
     @JsonIgnore
     public Transaction createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -119,5 +170,103 @@ public class Transaction extends Model {
         result.put("type", "type");
         result.put("vat", "vat");
         return result;
+    }
+    
+    public enum Provider {
+        WALLET("WALLET"),
+        XSOLLA("XSOLLA"),
+        ADYEN("ADYEN"),
+        STRIPE("STRIPE"),
+        CHECKOUT("CHECKOUT"),
+        ALIPAY("ALIPAY"),
+        WXPAY("WXPAY"),
+        PAYPAL("PAYPAL");
+
+        private String value;
+
+        Provider(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Status {
+        FINISHED("FINISHED"),
+        FAILED("FAILED");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Type {
+        AUTHORISATION("AUTHORISATION"),
+        CHARGE("CHARGE"),
+        CHARGEFAILED("CHARGEFAILED"),
+        NOTIFICATIONOFCHARGEBACK("NOTIFICATIONOFCHARGEBACK"),
+        REQUESTFORINFORMATION("REQUESTFORINFORMATION"),
+        CHARGEBACK("CHARGEBACK"),
+        CHARGEBACKREVERSED("CHARGEBACKREVERSED"),
+        REFUND("REFUND"),
+        REFUNDFAILED("REFUNDFAILED");
+
+        private String value;
+
+        Type(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class TransactionBuilder {
+        private String provider;
+        private String status;
+        private String type;
+        
+        
+        public TransactionBuilder provider(final String provider) {
+            this.provider = provider;
+            return this;
+        }
+        
+        public TransactionBuilder providerFromEnum(final Provider provider) {
+            this.provider = provider.toString();
+            return this;
+        }
+        
+        public TransactionBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public TransactionBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
+        
+        public TransactionBuilder type(final String type) {
+            this.type = type;
+            return this;
+        }
+        
+        public TransactionBuilder typeFromEnum(final Type type) {
+            this.type = type.toString();
+            return this;
+        }
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -41,6 +42,8 @@ public class RedeemableItem extends Model {
     @JsonProperty("quantity")
     private Integer quantity;
 
+
+
     @JsonIgnore
     public RedeemableItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -59,5 +62,9 @@ public class RedeemableItem extends Model {
         result.put("itemName", "itemName");
         result.put("quantity", "quantity");
         return result;
+    }
+    
+    public static class RedeemableItemBuilder {
+        
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,24 @@ public class IAPItemEntry extends Model {
     @JsonProperty("platformProductIdMap")
     private Map<String, String> platformProductIdMap;
 
+
+    
+    public String getItemIdentityType() {
+        return this.itemIdentityType;
+    }
+    
+    public ItemIdentityType getItemIdentityTypeAsEnum() {
+        return ItemIdentityType.valueOf(this.itemIdentityType);
+    }
+    
+    public void setItemIdentityType(final String itemIdentityType) {
+        this.itemIdentityType = itemIdentityType;
+    }
+    
+    public void setItemIdentityTypeFromEnum(final ItemIdentityType itemIdentityType) {
+        this.itemIdentityType = itemIdentityType.toString();
+    }
+
     @JsonIgnore
     public IAPItemEntry createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +74,36 @@ public class IAPItemEntry extends Model {
         result.put("itemIdentityType", "itemIdentityType");
         result.put("platformProductIdMap", "platformProductIdMap");
         return result;
+    }
+    
+    public enum ItemIdentityType {
+        ITEMID("ITEMID"),
+        ITEMSKU("ITEMSKU");
+
+        private String value;
+
+        ItemIdentityType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class IAPItemEntryBuilder {
+        private String itemIdentityType;
+        
+        
+        public IAPItemEntryBuilder itemIdentityType(final String itemIdentityType) {
+            this.itemIdentityType = itemIdentityType;
+            return this;
+        }
+        
+        public IAPItemEntryBuilder itemIdentityTypeFromEnum(final ItemIdentityType itemIdentityType) {
+            this.itemIdentityType = itemIdentityType.toString();
+            return this;
+        }
     }
 }

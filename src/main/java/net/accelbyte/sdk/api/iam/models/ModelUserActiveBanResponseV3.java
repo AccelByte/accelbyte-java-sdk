@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class ModelUserActiveBanResponseV3 extends Model {
     @JsonProperty("endDate")
     private String endDate;
 
+
+
     @JsonIgnore
     public ModelUserActiveBanResponseV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class ModelUserActiveBanResponseV3 extends Model {
         result.put("banId", "banId");
         result.put("endDate", "endDate");
         return result;
+    }
+    
+    public static class ModelUserActiveBanResponseV3Builder {
+        
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -44,6 +45,8 @@ public class ModelPublicThirdPartyPlatformInfo extends Model {
     @JsonProperty("PlatformId")
     private String platformId;
 
+
+
     @JsonIgnore
     public ModelPublicThirdPartyPlatformInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -63,5 +66,9 @@ public class ModelPublicThirdPartyPlatformInfo extends Model {
         result.put("IsActive", "isActive");
         result.put("PlatformId", "platformId");
         return result;
+    }
+    
+    public static class ModelPublicThirdPartyPlatformInfoBuilder {
+        
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -47,6 +48,40 @@ public class Slide extends Model {
     @JsonProperty("videoSource")
     private String videoSource;
 
+
+    
+    public String getType() {
+        return this.type;
+    }
+    
+    public Type getTypeAsEnum() {
+        return Type.valueOf(this.type);
+    }
+    
+    public void setType(final String type) {
+        this.type = type;
+    }
+    
+    public void setTypeFromEnum(final Type type) {
+        this.type = type.toString();
+    }
+    
+    public String getVideoSource() {
+        return this.videoSource;
+    }
+    
+    public VideoSource getVideoSourceAsEnum() {
+        return VideoSource.valueOf(this.videoSource);
+    }
+    
+    public void setVideoSource(final String videoSource) {
+        this.videoSource = videoSource;
+    }
+    
+    public void setVideoSourceFromEnum(final VideoSource videoSource) {
+        this.videoSource = videoSource.toString();
+    }
+
     @JsonIgnore
     public Slide createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -67,5 +102,64 @@ public class Slide extends Model {
         result.put("url", "url");
         result.put("videoSource", "videoSource");
         return result;
+    }
+    
+    public enum Type {
+        Image("Image"),
+        Video("Video");
+
+        private String value;
+
+        Type(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum VideoSource {
+        Generic("Generic"),
+        Youtube("Youtube"),
+        Vimeo("Vimeo");
+
+        private String value;
+
+        VideoSource(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class SlideBuilder {
+        private String type;
+        private String videoSource;
+        
+        
+        public SlideBuilder type(final String type) {
+            this.type = type;
+            return this;
+        }
+        
+        public SlideBuilder typeFromEnum(final Type type) {
+            this.type = type.toString();
+            return this;
+        }
+        
+        public SlideBuilder videoSource(final String videoSource) {
+            this.videoSource = videoSource;
+            return this;
+        }
+        
+        public SlideBuilder videoSourceFromEnum(final VideoSource videoSource) {
+            this.videoSource = videoSource.toString();
+            return this;
+        }
     }
 }

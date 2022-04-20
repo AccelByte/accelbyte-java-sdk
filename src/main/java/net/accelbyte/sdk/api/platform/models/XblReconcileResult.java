@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -44,6 +45,24 @@ public class XblReconcileResult extends Model {
     @JsonProperty("xboxProductId")
     private String xboxProductId;
 
+
+    
+    public String getIapOrderStatus() {
+        return this.iapOrderStatus;
+    }
+    
+    public IapOrderStatus getIapOrderStatusAsEnum() {
+        return IapOrderStatus.valueOf(this.iapOrderStatus);
+    }
+    
+    public void setIapOrderStatus(final String iapOrderStatus) {
+        this.iapOrderStatus = iapOrderStatus;
+    }
+    
+    public void setIapOrderStatusFromEnum(final IapOrderStatus iapOrderStatus) {
+        this.iapOrderStatus = iapOrderStatus.toString();
+    }
+
     @JsonIgnore
     public XblReconcileResult createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -63,5 +82,37 @@ public class XblReconcileResult extends Model {
         result.put("transactionId", "transactionId");
         result.put("xboxProductId", "xboxProductId");
         return result;
+    }
+    
+    public enum IapOrderStatus {
+        VERIFIED("VERIFIED"),
+        FULFILLED("FULFILLED"),
+        FAILED("FAILED");
+
+        private String value;
+
+        IapOrderStatus(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class XblReconcileResultBuilder {
+        private String iapOrderStatus;
+        
+        
+        public XblReconcileResultBuilder iapOrderStatus(final String iapOrderStatus) {
+            this.iapOrderStatus = iapOrderStatus;
+            return this;
+        }
+        
+        public XblReconcileResultBuilder iapOrderStatusFromEnum(final IapOrderStatus iapOrderStatus) {
+            this.iapOrderStatus = iapOrderStatus.toString();
+            return this;
+        }
     }
 }

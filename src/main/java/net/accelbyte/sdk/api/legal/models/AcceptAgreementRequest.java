@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -44,6 +45,8 @@ public class AcceptAgreementRequest extends Model {
     @JsonProperty("policyVersionId")
     private String policyVersionId;
 
+
+
     @JsonIgnore
     public AcceptAgreementRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -63,5 +66,9 @@ public class AcceptAgreementRequest extends Model {
         result.put("policyId", "policyId");
         result.put("policyVersionId", "policyVersionId");
         return result;
+    }
+    
+    public static class AcceptAgreementRequestBuilder {
+        
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class CategoryCreate extends Model {
     @JsonProperty("localizationDisplayNames")
     private Map<String, String> localizationDisplayNames;
 
+
+
     @JsonIgnore
     public CategoryCreate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class CategoryCreate extends Model {
         result.put("categoryPath", "categoryPath");
         result.put("localizationDisplayNames", "localizationDisplayNames");
         return result;
+    }
+    
+    public static class CategoryCreateBuilder {
+        
     }
 }

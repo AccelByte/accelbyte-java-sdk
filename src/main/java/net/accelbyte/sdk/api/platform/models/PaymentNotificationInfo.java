@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -62,6 +63,40 @@ public class PaymentNotificationInfo extends Model {
     @JsonProperty("updatedAt")
     private String updatedAt;
 
+
+    
+    public String getNotificationSource() {
+        return this.notificationSource;
+    }
+    
+    public NotificationSource getNotificationSourceAsEnum() {
+        return NotificationSource.valueOf(this.notificationSource);
+    }
+    
+    public void setNotificationSource(final String notificationSource) {
+        this.notificationSource = notificationSource;
+    }
+    
+    public void setNotificationSourceFromEnum(final NotificationSource notificationSource) {
+        this.notificationSource = notificationSource.toString();
+    }
+    
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public Status getStatusAsEnum() {
+        return Status.valueOf(this.status);
+    }
+    
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+    
+    public void setStatusFromEnum(final Status status) {
+        this.status = status.toString();
+    }
+
     @JsonIgnore
     public PaymentNotificationInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -87,5 +122,71 @@ public class PaymentNotificationInfo extends Model {
         result.put("statusReason", "statusReason");
         result.put("updatedAt", "updatedAt");
         return result;
+    }
+    
+    public enum NotificationSource {
+        WALLET("WALLET"),
+        XSOLLA("XSOLLA"),
+        ADYEN("ADYEN"),
+        STRIPE("STRIPE"),
+        CHECKOUT("CHECKOUT"),
+        ALIPAY("ALIPAY"),
+        WXPAY("WXPAY"),
+        PAYPAL("PAYPAL");
+
+        private String value;
+
+        NotificationSource(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Status {
+        PROCESSED("PROCESSED"),
+        ERROR("ERROR"),
+        WARN("WARN"),
+        IGNORED("IGNORED");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class PaymentNotificationInfoBuilder {
+        private String notificationSource;
+        private String status;
+        
+        
+        public PaymentNotificationInfoBuilder notificationSource(final String notificationSource) {
+            this.notificationSource = notificationSource;
+            return this;
+        }
+        
+        public PaymentNotificationInfoBuilder notificationSourceFromEnum(final NotificationSource notificationSource) {
+            this.notificationSource = notificationSource.toString();
+            return this;
+        }
+        
+        public PaymentNotificationInfoBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public PaymentNotificationInfoBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
     }
 }

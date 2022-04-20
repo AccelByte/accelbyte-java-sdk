@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class ModelsContentLikeResponse extends Model {
     @JsonProperty("likeStatus")
     private Boolean likeStatus;
 
+
+
     @JsonIgnore
     public ModelsContentLikeResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class ModelsContentLikeResponse extends Model {
         result.put("contentId", "contentId");
         result.put("likeStatus", "likeStatus");
         return result;
+    }
+    
+    public static class ModelsContentLikeResponseBuilder {
+        
     }
 }

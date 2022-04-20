@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +32,8 @@ public class ModelsAddPlayerResponse extends Model {
 
     @JsonProperty("status")
     private Boolean status;
+
+
 
     @JsonIgnore
     public ModelsAddPlayerResponse createFromJson(String json) throws JsonProcessingException {
@@ -47,5 +50,9 @@ public class ModelsAddPlayerResponse extends Model {
         Map<String, String> result = new HashMap<>();
         result.put("status", "status");
         return result;
+    }
+    
+    public static class ModelsAddPlayerResponseBuilder {
+        
     }
 }

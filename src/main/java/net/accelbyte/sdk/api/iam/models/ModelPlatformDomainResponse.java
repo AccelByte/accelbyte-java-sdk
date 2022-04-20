@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +32,8 @@ public class ModelPlatformDomainResponse extends Model {
 
     @JsonProperty("registeredDomains")
     private List<AccountcommonRegisteredDomain> registeredDomains;
+
+
 
     @JsonIgnore
     public ModelPlatformDomainResponse createFromJson(String json) throws JsonProcessingException {
@@ -47,5 +50,9 @@ public class ModelPlatformDomainResponse extends Model {
         Map<String, String> result = new HashMap<>();
         result.put("registeredDomains", "registeredDomains");
         return result;
+    }
+    
+    public static class ModelPlatformDomainResponseBuilder {
+        
     }
 }

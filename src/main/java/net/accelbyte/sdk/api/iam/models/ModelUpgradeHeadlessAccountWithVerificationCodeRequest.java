@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class ModelUpgradeHeadlessAccountWithVerificationCodeRequest extends Mode
     @JsonProperty("loginId")
     private String loginId;
 
+
+
     @JsonIgnore
     public ModelUpgradeHeadlessAccountWithVerificationCodeRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class ModelUpgradeHeadlessAccountWithVerificationCodeRequest extends Mode
         result.put("Password", "password");
         result.put("loginId", "loginId");
         return result;
+    }
+    
+    public static class ModelUpgradeHeadlessAccountWithVerificationCodeRequestBuilder {
+        
     }
 }

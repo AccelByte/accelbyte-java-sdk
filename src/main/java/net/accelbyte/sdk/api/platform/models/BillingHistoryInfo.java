@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -101,6 +102,24 @@ public class BillingHistoryInfo extends Model {
     @JsonProperty("userId")
     private String userId;
 
+
+    
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public Status getStatusAsEnum() {
+        return Status.valueOf(this.status);
+    }
+    
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+    
+    public void setStatusFromEnum(final Status status) {
+        this.status = status.toString();
+    }
+
     @JsonIgnore
     public BillingHistoryInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -139,5 +158,39 @@ public class BillingHistoryInfo extends Model {
         result.put("updatedAt", "updatedAt");
         result.put("userId", "userId");
         return result;
+    }
+    
+    public enum Status {
+        INIT("INIT"),
+        CHARGED("CHARGED"),
+        CHARGEFAILED("CHARGEFAILED"),
+        REFUNDED("REFUNDED"),
+        REFUNDFAILED("REFUNDFAILED");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class BillingHistoryInfoBuilder {
+        private String status;
+        
+        
+        public BillingHistoryInfoBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public BillingHistoryInfoBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
     }
 }

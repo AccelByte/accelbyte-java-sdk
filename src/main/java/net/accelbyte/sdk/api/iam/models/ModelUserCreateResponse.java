@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -50,6 +51,8 @@ public class ModelUserCreateResponse extends Model {
     @JsonProperty("UserId")
     private String userId;
 
+
+
     @JsonIgnore
     public ModelUserCreateResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -71,5 +74,9 @@ public class ModelUserCreateResponse extends Model {
         result.put("Namespace", "namespace");
         result.put("UserId", "userId");
         return result;
+    }
+    
+    public static class ModelUserCreateResponseBuilder {
+        
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class ModelVerifyRegistrationCode extends Model {
     @JsonProperty("emailAddress")
     private String emailAddress;
 
+
+
     @JsonIgnore
     public ModelVerifyRegistrationCode createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class ModelVerifyRegistrationCode extends Model {
         result.put("code", "code");
         result.put("emailAddress", "emailAddress");
         return result;
+    }
+    
+    public static class ModelVerifyRegistrationCodeBuilder {
+        
     }
 }

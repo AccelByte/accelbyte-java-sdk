@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -50,6 +51,8 @@ public class ModelUpgradeHeadlessAccountWithVerificationCodeRequestV3 extends Mo
     @JsonProperty("validateOnly")
     private Boolean validateOnly;
 
+
+
     @JsonIgnore
     public ModelUpgradeHeadlessAccountWithVerificationCodeRequestV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -71,5 +74,9 @@ public class ModelUpgradeHeadlessAccountWithVerificationCodeRequestV3 extends Mo
         result.put("password", "password");
         result.put("validateOnly", "validateOnly");
         return result;
+    }
+    
+    public static class ModelUpgradeHeadlessAccountWithVerificationCodeRequestV3Builder {
+        
     }
 }

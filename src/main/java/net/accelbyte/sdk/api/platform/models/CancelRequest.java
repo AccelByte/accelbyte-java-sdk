@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class CancelRequest extends Model {
     @JsonProperty("reason")
     private String reason;
 
+
+
     @JsonIgnore
     public CancelRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class CancelRequest extends Model {
         result.put("immediate", "immediate");
         result.put("reason", "reason");
         return result;
+    }
+    
+    public static class CancelRequestBuilder {
+        
     }
 }

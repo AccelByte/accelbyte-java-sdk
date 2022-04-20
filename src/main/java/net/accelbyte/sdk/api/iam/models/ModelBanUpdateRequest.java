@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class ModelBanUpdateRequest extends Model {
     @JsonProperty("skipNotif")
     private Boolean skipNotif;
 
+
+
     @JsonIgnore
     public ModelBanUpdateRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class ModelBanUpdateRequest extends Model {
         result.put("enabled", "enabled");
         result.put("skipNotif", "skipNotif");
         return result;
+    }
+    
+    public static class ModelBanUpdateRequestBuilder {
+        
     }
 }

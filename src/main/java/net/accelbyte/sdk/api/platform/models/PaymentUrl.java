@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -47,6 +48,40 @@ public class PaymentUrl extends Model {
     @JsonProperty("sessionId")
     private String sessionId;
 
+
+    
+    public String getPaymentProvider() {
+        return this.paymentProvider;
+    }
+    
+    public PaymentProvider getPaymentProviderAsEnum() {
+        return PaymentProvider.valueOf(this.paymentProvider);
+    }
+    
+    public void setPaymentProvider(final String paymentProvider) {
+        this.paymentProvider = paymentProvider;
+    }
+    
+    public void setPaymentProviderFromEnum(final PaymentProvider paymentProvider) {
+        this.paymentProvider = paymentProvider.toString();
+    }
+    
+    public String getPaymentType() {
+        return this.paymentType;
+    }
+    
+    public PaymentType getPaymentTypeAsEnum() {
+        return PaymentType.valueOf(this.paymentType);
+    }
+    
+    public void setPaymentType(final String paymentType) {
+        this.paymentType = paymentType;
+    }
+    
+    public void setPaymentTypeFromEnum(final PaymentType paymentType) {
+        this.paymentType = paymentType.toString();
+    }
+
     @JsonIgnore
     public PaymentUrl createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -67,5 +102,69 @@ public class PaymentUrl extends Model {
         result.put("sessionData", "sessionData");
         result.put("sessionId", "sessionId");
         return result;
+    }
+    
+    public enum PaymentProvider {
+        WALLET("WALLET"),
+        XSOLLA("XSOLLA"),
+        ADYEN("ADYEN"),
+        STRIPE("STRIPE"),
+        CHECKOUT("CHECKOUT"),
+        ALIPAY("ALIPAY"),
+        WXPAY("WXPAY"),
+        PAYPAL("PAYPAL");
+
+        private String value;
+
+        PaymentProvider(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum PaymentType {
+        QRCODE("QRCODE"),
+        LINK("LINK");
+
+        private String value;
+
+        PaymentType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class PaymentUrlBuilder {
+        private String paymentProvider;
+        private String paymentType;
+        
+        
+        public PaymentUrlBuilder paymentProvider(final String paymentProvider) {
+            this.paymentProvider = paymentProvider;
+            return this;
+        }
+        
+        public PaymentUrlBuilder paymentProviderFromEnum(final PaymentProvider paymentProvider) {
+            this.paymentProvider = paymentProvider.toString();
+            return this;
+        }
+        
+        public PaymentUrlBuilder paymentType(final String paymentType) {
+            this.paymentType = paymentType;
+            return this;
+        }
+        
+        public PaymentUrlBuilder paymentTypeFromEnum(final PaymentType paymentType) {
+            this.paymentType = paymentType.toString();
+            return this;
+        }
     }
 }

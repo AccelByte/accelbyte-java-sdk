@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class ModelsListSessionResponse extends Model {
     @JsonProperty("sessions")
     private List<ModelsSession> sessions;
 
+
+
     @JsonIgnore
     public ModelsListSessionResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class ModelsListSessionResponse extends Model {
         result.put("paging", "paging");
         result.put("sessions", "sessions");
         return result;
+    }
+    
+    public static class ModelsListSessionResponseBuilder {
+        
     }
 }

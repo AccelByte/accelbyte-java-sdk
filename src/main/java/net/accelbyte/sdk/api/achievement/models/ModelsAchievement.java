@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -77,6 +78,8 @@ public class ModelsAchievement extends Model {
     @JsonProperty("UpdatedAt")
     private String updatedAt;
 
+
+
     @JsonIgnore
     public ModelsAchievement createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -107,5 +110,9 @@ public class ModelsAchievement extends Model {
         result.put("UnlockedIcons", "unlockedIcons");
         result.put("UpdatedAt", "updatedAt");
         return result;
+    }
+    
+    public static class ModelsAchievementBuilder {
+        
     }
 }

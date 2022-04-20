@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class ModelsCreatePodConfigRequest extends Model {
     @JsonProperty("params")
     private String params;
 
+
+
     @JsonIgnore
     public ModelsCreatePodConfigRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class ModelsCreatePodConfigRequest extends Model {
         result.put("mem_limit", "memLimit");
         result.put("params", "params");
         return result;
+    }
+    
+    public static class ModelsCreatePodConfigRequestBuilder {
+        
     }
 }

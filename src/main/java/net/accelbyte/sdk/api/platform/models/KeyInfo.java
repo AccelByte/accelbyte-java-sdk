@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -59,6 +60,24 @@ public class KeyInfo extends Model {
     @JsonProperty("value")
     private String value;
 
+
+    
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public Status getStatusAsEnum() {
+        return Status.valueOf(this.status);
+    }
+    
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+    
+    public void setStatusFromEnum(final Status status) {
+        this.status = status.toString();
+    }
+
     @JsonIgnore
     public KeyInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -83,5 +102,36 @@ public class KeyInfo extends Model {
         result.put("updatedAt", "updatedAt");
         result.put("value", "value");
         return result;
+    }
+    
+    public enum Status {
+        ACTIVE("ACTIVE"),
+        ACQUIRED("ACQUIRED");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class KeyInfoBuilder {
+        private String status;
+        
+        
+        public KeyInfoBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public KeyInfoBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +32,8 @@ public class ModelsRequestMatchingAlly extends Model {
 
     @JsonProperty("matching_parties")
     private List<ModelsRequestMatchParty> matchingParties;
+
+
 
     @JsonIgnore
     public ModelsRequestMatchingAlly createFromJson(String json) throws JsonProcessingException {
@@ -47,5 +50,9 @@ public class ModelsRequestMatchingAlly extends Model {
         Map<String, String> result = new HashMap<>();
         result.put("matching_parties", "matchingParties");
         return result;
+    }
+    
+    public static class ModelsRequestMatchingAllyBuilder {
+        
     }
 }

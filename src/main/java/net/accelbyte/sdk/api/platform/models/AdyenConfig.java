@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -68,6 +69,8 @@ public class AdyenConfig extends Model {
     @JsonProperty("settings")
     private String settings;
 
+
+
     @JsonIgnore
     public AdyenConfig createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -95,5 +98,9 @@ public class AdyenConfig extends Model {
         result.put("returnUrl", "returnUrl");
         result.put("settings", "settings");
         return result;
+    }
+    
+    public static class AdyenConfigBuilder {
+        
     }
 }

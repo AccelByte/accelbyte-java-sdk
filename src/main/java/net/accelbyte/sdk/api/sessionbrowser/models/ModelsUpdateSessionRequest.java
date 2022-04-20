@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class ModelsUpdateSessionRequest extends Model {
     @JsonProperty("game_max_player")
     private Integer gameMaxPlayer;
 
+
+
     @JsonIgnore
     public ModelsUpdateSessionRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class ModelsUpdateSessionRequest extends Model {
         result.put("game_current_player", "gameCurrentPlayer");
         result.put("game_max_player", "gameMaxPlayer");
         return result;
+    }
+    
+    public static class ModelsUpdateSessionRequestBuilder {
+        
     }
 }

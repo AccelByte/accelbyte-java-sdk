@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class TierCreate extends Model {
     @JsonProperty("tier")
     private TierInput tier;
 
+
+
     @JsonIgnore
     public TierCreate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class TierCreate extends Model {
         result.put("quantity", "quantity");
         result.put("tier", "tier");
         return result;
+    }
+    
+    public static class TierCreateBuilder {
+        
     }
 }

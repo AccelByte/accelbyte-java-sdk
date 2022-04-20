@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -53,6 +54,24 @@ public class OrderHistoryInfo extends Model {
     @JsonProperty("userId")
     private String userId;
 
+
+    
+    public String getAction() {
+        return this.action;
+    }
+    
+    public Action getActionAsEnum() {
+        return Action.valueOf(this.action);
+    }
+    
+    public void setAction(final String action) {
+        this.action = action;
+    }
+    
+    public void setActionFromEnum(final Action action) {
+        this.action = action.toString();
+    }
+
     @JsonIgnore
     public OrderHistoryInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -75,5 +94,46 @@ public class OrderHistoryInfo extends Model {
         result.put("updatedAt", "updatedAt");
         result.put("userId", "userId");
         return result;
+    }
+    
+    public enum Action {
+        INIT("INIT"),
+        CHARGED("CHARGED"),
+        CHARGEBACK("CHARGEBACK"),
+        CHARGEBACKREVERSED("CHARGEBACKREVERSED"),
+        FULFILLED("FULFILLED"),
+        FULFILLFAILED("FULFILLFAILED"),
+        REFUNDING("REFUNDING"),
+        REFUNDED("REFUNDED"),
+        REFUNDFAILED("REFUNDFAILED"),
+        CLOSE("CLOSE"),
+        DELETED("DELETED"),
+        SETSTATUS("SETSTATUS");
+
+        private String value;
+
+        Action(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class OrderHistoryInfoBuilder {
+        private String action;
+        
+        
+        public OrderHistoryInfoBuilder action(final String action) {
+            this.action = action;
+            return this;
+        }
+        
+        public OrderHistoryInfoBuilder actionFromEnum(final Action action) {
+            this.action = action.toString();
+            return this;
+        }
     }
 }

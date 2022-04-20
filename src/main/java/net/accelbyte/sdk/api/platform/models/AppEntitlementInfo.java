@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -65,6 +66,40 @@ public class AppEntitlementInfo extends Model {
     @JsonProperty("userId")
     private String userId;
 
+
+    
+    public String getAppType() {
+        return this.appType;
+    }
+    
+    public AppType getAppTypeAsEnum() {
+        return AppType.valueOf(this.appType);
+    }
+    
+    public void setAppType(final String appType) {
+        this.appType = appType;
+    }
+    
+    public void setAppTypeFromEnum(final AppType appType) {
+        this.appType = appType.toString();
+    }
+    
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public Status getStatusAsEnum() {
+        return Status.valueOf(this.status);
+    }
+    
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+    
+    public void setStatusFromEnum(final Status status) {
+        this.status = status.toString();
+    }
+
     @JsonIgnore
     public AppEntitlementInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -91,5 +126,67 @@ public class AppEntitlementInfo extends Model {
         result.put("storeId", "storeId");
         result.put("userId", "userId");
         return result;
+    }
+    
+    public enum AppType {
+        GAME("GAME"),
+        SOFTWARE("SOFTWARE"),
+        DLC("DLC"),
+        DEMO("DEMO");
+
+        private String value;
+
+        AppType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Status {
+        ACTIVE("ACTIVE"),
+        INACTIVE("INACTIVE"),
+        CONSUMED("CONSUMED"),
+        REVOKED("REVOKED");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class AppEntitlementInfoBuilder {
+        private String appType;
+        private String status;
+        
+        
+        public AppEntitlementInfoBuilder appType(final String appType) {
+            this.appType = appType;
+            return this;
+        }
+        
+        public AppEntitlementInfoBuilder appTypeFromEnum(final AppType appType) {
+            this.appType = appType.toString();
+            return this;
+        }
+        
+        public AppEntitlementInfoBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public AppEntitlementInfoBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
     }
 }

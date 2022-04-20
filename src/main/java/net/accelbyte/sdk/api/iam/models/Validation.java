@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -74,6 +75,8 @@ public class Validation extends Model {
     @JsonProperty("specialCharacters")
     private List<String> specialCharacters;
 
+
+
     @JsonIgnore
     public Validation createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -103,5 +106,9 @@ public class Validation extends Model {
         result.put("specialCharacterLocation", "specialCharacterLocation");
         result.put("specialCharacters", "specialCharacters");
         return result;
+    }
+    
+    public static class ValidationBuilder {
+        
     }
 }

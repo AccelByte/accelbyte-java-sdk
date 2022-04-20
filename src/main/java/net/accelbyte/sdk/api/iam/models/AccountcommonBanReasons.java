@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +32,8 @@ public class AccountcommonBanReasons extends Model {
 
     @JsonProperty("Reasons")
     private List<AccountcommonBanReason> reasons;
+
+
 
     @JsonIgnore
     public AccountcommonBanReasons createFromJson(String json) throws JsonProcessingException {
@@ -47,5 +50,9 @@ public class AccountcommonBanReasons extends Model {
         Map<String, String> result = new HashMap<>();
         result.put("Reasons", "reasons");
         return result;
+    }
+    
+    public static class AccountcommonBanReasonsBuilder {
+        
     }
 }

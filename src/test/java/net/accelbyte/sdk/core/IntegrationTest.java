@@ -1059,7 +1059,7 @@ public class IntegrationTest {
                                 .name("Java Server SDK Test Stat")
                                 .description("Java server sdk integration test.")
                                 .statCode(stat_code)
-                                .setBy("SERVER")
+                                .setByFromEnum(StatCreate.SetBy.SERVER)
                                 .minimum(0f)
                                 .maximum(100f)
                                 .defaultValue(50f)

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class ModelsAdminUpdateProfanityList extends Model {
     @JsonProperty("newName")
     private String newName;
 
+
+
     @JsonIgnore
     public ModelsAdminUpdateProfanityList createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class ModelsAdminUpdateProfanityList extends Model {
         result.put("isMandatory", "isMandatory");
         result.put("newName", "newName");
         return result;
+    }
+    
+    public static class ModelsAdminUpdateProfanityListBuilder {
+        
     }
 }

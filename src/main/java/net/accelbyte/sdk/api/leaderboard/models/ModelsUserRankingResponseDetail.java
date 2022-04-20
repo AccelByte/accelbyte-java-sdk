@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -41,6 +42,8 @@ public class ModelsUserRankingResponseDetail extends Model {
     @JsonProperty("rank")
     private Integer rank;
 
+
+
     @JsonIgnore
     public ModelsUserRankingResponseDetail createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -59,5 +62,9 @@ public class ModelsUserRankingResponseDetail extends Model {
         result.put("point", "point");
         result.put("rank", "rank");
         return result;
+    }
+    
+    public static class ModelsUserRankingResponseDetailBuilder {
+        
     }
 }

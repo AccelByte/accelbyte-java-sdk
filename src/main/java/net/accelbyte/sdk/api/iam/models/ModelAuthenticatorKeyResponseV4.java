@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class ModelAuthenticatorKeyResponseV4 extends Model {
     @JsonProperty("uri")
     private String uri;
 
+
+
     @JsonIgnore
     public ModelAuthenticatorKeyResponseV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class ModelAuthenticatorKeyResponseV4 extends Model {
         result.put("secretKey", "secretKey");
         result.put("uri", "uri");
         return result;
+    }
+    
+    public static class ModelAuthenticatorKeyResponseV4Builder {
+        
     }
 }

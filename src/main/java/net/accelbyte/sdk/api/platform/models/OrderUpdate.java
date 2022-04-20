@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,24 @@ public class OrderUpdate extends Model {
     @JsonProperty("statusReason")
     private String statusReason;
 
+
+    
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public Status getStatusAsEnum() {
+        return Status.valueOf(this.status);
+    }
+    
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+    
+    public void setStatusFromEnum(final Status status) {
+        this.status = status.toString();
+    }
+
     @JsonIgnore
     public OrderUpdate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +70,45 @@ public class OrderUpdate extends Model {
         result.put("status", "status");
         result.put("statusReason", "statusReason");
         return result;
+    }
+    
+    public enum Status {
+        INIT("INIT"),
+        CHARGED("CHARGED"),
+        CHARGEBACK("CHARGEBACK"),
+        CHARGEBACKREVERSED("CHARGEBACKREVERSED"),
+        FULFILLED("FULFILLED"),
+        FULFILLFAILED("FULFILLFAILED"),
+        REFUNDING("REFUNDING"),
+        REFUNDED("REFUNDED"),
+        REFUNDFAILED("REFUNDFAILED"),
+        CLOSED("CLOSED"),
+        DELETED("DELETED");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class OrderUpdateBuilder {
+        private String status;
+        
+        
+        public OrderUpdateBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public OrderUpdateBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
     }
 }

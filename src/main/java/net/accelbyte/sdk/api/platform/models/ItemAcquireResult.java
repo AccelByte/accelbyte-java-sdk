@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class ItemAcquireResult extends Model {
     @JsonProperty("success")
     private Boolean success;
 
+
+
     @JsonIgnore
     public ItemAcquireResult createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class ItemAcquireResult extends Model {
         result.put("maxCount", "maxCount");
         result.put("success", "success");
         return result;
+    }
+    
+    public static class ItemAcquireResultBuilder {
+        
     }
 }

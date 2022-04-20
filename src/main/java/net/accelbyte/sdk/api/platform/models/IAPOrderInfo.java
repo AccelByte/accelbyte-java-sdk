@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -92,6 +93,40 @@ public class IAPOrderInfo extends Model {
     @JsonProperty("userId")
     private String userId;
 
+
+    
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public Status getStatusAsEnum() {
+        return Status.valueOf(this.status);
+    }
+    
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+    
+    public void setStatusFromEnum(final Status status) {
+        this.status = status.toString();
+    }
+    
+    public String getType() {
+        return this.type;
+    }
+    
+    public Type getTypeAsEnum() {
+        return Type.valueOf(this.type);
+    }
+    
+    public void setType(final String type) {
+        this.type = type;
+    }
+    
+    public void setTypeFromEnum(final Type type) {
+        this.type = type.toString();
+    }
+
     @JsonIgnore
     public IAPOrderInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -127,5 +162,70 @@ public class IAPOrderInfo extends Model {
         result.put("updatedAt", "updatedAt");
         result.put("userId", "userId");
         return result;
+    }
+    
+    public enum Status {
+        VERIFIED("VERIFIED"),
+        FULFILLED("FULFILLED"),
+        FAILED("FAILED");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Type {
+        APPLE("APPLE"),
+        GOOGLE("GOOGLE"),
+        PLAYSTATION("PLAYSTATION"),
+        STEAM("STEAM"),
+        XBOX("XBOX"),
+        STADIA("STADIA"),
+        EPICGAMES("EPICGAMES"),
+        TWITCH("TWITCH");
+
+        private String value;
+
+        Type(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class IAPOrderInfoBuilder {
+        private String status;
+        private String type;
+        
+        
+        public IAPOrderInfoBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public IAPOrderInfoBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
+        
+        public IAPOrderInfoBuilder type(final String type) {
+            this.type = type;
+            return this;
+        }
+        
+        public IAPOrderInfoBuilder typeFromEnum(final Type type) {
+            this.type = type.toString();
+            return this;
+        }
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class AcceptAgreementResponse extends Model {
     @JsonProperty("proceed")
     private Boolean proceed;
 
+
+
     @JsonIgnore
     public AcceptAgreementResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class AcceptAgreementResponse extends Model {
         result.put("ext", "ext");
         result.put("proceed", "proceed");
         return result;
+    }
+    
+    public static class AcceptAgreementResponseBuilder {
+        
     }
 }

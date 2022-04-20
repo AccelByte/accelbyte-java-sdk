@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class ModelUpgradeHeadlessAccountRequest extends Model {
     @JsonProperty("Password")
     private String password;
 
+
+
     @JsonIgnore
     public ModelUpgradeHeadlessAccountRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class ModelUpgradeHeadlessAccountRequest extends Model {
         result.put("LoginID", "loginID");
         result.put("Password", "password");
         return result;
+    }
+    
+    public static class ModelUpgradeHeadlessAccountRequestBuilder {
+        
     }
 }

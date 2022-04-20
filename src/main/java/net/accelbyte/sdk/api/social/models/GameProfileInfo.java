@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -62,6 +63,8 @@ public class GameProfileInfo extends Model {
     @JsonProperty("userId")
     private String userId;
 
+
+
     @JsonIgnore
     public GameProfileInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -87,5 +90,9 @@ public class GameProfileInfo extends Model {
         result.put("tags", "tags");
         result.put("userId", "userId");
         return result;
+    }
+    
+    public static class GameProfileInfoBuilder {
+        
     }
 }

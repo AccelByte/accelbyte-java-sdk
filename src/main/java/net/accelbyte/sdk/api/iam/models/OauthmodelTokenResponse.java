@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -74,6 +75,8 @@ public class OauthmodelTokenResponse extends Model {
     @JsonProperty("user_id")
     private String userId;
 
+
+
     @JsonIgnore
     public OauthmodelTokenResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -103,5 +106,9 @@ public class OauthmodelTokenResponse extends Model {
         result.put("token_type", "tokenType");
         result.put("user_id", "userId");
         return result;
+    }
+    
+    public static class OauthmodelTokenResponseBuilder {
+        
     }
 }

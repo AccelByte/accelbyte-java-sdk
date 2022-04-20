@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,24 @@ public class StatItemUpdate extends Model {
     @JsonProperty("value")
     private Float value;
 
+
+    
+    public String getUpdateStrategy() {
+        return this.updateStrategy;
+    }
+    
+    public UpdateStrategy getUpdateStrategyAsEnum() {
+        return UpdateStrategy.valueOf(this.updateStrategy);
+    }
+    
+    public void setUpdateStrategy(final String updateStrategy) {
+        this.updateStrategy = updateStrategy;
+    }
+    
+    public void setUpdateStrategyFromEnum(final UpdateStrategy updateStrategy) {
+        this.updateStrategy = updateStrategy.toString();
+    }
+
     @JsonIgnore
     public StatItemUpdate createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +74,38 @@ public class StatItemUpdate extends Model {
         result.put("updateStrategy", "updateStrategy");
         result.put("value", "value");
         return result;
+    }
+    
+    public enum UpdateStrategy {
+        OVERRIDE("OVERRIDE"),
+        INCREMENT("INCREMENT"),
+        MAX("MAX"),
+        MIN("MIN");
+
+        private String value;
+
+        UpdateStrategy(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class StatItemUpdateBuilder {
+        private String updateStrategy;
+        
+        
+        public StatItemUpdateBuilder updateStrategy(final String updateStrategy) {
+            this.updateStrategy = updateStrategy;
+            return this;
+        }
+        
+        public StatItemUpdateBuilder updateStrategyFromEnum(final UpdateStrategy updateStrategy) {
+            this.updateStrategy = updateStrategy.toString();
+            return this;
+        }
     }
 }

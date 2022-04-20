@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class ModelBackupCodesResponseV4 extends Model {
     @JsonProperty("validCodes")
     private List<String> validCodes;
 
+
+
     @JsonIgnore
     public ModelBackupCodesResponseV4 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class ModelBackupCodesResponseV4 extends Model {
         result.put("invalidCodes", "invalidCodes");
         result.put("validCodes", "validCodes");
         return result;
+    }
+    
+    public static class ModelBackupCodesResponseV4Builder {
+        
     }
 }

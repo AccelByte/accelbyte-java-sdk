@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,24 @@ public class ModelsRuleInformation extends Model {
     @JsonProperty("ruleValue")
     private Float ruleValue;
 
+
+    
+    public String getRuleCriteria() {
+        return this.ruleCriteria;
+    }
+    
+    public RuleCriteria getRuleCriteriaAsEnum() {
+        return RuleCriteria.valueOf(this.ruleCriteria);
+    }
+    
+    public void setRuleCriteria(final String ruleCriteria) {
+        this.ruleCriteria = ruleCriteria;
+    }
+    
+    public void setRuleCriteriaFromEnum(final RuleCriteria ruleCriteria) {
+        this.ruleCriteria = ruleCriteria.toString();
+    }
+
     @JsonIgnore
     public ModelsRuleInformation createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +74,37 @@ public class ModelsRuleInformation extends Model {
         result.put("ruleCriteria", "ruleCriteria");
         result.put("ruleValue", "ruleValue");
         return result;
+    }
+    
+    public enum RuleCriteria {
+        EQUAL("EQUAL"),
+        MINIMUM("MINIMUM"),
+        MAXIMUM("MAXIMUM");
+
+        private String value;
+
+        RuleCriteria(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class ModelsRuleInformationBuilder {
+        private String ruleCriteria;
+        
+        
+        public ModelsRuleInformationBuilder ruleCriteria(final String ruleCriteria) {
+            this.ruleCriteria = ruleCriteria;
+            return this;
+        }
+        
+        public ModelsRuleInformationBuilder ruleCriteriaFromEnum(final RuleCriteria ruleCriteria) {
+            this.ruleCriteria = ruleCriteria.toString();
+            return this;
+        }
     }
 }

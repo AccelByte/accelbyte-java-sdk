@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class UpdatePolicyVersionRequest extends Model {
     @JsonProperty("isCommitted")
     private Boolean isCommitted;
 
+
+
     @JsonIgnore
     public UpdatePolicyVersionRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class UpdatePolicyVersionRequest extends Model {
         result.put("displayVersion", "displayVersion");
         result.put("isCommitted", "isCommitted");
         return result;
+    }
+    
+    public static class UpdatePolicyVersionRequestBuilder {
+        
     }
 }

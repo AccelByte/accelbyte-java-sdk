@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -41,6 +42,56 @@ public class XsollaPaywallConfigRequest extends Model {
     @JsonProperty("theme")
     private String theme;
 
+
+    
+    public String getDevice() {
+        return this.device;
+    }
+    
+    public Device getDeviceAsEnum() {
+        return Device.valueOf(this.device);
+    }
+    
+    public void setDevice(final String device) {
+        this.device = device;
+    }
+    
+    public void setDeviceFromEnum(final Device device) {
+        this.device = device.toString();
+    }
+    
+    public String getSize() {
+        return this.size;
+    }
+    
+    public Size getSizeAsEnum() {
+        return Size.valueOf(this.size);
+    }
+    
+    public void setSize(final String size) {
+        this.size = size;
+    }
+    
+    public void setSizeFromEnum(final Size size) {
+        this.size = size.toString();
+    }
+    
+    public String getTheme() {
+        return this.theme;
+    }
+    
+    public Theme getThemeAsEnum() {
+        return Theme.valueOf(this.theme);
+    }
+    
+    public void setTheme(final String theme) {
+        this.theme = theme;
+    }
+    
+    public void setThemeFromEnum(final Theme theme) {
+        this.theme = theme.toString();
+    }
+
     @JsonIgnore
     public XsollaPaywallConfigRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -59,5 +110,92 @@ public class XsollaPaywallConfigRequest extends Model {
         result.put("size", "size");
         result.put("theme", "theme");
         return result;
+    }
+    
+    public enum Device {
+        DESKTOP("DESKTOP"),
+        MOBILE("MOBILE");
+
+        private String value;
+
+        Device(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Size {
+        SMALL("SMALL"),
+        MEDIUM("MEDIUM"),
+        LARGE("LARGE");
+
+        private String value;
+
+        Size(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Theme {
+        DEFAULT("DEFAULT"),
+        DARK("DARK"),
+        DEFAULTDARK("DEFAULTDARK");
+
+        private String value;
+
+        Theme(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class XsollaPaywallConfigRequestBuilder {
+        private String device;
+        private String size;
+        private String theme;
+        
+        
+        public XsollaPaywallConfigRequestBuilder device(final String device) {
+            this.device = device;
+            return this;
+        }
+        
+        public XsollaPaywallConfigRequestBuilder deviceFromEnum(final Device device) {
+            this.device = device.toString();
+            return this;
+        }
+        
+        public XsollaPaywallConfigRequestBuilder size(final String size) {
+            this.size = size;
+            return this;
+        }
+        
+        public XsollaPaywallConfigRequestBuilder sizeFromEnum(final Size size) {
+            this.size = size.toString();
+            return this;
+        }
+        
+        public XsollaPaywallConfigRequestBuilder theme(final String theme) {
+            this.theme = theme;
+            return this;
+        }
+        
+        public XsollaPaywallConfigRequestBuilder themeFromEnum(final Theme theme) {
+            this.theme = theme.toString();
+            return this;
+        }
     }
 }

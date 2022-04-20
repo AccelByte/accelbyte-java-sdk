@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +32,8 @@ public class ModelUserAcceptFriendRequest extends Model {
 
     @JsonProperty("friendId")
     private String friendId;
+
+
 
     @JsonIgnore
     public ModelUserAcceptFriendRequest createFromJson(String json) throws JsonProcessingException {
@@ -47,5 +50,9 @@ public class ModelUserAcceptFriendRequest extends Model {
         Map<String, String> result = new HashMap<>();
         result.put("friendId", "friendId");
         return result;
+    }
+    
+    public static class ModelUserAcceptFriendRequestBuilder {
+        
     }
 }

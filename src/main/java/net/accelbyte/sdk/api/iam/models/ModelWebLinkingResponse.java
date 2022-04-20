@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +32,8 @@ public class ModelWebLinkingResponse extends Model {
 
     @JsonProperty("third_party_url")
     private String thirdPartyUrl;
+
+
 
     @JsonIgnore
     public ModelWebLinkingResponse createFromJson(String json) throws JsonProcessingException {
@@ -47,5 +50,9 @@ public class ModelWebLinkingResponse extends Model {
         Map<String, String> result = new HashMap<>();
         result.put("third_party_url", "thirdPartyUrl");
         return result;
+    }
+    
+    public static class ModelWebLinkingResponseBuilder {
+        
     }
 }

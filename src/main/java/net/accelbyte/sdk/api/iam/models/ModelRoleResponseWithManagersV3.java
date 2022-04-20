@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -47,6 +48,8 @@ public class ModelRoleResponseWithManagersV3 extends Model {
     @JsonProperty("roleName")
     private String roleName;
 
+
+
     @JsonIgnore
     public ModelRoleResponseWithManagersV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -67,5 +70,9 @@ public class ModelRoleResponseWithManagersV3 extends Model {
         result.put("roleId", "roleId");
         result.put("roleName", "roleName");
         return result;
+    }
+    
+    public static class ModelRoleResponseWithManagersV3Builder {
+        
     }
 }

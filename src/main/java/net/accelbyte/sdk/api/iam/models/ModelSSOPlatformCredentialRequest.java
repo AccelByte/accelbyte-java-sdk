@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -53,6 +54,8 @@ public class ModelSSOPlatformCredentialRequest extends Model {
     @JsonProperty("ssoUrl")
     private String ssoUrl;
 
+
+
     @JsonIgnore
     public ModelSSOPlatformCredentialRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -75,5 +78,9 @@ public class ModelSSOPlatformCredentialRequest extends Model {
         result.put("secret", "secret");
         result.put("ssoUrl", "ssoUrl");
         return result;
+    }
+    
+    public static class ModelSSOPlatformCredentialRequestBuilder {
+        
     }
 }

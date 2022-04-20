@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -41,6 +42,24 @@ public class Recurring extends Model {
     @JsonProperty("graceDays")
     private Integer graceDays;
 
+
+    
+    public String getCycle() {
+        return this.cycle;
+    }
+    
+    public Cycle getCycleAsEnum() {
+        return Cycle.valueOf(this.cycle);
+    }
+    
+    public void setCycle(final String cycle) {
+        this.cycle = cycle;
+    }
+    
+    public void setCycleFromEnum(final Cycle cycle) {
+        this.cycle = cycle.toString();
+    }
+
     @JsonIgnore
     public Recurring createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -59,5 +78,38 @@ public class Recurring extends Model {
         result.put("fixedTrialCycles", "fixedTrialCycles");
         result.put("graceDays", "graceDays");
         return result;
+    }
+    
+    public enum Cycle {
+        WEEKLY("WEEKLY"),
+        MONTHLY("MONTHLY"),
+        QUARTERLY("QUARTERLY"),
+        YEARLY("YEARLY");
+
+        private String value;
+
+        Cycle(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class RecurringBuilder {
+        private String cycle;
+        
+        
+        public RecurringBuilder cycle(final String cycle) {
+            this.cycle = cycle;
+            return this;
+        }
+        
+        public RecurringBuilder cycleFromEnum(final Cycle cycle) {
+            this.cycle = cycle.toString();
+            return this;
+        }
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class ModelsEventResponse extends Model {
     @JsonProperty("Pagination")
     private ModelsPagination pagination;
 
+
+
     @JsonIgnore
     public ModelsEventResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class ModelsEventResponse extends Model {
         result.put("Data", "data");
         result.put("Pagination", "pagination");
         return result;
+    }
+    
+    public static class ModelsEventResponseBuilder {
+        
     }
 }

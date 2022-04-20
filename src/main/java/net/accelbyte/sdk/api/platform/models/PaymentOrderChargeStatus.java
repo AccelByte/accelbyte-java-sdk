@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,24 @@ public class PaymentOrderChargeStatus extends Model {
     @JsonProperty("status")
     private String status;
 
+
+    
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public Status getStatusAsEnum() {
+        return Status.valueOf(this.status);
+    }
+    
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+    
+    public void setStatusFromEnum(final Status status) {
+        this.status = status.toString();
+    }
+
     @JsonIgnore
     public PaymentOrderChargeStatus createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +70,47 @@ public class PaymentOrderChargeStatus extends Model {
         result.put("charging", "charging");
         result.put("status", "status");
         return result;
+    }
+    
+    public enum Status {
+        INIT("INIT"),
+        AUTHORISED("AUTHORISED"),
+        AUTHORISEFAILED("AUTHORISEFAILED"),
+        CHARGED("CHARGED"),
+        CHARGEFAILED("CHARGEFAILED"),
+        NOTIFICATIONOFCHARGEBACK("NOTIFICATIONOFCHARGEBACK"),
+        REQUESTFORINFORMATION("REQUESTFORINFORMATION"),
+        CHARGEBACK("CHARGEBACK"),
+        CHARGEBACKREVERSED("CHARGEBACKREVERSED"),
+        REFUNDING("REFUNDING"),
+        REFUNDED("REFUNDED"),
+        REFUNDFAILED("REFUNDFAILED"),
+        DELETED("DELETED");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class PaymentOrderChargeStatusBuilder {
+        private String status;
+        
+        
+        public PaymentOrderChargeStatusBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public PaymentOrderChargeStatusBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
     }
 }

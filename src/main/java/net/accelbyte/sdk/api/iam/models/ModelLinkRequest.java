@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -56,6 +57,8 @@ public class ModelLinkRequest extends Model {
     @JsonProperty("status")
     private String status;
 
+
+
     @JsonIgnore
     public ModelLinkRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -79,5 +82,9 @@ public class ModelLinkRequest extends Model {
         result.put("request_id", "requestId");
         result.put("status", "status");
         return result;
+    }
+    
+    public static class ModelLinkRequestBuilder {
+        
     }
 }

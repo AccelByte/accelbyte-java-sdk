@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -158,6 +159,56 @@ public class SubscriptionInfo extends Model {
     @JsonProperty("userId")
     private String userId;
 
+
+    
+    public String getChargeStatus() {
+        return this.chargeStatus;
+    }
+    
+    public ChargeStatus getChargeStatusAsEnum() {
+        return ChargeStatus.valueOf(this.chargeStatus);
+    }
+    
+    public void setChargeStatus(final String chargeStatus) {
+        this.chargeStatus = chargeStatus;
+    }
+    
+    public void setChargeStatusFromEnum(final ChargeStatus chargeStatus) {
+        this.chargeStatus = chargeStatus.toString();
+    }
+    
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public Status getStatusAsEnum() {
+        return Status.valueOf(this.status);
+    }
+    
+    public void setStatus(final String status) {
+        this.status = status;
+    }
+    
+    public void setStatusFromEnum(final Status status) {
+        this.status = status.toString();
+    }
+    
+    public String getSubscribedBy() {
+        return this.subscribedBy;
+    }
+    
+    public SubscribedBy getSubscribedByAsEnum() {
+        return SubscribedBy.valueOf(this.subscribedBy);
+    }
+    
+    public void setSubscribedBy(final String subscribedBy) {
+        this.subscribedBy = subscribedBy;
+    }
+    
+    public void setSubscribedByFromEnum(final SubscribedBy subscribedBy) {
+        this.subscribedBy = subscribedBy.toString();
+    }
+
     @JsonIgnore
     public SubscriptionInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -215,5 +266,95 @@ public class SubscriptionInfo extends Model {
         result.put("updatedAt", "updatedAt");
         result.put("userId", "userId");
         return result;
+    }
+    
+    public enum ChargeStatus {
+        NEVER("NEVER"),
+        SETUP("SETUP"),
+        RECURRINGCHARGING("RECURRINGCHARGING"),
+        CHARGED("CHARGED"),
+        CHARGEFAILED("CHARGEFAILED");
+
+        private String value;
+
+        ChargeStatus(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Status {
+        INIT("INIT"),
+        ACTIVE("ACTIVE"),
+        CANCELLED("CANCELLED"),
+        EXPIRED("EXPIRED");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum SubscribedBy {
+        USER("USER"),
+        PLATFORM("PLATFORM");
+
+        private String value;
+
+        SubscribedBy(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class SubscriptionInfoBuilder {
+        private String chargeStatus;
+        private String status;
+        private String subscribedBy;
+        
+        
+        public SubscriptionInfoBuilder chargeStatus(final String chargeStatus) {
+            this.chargeStatus = chargeStatus;
+            return this;
+        }
+        
+        public SubscriptionInfoBuilder chargeStatusFromEnum(final ChargeStatus chargeStatus) {
+            this.chargeStatus = chargeStatus.toString();
+            return this;
+        }
+        
+        public SubscriptionInfoBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public SubscriptionInfoBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
+        
+        public SubscriptionInfoBuilder subscribedBy(final String subscribedBy) {
+            this.subscribedBy = subscribedBy;
+            return this;
+        }
+        
+        public SubscriptionInfoBuilder subscribedByFromEnum(final SubscribedBy subscribedBy) {
+            this.subscribedBy = subscribedBy.toString();
+            return this;
+        }
     }
 }

@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -53,6 +54,8 @@ public class ModelsUpdateDSMConfigRequest extends Model {
     @JsonProperty("unreachable_timeout")
     private Integer unreachableTimeout;
 
+
+
     @JsonIgnore
     public ModelsUpdateDSMConfigRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -75,5 +78,9 @@ public class ModelsUpdateDSMConfigRequest extends Model {
         result.put("session_timeout", "sessionTimeout");
         result.put("unreachable_timeout", "unreachableTimeout");
         return result;
+    }
+    
+    public static class ModelsUpdateDSMConfigRequestBuilder {
+        
     }
 }

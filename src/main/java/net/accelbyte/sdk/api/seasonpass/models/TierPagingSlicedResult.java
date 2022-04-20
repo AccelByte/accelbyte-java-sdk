@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class TierPagingSlicedResult extends Model {
     @JsonProperty("total")
     private Integer total;
 
+
+
     @JsonIgnore
     public TierPagingSlicedResult createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class TierPagingSlicedResult extends Model {
         result.put("paging", "paging");
         result.put("total", "total");
         return result;
+    }
+    
+    public static class TierPagingSlicedResultBuilder {
+        
     }
 }

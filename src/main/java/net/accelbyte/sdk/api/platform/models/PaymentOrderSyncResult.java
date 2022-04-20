@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class PaymentOrderSyncResult extends Model {
     @JsonProperty("paymentOrders")
     private List<PaymentOrder> paymentOrders;
 
+
+
     @JsonIgnore
     public PaymentOrderSyncResult createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -51,5 +54,9 @@ public class PaymentOrderSyncResult extends Model {
         result.put("nextEvaluatedKey", "nextEvaluatedKey");
         result.put("paymentOrders", "paymentOrders");
         return result;
+    }
+    
+    public static class PaymentOrderSyncResultBuilder {
+        
     }
 }

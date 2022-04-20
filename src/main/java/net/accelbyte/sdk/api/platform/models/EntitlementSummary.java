@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -71,6 +72,40 @@ public class EntitlementSummary extends Model {
     @JsonProperty("userId")
     private String userId;
 
+
+    
+    public String getClazz() {
+        return this.clazz;
+    }
+    
+    public Clazz getClazzAsEnum() {
+        return Clazz.valueOf(this.clazz);
+    }
+    
+    public void setClazz(final String clazz) {
+        this.clazz = clazz;
+    }
+    
+    public void setClazzFromEnum(final Clazz clazz) {
+        this.clazz = clazz.toString();
+    }
+    
+    public String getType() {
+        return this.type;
+    }
+    
+    public Type getTypeAsEnum() {
+        return Type.valueOf(this.type);
+    }
+    
+    public void setType(final String type) {
+        this.type = type;
+    }
+    
+    public void setTypeFromEnum(final Type type) {
+        this.type = type.toString();
+    }
+
     @JsonIgnore
     public EntitlementSummary createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -99,5 +134,66 @@ public class EntitlementSummary extends Model {
         result.put("updatedAt", "updatedAt");
         result.put("userId", "userId");
         return result;
+    }
+    
+    public enum Clazz {
+        APP("APP"),
+        ENTITLEMENT("ENTITLEMENT"),
+        CODE("CODE"),
+        SUBSCRIPTION("SUBSCRIPTION"),
+        MEDIA("MEDIA");
+
+        private String value;
+
+        Clazz(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Type {
+        DURABLE("DURABLE"),
+        CONSUMABLE("CONSUMABLE");
+
+        private String value;
+
+        Type(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class EntitlementSummaryBuilder {
+        private String clazz;
+        private String type;
+        
+        
+        public EntitlementSummaryBuilder clazz(final String clazz) {
+            this.clazz = clazz;
+            return this;
+        }
+        
+        public EntitlementSummaryBuilder clazzFromEnum(final Clazz clazz) {
+            this.clazz = clazz.toString();
+            return this;
+        }
+        
+        public EntitlementSummaryBuilder type(final String type) {
+            this.type = type;
+            return this;
+        }
+        
+        public EntitlementSummaryBuilder typeFromEnum(final Type type) {
+            this.type = type.toString();
+            return this;
+        }
     }
 }

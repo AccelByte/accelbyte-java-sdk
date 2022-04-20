@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,8 @@ public class ModelUpdatePermissionScheduleRequest extends Model {
     @JsonProperty("SchedRange")
     private List<String> schedRange;
 
+
+
     @JsonIgnore
     public ModelUpdatePermissionScheduleRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -55,5 +58,9 @@ public class ModelUpdatePermissionScheduleRequest extends Model {
         result.put("SchedCron", "schedCron");
         result.put("SchedRange", "schedRange");
         return result;
+    }
+    
+    public static class ModelUpdatePermissionScheduleRequestBuilder {
+        
     }
 }

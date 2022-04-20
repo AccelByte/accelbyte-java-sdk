@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -65,6 +66,24 @@ public class RegionDataItem extends Model {
     @JsonProperty("trialPrice")
     private Integer trialPrice;
 
+
+    
+    public String getCurrencyType() {
+        return this.currencyType;
+    }
+    
+    public CurrencyType getCurrencyTypeAsEnum() {
+        return CurrencyType.valueOf(this.currencyType);
+    }
+    
+    public void setCurrencyType(final String currencyType) {
+        this.currencyType = currencyType;
+    }
+    
+    public void setCurrencyTypeFromEnum(final CurrencyType currencyType) {
+        this.currencyType = currencyType.toString();
+    }
+
     @JsonIgnore
     public RegionDataItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -91,5 +110,36 @@ public class RegionDataItem extends Model {
         result.put("purchaseAt", "purchaseAt");
         result.put("trialPrice", "trialPrice");
         return result;
+    }
+    
+    public enum CurrencyType {
+        REAL("REAL"),
+        VIRTUAL("VIRTUAL");
+
+        private String value;
+
+        CurrencyType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class RegionDataItemBuilder {
+        private String currencyType;
+        
+        
+        public RegionDataItemBuilder currencyType(final String currencyType) {
+            this.currencyType = currencyType;
+            return this;
+        }
+        
+        public RegionDataItemBuilder currencyTypeFromEnum(final CurrencyType currencyType) {
+            this.currencyType = currencyType.toString();
+            return this;
+        }
     }
 }

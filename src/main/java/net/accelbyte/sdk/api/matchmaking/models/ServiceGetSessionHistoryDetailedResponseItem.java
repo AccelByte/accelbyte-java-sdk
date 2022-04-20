@@ -18,6 +18,7 @@ import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -74,6 +75,8 @@ public class ServiceGetSessionHistoryDetailedResponseItem extends Model {
     @JsonProperty("status")
     private String status;
 
+
+
     @JsonIgnore
     public ServiceGetSessionHistoryDetailedResponseItem createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
@@ -103,5 +106,9 @@ public class ServiceGetSessionHistoryDetailedResponseItem extends Model {
         result.put("server_name", "serverName");
         result.put("status", "status");
         return result;
+    }
+    
+    public static class ServiceGetSessionHistoryDetailedResponseItemBuilder {
+        
     }
 }
