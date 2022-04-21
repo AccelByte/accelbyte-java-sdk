@@ -192,8 +192,8 @@ public class Operation {
     }
 
     @JsonIgnore
-    public Map<String, String> getCollectionFormatMap() {
-        return null;
+    protected Map<String, String> getCollectionFormatMap() {
+        return new HashMap<>();
     }
 
     @JsonIgnore
