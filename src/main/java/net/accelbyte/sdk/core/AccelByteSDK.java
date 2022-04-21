@@ -46,9 +46,6 @@ public class AccelByteSDK {
         sdkConfiguration.getTokenRepository().storeToken(sdkConfiguration.getTokenRepository().getToken());
         String baseUrl = sdkConfiguration.getConfigRepository().getBaseURL();
         Header header = new Header();
-        if (operation.getHeaderParams() != null) {
-            operation.getHeaderParams().forEach(header::addHeaderData);
-        }
         String token = sdkConfiguration.getTokenRepository().getToken();
         if (operation.getSecurity() != null) {
             if (operation.getSecurity().equals("Bearer")) {

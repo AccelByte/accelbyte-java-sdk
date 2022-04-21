@@ -155,11 +155,6 @@ public class Operation {
     }
 
     @JsonIgnore
-    public Map<String, String> getHeaderParams() {
-        return null;
-    }
-
-    @JsonIgnore
     public Object getBodyParams() {
         return null;
     }
