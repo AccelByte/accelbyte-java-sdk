@@ -43,7 +43,7 @@ public class Operation {
     protected String authorizationOverride = "";
 
     @JsonIgnore
-    public static String createFullUrl(String url, String baseUrl, Map<String, String> pathParams,
+    protected static String createFullUrl(String url, String baseUrl, Map<String, String> pathParams,
             Map<String, List<String>> queryParams, Map<String, String> collectionFormatMap)
             throws UnsupportedEncodingException {
         final String ENC = "UTF-8";
