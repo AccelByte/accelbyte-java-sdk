@@ -65,34 +65,42 @@ public class PaymentNotificationInfo extends Model {
 
 
     
+    @JsonIgnore
     public String getNotificationSource() {
         return this.notificationSource;
     }
     
+    @JsonIgnore
     public NotificationSource getNotificationSourceAsEnum() {
         return NotificationSource.valueOf(this.notificationSource);
     }
     
+    @JsonIgnore
     public void setNotificationSource(final String notificationSource) {
         this.notificationSource = notificationSource;
     }
     
+    @JsonIgnore
     public void setNotificationSourceFromEnum(final NotificationSource notificationSource) {
         this.notificationSource = notificationSource.toString();
     }
     
+    @JsonIgnore
     public String getStatus() {
         return this.status;
     }
     
+    @JsonIgnore
     public Status getStatusAsEnum() {
         return Status.valueOf(this.status);
     }
     
+    @JsonIgnore
     public void setStatus(final String status) {
         this.status = status;
     }
     
+    @JsonIgnore
     public void setStatusFromEnum(final Status status) {
         this.status = status.toString();
     }

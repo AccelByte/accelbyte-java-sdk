@@ -89,18 +89,22 @@ public class PaymentOrderCreate extends Model {
 
 
     
+    @JsonIgnore
     public String getItemType() {
         return this.itemType;
     }
     
+    @JsonIgnore
     public ItemType getItemTypeAsEnum() {
         return ItemType.valueOf(this.itemType);
     }
     
+    @JsonIgnore
     public void setItemType(final String itemType) {
         this.itemType = itemType;
     }
     
+    @JsonIgnore
     public void setItemTypeFromEnum(final ItemType itemType) {
         this.itemType = itemType.toString();
     }

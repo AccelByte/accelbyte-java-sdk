@@ -62,36 +62,44 @@ public class PaymentProviderConfigInfo extends Model {
 
 
     
+    @JsonIgnore
     public String getAggregate() {
         return this.aggregate;
     }
     
+    @JsonIgnore
     public Aggregate getAggregateAsEnum() {
         return Aggregate.valueOf(this.aggregate);
     }
     
+    @JsonIgnore
     public void setAggregate(final String aggregate) {
         this.aggregate = aggregate;
     }
     
+    @JsonIgnore
     public void setAggregateFromEnum(final Aggregate aggregate) {
         this.aggregate = aggregate.toString();
     }
     
+    @JsonIgnore
     public List<String> getSpecials() {
         return this.specials;
     }
     
+    @JsonIgnore
     public List<Specials> getSpecialsAsEnum() {
         ArrayList<Specials> en = new ArrayList<Specials>();
         for(String e : this.specials) en.add(Specials.valueOf(e));
         return en;
     }
     
+    @JsonIgnore
     public void setSpecials(final List<String> specials) {
         this.specials = specials;
     }
     
+    @JsonIgnore
     public void setSpecialsFromEnum(final List<Specials> specials) {
         ArrayList<String> en = new ArrayList<String>();
         for(Specials e : specials) en.add(e.toString());

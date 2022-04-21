@@ -77,34 +77,42 @@ public class SubscriptionActivityInfo extends Model {
 
 
     
+    @JsonIgnore
     public String getAction() {
         return this.action;
     }
     
+    @JsonIgnore
     public Action getActionAsEnum() {
         return Action.valueOf(this.action);
     }
     
+    @JsonIgnore
     public void setAction(final String action) {
         this.action = action;
     }
     
+    @JsonIgnore
     public void setActionFromEnum(final Action action) {
         this.action = action.toString();
     }
     
+    @JsonIgnore
     public String getSubscribedBy() {
         return this.subscribedBy;
     }
     
+    @JsonIgnore
     public SubscribedBy getSubscribedByAsEnum() {
         return SubscribedBy.valueOf(this.subscribedBy);
     }
     
+    @JsonIgnore
     public void setSubscribedBy(final String subscribedBy) {
         this.subscribedBy = subscribedBy;
     }
     
+    @JsonIgnore
     public void setSubscribedByFromEnum(final SubscribedBy subscribedBy) {
         this.subscribedBy = subscribedBy.toString();
     }

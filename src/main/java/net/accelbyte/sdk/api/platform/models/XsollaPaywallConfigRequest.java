@@ -44,50 +44,62 @@ public class XsollaPaywallConfigRequest extends Model {
 
 
     
+    @JsonIgnore
     public String getDevice() {
         return this.device;
     }
     
+    @JsonIgnore
     public Device getDeviceAsEnum() {
         return Device.valueOf(this.device);
     }
     
+    @JsonIgnore
     public void setDevice(final String device) {
         this.device = device;
     }
     
+    @JsonIgnore
     public void setDeviceFromEnum(final Device device) {
         this.device = device.toString();
     }
     
+    @JsonIgnore
     public String getSize() {
         return this.size;
     }
     
+    @JsonIgnore
     public Size getSizeAsEnum() {
         return Size.valueOf(this.size);
     }
     
+    @JsonIgnore
     public void setSize(final String size) {
         this.size = size;
     }
     
+    @JsonIgnore
     public void setSizeFromEnum(final Size size) {
         this.size = size.toString();
     }
     
+    @JsonIgnore
     public String getTheme() {
         return this.theme;
     }
     
+    @JsonIgnore
     public Theme getThemeAsEnum() {
         return Theme.valueOf(this.theme);
     }
     
+    @JsonIgnore
     public void setTheme(final String theme) {
         this.theme = theme;
     }
     
+    @JsonIgnore
     public void setThemeFromEnum(final Theme theme) {
         this.theme = theme.toString();
     }

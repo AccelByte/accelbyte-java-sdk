@@ -107,82 +107,102 @@ public class StackableEntitlementInfo extends Model {
 
 
     
+    @JsonIgnore
     public String getAppType() {
         return this.appType;
     }
     
+    @JsonIgnore
     public AppType getAppTypeAsEnum() {
         return AppType.valueOf(this.appType);
     }
     
+    @JsonIgnore
     public void setAppType(final String appType) {
         this.appType = appType;
     }
     
+    @JsonIgnore
     public void setAppTypeFromEnum(final AppType appType) {
         this.appType = appType.toString();
     }
     
+    @JsonIgnore
     public String getClazz() {
         return this.clazz;
     }
     
+    @JsonIgnore
     public Clazz getClazzAsEnum() {
         return Clazz.valueOf(this.clazz);
     }
     
+    @JsonIgnore
     public void setClazz(final String clazz) {
         this.clazz = clazz;
     }
     
+    @JsonIgnore
     public void setClazzFromEnum(final Clazz clazz) {
         this.clazz = clazz.toString();
     }
     
+    @JsonIgnore
     public String getSource() {
         return this.source;
     }
     
+    @JsonIgnore
     public Source getSourceAsEnum() {
         return Source.valueOf(this.source);
     }
     
+    @JsonIgnore
     public void setSource(final String source) {
         this.source = source;
     }
     
+    @JsonIgnore
     public void setSourceFromEnum(final Source source) {
         this.source = source.toString();
     }
     
+    @JsonIgnore
     public String getStatus() {
         return this.status;
     }
     
+    @JsonIgnore
     public Status getStatusAsEnum() {
         return Status.valueOf(this.status);
     }
     
+    @JsonIgnore
     public void setStatus(final String status) {
         this.status = status;
     }
     
+    @JsonIgnore
     public void setStatusFromEnum(final Status status) {
         this.status = status.toString();
     }
     
+    @JsonIgnore
     public String getType() {
         return this.type;
     }
     
+    @JsonIgnore
     public Type getTypeAsEnum() {
         return Type.valueOf(this.type);
     }
     
+    @JsonIgnore
     public void setType(final String type) {
         this.type = type;
     }
     
+    @JsonIgnore
     public void setTypeFromEnum(final Type type) {
         this.type = type.toString();
     }

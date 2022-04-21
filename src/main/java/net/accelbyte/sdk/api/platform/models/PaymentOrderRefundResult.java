@@ -53,18 +53,22 @@ public class PaymentOrderRefundResult extends Model {
 
 
     
+    @JsonIgnore
     public String getStatus() {
         return this.status;
     }
     
+    @JsonIgnore
     public Status getStatusAsEnum() {
         return Status.valueOf(this.status);
     }
     
+    @JsonIgnore
     public void setStatus(final String status) {
         this.status = status;
     }
     
+    @JsonIgnore
     public void setStatusFromEnum(final Status status) {
         this.status = status.toString();
     }

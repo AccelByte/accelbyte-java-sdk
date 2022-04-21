@@ -41,18 +41,22 @@ public class IAPItemEntry extends Model {
 
 
     
+    @JsonIgnore
     public String getItemIdentityType() {
         return this.itemIdentityType;
     }
     
+    @JsonIgnore
     public ItemIdentityType getItemIdentityTypeAsEnum() {
         return ItemIdentityType.valueOf(this.itemIdentityType);
     }
     
+    @JsonIgnore
     public void setItemIdentityType(final String itemIdentityType) {
         this.itemIdentityType = itemIdentityType;
     }
     
+    @JsonIgnore
     public void setItemIdentityTypeFromEnum(final ItemIdentityType itemIdentityType) {
         this.itemIdentityType = itemIdentityType.toString();
     }

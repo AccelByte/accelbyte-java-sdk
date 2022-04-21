@@ -62,18 +62,22 @@ public class StatCreate extends Model {
 
 
     
+    @JsonIgnore
     public String getSetBy() {
         return this.setBy;
     }
     
+    @JsonIgnore
     public SetBy getSetByAsEnum() {
         return SetBy.valueOf(this.setBy);
     }
     
+    @JsonIgnore
     public void setSetBy(final String setBy) {
         this.setBy = setBy;
     }
     
+    @JsonIgnore
     public void setSetByFromEnum(final SetBy setBy) {
         this.setBy = setBy.toString();
     }

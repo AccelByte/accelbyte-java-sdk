@@ -50,34 +50,42 @@ public class PaymentOrderNotifySimulation extends Model {
 
 
     
+    @JsonIgnore
     public String getNotifyType() {
         return this.notifyType;
     }
     
+    @JsonIgnore
     public NotifyType getNotifyTypeAsEnum() {
         return NotifyType.valueOf(this.notifyType);
     }
     
+    @JsonIgnore
     public void setNotifyType(final String notifyType) {
         this.notifyType = notifyType;
     }
     
+    @JsonIgnore
     public void setNotifyTypeFromEnum(final NotifyType notifyType) {
         this.notifyType = notifyType.toString();
     }
     
+    @JsonIgnore
     public String getPaymentProvider() {
         return this.paymentProvider;
     }
     
+    @JsonIgnore
     public PaymentProvider getPaymentProviderAsEnum() {
         return PaymentProvider.valueOf(this.paymentProvider);
     }
     
+    @JsonIgnore
     public void setPaymentProvider(final String paymentProvider) {
         this.paymentProvider = paymentProvider;
     }
     
+    @JsonIgnore
     public void setPaymentProviderFromEnum(final PaymentProvider paymentProvider) {
         this.paymentProvider = paymentProvider.toString();
     }

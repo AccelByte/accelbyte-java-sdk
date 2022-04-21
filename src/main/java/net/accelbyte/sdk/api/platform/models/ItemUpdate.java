@@ -125,82 +125,102 @@ public class ItemUpdate extends Model {
 
 
     
+    @JsonIgnore
     public String getAppType() {
         return this.appType;
     }
     
+    @JsonIgnore
     public AppType getAppTypeAsEnum() {
         return AppType.valueOf(this.appType);
     }
     
+    @JsonIgnore
     public void setAppType(final String appType) {
         this.appType = appType;
     }
     
+    @JsonIgnore
     public void setAppTypeFromEnum(final AppType appType) {
         this.appType = appType.toString();
     }
     
+    @JsonIgnore
     public String getEntitlementType() {
         return this.entitlementType;
     }
     
+    @JsonIgnore
     public EntitlementType getEntitlementTypeAsEnum() {
         return EntitlementType.valueOf(this.entitlementType);
     }
     
+    @JsonIgnore
     public void setEntitlementType(final String entitlementType) {
         this.entitlementType = entitlementType;
     }
     
+    @JsonIgnore
     public void setEntitlementTypeFromEnum(final EntitlementType entitlementType) {
         this.entitlementType = entitlementType.toString();
     }
     
+    @JsonIgnore
     public String getItemType() {
         return this.itemType;
     }
     
+    @JsonIgnore
     public ItemType getItemTypeAsEnum() {
         return ItemType.valueOf(this.itemType);
     }
     
+    @JsonIgnore
     public void setItemType(final String itemType) {
         this.itemType = itemType;
     }
     
+    @JsonIgnore
     public void setItemTypeFromEnum(final ItemType itemType) {
         this.itemType = itemType.toString();
     }
     
+    @JsonIgnore
     public String getSeasonType() {
         return this.seasonType;
     }
     
+    @JsonIgnore
     public SeasonType getSeasonTypeAsEnum() {
         return SeasonType.valueOf(this.seasonType);
     }
     
+    @JsonIgnore
     public void setSeasonType(final String seasonType) {
         this.seasonType = seasonType;
     }
     
+    @JsonIgnore
     public void setSeasonTypeFromEnum(final SeasonType seasonType) {
         this.seasonType = seasonType.toString();
     }
     
+    @JsonIgnore
     public String getStatus() {
         return this.status;
     }
     
+    @JsonIgnore
     public Status getStatusAsEnum() {
         return Status.valueOf(this.status);
     }
     
+    @JsonIgnore
     public void setStatus(final String status) {
         this.status = status;
     }
     
+    @JsonIgnore
     public void setStatusFromEnum(final Status status) {
         this.status = status.toString();
     }

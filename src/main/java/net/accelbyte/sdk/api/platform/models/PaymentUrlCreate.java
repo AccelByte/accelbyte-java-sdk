@@ -47,18 +47,22 @@ public class PaymentUrlCreate extends Model {
 
 
     
+    @JsonIgnore
     public String getPaymentProvider() {
         return this.paymentProvider;
     }
     
+    @JsonIgnore
     public PaymentProvider getPaymentProviderAsEnum() {
         return PaymentProvider.valueOf(this.paymentProvider);
     }
     
+    @JsonIgnore
     public void setPaymentProvider(final String paymentProvider) {
         this.paymentProvider = paymentProvider;
     }
     
+    @JsonIgnore
     public void setPaymentProviderFromEnum(final PaymentProvider paymentProvider) {
         this.paymentProvider = paymentProvider.toString();
     }

@@ -74,34 +74,42 @@ public class StatInfo extends Model {
 
 
     
+    @JsonIgnore
     public String getSetBy() {
         return this.setBy;
     }
     
+    @JsonIgnore
     public SetBy getSetByAsEnum() {
         return SetBy.valueOf(this.setBy);
     }
     
+    @JsonIgnore
     public void setSetBy(final String setBy) {
         this.setBy = setBy;
     }
     
+    @JsonIgnore
     public void setSetByFromEnum(final SetBy setBy) {
         this.setBy = setBy.toString();
     }
     
+    @JsonIgnore
     public String getStatus() {
         return this.status;
     }
     
+    @JsonIgnore
     public Status getStatusAsEnum() {
         return Status.valueOf(this.status);
     }
     
+    @JsonIgnore
     public void setStatus(final String status) {
         this.status = status;
     }
     
+    @JsonIgnore
     public void setStatusFromEnum(final Status status) {
         this.status = status.toString();
     }

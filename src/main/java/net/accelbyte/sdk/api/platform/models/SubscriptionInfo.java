@@ -161,50 +161,62 @@ public class SubscriptionInfo extends Model {
 
 
     
+    @JsonIgnore
     public String getChargeStatus() {
         return this.chargeStatus;
     }
     
+    @JsonIgnore
     public ChargeStatus getChargeStatusAsEnum() {
         return ChargeStatus.valueOf(this.chargeStatus);
     }
     
+    @JsonIgnore
     public void setChargeStatus(final String chargeStatus) {
         this.chargeStatus = chargeStatus;
     }
     
+    @JsonIgnore
     public void setChargeStatusFromEnum(final ChargeStatus chargeStatus) {
         this.chargeStatus = chargeStatus.toString();
     }
     
+    @JsonIgnore
     public String getStatus() {
         return this.status;
     }
     
+    @JsonIgnore
     public Status getStatusAsEnum() {
         return Status.valueOf(this.status);
     }
     
+    @JsonIgnore
     public void setStatus(final String status) {
         this.status = status;
     }
     
+    @JsonIgnore
     public void setStatusFromEnum(final Status status) {
         this.status = status.toString();
     }
     
+    @JsonIgnore
     public String getSubscribedBy() {
         return this.subscribedBy;
     }
     
+    @JsonIgnore
     public SubscribedBy getSubscribedByAsEnum() {
         return SubscribedBy.valueOf(this.subscribedBy);
     }
     
+    @JsonIgnore
     public void setSubscribedBy(final String subscribedBy) {
         this.subscribedBy = subscribedBy;
     }
     
+    @JsonIgnore
     public void setSubscribedByFromEnum(final SubscribedBy subscribedBy) {
         this.subscribedBy = subscribedBy.toString();
     }

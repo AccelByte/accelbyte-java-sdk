@@ -41,18 +41,22 @@ public class ModelsRuleInformation extends Model {
 
 
     
+    @JsonIgnore
     public String getRuleCriteria() {
         return this.ruleCriteria;
     }
     
+    @JsonIgnore
     public RuleCriteria getRuleCriteriaAsEnum() {
         return RuleCriteria.valueOf(this.ruleCriteria);
     }
     
+    @JsonIgnore
     public void setRuleCriteria(final String ruleCriteria) {
         this.ruleCriteria = ruleCriteria;
     }
     
+    @JsonIgnore
     public void setRuleCriteriaFromEnum(final RuleCriteria ruleCriteria) {
         this.ruleCriteria = ruleCriteria.toString();
     }

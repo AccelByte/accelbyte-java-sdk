@@ -50,34 +50,42 @@ public class PaymentUrl extends Model {
 
 
     
+    @JsonIgnore
     public String getPaymentProvider() {
         return this.paymentProvider;
     }
     
+    @JsonIgnore
     public PaymentProvider getPaymentProviderAsEnum() {
         return PaymentProvider.valueOf(this.paymentProvider);
     }
     
+    @JsonIgnore
     public void setPaymentProvider(final String paymentProvider) {
         this.paymentProvider = paymentProvider;
     }
     
+    @JsonIgnore
     public void setPaymentProviderFromEnum(final PaymentProvider paymentProvider) {
         this.paymentProvider = paymentProvider.toString();
     }
     
+    @JsonIgnore
     public String getPaymentType() {
         return this.paymentType;
     }
     
+    @JsonIgnore
     public PaymentType getPaymentTypeAsEnum() {
         return PaymentType.valueOf(this.paymentType);
     }
     
+    @JsonIgnore
     public void setPaymentType(final String paymentType) {
         this.paymentType = paymentType;
     }
     
+    @JsonIgnore
     public void setPaymentTypeFromEnum(final PaymentType paymentType) {
         this.paymentType = paymentType.toString();
     }

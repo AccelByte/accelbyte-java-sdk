@@ -41,18 +41,22 @@ public class ModelsCreateScreenshotRequestItem extends Model {
 
 
     
+    @JsonIgnore
     public String getFileExtension() {
         return this.fileExtension;
     }
     
+    @JsonIgnore
     public FileExtension getFileExtensionAsEnum() {
         return FileExtension.valueOf(this.fileExtension);
     }
     
+    @JsonIgnore
     public void setFileExtension(final String fileExtension) {
         this.fileExtension = fileExtension;
     }
     
+    @JsonIgnore
     public void setFileExtensionFromEnum(final FileExtension fileExtension) {
         this.fileExtension = fileExtension.toString();
     }

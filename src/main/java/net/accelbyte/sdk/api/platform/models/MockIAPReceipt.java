@@ -47,34 +47,42 @@ public class MockIAPReceipt extends Model {
 
 
     
+    @JsonIgnore
     public String getItemIdentityType() {
         return this.itemIdentityType;
     }
     
+    @JsonIgnore
     public ItemIdentityType getItemIdentityTypeAsEnum() {
         return ItemIdentityType.valueOf(this.itemIdentityType);
     }
     
+    @JsonIgnore
     public void setItemIdentityType(final String itemIdentityType) {
         this.itemIdentityType = itemIdentityType;
     }
     
+    @JsonIgnore
     public void setItemIdentityTypeFromEnum(final ItemIdentityType itemIdentityType) {
         this.itemIdentityType = itemIdentityType.toString();
     }
     
+    @JsonIgnore
     public String getType() {
         return this.type;
     }
     
+    @JsonIgnore
     public Type getTypeAsEnum() {
         return Type.valueOf(this.type);
     }
     
+    @JsonIgnore
     public void setType(final String type) {
         this.type = type;
     }
     
+    @JsonIgnore
     public void setTypeFromEnum(final Type type) {
         this.type = type.toString();
     }

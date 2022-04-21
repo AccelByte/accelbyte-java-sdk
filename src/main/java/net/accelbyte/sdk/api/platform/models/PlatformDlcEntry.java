@@ -38,18 +38,22 @@ public class PlatformDlcEntry extends Model {
 
 
     
+    @JsonIgnore
     public String getPlatform() {
         return this.platform;
     }
     
+    @JsonIgnore
     public Platform getPlatformAsEnum() {
         return Platform.valueOf(this.platform);
     }
     
+    @JsonIgnore
     public void setPlatform(final String platform) {
         this.platform = platform;
     }
     
+    @JsonIgnore
     public void setPlatformFromEnum(final Platform platform) {
         this.platform = platform.toString();
     }

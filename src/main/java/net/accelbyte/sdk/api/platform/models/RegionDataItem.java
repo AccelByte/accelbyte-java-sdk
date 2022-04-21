@@ -68,18 +68,22 @@ public class RegionDataItem extends Model {
 
 
     
+    @JsonIgnore
     public String getCurrencyType() {
         return this.currencyType;
     }
     
+    @JsonIgnore
     public CurrencyType getCurrencyTypeAsEnum() {
         return CurrencyType.valueOf(this.currencyType);
     }
     
+    @JsonIgnore
     public void setCurrencyType(final String currencyType) {
         this.currencyType = currencyType;
     }
     
+    @JsonIgnore
     public void setCurrencyTypeFromEnum(final CurrencyType currencyType) {
         this.currencyType = currencyType.toString();
     }

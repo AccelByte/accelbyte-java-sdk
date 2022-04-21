@@ -44,18 +44,22 @@ public class FulfillmentScriptContext extends Model {
 
 
     
+    @JsonIgnore
     public String getSource() {
         return this.source;
     }
     
+    @JsonIgnore
     public Source getSourceAsEnum() {
         return Source.valueOf(this.source);
     }
     
+    @JsonIgnore
     public void setSource(final String source) {
         this.source = source;
     }
     
+    @JsonIgnore
     public void setSourceFromEnum(final Source source) {
         this.source = source.toString();
     }

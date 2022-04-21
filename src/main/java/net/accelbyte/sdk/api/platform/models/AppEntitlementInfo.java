@@ -68,34 +68,42 @@ public class AppEntitlementInfo extends Model {
 
 
     
+    @JsonIgnore
     public String getAppType() {
         return this.appType;
     }
     
+    @JsonIgnore
     public AppType getAppTypeAsEnum() {
         return AppType.valueOf(this.appType);
     }
     
+    @JsonIgnore
     public void setAppType(final String appType) {
         this.appType = appType;
     }
     
+    @JsonIgnore
     public void setAppTypeFromEnum(final AppType appType) {
         this.appType = appType.toString();
     }
     
+    @JsonIgnore
     public String getStatus() {
         return this.status;
     }
     
+    @JsonIgnore
     public Status getStatusAsEnum() {
         return Status.valueOf(this.status);
     }
     
+    @JsonIgnore
     public void setStatus(final String status) {
         this.status = status;
     }
     
+    @JsonIgnore
     public void setStatusFromEnum(final Status status) {
         this.status = status.toString();
     }

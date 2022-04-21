@@ -173,66 +173,82 @@ public class PaymentOrderInfo extends Model {
 
 
     
+    @JsonIgnore
     public String getChannel() {
         return this.channel;
     }
     
+    @JsonIgnore
     public Channel getChannelAsEnum() {
         return Channel.valueOf(this.channel);
     }
     
+    @JsonIgnore
     public void setChannel(final String channel) {
         this.channel = channel;
     }
     
+    @JsonIgnore
     public void setChannelFromEnum(final Channel channel) {
         this.channel = channel.toString();
     }
     
+    @JsonIgnore
     public String getItemType() {
         return this.itemType;
     }
     
+    @JsonIgnore
     public ItemType getItemTypeAsEnum() {
         return ItemType.valueOf(this.itemType);
     }
     
+    @JsonIgnore
     public void setItemType(final String itemType) {
         this.itemType = itemType;
     }
     
+    @JsonIgnore
     public void setItemTypeFromEnum(final ItemType itemType) {
         this.itemType = itemType.toString();
     }
     
+    @JsonIgnore
     public String getPaymentProvider() {
         return this.paymentProvider;
     }
     
+    @JsonIgnore
     public PaymentProvider getPaymentProviderAsEnum() {
         return PaymentProvider.valueOf(this.paymentProvider);
     }
     
+    @JsonIgnore
     public void setPaymentProvider(final String paymentProvider) {
         this.paymentProvider = paymentProvider;
     }
     
+    @JsonIgnore
     public void setPaymentProviderFromEnum(final PaymentProvider paymentProvider) {
         this.paymentProvider = paymentProvider.toString();
     }
     
+    @JsonIgnore
     public String getStatus() {
         return this.status;
     }
     
+    @JsonIgnore
     public Status getStatusAsEnum() {
         return Status.valueOf(this.status);
     }
     
+    @JsonIgnore
     public void setStatus(final String status) {
         this.status = status;
     }
     
+    @JsonIgnore
     public void setStatusFromEnum(final Status status) {
         this.status = status.toString();
     }

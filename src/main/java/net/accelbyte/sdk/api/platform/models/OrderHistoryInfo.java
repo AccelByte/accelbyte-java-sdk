@@ -56,18 +56,22 @@ public class OrderHistoryInfo extends Model {
 
 
     
+    @JsonIgnore
     public String getAction() {
         return this.action;
     }
     
+    @JsonIgnore
     public Action getActionAsEnum() {
         return Action.valueOf(this.action);
     }
     
+    @JsonIgnore
     public void setAction(final String action) {
         this.action = action;
     }
     
+    @JsonIgnore
     public void setActionFromEnum(final Action action) {
         this.action = action.toString();
     }

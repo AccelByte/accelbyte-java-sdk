@@ -47,18 +47,22 @@ public class XblReconcileResult extends Model {
 
 
     
+    @JsonIgnore
     public String getIapOrderStatus() {
         return this.iapOrderStatus;
     }
     
+    @JsonIgnore
     public IapOrderStatus getIapOrderStatusAsEnum() {
         return IapOrderStatus.valueOf(this.iapOrderStatus);
     }
     
+    @JsonIgnore
     public void setIapOrderStatus(final String iapOrderStatus) {
         this.iapOrderStatus = iapOrderStatus;
     }
     
+    @JsonIgnore
     public void setIapOrderStatusFromEnum(final IapOrderStatus iapOrderStatus) {
         this.iapOrderStatus = iapOrderStatus.toString();
     }

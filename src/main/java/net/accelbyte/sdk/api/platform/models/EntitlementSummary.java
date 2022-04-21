@@ -74,34 +74,42 @@ public class EntitlementSummary extends Model {
 
 
     
+    @JsonIgnore
     public String getClazz() {
         return this.clazz;
     }
     
+    @JsonIgnore
     public Clazz getClazzAsEnum() {
         return Clazz.valueOf(this.clazz);
     }
     
+    @JsonIgnore
     public void setClazz(final String clazz) {
         this.clazz = clazz;
     }
     
+    @JsonIgnore
     public void setClazzFromEnum(final Clazz clazz) {
         this.clazz = clazz.toString();
     }
     
+    @JsonIgnore
     public String getType() {
         return this.type;
     }
     
+    @JsonIgnore
     public Type getTypeAsEnum() {
         return Type.valueOf(this.type);
     }
     
+    @JsonIgnore
     public void setType(final String type) {
         this.type = type;
     }
     
+    @JsonIgnore
     public void setTypeFromEnum(final Type type) {
         this.type = type.toString();
     }

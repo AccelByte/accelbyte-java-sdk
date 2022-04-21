@@ -44,18 +44,22 @@ public class PlatformReward extends Model {
 
 
     
+    @JsonIgnore
     public String getType() {
         return this.type;
     }
     
+    @JsonIgnore
     public Type getTypeAsEnum() {
         return Type.valueOf(this.type);
     }
     
+    @JsonIgnore
     public void setType(final String type) {
         this.type = type;
     }
     
+    @JsonIgnore
     public void setTypeFromEnum(final Type type) {
         this.type = type.toString();
     }

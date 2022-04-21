@@ -92,50 +92,62 @@ public class CodeInfo extends Model {
 
 
     
+    @JsonIgnore
     public String getRedeemType() {
         return this.redeemType;
     }
     
+    @JsonIgnore
     public RedeemType getRedeemTypeAsEnum() {
         return RedeemType.valueOf(this.redeemType);
     }
     
+    @JsonIgnore
     public void setRedeemType(final String redeemType) {
         this.redeemType = redeemType;
     }
     
+    @JsonIgnore
     public void setRedeemTypeFromEnum(final RedeemType redeemType) {
         this.redeemType = redeemType.toString();
     }
     
+    @JsonIgnore
     public String getStatus() {
         return this.status;
     }
     
+    @JsonIgnore
     public Status getStatusAsEnum() {
         return Status.valueOf(this.status);
     }
     
+    @JsonIgnore
     public void setStatus(final String status) {
         this.status = status;
     }
     
+    @JsonIgnore
     public void setStatusFromEnum(final Status status) {
         this.status = status.toString();
     }
     
+    @JsonIgnore
     public String getType() {
         return this.type;
     }
     
+    @JsonIgnore
     public Type getTypeAsEnum() {
         return Type.valueOf(this.type);
     }
     
+    @JsonIgnore
     public void setType(final String type) {
         this.type = type;
     }
     
+    @JsonIgnore
     public void setTypeFromEnum(final Type type) {
         this.type = type.toString();
     }

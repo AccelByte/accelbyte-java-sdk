@@ -65,18 +65,22 @@ public class WalletTransactionInfo extends Model {
 
 
     
+    @JsonIgnore
     public String getWalletAction() {
         return this.walletAction;
     }
     
+    @JsonIgnore
     public WalletAction getWalletActionAsEnum() {
         return WalletAction.valueOf(this.walletAction);
     }
     
+    @JsonIgnore
     public void setWalletAction(final String walletAction) {
         this.walletAction = walletAction;
     }
     
+    @JsonIgnore
     public void setWalletActionFromEnum(final WalletAction walletAction) {
         this.walletAction = walletAction.toString();
     }

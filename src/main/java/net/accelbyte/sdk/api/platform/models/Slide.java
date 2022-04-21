@@ -50,34 +50,42 @@ public class Slide extends Model {
 
 
     
+    @JsonIgnore
     public String getType() {
         return this.type;
     }
     
+    @JsonIgnore
     public Type getTypeAsEnum() {
         return Type.valueOf(this.type);
     }
     
+    @JsonIgnore
     public void setType(final String type) {
         this.type = type;
     }
     
+    @JsonIgnore
     public void setTypeFromEnum(final Type type) {
         this.type = type.toString();
     }
     
+    @JsonIgnore
     public String getVideoSource() {
         return this.videoSource;
     }
     
+    @JsonIgnore
     public VideoSource getVideoSourceAsEnum() {
         return VideoSource.valueOf(this.videoSource);
     }
     
+    @JsonIgnore
     public void setVideoSource(final String videoSource) {
         this.videoSource = videoSource;
     }
     
+    @JsonIgnore
     public void setVideoSourceFromEnum(final VideoSource videoSource) {
         this.videoSource = videoSource.toString();
     }

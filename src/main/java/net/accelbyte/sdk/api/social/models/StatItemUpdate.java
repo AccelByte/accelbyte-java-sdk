@@ -41,18 +41,22 @@ public class StatItemUpdate extends Model {
 
 
     
+    @JsonIgnore
     public String getUpdateStrategy() {
         return this.updateStrategy;
     }
     
+    @JsonIgnore
     public UpdateStrategy getUpdateStrategyAsEnum() {
         return UpdateStrategy.valueOf(this.updateStrategy);
     }
     
+    @JsonIgnore
     public void setUpdateStrategy(final String updateStrategy) {
         this.updateStrategy = updateStrategy;
     }
     
+    @JsonIgnore
     public void setUpdateStrategyFromEnum(final UpdateStrategy updateStrategy) {
         this.updateStrategy = updateStrategy.toString();
     }

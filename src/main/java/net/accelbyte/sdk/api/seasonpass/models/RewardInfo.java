@@ -65,34 +65,42 @@ public class RewardInfo extends Model {
 
 
     
+    @JsonIgnore
     public String getItemType() {
         return this.itemType;
     }
     
+    @JsonIgnore
     public ItemType getItemTypeAsEnum() {
         return ItemType.valueOf(this.itemType);
     }
     
+    @JsonIgnore
     public void setItemType(final String itemType) {
         this.itemType = itemType;
     }
     
+    @JsonIgnore
     public void setItemTypeFromEnum(final ItemType itemType) {
         this.itemType = itemType.toString();
     }
     
+    @JsonIgnore
     public String getType() {
         return this.type;
     }
     
+    @JsonIgnore
     public Type getTypeAsEnum() {
         return Type.valueOf(this.type);
     }
     
+    @JsonIgnore
     public void setType(final String type) {
         this.type = type;
     }
     
+    @JsonIgnore
     public void setTypeFromEnum(final Type type) {
         this.type = type.toString();
     }

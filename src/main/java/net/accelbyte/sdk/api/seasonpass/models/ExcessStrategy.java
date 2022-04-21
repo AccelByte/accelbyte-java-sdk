@@ -41,18 +41,22 @@ public class ExcessStrategy extends Model {
 
 
     
+    @JsonIgnore
     public String getMethod() {
         return this.method;
     }
     
+    @JsonIgnore
     public Method getMethodAsEnum() {
         return Method.valueOf(this.method);
     }
     
+    @JsonIgnore
     public void setMethod(final String method) {
         this.method = method;
     }
     
+    @JsonIgnore
     public void setMethodFromEnum(final Method method) {
         this.method = method.toString();
     }

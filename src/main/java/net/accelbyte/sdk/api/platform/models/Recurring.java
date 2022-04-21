@@ -44,18 +44,22 @@ public class Recurring extends Model {
 
 
     
+    @JsonIgnore
     public String getCycle() {
         return this.cycle;
     }
     
+    @JsonIgnore
     public Cycle getCycleAsEnum() {
         return Cycle.valueOf(this.cycle);
     }
     
+    @JsonIgnore
     public void setCycle(final String cycle) {
         this.cycle = cycle;
     }
     
+    @JsonIgnore
     public void setCycleFromEnum(final Cycle cycle) {
         this.cycle = cycle.toString();
     }
