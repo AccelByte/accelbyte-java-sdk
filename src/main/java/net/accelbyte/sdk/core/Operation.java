@@ -150,11 +150,6 @@ public class Operation {
     }
 
     @JsonIgnore
-    public Map<String, Map<String, String>> getAllParams() {
-        return new HashMap<>();
-    }
-
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
         return null;
     }
