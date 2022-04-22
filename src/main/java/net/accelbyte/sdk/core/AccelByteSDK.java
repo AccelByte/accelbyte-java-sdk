@@ -47,7 +47,7 @@ public class AccelByteSDK {
     public HttpResponse runRequest(Operation operation) throws IOException {
         sdkConfiguration.getTokenRepository().storeToken(sdkConfiguration.getTokenRepository().getToken());
         String baseUrl = sdkConfiguration.getConfigRepository().getBaseURL();
-        Header header = new Header();
+        HttpHeaders header = new HttpHeaders();
         String token = sdkConfiguration.getTokenRepository().getToken();
         String selectedSecurity = "Basic";
         if (!operation.getPreferredSecurityMethod().isEmpty())
@@ -59,13 +59,13 @@ public class AccelByteSDK {
         }
         if (selectedSecurity.equals("Bearer")) {
             if (!sdkConfiguration.getTokenRepository().getToken().equals("")) {
-                header.setBearerAuthorization("Bearer " + token);
+                header.put(HttpHeaders.AUTHORIZATION, "Bearer " + token);
             }
         }
         else if (selectedSecurity.equals("Basic")) {
             String clientId = sdkConfiguration.getConfigRepository().getClientId();
             String clientSecret = sdkConfiguration.getConfigRepository().getClientSecret();
-            header.setBasicAuthorization(Credentials.basic(clientId, clientSecret));
+            header.put(HttpHeaders.AUTHORIZATION, Credentials.basic(clientId, clientSecret));
         }
         else if (selectedSecurity.equals("Cookie")) {
             if (!operation.getCookies().containsKey("access_token"))
@@ -75,7 +75,7 @@ public class AccelByteSDK {
         }
         if (sdkConfiguration.getConfigRepository().isAmazonTraceId()) {
             String version = sdkConfiguration.getConfigRepository().getAmazonTraceIdVersion();
-            header.setAmazonTraceId(Helper.generateAmazonTraceId(version));
+            header.put(HttpHeaders.X_AMZN_TRACE_ID, Helper.generateAmazonTraceId(version));
         }
         if (sdkConfiguration.getConfigRepository().isClientInfoHeader()) {
             String productName = SDKInfo.getInstance().getSdkName();
@@ -84,7 +84,7 @@ public class AccelByteSDK {
             String appName = appInfo.getAppName();
             String appVersion = appInfo.getAppVersion();
             String userAgent = String.format("%s/%s (%s/%s)", productName, productVersion, appName, appVersion);
-            header.setUserAgent(userAgent);
+            header.put(HttpHeaders.USER_AGENT, userAgent);
         }
         if (operation.getCookies().size() > 0)
         {
@@ -93,7 +93,7 @@ public class AccelByteSDK {
             {
                 cEntries.add(key.getKey() + "=" + URLEncoder.encode(key.getValue(), "UTF-8"));
             }
-            header.addHeaderData("Cookie", String.join("; ", cEntries));
+            header.put(HttpHeaders.COOKIE, String.join("; ", cEntries));
         }
         return sdkConfiguration.getHttpClient().sendRequest(operation, baseUrl, header);
     }

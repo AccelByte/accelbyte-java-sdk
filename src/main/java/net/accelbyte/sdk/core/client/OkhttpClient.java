@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.json.JsonMapper;
 
 import org.apache.commons.io.IOUtils;
 
-import net.accelbyte.sdk.core.Header;
+import net.accelbyte.sdk.core.HttpHeaders;
 import net.accelbyte.sdk.core.HttpResponse;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.logging.HttpLogger;
@@ -47,7 +47,7 @@ public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
     }
 
     @Override
-    public HttpResponse sendRequest(Operation operation, String baseURL, Header header)
+    public HttpResponse sendRequest(Operation operation, String baseURL, HttpHeaders headers)
             throws IllegalArgumentException, IOException, JsonProcessingException {
         if (operation == null) {
             throw new IllegalArgumentException("Operation cannot be null");
@@ -57,7 +57,7 @@ public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
             throw new IllegalArgumentException("Base URL cannot be null or empty");
         }
 
-        if (header == null) {
+        if (headers == null) {
             throw new IllegalArgumentException("Header cannot be null");
         }
 
@@ -65,10 +65,10 @@ public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
 
         if (!operation.getConsumes().isEmpty()) {
             requestContentType = operation.getConsumes().get(0);
-            header.addHeaderData("Content-Type", requestContentType);
+            headers.put(HttpHeaders.CONTENT_TYPE, requestContentType);
         }
 
-        final Headers requestHeaders = Headers.of(header.getHeaderData());
+        final Headers requestHeaders = Headers.of(headers);
         final String requestUrl = operation.getFullUrl(baseURL);
         final Request.Builder requestBuilder = new Request.Builder()
                 .url(requestUrl)
