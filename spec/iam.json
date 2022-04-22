@@ -19381,6 +19381,18 @@
             "name": "namespace",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "Cookie",
+            "required": false,
+            "type": "string",
+            "x-keys": [
+              "device_token"
+            ],
+            "x-required": [
+              "device_token"
+            ]
           }
         ],
         "produces": [
