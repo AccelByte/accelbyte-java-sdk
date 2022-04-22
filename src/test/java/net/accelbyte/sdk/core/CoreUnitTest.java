@@ -9,6 +9,8 @@ package net.accelbyte.sdk.core;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import net.accelbyte.sdk.core.util.Helper;
+
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -32,7 +34,7 @@ class CoreUnitTest {
         queryParams.put("city", Collections.singletonList("Seattle"));
         queryParams.put("color", Collections.singletonList("red"));
         String expected = "https://accelbyte.io/platform/namespace/accelbyte/userId/511132939439?color=red&city=Seattle";
-        String fullUrl = Operation.createFullUrl(url, baseUrl, pathParams, queryParams, collectionFormatMap);
+        String fullUrl = Helper.createFullUrl(url, baseUrl, pathParams, queryParams, collectionFormatMap);
         assertEquals(expected, fullUrl);
     }
 
@@ -46,7 +48,7 @@ class CoreUnitTest {
         collectionFormatMap.put("emails", "notDefinedType");
         collectionFormatMap.put("appIds", null);
         String expected = "https://accelbyte.io/platform/namespace/accelbyte/userId/511132939439?emails=test%40test.net,check%40check.io&appIds=1,2";
-        String fullUrl = Operation.createFullUrl(url, baseUrl, pathParams, queryParams, collectionFormatMap);
+        String fullUrl = Helper.createFullUrl(url, baseUrl, pathParams, queryParams, collectionFormatMap);
         assertEquals(expected, fullUrl);
     }
 
@@ -60,7 +62,7 @@ class CoreUnitTest {
         collectionFormatMap.put("emails", "csv");
         collectionFormatMap.put("appIds", "csv");
         String expected = "https://accelbyte.io/platform/namespace/accelbyte/userId/511132939439?emails=test%40test.net,check%40check.io&appIds=1,2";
-        String fullUrl = Operation.createFullUrl(url, baseUrl, pathParams, queryParams, collectionFormatMap);
+        String fullUrl = Helper.createFullUrl(url, baseUrl, pathParams, queryParams, collectionFormatMap);
         assertEquals(expected, fullUrl);
     }
 
@@ -74,7 +76,7 @@ class CoreUnitTest {
         collectionFormatMap.put("appIds", "multi");
         collectionFormatMap.put("skus", "multi");
         String expected = "https://accelbyte.io/platform/namespace/accelbyte/userId/511132939439?appIds=1&appIds=2&skus=3&skus=4";
-        String fullUrl = Operation.createFullUrl(url, baseUrl, pathParams, queryParams, collectionFormatMap);
+        String fullUrl = Helper.createFullUrl(url, baseUrl, pathParams, queryParams, collectionFormatMap);
         assertEquals(expected, fullUrl);
     }
 
@@ -88,7 +90,7 @@ class CoreUnitTest {
         collectionFormatMap.put("emails", "pipes");
         collectionFormatMap.put("appIds", "pipes");
         String expected = "https://accelbyte.io/platform/namespace/accelbyte/userId/511132939439?emails=test%40test.net|check%40check.io&appIds=1|2";
-        String fullUrl = Operation.createFullUrl(url, baseUrl, pathParams, queryParams, collectionFormatMap);
+        String fullUrl = Helper.createFullUrl(url, baseUrl, pathParams, queryParams, collectionFormatMap);
         assertEquals(expected, fullUrl);
     }
 
@@ -102,7 +104,7 @@ class CoreUnitTest {
         collectionFormatMap.put("emails", "tsv");
         collectionFormatMap.put("appIds", "tsv");
         String expected = "https://accelbyte.io/platform/namespace/accelbyte/userId/511132939439?emails=test%40test.net\tcheck%40check.io&appIds=1\t2";
-        String fullUrl = Operation.createFullUrl(url, baseUrl, pathParams, queryParams, collectionFormatMap);
+        String fullUrl = Helper.createFullUrl(url, baseUrl, pathParams, queryParams, collectionFormatMap);
         assertEquals(expected, fullUrl);
     }
 
@@ -116,7 +118,7 @@ class CoreUnitTest {
         collectionFormatMap.put("emails", "ssv");
         collectionFormatMap.put("appIds", "ssv");
         String expected = "https://accelbyte.io/platform/namespace/accelbyte/userId/511132939439?emails=test%40test.net check%40check.io&appIds=1 2";
-        String fullUrl = Operation.createFullUrl(url, baseUrl, pathParams, queryParams, collectionFormatMap);
+        String fullUrl = Helper.createFullUrl(url, baseUrl, pathParams, queryParams, collectionFormatMap);
         assertEquals(expected, fullUrl);
     }
 }
