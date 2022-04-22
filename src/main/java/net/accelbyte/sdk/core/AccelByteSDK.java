@@ -68,9 +68,9 @@ public class AccelByteSDK {
             header.put(HttpHeaders.AUTHORIZATION, Credentials.basic(clientId, clientSecret));
         }
         else if (selectedSecurity.equals("Cookie")) {
-            if (!operation.getCookies().containsKey("access_token"))
+            if (!operation.getCookieParams().containsKey("access_token"))
             {
-                operation.getCookies().put("access_token", "Bearer " + token);
+                operation.getCookieParams().put("access_token", token);
             }
         }
         if (sdkConfiguration.getConfigRepository().isAmazonTraceId()) {
@@ -86,10 +86,10 @@ public class AccelByteSDK {
             String userAgent = String.format("%s/%s (%s/%s)", productName, productVersion, appName, appVersion);
             header.put(HttpHeaders.USER_AGENT, userAgent);
         }
-        if (operation.getCookies().size() > 0)
+        if (operation.getCookieParams().size() > 0)
         {
             List<String> cEntries = new ArrayList<String>();
-            for (java.util.Map.Entry<String,String> key : operation.getCookies().entrySet())
+            for (java.util.Map.Entry<String,String> key : operation.getCookieParams().entrySet())
             {
                 cEntries.add(key.getKey() + "=" + URLEncoder.encode(key.getValue(), "UTF-8"));
             }

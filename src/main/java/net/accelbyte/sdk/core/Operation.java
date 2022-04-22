@@ -29,9 +29,7 @@ public class Operation {
     protected String security = "";
     protected String preferredSecurityMethod = "";
     protected List<String> securities = new ArrayList<>();
-    protected Map<String, String> cookies = new HashMap<String, String>();
     protected String locationQuery = "";
-    protected String authorizationOverride = "";
 
     public Map<String, String> getPathParams() {
         return new HashMap<>();
@@ -45,8 +43,8 @@ public class Operation {
         return null;
     }
 
-    public Map<String, String> getCookies() {
-        return cookies;
+    public Map<String, String> getCookieParams() {
+        return new HashMap<>();
     }
 
     public Object getBodyParams() {
