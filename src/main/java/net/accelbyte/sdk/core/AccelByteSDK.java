@@ -23,7 +23,9 @@ import org.apache.http.client.utils.URLEncodedUtils;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AccelByteSDK {
@@ -47,16 +49,28 @@ public class AccelByteSDK {
         String baseUrl = sdkConfiguration.getConfigRepository().getBaseURL();
         Header header = new Header();
         String token = sdkConfiguration.getTokenRepository().getToken();
-        if (operation.getSecurity() != null) {
-            if (operation.getSecurity().equals("Bearer")) {
-                if (!sdkConfiguration.getTokenRepository().getToken().equals("")) {
-                    header.setBearerAuthorization("Bearer " + token);
-                }
+        String selectedSecurity = "Basic";
+        if (!operation.getPreferredSecurityMethod().isEmpty())
+            selectedSecurity = operation.getPreferredSecurityMethod();
+        else
+        {
+            if (operation.getSecurities().size() > 0)
+                selectedSecurity = operation.getSecurities().get(0);
+        }
+        if (selectedSecurity.equals("Bearer")) {
+            if (!sdkConfiguration.getTokenRepository().getToken().equals("")) {
+                header.setBearerAuthorization("Bearer " + token);
             }
-            if (operation.getSecurity().equals("Basic")) {
-                String clientId = sdkConfiguration.getConfigRepository().getClientId();
-                String clientSecret = sdkConfiguration.getConfigRepository().getClientSecret();
-                header.setBasicAuthorization(Credentials.basic(clientId, clientSecret));
+        }
+        else if (selectedSecurity.equals("Basic")) {
+            String clientId = sdkConfiguration.getConfigRepository().getClientId();
+            String clientSecret = sdkConfiguration.getConfigRepository().getClientSecret();
+            header.setBasicAuthorization(Credentials.basic(clientId, clientSecret));
+        }
+        else if (selectedSecurity.equals("Cookie")) {
+            if (!operation.getCookies().containsKey("access_token"))
+            {
+                operation.getCookies().put("access_token", "Bearer " + token);
             }
         }
         if (sdkConfiguration.getConfigRepository().isAmazonTraceId()) {
@@ -71,6 +85,15 @@ public class AccelByteSDK {
             String appVersion = appInfo.getAppVersion();
             String userAgent = String.format("%s/%s (%s/%s)", productName, productVersion, appName, appVersion);
             header.setUserAgent(userAgent);
+        }
+        if (operation.getCookies().size() > 0)
+        {
+            List<String> cEntries = new ArrayList<String>();
+            for (java.util.Map.Entry<String,String> key : operation.getCookies().entrySet())
+            {
+                cEntries.add(key.getKey() + "=" + URLEncoder.encode(key.getValue(), "UTF-8"));
+            }
+            header.addHeaderData("Cookie", String.join("; ", cEntries));
         }
         return sdkConfiguration.getHttpClient().sendRequest(operation, baseUrl, header);
     }

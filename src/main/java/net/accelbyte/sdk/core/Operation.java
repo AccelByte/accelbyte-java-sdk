@@ -35,8 +35,18 @@ public class Operation {
     @JsonIgnore
     protected List<String> produces = new ArrayList<>();
 
+    @Deprecated
     @JsonIgnore
     protected String security = "";
+
+    @JsonIgnore
+    protected String preferredSecurityMethod = "";
+
+    @JsonIgnore
+    protected List<String> securities = new ArrayList<>();
+
+    @JsonIgnore
+    protected Map<String, String> cookies = new HashMap<String, String>();
 
     @JsonIgnore
     protected String locationQuery = "";
@@ -64,6 +74,11 @@ public class Operation {
     @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
         return null;
+    }
+
+    @JsonIgnore
+    public Map<String, String> getCookies() {
+        return cookies;
     }
 
     @JsonIgnore
