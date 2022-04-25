@@ -36,9 +36,9 @@ public class AccelByteSDK {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public AccelByteSDK(HttpClient<?> httpClient, TokenRepository tokenRepository, ConfigRepository configRepository) {
-        this.sdkConfiguration = new AccelByteConfig(httpClient, tokenRepository, configRepository) {
-        };
+    public AccelByteSDK(HttpClient<?> httpClient, TokenRepository tokenRepository,
+            ConfigRepository configRepository) {
+        this(new AccelByteConfig(httpClient, tokenRepository, configRepository));
     }
 
     public AccelByteConfig getSdkConfiguration() {
@@ -46,99 +46,115 @@ public class AccelByteSDK {
     }
 
     public HttpResponse runRequest(Operation operation) throws IOException {
-        sdkConfiguration.getTokenRepository().storeToken(sdkConfiguration.getTokenRepository().getToken());
-        String baseUrl = sdkConfiguration.getConfigRepository().getBaseURL();
-        HttpHeaders header = new HttpHeaders();
-        String token = sdkConfiguration.getTokenRepository().getToken();
         String selectedSecurity = "Basic";
-        Map<String, String> cookies = operation.getCookieParams();
         if (!operation.getPreferredSecurityMethod().isEmpty())
             selectedSecurity = operation.getPreferredSecurityMethod();
-        else {
-            if (operation.getSecurities().size() > 0)
-                selectedSecurity = operation.getSecurities().get(0);
+        else if (operation.getSecurities().size() > 0) {
+            selectedSecurity = operation.getSecurities().get(0);
         }
-        if (selectedSecurity.equals("Bearer")) {
-            if (!sdkConfiguration.getTokenRepository().getToken().equals("")) {
-                header.put(HttpHeaders.AUTHORIZATION, "Bearer " + token);
-            }
-        } else if (selectedSecurity.equals("Basic")) {
-            String clientId = sdkConfiguration.getConfigRepository().getClientId();
-            String clientSecret = sdkConfiguration.getConfigRepository().getClientSecret();
-            header.put(HttpHeaders.AUTHORIZATION, Credentials.basic(clientId, clientSecret));
-        } else if (selectedSecurity.equals("Cookie")) {
-            cookies.put("access_token", token);
+        final HttpHeaders headers = new HttpHeaders();
+        final String token = sdkConfiguration.getTokenRepository().getToken();
+        final Map<String, String> cookies = operation.getCookieParams();
+        switch (selectedSecurity) {
+            case "Basic":
+                final String clientId = sdkConfiguration.getConfigRepository()
+                        .getClientId();
+                final String clientSecret = sdkConfiguration.getConfigRepository()
+                        .getClientSecret();
+                headers.put(HttpHeaders.AUTHORIZATION,
+                        Credentials.basic(clientId, clientSecret));
+                break;
+            case "Bearer":
+                if (!token.equals("")) {
+                    headers.put(HttpHeaders.AUTHORIZATION, "Bearer " + token);
+                }
+                break;
+            case "Cookie":
+                if (!token.equals("")) {
+                    cookies.put("access_token", token);
+                }
+                break;
         }
         if (sdkConfiguration.getConfigRepository().isAmazonTraceId()) {
-            String version = sdkConfiguration.getConfigRepository().getAmazonTraceIdVersion();
-            header.put(HttpHeaders.X_AMZN_TRACE_ID, Helper.generateAmazonTraceId(version));
+            final String version = sdkConfiguration.getConfigRepository()
+                    .getAmazonTraceIdVersion();
+            headers.put(HttpHeaders.X_AMZN_TRACE_ID, Helper
+                    .generateAmazonTraceId(version));
         }
         if (sdkConfiguration.getConfigRepository().isClientInfoHeader()) {
-            String productName = SDKInfo.getInstance().getSdkName();
-            String productVersion = SDKInfo.getInstance().getSdkVersion();
-            AppInfo appInfo = sdkConfiguration.getConfigRepository().getAppInfo();
-            String appName = appInfo.getAppName();
-            String appVersion = appInfo.getAppVersion();
-            String userAgent = String.format("%s/%s (%s/%s)", productName, productVersion, appName, appVersion);
-            header.put(HttpHeaders.USER_AGENT, userAgent);
+            final String sdkName = SDKInfo.getInstance().getSdkName();
+            final String sdkVersion = SDKInfo.getInstance().getSdkVersion();
+            final AppInfo appInfo = sdkConfiguration.getConfigRepository()
+                    .getAppInfo();
+            final String appName = appInfo.getAppName();
+            final String appVersion = appInfo.getAppVersion();
+            final String userAgent = String.format("%s/%s (%s/%s)", sdkName,
+                    sdkVersion, appName, appVersion);
+            headers.put(HttpHeaders.USER_AGENT, userAgent);
         }
         if (cookies.size() > 0) {
-            List<String> cEntries = new ArrayList<String>();
-            for (java.util.Map.Entry<String, String> key : cookies.entrySet()) {
-                cEntries.add(URLEncoder.encode(key.getKey(), "UTF-8") + "=" +
-                        URLEncoder.encode(key.getValue(), "UTF-8"));
+            final List<String> cookieEntries = new ArrayList<String>();
+            for (Map.Entry<String, String> key : cookies.entrySet()) {
+                cookieEntries.add(URLEncoder.encode(key.getKey(), "UTF-8") +
+                        "=" + URLEncoder.encode(key.getValue(), "UTF-8"));
             }
-            header.put(HttpHeaders.COOKIE, String.join("; ", cEntries));
+            headers.put(HttpHeaders.COOKIE, String.join("; ", cookieEntries));
         }
-        return sdkConfiguration.getHttpClient().sendRequest(operation, baseUrl, header);
+        final String baseUrl = sdkConfiguration.getConfigRepository()
+                .getBaseURL();
+        return sdkConfiguration.getHttpClient().sendRequest(operation,
+                baseUrl, headers);
     }
 
     public boolean loginUser(String username, String password) {
-        String codeVerifier = Helper.generateCodeVerifier();
-        String codeChallenge = Helper.generateCodeChallenge(codeVerifier);
-        String clientId = this.sdkConfiguration.getConfigRepository().getClientId();
+        final String codeVerifier = Helper.generateCodeVerifier();
+        final String codeChallenge = Helper.generateCodeChallenge(codeVerifier);
+        final String clientId = this.sdkConfiguration.getConfigRepository()
+                .getClientId();
         try {
-            OAuth20 oAuth20 = new OAuth20(this);
-            AuthorizeV3 authorizeV3 = AuthorizeV3.builder()
+            final OAuth20 oAuth20 = new OAuth20(this);
+            final AuthorizeV3 authorizeV3 = AuthorizeV3.builder()
                     .codeChallenge(codeChallenge)
                     .codeChallengeMethod("S256")
                     .scope("commerce account social publishing analytics")
                     .clientId(clientId)
                     .responseType("code")
                     .build();
-            String response = oAuth20.authorizeV3(authorizeV3);
-            // todo: change this to simple regex
-            List<NameValuePair> params = URLEncodedUtils.parse(new URI(response), StandardCharsets.UTF_8);
-            String requestId = null;
-            for (NameValuePair p : params) {
-                if (p.getName().equals(authorizeV3.getLocationQuery())) {
-                    requestId = p.getValue();
-                    break;
-                }
-            }
-            OAuth20Extension oAuth20Extension = new OAuth20Extension(this);
-            UserAuthenticationV3 userAuthenticationV3 = UserAuthenticationV3.builder()
+            final String authorizeResponse = oAuth20.authorizeV3(authorizeV3);
+            final List<NameValuePair> authorizeParams = URLEncodedUtils.parse(
+                    new URI(authorizeResponse), StandardCharsets.UTF_8);
+            final String requestId = authorizeParams.stream()
+                    .filter((q) -> {
+                        return q.getName().equals(authorizeV3.getLocationQuery());
+                    })
+                    .findFirst()
+                    .map(NameValuePair::getValue)
+                    .orElse(null);
+            final OAuth20Extension oAuth20Extension = new OAuth20Extension(this);
+            final UserAuthenticationV3 userAuthenticationV3 = UserAuthenticationV3.builder()
                     .clientId(clientId)
                     .userName(username)
                     .password(password)
                     .requestId(requestId)
                     .build();
-            response = oAuth20Extension.userAuthenticationV3(userAuthenticationV3);
-            params = URLEncodedUtils.parse(new URI(response), StandardCharsets.UTF_8);
-            String code = null;
-            for (NameValuePair q : params) {
-                if (q.getName().equals(userAuthenticationV3.getLocationQuery())) {
-                    code = q.getValue();
-                    break;
-                }
-            }
-            TokenGrantV3 tokenGrantV3 = TokenGrantV3.builder()
+            final String authenticationResponse = oAuth20Extension
+                    .userAuthenticationV3(userAuthenticationV3);
+            final List<NameValuePair> authenticationParams = URLEncodedUtils.parse(
+                    new URI(authenticationResponse), StandardCharsets.UTF_8);
+            final String code = authenticationParams.stream()
+                    .filter((q) -> {
+                        return q.getName().equals(userAuthenticationV3.getLocationQuery());
+                    })
+                    .findFirst()
+                    .map(NameValuePair::getValue)
+                    .orElse(null);
+            final TokenGrantV3 tokenGrantV3 = TokenGrantV3.builder()
                     .clientId(clientId)
                     .code(code)
                     .codeVerifier(codeVerifier)
                     .grantType("authorization_code")
                     .build();
-            OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
+            final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
             this.sdkConfiguration.getTokenRepository().storeToken(token.getAccessToken());
             return true;
         } catch (ResponseException | IOException | URISyntaxException e) {
@@ -149,11 +165,11 @@ public class AccelByteSDK {
 
     public boolean loginClient() {
         try {
-            TokenGrantV3 tokenGrantV3 = TokenGrantV3.builder()
+            final TokenGrantV3 tokenGrantV3 = TokenGrantV3.builder()
                     .grantType("client_credentials")
                     .build();
-            OAuth20 oAuth20 = new OAuth20(this);
-            OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
+            final OAuth20 oAuth20 = new OAuth20(this);
+            final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
             this.sdkConfiguration.getTokenRepository().storeToken(token.getAccessToken());
             return true;
         } catch (ResponseException | IOException e) {
