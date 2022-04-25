@@ -27,6 +27,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class AccelByteSDK {
     AccelByteConfig sdkConfiguration;
@@ -50,6 +51,7 @@ public class AccelByteSDK {
         HttpHeaders header = new HttpHeaders();
         String token = sdkConfiguration.getTokenRepository().getToken();
         String selectedSecurity = "Basic";
+        Map<String, String> cookies = operation.getCookieParams();
         if (!operation.getPreferredSecurityMethod().isEmpty())
             selectedSecurity = operation.getPreferredSecurityMethod();
         else {
@@ -65,9 +67,7 @@ public class AccelByteSDK {
             String clientSecret = sdkConfiguration.getConfigRepository().getClientSecret();
             header.put(HttpHeaders.AUTHORIZATION, Credentials.basic(clientId, clientSecret));
         } else if (selectedSecurity.equals("Cookie")) {
-            if (!operation.getCookieParams().containsKey("access_token")) {
-                operation.getCookieParams().put("access_token", token);
-            }
+            cookies.put("access_token", token);
         }
         if (sdkConfiguration.getConfigRepository().isAmazonTraceId()) {
             String version = sdkConfiguration.getConfigRepository().getAmazonTraceIdVersion();
@@ -82,9 +82,9 @@ public class AccelByteSDK {
             String userAgent = String.format("%s/%s (%s/%s)", productName, productVersion, appName, appVersion);
             header.put(HttpHeaders.USER_AGENT, userAgent);
         }
-        if (operation.getCookieParams().size() > 0) {
+        if (cookies.size() > 0) {
             List<String> cEntries = new ArrayList<String>();
-            for (java.util.Map.Entry<String, String> key : operation.getCookieParams().entrySet()) {
+            for (java.util.Map.Entry<String, String> key : cookies.entrySet()) {
                 cEntries.add(URLEncoder.encode(key.getKey(), "UTF-8") + "=" +
                         URLEncoder.encode(key.getValue(), "UTF-8"));
             }

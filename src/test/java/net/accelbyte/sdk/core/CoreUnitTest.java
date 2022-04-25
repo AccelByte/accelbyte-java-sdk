@@ -37,10 +37,16 @@ class CoreUnitTest {
     @Test
     void testCookie() throws IOException, ResponseException {
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
-        HttpbinOperation op = new HttpbinOperation("GET");
-        op.getCookieParams().put("test 1=1", "value 1=1");
-        op.getCookieParams().put("test 2=2", "value 2=2");
-        op.getCookieParams().put("test 3=3", "value 3=3");
+        HttpbinOperation op = new HttpbinOperation("GET") {
+            @Override
+            public Map<String, String> getCookieParams() {
+                Map<String,String> cookies = new HashMap<>();
+                cookies.put("test 1=1", "value 1=1");
+                cookies.put("test 2=2", "value 2=2");
+                cookies.put("test 3=3", "value 3=3");
+                return cookies;
+            }
+        };
         HttpResponse res = sdk.runRequest(op);
         HttpbinAnythingResponse result = op.parseResponse(
                 res.getCode(),
