@@ -102,7 +102,7 @@ public class AdminGeneratePersonalDataURL extends Operation {
 
 
     @Override
-    public Map<String, Object> getFormDataParams(){
+    public Map<String, Object> getFormParams(){
         Map<String, Object> formDataParams = new HashMap<>();
         if (this.password != null) {
             formDataParams.put("password", this.password);

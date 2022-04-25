@@ -78,7 +78,7 @@ public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
 
         if (!method.equals("GET")) {
             final Object bodyParams = operation.getBodyParams();
-            final Map<String, ?> formDataParams = operation.getFormDataParams();
+            final Map<String, ?> formDataParams = operation.getFormParams();
 
             RequestBody requestBody = RequestBody
                     .create(new byte[0]); // Default

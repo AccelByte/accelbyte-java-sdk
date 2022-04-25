@@ -296,7 +296,7 @@ public class TokenGrantV3 extends Operation {
 
 
     @Override
-    public Map<String, Object> getFormDataParams(){
+    public Map<String, Object> getFormParams(){
         Map<String, Object> formDataParams = new HashMap<>();
         if (this.clientId != null) {
             formDataParams.put("client_id", this.clientId);

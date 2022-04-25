@@ -139,7 +139,7 @@ public class PublicDeletePlatformLinkV2 extends Operation {
 
 
     @Override
-    public Map<String, Object> getFormDataParams(){
+    public Map<String, Object> getFormParams(){
         Map<String, Object> formDataParams = new HashMap<>();
         if (this.platformNamespace != null) {
             formDataParams.put("platform_namespace", this.platformNamespace);

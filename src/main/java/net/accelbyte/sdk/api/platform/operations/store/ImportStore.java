@@ -98,7 +98,7 @@ public class ImportStore extends Operation {
 
 
     @Override
-    public Map<String, Object> getFormDataParams(){
+    public Map<String, Object> getFormParams(){
         Map<String, Object> formDataParams = new HashMap<>();
         if (this.file != null) {
             formDataParams.put("file", this.file);

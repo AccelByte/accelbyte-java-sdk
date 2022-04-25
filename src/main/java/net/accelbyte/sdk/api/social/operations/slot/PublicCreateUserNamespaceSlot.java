@@ -113,7 +113,7 @@ public class PublicCreateUserNamespaceSlot extends Operation {
 
 
     @Override
-    public Map<String, Object> getFormDataParams(){
+    public Map<String, Object> getFormParams(){
         Map<String, Object> formDataParams = new HashMap<>();
         if (this.checksum != null) {
             formDataParams.put("checksum", this.checksum);

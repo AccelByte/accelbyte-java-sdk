@@ -125,7 +125,7 @@ public class PlatformTokenRequestHandler extends Operation {
 
 
     @Override
-    public Map<String, Object> getFormDataParams(){
+    public Map<String, Object> getFormParams(){
         Map<String, Object> formDataParams = new HashMap<>();
         if (this.deviceId != null) {
             formDataParams.put("device_id", this.deviceId);

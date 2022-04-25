@@ -51,7 +51,7 @@ public class Operation {
         return null;
     }
 
-    public Map<String, Object> getFormDataParams() {
+    public Map<String, Object> getFormParams() {
         return null;
     }
 

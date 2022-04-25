@@ -98,7 +98,7 @@ public class RevokeAUser extends Operation {
 
 
     @Override
-    public Map<String, Object> getFormDataParams(){
+    public Map<String, Object> getFormParams(){
         Map<String, Object> formDataParams = new HashMap<>();
         if (this.userID != null) {
             formDataParams.put("userID", this.userID);

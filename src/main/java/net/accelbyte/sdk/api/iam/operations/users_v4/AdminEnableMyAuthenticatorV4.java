@@ -79,7 +79,7 @@ public class AdminEnableMyAuthenticatorV4 extends Operation {
 
 
     @Override
-    public Map<String, Object> getFormDataParams(){
+    public Map<String, Object> getFormParams(){
         Map<String, Object> formDataParams = new HashMap<>();
         if (this.code != null) {
             formDataParams.put("code", this.code);
