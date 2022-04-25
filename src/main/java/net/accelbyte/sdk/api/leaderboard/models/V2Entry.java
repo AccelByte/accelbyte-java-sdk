@@ -51,16 +51,5 @@ public class V2Entry extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<V2Entry>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("additionalData", "additionalData");
-        result.put("hidden", "hidden");
-        result.put("point", "point");
-        return result;
-    }
     
-    public static class V2EntryBuilder {
-        
-    }
 }

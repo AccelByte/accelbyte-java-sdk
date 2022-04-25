@@ -48,15 +48,5 @@ public class OrderSyncResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<OrderSyncResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("nextEvaluatedKey", "nextEvaluatedKey");
-        result.put("orders", "orders");
-        return result;
-    }
     
-    public static class OrderSyncResultBuilder {
-        
-    }
 }

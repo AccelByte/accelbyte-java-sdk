@@ -45,14 +45,5 @@ public class ModelsLogFileStatus extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsLogFileStatus>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("log_existence", "logExistence");
-        return result;
-    }
     
-    public static class ModelsLogFileStatusBuilder {
-        
-    }
 }

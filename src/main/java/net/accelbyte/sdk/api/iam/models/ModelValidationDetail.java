@@ -87,28 +87,5 @@ public class ModelValidationDetail extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelValidationDetail>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("allowDigit", "allowDigit");
-        result.put("allowLetter", "allowLetter");
-        result.put("allowSpace", "allowSpace");
-        result.put("allowUnicode", "allowUnicode");
-        result.put("description", "description");
-        result.put("isCustomRegex", "isCustomRegex");
-        result.put("letterCase", "letterCase");
-        result.put("maxLength", "maxLength");
-        result.put("maxRepeatingAlphaNum", "maxRepeatingAlphaNum");
-        result.put("maxRepeatingSpecialCharacter", "maxRepeatingSpecialCharacter");
-        result.put("minCharType", "minCharType");
-        result.put("minLength", "minLength");
-        result.put("regex", "regex");
-        result.put("specialCharacterLocation", "specialCharacterLocation");
-        result.put("specialCharacters", "specialCharacters");
-        return result;
-    }
     
-    public static class ModelValidationDetailBuilder {
-        
-    }
 }

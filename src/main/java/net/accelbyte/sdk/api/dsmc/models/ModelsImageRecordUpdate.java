@@ -57,18 +57,5 @@ public class ModelsImageRecordUpdate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsImageRecordUpdate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("artifactPath", "artifactPath");
-        result.put("image", "image");
-        result.put("namespace", "namespace");
-        result.put("persistent", "persistent");
-        result.put("version", "version");
-        return result;
-    }
     
-    public static class ModelsImageRecordUpdateBuilder {
-        
-    }
 }

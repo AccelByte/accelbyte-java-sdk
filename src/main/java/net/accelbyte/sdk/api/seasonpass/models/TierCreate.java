@@ -51,16 +51,5 @@ public class TierCreate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<TierCreate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("index", "index");
-        result.put("quantity", "quantity");
-        result.put("tier", "tier");
-        return result;
-    }
     
-    public static class TierCreateBuilder {
-        
-    }
 }

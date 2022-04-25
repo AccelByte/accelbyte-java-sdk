@@ -54,17 +54,5 @@ public class CreditSummary extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<CreditSummary>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("amount", "amount");
-        result.put("namespace", "namespace");
-        result.put("userId", "userId");
-        result.put("walletId", "walletId");
-        return result;
-    }
     
-    public static class CreditSummaryBuilder {
-        
-    }
 }

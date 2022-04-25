@@ -124,25 +124,6 @@ public class StatInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<StatInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("createdAt", "createdAt");
-        result.put("defaultValue", "defaultValue");
-        result.put("description", "description");
-        result.put("incrementOnly", "incrementOnly");
-        result.put("maximum", "maximum");
-        result.put("minimum", "minimum");
-        result.put("name", "name");
-        result.put("namespace", "namespace");
-        result.put("setAsGlobal", "setAsGlobal");
-        result.put("setBy", "setBy");
-        result.put("statCode", "statCode");
-        result.put("status", "status");
-        result.put("tags", "tags");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
     public enum SetBy {
         CLIENT("CLIENT"),

@@ -68,13 +68,6 @@ public class TicketBoothID extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<TicketBoothID>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("id", "id");
-        result.put("type", "type");
-        return result;
-    }
     
     public enum Type {
         CAMPAIGN("CAMPAIGN"),

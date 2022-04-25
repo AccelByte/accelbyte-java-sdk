@@ -48,15 +48,5 @@ public class OauthapiRevocationList extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<OauthapiRevocationList>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("revoked_tokens", "revokedTokens");
-        result.put("revoked_users", "revokedUsers");
-        return result;
-    }
     
-    public static class OauthapiRevocationListBuilder {
-        
-    }
 }

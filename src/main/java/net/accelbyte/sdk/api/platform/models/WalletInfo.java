@@ -89,20 +89,6 @@ public class WalletInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<WalletInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("balance", "balance");
-        result.put("createdAt", "createdAt");
-        result.put("currencyCode", "currencyCode");
-        result.put("currencySymbol", "currencySymbol");
-        result.put("id", "id");
-        result.put("namespace", "namespace");
-        result.put("status", "status");
-        result.put("updatedAt", "updatedAt");
-        result.put("userId", "userId");
-        return result;
-    }
     
     public enum Status {
         ACTIVE("ACTIVE"),

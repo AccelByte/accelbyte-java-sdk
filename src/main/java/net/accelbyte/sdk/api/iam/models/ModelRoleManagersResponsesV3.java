@@ -48,15 +48,5 @@ public class ModelRoleManagersResponsesV3 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelRoleManagersResponsesV3>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("data", "data");
-        result.put("paging", "paging");
-        return result;
-    }
     
-    public static class ModelRoleManagersResponsesV3Builder {
-        
-    }
 }

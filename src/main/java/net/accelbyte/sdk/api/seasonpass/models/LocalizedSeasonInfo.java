@@ -119,30 +119,6 @@ public class LocalizedSeasonInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<LocalizedSeasonInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("autoClaim", "autoClaim");
-        result.put("createdAt", "createdAt");
-        result.put("description", "description");
-        result.put("end", "end");
-        result.put("id", "id");
-        result.put("images", "images");
-        result.put("language", "language");
-        result.put("name", "name");
-        result.put("namespace", "namespace");
-        result.put("passCodes", "passCodes");
-        result.put("passes", "passes");
-        result.put("publishedAt", "publishedAt");
-        result.put("rewards", "rewards");
-        result.put("start", "start");
-        result.put("status", "status");
-        result.put("tierItemId", "tierItemId");
-        result.put("tiers", "tiers");
-        result.put("title", "title");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
     public enum Status {
         DRAFT("DRAFT"),

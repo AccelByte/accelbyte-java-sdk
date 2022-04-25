@@ -84,27 +84,5 @@ public class RetrieveAcceptedAgreementResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RetrieveAcceptedAgreementResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("countryCode", "countryCode");
-        result.put("createdAt", "createdAt");
-        result.put("description", "description");
-        result.put("displayVersion", "displayVersion");
-        result.put("id", "id");
-        result.put("isAccepted", "isAccepted");
-        result.put("localizedPolicyVersion", "localizedPolicyVersion");
-        result.put("namespace", "namespace");
-        result.put("policyId", "policyId");
-        result.put("policyName", "policyName");
-        result.put("policyType", "policyType");
-        result.put("signingDate", "signingDate");
-        result.put("updatedAt", "updatedAt");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class RetrieveAcceptedAgreementResponseBuilder {
-        
-    }
 }

@@ -45,14 +45,5 @@ public class ModelsUserFollowRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUserFollowRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("followStatus", "followStatus");
-        return result;
-    }
     
-    public static class ModelsUserFollowRequestBuilder {
-        
-    }
 }

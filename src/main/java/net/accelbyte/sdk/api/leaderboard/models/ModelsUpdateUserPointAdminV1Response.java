@@ -48,15 +48,5 @@ public class ModelsUpdateUserPointAdminV1Response extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateUserPointAdminV1Response>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("point", "point");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class ModelsUpdateUserPointAdminV1ResponseBuilder {
-        
-    }
 }

@@ -51,16 +51,5 @@ public class SeasonCloneRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<SeasonCloneRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("end", "end");
-        result.put("name", "name");
-        result.put("start", "start");
-        return result;
-    }
     
-    public static class SeasonCloneRequestBuilder {
-        
-    }
 }

@@ -57,18 +57,5 @@ public class ModelsCreateSessionRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateSessionRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("game_session_setting", "gameSessionSetting");
-        result.put("game_version", "gameVersion");
-        result.put("namespace", "namespace");
-        result.put("session_type", "sessionType");
-        result.put("username", "username");
-        return result;
-    }
     
-    public static class ModelsCreateSessionRequestBuilder {
-        
-    }
 }

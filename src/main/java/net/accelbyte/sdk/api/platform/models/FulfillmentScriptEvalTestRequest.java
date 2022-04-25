@@ -71,14 +71,6 @@ public class FulfillmentScriptEvalTestRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<FulfillmentScriptEvalTestRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("context", "context");
-        result.put("script", "script");
-        result.put("type", "type");
-        return result;
-    }
     
     public enum Type {
         GrantDays("GrantDays");

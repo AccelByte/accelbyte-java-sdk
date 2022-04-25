@@ -60,19 +60,5 @@ public class ModelsCreateContentRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateContentRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("name", "name");
-        result.put("payload", "payload");
-        result.put("preview", "preview");
-        result.put("subType", "subType");
-        result.put("tags", "tags");
-        result.put("type", "type");
-        return result;
-    }
     
-    public static class ModelsCreateContentRequestBuilder {
-        
-    }
 }

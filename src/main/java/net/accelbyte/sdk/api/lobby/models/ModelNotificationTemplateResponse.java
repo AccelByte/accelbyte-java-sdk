@@ -48,15 +48,5 @@ public class ModelNotificationTemplateResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelNotificationTemplateResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("templateLocalizations", "templateLocalizations");
-        result.put("templateSlug", "templateSlug");
-        return result;
-    }
     
-    public static class ModelNotificationTemplateResponseBuilder {
-        
-    }
 }

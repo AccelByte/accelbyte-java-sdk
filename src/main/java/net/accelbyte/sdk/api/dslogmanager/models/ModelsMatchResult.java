@@ -54,17 +54,5 @@ public class ModelsMatchResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMatchResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("game_mode", "gameMode");
-        result.put("matching_allies", "matchingAllies");
-        result.put("namespace", "namespace");
-        result.put("session_id", "sessionId");
-        return result;
-    }
     
-    public static class ModelsMatchResultBuilder {
-        
-    }
 }

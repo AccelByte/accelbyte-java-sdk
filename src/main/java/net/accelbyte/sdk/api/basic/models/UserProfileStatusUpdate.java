@@ -65,12 +65,6 @@ public class UserProfileStatusUpdate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserProfileStatusUpdate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("status", "status");
-        return result;
-    }
     
     public enum Status {
         ACTIVE("ACTIVE"),

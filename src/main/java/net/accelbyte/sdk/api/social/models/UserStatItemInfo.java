@@ -66,21 +66,5 @@ public class UserStatItemInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserStatItemInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("createdAt", "createdAt");
-        result.put("namespace", "namespace");
-        result.put("statCode", "statCode");
-        result.put("statName", "statName");
-        result.put("tags", "tags");
-        result.put("updatedAt", "updatedAt");
-        result.put("userId", "userId");
-        result.put("value", "value");
-        return result;
-    }
     
-    public static class UserStatItemInfoBuilder {
-        
-    }
 }

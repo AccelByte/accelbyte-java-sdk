@@ -48,15 +48,5 @@ public class ModelsArchiveLeaderboardSignedURLResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsArchiveLeaderboardSignedURLResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("leaderboardCode", "leaderboardCode");
-        result.put("url", "url");
-        return result;
-    }
     
-    public static class ModelsArchiveLeaderboardSignedURLResponseBuilder {
-        
-    }
 }

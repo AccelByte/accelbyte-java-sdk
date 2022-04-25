@@ -57,18 +57,5 @@ public class ItemDynamicDataInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ItemDynamicDataInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("availableCount", "availableCount");
-        result.put("itemId", "itemId");
-        result.put("namespace", "namespace");
-        result.put("userAvailableCount", "userAvailableCount");
-        result.put("userPurchaseLimit", "userPurchaseLimit");
-        return result;
-    }
     
-    public static class ItemDynamicDataInfoBuilder {
-        
-    }
 }

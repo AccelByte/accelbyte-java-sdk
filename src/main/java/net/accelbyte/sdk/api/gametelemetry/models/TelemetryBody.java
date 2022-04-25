@@ -57,18 +57,5 @@ public class TelemetryBody extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<TelemetryBody>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("EventId", "eventId");
-        result.put("EventName", "eventName");
-        result.put("EventNamespace", "eventNamespace");
-        result.put("EventTimestamp", "eventTimestamp");
-        result.put("Payload", "payload");
-        return result;
-    }
     
-    public static class TelemetryBodyBuilder {
-        
-    }
 }

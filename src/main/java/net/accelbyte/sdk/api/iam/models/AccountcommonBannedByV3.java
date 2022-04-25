@@ -48,15 +48,5 @@ public class AccountcommonBannedByV3 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonBannedByV3>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("displayName", "displayName");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class AccountcommonBannedByV3Builder {
-        
-    }
 }

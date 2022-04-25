@@ -60,19 +60,5 @@ public class ModelsPodCountConfigOverride extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPodCountConfigOverride>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("buffer_count", "bufferCount");
-        result.put("buffer_percent", "bufferPercent");
-        result.put("max_count", "maxCount");
-        result.put("min_count", "minCount");
-        result.put("name", "name");
-        result.put("use_buffer_percent", "useBufferPercent");
-        return result;
-    }
     
-    public static class ModelsPodCountConfigOverrideBuilder {
-        
-    }
 }

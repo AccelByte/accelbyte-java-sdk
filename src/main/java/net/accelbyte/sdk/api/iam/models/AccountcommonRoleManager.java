@@ -51,16 +51,5 @@ public class AccountcommonRoleManager extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonRoleManager>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("DisplayName", "displayName");
-        result.put("Namespace", "namespace");
-        result.put("UserId", "userId");
-        return result;
-    }
     
-    public static class AccountcommonRoleManagerBuilder {
-        
-    }
 }

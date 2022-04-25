@@ -48,15 +48,5 @@ public class ModelsStatusHistory extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsStatusHistory>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("status", "status");
-        result.put("time_stamp", "timeStamp");
-        return result;
-    }
     
-    public static class ModelsStatusHistoryBuilder {
-        
-    }
 }

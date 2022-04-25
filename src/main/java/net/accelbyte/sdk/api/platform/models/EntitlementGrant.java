@@ -92,21 +92,6 @@ public class EntitlementGrant extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<EntitlementGrant>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("endDate", "endDate");
-        result.put("grantedCode", "grantedCode");
-        result.put("itemId", "itemId");
-        result.put("itemNamespace", "itemNamespace");
-        result.put("language", "language");
-        result.put("quantity", "quantity");
-        result.put("region", "region");
-        result.put("source", "source");
-        result.put("startDate", "startDate");
-        result.put("storeId", "storeId");
-        return result;
-    }
     
     public enum Source {
         PURCHASE("PURCHASE"),

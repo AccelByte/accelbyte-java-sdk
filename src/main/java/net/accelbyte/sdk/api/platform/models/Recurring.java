@@ -74,15 +74,6 @@ public class Recurring extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<Recurring>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("cycle", "cycle");
-        result.put("fixedFreeDays", "fixedFreeDays");
-        result.put("fixedTrialCycles", "fixedTrialCycles");
-        result.put("graceDays", "graceDays");
-        return result;
-    }
     
     public enum Cycle {
         WEEKLY("WEEKLY"),

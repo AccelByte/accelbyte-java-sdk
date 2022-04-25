@@ -74,15 +74,6 @@ public class NotificationProcessResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<NotificationProcessResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("code", "code");
-        result.put("customParam", "customParam");
-        result.put("severity", "severity");
-        result.put("status", "status");
-        return result;
-    }
     
     public enum Status {
         PROCESSED("PROCESSED"),

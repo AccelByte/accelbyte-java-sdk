@@ -54,17 +54,5 @@ public class ModelLocalization extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelLocalization>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("lastDraftAt", "lastDraftAt");
-        result.put("lastPublishedAt", "lastPublishedAt");
-        result.put("templateContent", "templateContent");
-        result.put("templateLanguage", "templateLanguage");
-        return result;
-    }
     
-    public static class ModelLocalizationBuilder {
-        
-    }
 }

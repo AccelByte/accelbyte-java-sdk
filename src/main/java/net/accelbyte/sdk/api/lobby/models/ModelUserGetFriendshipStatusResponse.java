@@ -48,15 +48,5 @@ public class ModelUserGetFriendshipStatusResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserGetFriendshipStatusResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("code", "code");
-        result.put("name", "name");
-        return result;
-    }
     
-    public static class ModelUserGetFriendshipStatusResponseBuilder {
-        
-    }
 }

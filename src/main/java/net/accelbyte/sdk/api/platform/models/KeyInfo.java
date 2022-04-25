@@ -92,21 +92,6 @@ public class KeyInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<KeyInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("acquireOrderNo", "acquireOrderNo");
-        result.put("acquireUserId", "acquireUserId");
-        result.put("createdAt", "createdAt");
-        result.put("id", "id");
-        result.put("keyFile", "keyFile");
-        result.put("keyGroupId", "keyGroupId");
-        result.put("namespace", "namespace");
-        result.put("status", "status");
-        result.put("updatedAt", "updatedAt");
-        result.put("value", "value");
-        return result;
-    }
     
     public enum Status {
         ACTIVE("ACTIVE"),

@@ -45,14 +45,5 @@ public class ModelsAddDownloadCountResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAddDownloadCountResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("contentId", "contentId");
-        return result;
-    }
     
-    public static class ModelsAddDownloadCountResponseBuilder {
-        
-    }
 }

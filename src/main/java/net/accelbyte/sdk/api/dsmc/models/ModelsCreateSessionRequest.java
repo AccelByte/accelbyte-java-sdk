@@ -72,23 +72,5 @@ public class ModelsCreateSessionRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateSessionRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("client_version", "clientVersion");
-        result.put("configuration", "configuration");
-        result.put("deployment", "deployment");
-        result.put("game_mode", "gameMode");
-        result.put("matching_allies", "matchingAllies");
-        result.put("namespace", "namespace");
-        result.put("notification_payload", "notificationPayload");
-        result.put("pod_name", "podName");
-        result.put("region", "region");
-        result.put("session_id", "sessionId");
-        return result;
-    }
     
-    public static class ModelsCreateSessionRequestBuilder {
-        
-    }
 }

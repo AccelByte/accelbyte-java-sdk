@@ -48,15 +48,5 @@ public class ModelsListPodConfigResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsListPodConfigResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("paging", "paging");
-        result.put("pod_configs", "podConfigs");
-        return result;
-    }
     
-    public static class ModelsListPodConfigResponseBuilder {
-        
-    }
 }

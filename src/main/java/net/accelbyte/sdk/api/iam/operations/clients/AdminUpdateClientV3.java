@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.iam.operations.clients;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -63,29 +61,17 @@ import java.util.*;
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class AdminUpdateClientV3 extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/iam/v3/admin/namespaces/{namespace}/clients/{clientId}";
-
-    @JsonIgnore
     private String method = "PATCH";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList("application/json");
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -108,20 +94,19 @@ public class AdminUpdateClientV3 extends Operation {
         this.clientId = clientId;
         this.namespace = namespace;
         this.body = body;
+        
+        securities.add("Bearer");
     }
 
-    @JsonIgnore
     public AdminUpdateClientV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
 
     @Override
-    @JsonIgnore
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
         if (this.clientId != null){
@@ -134,37 +119,19 @@ public class AdminUpdateClientV3 extends Operation {
     }
 
 
+
     @Override
-    @JsonIgnore
     public ClientmodelClientUpdateV3Request getBodyParams(){
         return this.body;
     }
 
 
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("clientId","clientId");
-        result.put("namespace","namespace");
-        return result;
-    }
-
-    @JsonIgnore
-    public List<String> getAllRequiredFields() {
-        return Arrays.asList(
-            "clientId",
-            "namespace"
-        );
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @Override
-    @JsonIgnore
     public boolean isValid() {
         if(this.clientId == null) {
             return false;
@@ -176,7 +143,6 @@ public class AdminUpdateClientV3 extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public ClientmodelClientV3Response parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

@@ -45,14 +45,5 @@ public class TicketSaleDecrementRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<TicketSaleDecrementRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("orderNo", "orderNo");
-        return result;
-    }
     
-    public static class TicketSaleDecrementRequestBuilder {
-        
-    }
 }

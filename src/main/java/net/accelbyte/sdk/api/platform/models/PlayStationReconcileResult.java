@@ -77,16 +77,6 @@ public class PlayStationReconcileResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PlayStationReconcileResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("itemId", "itemId");
-        result.put("psnItemId", "psnItemId");
-        result.put("sku", "sku");
-        result.put("status", "status");
-        result.put("transactionId", "transactionId");
-        return result;
-    }
     
     public enum Status {
         VERIFIED("VERIFIED"),

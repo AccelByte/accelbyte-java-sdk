@@ -57,18 +57,5 @@ public class UserReportRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserReportRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("category", "category");
-        result.put("description", "description");
-        result.put("gameSessionId", "gameSessionId");
-        result.put("subcategory", "subcategory");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class UserReportRequestBuilder {
-        
-    }
 }

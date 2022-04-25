@@ -98,23 +98,6 @@ public class FulfillmentRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<FulfillmentRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("duration", "duration");
-        result.put("endDate", "endDate");
-        result.put("itemId", "itemId");
-        result.put("itemSku", "itemSku");
-        result.put("language", "language");
-        result.put("order", "order");
-        result.put("orderNo", "orderNo");
-        result.put("quantity", "quantity");
-        result.put("region", "region");
-        result.put("source", "source");
-        result.put("startDate", "startDate");
-        result.put("storeId", "storeId");
-        return result;
-    }
     
     public enum Source {
         PURCHASE("PURCHASE"),

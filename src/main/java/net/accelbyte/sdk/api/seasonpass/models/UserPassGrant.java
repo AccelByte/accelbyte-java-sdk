@@ -48,15 +48,5 @@ public class UserPassGrant extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserPassGrant>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("passCode", "passCode");
-        result.put("passItemId", "passItemId");
-        return result;
-    }
     
-    public static class UserPassGrantBuilder {
-        
-    }
 }

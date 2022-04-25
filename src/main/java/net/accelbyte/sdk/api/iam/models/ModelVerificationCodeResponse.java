@@ -54,17 +54,5 @@ public class ModelVerificationCodeResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelVerificationCodeResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("accountRegistration", "accountRegistration");
-        result.put("accountUpgrade", "accountUpgrade");
-        result.put("passwordReset", "passwordReset");
-        result.put("updateEmail", "updateEmail");
-        return result;
-    }
     
-    public static class ModelVerificationCodeResponseBuilder {
-        
-    }
 }

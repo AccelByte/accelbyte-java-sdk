@@ -72,23 +72,5 @@ public class AccountCreateTestUserRequestV4 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountCreateTestUserRequestV4>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("acceptedPolicies", "acceptedPolicies");
-        result.put("authType", "authType");
-        result.put("country", "country");
-        result.put("dateOfBirth", "dateOfBirth");
-        result.put("displayName", "displayName");
-        result.put("emailAddress", "emailAddress");
-        result.put("password", "password");
-        result.put("passwordMD5Sum", "passwordMD5Sum");
-        result.put("username", "username");
-        result.put("verified", "verified");
-        return result;
-    }
     
-    public static class AccountCreateTestUserRequestV4Builder {
-        
-    }
 }

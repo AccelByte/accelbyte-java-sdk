@@ -51,16 +51,5 @@ public class AccountUserActiveBanResponseV4 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountUserActiveBanResponseV4>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("ban", "ban");
-        result.put("banId", "banId");
-        result.put("endDate", "endDate");
-        return result;
-    }
     
-    public static class AccountUserActiveBanResponseV4Builder {
-        
-    }
 }

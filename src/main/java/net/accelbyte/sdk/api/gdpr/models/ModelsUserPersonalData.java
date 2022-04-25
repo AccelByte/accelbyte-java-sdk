@@ -51,16 +51,5 @@ public class ModelsUserPersonalData extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUserPersonalData>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("DataExpirationDate", "dataExpirationDate");
-        result.put("RequestDate", "requestDate");
-        result.put("Status", "status");
-        return result;
-    }
     
-    public static class ModelsUserPersonalDataBuilder {
-        
-    }
 }

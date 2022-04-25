@@ -83,18 +83,6 @@ public class FulfillmentItem extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<FulfillmentItem>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("extraSubscriptionDays", "extraSubscriptionDays");
-        result.put("itemId", "itemId");
-        result.put("itemName", "itemName");
-        result.put("itemSku", "itemSku");
-        result.put("itemType", "itemType");
-        result.put("quantity", "quantity");
-        result.put("storeId", "storeId");
-        return result;
-    }
     
     public enum ItemType {
         APP("APP"),

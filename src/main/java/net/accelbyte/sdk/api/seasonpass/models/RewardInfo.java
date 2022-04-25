@@ -115,22 +115,6 @@ public class RewardInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RewardInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("code", "code");
-        result.put("currency", "currency");
-        result.put("image", "image");
-        result.put("itemId", "itemId");
-        result.put("itemName", "itemName");
-        result.put("itemSku", "itemSku");
-        result.put("itemType", "itemType");
-        result.put("namespace", "namespace");
-        result.put("quantity", "quantity");
-        result.put("seasonId", "seasonId");
-        result.put("type", "type");
-        return result;
-    }
     
     public enum ItemType {
         APP("APP"),

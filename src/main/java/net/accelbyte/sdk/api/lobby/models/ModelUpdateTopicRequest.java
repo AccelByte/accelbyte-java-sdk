@@ -45,14 +45,5 @@ public class ModelUpdateTopicRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUpdateTopicRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("description", "description");
-        return result;
-    }
     
-    public static class ModelUpdateTopicRequestBuilder {
-        
-    }
 }

@@ -51,16 +51,5 @@ public class NamespaceSlotConfigInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<NamespaceSlotConfigInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("maxSlotSize", "maxSlotSize");
-        result.put("maxSlots", "maxSlots");
-        result.put("namespace", "namespace");
-        return result;
-    }
     
-    public static class NamespaceSlotConfigInfoBuilder {
-        
-    }
 }

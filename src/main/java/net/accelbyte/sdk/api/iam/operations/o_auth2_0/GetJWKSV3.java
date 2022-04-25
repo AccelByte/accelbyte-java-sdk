@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.iam.operations.o_auth2_0;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -58,29 +56,17 @@ import java.util.*;
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class GetJWKSV3 extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/iam/v3/oauth/jwks";
-
-    @JsonIgnore
     private String method = "GET";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList("");
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -91,14 +77,14 @@ public class GetJWKSV3 extends Operation {
     public GetJWKSV3(
     )
     {
+        
+        securities.add("Bearer");
     }
 
-    @JsonIgnore
     public GetJWKSV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -107,16 +93,14 @@ public class GetJWKSV3 extends Operation {
 
 
 
+
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
 
-
     @Override
-    @JsonIgnore
     public OauthcommonJWKSet parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

@@ -72,23 +72,5 @@ public class UserProfileUpdate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserProfileUpdate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("avatarLargeUrl", "avatarLargeUrl");
-        result.put("avatarSmallUrl", "avatarSmallUrl");
-        result.put("avatarUrl", "avatarUrl");
-        result.put("customAttributes", "customAttributes");
-        result.put("dateOfBirth", "dateOfBirth");
-        result.put("firstName", "firstName");
-        result.put("language", "language");
-        result.put("lastName", "lastName");
-        result.put("timeZone", "timeZone");
-        result.put("zipCode", "zipCode");
-        return result;
-    }
     
-    public static class UserProfileUpdateBuilder {
-        
-    }
 }

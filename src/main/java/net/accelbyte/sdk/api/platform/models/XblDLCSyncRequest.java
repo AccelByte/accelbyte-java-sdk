@@ -45,14 +45,5 @@ public class XblDLCSyncRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<XblDLCSyncRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("xstsToken", "xstsToken");
-        return result;
-    }
     
-    public static class XblDLCSyncRequestBuilder {
-        
-    }
 }

@@ -54,17 +54,5 @@ public class RewardCondition extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RewardCondition>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("condition", "condition");
-        result.put("conditionName", "conditionName");
-        result.put("eventName", "eventName");
-        result.put("rewardItems", "rewardItems");
-        return result;
-    }
     
-    public static class RewardConditionBuilder {
-        
-    }
 }

@@ -51,16 +51,5 @@ public class ModelUserRolesV4Response extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserRolesV4Response>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("assignedNamespaces", "assignedNamespaces");
-        result.put("roleId", "roleId");
-        result.put("roleName", "roleName");
-        return result;
-    }
     
-    public static class ModelUserRolesV4ResponseBuilder {
-        
-    }
 }

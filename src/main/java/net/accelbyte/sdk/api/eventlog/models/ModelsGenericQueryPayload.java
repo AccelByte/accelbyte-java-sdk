@@ -63,20 +63,5 @@ public class ModelsGenericQueryPayload extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGenericQueryPayload>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("clientId", "clientId");
-        result.put("eventName", "eventName");
-        result.put("payloadQuery", "payloadQuery");
-        result.put("sessionId", "sessionId");
-        result.put("traceId", "traceId");
-        result.put("userId", "userId");
-        result.put("version", "version");
-        return result;
-    }
     
-    public static class ModelsGenericQueryPayloadBuilder {
-        
-    }
 }

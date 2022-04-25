@@ -51,16 +51,5 @@ public class ModelsCreatePodConfigRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreatePodConfigRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("cpu_limit", "cpuLimit");
-        result.put("mem_limit", "memLimit");
-        result.put("params", "params");
-        return result;
-    }
     
-    public static class ModelsCreatePodConfigRequestBuilder {
-        
-    }
 }

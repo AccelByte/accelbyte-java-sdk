@@ -48,15 +48,5 @@ public class ModelsGetLeaderboardRankingResp extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGetLeaderboardRankingResp>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("data", "data");
-        result.put("paging", "paging");
-        return result;
-    }
     
-    public static class ModelsGetLeaderboardRankingRespBuilder {
-        
-    }
 }

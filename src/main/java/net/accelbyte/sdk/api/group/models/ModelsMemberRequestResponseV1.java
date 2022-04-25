@@ -51,16 +51,5 @@ public class ModelsMemberRequestResponseV1 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMemberRequestResponseV1>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("groupId", "groupId");
-        result.put("requestType", "requestType");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class ModelsMemberRequestResponseV1Builder {
-        
-    }
 }

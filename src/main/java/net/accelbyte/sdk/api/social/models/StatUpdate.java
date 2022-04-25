@@ -51,16 +51,5 @@ public class StatUpdate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<StatUpdate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("description", "description");
-        result.put("name", "name");
-        result.put("tags", "tags");
-        return result;
-    }
     
-    public static class StatUpdateBuilder {
-        
-    }
 }

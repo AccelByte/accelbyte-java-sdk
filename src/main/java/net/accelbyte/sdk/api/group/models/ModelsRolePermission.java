@@ -48,15 +48,5 @@ public class ModelsRolePermission extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsRolePermission>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("action", "action");
-        result.put("resourceName", "resourceName");
-        return result;
-    }
     
-    public static class ModelsRolePermissionBuilder {
-        
-    }
 }

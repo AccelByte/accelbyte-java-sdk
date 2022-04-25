@@ -97,16 +97,6 @@ public class MockIAPReceipt extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<MockIAPReceipt>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("itemIdentityType", "itemIdentityType");
-        result.put("language", "language");
-        result.put("productId", "productId");
-        result.put("region", "region");
-        result.put("type", "type");
-        return result;
-    }
     
     public enum ItemIdentityType {
         ITEMID("ITEMID"),

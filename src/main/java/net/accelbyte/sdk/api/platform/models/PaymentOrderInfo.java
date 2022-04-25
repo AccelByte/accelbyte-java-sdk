@@ -263,58 +263,6 @@ public class PaymentOrderInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PaymentOrderInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("authorisedTime", "authorisedTime");
-        result.put("channel", "channel");
-        result.put("chargebackReversedTime", "chargebackReversedTime");
-        result.put("chargebackTime", "chargebackTime");
-        result.put("chargedTime", "chargedTime");
-        result.put("charging", "charging");
-        result.put("createdAt", "createdAt");
-        result.put("createdTime", "createdTime");
-        result.put("currency", "currency");
-        result.put("customParameters", "customParameters");
-        result.put("description", "description");
-        result.put("extOrderNo", "extOrderNo");
-        result.put("extUserId", "extUserId");
-        result.put("itemType", "itemType");
-        result.put("language", "language");
-        result.put("metadata", "metadata");
-        result.put("namespace", "namespace");
-        result.put("notifyUrl", "notifyUrl");
-        result.put("omitNotification", "omitNotification");
-        result.put("paymentMethod", "paymentMethod");
-        result.put("paymentMethodFee", "paymentMethodFee");
-        result.put("paymentOrderNo", "paymentOrderNo");
-        result.put("paymentProvider", "paymentProvider");
-        result.put("paymentProviderFee", "paymentProviderFee");
-        result.put("paymentStationUrl", "paymentStationUrl");
-        result.put("price", "price");
-        result.put("recurringPaymentOrderNo", "recurringPaymentOrderNo");
-        result.put("refundedTime", "refundedTime");
-        result.put("region", "region");
-        result.put("returnUrl", "returnUrl");
-        result.put("salesTax", "salesTax");
-        result.put("sandbox", "sandbox");
-        result.put("sku", "sku");
-        result.put("status", "status");
-        result.put("statusReason", "statusReason");
-        result.put("subscriptionId", "subscriptionId");
-        result.put("subtotalPrice", "subtotalPrice");
-        result.put("targetNamespace", "targetNamespace");
-        result.put("targetUserId", "targetUserId");
-        result.put("tax", "tax");
-        result.put("title", "title");
-        result.put("totalPrice", "totalPrice");
-        result.put("totalTax", "totalTax");
-        result.put("transactions", "transactions");
-        result.put("updatedAt", "updatedAt");
-        result.put("userId", "userId");
-        result.put("vat", "vat");
-        return result;
-    }
     
     public enum Channel {
         EXTERNAL("EXTERNAL"),

@@ -176,25 +176,6 @@ public class FullAppInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<FullAppInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("carousel", "carousel");
-        result.put("developer", "developer");
-        result.put("forumUrl", "forumUrl");
-        result.put("genres", "genres");
-        result.put("itemId", "itemId");
-        result.put("localizations", "localizations");
-        result.put("namespace", "namespace");
-        result.put("platformRequirements", "platformRequirements");
-        result.put("platforms", "platforms");
-        result.put("players", "players");
-        result.put("primaryGenre", "primaryGenre");
-        result.put("publisher", "publisher");
-        result.put("releaseDate", "releaseDate");
-        result.put("websiteUrl", "websiteUrl");
-        return result;
-    }
     
     public enum Genres {
         Action("Action"),

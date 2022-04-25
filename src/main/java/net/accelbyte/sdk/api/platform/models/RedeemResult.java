@@ -45,14 +45,5 @@ public class RedeemResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RedeemResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("items", "items");
-        return result;
-    }
     
-    public static class RedeemResultBuilder {
-        
-    }
 }

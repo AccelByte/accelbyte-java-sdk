@@ -74,15 +74,6 @@ public class PlatformReward extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PlatformReward>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("currency", "currency");
-        result.put("item", "item");
-        result.put("quantity", "quantity");
-        result.put("type", "type");
-        return result;
-    }
     
     public enum Type {
         ITEM("ITEM"),

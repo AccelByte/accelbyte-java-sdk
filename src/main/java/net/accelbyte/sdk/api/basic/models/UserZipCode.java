@@ -45,14 +45,5 @@ public class UserZipCode extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserZipCode>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("zipCode", "zipCode");
-        return result;
-    }
     
-    public static class UserZipCodeBuilder {
-        
-    }
 }

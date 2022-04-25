@@ -48,15 +48,5 @@ public class ModelLinkPlatformAccountRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelLinkPlatformAccountRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("platformId", "platformId");
-        result.put("platformUserId", "platformUserId");
-        return result;
-    }
     
-    public static class ModelLinkPlatformAccountRequestBuilder {
-        
-    }
 }

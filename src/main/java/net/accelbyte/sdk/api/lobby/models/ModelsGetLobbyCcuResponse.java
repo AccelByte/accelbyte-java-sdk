@@ -45,14 +45,5 @@ public class ModelsGetLobbyCcuResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGetLobbyCcuResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("countCurrentUsers", "countCurrentUsers");
-        return result;
-    }
     
-    public static class ModelsGetLobbyCcuResponseBuilder {
-        
-    }
 }

@@ -66,21 +66,5 @@ public class ModelsPodConfigRecord extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPodConfigRecord>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("cpu_limit", "cpuLimit");
-        result.put("createdAt", "createdAt");
-        result.put("mem_limit", "memLimit");
-        result.put("modifiedBy", "modifiedBy");
-        result.put("name", "name");
-        result.put("namespace", "namespace");
-        result.put("params", "params");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
-    public static class ModelsPodConfigRecordBuilder {
-        
-    }
 }

@@ -48,15 +48,5 @@ public class TicketSaleIncrementResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<TicketSaleIncrementResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("maxSaleCount", "maxSaleCount");
-        result.put("success", "success");
-        return result;
-    }
     
-    public static class TicketSaleIncrementResultBuilder {
-        
-    }
 }

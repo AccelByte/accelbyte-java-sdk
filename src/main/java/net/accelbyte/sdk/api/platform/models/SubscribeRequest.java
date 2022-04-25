@@ -60,19 +60,5 @@ public class SubscribeRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<SubscribeRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("currencyCode", "currencyCode");
-        result.put("itemId", "itemId");
-        result.put("language", "language");
-        result.put("region", "region");
-        result.put("returnUrl", "returnUrl");
-        result.put("source", "source");
-        return result;
-    }
     
-    public static class SubscribeRequestBuilder {
-        
-    }
 }

@@ -51,16 +51,5 @@ public class ModelsDownloadLogsRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDownloadLogsRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("alloc_id", "allocId");
-        result.put("namespace", "namespace");
-        result.put("pod_name", "podName");
-        return result;
-    }
     
-    public static class ModelsDownloadLogsRequestBuilder {
-        
-    }
 }

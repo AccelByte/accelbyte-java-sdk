@@ -51,16 +51,5 @@ public class UploadLocalizedPolicyVersionAttachmentResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UploadLocalizedPolicyVersionAttachmentResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("attachmentChecksum", "attachmentChecksum");
-        result.put("attachmentLocation", "attachmentLocation");
-        result.put("attachmentUploadUrl", "attachmentUploadUrl");
-        return result;
-    }
     
-    public static class UploadLocalizedPolicyVersionAttachmentResponseBuilder {
-        
-    }
 }

@@ -57,18 +57,5 @@ public class ModelUserPermissionsResponseV3 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserPermissionsResponseV3>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("action", "action");
-        result.put("resource", "resource");
-        result.put("schedAction", "schedAction");
-        result.put("schedCron", "schedCron");
-        result.put("schedRange", "schedRange");
-        return result;
-    }
     
-    public static class ModelUserPermissionsResponseV3Builder {
-        
-    }
 }

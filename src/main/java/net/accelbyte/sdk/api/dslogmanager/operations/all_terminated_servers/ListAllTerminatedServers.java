@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.dslogmanager.operations.all_terminated_servers;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -38,29 +36,17 @@ import java.util.*;
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class ListAllTerminatedServers extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/dslogmanager/servers/search";
-
-    @JsonIgnore
     private String method = "GET";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList("application/json");
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -113,21 +99,20 @@ public class ListAllTerminatedServers extends Operation {
         this.sessionId = sessionId;
         this.startDate = startDate;
         this.userId = userId;
+        
+        securities.add("Bearer");
     }
 
-    @JsonIgnore
     public ListAllTerminatedServers createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
 
 
     @Override
-    @JsonIgnore
     public Map<String, List<String>> getQueryParams(){
         Map<String, List<String>> queryParams = new HashMap<>();
         queryParams.put("deployment", this.deployment == null ? null : Arrays.asList(this.deployment));
@@ -149,35 +134,14 @@ public class ListAllTerminatedServers extends Operation {
 
 
 
+
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("deployment","deployment");
-        result.put("end_date","endDate");
-        result.put("game_mode","gameMode");
-        result.put("limit","limit");
-        result.put("namespace","namespace");
-        result.put("next","next");
-        result.put("party_id","partyId");
-        result.put("pod_name","podName");
-        result.put("previous","previous");
-        result.put("provider","provider");
-        result.put("region","region");
-        result.put("session_id","sessionId");
-        result.put("start_date","startDate");
-        result.put("user_id","userId");
-        return result;
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
 
     @Override
-    @JsonIgnore
     public ModelsListTerminatedServersResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
@@ -187,7 +151,7 @@ public class ListAllTerminatedServers extends Operation {
     }
 
     @Override
-    public Map<String, String> getCollectionFormatMap() {
+    protected Map<String, String> getCollectionFormatMap() {
         Map<String, String> result = new HashMap<>();
         result.put("deployment", "None");
         result.put("end_date", "None");

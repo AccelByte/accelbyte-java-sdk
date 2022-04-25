@@ -48,15 +48,5 @@ public class BulkUserStatItemReset extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<BulkUserStatItemReset>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("statCode", "statCode");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class BulkUserStatItemResetBuilder {
-        
-    }
 }

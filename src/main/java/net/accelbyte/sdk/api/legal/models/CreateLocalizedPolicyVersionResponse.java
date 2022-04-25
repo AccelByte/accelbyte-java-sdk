@@ -57,18 +57,5 @@ public class CreateLocalizedPolicyVersionResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<CreateLocalizedPolicyVersionResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("createdAt", "createdAt");
-        result.put("description", "description");
-        result.put("id", "id");
-        result.put("localeCode", "localeCode");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
-    public static class CreateLocalizedPolicyVersionResponseBuilder {
-        
-    }
 }

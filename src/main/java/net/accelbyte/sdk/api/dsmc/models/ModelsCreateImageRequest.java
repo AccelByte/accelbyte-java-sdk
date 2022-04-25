@@ -60,19 +60,5 @@ public class ModelsCreateImageRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateImageRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("artifactPath", "artifactPath");
-        result.put("dockerPath", "dockerPath");
-        result.put("image", "image");
-        result.put("namespace", "namespace");
-        result.put("persistent", "persistent");
-        result.put("version", "version");
-        return result;
-    }
     
-    public static class ModelsCreateImageRequestBuilder {
-        
-    }
 }

@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.iam.operations.third_party_credential;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -57,34 +55,22 @@ import java.util.*;
  * 
  * 
  *           * `TokenClaimsMapping` is used to extract user info from idToken claims.
- * Its a JSON format with key should be `name`, `email` and `avatarURL`
+ * Its a JSON format with key should be `name`, `email` and `avatarUrl`
  * since IAM will look up for these key when extracting user info.
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class UpdateThirdPartyLoginPlatformCredentialV3 extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/iam/v3/admin/namespaces/{namespace}/platforms/{platformId}/clients";
-
-    @JsonIgnore
     private String method = "PATCH";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList("application/json");
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -107,20 +93,19 @@ public class UpdateThirdPartyLoginPlatformCredentialV3 extends Operation {
         this.namespace = namespace;
         this.platformId = platformId;
         this.body = body;
+        
+        securities.add("Bearer");
     }
 
-    @JsonIgnore
     public UpdateThirdPartyLoginPlatformCredentialV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
 
     @Override
-    @JsonIgnore
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
         if (this.namespace != null){
@@ -133,37 +118,19 @@ public class UpdateThirdPartyLoginPlatformCredentialV3 extends Operation {
     }
 
 
+
     @Override
-    @JsonIgnore
     public ModelThirdPartyLoginPlatformCredentialRequest getBodyParams(){
         return this.body;
     }
 
 
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("namespace","namespace");
-        result.put("platformId","platformId");
-        return result;
-    }
-
-    @JsonIgnore
-    public List<String> getAllRequiredFields() {
-        return Arrays.asList(
-            "namespace",
-            "platformId"
-        );
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @Override
-    @JsonIgnore
     public boolean isValid() {
         if(this.namespace == null) {
             return false;
@@ -175,7 +142,6 @@ public class UpdateThirdPartyLoginPlatformCredentialV3 extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public ModelThirdPartyLoginPlatformCredentialResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

@@ -48,15 +48,5 @@ public class ModelsShutdownServerRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsShutdownServerRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("kill_me", "killMe");
-        result.put("pod_name", "podName");
-        return result;
-    }
     
-    public static class ModelsShutdownServerRequestBuilder {
-        
-    }
 }

@@ -54,17 +54,5 @@ public class ErrorEntity extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ErrorEntity>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("devStackTrace", "devStackTrace");
-        result.put("errorCode", "errorCode");
-        result.put("errorMessage", "errorMessage");
-        result.put("messageVariables", "messageVariables");
-        return result;
-    }
     
-    public static class ErrorEntityBuilder {
-        
-    }
 }

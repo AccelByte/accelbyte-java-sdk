@@ -99,32 +99,5 @@ public class ModelsConfigExport extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsConfigExport>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("allowInviteNonConnectedUser", "allowInviteNonConnectedUser");
-        result.put("allowJoinPartyDuringMatchmaking", "allowJoinPartyDuringMatchmaking");
-        result.put("autoKickOnDisconnect", "autoKickOnDisconnect");
-        result.put("autoKickOnDisconnectDelay", "autoKickOnDisconnectDelay");
-        result.put("cancelTicketOnDisconnect", "cancelTicketOnDisconnect");
-        result.put("chatRateLimitBurst", "chatRateLimitBurst");
-        result.put("chatRateLimitDuration", "chatRateLimitDuration");
-        result.put("concurrentUsersLimit", "concurrentUsersLimit");
-        result.put("disableInvitationOnJoinParty", "disableInvitationOnJoinParty");
-        result.put("enableChat", "enableChat");
-        result.put("entitlementCheck", "entitlementCheck");
-        result.put("entitlementItemID", "entitlementItemID");
-        result.put("generalRateLimitBurst", "generalRateLimitBurst");
-        result.put("generalRateLimitDuration", "generalRateLimitDuration");
-        result.put("keepPresenceActivityOnDisconnect", "keepPresenceActivityOnDisconnect");
-        result.put("maxPartyMember", "maxPartyMember");
-        result.put("namespace", "namespace");
-        result.put("profanityFilter", "profanityFilter");
-        result.put("readyConsentTimeout", "readyConsentTimeout");
-        return result;
-    }
     
-    public static class ModelsConfigExportBuilder {
-        
-    }
 }

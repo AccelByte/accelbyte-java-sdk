@@ -48,15 +48,5 @@ public class BulkStatItemInc extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<BulkStatItemInc>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("inc", "inc");
-        result.put("statCode", "statCode");
-        return result;
-    }
     
-    public static class BulkStatItemIncBuilder {
-        
-    }
 }

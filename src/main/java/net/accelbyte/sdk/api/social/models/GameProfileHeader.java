@@ -63,20 +63,5 @@ public class GameProfileHeader extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<GameProfileHeader>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("avatarUrl", "avatarUrl");
-        result.put("label", "label");
-        result.put("namespace", "namespace");
-        result.put("profileId", "profileId");
-        result.put("profileName", "profileName");
-        result.put("tags", "tags");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class GameProfileHeaderBuilder {
-        
-    }
 }

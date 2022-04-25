@@ -57,18 +57,5 @@ public class RestapiErrorResponseV2 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RestapiErrorResponseV2>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("attributes", "attributes");
-        result.put("errorCode", "errorCode");
-        result.put("errorMessage", "errorMessage");
-        result.put("message", "message");
-        result.put("name", "name");
-        return result;
-    }
     
-    public static class RestapiErrorResponseV2Builder {
-        
-    }
 }

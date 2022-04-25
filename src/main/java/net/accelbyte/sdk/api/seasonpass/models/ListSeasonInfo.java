@@ -95,22 +95,6 @@ public class ListSeasonInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ListSeasonInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("createdAt", "createdAt");
-        result.put("defaultLanguage", "defaultLanguage");
-        result.put("end", "end");
-        result.put("id", "id");
-        result.put("name", "name");
-        result.put("namespace", "namespace");
-        result.put("passCodes", "passCodes");
-        result.put("publishedAt", "publishedAt");
-        result.put("start", "start");
-        result.put("status", "status");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
     public enum Status {
         DRAFT("DRAFT"),

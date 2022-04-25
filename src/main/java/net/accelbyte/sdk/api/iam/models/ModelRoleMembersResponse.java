@@ -45,14 +45,5 @@ public class ModelRoleMembersResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelRoleMembersResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("Members", "members");
-        return result;
-    }
     
-    public static class ModelRoleMembersResponseBuilder {
-        
-    }
 }

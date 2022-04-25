@@ -78,25 +78,5 @@ public class RetrieveUserEligibilitiesResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RetrieveUserEligibilitiesResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("baseUrls", "baseUrls");
-        result.put("countryCode", "countryCode");
-        result.put("countryGroupCode", "countryGroupCode");
-        result.put("description", "description");
-        result.put("isAccepted", "isAccepted");
-        result.put("isMandatory", "isMandatory");
-        result.put("namespace", "namespace");
-        result.put("policyId", "policyId");
-        result.put("policyName", "policyName");
-        result.put("policyType", "policyType");
-        result.put("policyVersions", "policyVersions");
-        result.put("readableId", "readableId");
-        return result;
-    }
     
-    public static class RetrieveUserEligibilitiesResponseBuilder {
-        
-    }
 }

@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.iam.operations.o_auth2_0;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -38,29 +36,17 @@ import java.util.*;
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Verify2faCode extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/iam/v3/oauth/mfa/verify";
-
-    @JsonIgnore
     private String method = "POST";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList("application/x-www-form-urlencoded");
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -87,14 +73,14 @@ public class Verify2faCode extends Operation {
         this.factor = factor;
         this.mfaToken = mfaToken;
         this.rememberDevice = rememberDevice;
+        
+        securities.add("Bearer");
     }
 
-    @JsonIgnore
     public Verify2faCode createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -102,8 +88,8 @@ public class Verify2faCode extends Operation {
 
 
 
+
     @Override
-    @JsonIgnore
     public Map<String, Object> getFormDataParams(){
         Map<String, Object> formDataParams = new HashMap<>();
         if (this.code != null) {
@@ -122,29 +108,11 @@ public class Verify2faCode extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("code","code");
-        result.put("factor","factor");
-        result.put("mfaToken","mfaToken");
-        result.put("rememberDevice","rememberDevice");
-        return result;
-    }
-
-    @JsonIgnore
-    public List<String> getAllRequiredFields() {
-        return Arrays.asList(
-            "code",            "factor",            "mfaToken",            "rememberDevice"        );
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @Override
-    @JsonIgnore
     public boolean isValid() {
         if(this.code == null) {
             return false;
@@ -162,7 +130,6 @@ public class Verify2faCode extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public OauthmodelTokenResponseV3 parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

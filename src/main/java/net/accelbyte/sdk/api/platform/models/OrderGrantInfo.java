@@ -48,15 +48,5 @@ public class OrderGrantInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<OrderGrantInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("credits", "credits");
-        result.put("entitlements", "entitlements");
-        return result;
-    }
     
-    public static class OrderGrantInfoBuilder {
-        
-    }
 }

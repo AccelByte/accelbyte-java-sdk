@@ -51,16 +51,5 @@ public class SlotMetadataUpdate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<SlotMetadataUpdate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("customAttribute", "customAttribute");
-        result.put("label", "label");
-        result.put("tags", "tags");
-        return result;
-    }
     
-    public static class SlotMetadataUpdateBuilder {
-        
-    }
 }

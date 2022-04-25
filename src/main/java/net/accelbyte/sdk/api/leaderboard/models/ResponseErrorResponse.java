@@ -48,15 +48,5 @@ public class ResponseErrorResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ResponseErrorResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("errorCode", "errorCode");
-        result.put("errorMessage", "errorMessage");
-        return result;
-    }
     
-    public static class ResponseErrorResponseBuilder {
-        
-    }
 }

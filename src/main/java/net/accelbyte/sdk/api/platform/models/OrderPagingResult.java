@@ -51,16 +51,5 @@ public class OrderPagingResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<OrderPagingResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("data", "data");
-        result.put("paging", "paging");
-        result.put("total", "total");
-        return result;
-    }
     
-    public static class OrderPagingResultBuilder {
-        
-    }
 }

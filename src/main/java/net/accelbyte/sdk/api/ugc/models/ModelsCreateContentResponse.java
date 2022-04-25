@@ -93,30 +93,5 @@ public class ModelsCreateContentResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateContentResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("channelId", "channelId");
-        result.put("contentType", "contentType");
-        result.put("createdTime", "createdTime");
-        result.put("creatorName", "creatorName");
-        result.put("fileExtension", "fileExtension");
-        result.put("id", "id");
-        result.put("isHidden", "isHidden");
-        result.put("isOfficial", "isOfficial");
-        result.put("name", "name");
-        result.put("namespace", "namespace");
-        result.put("payloadURL", "payloadURL");
-        result.put("preview", "preview");
-        result.put("shareCode", "shareCode");
-        result.put("subType", "subType");
-        result.put("tags", "tags");
-        result.put("type", "type");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class ModelsCreateContentResponseBuilder {
-        
-    }
 }

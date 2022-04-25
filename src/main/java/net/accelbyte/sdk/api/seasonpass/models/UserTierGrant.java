@@ -45,14 +45,5 @@ public class UserTierGrant extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserTierGrant>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("count", "count");
-        return result;
-    }
     
-    public static class UserTierGrantBuilder {
-        
-    }
 }

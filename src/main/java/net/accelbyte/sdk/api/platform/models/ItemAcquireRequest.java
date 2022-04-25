@@ -48,15 +48,5 @@ public class ItemAcquireRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ItemAcquireRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("count", "count");
-        result.put("orderNo", "orderNo");
-        return result;
-    }
     
-    public static class ItemAcquireRequestBuilder {
-        
-    }
 }

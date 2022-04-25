@@ -48,15 +48,5 @@ public class ModelsMonthlyConfig extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMonthlyConfig>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("resetDate", "resetDate");
-        result.put("resetTime", "resetTime");
-        return result;
-    }
     
-    public static class ModelsMonthlyConfigBuilder {
-        
-    }
 }

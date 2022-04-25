@@ -60,19 +60,5 @@ public class ModelsCreateGroupResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateGroupResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("contents", "contents");
-        result.put("createdAt", "createdAt");
-        result.put("id", "id");
-        result.put("name", "name");
-        result.put("namespace", "namespace");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class ModelsCreateGroupResponseBuilder {
-        
-    }
 }

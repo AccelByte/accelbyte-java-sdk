@@ -48,15 +48,5 @@ public class FulfillmentScriptEvalTestResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<FulfillmentScriptEvalTestResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("errorStackTrace", "errorStackTrace");
-        result.put("result", "result");
-        return result;
-    }
     
-    public static class FulfillmentScriptEvalTestResultBuilder {
-        
-    }
 }

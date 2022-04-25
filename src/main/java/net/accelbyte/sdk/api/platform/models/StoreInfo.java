@@ -78,25 +78,5 @@ public class StoreInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<StoreInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("createdAt", "createdAt");
-        result.put("defaultLanguage", "defaultLanguage");
-        result.put("defaultRegion", "defaultRegion");
-        result.put("description", "description");
-        result.put("namespace", "namespace");
-        result.put("published", "published");
-        result.put("publishedTime", "publishedTime");
-        result.put("storeId", "storeId");
-        result.put("supportedLanguages", "supportedLanguages");
-        result.put("supportedRegions", "supportedRegions");
-        result.put("title", "title");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
-    public static class StoreInfoBuilder {
-        
-    }
 }

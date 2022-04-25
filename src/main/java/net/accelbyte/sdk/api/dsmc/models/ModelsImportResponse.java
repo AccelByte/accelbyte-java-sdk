@@ -48,15 +48,5 @@ public class ModelsImportResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsImportResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("affected", "affected");
-        result.put("failed", "failed");
-        return result;
-    }
     
-    public static class ModelsImportResponseBuilder {
-        
-    }
 }

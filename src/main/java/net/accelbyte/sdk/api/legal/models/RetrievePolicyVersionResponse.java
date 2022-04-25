@@ -78,25 +78,5 @@ public class RetrievePolicyVersionResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RetrievePolicyVersionResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("basePolicyId", "basePolicyId");
-        result.put("createdAt", "createdAt");
-        result.put("description", "description");
-        result.put("displayVersion", "displayVersion");
-        result.put("id", "id");
-        result.put("isCommitted", "isCommitted");
-        result.put("isInEffect", "isInEffect");
-        result.put("localizedPolicyVersions", "localizedPolicyVersions");
-        result.put("policyId", "policyId");
-        result.put("publishedDate", "publishedDate");
-        result.put("status", "status");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
-    public static class RetrievePolicyVersionResponseBuilder {
-        
-    }
 }

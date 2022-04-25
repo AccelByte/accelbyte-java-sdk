@@ -48,15 +48,5 @@ public class EpicGamesIAPConfigInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<EpicGamesIAPConfigInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("namespace", "namespace");
-        result.put("sandboxId", "sandboxId");
-        return result;
-    }
     
-    public static class EpicGamesIAPConfigInfoBuilder {
-        
-    }
 }

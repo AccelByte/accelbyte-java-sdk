@@ -68,13 +68,6 @@ public class PaymentMethod extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PaymentMethod>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("name", "name");
-        result.put("paymentProvider", "paymentProvider");
-        return result;
-    }
     
     public enum PaymentProvider {
         WALLET("WALLET"),

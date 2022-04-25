@@ -54,17 +54,5 @@ public class GameProfilePublicInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<GameProfilePublicInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("avatarUrl", "avatarUrl");
-        result.put("namespace", "namespace");
-        result.put("profileId", "profileId");
-        result.put("profileName", "profileName");
-        return result;
-    }
     
-    public static class GameProfilePublicInfoBuilder {
-        
-    }
 }

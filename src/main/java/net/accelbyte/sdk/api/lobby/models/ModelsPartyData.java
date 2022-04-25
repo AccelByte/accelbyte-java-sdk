@@ -63,20 +63,5 @@ public class ModelsPartyData extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPartyData>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("custom_attribute", "customAttribute");
-        result.put("invitees", "invitees");
-        result.put("leader", "leader");
-        result.put("members", "members");
-        result.put("namespace", "namespace");
-        result.put("partyId", "partyId");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
-    public static class ModelsPartyDataBuilder {
-        
-    }
 }

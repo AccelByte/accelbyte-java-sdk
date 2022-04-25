@@ -48,15 +48,5 @@ public class ModelsKickGroupMemberResponseV1 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsKickGroupMemberResponseV1>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("groupId", "groupId");
-        result.put("kickedUserId", "kickedUserId");
-        return result;
-    }
     
-    public static class ModelsKickGroupMemberResponseV1Builder {
-        
-    }
 }

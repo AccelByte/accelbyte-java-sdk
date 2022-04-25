@@ -48,15 +48,5 @@ public class ModelSearchUsersByPlatformIDResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelSearchUsersByPlatformIDResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("Data", "data");
-        result.put("Paging", "paging");
-        return result;
-    }
     
-    public static class ModelSearchUsersByPlatformIDResponseBuilder {
-        
-    }
 }

@@ -57,18 +57,5 @@ public class HandlersUserPresence extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<HandlersUserPresence>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("activity", "activity");
-        result.put("availability", "availability");
-        result.put("lastSeenAt", "lastSeenAt");
-        result.put("namespace", "namespace");
-        result.put("userID", "userID");
-        return result;
-    }
     
-    public static class HandlersUserPresenceBuilder {
-        
-    }
 }

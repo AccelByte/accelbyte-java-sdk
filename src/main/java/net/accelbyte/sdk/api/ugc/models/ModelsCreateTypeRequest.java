@@ -48,15 +48,5 @@ public class ModelsCreateTypeRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateTypeRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("subtype", "subtype");
-        result.put("type", "type");
-        return result;
-    }
     
-    public static class ModelsCreateTypeRequestBuilder {
-        
-    }
 }

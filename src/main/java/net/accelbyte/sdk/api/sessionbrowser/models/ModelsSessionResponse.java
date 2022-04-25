@@ -84,27 +84,5 @@ public class ModelsSessionResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsSessionResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("all_players", "allPlayers");
-        result.put("created_at", "createdAt");
-        result.put("game_session_setting", "gameSessionSetting");
-        result.put("game_version", "gameVersion");
-        result.put("joinable", "joinable");
-        result.put("match", "match");
-        result.put("namespace", "namespace");
-        result.put("players", "players");
-        result.put("server", "server");
-        result.put("session_id", "sessionId");
-        result.put("session_type", "sessionType");
-        result.put("spectators", "spectators");
-        result.put("user_id", "userId");
-        result.put("username", "username");
-        return result;
-    }
     
-    public static class ModelsSessionResponseBuilder {
-        
-    }
 }

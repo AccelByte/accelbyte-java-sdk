@@ -48,15 +48,5 @@ public class ModelsWeeklyConfig extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsWeeklyConfig>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("resetDay", "resetDay");
-        result.put("resetTime", "resetTime");
-        return result;
-    }
     
-    public static class ModelsWeeklyConfigBuilder {
-        
-    }
 }

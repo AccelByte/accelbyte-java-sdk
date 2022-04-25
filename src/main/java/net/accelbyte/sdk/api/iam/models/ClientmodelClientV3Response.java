@@ -75,24 +75,5 @@ public class ClientmodelClientV3Response extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ClientmodelClientV3Response>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("audiences", "audiences");
-        result.put("baseUri", "baseUri");
-        result.put("clientId", "clientId");
-        result.put("clientName", "clientName");
-        result.put("clientPermissions", "clientPermissions");
-        result.put("createdAt", "createdAt");
-        result.put("modifiedAt", "modifiedAt");
-        result.put("namespace", "namespace");
-        result.put("oauthClientType", "oauthClientType");
-        result.put("redirectUri", "redirectUri");
-        result.put("scopes", "scopes");
-        return result;
-    }
     
-    public static class ClientmodelClientV3ResponseBuilder {
-        
-    }
 }

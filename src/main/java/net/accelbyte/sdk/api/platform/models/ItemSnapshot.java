@@ -218,43 +218,6 @@ public class ItemSnapshot extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ItemSnapshot>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("appId", "appId");
-        result.put("appType", "appType");
-        result.put("baseAppId", "baseAppId");
-        result.put("boothName", "boothName");
-        result.put("createdAt", "createdAt");
-        result.put("description", "description");
-        result.put("entitlementType", "entitlementType");
-        result.put("features", "features");
-        result.put("itemId", "itemId");
-        result.put("itemIds", "itemIds");
-        result.put("itemQty", "itemQty");
-        result.put("itemType", "itemType");
-        result.put("language", "language");
-        result.put("listable", "listable");
-        result.put("maxCount", "maxCount");
-        result.put("maxCountPerUser", "maxCountPerUser");
-        result.put("name", "name");
-        result.put("namespace", "namespace");
-        result.put("purchasable", "purchasable");
-        result.put("recurring", "recurring");
-        result.put("region", "region");
-        result.put("regionDataItem", "regionDataItem");
-        result.put("seasonType", "seasonType");
-        result.put("sku", "sku");
-        result.put("stackable", "stackable");
-        result.put("targetCurrencyCode", "targetCurrencyCode");
-        result.put("targetItemId", "targetItemId");
-        result.put("targetNamespace", "targetNamespace");
-        result.put("thumbnailUrl", "thumbnailUrl");
-        result.put("title", "title");
-        result.put("updatedAt", "updatedAt");
-        result.put("useCount", "useCount");
-        return result;
-    }
     
     public enum AppType {
         GAME("GAME"),

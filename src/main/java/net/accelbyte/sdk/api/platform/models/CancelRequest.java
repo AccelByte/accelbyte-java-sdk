@@ -48,15 +48,5 @@ public class CancelRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<CancelRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("immediate", "immediate");
-        result.put("reason", "reason");
-        return result;
-    }
     
-    public static class CancelRequestBuilder {
-        
-    }
 }

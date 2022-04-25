@@ -72,23 +72,5 @@ public class ClientmodelClientCreationV3Request extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ClientmodelClientCreationV3Request>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("audiences", "audiences");
-        result.put("baseUri", "baseUri");
-        result.put("clientId", "clientId");
-        result.put("clientName", "clientName");
-        result.put("clientPermissions", "clientPermissions");
-        result.put("deletable", "deletable");
-        result.put("namespace", "namespace");
-        result.put("oauthClientType", "oauthClientType");
-        result.put("redirectUri", "redirectUri");
-        result.put("secret", "secret");
-        return result;
-    }
     
-    public static class ClientmodelClientCreationV3RequestBuilder {
-        
-    }
 }

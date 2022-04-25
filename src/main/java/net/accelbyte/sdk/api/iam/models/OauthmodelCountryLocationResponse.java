@@ -54,17 +54,5 @@ public class OauthmodelCountryLocationResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<OauthmodelCountryLocationResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("city", "city");
-        result.put("countryCode", "countryCode");
-        result.put("countryName", "countryName");
-        result.put("state", "state");
-        return result;
-    }
     
-    public static class OauthmodelCountryLocationResponseBuilder {
-        
-    }
 }

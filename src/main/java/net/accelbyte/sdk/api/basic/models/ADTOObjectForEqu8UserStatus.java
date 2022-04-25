@@ -57,18 +57,5 @@ public class ADTOObjectForEqu8UserStatus extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ADTOObjectForEqu8UserStatus>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("actionComment", "actionComment");
-        result.put("actionId", "actionId");
-        result.put("expires", "expires");
-        result.put("userId", "userId");
-        result.put("when", "when");
-        return result;
-    }
     
-    public static class ADTOObjectForEqu8UserStatusBuilder {
-        
-    }
 }

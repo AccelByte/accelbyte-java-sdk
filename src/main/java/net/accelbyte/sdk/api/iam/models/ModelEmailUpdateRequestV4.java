@@ -48,15 +48,5 @@ public class ModelEmailUpdateRequestV4 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelEmailUpdateRequestV4>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("code", "code");
-        result.put("emailAddress", "emailAddress");
-        return result;
-    }
     
-    public static class ModelEmailUpdateRequestV4Builder {
-        
-    }
 }

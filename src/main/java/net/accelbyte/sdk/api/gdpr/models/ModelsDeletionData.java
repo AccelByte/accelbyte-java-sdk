@@ -54,17 +54,5 @@ public class ModelsDeletionData extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDeletionData>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("DisplayName", "displayName");
-        result.put("RequestDate", "requestDate");
-        result.put("Status", "status");
-        result.put("UserID", "userID");
-        return result;
-    }
     
-    public static class ModelsDeletionDataBuilder {
-        
-    }
 }

@@ -71,14 +71,6 @@ public class ExcessStrategy extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ExcessStrategy>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("currency", "currency");
-        result.put("method", "method");
-        result.put("percentPerExp", "percentPerExp");
-        return result;
-    }
     
     public enum Method {
         NONE("NONE"),

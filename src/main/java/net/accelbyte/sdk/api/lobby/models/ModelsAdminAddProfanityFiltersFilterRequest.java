@@ -48,15 +48,5 @@ public class ModelsAdminAddProfanityFiltersFilterRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAdminAddProfanityFiltersFilterRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("filter", "filter");
-        result.put("note", "note");
-        return result;
-    }
     
-    public static class ModelsAdminAddProfanityFiltersFilterRequestBuilder {
-        
-    }
 }

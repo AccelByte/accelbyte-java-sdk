@@ -51,16 +51,5 @@ public class AccountcommonListUsersWithPlatformAccountsResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonListUsersWithPlatformAccountsResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("data", "data");
-        result.put("paging", "paging");
-        result.put("totalData", "totalData");
-        return result;
-    }
     
-    public static class AccountcommonListUsersWithPlatformAccountsResponseBuilder {
-        
-    }
 }

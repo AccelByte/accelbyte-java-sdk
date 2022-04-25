@@ -57,18 +57,5 @@ public class ModelsAllianceFlexingRule extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAllianceFlexingRule>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("duration", "duration");
-        result.put("max_number", "maxNumber");
-        result.put("min_number", "minNumber");
-        result.put("player_max_number", "playerMaxNumber");
-        result.put("player_min_number", "playerMinNumber");
-        return result;
-    }
     
-    public static class ModelsAllianceFlexingRuleBuilder {
-        
-    }
 }

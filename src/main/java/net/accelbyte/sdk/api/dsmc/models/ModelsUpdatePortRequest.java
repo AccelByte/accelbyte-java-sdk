@@ -48,15 +48,5 @@ public class ModelsUpdatePortRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdatePortRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("name", "name");
-        result.put("port", "port");
-        return result;
-    }
     
-    public static class ModelsUpdatePortRequestBuilder {
-        
-    }
 }

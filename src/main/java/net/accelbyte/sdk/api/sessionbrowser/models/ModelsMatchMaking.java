@@ -90,29 +90,5 @@ public class ModelsMatchMaking extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMatchMaking>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("channel", "channel");
-        result.put("client_version", "clientVersion");
-        result.put("created_at", "createdAt");
-        result.put("deployment", "deployment");
-        result.put("event", "event");
-        result.put("game_mode", "gameMode");
-        result.put("joinable", "joinable");
-        result.put("match_id", "matchId");
-        result.put("matching_allies", "matchingAllies");
-        result.put("namespace", "namespace");
-        result.put("party_attributes", "partyAttributes");
-        result.put("party_id", "partyId");
-        result.put("queued_at", "queuedAt");
-        result.put("region", "region");
-        result.put("server_name", "serverName");
-        result.put("status", "status");
-        return result;
-    }
     
-    public static class ModelsMatchMakingBuilder {
-        
-    }
 }

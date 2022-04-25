@@ -45,14 +45,5 @@ public class ModelsAchievementOrderUpdateRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAchievementOrderUpdateRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("targetOrder", "targetOrder");
-        return result;
-    }
     
-    public static class ModelsAchievementOrderUpdateRequestBuilder {
-        
-    }
 }

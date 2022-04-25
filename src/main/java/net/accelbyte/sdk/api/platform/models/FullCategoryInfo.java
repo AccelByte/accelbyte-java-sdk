@@ -63,20 +63,5 @@ public class FullCategoryInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<FullCategoryInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("categoryPath", "categoryPath");
-        result.put("createdAt", "createdAt");
-        result.put("localizationDisplayNames", "localizationDisplayNames");
-        result.put("namespace", "namespace");
-        result.put("parentCategoryPath", "parentCategoryPath");
-        result.put("root", "root");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
-    public static class FullCategoryInfoBuilder {
-        
-    }
 }

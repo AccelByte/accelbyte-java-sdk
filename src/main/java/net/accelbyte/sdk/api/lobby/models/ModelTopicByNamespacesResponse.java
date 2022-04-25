@@ -57,18 +57,5 @@ public class ModelTopicByNamespacesResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelTopicByNamespacesResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("first", "first");
-        result.put("last", "last");
-        result.put("next", "next");
-        result.put("previous", "previous");
-        result.put("topics", "topics");
-        return result;
-    }
     
-    public static class ModelTopicByNamespacesResponseBuilder {
-        
-    }
 }

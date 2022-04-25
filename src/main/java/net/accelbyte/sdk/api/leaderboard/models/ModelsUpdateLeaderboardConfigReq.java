@@ -69,22 +69,5 @@ public class ModelsUpdateLeaderboardConfigReq extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateLeaderboardConfigReq>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("daily", "daily");
-        result.put("descending", "descending");
-        result.put("iconURL", "iconURL");
-        result.put("monthly", "monthly");
-        result.put("name", "name");
-        result.put("seasonPeriod", "seasonPeriod");
-        result.put("startTime", "startTime");
-        result.put("statCode", "statCode");
-        result.put("weekly", "weekly");
-        return result;
-    }
     
-    public static class ModelsUpdateLeaderboardConfigReqBuilder {
-        
-    }
 }

@@ -48,15 +48,5 @@ public class Attribute extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<Attribute>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("name", "name");
-        result.put("value", "value");
-        return result;
-    }
     
-    public static class AttributeBuilder {
-        
-    }
 }

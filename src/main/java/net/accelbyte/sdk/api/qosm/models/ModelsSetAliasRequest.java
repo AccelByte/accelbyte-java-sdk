@@ -45,14 +45,5 @@ public class ModelsSetAliasRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsSetAliasRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("alias", "alias");
-        return result;
-    }
     
-    public static class ModelsSetAliasRequestBuilder {
-        
-    }
 }

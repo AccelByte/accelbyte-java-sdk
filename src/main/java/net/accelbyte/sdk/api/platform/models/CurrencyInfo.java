@@ -86,19 +86,6 @@ public class CurrencyInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<CurrencyInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("createdAt", "createdAt");
-        result.put("currencyCode", "currencyCode");
-        result.put("currencySymbol", "currencySymbol");
-        result.put("currencyType", "currencyType");
-        result.put("decimals", "decimals");
-        result.put("localizationDescriptions", "localizationDescriptions");
-        result.put("namespace", "namespace");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
     public enum CurrencyType {
         REAL("REAL"),

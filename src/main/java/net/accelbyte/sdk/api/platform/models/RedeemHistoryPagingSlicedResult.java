@@ -48,15 +48,5 @@ public class RedeemHistoryPagingSlicedResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RedeemHistoryPagingSlicedResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("data", "data");
-        result.put("paging", "paging");
-        return result;
-    }
     
-    public static class RedeemHistoryPagingSlicedResultBuilder {
-        
-    }
 }

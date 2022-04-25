@@ -51,16 +51,5 @@ public class UpdatePolicyVersionRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UpdatePolicyVersionRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("description", "description");
-        result.put("displayVersion", "displayVersion");
-        result.put("isCommitted", "isCommitted");
-        return result;
-    }
     
-    public static class UpdatePolicyVersionRequestBuilder {
-        
-    }
 }

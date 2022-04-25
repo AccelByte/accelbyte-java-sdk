@@ -48,15 +48,5 @@ public class FulfillmentScriptInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<FulfillmentScriptInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("grantDays", "grantDays");
-        result.put("id", "id");
-        return result;
-    }
     
-    public static class FulfillmentScriptInfoBuilder {
-        
-    }
 }

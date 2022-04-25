@@ -51,16 +51,5 @@ public class ModelsAdditionalInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAdditionalInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("numberOfAchievements", "numberOfAchievements");
-        result.put("numberOfHiddenAchievements", "numberOfHiddenAchievements");
-        result.put("numberOfVisibleAchievements", "numberOfVisibleAchievements");
-        return result;
-    }
     
-    public static class ModelsAdditionalInfoBuilder {
-        
-    }
 }

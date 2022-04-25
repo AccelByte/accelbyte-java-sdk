@@ -45,14 +45,5 @@ public class ModelsDebugProfanityFilterRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDebugProfanityFilterRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("text", "text");
-        return result;
-    }
     
-    public static class ModelsDebugProfanityFilterRequestBuilder {
-        
-    }
 }

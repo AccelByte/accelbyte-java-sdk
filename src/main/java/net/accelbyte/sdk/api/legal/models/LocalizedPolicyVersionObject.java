@@ -78,25 +78,5 @@ public class LocalizedPolicyVersionObject extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<LocalizedPolicyVersionObject>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("attachmentChecksum", "attachmentChecksum");
-        result.put("attachmentLocation", "attachmentLocation");
-        result.put("attachmentVersionIdentifier", "attachmentVersionIdentifier");
-        result.put("contentType", "contentType");
-        result.put("createdAt", "createdAt");
-        result.put("description", "description");
-        result.put("id", "id");
-        result.put("isDefaultSelection", "isDefaultSelection");
-        result.put("localeCode", "localeCode");
-        result.put("publishedDate", "publishedDate");
-        result.put("status", "status");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
-    public static class LocalizedPolicyVersionObjectBuilder {
-        
-    }
 }

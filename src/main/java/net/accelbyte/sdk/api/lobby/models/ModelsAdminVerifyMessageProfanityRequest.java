@@ -48,15 +48,5 @@ public class ModelsAdminVerifyMessageProfanityRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAdminVerifyMessageProfanityRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("message", "message");
-        result.put("profanityLevel", "profanityLevel");
-        return result;
-    }
     
-    public static class ModelsAdminVerifyMessageProfanityRequestBuilder {
-        
-    }
 }

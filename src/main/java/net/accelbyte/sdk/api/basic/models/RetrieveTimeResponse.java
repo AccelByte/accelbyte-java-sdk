@@ -45,14 +45,5 @@ public class RetrieveTimeResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RetrieveTimeResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("currentTime", "currentTime");
-        return result;
-    }
     
-    public static class RetrieveTimeResponseBuilder {
-        
-    }
 }

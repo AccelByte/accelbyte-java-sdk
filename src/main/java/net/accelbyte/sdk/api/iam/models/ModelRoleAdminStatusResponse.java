@@ -45,14 +45,5 @@ public class ModelRoleAdminStatusResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelRoleAdminStatusResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("AdminRole", "adminRole");
-        return result;
-    }
     
-    public static class ModelRoleAdminStatusResponseBuilder {
-        
-    }
 }

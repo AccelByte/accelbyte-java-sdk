@@ -54,17 +54,5 @@ public class ModelsMatchingParty extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMatchingParty>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("first_ticket_created_at", "firstTicketCreatedAt");
-        result.put("party_attributes", "partyAttributes");
-        result.put("party_id", "partyId");
-        result.put("party_members", "partyMembers");
-        return result;
-    }
     
-    public static class ModelsMatchingPartyBuilder {
-        
-    }
 }

@@ -66,6 +66,25 @@ public class PublicContent {
     }
 
     /**
+     * @see PublicGetContentBulk
+     */
+    public List<ModelsContentDownloadResponse> publicGetContentBulk(PublicGetContentBulk input) throws ResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
      * @see DownloadContentByShareCode
      */
     public ModelsContentDownloadResponse downloadContentByShareCode(DownloadContentByShareCode input) throws ResponseException, IOException {

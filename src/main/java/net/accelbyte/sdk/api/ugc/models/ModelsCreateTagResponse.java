@@ -51,16 +51,5 @@ public class ModelsCreateTagResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateTagResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("id", "id");
-        result.put("namespace", "namespace");
-        result.put("tag", "tag");
-        return result;
-    }
     
-    public static class ModelsCreateTagResponseBuilder {
-        
-    }
 }

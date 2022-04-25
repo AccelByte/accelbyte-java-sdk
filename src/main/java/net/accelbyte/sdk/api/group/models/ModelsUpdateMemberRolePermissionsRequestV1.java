@@ -45,14 +45,5 @@ public class ModelsUpdateMemberRolePermissionsRequestV1 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateMemberRolePermissionsRequestV1>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("memberRolePermissions", "memberRolePermissions");
-        return result;
-    }
     
-    public static class ModelsUpdateMemberRolePermissionsRequestV1Builder {
-        
-    }
 }

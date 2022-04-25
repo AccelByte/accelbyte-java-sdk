@@ -51,16 +51,5 @@ public class ModelsHeartbeatRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsHeartbeatRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("ip", "ip");
-        result.put("port", "port");
-        result.put("region", "region");
-        return result;
-    }
     
-    public static class ModelsHeartbeatRequestBuilder {
-        
-    }
 }

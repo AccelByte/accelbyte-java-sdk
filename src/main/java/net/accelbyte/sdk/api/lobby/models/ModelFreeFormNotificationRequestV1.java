@@ -48,15 +48,5 @@ public class ModelFreeFormNotificationRequestV1 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelFreeFormNotificationRequestV1>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("message", "message");
-        result.put("topicName", "topicName");
-        return result;
-    }
     
-    public static class ModelFreeFormNotificationRequestV1Builder {
-        
-    }
 }

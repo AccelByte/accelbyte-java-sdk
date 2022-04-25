@@ -51,16 +51,5 @@ public class AddCountryGroupResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AddCountryGroupResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("countries", "countries");
-        result.put("countryGroupCode", "countryGroupCode");
-        result.put("countryGroupName", "countryGroupName");
-        return result;
-    }
     
-    public static class AddCountryGroupResponseBuilder {
-        
-    }
 }

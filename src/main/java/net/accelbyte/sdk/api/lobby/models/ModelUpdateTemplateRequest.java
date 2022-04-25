@@ -45,14 +45,5 @@ public class ModelUpdateTemplateRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUpdateTemplateRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("templateContent", "templateContent");
-        return result;
-    }
     
-    public static class ModelUpdateTemplateRequestBuilder {
-        
-    }
 }

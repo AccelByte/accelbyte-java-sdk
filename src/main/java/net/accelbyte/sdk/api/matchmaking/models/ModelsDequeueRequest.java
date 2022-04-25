@@ -45,14 +45,5 @@ public class ModelsDequeueRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDequeueRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("match_id", "matchId");
-        return result;
-    }
     
-    public static class ModelsDequeueRequestBuilder {
-        
-    }
 }

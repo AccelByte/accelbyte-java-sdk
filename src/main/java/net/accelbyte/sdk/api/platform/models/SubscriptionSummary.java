@@ -109,20 +109,6 @@ public class SubscriptionSummary extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<SubscriptionSummary>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("currentPeriodEnd", "currentPeriodEnd");
-        result.put("currentPeriodStart", "currentPeriodStart");
-        result.put("id", "id");
-        result.put("itemId", "itemId");
-        result.put("namespace", "namespace");
-        result.put("sku", "sku");
-        result.put("status", "status");
-        result.put("subscribedBy", "subscribedBy");
-        result.put("userId", "userId");
-        return result;
-    }
     
     public enum Status {
         INIT("INIT"),

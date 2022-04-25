@@ -100,17 +100,6 @@ public class PaymentOrderNotifySimulation extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PaymentOrderNotifySimulation>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("amount", "amount");
-        result.put("currencyCode", "currencyCode");
-        result.put("notifyType", "notifyType");
-        result.put("paymentProvider", "paymentProvider");
-        result.put("salesTax", "salesTax");
-        result.put("vat", "vat");
-        return result;
-    }
     
     public enum NotifyType {
         CHARGE("CHARGE"),

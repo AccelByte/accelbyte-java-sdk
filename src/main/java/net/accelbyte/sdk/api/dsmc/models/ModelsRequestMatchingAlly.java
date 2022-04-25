@@ -45,14 +45,5 @@ public class ModelsRequestMatchingAlly extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsRequestMatchingAlly>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("matching_parties", "matchingParties");
-        return result;
-    }
     
-    public static class ModelsRequestMatchingAllyBuilder {
-        
-    }
 }

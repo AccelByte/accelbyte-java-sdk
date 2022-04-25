@@ -45,14 +45,5 @@ public class ClientmodelClientUpdateSecretRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ClientmodelClientUpdateSecretRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("NewSecret", "newSecret");
-        return result;
-    }
     
-    public static class ClientmodelClientUpdateSecretRequestBuilder {
-        
-    }
 }

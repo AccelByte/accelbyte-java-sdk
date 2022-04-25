@@ -45,14 +45,5 @@ public class StatResetInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<StatResetInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("additionalData", "additionalData");
-        return result;
-    }
     
-    public static class StatResetInfoBuilder {
-        
-    }
 }

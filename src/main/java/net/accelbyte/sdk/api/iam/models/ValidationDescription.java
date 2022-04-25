@@ -48,15 +48,5 @@ public class ValidationDescription extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ValidationDescription>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("language", "language");
-        result.put("message", "message");
-        return result;
-    }
     
-    public static class ValidationDescriptionBuilder {
-        
-    }
 }

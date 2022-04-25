@@ -51,16 +51,5 @@ public class RewardItem extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RewardItem>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("duration", "duration");
-        result.put("itemId", "itemId");
-        result.put("quantity", "quantity");
-        return result;
-    }
     
-    public static class RewardItemBuilder {
-        
-    }
 }

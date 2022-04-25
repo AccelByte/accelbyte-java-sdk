@@ -45,14 +45,5 @@ public class AdditionalData extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AdditionalData>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("cardSummary", "cardSummary");
-        return result;
-    }
     
-    public static class AdditionalDataBuilder {
-        
-    }
 }

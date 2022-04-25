@@ -51,16 +51,5 @@ public class AppleIAPConfigInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AppleIAPConfigInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("bundleId", "bundleId");
-        result.put("namespace", "namespace");
-        result.put("password", "password");
-        return result;
-    }
     
-    public static class AppleIAPConfigInfoBuilder {
-        
-    }
 }

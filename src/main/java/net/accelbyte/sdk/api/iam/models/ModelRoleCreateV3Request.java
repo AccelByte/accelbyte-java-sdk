@@ -63,20 +63,5 @@ public class ModelRoleCreateV3Request extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelRoleCreateV3Request>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("adminRole", "adminRole");
-        result.put("deletable", "deletable");
-        result.put("isWildcard", "isWildcard");
-        result.put("managers", "managers");
-        result.put("members", "members");
-        result.put("permissions", "permissions");
-        result.put("roleName", "roleName");
-        return result;
-    }
     
-    public static class ModelRoleCreateV3RequestBuilder {
-        
-    }
 }

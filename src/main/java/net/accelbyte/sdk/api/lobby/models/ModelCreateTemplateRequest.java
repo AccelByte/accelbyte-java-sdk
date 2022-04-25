@@ -51,16 +51,5 @@ public class ModelCreateTemplateRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelCreateTemplateRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("templateContent", "templateContent");
-        result.put("templateLanguage", "templateLanguage");
-        result.put("templateSlug", "templateSlug");
-        return result;
-    }
     
-    public static class ModelCreateTemplateRequestBuilder {
-        
-    }
 }

@@ -100,17 +100,6 @@ public class Slide extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<Slide>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("alt", "alt");
-        result.put("previewUrl", "previewUrl");
-        result.put("thumbnailUrl", "thumbnailUrl");
-        result.put("type", "type");
-        result.put("url", "url");
-        result.put("videoSource", "videoSource");
-        return result;
-    }
     
     public enum Type {
         Image("Image"),

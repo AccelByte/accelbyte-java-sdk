@@ -54,17 +54,5 @@ public class PayPalConfig extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PayPalConfig>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("clientID", "clientID");
-        result.put("clientSecret", "clientSecret");
-        result.put("returnUrl", "returnUrl");
-        result.put("webHookId", "webHookId");
-        return result;
-    }
     
-    public static class PayPalConfigBuilder {
-        
-    }
 }

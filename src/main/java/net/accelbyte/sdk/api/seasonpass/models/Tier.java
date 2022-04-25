@@ -51,16 +51,5 @@ public class Tier extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<Tier>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("id", "id");
-        result.put("requiredExp", "requiredExp");
-        result.put("rewards", "rewards");
-        return result;
-    }
     
-    public static class TierBuilder {
-        
-    }
 }

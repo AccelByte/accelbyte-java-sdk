@@ -45,14 +45,5 @@ public class Subscribable extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<Subscribable>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("subscribable", "subscribable");
-        return result;
-    }
     
-    public static class SubscribableBuilder {
-        
-    }
 }

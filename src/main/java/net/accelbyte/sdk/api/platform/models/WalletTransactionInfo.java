@@ -95,22 +95,6 @@ public class WalletTransactionInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<WalletTransactionInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("amount", "amount");
-        result.put("balanceSource", "balanceSource");
-        result.put("createdAt", "createdAt");
-        result.put("currencyCode", "currencyCode");
-        result.put("namespace", "namespace");
-        result.put("operator", "operator");
-        result.put("reason", "reason");
-        result.put("updatedAt", "updatedAt");
-        result.put("userId", "userId");
-        result.put("walletAction", "walletAction");
-        result.put("walletId", "walletId");
-        return result;
-    }
     
     public enum WalletAction {
         CREDIT("CREDIT"),

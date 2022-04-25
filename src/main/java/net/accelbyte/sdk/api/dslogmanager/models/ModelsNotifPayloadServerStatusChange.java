@@ -48,15 +48,5 @@ public class ModelsNotifPayloadServerStatusChange extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsNotifPayloadServerStatusChange>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("match", "match");
-        result.put("server", "server");
-        return result;
-    }
     
-    public static class ModelsNotifPayloadServerStatusChangeBuilder {
-        
-    }
 }

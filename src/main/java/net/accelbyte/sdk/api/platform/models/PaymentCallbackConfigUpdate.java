@@ -51,16 +51,5 @@ public class PaymentCallbackConfigUpdate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PaymentCallbackConfigUpdate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("dryRun", "dryRun");
-        result.put("notifyUrl", "notifyUrl");
-        result.put("privateKey", "privateKey");
-        return result;
-    }
     
-    public static class PaymentCallbackConfigUpdateBuilder {
-        
-    }
 }

@@ -54,17 +54,5 @@ public class ModelsProfanityFilter extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsProfanityFilter>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("filter", "filter");
-        result.put("listName", "listName");
-        result.put("namespace", "namespace");
-        result.put("note", "note");
-        return result;
-    }
     
-    public static class ModelsProfanityFilterBuilder {
-        
-    }
 }

@@ -51,16 +51,5 @@ public class ModelRoleUpdateRequestV3 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelRoleUpdateRequestV3>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("deletable", "deletable");
-        result.put("isWildcard", "isWildcard");
-        result.put("roleName", "roleName");
-        return result;
-    }
     
-    public static class ModelRoleUpdateRequestV3Builder {
-        
-    }
 }

@@ -54,17 +54,5 @@ public class ModelsGetLeaderboardConfigPublicResp extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGetLeaderboardConfigPublicResp>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("iconURL", "iconURL");
-        result.put("leaderboardCode", "leaderboardCode");
-        result.put("name", "name");
-        result.put("statCode", "statCode");
-        return result;
-    }
     
-    public static class ModelsGetLeaderboardConfigPublicRespBuilder {
-        
-    }
 }

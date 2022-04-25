@@ -57,18 +57,5 @@ public class HandlersGetUsersPresenceResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<HandlersGetUsersPresenceResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("busy", "busy");
-        result.put("data", "data");
-        result.put("invisible", "invisible");
-        result.put("offline", "offline");
-        result.put("online", "online");
-        return result;
-    }
     
-    public static class HandlersGetUsersPresenceResponseBuilder {
-        
-    }
 }

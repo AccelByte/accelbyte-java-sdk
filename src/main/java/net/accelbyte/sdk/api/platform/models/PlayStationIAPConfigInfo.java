@@ -48,15 +48,5 @@ public class PlayStationIAPConfigInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PlayStationIAPConfigInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("environment", "environment");
-        result.put("namespace", "namespace");
-        return result;
-    }
     
-    public static class PlayStationIAPConfigInfoBuilder {
-        
-    }
 }

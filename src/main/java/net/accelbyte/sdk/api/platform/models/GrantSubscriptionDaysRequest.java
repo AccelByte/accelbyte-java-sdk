@@ -48,15 +48,5 @@ public class GrantSubscriptionDaysRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<GrantSubscriptionDaysRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("grantDays", "grantDays");
-        result.put("reason", "reason");
-        return result;
-    }
     
-    public static class GrantSubscriptionDaysRequestBuilder {
-        
-    }
 }

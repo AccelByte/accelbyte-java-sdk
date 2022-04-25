@@ -45,14 +45,5 @@ public class ModelsAdminDeleteProfanityFilterRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAdminDeleteProfanityFilterRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("filter", "filter");
-        return result;
-    }
     
-    public static class ModelsAdminDeleteProfanityFilterRequestBuilder {
-        
-    }
 }

@@ -60,19 +60,5 @@ public class AppleIAPReceipt extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AppleIAPReceipt>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("excludeOldTransactions", "excludeOldTransactions");
-        result.put("language", "language");
-        result.put("productId", "productId");
-        result.put("receiptData", "receiptData");
-        result.put("region", "region");
-        result.put("transactionId", "transactionId");
-        return result;
-    }
     
-    public static class AppleIAPReceiptBuilder {
-        
-    }
 }

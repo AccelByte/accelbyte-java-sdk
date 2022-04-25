@@ -45,14 +45,5 @@ public class CodeCreate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<CodeCreate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("quantity", "quantity");
-        return result;
-    }
     
-    public static class CodeCreateBuilder {
-        
-    }
 }

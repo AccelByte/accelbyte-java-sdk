@@ -96,31 +96,5 @@ public class ModelPublicUserResponseV3 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelPublicUserResponseV3>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("authType", "authType");
-        result.put("bans", "bans");
-        result.put("createdAt", "createdAt");
-        result.put("deletionStatus", "deletionStatus");
-        result.put("displayName", "displayName");
-        result.put("emailVerified", "emailVerified");
-        result.put("enabled", "enabled");
-        result.put("lastDateOfBirthChangedTime", "lastDateOfBirthChangedTime");
-        result.put("lastEnabledChangedTime", "lastEnabledChangedTime");
-        result.put("namespace", "namespace");
-        result.put("namespaceRoles", "namespaceRoles");
-        result.put("permissions", "permissions");
-        result.put("phoneVerified", "phoneVerified");
-        result.put("platformId", "platformId");
-        result.put("platformUserId", "platformUserId");
-        result.put("roles", "roles");
-        result.put("userId", "userId");
-        result.put("userName", "userName");
-        return result;
-    }
     
-    public static class ModelPublicUserResponseV3Builder {
-        
-    }
 }

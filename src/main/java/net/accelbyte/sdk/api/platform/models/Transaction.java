@@ -159,30 +159,6 @@ public class Transaction extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<Transaction>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("additionalData", "additionalData");
-        result.put("amount", "amount");
-        result.put("currency", "currency");
-        result.put("extMessage", "extMessage");
-        result.put("extStatusCode", "extStatusCode");
-        result.put("extTxId", "extTxId");
-        result.put("merchantId", "merchantId");
-        result.put("notified", "notified");
-        result.put("paymentMethod", "paymentMethod");
-        result.put("paymentMethodFee", "paymentMethodFee");
-        result.put("paymentProviderFee", "paymentProviderFee");
-        result.put("provider", "provider");
-        result.put("salesTax", "salesTax");
-        result.put("status", "status");
-        result.put("tax", "tax");
-        result.put("txEndTime", "txEndTime");
-        result.put("txId", "txId");
-        result.put("type", "type");
-        result.put("vat", "vat");
-        return result;
-    }
     
     public enum Provider {
         WALLET("WALLET"),

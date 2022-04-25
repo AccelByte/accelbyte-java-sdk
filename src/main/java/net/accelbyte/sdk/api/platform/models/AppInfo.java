@@ -185,28 +185,6 @@ public class AppInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AppInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("announcement", "announcement");
-        result.put("carousel", "carousel");
-        result.put("developer", "developer");
-        result.put("forumUrl", "forumUrl");
-        result.put("genres", "genres");
-        result.put("itemId", "itemId");
-        result.put("language", "language");
-        result.put("namespace", "namespace");
-        result.put("platformRequirements", "platformRequirements");
-        result.put("platforms", "platforms");
-        result.put("players", "players");
-        result.put("primaryGenre", "primaryGenre");
-        result.put("publisher", "publisher");
-        result.put("region", "region");
-        result.put("releaseDate", "releaseDate");
-        result.put("slogan", "slogan");
-        result.put("websiteUrl", "websiteUrl");
-        return result;
-    }
     
     public enum Genres {
         Action("Action"),

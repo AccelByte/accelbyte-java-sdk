@@ -48,15 +48,5 @@ public class ModelsListDeploymentResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsListDeploymentResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("deployments", "deployments");
-        result.put("paging", "paging");
-        return result;
-    }
     
-    public static class ModelsListDeploymentResponseBuilder {
-        
-    }
 }

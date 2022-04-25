@@ -54,17 +54,5 @@ public class ModelsPagination extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPagination>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("First", "first");
-        result.put("Last", "last");
-        result.put("Next", "next");
-        result.put("Previous", "previous");
-        return result;
-    }
     
-    public static class ModelsPaginationBuilder {
-        
-    }
 }

@@ -86,19 +86,6 @@ public class OrderHistoryInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<OrderHistoryInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("action", "action");
-        result.put("createdAt", "createdAt");
-        result.put("namespace", "namespace");
-        result.put("operator", "operator");
-        result.put("orderNo", "orderNo");
-        result.put("reason", "reason");
-        result.put("updatedAt", "updatedAt");
-        result.put("userId", "userId");
-        return result;
-    }
     
     public enum Action {
         INIT("INIT"),

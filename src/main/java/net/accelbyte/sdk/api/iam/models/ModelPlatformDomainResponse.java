@@ -45,14 +45,5 @@ public class ModelPlatformDomainResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelPlatformDomainResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("registeredDomains", "registeredDomains");
-        return result;
-    }
     
-    public static class ModelPlatformDomainResponseBuilder {
-        
-    }
 }

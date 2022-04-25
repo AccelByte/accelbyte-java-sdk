@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,29 +33,17 @@ import java.util.*;
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/game-telemetry/v1/admin/telemetrynamespace";
-
-    @JsonIgnore
     private String method = "GET";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList();
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -68,32 +54,36 @@ public class AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet extends 
     public AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet(
     )
     {
+        
+        securities.add("Bearer");
+        securities.add("Cookie");
     }
 
-    @JsonIgnore
     public AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
 
 
 
-
-
     @Override
-    @JsonIgnore
-    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
+    public Map<String, String> getCookieParams(){
+        Map<String, String> cookieParams = new HashMap<>();
+        return cookieParams;
     }
 
 
 
     @Override
-    @JsonIgnore
+    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
+    }
+
+
+    @Override
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         if(code != 200){
             String json = this.convertInputStreamToString(payload);

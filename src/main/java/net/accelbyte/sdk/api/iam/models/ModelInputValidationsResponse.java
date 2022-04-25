@@ -48,15 +48,5 @@ public class ModelInputValidationsResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelInputValidationsResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("data", "data");
-        result.put("version", "version");
-        return result;
-    }
     
-    public static class ModelInputValidationsResponseBuilder {
-        
-    }
 }

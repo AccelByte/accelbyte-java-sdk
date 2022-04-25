@@ -54,17 +54,5 @@ public class FileUploadUrlInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<FileUploadUrlInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("accessUrl", "accessUrl");
-        result.put("contentType", "contentType");
-        result.put("method", "method");
-        result.put("url", "url");
-        return result;
-    }
     
-    public static class FileUploadUrlInfoBuilder {
-        
-    }
 }

@@ -48,15 +48,5 @@ public class RetrieveUserInfoCacheStatusResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RetrieveUserInfoCacheStatusResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("lastUpdatedAt", "lastUpdatedAt");
-        result.put("namespace", "namespace");
-        return result;
-    }
     
-    public static class RetrieveUserInfoCacheStatusResponseBuilder {
-        
-    }
 }

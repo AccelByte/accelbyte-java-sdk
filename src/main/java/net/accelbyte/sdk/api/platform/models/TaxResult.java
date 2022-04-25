@@ -54,17 +54,5 @@ public class TaxResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<TaxResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("enableTax", "enableTax");
-        result.put("formattedTax", "formattedTax");
-        result.put("state", "state");
-        result.put("tax", "tax");
-        return result;
-    }
     
-    public static class TaxResultBuilder {
-        
-    }
 }

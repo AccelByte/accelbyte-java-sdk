@@ -69,22 +69,5 @@ public class ModelLinkRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelLinkRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("client_id", "clientId");
-        result.put("error", "error");
-        result.put("expiration", "expiration");
-        result.put("namespace", "namespace");
-        result.put("operation_name", "operationName");
-        result.put("payload", "payload");
-        result.put("redirect_uri", "redirectUri");
-        result.put("request_id", "requestId");
-        result.put("status", "status");
-        return result;
-    }
     
-    public static class ModelLinkRequestBuilder {
-        
-    }
 }

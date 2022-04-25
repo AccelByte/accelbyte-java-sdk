@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.cloudsave.operations.admin_concurrent_record;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -81,7 +79,7 @@ import java.util.*;
  * 
  * 
  * 
- * Reserved Word List: META
+ * Reserved Word List: __META
  * 
  * The reserved word cannot be used as a field in record value,
  * If still defining the field when creating or updating the record, it will be ignored.
@@ -127,29 +125,17 @@ import java.util.*;
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class AdminPutGameRecordConcurrentHandlerV1 extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/cloudsave/v1/admin/namespaces/{namespace}/concurrent/records/{key}";
-
-    @JsonIgnore
     private String method = "PUT";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList("application/json");
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -172,20 +158,19 @@ public class AdminPutGameRecordConcurrentHandlerV1 extends Operation {
         this.key = key;
         this.namespace = namespace;
         this.body = body;
+        
+        securities.add("Bearer");
     }
 
-    @JsonIgnore
     public AdminPutGameRecordConcurrentHandlerV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
 
     @Override
-    @JsonIgnore
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
         if (this.key != null){
@@ -198,37 +183,19 @@ public class AdminPutGameRecordConcurrentHandlerV1 extends Operation {
     }
 
 
+
     @Override
-    @JsonIgnore
     public ModelsAdminConcurrentRecordRequest getBodyParams(){
         return this.body;
     }
 
 
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("key","key");
-        result.put("namespace","namespace");
-        return result;
-    }
-
-    @JsonIgnore
-    public List<String> getAllRequiredFields() {
-        return Arrays.asList(
-            "key",
-            "namespace"
-        );
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @Override
-    @JsonIgnore
     public boolean isValid() {
         if(this.key == null) {
             return false;
@@ -240,7 +207,6 @@ public class AdminPutGameRecordConcurrentHandlerV1 extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         if(code != 204){
             String json = this.convertInputStreamToString(payload);

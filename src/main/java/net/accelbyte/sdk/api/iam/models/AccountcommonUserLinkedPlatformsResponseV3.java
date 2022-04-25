@@ -48,15 +48,5 @@ public class AccountcommonUserLinkedPlatformsResponseV3 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonUserLinkedPlatformsResponseV3>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("data", "data");
-        result.put("paging", "paging");
-        return result;
-    }
     
-    public static class AccountcommonUserLinkedPlatformsResponseV3Builder {
-        
-    }
 }

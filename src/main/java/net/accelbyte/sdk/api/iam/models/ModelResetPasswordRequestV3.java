@@ -51,16 +51,5 @@ public class ModelResetPasswordRequestV3 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelResetPasswordRequestV3>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("code", "code");
-        result.put("emailAddress", "emailAddress");
-        result.put("newPassword", "newPassword");
-        return result;
-    }
     
-    public static class ModelResetPasswordRequestV3Builder {
-        
-    }
 }

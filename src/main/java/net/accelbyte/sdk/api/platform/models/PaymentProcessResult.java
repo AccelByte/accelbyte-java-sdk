@@ -54,17 +54,5 @@ public class PaymentProcessResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PaymentProcessResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("pending", "pending");
-        result.put("reason", "reason");
-        result.put("redirectUrl", "redirectUrl");
-        result.put("success", "success");
-        return result;
-    }
     
-    public static class PaymentProcessResultBuilder {
-        
-    }
 }

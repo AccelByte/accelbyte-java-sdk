@@ -45,14 +45,5 @@ public class ModelsAddPlayerResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAddPlayerResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("status", "status");
-        return result;
-    }
     
-    public static class ModelsAddPlayerResponseBuilder {
-        
-    }
 }

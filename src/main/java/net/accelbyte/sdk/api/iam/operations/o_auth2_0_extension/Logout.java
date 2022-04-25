@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,29 +33,17 @@ import java.util.*;
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Logout extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/iam/v3/logout";
-
-    @JsonIgnore
     private String method = "POST";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList("*/*");
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -68,14 +54,14 @@ public class Logout extends Operation {
     public Logout(
     )
     {
+        
+        securities.add("Bearer");
     }
 
-    @JsonIgnore
     public Logout createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -84,16 +70,14 @@ public class Logout extends Operation {
 
 
 
+
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
 
-
     @Override
-    @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         if(code != 204){
             String json = this.convertInputStreamToString(payload);

@@ -48,15 +48,5 @@ public class ModelsUpdateConfigResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateConfigResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("apiKey", "apiKey");
-        result.put("namespace", "namespace");
-        return result;
-    }
     
-    public static class ModelsUpdateConfigResponseBuilder {
-        
-    }
 }

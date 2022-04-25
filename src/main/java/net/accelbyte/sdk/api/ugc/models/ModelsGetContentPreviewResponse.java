@@ -45,14 +45,5 @@ public class ModelsGetContentPreviewResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGetContentPreviewResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("preview", "preview");
-        return result;
-    }
     
-    public static class ModelsGetContentPreviewResponseBuilder {
-        
-    }
 }

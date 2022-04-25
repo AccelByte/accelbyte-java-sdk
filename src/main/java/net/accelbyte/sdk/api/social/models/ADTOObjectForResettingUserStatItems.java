@@ -48,15 +48,5 @@ public class ADTOObjectForResettingUserStatItems extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ADTOObjectForResettingUserStatItems>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("additionalData", "additionalData");
-        result.put("statCode", "statCode");
-        return result;
-    }
     
-    public static class ADTOObjectForResettingUserStatItemsBuilder {
-        
-    }
 }

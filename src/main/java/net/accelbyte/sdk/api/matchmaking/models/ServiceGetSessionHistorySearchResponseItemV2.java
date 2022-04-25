@@ -66,21 +66,5 @@ public class ServiceGetSessionHistorySearchResponseItemV2 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ServiceGetSessionHistorySearchResponseItemV2>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("_id", "id");
-        result.put("created_at", "createdAt");
-        result.put("game_mode", "gameMode");
-        result.put("joinable", "joinable");
-        result.put("match_id", "matchId");
-        result.put("namespace", "namespace");
-        result.put("status", "status");
-        result.put("sub_game_mode", "subGameMode");
-        return result;
-    }
     
-    public static class ServiceGetSessionHistorySearchResponseItemV2Builder {
-        
-    }
 }

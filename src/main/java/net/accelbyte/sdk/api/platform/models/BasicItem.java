@@ -190,27 +190,6 @@ public class BasicItem extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<BasicItem>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("appId", "appId");
-        result.put("appType", "appType");
-        result.put("baseAppId", "baseAppId");
-        result.put("createdAt", "createdAt");
-        result.put("entitlementType", "entitlementType");
-        result.put("features", "features");
-        result.put("itemId", "itemId");
-        result.put("itemType", "itemType");
-        result.put("name", "name");
-        result.put("namespace", "namespace");
-        result.put("seasonType", "seasonType");
-        result.put("sku", "sku");
-        result.put("status", "status");
-        result.put("tags", "tags");
-        result.put("updatedAt", "updatedAt");
-        result.put("useCount", "useCount");
-        return result;
-    }
     
     public enum AppType {
         GAME("GAME"),

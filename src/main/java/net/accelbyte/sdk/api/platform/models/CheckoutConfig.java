@@ -48,15 +48,5 @@ public class CheckoutConfig extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<CheckoutConfig>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("publicKey", "publicKey");
-        result.put("secretKey", "secretKey");
-        return result;
-    }
     
-    public static class CheckoutConfigBuilder {
-        
-    }
 }

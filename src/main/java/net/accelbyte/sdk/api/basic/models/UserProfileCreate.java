@@ -69,22 +69,5 @@ public class UserProfileCreate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserProfileCreate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("avatarLargeUrl", "avatarLargeUrl");
-        result.put("avatarSmallUrl", "avatarSmallUrl");
-        result.put("avatarUrl", "avatarUrl");
-        result.put("customAttributes", "customAttributes");
-        result.put("dateOfBirth", "dateOfBirth");
-        result.put("firstName", "firstName");
-        result.put("language", "language");
-        result.put("lastName", "lastName");
-        result.put("timeZone", "timeZone");
-        return result;
-    }
     
-    public static class UserProfileCreateBuilder {
-        
-    }
 }

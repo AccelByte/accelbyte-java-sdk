@@ -57,18 +57,5 @@ public class CampaignDynamicInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<CampaignDynamicInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("availableSaleCount", "availableSaleCount");
-        result.put("lastBatchNo", "lastBatchNo");
-        result.put("quantity", "quantity");
-        result.put("remainder", "remainder");
-        result.put("saleCount", "saleCount");
-        return result;
-    }
     
-    public static class CampaignDynamicInfoBuilder {
-        
-    }
 }

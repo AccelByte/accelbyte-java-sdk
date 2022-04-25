@@ -63,20 +63,5 @@ public class ModelUserCreateResponseV3 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserCreateResponseV3>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("authType", "authType");
-        result.put("country", "country");
-        result.put("dateOfBirth", "dateOfBirth");
-        result.put("displayName", "displayName");
-        result.put("emailAddress", "emailAddress");
-        result.put("namespace", "namespace");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class ModelUserCreateResponseV3Builder {
-        
-    }
 }

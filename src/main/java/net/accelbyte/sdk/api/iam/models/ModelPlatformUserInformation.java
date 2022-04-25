@@ -63,20 +63,5 @@ public class ModelPlatformUserInformation extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelPlatformUserInformation>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("DisplayName", "displayName");
-        result.put("EmailAddress", "emailAddress");
-        result.put("LinkedAt", "linkedAt");
-        result.put("Namespace", "namespace");
-        result.put("PlatformID", "platformID");
-        result.put("PlatformUserID", "platformUserID");
-        result.put("XUID", "xuid");
-        return result;
-    }
     
-    public static class ModelPlatformUserInformationBuilder {
-        
-    }
 }

@@ -45,14 +45,5 @@ public class ModelsUpdateGroupPredefinedRuleRequestV1 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateGroupPredefinedRuleRequestV1>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("ruleDetail", "ruleDetail");
-        return result;
-    }
     
-    public static class ModelsUpdateGroupPredefinedRuleRequestV1Builder {
-        
-    }
 }

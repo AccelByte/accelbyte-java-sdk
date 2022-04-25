@@ -71,14 +71,6 @@ public class CreditRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<CreditRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("amount", "amount");
-        result.put("reason", "reason");
-        result.put("source", "source");
-        return result;
-    }
     
     public enum Source {
         PURCHASE("PURCHASE"),

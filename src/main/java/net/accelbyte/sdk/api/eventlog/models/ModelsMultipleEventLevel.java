@@ -45,14 +45,5 @@ public class ModelsMultipleEventLevel extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMultipleEventLevel>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("EventLevel", "eventLevel");
-        return result;
-    }
     
-    public static class ModelsMultipleEventLevelBuilder {
-        
-    }
 }

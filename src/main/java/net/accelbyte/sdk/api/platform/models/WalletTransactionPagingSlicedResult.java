@@ -48,15 +48,5 @@ public class WalletTransactionPagingSlicedResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<WalletTransactionPagingSlicedResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("data", "data");
-        result.put("paging", "paging");
-        return result;
-    }
     
-    public static class WalletTransactionPagingSlicedResultBuilder {
-        
-    }
 }

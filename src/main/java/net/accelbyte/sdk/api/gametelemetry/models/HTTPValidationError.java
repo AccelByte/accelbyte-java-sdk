@@ -45,14 +45,5 @@ public class HTTPValidationError extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<HTTPValidationError>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("detail", "detail");
-        return result;
-    }
     
-    public static class HTTPValidationErrorBuilder {
-        
-    }
 }

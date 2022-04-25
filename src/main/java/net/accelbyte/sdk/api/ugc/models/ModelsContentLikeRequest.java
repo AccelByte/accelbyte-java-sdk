@@ -45,14 +45,5 @@ public class ModelsContentLikeRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsContentLikeRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("likeStatus", "likeStatus");
-        return result;
-    }
     
-    public static class ModelsContentLikeRequestBuilder {
-        
-    }
 }

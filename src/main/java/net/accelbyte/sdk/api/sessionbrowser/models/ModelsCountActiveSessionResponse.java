@@ -51,16 +51,5 @@ public class ModelsCountActiveSessionResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCountActiveSessionResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("custom_game", "customGame");
-        result.put("matchmaking_game", "matchmakingGame");
-        result.put("total", "total");
-        return result;
-    }
     
-    public static class ModelsCountActiveSessionResponseBuilder {
-        
-    }
 }

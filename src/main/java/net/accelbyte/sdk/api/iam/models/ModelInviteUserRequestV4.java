@@ -54,17 +54,5 @@ public class ModelInviteUserRequestV4 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelInviteUserRequestV4>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("assignedNamespaces", "assignedNamespaces");
-        result.put("emailAddresses", "emailAddresses");
-        result.put("isAdmin", "isAdmin");
-        result.put("roleId", "roleId");
-        return result;
-    }
     
-    public static class ModelInviteUserRequestV4Builder {
-        
-    }
 }

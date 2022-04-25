@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -42,29 +40,17 @@ import java.util.*;
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserAuthenticationV3 extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/iam/v3/authenticate";
-
-    @JsonIgnore
     private String method = "POST";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList("application/x-www-form-urlencoded");
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Basic";
-
-    @JsonIgnore
     private String locationQuery = "code";
-
     /**
      * fields as input parameter
      */
@@ -96,14 +82,14 @@ public class UserAuthenticationV3 extends Operation {
         this.password = password;
         this.requestId = requestId;
         this.userName = userName;
+        
+        securities.add("Basic");
     }
 
-    @JsonIgnore
     public UserAuthenticationV3 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -111,8 +97,8 @@ public class UserAuthenticationV3 extends Operation {
 
 
 
+
     @Override
-    @JsonIgnore
     public Map<String, Object> getFormDataParams(){
         Map<String, Object> formDataParams = new HashMap<>();
         if (this.clientId != null) {
@@ -137,31 +123,11 @@ public class UserAuthenticationV3 extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("client_id","clientId");
-        result.put("extend_exp","extendExp");
-        result.put("redirect_uri","redirectUri");
-        result.put("password","password");
-        result.put("request_id","requestId");
-        result.put("user_name","userName");
-        return result;
-    }
-
-    @JsonIgnore
-    public List<String> getAllRequiredFields() {
-        return Arrays.asList(
-            "password",            "requestId",            "userName"        );
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @Override
-    @JsonIgnore
     public boolean isValid() {
         if(this.password == null) {
             return false;
@@ -176,7 +142,6 @@ public class UserAuthenticationV3 extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public String parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code != 302){

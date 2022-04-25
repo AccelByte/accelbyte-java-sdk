@@ -37,13 +37,5 @@ public class ModelsPlayerRecordRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPlayerRecordRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        return result;
-    }
     
-    public static class ModelsPlayerRecordRequestBuilder {
-        
-    }
 }

@@ -57,18 +57,5 @@ public class SteamIAPConfig extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<SteamIAPConfig>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("createdAt", "createdAt");
-        result.put("namespace", "namespace");
-        result.put("publisherAuthenticationKey", "publisherAuthenticationKey");
-        result.put("rvn", "rvn");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
-    public static class SteamIAPConfigBuilder {
-        
-    }
 }

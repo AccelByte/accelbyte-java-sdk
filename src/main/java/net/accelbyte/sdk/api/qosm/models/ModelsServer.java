@@ -60,19 +60,5 @@ public class ModelsServer extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsServer>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("alias", "alias");
-        result.put("ip", "ip");
-        result.put("last_update", "lastUpdate");
-        result.put("port", "port");
-        result.put("region", "region");
-        result.put("status", "status");
-        return result;
-    }
     
-    public static class ModelsServerBuilder {
-        
-    }
 }

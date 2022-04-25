@@ -69,22 +69,5 @@ public class PaymentOrderDetails extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PaymentOrderDetails>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("charging", "charging");
-        result.put("currencyCode", "currencyCode");
-        result.put("currencySymbol", "currencySymbol");
-        result.put("description", "description");
-        result.put("displayName", "displayName");
-        result.put("price", "price");
-        result.put("region", "region");
-        result.put("sandbox", "sandbox");
-        result.put("title", "title");
-        return result;
-    }
     
-    public static class PaymentOrderDetailsBuilder {
-        
-    }
 }

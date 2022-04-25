@@ -48,15 +48,5 @@ public class ModelsEventID extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsEventID>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("Description", "description");
-        result.put("EventID", "eventID");
-        return result;
-    }
     
-    public static class ModelsEventIDBuilder {
-        
-    }
 }

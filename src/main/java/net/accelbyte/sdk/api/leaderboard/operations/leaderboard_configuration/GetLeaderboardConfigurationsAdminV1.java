@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -39,29 +37,17 @@ import java.util.*;
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class GetLeaderboardConfigurationsAdminV1 extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/leaderboard/v1/admin/namespaces/{namespace}/leaderboards";
-
-    @JsonIgnore
     private String method = "GET";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList();
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -88,20 +74,19 @@ public class GetLeaderboardConfigurationsAdminV1 extends Operation {
         this.isDeleted = isDeleted;
         this.limit = limit;
         this.offset = offset;
+        
+        securities.add("Bearer");
     }
 
-    @JsonIgnore
     public GetLeaderboardConfigurationsAdminV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
 
     @Override
-    @JsonIgnore
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
         if (this.namespace != null){
@@ -111,7 +96,6 @@ public class GetLeaderboardConfigurationsAdminV1 extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public Map<String, List<String>> getQueryParams(){
         Map<String, List<String>> queryParams = new HashMap<>();
         queryParams.put("isArchived", this.isArchived == null ? null : Arrays.asList(String.valueOf(this.isArchived)));
@@ -123,32 +107,13 @@ public class GetLeaderboardConfigurationsAdminV1 extends Operation {
 
 
 
+
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("namespace","namespace");
-        result.put("isArchived","isArchived");
-        result.put("isDeleted","isDeleted");
-        result.put("limit","limit");
-        result.put("offset","offset");
-        return result;
-    }
-
-    @JsonIgnore
-    public List<String> getAllRequiredFields() {
-        return Arrays.asList(
-            "namespace"
-        );
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @Override
-    @JsonIgnore
     public boolean isValid() {
         if(this.namespace == null) {
             return false;
@@ -157,7 +122,6 @@ public class GetLeaderboardConfigurationsAdminV1 extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public ModelsGetAllLeaderboardConfigsResp parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
@@ -167,7 +131,7 @@ public class GetLeaderboardConfigurationsAdminV1 extends Operation {
     }
 
     @Override
-    public Map<String, String> getCollectionFormatMap() {
+    protected Map<String, String> getCollectionFormatMap() {
         Map<String, String> result = new HashMap<>();
         result.put("isArchived", "None");
         result.put("isDeleted", "None");

@@ -45,14 +45,5 @@ public class ModelsUpdateGroupCustomAttributesRequestV1 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateGroupCustomAttributesRequestV1>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("customAttributes", "customAttributes");
-        return result;
-    }
     
-    public static class ModelsUpdateGroupCustomAttributesRequestV1Builder {
-        
-    }
 }

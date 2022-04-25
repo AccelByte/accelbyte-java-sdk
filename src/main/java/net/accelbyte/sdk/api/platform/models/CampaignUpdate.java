@@ -118,23 +118,6 @@ public class CampaignUpdate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<CampaignUpdate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("description", "description");
-        result.put("items", "items");
-        result.put("maxRedeemCountPerCampaignPerUser", "maxRedeemCountPerCampaignPerUser");
-        result.put("maxRedeemCountPerCode", "maxRedeemCountPerCode");
-        result.put("maxRedeemCountPerCodePerUser", "maxRedeemCountPerCodePerUser");
-        result.put("maxSaleCount", "maxSaleCount");
-        result.put("name", "name");
-        result.put("redeemEnd", "redeemEnd");
-        result.put("redeemStart", "redeemStart");
-        result.put("redeemType", "redeemType");
-        result.put("status", "status");
-        result.put("tags", "tags");
-        return result;
-    }
     
     public enum RedeemType {
         ITEM("ITEM");

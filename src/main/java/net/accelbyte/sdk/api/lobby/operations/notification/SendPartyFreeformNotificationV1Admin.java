@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.lobby.operations.notification;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -36,29 +34,17 @@ import java.util.*;
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class SendPartyFreeformNotificationV1Admin extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/lobby/v1/admin/notification/namespaces/{namespace}/parties/{partyId}/freeform/notify";
-
-    @JsonIgnore
     private String method = "POST";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList("application/json");
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -81,20 +67,19 @@ public class SendPartyFreeformNotificationV1Admin extends Operation {
         this.namespace = namespace;
         this.partyId = partyId;
         this.body = body;
+        
+        securities.add("Bearer");
     }
 
-    @JsonIgnore
     public SendPartyFreeformNotificationV1Admin createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
 
     @Override
-    @JsonIgnore
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
         if (this.namespace != null){
@@ -107,37 +92,19 @@ public class SendPartyFreeformNotificationV1Admin extends Operation {
     }
 
 
+
     @Override
-    @JsonIgnore
     public ModelFreeFormNotificationRequestV1 getBodyParams(){
         return this.body;
     }
 
 
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("namespace","namespace");
-        result.put("partyId","partyId");
-        return result;
-    }
-
-    @JsonIgnore
-    public List<String> getAllRequiredFields() {
-        return Arrays.asList(
-            "namespace",
-            "partyId"
-        );
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @Override
-    @JsonIgnore
     public boolean isValid() {
         if(this.namespace == null) {
             return false;
@@ -149,7 +116,6 @@ public class SendPartyFreeformNotificationV1Admin extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         if(code != 204){
             String json = this.convertInputStreamToString(payload);

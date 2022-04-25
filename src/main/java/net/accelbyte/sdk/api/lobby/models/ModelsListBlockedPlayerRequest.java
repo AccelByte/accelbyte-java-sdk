@@ -45,14 +45,5 @@ public class ModelsListBlockedPlayerRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsListBlockedPlayerRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("listBlockedUserId", "listBlockedUserId");
-        return result;
-    }
     
-    public static class ModelsListBlockedPlayerRequestBuilder {
-        
-    }
 }

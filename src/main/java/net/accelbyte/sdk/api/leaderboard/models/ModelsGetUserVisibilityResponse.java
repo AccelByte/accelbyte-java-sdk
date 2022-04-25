@@ -51,16 +51,5 @@ public class ModelsGetUserVisibilityResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGetUserVisibilityResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("namespace", "namespace");
-        result.put("userId", "userId");
-        result.put("visibility", "visibility");
-        return result;
-    }
     
-    public static class ModelsGetUserVisibilityResponseBuilder {
-        
-    }
 }

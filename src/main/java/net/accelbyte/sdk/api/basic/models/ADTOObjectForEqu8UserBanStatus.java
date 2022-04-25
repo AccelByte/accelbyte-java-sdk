@@ -48,15 +48,5 @@ public class ADTOObjectForEqu8UserBanStatus extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ADTOObjectForEqu8UserBanStatus>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("expires", "expires");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class ADTOObjectForEqu8UserBanStatusBuilder {
-        
-    }
 }

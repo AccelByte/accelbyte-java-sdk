@@ -231,54 +231,6 @@ public class SubscriptionInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<SubscriptionInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("billingAccount", "billingAccount");
-        result.put("chargeStatus", "chargeStatus");
-        result.put("chargedCycles", "chargedCycles");
-        result.put("createdAt", "createdAt");
-        result.put("currency", "currency");
-        result.put("currentCycle", "currentCycle");
-        result.put("currentPeriodEnd", "currentPeriodEnd");
-        result.put("currentPeriodStart", "currentPeriodStart");
-        result.put("description", "description");
-        result.put("end", "end");
-        result.put("entitlements", "entitlements");
-        result.put("firstSubscribe", "firstSubscribe");
-        result.put("id", "id");
-        result.put("inFixedCycleTrial", "inFixedCycleTrial");
-        result.put("inFixedFreeDays", "inFixedFreeDays");
-        result.put("itemId", "itemId");
-        result.put("itemSnapshot", "itemSnapshot");
-        result.put("language", "language");
-        result.put("namespace", "namespace");
-        result.put("nextBillingDate", "nextBillingDate");
-        result.put("paid", "paid");
-        result.put("paymentFlowRequired", "paymentFlowRequired");
-        result.put("paymentOrderNo", "paymentOrderNo");
-        result.put("paymentStationUrl", "paymentStationUrl");
-        result.put("price", "price");
-        result.put("recurring", "recurring");
-        result.put("region", "region");
-        result.put("retryAttempted", "retryAttempted");
-        result.put("returnUrl", "returnUrl");
-        result.put("sandbox", "sandbox");
-        result.put("sku", "sku");
-        result.put("source", "source");
-        result.put("start", "start");
-        result.put("status", "status");
-        result.put("subscribedAt", "subscribedAt");
-        result.put("subscribedBy", "subscribedBy");
-        result.put("title", "title");
-        result.put("trialPrice", "trialPrice");
-        result.put("trialedCycles", "trialedCycles");
-        result.put("unsubscribeReason", "unsubscribeReason");
-        result.put("unsubscribedAt", "unsubscribedAt");
-        result.put("updatedAt", "updatedAt");
-        result.put("userId", "userId");
-        return result;
-    }
     
     public enum ChargeStatus {
         NEVER("NEVER"),

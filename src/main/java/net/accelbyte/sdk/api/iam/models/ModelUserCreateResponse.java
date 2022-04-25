@@ -63,20 +63,5 @@ public class ModelUserCreateResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserCreateResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("AuthType", "authType");
-        result.put("Country", "country");
-        result.put("DateOfBirth", "dateOfBirth");
-        result.put("DisplayName", "displayName");
-        result.put("LoginId", "loginId");
-        result.put("Namespace", "namespace");
-        result.put("UserId", "userId");
-        return result;
-    }
     
-    public static class ModelUserCreateResponseBuilder {
-        
-    }
 }

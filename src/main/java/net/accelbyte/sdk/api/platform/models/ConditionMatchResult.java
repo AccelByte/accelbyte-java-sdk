@@ -51,16 +51,5 @@ public class ConditionMatchResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ConditionMatchResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("matched", "matched");
-        result.put("matchedConditions", "matchedConditions");
-        result.put("notMatchReason", "notMatchReason");
-        return result;
-    }
     
-    public static class ConditionMatchResultBuilder {
-        
-    }
 }

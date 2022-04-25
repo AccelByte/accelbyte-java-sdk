@@ -51,16 +51,5 @@ public class ModelsAdminConcurrentRecordRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAdminConcurrentRecordRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("set_by", "setBy");
-        result.put("updatedAt", "updatedAt");
-        result.put("value", "value");
-        return result;
-    }
     
-    public static class ModelsAdminConcurrentRecordRequestBuilder {
-        
-    }
 }

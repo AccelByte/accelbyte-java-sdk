@@ -45,14 +45,5 @@ public class ModelsCreateTagRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateTagRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("tag", "tag");
-        return result;
-    }
     
-    public static class ModelsCreateTagRequestBuilder {
-        
-    }
 }

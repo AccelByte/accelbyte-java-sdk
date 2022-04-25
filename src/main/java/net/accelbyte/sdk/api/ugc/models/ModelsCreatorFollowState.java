@@ -48,15 +48,5 @@ public class ModelsCreatorFollowState extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreatorFollowState>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("state", "state");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class ModelsCreatorFollowStateBuilder {
-        
-    }
 }

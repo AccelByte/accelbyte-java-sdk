@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.legal.operations.admin_user_eligibilities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -38,29 +36,17 @@ import java.util.*;
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class AdminRetrieveEligibilities extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/agreement/admin/namespaces/{namespace}/users/{userId}/eligibilities";
-
-    @JsonIgnore
     private String method = "GET";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList();
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -90,20 +76,19 @@ public class AdminRetrieveEligibilities extends Operation {
         this.publisherUserId = publisherUserId;
         this.clientId = clientId;
         this.countryCode = countryCode;
+        
+        securities.add("Bearer");
     }
 
-    @JsonIgnore
     public AdminRetrieveEligibilities createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
 
     @Override
-    @JsonIgnore
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
         if (this.namespace != null){
@@ -116,7 +101,6 @@ public class AdminRetrieveEligibilities extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public Map<String, List<String>> getQueryParams(){
         Map<String, List<String>> queryParams = new HashMap<>();
         queryParams.put("publisherUserId", this.publisherUserId == null ? null : Arrays.asList(this.publisherUserId));
@@ -127,36 +111,13 @@ public class AdminRetrieveEligibilities extends Operation {
 
 
 
+
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("namespace","namespace");
-        result.put("userId","userId");
-        result.put("publisherUserId","publisherUserId");
-        result.put("clientId","clientId");
-        result.put("countryCode","countryCode");
-        return result;
-    }
-
-    @JsonIgnore
-    public List<String> getAllRequiredFields() {
-        return Arrays.asList(
-            "namespace",
-            "userId",
-
-            "clientId",
-            "countryCode"
-        );
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @Override
-    @JsonIgnore
     public boolean isValid() {
         if(this.namespace == null) {
             return false;
@@ -174,7 +135,6 @@ public class AdminRetrieveEligibilities extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public RetrieveUserEligibilitiesIndirectResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
@@ -184,7 +144,7 @@ public class AdminRetrieveEligibilities extends Operation {
     }
 
     @Override
-    public Map<String, String> getCollectionFormatMap() {
+    protected Map<String, String> getCollectionFormatMap() {
         Map<String, String> result = new HashMap<>();
         result.put("publisherUserId", "None");
         result.put("clientId", "None");

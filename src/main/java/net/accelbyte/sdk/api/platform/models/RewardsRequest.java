@@ -68,13 +68,6 @@ public class RewardsRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RewardsRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("rewards", "rewards");
-        result.put("source", "source");
-        return result;
-    }
     
     public enum Source {
         PURCHASE("PURCHASE"),

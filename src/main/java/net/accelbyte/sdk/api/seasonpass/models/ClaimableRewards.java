@@ -48,15 +48,5 @@ public class ClaimableRewards extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ClaimableRewards>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("claimingRewards", "claimingRewards");
-        result.put("toClaimRewards", "toClaimRewards");
-        return result;
-    }
     
-    public static class ClaimableRewardsBuilder {
-        
-    }
 }

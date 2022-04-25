@@ -45,14 +45,5 @@ public class PaymentToken extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PaymentToken>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("token", "token");
-        return result;
-    }
     
-    public static class PaymentTokenBuilder {
-        
-    }
 }

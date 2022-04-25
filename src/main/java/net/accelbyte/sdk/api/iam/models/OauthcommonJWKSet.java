@@ -45,14 +45,5 @@ public class OauthcommonJWKSet extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<OauthcommonJWKSet>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("keys", "keys");
-        return result;
-    }
     
-    public static class OauthcommonJWKSetBuilder {
-        
-    }
 }

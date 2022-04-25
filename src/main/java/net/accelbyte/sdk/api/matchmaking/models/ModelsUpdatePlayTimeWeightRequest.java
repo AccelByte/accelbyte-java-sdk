@@ -51,16 +51,5 @@ public class ModelsUpdatePlayTimeWeightRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdatePlayTimeWeightRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("playtime", "playtime");
-        result.put("userID", "userID");
-        result.put("weight", "weight");
-        return result;
-    }
     
-    public static class ModelsUpdatePlayTimeWeightRequestBuilder {
-        
-    }
 }

@@ -48,15 +48,5 @@ public class ModelsGroupMember extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGroupMember>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("memberRoleId", "memberRoleId");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class ModelsGroupMemberBuilder {
-        
-    }
 }

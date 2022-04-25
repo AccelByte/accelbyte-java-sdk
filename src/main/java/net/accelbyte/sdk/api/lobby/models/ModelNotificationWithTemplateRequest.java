@@ -54,17 +54,5 @@ public class ModelNotificationWithTemplateRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelNotificationWithTemplateRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("templateContext", "templateContext");
-        result.put("templateLanguage", "templateLanguage");
-        result.put("templateSlug", "templateSlug");
-        result.put("topic", "topic");
-        return result;
-    }
     
-    public static class ModelNotificationWithTemplateRequestBuilder {
-        
-    }
 }

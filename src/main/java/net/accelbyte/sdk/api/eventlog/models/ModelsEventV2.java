@@ -72,23 +72,5 @@ public class ModelsEventV2 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsEventV2>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("clientId", "clientId");
-        result.put("id", "id");
-        result.put("name", "name");
-        result.put("namespace", "namespace");
-        result.put("payload", "payload");
-        result.put("sessionId", "sessionId");
-        result.put("timestamp", "timestamp");
-        result.put("traceId", "traceId");
-        result.put("userId", "userId");
-        result.put("version", "version");
-        return result;
-    }
     
-    public static class ModelsEventV2Builder {
-        
-    }
 }

@@ -48,15 +48,5 @@ public class ModelListAssignedUsersV4Response extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelListAssignedUsersV4Response>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("data", "data");
-        result.put("paging", "paging");
-        return result;
-    }
     
-    public static class ModelListAssignedUsersV4ResponseBuilder {
-        
-    }
 }

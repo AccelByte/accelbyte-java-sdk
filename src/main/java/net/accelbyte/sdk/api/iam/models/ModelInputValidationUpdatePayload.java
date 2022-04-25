@@ -48,15 +48,5 @@ public class ModelInputValidationUpdatePayload extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelInputValidationUpdatePayload>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("field", "field");
-        result.put("validation", "validation");
-        return result;
-    }
     
-    public static class ModelInputValidationUpdatePayloadBuilder {
-        
-    }
 }

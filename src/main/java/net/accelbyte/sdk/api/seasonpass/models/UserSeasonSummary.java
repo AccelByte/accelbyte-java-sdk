@@ -81,26 +81,5 @@ public class UserSeasonSummary extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserSeasonSummary>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("cleared", "cleared");
-        result.put("createdAt", "createdAt");
-        result.put("currentExp", "currentExp");
-        result.put("currentTierIndex", "currentTierIndex");
-        result.put("enrolledAt", "enrolledAt");
-        result.put("enrolledPasses", "enrolledPasses");
-        result.put("id", "id");
-        result.put("lastTierIndex", "lastTierIndex");
-        result.put("namespace", "namespace");
-        result.put("requiredExp", "requiredExp");
-        result.put("seasonId", "seasonId");
-        result.put("updatedAt", "updatedAt");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class UserSeasonSummaryBuilder {
-        
-    }
 }

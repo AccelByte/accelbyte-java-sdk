@@ -75,24 +75,5 @@ public class PassInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PassInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("autoEnroll", "autoEnroll");
-        result.put("code", "code");
-        result.put("createdAt", "createdAt");
-        result.put("displayOrder", "displayOrder");
-        result.put("images", "images");
-        result.put("localizations", "localizations");
-        result.put("namespace", "namespace");
-        result.put("passItemId", "passItemId");
-        result.put("passItemName", "passItemName");
-        result.put("seasonId", "seasonId");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
-    public static class PassInfoBuilder {
-        
-    }
 }

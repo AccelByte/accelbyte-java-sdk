@@ -51,16 +51,5 @@ public class UserPurchasable extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserPurchasable>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("passItemId", "passItemId");
-        result.put("tierItemCount", "tierItemCount");
-        result.put("tierItemId", "tierItemId");
-        return result;
-    }
     
-    public static class UserPurchasableBuilder {
-        
-    }
 }

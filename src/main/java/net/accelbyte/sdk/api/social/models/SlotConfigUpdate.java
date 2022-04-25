@@ -48,15 +48,5 @@ public class SlotConfigUpdate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<SlotConfigUpdate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("maxSlotSize", "maxSlotSize");
-        result.put("maxSlots", "maxSlots");
-        return result;
-    }
     
-    public static class SlotConfigUpdateBuilder {
-        
-    }
 }

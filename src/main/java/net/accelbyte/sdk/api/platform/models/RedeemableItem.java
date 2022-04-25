@@ -54,17 +54,5 @@ public class RedeemableItem extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RedeemableItem>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("extraSubscriptionDays", "extraSubscriptionDays");
-        result.put("itemId", "itemId");
-        result.put("itemName", "itemName");
-        result.put("quantity", "quantity");
-        return result;
-    }
     
-    public static class RedeemableItemBuilder {
-        
-    }
 }

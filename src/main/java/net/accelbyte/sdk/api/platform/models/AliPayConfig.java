@@ -54,17 +54,5 @@ public class AliPayConfig extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AliPayConfig>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("appId", "appId");
-        result.put("privateKey", "privateKey");
-        result.put("publicKey", "publicKey");
-        result.put("returnUrl", "returnUrl");
-        return result;
-    }
     
-    public static class AliPayConfigBuilder {
-        
-    }
 }

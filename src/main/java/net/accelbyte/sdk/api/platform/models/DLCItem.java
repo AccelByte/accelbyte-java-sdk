@@ -48,15 +48,5 @@ public class DLCItem extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<DLCItem>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("id", "id");
-        result.put("rewards", "rewards");
-        return result;
-    }
     
-    public static class DLCItemBuilder {
-        
-    }
 }

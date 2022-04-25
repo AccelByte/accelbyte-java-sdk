@@ -57,18 +57,5 @@ public class AccountcommonUserSearchResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonUserSearchResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("DisplayName", "displayName");
-        result.put("EmailAddress", "emailAddress");
-        result.put("LinkedPlatforms", "linkedPlatforms");
-        result.put("PhoneNumber", "phoneNumber");
-        result.put("UserId", "userId");
-        return result;
-    }
     
-    public static class AccountcommonUserSearchResultBuilder {
-        
-    }
 }

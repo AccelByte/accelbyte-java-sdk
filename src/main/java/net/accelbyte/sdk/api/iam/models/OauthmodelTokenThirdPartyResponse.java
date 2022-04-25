@@ -48,15 +48,5 @@ public class OauthmodelTokenThirdPartyResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<OauthmodelTokenThirdPartyResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("platform_token", "platformToken");
-        result.put("sand_box_id", "sandBoxId");
-        return result;
-    }
     
-    public static class OauthmodelTokenThirdPartyResponseBuilder {
-        
-    }
 }

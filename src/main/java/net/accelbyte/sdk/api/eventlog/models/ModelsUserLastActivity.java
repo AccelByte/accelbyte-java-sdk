@@ -51,16 +51,5 @@ public class ModelsUserLastActivity extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUserLastActivity>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("LastActivityTime", "lastActivityTime");
-        result.put("Namespace", "namespace");
-        result.put("UserID", "userID");
-        return result;
-    }
     
-    public static class ModelsUserLastActivityBuilder {
-        
-    }
 }

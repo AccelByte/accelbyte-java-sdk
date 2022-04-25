@@ -127,26 +127,6 @@ public class SubscriptionActivityInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<SubscriptionActivityInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("action", "action");
-        result.put("chargedCycles", "chargedCycles");
-        result.put("createdAt", "createdAt");
-        result.put("currentCycle", "currentCycle");
-        result.put("grantDays", "grantDays");
-        result.put("inFixedCycleTrial", "inFixedCycleTrial");
-        result.put("inFixedFreeDays", "inFixedFreeDays");
-        result.put("namespace", "namespace");
-        result.put("operator", "operator");
-        result.put("reason", "reason");
-        result.put("subscribedBy", "subscribedBy");
-        result.put("subscriptionId", "subscriptionId");
-        result.put("trialedCycles", "trialedCycles");
-        result.put("updatedAt", "updatedAt");
-        result.put("userId", "userId");
-        return result;
-    }
     
     public enum Action {
         SUBSCRIBE("SUBSCRIBE"),

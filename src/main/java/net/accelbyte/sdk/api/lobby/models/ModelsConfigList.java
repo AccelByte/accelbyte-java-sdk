@@ -45,14 +45,5 @@ public class ModelsConfigList extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsConfigList>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("configs", "configs");
-        return result;
-    }
     
-    public static class ModelsConfigListBuilder {
-        
-    }
 }

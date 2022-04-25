@@ -45,14 +45,5 @@ public class ModelsCreateScreenshotRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateScreenshotRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("screenshots", "screenshots");
-        return result;
-    }
     
-    public static class ModelsCreateScreenshotRequestBuilder {
-        
-    }
 }

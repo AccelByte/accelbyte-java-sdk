@@ -87,28 +87,5 @@ public class ServiceGetSessionHistorySearchResponseItem extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ServiceGetSessionHistorySearchResponseItem>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("_id", "id");
-        result.put("channel", "channel");
-        result.put("client_version", "clientVersion");
-        result.put("created_at", "createdAt");
-        result.put("event_description", "eventDescription");
-        result.put("event_name", "eventName");
-        result.put("game_mode", "gameMode");
-        result.put("joinable", "joinable");
-        result.put("match_id", "matchId");
-        result.put("namespace", "namespace");
-        result.put("party_id", "partyId");
-        result.put("region", "region");
-        result.put("server_name", "serverName");
-        result.put("status", "status");
-        result.put("sub_game_mode", "subGameMode");
-        return result;
-    }
     
-    public static class ServiceGetSessionHistorySearchResponseItemBuilder {
-        
-    }
 }

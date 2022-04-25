@@ -63,20 +63,5 @@ public class ModelsCreateContentRequestS3 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateContentRequestS3>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("contentType", "contentType");
-        result.put("fileExtension", "fileExtension");
-        result.put("name", "name");
-        result.put("preview", "preview");
-        result.put("subType", "subType");
-        result.put("tags", "tags");
-        result.put("type", "type");
-        return result;
-    }
     
-    public static class ModelsCreateContentRequestS3Builder {
-        
-    }
 }

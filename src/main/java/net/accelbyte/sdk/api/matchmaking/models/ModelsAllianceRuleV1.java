@@ -54,17 +54,5 @@ public class ModelsAllianceRuleV1 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAllianceRuleV1>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("maxNumber", "maxNumber");
-        result.put("minNumber", "minNumber");
-        result.put("playerMaxNumber", "playerMaxNumber");
-        result.put("playerMinNumber", "playerMinNumber");
-        return result;
-    }
     
-    public static class ModelsAllianceRuleV1Builder {
-        
-    }
 }

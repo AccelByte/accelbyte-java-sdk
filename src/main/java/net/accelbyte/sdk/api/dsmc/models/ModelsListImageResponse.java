@@ -48,15 +48,5 @@ public class ModelsListImageResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsListImageResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("images", "images");
-        result.put("paging", "paging");
-        return result;
-    }
     
-    public static class ModelsListImageResponseBuilder {
-        
-    }
 }

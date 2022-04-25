@@ -74,15 +74,6 @@ public class FulfillmentScriptContext extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<FulfillmentScriptContext>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("item", "item");
-        result.put("namespace", "namespace");
-        result.put("order", "order");
-        result.put("source", "source");
-        return result;
-    }
     
     public enum Source {
         PURCHASE("PURCHASE"),

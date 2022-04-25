@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.matchmaking.operations.matchmaking;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -37,29 +35,17 @@ import java.util.*;
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class DeleteUserFromSessionInChannel extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/sessions/{matchID}/users/{userID}";
-
-    @JsonIgnore
     private String method = "DELETE";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList("application/json");
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -86,20 +72,19 @@ public class DeleteUserFromSessionInChannel extends Operation {
         this.matchID = matchID;
         this.namespace = namespace;
         this.userID = userID;
+        
+        securities.add("Bearer");
     }
 
-    @JsonIgnore
     public DeleteUserFromSessionInChannel createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
 
     @Override
-    @JsonIgnore
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
         if (this.channelName != null){
@@ -120,34 +105,13 @@ public class DeleteUserFromSessionInChannel extends Operation {
 
 
 
+
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("channelName","channelName");
-        result.put("matchID","matchID");
-        result.put("namespace","namespace");
-        result.put("userID","userID");
-        return result;
-    }
-
-    @JsonIgnore
-    public List<String> getAllRequiredFields() {
-        return Arrays.asList(
-            "channelName",
-            "matchID",
-            "namespace",
-            "userID"
-        );
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @Override
-    @JsonIgnore
     public boolean isValid() {
         if(this.channelName == null) {
             return false;
@@ -165,7 +129,6 @@ public class DeleteUserFromSessionInChannel extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         if(code != 200){
             String json = this.convertInputStreamToString(payload);

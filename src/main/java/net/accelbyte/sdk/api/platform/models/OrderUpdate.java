@@ -68,13 +68,6 @@ public class OrderUpdate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<OrderUpdate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("status", "status");
-        result.put("statusReason", "statusReason");
-        return result;
-    }
     
     public enum Status {
         INIT("INIT"),

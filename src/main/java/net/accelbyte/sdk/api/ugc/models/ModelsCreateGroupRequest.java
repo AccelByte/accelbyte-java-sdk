@@ -48,15 +48,5 @@ public class ModelsCreateGroupRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateGroupRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("contents", "contents");
-        result.put("name", "name");
-        return result;
-    }
     
-    public static class ModelsCreateGroupRequestBuilder {
-        
-    }
 }

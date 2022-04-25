@@ -48,15 +48,5 @@ public class CategoryCreate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<CategoryCreate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("categoryPath", "categoryPath");
-        result.put("localizationDisplayNames", "localizationDisplayNames");
-        return result;
-    }
     
-    public static class CategoryCreateBuilder {
-        
-    }
 }

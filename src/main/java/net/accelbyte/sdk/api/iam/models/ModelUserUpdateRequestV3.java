@@ -57,18 +57,5 @@ public class ModelUserUpdateRequestV3 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserUpdateRequestV3>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("country", "country");
-        result.put("dateOfBirth", "dateOfBirth");
-        result.put("displayName", "displayName");
-        result.put("languageTag", "languageTag");
-        result.put("userName", "userName");
-        return result;
-    }
     
-    public static class ModelUserUpdateRequestV3Builder {
-        
-    }
 }

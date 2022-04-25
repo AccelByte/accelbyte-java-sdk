@@ -120,39 +120,5 @@ public class ModelUserResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("AuthType", "authType");
-        result.put("Bans", "bans");
-        result.put("Country", "country");
-        result.put("CreatedAt", "createdAt");
-        result.put("DateOfBirth", "dateOfBirth");
-        result.put("DeletionStatus", "deletionStatus");
-        result.put("DisplayName", "displayName");
-        result.put("EmailAddress", "emailAddress");
-        result.put("EmailVerified", "emailVerified");
-        result.put("Enabled", "enabled");
-        result.put("LastDateOfBirthChangedTime", "lastDateOfBirthChangedTime");
-        result.put("LastEnabledChangedTime", "lastEnabledChangedTime");
-        result.put("LoginId", "loginId");
-        result.put("Namespace", "namespace");
-        result.put("NamespaceRoles", "namespaceRoles");
-        result.put("NewEmailAddress", "newEmailAddress");
-        result.put("OldEmailAddress", "oldEmailAddress");
-        result.put("Permissions", "permissions");
-        result.put("PhoneNumber", "phoneNumber");
-        result.put("PhoneVerified", "phoneVerified");
-        result.put("PlatformId", "platformId");
-        result.put("PlatformUserId", "platformUserId");
-        result.put("Roles", "roles");
-        result.put("UserId", "userId");
-        result.put("Username", "username");
-        result.put("XUID", "xuid");
-        return result;
-    }
     
-    public static class ModelUserResponseBuilder {
-        
-    }
 }

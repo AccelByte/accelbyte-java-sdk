@@ -60,19 +60,5 @@ public class ModelUserCreateRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserCreateRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("AuthType", "authType");
-        result.put("Country", "country");
-        result.put("DisplayName", "displayName");
-        result.put("LoginId", "loginId");
-        result.put("Password", "password");
-        result.put("PasswordMD5Sum", "passwordMD5Sum");
-        return result;
-    }
     
-    public static class ModelUserCreateRequestBuilder {
-        
-    }
 }

@@ -60,19 +60,5 @@ public class Image extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<Image>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("as", "as");
-        result.put("caption", "caption");
-        result.put("height", "height");
-        result.put("imageUrl", "imageUrl");
-        result.put("smallImageUrl", "smallImageUrl");
-        result.put("width", "width");
-        return result;
-    }
     
-    public static class ImageBuilder {
-        
-    }
 }

@@ -54,17 +54,5 @@ public class AccountcommonPagination extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonPagination>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("First", "first");
-        result.put("Last", "last");
-        result.put("Next", "next");
-        result.put("Previous", "previous");
-        return result;
-    }
     
-    public static class AccountcommonPaginationBuilder {
-        
-    }
 }

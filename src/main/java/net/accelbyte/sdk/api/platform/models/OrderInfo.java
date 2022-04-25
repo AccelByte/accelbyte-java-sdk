@@ -193,48 +193,6 @@ public class OrderInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<OrderInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("chargebackReversedTime", "chargebackReversedTime");
-        result.put("chargebackTime", "chargebackTime");
-        result.put("chargedTime", "chargedTime");
-        result.put("createdAt", "createdAt");
-        result.put("createdTime", "createdTime");
-        result.put("currency", "currency");
-        result.put("discountedPrice", "discountedPrice");
-        result.put("expireTime", "expireTime");
-        result.put("ext", "ext");
-        result.put("fulfilledTime", "fulfilledTime");
-        result.put("itemId", "itemId");
-        result.put("itemSnapshot", "itemSnapshot");
-        result.put("language", "language");
-        result.put("namespace", "namespace");
-        result.put("orderNo", "orderNo");
-        result.put("paymentMethod", "paymentMethod");
-        result.put("paymentMethodFee", "paymentMethodFee");
-        result.put("paymentOrderNo", "paymentOrderNo");
-        result.put("paymentProvider", "paymentProvider");
-        result.put("paymentProviderFee", "paymentProviderFee");
-        result.put("paymentRemainSeconds", "paymentRemainSeconds");
-        result.put("paymentStationUrl", "paymentStationUrl");
-        result.put("price", "price");
-        result.put("quantity", "quantity");
-        result.put("refundedTime", "refundedTime");
-        result.put("region", "region");
-        result.put("salesTax", "salesTax");
-        result.put("sandbox", "sandbox");
-        result.put("status", "status");
-        result.put("statusReason", "statusReason");
-        result.put("subtotalPrice", "subtotalPrice");
-        result.put("tax", "tax");
-        result.put("totalPrice", "totalPrice");
-        result.put("totalTax", "totalTax");
-        result.put("updatedAt", "updatedAt");
-        result.put("userId", "userId");
-        result.put("vat", "vat");
-        return result;
-    }
     
     public enum PaymentProvider {
         WALLET("WALLET"),

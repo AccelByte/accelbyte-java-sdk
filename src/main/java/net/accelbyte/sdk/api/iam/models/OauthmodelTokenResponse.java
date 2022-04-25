@@ -87,28 +87,5 @@ public class OauthmodelTokenResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<OauthmodelTokenResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("access_token", "accessToken");
-        result.put("bans", "bans");
-        result.put("display_name", "displayName");
-        result.put("expires_in", "expiresIn");
-        result.put("is_comply", "isComply");
-        result.put("jflgs", "jflgs");
-        result.put("namespace", "namespace");
-        result.put("namespace_roles", "namespaceRoles");
-        result.put("permissions", "permissions");
-        result.put("platform_id", "platformId");
-        result.put("platform_user_id", "platformUserId");
-        result.put("refresh_token", "refreshToken");
-        result.put("roles", "roles");
-        result.put("token_type", "tokenType");
-        result.put("user_id", "userId");
-        return result;
-    }
     
-    public static class OauthmodelTokenResponseBuilder {
-        
-    }
 }

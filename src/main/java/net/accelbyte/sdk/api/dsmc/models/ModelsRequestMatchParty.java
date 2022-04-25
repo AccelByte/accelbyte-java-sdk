@@ -51,16 +51,5 @@ public class ModelsRequestMatchParty extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsRequestMatchParty>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("party_attributes", "partyAttributes");
-        result.put("party_id", "partyId");
-        result.put("party_members", "partyMembers");
-        return result;
-    }
     
-    public static class ModelsRequestMatchPartyBuilder {
-        
-    }
 }

@@ -104,25 +104,6 @@ public class UserProfilePrivateInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserProfilePrivateInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("avatarLargeUrl", "avatarLargeUrl");
-        result.put("avatarSmallUrl", "avatarSmallUrl");
-        result.put("avatarUrl", "avatarUrl");
-        result.put("customAttributes", "customAttributes");
-        result.put("dateOfBirth", "dateOfBirth");
-        result.put("firstName", "firstName");
-        result.put("language", "language");
-        result.put("lastName", "lastName");
-        result.put("namespace", "namespace");
-        result.put("privateCustomAttributes", "privateCustomAttributes");
-        result.put("status", "status");
-        result.put("timeZone", "timeZone");
-        result.put("userId", "userId");
-        result.put("zipCode", "zipCode");
-        return result;
-    }
     
     public enum Status {
         ACTIVE("ACTIVE"),

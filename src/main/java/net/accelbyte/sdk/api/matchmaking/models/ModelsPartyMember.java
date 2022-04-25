@@ -48,15 +48,5 @@ public class ModelsPartyMember extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPartyMember>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("extra_attributes", "extraAttributes");
-        result.put("user_id", "userId");
-        return result;
-    }
     
-    public static class ModelsPartyMemberBuilder {
-        
-    }
 }

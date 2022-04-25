@@ -80,17 +80,6 @@ public class BulkUserStatItemUpdate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<BulkUserStatItemUpdate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("additionalData", "additionalData");
-        result.put("additionalKey", "additionalKey");
-        result.put("statCode", "statCode");
-        result.put("updateStrategy", "updateStrategy");
-        result.put("userId", "userId");
-        result.put("value", "value");
-        return result;
-    }
     
     public enum UpdateStrategy {
         OVERRIDE("OVERRIDE"),

@@ -45,14 +45,5 @@ public class ModelsMatchOptionRule extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMatchOptionRule>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("options", "options");
-        return result;
-    }
     
-    public static class ModelsMatchOptionRuleBuilder {
-        
-    }
 }

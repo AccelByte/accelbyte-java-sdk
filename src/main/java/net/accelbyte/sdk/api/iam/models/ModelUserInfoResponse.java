@@ -54,17 +54,5 @@ public class ModelUserInfoResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserInfoResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("displayName", "displayName");
-        result.put("emailAddress", "emailAddress");
-        result.put("namespace", "namespace");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class ModelUserInfoResponseBuilder {
-        
-    }
 }

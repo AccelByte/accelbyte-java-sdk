@@ -48,15 +48,5 @@ public class ModelsPartyPUTCustomAttributesRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPartyPUTCustomAttributesRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("custom_attribute", "customAttribute");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
-    public static class ModelsPartyPUTCustomAttributesRequestBuilder {
-        
-    }
 }

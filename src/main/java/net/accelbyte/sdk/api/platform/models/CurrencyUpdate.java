@@ -45,14 +45,5 @@ public class CurrencyUpdate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<CurrencyUpdate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("localizationDescriptions", "localizationDescriptions");
-        return result;
-    }
     
-    public static class CurrencyUpdateBuilder {
-        
-    }
 }

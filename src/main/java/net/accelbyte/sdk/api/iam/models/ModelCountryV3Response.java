@@ -54,17 +54,5 @@ public class ModelCountryV3Response extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelCountryV3Response>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("ageRestriction", "ageRestriction");
-        result.put("countryCode", "countryCode");
-        result.put("countryName", "countryName");
-        result.put("enable", "enable");
-        return result;
-    }
     
-    public static class ModelCountryV3ResponseBuilder {
-        
-    }
 }

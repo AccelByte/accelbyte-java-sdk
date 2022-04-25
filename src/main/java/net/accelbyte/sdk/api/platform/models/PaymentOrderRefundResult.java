@@ -83,18 +83,6 @@ public class PaymentOrderRefundResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PaymentOrderRefundResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("createdTime", "createdTime");
-        result.put("namespace", "namespace");
-        result.put("paymentOrderNo", "paymentOrderNo");
-        result.put("refundedTime", "refundedTime");
-        result.put("status", "status");
-        result.put("targetNamespace", "targetNamespace");
-        result.put("targetUserId", "targetUserId");
-        return result;
-    }
     
     public enum Status {
         INIT("INIT"),

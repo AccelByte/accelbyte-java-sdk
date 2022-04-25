@@ -75,24 +75,5 @@ public class ModelsAchievementRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAchievementRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("achievementCode", "achievementCode");
-        result.put("defaultLanguage", "defaultLanguage");
-        result.put("description", "description");
-        result.put("goalValue", "goalValue");
-        result.put("hidden", "hidden");
-        result.put("incremental", "incremental");
-        result.put("lockedIcons", "lockedIcons");
-        result.put("name", "name");
-        result.put("statCode", "statCode");
-        result.put("tags", "tags");
-        result.put("unlockedIcons", "unlockedIcons");
-        return result;
-    }
     
-    public static class ModelsAchievementRequestBuilder {
-        
-    }
 }

@@ -51,16 +51,5 @@ public class PlatformRewardItem extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PlatformRewardItem>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("itemId", "itemId");
-        result.put("itemSku", "itemSku");
-        result.put("itemType", "itemType");
-        return result;
-    }
     
-    public static class PlatformRewardItemBuilder {
-        
-    }
 }

@@ -48,15 +48,5 @@ public class ModelUpgradeHeadlessAccountRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUpgradeHeadlessAccountRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("LoginID", "loginID");
-        result.put("Password", "password");
-        return result;
-    }
     
-    public static class ModelUpgradeHeadlessAccountRequestBuilder {
-        
-    }
 }

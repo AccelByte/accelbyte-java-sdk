@@ -48,15 +48,5 @@ public class AccountcommonInputValidationDescription extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonInputValidationDescription>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("language", "language");
-        result.put("message", "message");
-        return result;
-    }
     
-    public static class AccountcommonInputValidationDescriptionBuilder {
-        
-    }
 }

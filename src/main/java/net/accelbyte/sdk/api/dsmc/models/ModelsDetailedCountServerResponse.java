@@ -54,17 +54,5 @@ public class ModelsDetailedCountServerResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDetailedCountServerResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("busy_count", "busyCount");
-        result.put("creating_count", "creatingCount");
-        result.put("ready_count", "readyCount");
-        result.put("unreachable_count", "unreachableCount");
-        return result;
-    }
     
-    public static class ModelsDetailedCountServerResponseBuilder {
-        
-    }
 }

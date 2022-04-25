@@ -54,17 +54,5 @@ public class StadiaSyncRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<StadiaSyncRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("appId", "appId");
-        result.put("language", "language");
-        result.put("region", "region");
-        result.put("stadiaPlayerId", "stadiaPlayerId");
-        return result;
-    }
     
-    public static class StadiaSyncRequestBuilder {
-        
-    }
 }

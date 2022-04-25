@@ -77,16 +77,6 @@ public class EntitlementUpdate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<EntitlementUpdate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("endDate", "endDate");
-        result.put("nullFieldList", "nullFieldList");
-        result.put("startDate", "startDate");
-        result.put("status", "status");
-        result.put("useCount", "useCount");
-        return result;
-    }
     
     public enum Status {
         ACTIVE("ACTIVE"),

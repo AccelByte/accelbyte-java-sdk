@@ -72,23 +72,5 @@ public class ModelsUpdateDeploymentRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateDeploymentRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("allow_version_override", "allowVersionOverride");
-        result.put("buffer_count", "bufferCount");
-        result.put("buffer_percent", "bufferPercent");
-        result.put("configuration", "configuration");
-        result.put("enable_region_overrides", "enableRegionOverrides");
-        result.put("game_version", "gameVersion");
-        result.put("max_count", "maxCount");
-        result.put("min_count", "minCount");
-        result.put("regions", "regions");
-        result.put("use_buffer_percent", "useBufferPercent");
-        return result;
-    }
     
-    public static class ModelsUpdateDeploymentRequestBuilder {
-        
-    }
 }

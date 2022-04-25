@@ -51,16 +51,5 @@ public class ModelsMatchingRule extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMatchingRule>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("attribute", "attribute");
-        result.put("criteria", "criteria");
-        result.put("reference", "reference");
-        return result;
-    }
     
-    public static class ModelsMatchingRuleBuilder {
-        
-    }
 }

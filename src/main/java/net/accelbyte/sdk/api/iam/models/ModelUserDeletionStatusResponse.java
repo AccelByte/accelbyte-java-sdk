@@ -45,14 +45,5 @@ public class ModelUserDeletionStatusResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserDeletionStatusResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("deletionStatus", "deletionStatus");
-        return result;
-    }
     
-    public static class ModelUserDeletionStatusResponseBuilder {
-        
-    }
 }

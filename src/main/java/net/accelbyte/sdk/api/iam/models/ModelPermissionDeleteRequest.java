@@ -48,15 +48,5 @@ public class ModelPermissionDeleteRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelPermissionDeleteRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("Action", "action");
-        result.put("Resource", "resource");
-        return result;
-    }
     
-    public static class ModelPermissionDeleteRequestBuilder {
-        
-    }
 }

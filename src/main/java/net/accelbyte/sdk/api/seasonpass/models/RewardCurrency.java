@@ -48,15 +48,5 @@ public class RewardCurrency extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RewardCurrency>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("currencyCode", "currencyCode");
-        result.put("namespace", "namespace");
-        return result;
-    }
     
-    public static class RewardCurrencyBuilder {
-        
-    }
 }

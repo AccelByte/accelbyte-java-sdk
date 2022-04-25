@@ -48,15 +48,5 @@ public class ModelsMatchResultRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMatchResultRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("match_id", "matchId");
-        result.put("players", "players");
-        return result;
-    }
     
-    public static class ModelsMatchResultRequestBuilder {
-        
-    }
 }

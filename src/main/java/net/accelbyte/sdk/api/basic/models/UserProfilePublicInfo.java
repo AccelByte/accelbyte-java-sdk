@@ -63,20 +63,5 @@ public class UserProfilePublicInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserProfilePublicInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("avatarLargeUrl", "avatarLargeUrl");
-        result.put("avatarSmallUrl", "avatarSmallUrl");
-        result.put("avatarUrl", "avatarUrl");
-        result.put("customAttributes", "customAttributes");
-        result.put("namespace", "namespace");
-        result.put("timeZone", "timeZone");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class UserProfilePublicInfoBuilder {
-        
-    }
 }

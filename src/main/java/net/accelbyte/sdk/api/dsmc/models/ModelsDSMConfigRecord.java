@@ -81,26 +81,5 @@ public class ModelsDSMConfigRecord extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDSMConfigRecord>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("claim_timeout", "claimTimeout");
-        result.put("createdAt", "createdAt");
-        result.put("creation_timeout", "creationTimeout");
-        result.put("default_version", "defaultVersion");
-        result.put("modifiedBy", "modifiedBy");
-        result.put("namespace", "namespace");
-        result.put("port", "port");
-        result.put("ports", "ports");
-        result.put("protocol", "protocol");
-        result.put("providers", "providers");
-        result.put("session_timeout", "sessionTimeout");
-        result.put("unreachable_timeout", "unreachableTimeout");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
-    public static class ModelsDSMConfigRecordBuilder {
-        
-    }
 }

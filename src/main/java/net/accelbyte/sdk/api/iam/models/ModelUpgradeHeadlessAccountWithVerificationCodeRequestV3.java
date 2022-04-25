@@ -63,20 +63,5 @@ public class ModelUpgradeHeadlessAccountWithVerificationCodeRequestV3 extends Mo
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUpgradeHeadlessAccountWithVerificationCodeRequestV3>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("code", "code");
-        result.put("country", "country");
-        result.put("dateOfBirth", "dateOfBirth");
-        result.put("displayName", "displayName");
-        result.put("emailAddress", "emailAddress");
-        result.put("password", "password");
-        result.put("validateOnly", "validateOnly");
-        return result;
-    }
     
-    public static class ModelUpgradeHeadlessAccountWithVerificationCodeRequestV3Builder {
-        
-    }
 }

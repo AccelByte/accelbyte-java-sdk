@@ -51,16 +51,5 @@ public class OrderSummary extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<OrderSummary>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("currency", "currency");
-        result.put("ext", "ext");
-        result.put("free", "free");
-        return result;
-    }
     
-    public static class OrderSummaryBuilder {
-        
-    }
 }

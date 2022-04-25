@@ -80,17 +80,6 @@ public class RewardCreate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RewardCreate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("code", "code");
-        result.put("currency", "currency");
-        result.put("image", "image");
-        result.put("itemId", "itemId");
-        result.put("quantity", "quantity");
-        result.put("type", "type");
-        return result;
-    }
     
     public enum Type {
         ITEM("ITEM"),

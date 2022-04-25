@@ -57,18 +57,5 @@ public class ModelChatMessageResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelChatMessageResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("from", "from");
-        result.put("id", "id");
-        result.put("payload", "payload");
-        result.put("receivedAt", "receivedAt");
-        result.put("to", "to");
-        return result;
-    }
     
-    public static class ModelChatMessageResponseBuilder {
-        
-    }
 }

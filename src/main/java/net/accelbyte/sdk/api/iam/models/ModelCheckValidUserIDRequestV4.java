@@ -45,14 +45,5 @@ public class ModelCheckValidUserIDRequestV4 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelCheckValidUserIDRequestV4>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("userIds", "userIds");
-        return result;
-    }
     
-    public static class ModelCheckValidUserIDRequestV4Builder {
-        
-    }
 }

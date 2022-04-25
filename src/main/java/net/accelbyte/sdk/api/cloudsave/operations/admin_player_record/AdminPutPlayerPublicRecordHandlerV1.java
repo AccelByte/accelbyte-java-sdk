@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.cloudsave.operations.admin_player_record;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -75,38 +73,31 @@ import java.util.*;
  * 
  * 
  * 
- * ## Warning: Current Behaviour when Updating Private Record
+ * 
+ * ## Warning: This endpoint is going to deprecate
  * 
  * 
  * 
- * When updating existing "Private Record", this endpoint will always convert the "Private Record" into "Public Record".
- * This behaviour might be deprecated sooner, please don't rely with that behaviour.
+ * This endpoint is going to deprecate in the future please don't use it.
+ * 
+ * For alternative, please use these endpoints:
+ * - POST /cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/records/{key} and utilizing __META functionality
+ * - PUT /cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/records/{key} and utilizing __META functionality
+ * - DELETE /cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/records/{key}
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class AdminPutPlayerPublicRecordHandlerV1 extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/records/{key}/public";
-
-    @JsonIgnore
     private String method = "PUT";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList("application/json");
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -133,20 +124,19 @@ public class AdminPutPlayerPublicRecordHandlerV1 extends Operation {
         this.namespace = namespace;
         this.userId = userId;
         this.body = body;
+        
+        securities.add("Bearer");
     }
 
-    @JsonIgnore
     public AdminPutPlayerPublicRecordHandlerV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
 
     @Override
-    @JsonIgnore
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
         if (this.key != null){
@@ -162,39 +152,19 @@ public class AdminPutPlayerPublicRecordHandlerV1 extends Operation {
     }
 
 
+
     @Override
-    @JsonIgnore
     public ModelsPlayerRecordRequest getBodyParams(){
         return this.body;
     }
 
 
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("key","key");
-        result.put("namespace","namespace");
-        result.put("userId","userId");
-        return result;
-    }
-
-    @JsonIgnore
-    public List<String> getAllRequiredFields() {
-        return Arrays.asList(
-            "key",
-            "namespace",
-            "userId"
-        );
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @Override
-    @JsonIgnore
     public boolean isValid() {
         if(this.key == null) {
             return false;
@@ -209,7 +179,6 @@ public class AdminPutPlayerPublicRecordHandlerV1 extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         if(code != 200){
             String json = this.convertInputStreamToString(payload);

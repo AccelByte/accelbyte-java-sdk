@@ -45,14 +45,5 @@ public class CodeCreateResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<CodeCreateResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("numCreated", "numCreated");
-        return result;
-    }
     
-    public static class CodeCreateResultBuilder {
-        
-    }
 }

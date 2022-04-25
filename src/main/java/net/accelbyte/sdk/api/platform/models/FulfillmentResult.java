@@ -57,18 +57,5 @@ public class FulfillmentResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<FulfillmentResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("creditSummaries", "creditSummaries");
-        result.put("entitlementSummaries", "entitlementSummaries");
-        result.put("namespace", "namespace");
-        result.put("subscriptionSummaries", "subscriptionSummaries");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class FulfillmentResultBuilder {
-        
-    }
 }

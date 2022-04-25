@@ -45,14 +45,5 @@ public class PlaystationIAPConfigRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PlaystationIAPConfigRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("environment", "environment");
-        return result;
-    }
     
-    public static class PlaystationIAPConfigRequestBuilder {
-        
-    }
 }

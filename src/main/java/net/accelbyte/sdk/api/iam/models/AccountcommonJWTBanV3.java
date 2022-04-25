@@ -57,18 +57,5 @@ public class AccountcommonJWTBanV3 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonJWTBanV3>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("ban", "ban");
-        result.put("disabledDate", "disabledDate");
-        result.put("enabled", "enabled");
-        result.put("endDate", "endDate");
-        result.put("targetedNamespace", "targetedNamespace");
-        return result;
-    }
     
-    public static class AccountcommonJWTBanV3Builder {
-        
-    }
 }

@@ -54,17 +54,5 @@ public class ModelsCreateTypeResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateTypeResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("id", "id");
-        result.put("namespace", "namespace");
-        result.put("subtype", "subtype");
-        result.put("type", "type");
-        return result;
-    }
     
-    public static class ModelsCreateTypeResponseBuilder {
-        
-    }
 }

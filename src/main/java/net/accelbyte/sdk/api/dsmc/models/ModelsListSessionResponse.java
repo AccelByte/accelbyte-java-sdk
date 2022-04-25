@@ -48,15 +48,5 @@ public class ModelsListSessionResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsListSessionResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("paging", "paging");
-        result.put("sessions", "sessions");
-        return result;
-    }
     
-    public static class ModelsListSessionResponseBuilder {
-        
-    }
 }

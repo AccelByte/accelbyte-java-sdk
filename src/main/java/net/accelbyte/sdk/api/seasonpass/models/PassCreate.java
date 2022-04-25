@@ -60,19 +60,5 @@ public class PassCreate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PassCreate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("autoEnroll", "autoEnroll");
-        result.put("code", "code");
-        result.put("displayOrder", "displayOrder");
-        result.put("images", "images");
-        result.put("localizations", "localizations");
-        result.put("passItemId", "passItemId");
-        return result;
-    }
     
-    public static class PassCreateBuilder {
-        
-    }
 }

@@ -51,16 +51,5 @@ public class ModelsMatchAddUserIntoSessionRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMatchAddUserIntoSessionRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("blocked_players", "blockedPlayers");
-        result.put("party_id", "partyId");
-        result.put("user_id", "userId");
-        return result;
-    }
     
-    public static class ModelsMatchAddUserIntoSessionRequestBuilder {
-        
-    }
 }

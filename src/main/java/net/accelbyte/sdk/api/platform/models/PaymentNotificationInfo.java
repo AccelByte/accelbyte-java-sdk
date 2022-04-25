@@ -115,22 +115,6 @@ public class PaymentNotificationInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PaymentNotificationInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("createdAt", "createdAt");
-        result.put("externalId", "externalId");
-        result.put("id", "id");
-        result.put("namespace", "namespace");
-        result.put("notification", "notification");
-        result.put("notificationSource", "notificationSource");
-        result.put("notificationType", "notificationType");
-        result.put("paymentOrderNo", "paymentOrderNo");
-        result.put("status", "status");
-        result.put("statusReason", "statusReason");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
     public enum NotificationSource {
         WALLET("WALLET"),

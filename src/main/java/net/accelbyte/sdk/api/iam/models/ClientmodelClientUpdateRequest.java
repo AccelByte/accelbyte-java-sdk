@@ -48,15 +48,5 @@ public class ClientmodelClientUpdateRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ClientmodelClientUpdateRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("ClientName", "clientName");
-        result.put("RedirectUri", "redirectUri");
-        return result;
-    }
     
-    public static class ClientmodelClientUpdateRequestBuilder {
-        
-    }
 }

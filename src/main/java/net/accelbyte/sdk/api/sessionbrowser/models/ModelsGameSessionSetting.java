@@ -72,23 +72,5 @@ public class ModelsGameSessionSetting extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGameSessionSetting>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("allow_join_in_progress", "allowJoinInProgress");
-        result.put("current_internal_player", "currentInternalPlayer");
-        result.put("current_player", "currentPlayer");
-        result.put("map_name", "mapName");
-        result.put("max_internal_player", "maxInternalPlayer");
-        result.put("max_player", "maxPlayer");
-        result.put("mode", "mode");
-        result.put("num_bot", "numBot");
-        result.put("password", "password");
-        result.put("settings", "settings");
-        return result;
-    }
     
-    public static class ModelsGameSessionSettingBuilder {
-        
-    }
 }

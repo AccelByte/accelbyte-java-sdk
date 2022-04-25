@@ -60,19 +60,5 @@ public class ModelsGameRecordResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGameRecordResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("created_at", "createdAt");
-        result.put("key", "key");
-        result.put("namespace", "namespace");
-        result.put("set_by", "setBy");
-        result.put("updated_at", "updatedAt");
-        result.put("value", "value");
-        return result;
-    }
     
-    public static class ModelsGameRecordResponseBuilder {
-        
-    }
 }

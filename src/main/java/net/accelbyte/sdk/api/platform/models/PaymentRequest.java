@@ -45,14 +45,5 @@ public class PaymentRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PaymentRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("amount", "amount");
-        return result;
-    }
     
-    public static class PaymentRequestBuilder {
-        
-    }
 }

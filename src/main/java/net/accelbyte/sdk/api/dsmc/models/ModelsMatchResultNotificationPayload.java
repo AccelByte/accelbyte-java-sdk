@@ -37,13 +37,5 @@ public class ModelsMatchResultNotificationPayload extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMatchResultNotificationPayload>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        return result;
-    }
     
-    public static class ModelsMatchResultNotificationPayloadBuilder {
-        
-    }
 }

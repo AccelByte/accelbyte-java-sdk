@@ -45,14 +45,5 @@ public class ModelRequestFriendsRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelRequestFriendsRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("friendId", "friendId");
-        return result;
-    }
     
-    public static class ModelRequestFriendsRequestBuilder {
-        
-    }
 }

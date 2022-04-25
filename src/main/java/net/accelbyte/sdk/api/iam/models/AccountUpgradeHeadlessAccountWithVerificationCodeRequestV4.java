@@ -69,22 +69,5 @@ public class AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4 extends 
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("code", "code");
-        result.put("country", "country");
-        result.put("dateOfBirth", "dateOfBirth");
-        result.put("displayName", "displayName");
-        result.put("emailAddress", "emailAddress");
-        result.put("password", "password");
-        result.put("reachMinimumAge", "reachMinimumAge");
-        result.put("username", "username");
-        result.put("validateOnly", "validateOnly");
-        return result;
-    }
     
-    public static class AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4Builder {
-        
-    }
 }

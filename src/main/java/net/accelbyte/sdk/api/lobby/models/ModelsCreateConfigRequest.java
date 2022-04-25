@@ -45,14 +45,5 @@ public class ModelsCreateConfigRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateConfigRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("apiKey", "apiKey");
-        return result;
-    }
     
-    public static class ModelsCreateConfigRequestBuilder {
-        
-    }
 }

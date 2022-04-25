@@ -108,35 +108,5 @@ public class ModelThirdPartyLoginPlatformCredentialResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelThirdPartyLoginPlatformCredentialResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("ACSURL", "acsurl");
-        result.put("AWSCognitoRegion", "awsCognitoRegion");
-        result.put("AWSCognitoUserPool", "awsCognitoUserPool");
-        result.put("AppId", "appId");
-        result.put("ClientId", "clientId");
-        result.put("Environment", "environment");
-        result.put("FederationMetadataURL", "federationMetadataURL");
-        result.put("GenericOauthFlow", "genericOauthFlow");
-        result.put("IsActive", "isActive");
-        result.put("Issuer", "issuer");
-        result.put("JWKSEndpoint", "jwksEndpoint");
-        result.put("KeyID", "keyID");
-        result.put("Namespace", "namespace");
-        result.put("OrganizationId", "organizationId");
-        result.put("PlatformId", "platformId");
-        result.put("PlatformName", "platformName");
-        result.put("RedirectUri", "redirectUri");
-        result.put("Secret", "secret");
-        result.put("TeamID", "teamID");
-        result.put("TokenAuthenticationType", "tokenAuthenticationType");
-        result.put("TokenClaimsMapping", "tokenClaimsMapping");
-        result.put("registeredDomains", "registeredDomains");
-        return result;
-    }
     
-    public static class ModelThirdPartyLoginPlatformCredentialResponseBuilder {
-        
-    }
 }

@@ -92,21 +92,6 @@ public class StatCreate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<StatCreate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("defaultValue", "defaultValue");
-        result.put("description", "description");
-        result.put("incrementOnly", "incrementOnly");
-        result.put("maximum", "maximum");
-        result.put("minimum", "minimum");
-        result.put("name", "name");
-        result.put("setAsGlobal", "setAsGlobal");
-        result.put("setBy", "setBy");
-        result.put("statCode", "statCode");
-        result.put("tags", "tags");
-        return result;
-    }
     
     public enum SetBy {
         CLIENT("CLIENT"),

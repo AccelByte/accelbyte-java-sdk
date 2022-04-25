@@ -48,15 +48,5 @@ public class ModelsUpdateSessionRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateSessionRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("game_current_player", "gameCurrentPlayer");
-        result.put("game_max_player", "gameMaxPlayer");
-        return result;
-    }
     
-    public static class ModelsUpdateSessionRequestBuilder {
-        
-    }
 }

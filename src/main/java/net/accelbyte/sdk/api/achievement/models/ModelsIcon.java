@@ -48,15 +48,5 @@ public class ModelsIcon extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsIcon>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("slug", "slug");
-        result.put("url", "url");
-        return result;
-    }
     
-    public static class ModelsIconBuilder {
-        
-    }
 }

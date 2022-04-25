@@ -45,14 +45,5 @@ public class UserProfileBulkRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserProfileBulkRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("userIds", "userIds");
-        return result;
-    }
     
-    public static class UserProfileBulkRequestBuilder {
-        
-    }
 }

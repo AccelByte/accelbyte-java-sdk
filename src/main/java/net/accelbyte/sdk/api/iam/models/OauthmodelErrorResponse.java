@@ -60,19 +60,5 @@ public class OauthmodelErrorResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<OauthmodelErrorResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("default_factor", "defaultFactor");
-        result.put("error", "error");
-        result.put("error_description", "errorDescription");
-        result.put("error_uri", "errorUri");
-        result.put("factors", "factors");
-        result.put("mfa_token", "mfaToken");
-        return result;
-    }
     
-    public static class OauthmodelErrorResponseBuilder {
-        
-    }
 }

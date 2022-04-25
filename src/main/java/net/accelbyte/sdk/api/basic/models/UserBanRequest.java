@@ -51,16 +51,5 @@ public class UserBanRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserBanRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("actionId", "actionId");
-        result.put("comment", "comment");
-        result.put("userIds", "userIds");
-        return result;
-    }
     
-    public static class UserBanRequestBuilder {
-        
-    }
 }

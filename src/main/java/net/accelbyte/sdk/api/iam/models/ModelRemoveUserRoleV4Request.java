@@ -48,15 +48,5 @@ public class ModelRemoveUserRoleV4Request extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelRemoveUserRoleV4Request>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("assignedNamespaces", "assignedNamespaces");
-        result.put("roleId", "roleId");
-        return result;
-    }
     
-    public static class ModelRemoveUserRoleV4RequestBuilder {
-        
-    }
 }

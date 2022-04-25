@@ -48,15 +48,5 @@ public class AccountcommonConflictedUserPlatformAccounts extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonConflictedUserPlatformAccounts>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("platformUserID", "platformUserID");
-        result.put("publisherAccounts", "publisherAccounts");
-        return result;
-    }
     
-    public static class AccountcommonConflictedUserPlatformAccountsBuilder {
-        
-    }
 }

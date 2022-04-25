@@ -51,16 +51,5 @@ public class RecurringChargeResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RecurringChargeResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("code", "code");
-        result.put("detail", "detail");
-        result.put("triggered", "triggered");
-        return result;
-    }
     
-    public static class RecurringChargeResultBuilder {
-        
-    }
 }

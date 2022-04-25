@@ -90,29 +90,5 @@ public class PaymentMerchantConfigInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PaymentMerchantConfigInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("adyenConfig", "adyenConfig");
-        result.put("adyenSandboxConfig", "adyenSandboxConfig");
-        result.put("aliPayConfig", "aliPayConfig");
-        result.put("aliPaySandboxConfig", "aliPaySandboxConfig");
-        result.put("checkoutConfig", "checkoutConfig");
-        result.put("checkoutSandboxConfig", "checkoutSandboxConfig");
-        result.put("createdAt", "createdAt");
-        result.put("id", "id");
-        result.put("payPalConfig", "payPalConfig");
-        result.put("payPalSandboxConfig", "payPalSandboxConfig");
-        result.put("stripeConfig", "stripeConfig");
-        result.put("stripeSandboxConfig", "stripeSandboxConfig");
-        result.put("updatedAt", "updatedAt");
-        result.put("wxPayConfig", "wxPayConfig");
-        result.put("xsollaConfig", "xsollaConfig");
-        result.put("xsollaPaywallConfig", "xsollaPaywallConfig");
-        return result;
-    }
     
-    public static class PaymentMerchantConfigInfoBuilder {
-        
-    }
 }

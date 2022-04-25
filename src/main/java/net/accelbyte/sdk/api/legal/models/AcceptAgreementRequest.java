@@ -57,18 +57,5 @@ public class AcceptAgreementRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AcceptAgreementRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("isAccepted", "isAccepted");
-        result.put("isNeedToSendEventMarketing", "isNeedToSendEventMarketing");
-        result.put("localizedPolicyVersionId", "localizedPolicyVersionId");
-        result.put("policyId", "policyId");
-        result.put("policyVersionId", "policyVersionId");
-        return result;
-    }
     
-    public static class AcceptAgreementRequestBuilder {
-        
-    }
 }

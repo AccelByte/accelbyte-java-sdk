@@ -48,15 +48,5 @@ public class BannedBy extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<BannedBy>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("DisplayName", "displayName");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class BannedByBuilder {
-        
-    }
 }

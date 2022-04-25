@@ -51,16 +51,5 @@ public class ModelAssignUserV4Request extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelAssignUserV4Request>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("assignedNamespaces", "assignedNamespaces");
-        result.put("namespace", "namespace");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class ModelAssignUserV4RequestBuilder {
-        
-    }
 }

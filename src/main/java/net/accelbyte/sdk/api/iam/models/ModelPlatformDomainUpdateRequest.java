@@ -54,17 +54,5 @@ public class ModelPlatformDomainUpdateRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelPlatformDomainUpdateRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("affectedClientIDs", "affectedClientIDs");
-        result.put("assignedNamespaces", "assignedNamespaces");
-        result.put("domain", "domain");
-        result.put("roleId", "roleId");
-        return result;
-    }
     
-    public static class ModelPlatformDomainUpdateRequestBuilder {
-        
-    }
 }

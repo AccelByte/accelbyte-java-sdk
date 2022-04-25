@@ -51,16 +51,5 @@ public class FulfillmentError extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<FulfillmentError>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("code", "code");
-        result.put("httpStatus", "httpStatus");
-        result.put("message", "message");
-        return result;
-    }
     
-    public static class FulfillmentErrorBuilder {
-        
-    }
 }

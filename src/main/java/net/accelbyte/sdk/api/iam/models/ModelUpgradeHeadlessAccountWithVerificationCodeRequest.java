@@ -51,16 +51,5 @@ public class ModelUpgradeHeadlessAccountWithVerificationCodeRequest extends Mode
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUpgradeHeadlessAccountWithVerificationCodeRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("Code", "code");
-        result.put("Password", "password");
-        result.put("loginId", "loginId");
-        return result;
-    }
     
-    public static class ModelUpgradeHeadlessAccountWithVerificationCodeRequestBuilder {
-        
-    }
 }

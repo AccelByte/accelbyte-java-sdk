@@ -57,18 +57,5 @@ public class UpdateLocalizedPolicyVersionRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UpdateLocalizedPolicyVersionRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("attachmentChecksum", "attachmentChecksum");
-        result.put("attachmentLocation", "attachmentLocation");
-        result.put("attachmentVersionIdentifier", "attachmentVersionIdentifier");
-        result.put("contentType", "contentType");
-        result.put("description", "description");
-        return result;
-    }
     
-    public static class UpdateLocalizedPolicyVersionRequestBuilder {
-        
-    }
 }

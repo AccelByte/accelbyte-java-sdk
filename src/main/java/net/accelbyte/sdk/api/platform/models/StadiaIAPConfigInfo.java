@@ -48,15 +48,5 @@ public class StadiaIAPConfigInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<StadiaIAPConfigInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("jsonFile", "jsonFile");
-        result.put("namespace", "namespace");
-        return result;
-    }
     
-    public static class StadiaIAPConfigInfoBuilder {
-        
-    }
 }

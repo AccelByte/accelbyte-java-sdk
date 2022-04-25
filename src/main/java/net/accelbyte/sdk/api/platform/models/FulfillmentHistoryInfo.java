@@ -101,24 +101,6 @@ public class FulfillmentHistoryInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<FulfillmentHistoryInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("code", "code");
-        result.put("createdAt", "createdAt");
-        result.put("creditSummaries", "creditSummaries");
-        result.put("entitlementSummaries", "entitlementSummaries");
-        result.put("fulfillItems", "fulfillItems");
-        result.put("fulfillmentError", "fulfillmentError");
-        result.put("grantedItemIds", "grantedItemIds");
-        result.put("id", "id");
-        result.put("namespace", "namespace");
-        result.put("orderNo", "orderNo");
-        result.put("status", "status");
-        result.put("updatedAt", "updatedAt");
-        result.put("userId", "userId");
-        return result;
-    }
     
     public enum Status {
         SUCCESS("SUCCESS"),

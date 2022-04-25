@@ -48,15 +48,5 @@ public class ModelsDeleteBulkLeaderboardFailedResp extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDeleteBulkLeaderboardFailedResp>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("error", "error");
-        result.put("leaderboardCode", "leaderboardCode");
-        return result;
-    }
     
-    public static class ModelsDeleteBulkLeaderboardFailedRespBuilder {
-        
-    }
 }

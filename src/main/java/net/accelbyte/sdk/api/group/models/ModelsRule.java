@@ -48,15 +48,5 @@ public class ModelsRule extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsRule>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("allowedAction", "allowedAction");
-        result.put("ruleDetail", "ruleDetail");
-        return result;
-    }
     
-    public static class ModelsRuleBuilder {
-        
-    }
 }

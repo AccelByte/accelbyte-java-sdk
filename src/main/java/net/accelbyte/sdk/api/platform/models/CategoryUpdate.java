@@ -45,14 +45,5 @@ public class CategoryUpdate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<CategoryUpdate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("localizationDisplayNames", "localizationDisplayNames");
-        return result;
-    }
     
-    public static class CategoryUpdateBuilder {
-        
-    }
 }

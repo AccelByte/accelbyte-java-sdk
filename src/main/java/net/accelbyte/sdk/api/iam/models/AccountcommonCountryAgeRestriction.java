@@ -54,17 +54,5 @@ public class AccountcommonCountryAgeRestriction extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonCountryAgeRestriction>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("AgeRestriction", "ageRestriction");
-        result.put("CountryCode", "countryCode");
-        result.put("CountryName", "countryName");
-        result.put("Enable", "enable");
-        return result;
-    }
     
-    public static class AccountcommonCountryAgeRestrictionBuilder {
-        
-    }
 }

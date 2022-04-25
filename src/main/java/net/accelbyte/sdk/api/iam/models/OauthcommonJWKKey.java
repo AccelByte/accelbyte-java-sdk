@@ -60,19 +60,5 @@ public class OauthcommonJWKKey extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<OauthcommonJWKKey>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("alg", "alg");
-        result.put("e", "e");
-        result.put("kid", "kid");
-        result.put("kty", "kty");
-        result.put("n", "n");
-        result.put("use", "use");
-        return result;
-    }
     
-    public static class OauthcommonJWKKeyBuilder {
-        
-    }
 }

@@ -71,14 +71,6 @@ public class ModelsCreateScreenshotRequestItem extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateScreenshotRequestItem>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("contentType", "contentType");
-        result.put("description", "description");
-        result.put("fileExtension", "fileExtension");
-        return result;
-    }
     
     public enum FileExtension {
         Pjp("Pjp"),

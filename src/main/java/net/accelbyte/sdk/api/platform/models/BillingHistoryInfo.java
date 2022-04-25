@@ -134,35 +134,6 @@ public class BillingHistoryInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<BillingHistoryInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("amount", "amount");
-        result.put("billingAccount", "billingAccount");
-        result.put("changeBillingAccount", "changeBillingAccount");
-        result.put("createdAt", "createdAt");
-        result.put("currency", "currency");
-        result.put("description", "description");
-        result.put("extTxId", "extTxId");
-        result.put("itemId", "itemId");
-        result.put("namespace", "namespace");
-        result.put("paymentOrderNo", "paymentOrderNo");
-        result.put("recurringOrderNo", "recurringOrderNo");
-        result.put("retryAttempted", "retryAttempted");
-        result.put("sandbox", "sandbox");
-        result.put("sku", "sku");
-        result.put("status", "status");
-        result.put("statusReason", "statusReason");
-        result.put("subscriptionId", "subscriptionId");
-        result.put("subtotalPrice", "subtotalPrice");
-        result.put("title", "title");
-        result.put("totalPrice", "totalPrice");
-        result.put("totalTax", "totalTax");
-        result.put("txEndTime", "txEndTime");
-        result.put("updatedAt", "updatedAt");
-        result.put("userId", "userId");
-        return result;
-    }
     
     public enum Status {
         INIT("INIT"),

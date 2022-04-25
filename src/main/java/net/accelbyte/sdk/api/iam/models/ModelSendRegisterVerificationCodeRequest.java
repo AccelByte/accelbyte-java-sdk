@@ -48,15 +48,5 @@ public class ModelSendRegisterVerificationCodeRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelSendRegisterVerificationCodeRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("emailAddress", "emailAddress");
-        result.put("languageTag", "languageTag");
-        return result;
-    }
     
-    public static class ModelSendRegisterVerificationCodeRequestBuilder {
-        
-    }
 }

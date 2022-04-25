@@ -110,19 +110,6 @@ public class PaymentProviderConfigEdit extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PaymentProviderConfigEdit>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("aggregate", "aggregate");
-        result.put("namespace", "namespace");
-        result.put("region", "region");
-        result.put("sandboxTaxJarApiToken", "sandboxTaxJarApiToken");
-        result.put("specials", "specials");
-        result.put("taxJarApiToken", "taxJarApiToken");
-        result.put("taxJarEnabled", "taxJarEnabled");
-        result.put("useGlobalTaxJarApiToken", "useGlobalTaxJarApiToken");
-        return result;
-    }
     
     public enum Aggregate {
         XSOLLA("XSOLLA"),

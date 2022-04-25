@@ -45,14 +45,5 @@ public class ModelsBulkGetPlayerRecordResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsBulkGetPlayerRecordResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("data", "data");
-        return result;
-    }
     
-    public static class ModelsBulkGetPlayerRecordResponseBuilder {
-        
-    }
 }

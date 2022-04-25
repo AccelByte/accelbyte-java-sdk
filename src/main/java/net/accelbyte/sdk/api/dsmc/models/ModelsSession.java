@@ -57,18 +57,5 @@ public class ModelsSession extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsSession>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("Server", "server");
-        result.put("id", "id");
-        result.put("namespace", "namespace");
-        result.put("provider", "provider");
-        result.put("region", "region");
-        return result;
-    }
     
-    public static class ModelsSessionBuilder {
-        
-    }
 }

@@ -69,22 +69,5 @@ public class AccountcommonUserLinkedPlatformV3 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonUserLinkedPlatformV3>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("accountGroup", "accountGroup");
-        result.put("displayName", "displayName");
-        result.put("emailAddress", "emailAddress");
-        result.put("linkedAt", "linkedAt");
-        result.put("namespace", "namespace");
-        result.put("originNamespace", "originNamespace");
-        result.put("platformId", "platformId");
-        result.put("platformUserId", "platformUserId");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class AccountcommonUserLinkedPlatformV3Builder {
-        
-    }
 }

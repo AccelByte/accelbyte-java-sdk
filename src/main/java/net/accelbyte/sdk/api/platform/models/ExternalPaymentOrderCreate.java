@@ -125,32 +125,6 @@ public class ExternalPaymentOrderCreate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ExternalPaymentOrderCreate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("currencyCode", "currencyCode");
-        result.put("currencyNamespace", "currencyNamespace");
-        result.put("customParameters", "customParameters");
-        result.put("description", "description");
-        result.put("extOrderNo", "extOrderNo");
-        result.put("extUserId", "extUserId");
-        result.put("itemType", "itemType");
-        result.put("language", "language");
-        result.put("metadata", "metadata");
-        result.put("notifyUrl", "notifyUrl");
-        result.put("omitNotification", "omitNotification");
-        result.put("price", "price");
-        result.put("recurringPaymentOrderNo", "recurringPaymentOrderNo");
-        result.put("region", "region");
-        result.put("returnUrl", "returnUrl");
-        result.put("sandbox", "sandbox");
-        result.put("sku", "sku");
-        result.put("subscriptionId", "subscriptionId");
-        result.put("targetNamespace", "targetNamespace");
-        result.put("targetUserId", "targetUserId");
-        result.put("title", "title");
-        return result;
-    }
     
     public enum ItemType {
         APP("APP"),

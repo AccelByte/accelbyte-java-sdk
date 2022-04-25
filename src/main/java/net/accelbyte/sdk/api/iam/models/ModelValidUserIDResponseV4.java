@@ -48,15 +48,5 @@ public class ModelValidUserIDResponseV4 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelValidUserIDResponseV4>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("exists", "exists");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class ModelValidUserIDResponseV4Builder {
-        
-    }
 }

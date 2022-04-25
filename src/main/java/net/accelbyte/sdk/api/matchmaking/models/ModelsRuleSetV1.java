@@ -60,19 +60,5 @@ public class ModelsRuleSetV1 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsRuleSetV1>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("alliance", "alliance");
-        result.put("alliance_flexing_rule", "allianceFlexingRule");
-        result.put("flexingRules", "flexingRules");
-        result.put("match_options", "matchOptions");
-        result.put("matchingRules", "matchingRules");
-        result.put("sub_game_modes", "subGameModes");
-        return result;
-    }
     
-    public static class ModelsRuleSetV1Builder {
-        
-    }
 }

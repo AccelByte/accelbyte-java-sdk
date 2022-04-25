@@ -60,19 +60,5 @@ public class PlatformSubscribeRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PlatformSubscribeRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("grantDays", "grantDays");
-        result.put("itemId", "itemId");
-        result.put("language", "language");
-        result.put("reason", "reason");
-        result.put("region", "region");
-        result.put("source", "source");
-        return result;
-    }
     
-    public static class PlatformSubscribeRequestBuilder {
-        
-    }
 }

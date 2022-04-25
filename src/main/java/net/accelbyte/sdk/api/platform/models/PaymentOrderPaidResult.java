@@ -48,15 +48,5 @@ public class PaymentOrderPaidResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PaymentOrderPaidResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("charging", "charging");
-        result.put("success", "success");
-        return result;
-    }
     
-    public static class PaymentOrderPaidResultBuilder {
-        
-    }
 }

@@ -71,14 +71,6 @@ public class IAPItemEntry extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<IAPItemEntry>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("itemIdentity", "itemIdentity");
-        result.put("itemIdentityType", "itemIdentityType");
-        result.put("platformProductIdMap", "platformProductIdMap");
-        return result;
-    }
     
     public enum ItemIdentityType {
         ITEMID("ITEMID"),

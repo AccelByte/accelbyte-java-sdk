@@ -118,23 +118,6 @@ public class AppEntitlementInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AppEntitlementInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("appId", "appId");
-        result.put("appType", "appType");
-        result.put("endDate", "endDate");
-        result.put("grantedAt", "grantedAt");
-        result.put("itemId", "itemId");
-        result.put("itemSnapshot", "itemSnapshot");
-        result.put("namespace", "namespace");
-        result.put("sku", "sku");
-        result.put("startDate", "startDate");
-        result.put("status", "status");
-        result.put("storeId", "storeId");
-        result.put("userId", "userId");
-        return result;
-    }
     
     public enum AppType {
         GAME("GAME"),

@@ -51,16 +51,5 @@ public class BloomFilterJSON extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<BloomFilterJSON>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("bits", "bits");
-        result.put("k", "k");
-        result.put("m", "m");
-        return result;
-    }
     
-    public static class BloomFilterJSONBuilder {
-        
-    }
 }

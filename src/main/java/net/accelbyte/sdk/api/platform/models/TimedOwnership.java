@@ -48,15 +48,5 @@ public class TimedOwnership extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<TimedOwnership>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("endDate", "endDate");
-        result.put("owned", "owned");
-        return result;
-    }
     
-    public static class TimedOwnershipBuilder {
-        
-    }
 }

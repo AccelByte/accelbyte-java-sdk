@@ -63,20 +63,5 @@ public class CreatePolicyVersionResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<CreatePolicyVersionResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("basePolicyId", "basePolicyId");
-        result.put("createdAt", "createdAt");
-        result.put("description", "description");
-        result.put("displayVersion", "displayVersion");
-        result.put("id", "id");
-        result.put("isCommitted", "isCommitted");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
-    public static class CreatePolicyVersionResponseBuilder {
-        
-    }
 }

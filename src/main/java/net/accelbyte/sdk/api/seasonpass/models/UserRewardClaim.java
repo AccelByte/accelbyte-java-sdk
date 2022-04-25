@@ -51,16 +51,5 @@ public class UserRewardClaim extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserRewardClaim>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("passCode", "passCode");
-        result.put("rewardCode", "rewardCode");
-        result.put("tierIndex", "tierIndex");
-        return result;
-    }
     
-    public static class UserRewardClaimBuilder {
-        
-    }
 }

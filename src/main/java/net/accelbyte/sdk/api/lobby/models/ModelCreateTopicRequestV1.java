@@ -48,15 +48,5 @@ public class ModelCreateTopicRequestV1 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelCreateTopicRequestV1>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("description", "description");
-        result.put("topicName", "topicName");
-        return result;
-    }
     
-    public static class ModelCreateTopicRequestV1Builder {
-        
-    }
 }

@@ -63,20 +63,5 @@ public class ModelUserInformation extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserInformation>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("Country", "country");
-        result.put("DisplayName", "displayName");
-        result.put("EmailAddresses", "emailAddresses");
-        result.put("LinkedPlatformAccounts", "linkedPlatformAccounts");
-        result.put("PhoneNumber", "phoneNumber");
-        result.put("Username", "username");
-        result.put("XUID", "xuid");
-        return result;
-    }
     
-    public static class ModelUserInformationBuilder {
-        
-    }
 }

@@ -54,17 +54,5 @@ public class PaymentTaxConfigInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PaymentTaxConfigInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("sandboxTaxJarApiToken", "sandboxTaxJarApiToken");
-        result.put("taxJarApiToken", "taxJarApiToken");
-        result.put("taxJarEnabled", "taxJarEnabled");
-        result.put("taxJarProductCodesMapping", "taxJarProductCodesMapping");
-        return result;
-    }
     
-    public static class PaymentTaxConfigInfoBuilder {
-        
-    }
 }

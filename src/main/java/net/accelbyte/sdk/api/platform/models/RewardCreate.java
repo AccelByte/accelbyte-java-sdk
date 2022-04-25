@@ -66,21 +66,5 @@ public class RewardCreate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RewardCreate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("description", "description");
-        result.put("eventTopic", "eventTopic");
-        result.put("maxAwarded", "maxAwarded");
-        result.put("maxAwardedPerUser", "maxAwardedPerUser");
-        result.put("namespaceExpression", "namespaceExpression");
-        result.put("rewardCode", "rewardCode");
-        result.put("rewardConditions", "rewardConditions");
-        result.put("userIdExpression", "userIdExpression");
-        return result;
-    }
     
-    public static class RewardCreateBuilder {
-        
-    }
 }

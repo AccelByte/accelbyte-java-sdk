@@ -78,25 +78,5 @@ public class LocalizedPassInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<LocalizedPassInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("autoEnroll", "autoEnroll");
-        result.put("code", "code");
-        result.put("createdAt", "createdAt");
-        result.put("description", "description");
-        result.put("displayOrder", "displayOrder");
-        result.put("images", "images");
-        result.put("language", "language");
-        result.put("namespace", "namespace");
-        result.put("passItemId", "passItemId");
-        result.put("seasonId", "seasonId");
-        result.put("title", "title");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
-    public static class LocalizedPassInfoBuilder {
-        
-    }
 }

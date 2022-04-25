@@ -48,15 +48,5 @@ public class ModelEnabledFactorsResponseV4 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelEnabledFactorsResponseV4>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("default", "default");
-        result.put("enabled", "enabled");
-        return result;
-    }
     
-    public static class ModelEnabledFactorsResponseV4Builder {
-        
-    }
 }

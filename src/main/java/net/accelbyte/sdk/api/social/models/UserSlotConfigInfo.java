@@ -54,17 +54,5 @@ public class UserSlotConfigInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserSlotConfigInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("maxSlotSize", "maxSlotSize");
-        result.put("maxSlots", "maxSlots");
-        result.put("namespace", "namespace");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class UserSlotConfigInfoBuilder {
-        
-    }
 }

@@ -66,21 +66,5 @@ public class AccountcommonRole extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonRole>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("AdminRole", "adminRole");
-        result.put("Deletable", "deletable");
-        result.put("IsWildcard", "isWildcard");
-        result.put("Managers", "managers");
-        result.put("Members", "members");
-        result.put("Permissions", "permissions");
-        result.put("RoleId", "roleId");
-        result.put("RoleName", "roleName");
-        return result;
-    }
     
-    public static class AccountcommonRoleBuilder {
-        
-    }
 }

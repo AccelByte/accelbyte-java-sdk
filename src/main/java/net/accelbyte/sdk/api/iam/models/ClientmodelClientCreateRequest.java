@@ -60,19 +60,5 @@ public class ClientmodelClientCreateRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ClientmodelClientCreateRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("ClientId", "clientId");
-        result.put("ClientName", "clientName");
-        result.put("ClientPermissions", "clientPermissions");
-        result.put("Namespace", "namespace");
-        result.put("RedirectUri", "redirectUri");
-        result.put("Secret", "secret");
-        return result;
-    }
     
-    public static class ClientmodelClientCreateRequestBuilder {
-        
-    }
 }

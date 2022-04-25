@@ -48,15 +48,5 @@ public class ModelTemplateContent extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelTemplateContent>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("draft", "draft");
-        result.put("published", "published");
-        return result;
-    }
     
-    public static class ModelTemplateContentBuilder {
-        
-    }
 }

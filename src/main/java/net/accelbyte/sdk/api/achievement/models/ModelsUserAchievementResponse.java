@@ -60,19 +60,5 @@ public class ModelsUserAchievementResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUserAchievementResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("achievedAt", "achievedAt");
-        result.put("achievementCode", "achievementCode");
-        result.put("id", "id");
-        result.put("latestValue", "latestValue");
-        result.put("name", "name");
-        result.put("status", "status");
-        return result;
-    }
     
-    public static class ModelsUserAchievementResponseBuilder {
-        
-    }
 }

@@ -54,17 +54,5 @@ public class WxPayConfigRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<WxPayConfigRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("appId", "appId");
-        result.put("key", "key");
-        result.put("mchid", "mchid");
-        result.put("returnUrl", "returnUrl");
-        return result;
-    }
     
-    public static class WxPayConfigRequestBuilder {
-        
-    }
 }

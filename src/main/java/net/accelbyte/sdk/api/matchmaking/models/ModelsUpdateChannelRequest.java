@@ -69,22 +69,5 @@ public class ModelsUpdateChannelRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateChannelRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("deployment", "deployment");
-        result.put("description", "description");
-        result.put("findMatchTimeoutSeconds", "findMatchTimeoutSeconds");
-        result.put("joinable", "joinable");
-        result.put("max_delay_ms", "maxDelayMs");
-        result.put("ruleSet", "ruleSet");
-        result.put("sessionQueueTimeoutSeconds", "sessionQueueTimeoutSeconds");
-        result.put("socialMatchmaking", "socialMatchmaking");
-        result.put("use_sub_gamemode", "useSubGamemode");
-        return result;
-    }
     
-    public static class ModelsUpdateChannelRequestBuilder {
-        
-    }
 }

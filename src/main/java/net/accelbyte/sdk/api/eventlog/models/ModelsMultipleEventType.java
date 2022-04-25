@@ -45,14 +45,5 @@ public class ModelsMultipleEventType extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMultipleEventType>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("EventType", "eventType");
-        return result;
-    }
     
-    public static class ModelsMultipleEventTypeBuilder {
-        
-    }
 }

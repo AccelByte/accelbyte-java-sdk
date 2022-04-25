@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.cloudsave.operations.admin_player_record;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -97,9 +95,9 @@ import java.util.*;
  * 
  * 
  * Metadata allows user to define the behaviour of the record.
- * Metadata can be defined in request body with field name META.
- * When creating record, if META field is not defined, the metadata value will use the default value.
- * When updating record, if META field is not defined, the existing metadata value will stay as is.
+ * Metadata can be defined in request body with field name __META.
+ * When creating record, if __META field is not defined, the metadata value will use the default value.
+ * When updating record, if __META field is not defined, the existing metadata value will stay as is.
  * 
  *  Metadata List:
  * 1. set_by (default: CLIENT, type: string)
@@ -115,7 +113,7 @@ import java.util.*;
  * 
  * 
  *         {
- *             "META": {
+ *             "__META": {
  *                 "set_by": "SERVER",
  *                 "is_public": true
  *             }
@@ -124,29 +122,17 @@ import java.util.*;
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class AdminPostPlayerRecordHandlerV1 extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/records/{key}";
-
-    @JsonIgnore
     private String method = "POST";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList("application/json");
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -173,20 +159,19 @@ public class AdminPostPlayerRecordHandlerV1 extends Operation {
         this.namespace = namespace;
         this.userId = userId;
         this.body = body;
+        
+        securities.add("Bearer");
     }
 
-    @JsonIgnore
     public AdminPostPlayerRecordHandlerV1 createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
 
     @Override
-    @JsonIgnore
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
         if (this.key != null){
@@ -202,39 +187,19 @@ public class AdminPostPlayerRecordHandlerV1 extends Operation {
     }
 
 
+
     @Override
-    @JsonIgnore
     public ModelsPlayerRecordRequest getBodyParams(){
         return this.body;
     }
 
 
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("key","key");
-        result.put("namespace","namespace");
-        result.put("userId","userId");
-        return result;
-    }
-
-    @JsonIgnore
-    public List<String> getAllRequiredFields() {
-        return Arrays.asList(
-            "key",
-            "namespace",
-            "userId"
-        );
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @Override
-    @JsonIgnore
     public boolean isValid() {
         if(this.key == null) {
             return false;
@@ -249,7 +214,6 @@ public class AdminPostPlayerRecordHandlerV1 extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         if(code != 201){
             String json = this.convertInputStreamToString(payload);

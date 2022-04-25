@@ -54,17 +54,5 @@ public class StripeConfig extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<StripeConfig>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("allowedPaymentMethodTypes", "allowedPaymentMethodTypes");
-        result.put("publishableKey", "publishableKey");
-        result.put("secretKey", "secretKey");
-        result.put("webhookSecret", "webhookSecret");
-        return result;
-    }
     
-    public static class StripeConfigBuilder {
-        
-    }
 }

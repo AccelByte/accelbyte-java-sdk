@@ -63,20 +63,5 @@ public class OauthmodelTokenIntrospectResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<OauthmodelTokenIntrospectResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("active", "active");
-        result.put("aud", "aud");
-        result.put("client_id", "clientId");
-        result.put("exp", "exp");
-        result.put("iat", "iat");
-        result.put("scope", "scope");
-        result.put("sub", "sub");
-        return result;
-    }
     
-    public static class OauthmodelTokenIntrospectResponseBuilder {
-        
-    }
 }

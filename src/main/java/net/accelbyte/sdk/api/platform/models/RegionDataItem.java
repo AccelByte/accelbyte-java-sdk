@@ -98,23 +98,6 @@ public class RegionDataItem extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RegionDataItem>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("currencyCode", "currencyCode");
-        result.put("currencyNamespace", "currencyNamespace");
-        result.put("currencyType", "currencyType");
-        result.put("discountAmount", "discountAmount");
-        result.put("discountExpireAt", "discountExpireAt");
-        result.put("discountPercentage", "discountPercentage");
-        result.put("discountPurchaseAt", "discountPurchaseAt");
-        result.put("discountedPrice", "discountedPrice");
-        result.put("expireAt", "expireAt");
-        result.put("price", "price");
-        result.put("purchaseAt", "purchaseAt");
-        result.put("trialPrice", "trialPrice");
-        return result;
-    }
     
     public enum CurrencyType {
         REAL("REAL"),

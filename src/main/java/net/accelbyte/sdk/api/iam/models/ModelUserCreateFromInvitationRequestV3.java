@@ -63,20 +63,5 @@ public class ModelUserCreateFromInvitationRequestV3 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserCreateFromInvitationRequestV3>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("acceptedPolicies", "acceptedPolicies");
-        result.put("authType", "authType");
-        result.put("country", "country");
-        result.put("dateOfBirth", "dateOfBirth");
-        result.put("displayName", "displayName");
-        result.put("password", "password");
-        result.put("reachMinimumAge", "reachMinimumAge");
-        return result;
-    }
     
-    public static class ModelUserCreateFromInvitationRequestV3Builder {
-        
-    }
 }

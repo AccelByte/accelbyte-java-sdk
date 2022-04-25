@@ -48,15 +48,5 @@ public class ModelsAdminVerifyMessageProfanityResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAdminVerifyMessageProfanityResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("filteredMessage", "filteredMessage");
-        result.put("hasProfanity", "hasProfanity");
-        return result;
-    }
     
-    public static class ModelsAdminVerifyMessageProfanityResponseBuilder {
-        
-    }
 }

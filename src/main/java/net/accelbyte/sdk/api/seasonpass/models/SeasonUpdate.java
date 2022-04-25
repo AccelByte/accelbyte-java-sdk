@@ -75,24 +75,5 @@ public class SeasonUpdate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<SeasonUpdate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("autoClaim", "autoClaim");
-        result.put("defaultLanguage", "defaultLanguage");
-        result.put("defaultRequiredExp", "defaultRequiredExp");
-        result.put("draftStoreId", "draftStoreId");
-        result.put("end", "end");
-        result.put("excessStrategy", "excessStrategy");
-        result.put("images", "images");
-        result.put("localizations", "localizations");
-        result.put("name", "name");
-        result.put("start", "start");
-        result.put("tierItemId", "tierItemId");
-        return result;
-    }
     
-    public static class SeasonUpdateBuilder {
-        
-    }
 }

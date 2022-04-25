@@ -51,16 +51,5 @@ public class ModelUserPasswordUpdateV3Request extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserPasswordUpdateV3Request>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("languageTag", "languageTag");
-        result.put("newPassword", "newPassword");
-        result.put("oldPassword", "oldPassword");
-        return result;
-    }
     
-    public static class ModelUserPasswordUpdateV3RequestBuilder {
-        
-    }
 }

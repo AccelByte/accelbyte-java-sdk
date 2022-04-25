@@ -54,17 +54,5 @@ public class XblReconcileRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<XblReconcileRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("currencyCode", "currencyCode");
-        result.put("price", "price");
-        result.put("productId", "productId");
-        result.put("xstsToken", "xstsToken");
-        return result;
-    }
     
-    public static class XblReconcileRequestBuilder {
-        
-    }
 }

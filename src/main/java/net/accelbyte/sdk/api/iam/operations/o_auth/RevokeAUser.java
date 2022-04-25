@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.iam.operations.o_auth;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -58,29 +56,17 @@ import java.util.*;
 @Deprecated
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class RevokeAUser extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/iam/oauth/revoke/user";
-
-    @JsonIgnore
     private String method = "POST";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList("application/x-www-form-urlencoded");
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -95,14 +81,14 @@ public class RevokeAUser extends Operation {
     )
     {
         this.userID = userID;
+        
+        securities.add("Bearer");
     }
 
-    @JsonIgnore
     public RevokeAUser createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -110,8 +96,8 @@ public class RevokeAUser extends Operation {
 
 
 
+
     @Override
-    @JsonIgnore
     public Map<String, Object> getFormDataParams(){
         Map<String, Object> formDataParams = new HashMap<>();
         if (this.userID != null) {
@@ -121,26 +107,11 @@ public class RevokeAUser extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("userID","userID");
-        return result;
-    }
-
-    @JsonIgnore
-    public List<String> getAllRequiredFields() {
-        return Arrays.asList(
-            "userID"        );
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @Override
-    @JsonIgnore
     public boolean isValid() {
         if(this.userID == null) {
             return false;
@@ -149,7 +120,6 @@ public class RevokeAUser extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         if(code != 200){
             String json = this.convertInputStreamToString(payload);

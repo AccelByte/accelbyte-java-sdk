@@ -84,27 +84,5 @@ public class SlotInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<SlotInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("checksum", "checksum");
-        result.put("customAttribute", "customAttribute");
-        result.put("dateAccessed", "dateAccessed");
-        result.put("dateCreated", "dateCreated");
-        result.put("dateModified", "dateModified");
-        result.put("label", "label");
-        result.put("mimeType", "mimeType");
-        result.put("namespace", "namespace");
-        result.put("originalName", "originalName");
-        result.put("size", "size");
-        result.put("slotId", "slotId");
-        result.put("storedName", "storedName");
-        result.put("tags", "tags");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class SlotInfoBuilder {
-        
-    }
 }

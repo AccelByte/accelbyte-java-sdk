@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.seasonpass.operations.season;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -40,29 +38,17 @@ import java.util.*;
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class UpdateSeason extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/seasonpass/admin/namespaces/{namespace}/seasons/{seasonId}";
-
-    @JsonIgnore
     private String method = "PATCH";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList("application/json");
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -84,20 +70,19 @@ public class UpdateSeason extends Operation {
         this.namespace = namespace;
         this.seasonId = seasonId;
         this.body = body;
+        
+        securities.add("Bearer");
     }
 
-    @JsonIgnore
     public UpdateSeason createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
 
     @Override
-    @JsonIgnore
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
         if (this.namespace != null){
@@ -110,37 +95,19 @@ public class UpdateSeason extends Operation {
     }
 
 
+
     @Override
-    @JsonIgnore
     public SeasonUpdate getBodyParams(){
         return this.body;
     }
 
 
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("namespace","namespace");
-        result.put("seasonId","seasonId");
-        return result;
-    }
-
-    @JsonIgnore
-    public List<String> getAllRequiredFields() {
-        return Arrays.asList(
-            "namespace",
-            "seasonId"
-        );
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @Override
-    @JsonIgnore
     public boolean isValid() {
         if(this.namespace == null) {
             return false;
@@ -152,7 +119,6 @@ public class UpdateSeason extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public SeasonInfo parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

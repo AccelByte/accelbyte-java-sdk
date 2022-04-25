@@ -45,14 +45,5 @@ public class TierReorder extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<TierReorder>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("newIndex", "newIndex");
-        return result;
-    }
     
-    public static class TierReorderBuilder {
-        
-    }
 }

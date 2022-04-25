@@ -57,18 +57,5 @@ public class ModelsCreatorOverviewResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreatorOverviewResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("followCount", "followCount");
-        result.put("followingCount", "followingCount");
-        result.put("id", "id");
-        result.put("namespace", "namespace");
-        result.put("totalLikedContent", "totalLikedContent");
-        return result;
-    }
     
-    public static class ModelsCreatorOverviewResponseBuilder {
-        
-    }
 }

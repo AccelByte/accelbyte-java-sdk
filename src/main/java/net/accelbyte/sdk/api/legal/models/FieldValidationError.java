@@ -57,18 +57,5 @@ public class FieldValidationError extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<FieldValidationError>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("errorCode", "errorCode");
-        result.put("errorField", "errorField");
-        result.put("errorMessage", "errorMessage");
-        result.put("errorValue", "errorValue");
-        result.put("messageVariables", "messageVariables");
-        return result;
-    }
     
-    public static class FieldValidationErrorBuilder {
-        
-    }
 }

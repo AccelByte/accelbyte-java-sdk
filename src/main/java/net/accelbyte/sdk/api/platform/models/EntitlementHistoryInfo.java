@@ -86,19 +86,6 @@ public class EntitlementHistoryInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<EntitlementHistoryInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("action", "action");
-        result.put("createdAt", "createdAt");
-        result.put("entitlementId", "entitlementId");
-        result.put("namespace", "namespace");
-        result.put("operator", "operator");
-        result.put("updatedAt", "updatedAt");
-        result.put("useCount", "useCount");
-        result.put("userId", "userId");
-        return result;
-    }
     
     public enum Action {
         GRANT("GRANT"),

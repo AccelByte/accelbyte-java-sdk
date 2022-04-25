@@ -54,17 +54,5 @@ public class PlayStationReconcileRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PlayStationReconcileRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("currencyCode", "currencyCode");
-        result.put("price", "price");
-        result.put("productId", "productId");
-        result.put("serviceLabel", "serviceLabel");
-        return result;
-    }
     
-    public static class PlayStationReconcileRequestBuilder {
-        
-    }
 }

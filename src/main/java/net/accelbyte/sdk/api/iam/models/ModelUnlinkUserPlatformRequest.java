@@ -45,14 +45,5 @@ public class ModelUnlinkUserPlatformRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUnlinkUserPlatformRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("platformNamespace", "platformNamespace");
-        return result;
-    }
     
-    public static class ModelUnlinkUserPlatformRequestBuilder {
-        
-    }
 }

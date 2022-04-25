@@ -60,19 +60,5 @@ public class StoreBackupInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<StoreBackupInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("autoBackup", "autoBackup");
-        result.put("createdAt", "createdAt");
-        result.put("id", "id");
-        result.put("name", "name");
-        result.put("storeId", "storeId");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
-    public static class StoreBackupInfoBuilder {
-        
-    }
 }

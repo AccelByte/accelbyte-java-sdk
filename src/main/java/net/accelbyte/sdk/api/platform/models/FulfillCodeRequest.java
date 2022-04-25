@@ -51,16 +51,5 @@ public class FulfillCodeRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<FulfillCodeRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("code", "code");
-        result.put("language", "language");
-        result.put("region", "region");
-        return result;
-    }
     
-    public static class FulfillCodeRequestBuilder {
-        
-    }
 }

@@ -63,20 +63,5 @@ public class CreateBasePolicyRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<CreateBasePolicyRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("affectedClientIds", "affectedClientIds");
-        result.put("affectedCountries", "affectedCountries");
-        result.put("basePolicyName", "basePolicyName");
-        result.put("description", "description");
-        result.put("namespace", "namespace");
-        result.put("tags", "tags");
-        result.put("typeId", "typeId");
-        return result;
-    }
     
-    public static class CreateBasePolicyRequestBuilder {
-        
-    }
 }

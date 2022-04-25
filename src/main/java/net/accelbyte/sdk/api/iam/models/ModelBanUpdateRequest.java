@@ -48,15 +48,5 @@ public class ModelBanUpdateRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelBanUpdateRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("enabled", "enabled");
-        result.put("skipNotif", "skipNotif");
-        return result;
-    }
     
-    public static class ModelBanUpdateRequestBuilder {
-        
-    }
 }

@@ -48,15 +48,5 @@ public class TestResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<TestResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("msg", "msg");
-        result.put("success", "success");
-        return result;
-    }
     
-    public static class TestResultBuilder {
-        
-    }
 }

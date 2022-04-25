@@ -48,15 +48,5 @@ public class ModelsEventResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsEventResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("Data", "data");
-        result.put("Pagination", "pagination");
-        return result;
-    }
     
-    public static class ModelsEventResponseBuilder {
-        
-    }
 }

@@ -48,15 +48,5 @@ public class ModelAuthenticatorKeyResponseV4 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelAuthenticatorKeyResponseV4>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("secretKey", "secretKey");
-        result.put("uri", "uri");
-        return result;
-    }
     
-    public static class ModelAuthenticatorKeyResponseV4Builder {
-        
-    }
 }

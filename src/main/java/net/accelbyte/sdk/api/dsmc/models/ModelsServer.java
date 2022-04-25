@@ -114,37 +114,5 @@ public class ModelsServer extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsServer>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("allocation_id", "allocationId");
-        result.put("alternate_ips", "alternateIps");
-        result.put("cpu_limit", "cpuLimit");
-        result.put("created_at", "createdAt");
-        result.put("custom_attribute", "customAttribute");
-        result.put("deployment", "deployment");
-        result.put("game_version", "gameVersion");
-        result.put("image_version", "imageVersion");
-        result.put("ip", "ip");
-        result.put("is_override_game_version", "isOverrideGameVersion");
-        result.put("job_id", "jobId");
-        result.put("last_update", "lastUpdate");
-        result.put("mem_limit", "memLimit");
-        result.put("namespace", "namespace");
-        result.put("params", "params");
-        result.put("pod_name", "podName");
-        result.put("port", "port");
-        result.put("ports", "ports");
-        result.put("protocol", "protocol");
-        result.put("provider", "provider");
-        result.put("region", "region");
-        result.put("session_id", "sessionId");
-        result.put("status", "status");
-        result.put("status_history", "statusHistory");
-        return result;
-    }
     
-    public static class ModelsServerBuilder {
-        
-    }
 }

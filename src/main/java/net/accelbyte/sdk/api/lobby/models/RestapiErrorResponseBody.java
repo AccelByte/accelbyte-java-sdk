@@ -48,15 +48,5 @@ public class RestapiErrorResponseBody extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RestapiErrorResponseBody>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("ErrorCode", "errorCode");
-        result.put("ErrorMessage", "errorMessage");
-        return result;
-    }
     
-    public static class RestapiErrorResponseBodyBuilder {
-        
-    }
 }

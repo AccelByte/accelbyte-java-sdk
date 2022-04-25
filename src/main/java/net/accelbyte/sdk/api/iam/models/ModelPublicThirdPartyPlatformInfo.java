@@ -57,18 +57,5 @@ public class ModelPublicThirdPartyPlatformInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelPublicThirdPartyPlatformInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("AppId", "appId");
-        result.put("ClientId", "clientId");
-        result.put("Environment", "environment");
-        result.put("IsActive", "isActive");
-        result.put("PlatformId", "platformId");
-        return result;
-    }
     
-    public static class ModelPublicThirdPartyPlatformInfoBuilder {
-        
-    }
 }

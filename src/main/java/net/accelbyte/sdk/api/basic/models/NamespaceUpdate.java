@@ -45,14 +45,5 @@ public class NamespaceUpdate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<NamespaceUpdate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("displayName", "displayName");
-        return result;
-    }
     
-    public static class NamespaceUpdateBuilder {
-        
-    }
 }

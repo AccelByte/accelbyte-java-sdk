@@ -51,16 +51,5 @@ public class AcceptAgreementResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AcceptAgreementResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("comply", "comply");
-        result.put("ext", "ext");
-        result.put("proceed", "proceed");
-        return result;
-    }
     
-    public static class AcceptAgreementResponseBuilder {
-        
-    }
 }

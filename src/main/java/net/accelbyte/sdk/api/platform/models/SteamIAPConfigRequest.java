@@ -45,14 +45,5 @@ public class SteamIAPConfigRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<SteamIAPConfigRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("publisherAuthenticationKey", "publisherAuthenticationKey");
-        return result;
-    }
     
-    public static class SteamIAPConfigRequestBuilder {
-        
-    }
 }

@@ -45,14 +45,5 @@ public class ModelListUserInformationResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelListUserInformationResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("data", "data");
-        return result;
-    }
     
-    public static class ModelListUserInformationResultBuilder {
-        
-    }
 }

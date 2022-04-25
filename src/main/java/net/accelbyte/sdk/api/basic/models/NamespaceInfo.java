@@ -77,16 +77,6 @@ public class NamespaceInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<NamespaceInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("createdAt", "createdAt");
-        result.put("displayName", "displayName");
-        result.put("namespace", "namespace");
-        result.put("status", "status");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
     public enum Status {
         ACTIVE("ACTIVE"),

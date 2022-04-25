@@ -66,21 +66,5 @@ public class HierarchicalCategoryInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<HierarchicalCategoryInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("categoryPath", "categoryPath");
-        result.put("childCategories", "childCategories");
-        result.put("createdAt", "createdAt");
-        result.put("displayName", "displayName");
-        result.put("namespace", "namespace");
-        result.put("parentCategoryPath", "parentCategoryPath");
-        result.put("root", "root");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
-    public static class HierarchicalCategoryInfoBuilder {
-        
-    }
 }

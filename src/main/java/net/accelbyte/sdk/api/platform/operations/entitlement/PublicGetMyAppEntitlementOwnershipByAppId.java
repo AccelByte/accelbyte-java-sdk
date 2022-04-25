@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.platform.operations.entitlement;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -40,29 +38,17 @@ import java.util.*;
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class PublicGetMyAppEntitlementOwnershipByAppId extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/platform/public/namespaces/{namespace}/users/me/entitlements/ownership/byAppId";
-
-    @JsonIgnore
     private String method = "GET";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList();
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -81,20 +67,19 @@ public class PublicGetMyAppEntitlementOwnershipByAppId extends Operation {
     {
         this.namespace = namespace;
         this.appId = appId;
+        
+        securities.add("Bearer");
     }
 
-    @JsonIgnore
     public PublicGetMyAppEntitlementOwnershipByAppId createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
 
     @Override
-    @JsonIgnore
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
         if (this.namespace != null){
@@ -104,7 +89,6 @@ public class PublicGetMyAppEntitlementOwnershipByAppId extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public Map<String, List<String>> getQueryParams(){
         Map<String, List<String>> queryParams = new HashMap<>();
         queryParams.put("appId", this.appId == null ? null : Arrays.asList(this.appId));
@@ -113,30 +97,13 @@ public class PublicGetMyAppEntitlementOwnershipByAppId extends Operation {
 
 
 
+
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("namespace","namespace");
-        result.put("appId","appId");
-        return result;
-    }
-
-    @JsonIgnore
-    public List<String> getAllRequiredFields() {
-        return Arrays.asList(
-            "namespace",
-            "appId"
-        );
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @Override
-    @JsonIgnore
     public boolean isValid() {
         if(this.namespace == null) {
             return false;
@@ -148,7 +115,6 @@ public class PublicGetMyAppEntitlementOwnershipByAppId extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public Ownership parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
@@ -158,7 +124,7 @@ public class PublicGetMyAppEntitlementOwnershipByAppId extends Operation {
     }
 
     @Override
-    public Map<String, String> getCollectionFormatMap() {
+    protected Map<String, String> getCollectionFormatMap() {
         Map<String, String> result = new HashMap<>();
         result.put("appId", "None");
         return result;

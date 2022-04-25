@@ -48,15 +48,5 @@ public class OrderStatistics extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<OrderStatistics>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("statusCount", "statusCount");
-        result.put("total", "total");
-        return result;
-    }
     
-    public static class OrderStatisticsBuilder {
-        
-    }
 }

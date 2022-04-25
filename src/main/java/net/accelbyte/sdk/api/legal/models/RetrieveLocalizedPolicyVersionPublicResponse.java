@@ -87,28 +87,5 @@ public class RetrieveLocalizedPolicyVersionPublicResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RetrieveLocalizedPolicyVersionPublicResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("attachmentChecksum", "attachmentChecksum");
-        result.put("attachmentLocation", "attachmentLocation");
-        result.put("attachmentVersionIdentifier", "attachmentVersionIdentifier");
-        result.put("basePolicyId", "basePolicyId");
-        result.put("baseUrls", "baseUrls");
-        result.put("contentType", "contentType");
-        result.put("createdAt", "createdAt");
-        result.put("description", "description");
-        result.put("id", "id");
-        result.put("localeCode", "localeCode");
-        result.put("namespace", "namespace");
-        result.put("policy", "policy");
-        result.put("policyVersion", "policyVersion");
-        result.put("tags", "tags");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
-    public static class RetrieveLocalizedPolicyVersionPublicResponseBuilder {
-        
-    }
 }

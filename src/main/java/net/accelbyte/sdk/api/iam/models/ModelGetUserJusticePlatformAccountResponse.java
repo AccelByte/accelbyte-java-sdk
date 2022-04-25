@@ -48,15 +48,5 @@ public class ModelGetUserJusticePlatformAccountResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelGetUserJusticePlatformAccountResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("DesignatedNamespace", "designatedNamespace");
-        result.put("UserID", "userID");
-        return result;
-    }
     
-    public static class ModelGetUserJusticePlatformAccountResponseBuilder {
-        
-    }
 }

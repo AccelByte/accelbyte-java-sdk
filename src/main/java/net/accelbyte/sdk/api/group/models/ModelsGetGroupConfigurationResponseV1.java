@@ -66,21 +66,5 @@ public class ModelsGetGroupConfigurationResponseV1 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGetGroupConfigurationResponseV1>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("configurationCode", "configurationCode");
-        result.put("description", "description");
-        result.put("globalRules", "globalRules");
-        result.put("groupAdminRoleId", "groupAdminRoleId");
-        result.put("groupMaxMember", "groupMaxMember");
-        result.put("groupMemberRoleId", "groupMemberRoleId");
-        result.put("name", "name");
-        result.put("namespace", "namespace");
-        return result;
-    }
     
-    public static class ModelsGetGroupConfigurationResponseV1Builder {
-        
-    }
 }

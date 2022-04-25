@@ -57,18 +57,5 @@ public class ModelTemplateLocalizationResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelTemplateLocalizationResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("first", "first");
-        result.put("last", "last");
-        result.put("next", "next");
-        result.put("previous", "previous");
-        result.put("templateLocalization", "templateLocalization");
-        return result;
-    }
     
-    public static class ModelTemplateLocalizationResponseBuilder {
-        
-    }
 }

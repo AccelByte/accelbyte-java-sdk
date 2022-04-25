@@ -87,28 +87,5 @@ public class ModelsAchievementResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAchievementResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("achievementCode", "achievementCode");
-        result.put("createdAt", "createdAt");
-        result.put("defaultLanguage", "defaultLanguage");
-        result.put("description", "description");
-        result.put("goalValue", "goalValue");
-        result.put("hidden", "hidden");
-        result.put("incremental", "incremental");
-        result.put("listOrder", "listOrder");
-        result.put("lockedIcons", "lockedIcons");
-        result.put("name", "name");
-        result.put("namespace", "namespace");
-        result.put("statCode", "statCode");
-        result.put("tags", "tags");
-        result.put("unlockedIcons", "unlockedIcons");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
-    public static class ModelsAchievementResponseBuilder {
-        
-    }
 }

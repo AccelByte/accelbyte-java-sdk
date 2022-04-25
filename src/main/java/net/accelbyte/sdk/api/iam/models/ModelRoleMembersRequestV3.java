@@ -45,14 +45,5 @@ public class ModelRoleMembersRequestV3 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelRoleMembersRequestV3>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("members", "members");
-        return result;
-    }
     
-    public static class ModelRoleMembersRequestV3Builder {
-        
-    }
 }

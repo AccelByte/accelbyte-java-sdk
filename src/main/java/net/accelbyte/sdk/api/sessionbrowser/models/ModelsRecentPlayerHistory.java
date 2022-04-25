@@ -60,19 +60,5 @@ public class ModelsRecentPlayerHistory extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsRecentPlayerHistory>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("created_at", "createdAt");
-        result.put("namespace", "namespace");
-        result.put("other_display_name", "otherDisplayName");
-        result.put("other_id", "otherId");
-        result.put("updated_at", "updatedAt");
-        result.put("user_id", "userId");
-        return result;
-    }
     
-    public static class ModelsRecentPlayerHistoryBuilder {
-        
-    }
 }

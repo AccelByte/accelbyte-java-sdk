@@ -48,15 +48,5 @@ public class ModelsPlayerResultResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPlayerResultResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("current_score", "currentScore");
-        result.put("user_id", "userId");
-        return result;
-    }
     
-    public static class ModelsPlayerResultResponseBuilder {
-        
-    }
 }

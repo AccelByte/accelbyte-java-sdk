@@ -45,14 +45,5 @@ public class ModelsDefaultProvider extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDefaultProvider>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("provider_name", "providerName");
-        return result;
-    }
     
-    public static class ModelsDefaultProviderBuilder {
-        
-    }
 }

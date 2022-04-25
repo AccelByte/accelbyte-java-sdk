@@ -48,15 +48,5 @@ public class NamespacePublisherInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<NamespacePublisherInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("publisher", "publisher");
-        result.put("publisherNamespace", "publisherNamespace");
-        return result;
-    }
     
-    public static class NamespacePublisherInfoBuilder {
-        
-    }
 }

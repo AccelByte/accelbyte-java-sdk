@@ -51,16 +51,5 @@ public class ModelUpdatePermissionScheduleRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUpdatePermissionScheduleRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("SchedAction", "schedAction");
-        result.put("SchedCron", "schedCron");
-        result.put("SchedRange", "schedRange");
-        return result;
-    }
     
-    public static class ModelUpdatePermissionScheduleRequestBuilder {
-        
-    }
 }

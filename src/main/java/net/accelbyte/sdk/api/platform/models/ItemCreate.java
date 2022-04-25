@@ -235,42 +235,6 @@ public class ItemCreate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ItemCreate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("appId", "appId");
-        result.put("appType", "appType");
-        result.put("baseAppId", "baseAppId");
-        result.put("boothName", "boothName");
-        result.put("categoryPath", "categoryPath");
-        result.put("clazz", "clazz");
-        result.put("displayOrder", "displayOrder");
-        result.put("entitlementType", "entitlementType");
-        result.put("ext", "ext");
-        result.put("features", "features");
-        result.put("images", "images");
-        result.put("itemIds", "itemIds");
-        result.put("itemQty", "itemQty");
-        result.put("itemType", "itemType");
-        result.put("listable", "listable");
-        result.put("localizations", "localizations");
-        result.put("maxCount", "maxCount");
-        result.put("maxCountPerUser", "maxCountPerUser");
-        result.put("name", "name");
-        result.put("purchasable", "purchasable");
-        result.put("recurring", "recurring");
-        result.put("regionData", "regionData");
-        result.put("seasonType", "seasonType");
-        result.put("sku", "sku");
-        result.put("stackable", "stackable");
-        result.put("status", "status");
-        result.put("tags", "tags");
-        result.put("targetCurrencyCode", "targetCurrencyCode");
-        result.put("targetNamespace", "targetNamespace");
-        result.put("thumbnailUrl", "thumbnailUrl");
-        result.put("useCount", "useCount");
-        return result;
-    }
     
     public enum AppType {
         GAME("GAME"),

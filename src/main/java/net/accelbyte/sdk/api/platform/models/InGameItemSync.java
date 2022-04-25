@@ -51,16 +51,5 @@ public class InGameItemSync extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<InGameItemSync>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("categoryPath", "categoryPath");
-        result.put("targetItemId", "targetItemId");
-        result.put("targetNamespace", "targetNamespace");
-        return result;
-    }
     
-    public static class InGameItemSyncBuilder {
-        
-    }
 }

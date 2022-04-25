@@ -60,19 +60,5 @@ public class StoreUpdate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<StoreUpdate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("defaultLanguage", "defaultLanguage");
-        result.put("defaultRegion", "defaultRegion");
-        result.put("description", "description");
-        result.put("supportedLanguages", "supportedLanguages");
-        result.put("supportedRegions", "supportedRegions");
-        result.put("title", "title");
-        return result;
-    }
     
-    public static class StoreUpdateBuilder {
-        
-    }
 }

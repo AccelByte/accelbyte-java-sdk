@@ -48,15 +48,5 @@ public class SteamDLCSyncRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<SteamDLCSyncRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("appId", "appId");
-        result.put("steamId", "steamId");
-        return result;
-    }
     
-    public static class SteamDLCSyncRequestBuilder {
-        
-    }
 }

@@ -48,15 +48,5 @@ public class ModelNamespaceRoleRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelNamespaceRoleRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("namespace", "namespace");
-        result.put("roleId", "roleId");
-        return result;
-    }
     
-    public static class ModelNamespaceRoleRequestBuilder {
-        
-    }
 }

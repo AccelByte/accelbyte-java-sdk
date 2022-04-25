@@ -48,15 +48,5 @@ public class AccountcommonBan extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonBan>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("Ban", "ban");
-        result.put("Description", "description");
-        return result;
-    }
     
-    public static class AccountcommonBanBuilder {
-        
-    }
 }

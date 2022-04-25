@@ -77,16 +77,6 @@ public class XblReconcileResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<XblReconcileResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("iapOrderStatus", "iapOrderStatus");
-        result.put("itemId", "itemId");
-        result.put("sku", "sku");
-        result.put("transactionId", "transactionId");
-        result.put("xboxProductId", "xboxProductId");
-        return result;
-    }
     
     public enum IapOrderStatus {
         VERIFIED("VERIFIED"),

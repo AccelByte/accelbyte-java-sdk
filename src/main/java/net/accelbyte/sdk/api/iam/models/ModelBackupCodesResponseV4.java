@@ -51,16 +51,5 @@ public class ModelBackupCodesResponseV4 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelBackupCodesResponseV4>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("generatedAt", "generatedAt");
-        result.put("invalidCodes", "invalidCodes");
-        result.put("validCodes", "validCodes");
-        return result;
-    }
     
-    public static class ModelBackupCodesResponseV4Builder {
-        
-    }
 }

@@ -48,15 +48,5 @@ public class AccountcommonDescription extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonDescription>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("en-US", "enUS");
-        result.put("zh-CN", "zhCN");
-        return result;
-    }
     
-    public static class AccountcommonDescriptionBuilder {
-        
-    }
 }

@@ -45,14 +45,5 @@ public class ModelsDeleteBulkLeaderboardsReq extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDeleteBulkLeaderboardsReq>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("leaderboardCodes", "leaderboardCodes");
-        return result;
-    }
     
-    public static class ModelsDeleteBulkLeaderboardsReqBuilder {
-        
-    }
 }

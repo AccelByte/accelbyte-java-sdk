@@ -45,14 +45,5 @@ public class TicketAcquireResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<TicketAcquireResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("values", "values");
-        return result;
-    }
     
-    public static class TicketAcquireResultBuilder {
-        
-    }
 }

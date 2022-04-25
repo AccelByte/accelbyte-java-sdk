@@ -48,15 +48,5 @@ public class ModelsLeaveGroupResponseV1 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsLeaveGroupResponseV1>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("groupId", "groupId");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class ModelsLeaveGroupResponseV1Builder {
-        
-    }
 }

@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -76,29 +74,17 @@ import java.util.*;
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/game-telemetry/v1/protected/events";
-
-    @JsonIgnore
     private String method = "POST";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList("application/json");
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -113,14 +99,15 @@ public class ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost extends Opera
     )
     {
         this.body = body;
+        
+        securities.add("Bearer");
+        securities.add("Cookie");
     }
 
-    @JsonIgnore
     public ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
@@ -128,33 +115,28 @@ public class ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost extends Opera
 
 
     @Override
-    @JsonIgnore
+    public Map<String, String> getCookieParams(){
+        Map<String, String> cookieParams = new HashMap<>();
+        return cookieParams;
+    }
+
+    @Override
     public List<TelemetryBody> getBodyParams(){
         return this.body;
     }
 
 
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-
-    @JsonIgnore
-    public List<String> getAllRequiredFields() {
-        return Arrays.asList(
-        );
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @Override
-    @JsonIgnore
     public boolean isValid() {
         return true;
     }
 
     @Override
-    @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         if(code != 204){
             String json = this.convertInputStreamToString(payload);

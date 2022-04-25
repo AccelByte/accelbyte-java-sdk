@@ -45,14 +45,5 @@ public class AccountcommonPermissions extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonPermissions>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("Permissions", "permissions");
-        return result;
-    }
     
-    public static class AccountcommonPermissionsBuilder {
-        
-    }
 }

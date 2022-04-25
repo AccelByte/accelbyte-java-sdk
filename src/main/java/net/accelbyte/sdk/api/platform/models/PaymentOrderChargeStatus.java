@@ -68,13 +68,6 @@ public class PaymentOrderChargeStatus extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PaymentOrderChargeStatus>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("charging", "charging");
-        result.put("status", "status");
-        return result;
-    }
     
     public enum Status {
         INIT("INIT"),

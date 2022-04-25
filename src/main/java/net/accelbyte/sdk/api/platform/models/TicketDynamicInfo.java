@@ -45,14 +45,5 @@ public class TicketDynamicInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<TicketDynamicInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("availableSaleCount", "availableSaleCount");
-        return result;
-    }
     
-    public static class TicketDynamicInfoBuilder {
-        
-    }
 }

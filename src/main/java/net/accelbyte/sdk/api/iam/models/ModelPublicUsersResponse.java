@@ -45,14 +45,5 @@ public class ModelPublicUsersResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelPublicUsersResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("Users", "users");
-        return result;
-    }
     
-    public static class ModelPublicUsersResponseBuilder {
-        
-    }
 }

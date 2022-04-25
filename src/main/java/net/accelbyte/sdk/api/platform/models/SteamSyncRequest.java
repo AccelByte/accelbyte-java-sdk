@@ -63,20 +63,5 @@ public class SteamSyncRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<SteamSyncRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("appId", "appId");
-        result.put("currencyCode", "currencyCode");
-        result.put("language", "language");
-        result.put("price", "price");
-        result.put("productId", "productId");
-        result.put("region", "region");
-        result.put("steamId", "steamId");
-        return result;
-    }
     
-    public static class SteamSyncRequestBuilder {
-        
-    }
 }

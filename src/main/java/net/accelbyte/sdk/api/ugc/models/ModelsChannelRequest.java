@@ -45,14 +45,5 @@ public class ModelsChannelRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsChannelRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("name", "name");
-        return result;
-    }
     
-    public static class ModelsChannelRequestBuilder {
-        
-    }
 }

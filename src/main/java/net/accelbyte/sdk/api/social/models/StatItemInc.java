@@ -45,14 +45,5 @@ public class StatItemInc extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<StatItemInc>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("inc", "inc");
-        return result;
-    }
     
-    public static class StatItemIncBuilder {
-        
-    }
 }

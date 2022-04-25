@@ -57,18 +57,5 @@ public class ModelBanCreateRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelBanCreateRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("ban", "ban");
-        result.put("comment", "comment");
-        result.put("endDate", "endDate");
-        result.put("reason", "reason");
-        result.put("skipNotif", "skipNotif");
-        return result;
-    }
     
-    public static class ModelBanCreateRequestBuilder {
-        
-    }
 }

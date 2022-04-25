@@ -54,17 +54,5 @@ public class XblIAPConfigInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<XblIAPConfigInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("businessPartnerCertFileName", "businessPartnerCertFileName");
-        result.put("namespace", "namespace");
-        result.put("password", "password");
-        result.put("relyingPartyCert", "relyingPartyCert");
-        return result;
-    }
     
-    public static class XblIAPConfigInfoBuilder {
-        
-    }
 }

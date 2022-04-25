@@ -162,31 +162,6 @@ public class CodeInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<CodeInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("acquireOrderNo", "acquireOrderNo");
-        result.put("acquireUserId", "acquireUserId");
-        result.put("batchNo", "batchNo");
-        result.put("campaignId", "campaignId");
-        result.put("createdAt", "createdAt");
-        result.put("id", "id");
-        result.put("items", "items");
-        result.put("maxRedeemCountPerCampaignPerUser", "maxRedeemCountPerCampaignPerUser");
-        result.put("maxRedeemCountPerCode", "maxRedeemCountPerCode");
-        result.put("maxRedeemCountPerCodePerUser", "maxRedeemCountPerCodePerUser");
-        result.put("namespace", "namespace");
-        result.put("redeemEnd", "redeemEnd");
-        result.put("redeemStart", "redeemStart");
-        result.put("redeemType", "redeemType");
-        result.put("redeemedCount", "redeemedCount");
-        result.put("remainder", "remainder");
-        result.put("status", "status");
-        result.put("type", "type");
-        result.put("updatedAt", "updatedAt");
-        result.put("value", "value");
-        return result;
-    }
     
     public enum RedeemType {
         ITEM("ITEM");

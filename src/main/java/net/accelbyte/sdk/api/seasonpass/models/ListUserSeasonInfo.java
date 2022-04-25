@@ -69,22 +69,5 @@ public class ListUserSeasonInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ListUserSeasonInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("cleared", "cleared");
-        result.put("currentTierIndex", "currentTierIndex");
-        result.put("enrolledAt", "enrolledAt");
-        result.put("id", "id");
-        result.put("lastTierIndex", "lastTierIndex");
-        result.put("namespace", "namespace");
-        result.put("season", "season");
-        result.put("seasonId", "seasonId");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class ListUserSeasonInfoBuilder {
-        
-    }
 }

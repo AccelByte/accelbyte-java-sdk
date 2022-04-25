@@ -54,17 +54,5 @@ public class ModelsUserPoint extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUserPoint>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("additionalData", "additionalData");
-        result.put("hidden", "hidden");
-        result.put("point", "point");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class ModelsUserPointBuilder {
-        
-    }
 }

@@ -60,19 +60,5 @@ public class RetrievePolicyTypeResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RetrievePolicyTypeResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("createdAt", "createdAt");
-        result.put("description", "description");
-        result.put("id", "id");
-        result.put("isNeedDocument", "isNeedDocument");
-        result.put("policyTypeName", "policyTypeName");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
-    public static class RetrievePolicyTypeResponseBuilder {
-        
-    }
 }

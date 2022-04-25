@@ -54,17 +54,5 @@ public class TwitchIAPConfigInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<TwitchIAPConfigInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("clientId", "clientId");
-        result.put("clientSecret", "clientSecret");
-        result.put("namespace", "namespace");
-        result.put("organizationId", "organizationId");
-        return result;
-    }
     
-    public static class TwitchIAPConfigInfoBuilder {
-        
-    }
 }

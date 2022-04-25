@@ -48,15 +48,5 @@ public class ModelsGetImageLimitResponseData extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGetImageLimitResponseData>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("image_count", "imageCount");
-        result.put("image_limit", "imageLimit");
-        return result;
-    }
     
-    public static class ModelsGetImageLimitResponseDataBuilder {
-        
-    }
 }

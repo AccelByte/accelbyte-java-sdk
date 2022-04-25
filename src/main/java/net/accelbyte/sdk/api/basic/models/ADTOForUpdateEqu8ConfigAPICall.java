@@ -45,14 +45,5 @@ public class ADTOForUpdateEqu8ConfigAPICall extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ADTOForUpdateEqu8ConfigAPICall>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("apiKey", "apiKey");
-        return result;
-    }
     
-    public static class ADTOForUpdateEqu8ConfigAPICallBuilder {
-        
-    }
 }

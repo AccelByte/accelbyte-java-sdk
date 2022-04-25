@@ -51,16 +51,5 @@ public class ModelSendVerificationCodeRequestV3 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelSendVerificationCodeRequestV3>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("context", "context");
-        result.put("emailAddress", "emailAddress");
-        result.put("languageTag", "languageTag");
-        return result;
-    }
     
-    public static class ModelSendVerificationCodeRequestV3Builder {
-        
-    }
 }

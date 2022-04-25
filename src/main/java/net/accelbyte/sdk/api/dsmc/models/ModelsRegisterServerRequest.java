@@ -48,15 +48,5 @@ public class ModelsRegisterServerRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsRegisterServerRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("custom_attribute", "customAttribute");
-        result.put("pod_name", "podName");
-        return result;
-    }
     
-    public static class ModelsRegisterServerRequestBuilder {
-        
-    }
 }

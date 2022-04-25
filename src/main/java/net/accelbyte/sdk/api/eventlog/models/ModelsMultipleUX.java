@@ -45,14 +45,5 @@ public class ModelsMultipleUX extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMultipleUX>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("UX", "ux");
-        return result;
-    }
     
-    public static class ModelsMultipleUXBuilder {
-        
-    }
 }

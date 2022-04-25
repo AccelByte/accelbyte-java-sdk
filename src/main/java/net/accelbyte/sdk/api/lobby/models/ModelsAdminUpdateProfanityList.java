@@ -51,16 +51,5 @@ public class ModelsAdminUpdateProfanityList extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAdminUpdateProfanityList>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("isEnabled", "isEnabled");
-        result.put("isMandatory", "isMandatory");
-        result.put("newName", "newName");
-        return result;
-    }
     
-    public static class ModelsAdminUpdateProfanityListBuilder {
-        
-    }
 }

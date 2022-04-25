@@ -68,13 +68,6 @@ public class PlatformDlcEntry extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<PlatformDlcEntry>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("platform", "platform");
-        result.put("platformDlcIdMap", "platformDlcIdMap");
-        return result;
-    }
     
     public enum Platform {
         PSN("PSN"),

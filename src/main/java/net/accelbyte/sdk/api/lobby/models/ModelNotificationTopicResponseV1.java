@@ -54,17 +54,5 @@ public class ModelNotificationTopicResponseV1 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelNotificationTopicResponseV1>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("createdAt", "createdAt");
-        result.put("description", "description");
-        result.put("namespace", "namespace");
-        result.put("topicName", "topicName");
-        return result;
-    }
     
-    public static class ModelNotificationTopicResponseV1Builder {
-        
-    }
 }

@@ -54,17 +54,5 @@ public class ModelsEventRegistry extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsEventRegistry>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("EventID", "eventID");
-        result.put("EventLevel", "eventLevel");
-        result.put("EventType", "eventType");
-        result.put("UX", "ux");
-        return result;
-    }
     
-    public static class ModelsEventRegistryBuilder {
-        
-    }
 }

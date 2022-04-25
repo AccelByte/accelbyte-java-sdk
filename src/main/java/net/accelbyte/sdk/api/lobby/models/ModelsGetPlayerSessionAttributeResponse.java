@@ -48,15 +48,5 @@ public class ModelsGetPlayerSessionAttributeResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGetPlayerSessionAttributeResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("key", "key");
-        result.put("value", "value");
-        return result;
-    }
     
-    public static class ModelsGetPlayerSessionAttributeResponseBuilder {
-        
-    }
 }

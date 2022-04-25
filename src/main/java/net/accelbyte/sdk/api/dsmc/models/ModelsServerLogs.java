@@ -45,14 +45,5 @@ public class ModelsServerLogs extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsServerLogs>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("logs", "logs");
-        return result;
-    }
     
-    public static class ModelsServerLogsBuilder {
-        
-    }
 }

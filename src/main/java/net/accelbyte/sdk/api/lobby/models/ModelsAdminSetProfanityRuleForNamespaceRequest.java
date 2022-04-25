@@ -45,14 +45,5 @@ public class ModelsAdminSetProfanityRuleForNamespaceRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAdminSetProfanityRuleForNamespaceRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("rule", "rule");
-        return result;
-    }
     
-    public static class ModelsAdminSetProfanityRuleForNamespaceRequestBuilder {
-        
-    }
 }

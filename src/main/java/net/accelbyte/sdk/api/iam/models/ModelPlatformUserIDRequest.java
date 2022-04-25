@@ -45,14 +45,5 @@ public class ModelPlatformUserIDRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelPlatformUserIDRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("platformUserIds", "platformUserIds");
-        return result;
-    }
     
-    public static class ModelPlatformUserIDRequestBuilder {
-        
-    }
 }

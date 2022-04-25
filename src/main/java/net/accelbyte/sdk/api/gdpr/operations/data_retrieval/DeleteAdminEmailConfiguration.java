@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.gdpr.operations.data_retrieval;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -36,29 +34,17 @@ import java.util.*;
  */
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class DeleteAdminEmailConfiguration extends Operation {
     /**
      * generated field's value
      */
-    @JsonIgnore
     private String url = "/gdpr/admin/namespaces/{namespace}/emails/configurations";
-
-    @JsonIgnore
     private String method = "DELETE";
-
-    @JsonIgnore
     private List<String> consumes = Arrays.asList("application/json");
-
-    @JsonIgnore
     private List<String> produces = Arrays.asList("application/json");
-
-    @JsonIgnore
+    @Deprecated
     private String security = "Bearer";
-
-    @JsonIgnore
     private String locationQuery = null;
-
     /**
      * fields as input parameter
      */
@@ -77,20 +63,19 @@ public class DeleteAdminEmailConfiguration extends Operation {
     {
         this.namespace = namespace;
         this.emails = emails;
+        
+        securities.add("Bearer");
     }
 
-    @JsonIgnore
     public DeleteAdminEmailConfiguration createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
-    @JsonIgnore
     public String toJson() throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(this);
     }
 
     @Override
-    @JsonIgnore
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();
         if (this.namespace != null){
@@ -100,7 +85,6 @@ public class DeleteAdminEmailConfiguration extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public Map<String, List<String>> getQueryParams(){
         Map<String, List<String>> queryParams = new HashMap<>();
         queryParams.put("emails", this.emails == null ? null : this.emails);
@@ -109,30 +93,13 @@ public class DeleteAdminEmailConfiguration extends Operation {
 
 
 
+
     @Override
-    @JsonIgnore
     public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return Operation.createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("namespace","namespace");
-        result.put("emails","emails");
-        return result;
-    }
-
-    @JsonIgnore
-    public List<String> getAllRequiredFields() {
-        return Arrays.asList(
-            "namespace",
-            "emails"
-        );
+        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
     @Override
-    @JsonIgnore
     public boolean isValid() {
         if(this.namespace == null) {
             return false;
@@ -144,7 +111,6 @@ public class DeleteAdminEmailConfiguration extends Operation {
     }
 
     @Override
-    @JsonIgnore
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
         if(code != 204){
             String json = this.convertInputStreamToString(payload);
@@ -153,7 +119,7 @@ public class DeleteAdminEmailConfiguration extends Operation {
     }
 
     @Override
-    public Map<String, String> getCollectionFormatMap() {
+    protected Map<String, String> getCollectionFormatMap() {
         Map<String, String> result = new HashMap<>();
         result.put("emails", "csv");
         return result;

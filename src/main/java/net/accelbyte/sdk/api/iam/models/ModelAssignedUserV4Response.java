@@ -57,18 +57,5 @@ public class ModelAssignedUserV4Response extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelAssignedUserV4Response>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("assignedNamespaces", "assignedNamespaces");
-        result.put("displayName", "displayName");
-        result.put("email", "email");
-        result.put("roleId", "roleId");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class ModelAssignedUserV4ResponseBuilder {
-        
-    }
 }

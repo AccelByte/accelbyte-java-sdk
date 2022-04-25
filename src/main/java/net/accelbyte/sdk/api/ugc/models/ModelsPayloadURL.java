@@ -48,15 +48,5 @@ public class ModelsPayloadURL extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPayloadURL>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("source", "source");
-        result.put("url", "url");
-        return result;
-    }
     
-    public static class ModelsPayloadURLBuilder {
-        
-    }
 }

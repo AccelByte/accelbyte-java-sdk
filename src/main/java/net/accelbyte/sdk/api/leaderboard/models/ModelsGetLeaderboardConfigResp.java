@@ -81,26 +81,5 @@ public class ModelsGetLeaderboardConfigResp extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGetLeaderboardConfigResp>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("daily", "daily");
-        result.put("deletedAt", "deletedAt");
-        result.put("descending", "descending");
-        result.put("iconURL", "iconURL");
-        result.put("isArchived", "isArchived");
-        result.put("isDeleted", "isDeleted");
-        result.put("leaderboardCode", "leaderboardCode");
-        result.put("monthly", "monthly");
-        result.put("name", "name");
-        result.put("seasonPeriod", "seasonPeriod");
-        result.put("startTime", "startTime");
-        result.put("statCode", "statCode");
-        result.put("weekly", "weekly");
-        return result;
-    }
     
-    public static class ModelsGetLeaderboardConfigRespBuilder {
-        
-    }
 }

@@ -45,14 +45,5 @@ public class ModelCountryAgeRestrictionRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelCountryAgeRestrictionRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("AgeRestriction", "ageRestriction");
-        return result;
-    }
     
-    public static class ModelCountryAgeRestrictionRequestBuilder {
-        
-    }
 }

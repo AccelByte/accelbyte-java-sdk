@@ -51,16 +51,5 @@ public class ValidationErrorEntity extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ValidationErrorEntity>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("errorCode", "errorCode");
-        result.put("errorMessage", "errorMessage");
-        result.put("errors", "errors");
-        return result;
-    }
     
-    public static class ValidationErrorEntityBuilder {
-        
-    }
 }

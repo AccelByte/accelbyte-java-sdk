@@ -69,22 +69,5 @@ public class RedeemHistoryInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RedeemHistoryInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("campaignId", "campaignId");
-        result.put("code", "code");
-        result.put("createdAt", "createdAt");
-        result.put("id", "id");
-        result.put("namespace", "namespace");
-        result.put("orderNo", "orderNo");
-        result.put("redeemedAt", "redeemedAt");
-        result.put("updatedAt", "updatedAt");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class RedeemHistoryInfoBuilder {
-        
-    }
 }

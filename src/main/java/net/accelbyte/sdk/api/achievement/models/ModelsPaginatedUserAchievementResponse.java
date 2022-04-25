@@ -51,16 +51,5 @@ public class ModelsPaginatedUserAchievementResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPaginatedUserAchievementResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("countInfo", "countInfo");
-        result.put("data", "data");
-        result.put("paging", "paging");
-        return result;
-    }
     
-    public static class ModelsPaginatedUserAchievementResponseBuilder {
-        
-    }
 }

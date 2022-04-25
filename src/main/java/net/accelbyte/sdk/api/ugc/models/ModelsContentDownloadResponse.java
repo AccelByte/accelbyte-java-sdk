@@ -108,35 +108,5 @@ public class ModelsContentDownloadResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsContentDownloadResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("channelId", "channelId");
-        result.put("createdTime", "createdTime");
-        result.put("creatorFollowState", "creatorFollowState");
-        result.put("creatorName", "creatorName");
-        result.put("downloadCount", "downloadCount");
-        result.put("fileExtension", "fileExtension");
-        result.put("groups", "groups");
-        result.put("id", "id");
-        result.put("isHidden", "isHidden");
-        result.put("isOfficial", "isOfficial");
-        result.put("likeCount", "likeCount");
-        result.put("likeState", "likeState");
-        result.put("name", "name");
-        result.put("namespace", "namespace");
-        result.put("payload", "payload");
-        result.put("payloadURL", "payloadURL");
-        result.put("screenshots", "screenshots");
-        result.put("shareCode", "shareCode");
-        result.put("subType", "subType");
-        result.put("tags", "tags");
-        result.put("type", "type");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class ModelsContentDownloadResponseBuilder {
-        
-    }
 }

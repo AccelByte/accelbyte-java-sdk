@@ -54,17 +54,5 @@ public class StatImportInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<StatImportInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("failedConfigs", "failedConfigs");
-        result.put("ignoredConfigs", "ignoredConfigs");
-        result.put("newConfigs", "newConfigs");
-        result.put("replacedConfigs", "replacedConfigs");
-        return result;
-    }
     
-    public static class StatImportInfoBuilder {
-        
-    }
 }

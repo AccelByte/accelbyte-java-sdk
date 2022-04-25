@@ -71,14 +71,6 @@ public class ModelsRuleInformation extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsRuleInformation>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("ruleAttribute", "ruleAttribute");
-        result.put("ruleCriteria", "ruleCriteria");
-        result.put("ruleValue", "ruleValue");
-        return result;
-    }
     
     public enum RuleCriteria {
         EQUAL("EQUAL"),

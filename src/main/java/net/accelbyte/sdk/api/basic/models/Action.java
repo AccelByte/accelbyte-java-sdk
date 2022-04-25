@@ -63,20 +63,5 @@ public class Action extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<Action>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("color", "color");
-        result.put("description", "description");
-        result.put("duration", "duration");
-        result.put("icon", "icon");
-        result.put("id", "id");
-        result.put("name", "name");
-        result.put("priority", "priority");
-        return result;
-    }
     
-    public static class ActionBuilder {
-        
-    }
 }

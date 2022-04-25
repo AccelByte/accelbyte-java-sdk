@@ -119,30 +119,6 @@ public class SeasonInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<SeasonInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("autoClaim", "autoClaim");
-        result.put("createdAt", "createdAt");
-        result.put("defaultLanguage", "defaultLanguage");
-        result.put("defaultRequiredExp", "defaultRequiredExp");
-        result.put("draftStoreId", "draftStoreId");
-        result.put("end", "end");
-        result.put("excessStrategy", "excessStrategy");
-        result.put("id", "id");
-        result.put("images", "images");
-        result.put("localizations", "localizations");
-        result.put("name", "name");
-        result.put("namespace", "namespace");
-        result.put("passCodes", "passCodes");
-        result.put("publishedAt", "publishedAt");
-        result.put("start", "start");
-        result.put("status", "status");
-        result.put("tierItemId", "tierItemId");
-        result.put("tierItemName", "tierItemName");
-        result.put("updatedAt", "updatedAt");
-        return result;
-    }
     
     public enum Status {
         DRAFT("DRAFT"),

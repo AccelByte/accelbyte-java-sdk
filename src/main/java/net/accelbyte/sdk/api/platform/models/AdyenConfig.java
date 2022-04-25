@@ -81,26 +81,5 @@ public class AdyenConfig extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AdyenConfig>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("allowedPaymentMethods", "allowedPaymentMethods");
-        result.put("apiKey", "apiKey");
-        result.put("authoriseAsCapture", "authoriseAsCapture");
-        result.put("blockedPaymentMethods", "blockedPaymentMethods");
-        result.put("clientKey", "clientKey");
-        result.put("dropInSettings", "dropInSettings");
-        result.put("liveEndpointUrlPrefix", "liveEndpointUrlPrefix");
-        result.put("merchantAccount", "merchantAccount");
-        result.put("notificationHmacKey", "notificationHmacKey");
-        result.put("notificationPassword", "notificationPassword");
-        result.put("notificationUsername", "notificationUsername");
-        result.put("returnUrl", "returnUrl");
-        result.put("settings", "settings");
-        return result;
-    }
     
-    public static class AdyenConfigBuilder {
-        
-    }
 }

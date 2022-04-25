@@ -45,14 +45,5 @@ public class ModelsMultipleAgentType extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMultipleAgentType>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("AgentTypes", "agentTypes");
-        return result;
-    }
     
-    public static class ModelsMultipleAgentTypeBuilder {
-        
-    }
 }

@@ -75,24 +75,5 @@ public class AccountCreateUserRequestV4 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountCreateUserRequestV4>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("acceptedPolicies", "acceptedPolicies");
-        result.put("authType", "authType");
-        result.put("code", "code");
-        result.put("country", "country");
-        result.put("dateOfBirth", "dateOfBirth");
-        result.put("displayName", "displayName");
-        result.put("emailAddress", "emailAddress");
-        result.put("password", "password");
-        result.put("passwordMD5Sum", "passwordMD5Sum");
-        result.put("reachMinimumAge", "reachMinimumAge");
-        result.put("username", "username");
-        return result;
-    }
     
-    public static class AccountCreateUserRequestV4Builder {
-        
-    }
 }

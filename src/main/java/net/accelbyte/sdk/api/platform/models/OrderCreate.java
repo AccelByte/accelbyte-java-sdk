@@ -69,22 +69,5 @@ public class OrderCreate extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<OrderCreate>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("currencyCode", "currencyCode");
-        result.put("discountedPrice", "discountedPrice");
-        result.put("ext", "ext");
-        result.put("itemId", "itemId");
-        result.put("language", "language");
-        result.put("price", "price");
-        result.put("quantity", "quantity");
-        result.put("region", "region");
-        result.put("returnUrl", "returnUrl");
-        return result;
-    }
     
-    public static class OrderCreateBuilder {
-        
-    }
 }

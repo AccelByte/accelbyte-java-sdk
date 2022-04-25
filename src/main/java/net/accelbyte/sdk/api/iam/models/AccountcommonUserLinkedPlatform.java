@@ -69,22 +69,5 @@ public class AccountcommonUserLinkedPlatform extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonUserLinkedPlatform>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("DisplayName", "displayName");
-        result.put("EmailAddress", "emailAddress");
-        result.put("LinkedAt", "linkedAt");
-        result.put("Namespace", "namespace");
-        result.put("OriginNamespace", "originNamespace");
-        result.put("PlatformId", "platformId");
-        result.put("PlatformUserId", "platformUserId");
-        result.put("UserId", "userId");
-        result.put("XUID", "xuid");
-        return result;
-    }
     
-    public static class AccountcommonUserLinkedPlatformBuilder {
-        
-    }
 }

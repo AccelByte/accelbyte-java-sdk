@@ -45,14 +45,5 @@ public class ModelUpdateUserDeletionStatusRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUpdateUserDeletionStatusRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("enabled", "enabled");
-        return result;
-    }
     
-    public static class ModelUpdateUserDeletionStatusRequestBuilder {
-        
-    }
 }

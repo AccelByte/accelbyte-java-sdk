@@ -57,18 +57,5 @@ public class XsollaConfig extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<XsollaConfig>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("apiKey", "apiKey");
-        result.put("flowCompletionUrl", "flowCompletionUrl");
-        result.put("merchantId", "merchantId");
-        result.put("projectId", "projectId");
-        result.put("projectSecretKey", "projectSecretKey");
-        return result;
-    }
     
-    public static class XsollaConfigBuilder {
-        
-    }
 }

@@ -45,14 +45,5 @@ public class RetrieveUserEligibilitiesIndirectResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RetrieveUserEligibilitiesIndirectResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("isComply", "isComply");
-        return result;
-    }
     
-    public static class RetrieveUserEligibilitiesIndirectResponseBuilder {
-        
-    }
 }

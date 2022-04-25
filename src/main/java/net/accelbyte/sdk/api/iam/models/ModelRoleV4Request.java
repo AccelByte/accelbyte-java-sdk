@@ -54,17 +54,5 @@ public class ModelRoleV4Request extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelRoleV4Request>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("adminRole", "adminRole");
-        result.put("deletable", "deletable");
-        result.put("isWildcard", "isWildcard");
-        result.put("roleName", "roleName");
-        return result;
-    }
     
-    public static class ModelRoleV4RequestBuilder {
-        
-    }
 }

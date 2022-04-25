@@ -66,21 +66,5 @@ public class GameProfileRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<GameProfileRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("achievements", "achievements");
-        result.put("attributes", "attributes");
-        result.put("avatarUrl", "avatarUrl");
-        result.put("inventories", "inventories");
-        result.put("label", "label");
-        result.put("profileName", "profileName");
-        result.put("statistics", "statistics");
-        result.put("tags", "tags");
-        return result;
-    }
     
-    public static class GameProfileRequestBuilder {
-        
-    }
 }

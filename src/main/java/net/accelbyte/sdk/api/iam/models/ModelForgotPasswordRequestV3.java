@@ -48,15 +48,5 @@ public class ModelForgotPasswordRequestV3 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelForgotPasswordRequestV3>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("emailAddress", "emailAddress");
-        result.put("languageTag", "languageTag");
-        return result;
-    }
     
-    public static class ModelForgotPasswordRequestV3Builder {
-        
-    }
 }

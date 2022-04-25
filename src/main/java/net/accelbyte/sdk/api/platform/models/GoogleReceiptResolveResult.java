@@ -45,14 +45,5 @@ public class GoogleReceiptResolveResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<GoogleReceiptResolveResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("needConsume", "needConsume");
-        return result;
-    }
     
-    public static class GoogleReceiptResolveResultBuilder {
-        
-    }
 }

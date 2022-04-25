@@ -45,14 +45,5 @@ public class ModelsUpdateGroupCustomRuleRequestV1 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateGroupCustomRuleRequestV1>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("groupCustomRule", "groupCustomRule");
-        return result;
-    }
     
-    public static class ModelsUpdateGroupCustomRuleRequestV1Builder {
-        
-    }
 }

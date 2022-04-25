@@ -78,25 +78,5 @@ public class RewardInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<RewardInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("createdAt", "createdAt");
-        result.put("description", "description");
-        result.put("eventTopic", "eventTopic");
-        result.put("maxAwarded", "maxAwarded");
-        result.put("maxAwardedPerUser", "maxAwardedPerUser");
-        result.put("namespace", "namespace");
-        result.put("namespaceExpression", "namespaceExpression");
-        result.put("rewardCode", "rewardCode");
-        result.put("rewardConditions", "rewardConditions");
-        result.put("rewardId", "rewardId");
-        result.put("updatedAt", "updatedAt");
-        result.put("userIdExpression", "userIdExpression");
-        return result;
-    }
     
-    public static class RewardInfoBuilder {
-        
-    }
 }

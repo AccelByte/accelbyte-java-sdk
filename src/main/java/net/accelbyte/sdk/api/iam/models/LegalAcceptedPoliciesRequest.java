@@ -54,17 +54,5 @@ public class LegalAcceptedPoliciesRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<LegalAcceptedPoliciesRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("isAccepted", "isAccepted");
-        result.put("localizedPolicyVersionId", "localizedPolicyVersionId");
-        result.put("policyId", "policyId");
-        result.put("policyVersionId", "policyVersionId");
-        return result;
-    }
     
-    public static class LegalAcceptedPoliciesRequestBuilder {
-        
-    }
 }

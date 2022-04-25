@@ -45,14 +45,5 @@ public class ModelsJoinGameSessionRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsJoinGameSessionRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("password", "password");
-        return result;
-    }
     
-    public static class ModelsJoinGameSessionRequestBuilder {
-        
-    }
 }

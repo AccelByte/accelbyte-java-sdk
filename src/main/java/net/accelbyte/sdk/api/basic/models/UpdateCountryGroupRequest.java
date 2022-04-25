@@ -48,15 +48,5 @@ public class UpdateCountryGroupRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UpdateCountryGroupRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("countries", "countries");
-        result.put("countryGroupName", "countryGroupName");
-        return result;
-    }
     
-    public static class UpdateCountryGroupRequestBuilder {
-        
-    }
 }

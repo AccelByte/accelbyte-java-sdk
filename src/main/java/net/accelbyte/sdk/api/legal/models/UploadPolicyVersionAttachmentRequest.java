@@ -48,15 +48,5 @@ public class UploadPolicyVersionAttachmentRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UploadPolicyVersionAttachmentRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("contentMD5", "contentMD5");
-        result.put("contentType", "contentType");
-        return result;
-    }
     
-    public static class UploadPolicyVersionAttachmentRequestBuilder {
-        
-    }
 }

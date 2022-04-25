@@ -48,15 +48,5 @@ public class ModelTemplateResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelTemplateResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("localizations", "localizations");
-        result.put("templateSlug", "templateSlug");
-        return result;
-    }
     
-    public static class ModelTemplateResponseBuilder {
-        
-    }
 }

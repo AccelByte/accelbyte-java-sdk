@@ -51,16 +51,5 @@ public class BulkStatItemOperationResult extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<BulkStatItemOperationResult>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("details", "details");
-        result.put("statCode", "statCode");
-        result.put("success", "success");
-        return result;
-    }
     
-    public static class BulkStatItemOperationResultBuilder {
-        
-    }
 }

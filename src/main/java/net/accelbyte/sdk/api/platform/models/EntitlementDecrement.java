@@ -45,14 +45,5 @@ public class EntitlementDecrement extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<EntitlementDecrement>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("useCount", "useCount");
-        return result;
-    }
     
-    public static class EntitlementDecrementBuilder {
-        
-    }
 }

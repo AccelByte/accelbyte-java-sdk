@@ -54,17 +54,5 @@ public class ModelsUserRankingResponseDetail extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUserRankingResponseDetail>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("additionalData", "additionalData");
-        result.put("hidden", "hidden");
-        result.put("point", "point");
-        result.put("rank", "rank");
-        return result;
-    }
     
-    public static class ModelsUserRankingResponseDetailBuilder {
-        
-    }
 }

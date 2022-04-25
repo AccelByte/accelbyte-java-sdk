@@ -51,16 +51,5 @@ public class ModelsArchiveLeaderboardReq extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsArchiveLeaderboardReq>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("leaderboardCodes", "leaderboardCodes");
-        result.put("limit", "limit");
-        result.put("slug", "slug");
-        return result;
-    }
     
-    public static class ModelsArchiveLeaderboardReqBuilder {
-        
-    }
 }

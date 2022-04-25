@@ -145,32 +145,6 @@ public class IAPOrderInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<IAPOrderInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("createdAt", "createdAt");
-        result.put("credits", "credits");
-        result.put("currencyCode", "currencyCode");
-        result.put("entitlements", "entitlements");
-        result.put("fulfilledTime", "fulfilledTime");
-        result.put("iapOrderNo", "iapOrderNo");
-        result.put("language", "language");
-        result.put("namespace", "namespace");
-        result.put("price", "price");
-        result.put("productId", "productId");
-        result.put("quantity", "quantity");
-        result.put("receiptData", "receiptData");
-        result.put("region", "region");
-        result.put("retryCount", "retryCount");
-        result.put("sandbox", "sandbox");
-        result.put("status", "status");
-        result.put("statusReason", "statusReason");
-        result.put("transactionId", "transactionId");
-        result.put("type", "type");
-        result.put("updatedAt", "updatedAt");
-        result.put("userId", "userId");
-        return result;
-    }
     
     public enum Status {
         VERIFIED("VERIFIED"),

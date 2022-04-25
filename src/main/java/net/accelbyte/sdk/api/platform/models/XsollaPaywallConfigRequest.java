@@ -114,15 +114,6 @@ public class XsollaPaywallConfigRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<XsollaPaywallConfigRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("device", "device");
-        result.put("showCloseButton", "showCloseButton");
-        result.put("size", "size");
-        result.put("theme", "theme");
-        return result;
-    }
     
     public enum Device {
         DESKTOP("DESKTOP"),

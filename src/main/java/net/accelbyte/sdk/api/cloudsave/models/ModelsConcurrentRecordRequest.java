@@ -48,15 +48,5 @@ public class ModelsConcurrentRecordRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsConcurrentRecordRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("updatedAt", "updatedAt");
-        result.put("value", "value");
-        return result;
-    }
     
-    public static class ModelsConcurrentRecordRequestBuilder {
-        
-    }
 }

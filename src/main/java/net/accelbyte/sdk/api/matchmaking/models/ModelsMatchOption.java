@@ -48,15 +48,5 @@ public class ModelsMatchOption extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMatchOption>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("name", "name");
-        result.put("type", "type");
-        return result;
-    }
     
-    public static class ModelsMatchOptionBuilder {
-        
-    }
 }

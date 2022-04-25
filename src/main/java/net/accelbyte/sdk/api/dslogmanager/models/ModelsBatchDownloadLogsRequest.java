@@ -45,14 +45,5 @@ public class ModelsBatchDownloadLogsRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsBatchDownloadLogsRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("Downloads", "downloads");
-        return result;
-    }
     
-    public static class ModelsBatchDownloadLogsRequestBuilder {
-        
-    }
 }

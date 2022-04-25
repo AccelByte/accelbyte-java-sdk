@@ -45,14 +45,5 @@ public class UserExpGrant extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserExpGrant>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("exp", "exp");
-        return result;
-    }
     
-    public static class UserExpGrantBuilder {
-        
-    }
 }

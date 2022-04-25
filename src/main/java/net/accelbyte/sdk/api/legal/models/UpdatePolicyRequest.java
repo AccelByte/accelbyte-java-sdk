@@ -60,19 +60,5 @@ public class UpdatePolicyRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UpdatePolicyRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("description", "description");
-        result.put("isDefaultOpted", "isDefaultOpted");
-        result.put("isMandatory", "isMandatory");
-        result.put("policyName", "policyName");
-        result.put("readableId", "readableId");
-        result.put("shouldNotifyOnUpdate", "shouldNotifyOnUpdate");
-        return result;
-    }
     
-    public static class UpdatePolicyRequestBuilder {
-        
-    }
 }

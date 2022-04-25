@@ -51,16 +51,5 @@ public class KeyGroupDynamicInfo extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<KeyGroupDynamicInfo>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("availableSaleCount", "availableSaleCount");
-        result.put("quantity", "quantity");
-        result.put("saleCount", "saleCount");
-        return result;
-    }
     
-    public static class KeyGroupDynamicInfoBuilder {
-        
-    }
 }

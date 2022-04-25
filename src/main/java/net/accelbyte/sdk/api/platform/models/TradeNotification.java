@@ -199,50 +199,6 @@ public class TradeNotification extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<TradeNotification>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("additionalData", "additionalData");
-        result.put("authorisedTime", "authorisedTime");
-        result.put("chargebackReversedTime", "chargebackReversedTime");
-        result.put("chargebackTime", "chargebackTime");
-        result.put("chargedTime", "chargedTime");
-        result.put("createdTime", "createdTime");
-        result.put("currency", "currency");
-        result.put("customParameters", "customParameters");
-        result.put("extOrderNo", "extOrderNo");
-        result.put("extTxId", "extTxId");
-        result.put("extUserId", "extUserId");
-        result.put("issuedAt", "issuedAt");
-        result.put("metadata", "metadata");
-        result.put("namespace", "namespace");
-        result.put("nonceStr", "nonceStr");
-        result.put("paymentMethod", "paymentMethod");
-        result.put("paymentMethodFee", "paymentMethodFee");
-        result.put("paymentOrderNo", "paymentOrderNo");
-        result.put("paymentProvider", "paymentProvider");
-        result.put("paymentProviderFee", "paymentProviderFee");
-        result.put("paymentStationUrl", "paymentStationUrl");
-        result.put("price", "price");
-        result.put("refundedTime", "refundedTime");
-        result.put("salesTax", "salesTax");
-        result.put("sandbox", "sandbox");
-        result.put("sku", "sku");
-        result.put("status", "status");
-        result.put("statusReason", "statusReason");
-        result.put("subscriptionId", "subscriptionId");
-        result.put("subtotalPrice", "subtotalPrice");
-        result.put("targetNamespace", "targetNamespace");
-        result.put("targetUserId", "targetUserId");
-        result.put("tax", "tax");
-        result.put("totalPrice", "totalPrice");
-        result.put("totalTax", "totalTax");
-        result.put("txEndTime", "txEndTime");
-        result.put("type", "type");
-        result.put("userId", "userId");
-        result.put("vat", "vat");
-        return result;
-    }
     
     public enum PaymentProvider {
         WALLET("WALLET"),

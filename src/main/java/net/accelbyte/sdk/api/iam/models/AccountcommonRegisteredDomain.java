@@ -54,17 +54,5 @@ public class AccountcommonRegisteredDomain extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonRegisteredDomain>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("affectedClientIDs", "affectedClientIDs");
-        result.put("domain", "domain");
-        result.put("namespaces", "namespaces");
-        result.put("roleId", "roleId");
-        return result;
-    }
     
-    public static class AccountcommonRegisteredDomainBuilder {
-        
-    }
 }

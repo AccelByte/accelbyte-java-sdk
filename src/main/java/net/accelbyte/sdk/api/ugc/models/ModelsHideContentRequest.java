@@ -45,14 +45,5 @@ public class ModelsHideContentRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsHideContentRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("isHidden", "isHidden");
-        return result;
-    }
     
-    public static class ModelsHideContentRequestBuilder {
-        
-    }
 }

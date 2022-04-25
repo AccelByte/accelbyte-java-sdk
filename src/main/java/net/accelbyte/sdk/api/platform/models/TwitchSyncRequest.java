@@ -51,16 +51,5 @@ public class TwitchSyncRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<TwitchSyncRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("gameId", "gameId");
-        result.put("language", "language");
-        result.put("region", "region");
-        return result;
-    }
     
-    public static class TwitchSyncRequestBuilder {
-        
-    }
 }

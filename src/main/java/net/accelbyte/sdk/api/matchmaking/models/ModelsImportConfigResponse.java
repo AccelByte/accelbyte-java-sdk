@@ -54,17 +54,5 @@ public class ModelsImportConfigResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsImportConfigResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("failedConfigs", "failedConfigs");
-        result.put("ignoredConfigs", "ignoredConfigs");
-        result.put("newConfigs", "newConfigs");
-        result.put("replacedConfigs", "replacedConfigs");
-        return result;
-    }
     
-    public static class ModelsImportConfigResponseBuilder {
-        
-    }
 }

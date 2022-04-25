@@ -45,14 +45,5 @@ public class ModelBulkAddFriendsRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelBulkAddFriendsRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("friendIds", "friendIds");
-        return result;
-    }
     
-    public static class ModelBulkAddFriendsRequestBuilder {
-        
-    }
 }

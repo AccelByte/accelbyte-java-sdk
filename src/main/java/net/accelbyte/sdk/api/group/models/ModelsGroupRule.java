@@ -48,15 +48,5 @@ public class ModelsGroupRule extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGroupRule>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("groupCustomRule", "groupCustomRule");
-        result.put("groupPredefinedRules", "groupPredefinedRules");
-        return result;
-    }
     
-    public static class ModelsGroupRuleBuilder {
-        
-    }
 }

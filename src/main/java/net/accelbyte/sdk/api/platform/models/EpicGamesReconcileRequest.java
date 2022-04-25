@@ -45,14 +45,5 @@ public class EpicGamesReconcileRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<EpicGamesReconcileRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("epicGamesJwtToken", "epicGamesJwtToken");
-        return result;
-    }
     
-    public static class EpicGamesReconcileRequestBuilder {
-        
-    }
 }

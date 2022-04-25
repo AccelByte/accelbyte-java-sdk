@@ -72,23 +72,5 @@ public class ModelSSOPlatformCredentialResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelSSOPlatformCredentialResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("acsUrl", "acsUrl");
-        result.put("appId", "appId");
-        result.put("federationMetadataUrl", "federationMetadataUrl");
-        result.put("isActive", "isActive");
-        result.put("namespace", "namespace");
-        result.put("platformId", "platformId");
-        result.put("redirectUri", "redirectUri");
-        result.put("secret", "secret");
-        result.put("ssoUrl", "ssoUrl");
-        result.put("truncatedApiKey", "truncatedApiKey");
-        return result;
-    }
     
-    public static class ModelSSOPlatformCredentialResponseBuilder {
-        
-    }
 }

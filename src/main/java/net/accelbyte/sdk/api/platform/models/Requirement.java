@@ -69,22 +69,5 @@ public class Requirement extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<Requirement>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("additionals", "additionals");
-        result.put("directXVersion", "directXVersion");
-        result.put("diskSpace", "diskSpace");
-        result.put("graphics", "graphics");
-        result.put("label", "label");
-        result.put("osVersion", "osVersion");
-        result.put("processor", "processor");
-        result.put("ram", "ram");
-        result.put("soundCard", "soundCard");
-        return result;
-    }
     
-    public static class RequirementBuilder {
-        
-    }
 }

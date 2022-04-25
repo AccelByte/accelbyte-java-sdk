@@ -48,15 +48,5 @@ public class DebitRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<DebitRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("amount", "amount");
-        result.put("reason", "reason");
-        return result;
-    }
     
-    public static class DebitRequestBuilder {
-        
-    }
 }

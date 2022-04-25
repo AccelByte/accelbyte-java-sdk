@@ -71,14 +71,6 @@ public class BillingAccount extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<BillingAccount>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("additionalData", "additionalData");
-        result.put("paymentMethod", "paymentMethod");
-        result.put("paymentProvider", "paymentProvider");
-        return result;
-    }
     
     public enum PaymentProvider {
         WALLET("WALLET"),

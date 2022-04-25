@@ -63,20 +63,5 @@ public class ModelUserLoginHistoryResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserLoginHistoryResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("ApplicationName", "applicationName");
-        result.put("City", "city");
-        result.put("Country", "country");
-        result.put("DeviceId", "deviceId");
-        result.put("State", "state");
-        result.put("Timestamp", "timestamp");
-        result.put("deviceName", "deviceName");
-        return result;
-    }
     
-    public static class ModelUserLoginHistoryResponseBuilder {
-        
-    }
 }

@@ -48,15 +48,5 @@ public class GoogleIAPConfigRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<GoogleIAPConfigRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("applicationName", "applicationName");
-        result.put("serviceAccountId", "serviceAccountId");
-        return result;
-    }
     
-    public static class GoogleIAPConfigRequestBuilder {
-        
-    }
 }

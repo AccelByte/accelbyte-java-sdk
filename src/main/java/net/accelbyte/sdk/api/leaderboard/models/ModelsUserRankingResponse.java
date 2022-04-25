@@ -60,19 +60,5 @@ public class ModelsUserRankingResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUserRankingResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("allTime", "allTime");
-        result.put("current", "current");
-        result.put("daily", "daily");
-        result.put("monthly", "monthly");
-        result.put("userId", "userId");
-        result.put("weekly", "weekly");
-        return result;
-    }
     
-    public static class ModelsUserRankingResponseBuilder {
-        
-    }
 }

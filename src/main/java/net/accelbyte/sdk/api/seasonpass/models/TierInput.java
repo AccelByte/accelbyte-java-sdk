@@ -48,15 +48,5 @@ public class TierInput extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<TierInput>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("requiredExp", "requiredExp");
-        result.put("rewards", "rewards");
-        return result;
-    }
     
-    public static class TierInputBuilder {
-        
-    }
 }

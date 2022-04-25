@@ -54,17 +54,5 @@ public class ModelUserVerificationRequest extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserVerificationRequest>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("Code", "code");
-        result.put("ContactType", "contactType");
-        result.put("LanguageTag", "languageTag");
-        result.put("validateOnly", "validateOnly");
-        return result;
-    }
     
-    public static class ModelUserVerificationRequestBuilder {
-        
-    }
 }

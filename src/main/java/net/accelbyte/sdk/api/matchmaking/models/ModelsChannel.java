@@ -81,26 +81,5 @@ public class ModelsChannel extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsChannel>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("deployment", "deployment");
-        result.put("description", "description");
-        result.put("find_match_timeout_seconds", "findMatchTimeoutSeconds");
-        result.put("game_mode", "gameMode");
-        result.put("joinable", "joinable");
-        result.put("max_delay_ms", "maxDelayMs");
-        result.put("namespace", "namespace");
-        result.put("ruleset", "ruleset");
-        result.put("session_queue_timeout_seconds", "sessionQueueTimeoutSeconds");
-        result.put("slug", "slug");
-        result.put("social_matchmaking", "socialMatchmaking");
-        result.put("updated_at", "updatedAt");
-        result.put("use_sub_gamemode", "useSubGamemode");
-        return result;
-    }
     
-    public static class ModelsChannelBuilder {
-        
-    }
 }

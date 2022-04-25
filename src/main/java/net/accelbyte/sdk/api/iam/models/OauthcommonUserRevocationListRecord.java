@@ -48,15 +48,5 @@ public class OauthcommonUserRevocationListRecord extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<OauthcommonUserRevocationListRecord>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("id", "id");
-        result.put("revoked_at", "revokedAt");
-        return result;
-    }
     
-    public static class OauthcommonUserRevocationListRecordBuilder {
-        
-    }
 }

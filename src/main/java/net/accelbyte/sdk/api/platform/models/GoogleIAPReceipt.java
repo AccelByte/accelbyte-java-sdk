@@ -66,21 +66,5 @@ public class GoogleIAPReceipt extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<GoogleIAPReceipt>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("autoAck", "autoAck");
-        result.put("language", "language");
-        result.put("orderId", "orderId");
-        result.put("packageName", "packageName");
-        result.put("productId", "productId");
-        result.put("purchaseTime", "purchaseTime");
-        result.put("purchaseToken", "purchaseToken");
-        result.put("region", "region");
-        return result;
-    }
     
-    public static class GoogleIAPReceiptBuilder {
-        
-    }
 }

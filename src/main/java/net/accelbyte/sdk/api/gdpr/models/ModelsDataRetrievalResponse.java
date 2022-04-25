@@ -51,16 +51,5 @@ public class ModelsDataRetrievalResponse extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDataRetrievalResponse>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("Namespace", "namespace");
-        result.put("RequestDate", "requestDate");
-        result.put("UserID", "userID");
-        return result;
-    }
     
-    public static class ModelsDataRetrievalResponseBuilder {
-        
-    }
 }

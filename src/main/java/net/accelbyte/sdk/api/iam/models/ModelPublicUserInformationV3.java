@@ -57,18 +57,5 @@ public class ModelPublicUserInformationV3 extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ModelPublicUserInformationV3>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("createdAt", "createdAt");
-        result.put("displayName", "displayName");
-        result.put("namespace", "namespace");
-        result.put("userId", "userId");
-        result.put("userName", "userName");
-        return result;
-    }
     
-    public static class ModelPublicUserInformationV3Builder {
-        
-    }
 }

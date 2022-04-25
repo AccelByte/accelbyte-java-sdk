@@ -63,20 +63,5 @@ public class ClientmodelClientUpdateV3Request extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<ClientmodelClientUpdateV3Request>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("audiences", "audiences");
-        result.put("baseUri", "baseUri");
-        result.put("clientName", "clientName");
-        result.put("clientPermissions", "clientPermissions");
-        result.put("deletable", "deletable");
-        result.put("namespace", "namespace");
-        result.put("redirectUri", "redirectUri");
-        return result;
-    }
     
-    public static class ClientmodelClientUpdateV3RequestBuilder {
-        
-    }
 }

@@ -48,15 +48,5 @@ public class UserGameProfiles extends Model {
         return new ObjectMapper().readValue(json, new TypeReference<List<UserGameProfiles>>() {});
     }
 
-    @JsonIgnore
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("gameProfiles", "gameProfiles");
-        result.put("userId", "userId");
-        return result;
-    }
     
-    public static class UserGameProfilesBuilder {
-        
-    }
 }
