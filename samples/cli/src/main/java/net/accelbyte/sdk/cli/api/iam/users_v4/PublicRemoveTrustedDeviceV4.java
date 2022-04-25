@@ -2,6 +2,8 @@
  * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
  * This is licensed software from AccelByte Inc, for limitations
  * and restrictions contact your company contract manager.
+ *
+ * Code generated. DO NOT EDIT.
  */
 
 package net.accelbyte.sdk.cli.api.iam.users_v4;
@@ -37,6 +39,9 @@ public class PublicRemoveTrustedDeviceV4 implements Callable<Integer> {
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
 
+    @Option(names = {"--deviceToken"}, description = "deviceToken")
+    String deviceToken;
+
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
@@ -58,7 +63,8 @@ public class PublicRemoveTrustedDeviceV4 implements Callable<Integer> {
             new UsersV4(sdk)
             .publicRemoveTrustedDeviceV4(
                 new net.accelbyte.sdk.api.iam.operations.users_v4.PublicRemoveTrustedDeviceV4(
-                    namespace
+                    namespace,
+                    deviceToken                    
                 )
             );
             log.info("Operation successful");

@@ -2,6 +2,8 @@
  * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
  * This is licensed software from AccelByte Inc, for limitations
  * and restrictions contact your company contract manager.
+ *
+ * Code generated. DO NOT EDIT.
  */
 
 package net.accelbyte.sdk.cli.wrapper;
@@ -22,6 +24,7 @@ import net.accelbyte.sdk.cli.api.platform.payment.*;
 import net.accelbyte.sdk.cli.api.platform.payment_dedicated.*;
 import net.accelbyte.sdk.cli.api.platform.reward.*;
 import net.accelbyte.sdk.cli.api.platform.store.*;
+import net.accelbyte.sdk.cli.api.platform.catalog_changes.*;
 import net.accelbyte.sdk.cli.api.platform.subscription.*;
 import net.accelbyte.sdk.cli.api.platform.ticket.*;
 import net.accelbyte.sdk.cli.api.platform.anonymization.*;
@@ -172,6 +175,8 @@ import picocli.CommandLine.Command;
                 GetStore.class,
                 UpdateStore.class,
                 DeleteStore.class,
+                QueryChanges.class,
+                PublishAll.class,
                 CloneStore.class,
                 ExportStore.class,
                 QuerySubscriptions.class,

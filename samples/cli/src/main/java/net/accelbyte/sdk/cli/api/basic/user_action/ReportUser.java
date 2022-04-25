@@ -2,6 +2,8 @@
  * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
  * This is licensed software from AccelByte Inc, for limitations
  * and restrictions contact your company contract manager.
+ *
+ * Code generated. DO NOT EDIT.
  */
 
 package net.accelbyte.sdk.cli.api.basic.user_action;
@@ -65,6 +67,7 @@ public class ReportUser implements Callable<Integer> {
                     new ObjectMapper().readValue(body, UserReportRequest.class)  
                 )
             );
+            log.info("Operation successful");
             return 0;
         } catch (ResponseException e) {
             log.error("ResponseException occur with message below:\n{}", e.getMessage());

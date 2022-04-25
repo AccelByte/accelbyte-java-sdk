@@ -2,6 +2,8 @@
  * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
  * This is licensed software from AccelByte Inc, for limitations
  * and restrictions contact your company contract manager.
+ *
+ * Code generated. DO NOT EDIT.
  */
 
 package net.accelbyte.sdk.cli.wrapper;
@@ -77,6 +79,7 @@ import picocli.CommandLine.Command;
                 AdminDeleteAllUserStates.class,
                 SearchChannelSpecificContent.class,
                 PublicSearchContent.class,
+                PublicGetContentBulk.class,
                 GetFollowedContent.class,
                 GetLikedContent.class,
                 DownloadContentByShareCode.class,
