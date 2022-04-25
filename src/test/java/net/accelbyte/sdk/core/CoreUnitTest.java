@@ -9,24 +9,81 @@ package net.accelbyte.sdk.core;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import net.accelbyte.sdk.core.client.HttpClient;
+import net.accelbyte.sdk.core.client.OkhttpClient;
+import net.accelbyte.sdk.core.repository.ConfigRepository;
+import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
+import net.accelbyte.sdk.core.repository.TokenRepository;
 import net.accelbyte.sdk.core.util.Helper;
 
-import java.util.*;
+import java.io.IOException;
+import java.net.URLEncoder;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Tag("unit-test")
 class CoreUnitTest {
+    private final HttpClient<?> httpClient = new OkhttpClient();
+    private final TokenRepository tokenRepository = DefaultTokenRepository.getInstance();
+    private final ConfigRepository httpbinConfigRepository = new HttpbinConfigRepository();
 
-    String namespace = "accelbyte";
-    String userId = "511132939439";
-    String baseUrl = "https://accelbyte.io";
-    Map<String, String> pathParams = new HashMap<>();
-    Map<String, List<String>> queryParams = new HashMap<>();
-    Map<String, String> collectionFormatMap = new HashMap<>();
+    @Test
+    void testCookie() throws IOException, ResponseException {
+        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        HttpbinOperation op = new HttpbinOperation("GET");
+        op.getCookieParams().put("test 1=1", "value 1=1");
+        op.getCookieParams().put("test 2=2", "value 2=2");
+        op.getCookieParams().put("test 3=3", "value 3=3");
+        HttpResponse res = sdk.runRequest(op);
+        HttpbinAnythingResponse result = op.parseResponse(
+                res.getCode(),
+                res.getContentType(),
+                res.getPayload());
+        String cookies = result.headers.get(HttpHeaders.COOKIE);
+        assertNotNull(cookies); // Make sure cookie header is present
+        for (Map.Entry<String, String> c : op.getCookieParams().entrySet()) {
+            // Make sure each cookie key and value is escaped
+            assertTrue(cookies.contains(URLEncoder.encode(c.getKey(), "UTF-8") +
+                    "=" + URLEncoder.encode(c.getValue(), "UTF-8")));
+        }
+        assertTrue(cookies.contains("; ")); // Make sure there is space after semicolon
+    }
+
+    @Test
+    void testCookieAccessToken() throws IOException, ResponseException {
+        final String token = "token12345";
+        AccelByteSDK sdk = new AccelByteSDK(httpClient,
+                tokenRepository,
+                httpbinConfigRepository);
+        tokenRepository.storeToken(token);
+        HttpbinOperation op = new HttpbinOperation("GET");
+        op.getSecurities().add("Cookie");
+        HttpResponse res = sdk.runRequest(op);
+        HttpbinAnythingResponse result = op.parseResponse(
+                res.getCode(),
+                res.getContentType(),
+                res.getPayload());
+        String cookies = result.headers.get(HttpHeaders.COOKIE);
+        assertNotNull(cookies); // Make sure cookie header is present
+        assertTrue(cookies.contains("access_token=" + token));
+    }
+
+    private final String namespace = "accelbyte";
+    private final String userId = "511132939439";
+    private final String baseUrl = "https://accelbyte.io";
 
     @Test
     void testCreateFullUrlNoneListQueryParams() throws Exception {
+        Map<String, String> pathParams = new HashMap<>();
+        Map<String, List<String>> queryParams = new HashMap<>();
+        Map<String, String> collectionFormatMap = new HashMap<>();
         String url = "/platform/namespace/{namespace}/userId/{userId}";
         pathParams.put("namespace", namespace);
         pathParams.put("userId", userId);
@@ -40,6 +97,9 @@ class CoreUnitTest {
 
     @Test
     void testCreateFullUrlDefaultCollectionFormat() throws Exception {
+        Map<String, String> pathParams = new HashMap<>();
+        Map<String, List<String>> queryParams = new HashMap<>();
+        Map<String, String> collectionFormatMap = new HashMap<>();
         String url = "/platform/namespace/{namespace}/userId/{userId}";
         pathParams.put("namespace", namespace);
         pathParams.put("userId", userId);
@@ -54,6 +114,9 @@ class CoreUnitTest {
 
     @Test
     void testCreateFullUrlCSVCollectionFormat() throws Exception {
+        Map<String, String> pathParams = new HashMap<>();
+        Map<String, List<String>> queryParams = new HashMap<>();
+        Map<String, String> collectionFormatMap = new HashMap<>();
         String url = "/platform/namespace/{namespace}/userId/{userId}";
         pathParams.put("namespace", namespace);
         pathParams.put("userId", userId);
@@ -68,6 +131,9 @@ class CoreUnitTest {
 
     @Test
     void testCreateFullUrlMultiCollectionFormat() throws Exception {
+        Map<String, String> pathParams = new HashMap<>();
+        Map<String, List<String>> queryParams = new HashMap<>();
+        Map<String, String> collectionFormatMap = new HashMap<>();
         String url = "/platform/namespace/{namespace}/userId/{userId}";
         pathParams.put("namespace", namespace);
         pathParams.put("userId", userId);
@@ -82,6 +148,9 @@ class CoreUnitTest {
 
     @Test
     void testCreateFullUrlPipesCollectionFormat() throws Exception {
+        Map<String, String> pathParams = new HashMap<>();
+        Map<String, List<String>> queryParams = new HashMap<>();
+        Map<String, String> collectionFormatMap = new HashMap<>();
         String url = "/platform/namespace/{namespace}/userId/{userId}";
         pathParams.put("namespace", namespace);
         pathParams.put("userId", userId);
@@ -96,6 +165,9 @@ class CoreUnitTest {
 
     @Test
     void testCreateFullUrlTsvCollectionFormat() throws Exception {
+        Map<String, String> pathParams = new HashMap<>();
+        Map<String, List<String>> queryParams = new HashMap<>();
+        Map<String, String> collectionFormatMap = new HashMap<>();
         String url = "/platform/namespace/{namespace}/userId/{userId}";
         pathParams.put("namespace", namespace);
         pathParams.put("userId", userId);
@@ -110,6 +182,9 @@ class CoreUnitTest {
 
     @Test
     void testCreateFullUrlSsvCollectionFormat() throws Exception {
+        Map<String, String> pathParams = new HashMap<>();
+        Map<String, List<String>> queryParams = new HashMap<>();
+        Map<String, String> collectionFormatMap = new HashMap<>();
         String url = "/platform/namespace/{namespace}/userId/{userId}";
         pathParams.put("namespace", namespace);
         pathParams.put("userId", userId);
