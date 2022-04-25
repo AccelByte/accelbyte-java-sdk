@@ -52,8 +52,7 @@ public class AccelByteSDK {
         String selectedSecurity = "Basic";
         if (!operation.getPreferredSecurityMethod().isEmpty())
             selectedSecurity = operation.getPreferredSecurityMethod();
-        else
-        {
+        else {
             if (operation.getSecurities().size() > 0)
                 selectedSecurity = operation.getSecurities().get(0);
         }
@@ -61,15 +60,12 @@ public class AccelByteSDK {
             if (!sdkConfiguration.getTokenRepository().getToken().equals("")) {
                 header.put(HttpHeaders.AUTHORIZATION, "Bearer " + token);
             }
-        }
-        else if (selectedSecurity.equals("Basic")) {
+        } else if (selectedSecurity.equals("Basic")) {
             String clientId = sdkConfiguration.getConfigRepository().getClientId();
             String clientSecret = sdkConfiguration.getConfigRepository().getClientSecret();
             header.put(HttpHeaders.AUTHORIZATION, Credentials.basic(clientId, clientSecret));
-        }
-        else if (selectedSecurity.equals("Cookie")) {
-            if (!operation.getCookieParams().containsKey("access_token"))
-            {
+        } else if (selectedSecurity.equals("Cookie")) {
+            if (!operation.getCookieParams().containsKey("access_token")) {
                 operation.getCookieParams().put("access_token", token);
             }
         }
@@ -86,12 +82,11 @@ public class AccelByteSDK {
             String userAgent = String.format("%s/%s (%s/%s)", productName, productVersion, appName, appVersion);
             header.put(HttpHeaders.USER_AGENT, userAgent);
         }
-        if (operation.getCookieParams().size() > 0)
-        {
+        if (operation.getCookieParams().size() > 0) {
             List<String> cEntries = new ArrayList<String>();
-            for (java.util.Map.Entry<String,String> key : operation.getCookieParams().entrySet())
-            {
-                cEntries.add(key.getKey() + "=" + URLEncoder.encode(key.getValue(), "UTF-8"));
+            for (java.util.Map.Entry<String, String> key : operation.getCookieParams().entrySet()) {
+                cEntries.add(URLEncoder.encode(key.getKey(), "UTF-8") + "=" +
+                        URLEncoder.encode(key.getValue(), "UTF-8"));
             }
             header.put(HttpHeaders.COOKIE, String.join("; ", cEntries));
         }
