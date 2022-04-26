@@ -20,7 +20,7 @@ import java.util.Map;
 
 @Getter
 @Setter
-public class Operation {
+public abstract class Operation {
     protected String url = "";
     protected String method = "";
     protected List<String> consumes = new ArrayList<>();
@@ -39,9 +39,8 @@ public class Operation {
         return new HashMap<>();
     }
 
-    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return null;
-    }
+    public abstract String getFullUrl(String baseUrl)
+            throws UnsupportedEncodingException;
 
     public Map<String, String> getCookieParams() {
         return new HashMap<>();
@@ -52,7 +51,7 @@ public class Operation {
     }
 
     public Map<String, Object> getFormParams() {
-        return null;
+        return new HashMap<>();
     }
 
     public boolean isValid() {
@@ -66,7 +65,7 @@ public class Operation {
 
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload)
             throws HttpResponseException, IOException {
-
+        // Do nothing
     }
 
     protected Map<String, String> getCollectionFormatMap() {
