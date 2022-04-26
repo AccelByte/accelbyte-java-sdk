@@ -59,14 +59,6 @@ public class AdminGetAllConfigV1 extends Operation {
         securities.add("Bearer");
     }
 
-    public AdminGetAllConfigV1 createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    public String toJson() throws JsonProcessingException {
-        return new ObjectMapper().writeValueAsString(this);
-    }
-
 
 
 

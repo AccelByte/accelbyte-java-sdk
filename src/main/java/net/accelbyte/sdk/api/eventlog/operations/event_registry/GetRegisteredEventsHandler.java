@@ -60,14 +60,6 @@ public class GetRegisteredEventsHandler extends Operation {
         securities.add("Bearer");
     }
 
-    public GetRegisteredEventsHandler createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    public String toJson() throws JsonProcessingException {
-        return new ObjectMapper().writeValueAsString(this);
-    }
-
 
 
 

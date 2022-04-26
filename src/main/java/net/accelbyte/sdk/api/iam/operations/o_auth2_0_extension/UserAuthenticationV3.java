@@ -86,14 +86,6 @@ public class UserAuthenticationV3 extends Operation {
         securities.add("Basic");
     }
 
-    public UserAuthenticationV3 createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    public String toJson() throws JsonProcessingException {
-        return new ObjectMapper().writeValueAsString(this);
-    }
-
 
 
 

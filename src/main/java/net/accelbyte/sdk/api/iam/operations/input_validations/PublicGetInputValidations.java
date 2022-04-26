@@ -75,14 +75,6 @@ public class PublicGetInputValidations extends Operation {
         securities.add("Bearer");
     }
 
-    public PublicGetInputValidations createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    public String toJson() throws JsonProcessingException {
-        return new ObjectMapper().writeValueAsString(this);
-    }
-
 
     @Override
     public Map<String, List<String>> getQueryParams(){

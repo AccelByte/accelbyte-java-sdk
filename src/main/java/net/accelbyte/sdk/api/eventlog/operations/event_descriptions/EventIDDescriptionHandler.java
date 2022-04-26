@@ -58,14 +58,6 @@ public class EventIDDescriptionHandler extends Operation {
         securities.add("Bearer");
     }
 
-    public EventIDDescriptionHandler createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    public String toJson() throws JsonProcessingException {
-        return new ObjectMapper().writeValueAsString(this);
-    }
-
 
 
 

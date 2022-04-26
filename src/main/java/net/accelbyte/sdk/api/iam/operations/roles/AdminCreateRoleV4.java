@@ -70,14 +70,6 @@ public class AdminCreateRoleV4 extends Operation {
         securities.add("Bearer");
     }
 
-    public AdminCreateRoleV4 createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    public String toJson() throws JsonProcessingException {
-        return new ObjectMapper().writeValueAsString(this);
-    }
-
 
 
 

@@ -64,14 +64,6 @@ public class AdminDeleteRolePermissionsV3 extends Operation {
         securities.add("Bearer");
     }
 
-    public AdminDeleteRolePermissionsV3 createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    public String toJson() throws JsonProcessingException {
-        return new ObjectMapper().writeValueAsString(this);
-    }
-
     @Override
     public Map<String, String> getPathParams(){
         Map<String, String> pathParams = new HashMap<>();

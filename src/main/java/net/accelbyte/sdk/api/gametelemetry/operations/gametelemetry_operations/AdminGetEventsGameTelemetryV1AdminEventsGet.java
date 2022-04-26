@@ -77,14 +77,6 @@ public class AdminGetEventsGameTelemetryV1AdminEventsGet extends Operation {
         securities.add("Cookie");
     }
 
-    public AdminGetEventsGameTelemetryV1AdminEventsGet createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    public String toJson() throws JsonProcessingException {
-        return new ObjectMapper().writeValueAsString(this);
-    }
-
 
     @Override
     public Map<String, List<String>> getQueryParams(){

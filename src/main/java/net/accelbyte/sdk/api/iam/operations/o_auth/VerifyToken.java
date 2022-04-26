@@ -61,14 +61,6 @@ public class VerifyToken extends Operation {
         securities.add("Basic");
     }
 
-    public VerifyToken createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    public String toJson() throws JsonProcessingException {
-        return new ObjectMapper().writeValueAsString(this);
-    }
-
 
 
 

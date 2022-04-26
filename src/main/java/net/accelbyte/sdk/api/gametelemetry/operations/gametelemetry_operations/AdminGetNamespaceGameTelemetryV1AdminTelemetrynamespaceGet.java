@@ -59,14 +59,6 @@ public class AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet extends 
         securities.add("Cookie");
     }
 
-    public AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    public String toJson() throws JsonProcessingException {
-        return new ObjectMapper().writeValueAsString(this);
-    }
-
 
 
     @Override

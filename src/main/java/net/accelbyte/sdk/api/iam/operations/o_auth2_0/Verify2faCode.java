@@ -77,14 +77,6 @@ public class Verify2faCode extends Operation {
         securities.add("Bearer");
     }
 
-    public Verify2faCode createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    public String toJson() throws JsonProcessingException {
-        return new ObjectMapper().writeValueAsString(this);
-    }
-
 
 
 

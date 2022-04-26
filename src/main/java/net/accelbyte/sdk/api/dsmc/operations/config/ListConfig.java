@@ -61,14 +61,6 @@ public class ListConfig extends Operation {
         securities.add("Bearer");
     }
 
-    public ListConfig createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    public String toJson() throws JsonProcessingException {
-        return new ObjectMapper().writeValueAsString(this);
-    }
-
 
 
 
