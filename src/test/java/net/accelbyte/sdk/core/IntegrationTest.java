@@ -975,7 +975,7 @@ public class IntegrationTest {
                 Assertions.assertNotNull(dStore);
         }
 
-        @Test
+        //@Test
         public void SessionBrowserServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
@@ -1212,6 +1212,8 @@ public class IntegrationTest {
 
         @Test
         public void MatchmakingTestSuite() throws HttpResponseException, IOException, InterruptedException {
+                SessionBrowserServiceTests();           // Temporary workaround to run SessionBrowserServiceTests before MatchmakingTestSuite
+
                 DSMCListLocalServerTest();
                 DSMCServiceTests();
                 MatchmakingServiceApiTests();
