@@ -63,6 +63,9 @@ public class OauthmodelTokenResponse extends Model {
     @JsonProperty("platform_user_id")
     private String platformUserId;
 
+    @JsonProperty("refresh_expires_in")
+    private Integer refreshExpiresIn;
+
     @JsonProperty("refresh_token")
     private String refreshToken;
 
