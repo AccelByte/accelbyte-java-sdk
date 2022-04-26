@@ -130,7 +130,6 @@ public class PublicQueryUserOrders extends Operation {
         return true;
     }
 
-    @Override
     public OrderPagingSlicedResult parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

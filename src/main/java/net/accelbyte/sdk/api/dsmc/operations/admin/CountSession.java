@@ -108,7 +108,6 @@ public class CountSession extends Operation {
         return true;
     }
 
-    @Override
     public ModelsCountSessionResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

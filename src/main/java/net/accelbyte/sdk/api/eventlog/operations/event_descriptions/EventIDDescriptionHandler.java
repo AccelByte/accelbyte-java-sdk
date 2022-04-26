@@ -77,7 +77,6 @@ public class EventIDDescriptionHandler extends Operation {
     }
 
 
-    @Override
     public ModelsMultipleEventID parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

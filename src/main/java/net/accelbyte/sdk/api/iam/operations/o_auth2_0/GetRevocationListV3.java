@@ -93,7 +93,6 @@ public class GetRevocationListV3 extends Operation {
     }
 
 
-    @Override
     public OauthapiRevocationList parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

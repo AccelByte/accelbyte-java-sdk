@@ -79,7 +79,6 @@ public class GetRegisteredEventsHandler extends Operation {
     }
 
 
-    @Override
     public ModelsEventRegistry parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

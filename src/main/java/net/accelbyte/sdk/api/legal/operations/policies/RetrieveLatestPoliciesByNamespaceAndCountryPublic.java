@@ -136,7 +136,6 @@ public class RetrieveLatestPoliciesByNamespaceAndCountryPublic extends Operation
         return true;
     }
 
-    @Override
     public List<RetrievePolicyPublicResponse> parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

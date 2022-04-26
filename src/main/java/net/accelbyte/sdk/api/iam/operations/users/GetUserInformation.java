@@ -105,7 +105,6 @@ public class GetUserInformation extends Operation {
         return true;
     }
 
-    @Override
     public ModelUserInformation parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

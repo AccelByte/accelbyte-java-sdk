@@ -111,7 +111,6 @@ public class GetUserStatus extends Operation {
         return true;
     }
 
-    @Override
     public ADTOObjectForEqu8UserStatus parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

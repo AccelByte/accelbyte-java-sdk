@@ -129,7 +129,6 @@ public class AdminGetUserLoginHistoriesV3 extends Operation {
         return true;
     }
 
-    @Override
     public ModelLoginHistoriesResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

@@ -96,7 +96,6 @@ public class AdminDeleteThirdPartyConfig extends Operation {
         return true;
     }
 
-    @Override
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         if(code >= 400 && code <= 599){
             String json = this.convertInputStreamToString(payload);

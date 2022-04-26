@@ -95,7 +95,6 @@ public class ListProvidersByRegion extends Operation {
         return true;
     }
 
-    @Override
     public ModelsDefaultProvider parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

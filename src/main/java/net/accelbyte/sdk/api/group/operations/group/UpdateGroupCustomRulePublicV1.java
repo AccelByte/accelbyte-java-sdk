@@ -128,7 +128,6 @@ public class UpdateGroupCustomRulePublicV1 extends Operation {
         return true;
     }
 
-    @Override
     public ModelsGroupResponseV1 parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

@@ -99,7 +99,6 @@ public class GetFulfillmentScript extends Operation {
         return true;
     }
 
-    @Override
     public FulfillmentScriptInfo parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

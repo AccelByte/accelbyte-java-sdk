@@ -114,7 +114,6 @@ public class CreateChannel extends Operation {
         return true;
     }
 
-    @Override
     public ModelsChannelResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 201){

@@ -78,7 +78,6 @@ public class AdminGetAllConfigV1 extends Operation {
     }
 
 
-    @Override
     public ModelsConfigList parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

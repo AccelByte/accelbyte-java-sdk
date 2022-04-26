@@ -113,7 +113,6 @@ public class AdminGetArchivedLeaderboardRankingDataV1Handler extends Operation {
         return true;
     }
 
-    @Override
     public List<ModelsArchiveLeaderboardSignedURLResponse> parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

@@ -86,7 +86,6 @@ public class SpecificEventTypeDescriptionHandler extends Operation {
     }
 
 
-    @Override
     public ModelsMultipleEventType parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

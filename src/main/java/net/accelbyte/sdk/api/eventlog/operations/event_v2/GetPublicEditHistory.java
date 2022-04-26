@@ -160,7 +160,6 @@ public class GetPublicEditHistory extends Operation {
         return true;
     }
 
-    @Override
     public ModelsEventResponseV2 parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

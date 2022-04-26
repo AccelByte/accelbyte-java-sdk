@@ -142,7 +142,6 @@ public class CreateLeaderboardConfigurationPublicV1 extends Operation {
         return true;
     }
 
-    @Override
     public ModelsLeaderboardConfigReq parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 201){

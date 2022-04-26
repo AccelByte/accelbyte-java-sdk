@@ -111,7 +111,6 @@ public class GetStats extends Operation {
         return true;
     }
 
-    @Override
     public StatPagingSlicedResult parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

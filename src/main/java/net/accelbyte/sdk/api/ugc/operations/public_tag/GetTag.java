@@ -108,7 +108,6 @@ public class GetTag extends Operation {
         return true;
     }
 
-    @Override
     public ModelsPaginatedGetTagResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

@@ -99,7 +99,6 @@ public class GetPlayStationIAPConfig extends Operation {
         return true;
     }
 
-    @Override
     public PlayStationIAPConfigInfo parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

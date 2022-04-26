@@ -122,7 +122,6 @@ public class ExistsAnyUserActiveEntitlementByItemIds extends Operation {
         return true;
     }
 
-    @Override
     public Ownership parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

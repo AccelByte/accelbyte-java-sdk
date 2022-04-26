@@ -76,7 +76,6 @@ public class GetDefaultProvider extends Operation {
     }
 
 
-    @Override
     public ModelsDefaultProvider parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

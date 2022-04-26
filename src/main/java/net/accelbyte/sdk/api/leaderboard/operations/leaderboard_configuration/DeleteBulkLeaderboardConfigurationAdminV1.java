@@ -111,7 +111,6 @@ public class DeleteBulkLeaderboardConfigurationAdminV1 extends Operation {
         return true;
     }
 
-    @Override
     public ModelsDeleteBulkLeaderboardsResp parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

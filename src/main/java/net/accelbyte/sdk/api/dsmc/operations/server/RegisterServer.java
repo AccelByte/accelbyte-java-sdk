@@ -112,7 +112,6 @@ public class RegisterServer extends Operation {
         return true;
     }
 
-    @Override
     public ModelsServer parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

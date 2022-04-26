@@ -120,7 +120,6 @@ public class GetPass extends Operation {
         return true;
     }
 
-    @Override
     public PassInfo parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

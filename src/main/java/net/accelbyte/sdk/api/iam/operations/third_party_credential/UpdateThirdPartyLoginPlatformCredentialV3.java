@@ -141,7 +141,6 @@ public class UpdateThirdPartyLoginPlatformCredentialV3 extends Operation {
         return true;
     }
 
-    @Override
     public ModelThirdPartyLoginPlatformCredentialResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

@@ -75,7 +75,6 @@ public class PublicGetTime extends Operation {
     }
 
 
-    @Override
     public RetrieveTimeResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

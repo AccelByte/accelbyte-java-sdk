@@ -109,7 +109,6 @@ public class QueryAllUserIAPOrders extends Operation {
         return true;
     }
 
-    @Override
     public IAPOrderPagingSlicedResult parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

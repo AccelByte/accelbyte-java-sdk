@@ -95,7 +95,6 @@ public class GetRole extends Operation {
         return true;
     }
 
-    @Override
     public ModelRoleResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

@@ -80,7 +80,6 @@ public class AdminGetMyUserV3 extends Operation {
     }
 
 
-    @Override
     public ModelUserResponseV3 parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

@@ -120,7 +120,6 @@ public class BulkDisableCodes extends Operation {
         return true;
     }
 
-    @Override
     public BulkOperationResult parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

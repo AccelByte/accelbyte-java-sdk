@@ -86,7 +86,6 @@ public class SpecificUXDescriptionHandler extends Operation {
     }
 
 
-    @Override
     public ModelsMultipleUX parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

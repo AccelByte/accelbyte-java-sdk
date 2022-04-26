@@ -117,7 +117,6 @@ public class AcquireItem extends Operation {
         return true;
     }
 
-    @Override
     public ItemAcquireResult parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

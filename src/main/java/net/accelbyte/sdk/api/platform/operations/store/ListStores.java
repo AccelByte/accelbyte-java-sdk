@@ -99,7 +99,6 @@ public class ListStores extends Operation {
         return true;
     }
 
-    @Override
     public List<StoreInfo> parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

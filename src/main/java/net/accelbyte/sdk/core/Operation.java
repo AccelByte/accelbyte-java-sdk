@@ -58,16 +58,6 @@ public abstract class Operation {
         return false;
     }
 
-    public Object parseResponse(int code, String contentTpe, InputStream payload)
-            throws HttpResponseException, IOException {
-        return null;
-    }
-
-    public void handleEmptyResponse(int code, String contentTpe, InputStream payload)
-            throws HttpResponseException, IOException {
-        // Do nothing
-    }
-
     protected Map<String, String> getCollectionFormatMap() {
         return new HashMap<>();
     }

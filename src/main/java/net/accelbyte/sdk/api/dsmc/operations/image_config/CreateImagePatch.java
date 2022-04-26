@@ -102,7 +102,6 @@ public class CreateImagePatch extends Operation {
         return true;
     }
 
-    @Override
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         if(code != 201){
             String json = this.convertInputStreamToString(payload);

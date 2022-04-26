@@ -110,7 +110,6 @@ public class DequeueSessionHandler extends Operation {
         return true;
     }
 
-    @Override
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         if(code != 204){
             String json = this.convertInputStreamToString(payload);

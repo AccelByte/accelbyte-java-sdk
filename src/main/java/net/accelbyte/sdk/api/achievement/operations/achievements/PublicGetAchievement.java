@@ -121,7 +121,6 @@ public class PublicGetAchievement extends Operation {
         return true;
     }
 
-    @Override
     public ModelsPublicAchievementResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

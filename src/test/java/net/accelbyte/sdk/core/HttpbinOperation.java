@@ -25,7 +25,6 @@ class HttpbinOperation extends Operation {
                 this.getCollectionFormatMap());
     }
 
-    @Override
     public HttpbinAnythingResponse parseResponse(int code, String contentTpe, InputStream payload)
             throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);

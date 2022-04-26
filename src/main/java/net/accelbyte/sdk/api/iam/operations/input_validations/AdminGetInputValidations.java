@@ -88,7 +88,6 @@ public class AdminGetInputValidations extends Operation {
     }
 
 
-    @Override
     public ModelInputValidationsResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){

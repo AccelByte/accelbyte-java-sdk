@@ -110,7 +110,6 @@ public class NotificationWithTemplate extends Operation {
         return true;
     }
 
-    @Override
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         if(code != 202){
             String json = this.convertInputStreamToString(payload);
