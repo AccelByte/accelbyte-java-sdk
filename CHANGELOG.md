@@ -1,3 +1,64 @@
+<a name="v0.9.0"></a>
+## [v0.9.0] - 2022-04-26
+### Chore
+- bump version
+- **core:** operation - remove unnecessary jsonignore
+- **core:** refactor okhttpclient send request logic
+- **core:** operation - make getCollectionFormatMap protected
+- **core:** operation - remove unused method getAllParams
+- **core:** operation - remove parseResponse, handleEmptyResponse methods
+- **core:** operation - make abstract
+- **core:** operation - remove unused method getHeaderParams
+- **core:** operation - make createFullUrl protected
+- **core:** operation - move createFullUrl logic to helper
+- **core:** revise core Header to HttpHeaders
+- **doc:** regenerate doc index for justice 3.21
+- **gradle:** use gradle lombok plugin
+- **makefile:** pin gradle docker image to version 7-jdk8
+- **samples:** cli - regenerate cli (cookie support)
+- **sdk:** regenerate sdk (add enum)
+- **sdk:** regenerate sdk (cookie support)
+- **sdk:** operation - rename getFormParams
+- **sdk:** refactor accelbytesdk
+- **sdk:** regenerate sdk (prepare to add enum)
+- **sdk:** regenerate sdk for justice 3.21
+- **spec:** update spec for more cookie support
+- **spec:** update spec for justice 3.21
+- **spec:** update spec for cookie support
+- **spec:** update spec
+- **test:** regenerate cli test for justice 3.21
+- **test:** remove run-java-cli-all-unit-test.sh
+
+### Ci
+- publish unit test core junit xml
+- **makefile:** use jdk8 container
+- **nightly:** fix publish integration test junit xml
+- **nightly:** publish integration test junit xml
+- **nightly:** publish tap report
+
+### Docs
+- **cli:** use installdist instead of fatjar
+- **readme:** mention reference docs + fix wording
+
+### Feat
+- **core:** add more cookie support
+- **core:** add cookie support
+
+### Fix
+- **core:** okhttp websocket client lifecycle
+- **sdk:** run request missing cookies
+- **sdk:** escape cookie key
+- **sdk:** regenerate sdk (fix add enum)
+
+### Test
+- **cli:** use nailgun to make it faster
+- **cli:** use installdist instead of fatjar
+- **cli:** revise shell script
+- **cli:** generate tap files
+- **core:** add cookie & cookie access_token test
+- **integration:** workaround execute session browser test before matchmaking
+
+
 <a name="v0.8.0"></a>
 ## [v0.8.0] - 2022-04-12
 ### Chore
@@ -12,6 +73,7 @@
 - **nightly:** change integration test lock to justice-demo-serversdktest
 
 ### Docs
+- update changelog
 - update changelog
 - update doc index
 - added service indexes
@@ -272,6 +334,7 @@
 - replace unnecessary object
 
 
+[v0.9.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.8.0...v0.9.0
 [v0.8.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.7.0...v0.8.0
 [v0.7.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.6.0...v0.7.0
 [v0.6.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.5.0...v0.6.0
