@@ -5,22 +5,22 @@
 ## Operations
 
 ### Terminated Servers Wrapper:  [TerminatedServers](../src/main/java/net/accelbyte/sdk/api/dslogmanager/wrappers/TerminatedServers.java)
-| Endpoint | Method | ID | Class |
-|---|---|---|---|
-| `/dslogmanager/namespaces/{namespace}/servers/search` | GET | ListTerminatedServers | [ListTerminatedServers](../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/terminated_servers/ListTerminatedServers.java) |
-| `/dslogmanager/namespaces/{namespace}/servers/{podName}/logs/download` | GET | DownloadServerLogs | [DownloadServerLogs](../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/terminated_servers/DownloadServerLogs.java) |
-| `/dslogmanager/namespaces/{namespace}/servers/{podName}/logs/exists` | GET | CheckServerLogs | [CheckServerLogs](../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/terminated_servers/CheckServerLogs.java) |
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/dslogmanager/namespaces/{namespace}/servers/search` | GET | ListTerminatedServers | [ListTerminatedServers](../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/terminated_servers/ListTerminatedServers.java) | [ListTerminatedServers](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dslogmanager/terminated_servers/ListTerminatedServers.java) |
+| `/dslogmanager/namespaces/{namespace}/servers/{podName}/logs/download` | GET | DownloadServerLogs | [DownloadServerLogs](../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/terminated_servers/DownloadServerLogs.java) | [DownloadServerLogs](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dslogmanager/terminated_servers/DownloadServerLogs.java) |
+| `/dslogmanager/namespaces/{namespace}/servers/{podName}/logs/exists` | GET | CheckServerLogs | [CheckServerLogs](../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/terminated_servers/CheckServerLogs.java) | [CheckServerLogs](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dslogmanager/terminated_servers/CheckServerLogs.java) |
 
 ### All Terminated Servers Wrapper:  [AllTerminatedServers](../src/main/java/net/accelbyte/sdk/api/dslogmanager/wrappers/AllTerminatedServers.java)
-| Endpoint | Method | ID | Class |
-|---|---|---|---|
-| `/dslogmanager/servers/logs/download` | POST | BatchDownloadServerLogs | [BatchDownloadServerLogs](../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/all_terminated_servers/BatchDownloadServerLogs.java) |
-| `/dslogmanager/servers/search` | GET | ListAllTerminatedServers | [ListAllTerminatedServers](../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/all_terminated_servers/ListAllTerminatedServers.java) |
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/dslogmanager/servers/logs/download` | POST | BatchDownloadServerLogs | [BatchDownloadServerLogs](../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/all_terminated_servers/BatchDownloadServerLogs.java) | [BatchDownloadServerLogs](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dslogmanager/all_terminated_servers/BatchDownloadServerLogs.java) |
+| `/dslogmanager/servers/search` | GET | ListAllTerminatedServers | [ListAllTerminatedServers](../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/all_terminated_servers/ListAllTerminatedServers.java) | [ListAllTerminatedServers](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dslogmanager/all_terminated_servers/ListAllTerminatedServers.java) |
 
 ### Dslogmanager Operations Wrapper:  [DslogmanagerOperations](../src/main/java/net/accelbyte/sdk/api/dslogmanager/wrappers/DslogmanagerOperations.java)
-| Endpoint | Method | ID | Class |
-|---|---|---|---|
-| `/dslogmanager/v1/messages` | GET | PublicGetMessages | [PublicGetMessages](../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/dslogmanager_operations/PublicGetMessages.java) |
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/dslogmanager/v1/messages` | GET | PublicGetMessages | [PublicGetMessages](../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/dslogmanager_operations/PublicGetMessages.java) | [PublicGetMessages](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dslogmanager/dslogmanager_operations/PublicGetMessages.java) |
 
 
 &nbsp;  
