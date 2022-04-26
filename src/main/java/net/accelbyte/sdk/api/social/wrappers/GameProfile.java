@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.social.models.*;
 import net.accelbyte.sdk.api.social.operations.game_profile.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class GameProfile {
     /**
      * @see GetUserProfiles
      */
-    public List<GameProfileHeader> getUserProfiles(GetUserProfiles input) throws ResponseException, IOException {
+    public List<GameProfileHeader> getUserProfiles(GetUserProfiles input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class GameProfile {
     /**
      * @see GetProfile
      */
-    public GameProfileInfo getProfile(GetProfile input) throws ResponseException, IOException {
+    public GameProfileInfo getProfile(GetProfile input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class GameProfile {
     /**
      * @see PublicGetUserGameProfiles
      */
-    public List<UserGameProfiles> publicGetUserGameProfiles(PublicGetUserGameProfiles input) throws ResponseException, IOException {
+    public List<UserGameProfiles> publicGetUserGameProfiles(PublicGetUserGameProfiles input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class GameProfile {
     /**
      * @see PublicGetUserProfiles
      */
-    public List<GameProfileHeader> publicGetUserProfiles(PublicGetUserProfiles input) throws ResponseException, IOException {
+    public List<GameProfileHeader> publicGetUserProfiles(PublicGetUserProfiles input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class GameProfile {
     /**
      * @see PublicCreateProfile
      */
-    public void publicCreateProfile(PublicCreateProfile input) throws ResponseException, IOException {
+    public void publicCreateProfile(PublicCreateProfile input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class GameProfile {
     /**
      * @see PublicGetProfile
      */
-    public GameProfileInfo publicGetProfile(PublicGetProfile input) throws ResponseException, IOException {
+    public GameProfileInfo publicGetProfile(PublicGetProfile input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class GameProfile {
     /**
      * @see PublicUpdateProfile
      */
-    public GameProfileInfo publicUpdateProfile(PublicUpdateProfile input) throws ResponseException, IOException {
+    public GameProfileInfo publicUpdateProfile(PublicUpdateProfile input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class GameProfile {
     /**
      * @see PublicDeleteProfile
      */
-    public void publicDeleteProfile(PublicDeleteProfile input) throws ResponseException, IOException {
+    public void publicDeleteProfile(PublicDeleteProfile input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class GameProfile {
     /**
      * @see PublicGetProfileAttribute
      */
-    public Attribute publicGetProfileAttribute(PublicGetProfileAttribute input) throws ResponseException, IOException {
+    public Attribute publicGetProfileAttribute(PublicGetProfileAttribute input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class GameProfile {
     /**
      * @see PublicUpdateAttribute
      */
-    public GameProfileInfo publicUpdateAttribute(PublicUpdateAttribute input) throws ResponseException, IOException {
+    public GameProfileInfo publicUpdateAttribute(PublicUpdateAttribute input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

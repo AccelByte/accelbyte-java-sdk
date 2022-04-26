@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.payment_dedicated.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class PaymentDedicated {
     /**
      * @see CreatePaymentOrderByDedicated
      */
-    public PaymentOrderCreateResult createPaymentOrderByDedicated(CreatePaymentOrderByDedicated input) throws ResponseException, IOException {
+    public PaymentOrderCreateResult createPaymentOrderByDedicated(CreatePaymentOrderByDedicated input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PaymentDedicated {
     /**
      * @see RefundPaymentOrderByDedicated
      */
-    public PaymentOrderRefundResult refundPaymentOrderByDedicated(RefundPaymentOrderByDedicated input) throws ResponseException, IOException {
+    public PaymentOrderRefundResult refundPaymentOrderByDedicated(RefundPaymentOrderByDedicated input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class PaymentDedicated {
     /**
      * @see SyncPaymentOrders
      */
-    public PaymentOrderSyncResult syncPaymentOrders(SyncPaymentOrders input) throws ResponseException, IOException {
+    public PaymentOrderSyncResult syncPaymentOrders(SyncPaymentOrders input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

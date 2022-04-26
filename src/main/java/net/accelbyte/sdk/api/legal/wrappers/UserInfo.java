@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.legal.models.*;
 import net.accelbyte.sdk.api.legal.operations.user_info.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class UserInfo {
     /**
      * @see GetUserInfoStatus
      */
-    public List<RetrieveUserInfoCacheStatusResponse> getUserInfoStatus(GetUserInfoStatus input) throws ResponseException, IOException {
+    public List<RetrieveUserInfoCacheStatusResponse> getUserInfoStatus(GetUserInfoStatus input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class UserInfo {
     /**
      * @see SyncUserInfo
      */
-    public void syncUserInfo(SyncUserInfo input) throws ResponseException, IOException {
+    public void syncUserInfo(SyncUserInfo input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class UserInfo {
     /**
      * @see InvalidateUserInfoCache
      */
-    public void invalidateUserInfoCache(InvalidateUserInfoCache input) throws ResponseException, IOException {
+    public void invalidateUserInfoCache(InvalidateUserInfoCache input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

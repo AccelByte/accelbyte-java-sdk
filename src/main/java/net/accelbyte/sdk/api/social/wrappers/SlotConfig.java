@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.social.models.*;
 import net.accelbyte.sdk.api.social.operations.slot_config.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class SlotConfig {
     /**
      * @see GetNamespaceSlotConfig
      */
-    public NamespaceSlotConfigInfo getNamespaceSlotConfig(GetNamespaceSlotConfig input) throws ResponseException, IOException {
+    public NamespaceSlotConfigInfo getNamespaceSlotConfig(GetNamespaceSlotConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class SlotConfig {
     /**
      * @see UpdateNamespaceSlotConfig
      */
-    public NamespaceSlotConfigInfo updateNamespaceSlotConfig(UpdateNamespaceSlotConfig input) throws ResponseException, IOException {
+    public NamespaceSlotConfigInfo updateNamespaceSlotConfig(UpdateNamespaceSlotConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class SlotConfig {
     /**
      * @see DeleteNamespaceSlotConfig
      */
-    public void deleteNamespaceSlotConfig(DeleteNamespaceSlotConfig input) throws ResponseException, IOException {
+    public void deleteNamespaceSlotConfig(DeleteNamespaceSlotConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class SlotConfig {
     /**
      * @see GetUserSlotConfig
      */
-    public UserSlotConfigInfo getUserSlotConfig(GetUserSlotConfig input) throws ResponseException, IOException {
+    public UserSlotConfigInfo getUserSlotConfig(GetUserSlotConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class SlotConfig {
     /**
      * @see UpdateUserSlotConfig
      */
-    public UserSlotConfigInfo updateUserSlotConfig(UpdateUserSlotConfig input) throws ResponseException, IOException {
+    public UserSlotConfigInfo updateUserSlotConfig(UpdateUserSlotConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class SlotConfig {
     /**
      * @see DeleteUserSlotConfig
      */
-    public void deleteUserSlotConfig(DeleteUserSlotConfig input) throws ResponseException, IOException {
+    public void deleteUserSlotConfig(DeleteUserSlotConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

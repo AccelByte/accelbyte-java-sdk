@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.api.iam.operations.users_v4.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class UsersV4 {
     /**
      * @see AdminBulkCheckValidUserIDV4
      */
-    public ModelListValidUserIDResponseV4 adminBulkCheckValidUserIDV4(AdminBulkCheckValidUserIDV4 input) throws ResponseException, IOException {
+    public ModelListValidUserIDResponseV4 adminBulkCheckValidUserIDV4(AdminBulkCheckValidUserIDV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class UsersV4 {
     /**
      * @see AdminUpdateUserV4
      */
-    public ModelUserResponseV3 adminUpdateUserV4(AdminUpdateUserV4 input) throws ResponseException, IOException {
+    public ModelUserResponseV3 adminUpdateUserV4(AdminUpdateUserV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class UsersV4 {
     /**
      * @see AdminUpdateUserEmailAddressV4
      */
-    public void adminUpdateUserEmailAddressV4(AdminUpdateUserEmailAddressV4 input) throws ResponseException, IOException {
+    public void adminUpdateUserEmailAddressV4(AdminUpdateUserEmailAddressV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class UsersV4 {
     /**
      * @see AdminDisableUserMFAV4
      */
-    public void adminDisableUserMFAV4(AdminDisableUserMFAV4 input) throws ResponseException, IOException {
+    public void adminDisableUserMFAV4(AdminDisableUserMFAV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class UsersV4 {
     /**
      * @see AdminListUserRolesV4
      */
-    public ModelListUserRolesV4Response adminListUserRolesV4(AdminListUserRolesV4 input) throws ResponseException, IOException {
+    public ModelListUserRolesV4Response adminListUserRolesV4(AdminListUserRolesV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class UsersV4 {
     /**
      * @see AdminUpdateUserRoleV4
      */
-    public ModelListUserRolesV4Response adminUpdateUserRoleV4(AdminUpdateUserRoleV4 input) throws ResponseException, IOException {
+    public ModelListUserRolesV4Response adminUpdateUserRoleV4(AdminUpdateUserRoleV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class UsersV4 {
     /**
      * @see AdminAddUserRoleV4
      */
-    public ModelListUserRolesV4Response adminAddUserRoleV4(AdminAddUserRoleV4 input) throws ResponseException, IOException {
+    public ModelListUserRolesV4Response adminAddUserRoleV4(AdminAddUserRoleV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class UsersV4 {
     /**
      * @see AdminRemoveUserRoleV4
      */
-    public void adminRemoveUserRoleV4(AdminRemoveUserRoleV4 input) throws ResponseException, IOException {
+    public void adminRemoveUserRoleV4(AdminRemoveUserRoleV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class UsersV4 {
     /**
      * @see AdminUpdateMyUserV4
      */
-    public ModelUserResponseV3 adminUpdateMyUserV4(AdminUpdateMyUserV4 input) throws ResponseException, IOException {
+    public ModelUserResponseV3 adminUpdateMyUserV4(AdminUpdateMyUserV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class UsersV4 {
     /**
      * @see AdminDisableMyAuthenticatorV4
      */
-    public void adminDisableMyAuthenticatorV4(AdminDisableMyAuthenticatorV4 input) throws ResponseException, IOException {
+    public void adminDisableMyAuthenticatorV4(AdminDisableMyAuthenticatorV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class UsersV4 {
     /**
      * @see AdminEnableMyAuthenticatorV4
      */
-    public void adminEnableMyAuthenticatorV4(AdminEnableMyAuthenticatorV4 input) throws ResponseException, IOException {
+    public void adminEnableMyAuthenticatorV4(AdminEnableMyAuthenticatorV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +239,7 @@ public class UsersV4 {
     /**
      * @see AdminGenerateMyAuthenticatorKeyV4
      */
-    public ModelAuthenticatorKeyResponseV4 adminGenerateMyAuthenticatorKeyV4(AdminGenerateMyAuthenticatorKeyV4 input) throws ResponseException, IOException {
+    public ModelAuthenticatorKeyResponseV4 adminGenerateMyAuthenticatorKeyV4(AdminGenerateMyAuthenticatorKeyV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -258,7 +258,7 @@ public class UsersV4 {
     /**
      * @see AdminGetMyBackupCodesV4
      */
-    public ModelBackupCodesResponseV4 adminGetMyBackupCodesV4(AdminGetMyBackupCodesV4 input) throws ResponseException, IOException {
+    public ModelBackupCodesResponseV4 adminGetMyBackupCodesV4(AdminGetMyBackupCodesV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -277,7 +277,7 @@ public class UsersV4 {
     /**
      * @see AdminGenerateMyBackupCodesV4
      */
-    public ModelBackupCodesResponseV4 adminGenerateMyBackupCodesV4(AdminGenerateMyBackupCodesV4 input) throws ResponseException, IOException {
+    public ModelBackupCodesResponseV4 adminGenerateMyBackupCodesV4(AdminGenerateMyBackupCodesV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -296,7 +296,7 @@ public class UsersV4 {
     /**
      * @see AdminDisableMyBackupCodesV4
      */
-    public void adminDisableMyBackupCodesV4(AdminDisableMyBackupCodesV4 input) throws ResponseException, IOException {
+    public void adminDisableMyBackupCodesV4(AdminDisableMyBackupCodesV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -315,7 +315,7 @@ public class UsersV4 {
     /**
      * @see AdminDownloadMyBackupCodesV4
      */
-    public void adminDownloadMyBackupCodesV4(AdminDownloadMyBackupCodesV4 input) throws ResponseException, IOException {
+    public void adminDownloadMyBackupCodesV4(AdminDownloadMyBackupCodesV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -334,7 +334,7 @@ public class UsersV4 {
     /**
      * @see AdminEnableMyBackupCodesV4
      */
-    public ModelBackupCodesResponseV4 adminEnableMyBackupCodesV4(AdminEnableMyBackupCodesV4 input) throws ResponseException, IOException {
+    public ModelBackupCodesResponseV4 adminEnableMyBackupCodesV4(AdminEnableMyBackupCodesV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -353,7 +353,7 @@ public class UsersV4 {
     /**
      * @see AdminGetMyEnabledFactorsV4
      */
-    public ModelEnabledFactorsResponseV4 adminGetMyEnabledFactorsV4(AdminGetMyEnabledFactorsV4 input) throws ResponseException, IOException {
+    public ModelEnabledFactorsResponseV4 adminGetMyEnabledFactorsV4(AdminGetMyEnabledFactorsV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -372,7 +372,7 @@ public class UsersV4 {
     /**
      * @see AdminMakeFactorMyDefaultV4
      */
-    public void adminMakeFactorMyDefaultV4(AdminMakeFactorMyDefaultV4 input) throws ResponseException, IOException {
+    public void adminMakeFactorMyDefaultV4(AdminMakeFactorMyDefaultV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -391,7 +391,7 @@ public class UsersV4 {
     /**
      * @see AdminInviteUserV4
      */
-    public ModelInviteUserResponseV3 adminInviteUserV4(AdminInviteUserV4 input) throws ResponseException, IOException {
+    public ModelInviteUserResponseV3 adminInviteUserV4(AdminInviteUserV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -410,7 +410,7 @@ public class UsersV4 {
     /**
      * @see PublicCreateTestUserV4
      */
-    public AccountCreateUserResponseV4 publicCreateTestUserV4(PublicCreateTestUserV4 input) throws ResponseException, IOException {
+    public AccountCreateUserResponseV4 publicCreateTestUserV4(PublicCreateTestUserV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -429,7 +429,7 @@ public class UsersV4 {
     /**
      * @see PublicCreateUserV4
      */
-    public AccountCreateUserResponseV4 publicCreateUserV4(PublicCreateUserV4 input) throws ResponseException, IOException {
+    public AccountCreateUserResponseV4 publicCreateUserV4(PublicCreateUserV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -448,7 +448,7 @@ public class UsersV4 {
     /**
      * @see CreateUserFromInvitationV4
      */
-    public AccountCreateUserResponseV4 createUserFromInvitationV4(CreateUserFromInvitationV4 input) throws ResponseException, IOException {
+    public AccountCreateUserResponseV4 createUserFromInvitationV4(CreateUserFromInvitationV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -467,7 +467,7 @@ public class UsersV4 {
     /**
      * @see PublicUpdateUserV4
      */
-    public ModelUserResponseV3 publicUpdateUserV4(PublicUpdateUserV4 input) throws ResponseException, IOException {
+    public ModelUserResponseV3 publicUpdateUserV4(PublicUpdateUserV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -486,7 +486,7 @@ public class UsersV4 {
     /**
      * @see PublicUpdateUserEmailAddressV4
      */
-    public void publicUpdateUserEmailAddressV4(PublicUpdateUserEmailAddressV4 input) throws ResponseException, IOException {
+    public void publicUpdateUserEmailAddressV4(PublicUpdateUserEmailAddressV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -505,7 +505,7 @@ public class UsersV4 {
     /**
      * @see PublicUpgradeHeadlessAccountWithVerificationCodeV4
      */
-    public AccountUserResponseV4 publicUpgradeHeadlessAccountWithVerificationCodeV4(PublicUpgradeHeadlessAccountWithVerificationCodeV4 input) throws ResponseException, IOException {
+    public AccountUserResponseV4 publicUpgradeHeadlessAccountWithVerificationCodeV4(PublicUpgradeHeadlessAccountWithVerificationCodeV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -524,7 +524,7 @@ public class UsersV4 {
     /**
      * @see PublicUpgradeHeadlessAccountV4
      */
-    public AccountUserResponseV4 publicUpgradeHeadlessAccountV4(PublicUpgradeHeadlessAccountV4 input) throws ResponseException, IOException {
+    public AccountUserResponseV4 publicUpgradeHeadlessAccountV4(PublicUpgradeHeadlessAccountV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -543,7 +543,7 @@ public class UsersV4 {
     /**
      * @see PublicDisableMyAuthenticatorV4
      */
-    public void publicDisableMyAuthenticatorV4(PublicDisableMyAuthenticatorV4 input) throws ResponseException, IOException {
+    public void publicDisableMyAuthenticatorV4(PublicDisableMyAuthenticatorV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -562,7 +562,7 @@ public class UsersV4 {
     /**
      * @see PublicEnableMyAuthenticatorV4
      */
-    public void publicEnableMyAuthenticatorV4(PublicEnableMyAuthenticatorV4 input) throws ResponseException, IOException {
+    public void publicEnableMyAuthenticatorV4(PublicEnableMyAuthenticatorV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -581,7 +581,7 @@ public class UsersV4 {
     /**
      * @see PublicGenerateMyAuthenticatorKeyV4
      */
-    public ModelAuthenticatorKeyResponseV4 publicGenerateMyAuthenticatorKeyV4(PublicGenerateMyAuthenticatorKeyV4 input) throws ResponseException, IOException {
+    public ModelAuthenticatorKeyResponseV4 publicGenerateMyAuthenticatorKeyV4(PublicGenerateMyAuthenticatorKeyV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -600,7 +600,7 @@ public class UsersV4 {
     /**
      * @see PublicGetMyBackupCodesV4
      */
-    public ModelBackupCodesResponseV4 publicGetMyBackupCodesV4(PublicGetMyBackupCodesV4 input) throws ResponseException, IOException {
+    public ModelBackupCodesResponseV4 publicGetMyBackupCodesV4(PublicGetMyBackupCodesV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -619,7 +619,7 @@ public class UsersV4 {
     /**
      * @see PublicGenerateMyBackupCodesV4
      */
-    public ModelBackupCodesResponseV4 publicGenerateMyBackupCodesV4(PublicGenerateMyBackupCodesV4 input) throws ResponseException, IOException {
+    public ModelBackupCodesResponseV4 publicGenerateMyBackupCodesV4(PublicGenerateMyBackupCodesV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -638,7 +638,7 @@ public class UsersV4 {
     /**
      * @see PublicDisableMyBackupCodesV4
      */
-    public void publicDisableMyBackupCodesV4(PublicDisableMyBackupCodesV4 input) throws ResponseException, IOException {
+    public void publicDisableMyBackupCodesV4(PublicDisableMyBackupCodesV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -657,7 +657,7 @@ public class UsersV4 {
     /**
      * @see PublicDownloadMyBackupCodesV4
      */
-    public void publicDownloadMyBackupCodesV4(PublicDownloadMyBackupCodesV4 input) throws ResponseException, IOException {
+    public void publicDownloadMyBackupCodesV4(PublicDownloadMyBackupCodesV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -676,7 +676,7 @@ public class UsersV4 {
     /**
      * @see PublicEnableMyBackupCodesV4
      */
-    public ModelBackupCodesResponseV4 publicEnableMyBackupCodesV4(PublicEnableMyBackupCodesV4 input) throws ResponseException, IOException {
+    public ModelBackupCodesResponseV4 publicEnableMyBackupCodesV4(PublicEnableMyBackupCodesV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -695,7 +695,7 @@ public class UsersV4 {
     /**
      * @see PublicRemoveTrustedDeviceV4
      */
-    public void publicRemoveTrustedDeviceV4(PublicRemoveTrustedDeviceV4 input) throws ResponseException, IOException {
+    public void publicRemoveTrustedDeviceV4(PublicRemoveTrustedDeviceV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -714,7 +714,7 @@ public class UsersV4 {
     /**
      * @see PublicGetMyEnabledFactorsV4
      */
-    public ModelEnabledFactorsResponseV4 publicGetMyEnabledFactorsV4(PublicGetMyEnabledFactorsV4 input) throws ResponseException, IOException {
+    public ModelEnabledFactorsResponseV4 publicGetMyEnabledFactorsV4(PublicGetMyEnabledFactorsV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -733,7 +733,7 @@ public class UsersV4 {
     /**
      * @see PublicMakeFactorMyDefaultV4
      */
-    public void publicMakeFactorMyDefaultV4(PublicMakeFactorMyDefaultV4 input) throws ResponseException, IOException {
+    public void publicMakeFactorMyDefaultV4(PublicMakeFactorMyDefaultV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

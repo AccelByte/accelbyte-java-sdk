@@ -18,7 +18,7 @@ import lombok.Setter;
 import net.accelbyte.sdk.api.lobby.models.*;
 import net.accelbyte.sdk.api.lobby.models.ModelGetAllNotificationTemplateSlugResp;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -127,12 +127,12 @@ public class GetTemplateSlugLocalizationsTemplateV1Admin extends Operation {
     }
 
     @Override
-    public ModelGetAllNotificationTemplateSlugResp parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public ModelGetAllNotificationTemplateSlugResp parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
             return new ModelGetAllNotificationTemplateSlugResp().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
     @Override

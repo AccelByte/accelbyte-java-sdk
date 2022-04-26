@@ -18,7 +18,7 @@ import lombok.Setter;
 import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.models.StoreBackupInfo;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -101,12 +101,12 @@ public class GetPublishedStoreBackup extends Operation {
     }
 
     @Override
-    public StoreBackupInfo parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public StoreBackupInfo parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
             return new StoreBackupInfo().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
 }

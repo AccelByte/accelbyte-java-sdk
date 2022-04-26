@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.ugc.models.*;
 import net.accelbyte.sdk.api.ugc.operations.admin_type.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class AdminType {
     /**
      * @see AdminGetType
      */
-    public ModelsPaginatedGetTypeResponse adminGetType(AdminGetType input) throws ResponseException, IOException {
+    public ModelsPaginatedGetTypeResponse adminGetType(AdminGetType input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class AdminType {
     /**
      * @see AdminCreateType
      */
-    public ModelsCreateTypeResponse adminCreateType(AdminCreateType input) throws ResponseException, IOException {
+    public ModelsCreateTypeResponse adminCreateType(AdminCreateType input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class AdminType {
     /**
      * @see AdminUpdateType
      */
-    public ModelsCreateTypeResponse adminUpdateType(AdminUpdateType input) throws ResponseException, IOException {
+    public ModelsCreateTypeResponse adminUpdateType(AdminUpdateType input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class AdminType {
     /**
      * @see AdminDeleteType
      */
-    public void adminDeleteType(AdminDeleteType input) throws ResponseException, IOException {
+    public void adminDeleteType(AdminDeleteType input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

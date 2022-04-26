@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.lobby.models.*;
 import net.accelbyte.sdk.api.lobby.operations.third_party.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class ThirdParty {
     /**
      * @see AdminGetThirdPartyConfig
      */
-    public ModelsGetConfigResponse adminGetThirdPartyConfig(AdminGetThirdPartyConfig input) throws ResponseException, IOException {
+    public ModelsGetConfigResponse adminGetThirdPartyConfig(AdminGetThirdPartyConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class ThirdParty {
     /**
      * @see AdminUpdateThirdPartyConfig
      */
-    public ModelsUpdateConfigResponse adminUpdateThirdPartyConfig(AdminUpdateThirdPartyConfig input) throws ResponseException, IOException {
+    public ModelsUpdateConfigResponse adminUpdateThirdPartyConfig(AdminUpdateThirdPartyConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class ThirdParty {
     /**
      * @see AdminCreateThirdPartyConfig
      */
-    public ModelsCreateConfigResponse adminCreateThirdPartyConfig(AdminCreateThirdPartyConfig input) throws ResponseException, IOException {
+    public ModelsCreateConfigResponse adminCreateThirdPartyConfig(AdminCreateThirdPartyConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class ThirdParty {
     /**
      * @see AdminDeleteThirdPartyConfig
      */
-    public void adminDeleteThirdPartyConfig(AdminDeleteThirdPartyConfig input) throws ResponseException, IOException {
+    public void adminDeleteThirdPartyConfig(AdminDeleteThirdPartyConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

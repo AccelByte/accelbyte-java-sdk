@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.basic.models.*;
 import net.accelbyte.sdk.api.basic.operations.user_action.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class UserAction {
     /**
      * @see GetActions
      */
-    public List<Action> getActions(GetActions input) throws ResponseException, IOException {
+    public List<Action> getActions(GetActions input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class UserAction {
     /**
      * @see BanUsers
      */
-    public void banUsers(BanUsers input) throws ResponseException, IOException {
+    public void banUsers(BanUsers input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class UserAction {
     /**
      * @see GetBannedUsers
      */
-    public List<ADTOObjectForEqu8UserBanStatus> getBannedUsers(GetBannedUsers input) throws ResponseException, IOException {
+    public List<ADTOObjectForEqu8UserBanStatus> getBannedUsers(GetBannedUsers input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class UserAction {
     /**
      * @see ReportUser
      */
-    public void reportUser(ReportUser input) throws ResponseException, IOException {
+    public void reportUser(ReportUser input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class UserAction {
     /**
      * @see GetUserStatus
      */
-    public ADTOObjectForEqu8UserStatus getUserStatus(GetUserStatus input) throws ResponseException, IOException {
+    public ADTOObjectForEqu8UserStatus getUserStatus(GetUserStatus input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class UserAction {
     /**
      * @see UnBanUsers
      */
-    public void unBanUsers(UnBanUsers input) throws ResponseException, IOException {
+    public void unBanUsers(UnBanUsers input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class UserAction {
     /**
      * @see PublicReportUser
      */
-    public void publicReportUser(PublicReportUser input) throws ResponseException, IOException {
+    public void publicReportUser(PublicReportUser input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.leaderboard.models.*;
 import net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class LeaderboardConfiguration {
     /**
      * @see GetLeaderboardConfigurationsAdminV1
      */
-    public ModelsGetAllLeaderboardConfigsResp getLeaderboardConfigurationsAdminV1(GetLeaderboardConfigurationsAdminV1 input) throws ResponseException, IOException {
+    public ModelsGetAllLeaderboardConfigsResp getLeaderboardConfigurationsAdminV1(GetLeaderboardConfigurationsAdminV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class LeaderboardConfiguration {
     /**
      * @see CreateLeaderboardConfigurationAdminV1
      */
-    public ModelsLeaderboardConfigReq createLeaderboardConfigurationAdminV1(CreateLeaderboardConfigurationAdminV1 input) throws ResponseException, IOException {
+    public ModelsLeaderboardConfigReq createLeaderboardConfigurationAdminV1(CreateLeaderboardConfigurationAdminV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class LeaderboardConfiguration {
     /**
      * @see DeleteBulkLeaderboardConfigurationAdminV1
      */
-    public ModelsDeleteBulkLeaderboardsResp deleteBulkLeaderboardConfigurationAdminV1(DeleteBulkLeaderboardConfigurationAdminV1 input) throws ResponseException, IOException {
+    public ModelsDeleteBulkLeaderboardsResp deleteBulkLeaderboardConfigurationAdminV1(DeleteBulkLeaderboardConfigurationAdminV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class LeaderboardConfiguration {
     /**
      * @see GetLeaderboardConfigurationAdminV1
      */
-    public ModelsGetLeaderboardConfigResp getLeaderboardConfigurationAdminV1(GetLeaderboardConfigurationAdminV1 input) throws ResponseException, IOException {
+    public ModelsGetLeaderboardConfigResp getLeaderboardConfigurationAdminV1(GetLeaderboardConfigurationAdminV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class LeaderboardConfiguration {
     /**
      * @see UpdateLeaderboardConfigurationAdminV1
      */
-    public ModelsGetLeaderboardConfigResp updateLeaderboardConfigurationAdminV1(UpdateLeaderboardConfigurationAdminV1 input) throws ResponseException, IOException {
+    public ModelsGetLeaderboardConfigResp updateLeaderboardConfigurationAdminV1(UpdateLeaderboardConfigurationAdminV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class LeaderboardConfiguration {
     /**
      * @see DeleteLeaderboardConfigurationAdminV1
      */
-    public void deleteLeaderboardConfigurationAdminV1(DeleteLeaderboardConfigurationAdminV1 input) throws ResponseException, IOException {
+    public void deleteLeaderboardConfigurationAdminV1(DeleteLeaderboardConfigurationAdminV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class LeaderboardConfiguration {
     /**
      * @see GetLeaderboardConfigurationsPublicV1
      */
-    public ModelsGetAllLeaderboardConfigsPublicResp getLeaderboardConfigurationsPublicV1(GetLeaderboardConfigurationsPublicV1 input) throws ResponseException, IOException {
+    public ModelsGetAllLeaderboardConfigsPublicResp getLeaderboardConfigurationsPublicV1(GetLeaderboardConfigurationsPublicV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class LeaderboardConfiguration {
     /**
      * @see CreateLeaderboardConfigurationPublicV1
      */
-    public ModelsLeaderboardConfigReq createLeaderboardConfigurationPublicV1(CreateLeaderboardConfigurationPublicV1 input) throws ResponseException, IOException {
+    public ModelsLeaderboardConfigReq createLeaderboardConfigurationPublicV1(CreateLeaderboardConfigurationPublicV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class LeaderboardConfiguration {
     /**
      * @see GetLeaderboardConfigurationsPublicV2
      */
-    public V2GetAllLeaderboardConfigsPublicResp getLeaderboardConfigurationsPublicV2(GetLeaderboardConfigurationsPublicV2 input) throws ResponseException, IOException {
+    public V2GetAllLeaderboardConfigsPublicResp getLeaderboardConfigurationsPublicV2(GetLeaderboardConfigurationsPublicV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

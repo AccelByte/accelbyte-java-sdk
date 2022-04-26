@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.eventlog.models.*;
 import net.accelbyte.sdk.api.eventlog.operations.user_information.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,7 +32,7 @@ public class UserInformation {
      * @deprecated
      */
     @Deprecated
-    public ModelsEventResponse getUserActivitiesHandler(GetUserActivitiesHandler input) throws ResponseException, IOException {
+    public ModelsEventResponse getUserActivitiesHandler(GetUserActivitiesHandler input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -53,7 +53,7 @@ public class UserInformation {
      * @deprecated
      */
     @Deprecated
-    public void deleteUserActivitiesHandler(DeleteUserActivitiesHandler input) throws ResponseException, IOException {
+    public void deleteUserActivitiesHandler(DeleteUserActivitiesHandler input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -74,7 +74,7 @@ public class UserInformation {
      * @deprecated
      */
     @Deprecated
-    public ModelsUserLastActivity lastUserActivityTimeHandler(LastUserActivityTimeHandler input) throws ResponseException, IOException {
+    public ModelsUserLastActivity lastUserActivityTimeHandler(LastUserActivityTimeHandler input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

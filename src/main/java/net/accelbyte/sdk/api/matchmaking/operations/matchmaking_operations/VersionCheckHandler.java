@@ -17,7 +17,7 @@ import lombok.Setter;
 
 import net.accelbyte.sdk.api.matchmaking.models.*;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -74,10 +74,10 @@ public class VersionCheckHandler extends Operation {
 
 
     @Override
-    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         if(code != 200){
             String json = this.convertInputStreamToString(payload);
-            throw new ResponseException(code, json);
+            throw new HttpResponseException(code, json);
         }
     }
 

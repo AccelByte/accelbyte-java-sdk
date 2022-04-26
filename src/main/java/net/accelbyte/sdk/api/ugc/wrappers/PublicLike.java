@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.ugc.models.*;
 import net.accelbyte.sdk.api.ugc.operations.public_like.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class PublicLike {
     /**
      * @see GetLikedContent
      */
-    public ModelsPaginatedContentDownloadResponse getLikedContent(GetLikedContent input) throws ResponseException, IOException {
+    public ModelsPaginatedContentDownloadResponse getLikedContent(GetLikedContent input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PublicLike {
     /**
      * @see UpdateContentLikeStatus
      */
-    public ModelsContentLikeResponse updateContentLikeStatus(UpdateContentLikeStatus input) throws ResponseException, IOException {
+    public ModelsContentLikeResponse updateContentLikeStatus(UpdateContentLikeStatus input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -19,7 +19,7 @@ import net.accelbyte.sdk.api.ugc.models.*;
 import net.accelbyte.sdk.api.ugc.models.ModelsCreateScreenshotResponse;
 import net.accelbyte.sdk.api.ugc.models.ModelsCreateScreenshotRequest;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -122,12 +122,12 @@ public class AdminUploadContentScreenshot extends Operation {
     }
 
     @Override
-    public ModelsCreateScreenshotResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public ModelsCreateScreenshotResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 201){
             return new ModelsCreateScreenshotResponse().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
 }

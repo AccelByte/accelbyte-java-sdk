@@ -27,11 +27,11 @@ class HttpbinOperation extends Operation {
 
     @Override
     public HttpbinAnythingResponse parseResponse(int code, String contentTpe, InputStream payload)
-            throws ResponseException, IOException {
+            throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if (code == 200) {
             return new ObjectMapper().readValue(json, HttpbinAnythingResponse.class);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 }

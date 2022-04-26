@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.ticket.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Ticket {
     /**
      * @see GetTicketDynamic
      */
-    public TicketDynamicInfo getTicketDynamic(GetTicketDynamic input) throws ResponseException, IOException {
+    public TicketDynamicInfo getTicketDynamic(GetTicketDynamic input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Ticket {
     /**
      * @see DecreaseTicketSale
      */
-    public void decreaseTicketSale(DecreaseTicketSale input) throws ResponseException, IOException {
+    public void decreaseTicketSale(DecreaseTicketSale input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Ticket {
     /**
      * @see GetTicketBoothID
      */
-    public TicketBoothID getTicketBoothID(GetTicketBoothID input) throws ResponseException, IOException {
+    public TicketBoothID getTicketBoothID(GetTicketBoothID input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Ticket {
     /**
      * @see IncreaseTicketSale
      */
-    public TicketSaleIncrementResult increaseTicketSale(IncreaseTicketSale input) throws ResponseException, IOException {
+    public TicketSaleIncrementResult increaseTicketSale(IncreaseTicketSale input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Ticket {
     /**
      * @see AcquireUserTicket
      */
-    public TicketAcquireResult acquireUserTicket(AcquireUserTicket input) throws ResponseException, IOException {
+    public TicketAcquireResult acquireUserTicket(AcquireUserTicket input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

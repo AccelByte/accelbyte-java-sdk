@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.legal.models.*;
 import net.accelbyte.sdk.api.legal.operations.anonymization.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Anonymization {
     /**
      * @see AnonymizeUserAgreement
      */
-    public void anonymizeUserAgreement(AnonymizeUserAgreement input) throws ResponseException, IOException {
+    public void anonymizeUserAgreement(AnonymizeUserAgreement input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

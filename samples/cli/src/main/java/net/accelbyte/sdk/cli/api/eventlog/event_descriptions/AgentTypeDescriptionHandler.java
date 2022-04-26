@@ -14,7 +14,7 @@ import net.accelbyte.sdk.api.eventlog.models.*;
 import net.accelbyte.sdk.api.eventlog.wrappers.EventDescriptions;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.logging.OkhttpLogger;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
@@ -63,8 +63,8 @@ public class AgentTypeDescriptionHandler implements Callable<Integer> {
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;
-        } catch (ResponseException e) {
-            log.error("ResponseException occur with message below:\n{}", e.getMessage());
+        } catch (HttpResponseException e) {
+            log.error("HttpResponseException occur with message below:\n{}", e.getMessage());
             System.err.print(e.getHttpCode());
         } catch (IOException e) {
             log.error("IOException occur with message below:\n{}", e.getMessage());

@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.dsmc.models.*;
 import net.accelbyte.sdk.api.dsmc.operations.deployment_config.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class DeploymentConfig {
     /**
      * @see GetAllDeployment
      */
-    public ModelsListDeploymentResponse getAllDeployment(GetAllDeployment input) throws ResponseException, IOException {
+    public ModelsListDeploymentResponse getAllDeployment(GetAllDeployment input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class DeploymentConfig {
     /**
      * @see GetDeployment
      */
-    public ModelsDeploymentWithOverride getDeployment(GetDeployment input) throws ResponseException, IOException {
+    public ModelsDeploymentWithOverride getDeployment(GetDeployment input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class DeploymentConfig {
     /**
      * @see CreateDeployment
      */
-    public ModelsDeploymentWithOverride createDeployment(CreateDeployment input) throws ResponseException, IOException {
+    public ModelsDeploymentWithOverride createDeployment(CreateDeployment input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class DeploymentConfig {
     /**
      * @see DeleteDeployment
      */
-    public void deleteDeployment(DeleteDeployment input) throws ResponseException, IOException {
+    public void deleteDeployment(DeleteDeployment input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class DeploymentConfig {
     /**
      * @see UpdateDeployment
      */
-    public ModelsDeploymentWithOverride updateDeployment(UpdateDeployment input) throws ResponseException, IOException {
+    public ModelsDeploymentWithOverride updateDeployment(UpdateDeployment input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class DeploymentConfig {
     /**
      * @see CreateRootRegionOverride
      */
-    public ModelsDeploymentWithOverride createRootRegionOverride(CreateRootRegionOverride input) throws ResponseException, IOException {
+    public ModelsDeploymentWithOverride createRootRegionOverride(CreateRootRegionOverride input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class DeploymentConfig {
     /**
      * @see DeleteRootRegionOverride
      */
-    public ModelsDeploymentWithOverride deleteRootRegionOverride(DeleteRootRegionOverride input) throws ResponseException, IOException {
+    public ModelsDeploymentWithOverride deleteRootRegionOverride(DeleteRootRegionOverride input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class DeploymentConfig {
     /**
      * @see UpdateRootRegionOverride
      */
-    public ModelsDeploymentWithOverride updateRootRegionOverride(UpdateRootRegionOverride input) throws ResponseException, IOException {
+    public ModelsDeploymentWithOverride updateRootRegionOverride(UpdateRootRegionOverride input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class DeploymentConfig {
     /**
      * @see CreateDeploymentOverride
      */
-    public ModelsDeploymentWithOverride createDeploymentOverride(CreateDeploymentOverride input) throws ResponseException, IOException {
+    public ModelsDeploymentWithOverride createDeploymentOverride(CreateDeploymentOverride input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class DeploymentConfig {
     /**
      * @see DeleteDeploymentOverride
      */
-    public ModelsDeploymentWithOverride deleteDeploymentOverride(DeleteDeploymentOverride input) throws ResponseException, IOException {
+    public ModelsDeploymentWithOverride deleteDeploymentOverride(DeleteDeploymentOverride input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class DeploymentConfig {
     /**
      * @see UpdateDeploymentOverride
      */
-    public ModelsDeploymentWithOverride updateDeploymentOverride(UpdateDeploymentOverride input) throws ResponseException, IOException {
+    public ModelsDeploymentWithOverride updateDeploymentOverride(UpdateDeploymentOverride input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +239,7 @@ public class DeploymentConfig {
     /**
      * @see CreateOverrideRegionOverride
      */
-    public ModelsDeploymentWithOverride createOverrideRegionOverride(CreateOverrideRegionOverride input) throws ResponseException, IOException {
+    public ModelsDeploymentWithOverride createOverrideRegionOverride(CreateOverrideRegionOverride input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -258,7 +258,7 @@ public class DeploymentConfig {
     /**
      * @see DeleteOverrideRegionOverride
      */
-    public ModelsDeploymentWithOverride deleteOverrideRegionOverride(DeleteOverrideRegionOverride input) throws ResponseException, IOException {
+    public ModelsDeploymentWithOverride deleteOverrideRegionOverride(DeleteOverrideRegionOverride input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -277,7 +277,7 @@ public class DeploymentConfig {
     /**
      * @see UpdateOverrideRegionOverride
      */
-    public ModelsDeploymentWithOverride updateOverrideRegionOverride(UpdateOverrideRegionOverride input) throws ResponseException, IOException {
+    public ModelsDeploymentWithOverride updateOverrideRegionOverride(UpdateOverrideRegionOverride input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

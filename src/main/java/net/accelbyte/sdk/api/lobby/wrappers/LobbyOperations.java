@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.lobby.models.*;
 import net.accelbyte.sdk.api.lobby.operations.lobby_operations.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class LobbyOperations {
     /**
      * @see AdminUpdatePartyAttributesV1
      */
-    public ModelsPartyData adminUpdatePartyAttributesV1(AdminUpdatePartyAttributesV1 input) throws ResponseException, IOException {
+    public ModelsPartyData adminUpdatePartyAttributesV1(AdminUpdatePartyAttributesV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class LobbyOperations {
     /**
      * @see AdminJoinPartyV1
      */
-    public void adminJoinPartyV1(AdminJoinPartyV1 input) throws ResponseException, IOException {
+    public void adminJoinPartyV1(AdminJoinPartyV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class LobbyOperations {
     /**
      * @see PublicGetMessages
      */
-    public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws ResponseException, IOException {
+    public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

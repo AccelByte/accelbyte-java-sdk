@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.ugc.models.*;
 import net.accelbyte.sdk.api.ugc.operations.public_follow.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class PublicFollow {
     /**
      * @see GetFollowedContent
      */
-    public ModelsPaginatedContentDownloadResponse getFollowedContent(GetFollowedContent input) throws ResponseException, IOException {
+    public ModelsPaginatedContentDownloadResponse getFollowedContent(GetFollowedContent input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PublicFollow {
     /**
      * @see GetFollowedUsers
      */
-    public ModelsPaginatedCreatorOverviewResponse getFollowedUsers(GetFollowedUsers input) throws ResponseException, IOException {
+    public ModelsPaginatedCreatorOverviewResponse getFollowedUsers(GetFollowedUsers input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class PublicFollow {
     /**
      * @see UpdateUserFollowStatus
      */
-    public ModelsUserFollowResponse updateUserFollowStatus(UpdateUserFollowStatus input) throws ResponseException, IOException {
+    public ModelsUserFollowResponse updateUserFollowStatus(UpdateUserFollowStatus input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class PublicFollow {
     /**
      * @see GetPublicFollowers
      */
-    public ModelsPaginatedCreatorOverviewResponse getPublicFollowers(GetPublicFollowers input) throws ResponseException, IOException {
+    public ModelsPaginatedCreatorOverviewResponse getPublicFollowers(GetPublicFollowers input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class PublicFollow {
     /**
      * @see GetPublicFollowing
      */
-    public ModelsPaginatedCreatorOverviewResponse getPublicFollowing(GetPublicFollowing input) throws ResponseException, IOException {
+    public ModelsPaginatedCreatorOverviewResponse getPublicFollowing(GetPublicFollowing input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.fulfillment_script.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class FulfillmentScript {
     /**
      * @see ListFulfillmentScripts
      */
-    public List<FulfillmentScriptInfo> listFulfillmentScripts(ListFulfillmentScripts input) throws ResponseException, IOException {
+    public List<FulfillmentScriptInfo> listFulfillmentScripts(ListFulfillmentScripts input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class FulfillmentScript {
     /**
      * @see TestFulfillmentScriptEval
      */
-    public FulfillmentScriptEvalTestResult testFulfillmentScriptEval(TestFulfillmentScriptEval input) throws ResponseException, IOException {
+    public FulfillmentScriptEvalTestResult testFulfillmentScriptEval(TestFulfillmentScriptEval input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class FulfillmentScript {
     /**
      * @see GetFulfillmentScript
      */
-    public FulfillmentScriptInfo getFulfillmentScript(GetFulfillmentScript input) throws ResponseException, IOException {
+    public FulfillmentScriptInfo getFulfillmentScript(GetFulfillmentScript input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class FulfillmentScript {
     /**
      * @see CreateFulfillmentScript
      */
-    public FulfillmentScriptInfo createFulfillmentScript(CreateFulfillmentScript input) throws ResponseException, IOException {
+    public FulfillmentScriptInfo createFulfillmentScript(CreateFulfillmentScript input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class FulfillmentScript {
     /**
      * @see DeleteFulfillmentScript
      */
-    public void deleteFulfillmentScript(DeleteFulfillmentScript input) throws ResponseException, IOException {
+    public void deleteFulfillmentScript(DeleteFulfillmentScript input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class FulfillmentScript {
     /**
      * @see UpdateFulfillmentScript
      */
-    public FulfillmentScriptInfo updateFulfillmentScript(UpdateFulfillmentScript input) throws ResponseException, IOException {
+    public FulfillmentScriptInfo updateFulfillmentScript(UpdateFulfillmentScript input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

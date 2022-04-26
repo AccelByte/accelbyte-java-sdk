@@ -19,7 +19,7 @@ import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.models.StoreInfo;
 import net.accelbyte.sdk.api.platform.models.StoreCreate;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -109,12 +109,12 @@ public class CreateStore extends Operation {
     }
 
     @Override
-    public StoreInfo parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public StoreInfo parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 201){
             return new StoreInfo().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
 }

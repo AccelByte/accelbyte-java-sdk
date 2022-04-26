@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.order.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Order {
     /**
      * @see QueryOrders
      */
-    public OrderPagingResult queryOrders(QueryOrders input) throws ResponseException, IOException {
+    public OrderPagingResult queryOrders(QueryOrders input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Order {
     /**
      * @see GetOrderStatistics
      */
-    public OrderStatistics getOrderStatistics(GetOrderStatistics input) throws ResponseException, IOException {
+    public OrderStatistics getOrderStatistics(GetOrderStatistics input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Order {
     /**
      * @see GetOrder
      */
-    public OrderInfo getOrder(GetOrder input) throws ResponseException, IOException {
+    public OrderInfo getOrder(GetOrder input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Order {
     /**
      * @see RefundOrder
      */
-    public OrderInfo refundOrder(RefundOrder input) throws ResponseException, IOException {
+    public OrderInfo refundOrder(RefundOrder input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Order {
     /**
      * @see QueryUserOrders
      */
-    public OrderPagingSlicedResult queryUserOrders(QueryUserOrders input) throws ResponseException, IOException {
+    public OrderPagingSlicedResult queryUserOrders(QueryUserOrders input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Order {
     /**
      * @see CountOfPurchasedItem
      */
-    public PurchasedItemCount countOfPurchasedItem(CountOfPurchasedItem input) throws ResponseException, IOException {
+    public PurchasedItemCount countOfPurchasedItem(CountOfPurchasedItem input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Order {
     /**
      * @see GetUserOrder
      */
-    public OrderInfo getUserOrder(GetUserOrder input) throws ResponseException, IOException {
+    public OrderInfo getUserOrder(GetUserOrder input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Order {
     /**
      * @see UpdateUserOrderStatus
      */
-    public OrderInfo updateUserOrderStatus(UpdateUserOrderStatus input) throws ResponseException, IOException {
+    public OrderInfo updateUserOrderStatus(UpdateUserOrderStatus input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class Order {
     /**
      * @see FulfillUserOrder
      */
-    public OrderInfo fulfillUserOrder(FulfillUserOrder input) throws ResponseException, IOException {
+    public OrderInfo fulfillUserOrder(FulfillUserOrder input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class Order {
     /**
      * @see GetUserOrderGrant
      */
-    public OrderGrantInfo getUserOrderGrant(GetUserOrderGrant input) throws ResponseException, IOException {
+    public OrderGrantInfo getUserOrderGrant(GetUserOrderGrant input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class Order {
     /**
      * @see GetUserOrderHistories
      */
-    public List<OrderHistoryInfo> getUserOrderHistories(GetUserOrderHistories input) throws ResponseException, IOException {
+    public List<OrderHistoryInfo> getUserOrderHistories(GetUserOrderHistories input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +239,7 @@ public class Order {
     /**
      * @see ProcessUserOrderNotification
      */
-    public void processUserOrderNotification(ProcessUserOrderNotification input) throws ResponseException, IOException {
+    public void processUserOrderNotification(ProcessUserOrderNotification input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -258,7 +258,7 @@ public class Order {
     /**
      * @see DownloadUserOrderReceipt
      */
-    public void downloadUserOrderReceipt(DownloadUserOrderReceipt input) throws ResponseException, IOException {
+    public void downloadUserOrderReceipt(DownloadUserOrderReceipt input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -277,7 +277,7 @@ public class Order {
     /**
      * @see PublicQueryUserOrders
      */
-    public OrderPagingSlicedResult publicQueryUserOrders(PublicQueryUserOrders input) throws ResponseException, IOException {
+    public OrderPagingSlicedResult publicQueryUserOrders(PublicQueryUserOrders input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -296,7 +296,7 @@ public class Order {
     /**
      * @see PublicCreateUserOrder
      */
-    public OrderInfo publicCreateUserOrder(PublicCreateUserOrder input) throws ResponseException, IOException {
+    public OrderInfo publicCreateUserOrder(PublicCreateUserOrder input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -315,7 +315,7 @@ public class Order {
     /**
      * @see PublicGetUserOrder
      */
-    public OrderInfo publicGetUserOrder(PublicGetUserOrder input) throws ResponseException, IOException {
+    public OrderInfo publicGetUserOrder(PublicGetUserOrder input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -334,7 +334,7 @@ public class Order {
     /**
      * @see PublicCancelUserOrder
      */
-    public OrderInfo publicCancelUserOrder(PublicCancelUserOrder input) throws ResponseException, IOException {
+    public OrderInfo publicCancelUserOrder(PublicCancelUserOrder input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -353,7 +353,7 @@ public class Order {
     /**
      * @see PublicGetUserOrderHistories
      */
-    public List<OrderHistoryInfo> publicGetUserOrderHistories(PublicGetUserOrderHistories input) throws ResponseException, IOException {
+    public List<OrderHistoryInfo> publicGetUserOrderHistories(PublicGetUserOrderHistories input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -372,7 +372,7 @@ public class Order {
     /**
      * @see PublicDownloadUserOrderReceipt
      */
-    public void publicDownloadUserOrderReceipt(PublicDownloadUserOrderReceipt input) throws ResponseException, IOException {
+    public void publicDownloadUserOrderReceipt(PublicDownloadUserOrderReceipt input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

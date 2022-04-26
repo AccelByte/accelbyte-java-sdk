@@ -18,7 +18,7 @@ import lombok.Setter;
 import net.accelbyte.sdk.api.lobby.models.*;
 import net.accelbyte.sdk.api.lobby.models.ModelsGetLobbyCcuResponse;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -98,12 +98,12 @@ public class AdminGetLobbyCCU extends Operation {
     }
 
     @Override
-    public ModelsGetLobbyCcuResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public ModelsGetLobbyCcuResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
             return new ModelsGetLobbyCcuResponse().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
 }

@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class OAuth20Extension {
     /**
      * @see UserAuthenticationV3
      */
-    public String userAuthenticationV3(UserAuthenticationV3 input) throws ResponseException, IOException {
+    public String userAuthenticationV3(UserAuthenticationV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class OAuth20Extension {
     /**
      * @see GetCountryLocationV3
      */
-    public OauthmodelCountryLocationResponse getCountryLocationV3(GetCountryLocationV3 input) throws ResponseException, IOException {
+    public OauthmodelCountryLocationResponse getCountryLocationV3(GetCountryLocationV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class OAuth20Extension {
     /**
      * @see Logout
      */
-    public void logout(Logout input) throws ResponseException, IOException {
+    public void logout(Logout input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class OAuth20Extension {
     /**
      * @see PlatformAuthenticationV3
      */
-    public String platformAuthenticationV3(PlatformAuthenticationV3 input) throws ResponseException, IOException {
+    public String platformAuthenticationV3(PlatformAuthenticationV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

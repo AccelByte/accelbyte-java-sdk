@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.legal.models.*;
 import net.accelbyte.sdk.api.legal.operations.localized_policy_versions.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class LocalizedPolicyVersions {
     /**
      * @see RetrieveLocalizedPolicyVersions
      */
-    public List<RetrieveLocalizedPolicyVersionResponse> retrieveLocalizedPolicyVersions(RetrieveLocalizedPolicyVersions input) throws ResponseException, IOException {
+    public List<RetrieveLocalizedPolicyVersionResponse> retrieveLocalizedPolicyVersions(RetrieveLocalizedPolicyVersions input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class LocalizedPolicyVersions {
     /**
      * @see CreateLocalizedPolicyVersion
      */
-    public CreateLocalizedPolicyVersionResponse createLocalizedPolicyVersion(CreateLocalizedPolicyVersion input) throws ResponseException, IOException {
+    public CreateLocalizedPolicyVersionResponse createLocalizedPolicyVersion(CreateLocalizedPolicyVersion input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class LocalizedPolicyVersions {
     /**
      * @see RetrieveSingleLocalizedPolicyVersion
      */
-    public UpdateLocalizedPolicyVersionResponse retrieveSingleLocalizedPolicyVersion(RetrieveSingleLocalizedPolicyVersion input) throws ResponseException, IOException {
+    public UpdateLocalizedPolicyVersionResponse retrieveSingleLocalizedPolicyVersion(RetrieveSingleLocalizedPolicyVersion input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class LocalizedPolicyVersions {
     /**
      * @see UpdateLocalizedPolicyVersion
      */
-    public UpdateLocalizedPolicyVersionResponse updateLocalizedPolicyVersion(UpdateLocalizedPolicyVersion input) throws ResponseException, IOException {
+    public UpdateLocalizedPolicyVersionResponse updateLocalizedPolicyVersion(UpdateLocalizedPolicyVersion input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class LocalizedPolicyVersions {
     /**
      * @see RequestPresignedURL
      */
-    public UploadLocalizedPolicyVersionAttachmentResponse requestPresignedURL(RequestPresignedURL input) throws ResponseException, IOException {
+    public UploadLocalizedPolicyVersionAttachmentResponse requestPresignedURL(RequestPresignedURL input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class LocalizedPolicyVersions {
     /**
      * @see SetDefaultPolicy
      */
-    public void setDefaultPolicy(SetDefaultPolicy input) throws ResponseException, IOException {
+    public void setDefaultPolicy(SetDefaultPolicy input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class LocalizedPolicyVersions {
     /**
      * @see RetrieveSingleLocalizedPolicyVersion1
      */
-    public RetrieveLocalizedPolicyVersionPublicResponse retrieveSingleLocalizedPolicyVersion1(RetrieveSingleLocalizedPolicyVersion1 input) throws ResponseException, IOException {
+    public RetrieveLocalizedPolicyVersionPublicResponse retrieveSingleLocalizedPolicyVersion1(RetrieveSingleLocalizedPolicyVersion1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

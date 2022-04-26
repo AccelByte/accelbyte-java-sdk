@@ -96,7 +96,7 @@ try {
 
    System.out.println(response.getUserId());    // Success response
 
-} catch (ResponseException e) {     // Error response from the service
+} catch (HttpResponseException e) {     // Error response from the service
    e.printStackTrace();
 
    if (e.getHttpCode() == 400) {

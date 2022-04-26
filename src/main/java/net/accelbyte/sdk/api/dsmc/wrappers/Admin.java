@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.dsmc.models.*;
 import net.accelbyte.sdk.api.dsmc.operations.admin.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Admin {
     /**
      * @see ListServer
      */
-    public ModelsListServerResponse listServer(ListServer input) throws ResponseException, IOException {
+    public ModelsListServerResponse listServer(ListServer input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Admin {
     /**
      * @see CountServer
      */
-    public ModelsCountServerResponse countServer(CountServer input) throws ResponseException, IOException {
+    public ModelsCountServerResponse countServer(CountServer input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Admin {
     /**
      * @see CountServerDetailed
      */
-    public ModelsDetailedCountServerResponse countServerDetailed(CountServerDetailed input) throws ResponseException, IOException {
+    public ModelsDetailedCountServerResponse countServerDetailed(CountServerDetailed input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Admin {
     /**
      * @see ListLocalServer
      */
-    public ModelsListServerResponse listLocalServer(ListLocalServer input) throws ResponseException, IOException {
+    public ModelsListServerResponse listLocalServer(ListLocalServer input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Admin {
     /**
      * @see DeleteLocalServer
      */
-    public void deleteLocalServer(DeleteLocalServer input) throws ResponseException, IOException {
+    public void deleteLocalServer(DeleteLocalServer input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Admin {
     /**
      * @see GetServer
      */
-    public ModelsServer getServer(GetServer input) throws ResponseException, IOException {
+    public ModelsServer getServer(GetServer input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Admin {
     /**
      * @see DeleteServer
      */
-    public void deleteServer(DeleteServer input) throws ResponseException, IOException {
+    public void deleteServer(DeleteServer input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Admin {
     /**
      * @see GetServerLogs
      */
-    public ModelsServerLogs getServerLogs(GetServerLogs input) throws ResponseException, IOException {
+    public ModelsServerLogs getServerLogs(GetServerLogs input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class Admin {
     /**
      * @see ListSession
      */
-    public ModelsListSessionResponse listSession(ListSession input) throws ResponseException, IOException {
+    public ModelsListSessionResponse listSession(ListSession input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class Admin {
     /**
      * @see CountSession
      */
-    public ModelsCountSessionResponse countSession(CountSession input) throws ResponseException, IOException {
+    public ModelsCountSessionResponse countSession(CountSession input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class Admin {
     /**
      * @see DeleteSession
      */
-    public void deleteSession(DeleteSession input) throws ResponseException, IOException {
+    public void deleteSession(DeleteSession input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

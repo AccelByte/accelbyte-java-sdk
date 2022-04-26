@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.api.iam.operations.input_validations.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class InputValidations {
     /**
      * @see AdminGetInputValidations
      */
-    public ModelInputValidationsResponse adminGetInputValidations(AdminGetInputValidations input) throws ResponseException, IOException {
+    public ModelInputValidationsResponse adminGetInputValidations(AdminGetInputValidations input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class InputValidations {
     /**
      * @see AdminUpdateInputValidations
      */
-    public void adminUpdateInputValidations(AdminUpdateInputValidations input) throws ResponseException, IOException {
+    public void adminUpdateInputValidations(AdminUpdateInputValidations input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class InputValidations {
     /**
      * @see AdminResetInputValidations
      */
-    public void adminResetInputValidations(AdminResetInputValidations input) throws ResponseException, IOException {
+    public void adminResetInputValidations(AdminResetInputValidations input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class InputValidations {
     /**
      * @see PublicGetInputValidations
      */
-    public ModelInputValidationsPublicResponse publicGetInputValidations(PublicGetInputValidations input) throws ResponseException, IOException {
+    public ModelInputValidationsPublicResponse publicGetInputValidations(PublicGetInputValidations input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

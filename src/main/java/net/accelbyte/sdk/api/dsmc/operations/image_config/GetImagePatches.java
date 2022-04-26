@@ -18,7 +18,7 @@ import lombok.Setter;
 import net.accelbyte.sdk.api.dsmc.models.*;
 import net.accelbyte.sdk.api.dsmc.models.ModelsListImagePatchesResponse;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -110,12 +110,12 @@ public class GetImagePatches extends Operation {
     }
 
     @Override
-    public ModelsListImagePatchesResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public ModelsListImagePatchesResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
             return new ModelsListImagePatchesResponse().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
 }

@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.seasonpass.models.*;
 import net.accelbyte.sdk.api.seasonpass.operations.season.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Season {
     /**
      * @see QuerySeasons
      */
-    public ListSeasonInfoPagingSlicedResult querySeasons(QuerySeasons input) throws ResponseException, IOException {
+    public ListSeasonInfoPagingSlicedResult querySeasons(QuerySeasons input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Season {
     /**
      * @see CreateSeason
      */
-    public SeasonInfo createSeason(CreateSeason input) throws ResponseException, IOException {
+    public SeasonInfo createSeason(CreateSeason input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Season {
     /**
      * @see GetCurrentSeason
      */
-    public SeasonSummary getCurrentSeason(GetCurrentSeason input) throws ResponseException, IOException {
+    public SeasonSummary getCurrentSeason(GetCurrentSeason input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Season {
     /**
      * @see GetSeason
      */
-    public SeasonInfo getSeason(GetSeason input) throws ResponseException, IOException {
+    public SeasonInfo getSeason(GetSeason input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Season {
     /**
      * @see DeleteSeason
      */
-    public void deleteSeason(DeleteSeason input) throws ResponseException, IOException {
+    public void deleteSeason(DeleteSeason input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Season {
     /**
      * @see UpdateSeason
      */
-    public SeasonInfo updateSeason(UpdateSeason input) throws ResponseException, IOException {
+    public SeasonInfo updateSeason(UpdateSeason input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Season {
     /**
      * @see CloneSeason
      */
-    public SeasonInfo cloneSeason(CloneSeason input) throws ResponseException, IOException {
+    public SeasonInfo cloneSeason(CloneSeason input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Season {
     /**
      * @see PublishSeason
      */
-    public SeasonInfo publishSeason(PublishSeason input) throws ResponseException, IOException {
+    public SeasonInfo publishSeason(PublishSeason input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class Season {
     /**
      * @see RetireSeason
      */
-    public SeasonInfo retireSeason(RetireSeason input) throws ResponseException, IOException {
+    public SeasonInfo retireSeason(RetireSeason input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class Season {
     /**
      * @see UnpublishSeason
      */
-    public SeasonInfo unpublishSeason(UnpublishSeason input) throws ResponseException, IOException {
+    public SeasonInfo unpublishSeason(UnpublishSeason input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class Season {
     /**
      * @see GetUserParticipatedSeasons
      */
-    public ListUserSeasonInfoPagingSlicedResult getUserParticipatedSeasons(GetUserParticipatedSeasons input) throws ResponseException, IOException {
+    public ListUserSeasonInfoPagingSlicedResult getUserParticipatedSeasons(GetUserParticipatedSeasons input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +239,7 @@ public class Season {
     /**
      * @see ExistsAnyPassByPassCodes
      */
-    public Ownership existsAnyPassByPassCodes(ExistsAnyPassByPassCodes input) throws ResponseException, IOException {
+    public Ownership existsAnyPassByPassCodes(ExistsAnyPassByPassCodes input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -258,7 +258,7 @@ public class Season {
     /**
      * @see GetCurrentUserSeasonProgression
      */
-    public UserSeasonSummary getCurrentUserSeasonProgression(GetCurrentUserSeasonProgression input) throws ResponseException, IOException {
+    public UserSeasonSummary getCurrentUserSeasonProgression(GetCurrentUserSeasonProgression input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -277,7 +277,7 @@ public class Season {
     /**
      * @see CheckSeasonPurchasable
      */
-    public void checkSeasonPurchasable(CheckSeasonPurchasable input) throws ResponseException, IOException {
+    public void checkSeasonPurchasable(CheckSeasonPurchasable input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -296,7 +296,7 @@ public class Season {
     /**
      * @see ResetUserSeason
      */
-    public void resetUserSeason(ResetUserSeason input) throws ResponseException, IOException {
+    public void resetUserSeason(ResetUserSeason input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -315,7 +315,7 @@ public class Season {
     /**
      * @see GetUserSeason
      */
-    public ClaimableUserSeasonInfo getUserSeason(GetUserSeason input) throws ResponseException, IOException {
+    public ClaimableUserSeasonInfo getUserSeason(GetUserSeason input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -334,7 +334,7 @@ public class Season {
     /**
      * @see PublicGetCurrentSeason
      */
-    public LocalizedSeasonInfo publicGetCurrentSeason(PublicGetCurrentSeason input) throws ResponseException, IOException {
+    public LocalizedSeasonInfo publicGetCurrentSeason(PublicGetCurrentSeason input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -353,7 +353,7 @@ public class Season {
     /**
      * @see PublicGetCurrentUserSeason
      */
-    public ClaimableUserSeasonInfo publicGetCurrentUserSeason(PublicGetCurrentUserSeason input) throws ResponseException, IOException {
+    public ClaimableUserSeasonInfo publicGetCurrentUserSeason(PublicGetCurrentUserSeason input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -372,7 +372,7 @@ public class Season {
     /**
      * @see PublicGetUserSeason
      */
-    public ClaimableUserSeasonInfo publicGetUserSeason(PublicGetUserSeason input) throws ResponseException, IOException {
+    public ClaimableUserSeasonInfo publicGetUserSeason(PublicGetUserSeason input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

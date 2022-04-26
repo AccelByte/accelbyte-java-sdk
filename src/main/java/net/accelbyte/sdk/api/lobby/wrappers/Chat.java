@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.lobby.models.*;
 import net.accelbyte.sdk.api.lobby.operations.chat.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Chat {
     /**
      * @see PersonalChatHistory
      */
-    public List<ModelChatMessageResponse> personalChatHistory(PersonalChatHistory input) throws ResponseException, IOException {
+    public List<ModelChatMessageResponse> personalChatHistory(PersonalChatHistory input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Chat {
     /**
      * @see AdminChatHistory
      */
-    public List<ModelChatMessageResponse> adminChatHistory(AdminChatHistory input) throws ResponseException, IOException {
+    public List<ModelChatMessageResponse> adminChatHistory(AdminChatHistory input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Chat {
     /**
      * @see GetPersonalChatHistoryV1Public
      */
-    public List<ModelChatMessageResponse> getPersonalChatHistoryV1Public(GetPersonalChatHistoryV1Public input) throws ResponseException, IOException {
+    public List<ModelChatMessageResponse> getPersonalChatHistoryV1Public(GetPersonalChatHistoryV1Public input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

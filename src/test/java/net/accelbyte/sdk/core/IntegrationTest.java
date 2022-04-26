@@ -244,7 +244,7 @@ public class IntegrationTest {
         // Admin integration tests
 
         @Test
-        public void AchievementServiceTests() throws ResponseException, IOException {
+        public void AchievementServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String achievementCode = "java-sdk-test";
                 final String achievementName = "Java Server SDK Test";
@@ -328,7 +328,7 @@ public class IntegrationTest {
 
                 // Finally, recheck if the data is truly deleted.
 
-                Assertions.assertThrows(ResponseException.class, () -> {
+                Assertions.assertThrows(HttpResponseException.class, () -> {
                         wAchievements.adminGetAchievement(AdminGetAchievement.builder()
                                         .namespace(namespace)
                                         .achievementCode(achievementCode)
@@ -337,7 +337,7 @@ public class IntegrationTest {
         }
 
         @Test
-        public void BasicServiceTests() throws ResponseException, IOException {
+        public void BasicServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String profileFirstName = "Integration Test";
                 final String profileLastName = "Java Server SDK";
@@ -396,7 +396,7 @@ public class IntegrationTest {
         }
 
         @Test
-        public void CloudSaveServiceTests() throws ResponseException, IOException {
+        public void CloudSaveServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String gameRecordKey = "foo_bar_record";
                 final String gameRecordFoo = "bar";
@@ -478,7 +478,7 @@ public class IntegrationTest {
 
                 // Finally, recheck if the data is truly deleted
 
-                Assertions.assertThrows(ResponseException.class, () -> {
+                Assertions.assertThrows(HttpResponseException.class, () -> {
                         wPublicGameRecord.getGameRecordHandlerV1(GetGameRecordHandlerV1.builder()
                                         .namespace(namespace)
                                         .key(gameRecordKey)
@@ -487,7 +487,7 @@ public class IntegrationTest {
         }
 
         @Test
-        public void DSLogManagerServiceTests() throws ResponseException, IOException {
+        public void DSLogManagerServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
                 TerminatedServers wTerminatedServers = new TerminatedServers(_sdk);
@@ -501,7 +501,7 @@ public class IntegrationTest {
         }
 
         @Test
-        public void EventLogServiceTests() throws ResponseException, IOException {
+        public void EventLogServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
                 Users wUsers = new Users(_sdk);
@@ -537,7 +537,7 @@ public class IntegrationTest {
         }
 
         @Test
-        public void GDPRServiceTests() throws ResponseException, IOException {
+        public void GDPRServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String emailToTest = "dummy@example.com";
                 final String anotherEmailToTest = "another_email_to_test@dummy.com";
@@ -570,7 +570,7 @@ public class IntegrationTest {
         }
 
         @Test
-        public void GroupServiceTests() throws ResponseException, IOException {
+        public void GroupServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String initialConfigCode = "initialConfigurationCode";
                 final String configurationCode = "csharpServerSdkConfigCode";
@@ -594,7 +594,7 @@ public class IntegrationTest {
 
                         defaultAdminRoleId = gConfigCheck.getGroupAdminRoleId();
                         defaultMemberRoleId = gConfigCheck.getGroupMemberRoleId();
-                } catch (ResponseException rex) {
+                } catch (HttpResponseException rex) {
                         boolean isInitialConfigurationNotAvailable = rex.getErrorMessage()
                                         .contains("73131"); // No inital configuration yet
 
@@ -631,7 +631,7 @@ public class IntegrationTest {
                                                         .build());
 
                         Assertions.assertNotNull(gcResp);
-                } catch (ResponseException rex) {
+                } catch (HttpResponseException rex) {
                         boolean isAlreadyExist = rex.getErrorMessage()
                                         .contains("73130"); // unable to create global
                                                             // configuration: global
@@ -698,7 +698,7 @@ public class IntegrationTest {
 
                 // Finally, recheck if the data is truly deleted.
 
-                Assertions.assertThrows(ResponseException.class, () -> {
+                Assertions.assertThrows(HttpResponseException.class, () -> {
                         wGroup.getSingleGroupPublicV1(GetSingleGroupPublicV1.builder()
                                         .namespace(namespace)
                                         .groupId(group_id)
@@ -715,7 +715,7 @@ public class IntegrationTest {
         }
 
         @Test
-        public void IamServiceTests() throws ResponseException, IOException, IllegalArgumentException {
+        public void IamServiceTests() throws HttpResponseException, IOException, IllegalArgumentException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String userName = ("javasdk_" + GenerateRandomId(8));
                 final String userPassword = GenerateRandomPassword(10);
@@ -791,7 +791,7 @@ public class IntegrationTest {
 
                 // Finally, recheck if the data is truly deleted.
 
-                Assertions.assertThrows(ResponseException.class, () -> {
+                Assertions.assertThrows(HttpResponseException.class, () -> {
                         wIamUser.getUserByUserID(
                                         GetUserByUserID.builder()
                                                         .namespace(namespace)
@@ -801,7 +801,7 @@ public class IntegrationTest {
         }
 
         @Test
-        public void LeaderboardServiceTests() throws ResponseException, IOException {
+        public void LeaderboardServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String leaderboarsName = "Java SDK Leaderboard Test";
 
@@ -885,7 +885,7 @@ public class IntegrationTest {
         }
 
         @Test
-        public void LegalServiceTests() throws ResponseException, IOException {
+        public void LegalServiceTests() throws HttpResponseException, IOException {
                 Agreement wLegalAgreement = new Agreement(_sdk);
 
                 List<RetrieveAcceptedAgreementResponse> aggrs = wLegalAgreement
@@ -911,7 +911,7 @@ public class IntegrationTest {
         }
 
         @Test
-        public void PlatformServiceTests() throws ResponseException, IOException {
+        public void PlatformServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String storeTitle = "Java SDK Store Test";
                 final String storeDescription = "Description for Java Server SDK store service integration test.";
@@ -976,7 +976,7 @@ public class IntegrationTest {
         }
 
         @Test
-        public void SessionBrowserServiceTests() throws ResponseException, IOException {
+        public void SessionBrowserServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
                 String usernameToTest = "dummy@example.com";
@@ -1046,7 +1046,7 @@ public class IntegrationTest {
         }
 
         @Test
-        public void SocialServiceTests() throws ResponseException, IOException {
+        public void SocialServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
                 String stat_code = "javaserversdkteststat";
@@ -1104,7 +1104,7 @@ public class IntegrationTest {
         }
 
         @Test
-        public void UGCServiceTests() throws ResponseException, IOException {
+        public void UGCServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
                 String tag_name = "java_server_sdk_test";
@@ -1158,7 +1158,7 @@ public class IntegrationTest {
         // Client integration test
 
         @Test
-        public void SocialServiceUserStatTests() throws ResponseException, IOException {
+        public void SocialServiceUserStatTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String user_login_id = System.getenv("AB_USERNAME");
                 final String stat_code = "cs-server-sdk-test";
@@ -1211,7 +1211,7 @@ public class IntegrationTest {
         // Matchmaking integration test
 
         @Test
-        public void MatchmakingTestSuite() throws ResponseException, IOException, InterruptedException {
+        public void MatchmakingTestSuite() throws HttpResponseException, IOException, InterruptedException {
                 DSMCListLocalServerTest();
                 DSMCServiceTests();
                 MatchmakingServiceApiTests();
@@ -1219,7 +1219,7 @@ public class IntegrationTest {
                 LobbyWebSocketServiceTests();
         }
 
-        public void DSMCListLocalServerTest() throws ResponseException, IOException {
+        public void DSMCListLocalServerTest() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 Admin wDsmcAdmin = new Admin(_sdk);
                 ModelsListServerResponse serverResp = wDsmcAdmin.listLocalServer(ListLocalServer.builder()
@@ -1228,7 +1228,7 @@ public class IntegrationTest {
                 Assertions.assertNotNull(serverResp);
         }
 
-        public void DSMCServiceTests() throws ResponseException, IOException, InterruptedException {
+        public void DSMCServiceTests() throws HttpResponseException, IOException, InterruptedException {
                 final String usernameToTest = "dummy@example.com";
                 final String target_namespace = "armadademotestqa";
                 final String target_deployment = "deployruli";
@@ -1341,7 +1341,7 @@ public class IntegrationTest {
                 Assertions.assertNotNull(delResp);
         }
 
-        public void MatchmakingServiceApiTests() throws ResponseException, IOException {
+        public void MatchmakingServiceApiTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String channelName = "csharp_sdk_gm_" + GenerateRandomId(8);
                 final String channelDescription = "CSharp Server SDK Test";
@@ -1435,7 +1435,7 @@ public class IntegrationTest {
 
                 // Finally, recheck if the data is truly deleted
 
-                Assertions.assertThrows(ResponseException.class, () -> {
+                Assertions.assertThrows(HttpResponseException.class, () -> {
                         wMatchmaking.getSingleMatchmakingChannel(GetSingleMatchmakingChannel.builder()
                                         .namespace(namespace)
                                         .channelName(channelName)
@@ -1443,7 +1443,7 @@ public class IntegrationTest {
                 });
         }
 
-        public void LobbyAPIServiceTests() throws ResponseException, IOException {
+        public void LobbyAPIServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
                 Notification wLobbyNotification = new Notification(_sdk);

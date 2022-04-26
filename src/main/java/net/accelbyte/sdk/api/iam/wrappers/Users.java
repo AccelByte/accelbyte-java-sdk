@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.api.iam.operations.users.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Users {
     /**
      * @see CreateUser
      */
-    public ModelUserCreateResponse createUser(CreateUser input) throws ResponseException, IOException {
+    public ModelUserCreateResponse createUser(CreateUser input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Users {
     /**
      * @see GetAdminUsersByRoleID
      */
-    public ModelGetAdminUsersResponse getAdminUsersByRoleID(GetAdminUsersByRoleID input) throws ResponseException, IOException {
+    public ModelGetAdminUsersResponse getAdminUsersByRoleID(GetAdminUsersByRoleID input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Users {
     /**
      * @see GetUserByLoginID
      */
-    public ModelPublicUserResponse getUserByLoginID(GetUserByLoginID input) throws ResponseException, IOException {
+    public ModelPublicUserResponse getUserByLoginID(GetUserByLoginID input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Users {
     /**
      * @see GetUserByPlatformUserID
      */
-    public ModelPublicUserResponse getUserByPlatformUserID(GetUserByPlatformUserID input) throws ResponseException, IOException {
+    public ModelPublicUserResponse getUserByPlatformUserID(GetUserByPlatformUserID input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Users {
     /**
      * @see ForgotPassword
      */
-    public void forgotPassword(ForgotPassword input) throws ResponseException, IOException {
+    public void forgotPassword(ForgotPassword input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Users {
     /**
      * @see GetUsersByLoginIds
      */
-    public ModelPublicUsersResponse getUsersByLoginIds(GetUsersByLoginIds input) throws ResponseException, IOException {
+    public ModelPublicUsersResponse getUsersByLoginIds(GetUsersByLoginIds input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Users {
     /**
      * @see ResetPassword
      */
-    public void resetPassword(ResetPassword input) throws ResponseException, IOException {
+    public void resetPassword(ResetPassword input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -165,7 +165,7 @@ public class Users {
      * @deprecated
      */
     @Deprecated
-    public ModelSearchUsersResponse searchUser(SearchUser input) throws ResponseException, IOException {
+    public ModelSearchUsersResponse searchUser(SearchUser input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -184,7 +184,7 @@ public class Users {
     /**
      * @see GetUserByUserID
      */
-    public ModelUserResponse getUserByUserID(GetUserByUserID input) throws ResponseException, IOException {
+    public ModelUserResponse getUserByUserID(GetUserByUserID input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -203,7 +203,7 @@ public class Users {
     /**
      * @see UpdateUser
      */
-    public ModelUserResponse updateUser(UpdateUser input) throws ResponseException, IOException {
+    public ModelUserResponse updateUser(UpdateUser input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -222,7 +222,7 @@ public class Users {
     /**
      * @see DeleteUser
      */
-    public void deleteUser(DeleteUser input) throws ResponseException, IOException {
+    public void deleteUser(DeleteUser input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -241,7 +241,7 @@ public class Users {
     /**
      * @see BanUser
      */
-    public ModelUserBanResponse banUser(BanUser input) throws ResponseException, IOException {
+    public ModelUserBanResponse banUser(BanUser input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -260,7 +260,7 @@ public class Users {
     /**
      * @see GetUserBanHistory
      */
-    public List<ModelUserBanResponse> getUserBanHistory(GetUserBanHistory input) throws ResponseException, IOException {
+    public List<ModelUserBanResponse> getUserBanHistory(GetUserBanHistory input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -279,7 +279,7 @@ public class Users {
     /**
      * @see DisableUserBan
      */
-    public ModelUserBanResponse disableUserBan(DisableUserBan input) throws ResponseException, IOException {
+    public ModelUserBanResponse disableUserBan(DisableUserBan input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -298,7 +298,7 @@ public class Users {
     /**
      * @see EnableUserBan
      */
-    public ModelUserBanResponse enableUserBan(EnableUserBan input) throws ResponseException, IOException {
+    public ModelUserBanResponse enableUserBan(EnableUserBan input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -319,7 +319,7 @@ public class Users {
      * @deprecated
      */
     @Deprecated
-    public void listCrossNamespaceAccountLink(ListCrossNamespaceAccountLink input) throws ResponseException, IOException {
+    public void listCrossNamespaceAccountLink(ListCrossNamespaceAccountLink input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -340,7 +340,7 @@ public class Users {
      * @deprecated
      */
     @Deprecated
-    public void disableUser(DisableUser input) throws ResponseException, IOException {
+    public void disableUser(DisableUser input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -361,7 +361,7 @@ public class Users {
      * @deprecated
      */
     @Deprecated
-    public void enableUser(EnableUser input) throws ResponseException, IOException {
+    public void enableUser(EnableUser input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -380,7 +380,7 @@ public class Users {
     /**
      * @see GetUserInformation
      */
-    public ModelUserInformation getUserInformation(GetUserInformation input) throws ResponseException, IOException {
+    public ModelUserInformation getUserInformation(GetUserInformation input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -399,7 +399,7 @@ public class Users {
     /**
      * @see DeleteUserInformation
      */
-    public void deleteUserInformation(DeleteUserInformation input) throws ResponseException, IOException {
+    public void deleteUserInformation(DeleteUserInformation input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -418,7 +418,7 @@ public class Users {
     /**
      * @see GetUserLoginHistories
      */
-    public ModelLoginHistoriesResponse getUserLoginHistories(GetUserLoginHistories input) throws ResponseException, IOException {
+    public ModelLoginHistoriesResponse getUserLoginHistories(GetUserLoginHistories input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -439,7 +439,7 @@ public class Users {
      * @deprecated
      */
     @Deprecated
-    public void updatePassword(UpdatePassword input) throws ResponseException, IOException {
+    public void updatePassword(UpdatePassword input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -458,7 +458,7 @@ public class Users {
     /**
      * @see SaveUserPermission
      */
-    public void saveUserPermission(SaveUserPermission input) throws ResponseException, IOException {
+    public void saveUserPermission(SaveUserPermission input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -477,7 +477,7 @@ public class Users {
     /**
      * @see AddUserPermission
      */
-    public void addUserPermission(AddUserPermission input) throws ResponseException, IOException {
+    public void addUserPermission(AddUserPermission input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -496,7 +496,7 @@ public class Users {
     /**
      * @see DeleteUserPermission
      */
-    public void deleteUserPermission(DeleteUserPermission input) throws ResponseException, IOException {
+    public void deleteUserPermission(DeleteUserPermission input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -515,7 +515,7 @@ public class Users {
     /**
      * @see GetUserPlatformAccounts
      */
-    public List<AccountcommonUserLinkedPlatform> getUserPlatformAccounts(GetUserPlatformAccounts input) throws ResponseException, IOException {
+    public List<AccountcommonUserLinkedPlatform> getUserPlatformAccounts(GetUserPlatformAccounts input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -534,7 +534,7 @@ public class Users {
     /**
      * @see GetUserMapping
      */
-    public ModelGetUserMapping getUserMapping(GetUserMapping input) throws ResponseException, IOException {
+    public ModelGetUserMapping getUserMapping(GetUserMapping input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -555,7 +555,7 @@ public class Users {
      * @deprecated
      */
     @Deprecated
-    public ModelGetUserJusticePlatformAccountResponse getUserJusticePlatformAccount(GetUserJusticePlatformAccount input) throws ResponseException, IOException {
+    public ModelGetUserJusticePlatformAccountResponse getUserJusticePlatformAccount(GetUserJusticePlatformAccount input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -574,7 +574,7 @@ public class Users {
     /**
      * @see PlatformLink
      */
-    public void platformLink(PlatformLink input) throws ResponseException, IOException {
+    public void platformLink(PlatformLink input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -593,7 +593,7 @@ public class Users {
     /**
      * @see PlatformUnlink
      */
-    public void platformUnlink(PlatformUnlink input) throws ResponseException, IOException {
+    public void platformUnlink(PlatformUnlink input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -612,7 +612,7 @@ public class Users {
     /**
      * @see GetPublisherUser
      */
-    public ModelGetPublisherUserResponse getPublisherUser(GetPublisherUser input) throws ResponseException, IOException {
+    public ModelGetPublisherUserResponse getPublisherUser(GetPublisherUser input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -631,7 +631,7 @@ public class Users {
     /**
      * @see SaveUserRoles
      */
-    public void saveUserRoles(SaveUserRoles input) throws ResponseException, IOException {
+    public void saveUserRoles(SaveUserRoles input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -650,7 +650,7 @@ public class Users {
     /**
      * @see AddUserRole
      */
-    public void addUserRole(AddUserRole input) throws ResponseException, IOException {
+    public void addUserRole(AddUserRole input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -669,7 +669,7 @@ public class Users {
     /**
      * @see DeleteUserRole
      */
-    public void deleteUserRole(DeleteUserRole input) throws ResponseException, IOException {
+    public void deleteUserRole(DeleteUserRole input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -688,7 +688,7 @@ public class Users {
     /**
      * @see UpgradeHeadlessAccount
      */
-    public ModelUserResponse upgradeHeadlessAccount(UpgradeHeadlessAccount input) throws ResponseException, IOException {
+    public ModelUserResponse upgradeHeadlessAccount(UpgradeHeadlessAccount input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -707,7 +707,7 @@ public class Users {
     /**
      * @see UpgradeHeadlessAccountWithVerificationCode
      */
-    public ModelUserResponse upgradeHeadlessAccountWithVerificationCode(UpgradeHeadlessAccountWithVerificationCode input) throws ResponseException, IOException {
+    public ModelUserResponse upgradeHeadlessAccountWithVerificationCode(UpgradeHeadlessAccountWithVerificationCode input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -726,7 +726,7 @@ public class Users {
     /**
      * @see UserVerification
      */
-    public void userVerification(UserVerification input) throws ResponseException, IOException {
+    public void userVerification(UserVerification input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -745,7 +745,7 @@ public class Users {
     /**
      * @see SendVerificationCode
      */
-    public void sendVerificationCode(SendVerificationCode input) throws ResponseException, IOException {
+    public void sendVerificationCode(SendVerificationCode input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -764,7 +764,7 @@ public class Users {
     /**
      * @see AdminGetAgeRestrictionStatusV2
      */
-    public ModelAgeRestrictionResponse adminGetAgeRestrictionStatusV2(AdminGetAgeRestrictionStatusV2 input) throws ResponseException, IOException {
+    public ModelAgeRestrictionResponse adminGetAgeRestrictionStatusV2(AdminGetAgeRestrictionStatusV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -783,7 +783,7 @@ public class Users {
     /**
      * @see AdminUpdateAgeRestrictionConfigV2
      */
-    public ModelAgeRestrictionResponse adminUpdateAgeRestrictionConfigV2(AdminUpdateAgeRestrictionConfigV2 input) throws ResponseException, IOException {
+    public ModelAgeRestrictionResponse adminUpdateAgeRestrictionConfigV2(AdminUpdateAgeRestrictionConfigV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -802,7 +802,7 @@ public class Users {
     /**
      * @see GetListCountryAgeRestriction
      */
-    public List<AccountcommonCountryAgeRestriction> getListCountryAgeRestriction(GetListCountryAgeRestriction input) throws ResponseException, IOException {
+    public List<AccountcommonCountryAgeRestriction> getListCountryAgeRestriction(GetListCountryAgeRestriction input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -821,7 +821,7 @@ public class Users {
     /**
      * @see UpdateCountryAgeRestriction
      */
-    public ModelCountry updateCountryAgeRestriction(UpdateCountryAgeRestriction input) throws ResponseException, IOException {
+    public ModelCountry updateCountryAgeRestriction(UpdateCountryAgeRestriction input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -840,7 +840,7 @@ public class Users {
     /**
      * @see AdminSearchUsersV2
      */
-    public ModelSearchUsersByPlatformIDResponse adminSearchUsersV2(AdminSearchUsersV2 input) throws ResponseException, IOException {
+    public ModelSearchUsersByPlatformIDResponse adminSearchUsersV2(AdminSearchUsersV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -859,7 +859,7 @@ public class Users {
     /**
      * @see AdminGetUserByUserIdV2
      */
-    public ModelUserResponse adminGetUserByUserIdV2(AdminGetUserByUserIdV2 input) throws ResponseException, IOException {
+    public ModelUserResponse adminGetUserByUserIdV2(AdminGetUserByUserIdV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -878,7 +878,7 @@ public class Users {
     /**
      * @see AdminUpdateUserV2
      */
-    public ModelUserResponse adminUpdateUserV2(AdminUpdateUserV2 input) throws ResponseException, IOException {
+    public ModelUserResponse adminUpdateUserV2(AdminUpdateUserV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -897,7 +897,7 @@ public class Users {
     /**
      * @see AdminBanUserV2
      */
-    public ModelUserBanResponse adminBanUserV2(AdminBanUserV2 input) throws ResponseException, IOException {
+    public ModelUserBanResponse adminBanUserV2(AdminBanUserV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -916,7 +916,7 @@ public class Users {
     /**
      * @see AdminGetUserBanV2
      */
-    public List<ModelUserBanResponse> adminGetUserBanV2(AdminGetUserBanV2 input) throws ResponseException, IOException {
+    public List<ModelUserBanResponse> adminGetUserBanV2(AdminGetUserBanV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -935,7 +935,7 @@ public class Users {
     /**
      * @see AdminDisableUserV2
      */
-    public void adminDisableUserV2(AdminDisableUserV2 input) throws ResponseException, IOException {
+    public void adminDisableUserV2(AdminDisableUserV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -954,7 +954,7 @@ public class Users {
     /**
      * @see AdminEnableUserV2
      */
-    public void adminEnableUserV2(AdminEnableUserV2 input) throws ResponseException, IOException {
+    public void adminEnableUserV2(AdminEnableUserV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -973,7 +973,7 @@ public class Users {
     /**
      * @see AdminResetPasswordV2
      */
-    public void adminResetPasswordV2(AdminResetPasswordV2 input) throws ResponseException, IOException {
+    public void adminResetPasswordV2(AdminResetPasswordV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -992,7 +992,7 @@ public class Users {
     /**
      * @see AdminDeletePlatformLinkV2
      */
-    public void adminDeletePlatformLinkV2(AdminDeletePlatformLinkV2 input) throws ResponseException, IOException {
+    public void adminDeletePlatformLinkV2(AdminDeletePlatformLinkV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1011,7 +1011,7 @@ public class Users {
     /**
      * @see AdminPutUserRolesV2
      */
-    public void adminPutUserRolesV2(AdminPutUserRolesV2 input) throws ResponseException, IOException {
+    public void adminPutUserRolesV2(AdminPutUserRolesV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1030,7 +1030,7 @@ public class Users {
     /**
      * @see AdminCreateUserRolesV2
      */
-    public void adminCreateUserRolesV2(AdminCreateUserRolesV2 input) throws ResponseException, IOException {
+    public void adminCreateUserRolesV2(AdminCreateUserRolesV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1049,7 +1049,7 @@ public class Users {
     /**
      * @see PublicGetCountryAgeRestriction
      */
-    public List<AccountcommonCountryAgeRestriction> publicGetCountryAgeRestriction(PublicGetCountryAgeRestriction input) throws ResponseException, IOException {
+    public List<AccountcommonCountryAgeRestriction> publicGetCountryAgeRestriction(PublicGetCountryAgeRestriction input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1068,7 +1068,7 @@ public class Users {
     /**
      * @see PublicCreateUserV2
      */
-    public ModelUserCreateResponse publicCreateUserV2(PublicCreateUserV2 input) throws ResponseException, IOException {
+    public ModelUserCreateResponse publicCreateUserV2(PublicCreateUserV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1087,7 +1087,7 @@ public class Users {
     /**
      * @see PublicForgotPasswordV2
      */
-    public void publicForgotPasswordV2(PublicForgotPasswordV2 input) throws ResponseException, IOException {
+    public void publicForgotPasswordV2(PublicForgotPasswordV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1106,7 +1106,7 @@ public class Users {
     /**
      * @see PublicResetPasswordV2
      */
-    public void publicResetPasswordV2(PublicResetPasswordV2 input) throws ResponseException, IOException {
+    public void publicResetPasswordV2(PublicResetPasswordV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1125,7 +1125,7 @@ public class Users {
     /**
      * @see PublicGetUserByUserIDV2
      */
-    public ModelUserResponse publicGetUserByUserIDV2(PublicGetUserByUserIDV2 input) throws ResponseException, IOException {
+    public ModelUserResponse publicGetUserByUserIDV2(PublicGetUserByUserIDV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1144,7 +1144,7 @@ public class Users {
     /**
      * @see PublicUpdateUserV2
      */
-    public List<ModelUserResponse> publicUpdateUserV2(PublicUpdateUserV2 input) throws ResponseException, IOException {
+    public List<ModelUserResponse> publicUpdateUserV2(PublicUpdateUserV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1163,7 +1163,7 @@ public class Users {
     /**
      * @see PublicGetUserBan
      */
-    public List<ModelUserBanResponse> publicGetUserBan(PublicGetUserBan input) throws ResponseException, IOException {
+    public List<ModelUserBanResponse> publicGetUserBan(PublicGetUserBan input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1182,7 +1182,7 @@ public class Users {
     /**
      * @see PublicUpdatePasswordV2
      */
-    public void publicUpdatePasswordV2(PublicUpdatePasswordV2 input) throws ResponseException, IOException {
+    public void publicUpdatePasswordV2(PublicUpdatePasswordV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1201,7 +1201,7 @@ public class Users {
     /**
      * @see GetListJusticePlatformAccounts
      */
-    public List<ModelGetUserMapping> getListJusticePlatformAccounts(GetListJusticePlatformAccounts input) throws ResponseException, IOException {
+    public List<ModelGetUserMapping> getListJusticePlatformAccounts(GetListJusticePlatformAccounts input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1220,7 +1220,7 @@ public class Users {
     /**
      * @see PublicPlatformLinkV2
      */
-    public void publicPlatformLinkV2(PublicPlatformLinkV2 input) throws ResponseException, IOException {
+    public void publicPlatformLinkV2(PublicPlatformLinkV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1239,7 +1239,7 @@ public class Users {
     /**
      * @see PublicDeletePlatformLinkV2
      */
-    public void publicDeletePlatformLinkV2(PublicDeletePlatformLinkV2 input) throws ResponseException, IOException {
+    public void publicDeletePlatformLinkV2(PublicDeletePlatformLinkV2 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1258,7 +1258,7 @@ public class Users {
     /**
      * @see ListAdminsV3
      */
-    public ModelGetUsersResponseWithPaginationV3 listAdminsV3(ListAdminsV3 input) throws ResponseException, IOException {
+    public ModelGetUsersResponseWithPaginationV3 listAdminsV3(ListAdminsV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1277,7 +1277,7 @@ public class Users {
     /**
      * @see AdminGetAgeRestrictionStatusV3
      */
-    public ModelAgeRestrictionResponseV3 adminGetAgeRestrictionStatusV3(AdminGetAgeRestrictionStatusV3 input) throws ResponseException, IOException {
+    public ModelAgeRestrictionResponseV3 adminGetAgeRestrictionStatusV3(AdminGetAgeRestrictionStatusV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1296,7 +1296,7 @@ public class Users {
     /**
      * @see AdminUpdateAgeRestrictionConfigV3
      */
-    public ModelAgeRestrictionResponseV3 adminUpdateAgeRestrictionConfigV3(AdminUpdateAgeRestrictionConfigV3 input) throws ResponseException, IOException {
+    public ModelAgeRestrictionResponseV3 adminUpdateAgeRestrictionConfigV3(AdminUpdateAgeRestrictionConfigV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1315,7 +1315,7 @@ public class Users {
     /**
      * @see AdminGetListCountryAgeRestrictionV3
      */
-    public List<ModelCountryV3Response> adminGetListCountryAgeRestrictionV3(AdminGetListCountryAgeRestrictionV3 input) throws ResponseException, IOException {
+    public List<ModelCountryV3Response> adminGetListCountryAgeRestrictionV3(AdminGetListCountryAgeRestrictionV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1334,7 +1334,7 @@ public class Users {
     /**
      * @see AdminUpdateCountryAgeRestrictionV3
      */
-    public ModelCountryV3Response adminUpdateCountryAgeRestrictionV3(AdminUpdateCountryAgeRestrictionV3 input) throws ResponseException, IOException {
+    public ModelCountryV3Response adminUpdateCountryAgeRestrictionV3(AdminUpdateCountryAgeRestrictionV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1353,7 +1353,7 @@ public class Users {
     /**
      * @see AdminGetUserByPlatformUserIDV3
      */
-    public ModelUserResponseV3 adminGetUserByPlatformUserIDV3(AdminGetUserByPlatformUserIDV3 input) throws ResponseException, IOException {
+    public ModelUserResponseV3 adminGetUserByPlatformUserIDV3(AdminGetUserByPlatformUserIDV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1372,7 +1372,7 @@ public class Users {
     /**
      * @see GetAdminUsersByRoleIdV3
      */
-    public ModelGetUsersResponseWithPaginationV3 getAdminUsersByRoleIdV3(GetAdminUsersByRoleIdV3 input) throws ResponseException, IOException {
+    public ModelGetUsersResponseWithPaginationV3 getAdminUsersByRoleIdV3(GetAdminUsersByRoleIdV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1391,7 +1391,7 @@ public class Users {
     /**
      * @see AdminGetUserByEmailAddressV3
      */
-    public ModelUserResponseV3 adminGetUserByEmailAddressV3(AdminGetUserByEmailAddressV3 input) throws ResponseException, IOException {
+    public ModelUserResponseV3 adminGetUserByEmailAddressV3(AdminGetUserByEmailAddressV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1410,7 +1410,7 @@ public class Users {
     /**
      * @see AdminListUserIDByUserIDsV3
      */
-    public ModelListUserInformationResult adminListUserIDByUserIDsV3(AdminListUserIDByUserIDsV3 input) throws ResponseException, IOException {
+    public ModelListUserInformationResult adminListUserIDByUserIDsV3(AdminListUserIDByUserIDsV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1429,7 +1429,7 @@ public class Users {
     /**
      * @see AdminInviteUserV3
      */
-    public ModelInviteUserResponseV3 adminInviteUserV3(AdminInviteUserV3 input) throws ResponseException, IOException {
+    public ModelInviteUserResponseV3 adminInviteUserV3(AdminInviteUserV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1448,7 +1448,7 @@ public class Users {
     /**
      * @see AdminListUsersV3
      */
-    public AccountcommonListUsersWithPlatformAccountsResponse adminListUsersV3(AdminListUsersV3 input) throws ResponseException, IOException {
+    public AccountcommonListUsersWithPlatformAccountsResponse adminListUsersV3(AdminListUsersV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1467,7 +1467,7 @@ public class Users {
     /**
      * @see AdminSearchUserV3
      */
-    public ModelSearchUsersResponseWithPaginationV3 adminSearchUserV3(AdminSearchUserV3 input) throws ResponseException, IOException {
+    public ModelSearchUsersResponseWithPaginationV3 adminSearchUserV3(AdminSearchUserV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1486,7 +1486,7 @@ public class Users {
     /**
      * @see AdminGetBulkUserByEmailAddressV3
      */
-    public ModelListUserResponseV3 adminGetBulkUserByEmailAddressV3(AdminGetBulkUserByEmailAddressV3 input) throws ResponseException, IOException {
+    public ModelListUserResponseV3 adminGetBulkUserByEmailAddressV3(AdminGetBulkUserByEmailAddressV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1505,7 +1505,7 @@ public class Users {
     /**
      * @see AdminGetUserByUserIdV3
      */
-    public ModelUserResponseV3 adminGetUserByUserIdV3(AdminGetUserByUserIdV3 input) throws ResponseException, IOException {
+    public ModelUserResponseV3 adminGetUserByUserIdV3(AdminGetUserByUserIdV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1524,7 +1524,7 @@ public class Users {
     /**
      * @see AdminUpdateUserV3
      */
-    public ModelUserResponseV3 adminUpdateUserV3(AdminUpdateUserV3 input) throws ResponseException, IOException {
+    public ModelUserResponseV3 adminUpdateUserV3(AdminUpdateUserV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1543,7 +1543,7 @@ public class Users {
     /**
      * @see AdminGetUserBanV3
      */
-    public ModelGetUserBanV3Response adminGetUserBanV3(AdminGetUserBanV3 input) throws ResponseException, IOException {
+    public ModelGetUserBanV3Response adminGetUserBanV3(AdminGetUserBanV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1562,7 +1562,7 @@ public class Users {
     /**
      * @see AdminBanUserV3
      */
-    public ModelUserBanResponseV3 adminBanUserV3(AdminBanUserV3 input) throws ResponseException, IOException {
+    public ModelUserBanResponseV3 adminBanUserV3(AdminBanUserV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1581,7 +1581,7 @@ public class Users {
     /**
      * @see AdminUpdateUserBanV3
      */
-    public ModelUserBanResponseV3 adminUpdateUserBanV3(AdminUpdateUserBanV3 input) throws ResponseException, IOException {
+    public ModelUserBanResponseV3 adminUpdateUserBanV3(AdminUpdateUserBanV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1600,7 +1600,7 @@ public class Users {
     /**
      * @see AdminSendVerificationCodeV3
      */
-    public void adminSendVerificationCodeV3(AdminSendVerificationCodeV3 input) throws ResponseException, IOException {
+    public void adminSendVerificationCodeV3(AdminSendVerificationCodeV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1619,7 +1619,7 @@ public class Users {
     /**
      * @see AdminVerifyAccountV3
      */
-    public void adminVerifyAccountV3(AdminVerifyAccountV3 input) throws ResponseException, IOException {
+    public void adminVerifyAccountV3(AdminVerifyAccountV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1638,7 +1638,7 @@ public class Users {
     /**
      * @see GetUserVerificationCode
      */
-    public ModelVerificationCodeResponse getUserVerificationCode(GetUserVerificationCode input) throws ResponseException, IOException {
+    public ModelVerificationCodeResponse getUserVerificationCode(GetUserVerificationCode input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1657,7 +1657,7 @@ public class Users {
     /**
      * @see AdminGetUserDeletionStatusV3
      */
-    public ModelUserDeletionStatusResponse adminGetUserDeletionStatusV3(AdminGetUserDeletionStatusV3 input) throws ResponseException, IOException {
+    public ModelUserDeletionStatusResponse adminGetUserDeletionStatusV3(AdminGetUserDeletionStatusV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1676,7 +1676,7 @@ public class Users {
     /**
      * @see AdminUpdateUserDeletionStatusV3
      */
-    public void adminUpdateUserDeletionStatusV3(AdminUpdateUserDeletionStatusV3 input) throws ResponseException, IOException {
+    public void adminUpdateUserDeletionStatusV3(AdminUpdateUserDeletionStatusV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1695,7 +1695,7 @@ public class Users {
     /**
      * @see AdminUpgradeHeadlessAccountV3
      */
-    public ModelUserResponseV3 adminUpgradeHeadlessAccountV3(AdminUpgradeHeadlessAccountV3 input) throws ResponseException, IOException {
+    public ModelUserResponseV3 adminUpgradeHeadlessAccountV3(AdminUpgradeHeadlessAccountV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1714,7 +1714,7 @@ public class Users {
     /**
      * @see AdminDeleteUserInformationV3
      */
-    public void adminDeleteUserInformationV3(AdminDeleteUserInformationV3 input) throws ResponseException, IOException {
+    public void adminDeleteUserInformationV3(AdminDeleteUserInformationV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1733,7 +1733,7 @@ public class Users {
     /**
      * @see AdminGetUserLoginHistoriesV3
      */
-    public ModelLoginHistoriesResponse adminGetUserLoginHistoriesV3(AdminGetUserLoginHistoriesV3 input) throws ResponseException, IOException {
+    public ModelLoginHistoriesResponse adminGetUserLoginHistoriesV3(AdminGetUserLoginHistoriesV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1752,7 +1752,7 @@ public class Users {
     /**
      * @see AdminUpdateUserPermissionV3
      */
-    public void adminUpdateUserPermissionV3(AdminUpdateUserPermissionV3 input) throws ResponseException, IOException {
+    public void adminUpdateUserPermissionV3(AdminUpdateUserPermissionV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1771,7 +1771,7 @@ public class Users {
     /**
      * @see AdminAddUserPermissionsV3
      */
-    public void adminAddUserPermissionsV3(AdminAddUserPermissionsV3 input) throws ResponseException, IOException {
+    public void adminAddUserPermissionsV3(AdminAddUserPermissionsV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1790,7 +1790,7 @@ public class Users {
     /**
      * @see AdminDeleteUserPermissionBulkV3
      */
-    public void adminDeleteUserPermissionBulkV3(AdminDeleteUserPermissionBulkV3 input) throws ResponseException, IOException {
+    public void adminDeleteUserPermissionBulkV3(AdminDeleteUserPermissionBulkV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1809,7 +1809,7 @@ public class Users {
     /**
      * @see AdminDeleteUserPermissionV3
      */
-    public void adminDeleteUserPermissionV3(AdminDeleteUserPermissionV3 input) throws ResponseException, IOException {
+    public void adminDeleteUserPermissionV3(AdminDeleteUserPermissionV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1828,7 +1828,7 @@ public class Users {
     /**
      * @see AdminGetUserPlatformAccountsV3
      */
-    public AccountcommonUserLinkedPlatformsResponseV3 adminGetUserPlatformAccountsV3(AdminGetUserPlatformAccountsV3 input) throws ResponseException, IOException {
+    public AccountcommonUserLinkedPlatformsResponseV3 adminGetUserPlatformAccountsV3(AdminGetUserPlatformAccountsV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1847,7 +1847,7 @@ public class Users {
     /**
      * @see AdminGetListJusticePlatformAccounts
      */
-    public List<ModelGetUserMapping> adminGetListJusticePlatformAccounts(AdminGetListJusticePlatformAccounts input) throws ResponseException, IOException {
+    public List<ModelGetUserMapping> adminGetListJusticePlatformAccounts(AdminGetListJusticePlatformAccounts input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1866,7 +1866,7 @@ public class Users {
     /**
      * @see AdminCreateJusticeUser
      */
-    public ModelCreateJusticeUserResponse adminCreateJusticeUser(AdminCreateJusticeUser input) throws ResponseException, IOException {
+    public ModelCreateJusticeUserResponse adminCreateJusticeUser(AdminCreateJusticeUser input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1885,7 +1885,7 @@ public class Users {
     /**
      * @see AdminLinkPlatformAccount
      */
-    public void adminLinkPlatformAccount(AdminLinkPlatformAccount input) throws ResponseException, IOException {
+    public void adminLinkPlatformAccount(AdminLinkPlatformAccount input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1904,7 +1904,7 @@ public class Users {
     /**
      * @see AdminPlatformUnlinkV3
      */
-    public void adminPlatformUnlinkV3(AdminPlatformUnlinkV3 input) throws ResponseException, IOException {
+    public void adminPlatformUnlinkV3(AdminPlatformUnlinkV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1923,7 +1923,7 @@ public class Users {
     /**
      * @see AdminPlatformLinkV3
      */
-    public void adminPlatformLinkV3(AdminPlatformLinkV3 input) throws ResponseException, IOException {
+    public void adminPlatformLinkV3(AdminPlatformLinkV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1942,7 +1942,7 @@ public class Users {
     /**
      * @see AdminDeleteUserRolesV3
      */
-    public void adminDeleteUserRolesV3(AdminDeleteUserRolesV3 input) throws ResponseException, IOException {
+    public void adminDeleteUserRolesV3(AdminDeleteUserRolesV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1961,7 +1961,7 @@ public class Users {
     /**
      * @see AdminSaveUserRoleV3
      */
-    public void adminSaveUserRoleV3(AdminSaveUserRoleV3 input) throws ResponseException, IOException {
+    public void adminSaveUserRoleV3(AdminSaveUserRoleV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1980,7 +1980,7 @@ public class Users {
     /**
      * @see AdminAddUserRoleV3
      */
-    public void adminAddUserRoleV3(AdminAddUserRoleV3 input) throws ResponseException, IOException {
+    public void adminAddUserRoleV3(AdminAddUserRoleV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -1999,7 +1999,7 @@ public class Users {
     /**
      * @see AdminDeleteUserRoleV3
      */
-    public void adminDeleteUserRoleV3(AdminDeleteUserRoleV3 input) throws ResponseException, IOException {
+    public void adminDeleteUserRoleV3(AdminDeleteUserRoleV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2018,7 +2018,7 @@ public class Users {
     /**
      * @see AdminUpdateUserStatusV3
      */
-    public void adminUpdateUserStatusV3(AdminUpdateUserStatusV3 input) throws ResponseException, IOException {
+    public void adminUpdateUserStatusV3(AdminUpdateUserStatusV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2037,7 +2037,7 @@ public class Users {
     /**
      * @see AdminVerifyUserWithoutVerificationCodeV3
      */
-    public void adminVerifyUserWithoutVerificationCodeV3(AdminVerifyUserWithoutVerificationCodeV3 input) throws ResponseException, IOException {
+    public void adminVerifyUserWithoutVerificationCodeV3(AdminVerifyUserWithoutVerificationCodeV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2056,7 +2056,7 @@ public class Users {
     /**
      * @see AdminGetMyUserV3
      */
-    public ModelUserResponseV3 adminGetMyUserV3(AdminGetMyUserV3 input) throws ResponseException, IOException {
+    public ModelUserResponseV3 adminGetMyUserV3(AdminGetMyUserV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2075,7 +2075,7 @@ public class Users {
     /**
      * @see PublicListUserIDByPlatformUserIDsV3
      */
-    public AccountcommonUserPlatforms publicListUserIDByPlatformUserIDsV3(PublicListUserIDByPlatformUserIDsV3 input) throws ResponseException, IOException {
+    public AccountcommonUserPlatforms publicListUserIDByPlatformUserIDsV3(PublicListUserIDByPlatformUserIDsV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2094,7 +2094,7 @@ public class Users {
     /**
      * @see PublicGetUserByPlatformUserIDV3
      */
-    public ModelUserResponseV3 publicGetUserByPlatformUserIDV3(PublicGetUserByPlatformUserIDV3 input) throws ResponseException, IOException {
+    public ModelUserResponseV3 publicGetUserByPlatformUserIDV3(PublicGetUserByPlatformUserIDV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2113,7 +2113,7 @@ public class Users {
     /**
      * @see PublicGetAsyncStatus
      */
-    public ModelLinkRequest publicGetAsyncStatus(PublicGetAsyncStatus input) throws ResponseException, IOException {
+    public ModelLinkRequest publicGetAsyncStatus(PublicGetAsyncStatus input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2132,7 +2132,7 @@ public class Users {
     /**
      * @see PublicSearchUserV3
      */
-    public ModelPublicUserInformationResponseV3 publicSearchUserV3(PublicSearchUserV3 input) throws ResponseException, IOException {
+    public ModelPublicUserInformationResponseV3 publicSearchUserV3(PublicSearchUserV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2151,7 +2151,7 @@ public class Users {
     /**
      * @see PublicCreateUserV3
      */
-    public ModelUserCreateResponseV3 publicCreateUserV3(PublicCreateUserV3 input) throws ResponseException, IOException {
+    public ModelUserCreateResponseV3 publicCreateUserV3(PublicCreateUserV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2170,7 +2170,7 @@ public class Users {
     /**
      * @see CheckUserAvailability
      */
-    public void checkUserAvailability(CheckUserAvailability input) throws ResponseException, IOException {
+    public void checkUserAvailability(CheckUserAvailability input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2189,7 +2189,7 @@ public class Users {
     /**
      * @see PublicBulkGetUsers
      */
-    public ModelListBulkUserResponse publicBulkGetUsers(PublicBulkGetUsers input) throws ResponseException, IOException {
+    public ModelListBulkUserResponse publicBulkGetUsers(PublicBulkGetUsers input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2208,7 +2208,7 @@ public class Users {
     /**
      * @see PublicSendRegistrationCode
      */
-    public void publicSendRegistrationCode(PublicSendRegistrationCode input) throws ResponseException, IOException {
+    public void publicSendRegistrationCode(PublicSendRegistrationCode input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2227,7 +2227,7 @@ public class Users {
     /**
      * @see PublicVerifyRegistrationCode
      */
-    public void publicVerifyRegistrationCode(PublicVerifyRegistrationCode input) throws ResponseException, IOException {
+    public void publicVerifyRegistrationCode(PublicVerifyRegistrationCode input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2246,7 +2246,7 @@ public class Users {
     /**
      * @see PublicForgotPasswordV3
      */
-    public void publicForgotPasswordV3(PublicForgotPasswordV3 input) throws ResponseException, IOException {
+    public void publicForgotPasswordV3(PublicForgotPasswordV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2265,7 +2265,7 @@ public class Users {
     /**
      * @see GetAdminInvitationV3
      */
-    public ModelUserInvitationV3 getAdminInvitationV3(GetAdminInvitationV3 input) throws ResponseException, IOException {
+    public ModelUserInvitationV3 getAdminInvitationV3(GetAdminInvitationV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2284,7 +2284,7 @@ public class Users {
     /**
      * @see CreateUserFromInvitationV3
      */
-    public ModelUserCreateResponseV3 createUserFromInvitationV3(CreateUserFromInvitationV3 input) throws ResponseException, IOException {
+    public ModelUserCreateResponseV3 createUserFromInvitationV3(CreateUserFromInvitationV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2303,7 +2303,7 @@ public class Users {
     /**
      * @see UpdateUserV3
      */
-    public List<ModelUserResponseV3> updateUserV3(UpdateUserV3 input) throws ResponseException, IOException {
+    public List<ModelUserResponseV3> updateUserV3(UpdateUserV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2322,7 +2322,7 @@ public class Users {
     /**
      * @see PublicUpdateUserV3
      */
-    public List<ModelUserResponseV3> publicUpdateUserV3(PublicUpdateUserV3 input) throws ResponseException, IOException {
+    public List<ModelUserResponseV3> publicUpdateUserV3(PublicUpdateUserV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2341,7 +2341,7 @@ public class Users {
     /**
      * @see PublicSendVerificationCodeV3
      */
-    public void publicSendVerificationCodeV3(PublicSendVerificationCodeV3 input) throws ResponseException, IOException {
+    public void publicSendVerificationCodeV3(PublicSendVerificationCodeV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2360,7 +2360,7 @@ public class Users {
     /**
      * @see PublicUserVerificationV3
      */
-    public void publicUserVerificationV3(PublicUserVerificationV3 input) throws ResponseException, IOException {
+    public void publicUserVerificationV3(PublicUserVerificationV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2379,7 +2379,7 @@ public class Users {
     /**
      * @see PublicUpgradeHeadlessAccountV3
      */
-    public ModelUserResponseV3 publicUpgradeHeadlessAccountV3(PublicUpgradeHeadlessAccountV3 input) throws ResponseException, IOException {
+    public ModelUserResponseV3 publicUpgradeHeadlessAccountV3(PublicUpgradeHeadlessAccountV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2398,7 +2398,7 @@ public class Users {
     /**
      * @see PublicVerifyHeadlessAccountV3
      */
-    public ModelUserResponseV3 publicVerifyHeadlessAccountV3(PublicVerifyHeadlessAccountV3 input) throws ResponseException, IOException {
+    public ModelUserResponseV3 publicVerifyHeadlessAccountV3(PublicVerifyHeadlessAccountV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2417,7 +2417,7 @@ public class Users {
     /**
      * @see PublicUpdatePasswordV3
      */
-    public void publicUpdatePasswordV3(PublicUpdatePasswordV3 input) throws ResponseException, IOException {
+    public void publicUpdatePasswordV3(PublicUpdatePasswordV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2436,7 +2436,7 @@ public class Users {
     /**
      * @see PublicCreateJusticeUser
      */
-    public ModelCreateJusticeUserResponse publicCreateJusticeUser(PublicCreateJusticeUser input) throws ResponseException, IOException {
+    public ModelCreateJusticeUserResponse publicCreateJusticeUser(PublicCreateJusticeUser input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2455,7 +2455,7 @@ public class Users {
     /**
      * @see PublicPlatformLinkV3
      */
-    public void publicPlatformLinkV3(PublicPlatformLinkV3 input) throws ResponseException, IOException {
+    public void publicPlatformLinkV3(PublicPlatformLinkV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2474,7 +2474,7 @@ public class Users {
     /**
      * @see PublicPlatformUnlinkV3
      */
-    public void publicPlatformUnlinkV3(PublicPlatformUnlinkV3 input) throws ResponseException, IOException {
+    public void publicPlatformUnlinkV3(PublicPlatformUnlinkV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2493,7 +2493,7 @@ public class Users {
     /**
      * @see PublicWebLinkPlatform
      */
-    public ModelWebLinkingResponse publicWebLinkPlatform(PublicWebLinkPlatform input) throws ResponseException, IOException {
+    public ModelWebLinkingResponse publicWebLinkPlatform(PublicWebLinkPlatform input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2512,7 +2512,7 @@ public class Users {
     /**
      * @see PublicWebLinkPlatformEstablish
      */
-    public String publicWebLinkPlatformEstablish(PublicWebLinkPlatformEstablish input) throws ResponseException, IOException {
+    public String publicWebLinkPlatformEstablish(PublicWebLinkPlatformEstablish input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2531,7 +2531,7 @@ public class Users {
     /**
      * @see ResetPasswordV3
      */
-    public void resetPasswordV3(ResetPasswordV3 input) throws ResponseException, IOException {
+    public void resetPasswordV3(ResetPasswordV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2550,7 +2550,7 @@ public class Users {
     /**
      * @see PublicGetUserByUserIdV3
      */
-    public ModelPublicUserResponseV3 publicGetUserByUserIdV3(PublicGetUserByUserIdV3 input) throws ResponseException, IOException {
+    public ModelPublicUserResponseV3 publicGetUserByUserIdV3(PublicGetUserByUserIdV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2569,7 +2569,7 @@ public class Users {
     /**
      * @see PublicGetUserBanHistoryV3
      */
-    public ModelGetUserBanV3Response publicGetUserBanHistoryV3(PublicGetUserBanHistoryV3 input) throws ResponseException, IOException {
+    public ModelGetUserBanV3Response publicGetUserBanHistoryV3(PublicGetUserBanHistoryV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2588,7 +2588,7 @@ public class Users {
     /**
      * @see PublicGetUserLoginHistoriesV3
      */
-    public ModelLoginHistoriesResponse publicGetUserLoginHistoriesV3(PublicGetUserLoginHistoriesV3 input) throws ResponseException, IOException {
+    public ModelLoginHistoriesResponse publicGetUserLoginHistoriesV3(PublicGetUserLoginHistoriesV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2607,7 +2607,7 @@ public class Users {
     /**
      * @see PublicGetUserPlatformAccountsV3
      */
-    public AccountcommonUserLinkedPlatformsResponseV3 publicGetUserPlatformAccountsV3(PublicGetUserPlatformAccountsV3 input) throws ResponseException, IOException {
+    public AccountcommonUserLinkedPlatformsResponseV3 publicGetUserPlatformAccountsV3(PublicGetUserPlatformAccountsV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2626,7 +2626,7 @@ public class Users {
     /**
      * @see PublicLinkPlatformAccount
      */
-    public void publicLinkPlatformAccount(PublicLinkPlatformAccount input) throws ResponseException, IOException {
+    public void publicLinkPlatformAccount(PublicLinkPlatformAccount input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2645,7 +2645,7 @@ public class Users {
     /**
      * @see PublicValidateUserByUserIDAndPasswordV3
      */
-    public void publicValidateUserByUserIDAndPasswordV3(PublicValidateUserByUserIDAndPasswordV3 input) throws ResponseException, IOException {
+    public void publicValidateUserByUserIDAndPasswordV3(PublicValidateUserByUserIDAndPasswordV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -2664,7 +2664,7 @@ public class Users {
     /**
      * @see PublicGetMyUserV3
      */
-    public ModelUserResponseV3 publicGetMyUserV3(PublicGetMyUserV3 input) throws ResponseException, IOException {
+    public ModelUserResponseV3 publicGetMyUserV3(PublicGetMyUserV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

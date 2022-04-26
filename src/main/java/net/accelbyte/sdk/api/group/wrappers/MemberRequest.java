@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.group.models.*;
 import net.accelbyte.sdk.api.group.operations.member_request.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class MemberRequest {
     /**
      * @see GetGroupJoinRequestPublicV1
      */
-    public ModelsGetMemberRequestsListResponseV1 getGroupJoinRequestPublicV1(GetGroupJoinRequestPublicV1 input) throws ResponseException, IOException {
+    public ModelsGetMemberRequestsListResponseV1 getGroupJoinRequestPublicV1(GetGroupJoinRequestPublicV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class MemberRequest {
     /**
      * @see GetGroupInvitationRequestPublicV1
      */
-    public ModelsGetMemberRequestsListResponseV1 getGroupInvitationRequestPublicV1(GetGroupInvitationRequestPublicV1 input) throws ResponseException, IOException {
+    public ModelsGetMemberRequestsListResponseV1 getGroupInvitationRequestPublicV1(GetGroupInvitationRequestPublicV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

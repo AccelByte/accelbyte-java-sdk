@@ -19,7 +19,7 @@ import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.models.PaymentProcessResult;
 import net.accelbyte.sdk.api.platform.models.PaymentToken;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -129,12 +129,12 @@ public class Pay extends Operation {
     }
 
     @Override
-    public PaymentProcessResult parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public PaymentProcessResult parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
             return new PaymentProcessResult().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
     @Override

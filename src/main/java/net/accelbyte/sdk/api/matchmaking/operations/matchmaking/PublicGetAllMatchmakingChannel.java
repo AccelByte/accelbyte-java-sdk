@@ -17,7 +17,7 @@ import lombok.Setter;
 
 import net.accelbyte.sdk.api.matchmaking.models.*;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -95,12 +95,12 @@ public class PublicGetAllMatchmakingChannel extends Operation {
     }
 
     @Override
-    public List<ModelsChannelV1> parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public List<ModelsChannelV1> parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
             return new ObjectMapper().readValue(json, new TypeReference<List<ModelsChannelV1>>() {});
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
 }

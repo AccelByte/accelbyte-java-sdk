@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.leaderboard.models.*;
 import net.accelbyte.sdk.api.leaderboard.operations.user_data.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class UserData {
     /**
      * @see GetUserLeaderboardRankingsAdminV1
      */
-    public ModelsGetAllUserLeaderboardsResp getUserLeaderboardRankingsAdminV1(GetUserLeaderboardRankingsAdminV1 input) throws ResponseException, IOException {
+    public ModelsGetAllUserLeaderboardsResp getUserLeaderboardRankingsAdminV1(GetUserLeaderboardRankingsAdminV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

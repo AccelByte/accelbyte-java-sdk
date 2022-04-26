@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.basic.models.*;
 import net.accelbyte.sdk.api.basic.operations.user_profile.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class UserProfile {
     /**
      * @see AdminGetUserProfilePublicInfoByIds
      */
-    public List<UserProfilePublicInfo> adminGetUserProfilePublicInfoByIds(AdminGetUserProfilePublicInfoByIds input) throws ResponseException, IOException {
+    public List<UserProfilePublicInfo> adminGetUserProfilePublicInfoByIds(AdminGetUserProfilePublicInfoByIds input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class UserProfile {
     /**
      * @see GetUserProfileInfo
      */
-    public UserProfilePrivateInfo getUserProfileInfo(GetUserProfileInfo input) throws ResponseException, IOException {
+    public UserProfilePrivateInfo getUserProfileInfo(GetUserProfileInfo input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class UserProfile {
     /**
      * @see UpdateUserProfile
      */
-    public UserProfilePrivateInfo updateUserProfile(UpdateUserProfile input) throws ResponseException, IOException {
+    public UserProfilePrivateInfo updateUserProfile(UpdateUserProfile input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class UserProfile {
     /**
      * @see DeleteUserProfile
      */
-    public UserProfilePrivateInfo deleteUserProfile(DeleteUserProfile input) throws ResponseException, IOException {
+    public UserProfilePrivateInfo deleteUserProfile(DeleteUserProfile input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class UserProfile {
     /**
      * @see GetCustomAttributesInfo
      */
-    public Map<String, ?> getCustomAttributesInfo(GetCustomAttributesInfo input) throws ResponseException, IOException {
+    public Map<String, ?> getCustomAttributesInfo(GetCustomAttributesInfo input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class UserProfile {
     /**
      * @see UpdateCustomAttributesPartially
      */
-    public Map<String, ?> updateCustomAttributesPartially(UpdateCustomAttributesPartially input) throws ResponseException, IOException {
+    public Map<String, ?> updateCustomAttributesPartially(UpdateCustomAttributesPartially input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class UserProfile {
     /**
      * @see GetPrivateCustomAttributesInfo
      */
-    public Map<String, ?> getPrivateCustomAttributesInfo(GetPrivateCustomAttributesInfo input) throws ResponseException, IOException {
+    public Map<String, ?> getPrivateCustomAttributesInfo(GetPrivateCustomAttributesInfo input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class UserProfile {
     /**
      * @see UpdatePrivateCustomAttributesPartially
      */
-    public Map<String, ?> updatePrivateCustomAttributesPartially(UpdatePrivateCustomAttributesPartially input) throws ResponseException, IOException {
+    public Map<String, ?> updatePrivateCustomAttributesPartially(UpdatePrivateCustomAttributesPartially input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class UserProfile {
     /**
      * @see UpdateUserProfileStatus
      */
-    public UserProfilePrivateInfo updateUserProfileStatus(UpdateUserProfileStatus input) throws ResponseException, IOException {
+    public UserProfilePrivateInfo updateUserProfileStatus(UpdateUserProfileStatus input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class UserProfile {
     /**
      * @see PublicGetUserProfilePublicInfoByIds
      */
-    public List<UserProfilePublicInfo> publicGetUserProfilePublicInfoByIds(PublicGetUserProfilePublicInfoByIds input) throws ResponseException, IOException {
+    public List<UserProfilePublicInfo> publicGetUserProfilePublicInfoByIds(PublicGetUserProfilePublicInfoByIds input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class UserProfile {
     /**
      * @see GetMyProfileInfo
      */
-    public UserProfilePrivateInfo getMyProfileInfo(GetMyProfileInfo input) throws ResponseException, IOException {
+    public UserProfilePrivateInfo getMyProfileInfo(GetMyProfileInfo input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +239,7 @@ public class UserProfile {
     /**
      * @see UpdateMyProfile
      */
-    public UserProfilePrivateInfo updateMyProfile(UpdateMyProfile input) throws ResponseException, IOException {
+    public UserProfilePrivateInfo updateMyProfile(UpdateMyProfile input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -258,7 +258,7 @@ public class UserProfile {
     /**
      * @see CreateMyProfile
      */
-    public UserProfilePrivateInfo createMyProfile(CreateMyProfile input) throws ResponseException, IOException {
+    public UserProfilePrivateInfo createMyProfile(CreateMyProfile input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -277,7 +277,7 @@ public class UserProfile {
     /**
      * @see GetMyZipCode
      */
-    public UserZipCode getMyZipCode(GetMyZipCode input) throws ResponseException, IOException {
+    public UserZipCode getMyZipCode(GetMyZipCode input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -296,7 +296,7 @@ public class UserProfile {
     /**
      * @see UpdateMyZipCode
      */
-    public UserZipCode updateMyZipCode(UpdateMyZipCode input) throws ResponseException, IOException {
+    public UserZipCode updateMyZipCode(UpdateMyZipCode input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -315,7 +315,7 @@ public class UserProfile {
     /**
      * @see PublicGetUserProfileInfo
      */
-    public UserProfileInfo publicGetUserProfileInfo(PublicGetUserProfileInfo input) throws ResponseException, IOException {
+    public UserProfileInfo publicGetUserProfileInfo(PublicGetUserProfileInfo input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -334,7 +334,7 @@ public class UserProfile {
     /**
      * @see PublicUpdateUserProfile
      */
-    public UserProfileInfo publicUpdateUserProfile(PublicUpdateUserProfile input) throws ResponseException, IOException {
+    public UserProfileInfo publicUpdateUserProfile(PublicUpdateUserProfile input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -353,7 +353,7 @@ public class UserProfile {
     /**
      * @see PublicCreateUserProfile
      */
-    public UserProfileInfo publicCreateUserProfile(PublicCreateUserProfile input) throws ResponseException, IOException {
+    public UserProfileInfo publicCreateUserProfile(PublicCreateUserProfile input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -372,7 +372,7 @@ public class UserProfile {
     /**
      * @see PublicGetCustomAttributesInfo
      */
-    public Map<String, ?> publicGetCustomAttributesInfo(PublicGetCustomAttributesInfo input) throws ResponseException, IOException {
+    public Map<String, ?> publicGetCustomAttributesInfo(PublicGetCustomAttributesInfo input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -391,7 +391,7 @@ public class UserProfile {
     /**
      * @see PublicUpdateCustomAttributesPartially
      */
-    public Map<String, ?> publicUpdateCustomAttributesPartially(PublicUpdateCustomAttributesPartially input) throws ResponseException, IOException {
+    public Map<String, ?> publicUpdateCustomAttributesPartially(PublicUpdateCustomAttributesPartially input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -410,7 +410,7 @@ public class UserProfile {
     /**
      * @see PublicGetUserProfilePublicInfo
      */
-    public UserProfilePublicInfo publicGetUserProfilePublicInfo(PublicGetUserProfilePublicInfo input) throws ResponseException, IOException {
+    public UserProfilePublicInfo publicGetUserProfilePublicInfo(PublicGetUserProfilePublicInfo input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -429,7 +429,7 @@ public class UserProfile {
     /**
      * @see PublicUpdateUserProfileStatus
      */
-    public UserProfileInfo publicUpdateUserProfileStatus(PublicUpdateUserProfileStatus input) throws ResponseException, IOException {
+    public UserProfileInfo publicUpdateUserProfileStatus(PublicUpdateUserProfileStatus input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

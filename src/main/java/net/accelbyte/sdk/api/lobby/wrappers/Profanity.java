@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.lobby.models.*;
 import net.accelbyte.sdk.api.lobby.operations.profanity.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Profanity {
     /**
      * @see AdminDebugProfanityFilters
      */
-    public List<ModelsProfanityFilter> adminDebugProfanityFilters(AdminDebugProfanityFilters input) throws ResponseException, IOException {
+    public List<ModelsProfanityFilter> adminDebugProfanityFilters(AdminDebugProfanityFilters input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Profanity {
     /**
      * @see AdminGetProfanityListFiltersV1
      */
-    public ModelsAdminGetProfanityListFiltersV1Response adminGetProfanityListFiltersV1(AdminGetProfanityListFiltersV1 input) throws ResponseException, IOException {
+    public ModelsAdminGetProfanityListFiltersV1Response adminGetProfanityListFiltersV1(AdminGetProfanityListFiltersV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Profanity {
     /**
      * @see AdminAddProfanityFilterIntoList
      */
-    public void adminAddProfanityFilterIntoList(AdminAddProfanityFilterIntoList input) throws ResponseException, IOException {
+    public void adminAddProfanityFilterIntoList(AdminAddProfanityFilterIntoList input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Profanity {
     /**
      * @see AdminAddProfanityFilters
      */
-    public void adminAddProfanityFilters(AdminAddProfanityFilters input) throws ResponseException, IOException {
+    public void adminAddProfanityFilters(AdminAddProfanityFilters input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Profanity {
     /**
      * @see AdminImportProfanityFiltersFromFile
      */
-    public void adminImportProfanityFiltersFromFile(AdminImportProfanityFiltersFromFile input) throws ResponseException, IOException {
+    public void adminImportProfanityFiltersFromFile(AdminImportProfanityFiltersFromFile input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Profanity {
     /**
      * @see AdminDeleteProfanityFilter
      */
-    public List<ModelsProfanityFilter> adminDeleteProfanityFilter(AdminDeleteProfanityFilter input) throws ResponseException, IOException {
+    public List<ModelsProfanityFilter> adminDeleteProfanityFilter(AdminDeleteProfanityFilter input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Profanity {
     /**
      * @see AdminGetProfanityLists
      */
-    public List<ModelsAdminGetProfanityListsListResponse> adminGetProfanityLists(AdminGetProfanityLists input) throws ResponseException, IOException {
+    public List<ModelsAdminGetProfanityListsListResponse> adminGetProfanityLists(AdminGetProfanityLists input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Profanity {
     /**
      * @see AdminCreateProfanityList
      */
-    public void adminCreateProfanityList(AdminCreateProfanityList input) throws ResponseException, IOException {
+    public void adminCreateProfanityList(AdminCreateProfanityList input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class Profanity {
     /**
      * @see AdminUpdateProfanityList
      */
-    public void adminUpdateProfanityList(AdminUpdateProfanityList input) throws ResponseException, IOException {
+    public void adminUpdateProfanityList(AdminUpdateProfanityList input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class Profanity {
     /**
      * @see AdminDeleteProfanityList
      */
-    public void adminDeleteProfanityList(AdminDeleteProfanityList input) throws ResponseException, IOException {
+    public void adminDeleteProfanityList(AdminDeleteProfanityList input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class Profanity {
     /**
      * @see AdminGetProfanityRule
      */
-    public ModelsProfanityRule adminGetProfanityRule(AdminGetProfanityRule input) throws ResponseException, IOException {
+    public ModelsProfanityRule adminGetProfanityRule(AdminGetProfanityRule input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +239,7 @@ public class Profanity {
     /**
      * @see AdminSetProfanityRuleForNamespace
      */
-    public void adminSetProfanityRuleForNamespace(AdminSetProfanityRuleForNamespace input) throws ResponseException, IOException {
+    public void adminSetProfanityRuleForNamespace(AdminSetProfanityRuleForNamespace input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -258,7 +258,7 @@ public class Profanity {
     /**
      * @see AdminVerifyMessageProfanityResponse
      */
-    public ModelsAdminVerifyMessageProfanityResponse adminVerifyMessageProfanityResponse(AdminVerifyMessageProfanityResponse input) throws ResponseException, IOException {
+    public ModelsAdminVerifyMessageProfanityResponse adminVerifyMessageProfanityResponse(AdminVerifyMessageProfanityResponse input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

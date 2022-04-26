@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.ugc.models.*;
 import net.accelbyte.sdk.api.ugc.operations.public_content.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class PublicContent {
     /**
      * @see SearchChannelSpecificContent
      */
-    public ModelsPaginatedContentDownloadResponse searchChannelSpecificContent(SearchChannelSpecificContent input) throws ResponseException, IOException {
+    public ModelsPaginatedContentDownloadResponse searchChannelSpecificContent(SearchChannelSpecificContent input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PublicContent {
     /**
      * @see PublicSearchContent
      */
-    public ModelsPaginatedContentDownloadResponse publicSearchContent(PublicSearchContent input) throws ResponseException, IOException {
+    public ModelsPaginatedContentDownloadResponse publicSearchContent(PublicSearchContent input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class PublicContent {
     /**
      * @see PublicGetContentBulk
      */
-    public List<ModelsContentDownloadResponse> publicGetContentBulk(PublicGetContentBulk input) throws ResponseException, IOException {
+    public List<ModelsContentDownloadResponse> publicGetContentBulk(PublicGetContentBulk input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class PublicContent {
     /**
      * @see DownloadContentByShareCode
      */
-    public ModelsContentDownloadResponse downloadContentByShareCode(DownloadContentByShareCode input) throws ResponseException, IOException {
+    public ModelsContentDownloadResponse downloadContentByShareCode(DownloadContentByShareCode input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class PublicContent {
     /**
      * @see PublicDownloadContentByContentID
      */
-    public ModelsContentDownloadResponse publicDownloadContentByContentID(PublicDownloadContentByContentID input) throws ResponseException, IOException {
+    public ModelsContentDownloadResponse publicDownloadContentByContentID(PublicDownloadContentByContentID input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class PublicContent {
     /**
      * @see PublicDownloadContentPreview
      */
-    public ModelsGetContentPreviewResponse publicDownloadContentPreview(PublicDownloadContentPreview input) throws ResponseException, IOException {
+    public ModelsGetContentPreviewResponse publicDownloadContentPreview(PublicDownloadContentPreview input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -146,7 +146,7 @@ public class PublicContent {
      * @deprecated
      */
     @Deprecated
-    public ModelsCreateContentResponse createContentDirect(CreateContentDirect input) throws ResponseException, IOException {
+    public ModelsCreateContentResponse createContentDirect(CreateContentDirect input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -165,7 +165,7 @@ public class PublicContent {
     /**
      * @see CreateContentS3
      */
-    public ModelsCreateContentResponse createContentS3(CreateContentS3 input) throws ResponseException, IOException {
+    public ModelsCreateContentResponse createContentS3(CreateContentS3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -184,7 +184,7 @@ public class PublicContent {
     /**
      * @see UpdateContentS3
      */
-    public ModelsCreateContentResponse updateContentS3(UpdateContentS3 input) throws ResponseException, IOException {
+    public ModelsCreateContentResponse updateContentS3(UpdateContentS3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -205,7 +205,7 @@ public class PublicContent {
      * @deprecated
      */
     @Deprecated
-    public ModelsCreateContentResponse updateContentDirect(UpdateContentDirect input) throws ResponseException, IOException {
+    public ModelsCreateContentResponse updateContentDirect(UpdateContentDirect input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -224,7 +224,7 @@ public class PublicContent {
     /**
      * @see DeleteContent
      */
-    public void deleteContent(DeleteContent input) throws ResponseException, IOException {
+    public void deleteContent(DeleteContent input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -243,7 +243,7 @@ public class PublicContent {
     /**
      * @see PublicGetUserContent
      */
-    public ModelsPaginatedContentDownloadResponse publicGetUserContent(PublicGetUserContent input) throws ResponseException, IOException {
+    public ModelsPaginatedContentDownloadResponse publicGetUserContent(PublicGetUserContent input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -262,7 +262,7 @@ public class PublicContent {
     /**
      * @see UpdateScreenshots
      */
-    public ModelsUpdateScreenshotResponse updateScreenshots(UpdateScreenshots input) throws ResponseException, IOException {
+    public ModelsUpdateScreenshotResponse updateScreenshots(UpdateScreenshots input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -281,7 +281,7 @@ public class PublicContent {
     /**
      * @see UploadContentScreenshot
      */
-    public ModelsCreateScreenshotResponse uploadContentScreenshot(UploadContentScreenshot input) throws ResponseException, IOException {
+    public ModelsCreateScreenshotResponse uploadContentScreenshot(UploadContentScreenshot input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -300,7 +300,7 @@ public class PublicContent {
     /**
      * @see DeleteContentScreenshot
      */
-    public void deleteContentScreenshot(DeleteContentScreenshot input) throws ResponseException, IOException {
+    public void deleteContentScreenshot(DeleteContentScreenshot input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

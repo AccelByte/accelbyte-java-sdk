@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.legal.models.*;
 import net.accelbyte.sdk.api.legal.operations.eligibilities.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Eligibilities {
     /**
      * @see RetrieveEligibilitiesPublic
      */
-    public List<RetrieveUserEligibilitiesResponse> retrieveEligibilitiesPublic(RetrieveEligibilitiesPublic input) throws ResponseException, IOException {
+    public List<RetrieveUserEligibilitiesResponse> retrieveEligibilitiesPublic(RetrieveEligibilitiesPublic input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Eligibilities {
     /**
      * @see RetrieveEligibilitiesPublicIndirect
      */
-    public RetrieveUserEligibilitiesIndirectResponse retrieveEligibilitiesPublicIndirect(RetrieveEligibilitiesPublicIndirect input) throws ResponseException, IOException {
+    public RetrieveUserEligibilitiesIndirectResponse retrieveEligibilitiesPublicIndirect(RetrieveEligibilitiesPublicIndirect input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

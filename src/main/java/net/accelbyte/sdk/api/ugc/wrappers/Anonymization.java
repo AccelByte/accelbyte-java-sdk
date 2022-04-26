@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.ugc.models.*;
 import net.accelbyte.sdk.api.ugc.operations.anonymization.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Anonymization {
     /**
      * @see AdminDeleteAllUserChannels
      */
-    public void adminDeleteAllUserChannels(AdminDeleteAllUserChannels input) throws ResponseException, IOException {
+    public void adminDeleteAllUserChannels(AdminDeleteAllUserChannels input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Anonymization {
     /**
      * @see AdminDeleteAllUserContents
      */
-    public void adminDeleteAllUserContents(AdminDeleteAllUserContents input) throws ResponseException, IOException {
+    public void adminDeleteAllUserContents(AdminDeleteAllUserContents input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Anonymization {
     /**
      * @see AdminDeleteAllUserGroup
      */
-    public void adminDeleteAllUserGroup(AdminDeleteAllUserGroup input) throws ResponseException, IOException {
+    public void adminDeleteAllUserGroup(AdminDeleteAllUserGroup input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Anonymization {
     /**
      * @see AdminDeleteAllUserStates
      */
-    public void adminDeleteAllUserStates(AdminDeleteAllUserStates input) throws ResponseException, IOException {
+    public void adminDeleteAllUserStates(AdminDeleteAllUserStates input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Anonymization {
     /**
      * @see DeleteAllUserChannel
      */
-    public void deleteAllUserChannel(DeleteAllUserChannel input) throws ResponseException, IOException {
+    public void deleteAllUserChannel(DeleteAllUserChannel input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Anonymization {
     /**
      * @see DeleteAllUserContents
      */
-    public void deleteAllUserContents(DeleteAllUserContents input) throws ResponseException, IOException {
+    public void deleteAllUserContents(DeleteAllUserContents input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Anonymization {
     /**
      * @see DeleteAllUserGroup
      */
-    public void deleteAllUserGroup(DeleteAllUserGroup input) throws ResponseException, IOException {
+    public void deleteAllUserGroup(DeleteAllUserGroup input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Anonymization {
     /**
      * @see DeleteAllUserStates
      */
-    public void deleteAllUserStates(DeleteAllUserStates input) throws ResponseException, IOException {
+    public void deleteAllUserStates(DeleteAllUserStates input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

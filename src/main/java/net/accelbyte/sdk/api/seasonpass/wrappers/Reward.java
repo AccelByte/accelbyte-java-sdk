@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.seasonpass.models.*;
 import net.accelbyte.sdk.api.seasonpass.operations.reward.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Reward {
     /**
      * @see QueryRewards
      */
-    public List<RewardInfo> queryRewards(QueryRewards input) throws ResponseException, IOException {
+    public List<RewardInfo> queryRewards(QueryRewards input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Reward {
     /**
      * @see CreateReward
      */
-    public RewardInfo createReward(CreateReward input) throws ResponseException, IOException {
+    public RewardInfo createReward(CreateReward input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Reward {
     /**
      * @see GetReward
      */
-    public RewardInfo getReward(GetReward input) throws ResponseException, IOException {
+    public RewardInfo getReward(GetReward input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Reward {
     /**
      * @see DeleteReward
      */
-    public void deleteReward(DeleteReward input) throws ResponseException, IOException {
+    public void deleteReward(DeleteReward input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Reward {
     /**
      * @see UpdateReward
      */
-    public RewardInfo updateReward(UpdateReward input) throws ResponseException, IOException {
+    public RewardInfo updateReward(UpdateReward input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Reward {
     /**
      * @see PublicClaimUserReward
      */
-    public ClaimableRewards publicClaimUserReward(PublicClaimUserReward input) throws ResponseException, IOException {
+    public ClaimableRewards publicClaimUserReward(PublicClaimUserReward input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Reward {
     /**
      * @see PublicBulkClaimUserRewards
      */
-    public ClaimableRewards publicBulkClaimUserRewards(PublicBulkClaimUserRewards input) throws ResponseException, IOException {
+    public ClaimableRewards publicBulkClaimUserRewards(PublicBulkClaimUserRewards input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

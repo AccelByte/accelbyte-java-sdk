@@ -19,7 +19,7 @@ import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.api.iam.models.AccountcommonRoleV3;
 import net.accelbyte.sdk.api.iam.models.ModelRoleCreateV3Request;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -102,12 +102,12 @@ public class AdminCreateRoleV3 extends Operation {
     }
 
     @Override
-    public AccountcommonRoleV3 parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public AccountcommonRoleV3 parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 201){
             return new AccountcommonRoleV3().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
 }

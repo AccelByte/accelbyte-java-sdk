@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.basic.models.*;
 import net.accelbyte.sdk.api.basic.operations.misc.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Misc {
     /**
      * @see GetCountries
      */
-    public List<CountryObject> getCountries(GetCountries input) throws ResponseException, IOException {
+    public List<CountryObject> getCountries(GetCountries input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Misc {
     /**
      * @see GetCountryGroups
      */
-    public List<RetrieveCountryGroupResponse> getCountryGroups(GetCountryGroups input) throws ResponseException, IOException {
+    public List<RetrieveCountryGroupResponse> getCountryGroups(GetCountryGroups input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Misc {
     /**
      * @see AddCountryGroup
      */
-    public AddCountryGroupResponse addCountryGroup(AddCountryGroup input) throws ResponseException, IOException {
+    public AddCountryGroupResponse addCountryGroup(AddCountryGroup input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Misc {
     /**
      * @see UpdateCountryGroup
      */
-    public CountryGroupObject updateCountryGroup(UpdateCountryGroup input) throws ResponseException, IOException {
+    public CountryGroupObject updateCountryGroup(UpdateCountryGroup input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Misc {
     /**
      * @see DeleteCountryGroup
      */
-    public void deleteCountryGroup(DeleteCountryGroup input) throws ResponseException, IOException {
+    public void deleteCountryGroup(DeleteCountryGroup input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Misc {
     /**
      * @see GetLanguages
      */
-    public Map<String, ?> getLanguages(GetLanguages input) throws ResponseException, IOException {
+    public Map<String, ?> getLanguages(GetLanguages input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Misc {
     /**
      * @see GetTimeZones
      */
-    public List<String> getTimeZones(GetTimeZones input) throws ResponseException, IOException {
+    public List<String> getTimeZones(GetTimeZones input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Misc {
     /**
      * @see PublicGetTime
      */
-    public RetrieveTimeResponse publicGetTime(PublicGetTime input) throws ResponseException, IOException {
+    public RetrieveTimeResponse publicGetTime(PublicGetTime input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class Misc {
     /**
      * @see PublicGetCountries
      */
-    public List<CountryObject> publicGetCountries(PublicGetCountries input) throws ResponseException, IOException {
+    public List<CountryObject> publicGetCountries(PublicGetCountries input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class Misc {
     /**
      * @see PublicGetLanguages
      */
-    public Map<String, ?> publicGetLanguages(PublicGetLanguages input) throws ResponseException, IOException {
+    public Map<String, ?> publicGetLanguages(PublicGetLanguages input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class Misc {
     /**
      * @see PublicGetTimeZones
      */
-    public List<String> publicGetTimeZones(PublicGetTimeZones input) throws ResponseException, IOException {
+    public List<String> publicGetTimeZones(PublicGetTimeZones input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

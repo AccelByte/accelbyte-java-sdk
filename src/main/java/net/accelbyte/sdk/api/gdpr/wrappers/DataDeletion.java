@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.gdpr.models.*;
 import net.accelbyte.sdk.api.gdpr.operations.data_deletion.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class DataDeletion {
     /**
      * @see AdminGetListDeletionDataRequest
      */
-    public ModelsListDeletionDataResponse adminGetListDeletionDataRequest(AdminGetListDeletionDataRequest input) throws ResponseException, IOException {
+    public ModelsListDeletionDataResponse adminGetListDeletionDataRequest(AdminGetListDeletionDataRequest input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class DataDeletion {
     /**
      * @see AdminGetUserAccountDeletionRequest
      */
-    public ModelsDeletionData adminGetUserAccountDeletionRequest(AdminGetUserAccountDeletionRequest input) throws ResponseException, IOException {
+    public ModelsDeletionData adminGetUserAccountDeletionRequest(AdminGetUserAccountDeletionRequest input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class DataDeletion {
     /**
      * @see AdminSubmitUserAccountDeletionRequest
      */
-    public ModelsRequestDeleteResponse adminSubmitUserAccountDeletionRequest(AdminSubmitUserAccountDeletionRequest input) throws ResponseException, IOException {
+    public ModelsRequestDeleteResponse adminSubmitUserAccountDeletionRequest(AdminSubmitUserAccountDeletionRequest input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class DataDeletion {
     /**
      * @see AdminCancelUserAccountDeletionRequest
      */
-    public void adminCancelUserAccountDeletionRequest(AdminCancelUserAccountDeletionRequest input) throws ResponseException, IOException {
+    public void adminCancelUserAccountDeletionRequest(AdminCancelUserAccountDeletionRequest input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class DataDeletion {
     /**
      * @see PublicSubmitUserAccountDeletionRequest
      */
-    public ModelsRequestDeleteResponse publicSubmitUserAccountDeletionRequest(PublicSubmitUserAccountDeletionRequest input) throws ResponseException, IOException {
+    public ModelsRequestDeleteResponse publicSubmitUserAccountDeletionRequest(PublicSubmitUserAccountDeletionRequest input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class DataDeletion {
     /**
      * @see PublicCancelUserAccountDeletionRequest
      */
-    public void publicCancelUserAccountDeletionRequest(PublicCancelUserAccountDeletionRequest input) throws ResponseException, IOException {
+    public void publicCancelUserAccountDeletionRequest(PublicCancelUserAccountDeletionRequest input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class DataDeletion {
     /**
      * @see PublicGetUserAccountDeletionStatus
      */
-    public ModelsDeletionStatus publicGetUserAccountDeletionStatus(PublicGetUserAccountDeletionStatus input) throws ResponseException, IOException {
+    public ModelsDeletionStatus publicGetUserAccountDeletionStatus(PublicGetUserAccountDeletionStatus input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

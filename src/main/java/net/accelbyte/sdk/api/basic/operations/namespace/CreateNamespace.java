@@ -19,7 +19,7 @@ import net.accelbyte.sdk.api.basic.models.*;
 import net.accelbyte.sdk.api.basic.models.NamespaceInfo;
 import net.accelbyte.sdk.api.basic.models.NamespaceCreate;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -95,12 +95,12 @@ public class CreateNamespace extends Operation {
     }
 
     @Override
-    public NamespaceInfo parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public NamespaceInfo parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 201){
             return new NamespaceInfo().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
 }

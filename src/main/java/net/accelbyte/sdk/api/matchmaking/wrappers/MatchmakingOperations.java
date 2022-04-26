@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.matchmaking.models.*;
 import net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class MatchmakingOperations {
     /**
      * @see GetHealthcheckInfo
      */
-    public void getHealthcheckInfo(GetHealthcheckInfo input) throws ResponseException, IOException {
+    public void getHealthcheckInfo(GetHealthcheckInfo input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class MatchmakingOperations {
     /**
      * @see HandlerV3Healthz
      */
-    public void handlerV3Healthz(HandlerV3Healthz input) throws ResponseException, IOException {
+    public void handlerV3Healthz(HandlerV3Healthz input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class MatchmakingOperations {
     /**
      * @see PublicGetMessages
      */
-    public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws ResponseException, IOException {
+    public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class MatchmakingOperations {
     /**
      * @see VersionCheckHandler
      */
-    public void versionCheckHandler(VersionCheckHandler input) throws ResponseException, IOException {
+    public void versionCheckHandler(VersionCheckHandler input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -19,7 +19,7 @@ import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.api.iam.models.ModelUserCreateResponseV3;
 import net.accelbyte.sdk.api.iam.models.ModelUserCreateRequestV3;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -128,12 +128,12 @@ public class PublicCreateUserV3 extends Operation {
     }
 
     @Override
-    public ModelUserCreateResponseV3 parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public ModelUserCreateResponseV3 parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 201){
             return new ModelUserCreateResponseV3().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
 }

@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.qosm.models.*;
 import net.accelbyte.sdk.api.qosm.operations.admin.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Admin {
     /**
      * @see DeleteServer
      */
-    public void deleteServer(DeleteServer input) throws ResponseException, IOException {
+    public void deleteServer(DeleteServer input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Admin {
     /**
      * @see SetServerAlias
      */
-    public void setServerAlias(SetServerAlias input) throws ResponseException, IOException {
+    public void setServerAlias(SetServerAlias input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

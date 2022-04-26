@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.social.models.*;
 import net.accelbyte.sdk.api.social.operations.slot.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Slot {
     /**
      * @see GetUserNamespaceSlots
      */
-    public List<SlotInfo> getUserNamespaceSlots(GetUserNamespaceSlots input) throws ResponseException, IOException {
+    public List<SlotInfo> getUserNamespaceSlots(GetUserNamespaceSlots input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Slot {
     /**
      * @see GetSlotData
      */
-    public InputStream getSlotData(GetSlotData input) throws ResponseException, IOException {
+    public InputStream getSlotData(GetSlotData input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Slot {
     /**
      * @see PublicGetUserNamespaceSlots
      */
-    public List<SlotInfo> publicGetUserNamespaceSlots(PublicGetUserNamespaceSlots input) throws ResponseException, IOException {
+    public List<SlotInfo> publicGetUserNamespaceSlots(PublicGetUserNamespaceSlots input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Slot {
     /**
      * @see PublicCreateUserNamespaceSlot
      */
-    public void publicCreateUserNamespaceSlot(PublicCreateUserNamespaceSlot input) throws ResponseException, IOException {
+    public void publicCreateUserNamespaceSlot(PublicCreateUserNamespaceSlot input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Slot {
     /**
      * @see PublicGetSlotData
      */
-    public InputStream publicGetSlotData(PublicGetSlotData input) throws ResponseException, IOException {
+    public InputStream publicGetSlotData(PublicGetSlotData input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Slot {
     /**
      * @see PublicUpdateUserNamespaceSlot
      */
-    public SlotInfo publicUpdateUserNamespaceSlot(PublicUpdateUserNamespaceSlot input) throws ResponseException, IOException {
+    public SlotInfo publicUpdateUserNamespaceSlot(PublicUpdateUserNamespaceSlot input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Slot {
     /**
      * @see PublicDeleteUserNamespaceSlot
      */
-    public void publicDeleteUserNamespaceSlot(PublicDeleteUserNamespaceSlot input) throws ResponseException, IOException {
+    public void publicDeleteUserNamespaceSlot(PublicDeleteUserNamespaceSlot input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Slot {
     /**
      * @see PublicUpdateUserNamespaceSlotMetadata
      */
-    public SlotInfo publicUpdateUserNamespaceSlotMetadata(PublicUpdateUserNamespaceSlotMetadata input) throws ResponseException, IOException {
+    public SlotInfo publicUpdateUserNamespaceSlotMetadata(PublicUpdateUserNamespaceSlotMetadata input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

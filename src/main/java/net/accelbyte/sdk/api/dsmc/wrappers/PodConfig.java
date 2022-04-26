@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.dsmc.models.*;
 import net.accelbyte.sdk.api.dsmc.operations.pod_config.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class PodConfig {
     /**
      * @see GetAllPodConfig
      */
-    public ModelsListPodConfigResponse getAllPodConfig(GetAllPodConfig input) throws ResponseException, IOException {
+    public ModelsListPodConfigResponse getAllPodConfig(GetAllPodConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PodConfig {
     /**
      * @see GetPodConfig
      */
-    public ModelsPodConfigRecord getPodConfig(GetPodConfig input) throws ResponseException, IOException {
+    public ModelsPodConfigRecord getPodConfig(GetPodConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class PodConfig {
     /**
      * @see CreatePodConfig
      */
-    public ModelsPodConfigRecord createPodConfig(CreatePodConfig input) throws ResponseException, IOException {
+    public ModelsPodConfigRecord createPodConfig(CreatePodConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class PodConfig {
     /**
      * @see DeletePodConfig
      */
-    public void deletePodConfig(DeletePodConfig input) throws ResponseException, IOException {
+    public void deletePodConfig(DeletePodConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class PodConfig {
     /**
      * @see UpdatePodConfig
      */
-    public ModelsPodConfigRecord updatePodConfig(UpdatePodConfig input) throws ResponseException, IOException {
+    public ModelsPodConfigRecord updatePodConfig(UpdatePodConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

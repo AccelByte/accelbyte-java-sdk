@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.ugc.models.*;
 import net.accelbyte.sdk.api.ugc.operations.public_channel.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class PublicChannel {
     /**
      * @see GetChannels
      */
-    public ModelsPaginatedGetChannelResponse getChannels(GetChannels input) throws ResponseException, IOException {
+    public ModelsPaginatedGetChannelResponse getChannels(GetChannels input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PublicChannel {
     /**
      * @see CreateChannel
      */
-    public ModelsChannelResponse createChannel(CreateChannel input) throws ResponseException, IOException {
+    public ModelsChannelResponse createChannel(CreateChannel input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class PublicChannel {
     /**
      * @see UpdateChannel
      */
-    public ModelsChannelResponse updateChannel(UpdateChannel input) throws ResponseException, IOException {
+    public ModelsChannelResponse updateChannel(UpdateChannel input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class PublicChannel {
     /**
      * @see DeleteChannel
      */
-    public void deleteChannel(DeleteChannel input) throws ResponseException, IOException {
+    public void deleteChannel(DeleteChannel input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -18,7 +18,7 @@ import lombok.Setter;
 import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.models.StadiaIAPConfigInfo;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -111,12 +111,12 @@ public class UpdateStadiaJsonConfigFile extends Operation {
     }
 
     @Override
-    public StadiaIAPConfigInfo parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public StadiaIAPConfigInfo parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
             return new StadiaIAPConfigInfo().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
 }

@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.eventlog.models.*;
 import net.accelbyte.sdk.api.eventlog.operations.event_v2.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class EventV2 {
     /**
      * @see QueryEventStreamHandler
      */
-    public ModelsEventResponseV2 queryEventStreamHandler(QueryEventStreamHandler input) throws ResponseException, IOException {
+    public ModelsEventResponseV2 queryEventStreamHandler(QueryEventStreamHandler input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class EventV2 {
     /**
      * @see GetEventSpecificUserV2Handler
      */
-    public ModelsEventResponseV2 getEventSpecificUserV2Handler(GetEventSpecificUserV2Handler input) throws ResponseException, IOException {
+    public ModelsEventResponseV2 getEventSpecificUserV2Handler(GetEventSpecificUserV2Handler input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class EventV2 {
     /**
      * @see GetPublicEditHistory
      */
-    public ModelsEventResponseV2 getPublicEditHistory(GetPublicEditHistory input) throws ResponseException, IOException {
+    public ModelsEventResponseV2 getPublicEditHistory(GetPublicEditHistory input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class EventV2 {
     /**
      * @see GetUserEventsV2Public
      */
-    public ModelsEventResponseV2 getUserEventsV2Public(GetUserEventsV2Public input) throws ResponseException, IOException {
+    public ModelsEventResponseV2 getUserEventsV2Public(GetUserEventsV2Public input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

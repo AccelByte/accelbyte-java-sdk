@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.eventlog.models.*;
 import net.accelbyte.sdk.api.eventlog.operations.event_descriptions.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,7 +32,7 @@ public class EventDescriptions {
      * @deprecated
      */
     @Deprecated
-    public ModelsMultipleAgentType agentTypeDescriptionHandler(AgentTypeDescriptionHandler input) throws ResponseException, IOException {
+    public ModelsMultipleAgentType agentTypeDescriptionHandler(AgentTypeDescriptionHandler input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -53,7 +53,7 @@ public class EventDescriptions {
      * @deprecated
      */
     @Deprecated
-    public ModelsMultipleAgentType specificAgentTypeDescriptionHandler(SpecificAgentTypeDescriptionHandler input) throws ResponseException, IOException {
+    public ModelsMultipleAgentType specificAgentTypeDescriptionHandler(SpecificAgentTypeDescriptionHandler input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -74,7 +74,7 @@ public class EventDescriptions {
      * @deprecated
      */
     @Deprecated
-    public ModelsMultipleEventID eventIDDescriptionHandler(EventIDDescriptionHandler input) throws ResponseException, IOException {
+    public ModelsMultipleEventID eventIDDescriptionHandler(EventIDDescriptionHandler input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -95,7 +95,7 @@ public class EventDescriptions {
      * @deprecated
      */
     @Deprecated
-    public ModelsMultipleEventID specificEventIDDescriptionHandler(SpecificEventIDDescriptionHandler input) throws ResponseException, IOException {
+    public ModelsMultipleEventID specificEventIDDescriptionHandler(SpecificEventIDDescriptionHandler input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -116,7 +116,7 @@ public class EventDescriptions {
      * @deprecated
      */
     @Deprecated
-    public ModelsMultipleEventLevel eventLevelDescriptionHandler(EventLevelDescriptionHandler input) throws ResponseException, IOException {
+    public ModelsMultipleEventLevel eventLevelDescriptionHandler(EventLevelDescriptionHandler input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -137,7 +137,7 @@ public class EventDescriptions {
      * @deprecated
      */
     @Deprecated
-    public ModelsMultipleEventLevel specificEventLevelDescriptionHandler(SpecificEventLevelDescriptionHandler input) throws ResponseException, IOException {
+    public ModelsMultipleEventLevel specificEventLevelDescriptionHandler(SpecificEventLevelDescriptionHandler input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -158,7 +158,7 @@ public class EventDescriptions {
      * @deprecated
      */
     @Deprecated
-    public ModelsMultipleEventType eventTypeDescriptionHandler(EventTypeDescriptionHandler input) throws ResponseException, IOException {
+    public ModelsMultipleEventType eventTypeDescriptionHandler(EventTypeDescriptionHandler input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -179,7 +179,7 @@ public class EventDescriptions {
      * @deprecated
      */
     @Deprecated
-    public ModelsMultipleEventType specificEventTypeDescriptionHandler(SpecificEventTypeDescriptionHandler input) throws ResponseException, IOException {
+    public ModelsMultipleEventType specificEventTypeDescriptionHandler(SpecificEventTypeDescriptionHandler input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -200,7 +200,7 @@ public class EventDescriptions {
      * @deprecated
      */
     @Deprecated
-    public ModelsMultipleUX uxNameDescriptionHandler(UXNameDescriptionHandler input) throws ResponseException, IOException {
+    public ModelsMultipleUX uxNameDescriptionHandler(UXNameDescriptionHandler input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -221,7 +221,7 @@ public class EventDescriptions {
      * @deprecated
      */
     @Deprecated
-    public ModelsMultipleUX specificUXDescriptionHandler(SpecificUXDescriptionHandler input) throws ResponseException, IOException {
+    public ModelsMultipleUX specificUXDescriptionHandler(SpecificUXDescriptionHandler input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

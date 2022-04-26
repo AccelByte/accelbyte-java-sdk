@@ -18,7 +18,7 @@ import lombok.Setter;
 import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.api.iam.models.ModelGetUserMapping;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -133,12 +133,12 @@ public class GetUserMapping extends Operation {
     }
 
     @Override
-    public ModelGetUserMapping parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public ModelGetUserMapping parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
             return new ModelGetUserMapping().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
 }

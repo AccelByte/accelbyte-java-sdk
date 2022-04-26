@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.anonymization.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Anonymization {
     /**
      * @see AnonymizeCampaign
      */
-    public void anonymizeCampaign(AnonymizeCampaign input) throws ResponseException, IOException {
+    public void anonymizeCampaign(AnonymizeCampaign input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Anonymization {
     /**
      * @see AnonymizeEntitlement
      */
-    public void anonymizeEntitlement(AnonymizeEntitlement input) throws ResponseException, IOException {
+    public void anonymizeEntitlement(AnonymizeEntitlement input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Anonymization {
     /**
      * @see AnonymizeFulfillment
      */
-    public void anonymizeFulfillment(AnonymizeFulfillment input) throws ResponseException, IOException {
+    public void anonymizeFulfillment(AnonymizeFulfillment input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Anonymization {
     /**
      * @see AnonymizeIntegration
      */
-    public void anonymizeIntegration(AnonymizeIntegration input) throws ResponseException, IOException {
+    public void anonymizeIntegration(AnonymizeIntegration input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Anonymization {
     /**
      * @see AnonymizeOrder
      */
-    public void anonymizeOrder(AnonymizeOrder input) throws ResponseException, IOException {
+    public void anonymizeOrder(AnonymizeOrder input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Anonymization {
     /**
      * @see AnonymizePayment
      */
-    public void anonymizePayment(AnonymizePayment input) throws ResponseException, IOException {
+    public void anonymizePayment(AnonymizePayment input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Anonymization {
     /**
      * @see AnonymizeSubscription
      */
-    public void anonymizeSubscription(AnonymizeSubscription input) throws ResponseException, IOException {
+    public void anonymizeSubscription(AnonymizeSubscription input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Anonymization {
     /**
      * @see AnonymizeWallet
      */
-    public void anonymizeWallet(AnonymizeWallet input) throws ResponseException, IOException {
+    public void anonymizeWallet(AnonymizeWallet input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.cloudsave.models.*;
 import net.accelbyte.sdk.api.cloudsave.operations.admin_player_record.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,7 +32,7 @@ public class AdminPlayerRecord {
      * @deprecated
      */
     @Deprecated
-    public ModelsListPlayerRecordKeysResponse listPlayerRecordHandlerV1(ListPlayerRecordHandlerV1 input) throws ResponseException, IOException {
+    public ModelsListPlayerRecordKeysResponse listPlayerRecordHandlerV1(ListPlayerRecordHandlerV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -51,7 +51,7 @@ public class AdminPlayerRecord {
     /**
      * @see AdminRetrievePlayerRecords
      */
-    public ModelsListPlayerRecordKeysResponse adminRetrievePlayerRecords(AdminRetrievePlayerRecords input) throws ResponseException, IOException {
+    public ModelsListPlayerRecordKeysResponse adminRetrievePlayerRecords(AdminRetrievePlayerRecords input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -70,7 +70,7 @@ public class AdminPlayerRecord {
     /**
      * @see AdminGetPlayerRecordHandlerV1
      */
-    public ModelsPlayerRecordResponse adminGetPlayerRecordHandlerV1(AdminGetPlayerRecordHandlerV1 input) throws ResponseException, IOException {
+    public ModelsPlayerRecordResponse adminGetPlayerRecordHandlerV1(AdminGetPlayerRecordHandlerV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -89,7 +89,7 @@ public class AdminPlayerRecord {
     /**
      * @see AdminPutPlayerRecordHandlerV1
      */
-    public void adminPutPlayerRecordHandlerV1(AdminPutPlayerRecordHandlerV1 input) throws ResponseException, IOException {
+    public void adminPutPlayerRecordHandlerV1(AdminPutPlayerRecordHandlerV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -108,7 +108,7 @@ public class AdminPlayerRecord {
     /**
      * @see AdminPostPlayerRecordHandlerV1
      */
-    public void adminPostPlayerRecordHandlerV1(AdminPostPlayerRecordHandlerV1 input) throws ResponseException, IOException {
+    public void adminPostPlayerRecordHandlerV1(AdminPostPlayerRecordHandlerV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -127,7 +127,7 @@ public class AdminPlayerRecord {
     /**
      * @see AdminDeletePlayerRecordHandlerV1
      */
-    public void adminDeletePlayerRecordHandlerV1(AdminDeletePlayerRecordHandlerV1 input) throws ResponseException, IOException {
+    public void adminDeletePlayerRecordHandlerV1(AdminDeletePlayerRecordHandlerV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -146,7 +146,7 @@ public class AdminPlayerRecord {
     /**
      * @see AdminGetPlayerPublicRecordHandlerV1
      */
-    public ModelsPlayerRecordResponse adminGetPlayerPublicRecordHandlerV1(AdminGetPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
+    public ModelsPlayerRecordResponse adminGetPlayerPublicRecordHandlerV1(AdminGetPlayerPublicRecordHandlerV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -165,7 +165,7 @@ public class AdminPlayerRecord {
     /**
      * @see AdminPutPlayerPublicRecordHandlerV1
      */
-    public void adminPutPlayerPublicRecordHandlerV1(AdminPutPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
+    public void adminPutPlayerPublicRecordHandlerV1(AdminPutPlayerPublicRecordHandlerV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -184,7 +184,7 @@ public class AdminPlayerRecord {
     /**
      * @see AdminPostPlayerPublicRecordHandlerV1
      */
-    public void adminPostPlayerPublicRecordHandlerV1(AdminPostPlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
+    public void adminPostPlayerPublicRecordHandlerV1(AdminPostPlayerPublicRecordHandlerV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -203,7 +203,7 @@ public class AdminPlayerRecord {
     /**
      * @see AdminDeletePlayerPublicRecordHandlerV1
      */
-    public void adminDeletePlayerPublicRecordHandlerV1(AdminDeletePlayerPublicRecordHandlerV1 input) throws ResponseException, IOException {
+    public void adminDeletePlayerPublicRecordHandlerV1(AdminDeletePlayerPublicRecordHandlerV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

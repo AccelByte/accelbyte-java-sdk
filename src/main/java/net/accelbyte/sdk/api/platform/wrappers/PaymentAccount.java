@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.payment_account.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class PaymentAccount {
     /**
      * @see PublicGetPaymentAccounts
      */
-    public List<net.accelbyte.sdk.api.platform.models.PaymentAccount> publicGetPaymentAccounts(PublicGetPaymentAccounts input) throws ResponseException, IOException {
+    public List<net.accelbyte.sdk.api.platform.models.PaymentAccount> publicGetPaymentAccounts(PublicGetPaymentAccounts input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PaymentAccount {
     /**
      * @see PublicDeletePaymentAccount
      */
-    public void publicDeletePaymentAccount(PublicDeletePaymentAccount input) throws ResponseException, IOException {
+    public void publicDeletePaymentAccount(PublicDeletePaymentAccount input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

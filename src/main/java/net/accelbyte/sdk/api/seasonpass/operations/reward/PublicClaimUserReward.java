@@ -19,7 +19,7 @@ import net.accelbyte.sdk.api.seasonpass.models.*;
 import net.accelbyte.sdk.api.seasonpass.models.ClaimableRewards;
 import net.accelbyte.sdk.api.seasonpass.models.UserRewardClaim;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -119,12 +119,12 @@ public class PublicClaimUserReward extends Operation {
     }
 
     @Override
-    public ClaimableRewards parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public ClaimableRewards parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
             return new ClaimableRewards().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
 }

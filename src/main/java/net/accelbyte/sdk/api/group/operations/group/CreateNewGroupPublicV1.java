@@ -19,7 +19,7 @@ import net.accelbyte.sdk.api.group.models.*;
 import net.accelbyte.sdk.api.group.models.ModelsGroupResponseV1;
 import net.accelbyte.sdk.api.group.models.ModelsPublicCreateNewGroupRequestV1;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -157,12 +157,12 @@ public class CreateNewGroupPublicV1 extends Operation {
     }
 
     @Override
-    public ModelsGroupResponseV1 parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public ModelsGroupResponseV1 parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 201){
             return new ModelsGroupResponseV1().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
 }

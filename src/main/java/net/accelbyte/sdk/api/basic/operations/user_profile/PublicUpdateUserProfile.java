@@ -19,7 +19,7 @@ import net.accelbyte.sdk.api.basic.models.*;
 import net.accelbyte.sdk.api.basic.models.UserProfileInfo;
 import net.accelbyte.sdk.api.basic.models.UserProfileUpdate;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -121,12 +121,12 @@ public class PublicUpdateUserProfile extends Operation {
     }
 
     @Override
-    public UserProfileInfo parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public UserProfileInfo parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
             return new UserProfileInfo().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
 }

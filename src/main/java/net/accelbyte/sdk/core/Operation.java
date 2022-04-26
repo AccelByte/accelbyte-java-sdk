@@ -60,12 +60,12 @@ public class Operation {
     }
 
     public Object parseResponse(int code, String contentTpe, InputStream payload)
-            throws ResponseException, IOException {
+            throws HttpResponseException, IOException {
         return null;
     }
 
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload)
-            throws ResponseException, IOException {
+            throws HttpResponseException, IOException {
 
     }
 

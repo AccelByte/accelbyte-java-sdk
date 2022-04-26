@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.seasonpass.models.*;
 import net.accelbyte.sdk.api.seasonpass.operations.pass.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Pass {
     /**
      * @see QueryPasses
      */
-    public List<PassInfo> queryPasses(QueryPasses input) throws ResponseException, IOException {
+    public List<PassInfo> queryPasses(QueryPasses input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Pass {
     /**
      * @see CreatePass
      */
-    public PassInfo createPass(CreatePass input) throws ResponseException, IOException {
+    public PassInfo createPass(CreatePass input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Pass {
     /**
      * @see GetPass
      */
-    public PassInfo getPass(GetPass input) throws ResponseException, IOException {
+    public PassInfo getPass(GetPass input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Pass {
     /**
      * @see DeletePass
      */
-    public void deletePass(DeletePass input) throws ResponseException, IOException {
+    public void deletePass(DeletePass input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Pass {
     /**
      * @see UpdatePass
      */
-    public PassInfo updatePass(UpdatePass input) throws ResponseException, IOException {
+    public PassInfo updatePass(UpdatePass input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Pass {
     /**
      * @see GrantUserPass
      */
-    public UserSeasonSummary grantUserPass(GrantUserPass input) throws ResponseException, IOException {
+    public UserSeasonSummary grantUserPass(GrantUserPass input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

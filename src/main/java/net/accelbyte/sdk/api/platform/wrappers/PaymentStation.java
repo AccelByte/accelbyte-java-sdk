@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.payment_station.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,7 +32,7 @@ public class PaymentStation {
      * @deprecated
      */
     @Deprecated
-    public Customization getPaymentCustomization(GetPaymentCustomization input) throws ResponseException, IOException {
+    public Customization getPaymentCustomization(GetPaymentCustomization input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -51,7 +51,7 @@ public class PaymentStation {
     /**
      * @see PublicGetPaymentUrl
      */
-    public PaymentUrl publicGetPaymentUrl(PublicGetPaymentUrl input) throws ResponseException, IOException {
+    public PaymentUrl publicGetPaymentUrl(PublicGetPaymentUrl input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -70,7 +70,7 @@ public class PaymentStation {
     /**
      * @see PublicGetPaymentMethods
      */
-    public List<PaymentMethod> publicGetPaymentMethods(PublicGetPaymentMethods input) throws ResponseException, IOException {
+    public List<PaymentMethod> publicGetPaymentMethods(PublicGetPaymentMethods input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -89,7 +89,7 @@ public class PaymentStation {
     /**
      * @see PublicGetUnpaidPaymentOrder
      */
-    public PaymentOrderDetails publicGetUnpaidPaymentOrder(PublicGetUnpaidPaymentOrder input) throws ResponseException, IOException {
+    public PaymentOrderDetails publicGetUnpaidPaymentOrder(PublicGetUnpaidPaymentOrder input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -108,7 +108,7 @@ public class PaymentStation {
     /**
      * @see Pay
      */
-    public PaymentProcessResult pay(Pay input) throws ResponseException, IOException {
+    public PaymentProcessResult pay(Pay input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -127,7 +127,7 @@ public class PaymentStation {
     /**
      * @see PublicCheckPaymentOrderPaidStatus
      */
-    public PaymentOrderPaidResult publicCheckPaymentOrderPaidStatus(PublicCheckPaymentOrderPaidStatus input) throws ResponseException, IOException {
+    public PaymentOrderPaidResult publicCheckPaymentOrderPaidStatus(PublicCheckPaymentOrderPaidStatus input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -146,7 +146,7 @@ public class PaymentStation {
     /**
      * @see GetPaymentPublicConfig
      */
-    public Map<String, ?> getPaymentPublicConfig(GetPaymentPublicConfig input) throws ResponseException, IOException {
+    public Map<String, ?> getPaymentPublicConfig(GetPaymentPublicConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -165,7 +165,7 @@ public class PaymentStation {
     /**
      * @see PublicGetQRCode
      */
-    public InputStream publicGetQRCode(PublicGetQRCode input) throws ResponseException, IOException {
+    public InputStream publicGetQRCode(PublicGetQRCode input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -184,7 +184,7 @@ public class PaymentStation {
     /**
      * @see PublicNormalizePaymentReturnUrl
      */
-    public void publicNormalizePaymentReturnUrl(PublicNormalizePaymentReturnUrl input) throws ResponseException, IOException {
+    public void publicNormalizePaymentReturnUrl(PublicNormalizePaymentReturnUrl input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -203,7 +203,7 @@ public class PaymentStation {
     /**
      * @see GetPaymentTaxValue
      */
-    public TaxResult getPaymentTaxValue(GetPaymentTaxValue input) throws ResponseException, IOException {
+    public TaxResult getPaymentTaxValue(GetPaymentTaxValue input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

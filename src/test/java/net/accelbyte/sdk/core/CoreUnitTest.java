@@ -35,7 +35,7 @@ class CoreUnitTest {
     private final ConfigRepository httpbinConfigRepository = new HttpbinConfigRepository();
 
     @Test
-    void testCookie() throws IOException, ResponseException {
+    void testCookie() throws IOException, HttpResponseException {
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation("GET") {
             @Override
@@ -63,7 +63,7 @@ class CoreUnitTest {
     }
 
     @Test
-    void testCookieAccessToken() throws IOException, ResponseException {
+    void testCookieAccessToken() throws IOException, HttpResponseException {
         final String token = "token12345";
         AccelByteSDK sdk = new AccelByteSDK(httpClient,
                 tokenRepository,

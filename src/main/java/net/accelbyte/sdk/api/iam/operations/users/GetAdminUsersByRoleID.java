@@ -18,7 +18,7 @@ import lombok.Setter;
 import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.api.iam.models.ModelGetAdminUsersResponse;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -130,12 +130,12 @@ public class GetAdminUsersByRoleID extends Operation {
     }
 
     @Override
-    public ModelGetAdminUsersResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public ModelGetAdminUsersResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
             return new ModelGetAdminUsersResponse().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
     @Override

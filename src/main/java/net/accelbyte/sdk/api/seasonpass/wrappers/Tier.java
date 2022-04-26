@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.seasonpass.models.*;
 import net.accelbyte.sdk.api.seasonpass.operations.tier.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Tier {
     /**
      * @see QueryTiers
      */
-    public TierPagingSlicedResult queryTiers(QueryTiers input) throws ResponseException, IOException {
+    public TierPagingSlicedResult queryTiers(QueryTiers input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Tier {
     /**
      * @see CreateTier
      */
-    public List<net.accelbyte.sdk.api.seasonpass.models.Tier> createTier(CreateTier input) throws ResponseException, IOException {
+    public List<net.accelbyte.sdk.api.seasonpass.models.Tier> createTier(CreateTier input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Tier {
     /**
      * @see UpdateTier
      */
-    public net.accelbyte.sdk.api.seasonpass.models.Tier updateTier(UpdateTier input) throws ResponseException, IOException {
+    public net.accelbyte.sdk.api.seasonpass.models.Tier updateTier(UpdateTier input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Tier {
     /**
      * @see DeleteTier
      */
-    public void deleteTier(DeleteTier input) throws ResponseException, IOException {
+    public void deleteTier(DeleteTier input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Tier {
     /**
      * @see ReorderTier
      */
-    public net.accelbyte.sdk.api.seasonpass.models.Tier reorderTier(ReorderTier input) throws ResponseException, IOException {
+    public net.accelbyte.sdk.api.seasonpass.models.Tier reorderTier(ReorderTier input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Tier {
     /**
      * @see GrantUserExp
      */
-    public UserSeasonSummary grantUserExp(GrantUserExp input) throws ResponseException, IOException {
+    public UserSeasonSummary grantUserExp(GrantUserExp input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Tier {
     /**
      * @see GrantUserTier
      */
-    public UserSeasonSummary grantUserTier(GrantUserTier input) throws ResponseException, IOException {
+    public UserSeasonSummary grantUserTier(GrantUserTier input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -18,7 +18,7 @@ import lombok.Setter;
 import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.models.WalletInfo;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -110,12 +110,12 @@ public class GetWallet extends Operation {
     }
 
     @Override
-    public WalletInfo parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public WalletInfo parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
             return new WalletInfo().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
 }

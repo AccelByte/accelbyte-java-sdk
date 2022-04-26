@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.dsmc.models.*;
 import net.accelbyte.sdk.api.dsmc.operations.public_.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Public {
     /**
      * @see GetDefaultProvider
      */
-    public ModelsDefaultProvider getDefaultProvider(GetDefaultProvider input) throws ResponseException, IOException {
+    public ModelsDefaultProvider getDefaultProvider(GetDefaultProvider input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Public {
     /**
      * @see ListProviders
      */
-    public List<String> listProviders(ListProviders input) throws ResponseException, IOException {
+    public List<String> listProviders(ListProviders input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Public {
     /**
      * @see ListProvidersByRegion
      */
-    public ModelsDefaultProvider listProvidersByRegion(ListProvidersByRegion input) throws ResponseException, IOException {
+    public ModelsDefaultProvider listProvidersByRegion(ListProvidersByRegion input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

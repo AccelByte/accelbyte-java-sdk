@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.basic.models.*;
 import net.accelbyte.sdk.api.basic.operations.file_upload.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class FileUpload {
     /**
      * @see GeneratedUploadUrl
      */
-    public FileUploadUrlInfo generatedUploadUrl(GeneratedUploadUrl input) throws ResponseException, IOException {
+    public FileUploadUrlInfo generatedUploadUrl(GeneratedUploadUrl input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class FileUpload {
     /**
      * @see GeneratedUserUploadContentUrl
      */
-    public FileUploadUrlInfo generatedUserUploadContentUrl(GeneratedUserUploadContentUrl input) throws ResponseException, IOException {
+    public FileUploadUrlInfo generatedUserUploadContentUrl(GeneratedUserUploadContentUrl input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class FileUpload {
     /**
      * @see PublicGeneratedUploadUrl
      */
-    public FileUploadUrlInfo publicGeneratedUploadUrl(PublicGeneratedUploadUrl input) throws ResponseException, IOException {
+    public FileUploadUrlInfo publicGeneratedUploadUrl(PublicGeneratedUploadUrl input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class FileUpload {
     /**
      * @see PublicGeneratedUserUploadContentUrl
      */
-    public FileUploadUrlInfo publicGeneratedUserUploadContentUrl(PublicGeneratedUserUploadContentUrl input) throws ResponseException, IOException {
+    public FileUploadUrlInfo publicGeneratedUserUploadContentUrl(PublicGeneratedUserUploadContentUrl input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

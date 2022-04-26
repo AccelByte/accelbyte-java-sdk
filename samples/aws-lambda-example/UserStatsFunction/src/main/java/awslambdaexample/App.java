@@ -17,7 +17,7 @@ import net.accelbyte.sdk.api.social.operations.user_statistic.DeleteUserStatItem
 import net.accelbyte.sdk.api.social.operations.user_statistic.GetUserStatItems;
 import net.accelbyte.sdk.api.social.wrappers.UserStatistic;
 import net.accelbyte.sdk.core.AccelByteSDK;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
@@ -72,7 +72,7 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
                                         throw new IllegalArgumentException(String.format("Unhandled HTTP method %s",
                                                         request.getHttpMethod()));
                         }
-                } catch (ResponseException rex) {
+                } catch (HttpResponseException rex) {
                         return response
                                         .withStatusCode(rex.getHttpCode())
                                         .withBody(rex.getErrorMessage());
@@ -88,7 +88,7 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
 
         public APIGatewayProxyResponseEvent handlePostRequest(final AccelByteSDK sdk,
                         final APIGatewayProxyRequestEvent request,
-                        final APIGatewayProxyResponseEvent response) throws ResponseException, IOException {
+                        final APIGatewayProxyResponseEvent response) throws HttpResponseException, IOException {
 
                 final String namespace = request.getPathParameters()
                                 .get("namespace");
@@ -133,7 +133,7 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
         public APIGatewayProxyResponseEvent handleGetRequest(final AccelByteSDK sdk,
                         final APIGatewayProxyRequestEvent request,
                         final APIGatewayProxyResponseEvent response)
-                        throws ResponseException, IOException, IllegalAccessException {
+                        throws HttpResponseException, IOException, IllegalAccessException {
                 final String namespace = request.getPathParameters()
                                 .get("namespace");
                 final String userId = request.getPathParameters()
@@ -175,7 +175,7 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
         public APIGatewayProxyResponseEvent handleDeleteRequest(final AccelByteSDK sdk,
                         final APIGatewayProxyRequestEvent request,
                         final APIGatewayProxyResponseEvent response)
-                        throws ResponseException, IOException, IllegalAccessException {
+                        throws HttpResponseException, IOException, IllegalAccessException {
                 final String namespace = request.getPathParameters()
                                 .get("namespace");
                 final String userId = request.getPathParameters()

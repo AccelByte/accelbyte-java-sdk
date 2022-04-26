@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.lobby.models.*;
 import net.accelbyte.sdk.api.lobby.operations.party.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Party {
     /**
      * @see AdminGetPartyDataV1
      */
-    public ModelsPartyData adminGetPartyDataV1(AdminGetPartyDataV1 input) throws ResponseException, IOException {
+    public ModelsPartyData adminGetPartyDataV1(AdminGetPartyDataV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Party {
     /**
      * @see AdminGetUserPartyV1
      */
-    public ModelsPartyData adminGetUserPartyV1(AdminGetUserPartyV1 input) throws ResponseException, IOException {
+    public ModelsPartyData adminGetUserPartyV1(AdminGetUserPartyV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Party {
     /**
      * @see PublicGetPartyDataV1
      */
-    public ModelsPartyData publicGetPartyDataV1(PublicGetPartyDataV1 input) throws ResponseException, IOException {
+    public ModelsPartyData publicGetPartyDataV1(PublicGetPartyDataV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Party {
     /**
      * @see PublicUpdatePartyAttributesV1
      */
-    public ModelsPartyData publicUpdatePartyAttributesV1(PublicUpdatePartyAttributesV1 input) throws ResponseException, IOException {
+    public ModelsPartyData publicUpdatePartyAttributesV1(PublicUpdatePartyAttributesV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

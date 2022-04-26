@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.fulfillment.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Fulfillment {
     /**
      * @see QueryFulfillmentHistories
      */
-    public FulfillmentHistoryPagingSlicedResult queryFulfillmentHistories(QueryFulfillmentHistories input) throws ResponseException, IOException {
+    public FulfillmentHistoryPagingSlicedResult queryFulfillmentHistories(QueryFulfillmentHistories input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Fulfillment {
     /**
      * @see FulfillItem
      */
-    public FulfillmentResult fulfillItem(FulfillItem input) throws ResponseException, IOException {
+    public FulfillmentResult fulfillItem(FulfillItem input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Fulfillment {
     /**
      * @see RedeemCode
      */
-    public FulfillmentResult redeemCode(RedeemCode input) throws ResponseException, IOException {
+    public FulfillmentResult redeemCode(RedeemCode input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Fulfillment {
     /**
      * @see FulfillRewards
      */
-    public void fulfillRewards(FulfillRewards input) throws ResponseException, IOException {
+    public void fulfillRewards(FulfillRewards input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Fulfillment {
     /**
      * @see PublicRedeemCode
      */
-    public FulfillmentResult publicRedeemCode(PublicRedeemCode input) throws ResponseException, IOException {
+    public FulfillmentResult publicRedeemCode(PublicRedeemCode input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

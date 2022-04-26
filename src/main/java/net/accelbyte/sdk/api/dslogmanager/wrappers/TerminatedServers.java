@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.dslogmanager.models.*;
 import net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class TerminatedServers {
     /**
      * @see ListTerminatedServers
      */
-    public ModelsListTerminatedServersResponse listTerminatedServers(ListTerminatedServers input) throws ResponseException, IOException {
+    public ModelsListTerminatedServersResponse listTerminatedServers(ListTerminatedServers input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class TerminatedServers {
     /**
      * @see DownloadServerLogs
      */
-    public void downloadServerLogs(DownloadServerLogs input) throws ResponseException, IOException {
+    public void downloadServerLogs(DownloadServerLogs input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class TerminatedServers {
     /**
      * @see CheckServerLogs
      */
-    public ModelsLogFileStatus checkServerLogs(CheckServerLogs input) throws ResponseException, IOException {
+    public ModelsLogFileStatus checkServerLogs(CheckServerLogs input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

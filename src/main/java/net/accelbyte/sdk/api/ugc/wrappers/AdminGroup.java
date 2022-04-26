@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.ugc.models.*;
 import net.accelbyte.sdk.api.ugc.operations.admin_group.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class AdminGroup {
     /**
      * @see SingleAdminGetAllGroups
      */
-    public ModelsPaginatedGroupResponse singleAdminGetAllGroups(SingleAdminGetAllGroups input) throws ResponseException, IOException {
+    public ModelsPaginatedGroupResponse singleAdminGetAllGroups(SingleAdminGetAllGroups input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class AdminGroup {
     /**
      * @see AdminCreateGroup
      */
-    public ModelsCreateGroupResponse adminCreateGroup(AdminCreateGroup input) throws ResponseException, IOException {
+    public ModelsCreateGroupResponse adminCreateGroup(AdminCreateGroup input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class AdminGroup {
     /**
      * @see SingleAdminGetGroup
      */
-    public ModelsCreateGroupResponse singleAdminGetGroup(SingleAdminGetGroup input) throws ResponseException, IOException {
+    public ModelsCreateGroupResponse singleAdminGetGroup(SingleAdminGetGroup input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class AdminGroup {
     /**
      * @see SingleAdminUpdateGroup
      */
-    public ModelsCreateGroupResponse singleAdminUpdateGroup(SingleAdminUpdateGroup input) throws ResponseException, IOException {
+    public ModelsCreateGroupResponse singleAdminUpdateGroup(SingleAdminUpdateGroup input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class AdminGroup {
     /**
      * @see SingleAdminDeleteGroup
      */
-    public void singleAdminDeleteGroup(SingleAdminDeleteGroup input) throws ResponseException, IOException {
+    public void singleAdminDeleteGroup(SingleAdminDeleteGroup input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class AdminGroup {
     /**
      * @see SingleAdminGetGroupContents
      */
-    public ModelsPaginatedContentDownloadResponse singleAdminGetGroupContents(SingleAdminGetGroupContents input) throws ResponseException, IOException {
+    public ModelsPaginatedContentDownloadResponse singleAdminGetGroupContents(SingleAdminGetGroupContents input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class AdminGroup {
     /**
      * @see AdminGetAllGroups
      */
-    public ModelsPaginatedGroupResponse adminGetAllGroups(AdminGetAllGroups input) throws ResponseException, IOException {
+    public ModelsPaginatedGroupResponse adminGetAllGroups(AdminGetAllGroups input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class AdminGroup {
     /**
      * @see AdminGetGroup
      */
-    public ModelsCreateGroupResponse adminGetGroup(AdminGetGroup input) throws ResponseException, IOException {
+    public ModelsCreateGroupResponse adminGetGroup(AdminGetGroup input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class AdminGroup {
     /**
      * @see AdminUpdateGroup
      */
-    public ModelsCreateGroupResponse adminUpdateGroup(AdminUpdateGroup input) throws ResponseException, IOException {
+    public ModelsCreateGroupResponse adminUpdateGroup(AdminUpdateGroup input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class AdminGroup {
     /**
      * @see AdminDeleteGroup
      */
-    public void adminDeleteGroup(AdminDeleteGroup input) throws ResponseException, IOException {
+    public void adminDeleteGroup(AdminDeleteGroup input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class AdminGroup {
     /**
      * @see AdminGetGroupContents
      */
-    public ModelsPaginatedContentDownloadResponse adminGetGroupContents(AdminGetGroupContents input) throws ResponseException, IOException {
+    public ModelsPaginatedContentDownloadResponse adminGetGroupContents(AdminGetGroupContents input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

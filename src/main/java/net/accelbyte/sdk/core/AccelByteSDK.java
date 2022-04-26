@@ -157,7 +157,7 @@ public class AccelByteSDK {
             final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
             this.sdkConfiguration.getTokenRepository().storeToken(token.getAccessToken());
             return true;
-        } catch (ResponseException | IOException | URISyntaxException e) {
+        } catch (HttpResponseException | IOException | URISyntaxException e) {
             e.printStackTrace();
         }
         return false;
@@ -172,7 +172,7 @@ public class AccelByteSDK {
             final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
             this.sdkConfiguration.getTokenRepository().storeToken(token.getAccessToken());
             return true;
-        } catch (ResponseException | IOException e) {
+        } catch (HttpResponseException | IOException e) {
             e.printStackTrace();
         }
         return false;

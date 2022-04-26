@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.api.iam.operations.roles.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Roles {
     /**
      * @see GetRoles
      */
-    public List<ModelRoleResponseWithManagers> getRoles(GetRoles input) throws ResponseException, IOException {
+    public List<ModelRoleResponseWithManagers> getRoles(GetRoles input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Roles {
     /**
      * @see CreateRole
      */
-    public AccountcommonRole createRole(CreateRole input) throws ResponseException, IOException {
+    public AccountcommonRole createRole(CreateRole input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Roles {
     /**
      * @see GetRole
      */
-    public ModelRoleResponse getRole(GetRole input) throws ResponseException, IOException {
+    public ModelRoleResponse getRole(GetRole input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Roles {
     /**
      * @see UpdateRole
      */
-    public ModelRoleResponse updateRole(UpdateRole input) throws ResponseException, IOException {
+    public ModelRoleResponse updateRole(UpdateRole input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Roles {
     /**
      * @see DeleteRole
      */
-    public void deleteRole(DeleteRole input) throws ResponseException, IOException {
+    public void deleteRole(DeleteRole input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Roles {
     /**
      * @see GetRoleAdminStatus
      */
-    public ModelRoleAdminStatusResponse getRoleAdminStatus(GetRoleAdminStatus input) throws ResponseException, IOException {
+    public ModelRoleAdminStatusResponse getRoleAdminStatus(GetRoleAdminStatus input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Roles {
     /**
      * @see SetRoleAsAdmin
      */
-    public void setRoleAsAdmin(SetRoleAsAdmin input) throws ResponseException, IOException {
+    public void setRoleAsAdmin(SetRoleAsAdmin input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Roles {
     /**
      * @see RemoveRoleAdmin
      */
-    public void removeRoleAdmin(RemoveRoleAdmin input) throws ResponseException, IOException {
+    public void removeRoleAdmin(RemoveRoleAdmin input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class Roles {
     /**
      * @see GetRoleManagers
      */
-    public ModelRoleManagersResponse getRoleManagers(GetRoleManagers input) throws ResponseException, IOException {
+    public ModelRoleManagersResponse getRoleManagers(GetRoleManagers input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class Roles {
     /**
      * @see AddRoleManagers
      */
-    public void addRoleManagers(AddRoleManagers input) throws ResponseException, IOException {
+    public void addRoleManagers(AddRoleManagers input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class Roles {
     /**
      * @see RemoveRoleManagers
      */
-    public void removeRoleManagers(RemoveRoleManagers input) throws ResponseException, IOException {
+    public void removeRoleManagers(RemoveRoleManagers input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +239,7 @@ public class Roles {
     /**
      * @see GetRoleMembers
      */
-    public ModelRoleMembersResponse getRoleMembers(GetRoleMembers input) throws ResponseException, IOException {
+    public ModelRoleMembersResponse getRoleMembers(GetRoleMembers input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -258,7 +258,7 @@ public class Roles {
     /**
      * @see AddRoleMembers
      */
-    public void addRoleMembers(AddRoleMembers input) throws ResponseException, IOException {
+    public void addRoleMembers(AddRoleMembers input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -277,7 +277,7 @@ public class Roles {
     /**
      * @see RemoveRoleMembers
      */
-    public void removeRoleMembers(RemoveRoleMembers input) throws ResponseException, IOException {
+    public void removeRoleMembers(RemoveRoleMembers input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -296,7 +296,7 @@ public class Roles {
     /**
      * @see UpdateRolePermissions
      */
-    public void updateRolePermissions(UpdateRolePermissions input) throws ResponseException, IOException {
+    public void updateRolePermissions(UpdateRolePermissions input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -315,7 +315,7 @@ public class Roles {
     /**
      * @see AddRolePermission
      */
-    public void addRolePermission(AddRolePermission input) throws ResponseException, IOException {
+    public void addRolePermission(AddRolePermission input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -334,7 +334,7 @@ public class Roles {
     /**
      * @see DeleteRolePermission
      */
-    public void deleteRolePermission(DeleteRolePermission input) throws ResponseException, IOException {
+    public void deleteRolePermission(DeleteRolePermission input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -353,7 +353,7 @@ public class Roles {
     /**
      * @see AdminGetRolesV3
      */
-    public ModelRoleResponseWithManagersAndPaginationV3 adminGetRolesV3(AdminGetRolesV3 input) throws ResponseException, IOException {
+    public ModelRoleResponseWithManagersAndPaginationV3 adminGetRolesV3(AdminGetRolesV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -372,7 +372,7 @@ public class Roles {
     /**
      * @see AdminCreateRoleV3
      */
-    public AccountcommonRoleV3 adminCreateRoleV3(AdminCreateRoleV3 input) throws ResponseException, IOException {
+    public AccountcommonRoleV3 adminCreateRoleV3(AdminCreateRoleV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -391,7 +391,7 @@ public class Roles {
     /**
      * @see AdminGetRoleV3
      */
-    public ModelRoleResponseV3 adminGetRoleV3(AdminGetRoleV3 input) throws ResponseException, IOException {
+    public ModelRoleResponseV3 adminGetRoleV3(AdminGetRoleV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -410,7 +410,7 @@ public class Roles {
     /**
      * @see AdminDeleteRoleV3
      */
-    public void adminDeleteRoleV3(AdminDeleteRoleV3 input) throws ResponseException, IOException {
+    public void adminDeleteRoleV3(AdminDeleteRoleV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -429,7 +429,7 @@ public class Roles {
     /**
      * @see AdminUpdateRoleV3
      */
-    public ModelRoleResponseV3 adminUpdateRoleV3(AdminUpdateRoleV3 input) throws ResponseException, IOException {
+    public ModelRoleResponseV3 adminUpdateRoleV3(AdminUpdateRoleV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -448,7 +448,7 @@ public class Roles {
     /**
      * @see AdminGetRoleAdminStatusV3
      */
-    public ModelRoleAdminStatusResponseV3 adminGetRoleAdminStatusV3(AdminGetRoleAdminStatusV3 input) throws ResponseException, IOException {
+    public ModelRoleAdminStatusResponseV3 adminGetRoleAdminStatusV3(AdminGetRoleAdminStatusV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -467,7 +467,7 @@ public class Roles {
     /**
      * @see AdminUpdateAdminRoleStatusV3
      */
-    public void adminUpdateAdminRoleStatusV3(AdminUpdateAdminRoleStatusV3 input) throws ResponseException, IOException {
+    public void adminUpdateAdminRoleStatusV3(AdminUpdateAdminRoleStatusV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -486,7 +486,7 @@ public class Roles {
     /**
      * @see AdminRemoveRoleAdminV3
      */
-    public void adminRemoveRoleAdminV3(AdminRemoveRoleAdminV3 input) throws ResponseException, IOException {
+    public void adminRemoveRoleAdminV3(AdminRemoveRoleAdminV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -505,7 +505,7 @@ public class Roles {
     /**
      * @see AdminGetRoleManagersV3
      */
-    public ModelRoleManagersResponsesV3 adminGetRoleManagersV3(AdminGetRoleManagersV3 input) throws ResponseException, IOException {
+    public ModelRoleManagersResponsesV3 adminGetRoleManagersV3(AdminGetRoleManagersV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -524,7 +524,7 @@ public class Roles {
     /**
      * @see AdminAddRoleManagersV3
      */
-    public void adminAddRoleManagersV3(AdminAddRoleManagersV3 input) throws ResponseException, IOException {
+    public void adminAddRoleManagersV3(AdminAddRoleManagersV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -543,7 +543,7 @@ public class Roles {
     /**
      * @see AdminRemoveRoleManagersV3
      */
-    public void adminRemoveRoleManagersV3(AdminRemoveRoleManagersV3 input) throws ResponseException, IOException {
+    public void adminRemoveRoleManagersV3(AdminRemoveRoleManagersV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -562,7 +562,7 @@ public class Roles {
     /**
      * @see AdminGetRoleMembersV3
      */
-    public ModelRoleMembersResponseV3 adminGetRoleMembersV3(AdminGetRoleMembersV3 input) throws ResponseException, IOException {
+    public ModelRoleMembersResponseV3 adminGetRoleMembersV3(AdminGetRoleMembersV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -581,7 +581,7 @@ public class Roles {
     /**
      * @see AdminAddRoleMembersV3
      */
-    public void adminAddRoleMembersV3(AdminAddRoleMembersV3 input) throws ResponseException, IOException {
+    public void adminAddRoleMembersV3(AdminAddRoleMembersV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -600,7 +600,7 @@ public class Roles {
     /**
      * @see AdminRemoveRoleMembersV3
      */
-    public void adminRemoveRoleMembersV3(AdminRemoveRoleMembersV3 input) throws ResponseException, IOException {
+    public void adminRemoveRoleMembersV3(AdminRemoveRoleMembersV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -619,7 +619,7 @@ public class Roles {
     /**
      * @see AdminUpdateRolePermissionsV3
      */
-    public void adminUpdateRolePermissionsV3(AdminUpdateRolePermissionsV3 input) throws ResponseException, IOException {
+    public void adminUpdateRolePermissionsV3(AdminUpdateRolePermissionsV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -638,7 +638,7 @@ public class Roles {
     /**
      * @see AdminAddRolePermissionsV3
      */
-    public void adminAddRolePermissionsV3(AdminAddRolePermissionsV3 input) throws ResponseException, IOException {
+    public void adminAddRolePermissionsV3(AdminAddRolePermissionsV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -657,7 +657,7 @@ public class Roles {
     /**
      * @see AdminDeleteRolePermissionsV3
      */
-    public void adminDeleteRolePermissionsV3(AdminDeleteRolePermissionsV3 input) throws ResponseException, IOException {
+    public void adminDeleteRolePermissionsV3(AdminDeleteRolePermissionsV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -676,7 +676,7 @@ public class Roles {
     /**
      * @see AdminDeleteRolePermissionV3
      */
-    public void adminDeleteRolePermissionV3(AdminDeleteRolePermissionV3 input) throws ResponseException, IOException {
+    public void adminDeleteRolePermissionV3(AdminDeleteRolePermissionV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -695,7 +695,7 @@ public class Roles {
     /**
      * @see PublicGetRolesV3
      */
-    public ModelRoleNamesResponseV3 publicGetRolesV3(PublicGetRolesV3 input) throws ResponseException, IOException {
+    public ModelRoleNamesResponseV3 publicGetRolesV3(PublicGetRolesV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -714,7 +714,7 @@ public class Roles {
     /**
      * @see PublicGetRoleV3
      */
-    public ModelRoleResponse publicGetRoleV3(PublicGetRoleV3 input) throws ResponseException, IOException {
+    public ModelRoleResponse publicGetRoleV3(PublicGetRoleV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -733,7 +733,7 @@ public class Roles {
     /**
      * @see AdminGetRolesV4
      */
-    public ModelListRoleV4Response adminGetRolesV4(AdminGetRolesV4 input) throws ResponseException, IOException {
+    public ModelListRoleV4Response adminGetRolesV4(AdminGetRolesV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -752,7 +752,7 @@ public class Roles {
     /**
      * @see AdminCreateRoleV4
      */
-    public ModelRoleV4Response adminCreateRoleV4(AdminCreateRoleV4 input) throws ResponseException, IOException {
+    public ModelRoleV4Response adminCreateRoleV4(AdminCreateRoleV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -771,7 +771,7 @@ public class Roles {
     /**
      * @see AdminGetRoleV4
      */
-    public ModelRoleV4Response adminGetRoleV4(AdminGetRoleV4 input) throws ResponseException, IOException {
+    public ModelRoleV4Response adminGetRoleV4(AdminGetRoleV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -790,7 +790,7 @@ public class Roles {
     /**
      * @see AdminDeleteRoleV4
      */
-    public void adminDeleteRoleV4(AdminDeleteRoleV4 input) throws ResponseException, IOException {
+    public void adminDeleteRoleV4(AdminDeleteRoleV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -809,7 +809,7 @@ public class Roles {
     /**
      * @see AdminUpdateRoleV4
      */
-    public ModelRoleV4Response adminUpdateRoleV4(AdminUpdateRoleV4 input) throws ResponseException, IOException {
+    public ModelRoleV4Response adminUpdateRoleV4(AdminUpdateRoleV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -828,7 +828,7 @@ public class Roles {
     /**
      * @see AdminUpdateRolePermissionsV4
      */
-    public ModelRoleV4Response adminUpdateRolePermissionsV4(AdminUpdateRolePermissionsV4 input) throws ResponseException, IOException {
+    public ModelRoleV4Response adminUpdateRolePermissionsV4(AdminUpdateRolePermissionsV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -847,7 +847,7 @@ public class Roles {
     /**
      * @see AdminAddRolePermissionsV4
      */
-    public ModelRoleV4Response adminAddRolePermissionsV4(AdminAddRolePermissionsV4 input) throws ResponseException, IOException {
+    public ModelRoleV4Response adminAddRolePermissionsV4(AdminAddRolePermissionsV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -866,7 +866,7 @@ public class Roles {
     /**
      * @see AdminDeleteRolePermissionsV4
      */
-    public void adminDeleteRolePermissionsV4(AdminDeleteRolePermissionsV4 input) throws ResponseException, IOException {
+    public void adminDeleteRolePermissionsV4(AdminDeleteRolePermissionsV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -885,7 +885,7 @@ public class Roles {
     /**
      * @see AdminListAssignedUsersV4
      */
-    public ModelListAssignedUsersV4Response adminListAssignedUsersV4(AdminListAssignedUsersV4 input) throws ResponseException, IOException {
+    public ModelListAssignedUsersV4Response adminListAssignedUsersV4(AdminListAssignedUsersV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -904,7 +904,7 @@ public class Roles {
     /**
      * @see AdminAssignUserToRoleV4
      */
-    public ModelAssignedUserV4Response adminAssignUserToRoleV4(AdminAssignUserToRoleV4 input) throws ResponseException, IOException {
+    public ModelAssignedUserV4Response adminAssignUserToRoleV4(AdminAssignUserToRoleV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -923,7 +923,7 @@ public class Roles {
     /**
      * @see AdminRevokeUserFromRoleV4
      */
-    public void adminRevokeUserFromRoleV4(AdminRevokeUserFromRoleV4 input) throws ResponseException, IOException {
+    public void adminRevokeUserFromRoleV4(AdminRevokeUserFromRoleV4 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

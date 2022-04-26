@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.catalog_changes.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class CatalogChanges {
     /**
      * @see QueryChanges
      */
-    public List<CatalogChangePagingSlicedResult> queryChanges(QueryChanges input) throws ResponseException, IOException {
+    public List<CatalogChangePagingSlicedResult> queryChanges(QueryChanges input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class CatalogChanges {
     /**
      * @see PublishAll
      */
-    public StoreInfo publishAll(PublishAll input) throws ResponseException, IOException {
+    public StoreInfo publishAll(PublishAll input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

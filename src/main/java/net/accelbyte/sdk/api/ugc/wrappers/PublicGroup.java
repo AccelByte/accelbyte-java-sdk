@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.ugc.models.*;
 import net.accelbyte.sdk.api.ugc.operations.public_group.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class PublicGroup {
     /**
      * @see GetGroups
      */
-    public ModelsPaginatedGroupResponse getGroups(GetGroups input) throws ResponseException, IOException {
+    public ModelsPaginatedGroupResponse getGroups(GetGroups input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PublicGroup {
     /**
      * @see CreateGroup
      */
-    public ModelsCreateGroupResponse createGroup(CreateGroup input) throws ResponseException, IOException {
+    public ModelsCreateGroupResponse createGroup(CreateGroup input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class PublicGroup {
     /**
      * @see GetGroup
      */
-    public ModelsCreateGroupResponse getGroup(GetGroup input) throws ResponseException, IOException {
+    public ModelsCreateGroupResponse getGroup(GetGroup input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class PublicGroup {
     /**
      * @see UpdateGroup
      */
-    public ModelsCreateGroupResponse updateGroup(UpdateGroup input) throws ResponseException, IOException {
+    public ModelsCreateGroupResponse updateGroup(UpdateGroup input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class PublicGroup {
     /**
      * @see DeleteGroup
      */
-    public void deleteGroup(DeleteGroup input) throws ResponseException, IOException {
+    public void deleteGroup(DeleteGroup input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class PublicGroup {
     /**
      * @see GetGroupContent
      */
-    public ModelsPaginatedContentDownloadResponse getGroupContent(GetGroupContent input) throws ResponseException, IOException {
+    public ModelsPaginatedContentDownloadResponse getGroupContent(GetGroupContent input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

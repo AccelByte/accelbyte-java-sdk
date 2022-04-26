@@ -19,7 +19,7 @@ import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.api.iam.models.ClientmodelClientCreationResponse;
 import net.accelbyte.sdk.api.iam.models.ClientmodelClientCreateRequest;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -109,12 +109,12 @@ public class CreateClientByNamespace extends Operation {
     }
 
     @Override
-    public ClientmodelClientCreationResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public ClientmodelClientCreationResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 201){
             return new ClientmodelClientCreationResponse().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
 }

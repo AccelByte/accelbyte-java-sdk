@@ -19,7 +19,7 @@ import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.models.SteamIAPConfigInfo;
 import net.accelbyte.sdk.api.platform.models.SteamIAPConfigRequest;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -106,12 +106,12 @@ public class UpdateSteamIAPConfig extends Operation {
     }
 
     @Override
-    public SteamIAPConfigInfo parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public SteamIAPConfigInfo parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 200){
             return new SteamIAPConfigInfo().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
 }

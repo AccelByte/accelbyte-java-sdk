@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.campaign.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Campaign {
     /**
      * @see QueryCampaigns
      */
-    public CampaignPagingSlicedResult queryCampaigns(QueryCampaigns input) throws ResponseException, IOException {
+    public CampaignPagingSlicedResult queryCampaigns(QueryCampaigns input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Campaign {
     /**
      * @see CreateCampaign
      */
-    public CampaignInfo createCampaign(CreateCampaign input) throws ResponseException, IOException {
+    public CampaignInfo createCampaign(CreateCampaign input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Campaign {
     /**
      * @see GetCampaign
      */
-    public CampaignInfo getCampaign(GetCampaign input) throws ResponseException, IOException {
+    public CampaignInfo getCampaign(GetCampaign input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Campaign {
     /**
      * @see UpdateCampaign
      */
-    public CampaignInfo updateCampaign(UpdateCampaign input) throws ResponseException, IOException {
+    public CampaignInfo updateCampaign(UpdateCampaign input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Campaign {
     /**
      * @see GetCampaignDynamic
      */
-    public CampaignDynamicInfo getCampaignDynamic(GetCampaignDynamic input) throws ResponseException, IOException {
+    public CampaignDynamicInfo getCampaignDynamic(GetCampaignDynamic input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Campaign {
     /**
      * @see QueryCodes
      */
-    public CodeInfoPagingSlicedResult queryCodes(QueryCodes input) throws ResponseException, IOException {
+    public CodeInfoPagingSlicedResult queryCodes(QueryCodes input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Campaign {
     /**
      * @see CreateCodes
      */
-    public CodeCreateResult createCodes(CreateCodes input) throws ResponseException, IOException {
+    public CodeCreateResult createCodes(CreateCodes input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Campaign {
     /**
      * @see Download
      */
-    public void download(Download input) throws ResponseException, IOException {
+    public void download(Download input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class Campaign {
     /**
      * @see BulkDisableCodes
      */
-    public BulkOperationResult bulkDisableCodes(BulkDisableCodes input) throws ResponseException, IOException {
+    public BulkOperationResult bulkDisableCodes(BulkDisableCodes input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class Campaign {
     /**
      * @see BulkEnableCodes
      */
-    public BulkOperationResult bulkEnableCodes(BulkEnableCodes input) throws ResponseException, IOException {
+    public BulkOperationResult bulkEnableCodes(BulkEnableCodes input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class Campaign {
     /**
      * @see QueryRedeemHistory
      */
-    public RedeemHistoryPagingSlicedResult queryRedeemHistory(QueryRedeemHistory input) throws ResponseException, IOException {
+    public RedeemHistoryPagingSlicedResult queryRedeemHistory(QueryRedeemHistory input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +239,7 @@ public class Campaign {
     /**
      * @see GetCode
      */
-    public CodeInfo getCode(GetCode input) throws ResponseException, IOException {
+    public CodeInfo getCode(GetCode input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -258,7 +258,7 @@ public class Campaign {
     /**
      * @see DisableCode
      */
-    public CodeInfo disableCode(DisableCode input) throws ResponseException, IOException {
+    public CodeInfo disableCode(DisableCode input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -277,7 +277,7 @@ public class Campaign {
     /**
      * @see EnableCode
      */
-    public CodeInfo enableCode(EnableCode input) throws ResponseException, IOException {
+    public CodeInfo enableCode(EnableCode input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -296,7 +296,7 @@ public class Campaign {
     /**
      * @see ApplyUserRedemption
      */
-    public RedeemResult applyUserRedemption(ApplyUserRedemption input) throws ResponseException, IOException {
+    public RedeemResult applyUserRedemption(ApplyUserRedemption input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

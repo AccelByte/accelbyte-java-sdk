@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.lobby.models.*;
 import net.accelbyte.sdk.api.lobby.operations.player.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Player {
     /**
      * @see AdminGetLobbyCCU
      */
-    public ModelsGetLobbyCcuResponse adminGetLobbyCCU(AdminGetLobbyCCU input) throws ResponseException, IOException {
+    public ModelsGetLobbyCcuResponse adminGetLobbyCCU(AdminGetLobbyCCU input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Player {
     /**
      * @see AdminGetAllPlayerSessionAttribute
      */
-    public ModelsGetAllPlayerSessionAttributeResponse adminGetAllPlayerSessionAttribute(AdminGetAllPlayerSessionAttribute input) throws ResponseException, IOException {
+    public ModelsGetAllPlayerSessionAttributeResponse adminGetAllPlayerSessionAttribute(AdminGetAllPlayerSessionAttribute input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Player {
     /**
      * @see AdminSetPlayerSessionAttribute
      */
-    public void adminSetPlayerSessionAttribute(AdminSetPlayerSessionAttribute input) throws ResponseException, IOException {
+    public void adminSetPlayerSessionAttribute(AdminSetPlayerSessionAttribute input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Player {
     /**
      * @see AdminGetPlayerSessionAttribute
      */
-    public ModelsGetPlayerSessionAttributeResponse adminGetPlayerSessionAttribute(AdminGetPlayerSessionAttribute input) throws ResponseException, IOException {
+    public ModelsGetPlayerSessionAttributeResponse adminGetPlayerSessionAttribute(AdminGetPlayerSessionAttribute input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Player {
     /**
      * @see AdminGetPlayerBlockedPlayersV1
      */
-    public ModelsGetAllPlayerBlockedUsersResponse adminGetPlayerBlockedPlayersV1(AdminGetPlayerBlockedPlayersV1 input) throws ResponseException, IOException {
+    public ModelsGetAllPlayerBlockedUsersResponse adminGetPlayerBlockedPlayersV1(AdminGetPlayerBlockedPlayersV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Player {
     /**
      * @see AdminGetPlayerBlockedByPlayersV1
      */
-    public ModelsGetAllPlayerBlockedByUsersResponse adminGetPlayerBlockedByPlayersV1(AdminGetPlayerBlockedByPlayersV1 input) throws ResponseException, IOException {
+    public ModelsGetAllPlayerBlockedByUsersResponse adminGetPlayerBlockedByPlayersV1(AdminGetPlayerBlockedByPlayersV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Player {
     /**
      * @see AdminBulkBlockPlayersV1
      */
-    public void adminBulkBlockPlayersV1(AdminBulkBlockPlayersV1 input) throws ResponseException, IOException {
+    public void adminBulkBlockPlayersV1(AdminBulkBlockPlayersV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Player {
     /**
      * @see PublicGetPlayerBlockedPlayersV1
      */
-    public ModelsGetAllPlayerBlockedUsersResponse publicGetPlayerBlockedPlayersV1(PublicGetPlayerBlockedPlayersV1 input) throws ResponseException, IOException {
+    public ModelsGetAllPlayerBlockedUsersResponse publicGetPlayerBlockedPlayersV1(PublicGetPlayerBlockedPlayersV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class Player {
     /**
      * @see PublicGetPlayerBlockedByPlayersV1
      */
-    public ModelsGetAllPlayerBlockedByUsersResponse publicGetPlayerBlockedByPlayersV1(PublicGetPlayerBlockedByPlayersV1 input) throws ResponseException, IOException {
+    public ModelsGetAllPlayerBlockedByUsersResponse publicGetPlayerBlockedByPlayersV1(PublicGetPlayerBlockedByPlayersV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

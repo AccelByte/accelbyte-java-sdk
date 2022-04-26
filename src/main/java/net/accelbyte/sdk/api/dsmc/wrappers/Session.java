@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.dsmc.models.*;
 import net.accelbyte.sdk.api.dsmc.operations.session.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Session {
     /**
      * @see CreateSession
      */
-    public ModelsSessionResponse createSession(CreateSession input) throws ResponseException, IOException {
+    public ModelsSessionResponse createSession(CreateSession input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Session {
     /**
      * @see ClaimServer
      */
-    public void claimServer(ClaimServer input) throws ResponseException, IOException {
+    public void claimServer(ClaimServer input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Session {
     /**
      * @see GetSession
      */
-    public ModelsSessionResponse getSession(GetSession input) throws ResponseException, IOException {
+    public ModelsSessionResponse getSession(GetSession input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

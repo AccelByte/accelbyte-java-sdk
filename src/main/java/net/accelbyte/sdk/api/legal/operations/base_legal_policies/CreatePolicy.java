@@ -19,7 +19,7 @@ import net.accelbyte.sdk.api.legal.models.*;
 import net.accelbyte.sdk.api.legal.models.CreateBasePolicyResponse;
 import net.accelbyte.sdk.api.legal.models.CreateBasePolicyRequest;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -92,12 +92,12 @@ public class CreatePolicy extends Operation {
     }
 
     @Override
-    public CreateBasePolicyResponse parseResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public CreateBasePolicyResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
         if(code == 201){
             return new CreateBasePolicyResponse().createFromJson(json);
         }
-        throw new ResponseException(code, json);
+        throw new HttpResponseException(code, json);
     }
 
 }

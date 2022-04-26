@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.dsmc.models.*;
 import net.accelbyte.sdk.api.dsmc.operations.server.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class Server {
     /**
      * @see DeregisterLocalServer
      */
-    public void deregisterLocalServer(DeregisterLocalServer input) throws ResponseException, IOException {
+    public void deregisterLocalServer(DeregisterLocalServer input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Server {
     /**
      * @see RegisterLocalServer
      */
-    public ModelsServer registerLocalServer(RegisterLocalServer input) throws ResponseException, IOException {
+    public ModelsServer registerLocalServer(RegisterLocalServer input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Server {
     /**
      * @see RegisterServer
      */
-    public ModelsServer registerServer(RegisterServer input) throws ResponseException, IOException {
+    public ModelsServer registerServer(RegisterServer input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Server {
     /**
      * @see ShutdownServer
      */
-    public void shutdownServer(ShutdownServer input) throws ResponseException, IOException {
+    public void shutdownServer(ShutdownServer input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Server {
     /**
      * @see GetServerSession
      */
-    public ModelsServerSessionResponse getServerSession(GetServerSession input) throws ResponseException, IOException {
+    public ModelsServerSessionResponse getServerSession(GetServerSession input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

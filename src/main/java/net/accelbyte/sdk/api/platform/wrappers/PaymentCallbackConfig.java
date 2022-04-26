@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.payment_callback_config.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class PaymentCallbackConfig {
     /**
      * @see GetPaymentCallbackConfig
      */
-    public PaymentCallbackConfigInfo getPaymentCallbackConfig(GetPaymentCallbackConfig input) throws ResponseException, IOException {
+    public PaymentCallbackConfigInfo getPaymentCallbackConfig(GetPaymentCallbackConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PaymentCallbackConfig {
     /**
      * @see UpdatePaymentCallbackConfig
      */
-    public PaymentCallbackConfigInfo updatePaymentCallbackConfig(UpdatePaymentCallbackConfig input) throws ResponseException, IOException {
+    public PaymentCallbackConfigInfo updatePaymentCallbackConfig(UpdatePaymentCallbackConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

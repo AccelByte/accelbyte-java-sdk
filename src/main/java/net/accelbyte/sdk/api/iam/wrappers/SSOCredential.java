@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.api.iam.operations.sso_credential.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class SSOCredential {
     /**
      * @see RetrieveAllSSOLoginPlatformCredentialV3
      */
-    public List<ModelSSOPlatformCredentialResponse> retrieveAllSSOLoginPlatformCredentialV3(RetrieveAllSSOLoginPlatformCredentialV3 input) throws ResponseException, IOException {
+    public List<ModelSSOPlatformCredentialResponse> retrieveAllSSOLoginPlatformCredentialV3(RetrieveAllSSOLoginPlatformCredentialV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class SSOCredential {
     /**
      * @see RetrieveSSOLoginPlatformCredential
      */
-    public ModelSSOPlatformCredentialResponse retrieveSSOLoginPlatformCredential(RetrieveSSOLoginPlatformCredential input) throws ResponseException, IOException {
+    public ModelSSOPlatformCredentialResponse retrieveSSOLoginPlatformCredential(RetrieveSSOLoginPlatformCredential input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class SSOCredential {
     /**
      * @see AddSSOLoginPlatformCredential
      */
-    public ModelSSOPlatformCredentialResponse addSSOLoginPlatformCredential(AddSSOLoginPlatformCredential input) throws ResponseException, IOException {
+    public ModelSSOPlatformCredentialResponse addSSOLoginPlatformCredential(AddSSOLoginPlatformCredential input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class SSOCredential {
     /**
      * @see DeleteSSOLoginPlatformCredentialV3
      */
-    public void deleteSSOLoginPlatformCredentialV3(DeleteSSOLoginPlatformCredentialV3 input) throws ResponseException, IOException {
+    public void deleteSSOLoginPlatformCredentialV3(DeleteSSOLoginPlatformCredentialV3 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class SSOCredential {
     /**
      * @see UpdateSSOPlatformCredential
      */
-    public ModelSSOPlatformCredentialResponse updateSSOPlatformCredential(UpdateSSOPlatformCredential input) throws ResponseException, IOException {
+    public ModelSSOPlatformCredentialResponse updateSSOPlatformCredential(UpdateSSOPlatformCredential input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

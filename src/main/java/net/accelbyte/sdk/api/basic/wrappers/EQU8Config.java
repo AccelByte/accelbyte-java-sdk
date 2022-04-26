@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.basic.models.*;
 import net.accelbyte.sdk.api.basic.operations.equ8_config.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class EQU8Config {
     /**
      * @see GetConfig
      */
-    public Equ8Config getConfig(GetConfig input) throws ResponseException, IOException {
+    public Equ8Config getConfig(GetConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class EQU8Config {
     /**
      * @see DeleteConfig
      */
-    public void deleteConfig(DeleteConfig input) throws ResponseException, IOException {
+    public void deleteConfig(DeleteConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class EQU8Config {
     /**
      * @see UpdateConfig
      */
-    public Equ8Config updateConfig(UpdateConfig input) throws ResponseException, IOException {
+    public Equ8Config updateConfig(UpdateConfig input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

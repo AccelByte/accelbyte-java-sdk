@@ -18,7 +18,7 @@ import lombok.Setter;
 import net.accelbyte.sdk.api.gdpr.models.*;
 import net.accelbyte.sdk.api.gdpr.models.ModelsListPersonalDataResponse;
 import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -118,10 +118,10 @@ public class PublicCancelUserPersonalDataRequest extends Operation {
     }
 
     @Override
-    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws ResponseException, IOException {
+    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         if(code >= 400 && code <= 599){
             String json = this.convertInputStreamToString(payload);
-            throw new ResponseException(code, json);
+            throw new HttpResponseException(code, json);
         }
     }
 

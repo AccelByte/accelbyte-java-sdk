@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.legal.models.*;
 import net.accelbyte.sdk.api.legal.operations.base_legal_policies.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class BaseLegalPolicies {
     /**
      * @see RetrieveAllLegalPolicies
      */
-    public List<RetrieveBasePolicyResponse> retrieveAllLegalPolicies(RetrieveAllLegalPolicies input) throws ResponseException, IOException {
+    public List<RetrieveBasePolicyResponse> retrieveAllLegalPolicies(RetrieveAllLegalPolicies input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class BaseLegalPolicies {
     /**
      * @see CreatePolicy
      */
-    public CreateBasePolicyResponse createPolicy(CreatePolicy input) throws ResponseException, IOException {
+    public CreateBasePolicyResponse createPolicy(CreatePolicy input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class BaseLegalPolicies {
     /**
      * @see RetrieveSinglePolicy
      */
-    public RetrieveBasePolicyResponse retrieveSinglePolicy(RetrieveSinglePolicy input) throws ResponseException, IOException {
+    public RetrieveBasePolicyResponse retrieveSinglePolicy(RetrieveSinglePolicy input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class BaseLegalPolicies {
     /**
      * @see PartialUpdatePolicy
      */
-    public UpdateBasePolicyResponse partialUpdatePolicy(PartialUpdatePolicy input) throws ResponseException, IOException {
+    public UpdateBasePolicyResponse partialUpdatePolicy(PartialUpdatePolicy input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class BaseLegalPolicies {
     /**
      * @see RetrievePolicyCountry
      */
-    public RetrievePolicyResponse retrievePolicyCountry(RetrievePolicyCountry input) throws ResponseException, IOException {
+    public RetrievePolicyResponse retrievePolicyCountry(RetrievePolicyCountry input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class BaseLegalPolicies {
     /**
      * @see RetrieveAllPolicyTypes
      */
-    public List<RetrievePolicyTypeResponse> retrieveAllPolicyTypes(RetrieveAllPolicyTypes input) throws ResponseException, IOException {
+    public List<RetrievePolicyTypeResponse> retrieveAllPolicyTypes(RetrieveAllPolicyTypes input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

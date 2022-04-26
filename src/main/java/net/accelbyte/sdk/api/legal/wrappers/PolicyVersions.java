@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.legal.models.*;
 import net.accelbyte.sdk.api.legal.operations.policy_versions.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class PolicyVersions {
     /**
      * @see UpdatePolicyVersion
      */
-    public UpdatePolicyVersionResponse updatePolicyVersion(UpdatePolicyVersion input) throws ResponseException, IOException {
+    public UpdatePolicyVersionResponse updatePolicyVersion(UpdatePolicyVersion input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PolicyVersions {
     /**
      * @see PublishPolicyVersion
      */
-    public void publishPolicyVersion(PublishPolicyVersion input) throws ResponseException, IOException {
+    public void publishPolicyVersion(PublishPolicyVersion input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class PolicyVersions {
     /**
      * @see RetrieveSinglePolicyVersion
      */
-    public List<RetrievePolicyVersionResponse> retrieveSinglePolicyVersion(RetrieveSinglePolicyVersion input) throws ResponseException, IOException {
+    public List<RetrievePolicyVersionResponse> retrieveSinglePolicyVersion(RetrieveSinglePolicyVersion input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class PolicyVersions {
     /**
      * @see CreatePolicyVersion
      */
-    public CreatePolicyVersionResponse createPolicyVersion(CreatePolicyVersion input) throws ResponseException, IOException {
+    public CreatePolicyVersionResponse createPolicyVersion(CreatePolicyVersion input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class PolicyVersions {
     /**
      * @see RetrievePolicyVersions
      */
-    public List<RetrievePolicyVersionResponse> retrievePolicyVersions(RetrievePolicyVersions input) throws ResponseException, IOException {
+    public List<RetrievePolicyVersionResponse> retrievePolicyVersions(RetrievePolicyVersions input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -12,7 +12,7 @@ import net.accelbyte.sdk.api.cloudsave.models.*;
 import net.accelbyte.sdk.api.cloudsave.operations.public_game_record.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.ResponseException;
+import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class PublicGameRecord {
     /**
      * @see GetGameRecordHandlerV1
      */
-    public ModelsGameRecordResponse getGameRecordHandlerV1(GetGameRecordHandlerV1 input) throws ResponseException, IOException {
+    public ModelsGameRecordResponse getGameRecordHandlerV1(GetGameRecordHandlerV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PublicGameRecord {
     /**
      * @see PutGameRecordHandlerV1
      */
-    public void putGameRecordHandlerV1(PutGameRecordHandlerV1 input) throws ResponseException, IOException {
+    public void putGameRecordHandlerV1(PutGameRecordHandlerV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class PublicGameRecord {
     /**
      * @see PostGameRecordHandlerV1
      */
-    public void postGameRecordHandlerV1(PostGameRecordHandlerV1 input) throws ResponseException, IOException {
+    public void postGameRecordHandlerV1(PostGameRecordHandlerV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class PublicGameRecord {
     /**
      * @see DeleteGameRecordHandlerV1
      */
-    public void deleteGameRecordHandlerV1(DeleteGameRecordHandlerV1 input) throws ResponseException, IOException {
+    public void deleteGameRecordHandlerV1(DeleteGameRecordHandlerV1 input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
