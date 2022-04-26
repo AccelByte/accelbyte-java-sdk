@@ -296,6 +296,12 @@
 | `/platform/admin/namespaces/{namespace}/stores/{storeId}/export` | GET | ExportStore | [ExportStore](../src/main/java/net/accelbyte/sdk/api/platform/operations/store/ExportStore.java) |
 | `/platform/public/namespaces/{namespace}/stores` | GET | PublicListStores | [PublicListStores](../src/main/java/net/accelbyte/sdk/api/platform/operations/store/PublicListStores.java) |
 
+### CatalogChanges Wrapper:  [CatalogChanges](../src/main/java/net/accelbyte/sdk/api/platform/wrappers/CatalogChanges.java)
+| Endpoint | Method | ID | Class |
+|---|---|---|---|
+| `/platform/admin/namespaces/{namespace}/stores/{storeId}/catalogChanges/byCriteria` | GET | QueryChanges | [QueryChanges](../src/main/java/net/accelbyte/sdk/api/platform/operations/catalog_changes/QueryChanges.java) |
+| `/platform/admin/namespaces/{namespace}/stores/{storeId}/catalogChanges/publishAll` | PUT | PublishAll | [PublishAll](../src/main/java/net/accelbyte/sdk/api/platform/operations/catalog_changes/PublishAll.java) |
+
 ### Subscription Wrapper:  [Subscription](../src/main/java/net/accelbyte/sdk/api/platform/wrappers/Subscription.java)
 | Endpoint | Method | ID | Class |
 |---|---|---|---|
@@ -451,6 +457,8 @@
 | `CampaignPagingSlicedResult` | [CampaignPagingSlicedResult](../src/main/java/net/accelbyte/sdk/api/platform/models/CampaignPagingSlicedResult.java) |
 | `CampaignUpdate` | [CampaignUpdate](../src/main/java/net/accelbyte/sdk/api/platform/models/CampaignUpdate.java) |
 | `CancelRequest` | [CancelRequest](../src/main/java/net/accelbyte/sdk/api/platform/models/CancelRequest.java) |
+| `CatalogChangeInfo` | [CatalogChangeInfo](../src/main/java/net/accelbyte/sdk/api/platform/models/CatalogChangeInfo.java) |
+| `CatalogChangePagingSlicedResult` | [CatalogChangePagingSlicedResult](../src/main/java/net/accelbyte/sdk/api/platform/models/CatalogChangePagingSlicedResult.java) |
 | `CategoryCreate` | [CategoryCreate](../src/main/java/net/accelbyte/sdk/api/platform/models/CategoryCreate.java) |
 | `CategoryInfo` | [CategoryInfo](../src/main/java/net/accelbyte/sdk/api/platform/models/CategoryInfo.java) |
 | `CategoryUpdate` | [CategoryUpdate](../src/main/java/net/accelbyte/sdk/api/platform/models/CategoryUpdate.java) |

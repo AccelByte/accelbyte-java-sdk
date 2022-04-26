@@ -85,6 +85,7 @@
 |---|---|---|---|
 | `/ugc/v1/public/namespaces/{namespace}/channels/{channelId}/contents` | GET | SearchChannelSpecificContent | [SearchChannelSpecificContent](../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_content/SearchChannelSpecificContent.java) |
 | `/ugc/v1/public/namespaces/{namespace}/contents` | GET | PublicSearchContent | [PublicSearchContent](../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_content/PublicSearchContent.java) |
+| `/ugc/v1/public/namespaces/{namespace}/contents/bulk` | POST | PublicGetContentBulk | [PublicGetContentBulk](../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_content/PublicGetContentBulk.java) |
 | `/ugc/v1/public/namespaces/{namespace}/contents/sharecodes/{shareCode}` | GET | DownloadContentByShareCode | [DownloadContentByShareCode](../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_content/DownloadContentByShareCode.java) |
 | `/ugc/v1/public/namespaces/{namespace}/contents/{contentId}` | GET | PublicDownloadContentByContentID | [PublicDownloadContentByContentID](../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_content/PublicDownloadContentByContentID.java) |
 | `/ugc/v1/public/namespaces/{namespace}/contents/{contentId}/preview` | GET | PublicDownloadContentPreview | [PublicDownloadContentPreview](../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_content/PublicDownloadContentPreview.java) |
@@ -188,6 +189,7 @@
 | `models.PaginatedGroupResponse` | [ModelsPaginatedGroupResponse](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPaginatedGroupResponse.java) |
 | `models.PagingCursor` | [ModelsPagingCursor](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPagingCursor.java) |
 | `models.PayloadURL` | [ModelsPayloadURL](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPayloadURL.java) |
+| `models.PublicGetContentBulkRequest` | [ModelsPublicGetContentBulkRequest](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPublicGetContentBulkRequest.java) |
 | `models.ScreenshotResponse` | [ModelsScreenshotResponse](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsScreenshotResponse.java) |
 | `models.UpdateScreenshotRequest` | [ModelsUpdateScreenshotRequest](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUpdateScreenshotRequest.java) |
 | `models.UpdateScreenshotResponse` | [ModelsUpdateScreenshotResponse](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUpdateScreenshotResponse.java) |
