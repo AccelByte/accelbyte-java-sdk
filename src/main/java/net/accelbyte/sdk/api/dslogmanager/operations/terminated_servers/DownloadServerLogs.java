@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Builder;
@@ -17,11 +16,11 @@ import lombok.Setter;
 
 import net.accelbyte.sdk.api.dslogmanager.models.*;
 import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
@@ -39,7 +38,7 @@ public class DownloadServerLogs extends Operation {
     /**
      * generated field's value
      */
-    private String url = "/dslogmanager/namespaces/{namespace}/servers/{podName}/logs/download";
+    private String path = "/dslogmanager/namespaces/{namespace}/servers/{podName}/logs/download";
     private String method = "GET";
     private List<String> consumes = Arrays.asList("application/json");
     private List<String> produces = Arrays.asList("application/json","text/x-log");
@@ -85,11 +84,6 @@ public class DownloadServerLogs extends Operation {
 
 
     @Override
-    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @Override
     public boolean isValid() {
         if(this.namespace == null) {
             return false;
@@ -102,7 +96,7 @@ public class DownloadServerLogs extends Operation {
 
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         if(code != 200){
-            String json = this.convertInputStreamToString(payload);
+            String json = Helper.convertInputStreamToString(payload);
             throw new HttpResponseException(code, json);
         }
     }

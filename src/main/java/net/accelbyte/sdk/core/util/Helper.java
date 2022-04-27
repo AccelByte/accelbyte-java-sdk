@@ -39,13 +39,13 @@ public class Helper {
 
     }
 
-    public static String createFullUrl(String url, String baseUrl, Map<String, String> pathParams,
+    public static String createFullUrl(String baseUrl, String path, Map<String, String> pathParams,
             Map<String, List<String>> queryParams, Map<String, String> collectionFormatMap)
             throws UnsupportedEncodingException {
         final String ENC = "UTF-8";
         StringBuilder result = new StringBuilder();
 
-        if (url == null) {
+        if (path == null) {
             throw new IllegalArgumentException("Path cannot be null");
         }
 
@@ -62,10 +62,10 @@ public class Helper {
         // path params
         if (pathParams.size() > 0) {
             for (Map.Entry<String, String> pathParam : pathParams.entrySet()) {
-                url = url.replace("{" + pathParam.getKey() + "}", URLEncoder.encode(pathParam.getValue(), ENC));
+                path = path.replace("{" + pathParam.getKey() + "}", URLEncoder.encode(pathParam.getValue(), ENC));
             }
         }
-        result.append(url);
+        result.append(path);
 
         // query params
         if (queryParams.size() > 0) {

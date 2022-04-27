@@ -65,12 +65,12 @@ public class AccelByteSDK {
                         Credentials.basic(clientId, clientSecret));
                 break;
             case "Bearer":
-                if (!token.equals("")) {
+                if (token != null && !token.equals("")) {
                     headers.put(HttpHeaders.AUTHORIZATION, "Bearer " + token);
                 }
                 break;
             case "Cookie":
-                if (!token.equals("")) {
+                if (token != null && !token.equals("")) {
                     cookies.put("access_token", token);
                 }
                 break;

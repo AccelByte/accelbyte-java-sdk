@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.api.dsmc.operations.config;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Builder;
@@ -18,11 +17,11 @@ import lombok.Setter;
 import net.accelbyte.sdk.api.dsmc.models.*;
 import net.accelbyte.sdk.api.dsmc.models.ModelsImportResponse;
 import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
@@ -42,7 +41,7 @@ public class ImportConfigV1 extends Operation {
     /**
      * generated field's value
      */
-    private String url = "/dsmcontroller/admin/v1/namespaces/{namespace}/configs/import";
+    private String path = "/dsmcontroller/admin/v1/namespaces/{namespace}/configs/import";
     private String method = "POST";
     private List<String> consumes = Arrays.asList("multipart/form-data");
     private List<String> produces = Arrays.asList("application/json");
@@ -92,11 +91,6 @@ public class ImportConfigV1 extends Operation {
     }
 
     @Override
-    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @Override
     public boolean isValid() {
         if(this.namespace == null) {
             return false;
@@ -105,7 +99,7 @@ public class ImportConfigV1 extends Operation {
     }
 
     public ModelsImportResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = this.convertInputStreamToString(payload);
+        String json = Helper.convertInputStreamToString(payload);
         if(code == 200){
             return new ModelsImportResponse().createFromJson(json);
         }

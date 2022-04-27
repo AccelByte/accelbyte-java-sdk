@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.api.sessionbrowser.operations.session;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Builder;
@@ -18,11 +17,11 @@ import lombok.Setter;
 import net.accelbyte.sdk.api.sessionbrowser.models.*;
 import net.accelbyte.sdk.api.sessionbrowser.models.ModelsActiveCustomGameResponse;
 import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
@@ -38,7 +37,7 @@ public class GetActiveCustomGameSessions extends Operation {
     /**
      * generated field's value
      */
-    private String url = "/sessionbrowser/admin/namespaces/{namespace}/gamesession/active/custom-game";
+    private String path = "/sessionbrowser/admin/namespaces/{namespace}/gamesession/active/custom-game";
     private String method = "GET";
     private List<String> consumes = Arrays.asList();
     private List<String> produces = Arrays.asList("application/json");
@@ -90,11 +89,6 @@ public class GetActiveCustomGameSessions extends Operation {
 
 
     @Override
-    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @Override
     public boolean isValid() {
         if(this.namespace == null) {
             return false;
@@ -103,7 +97,7 @@ public class GetActiveCustomGameSessions extends Operation {
     }
 
     public ModelsActiveCustomGameResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = this.convertInputStreamToString(payload);
+        String json = Helper.convertInputStreamToString(payload);
         if(code == 200){
             return new ModelsActiveCustomGameResponse().createFromJson(json);
         }

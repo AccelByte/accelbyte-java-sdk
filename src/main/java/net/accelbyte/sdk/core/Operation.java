@@ -21,7 +21,7 @@ import java.util.Map;
 @Getter
 @Setter
 public abstract class Operation {
-    protected String url = "";
+    protected String path = "";
     protected String method = "";
     protected List<String> consumes = new ArrayList<>();
     protected List<String> produces = new ArrayList<>();
@@ -39,8 +39,10 @@ public abstract class Operation {
         return new HashMap<>();
     }
 
-    public abstract String getFullUrl(String baseUrl)
-            throws UnsupportedEncodingException;
+    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
+        return Helper.createFullUrl(baseUrl, this.getPath(), this.getPathParams(),
+                this.getQueryParams(), this.getCollectionFormatMap());
+    }
 
     public Map<String, String> getCookieParams() {
         return new HashMap<>();
@@ -58,15 +60,5 @@ public abstract class Operation {
 
     protected Map<String, String> getCollectionFormatMap() {
         return new HashMap<>();
-    }
-
-    protected String createFullUrl(String url, String baseUrl, Map<String, String> pathParams,
-            Map<String, List<String>> queryParams, Map<String, String> collectionFormatMap)
-            throws UnsupportedEncodingException {
-        return Helper.createFullUrl(url, baseUrl, pathParams, queryParams, collectionFormatMap);
-    }
-
-    protected String convertInputStreamToString(InputStream is) throws IOException {
-        return Helper.convertInputStreamToString(is);
     }
 }

@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.api.qosm.operations.server;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Builder;
@@ -18,11 +17,11 @@ import lombok.Setter;
 import net.accelbyte.sdk.api.qosm.models.*;
 import net.accelbyte.sdk.api.qosm.models.ModelsHeartbeatRequest;
 import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
@@ -42,7 +41,7 @@ public class Heartbeat extends Operation {
     /**
      * generated field's value
      */
-    private String url = "/qosm/servers/heartbeat";
+    private String path = "/qosm/servers/heartbeat";
     private String method = "POST";
     private List<String> consumes = Arrays.asList("application/json");
     private List<String> produces = Arrays.asList("application/json");
@@ -77,18 +76,13 @@ public class Heartbeat extends Operation {
 
 
     @Override
-    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @Override
     public boolean isValid() {
         return true;
     }
 
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         if(code != 204){
-            String json = this.convertInputStreamToString(payload);
+            String json = Helper.convertInputStreamToString(payload);
             throw new HttpResponseException(code, json);
         }
     }

@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.api.ugc.operations.admin_content;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Builder;
@@ -17,11 +16,11 @@ import lombok.Setter;
 
 import net.accelbyte.sdk.api.ugc.models.*;
 import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.core.HttpResponseException;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
@@ -35,7 +34,7 @@ public class SingleAdminDeleteContent extends Operation {
     /**
      * generated field's value
      */
-    private String url = "/ugc/v1/admin/namespaces/{namespace}/channels/{channelId}/contents/{contentId}";
+    private String path = "/ugc/v1/admin/namespaces/{namespace}/channels/{channelId}/contents/{contentId}";
     private String method = "DELETE";
     private List<String> consumes = Arrays.asList("application/json");
     private List<String> produces = Arrays.asList("application/json");
@@ -88,11 +87,6 @@ public class SingleAdminDeleteContent extends Operation {
 
 
     @Override
-    public String getFullUrl(String baseUrl) throws UnsupportedEncodingException {
-        return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
-    }
-
-    @Override
     public boolean isValid() {
         if(this.channelId == null) {
             return false;
@@ -108,7 +102,7 @@ public class SingleAdminDeleteContent extends Operation {
 
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         if(code != 204){
-            String json = this.convertInputStreamToString(payload);
+            String json = Helper.convertInputStreamToString(payload);
             throw new HttpResponseException(code, json);
         }
     }
