@@ -65,16 +65,15 @@ public class DeleteUserFromSessionInChannel implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Matchmaking(sdk)
-            .deleteUserFromSessionInChannel(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking.DeleteUserFromSessionInChannel(
-                    channelName,
-                    matchID,
-                    namespace,
-                    userID
-                )
-            );
+            Matchmaking wrapper = new Matchmaking(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking.DeleteUserFromSessionInChannel operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking.DeleteUserFromSessionInChannel.builder()
+                            .channelName(channelName)
+                            .matchID(matchID)
+                            .namespace(namespace)
+                            .userID(userID)
+                            .build();
+                    wrapper.deleteUserFromSessionInChannel(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

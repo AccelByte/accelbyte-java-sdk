@@ -65,17 +65,16 @@ public class GetPublicFollowers implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicFollow wrapper = new PublicFollow(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_follow.GetPublicFollowers operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_follow.GetPublicFollowers.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsPaginatedCreatorOverviewResponse response =
-            new PublicFollow(sdk)
-            .getPublicFollowers(
-                new net.accelbyte.sdk.api.ugc.operations.public_follow.GetPublicFollowers(
-                    namespace,
-                    userId,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.getPublicFollowers(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

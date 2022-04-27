@@ -74,20 +74,19 @@ public class GetPublicEditHistory implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            EventV2 wrapper = new EventV2(sdk);
+            net.accelbyte.sdk.api.eventlog.operations.event_v2.GetPublicEditHistory operation =
+                    net.accelbyte.sdk.api.eventlog.operations.event_v2.GetPublicEditHistory.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .endDate(endDate)
+                            .offset(offset)
+                            .pageSize(pageSize)
+                            .startDate(startDate)
+                            .type(type)
+                            .build();
             ModelsEventResponseV2 response =
-            new EventV2(sdk)
-            .getPublicEditHistory(
-                new net.accelbyte.sdk.api.eventlog.operations.event_v2.GetPublicEditHistory(
-                    namespace,
-                    userId,
-                    endDate,
-                    offset,
-                    pageSize,
-                    startDate,
-                    type
-                )
-            );
+                    wrapper.getPublicEditHistory(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

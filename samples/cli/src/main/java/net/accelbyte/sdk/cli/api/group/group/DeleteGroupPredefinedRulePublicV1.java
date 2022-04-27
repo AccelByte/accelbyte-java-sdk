@@ -62,15 +62,14 @@ public class DeleteGroupPredefinedRulePublicV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Group(sdk)
-            .deleteGroupPredefinedRulePublicV1(
-                new net.accelbyte.sdk.api.group.operations.group.DeleteGroupPredefinedRulePublicV1(
-                    allowedAction,
-                    groupId,
-                    namespace
-                )
-            );
+            Group wrapper = new Group(sdk);
+            net.accelbyte.sdk.api.group.operations.group.DeleteGroupPredefinedRulePublicV1 operation =
+                    net.accelbyte.sdk.api.group.operations.group.DeleteGroupPredefinedRulePublicV1.builder()
+                            .allowedAction(allowedAction)
+                            .groupId(groupId)
+                            .namespace(namespace)
+                            .build();
+                    wrapper.deleteGroupPredefinedRulePublicV1(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

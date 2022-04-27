@@ -59,15 +59,14 @@ public class CreateLeaderboardConfigurationPublicV1 implements Callable<Integer>
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            LeaderboardConfiguration wrapper = new LeaderboardConfiguration(sdk);
+            net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.CreateLeaderboardConfigurationPublicV1 operation =
+                    net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.CreateLeaderboardConfigurationPublicV1.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsLeaderboardConfigReq.class)) 
+                            .build();
             ModelsLeaderboardConfigReq response =
-            new LeaderboardConfiguration(sdk)
-            .createLeaderboardConfigurationPublicV1(
-                new net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.CreateLeaderboardConfigurationPublicV1(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsLeaderboardConfigReq.class)  
-                )
-            );
+                    wrapper.createLeaderboardConfigurationPublicV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

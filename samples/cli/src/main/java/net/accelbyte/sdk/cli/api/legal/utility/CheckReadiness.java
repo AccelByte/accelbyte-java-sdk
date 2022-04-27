@@ -53,13 +53,12 @@ public class CheckReadiness implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Utility wrapper = new Utility(sdk);
+            net.accelbyte.sdk.api.legal.operations.utility.CheckReadiness operation =
+                    net.accelbyte.sdk.api.legal.operations.utility.CheckReadiness.builder()
+                            .build();
             LegalReadinessStatusResponse response =
-            new Utility(sdk)
-            .checkReadiness(
-                new net.accelbyte.sdk.api.legal.operations.utility.CheckReadiness(
-                )
-            );
+                    wrapper.checkReadiness(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

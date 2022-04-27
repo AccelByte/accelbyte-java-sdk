@@ -59,15 +59,14 @@ public class UpdateClient implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Clients wrapper = new Clients(sdk);
+            net.accelbyte.sdk.api.iam.operations.clients.UpdateClient operation =
+                    net.accelbyte.sdk.api.iam.operations.clients.UpdateClient.builder()
+                            .clientId(clientId)
+                            .body(new ObjectMapper().readValue(body, ClientmodelClientUpdateRequest.class)) 
+                            .build();
             ClientmodelClientResponse response =
-            new Clients(sdk)
-            .updateClient(
-                new net.accelbyte.sdk.api.iam.operations.clients.UpdateClient(
-                    clientId,
-                    new ObjectMapper().readValue(body, ClientmodelClientUpdateRequest.class)  
-                )
-            );
+                    wrapper.updateClient(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

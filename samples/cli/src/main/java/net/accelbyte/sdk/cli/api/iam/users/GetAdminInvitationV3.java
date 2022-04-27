@@ -59,15 +59,14 @@ public class GetAdminInvitationV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.GetAdminInvitationV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.GetAdminInvitationV3.builder()
+                            .invitationId(invitationId)
+                            .namespace(namespace)
+                            .build();
             ModelUserInvitationV3 response =
-            new Users(sdk)
-            .getAdminInvitationV3(
-                new net.accelbyte.sdk.api.iam.operations.users.GetAdminInvitationV3(
-                    invitationId,
-                    namespace
-                )
-            );
+                    wrapper.getAdminInvitationV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

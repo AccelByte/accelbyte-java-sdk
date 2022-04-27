@@ -56,14 +56,13 @@ public class RetrieveSingleLocalizedPolicyVersion1 implements Callable<Integer> 
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            LocalizedPolicyVersions wrapper = new LocalizedPolicyVersions(sdk);
+            net.accelbyte.sdk.api.legal.operations.localized_policy_versions.RetrieveSingleLocalizedPolicyVersion1 operation =
+                    net.accelbyte.sdk.api.legal.operations.localized_policy_versions.RetrieveSingleLocalizedPolicyVersion1.builder()
+                            .localizedPolicyVersionId(localizedPolicyVersionId)
+                            .build();
             RetrieveLocalizedPolicyVersionPublicResponse response =
-            new LocalizedPolicyVersions(sdk)
-            .retrieveSingleLocalizedPolicyVersion1(
-                new net.accelbyte.sdk.api.legal.operations.localized_policy_versions.RetrieveSingleLocalizedPolicyVersion1(
-                    localizedPolicyVersionId
-                )
-            );
+                    wrapper.retrieveSingleLocalizedPolicyVersion1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -62,15 +62,14 @@ public class AdminLinkPlatformAccount implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .adminLinkPlatformAccount(
-                new net.accelbyte.sdk.api.iam.operations.users.AdminLinkPlatformAccount(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelLinkPlatformAccountRequest.class)  
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.AdminLinkPlatformAccount operation =
+                    net.accelbyte.sdk.api.iam.operations.users.AdminLinkPlatformAccount.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelLinkPlatformAccountRequest.class)) 
+                            .build();
+                    wrapper.adminLinkPlatformAccount(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

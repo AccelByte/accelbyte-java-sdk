@@ -65,17 +65,16 @@ public class UpdateStripeConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PaymentConfig wrapper = new PaymentConfig(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_config.UpdateStripeConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_config.UpdateStripeConfig.builder()
+                            .id(id)
+                            .sandbox(sandbox)
+                            .validate(validate)
+                            .body(new ObjectMapper().readValue(body, StripeConfig.class)) 
+                            .build();
             PaymentMerchantConfigInfo response =
-            new PaymentConfig(sdk)
-            .updateStripeConfig(
-                new net.accelbyte.sdk.api.platform.operations.payment_config.UpdateStripeConfig(
-                    id,
-                    sandbox,
-                    validate,
-                    new ObjectMapper().readValue(body, StripeConfig.class)  
-                )
-            );
+                    wrapper.updateStripeConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

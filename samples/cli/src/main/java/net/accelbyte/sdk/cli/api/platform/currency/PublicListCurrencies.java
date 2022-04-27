@@ -56,14 +56,13 @@ public class PublicListCurrencies implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Currency wrapper = new Currency(sdk);
+            net.accelbyte.sdk.api.platform.operations.currency.PublicListCurrencies operation =
+                    net.accelbyte.sdk.api.platform.operations.currency.PublicListCurrencies.builder()
+                            .namespace(namespace)
+                            .build();
             List<CurrencyInfo> response =
-            new Currency(sdk)
-            .publicListCurrencies(
-                new net.accelbyte.sdk.api.platform.operations.currency.PublicListCurrencies(
-                    namespace
-                )
-            );
+                    wrapper.publicListCurrencies(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

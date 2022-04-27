@@ -53,13 +53,12 @@ public class GetJWKSV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            OAuth20 wrapper = new OAuth20(sdk);
+            net.accelbyte.sdk.api.iam.operations.o_auth2_0.GetJWKSV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.o_auth2_0.GetJWKSV3.builder()
+                            .build();
             OauthcommonJWKSet response =
-            new OAuth20(sdk)
-            .getJWKSV3(
-                new net.accelbyte.sdk.api.iam.operations.o_auth2_0.GetJWKSV3(
-                )
-            );
+                    wrapper.getJWKSV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

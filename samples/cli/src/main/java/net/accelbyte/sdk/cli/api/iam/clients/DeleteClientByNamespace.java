@@ -59,14 +59,13 @@ public class DeleteClientByNamespace implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Clients(sdk)
-            .deleteClientByNamespace(
-                new net.accelbyte.sdk.api.iam.operations.clients.DeleteClientByNamespace(
-                    clientId,
-                    namespace
-                )
-            );
+            Clients wrapper = new Clients(sdk);
+            net.accelbyte.sdk.api.iam.operations.clients.DeleteClientByNamespace operation =
+                    net.accelbyte.sdk.api.iam.operations.clients.DeleteClientByNamespace.builder()
+                            .clientId(clientId)
+                            .namespace(namespace)
+                            .build();
+                    wrapper.deleteClientByNamespace(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

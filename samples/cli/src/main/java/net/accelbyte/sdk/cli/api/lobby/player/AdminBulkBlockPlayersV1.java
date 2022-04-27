@@ -62,15 +62,14 @@ public class AdminBulkBlockPlayersV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Player(sdk)
-            .adminBulkBlockPlayersV1(
-                new net.accelbyte.sdk.api.lobby.operations.player.AdminBulkBlockPlayersV1(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelsListBlockedPlayerRequest.class)  
-                )
-            );
+            Player wrapper = new Player(sdk);
+            net.accelbyte.sdk.api.lobby.operations.player.AdminBulkBlockPlayersV1 operation =
+                    net.accelbyte.sdk.api.lobby.operations.player.AdminBulkBlockPlayersV1.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelsListBlockedPlayerRequest.class)) 
+                            .build();
+                    wrapper.adminBulkBlockPlayersV1(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

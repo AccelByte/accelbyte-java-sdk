@@ -53,13 +53,12 @@ public class RetrieveAgreementsPublic implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Agreement wrapper = new Agreement(sdk);
+            net.accelbyte.sdk.api.legal.operations.agreement.RetrieveAgreementsPublic operation =
+                    net.accelbyte.sdk.api.legal.operations.agreement.RetrieveAgreementsPublic.builder()
+                            .build();
             List<RetrieveAcceptedAgreementResponse> response =
-            new Agreement(sdk)
-            .retrieveAgreementsPublic(
-                new net.accelbyte.sdk.api.legal.operations.agreement.RetrieveAgreementsPublic(
-                )
-            );
+                    wrapper.retrieveAgreementsPublic(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

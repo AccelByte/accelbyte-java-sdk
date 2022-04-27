@@ -59,15 +59,14 @@ public class DeleteBulkLeaderboardConfigurationAdminV1 implements Callable<Integ
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            LeaderboardConfiguration wrapper = new LeaderboardConfiguration(sdk);
+            net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.DeleteBulkLeaderboardConfigurationAdminV1 operation =
+                    net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.DeleteBulkLeaderboardConfigurationAdminV1.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsDeleteBulkLeaderboardsReq.class)) 
+                            .build();
             ModelsDeleteBulkLeaderboardsResp response =
-            new LeaderboardConfiguration(sdk)
-            .deleteBulkLeaderboardConfigurationAdminV1(
-                new net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.DeleteBulkLeaderboardConfigurationAdminV1(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsDeleteBulkLeaderboardsReq.class)  
-                )
-            );
+                    wrapper.deleteBulkLeaderboardConfigurationAdminV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

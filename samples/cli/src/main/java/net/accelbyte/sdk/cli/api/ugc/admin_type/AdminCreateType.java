@@ -59,15 +59,14 @@ public class AdminCreateType implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            AdminType wrapper = new AdminType(sdk);
+            net.accelbyte.sdk.api.ugc.operations.admin_type.AdminCreateType operation =
+                    net.accelbyte.sdk.api.ugc.operations.admin_type.AdminCreateType.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsCreateTypeRequest.class)) 
+                            .build();
             ModelsCreateTypeResponse response =
-            new AdminType(sdk)
-            .adminCreateType(
-                new net.accelbyte.sdk.api.ugc.operations.admin_type.AdminCreateType(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsCreateTypeRequest.class)  
-                )
-            );
+                    wrapper.adminCreateType(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

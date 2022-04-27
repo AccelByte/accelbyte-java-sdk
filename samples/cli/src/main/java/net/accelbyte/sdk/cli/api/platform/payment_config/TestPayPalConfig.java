@@ -59,15 +59,14 @@ public class TestPayPalConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PaymentConfig wrapper = new PaymentConfig(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_config.TestPayPalConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_config.TestPayPalConfig.builder()
+                            .sandbox(sandbox)
+                            .body(new ObjectMapper().readValue(body, PayPalConfig.class)) 
+                            .build();
             TestResult response =
-            new PaymentConfig(sdk)
-            .testPayPalConfig(
-                new net.accelbyte.sdk.api.platform.operations.payment_config.TestPayPalConfig(
-                    sandbox,
-                    new ObjectMapper().readValue(body, PayPalConfig.class)  
-                )
-            );
+                    wrapper.testPayPalConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

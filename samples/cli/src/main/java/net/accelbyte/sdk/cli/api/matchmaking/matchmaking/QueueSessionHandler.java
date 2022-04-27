@@ -59,14 +59,13 @@ public class QueueSessionHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Matchmaking(sdk)
-            .queueSessionHandler(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking.QueueSessionHandler(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsMatchmakingResult.class)  
-                )
-            );
+            Matchmaking wrapper = new Matchmaking(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking.QueueSessionHandler operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking.QueueSessionHandler.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsMatchmakingResult.class)) 
+                            .build();
+                    wrapper.queueSessionHandler(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

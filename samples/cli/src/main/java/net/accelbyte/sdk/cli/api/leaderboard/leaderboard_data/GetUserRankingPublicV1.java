@@ -62,16 +62,15 @@ public class GetUserRankingPublicV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            LeaderboardData wrapper = new LeaderboardData(sdk);
+            net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.GetUserRankingPublicV1 operation =
+                    net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.GetUserRankingPublicV1.builder()
+                            .leaderboardCode(leaderboardCode)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             ModelsUserRankingResponse response =
-            new LeaderboardData(sdk)
-            .getUserRankingPublicV1(
-                new net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.GetUserRankingPublicV1(
-                    leaderboardCode,
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.getUserRankingPublicV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

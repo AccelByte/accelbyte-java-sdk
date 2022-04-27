@@ -62,15 +62,14 @@ public class AdminSetPlayerSessionAttribute implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Player(sdk)
-            .adminSetPlayerSessionAttribute(
-                new net.accelbyte.sdk.api.lobby.operations.player.AdminSetPlayerSessionAttribute(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelsSetPlayerSessionAttributeRequest.class)  
-                )
-            );
+            Player wrapper = new Player(sdk);
+            net.accelbyte.sdk.api.lobby.operations.player.AdminSetPlayerSessionAttribute operation =
+                    net.accelbyte.sdk.api.lobby.operations.player.AdminSetPlayerSessionAttribute.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelsSetPlayerSessionAttributeRequest.class)) 
+                            .build();
+                    wrapper.adminSetPlayerSessionAttribute(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

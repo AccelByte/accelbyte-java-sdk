@@ -68,18 +68,17 @@ public class QueryRewards1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Reward wrapper = new Reward(sdk);
+            net.accelbyte.sdk.api.platform.operations.reward.QueryRewards1 operation =
+                    net.accelbyte.sdk.api.platform.operations.reward.QueryRewards1.builder()
+                            .namespace(namespace)
+                            .eventTopic(eventTopic)
+                            .limit(limit)
+                            .offset(offset)
+                            .sortBy(sortBy)
+                            .build();
             RewardPagingSlicedResult response =
-            new Reward(sdk)
-            .queryRewards1(
-                new net.accelbyte.sdk.api.platform.operations.reward.QueryRewards1(
-                    namespace,
-                    eventTopic,
-                    limit,
-                    offset,
-                    sortBy
-                )
-            );
+                    wrapper.queryRewards1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -65,17 +65,16 @@ public class UpdateGroup implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicGroup wrapper = new PublicGroup(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_group.UpdateGroup operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_group.UpdateGroup.builder()
+                            .groupId(groupId)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelsCreateGroupRequest.class)) 
+                            .build();
             ModelsCreateGroupResponse response =
-            new PublicGroup(sdk)
-            .updateGroup(
-                new net.accelbyte.sdk.api.ugc.operations.public_group.UpdateGroup(
-                    groupId,
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelsCreateGroupRequest.class)  
-                )
-            );
+                    wrapper.updateGroup(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

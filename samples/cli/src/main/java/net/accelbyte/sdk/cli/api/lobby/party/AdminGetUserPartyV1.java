@@ -59,15 +59,14 @@ public class AdminGetUserPartyV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Party wrapper = new Party(sdk);
+            net.accelbyte.sdk.api.lobby.operations.party.AdminGetUserPartyV1 operation =
+                    net.accelbyte.sdk.api.lobby.operations.party.AdminGetUserPartyV1.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             ModelsPartyData response =
-            new Party(sdk)
-            .adminGetUserPartyV1(
-                new net.accelbyte.sdk.api.lobby.operations.party.AdminGetUserPartyV1(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.adminGetUserPartyV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -59,15 +59,14 @@ public class GetImageDetail implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            ImageConfig wrapper = new ImageConfig(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.image_config.GetImageDetail operation =
+                    net.accelbyte.sdk.api.dsmc.operations.image_config.GetImageDetail.builder()
+                            .namespace(namespace)
+                            .version(version)
+                            .build();
             ModelsGetImageDetailResponse response =
-            new ImageConfig(sdk)
-            .getImageDetail(
-                new net.accelbyte.sdk.api.dsmc.operations.image_config.GetImageDetail(
-                    namespace,
-                    version
-                )
-            );
+                    wrapper.getImageDetail(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

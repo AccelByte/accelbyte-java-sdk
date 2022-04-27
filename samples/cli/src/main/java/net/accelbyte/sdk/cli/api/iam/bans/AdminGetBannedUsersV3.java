@@ -68,18 +68,17 @@ public class AdminGetBannedUsersV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Bans wrapper = new Bans(sdk);
+            net.accelbyte.sdk.api.iam.operations.bans.AdminGetBannedUsersV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.bans.AdminGetBannedUsersV3.builder()
+                            .namespace(namespace)
+                            .activeOnly(activeOnly)
+                            .banType(banType)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelGetUserBanV3Response response =
-            new Bans(sdk)
-            .adminGetBannedUsersV3(
-                new net.accelbyte.sdk.api.iam.operations.bans.AdminGetBannedUsersV3(
-                    namespace,
-                    activeOnly,
-                    banType,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.adminGetBannedUsersV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

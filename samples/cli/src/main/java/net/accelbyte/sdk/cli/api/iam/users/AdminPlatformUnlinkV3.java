@@ -65,16 +65,15 @@ public class AdminPlatformUnlinkV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .adminPlatformUnlinkV3(
-                new net.accelbyte.sdk.api.iam.operations.users.AdminPlatformUnlinkV3(
-                    namespace,
-                    platformId,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelUnlinkUserPlatformRequest.class)  
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.AdminPlatformUnlinkV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.AdminPlatformUnlinkV3.builder()
+                            .namespace(namespace)
+                            .platformId(platformId)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelUnlinkUserPlatformRequest.class)) 
+                            .build();
+                    wrapper.adminPlatformUnlinkV3(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

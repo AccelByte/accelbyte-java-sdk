@@ -59,15 +59,14 @@ public class AdminGetProfanityListFiltersV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Profanity wrapper = new Profanity(sdk);
+            net.accelbyte.sdk.api.lobby.operations.profanity.AdminGetProfanityListFiltersV1 operation =
+                    net.accelbyte.sdk.api.lobby.operations.profanity.AdminGetProfanityListFiltersV1.builder()
+                            .list(list)
+                            .namespace(namespace)
+                            .build();
             ModelsAdminGetProfanityListFiltersV1Response response =
-            new Profanity(sdk)
-            .adminGetProfanityListFiltersV1(
-                new net.accelbyte.sdk.api.lobby.operations.profanity.AdminGetProfanityListFiltersV1(
-                    list,
-                    namespace
-                )
-            );
+                    wrapper.adminGetProfanityListFiltersV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

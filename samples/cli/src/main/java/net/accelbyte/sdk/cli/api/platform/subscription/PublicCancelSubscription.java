@@ -65,17 +65,16 @@ public class PublicCancelSubscription implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Subscription wrapper = new Subscription(sdk);
+            net.accelbyte.sdk.api.platform.operations.subscription.PublicCancelSubscription operation =
+                    net.accelbyte.sdk.api.platform.operations.subscription.PublicCancelSubscription.builder()
+                            .namespace(namespace)
+                            .subscriptionId(subscriptionId)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, CancelRequest.class)) 
+                            .build();
             SubscriptionInfo response =
-            new Subscription(sdk)
-            .publicCancelSubscription(
-                new net.accelbyte.sdk.api.platform.operations.subscription.PublicCancelSubscription(
-                    namespace,
-                    subscriptionId,
-                    userId,
-                    new ObjectMapper().readValue(body, CancelRequest.class)  
-                )
-            );
+                    wrapper.publicCancelSubscription(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

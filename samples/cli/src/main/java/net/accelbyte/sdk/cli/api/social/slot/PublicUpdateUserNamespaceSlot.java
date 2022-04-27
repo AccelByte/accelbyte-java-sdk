@@ -77,23 +77,20 @@ public class PublicUpdateUserNamespaceSlot implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Slot wrapper = new Slot(sdk);
+            net.accelbyte.sdk.api.social.operations.slot.PublicUpdateUserNamespaceSlot operation =
+                    net.accelbyte.sdk.api.social.operations.slot.PublicUpdateUserNamespaceSlot.builder()
+                            .namespace(namespace)
+                            .slotId(slotId)
+                            .userId(userId)
+                            .label(label)
+                            .tags(tags)
+                            .checksum(checksum != null ? checksum : null)
+                            .customAttribute(customAttribute != null ? customAttribute : null)
+                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .build();
             SlotInfo response =
-            new Slot(sdk)
-            .publicUpdateUserNamespaceSlot(
-                new net.accelbyte.sdk.api.social.operations.slot.PublicUpdateUserNamespaceSlot(
-                    namespace,
-                    slotId,
-                    userId,
-                    label,
-                    tags,
-                    checksum != null ? checksum : null
-                    ,
-                    customAttribute != null ? customAttribute : null
-                    ,
-                    file != null ? FileUtils.openInputStream(file) : null
-                )
-            );
+                    wrapper.publicUpdateUserNamespaceSlot(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

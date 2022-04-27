@@ -56,14 +56,13 @@ public class ExportChannels implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Matchmaking wrapper = new Matchmaking(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking.ExportChannels operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking.ExportChannels.builder()
+                            .namespace(namespace)
+                            .build();
             List<ModelsChannelV1> response =
-            new Matchmaking(sdk)
-            .exportChannels(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking.ExportChannels(
-                    namespace
-                )
-            );
+                    wrapper.exportChannels(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

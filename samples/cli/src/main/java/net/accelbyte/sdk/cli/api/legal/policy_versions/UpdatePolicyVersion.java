@@ -59,15 +59,14 @@ public class UpdatePolicyVersion implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PolicyVersions wrapper = new PolicyVersions(sdk);
+            net.accelbyte.sdk.api.legal.operations.policy_versions.UpdatePolicyVersion operation =
+                    net.accelbyte.sdk.api.legal.operations.policy_versions.UpdatePolicyVersion.builder()
+                            .policyVersionId(policyVersionId)
+                            .body(new ObjectMapper().readValue(body, UpdatePolicyVersionRequest.class)) 
+                            .build();
             UpdatePolicyVersionResponse response =
-            new PolicyVersions(sdk)
-            .updatePolicyVersion(
-                new net.accelbyte.sdk.api.legal.operations.policy_versions.UpdatePolicyVersion(
-                    policyVersionId,
-                    new ObjectMapper().readValue(body, UpdatePolicyVersionRequest.class)  
-                )
-            );
+                    wrapper.updatePolicyVersion(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

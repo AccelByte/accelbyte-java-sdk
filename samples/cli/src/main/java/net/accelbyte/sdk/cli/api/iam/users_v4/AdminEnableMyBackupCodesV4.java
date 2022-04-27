@@ -53,13 +53,12 @@ public class AdminEnableMyBackupCodesV4 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UsersV4 wrapper = new UsersV4(sdk);
+            net.accelbyte.sdk.api.iam.operations.users_v4.AdminEnableMyBackupCodesV4 operation =
+                    net.accelbyte.sdk.api.iam.operations.users_v4.AdminEnableMyBackupCodesV4.builder()
+                            .build();
             ModelBackupCodesResponseV4 response =
-            new UsersV4(sdk)
-            .adminEnableMyBackupCodesV4(
-                new net.accelbyte.sdk.api.iam.operations.users_v4.AdminEnableMyBackupCodesV4(
-                )
-            );
+                    wrapper.adminEnableMyBackupCodesV4(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

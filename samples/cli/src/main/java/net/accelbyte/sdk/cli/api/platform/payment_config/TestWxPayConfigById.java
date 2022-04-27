@@ -56,14 +56,13 @@ public class TestWxPayConfigById implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PaymentConfig wrapper = new PaymentConfig(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_config.TestWxPayConfigById operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_config.TestWxPayConfigById.builder()
+                            .id(id)
+                            .build();
             TestResult response =
-            new PaymentConfig(sdk)
-            .testWxPayConfigById(
-                new net.accelbyte.sdk.api.platform.operations.payment_config.TestWxPayConfigById(
-                    id
-                )
-            );
+                    wrapper.testWxPayConfigById(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

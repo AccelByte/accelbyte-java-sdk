@@ -65,17 +65,16 @@ public class AdminGeneratePersonalDataURL implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            DataRetrieval wrapper = new DataRetrieval(sdk);
+            net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminGeneratePersonalDataURL operation =
+                    net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminGeneratePersonalDataURL.builder()
+                            .namespace(namespace)
+                            .requestDate(requestDate)
+                            .userId(userId)
+                            .password(password != null ? password : null)
+                            .build();
             ModelsUserDataURL response =
-            new DataRetrieval(sdk)
-            .adminGeneratePersonalDataURL(
-                new net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminGeneratePersonalDataURL(
-                    namespace,
-                    requestDate,
-                    userId,
-                    password != null ? password : null
-                )
-            );
+                    wrapper.adminGeneratePersonalDataURL(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

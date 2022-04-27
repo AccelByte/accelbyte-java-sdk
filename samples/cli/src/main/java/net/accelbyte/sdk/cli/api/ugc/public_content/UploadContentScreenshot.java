@@ -65,17 +65,16 @@ public class UploadContentScreenshot implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicContent wrapper = new PublicContent(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_content.UploadContentScreenshot operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_content.UploadContentScreenshot.builder()
+                            .contentId(contentId)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelsCreateScreenshotRequest.class)) 
+                            .build();
             ModelsCreateScreenshotResponse response =
-            new PublicContent(sdk)
-            .uploadContentScreenshot(
-                new net.accelbyte.sdk.api.ugc.operations.public_content.UploadContentScreenshot(
-                    contentId,
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelsCreateScreenshotRequest.class)  
-                )
-            );
+                    wrapper.uploadContentScreenshot(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

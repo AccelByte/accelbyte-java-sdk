@@ -65,19 +65,16 @@ public class PlatformTokenGrantV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            OAuth20 wrapper = new OAuth20(sdk);
+            net.accelbyte.sdk.api.iam.operations.o_auth2_0.PlatformTokenGrantV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.o_auth2_0.PlatformTokenGrantV3.builder()
+                            .platformId(platformId)
+                            .clientId(clientId != null ? clientId : null)
+                            .deviceId(deviceId != null ? deviceId : null)
+                            .platformToken(platformToken != null ? platformToken : null)
+                            .build();
             OauthmodelTokenResponse response =
-            new OAuth20(sdk)
-            .platformTokenGrantV3(
-                new net.accelbyte.sdk.api.iam.operations.o_auth2_0.PlatformTokenGrantV3(
-                    platformId,
-                    clientId != null ? clientId : null
-                    ,
-                    deviceId != null ? deviceId : null
-                    ,
-                    platformToken != null ? platformToken : null
-                )
-            );
+                    wrapper.platformTokenGrantV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

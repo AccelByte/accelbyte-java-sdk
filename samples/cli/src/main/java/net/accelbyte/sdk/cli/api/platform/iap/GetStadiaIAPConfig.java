@@ -56,14 +56,13 @@ public class GetStadiaIAPConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            IAP wrapper = new IAP(sdk);
+            net.accelbyte.sdk.api.platform.operations.iap.GetStadiaIAPConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.iap.GetStadiaIAPConfig.builder()
+                            .namespace(namespace)
+                            .build();
             StadiaIAPConfigInfo response =
-            new IAP(sdk)
-            .getStadiaIAPConfig(
-                new net.accelbyte.sdk.api.platform.operations.iap.GetStadiaIAPConfig(
-                    namespace
-                )
-            );
+                    wrapper.getStadiaIAPConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

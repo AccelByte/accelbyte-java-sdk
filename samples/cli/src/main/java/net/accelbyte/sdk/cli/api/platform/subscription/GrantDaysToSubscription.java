@@ -65,17 +65,16 @@ public class GrantDaysToSubscription implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Subscription wrapper = new Subscription(sdk);
+            net.accelbyte.sdk.api.platform.operations.subscription.GrantDaysToSubscription operation =
+                    net.accelbyte.sdk.api.platform.operations.subscription.GrantDaysToSubscription.builder()
+                            .namespace(namespace)
+                            .subscriptionId(subscriptionId)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, GrantSubscriptionDaysRequest.class)) 
+                            .build();
             SubscriptionInfo response =
-            new Subscription(sdk)
-            .grantDaysToSubscription(
-                new net.accelbyte.sdk.api.platform.operations.subscription.GrantDaysToSubscription(
-                    namespace,
-                    subscriptionId,
-                    userId,
-                    new ObjectMapper().readValue(body, GrantSubscriptionDaysRequest.class)  
-                )
-            );
+                    wrapper.grantDaysToSubscription(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

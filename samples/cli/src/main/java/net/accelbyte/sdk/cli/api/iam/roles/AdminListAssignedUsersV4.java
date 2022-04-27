@@ -65,17 +65,16 @@ public class AdminListAssignedUsersV4 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Roles wrapper = new Roles(sdk);
+            net.accelbyte.sdk.api.iam.operations.roles.AdminListAssignedUsersV4 operation =
+                    net.accelbyte.sdk.api.iam.operations.roles.AdminListAssignedUsersV4.builder()
+                            .roleId(roleId)
+                            .after(after)
+                            .before(before)
+                            .limit(limit)
+                            .build();
             ModelListAssignedUsersV4Response response =
-            new Roles(sdk)
-            .adminListAssignedUsersV4(
-                new net.accelbyte.sdk.api.iam.operations.roles.AdminListAssignedUsersV4(
-                    roleId,
-                    after,
-                    before,
-                    limit
-                )
-            );
+                    wrapper.adminListAssignedUsersV4(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

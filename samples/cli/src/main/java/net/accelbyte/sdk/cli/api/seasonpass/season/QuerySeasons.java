@@ -65,17 +65,16 @@ public class QuerySeasons implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Season wrapper = new Season(sdk);
+            net.accelbyte.sdk.api.seasonpass.operations.season.QuerySeasons operation =
+                    net.accelbyte.sdk.api.seasonpass.operations.season.QuerySeasons.builder()
+                            .namespace(namespace)
+                            .limit(limit)
+                            .offset(offset)
+                            .status(status)
+                            .build();
             ListSeasonInfoPagingSlicedResult response =
-            new Season(sdk)
-            .querySeasons(
-                new net.accelbyte.sdk.api.seasonpass.operations.season.QuerySeasons(
-                    namespace,
-                    limit,
-                    offset,
-                    status
-                )
-            );
+                    wrapper.querySeasons(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

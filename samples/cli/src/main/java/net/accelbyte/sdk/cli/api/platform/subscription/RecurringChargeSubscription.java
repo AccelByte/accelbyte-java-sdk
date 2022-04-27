@@ -59,15 +59,14 @@ public class RecurringChargeSubscription implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Subscription wrapper = new Subscription(sdk);
+            net.accelbyte.sdk.api.platform.operations.subscription.RecurringChargeSubscription operation =
+                    net.accelbyte.sdk.api.platform.operations.subscription.RecurringChargeSubscription.builder()
+                            .namespace(namespace)
+                            .subscriptionId(subscriptionId)
+                            .build();
             RecurringChargeResult response =
-            new Subscription(sdk)
-            .recurringChargeSubscription(
-                new net.accelbyte.sdk.api.platform.operations.subscription.RecurringChargeSubscription(
-                    namespace,
-                    subscriptionId
-                )
-            );
+                    wrapper.recurringChargeSubscription(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

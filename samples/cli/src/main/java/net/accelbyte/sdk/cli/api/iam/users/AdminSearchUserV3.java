@@ -80,22 +80,21 @@ public class AdminSearchUserV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.AdminSearchUserV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.AdminSearchUserV3.builder()
+                            .namespace(namespace)
+                            .by(by)
+                            .endDate(endDate)
+                            .limit(limit)
+                            .offset(offset)
+                            .platformBy(platformBy)
+                            .platformId(platformId)
+                            .query(query)
+                            .startDate(startDate)
+                            .build();
             ModelSearchUsersResponseWithPaginationV3 response =
-            new Users(sdk)
-            .adminSearchUserV3(
-                new net.accelbyte.sdk.api.iam.operations.users.AdminSearchUserV3(
-                    namespace,
-                    by,
-                    endDate,
-                    limit,
-                    offset,
-                    platformBy,
-                    platformId,
-                    query,
-                    startDate
-                )
-            );
+                    wrapper.adminSearchUserV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -62,16 +62,15 @@ public class UpdateUserSlotConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            SlotConfig wrapper = new SlotConfig(sdk);
+            net.accelbyte.sdk.api.social.operations.slot_config.UpdateUserSlotConfig operation =
+                    net.accelbyte.sdk.api.social.operations.slot_config.UpdateUserSlotConfig.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, SlotConfigUpdate.class)) 
+                            .build();
             UserSlotConfigInfo response =
-            new SlotConfig(sdk)
-            .updateUserSlotConfig(
-                new net.accelbyte.sdk.api.social.operations.slot_config.UpdateUserSlotConfig(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, SlotConfigUpdate.class)  
-                )
-            );
+                    wrapper.updateUserSlotConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

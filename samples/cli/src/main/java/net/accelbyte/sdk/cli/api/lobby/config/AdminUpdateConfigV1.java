@@ -59,15 +59,14 @@ public class AdminUpdateConfigV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Config wrapper = new Config(sdk);
+            net.accelbyte.sdk.api.lobby.operations.config.AdminUpdateConfigV1 operation =
+                    net.accelbyte.sdk.api.lobby.operations.config.AdminUpdateConfigV1.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsConfigReq.class)) 
+                            .build();
             ModelsConfigReq response =
-            new Config(sdk)
-            .adminUpdateConfigV1(
-                new net.accelbyte.sdk.api.lobby.operations.config.AdminUpdateConfigV1(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsConfigReq.class)  
-                )
-            );
+                    wrapper.adminUpdateConfigV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

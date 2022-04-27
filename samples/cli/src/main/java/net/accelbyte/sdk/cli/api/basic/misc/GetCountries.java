@@ -59,15 +59,14 @@ public class GetCountries implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Misc wrapper = new Misc(sdk);
+            net.accelbyte.sdk.api.basic.operations.misc.GetCountries operation =
+                    net.accelbyte.sdk.api.basic.operations.misc.GetCountries.builder()
+                            .namespace(namespace)
+                            .lang(lang)
+                            .build();
             List<CountryObject> response =
-            new Misc(sdk)
-            .getCountries(
-                new net.accelbyte.sdk.api.basic.operations.misc.GetCountries(
-                    namespace,
-                    lang
-                )
-            );
+                    wrapper.getCountries(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

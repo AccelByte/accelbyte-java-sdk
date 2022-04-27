@@ -56,13 +56,12 @@ public class AdminDeleteThirdPartyConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new ThirdParty(sdk)
-            .adminDeleteThirdPartyConfig(
-                new net.accelbyte.sdk.api.lobby.operations.third_party.AdminDeleteThirdPartyConfig(
-                    namespace
-                )
-            );
+            ThirdParty wrapper = new ThirdParty(sdk);
+            net.accelbyte.sdk.api.lobby.operations.third_party.AdminDeleteThirdPartyConfig operation =
+                    net.accelbyte.sdk.api.lobby.operations.third_party.AdminDeleteThirdPartyConfig.builder()
+                            .namespace(namespace)
+                            .build();
+                    wrapper.adminDeleteThirdPartyConfig(operation);
             return 0;
         } catch (HttpResponseException e) {
             log.error("HttpResponseException occur with message below:\n{}", e.getMessage());

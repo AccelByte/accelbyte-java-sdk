@@ -65,17 +65,16 @@ public class QueryStats implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            StatConfiguration wrapper = new StatConfiguration(sdk);
+            net.accelbyte.sdk.api.social.operations.stat_configuration.QueryStats operation =
+                    net.accelbyte.sdk.api.social.operations.stat_configuration.QueryStats.builder()
+                            .namespace(namespace)
+                            .limit(limit)
+                            .offset(offset)
+                            .keyword(keyword)
+                            .build();
             StatPagingSlicedResult response =
-            new StatConfiguration(sdk)
-            .queryStats(
-                new net.accelbyte.sdk.api.social.operations.stat_configuration.QueryStats(
-                    namespace,
-                    limit,
-                    offset,
-                    keyword
-                )
-            );
+                    wrapper.queryStats(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

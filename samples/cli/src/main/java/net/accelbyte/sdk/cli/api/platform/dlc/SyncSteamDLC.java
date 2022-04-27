@@ -62,15 +62,14 @@ public class SyncSteamDLC implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new DLC(sdk)
-            .syncSteamDLC(
-                new net.accelbyte.sdk.api.platform.operations.dlc.SyncSteamDLC(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, SteamDLCSyncRequest.class)  
-                )
-            );
+            DLC wrapper = new DLC(sdk);
+            net.accelbyte.sdk.api.platform.operations.dlc.SyncSteamDLC operation =
+                    net.accelbyte.sdk.api.platform.operations.dlc.SyncSteamDLC.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, SteamDLCSyncRequest.class)) 
+                            .build();
+                    wrapper.syncSteamDLC(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

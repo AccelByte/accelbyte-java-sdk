@@ -59,15 +59,14 @@ public class AdminGetAllPlayerSessionAttribute implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Player wrapper = new Player(sdk);
+            net.accelbyte.sdk.api.lobby.operations.player.AdminGetAllPlayerSessionAttribute operation =
+                    net.accelbyte.sdk.api.lobby.operations.player.AdminGetAllPlayerSessionAttribute.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             ModelsGetAllPlayerSessionAttributeResponse response =
-            new Player(sdk)
-            .adminGetAllPlayerSessionAttribute(
-                new net.accelbyte.sdk.api.lobby.operations.player.AdminGetAllPlayerSessionAttribute(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.adminGetAllPlayerSessionAttribute(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

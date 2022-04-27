@@ -62,16 +62,15 @@ public class UpdateSession implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Session wrapper = new Session(sdk);
+            net.accelbyte.sdk.api.sessionbrowser.operations.session.UpdateSession operation =
+                    net.accelbyte.sdk.api.sessionbrowser.operations.session.UpdateSession.builder()
+                            .namespace(namespace)
+                            .sessionID(sessionID)
+                            .body(new ObjectMapper().readValue(body, ModelsUpdateSessionRequest.class)) 
+                            .build();
             ModelsSessionResponse response =
-            new Session(sdk)
-            .updateSession(
-                new net.accelbyte.sdk.api.sessionbrowser.operations.session.UpdateSession(
-                    namespace,
-                    sessionID,
-                    new ObjectMapper().readValue(body, ModelsUpdateSessionRequest.class)  
-                )
-            );
+                    wrapper.updateSession(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

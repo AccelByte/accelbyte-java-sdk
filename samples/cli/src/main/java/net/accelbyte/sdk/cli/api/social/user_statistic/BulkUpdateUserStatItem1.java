@@ -59,16 +59,14 @@ public class BulkUpdateUserStatItem1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UserStatistic wrapper = new UserStatistic(sdk);
+            net.accelbyte.sdk.api.social.operations.user_statistic.BulkUpdateUserStatItem1 operation =
+                    net.accelbyte.sdk.api.social.operations.user_statistic.BulkUpdateUserStatItem1.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, new TypeReference<List<BulkUserStatItemUpdate>>() {}))
+                            .build();
             List<BulkStatItemOperationResult> response =
-            new UserStatistic(sdk)
-            .bulkUpdateUserStatItem1(
-                new net.accelbyte.sdk.api.social.operations.user_statistic.BulkUpdateUserStatItem1(
-                    namespace,
-                    new ObjectMapper().readValue(body, new TypeReference<List<BulkUserStatItemUpdate>>() {})
- 
-                )
-            );
+                    wrapper.bulkUpdateUserStatItem1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

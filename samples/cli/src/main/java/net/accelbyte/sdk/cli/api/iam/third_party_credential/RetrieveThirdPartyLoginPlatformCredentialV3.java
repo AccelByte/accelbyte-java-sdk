@@ -59,15 +59,14 @@ public class RetrieveThirdPartyLoginPlatformCredentialV3 implements Callable<Int
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
+            net.accelbyte.sdk.api.iam.operations.third_party_credential.RetrieveThirdPartyLoginPlatformCredentialV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.third_party_credential.RetrieveThirdPartyLoginPlatformCredentialV3.builder()
+                            .namespace(namespace)
+                            .platformId(platformId)
+                            .build();
             ModelThirdPartyLoginPlatformCredentialResponse response =
-            new ThirdPartyCredential(sdk)
-            .retrieveThirdPartyLoginPlatformCredentialV3(
-                new net.accelbyte.sdk.api.iam.operations.third_party_credential.RetrieveThirdPartyLoginPlatformCredentialV3(
-                    namespace,
-                    platformId
-                )
-            );
+                    wrapper.retrieveThirdPartyLoginPlatformCredentialV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -59,15 +59,14 @@ public class GetGameRecordHandlerV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicGameRecord wrapper = new PublicGameRecord(sdk);
+            net.accelbyte.sdk.api.cloudsave.operations.public_game_record.GetGameRecordHandlerV1 operation =
+                    net.accelbyte.sdk.api.cloudsave.operations.public_game_record.GetGameRecordHandlerV1.builder()
+                            .key(key)
+                            .namespace(namespace)
+                            .build();
             ModelsGameRecordResponse response =
-            new PublicGameRecord(sdk)
-            .getGameRecordHandlerV1(
-                new net.accelbyte.sdk.api.cloudsave.operations.public_game_record.GetGameRecordHandlerV1(
-                    key,
-                    namespace
-                )
-            );
+                    wrapper.getGameRecordHandlerV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

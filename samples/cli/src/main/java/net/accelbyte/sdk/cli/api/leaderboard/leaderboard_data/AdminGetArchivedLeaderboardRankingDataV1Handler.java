@@ -62,16 +62,15 @@ public class AdminGetArchivedLeaderboardRankingDataV1Handler implements Callable
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            LeaderboardData wrapper = new LeaderboardData(sdk);
+            net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.AdminGetArchivedLeaderboardRankingDataV1Handler operation =
+                    net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.AdminGetArchivedLeaderboardRankingDataV1Handler.builder()
+                            .namespace(namespace)
+                            .slug(slug)
+                            .leaderboardCodes(leaderboardCodes)
+                            .build();
             List<ModelsArchiveLeaderboardSignedURLResponse> response =
-            new LeaderboardData(sdk)
-            .adminGetArchivedLeaderboardRankingDataV1Handler(
-                new net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.AdminGetArchivedLeaderboardRankingDataV1Handler(
-                    namespace,
-                    slug,
-                    leaderboardCodes
-                )
-            );
+                    wrapper.adminGetArchivedLeaderboardRankingDataV1Handler(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

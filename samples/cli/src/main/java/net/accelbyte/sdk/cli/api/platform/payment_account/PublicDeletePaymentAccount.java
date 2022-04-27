@@ -65,16 +65,15 @@ public class PublicDeletePaymentAccount implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new PaymentAccount(sdk)
-            .publicDeletePaymentAccount(
-                new net.accelbyte.sdk.api.platform.operations.payment_account.PublicDeletePaymentAccount(
-                    id,
-                    namespace,
-                    type,
-                    userId
-                )
-            );
+            PaymentAccount wrapper = new PaymentAccount(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_account.PublicDeletePaymentAccount operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_account.PublicDeletePaymentAccount.builder()
+                            .id(id)
+                            .namespace(namespace)
+                            .type(type)
+                            .userId(userId)
+                            .build();
+                    wrapper.publicDeletePaymentAccount(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

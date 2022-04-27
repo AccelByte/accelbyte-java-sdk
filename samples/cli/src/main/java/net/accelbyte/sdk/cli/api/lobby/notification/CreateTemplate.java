@@ -59,14 +59,13 @@ public class CreateTemplate implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Notification(sdk)
-            .createTemplate(
-                new net.accelbyte.sdk.api.lobby.operations.notification.CreateTemplate(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelCreateTemplateRequest.class)  
-                )
-            );
+            Notification wrapper = new Notification(sdk);
+            net.accelbyte.sdk.api.lobby.operations.notification.CreateTemplate operation =
+                    net.accelbyte.sdk.api.lobby.operations.notification.CreateTemplate.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelCreateTemplateRequest.class)) 
+                            .build();
+                    wrapper.createTemplate(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -59,15 +59,14 @@ public class GetStat implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            StatConfiguration wrapper = new StatConfiguration(sdk);
+            net.accelbyte.sdk.api.social.operations.stat_configuration.GetStat operation =
+                    net.accelbyte.sdk.api.social.operations.stat_configuration.GetStat.builder()
+                            .namespace(namespace)
+                            .statCode(statCode)
+                            .build();
             StatInfo response =
-            new StatConfiguration(sdk)
-            .getStat(
-                new net.accelbyte.sdk.api.social.operations.stat_configuration.GetStat(
-                    namespace,
-                    statCode
-                )
-            );
+                    wrapper.getStat(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

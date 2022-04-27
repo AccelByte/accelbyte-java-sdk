@@ -59,14 +59,13 @@ public class PublicUpdateUserEmailAddressV4 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new UsersV4(sdk)
-            .publicUpdateUserEmailAddressV4(
-                new net.accelbyte.sdk.api.iam.operations.users_v4.PublicUpdateUserEmailAddressV4(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelEmailUpdateRequestV4.class)  
-                )
-            );
+            UsersV4 wrapper = new UsersV4(sdk);
+            net.accelbyte.sdk.api.iam.operations.users_v4.PublicUpdateUserEmailAddressV4 operation =
+                    net.accelbyte.sdk.api.iam.operations.users_v4.PublicUpdateUserEmailAddressV4.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelEmailUpdateRequestV4.class)) 
+                            .build();
+                    wrapper.publicUpdateUserEmailAddressV4(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -59,15 +59,14 @@ public class CreateNewGroupPublicV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Group wrapper = new Group(sdk);
+            net.accelbyte.sdk.api.group.operations.group.CreateNewGroupPublicV1 operation =
+                    net.accelbyte.sdk.api.group.operations.group.CreateNewGroupPublicV1.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsPublicCreateNewGroupRequestV1.class)) 
+                            .build();
             ModelsGroupResponseV1 response =
-            new Group(sdk)
-            .createNewGroupPublicV1(
-                new net.accelbyte.sdk.api.group.operations.group.CreateNewGroupPublicV1(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsPublicCreateNewGroupRequestV1.class)  
-                )
-            );
+                    wrapper.createNewGroupPublicV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

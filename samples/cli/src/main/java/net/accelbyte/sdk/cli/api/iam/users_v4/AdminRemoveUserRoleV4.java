@@ -62,15 +62,14 @@ public class AdminRemoveUserRoleV4 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new UsersV4(sdk)
-            .adminRemoveUserRoleV4(
-                new net.accelbyte.sdk.api.iam.operations.users_v4.AdminRemoveUserRoleV4(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelRemoveUserRoleV4Request.class)  
-                )
-            );
+            UsersV4 wrapper = new UsersV4(sdk);
+            net.accelbyte.sdk.api.iam.operations.users_v4.AdminRemoveUserRoleV4 operation =
+                    net.accelbyte.sdk.api.iam.operations.users_v4.AdminRemoveUserRoleV4.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelRemoveUserRoleV4Request.class)) 
+                            .build();
+                    wrapper.adminRemoveUserRoleV4(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

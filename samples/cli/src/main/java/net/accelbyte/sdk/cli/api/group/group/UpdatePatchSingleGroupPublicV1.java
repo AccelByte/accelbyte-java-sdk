@@ -62,16 +62,15 @@ public class UpdatePatchSingleGroupPublicV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Group wrapper = new Group(sdk);
+            net.accelbyte.sdk.api.group.operations.group.UpdatePatchSingleGroupPublicV1 operation =
+                    net.accelbyte.sdk.api.group.operations.group.UpdatePatchSingleGroupPublicV1.builder()
+                            .groupId(groupId)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsUpdateGroupRequestV1.class)) 
+                            .build();
             ModelsGroupResponseV1 response =
-            new Group(sdk)
-            .updatePatchSingleGroupPublicV1(
-                new net.accelbyte.sdk.api.group.operations.group.UpdatePatchSingleGroupPublicV1(
-                    groupId,
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsUpdateGroupRequestV1.class)  
-                )
-            );
+                    wrapper.updatePatchSingleGroupPublicV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

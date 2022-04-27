@@ -59,15 +59,14 @@ public class GetTotalActiveSession implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Session wrapper = new Session(sdk);
+            net.accelbyte.sdk.api.sessionbrowser.operations.session.GetTotalActiveSession operation =
+                    net.accelbyte.sdk.api.sessionbrowser.operations.session.GetTotalActiveSession.builder()
+                            .namespace(namespace)
+                            .sessionType(sessionType)
+                            .build();
             ModelsCountActiveSessionResponse response =
-            new Session(sdk)
-            .getTotalActiveSession(
-                new net.accelbyte.sdk.api.sessionbrowser.operations.session.GetTotalActiveSession(
-                    namespace,
-                    sessionType
-                )
-            );
+                    wrapper.getTotalActiveSession(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

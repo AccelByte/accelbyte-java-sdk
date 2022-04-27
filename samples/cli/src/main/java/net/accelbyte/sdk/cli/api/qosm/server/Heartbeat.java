@@ -56,13 +56,12 @@ public class Heartbeat implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Server(sdk)
-            .heartbeat(
-                new net.accelbyte.sdk.api.qosm.operations.server.Heartbeat(
-                    new ObjectMapper().readValue(body, ModelsHeartbeatRequest.class)  
-                )
-            );
+            Server wrapper = new Server(sdk);
+            net.accelbyte.sdk.api.qosm.operations.server.Heartbeat operation =
+                    net.accelbyte.sdk.api.qosm.operations.server.Heartbeat.builder()
+                            .body(new ObjectMapper().readValue(body, ModelsHeartbeatRequest.class)) 
+                            .build();
+                    wrapper.heartbeat(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

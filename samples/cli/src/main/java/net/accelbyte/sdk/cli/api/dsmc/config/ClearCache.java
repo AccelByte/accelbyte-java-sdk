@@ -56,13 +56,12 @@ public class ClearCache implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Config(sdk)
-            .clearCache(
-                new net.accelbyte.sdk.api.dsmc.operations.config.ClearCache(
-                    namespace
-                )
-            );
+            Config wrapper = new Config(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.config.ClearCache operation =
+                    net.accelbyte.sdk.api.dsmc.operations.config.ClearCache.builder()
+                            .namespace(namespace)
+                            .build();
+                    wrapper.clearCache(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

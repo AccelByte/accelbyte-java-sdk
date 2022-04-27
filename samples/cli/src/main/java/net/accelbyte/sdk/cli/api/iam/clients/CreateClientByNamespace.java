@@ -59,15 +59,14 @@ public class CreateClientByNamespace implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Clients wrapper = new Clients(sdk);
+            net.accelbyte.sdk.api.iam.operations.clients.CreateClientByNamespace operation =
+                    net.accelbyte.sdk.api.iam.operations.clients.CreateClientByNamespace.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ClientmodelClientCreateRequest.class)) 
+                            .build();
             ClientmodelClientCreationResponse response =
-            new Clients(sdk)
-            .createClientByNamespace(
-                new net.accelbyte.sdk.api.iam.operations.clients.CreateClientByNamespace(
-                    namespace,
-                    new ObjectMapper().readValue(body, ClientmodelClientCreateRequest.class)  
-                )
-            );
+                    wrapper.createClientByNamespace(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

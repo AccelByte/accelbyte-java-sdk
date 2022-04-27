@@ -56,14 +56,13 @@ public class GetMyProfileInfo implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UserProfile wrapper = new UserProfile(sdk);
+            net.accelbyte.sdk.api.basic.operations.user_profile.GetMyProfileInfo operation =
+                    net.accelbyte.sdk.api.basic.operations.user_profile.GetMyProfileInfo.builder()
+                            .namespace(namespace)
+                            .build();
             UserProfilePrivateInfo response =
-            new UserProfile(sdk)
-            .getMyProfileInfo(
-                new net.accelbyte.sdk.api.basic.operations.user_profile.GetMyProfileInfo(
-                    namespace
-                )
-            );
+                    wrapper.getMyProfileInfo(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

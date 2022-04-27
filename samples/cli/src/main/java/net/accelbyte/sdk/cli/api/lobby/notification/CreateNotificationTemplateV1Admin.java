@@ -59,14 +59,13 @@ public class CreateNotificationTemplateV1Admin implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Notification(sdk)
-            .createNotificationTemplateV1Admin(
-                new net.accelbyte.sdk.api.lobby.operations.notification.CreateNotificationTemplateV1Admin(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelCreateTemplateRequest.class)  
-                )
-            );
+            Notification wrapper = new Notification(sdk);
+            net.accelbyte.sdk.api.lobby.operations.notification.CreateNotificationTemplateV1Admin operation =
+                    net.accelbyte.sdk.api.lobby.operations.notification.CreateNotificationTemplateV1Admin.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelCreateTemplateRequest.class)) 
+                            .build();
+                    wrapper.createNotificationTemplateV1Admin(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

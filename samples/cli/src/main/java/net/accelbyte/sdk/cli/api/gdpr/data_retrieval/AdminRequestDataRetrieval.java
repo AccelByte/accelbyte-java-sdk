@@ -62,16 +62,15 @@ public class AdminRequestDataRetrieval implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            DataRetrieval wrapper = new DataRetrieval(sdk);
+            net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminRequestDataRetrieval operation =
+                    net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminRequestDataRetrieval.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .password(password != null ? password : null)
+                            .build();
             ModelsDataRetrievalResponse response =
-            new DataRetrieval(sdk)
-            .adminRequestDataRetrieval(
-                new net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminRequestDataRetrieval(
-                    namespace,
-                    userId,
-                    password != null ? password : null
-                )
-            );
+                    wrapper.adminRequestDataRetrieval(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

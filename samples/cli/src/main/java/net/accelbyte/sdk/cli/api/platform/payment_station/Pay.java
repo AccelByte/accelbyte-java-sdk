@@ -68,18 +68,17 @@ public class Pay implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PaymentStation wrapper = new PaymentStation(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_station.Pay operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_station.Pay.builder()
+                            .namespace(namespace)
+                            .paymentOrderNo(paymentOrderNo)
+                            .paymentProvider(paymentProvider)
+                            .zipCode(zipCode)
+                            .body(new ObjectMapper().readValue(body, PaymentToken.class)) 
+                            .build();
             PaymentProcessResult response =
-            new PaymentStation(sdk)
-            .pay(
-                new net.accelbyte.sdk.api.platform.operations.payment_station.Pay(
-                    namespace,
-                    paymentOrderNo,
-                    paymentProvider,
-                    zipCode,
-                    new ObjectMapper().readValue(body, PaymentToken.class)  
-                )
-            );
+                    wrapper.pay(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

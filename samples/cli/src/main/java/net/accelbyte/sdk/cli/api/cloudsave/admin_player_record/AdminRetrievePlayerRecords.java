@@ -65,17 +65,16 @@ public class AdminRetrievePlayerRecords implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            AdminPlayerRecord wrapper = new AdminPlayerRecord(sdk);
+            net.accelbyte.sdk.api.cloudsave.operations.admin_player_record.AdminRetrievePlayerRecords operation =
+                    net.accelbyte.sdk.api.cloudsave.operations.admin_player_record.AdminRetrievePlayerRecords.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsListPlayerRecordKeysResponse response =
-            new AdminPlayerRecord(sdk)
-            .adminRetrievePlayerRecords(
-                new net.accelbyte.sdk.api.cloudsave.operations.admin_player_record.AdminRetrievePlayerRecords(
-                    namespace,
-                    userId,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.adminRetrievePlayerRecords(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

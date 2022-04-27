@@ -59,14 +59,13 @@ public class AdminSetProfanityRuleForNamespace implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Profanity(sdk)
-            .adminSetProfanityRuleForNamespace(
-                new net.accelbyte.sdk.api.lobby.operations.profanity.AdminSetProfanityRuleForNamespace(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsAdminSetProfanityRuleForNamespaceRequest.class)  
-                )
-            );
+            Profanity wrapper = new Profanity(sdk);
+            net.accelbyte.sdk.api.lobby.operations.profanity.AdminSetProfanityRuleForNamespace operation =
+                    net.accelbyte.sdk.api.lobby.operations.profanity.AdminSetProfanityRuleForNamespace.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsAdminSetProfanityRuleForNamespaceRequest.class)) 
+                            .build();
+                    wrapper.adminSetProfanityRuleForNamespace(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

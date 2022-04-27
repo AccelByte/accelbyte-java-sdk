@@ -62,15 +62,14 @@ public class DisableUser implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .disableUser(
-                new net.accelbyte.sdk.api.iam.operations.users.DisableUser(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelDisableUserRequest.class)  
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.DisableUser operation =
+                    net.accelbyte.sdk.api.iam.operations.users.DisableUser.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelDisableUserRequest.class)) 
+                            .build();
+                    wrapper.disableUser(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

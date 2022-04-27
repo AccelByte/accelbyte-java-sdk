@@ -59,14 +59,13 @@ public class DeleteLocalServer implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Admin(sdk)
-            .deleteLocalServer(
-                new net.accelbyte.sdk.api.dsmc.operations.admin.DeleteLocalServer(
-                    name,
-                    namespace
-                )
-            );
+            Admin wrapper = new Admin(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.admin.DeleteLocalServer operation =
+                    net.accelbyte.sdk.api.dsmc.operations.admin.DeleteLocalServer.builder()
+                            .name(name)
+                            .namespace(namespace)
+                            .build();
+                    wrapper.deleteLocalServer(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

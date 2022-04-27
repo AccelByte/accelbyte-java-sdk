@@ -59,15 +59,14 @@ public class DeleteCurrency implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Currency wrapper = new Currency(sdk);
+            net.accelbyte.sdk.api.platform.operations.currency.DeleteCurrency operation =
+                    net.accelbyte.sdk.api.platform.operations.currency.DeleteCurrency.builder()
+                            .currencyCode(currencyCode)
+                            .namespace(namespace)
+                            .build();
             CurrencyInfo response =
-            new Currency(sdk)
-            .deleteCurrency(
-                new net.accelbyte.sdk.api.platform.operations.currency.DeleteCurrency(
-                    currencyCode,
-                    namespace
-                )
-            );
+                    wrapper.deleteCurrency(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

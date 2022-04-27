@@ -59,15 +59,14 @@ public class GetBannedUsers implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UserAction wrapper = new UserAction(sdk);
+            net.accelbyte.sdk.api.basic.operations.user_action.GetBannedUsers operation =
+                    net.accelbyte.sdk.api.basic.operations.user_action.GetBannedUsers.builder()
+                            .namespace(namespace)
+                            .userIds(userIds)
+                            .build();
             List<ADTOObjectForEqu8UserBanStatus> response =
-            new UserAction(sdk)
-            .getBannedUsers(
-                new net.accelbyte.sdk.api.basic.operations.user_action.GetBannedUsers(
-                    namespace,
-                    userIds
-                )
-            );
+                    wrapper.getBannedUsers(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

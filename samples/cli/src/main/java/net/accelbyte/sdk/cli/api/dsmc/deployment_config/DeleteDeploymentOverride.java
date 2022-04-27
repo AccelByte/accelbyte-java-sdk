@@ -62,16 +62,15 @@ public class DeleteDeploymentOverride implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            DeploymentConfig wrapper = new DeploymentConfig(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.deployment_config.DeleteDeploymentOverride operation =
+                    net.accelbyte.sdk.api.dsmc.operations.deployment_config.DeleteDeploymentOverride.builder()
+                            .deployment(deployment)
+                            .namespace(namespace)
+                            .version(version)
+                            .build();
             ModelsDeploymentWithOverride response =
-            new DeploymentConfig(sdk)
-            .deleteDeploymentOverride(
-                new net.accelbyte.sdk.api.dsmc.operations.deployment_config.DeleteDeploymentOverride(
-                    deployment,
-                    namespace,
-                    version
-                )
-            );
+                    wrapper.deleteDeploymentOverride(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

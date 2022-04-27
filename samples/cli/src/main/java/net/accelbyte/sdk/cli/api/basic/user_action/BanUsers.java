@@ -59,14 +59,13 @@ public class BanUsers implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new UserAction(sdk)
-            .banUsers(
-                new net.accelbyte.sdk.api.basic.operations.user_action.BanUsers(
-                    namespace,
-                    new ObjectMapper().readValue(body, UserBanRequest.class)  
-                )
-            );
+            UserAction wrapper = new UserAction(sdk);
+            net.accelbyte.sdk.api.basic.operations.user_action.BanUsers operation =
+                    net.accelbyte.sdk.api.basic.operations.user_action.BanUsers.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, UserBanRequest.class)) 
+                            .build();
+                    wrapper.banUsers(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -59,14 +59,13 @@ public class AdminRevokeUserFromRoleV4 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Roles(sdk)
-            .adminRevokeUserFromRoleV4(
-                new net.accelbyte.sdk.api.iam.operations.roles.AdminRevokeUserFromRoleV4(
-                    roleId,
-                    new ObjectMapper().readValue(body, ModelRevokeUserV4Request.class)  
-                )
-            );
+            Roles wrapper = new Roles(sdk);
+            net.accelbyte.sdk.api.iam.operations.roles.AdminRevokeUserFromRoleV4 operation =
+                    net.accelbyte.sdk.api.iam.operations.roles.AdminRevokeUserFromRoleV4.builder()
+                            .roleId(roleId)
+                            .body(new ObjectMapper().readValue(body, ModelRevokeUserV4Request.class)) 
+                            .build();
+                    wrapper.adminRevokeUserFromRoleV4(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

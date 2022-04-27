@@ -65,17 +65,16 @@ public class GetApp implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Item wrapper = new Item(sdk);
+            net.accelbyte.sdk.api.platform.operations.item.GetApp operation =
+                    net.accelbyte.sdk.api.platform.operations.item.GetApp.builder()
+                            .itemId(itemId)
+                            .namespace(namespace)
+                            .activeOnly(activeOnly)
+                            .storeId(storeId)
+                            .build();
             FullAppInfo response =
-            new Item(sdk)
-            .getApp(
-                new net.accelbyte.sdk.api.platform.operations.item.GetApp(
-                    itemId,
-                    namespace,
-                    activeOnly,
-                    storeId
-                )
-            );
+                    wrapper.getApp(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

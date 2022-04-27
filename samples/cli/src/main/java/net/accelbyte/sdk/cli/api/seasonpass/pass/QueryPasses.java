@@ -59,15 +59,14 @@ public class QueryPasses implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Pass wrapper = new Pass(sdk);
+            net.accelbyte.sdk.api.seasonpass.operations.pass.QueryPasses operation =
+                    net.accelbyte.sdk.api.seasonpass.operations.pass.QueryPasses.builder()
+                            .namespace(namespace)
+                            .seasonId(seasonId)
+                            .build();
             List<PassInfo> response =
-            new Pass(sdk)
-            .queryPasses(
-                new net.accelbyte.sdk.api.seasonpass.operations.pass.QueryPasses(
-                    namespace,
-                    seasonId
-                )
-            );
+                    wrapper.queryPasses(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

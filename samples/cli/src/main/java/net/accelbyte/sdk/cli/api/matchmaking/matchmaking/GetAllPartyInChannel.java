@@ -59,15 +59,14 @@ public class GetAllPartyInChannel implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Matchmaking wrapper = new Matchmaking(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking.GetAllPartyInChannel operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking.GetAllPartyInChannel.builder()
+                            .channelName(channelName)
+                            .namespace(namespace)
+                            .build();
             List<ModelsMatchingParty> response =
-            new Matchmaking(sdk)
-            .getAllPartyInChannel(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking.GetAllPartyInChannel(
-                    channelName,
-                    namespace
-                )
-            );
+                    wrapper.getAllPartyInChannel(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

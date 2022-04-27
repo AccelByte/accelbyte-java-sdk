@@ -59,15 +59,14 @@ public class GetRecentPlayer implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Session wrapper = new Session(sdk);
+            net.accelbyte.sdk.api.sessionbrowser.operations.session.GetRecentPlayer operation =
+                    net.accelbyte.sdk.api.sessionbrowser.operations.session.GetRecentPlayer.builder()
+                            .namespace(namespace)
+                            .userID(userID)
+                            .build();
             ModelsRecentPlayerQueryResponse response =
-            new Session(sdk)
-            .getRecentPlayer(
-                new net.accelbyte.sdk.api.sessionbrowser.operations.session.GetRecentPlayer(
-                    namespace,
-                    userID
-                )
-            );
+                    wrapper.getRecentPlayer(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

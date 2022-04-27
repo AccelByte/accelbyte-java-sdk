@@ -59,14 +59,13 @@ public class AddRoleMembers implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Roles(sdk)
-            .addRoleMembers(
-                new net.accelbyte.sdk.api.iam.operations.roles.AddRoleMembers(
-                    roleId,
-                    new ObjectMapper().readValue(body, ModelRoleMembersRequest.class)  
-                )
-            );
+            Roles wrapper = new Roles(sdk);
+            net.accelbyte.sdk.api.iam.operations.roles.AddRoleMembers operation =
+                    net.accelbyte.sdk.api.iam.operations.roles.AddRoleMembers.builder()
+                            .roleId(roleId)
+                            .body(new ObjectMapper().readValue(body, ModelRoleMembersRequest.class)) 
+                            .build();
+                    wrapper.addRoleMembers(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

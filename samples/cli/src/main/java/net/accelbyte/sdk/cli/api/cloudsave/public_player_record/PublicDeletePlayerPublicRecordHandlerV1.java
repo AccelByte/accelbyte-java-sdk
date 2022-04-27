@@ -59,14 +59,13 @@ public class PublicDeletePlayerPublicRecordHandlerV1 implements Callable<Integer
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new PublicPlayerRecord(sdk)
-            .publicDeletePlayerPublicRecordHandlerV1(
-                new net.accelbyte.sdk.api.cloudsave.operations.public_player_record.PublicDeletePlayerPublicRecordHandlerV1(
-                    key,
-                    namespace
-                )
-            );
+            PublicPlayerRecord wrapper = new PublicPlayerRecord(sdk);
+            net.accelbyte.sdk.api.cloudsave.operations.public_player_record.PublicDeletePlayerPublicRecordHandlerV1 operation =
+                    net.accelbyte.sdk.api.cloudsave.operations.public_player_record.PublicDeletePlayerPublicRecordHandlerV1.builder()
+                            .key(key)
+                            .namespace(namespace)
+                            .build();
+                    wrapper.publicDeletePlayerPublicRecordHandlerV1(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

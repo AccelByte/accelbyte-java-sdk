@@ -62,16 +62,15 @@ public class BulkFetchStatItems1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UserStatistic wrapper = new UserStatistic(sdk);
+            net.accelbyte.sdk.api.social.operations.user_statistic.BulkFetchStatItems1 operation =
+                    net.accelbyte.sdk.api.social.operations.user_statistic.BulkFetchStatItems1.builder()
+                            .namespace(namespace)
+                            .statCode(statCode)
+                            .userIds(userIds)
+                            .build();
             List<UserStatItemInfo> response =
-            new UserStatistic(sdk)
-            .bulkFetchStatItems1(
-                new net.accelbyte.sdk.api.social.operations.user_statistic.BulkFetchStatItems1(
-                    namespace,
-                    statCode,
-                    userIds
-                )
-            );
+                    wrapper.bulkFetchStatItems1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

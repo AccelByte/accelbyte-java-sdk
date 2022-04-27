@@ -59,15 +59,14 @@ public class DeleteStore implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Store wrapper = new Store(sdk);
+            net.accelbyte.sdk.api.platform.operations.store.DeleteStore operation =
+                    net.accelbyte.sdk.api.platform.operations.store.DeleteStore.builder()
+                            .namespace(namespace)
+                            .storeId(storeId)
+                            .build();
             StoreInfo response =
-            new Store(sdk)
-            .deleteStore(
-                new net.accelbyte.sdk.api.platform.operations.store.DeleteStore(
-                    namespace,
-                    storeId
-                )
-            );
+                    wrapper.deleteStore(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

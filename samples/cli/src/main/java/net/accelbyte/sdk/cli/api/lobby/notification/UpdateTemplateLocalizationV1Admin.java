@@ -65,16 +65,15 @@ public class UpdateTemplateLocalizationV1Admin implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Notification(sdk)
-            .updateTemplateLocalizationV1Admin(
-                new net.accelbyte.sdk.api.lobby.operations.notification.UpdateTemplateLocalizationV1Admin(
-                    namespace,
-                    templateLanguage,
-                    templateSlug,
-                    new ObjectMapper().readValue(body, ModelUpdateTemplateRequest.class)  
-                )
-            );
+            Notification wrapper = new Notification(sdk);
+            net.accelbyte.sdk.api.lobby.operations.notification.UpdateTemplateLocalizationV1Admin operation =
+                    net.accelbyte.sdk.api.lobby.operations.notification.UpdateTemplateLocalizationV1Admin.builder()
+                            .namespace(namespace)
+                            .templateLanguage(templateLanguage)
+                            .templateSlug(templateSlug)
+                            .body(new ObjectMapper().readValue(body, ModelUpdateTemplateRequest.class)) 
+                            .build();
+                    wrapper.updateTemplateLocalizationV1Admin(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

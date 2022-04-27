@@ -65,16 +65,15 @@ public class PlatformAuthenticateSAMLV3Handler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new SSOSAML20(sdk)
-            .platformAuthenticateSAMLV3Handler(
-                new net.accelbyte.sdk.api.iam.operations.sso_saml_2_0.PlatformAuthenticateSAMLV3Handler(
-                    platformId,
-                    code,
-                    error,
-                    state
-                )
-            );
+            SSOSAML20 wrapper = new SSOSAML20(sdk);
+            net.accelbyte.sdk.api.iam.operations.sso_saml_2_0.PlatformAuthenticateSAMLV3Handler operation =
+                    net.accelbyte.sdk.api.iam.operations.sso_saml_2_0.PlatformAuthenticateSAMLV3Handler.builder()
+                            .platformId(platformId)
+                            .code(code)
+                            .error(error)
+                            .state(state)
+                            .build();
+                    wrapper.platformAuthenticateSAMLV3Handler(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

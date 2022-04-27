@@ -62,15 +62,14 @@ public class AdminPutGameRecordHandlerV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new AdminGameRecord(sdk)
-            .adminPutGameRecordHandlerV1(
-                new net.accelbyte.sdk.api.cloudsave.operations.admin_game_record.AdminPutGameRecordHandlerV1(
-                    key,
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsGameRecordRequest.class)  
-                )
-            );
+            AdminGameRecord wrapper = new AdminGameRecord(sdk);
+            net.accelbyte.sdk.api.cloudsave.operations.admin_game_record.AdminPutGameRecordHandlerV1 operation =
+                    net.accelbyte.sdk.api.cloudsave.operations.admin_game_record.AdminPutGameRecordHandlerV1.builder()
+                            .key(key)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsGameRecordRequest.class)) 
+                            .build();
+                    wrapper.adminPutGameRecordHandlerV1(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

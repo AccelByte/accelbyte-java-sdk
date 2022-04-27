@@ -62,16 +62,15 @@ public class GetGroupInvitationRequestPublicV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            MemberRequest wrapper = new MemberRequest(sdk);
+            net.accelbyte.sdk.api.group.operations.member_request.GetGroupInvitationRequestPublicV1 operation =
+                    net.accelbyte.sdk.api.group.operations.member_request.GetGroupInvitationRequestPublicV1.builder()
+                            .namespace(namespace)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsGetMemberRequestsListResponseV1 response =
-            new MemberRequest(sdk)
-            .getGroupInvitationRequestPublicV1(
-                new net.accelbyte.sdk.api.group.operations.member_request.GetGroupInvitationRequestPublicV1(
-                    namespace,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.getGroupInvitationRequestPublicV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

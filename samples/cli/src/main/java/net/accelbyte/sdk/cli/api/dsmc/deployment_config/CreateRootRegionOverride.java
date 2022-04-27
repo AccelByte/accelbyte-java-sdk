@@ -65,17 +65,16 @@ public class CreateRootRegionOverride implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            DeploymentConfig wrapper = new DeploymentConfig(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.deployment_config.CreateRootRegionOverride operation =
+                    net.accelbyte.sdk.api.dsmc.operations.deployment_config.CreateRootRegionOverride.builder()
+                            .deployment(deployment)
+                            .namespace(namespace)
+                            .region(region)
+                            .body(new ObjectMapper().readValue(body, ModelsCreateRegionOverrideRequest.class)) 
+                            .build();
             ModelsDeploymentWithOverride response =
-            new DeploymentConfig(sdk)
-            .createRootRegionOverride(
-                new net.accelbyte.sdk.api.dsmc.operations.deployment_config.CreateRootRegionOverride(
-                    deployment,
-                    namespace,
-                    region,
-                    new ObjectMapper().readValue(body, ModelsCreateRegionOverrideRequest.class)  
-                )
-            );
+                    wrapper.createRootRegionOverride(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

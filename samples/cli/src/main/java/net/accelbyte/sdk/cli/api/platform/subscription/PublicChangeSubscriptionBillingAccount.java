@@ -62,16 +62,15 @@ public class PublicChangeSubscriptionBillingAccount implements Callable<Integer>
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Subscription wrapper = new Subscription(sdk);
+            net.accelbyte.sdk.api.platform.operations.subscription.PublicChangeSubscriptionBillingAccount operation =
+                    net.accelbyte.sdk.api.platform.operations.subscription.PublicChangeSubscriptionBillingAccount.builder()
+                            .namespace(namespace)
+                            .subscriptionId(subscriptionId)
+                            .userId(userId)
+                            .build();
             SubscriptionInfo response =
-            new Subscription(sdk)
-            .publicChangeSubscriptionBillingAccount(
-                new net.accelbyte.sdk.api.platform.operations.subscription.PublicChangeSubscriptionBillingAccount(
-                    namespace,
-                    subscriptionId,
-                    userId
-                )
-            );
+                    wrapper.publicChangeSubscriptionBillingAccount(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

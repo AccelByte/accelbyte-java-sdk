@@ -62,15 +62,14 @@ public class DeleteItem implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Item(sdk)
-            .deleteItem(
-                new net.accelbyte.sdk.api.platform.operations.item.DeleteItem(
-                    itemId,
-                    namespace,
-                    storeId
-                )
-            );
+            Item wrapper = new Item(sdk);
+            net.accelbyte.sdk.api.platform.operations.item.DeleteItem operation =
+                    net.accelbyte.sdk.api.platform.operations.item.DeleteItem.builder()
+                            .itemId(itemId)
+                            .namespace(namespace)
+                            .storeId(storeId)
+                            .build();
+                    wrapper.deleteItem(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

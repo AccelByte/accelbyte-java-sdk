@@ -71,19 +71,18 @@ public class QueryUserEntitlementsByAppType implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Entitlement wrapper = new Entitlement(sdk);
+            net.accelbyte.sdk.api.platform.operations.entitlement.QueryUserEntitlementsByAppType operation =
+                    net.accelbyte.sdk.api.platform.operations.entitlement.QueryUserEntitlementsByAppType.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .activeOnly(activeOnly)
+                            .limit(limit)
+                            .offset(offset)
+                            .appType(appType)
+                            .build();
             AppEntitlementPagingSlicedResult response =
-            new Entitlement(sdk)
-            .queryUserEntitlementsByAppType(
-                new net.accelbyte.sdk.api.platform.operations.entitlement.QueryUserEntitlementsByAppType(
-                    namespace,
-                    userId,
-                    activeOnly,
-                    limit,
-                    offset,
-                    appType
-                )
-            );
+                    wrapper.queryUserEntitlementsByAppType(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

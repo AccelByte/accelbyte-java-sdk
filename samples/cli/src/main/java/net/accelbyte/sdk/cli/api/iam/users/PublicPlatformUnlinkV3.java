@@ -62,15 +62,14 @@ public class PublicPlatformUnlinkV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .publicPlatformUnlinkV3(
-                new net.accelbyte.sdk.api.iam.operations.users.PublicPlatformUnlinkV3(
-                    namespace,
-                    platformId,
-                    new ObjectMapper().readValue(body, ModelUnlinkUserPlatformRequest.class)  
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.PublicPlatformUnlinkV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.PublicPlatformUnlinkV3.builder()
+                            .namespace(namespace)
+                            .platformId(platformId)
+                            .body(new ObjectMapper().readValue(body, ModelUnlinkUserPlatformRequest.class)) 
+                            .build();
+                    wrapper.publicPlatformUnlinkV3(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

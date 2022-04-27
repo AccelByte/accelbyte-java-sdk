@@ -53,12 +53,11 @@ public class AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet implemen
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new GametelemetryOperations(sdk)
-            .adminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet(
-                new net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet(
-                )
-            );
+            GametelemetryOperations wrapper = new GametelemetryOperations(sdk);
+            net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet operation =
+                    net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet.builder()
+                            .build();
+                    wrapper.adminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

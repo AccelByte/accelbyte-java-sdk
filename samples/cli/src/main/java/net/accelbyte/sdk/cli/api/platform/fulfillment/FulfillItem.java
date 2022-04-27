@@ -62,16 +62,15 @@ public class FulfillItem implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Fulfillment wrapper = new Fulfillment(sdk);
+            net.accelbyte.sdk.api.platform.operations.fulfillment.FulfillItem operation =
+                    net.accelbyte.sdk.api.platform.operations.fulfillment.FulfillItem.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, FulfillmentRequest.class)) 
+                            .build();
             FulfillmentResult response =
-            new Fulfillment(sdk)
-            .fulfillItem(
-                new net.accelbyte.sdk.api.platform.operations.fulfillment.FulfillItem(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, FulfillmentRequest.class)  
-                )
-            );
+                    wrapper.fulfillItem(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

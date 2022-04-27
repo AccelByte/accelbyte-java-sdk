@@ -59,15 +59,14 @@ public class GetUsersByLoginIds implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.GetUsersByLoginIds operation =
+                    net.accelbyte.sdk.api.iam.operations.users.GetUsersByLoginIds.builder()
+                            .namespace(namespace)
+                            .loginIds(loginIds)
+                            .build();
             ModelPublicUsersResponse response =
-            new Users(sdk)
-            .getUsersByLoginIds(
-                new net.accelbyte.sdk.api.iam.operations.users.GetUsersByLoginIds(
-                    namespace,
-                    loginIds
-                )
-            );
+                    wrapper.getUsersByLoginIds(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

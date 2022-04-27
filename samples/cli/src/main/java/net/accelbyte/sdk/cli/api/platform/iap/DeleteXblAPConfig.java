@@ -56,13 +56,12 @@ public class DeleteXblAPConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new IAP(sdk)
-            .deleteXblAPConfig(
-                new net.accelbyte.sdk.api.platform.operations.iap.DeleteXblAPConfig(
-                    namespace
-                )
-            );
+            IAP wrapper = new IAP(sdk);
+            net.accelbyte.sdk.api.platform.operations.iap.DeleteXblAPConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.iap.DeleteXblAPConfig.builder()
+                            .namespace(namespace)
+                            .build();
+                    wrapper.deleteXblAPConfig(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

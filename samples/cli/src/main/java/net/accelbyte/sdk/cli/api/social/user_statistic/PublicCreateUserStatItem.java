@@ -62,15 +62,14 @@ public class PublicCreateUserStatItem implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new UserStatistic(sdk)
-            .publicCreateUserStatItem(
-                new net.accelbyte.sdk.api.social.operations.user_statistic.PublicCreateUserStatItem(
-                    namespace,
-                    statCode,
-                    userId
-                )
-            );
+            UserStatistic wrapper = new UserStatistic(sdk);
+            net.accelbyte.sdk.api.social.operations.user_statistic.PublicCreateUserStatItem operation =
+                    net.accelbyte.sdk.api.social.operations.user_statistic.PublicCreateUserStatItem.builder()
+                            .namespace(namespace)
+                            .statCode(statCode)
+                            .userId(userId)
+                            .build();
+                    wrapper.publicCreateUserStatItem(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

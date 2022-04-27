@@ -62,16 +62,15 @@ public class GetFollowedContent implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicFollow wrapper = new PublicFollow(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_follow.GetFollowedContent operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_follow.GetFollowedContent.builder()
+                            .namespace(namespace)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsPaginatedContentDownloadResponse response =
-            new PublicFollow(sdk)
-            .getFollowedContent(
-                new net.accelbyte.sdk.api.ugc.operations.public_follow.GetFollowedContent(
-                    namespace,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.getFollowedContent(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

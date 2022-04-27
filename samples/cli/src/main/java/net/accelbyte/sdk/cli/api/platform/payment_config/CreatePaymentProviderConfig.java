@@ -56,14 +56,13 @@ public class CreatePaymentProviderConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PaymentConfig wrapper = new PaymentConfig(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_config.CreatePaymentProviderConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_config.CreatePaymentProviderConfig.builder()
+                            .body(new ObjectMapper().readValue(body, PaymentProviderConfigEdit.class)) 
+                            .build();
             PaymentProviderConfigInfo response =
-            new PaymentConfig(sdk)
-            .createPaymentProviderConfig(
-                new net.accelbyte.sdk.api.platform.operations.payment_config.CreatePaymentProviderConfig(
-                    new ObjectMapper().readValue(body, PaymentProviderConfigEdit.class)  
-                )
-            );
+                    wrapper.createPaymentProviderConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

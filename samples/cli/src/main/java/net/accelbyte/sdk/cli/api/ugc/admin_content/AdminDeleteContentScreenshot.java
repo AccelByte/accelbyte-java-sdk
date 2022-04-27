@@ -62,15 +62,14 @@ public class AdminDeleteContentScreenshot implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new AdminContent(sdk)
-            .adminDeleteContentScreenshot(
-                new net.accelbyte.sdk.api.ugc.operations.admin_content.AdminDeleteContentScreenshot(
-                    contentId,
-                    namespace,
-                    screenshotId
-                )
-            );
+            AdminContent wrapper = new AdminContent(sdk);
+            net.accelbyte.sdk.api.ugc.operations.admin_content.AdminDeleteContentScreenshot operation =
+                    net.accelbyte.sdk.api.ugc.operations.admin_content.AdminDeleteContentScreenshot.builder()
+                            .contentId(contentId)
+                            .namespace(namespace)
+                            .screenshotId(screenshotId)
+                            .build();
+                    wrapper.adminDeleteContentScreenshot(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

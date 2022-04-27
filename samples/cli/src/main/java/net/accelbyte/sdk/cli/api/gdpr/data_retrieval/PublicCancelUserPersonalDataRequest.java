@@ -62,15 +62,14 @@ public class PublicCancelUserPersonalDataRequest implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new DataRetrieval(sdk)
-            .publicCancelUserPersonalDataRequest(
-                new net.accelbyte.sdk.api.gdpr.operations.data_retrieval.PublicCancelUserPersonalDataRequest(
-                    namespace,
-                    requestDate,
-                    userId
-                )
-            );
+            DataRetrieval wrapper = new DataRetrieval(sdk);
+            net.accelbyte.sdk.api.gdpr.operations.data_retrieval.PublicCancelUserPersonalDataRequest operation =
+                    net.accelbyte.sdk.api.gdpr.operations.data_retrieval.PublicCancelUserPersonalDataRequest.builder()
+                            .namespace(namespace)
+                            .requestDate(requestDate)
+                            .userId(userId)
+                            .build();
+                    wrapper.publicCancelUserPersonalDataRequest(operation);
             return 0;
         } catch (HttpResponseException e) {
             log.error("HttpResponseException occur with message below:\n{}", e.getMessage());

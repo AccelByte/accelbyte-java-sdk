@@ -59,15 +59,14 @@ public class CreateSession implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Session wrapper = new Session(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.session.CreateSession operation =
+                    net.accelbyte.sdk.api.dsmc.operations.session.CreateSession.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsCreateSessionRequest.class)) 
+                            .build();
             ModelsSessionResponse response =
-            new Session(sdk)
-            .createSession(
-                new net.accelbyte.sdk.api.dsmc.operations.session.CreateSession(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsCreateSessionRequest.class)  
-                )
-            );
+                    wrapper.createSession(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

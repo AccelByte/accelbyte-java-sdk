@@ -53,13 +53,12 @@ public class PublicGetTime implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Misc wrapper = new Misc(sdk);
+            net.accelbyte.sdk.api.basic.operations.misc.PublicGetTime operation =
+                    net.accelbyte.sdk.api.basic.operations.misc.PublicGetTime.builder()
+                            .build();
             RetrieveTimeResponse response =
-            new Misc(sdk)
-            .publicGetTime(
-                new net.accelbyte.sdk.api.basic.operations.misc.PublicGetTime(
-                )
-            );
+                    wrapper.publicGetTime(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -65,17 +65,16 @@ public class GetTopicByNamespace implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Notification wrapper = new Notification(sdk);
+            net.accelbyte.sdk.api.lobby.operations.notification.GetTopicByNamespace operation =
+                    net.accelbyte.sdk.api.lobby.operations.notification.GetTopicByNamespace.builder()
+                            .namespace(namespace)
+                            .after(after)
+                            .before(before)
+                            .limit(limit)
+                            .build();
             ModelTopicByNamespacesResponse response =
-            new Notification(sdk)
-            .getTopicByNamespace(
-                new net.accelbyte.sdk.api.lobby.operations.notification.GetTopicByNamespace(
-                    namespace,
-                    after,
-                    before,
-                    limit
-                )
-            );
+                    wrapper.getTopicByNamespace(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -68,18 +68,17 @@ public class PublicListUserWalletTransactions implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Wallet wrapper = new Wallet(sdk);
+            net.accelbyte.sdk.api.platform.operations.wallet.PublicListUserWalletTransactions operation =
+                    net.accelbyte.sdk.api.platform.operations.wallet.PublicListUserWalletTransactions.builder()
+                            .currencyCode(currencyCode)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             WalletTransactionPagingSlicedResult response =
-            new Wallet(sdk)
-            .publicListUserWalletTransactions(
-                new net.accelbyte.sdk.api.platform.operations.wallet.PublicListUserWalletTransactions(
-                    currencyCode,
-                    namespace,
-                    userId,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.publicListUserWalletTransactions(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

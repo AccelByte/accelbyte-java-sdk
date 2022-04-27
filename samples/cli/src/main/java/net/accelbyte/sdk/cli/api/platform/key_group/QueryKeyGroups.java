@@ -68,18 +68,17 @@ public class QueryKeyGroups implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            KeyGroup wrapper = new KeyGroup(sdk);
+            net.accelbyte.sdk.api.platform.operations.key_group.QueryKeyGroups operation =
+                    net.accelbyte.sdk.api.platform.operations.key_group.QueryKeyGroups.builder()
+                            .namespace(namespace)
+                            .limit(limit)
+                            .name(name)
+                            .offset(offset)
+                            .tag(tag)
+                            .build();
             KeyGroupPagingSlicedResult response =
-            new KeyGroup(sdk)
-            .queryKeyGroups(
-                new net.accelbyte.sdk.api.platform.operations.key_group.QueryKeyGroups(
-                    namespace,
-                    limit,
-                    name,
-                    offset,
-                    tag
-                )
-            );
+                    wrapper.queryKeyGroups(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

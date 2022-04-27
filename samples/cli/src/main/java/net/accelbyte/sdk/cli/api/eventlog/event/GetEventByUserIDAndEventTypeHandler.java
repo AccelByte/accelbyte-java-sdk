@@ -74,20 +74,19 @@ public class GetEventByUserIDAndEventTypeHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Event wrapper = new Event(sdk);
+            net.accelbyte.sdk.api.eventlog.operations.event.GetEventByUserIDAndEventTypeHandler operation =
+                    net.accelbyte.sdk.api.eventlog.operations.event.GetEventByUserIDAndEventTypeHandler.builder()
+                            .eventType(eventType)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .offset(offset)
+                            .endDate(endDate)
+                            .pageSize(pageSize)
+                            .startDate(startDate)
+                            .build();
             ModelsEventResponse response =
-            new Event(sdk)
-            .getEventByUserIDAndEventTypeHandler(
-                new net.accelbyte.sdk.api.eventlog.operations.event.GetEventByUserIDAndEventTypeHandler(
-                    eventType,
-                    namespace,
-                    userId,
-                    offset,
-                    endDate,
-                    pageSize,
-                    startDate
-                )
-            );
+                    wrapper.getEventByUserIDAndEventTypeHandler(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

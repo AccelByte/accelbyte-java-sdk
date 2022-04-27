@@ -62,15 +62,14 @@ public class DisableUserWallet implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Wallet(sdk)
-            .disableUserWallet(
-                new net.accelbyte.sdk.api.platform.operations.wallet.DisableUserWallet(
-                    namespace,
-                    userId,
-                    walletId
-                )
-            );
+            Wallet wrapper = new Wallet(sdk);
+            net.accelbyte.sdk.api.platform.operations.wallet.DisableUserWallet operation =
+                    net.accelbyte.sdk.api.platform.operations.wallet.DisableUserWallet.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .walletId(walletId)
+                            .build();
+                    wrapper.disableUserWallet(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

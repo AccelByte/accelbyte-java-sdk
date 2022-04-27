@@ -62,16 +62,15 @@ public class JoinSession implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Session wrapper = new Session(sdk);
+            net.accelbyte.sdk.api.sessionbrowser.operations.session.JoinSession operation =
+                    net.accelbyte.sdk.api.sessionbrowser.operations.session.JoinSession.builder()
+                            .namespace(namespace)
+                            .sessionID(sessionID)
+                            .body(new ObjectMapper().readValue(body, ModelsJoinGameSessionRequest.class)) 
+                            .build();
             ModelsSessionResponse response =
-            new Session(sdk)
-            .joinSession(
-                new net.accelbyte.sdk.api.sessionbrowser.operations.session.JoinSession(
-                    namespace,
-                    sessionID,
-                    new ObjectMapper().readValue(body, ModelsJoinGameSessionRequest.class)  
-                )
-            );
+                    wrapper.joinSession(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

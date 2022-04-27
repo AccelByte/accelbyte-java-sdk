@@ -59,15 +59,14 @@ public class PublicGetContentBulk implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicContent wrapper = new PublicContent(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_content.PublicGetContentBulk operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_content.PublicGetContentBulk.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsPublicGetContentBulkRequest.class)) 
+                            .build();
             List<ModelsContentDownloadResponse> response =
-            new PublicContent(sdk)
-            .publicGetContentBulk(
-                new net.accelbyte.sdk.api.ugc.operations.public_content.PublicGetContentBulk(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsPublicGetContentBulkRequest.class)  
-                )
-            );
+                    wrapper.publicGetContentBulk(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

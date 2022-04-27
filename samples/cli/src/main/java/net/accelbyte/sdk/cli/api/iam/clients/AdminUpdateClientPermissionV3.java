@@ -62,15 +62,14 @@ public class AdminUpdateClientPermissionV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Clients(sdk)
-            .adminUpdateClientPermissionV3(
-                new net.accelbyte.sdk.api.iam.operations.clients.AdminUpdateClientPermissionV3(
-                    clientId,
-                    namespace,
-                    new ObjectMapper().readValue(body, AccountcommonClientPermissionsV3.class)  
-                )
-            );
+            Clients wrapper = new Clients(sdk);
+            net.accelbyte.sdk.api.iam.operations.clients.AdminUpdateClientPermissionV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.clients.AdminUpdateClientPermissionV3.builder()
+                            .clientId(clientId)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, AccountcommonClientPermissionsV3.class)) 
+                            .build();
+                    wrapper.adminUpdateClientPermissionV3(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

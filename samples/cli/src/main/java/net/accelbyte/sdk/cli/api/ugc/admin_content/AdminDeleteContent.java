@@ -65,16 +65,15 @@ public class AdminDeleteContent implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new AdminContent(sdk)
-            .adminDeleteContent(
-                new net.accelbyte.sdk.api.ugc.operations.admin_content.AdminDeleteContent(
-                    channelId,
-                    contentId,
-                    namespace,
-                    userId
-                )
-            );
+            AdminContent wrapper = new AdminContent(sdk);
+            net.accelbyte.sdk.api.ugc.operations.admin_content.AdminDeleteContent operation =
+                    net.accelbyte.sdk.api.ugc.operations.admin_content.AdminDeleteContent.builder()
+                            .channelId(channelId)
+                            .contentId(contentId)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.adminDeleteContent(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

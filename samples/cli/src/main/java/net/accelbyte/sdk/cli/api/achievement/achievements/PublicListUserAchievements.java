@@ -68,18 +68,17 @@ public class PublicListUserAchievements implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Achievements wrapper = new Achievements(sdk);
+            net.accelbyte.sdk.api.achievement.operations.achievements.PublicListUserAchievements operation =
+                    net.accelbyte.sdk.api.achievement.operations.achievements.PublicListUserAchievements.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .limit(limit)
+                            .offset(offset)
+                            .preferUnlocked(preferUnlocked)
+                            .build();
             ModelsPaginatedUserAchievementResponse response =
-            new Achievements(sdk)
-            .publicListUserAchievements(
-                new net.accelbyte.sdk.api.achievement.operations.achievements.PublicListUserAchievements(
-                    namespace,
-                    userId,
-                    limit,
-                    offset,
-                    preferUnlocked
-                )
-            );
+                    wrapper.publicListUserAchievements(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

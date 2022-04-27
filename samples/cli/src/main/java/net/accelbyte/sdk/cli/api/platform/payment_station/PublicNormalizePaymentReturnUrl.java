@@ -101,28 +101,27 @@ public class PublicNormalizePaymentReturnUrl implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new PaymentStation(sdk)
-            .publicNormalizePaymentReturnUrl(
-                new net.accelbyte.sdk.api.platform.operations.payment_station.PublicNormalizePaymentReturnUrl(
-                    namespace,
-                    payerID,
-                    foreinginvoice,
-                    invoiceId,
-                    payload,
-                    redirectResult,
-                    resultCode,
-                    sessionId,
-                    status,
-                    token,
-                    type,
-                    userId,
-                    orderNo,
-                    paymentOrderNo,
-                    paymentProvider,
-                    returnUrl
-                )
-            );
+            PaymentStation wrapper = new PaymentStation(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_station.PublicNormalizePaymentReturnUrl operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_station.PublicNormalizePaymentReturnUrl.builder()
+                            .namespace(namespace)
+                            .payerID(payerID)
+                            .foreinginvoice(foreinginvoice)
+                            .invoiceId(invoiceId)
+                            .payload(payload)
+                            .redirectResult(redirectResult)
+                            .resultCode(resultCode)
+                            .sessionId(sessionId)
+                            .status(status)
+                            .token(token)
+                            .type(type)
+                            .userId(userId)
+                            .orderNo(orderNo)
+                            .paymentOrderNo(paymentOrderNo)
+                            .paymentProvider(paymentProvider)
+                            .returnUrl(returnUrl)
+                            .build();
+                    wrapper.publicNormalizePaymentReturnUrl(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

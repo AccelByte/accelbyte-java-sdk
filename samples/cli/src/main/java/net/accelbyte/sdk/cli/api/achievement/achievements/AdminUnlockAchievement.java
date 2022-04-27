@@ -62,15 +62,14 @@ public class AdminUnlockAchievement implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Achievements(sdk)
-            .adminUnlockAchievement(
-                new net.accelbyte.sdk.api.achievement.operations.achievements.AdminUnlockAchievement(
-                    achievementCode,
-                    namespace,
-                    userId
-                )
-            );
+            Achievements wrapper = new Achievements(sdk);
+            net.accelbyte.sdk.api.achievement.operations.achievements.AdminUnlockAchievement operation =
+                    net.accelbyte.sdk.api.achievement.operations.achievements.AdminUnlockAchievement.builder()
+                            .achievementCode(achievementCode)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.adminUnlockAchievement(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

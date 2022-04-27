@@ -59,14 +59,13 @@ public class DeleteSession implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Admin(sdk)
-            .deleteSession(
-                new net.accelbyte.sdk.api.dsmc.operations.admin.DeleteSession(
-                    namespace,
-                    sessionID
-                )
-            );
+            Admin wrapper = new Admin(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.admin.DeleteSession operation =
+                    net.accelbyte.sdk.api.dsmc.operations.admin.DeleteSession.builder()
+                            .namespace(namespace)
+                            .sessionID(sessionID)
+                            .build();
+                    wrapper.deleteSession(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -62,15 +62,14 @@ public class DeleteUserRankingAdminV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new LeaderboardData(sdk)
-            .deleteUserRankingAdminV1(
-                new net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.DeleteUserRankingAdminV1(
-                    leaderboardCode,
-                    namespace,
-                    userId
-                )
-            );
+            LeaderboardData wrapper = new LeaderboardData(sdk);
+            net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.DeleteUserRankingAdminV1 operation =
+                    net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.DeleteUserRankingAdminV1.builder()
+                            .leaderboardCode(leaderboardCode)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.deleteUserRankingAdminV1(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

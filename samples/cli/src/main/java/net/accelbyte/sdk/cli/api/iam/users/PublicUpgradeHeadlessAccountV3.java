@@ -59,15 +59,14 @@ public class PublicUpgradeHeadlessAccountV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.PublicUpgradeHeadlessAccountV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.PublicUpgradeHeadlessAccountV3.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelUpgradeHeadlessAccountWithVerificationCodeRequestV3.class)) 
+                            .build();
             ModelUserResponseV3 response =
-            new Users(sdk)
-            .publicUpgradeHeadlessAccountV3(
-                new net.accelbyte.sdk.api.iam.operations.users.PublicUpgradeHeadlessAccountV3(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelUpgradeHeadlessAccountWithVerificationCodeRequestV3.class)  
-                )
-            );
+                    wrapper.publicUpgradeHeadlessAccountV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

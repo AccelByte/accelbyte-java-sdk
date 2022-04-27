@@ -59,14 +59,13 @@ public class AdminDeleteAllUserStates implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Anonymization(sdk)
-            .adminDeleteAllUserStates(
-                new net.accelbyte.sdk.api.ugc.operations.anonymization.AdminDeleteAllUserStates(
-                    namespace,
-                    userId
-                )
-            );
+            Anonymization wrapper = new Anonymization(sdk);
+            net.accelbyte.sdk.api.ugc.operations.anonymization.AdminDeleteAllUserStates operation =
+                    net.accelbyte.sdk.api.ugc.operations.anonymization.AdminDeleteAllUserStates.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.adminDeleteAllUserStates(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

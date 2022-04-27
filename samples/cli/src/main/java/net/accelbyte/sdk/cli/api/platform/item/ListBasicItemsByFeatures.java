@@ -62,16 +62,15 @@ public class ListBasicItemsByFeatures implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Item wrapper = new Item(sdk);
+            net.accelbyte.sdk.api.platform.operations.item.ListBasicItemsByFeatures operation =
+                    net.accelbyte.sdk.api.platform.operations.item.ListBasicItemsByFeatures.builder()
+                            .namespace(namespace)
+                            .activeOnly(activeOnly)
+                            .features(features)
+                            .build();
             List<BasicItem> response =
-            new Item(sdk)
-            .listBasicItemsByFeatures(
-                new net.accelbyte.sdk.api.platform.operations.item.ListBasicItemsByFeatures(
-                    namespace,
-                    activeOnly,
-                    features
-                )
-            );
+                    wrapper.listBasicItemsByFeatures(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

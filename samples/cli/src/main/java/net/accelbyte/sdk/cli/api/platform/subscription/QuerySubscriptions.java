@@ -80,22 +80,21 @@ public class QuerySubscriptions implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Subscription wrapper = new Subscription(sdk);
+            net.accelbyte.sdk.api.platform.operations.subscription.QuerySubscriptions operation =
+                    net.accelbyte.sdk.api.platform.operations.subscription.QuerySubscriptions.builder()
+                            .namespace(namespace)
+                            .chargeStatus(chargeStatus)
+                            .itemId(itemId)
+                            .limit(limit)
+                            .offset(offset)
+                            .sku(sku)
+                            .status(status)
+                            .subscribedBy(subscribedBy)
+                            .userId(userId)
+                            .build();
             SubscriptionPagingSlicedResult response =
-            new Subscription(sdk)
-            .querySubscriptions(
-                new net.accelbyte.sdk.api.platform.operations.subscription.QuerySubscriptions(
-                    namespace,
-                    chargeStatus,
-                    itemId,
-                    limit,
-                    offset,
-                    sku,
-                    status,
-                    subscribedBy,
-                    userId
-                )
-            );
+                    wrapper.querySubscriptions(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

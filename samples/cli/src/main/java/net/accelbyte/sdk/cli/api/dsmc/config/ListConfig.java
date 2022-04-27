@@ -53,13 +53,12 @@ public class ListConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Config wrapper = new Config(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.config.ListConfig operation =
+                    net.accelbyte.sdk.api.dsmc.operations.config.ListConfig.builder()
+                            .build();
             ModelsListConfigResponse response =
-            new Config(sdk)
-            .listConfig(
-                new net.accelbyte.sdk.api.dsmc.operations.config.ListConfig(
-                )
-            );
+                    wrapper.listConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

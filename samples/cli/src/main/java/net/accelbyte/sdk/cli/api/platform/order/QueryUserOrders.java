@@ -71,19 +71,18 @@ public class QueryUserOrders implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Order wrapper = new Order(sdk);
+            net.accelbyte.sdk.api.platform.operations.order.QueryUserOrders operation =
+                    net.accelbyte.sdk.api.platform.operations.order.QueryUserOrders.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .itemId(itemId)
+                            .limit(limit)
+                            .offset(offset)
+                            .status(status)
+                            .build();
             OrderPagingSlicedResult response =
-            new Order(sdk)
-            .queryUserOrders(
-                new net.accelbyte.sdk.api.platform.operations.order.QueryUserOrders(
-                    namespace,
-                    userId,
-                    itemId,
-                    limit,
-                    offset,
-                    status
-                )
-            );
+                    wrapper.queryUserOrders(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

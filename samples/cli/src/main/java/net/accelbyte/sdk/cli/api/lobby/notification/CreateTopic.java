@@ -59,14 +59,13 @@ public class CreateTopic implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Notification(sdk)
-            .createTopic(
-                new net.accelbyte.sdk.api.lobby.operations.notification.CreateTopic(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelCreateTopicRequest.class)  
-                )
-            );
+            Notification wrapper = new Notification(sdk);
+            net.accelbyte.sdk.api.lobby.operations.notification.CreateTopic operation =
+                    net.accelbyte.sdk.api.lobby.operations.notification.CreateTopic.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelCreateTopicRequest.class)) 
+                            .build();
+                    wrapper.createTopic(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

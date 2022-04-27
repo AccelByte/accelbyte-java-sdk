@@ -59,14 +59,13 @@ public class DeleteAllUserGroup implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Anonymization(sdk)
-            .deleteAllUserGroup(
-                new net.accelbyte.sdk.api.ugc.operations.anonymization.DeleteAllUserGroup(
-                    namespace,
-                    userId
-                )
-            );
+            Anonymization wrapper = new Anonymization(sdk);
+            net.accelbyte.sdk.api.ugc.operations.anonymization.DeleteAllUserGroup operation =
+                    net.accelbyte.sdk.api.ugc.operations.anonymization.DeleteAllUserGroup.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.deleteAllUserGroup(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

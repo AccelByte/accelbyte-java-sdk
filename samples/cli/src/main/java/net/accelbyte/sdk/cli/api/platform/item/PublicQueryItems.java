@@ -92,26 +92,25 @@ public class PublicQueryItems implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Item wrapper = new Item(sdk);
+            net.accelbyte.sdk.api.platform.operations.item.PublicQueryItems operation =
+                    net.accelbyte.sdk.api.platform.operations.item.PublicQueryItems.builder()
+                            .namespace(namespace)
+                            .appType(appType)
+                            .baseAppId(baseAppId)
+                            .categoryPath(categoryPath)
+                            .features(features)
+                            .itemType(itemType)
+                            .language(language)
+                            .limit(limit)
+                            .offset(offset)
+                            .region(region)
+                            .sortBy(sortBy)
+                            .storeId(storeId)
+                            .tags(tags)
+                            .build();
             ItemPagingSlicedResult response =
-            new Item(sdk)
-            .publicQueryItems(
-                new net.accelbyte.sdk.api.platform.operations.item.PublicQueryItems(
-                    namespace,
-                    appType,
-                    baseAppId,
-                    categoryPath,
-                    features,
-                    itemType,
-                    language,
-                    limit,
-                    offset,
-                    region,
-                    sortBy,
-                    storeId,
-                    tags
-                )
-            );
+                    wrapper.publicQueryItems(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

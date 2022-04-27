@@ -59,15 +59,14 @@ public class GetServer implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Admin wrapper = new Admin(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.admin.GetServer operation =
+                    net.accelbyte.sdk.api.dsmc.operations.admin.GetServer.builder()
+                            .namespace(namespace)
+                            .podName(podName)
+                            .build();
             ModelsServer response =
-            new Admin(sdk)
-            .getServer(
-                new net.accelbyte.sdk.api.dsmc.operations.admin.GetServer(
-                    namespace,
-                    podName
-                )
-            );
+                    wrapper.getServer(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

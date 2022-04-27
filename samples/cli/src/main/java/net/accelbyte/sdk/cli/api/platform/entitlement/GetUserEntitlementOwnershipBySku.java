@@ -65,17 +65,16 @@ public class GetUserEntitlementOwnershipBySku implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Entitlement wrapper = new Entitlement(sdk);
+            net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementOwnershipBySku operation =
+                    net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementOwnershipBySku.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .entitlementClazz(entitlementClazz)
+                            .sku(sku)
+                            .build();
             TimedOwnership response =
-            new Entitlement(sdk)
-            .getUserEntitlementOwnershipBySku(
-                new net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementOwnershipBySku(
-                    namespace,
-                    userId,
-                    entitlementClazz,
-                    sku
-                )
-            );
+                    wrapper.getUserEntitlementOwnershipBySku(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

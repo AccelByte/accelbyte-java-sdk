@@ -56,14 +56,12 @@ public class ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost implements Ca
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new GametelemetryOperations(sdk)
-            .protectedSaveEventsGameTelemetryV1ProtectedEventsPost(
-                new net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost(
-                    new ObjectMapper().readValue(body, new TypeReference<List<TelemetryBody>>() {})
- 
-                )
-            );
+            GametelemetryOperations wrapper = new GametelemetryOperations(sdk);
+            net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost operation =
+                    net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost.builder()
+                            .body(new ObjectMapper().readValue(body, new TypeReference<List<TelemetryBody>>() {}))
+                            .build();
+                    wrapper.protectedSaveEventsGameTelemetryV1ProtectedEventsPost(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

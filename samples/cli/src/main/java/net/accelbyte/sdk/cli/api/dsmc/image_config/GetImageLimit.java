@@ -56,14 +56,13 @@ public class GetImageLimit implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            ImageConfig wrapper = new ImageConfig(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.image_config.GetImageLimit operation =
+                    net.accelbyte.sdk.api.dsmc.operations.image_config.GetImageLimit.builder()
+                            .namespace(namespace)
+                            .build();
             ModelsGetImageLimitResponse response =
-            new ImageConfig(sdk)
-            .getImageLimit(
-                new net.accelbyte.sdk.api.dsmc.operations.image_config.GetImageLimit(
-                    namespace
-                )
-            );
+                    wrapper.getImageLimit(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

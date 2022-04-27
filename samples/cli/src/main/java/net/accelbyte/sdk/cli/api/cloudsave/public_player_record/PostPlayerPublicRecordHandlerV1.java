@@ -65,16 +65,15 @@ public class PostPlayerPublicRecordHandlerV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new PublicPlayerRecord(sdk)
-            .postPlayerPublicRecordHandlerV1(
-                new net.accelbyte.sdk.api.cloudsave.operations.public_player_record.PostPlayerPublicRecordHandlerV1(
-                    key,
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelsPlayerRecordRequest.class)  
-                )
-            );
+            PublicPlayerRecord wrapper = new PublicPlayerRecord(sdk);
+            net.accelbyte.sdk.api.cloudsave.operations.public_player_record.PostPlayerPublicRecordHandlerV1 operation =
+                    net.accelbyte.sdk.api.cloudsave.operations.public_player_record.PostPlayerPublicRecordHandlerV1.builder()
+                            .key(key)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelsPlayerRecordRequest.class)) 
+                            .build();
+                    wrapper.postPlayerPublicRecordHandlerV1(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

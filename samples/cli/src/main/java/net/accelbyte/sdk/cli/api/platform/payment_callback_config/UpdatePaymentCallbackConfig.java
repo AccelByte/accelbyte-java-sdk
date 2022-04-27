@@ -59,15 +59,14 @@ public class UpdatePaymentCallbackConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PaymentCallbackConfig wrapper = new PaymentCallbackConfig(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_callback_config.UpdatePaymentCallbackConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_callback_config.UpdatePaymentCallbackConfig.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, PaymentCallbackConfigUpdate.class)) 
+                            .build();
             PaymentCallbackConfigInfo response =
-            new PaymentCallbackConfig(sdk)
-            .updatePaymentCallbackConfig(
-                new net.accelbyte.sdk.api.platform.operations.payment_callback_config.UpdatePaymentCallbackConfig(
-                    namespace,
-                    new ObjectMapper().readValue(body, PaymentCallbackConfigUpdate.class)  
-                )
-            );
+                    wrapper.updatePaymentCallbackConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

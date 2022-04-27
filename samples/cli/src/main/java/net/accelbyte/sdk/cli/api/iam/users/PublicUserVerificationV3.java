@@ -59,14 +59,13 @@ public class PublicUserVerificationV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .publicUserVerificationV3(
-                new net.accelbyte.sdk.api.iam.operations.users.PublicUserVerificationV3(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelUserVerificationRequestV3.class)  
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.PublicUserVerificationV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.PublicUserVerificationV3.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelUserVerificationRequestV3.class)) 
+                            .build();
+                    wrapper.publicUserVerificationV3(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

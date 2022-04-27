@@ -59,14 +59,13 @@ public class DeleteLeaderboardConfigurationAdminV1 implements Callable<Integer> 
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new LeaderboardConfiguration(sdk)
-            .deleteLeaderboardConfigurationAdminV1(
-                new net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.DeleteLeaderboardConfigurationAdminV1(
-                    leaderboardCode,
-                    namespace
-                )
-            );
+            LeaderboardConfiguration wrapper = new LeaderboardConfiguration(sdk);
+            net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.DeleteLeaderboardConfigurationAdminV1 operation =
+                    net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.DeleteLeaderboardConfigurationAdminV1.builder()
+                            .leaderboardCode(leaderboardCode)
+                            .namespace(namespace)
+                            .build();
+                    wrapper.deleteLeaderboardConfigurationAdminV1(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

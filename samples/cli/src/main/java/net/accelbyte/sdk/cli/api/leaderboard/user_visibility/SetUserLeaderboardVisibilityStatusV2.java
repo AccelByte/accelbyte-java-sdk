@@ -65,17 +65,16 @@ public class SetUserLeaderboardVisibilityStatusV2 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UserVisibility wrapper = new UserVisibility(sdk);
+            net.accelbyte.sdk.api.leaderboard.operations.user_visibility.SetUserLeaderboardVisibilityStatusV2 operation =
+                    net.accelbyte.sdk.api.leaderboard.operations.user_visibility.SetUserLeaderboardVisibilityStatusV2.builder()
+                            .leaderboardCode(leaderboardCode)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelsSetUserVisibilityRequest.class)) 
+                            .build();
             ModelsGetUserVisibilityResponse response =
-            new UserVisibility(sdk)
-            .setUserLeaderboardVisibilityStatusV2(
-                new net.accelbyte.sdk.api.leaderboard.operations.user_visibility.SetUserLeaderboardVisibilityStatusV2(
-                    leaderboardCode,
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelsSetUserVisibilityRequest.class)  
-                )
-            );
+                    wrapper.setUserLeaderboardVisibilityStatusV2(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

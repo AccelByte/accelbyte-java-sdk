@@ -59,15 +59,14 @@ public class PublicGetPaymentUrl implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PaymentStation wrapper = new PaymentStation(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_station.PublicGetPaymentUrl operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_station.PublicGetPaymentUrl.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, PaymentUrlCreate.class)) 
+                            .build();
             PaymentUrl response =
-            new PaymentStation(sdk)
-            .publicGetPaymentUrl(
-                new net.accelbyte.sdk.api.platform.operations.payment_station.PublicGetPaymentUrl(
-                    namespace,
-                    new ObjectMapper().readValue(body, PaymentUrlCreate.class)  
-                )
-            );
+                    wrapper.publicGetPaymentUrl(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

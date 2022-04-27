@@ -62,16 +62,15 @@ public class PublicGetUserSubscription implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Subscription wrapper = new Subscription(sdk);
+            net.accelbyte.sdk.api.platform.operations.subscription.PublicGetUserSubscription operation =
+                    net.accelbyte.sdk.api.platform.operations.subscription.PublicGetUserSubscription.builder()
+                            .namespace(namespace)
+                            .subscriptionId(subscriptionId)
+                            .userId(userId)
+                            .build();
             SubscriptionInfo response =
-            new Subscription(sdk)
-            .publicGetUserSubscription(
-                new net.accelbyte.sdk.api.platform.operations.subscription.PublicGetUserSubscription(
-                    namespace,
-                    subscriptionId,
-                    userId
-                )
-            );
+                    wrapper.publicGetUserSubscription(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

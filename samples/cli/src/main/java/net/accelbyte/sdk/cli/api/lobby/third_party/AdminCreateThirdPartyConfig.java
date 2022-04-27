@@ -59,15 +59,14 @@ public class AdminCreateThirdPartyConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            ThirdParty wrapper = new ThirdParty(sdk);
+            net.accelbyte.sdk.api.lobby.operations.third_party.AdminCreateThirdPartyConfig operation =
+                    net.accelbyte.sdk.api.lobby.operations.third_party.AdminCreateThirdPartyConfig.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsCreateConfigRequest.class)) 
+                            .build();
             ModelsCreateConfigResponse response =
-            new ThirdParty(sdk)
-            .adminCreateThirdPartyConfig(
-                new net.accelbyte.sdk.api.lobby.operations.third_party.AdminCreateThirdPartyConfig(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsCreateConfigRequest.class)  
-                )
-            );
+                    wrapper.adminCreateThirdPartyConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

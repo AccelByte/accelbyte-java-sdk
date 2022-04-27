@@ -65,17 +65,16 @@ public class GetUserLeaderboardRankingsAdminV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UserData wrapper = new UserData(sdk);
+            net.accelbyte.sdk.api.leaderboard.operations.user_data.GetUserLeaderboardRankingsAdminV1 operation =
+                    net.accelbyte.sdk.api.leaderboard.operations.user_data.GetUserLeaderboardRankingsAdminV1.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsGetAllUserLeaderboardsResp response =
-            new UserData(sdk)
-            .getUserLeaderboardRankingsAdminV1(
-                new net.accelbyte.sdk.api.leaderboard.operations.user_data.GetUserLeaderboardRankingsAdminV1(
-                    namespace,
-                    userId,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.getUserLeaderboardRankingsAdminV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

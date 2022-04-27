@@ -56,14 +56,13 @@ public class AdminGetLobbyCCU implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Player wrapper = new Player(sdk);
+            net.accelbyte.sdk.api.lobby.operations.player.AdminGetLobbyCCU operation =
+                    net.accelbyte.sdk.api.lobby.operations.player.AdminGetLobbyCCU.builder()
+                            .namespace(namespace)
+                            .build();
             ModelsGetLobbyCcuResponse response =
-            new Player(sdk)
-            .adminGetLobbyCCU(
-                new net.accelbyte.sdk.api.lobby.operations.player.AdminGetLobbyCCU(
-                    namespace
-                )
-            );
+                    wrapper.adminGetLobbyCCU(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

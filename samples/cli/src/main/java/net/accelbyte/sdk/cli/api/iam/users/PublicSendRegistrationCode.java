@@ -59,14 +59,13 @@ public class PublicSendRegistrationCode implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .publicSendRegistrationCode(
-                new net.accelbyte.sdk.api.iam.operations.users.PublicSendRegistrationCode(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelSendRegisterVerificationCodeRequest.class)  
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.PublicSendRegistrationCode operation =
+                    net.accelbyte.sdk.api.iam.operations.users.PublicSendRegistrationCode.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelSendRegisterVerificationCodeRequest.class)) 
+                            .build();
+                    wrapper.publicSendRegistrationCode(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

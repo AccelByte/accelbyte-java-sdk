@@ -62,16 +62,15 @@ public class SingleAdminGetContent implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            AdminContent wrapper = new AdminContent(sdk);
+            net.accelbyte.sdk.api.ugc.operations.admin_content.SingleAdminGetContent operation =
+                    net.accelbyte.sdk.api.ugc.operations.admin_content.SingleAdminGetContent.builder()
+                            .namespace(namespace)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsPaginatedContentDownloadResponse response =
-            new AdminContent(sdk)
-            .singleAdminGetContent(
-                new net.accelbyte.sdk.api.ugc.operations.admin_content.SingleAdminGetContent(
-                    namespace,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.singleAdminGetContent(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

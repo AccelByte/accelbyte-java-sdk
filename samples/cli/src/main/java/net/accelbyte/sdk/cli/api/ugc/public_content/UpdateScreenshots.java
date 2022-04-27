@@ -65,17 +65,16 @@ public class UpdateScreenshots implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicContent wrapper = new PublicContent(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_content.UpdateScreenshots operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_content.UpdateScreenshots.builder()
+                            .contentId(contentId)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelsUpdateScreenshotRequest.class)) 
+                            .build();
             ModelsUpdateScreenshotResponse response =
-            new PublicContent(sdk)
-            .updateScreenshots(
-                new net.accelbyte.sdk.api.ugc.operations.public_content.UpdateScreenshots(
-                    contentId,
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelsUpdateScreenshotRequest.class)  
-                )
-            );
+                    wrapper.updateScreenshots(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

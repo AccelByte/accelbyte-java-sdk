@@ -59,15 +59,14 @@ public class GetSessionHistoryDetailed implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Matchmaking wrapper = new Matchmaking(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking.GetSessionHistoryDetailed operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking.GetSessionHistoryDetailed.builder()
+                            .matchID(matchID)
+                            .namespace(namespace)
+                            .build();
             List<ServiceGetSessionHistoryDetailedResponseItem> response =
-            new Matchmaking(sdk)
-            .getSessionHistoryDetailed(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking.GetSessionHistoryDetailed(
-                    matchID,
-                    namespace
-                )
-            );
+                    wrapper.getSessionHistoryDetailed(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -65,17 +65,16 @@ public class AdminGetAllGroups implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            AdminGroup wrapper = new AdminGroup(sdk);
+            net.accelbyte.sdk.api.ugc.operations.admin_group.AdminGetAllGroups operation =
+                    net.accelbyte.sdk.api.ugc.operations.admin_group.AdminGetAllGroups.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsPaginatedGroupResponse response =
-            new AdminGroup(sdk)
-            .adminGetAllGroups(
-                new net.accelbyte.sdk.api.ugc.operations.admin_group.AdminGetAllGroups(
-                    namespace,
-                    userId,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.adminGetAllGroups(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

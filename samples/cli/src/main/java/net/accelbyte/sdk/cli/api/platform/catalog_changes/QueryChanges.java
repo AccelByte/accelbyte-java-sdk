@@ -86,24 +86,23 @@ public class QueryChanges implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            CatalogChanges wrapper = new CatalogChanges(sdk);
+            net.accelbyte.sdk.api.platform.operations.catalog_changes.QueryChanges operation =
+                    net.accelbyte.sdk.api.platform.operations.catalog_changes.QueryChanges.builder()
+                            .namespace(namespace)
+                            .storeId(storeId)
+                            .action(action)
+                            .itemType(itemType)
+                            .limit(limit)
+                            .offset(offset)
+                            .sortBy(sortBy)
+                            .status(status)
+                            .type(type)
+                            .updatedAtEnd(updatedAtEnd)
+                            .updatedAtStart(updatedAtStart)
+                            .build();
             List<CatalogChangePagingSlicedResult> response =
-            new CatalogChanges(sdk)
-            .queryChanges(
-                new net.accelbyte.sdk.api.platform.operations.catalog_changes.QueryChanges(
-                    namespace,
-                    storeId,
-                    action,
-                    itemType,
-                    limit,
-                    offset,
-                    sortBy,
-                    status,
-                    type,
-                    updatedAtEnd,
-                    updatedAtStart
-                )
-            );
+                    wrapper.queryChanges(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

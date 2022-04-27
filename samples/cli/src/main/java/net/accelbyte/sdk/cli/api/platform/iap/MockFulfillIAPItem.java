@@ -62,15 +62,14 @@ public class MockFulfillIAPItem implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new IAP(sdk)
-            .mockFulfillIAPItem(
-                new net.accelbyte.sdk.api.platform.operations.iap.MockFulfillIAPItem(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, MockIAPReceipt.class)  
-                )
-            );
+            IAP wrapper = new IAP(sdk);
+            net.accelbyte.sdk.api.platform.operations.iap.MockFulfillIAPItem operation =
+                    net.accelbyte.sdk.api.platform.operations.iap.MockFulfillIAPItem.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, MockIAPReceipt.class)) 
+                            .build();
+                    wrapper.mockFulfillIAPItem(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

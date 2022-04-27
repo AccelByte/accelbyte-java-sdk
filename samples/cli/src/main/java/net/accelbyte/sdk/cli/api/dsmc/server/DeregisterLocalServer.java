@@ -59,14 +59,13 @@ public class DeregisterLocalServer implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Server(sdk)
-            .deregisterLocalServer(
-                new net.accelbyte.sdk.api.dsmc.operations.server.DeregisterLocalServer(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsDeregisterLocalServerRequest.class)  
-                )
-            );
+            Server wrapper = new Server(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.server.DeregisterLocalServer operation =
+                    net.accelbyte.sdk.api.dsmc.operations.server.DeregisterLocalServer.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsDeregisterLocalServerRequest.class)) 
+                            .build();
+                    wrapper.deregisterLocalServer(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

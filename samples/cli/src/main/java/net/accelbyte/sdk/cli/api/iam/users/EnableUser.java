@@ -59,14 +59,13 @@ public class EnableUser implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .enableUser(
-                new net.accelbyte.sdk.api.iam.operations.users.EnableUser(
-                    namespace,
-                    userId
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.EnableUser operation =
+                    net.accelbyte.sdk.api.iam.operations.users.EnableUser.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.enableUser(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

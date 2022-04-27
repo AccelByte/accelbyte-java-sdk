@@ -59,15 +59,14 @@ public class AdminVerifyMessageProfanityResponse implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Profanity wrapper = new Profanity(sdk);
+            net.accelbyte.sdk.api.lobby.operations.profanity.AdminVerifyMessageProfanityResponse operation =
+                    net.accelbyte.sdk.api.lobby.operations.profanity.AdminVerifyMessageProfanityResponse.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsAdminVerifyMessageProfanityRequest.class)) 
+                            .build();
             ModelsAdminVerifyMessageProfanityResponse response =
-            new Profanity(sdk)
-            .adminVerifyMessageProfanityResponse(
-                new net.accelbyte.sdk.api.lobby.operations.profanity.AdminVerifyMessageProfanityResponse(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsAdminVerifyMessageProfanityRequest.class)  
-                )
-            );
+                    wrapper.adminVerifyMessageProfanityResponse(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

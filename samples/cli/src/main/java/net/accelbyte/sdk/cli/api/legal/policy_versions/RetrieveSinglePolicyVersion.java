@@ -59,15 +59,14 @@ public class RetrieveSinglePolicyVersion implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PolicyVersions wrapper = new PolicyVersions(sdk);
+            net.accelbyte.sdk.api.legal.operations.policy_versions.RetrieveSinglePolicyVersion operation =
+                    net.accelbyte.sdk.api.legal.operations.policy_versions.RetrieveSinglePolicyVersion.builder()
+                            .policyId(policyId)
+                            .versionId(versionId)
+                            .build();
             List<RetrievePolicyVersionResponse> response =
-            new PolicyVersions(sdk)
-            .retrieveSinglePolicyVersion(
-                new net.accelbyte.sdk.api.legal.operations.policy_versions.RetrieveSinglePolicyVersion(
-                    policyId,
-                    versionId
-                )
-            );
+                    wrapper.retrieveSinglePolicyVersion(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

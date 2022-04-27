@@ -65,17 +65,16 @@ public class GetUserEntitlementOwnershipByItemId implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Entitlement wrapper = new Entitlement(sdk);
+            net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementOwnershipByItemId operation =
+                    net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementOwnershipByItemId.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .entitlementClazz(entitlementClazz)
+                            .itemId(itemId)
+                            .build();
             TimedOwnership response =
-            new Entitlement(sdk)
-            .getUserEntitlementOwnershipByItemId(
-                new net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementOwnershipByItemId(
-                    namespace,
-                    userId,
-                    entitlementClazz,
-                    itemId
-                )
-            );
+                    wrapper.getUserEntitlementOwnershipByItemId(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

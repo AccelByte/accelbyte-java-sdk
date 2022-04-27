@@ -59,14 +59,13 @@ public class DequeueSessionHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Matchmaking(sdk)
-            .dequeueSessionHandler(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking.DequeueSessionHandler(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsDequeueRequest.class)  
-                )
-            );
+            Matchmaking wrapper = new Matchmaking(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking.DequeueSessionHandler operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking.DequeueSessionHandler.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsDequeueRequest.class)) 
+                            .build();
+                    wrapper.dequeueSessionHandler(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

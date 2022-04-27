@@ -62,16 +62,15 @@ public class PublicListUserIDByPlatformUserIDsV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.PublicListUserIDByPlatformUserIDsV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.PublicListUserIDByPlatformUserIDsV3.builder()
+                            .namespace(namespace)
+                            .platformId(platformId)
+                            .body(new ObjectMapper().readValue(body, ModelPlatformUserIDRequest.class)) 
+                            .build();
             AccountcommonUserPlatforms response =
-            new Users(sdk)
-            .publicListUserIDByPlatformUserIDsV3(
-                new net.accelbyte.sdk.api.iam.operations.users.PublicListUserIDByPlatformUserIDsV3(
-                    namespace,
-                    platformId,
-                    new ObjectMapper().readValue(body, ModelPlatformUserIDRequest.class)  
-                )
-            );
+                    wrapper.publicListUserIDByPlatformUserIDsV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

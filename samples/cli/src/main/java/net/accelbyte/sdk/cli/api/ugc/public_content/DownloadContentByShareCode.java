@@ -59,15 +59,14 @@ public class DownloadContentByShareCode implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicContent wrapper = new PublicContent(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_content.DownloadContentByShareCode operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_content.DownloadContentByShareCode.builder()
+                            .namespace(namespace)
+                            .shareCode(shareCode)
+                            .build();
             ModelsContentDownloadResponse response =
-            new PublicContent(sdk)
-            .downloadContentByShareCode(
-                new net.accelbyte.sdk.api.ugc.operations.public_content.DownloadContentByShareCode(
-                    namespace,
-                    shareCode
-                )
-            );
+                    wrapper.downloadContentByShareCode(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

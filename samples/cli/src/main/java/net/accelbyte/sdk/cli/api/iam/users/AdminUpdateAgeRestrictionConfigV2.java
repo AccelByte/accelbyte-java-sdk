@@ -59,15 +59,14 @@ public class AdminUpdateAgeRestrictionConfigV2 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.AdminUpdateAgeRestrictionConfigV2 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.AdminUpdateAgeRestrictionConfigV2.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelAgeRestrictionRequest.class)) 
+                            .build();
             ModelAgeRestrictionResponse response =
-            new Users(sdk)
-            .adminUpdateAgeRestrictionConfigV2(
-                new net.accelbyte.sdk.api.iam.operations.users.AdminUpdateAgeRestrictionConfigV2(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelAgeRestrictionRequest.class)  
-                )
-            );
+                    wrapper.adminUpdateAgeRestrictionConfigV2(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

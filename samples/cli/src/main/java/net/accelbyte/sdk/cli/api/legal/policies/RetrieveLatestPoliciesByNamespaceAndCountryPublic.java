@@ -71,19 +71,18 @@ public class RetrieveLatestPoliciesByNamespaceAndCountryPublic implements Callab
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Policies wrapper = new Policies(sdk);
+            net.accelbyte.sdk.api.legal.operations.policies.RetrieveLatestPoliciesByNamespaceAndCountryPublic operation =
+                    net.accelbyte.sdk.api.legal.operations.policies.RetrieveLatestPoliciesByNamespaceAndCountryPublic.builder()
+                            .countryCode(countryCode)
+                            .namespace(namespace)
+                            .alwaysIncludeDefault(alwaysIncludeDefault)
+                            .defaultOnEmpty(defaultOnEmpty)
+                            .policyType(policyType)
+                            .tags(tags)
+                            .build();
             List<RetrievePolicyPublicResponse> response =
-            new Policies(sdk)
-            .retrieveLatestPoliciesByNamespaceAndCountryPublic(
-                new net.accelbyte.sdk.api.legal.operations.policies.RetrieveLatestPoliciesByNamespaceAndCountryPublic(
-                    countryCode,
-                    namespace,
-                    alwaysIncludeDefault,
-                    defaultOnEmpty,
-                    policyType,
-                    tags
-                )
-            );
+                    wrapper.retrieveLatestPoliciesByNamespaceAndCountryPublic(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

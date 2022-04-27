@@ -62,15 +62,14 @@ public class DeleteReward implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Reward(sdk)
-            .deleteReward(
-                new net.accelbyte.sdk.api.seasonpass.operations.reward.DeleteReward(
-                    code,
-                    namespace,
-                    seasonId
-                )
-            );
+            Reward wrapper = new Reward(sdk);
+            net.accelbyte.sdk.api.seasonpass.operations.reward.DeleteReward operation =
+                    net.accelbyte.sdk.api.seasonpass.operations.reward.DeleteReward.builder()
+                            .code(code)
+                            .namespace(namespace)
+                            .seasonId(seasonId)
+                            .build();
+                    wrapper.deleteReward(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

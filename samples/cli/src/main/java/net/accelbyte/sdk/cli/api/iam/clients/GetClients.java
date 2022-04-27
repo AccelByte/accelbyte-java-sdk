@@ -53,13 +53,12 @@ public class GetClients implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Clients wrapper = new Clients(sdk);
+            net.accelbyte.sdk.api.iam.operations.clients.GetClients operation =
+                    net.accelbyte.sdk.api.iam.operations.clients.GetClients.builder()
+                            .build();
             List<ClientmodelClientResponse> response =
-            new Clients(sdk)
-            .getClients(
-                new net.accelbyte.sdk.api.iam.operations.clients.GetClients(
-                )
-            );
+                    wrapper.getClients(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

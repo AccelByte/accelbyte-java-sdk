@@ -59,15 +59,14 @@ public class RetrievePolicyCountry implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            BaseLegalPolicies wrapper = new BaseLegalPolicies(sdk);
+            net.accelbyte.sdk.api.legal.operations.base_legal_policies.RetrievePolicyCountry operation =
+                    net.accelbyte.sdk.api.legal.operations.base_legal_policies.RetrievePolicyCountry.builder()
+                            .basePolicyId(basePolicyId)
+                            .countryCode(countryCode)
+                            .build();
             RetrievePolicyResponse response =
-            new BaseLegalPolicies(sdk)
-            .retrievePolicyCountry(
-                new net.accelbyte.sdk.api.legal.operations.base_legal_policies.RetrievePolicyCountry(
-                    basePolicyId,
-                    countryCode
-                )
-            );
+                    wrapper.retrievePolicyCountry(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

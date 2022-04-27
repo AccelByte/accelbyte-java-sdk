@@ -59,14 +59,13 @@ public class FreeFormNotification implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Notification(sdk)
-            .freeFormNotification(
-                new net.accelbyte.sdk.api.lobby.operations.notification.FreeFormNotification(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelFreeFormNotificationRequest.class)  
-                )
-            );
+            Notification wrapper = new Notification(sdk);
+            net.accelbyte.sdk.api.lobby.operations.notification.FreeFormNotification operation =
+                    net.accelbyte.sdk.api.lobby.operations.notification.FreeFormNotification.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelFreeFormNotificationRequest.class)) 
+                            .build();
+                    wrapper.freeFormNotification(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

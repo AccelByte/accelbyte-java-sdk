@@ -56,13 +56,12 @@ public class DeleteClient implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Clients(sdk)
-            .deleteClient(
-                new net.accelbyte.sdk.api.iam.operations.clients.DeleteClient(
-                    clientId
-                )
-            );
+            Clients wrapper = new Clients(sdk);
+            net.accelbyte.sdk.api.iam.operations.clients.DeleteClient operation =
+                    net.accelbyte.sdk.api.iam.operations.clients.DeleteClient.builder()
+                            .clientId(clientId)
+                            .build();
+                    wrapper.deleteClient(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -59,15 +59,14 @@ public class UpdateGoogleP12File implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            IAP wrapper = new IAP(sdk);
+            net.accelbyte.sdk.api.platform.operations.iap.UpdateGoogleP12File operation =
+                    net.accelbyte.sdk.api.platform.operations.iap.UpdateGoogleP12File.builder()
+                            .namespace(namespace)
+                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .build();
             GoogleIAPConfigInfo response =
-            new IAP(sdk)
-            .updateGoogleP12File(
-                new net.accelbyte.sdk.api.platform.operations.iap.UpdateGoogleP12File(
-                    namespace,
-                    file != null ? FileUtils.openInputStream(file) : null
-                )
-            );
+                    wrapper.updateGoogleP12File(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

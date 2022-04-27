@@ -62,15 +62,14 @@ public class FreeFormNotificationByUserID implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Notification(sdk)
-            .freeFormNotificationByUserID(
-                new net.accelbyte.sdk.api.lobby.operations.notification.FreeFormNotificationByUserID(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelFreeFormNotificationRequest.class)  
-                )
-            );
+            Notification wrapper = new Notification(sdk);
+            net.accelbyte.sdk.api.lobby.operations.notification.FreeFormNotificationByUserID operation =
+                    net.accelbyte.sdk.api.lobby.operations.notification.FreeFormNotificationByUserID.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelFreeFormNotificationRequest.class)) 
+                            .build();
+                    wrapper.freeFormNotificationByUserID(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

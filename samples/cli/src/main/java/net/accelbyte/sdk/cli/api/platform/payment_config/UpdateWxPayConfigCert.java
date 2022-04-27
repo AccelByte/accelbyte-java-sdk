@@ -59,15 +59,14 @@ public class UpdateWxPayConfigCert implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PaymentConfig wrapper = new PaymentConfig(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_config.UpdateWxPayConfigCert operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_config.UpdateWxPayConfigCert.builder()
+                            .id(id)
+                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .build();
             PaymentMerchantConfigInfo response =
-            new PaymentConfig(sdk)
-            .updateWxPayConfigCert(
-                new net.accelbyte.sdk.api.platform.operations.payment_config.UpdateWxPayConfigCert(
-                    id,
-                    file != null ? FileUtils.openInputStream(file) : null
-                )
-            );
+                    wrapper.updateWxPayConfigCert(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

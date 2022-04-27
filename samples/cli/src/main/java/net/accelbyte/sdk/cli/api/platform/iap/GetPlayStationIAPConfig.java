@@ -56,14 +56,13 @@ public class GetPlayStationIAPConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            IAP wrapper = new IAP(sdk);
+            net.accelbyte.sdk.api.platform.operations.iap.GetPlayStationIAPConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.iap.GetPlayStationIAPConfig.builder()
+                            .namespace(namespace)
+                            .build();
             PlayStationIAPConfigInfo response =
-            new IAP(sdk)
-            .getPlayStationIAPConfig(
-                new net.accelbyte.sdk.api.platform.operations.iap.GetPlayStationIAPConfig(
-                    namespace
-                )
-            );
+                    wrapper.getPlayStationIAPConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -62,17 +62,15 @@ public class UpdateXblBPCertFile implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            IAP wrapper = new IAP(sdk);
+            net.accelbyte.sdk.api.platform.operations.iap.UpdateXblBPCertFile operation =
+                    net.accelbyte.sdk.api.platform.operations.iap.UpdateXblBPCertFile.builder()
+                            .namespace(namespace)
+                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .password(password != null ? password : null)
+                            .build();
             XblIAPConfigInfo response =
-            new IAP(sdk)
-            .updateXblBPCertFile(
-                new net.accelbyte.sdk.api.platform.operations.iap.UpdateXblBPCertFile(
-                    namespace,
-                    file != null ? FileUtils.openInputStream(file) : null
-                    ,
-                    password != null ? password : null
-                )
-            );
+                    wrapper.updateXblBPCertFile(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

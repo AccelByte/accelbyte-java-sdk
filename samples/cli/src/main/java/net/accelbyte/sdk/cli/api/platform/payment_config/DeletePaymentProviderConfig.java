@@ -56,13 +56,12 @@ public class DeletePaymentProviderConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new PaymentConfig(sdk)
-            .deletePaymentProviderConfig(
-                new net.accelbyte.sdk.api.platform.operations.payment_config.DeletePaymentProviderConfig(
-                    id
-                )
-            );
+            PaymentConfig wrapper = new PaymentConfig(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_config.DeletePaymentProviderConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_config.DeletePaymentProviderConfig.builder()
+                            .id(id)
+                            .build();
+                    wrapper.deletePaymentProviderConfig(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -77,28 +77,20 @@ public class TokenGrant implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            OAuth wrapper = new OAuth(sdk);
+            net.accelbyte.sdk.api.iam.operations.o_auth.TokenGrant operation =
+                    net.accelbyte.sdk.api.iam.operations.o_auth.TokenGrant.builder()
+                            .code(code != null ? code : null)
+                            .extendExp(extendExp != null ? extendExp : null)
+                            .namespace(namespace != null ? namespace : null)
+                            .password(password != null ? password : null)
+                            .redirectUri(redirectUri != null ? redirectUri : null)
+                            .refreshToken(refreshToken != null ? refreshToken : null)
+                            .username(username != null ? username : null)
+                            .grantType(grantType != null ? grantType : null)
+                            .build();
             OauthmodelTokenResponse response =
-            new OAuth(sdk)
-            .tokenGrant(
-                new net.accelbyte.sdk.api.iam.operations.o_auth.TokenGrant(
-                    code != null ? code : null
-                    ,
-                    extendExp != null ? extendExp : null
-                    ,
-                    namespace != null ? namespace : null
-                    ,
-                    password != null ? password : null
-                    ,
-                    redirectUri != null ? redirectUri : null
-                    ,
-                    refreshToken != null ? refreshToken : null
-                    ,
-                    username != null ? username : null
-                    ,
-                    grantType != null ? grantType : null
-                )
-            );
+                    wrapper.tokenGrant(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

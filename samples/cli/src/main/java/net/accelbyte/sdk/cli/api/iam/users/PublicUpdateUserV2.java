@@ -62,16 +62,15 @@ public class PublicUpdateUserV2 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.PublicUpdateUserV2 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.PublicUpdateUserV2.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelUserUpdateRequest.class)) 
+                            .build();
             List<ModelUserResponse> response =
-            new Users(sdk)
-            .publicUpdateUserV2(
-                new net.accelbyte.sdk.api.iam.operations.users.PublicUpdateUserV2(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelUserUpdateRequest.class)  
-                )
-            );
+                    wrapper.publicUpdateUserV2(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

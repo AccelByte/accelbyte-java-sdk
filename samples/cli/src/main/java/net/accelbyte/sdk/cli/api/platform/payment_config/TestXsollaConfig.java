@@ -56,14 +56,13 @@ public class TestXsollaConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PaymentConfig wrapper = new PaymentConfig(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_config.TestXsollaConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_config.TestXsollaConfig.builder()
+                            .body(new ObjectMapper().readValue(body, XsollaConfig.class)) 
+                            .build();
             TestResult response =
-            new PaymentConfig(sdk)
-            .testXsollaConfig(
-                new net.accelbyte.sdk.api.platform.operations.payment_config.TestXsollaConfig(
-                    new ObjectMapper().readValue(body, XsollaConfig.class)  
-                )
-            );
+                    wrapper.testXsollaConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

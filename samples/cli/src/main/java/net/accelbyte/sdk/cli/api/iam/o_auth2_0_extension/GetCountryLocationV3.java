@@ -53,13 +53,12 @@ public class GetCountryLocationV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            OAuth20Extension wrapper = new OAuth20Extension(sdk);
+            net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.GetCountryLocationV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.GetCountryLocationV3.builder()
+                            .build();
             OauthmodelCountryLocationResponse response =
-            new OAuth20Extension(sdk)
-            .getCountryLocationV3(
-                new net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.GetCountryLocationV3(
-                )
-            );
+                    wrapper.getCountryLocationV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

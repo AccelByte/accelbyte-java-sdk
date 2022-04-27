@@ -59,15 +59,13 @@ public class Change2faMethod implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new OAuth20(sdk)
-            .change2faMethod(
-                new net.accelbyte.sdk.api.iam.operations.o_auth2_0.Change2faMethod(
-                    factor != null ? factor : null
-                    ,
-                    mfaToken != null ? mfaToken : null
-                )
-            );
+            OAuth20 wrapper = new OAuth20(sdk);
+            net.accelbyte.sdk.api.iam.operations.o_auth2_0.Change2faMethod operation =
+                    net.accelbyte.sdk.api.iam.operations.o_auth2_0.Change2faMethod.builder()
+                            .factor(factor != null ? factor : null)
+                            .mfaToken(mfaToken != null ? mfaToken : null)
+                            .build();
+                    wrapper.change2faMethod(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -68,18 +68,17 @@ public class GetGroupContent implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicGroup wrapper = new PublicGroup(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_group.GetGroupContent operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_group.GetGroupContent.builder()
+                            .groupId(groupId)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsPaginatedContentDownloadResponse response =
-            new PublicGroup(sdk)
-            .getGroupContent(
-                new net.accelbyte.sdk.api.ugc.operations.public_group.GetGroupContent(
-                    groupId,
-                    namespace,
-                    userId,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.getGroupContent(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

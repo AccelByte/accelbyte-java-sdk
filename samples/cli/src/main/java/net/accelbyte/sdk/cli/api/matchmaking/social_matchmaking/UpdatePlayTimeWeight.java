@@ -59,15 +59,14 @@ public class UpdatePlayTimeWeight implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            SocialMatchmaking wrapper = new SocialMatchmaking(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.social_matchmaking.UpdatePlayTimeWeight operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.social_matchmaking.UpdatePlayTimeWeight.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsUpdatePlayTimeWeightRequest.class)) 
+                            .build();
             ModelsUpdatePlayerPlaytimeWeightResponse response =
-            new SocialMatchmaking(sdk)
-            .updatePlayTimeWeight(
-                new net.accelbyte.sdk.api.matchmaking.operations.social_matchmaking.UpdatePlayTimeWeight(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsUpdatePlayTimeWeightRequest.class)  
-                )
-            );
+                    wrapper.updatePlayTimeWeight(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

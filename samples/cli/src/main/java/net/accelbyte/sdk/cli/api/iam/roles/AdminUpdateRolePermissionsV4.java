@@ -59,15 +59,14 @@ public class AdminUpdateRolePermissionsV4 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Roles wrapper = new Roles(sdk);
+            net.accelbyte.sdk.api.iam.operations.roles.AdminUpdateRolePermissionsV4 operation =
+                    net.accelbyte.sdk.api.iam.operations.roles.AdminUpdateRolePermissionsV4.builder()
+                            .roleId(roleId)
+                            .body(new ObjectMapper().readValue(body, AccountcommonPermissionsV3.class)) 
+                            .build();
             ModelRoleV4Response response =
-            new Roles(sdk)
-            .adminUpdateRolePermissionsV4(
-                new net.accelbyte.sdk.api.iam.operations.roles.AdminUpdateRolePermissionsV4(
-                    roleId,
-                    new ObjectMapper().readValue(body, AccountcommonPermissionsV3.class)  
-                )
-            );
+                    wrapper.adminUpdateRolePermissionsV4(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

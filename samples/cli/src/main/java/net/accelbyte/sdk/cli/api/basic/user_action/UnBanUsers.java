@@ -59,14 +59,13 @@ public class UnBanUsers implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new UserAction(sdk)
-            .unBanUsers(
-                new net.accelbyte.sdk.api.basic.operations.user_action.UnBanUsers(
-                    namespace,
-                    new ObjectMapper().readValue(body, ADTOForUnbanUserAPICall.class)  
-                )
-            );
+            UserAction wrapper = new UserAction(sdk);
+            net.accelbyte.sdk.api.basic.operations.user_action.UnBanUsers operation =
+                    net.accelbyte.sdk.api.basic.operations.user_action.UnBanUsers.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ADTOForUnbanUserAPICall.class)) 
+                            .build();
+                    wrapper.unBanUsers(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

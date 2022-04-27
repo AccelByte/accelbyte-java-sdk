@@ -53,12 +53,11 @@ public class AdminDownloadMyBackupCodesV4 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new UsersV4(sdk)
-            .adminDownloadMyBackupCodesV4(
-                new net.accelbyte.sdk.api.iam.operations.users_v4.AdminDownloadMyBackupCodesV4(
-                )
-            );
+            UsersV4 wrapper = new UsersV4(sdk);
+            net.accelbyte.sdk.api.iam.operations.users_v4.AdminDownloadMyBackupCodesV4 operation =
+                    net.accelbyte.sdk.api.iam.operations.users_v4.AdminDownloadMyBackupCodesV4.builder()
+                            .build();
+                    wrapper.adminDownloadMyBackupCodesV4(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

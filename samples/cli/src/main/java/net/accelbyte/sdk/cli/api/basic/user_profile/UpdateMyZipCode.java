@@ -59,15 +59,14 @@ public class UpdateMyZipCode implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UserProfile wrapper = new UserProfile(sdk);
+            net.accelbyte.sdk.api.basic.operations.user_profile.UpdateMyZipCode operation =
+                    net.accelbyte.sdk.api.basic.operations.user_profile.UpdateMyZipCode.builder()
+                            .namespace(namespace)
+                            .userZipCodeUpdate(new ObjectMapper().readValue(userZipCodeUpdate, UserZipCodeUpdate.class)) 
+                            .build();
             UserZipCode response =
-            new UserProfile(sdk)
-            .updateMyZipCode(
-                new net.accelbyte.sdk.api.basic.operations.user_profile.UpdateMyZipCode(
-                    namespace,
-                    new ObjectMapper().readValue(userZipCodeUpdate, UserZipCodeUpdate.class)  
-                )
-            );
+                    wrapper.updateMyZipCode(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

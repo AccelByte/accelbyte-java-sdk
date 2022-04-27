@@ -65,17 +65,16 @@ public class AdminListAchievements implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Achievements wrapper = new Achievements(sdk);
+            net.accelbyte.sdk.api.achievement.operations.achievements.AdminListAchievements operation =
+                    net.accelbyte.sdk.api.achievement.operations.achievements.AdminListAchievements.builder()
+                            .namespace(namespace)
+                            .limit(limit)
+                            .offset(offset)
+                            .sortBy(sortBy)
+                            .build();
             ModelsPaginatedAchievementResponse response =
-            new Achievements(sdk)
-            .adminListAchievements(
-                new net.accelbyte.sdk.api.achievement.operations.achievements.AdminListAchievements(
-                    namespace,
-                    limit,
-                    offset,
-                    sortBy
-                )
-            );
+                    wrapper.adminListAchievements(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

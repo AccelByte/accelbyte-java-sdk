@@ -59,15 +59,13 @@ public class SaveAdminEmailConfiguration implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new DataRetrieval(sdk)
-            .saveAdminEmailConfiguration(
-                new net.accelbyte.sdk.api.gdpr.operations.data_retrieval.SaveAdminEmailConfiguration(
-                    namespace,
-                    new ObjectMapper().readValue(body, new TypeReference<List<String>>() {})
- 
-                )
-            );
+            DataRetrieval wrapper = new DataRetrieval(sdk);
+            net.accelbyte.sdk.api.gdpr.operations.data_retrieval.SaveAdminEmailConfiguration operation =
+                    net.accelbyte.sdk.api.gdpr.operations.data_retrieval.SaveAdminEmailConfiguration.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, new TypeReference<List<String>>() {}))
+                            .build();
+                    wrapper.saveAdminEmailConfiguration(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -59,15 +59,14 @@ public class CancelGroupJoinRequestV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            GroupMember wrapper = new GroupMember(sdk);
+            net.accelbyte.sdk.api.group.operations.group_member.CancelGroupJoinRequestV1 operation =
+                    net.accelbyte.sdk.api.group.operations.group_member.CancelGroupJoinRequestV1.builder()
+                            .groupId(groupId)
+                            .namespace(namespace)
+                            .build();
             ModelsMemberRequestGroupResponseV1 response =
-            new GroupMember(sdk)
-            .cancelGroupJoinRequestV1(
-                new net.accelbyte.sdk.api.group.operations.group_member.CancelGroupJoinRequestV1(
-                    groupId,
-                    namespace
-                )
-            );
+                    wrapper.cancelGroupJoinRequestV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

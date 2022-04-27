@@ -53,13 +53,12 @@ public class PublicGetMessages implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            MatchmakingOperations wrapper = new MatchmakingOperations(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.PublicGetMessages operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.PublicGetMessages.builder()
+                            .build();
             List<LogAppMessageDeclaration> response =
-            new MatchmakingOperations(sdk)
-            .publicGetMessages(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.PublicGetMessages(
-                )
-            );
+                    wrapper.publicGetMessages(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

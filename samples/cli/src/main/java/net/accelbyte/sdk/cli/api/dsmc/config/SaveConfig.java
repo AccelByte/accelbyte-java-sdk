@@ -56,13 +56,12 @@ public class SaveConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Config(sdk)
-            .saveConfig(
-                new net.accelbyte.sdk.api.dsmc.operations.config.SaveConfig(
-                    new ObjectMapper().readValue(body, ModelsDSMConfigRecord.class)  
-                )
-            );
+            Config wrapper = new Config(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.config.SaveConfig operation =
+                    net.accelbyte.sdk.api.dsmc.operations.config.SaveConfig.builder()
+                            .body(new ObjectMapper().readValue(body, ModelsDSMConfigRecord.class)) 
+                            .build();
+                    wrapper.saveConfig(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -65,17 +65,16 @@ public class UpdatePayPalConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PaymentConfig wrapper = new PaymentConfig(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_config.UpdatePayPalConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_config.UpdatePayPalConfig.builder()
+                            .id(id)
+                            .sandbox(sandbox)
+                            .validate(validate)
+                            .body(new ObjectMapper().readValue(body, PayPalConfig.class)) 
+                            .build();
             PaymentMerchantConfigInfo response =
-            new PaymentConfig(sdk)
-            .updatePayPalConfig(
-                new net.accelbyte.sdk.api.platform.operations.payment_config.UpdatePayPalConfig(
-                    id,
-                    sandbox,
-                    validate,
-                    new ObjectMapper().readValue(body, PayPalConfig.class)  
-                )
-            );
+                    wrapper.updatePayPalConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

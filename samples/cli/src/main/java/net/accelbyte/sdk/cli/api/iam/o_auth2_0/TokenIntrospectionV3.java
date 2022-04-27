@@ -56,14 +56,13 @@ public class TokenIntrospectionV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            OAuth20 wrapper = new OAuth20(sdk);
+            net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenIntrospectionV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenIntrospectionV3.builder()
+                            .token(token != null ? token : null)
+                            .build();
             OauthmodelTokenIntrospectResponse response =
-            new OAuth20(sdk)
-            .tokenIntrospectionV3(
-                new net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenIntrospectionV3(
-                    token != null ? token : null
-                )
-            );
+                    wrapper.tokenIntrospectionV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

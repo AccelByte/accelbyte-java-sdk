@@ -62,15 +62,14 @@ public class Download implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Campaign(sdk)
-            .download(
-                new net.accelbyte.sdk.api.platform.operations.campaign.Download(
-                    campaignId,
-                    namespace,
-                    batchNo
-                )
-            );
+            Campaign wrapper = new Campaign(sdk);
+            net.accelbyte.sdk.api.platform.operations.campaign.Download operation =
+                    net.accelbyte.sdk.api.platform.operations.campaign.Download.builder()
+                            .campaignId(campaignId)
+                            .namespace(namespace)
+                            .batchNo(batchNo)
+                            .build();
+                    wrapper.download(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

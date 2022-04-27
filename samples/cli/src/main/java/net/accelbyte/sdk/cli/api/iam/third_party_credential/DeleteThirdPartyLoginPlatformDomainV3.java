@@ -62,15 +62,14 @@ public class DeleteThirdPartyLoginPlatformDomainV3 implements Callable<Integer> 
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new ThirdPartyCredential(sdk)
-            .deleteThirdPartyLoginPlatformDomainV3(
-                new net.accelbyte.sdk.api.iam.operations.third_party_credential.DeleteThirdPartyLoginPlatformDomainV3(
-                    namespace,
-                    platformId,
-                    new ObjectMapper().readValue(body, ModelPlatformDomainDeleteRequest.class)  
-                )
-            );
+            ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
+            net.accelbyte.sdk.api.iam.operations.third_party_credential.DeleteThirdPartyLoginPlatformDomainV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.third_party_credential.DeleteThirdPartyLoginPlatformDomainV3.builder()
+                            .namespace(namespace)
+                            .platformId(platformId)
+                            .body(new ObjectMapper().readValue(body, ModelPlatformDomainDeleteRequest.class)) 
+                            .build();
+                    wrapper.deleteThirdPartyLoginPlatformDomainV3(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -59,15 +59,14 @@ public class GetPersonalChatHistoryV1Public implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Chat wrapper = new Chat(sdk);
+            net.accelbyte.sdk.api.lobby.operations.chat.GetPersonalChatHistoryV1Public operation =
+                    net.accelbyte.sdk.api.lobby.operations.chat.GetPersonalChatHistoryV1Public.builder()
+                            .friendId(friendId)
+                            .namespace(namespace)
+                            .build();
             List<ModelChatMessageResponse> response =
-            new Chat(sdk)
-            .getPersonalChatHistoryV1Public(
-                new net.accelbyte.sdk.api.lobby.operations.chat.GetPersonalChatHistoryV1Public(
-                    friendId,
-                    namespace
-                )
-            );
+                    wrapper.getPersonalChatHistoryV1Public(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

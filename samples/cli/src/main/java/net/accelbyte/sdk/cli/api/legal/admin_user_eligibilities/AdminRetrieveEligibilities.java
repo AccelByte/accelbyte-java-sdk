@@ -68,18 +68,17 @@ public class AdminRetrieveEligibilities implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            AdminUserEligibilities wrapper = new AdminUserEligibilities(sdk);
+            net.accelbyte.sdk.api.legal.operations.admin_user_eligibilities.AdminRetrieveEligibilities operation =
+                    net.accelbyte.sdk.api.legal.operations.admin_user_eligibilities.AdminRetrieveEligibilities.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .publisherUserId(publisherUserId)
+                            .clientId(clientId)
+                            .countryCode(countryCode)
+                            .build();
             RetrieveUserEligibilitiesIndirectResponse response =
-            new AdminUserEligibilities(sdk)
-            .adminRetrieveEligibilities(
-                new net.accelbyte.sdk.api.legal.operations.admin_user_eligibilities.AdminRetrieveEligibilities(
-                    namespace,
-                    userId,
-                    publisherUserId,
-                    clientId,
-                    countryCode
-                )
-            );
+                    wrapper.adminRetrieveEligibilities(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -68,18 +68,17 @@ public class UpdateContentS3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicContent wrapper = new PublicContent(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_content.UpdateContentS3 operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_content.UpdateContentS3.builder()
+                            .channelId(channelId)
+                            .contentId(contentId)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelsCreateContentRequestS3.class)) 
+                            .build();
             ModelsCreateContentResponse response =
-            new PublicContent(sdk)
-            .updateContentS3(
-                new net.accelbyte.sdk.api.ugc.operations.public_content.UpdateContentS3(
-                    channelId,
-                    contentId,
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelsCreateContentRequestS3.class)  
-                )
-            );
+                    wrapper.updateContentS3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

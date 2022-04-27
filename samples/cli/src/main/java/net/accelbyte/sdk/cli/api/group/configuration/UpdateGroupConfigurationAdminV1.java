@@ -62,16 +62,15 @@ public class UpdateGroupConfigurationAdminV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Configuration wrapper = new Configuration(sdk);
+            net.accelbyte.sdk.api.group.operations.configuration.UpdateGroupConfigurationAdminV1 operation =
+                    net.accelbyte.sdk.api.group.operations.configuration.UpdateGroupConfigurationAdminV1.builder()
+                            .configurationCode(configurationCode)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsUpdateGroupConfigurationRequestV1.class)) 
+                            .build();
             ModelsUpdateGroupConfigurationResponseV1 response =
-            new Configuration(sdk)
-            .updateGroupConfigurationAdminV1(
-                new net.accelbyte.sdk.api.group.operations.configuration.UpdateGroupConfigurationAdminV1(
-                    configurationCode,
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsUpdateGroupConfigurationRequestV1.class)  
-                )
-            );
+                    wrapper.updateGroupConfigurationAdminV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -62,15 +62,14 @@ public class DownloadUserOrderReceipt implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Order(sdk)
-            .downloadUserOrderReceipt(
-                new net.accelbyte.sdk.api.platform.operations.order.DownloadUserOrderReceipt(
-                    namespace,
-                    orderNo,
-                    userId
-                )
-            );
+            Order wrapper = new Order(sdk);
+            net.accelbyte.sdk.api.platform.operations.order.DownloadUserOrderReceipt operation =
+                    net.accelbyte.sdk.api.platform.operations.order.DownloadUserOrderReceipt.builder()
+                            .namespace(namespace)
+                            .orderNo(orderNo)
+                            .userId(userId)
+                            .build();
+                    wrapper.downloadUserOrderReceipt(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

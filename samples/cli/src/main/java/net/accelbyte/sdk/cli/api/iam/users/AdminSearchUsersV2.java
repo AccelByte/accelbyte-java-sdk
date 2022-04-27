@@ -83,23 +83,22 @@ public class AdminSearchUsersV2 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.AdminSearchUsersV2 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.AdminSearchUsersV2.builder()
+                            .namespace(namespace)
+                            .after(after)
+                            .before(before)
+                            .displayName(displayName)
+                            .limit(limit)
+                            .loginId(loginId)
+                            .platformUserId(platformUserId)
+                            .roleId(roleId)
+                            .userId(userId)
+                            .platformId(platformId)
+                            .build();
             ModelSearchUsersByPlatformIDResponse response =
-            new Users(sdk)
-            .adminSearchUsersV2(
-                new net.accelbyte.sdk.api.iam.operations.users.AdminSearchUsersV2(
-                    namespace,
-                    after,
-                    before,
-                    displayName,
-                    limit,
-                    loginId,
-                    platformUserId,
-                    roleId,
-                    userId,
-                    platformId
-                )
-            );
+                    wrapper.adminSearchUsersV2(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

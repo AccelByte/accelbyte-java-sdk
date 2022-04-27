@@ -62,15 +62,14 @@ public class PublishTemplate implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Notification(sdk)
-            .publishTemplate(
-                new net.accelbyte.sdk.api.lobby.operations.notification.PublishTemplate(
-                    namespace,
-                    templateLanguage,
-                    templateSlug
-                )
-            );
+            Notification wrapper = new Notification(sdk);
+            net.accelbyte.sdk.api.lobby.operations.notification.PublishTemplate operation =
+                    net.accelbyte.sdk.api.lobby.operations.notification.PublishTemplate.builder()
+                            .namespace(namespace)
+                            .templateLanguage(templateLanguage)
+                            .templateSlug(templateSlug)
+                            .build();
+                    wrapper.publishTemplate(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

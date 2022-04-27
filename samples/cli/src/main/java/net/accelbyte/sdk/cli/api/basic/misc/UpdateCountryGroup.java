@@ -62,16 +62,15 @@ public class UpdateCountryGroup implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Misc wrapper = new Misc(sdk);
+            net.accelbyte.sdk.api.basic.operations.misc.UpdateCountryGroup operation =
+                    net.accelbyte.sdk.api.basic.operations.misc.UpdateCountryGroup.builder()
+                            .countryGroupCode(countryGroupCode)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, UpdateCountryGroupRequest.class)) 
+                            .build();
             CountryGroupObject response =
-            new Misc(sdk)
-            .updateCountryGroup(
-                new net.accelbyte.sdk.api.basic.operations.misc.UpdateCountryGroup(
-                    countryGroupCode,
-                    namespace,
-                    new ObjectMapper().readValue(body, UpdateCountryGroupRequest.class)  
-                )
-            );
+                    wrapper.updateCountryGroup(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

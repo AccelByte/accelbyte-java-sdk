@@ -59,14 +59,13 @@ public class UpdateClientSecret implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Clients(sdk)
-            .updateClientSecret(
-                new net.accelbyte.sdk.api.iam.operations.clients.UpdateClientSecret(
-                    clientId,
-                    new ObjectMapper().readValue(body, ClientmodelClientUpdateSecretRequest.class)  
-                )
-            );
+            Clients wrapper = new Clients(sdk);
+            net.accelbyte.sdk.api.iam.operations.clients.UpdateClientSecret operation =
+                    net.accelbyte.sdk.api.iam.operations.clients.UpdateClientSecret.builder()
+                            .clientId(clientId)
+                            .body(new ObjectMapper().readValue(body, ClientmodelClientUpdateSecretRequest.class)) 
+                            .build();
+                    wrapper.updateClientSecret(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

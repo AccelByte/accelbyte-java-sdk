@@ -59,14 +59,13 @@ public class PostEventHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Event(sdk)
-            .postEventHandler(
-                new net.accelbyte.sdk.api.eventlog.operations.event.PostEventHandler(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsEvent.class)  
-                )
-            );
+            Event wrapper = new Event(sdk);
+            net.accelbyte.sdk.api.eventlog.operations.event.PostEventHandler operation =
+                    net.accelbyte.sdk.api.eventlog.operations.event.PostEventHandler.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsEvent.class)) 
+                            .build();
+                    wrapper.postEventHandler(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

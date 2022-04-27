@@ -56,13 +56,12 @@ public class UnregisterEventIDHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new EventRegistry(sdk)
-            .unregisterEventIDHandler(
-                new net.accelbyte.sdk.api.eventlog.operations.event_registry.UnregisterEventIDHandler(
-                    eventId
-                )
-            );
+            EventRegistry wrapper = new EventRegistry(sdk);
+            net.accelbyte.sdk.api.eventlog.operations.event_registry.UnregisterEventIDHandler operation =
+                    net.accelbyte.sdk.api.eventlog.operations.event_registry.UnregisterEventIDHandler.builder()
+                            .eventId(eventId)
+                            .build();
+                    wrapper.unregisterEventIDHandler(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

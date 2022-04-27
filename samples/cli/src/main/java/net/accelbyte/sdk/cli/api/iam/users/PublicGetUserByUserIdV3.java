@@ -59,15 +59,14 @@ public class PublicGetUserByUserIdV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.PublicGetUserByUserIdV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.PublicGetUserByUserIdV3.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             ModelPublicUserResponseV3 response =
-            new Users(sdk)
-            .publicGetUserByUserIdV3(
-                new net.accelbyte.sdk.api.iam.operations.users.PublicGetUserByUserIdV3(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.publicGetUserByUserIdV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

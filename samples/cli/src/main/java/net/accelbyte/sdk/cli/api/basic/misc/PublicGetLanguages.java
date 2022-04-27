@@ -56,14 +56,13 @@ public class PublicGetLanguages implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Misc wrapper = new Misc(sdk);
+            net.accelbyte.sdk.api.basic.operations.misc.PublicGetLanguages operation =
+                    net.accelbyte.sdk.api.basic.operations.misc.PublicGetLanguages.builder()
+                            .namespace(namespace)
+                            .build();
             Map<String, ?> response =
-            new Misc(sdk)
-            .publicGetLanguages(
-                new net.accelbyte.sdk.api.basic.operations.misc.PublicGetLanguages(
-                    namespace
-                )
-            );
+                    wrapper.publicGetLanguages(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

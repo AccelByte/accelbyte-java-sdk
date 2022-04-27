@@ -59,15 +59,14 @@ public class PublicGetInputValidations implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            InputValidations wrapper = new InputValidations(sdk);
+            net.accelbyte.sdk.api.iam.operations.input_validations.PublicGetInputValidations operation =
+                    net.accelbyte.sdk.api.iam.operations.input_validations.PublicGetInputValidations.builder()
+                            .defaultOnEmpty(defaultOnEmpty)
+                            .languageCode(languageCode)
+                            .build();
             ModelInputValidationsPublicResponse response =
-            new InputValidations(sdk)
-            .publicGetInputValidations(
-                new net.accelbyte.sdk.api.iam.operations.input_validations.PublicGetInputValidations(
-                    defaultOnEmpty,
-                    languageCode
-                )
-            );
+                    wrapper.publicGetInputValidations(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -59,15 +59,14 @@ public class UpdateRole implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Roles wrapper = new Roles(sdk);
+            net.accelbyte.sdk.api.iam.operations.roles.UpdateRole operation =
+                    net.accelbyte.sdk.api.iam.operations.roles.UpdateRole.builder()
+                            .roleId(roleId)
+                            .body(new ObjectMapper().readValue(body, ModelRoleUpdateRequest.class)) 
+                            .build();
             ModelRoleResponse response =
-            new Roles(sdk)
-            .updateRole(
-                new net.accelbyte.sdk.api.iam.operations.roles.UpdateRole(
-                    roleId,
-                    new ObjectMapper().readValue(body, ModelRoleUpdateRequest.class)  
-                )
-            );
+                    wrapper.updateRole(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

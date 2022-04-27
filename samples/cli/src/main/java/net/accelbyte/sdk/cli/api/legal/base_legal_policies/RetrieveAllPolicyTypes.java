@@ -59,15 +59,14 @@ public class RetrieveAllPolicyTypes implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            BaseLegalPolicies wrapper = new BaseLegalPolicies(sdk);
+            net.accelbyte.sdk.api.legal.operations.base_legal_policies.RetrieveAllPolicyTypes operation =
+                    net.accelbyte.sdk.api.legal.operations.base_legal_policies.RetrieveAllPolicyTypes.builder()
+                            .offset(offset)
+                            .limit(limit)
+                            .build();
             List<RetrievePolicyTypeResponse> response =
-            new BaseLegalPolicies(sdk)
-            .retrieveAllPolicyTypes(
-                new net.accelbyte.sdk.api.legal.operations.base_legal_policies.RetrieveAllPolicyTypes(
-                    offset,
-                    limit
-                )
-            );
+                    wrapper.retrieveAllPolicyTypes(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

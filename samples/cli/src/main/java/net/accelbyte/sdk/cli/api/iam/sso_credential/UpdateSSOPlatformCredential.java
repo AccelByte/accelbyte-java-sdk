@@ -62,16 +62,15 @@ public class UpdateSSOPlatformCredential implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            SSOCredential wrapper = new SSOCredential(sdk);
+            net.accelbyte.sdk.api.iam.operations.sso_credential.UpdateSSOPlatformCredential operation =
+                    net.accelbyte.sdk.api.iam.operations.sso_credential.UpdateSSOPlatformCredential.builder()
+                            .namespace(namespace)
+                            .platformId(platformId)
+                            .body(new ObjectMapper().readValue(body, ModelSSOPlatformCredentialRequest.class)) 
+                            .build();
             ModelSSOPlatformCredentialResponse response =
-            new SSOCredential(sdk)
-            .updateSSOPlatformCredential(
-                new net.accelbyte.sdk.api.iam.operations.sso_credential.UpdateSSOPlatformCredential(
-                    namespace,
-                    platformId,
-                    new ObjectMapper().readValue(body, ModelSSOPlatformCredentialRequest.class)  
-                )
-            );
+                    wrapper.updateSSOPlatformCredential(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

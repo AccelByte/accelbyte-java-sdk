@@ -62,16 +62,15 @@ public class GetUserMapping implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.GetUserMapping operation =
+                    net.accelbyte.sdk.api.iam.operations.users.GetUserMapping.builder()
+                            .namespace(namespace)
+                            .targetNamespace(targetNamespace)
+                            .userId(userId)
+                            .build();
             ModelGetUserMapping response =
-            new Users(sdk)
-            .getUserMapping(
-                new net.accelbyte.sdk.api.iam.operations.users.GetUserMapping(
-                    namespace,
-                    targetNamespace,
-                    userId
-                )
-            );
+                    wrapper.getUserMapping(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

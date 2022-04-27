@@ -65,17 +65,16 @@ public class UpdateGroupPredefinedRulePublicV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Group wrapper = new Group(sdk);
+            net.accelbyte.sdk.api.group.operations.group.UpdateGroupPredefinedRulePublicV1 operation =
+                    net.accelbyte.sdk.api.group.operations.group.UpdateGroupPredefinedRulePublicV1.builder()
+                            .allowedAction(allowedAction)
+                            .groupId(groupId)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsUpdateGroupPredefinedRuleRequestV1.class)) 
+                            .build();
             ModelsGroupResponseV1 response =
-            new Group(sdk)
-            .updateGroupPredefinedRulePublicV1(
-                new net.accelbyte.sdk.api.group.operations.group.UpdateGroupPredefinedRulePublicV1(
-                    allowedAction,
-                    groupId,
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsUpdateGroupPredefinedRuleRequestV1.class)  
-                )
-            );
+                    wrapper.updateGroupPredefinedRulePublicV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

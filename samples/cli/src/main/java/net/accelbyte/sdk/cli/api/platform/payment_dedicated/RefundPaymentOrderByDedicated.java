@@ -62,16 +62,15 @@ public class RefundPaymentOrderByDedicated implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PaymentDedicated wrapper = new PaymentDedicated(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_dedicated.RefundPaymentOrderByDedicated operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_dedicated.RefundPaymentOrderByDedicated.builder()
+                            .namespace(namespace)
+                            .paymentOrderNo(paymentOrderNo)
+                            .body(new ObjectMapper().readValue(body, PaymentOrderRefund.class)) 
+                            .build();
             PaymentOrderRefundResult response =
-            new PaymentDedicated(sdk)
-            .refundPaymentOrderByDedicated(
-                new net.accelbyte.sdk.api.platform.operations.payment_dedicated.RefundPaymentOrderByDedicated(
-                    namespace,
-                    paymentOrderNo,
-                    new ObjectMapper().readValue(body, PaymentOrderRefund.class)  
-                )
-            );
+                    wrapper.refundPaymentOrderByDedicated(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

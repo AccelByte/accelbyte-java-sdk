@@ -53,13 +53,12 @@ public class GetBansType implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Bans wrapper = new Bans(sdk);
+            net.accelbyte.sdk.api.iam.operations.bans.GetBansType operation =
+                    net.accelbyte.sdk.api.iam.operations.bans.GetBansType.builder()
+                            .build();
             AccountcommonBans response =
-            new Bans(sdk)
-            .getBansType(
-                new net.accelbyte.sdk.api.iam.operations.bans.GetBansType(
-                )
-            );
+                    wrapper.getBansType(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

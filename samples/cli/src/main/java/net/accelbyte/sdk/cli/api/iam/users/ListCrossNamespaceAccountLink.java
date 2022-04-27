@@ -65,17 +65,15 @@ public class ListCrossNamespaceAccountLink implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .listCrossNamespaceAccountLink(
-                new net.accelbyte.sdk.api.iam.operations.users.ListCrossNamespaceAccountLink(
-                    namespace,
-                    userId,
-                    platformId != null ? platformId : null
-                    ,
-                    linkingToken != null ? linkingToken : null
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.ListCrossNamespaceAccountLink operation =
+                    net.accelbyte.sdk.api.iam.operations.users.ListCrossNamespaceAccountLink.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .platformId(platformId != null ? platformId : null)
+                            .linkingToken(linkingToken != null ? linkingToken : null)
+                            .build();
+                    wrapper.listCrossNamespaceAccountLink(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

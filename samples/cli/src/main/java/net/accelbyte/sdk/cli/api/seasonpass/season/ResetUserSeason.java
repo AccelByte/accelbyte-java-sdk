@@ -59,14 +59,13 @@ public class ResetUserSeason implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Season(sdk)
-            .resetUserSeason(
-                new net.accelbyte.sdk.api.seasonpass.operations.season.ResetUserSeason(
-                    namespace,
-                    userId
-                )
-            );
+            Season wrapper = new Season(sdk);
+            net.accelbyte.sdk.api.seasonpass.operations.season.ResetUserSeason operation =
+                    net.accelbyte.sdk.api.seasonpass.operations.season.ResetUserSeason.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.resetUserSeason(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

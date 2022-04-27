@@ -59,15 +59,14 @@ public class CreateCurrency implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Currency wrapper = new Currency(sdk);
+            net.accelbyte.sdk.api.platform.operations.currency.CreateCurrency operation =
+                    net.accelbyte.sdk.api.platform.operations.currency.CreateCurrency.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, CurrencyCreate.class)) 
+                            .build();
             CurrencyInfo response =
-            new Currency(sdk)
-            .createCurrency(
-                new net.accelbyte.sdk.api.platform.operations.currency.CreateCurrency(
-                    namespace,
-                    new ObjectMapper().readValue(body, CurrencyCreate.class)  
-                )
-            );
+                    wrapper.createCurrency(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

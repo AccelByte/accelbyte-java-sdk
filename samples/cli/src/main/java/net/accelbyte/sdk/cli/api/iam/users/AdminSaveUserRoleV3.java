@@ -62,16 +62,14 @@ public class AdminSaveUserRoleV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .adminSaveUserRoleV3(
-                new net.accelbyte.sdk.api.iam.operations.users.AdminSaveUserRoleV3(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, new TypeReference<List<ModelNamespaceRoleRequest>>() {})
- 
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.AdminSaveUserRoleV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.AdminSaveUserRoleV3.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, new TypeReference<List<ModelNamespaceRoleRequest>>() {}))
+                            .build();
+                    wrapper.adminSaveUserRoleV3(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

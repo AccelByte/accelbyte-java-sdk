@@ -62,16 +62,15 @@ public class PublicGetAchievement implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Achievements wrapper = new Achievements(sdk);
+            net.accelbyte.sdk.api.achievement.operations.achievements.PublicGetAchievement operation =
+                    net.accelbyte.sdk.api.achievement.operations.achievements.PublicGetAchievement.builder()
+                            .achievementCode(achievementCode)
+                            .namespace(namespace)
+                            .language(language)
+                            .build();
             ModelsPublicAchievementResponse response =
-            new Achievements(sdk)
-            .publicGetAchievement(
-                new net.accelbyte.sdk.api.achievement.operations.achievements.PublicGetAchievement(
-                    achievementCode,
-                    namespace,
-                    language
-                )
-            );
+                    wrapper.publicGetAchievement(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

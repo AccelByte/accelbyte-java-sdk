@@ -65,16 +65,15 @@ public class AdminPutPlayerPublicRecordConcurrentHandlerV1 implements Callable<I
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new AdminConcurrentRecord(sdk)
-            .adminPutPlayerPublicRecordConcurrentHandlerV1(
-                new net.accelbyte.sdk.api.cloudsave.operations.admin_concurrent_record.AdminPutPlayerPublicRecordConcurrentHandlerV1(
-                    key,
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelsAdminConcurrentRecordRequest.class)  
-                )
-            );
+            AdminConcurrentRecord wrapper = new AdminConcurrentRecord(sdk);
+            net.accelbyte.sdk.api.cloudsave.operations.admin_concurrent_record.AdminPutPlayerPublicRecordConcurrentHandlerV1 operation =
+                    net.accelbyte.sdk.api.cloudsave.operations.admin_concurrent_record.AdminPutPlayerPublicRecordConcurrentHandlerV1.builder()
+                            .key(key)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelsAdminConcurrentRecordRequest.class)) 
+                            .build();
+                    wrapper.adminPutPlayerPublicRecordConcurrentHandlerV1(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -92,26 +92,25 @@ public class AdminSearchChannelSpecificContent implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            AdminContent wrapper = new AdminContent(sdk);
+            net.accelbyte.sdk.api.ugc.operations.admin_content.AdminSearchChannelSpecificContent operation =
+                    net.accelbyte.sdk.api.ugc.operations.admin_content.AdminSearchChannelSpecificContent.builder()
+                            .channelId(channelId)
+                            .namespace(namespace)
+                            .creator(creator)
+                            .isofficial(isofficial)
+                            .limit(limit)
+                            .name(name)
+                            .offset(offset)
+                            .orderby(orderby)
+                            .sortby(sortby)
+                            .subtype(subtype)
+                            .tags(tags)
+                            .type(type)
+                            .userId(userId)
+                            .build();
             ModelsPaginatedContentDownloadResponse response =
-            new AdminContent(sdk)
-            .adminSearchChannelSpecificContent(
-                new net.accelbyte.sdk.api.ugc.operations.admin_content.AdminSearchChannelSpecificContent(
-                    channelId,
-                    namespace,
-                    creator,
-                    isofficial,
-                    limit,
-                    name,
-                    offset,
-                    orderby,
-                    sortby,
-                    subtype,
-                    tags,
-                    type,
-                    userId
-                )
-            );
+                    wrapper.adminSearchChannelSpecificContent(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -62,17 +62,15 @@ public class ImportAchievements implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Achievements wrapper = new Achievements(sdk);
+            net.accelbyte.sdk.api.achievement.operations.achievements.ImportAchievements operation =
+                    net.accelbyte.sdk.api.achievement.operations.achievements.ImportAchievements.builder()
+                            .namespace(namespace)
+                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .strategy(strategy != null ? strategy : null)
+                            .build();
             ServiceImportConfigResponse response =
-            new Achievements(sdk)
-            .importAchievements(
-                new net.accelbyte.sdk.api.achievement.operations.achievements.ImportAchievements(
-                    namespace,
-                    file != null ? FileUtils.openInputStream(file) : null
-                    ,
-                    strategy != null ? strategy : null
-                )
-            );
+                    wrapper.importAchievements(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

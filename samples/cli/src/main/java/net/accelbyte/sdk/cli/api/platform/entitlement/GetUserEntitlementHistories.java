@@ -62,16 +62,15 @@ public class GetUserEntitlementHistories implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Entitlement wrapper = new Entitlement(sdk);
+            net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementHistories operation =
+                    net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementHistories.builder()
+                            .entitlementId(entitlementId)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             List<EntitlementHistoryInfo> response =
-            new Entitlement(sdk)
-            .getUserEntitlementHistories(
-                new net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementHistories(
-                    entitlementId,
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.getUserEntitlementHistories(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -59,15 +59,14 @@ public class UpdateSteamIAPConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            IAP wrapper = new IAP(sdk);
+            net.accelbyte.sdk.api.platform.operations.iap.UpdateSteamIAPConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.iap.UpdateSteamIAPConfig.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, SteamIAPConfigRequest.class)) 
+                            .build();
             SteamIAPConfigInfo response =
-            new IAP(sdk)
-            .updateSteamIAPConfig(
-                new net.accelbyte.sdk.api.platform.operations.iap.UpdateSteamIAPConfig(
-                    namespace,
-                    new ObjectMapper().readValue(body, SteamIAPConfigRequest.class)  
-                )
-            );
+                    wrapper.updateSteamIAPConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

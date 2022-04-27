@@ -65,16 +65,15 @@ public class PlatformLink implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .platformLink(
-                new net.accelbyte.sdk.api.iam.operations.users.PlatformLink(
-                    namespace,
-                    platformId,
-                    userId,
-                    ticket != null ? ticket : null
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.PlatformLink operation =
+                    net.accelbyte.sdk.api.iam.operations.users.PlatformLink.builder()
+                            .namespace(namespace)
+                            .platformId(platformId)
+                            .userId(userId)
+                            .ticket(ticket != null ? ticket : null)
+                            .build();
+                    wrapper.platformLink(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

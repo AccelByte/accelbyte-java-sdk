@@ -56,13 +56,12 @@ public class CreateImage implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new ImageConfig(sdk)
-            .createImage(
-                new net.accelbyte.sdk.api.dsmc.operations.image_config.CreateImage(
-                    new ObjectMapper().readValue(body, ModelsCreateImageRequest.class)  
-                )
-            );
+            ImageConfig wrapper = new ImageConfig(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.image_config.CreateImage operation =
+                    net.accelbyte.sdk.api.dsmc.operations.image_config.CreateImage.builder()
+                            .body(new ObjectMapper().readValue(body, ModelsCreateImageRequest.class)) 
+                            .build();
+                    wrapper.createImage(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

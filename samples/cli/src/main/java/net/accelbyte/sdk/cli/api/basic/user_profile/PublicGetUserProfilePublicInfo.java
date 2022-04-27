@@ -59,15 +59,14 @@ public class PublicGetUserProfilePublicInfo implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UserProfile wrapper = new UserProfile(sdk);
+            net.accelbyte.sdk.api.basic.operations.user_profile.PublicGetUserProfilePublicInfo operation =
+                    net.accelbyte.sdk.api.basic.operations.user_profile.PublicGetUserProfilePublicInfo.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             UserProfilePublicInfo response =
-            new UserProfile(sdk)
-            .publicGetUserProfilePublicInfo(
-                new net.accelbyte.sdk.api.basic.operations.user_profile.PublicGetUserProfilePublicInfo(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.publicGetUserProfilePublicInfo(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

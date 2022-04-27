@@ -65,16 +65,15 @@ public class DeleteContent implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new PublicContent(sdk)
-            .deleteContent(
-                new net.accelbyte.sdk.api.ugc.operations.public_content.DeleteContent(
-                    channelId,
-                    contentId,
-                    namespace,
-                    userId
-                )
-            );
+            PublicContent wrapper = new PublicContent(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_content.DeleteContent operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_content.DeleteContent.builder()
+                            .channelId(channelId)
+                            .contentId(contentId)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.deleteContent(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

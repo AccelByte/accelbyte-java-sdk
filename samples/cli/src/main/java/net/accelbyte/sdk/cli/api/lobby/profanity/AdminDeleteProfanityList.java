@@ -59,14 +59,13 @@ public class AdminDeleteProfanityList implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Profanity(sdk)
-            .adminDeleteProfanityList(
-                new net.accelbyte.sdk.api.lobby.operations.profanity.AdminDeleteProfanityList(
-                    list,
-                    namespace
-                )
-            );
+            Profanity wrapper = new Profanity(sdk);
+            net.accelbyte.sdk.api.lobby.operations.profanity.AdminDeleteProfanityList operation =
+                    net.accelbyte.sdk.api.lobby.operations.profanity.AdminDeleteProfanityList.builder()
+                            .list(list)
+                            .namespace(namespace)
+                            .build();
+                    wrapper.adminDeleteProfanityList(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

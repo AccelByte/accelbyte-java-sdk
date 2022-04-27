@@ -68,18 +68,17 @@ public class GetTemplateSlugLocalizationsTemplateV1Admin implements Callable<Int
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Notification wrapper = new Notification(sdk);
+            net.accelbyte.sdk.api.lobby.operations.notification.GetTemplateSlugLocalizationsTemplateV1Admin operation =
+                    net.accelbyte.sdk.api.lobby.operations.notification.GetTemplateSlugLocalizationsTemplateV1Admin.builder()
+                            .namespace(namespace)
+                            .templateSlug(templateSlug)
+                            .after(after)
+                            .before(before)
+                            .limit(limit)
+                            .build();
             ModelGetAllNotificationTemplateSlugResp response =
-            new Notification(sdk)
-            .getTemplateSlugLocalizationsTemplateV1Admin(
-                new net.accelbyte.sdk.api.lobby.operations.notification.GetTemplateSlugLocalizationsTemplateV1Admin(
-                    namespace,
-                    templateSlug,
-                    after,
-                    before,
-                    limit
-                )
-            );
+                    wrapper.getTemplateSlugLocalizationsTemplateV1Admin(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

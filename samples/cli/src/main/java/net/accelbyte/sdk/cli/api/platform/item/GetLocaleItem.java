@@ -74,20 +74,19 @@ public class GetLocaleItem implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Item wrapper = new Item(sdk);
+            net.accelbyte.sdk.api.platform.operations.item.GetLocaleItem operation =
+                    net.accelbyte.sdk.api.platform.operations.item.GetLocaleItem.builder()
+                            .itemId(itemId)
+                            .namespace(namespace)
+                            .activeOnly(activeOnly)
+                            .language(language)
+                            .populateBundle(populateBundle)
+                            .region(region)
+                            .storeId(storeId)
+                            .build();
             PopulatedItemInfo response =
-            new Item(sdk)
-            .getLocaleItem(
-                new net.accelbyte.sdk.api.platform.operations.item.GetLocaleItem(
-                    itemId,
-                    namespace,
-                    activeOnly,
-                    language,
-                    populateBundle,
-                    region,
-                    storeId
-                )
-            );
+                    wrapper.getLocaleItem(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

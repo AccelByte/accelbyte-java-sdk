@@ -56,14 +56,13 @@ public class VerifyToken implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            OAuth wrapper = new OAuth(sdk);
+            net.accelbyte.sdk.api.iam.operations.o_auth.VerifyToken operation =
+                    net.accelbyte.sdk.api.iam.operations.o_auth.VerifyToken.builder()
+                            .token(token != null ? token : null)
+                            .build();
             OauthmodelTokenResponse response =
-            new OAuth(sdk)
-            .verifyToken(
-                new net.accelbyte.sdk.api.iam.operations.o_auth.VerifyToken(
-                    token != null ? token : null
-                )
-            );
+                    wrapper.verifyToken(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -59,15 +59,14 @@ public class PublicBulkGetUsers implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.PublicBulkGetUsers operation =
+                    net.accelbyte.sdk.api.iam.operations.users.PublicBulkGetUsers.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelUserIDsRequest.class)) 
+                            .build();
             ModelListBulkUserResponse response =
-            new Users(sdk)
-            .publicBulkGetUsers(
-                new net.accelbyte.sdk.api.iam.operations.users.PublicBulkGetUsers(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelUserIDsRequest.class)  
-                )
-            );
+                    wrapper.publicBulkGetUsers(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

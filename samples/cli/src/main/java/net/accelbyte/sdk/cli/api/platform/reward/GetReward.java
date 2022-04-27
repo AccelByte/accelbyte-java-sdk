@@ -59,15 +59,14 @@ public class GetReward implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Reward wrapper = new Reward(sdk);
+            net.accelbyte.sdk.api.platform.operations.reward.GetReward operation =
+                    net.accelbyte.sdk.api.platform.operations.reward.GetReward.builder()
+                            .namespace(namespace)
+                            .rewardId(rewardId)
+                            .build();
             RewardInfo response =
-            new Reward(sdk)
-            .getReward(
-                new net.accelbyte.sdk.api.platform.operations.reward.GetReward(
-                    namespace,
-                    rewardId
-                )
-            );
+                    wrapper.getReward(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -59,15 +59,14 @@ public class AdminGetAchievement implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Achievements wrapper = new Achievements(sdk);
+            net.accelbyte.sdk.api.achievement.operations.achievements.AdminGetAchievement operation =
+                    net.accelbyte.sdk.api.achievement.operations.achievements.AdminGetAchievement.builder()
+                            .achievementCode(achievementCode)
+                            .namespace(namespace)
+                            .build();
             ModelsAchievementResponse response =
-            new Achievements(sdk)
-            .adminGetAchievement(
-                new net.accelbyte.sdk.api.achievement.operations.achievements.AdminGetAchievement(
-                    achievementCode,
-                    namespace
-                )
-            );
+                    wrapper.adminGetAchievement(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

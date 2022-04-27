@@ -65,17 +65,16 @@ public class ListServer implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Admin wrapper = new Admin(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.admin.ListServer operation =
+                    net.accelbyte.sdk.api.dsmc.operations.admin.ListServer.builder()
+                            .namespace(namespace)
+                            .count(count)
+                            .offset(offset)
+                            .region(region)
+                            .build();
             ModelsListServerResponse response =
-            new Admin(sdk)
-            .listServer(
-                new net.accelbyte.sdk.api.dsmc.operations.admin.ListServer(
-                    namespace,
-                    count,
-                    offset,
-                    region
-                )
-            );
+                    wrapper.listServer(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

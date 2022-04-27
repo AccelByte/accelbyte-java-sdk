@@ -59,15 +59,14 @@ public class GetPublisherUser implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.GetPublisherUser operation =
+                    net.accelbyte.sdk.api.iam.operations.users.GetPublisherUser.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             ModelGetPublisherUserResponse response =
-            new Users(sdk)
-            .getPublisherUser(
-                new net.accelbyte.sdk.api.iam.operations.users.GetPublisherUser(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.getPublisherUser(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

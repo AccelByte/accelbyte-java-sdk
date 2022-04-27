@@ -62,16 +62,15 @@ public class ListGroupConfigurationAdminV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Configuration wrapper = new Configuration(sdk);
+            net.accelbyte.sdk.api.group.operations.configuration.ListGroupConfigurationAdminV1 operation =
+                    net.accelbyte.sdk.api.group.operations.configuration.ListGroupConfigurationAdminV1.builder()
+                            .namespace(namespace)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsListConfigurationResponseV1 response =
-            new Configuration(sdk)
-            .listGroupConfigurationAdminV1(
-                new net.accelbyte.sdk.api.group.operations.configuration.ListGroupConfigurationAdminV1(
-                    namespace,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.listGroupConfigurationAdminV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

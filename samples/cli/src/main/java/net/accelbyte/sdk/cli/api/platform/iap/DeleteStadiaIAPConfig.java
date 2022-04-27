@@ -56,13 +56,12 @@ public class DeleteStadiaIAPConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new IAP(sdk)
-            .deleteStadiaIAPConfig(
-                new net.accelbyte.sdk.api.platform.operations.iap.DeleteStadiaIAPConfig(
-                    namespace
-                )
-            );
+            IAP wrapper = new IAP(sdk);
+            net.accelbyte.sdk.api.platform.operations.iap.DeleteStadiaIAPConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.iap.DeleteStadiaIAPConfig.builder()
+                            .namespace(namespace)
+                            .build();
+                    wrapper.deleteStadiaIAPConfig(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

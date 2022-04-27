@@ -56,14 +56,13 @@ public class RetrieveEligibilitiesPublic implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Eligibilities wrapper = new Eligibilities(sdk);
+            net.accelbyte.sdk.api.legal.operations.eligibilities.RetrieveEligibilitiesPublic operation =
+                    net.accelbyte.sdk.api.legal.operations.eligibilities.RetrieveEligibilitiesPublic.builder()
+                            .namespace(namespace)
+                            .build();
             List<RetrieveUserEligibilitiesResponse> response =
-            new Eligibilities(sdk)
-            .retrieveEligibilitiesPublic(
-                new net.accelbyte.sdk.api.legal.operations.eligibilities.RetrieveEligibilitiesPublic(
-                    namespace
-                )
-            );
+                    wrapper.retrieveEligibilitiesPublic(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

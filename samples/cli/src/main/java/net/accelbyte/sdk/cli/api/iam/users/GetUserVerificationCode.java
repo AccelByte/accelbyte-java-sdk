@@ -59,15 +59,14 @@ public class GetUserVerificationCode implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.GetUserVerificationCode operation =
+                    net.accelbyte.sdk.api.iam.operations.users.GetUserVerificationCode.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             ModelVerificationCodeResponse response =
-            new Users(sdk)
-            .getUserVerificationCode(
-                new net.accelbyte.sdk.api.iam.operations.users.GetUserVerificationCode(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.getUserVerificationCode(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

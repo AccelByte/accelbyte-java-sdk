@@ -62,16 +62,15 @@ public class PublicGeneratedUploadUrl implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            FileUpload wrapper = new FileUpload(sdk);
+            net.accelbyte.sdk.api.basic.operations.file_upload.PublicGeneratedUploadUrl operation =
+                    net.accelbyte.sdk.api.basic.operations.file_upload.PublicGeneratedUploadUrl.builder()
+                            .folder(folder)
+                            .namespace(namespace)
+                            .fileType(fileType)
+                            .build();
             FileUploadUrlInfo response =
-            new FileUpload(sdk)
-            .publicGeneratedUploadUrl(
-                new net.accelbyte.sdk.api.basic.operations.file_upload.PublicGeneratedUploadUrl(
-                    folder,
-                    namespace,
-                    fileType
-                )
-            );
+                    wrapper.publicGeneratedUploadUrl(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

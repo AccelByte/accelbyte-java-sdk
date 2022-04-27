@@ -59,15 +59,14 @@ public class DeleteSessionLocalDS implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Session wrapper = new Session(sdk);
+            net.accelbyte.sdk.api.sessionbrowser.operations.session.DeleteSessionLocalDS operation =
+                    net.accelbyte.sdk.api.sessionbrowser.operations.session.DeleteSessionLocalDS.builder()
+                            .namespace(namespace)
+                            .sessionID(sessionID)
+                            .build();
             ModelsSessionResponse response =
-            new Session(sdk)
-            .deleteSessionLocalDS(
-                new net.accelbyte.sdk.api.sessionbrowser.operations.session.DeleteSessionLocalDS(
-                    namespace,
-                    sessionID
-                )
-            );
+                    wrapper.deleteSessionLocalDS(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

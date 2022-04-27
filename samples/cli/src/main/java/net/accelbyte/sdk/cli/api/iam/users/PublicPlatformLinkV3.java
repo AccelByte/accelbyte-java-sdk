@@ -65,17 +65,15 @@ public class PublicPlatformLinkV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .publicPlatformLinkV3(
-                new net.accelbyte.sdk.api.iam.operations.users.PublicPlatformLinkV3(
-                    namespace,
-                    platformId,
-                    redirectUri != null ? redirectUri : null
-                    ,
-                    ticket != null ? ticket : null
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.PublicPlatformLinkV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.PublicPlatformLinkV3.builder()
+                            .namespace(namespace)
+                            .platformId(platformId)
+                            .redirectUri(redirectUri != null ? redirectUri : null)
+                            .ticket(ticket != null ? ticket : null)
+                            .build();
+                    wrapper.publicPlatformLinkV3(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

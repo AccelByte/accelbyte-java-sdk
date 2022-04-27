@@ -59,14 +59,13 @@ public class ShutdownServer implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Server(sdk)
-            .shutdownServer(
-                new net.accelbyte.sdk.api.dsmc.operations.server.ShutdownServer(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsShutdownServerRequest.class)  
-                )
-            );
+            Server wrapper = new Server(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.server.ShutdownServer operation =
+                    net.accelbyte.sdk.api.dsmc.operations.server.ShutdownServer.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsShutdownServerRequest.class)) 
+                            .build();
+                    wrapper.shutdownServer(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

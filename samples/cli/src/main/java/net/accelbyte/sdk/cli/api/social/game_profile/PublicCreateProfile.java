@@ -62,15 +62,14 @@ public class PublicCreateProfile implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new GameProfile(sdk)
-            .publicCreateProfile(
-                new net.accelbyte.sdk.api.social.operations.game_profile.PublicCreateProfile(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, GameProfileRequest.class)  
-                )
-            );
+            GameProfile wrapper = new GameProfile(sdk);
+            net.accelbyte.sdk.api.social.operations.game_profile.PublicCreateProfile operation =
+                    net.accelbyte.sdk.api.social.operations.game_profile.PublicCreateProfile.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, GameProfileRequest.class)) 
+                            .build();
+                    wrapper.publicCreateProfile(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

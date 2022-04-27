@@ -56,14 +56,13 @@ public class CreateNamespace implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Namespace wrapper = new Namespace(sdk);
+            net.accelbyte.sdk.api.basic.operations.namespace.CreateNamespace operation =
+                    net.accelbyte.sdk.api.basic.operations.namespace.CreateNamespace.builder()
+                            .body(new ObjectMapper().readValue(body, NamespaceCreate.class)) 
+                            .build();
             NamespaceInfo response =
-            new Namespace(sdk)
-            .createNamespace(
-                new net.accelbyte.sdk.api.basic.operations.namespace.CreateNamespace(
-                    new ObjectMapper().readValue(body, NamespaceCreate.class)  
-                )
-            );
+                    wrapper.createNamespace(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

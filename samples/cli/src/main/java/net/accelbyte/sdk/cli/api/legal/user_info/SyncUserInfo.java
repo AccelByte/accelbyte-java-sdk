@@ -56,13 +56,12 @@ public class SyncUserInfo implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new UserInfo(sdk)
-            .syncUserInfo(
-                new net.accelbyte.sdk.api.legal.operations.user_info.SyncUserInfo(
-                    namespace
-                )
-            );
+            UserInfo wrapper = new UserInfo(sdk);
+            net.accelbyte.sdk.api.legal.operations.user_info.SyncUserInfo operation =
+                    net.accelbyte.sdk.api.legal.operations.user_info.SyncUserInfo.builder()
+                            .namespace(namespace)
+                            .build();
+                    wrapper.syncUserInfo(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -68,18 +68,17 @@ public class RetrieveLatestPoliciesPublic implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Policies wrapper = new Policies(sdk);
+            net.accelbyte.sdk.api.legal.operations.policies.RetrieveLatestPoliciesPublic operation =
+                    net.accelbyte.sdk.api.legal.operations.policies.RetrieveLatestPoliciesPublic.builder()
+                            .namespace(namespace)
+                            .alwaysIncludeDefault(alwaysIncludeDefault)
+                            .defaultOnEmpty(defaultOnEmpty)
+                            .policyType(policyType)
+                            .tags(tags)
+                            .build();
             List<RetrievePolicyPublicResponse> response =
-            new Policies(sdk)
-            .retrieveLatestPoliciesPublic(
-                new net.accelbyte.sdk.api.legal.operations.policies.RetrieveLatestPoliciesPublic(
-                    namespace,
-                    alwaysIncludeDefault,
-                    defaultOnEmpty,
-                    policyType,
-                    tags
-                )
-            );
+                    wrapper.retrieveLatestPoliciesPublic(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

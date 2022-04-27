@@ -59,15 +59,14 @@ public class ImportConfigV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Config wrapper = new Config(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.config.ImportConfigV1 operation =
+                    net.accelbyte.sdk.api.dsmc.operations.config.ImportConfigV1.builder()
+                            .namespace(namespace)
+                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .build();
             ModelsImportResponse response =
-            new Config(sdk)
-            .importConfigV1(
-                new net.accelbyte.sdk.api.dsmc.operations.config.ImportConfigV1(
-                    namespace,
-                    file != null ? FileUtils.openInputStream(file) : null
-                )
-            );
+                    wrapper.importConfigV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

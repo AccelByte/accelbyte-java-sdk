@@ -59,14 +59,13 @@ public class DeleteTemplateSlug implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Notification(sdk)
-            .deleteTemplateSlug(
-                new net.accelbyte.sdk.api.lobby.operations.notification.DeleteTemplateSlug(
-                    namespace,
-                    templateSlug
-                )
-            );
+            Notification wrapper = new Notification(sdk);
+            net.accelbyte.sdk.api.lobby.operations.notification.DeleteTemplateSlug operation =
+                    net.accelbyte.sdk.api.lobby.operations.notification.DeleteTemplateSlug.builder()
+                            .namespace(namespace)
+                            .templateSlug(templateSlug)
+                            .build();
+                    wrapper.deleteTemplateSlug(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

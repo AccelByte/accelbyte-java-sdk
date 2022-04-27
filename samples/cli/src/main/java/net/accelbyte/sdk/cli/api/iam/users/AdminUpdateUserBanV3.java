@@ -65,17 +65,16 @@ public class AdminUpdateUserBanV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.AdminUpdateUserBanV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.AdminUpdateUserBanV3.builder()
+                            .banId(banId)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelBanUpdateRequest.class)) 
+                            .build();
             ModelUserBanResponseV3 response =
-            new Users(sdk)
-            .adminUpdateUserBanV3(
-                new net.accelbyte.sdk.api.iam.operations.users.AdminUpdateUserBanV3(
-                    banId,
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelBanUpdateRequest.class)  
-                )
-            );
+                    wrapper.adminUpdateUserBanV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

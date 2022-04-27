@@ -65,17 +65,16 @@ public class PublicGetEntitlementOwnershipToken implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Entitlement wrapper = new Entitlement(sdk);
+            net.accelbyte.sdk.api.platform.operations.entitlement.PublicGetEntitlementOwnershipToken operation =
+                    net.accelbyte.sdk.api.platform.operations.entitlement.PublicGetEntitlementOwnershipToken.builder()
+                            .namespace(namespace)
+                            .appIds(appIds)
+                            .itemIds(itemIds)
+                            .skus(skus)
+                            .build();
             OwnershipToken response =
-            new Entitlement(sdk)
-            .publicGetEntitlementOwnershipToken(
-                new net.accelbyte.sdk.api.platform.operations.entitlement.PublicGetEntitlementOwnershipToken(
-                    namespace,
-                    appIds,
-                    itemIds,
-                    skus
-                )
-            );
+                    wrapper.publicGetEntitlementOwnershipToken(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

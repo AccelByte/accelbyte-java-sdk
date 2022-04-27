@@ -62,16 +62,15 @@ public class PublicUpdatePartyAttributesV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Party wrapper = new Party(sdk);
+            net.accelbyte.sdk.api.lobby.operations.party.PublicUpdatePartyAttributesV1 operation =
+                    net.accelbyte.sdk.api.lobby.operations.party.PublicUpdatePartyAttributesV1.builder()
+                            .namespace(namespace)
+                            .partyId(partyId)
+                            .body(new ObjectMapper().readValue(body, ModelsPartyPUTCustomAttributesRequest.class)) 
+                            .build();
             ModelsPartyData response =
-            new Party(sdk)
-            .publicUpdatePartyAttributesV1(
-                new net.accelbyte.sdk.api.lobby.operations.party.PublicUpdatePartyAttributesV1(
-                    namespace,
-                    partyId,
-                    new ObjectMapper().readValue(body, ModelsPartyPUTCustomAttributesRequest.class)  
-                )
-            );
+                    wrapper.publicUpdatePartyAttributesV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

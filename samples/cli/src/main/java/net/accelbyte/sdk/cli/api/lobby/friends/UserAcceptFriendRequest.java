@@ -59,14 +59,13 @@ public class UserAcceptFriendRequest implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Friends(sdk)
-            .userAcceptFriendRequest(
-                new net.accelbyte.sdk.api.lobby.operations.friends.UserAcceptFriendRequest(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelUserAcceptFriendRequest.class)  
-                )
-            );
+            Friends wrapper = new Friends(sdk);
+            net.accelbyte.sdk.api.lobby.operations.friends.UserAcceptFriendRequest operation =
+                    net.accelbyte.sdk.api.lobby.operations.friends.UserAcceptFriendRequest.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelUserAcceptFriendRequest.class)) 
+                            .build();
+                    wrapper.userAcceptFriendRequest(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

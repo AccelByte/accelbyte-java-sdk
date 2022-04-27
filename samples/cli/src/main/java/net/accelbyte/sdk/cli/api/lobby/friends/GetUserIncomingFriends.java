@@ -56,14 +56,13 @@ public class GetUserIncomingFriends implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Friends wrapper = new Friends(sdk);
+            net.accelbyte.sdk.api.lobby.operations.friends.GetUserIncomingFriends operation =
+                    net.accelbyte.sdk.api.lobby.operations.friends.GetUserIncomingFriends.builder()
+                            .namespace(namespace)
+                            .build();
             List<ModelGetUserIncomingFriendsResponse> response =
-            new Friends(sdk)
-            .getUserIncomingFriends(
-                new net.accelbyte.sdk.api.lobby.operations.friends.GetUserIncomingFriends(
-                    namespace
-                )
-            );
+                    wrapper.getUserIncomingFriends(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -65,17 +65,16 @@ public class PublicUpdateUserNamespaceSlotMetadata implements Callable<Integer> 
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Slot wrapper = new Slot(sdk);
+            net.accelbyte.sdk.api.social.operations.slot.PublicUpdateUserNamespaceSlotMetadata operation =
+                    net.accelbyte.sdk.api.social.operations.slot.PublicUpdateUserNamespaceSlotMetadata.builder()
+                            .namespace(namespace)
+                            .slotId(slotId)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, SlotMetadataUpdate.class)) 
+                            .build();
             SlotInfo response =
-            new Slot(sdk)
-            .publicUpdateUserNamespaceSlotMetadata(
-                new net.accelbyte.sdk.api.social.operations.slot.PublicUpdateUserNamespaceSlotMetadata(
-                    namespace,
-                    slotId,
-                    userId,
-                    new ObjectMapper().readValue(body, SlotMetadataUpdate.class)  
-                )
-            );
+                    wrapper.publicUpdateUserNamespaceSlotMetadata(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

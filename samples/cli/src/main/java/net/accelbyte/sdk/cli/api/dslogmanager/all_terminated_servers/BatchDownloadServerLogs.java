@@ -56,13 +56,12 @@ public class BatchDownloadServerLogs implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new AllTerminatedServers(sdk)
-            .batchDownloadServerLogs(
-                new net.accelbyte.sdk.api.dslogmanager.operations.all_terminated_servers.BatchDownloadServerLogs(
-                    new ObjectMapper().readValue(body, ModelsBatchDownloadLogsRequest.class)  
-                )
-            );
+            AllTerminatedServers wrapper = new AllTerminatedServers(sdk);
+            net.accelbyte.sdk.api.dslogmanager.operations.all_terminated_servers.BatchDownloadServerLogs operation =
+                    net.accelbyte.sdk.api.dslogmanager.operations.all_terminated_servers.BatchDownloadServerLogs.builder()
+                            .body(new ObjectMapper().readValue(body, ModelsBatchDownloadLogsRequest.class)) 
+                            .build();
+                    wrapper.batchDownloadServerLogs(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -62,16 +62,15 @@ public class ResetUserStatItemValue1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UserStatistic wrapper = new UserStatistic(sdk);
+            net.accelbyte.sdk.api.social.operations.user_statistic.ResetUserStatItemValue1 operation =
+                    net.accelbyte.sdk.api.social.operations.user_statistic.ResetUserStatItemValue1.builder()
+                            .namespace(namespace)
+                            .statCode(statCode)
+                            .userId(userId)
+                            .build();
             StatItemIncResult response =
-            new UserStatistic(sdk)
-            .resetUserStatItemValue1(
-                new net.accelbyte.sdk.api.social.operations.user_statistic.ResetUserStatItemValue1(
-                    namespace,
-                    statCode,
-                    userId
-                )
-            );
+                    wrapper.resetUserStatItemValue1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

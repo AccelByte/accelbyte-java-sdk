@@ -62,16 +62,15 @@ public class ExistsAnyUserActiveEntitlementByItemIds implements Callable<Integer
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Entitlement wrapper = new Entitlement(sdk);
+            net.accelbyte.sdk.api.platform.operations.entitlement.ExistsAnyUserActiveEntitlementByItemIds operation =
+                    net.accelbyte.sdk.api.platform.operations.entitlement.ExistsAnyUserActiveEntitlementByItemIds.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .itemIds(itemIds)
+                            .build();
             Ownership response =
-            new Entitlement(sdk)
-            .existsAnyUserActiveEntitlementByItemIds(
-                new net.accelbyte.sdk.api.platform.operations.entitlement.ExistsAnyUserActiveEntitlementByItemIds(
-                    namespace,
-                    userId,
-                    itemIds
-                )
-            );
+                    wrapper.existsAnyUserActiveEntitlementByItemIds(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

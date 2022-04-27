@@ -65,16 +65,15 @@ public class AuthCodeRequestV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new OAuth20(sdk)
-            .authCodeRequestV3(
-                new net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthCodeRequestV3(
-                    platformId,
-                    clientId,
-                    redirectUri,
-                    requestId
-                )
-            );
+            OAuth20 wrapper = new OAuth20(sdk);
+            net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthCodeRequestV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthCodeRequestV3.builder()
+                            .platformId(platformId)
+                            .clientId(clientId)
+                            .redirectUri(redirectUri)
+                            .requestId(requestId)
+                            .build();
+                    wrapper.authCodeRequestV3(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

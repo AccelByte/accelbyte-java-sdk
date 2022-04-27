@@ -56,13 +56,12 @@ public class DeleteEpicGamesIAPConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new IAP(sdk)
-            .deleteEpicGamesIAPConfig(
-                new net.accelbyte.sdk.api.platform.operations.iap.DeleteEpicGamesIAPConfig(
-                    namespace
-                )
-            );
+            IAP wrapper = new IAP(sdk);
+            net.accelbyte.sdk.api.platform.operations.iap.DeleteEpicGamesIAPConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.iap.DeleteEpicGamesIAPConfig.builder()
+                            .namespace(namespace)
+                            .build();
+                    wrapper.deleteEpicGamesIAPConfig(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

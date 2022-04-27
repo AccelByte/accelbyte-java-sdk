@@ -62,16 +62,15 @@ public class CreateUserFromInvitationV4 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UsersV4 wrapper = new UsersV4(sdk);
+            net.accelbyte.sdk.api.iam.operations.users_v4.CreateUserFromInvitationV4 operation =
+                    net.accelbyte.sdk.api.iam.operations.users_v4.CreateUserFromInvitationV4.builder()
+                            .invitationId(invitationId)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelUserCreateFromInvitationRequestV4.class)) 
+                            .build();
             AccountCreateUserResponseV4 response =
-            new UsersV4(sdk)
-            .createUserFromInvitationV4(
-                new net.accelbyte.sdk.api.iam.operations.users_v4.CreateUserFromInvitationV4(
-                    invitationId,
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelUserCreateFromInvitationRequestV4.class)  
-                )
-            );
+                    wrapper.createUserFromInvitationV4(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

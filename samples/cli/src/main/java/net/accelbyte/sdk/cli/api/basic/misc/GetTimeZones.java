@@ -56,14 +56,13 @@ public class GetTimeZones implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Misc wrapper = new Misc(sdk);
+            net.accelbyte.sdk.api.basic.operations.misc.GetTimeZones operation =
+                    net.accelbyte.sdk.api.basic.operations.misc.GetTimeZones.builder()
+                            .namespace(namespace)
+                            .build();
             List<String> response =
-            new Misc(sdk)
-            .getTimeZones(
-                new net.accelbyte.sdk.api.basic.operations.misc.GetTimeZones(
-                    namespace
-                )
-            );
+                    wrapper.getTimeZones(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

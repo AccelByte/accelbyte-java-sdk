@@ -59,15 +59,14 @@ public class GetDeployment implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            DeploymentConfig wrapper = new DeploymentConfig(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.deployment_config.GetDeployment operation =
+                    net.accelbyte.sdk.api.dsmc.operations.deployment_config.GetDeployment.builder()
+                            .deployment(deployment)
+                            .namespace(namespace)
+                            .build();
             ModelsDeploymentWithOverride response =
-            new DeploymentConfig(sdk)
-            .getDeployment(
-                new net.accelbyte.sdk.api.dsmc.operations.deployment_config.GetDeployment(
-                    deployment,
-                    namespace
-                )
-            );
+                    wrapper.getDeployment(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

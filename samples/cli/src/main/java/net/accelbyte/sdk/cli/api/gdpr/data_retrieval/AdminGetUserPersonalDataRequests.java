@@ -65,17 +65,16 @@ public class AdminGetUserPersonalDataRequests implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            DataRetrieval wrapper = new DataRetrieval(sdk);
+            net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminGetUserPersonalDataRequests operation =
+                    net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminGetUserPersonalDataRequests.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsUserPersonalDataResponse response =
-            new DataRetrieval(sdk)
-            .adminGetUserPersonalDataRequests(
-                new net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminGetUserPersonalDataRequests(
-                    namespace,
-                    userId,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.adminGetUserPersonalDataRequests(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

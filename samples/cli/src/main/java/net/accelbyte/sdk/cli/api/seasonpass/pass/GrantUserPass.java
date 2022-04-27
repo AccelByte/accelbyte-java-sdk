@@ -62,16 +62,15 @@ public class GrantUserPass implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Pass wrapper = new Pass(sdk);
+            net.accelbyte.sdk.api.seasonpass.operations.pass.GrantUserPass operation =
+                    net.accelbyte.sdk.api.seasonpass.operations.pass.GrantUserPass.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, UserPassGrant.class)) 
+                            .build();
             UserSeasonSummary response =
-            new Pass(sdk)
-            .grantUserPass(
-                new net.accelbyte.sdk.api.seasonpass.operations.pass.GrantUserPass(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, UserPassGrant.class)  
-                )
-            );
+                    wrapper.grantUserPass(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

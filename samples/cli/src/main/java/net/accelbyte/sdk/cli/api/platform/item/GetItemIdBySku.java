@@ -65,17 +65,16 @@ public class GetItemIdBySku implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Item wrapper = new Item(sdk);
+            net.accelbyte.sdk.api.platform.operations.item.GetItemIdBySku operation =
+                    net.accelbyte.sdk.api.platform.operations.item.GetItemIdBySku.builder()
+                            .namespace(namespace)
+                            .activeOnly(activeOnly)
+                            .storeId(storeId)
+                            .sku(sku)
+                            .build();
             ItemId response =
-            new Item(sdk)
-            .getItemIdBySku(
-                new net.accelbyte.sdk.api.platform.operations.item.GetItemIdBySku(
-                    namespace,
-                    activeOnly,
-                    storeId,
-                    sku
-                )
-            );
+                    wrapper.getItemIdBySku(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -62,16 +62,15 @@ public class UpdateMemberRolePermissionAdminV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            GroupRoles wrapper = new GroupRoles(sdk);
+            net.accelbyte.sdk.api.group.operations.group_roles.UpdateMemberRolePermissionAdminV1 operation =
+                    net.accelbyte.sdk.api.group.operations.group_roles.UpdateMemberRolePermissionAdminV1.builder()
+                            .memberRoleId(memberRoleId)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsUpdateMemberRolePermissionsRequestV1.class)) 
+                            .build();
             ModelsUpdateMemberRoleResponseV1 response =
-            new GroupRoles(sdk)
-            .updateMemberRolePermissionAdminV1(
-                new net.accelbyte.sdk.api.group.operations.group_roles.UpdateMemberRolePermissionAdminV1(
-                    memberRoleId,
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsUpdateMemberRolePermissionsRequestV1.class)  
-                )
-            );
+                    wrapper.updateMemberRolePermissionAdminV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -62,16 +62,15 @@ public class BulkEnableCodes implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Campaign wrapper = new Campaign(sdk);
+            net.accelbyte.sdk.api.platform.operations.campaign.BulkEnableCodes operation =
+                    net.accelbyte.sdk.api.platform.operations.campaign.BulkEnableCodes.builder()
+                            .campaignId(campaignId)
+                            .namespace(namespace)
+                            .batchNo(batchNo)
+                            .build();
             BulkOperationResult response =
-            new Campaign(sdk)
-            .bulkEnableCodes(
-                new net.accelbyte.sdk.api.platform.operations.campaign.BulkEnableCodes(
-                    campaignId,
-                    namespace,
-                    batchNo
-                )
-            );
+                    wrapper.bulkEnableCodes(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

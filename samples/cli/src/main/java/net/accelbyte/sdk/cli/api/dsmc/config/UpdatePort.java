@@ -62,16 +62,15 @@ public class UpdatePort implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Config wrapper = new Config(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.config.UpdatePort operation =
+                    net.accelbyte.sdk.api.dsmc.operations.config.UpdatePort.builder()
+                            .name(name)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsUpdatePortRequest.class)) 
+                            .build();
             ModelsDSMConfigRecord response =
-            new Config(sdk)
-            .updatePort(
-                new net.accelbyte.sdk.api.dsmc.operations.config.UpdatePort(
-                    name,
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsUpdatePortRequest.class)  
-                )
-            );
+                    wrapper.updatePort(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

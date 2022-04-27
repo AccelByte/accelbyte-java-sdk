@@ -59,15 +59,14 @@ public class AdminGetClientsbyNamespacebyIDV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Clients wrapper = new Clients(sdk);
+            net.accelbyte.sdk.api.iam.operations.clients.AdminGetClientsbyNamespacebyIDV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.clients.AdminGetClientsbyNamespacebyIDV3.builder()
+                            .clientId(clientId)
+                            .namespace(namespace)
+                            .build();
             ClientmodelClientV3Response response =
-            new Clients(sdk)
-            .adminGetClientsbyNamespacebyIDV3(
-                new net.accelbyte.sdk.api.iam.operations.clients.AdminGetClientsbyNamespacebyIDV3(
-                    clientId,
-                    namespace
-                )
-            );
+                    wrapper.adminGetClientsbyNamespacebyIDV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

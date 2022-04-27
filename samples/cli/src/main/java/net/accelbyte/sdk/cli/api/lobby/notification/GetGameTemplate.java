@@ -56,14 +56,13 @@ public class GetGameTemplate implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Notification wrapper = new Notification(sdk);
+            net.accelbyte.sdk.api.lobby.operations.notification.GetGameTemplate operation =
+                    net.accelbyte.sdk.api.lobby.operations.notification.GetGameTemplate.builder()
+                            .namespace(namespace)
+                            .build();
             List<ModelTemplateResponse> response =
-            new Notification(sdk)
-            .getGameTemplate(
-                new net.accelbyte.sdk.api.lobby.operations.notification.GetGameTemplate(
-                    namespace
-                )
-            );
+                    wrapper.getGameTemplate(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -65,16 +65,15 @@ public class AddUserIntoSessionInChannel implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Matchmaking(sdk)
-            .addUserIntoSessionInChannel(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking.AddUserIntoSessionInChannel(
-                    channelName,
-                    matchID,
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsMatchAddUserIntoSessionRequest.class)  
-                )
-            );
+            Matchmaking wrapper = new Matchmaking(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking.AddUserIntoSessionInChannel operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking.AddUserIntoSessionInChannel.builder()
+                            .channelName(channelName)
+                            .matchID(matchID)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsMatchAddUserIntoSessionRequest.class)) 
+                            .build();
+                    wrapper.addUserIntoSessionInChannel(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

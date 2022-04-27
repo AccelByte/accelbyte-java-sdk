@@ -56,13 +56,12 @@ public class UpdateImage implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new ImageConfig(sdk)
-            .updateImage(
-                new net.accelbyte.sdk.api.dsmc.operations.image_config.UpdateImage(
-                    new ObjectMapper().readValue(body, ModelsImageRecordUpdate.class)  
-                )
-            );
+            ImageConfig wrapper = new ImageConfig(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.image_config.UpdateImage operation =
+                    net.accelbyte.sdk.api.dsmc.operations.image_config.UpdateImage.builder()
+                            .body(new ObjectMapper().readValue(body, ModelsImageRecordUpdate.class)) 
+                            .build();
+                    wrapper.updateImage(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

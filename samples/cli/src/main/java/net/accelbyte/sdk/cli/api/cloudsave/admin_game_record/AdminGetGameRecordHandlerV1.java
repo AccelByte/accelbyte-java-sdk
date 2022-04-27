@@ -59,15 +59,14 @@ public class AdminGetGameRecordHandlerV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            AdminGameRecord wrapper = new AdminGameRecord(sdk);
+            net.accelbyte.sdk.api.cloudsave.operations.admin_game_record.AdminGetGameRecordHandlerV1 operation =
+                    net.accelbyte.sdk.api.cloudsave.operations.admin_game_record.AdminGetGameRecordHandlerV1.builder()
+                            .key(key)
+                            .namespace(namespace)
+                            .build();
             ModelsGameRecordResponse response =
-            new AdminGameRecord(sdk)
-            .adminGetGameRecordHandlerV1(
-                new net.accelbyte.sdk.api.cloudsave.operations.admin_game_record.AdminGetGameRecordHandlerV1(
-                    key,
-                    namespace
-                )
-            );
+                    wrapper.adminGetGameRecordHandlerV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

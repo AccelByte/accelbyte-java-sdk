@@ -86,24 +86,23 @@ public class QuerySession implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Session wrapper = new Session(sdk);
+            net.accelbyte.sdk.api.sessionbrowser.operations.session.QuerySession operation =
+                    net.accelbyte.sdk.api.sessionbrowser.operations.session.QuerySession.builder()
+                            .namespace(namespace)
+                            .gameMode(gameMode)
+                            .gameVersion(gameVersion)
+                            .joinable(joinable)
+                            .limit(limit)
+                            .matchExist(matchExist)
+                            .matchId(matchId)
+                            .offset(offset)
+                            .serverStatus(serverStatus)
+                            .userId(userId)
+                            .sessionType(sessionType)
+                            .build();
             ModelsSessionQueryResponse response =
-            new Session(sdk)
-            .querySession(
-                new net.accelbyte.sdk.api.sessionbrowser.operations.session.QuerySession(
-                    namespace,
-                    gameMode,
-                    gameVersion,
-                    joinable,
-                    limit,
-                    matchExist,
-                    matchId,
-                    offset,
-                    serverStatus,
-                    userId,
-                    sessionType
-                )
-            );
+                    wrapper.querySession(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

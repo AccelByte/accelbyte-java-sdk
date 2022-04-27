@@ -59,14 +59,13 @@ public class CreateArchivedLeaderboardRankingDataV1Handler implements Callable<I
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new LeaderboardData(sdk)
-            .createArchivedLeaderboardRankingDataV1Handler(
-                new net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.CreateArchivedLeaderboardRankingDataV1Handler(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsArchiveLeaderboardReq.class)  
-                )
-            );
+            LeaderboardData wrapper = new LeaderboardData(sdk);
+            net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.CreateArchivedLeaderboardRankingDataV1Handler operation =
+                    net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.CreateArchivedLeaderboardRankingDataV1Handler.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsArchiveLeaderboardReq.class)) 
+                            .build();
+                    wrapper.createArchivedLeaderboardRankingDataV1Handler(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

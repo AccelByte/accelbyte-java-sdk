@@ -62,16 +62,15 @@ public class AddPlayerToSession implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Session wrapper = new Session(sdk);
+            net.accelbyte.sdk.api.sessionbrowser.operations.session.AddPlayerToSession operation =
+                    net.accelbyte.sdk.api.sessionbrowser.operations.session.AddPlayerToSession.builder()
+                            .namespace(namespace)
+                            .sessionID(sessionID)
+                            .body(new ObjectMapper().readValue(body, ModelsAddPlayerRequest.class)) 
+                            .build();
             ModelsAddPlayerResponse response =
-            new Session(sdk)
-            .addPlayerToSession(
-                new net.accelbyte.sdk.api.sessionbrowser.operations.session.AddPlayerToSession(
-                    namespace,
-                    sessionID,
-                    new ObjectMapper().readValue(body, ModelsAddPlayerRequest.class)  
-                )
-            );
+                    wrapper.addPlayerToSession(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

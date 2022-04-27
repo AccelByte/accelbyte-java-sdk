@@ -71,19 +71,18 @@ public class QueryEventStreamHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            EventV2 wrapper = new EventV2(sdk);
+            net.accelbyte.sdk.api.eventlog.operations.event_v2.QueryEventStreamHandler operation =
+                    net.accelbyte.sdk.api.eventlog.operations.event_v2.QueryEventStreamHandler.builder()
+                            .namespace(namespace)
+                            .endDate(endDate)
+                            .offset(offset)
+                            .pageSize(pageSize)
+                            .startDate(startDate)
+                            .body(new ObjectMapper().readValue(body, ModelsGenericQueryPayload.class)) 
+                            .build();
             ModelsEventResponseV2 response =
-            new EventV2(sdk)
-            .queryEventStreamHandler(
-                new net.accelbyte.sdk.api.eventlog.operations.event_v2.QueryEventStreamHandler(
-                    namespace,
-                    endDate,
-                    offset,
-                    pageSize,
-                    startDate,
-                    new ObjectMapper().readValue(body, ModelsGenericQueryPayload.class)  
-                )
-            );
+                    wrapper.queryEventStreamHandler(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

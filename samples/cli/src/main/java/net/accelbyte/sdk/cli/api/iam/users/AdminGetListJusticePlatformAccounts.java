@@ -59,15 +59,14 @@ public class AdminGetListJusticePlatformAccounts implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.AdminGetListJusticePlatformAccounts operation =
+                    net.accelbyte.sdk.api.iam.operations.users.AdminGetListJusticePlatformAccounts.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             List<ModelGetUserMapping> response =
-            new Users(sdk)
-            .adminGetListJusticePlatformAccounts(
-                new net.accelbyte.sdk.api.iam.operations.users.AdminGetListJusticePlatformAccounts(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.adminGetListJusticePlatformAccounts(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

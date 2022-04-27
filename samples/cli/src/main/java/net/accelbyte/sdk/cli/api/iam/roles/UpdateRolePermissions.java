@@ -59,14 +59,13 @@ public class UpdateRolePermissions implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Roles(sdk)
-            .updateRolePermissions(
-                new net.accelbyte.sdk.api.iam.operations.roles.UpdateRolePermissions(
-                    roleId,
-                    new ObjectMapper().readValue(body, AccountcommonPermissions.class)  
-                )
-            );
+            Roles wrapper = new Roles(sdk);
+            net.accelbyte.sdk.api.iam.operations.roles.UpdateRolePermissions operation =
+                    net.accelbyte.sdk.api.iam.operations.roles.UpdateRolePermissions.builder()
+                            .roleId(roleId)
+                            .body(new ObjectMapper().readValue(body, AccountcommonPermissions.class)) 
+                            .build();
+                    wrapper.updateRolePermissions(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

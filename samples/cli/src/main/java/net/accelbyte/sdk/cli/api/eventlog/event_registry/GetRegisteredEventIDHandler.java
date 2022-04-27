@@ -56,14 +56,13 @@ public class GetRegisteredEventIDHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            EventRegistry wrapper = new EventRegistry(sdk);
+            net.accelbyte.sdk.api.eventlog.operations.event_registry.GetRegisteredEventIDHandler operation =
+                    net.accelbyte.sdk.api.eventlog.operations.event_registry.GetRegisteredEventIDHandler.builder()
+                            .eventId(eventId)
+                            .build();
             ModelsEventRegistry response =
-            new EventRegistry(sdk)
-            .getRegisteredEventIDHandler(
-                new net.accelbyte.sdk.api.eventlog.operations.event_registry.GetRegisteredEventIDHandler(
-                    eventId
-                )
-            );
+                    wrapper.getRegisteredEventIDHandler(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

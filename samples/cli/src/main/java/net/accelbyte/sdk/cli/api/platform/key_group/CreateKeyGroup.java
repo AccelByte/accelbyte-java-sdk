@@ -59,15 +59,14 @@ public class CreateKeyGroup implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            KeyGroup wrapper = new KeyGroup(sdk);
+            net.accelbyte.sdk.api.platform.operations.key_group.CreateKeyGroup operation =
+                    net.accelbyte.sdk.api.platform.operations.key_group.CreateKeyGroup.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, KeyGroupCreate.class)) 
+                            .build();
             KeyGroupInfo response =
-            new KeyGroup(sdk)
-            .createKeyGroup(
-                new net.accelbyte.sdk.api.platform.operations.key_group.CreateKeyGroup(
-                    namespace,
-                    new ObjectMapper().readValue(body, KeyGroupCreate.class)  
-                )
-            );
+                    wrapper.createKeyGroup(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

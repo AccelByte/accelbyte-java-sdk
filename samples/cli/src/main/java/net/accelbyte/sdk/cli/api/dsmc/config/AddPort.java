@@ -62,16 +62,15 @@ public class AddPort implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Config wrapper = new Config(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.config.AddPort operation =
+                    net.accelbyte.sdk.api.dsmc.operations.config.AddPort.builder()
+                            .name(name)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsCreatePortRequest.class)) 
+                            .build();
             ModelsDSMConfigRecord response =
-            new Config(sdk)
-            .addPort(
-                new net.accelbyte.sdk.api.dsmc.operations.config.AddPort(
-                    name,
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsCreatePortRequest.class)  
-                )
-            );
+                    wrapper.addPort(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

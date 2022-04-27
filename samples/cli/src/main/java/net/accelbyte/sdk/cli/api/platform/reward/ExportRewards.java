@@ -56,13 +56,12 @@ public class ExportRewards implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Reward(sdk)
-            .exportRewards(
-                new net.accelbyte.sdk.api.platform.operations.reward.ExportRewards(
-                    namespace
-                )
-            );
+            Reward wrapper = new Reward(sdk);
+            net.accelbyte.sdk.api.platform.operations.reward.ExportRewards operation =
+                    net.accelbyte.sdk.api.platform.operations.reward.ExportRewards.builder()
+                            .namespace(namespace)
+                            .build();
+                    wrapper.exportRewards(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

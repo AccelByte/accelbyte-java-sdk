@@ -95,26 +95,25 @@ public class PlatformAuthenticationV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new OAuth20Extension(sdk)
-            .platformAuthenticationV3(
-                new net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.PlatformAuthenticationV3(
-                    platformId,
-                    code,
-                    error,
-                    openidAssocHandle,
-                    openidClaimedId,
-                    openidIdentity,
-                    openidMode,
-                    openidNs,
-                    openidOpEndpoint,
-                    openidResponseNonce,
-                    openidReturnTo,
-                    openidSig,
-                    openidSigned,
-                    state
-                )
-            );
+            OAuth20Extension wrapper = new OAuth20Extension(sdk);
+            net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.PlatformAuthenticationV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.PlatformAuthenticationV3.builder()
+                            .platformId(platformId)
+                            .code(code)
+                            .error(error)
+                            .openidAssocHandle(openidAssocHandle)
+                            .openidClaimedId(openidClaimedId)
+                            .openidIdentity(openidIdentity)
+                            .openidMode(openidMode)
+                            .openidNs(openidNs)
+                            .openidOpEndpoint(openidOpEndpoint)
+                            .openidResponseNonce(openidResponseNonce)
+                            .openidReturnTo(openidReturnTo)
+                            .openidSig(openidSig)
+                            .openidSigned(openidSigned)
+                            .state(state)
+                            .build();
+                    wrapper.platformAuthenticationV3(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

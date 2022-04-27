@@ -89,25 +89,24 @@ public class AdminSearchContent implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            AdminContent wrapper = new AdminContent(sdk);
+            net.accelbyte.sdk.api.ugc.operations.admin_content.AdminSearchContent operation =
+                    net.accelbyte.sdk.api.ugc.operations.admin_content.AdminSearchContent.builder()
+                            .namespace(namespace)
+                            .creator(creator)
+                            .isofficial(isofficial)
+                            .limit(limit)
+                            .name(name)
+                            .offset(offset)
+                            .orderby(orderby)
+                            .sortby(sortby)
+                            .subtype(subtype)
+                            .tags(tags)
+                            .type(type)
+                            .userId(userId)
+                            .build();
             ModelsPaginatedContentDownloadResponse response =
-            new AdminContent(sdk)
-            .adminSearchContent(
-                new net.accelbyte.sdk.api.ugc.operations.admin_content.AdminSearchContent(
-                    namespace,
-                    creator,
-                    isofficial,
-                    limit,
-                    name,
-                    offset,
-                    orderby,
-                    sortby,
-                    subtype,
-                    tags,
-                    type,
-                    userId
-                )
-            );
+                    wrapper.adminSearchContent(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

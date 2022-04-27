@@ -80,30 +80,21 @@ public class TokenGrantV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            OAuth20 wrapper = new OAuth20(sdk);
+            net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenGrantV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenGrantV3.builder()
+                            .clientId(clientId != null ? clientId : null)
+                            .code(code != null ? code : null)
+                            .codeVerifier(codeVerifier != null ? codeVerifier : null)
+                            .extendExp(extendExp != null ? extendExp : null)
+                            .password(password != null ? password : null)
+                            .redirectUri(redirectUri != null ? redirectUri : null)
+                            .refreshToken(refreshToken != null ? refreshToken : null)
+                            .username(username != null ? username : null)
+                            .grantType(grantType != null ? grantType : null)
+                            .build();
             OauthmodelTokenResponseV3 response =
-            new OAuth20(sdk)
-            .tokenGrantV3(
-                new net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenGrantV3(
-                    clientId != null ? clientId : null
-                    ,
-                    code != null ? code : null
-                    ,
-                    codeVerifier != null ? codeVerifier : null
-                    ,
-                    extendExp != null ? extendExp : null
-                    ,
-                    password != null ? password : null
-                    ,
-                    redirectUri != null ? redirectUri : null
-                    ,
-                    refreshToken != null ? refreshToken : null
-                    ,
-                    username != null ? username : null
-                    ,
-                    grantType != null ? grantType : null
-                )
-            );
+                    wrapper.tokenGrantV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

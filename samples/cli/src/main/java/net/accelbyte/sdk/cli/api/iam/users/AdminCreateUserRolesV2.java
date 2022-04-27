@@ -62,16 +62,14 @@ public class AdminCreateUserRolesV2 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .adminCreateUserRolesV2(
-                new net.accelbyte.sdk.api.iam.operations.users.AdminCreateUserRolesV2(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, new TypeReference<List<String>>() {})
- 
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.AdminCreateUserRolesV2 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.AdminCreateUserRolesV2.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, new TypeReference<List<String>>() {}))
+                            .build();
+                    wrapper.adminCreateUserRolesV2(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

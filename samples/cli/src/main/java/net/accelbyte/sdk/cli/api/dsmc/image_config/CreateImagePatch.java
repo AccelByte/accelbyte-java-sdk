@@ -56,13 +56,12 @@ public class CreateImagePatch implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new ImageConfig(sdk)
-            .createImagePatch(
-                new net.accelbyte.sdk.api.dsmc.operations.image_config.CreateImagePatch(
-                    new ObjectMapper().readValue(body, ModelsCreateImagePatchRequest.class)  
-                )
-            );
+            ImageConfig wrapper = new ImageConfig(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.image_config.CreateImagePatch operation =
+                    net.accelbyte.sdk.api.dsmc.operations.image_config.CreateImagePatch.builder()
+                            .body(new ObjectMapper().readValue(body, ModelsCreateImagePatchRequest.class)) 
+                            .build();
+                    wrapper.createImagePatch(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

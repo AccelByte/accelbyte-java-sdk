@@ -59,14 +59,13 @@ public class AnonymizePayment implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Anonymization(sdk)
-            .anonymizePayment(
-                new net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizePayment(
-                    namespace,
-                    userId
-                )
-            );
+            Anonymization wrapper = new Anonymization(sdk);
+            net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizePayment operation =
+                    net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizePayment.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.anonymizePayment(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

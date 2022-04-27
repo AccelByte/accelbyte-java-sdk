@@ -59,14 +59,13 @@ public class AnonymizeOrder implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Anonymization(sdk)
-            .anonymizeOrder(
-                new net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeOrder(
-                    namespace,
-                    userId
-                )
-            );
+            Anonymization wrapper = new Anonymization(sdk);
+            net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeOrder operation =
+                    net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeOrder.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.anonymizeOrder(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

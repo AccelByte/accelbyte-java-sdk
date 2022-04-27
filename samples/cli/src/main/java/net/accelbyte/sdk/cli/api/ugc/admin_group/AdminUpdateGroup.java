@@ -65,17 +65,16 @@ public class AdminUpdateGroup implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            AdminGroup wrapper = new AdminGroup(sdk);
+            net.accelbyte.sdk.api.ugc.operations.admin_group.AdminUpdateGroup operation =
+                    net.accelbyte.sdk.api.ugc.operations.admin_group.AdminUpdateGroup.builder()
+                            .groupId(groupId)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelsCreateGroupRequest.class)) 
+                            .build();
             ModelsCreateGroupResponse response =
-            new AdminGroup(sdk)
-            .adminUpdateGroup(
-                new net.accelbyte.sdk.api.ugc.operations.admin_group.AdminUpdateGroup(
-                    groupId,
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelsCreateGroupRequest.class)  
-                )
-            );
+                    wrapper.adminUpdateGroup(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

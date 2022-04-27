@@ -59,15 +59,14 @@ public class CreateLocalizedPolicyVersion implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            LocalizedPolicyVersions wrapper = new LocalizedPolicyVersions(sdk);
+            net.accelbyte.sdk.api.legal.operations.localized_policy_versions.CreateLocalizedPolicyVersion operation =
+                    net.accelbyte.sdk.api.legal.operations.localized_policy_versions.CreateLocalizedPolicyVersion.builder()
+                            .policyVersionId(policyVersionId)
+                            .body(new ObjectMapper().readValue(body, CreateLocalizedPolicyVersionRequest.class)) 
+                            .build();
             CreateLocalizedPolicyVersionResponse response =
-            new LocalizedPolicyVersions(sdk)
-            .createLocalizedPolicyVersion(
-                new net.accelbyte.sdk.api.legal.operations.localized_policy_versions.CreateLocalizedPolicyVersion(
-                    policyVersionId,
-                    new ObjectMapper().readValue(body, CreateLocalizedPolicyVersionRequest.class)  
-                )
-            );
+                    wrapper.createLocalizedPolicyVersion(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

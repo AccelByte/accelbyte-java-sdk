@@ -62,15 +62,14 @@ public class AdminAddProfanityFilters implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Profanity(sdk)
-            .adminAddProfanityFilters(
-                new net.accelbyte.sdk.api.lobby.operations.profanity.AdminAddProfanityFilters(
-                    list,
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsAdminAddProfanityFiltersRequest.class)  
-                )
-            );
+            Profanity wrapper = new Profanity(sdk);
+            net.accelbyte.sdk.api.lobby.operations.profanity.AdminAddProfanityFilters operation =
+                    net.accelbyte.sdk.api.lobby.operations.profanity.AdminAddProfanityFilters.builder()
+                            .list(list)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsAdminAddProfanityFiltersRequest.class)) 
+                            .build();
+                    wrapper.adminAddProfanityFilters(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

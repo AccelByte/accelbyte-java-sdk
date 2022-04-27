@@ -62,15 +62,14 @@ public class UpdateMatchmakingChannel implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Matchmaking(sdk)
-            .updateMatchmakingChannel(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking.UpdateMatchmakingChannel(
-                    channelName,
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsUpdateChannelRequest.class)  
-                )
-            );
+            Matchmaking wrapper = new Matchmaking(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking.UpdateMatchmakingChannel operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking.UpdateMatchmakingChannel.builder()
+                            .channelName(channelName)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsUpdateChannelRequest.class)) 
+                            .build();
+                    wrapper.updateMatchmakingChannel(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

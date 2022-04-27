@@ -59,15 +59,14 @@ public class TestAdyenConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PaymentConfig wrapper = new PaymentConfig(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_config.TestAdyenConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_config.TestAdyenConfig.builder()
+                            .sandbox(sandbox)
+                            .body(new ObjectMapper().readValue(body, AdyenConfig.class)) 
+                            .build();
             TestResult response =
-            new PaymentConfig(sdk)
-            .testAdyenConfig(
-                new net.accelbyte.sdk.api.platform.operations.payment_config.TestAdyenConfig(
-                    sandbox,
-                    new ObjectMapper().readValue(body, AdyenConfig.class)  
-                )
-            );
+                    wrapper.testAdyenConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

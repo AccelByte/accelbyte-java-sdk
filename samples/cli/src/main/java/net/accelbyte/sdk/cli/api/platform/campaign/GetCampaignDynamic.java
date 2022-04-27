@@ -59,15 +59,14 @@ public class GetCampaignDynamic implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Campaign wrapper = new Campaign(sdk);
+            net.accelbyte.sdk.api.platform.operations.campaign.GetCampaignDynamic operation =
+                    net.accelbyte.sdk.api.platform.operations.campaign.GetCampaignDynamic.builder()
+                            .campaignId(campaignId)
+                            .namespace(namespace)
+                            .build();
             CampaignDynamicInfo response =
-            new Campaign(sdk)
-            .getCampaignDynamic(
-                new net.accelbyte.sdk.api.platform.operations.campaign.GetCampaignDynamic(
-                    campaignId,
-                    namespace
-                )
-            );
+                    wrapper.getCampaignDynamic(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

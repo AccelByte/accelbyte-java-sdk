@@ -59,15 +59,14 @@ public class LastUserActivityTimeHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UserInformation wrapper = new UserInformation(sdk);
+            net.accelbyte.sdk.api.eventlog.operations.user_information.LastUserActivityTimeHandler operation =
+                    net.accelbyte.sdk.api.eventlog.operations.user_information.LastUserActivityTimeHandler.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             ModelsUserLastActivity response =
-            new UserInformation(sdk)
-            .lastUserActivityTimeHandler(
-                new net.accelbyte.sdk.api.eventlog.operations.user_information.LastUserActivityTimeHandler(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.lastUserActivityTimeHandler(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

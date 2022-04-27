@@ -62,15 +62,14 @@ public class DeleteSessionInChannel implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Matchmaking(sdk)
-            .deleteSessionInChannel(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking.DeleteSessionInChannel(
-                    channelName,
-                    matchID,
-                    namespace
-                )
-            );
+            Matchmaking wrapper = new Matchmaking(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking.DeleteSessionInChannel operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking.DeleteSessionInChannel.builder()
+                            .channelName(channelName)
+                            .matchID(matchID)
+                            .namespace(namespace)
+                            .build();
+                    wrapper.deleteSessionInChannel(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -56,13 +56,12 @@ public class AdminRemoveRoleAdminV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Roles(sdk)
-            .adminRemoveRoleAdminV3(
-                new net.accelbyte.sdk.api.iam.operations.roles.AdminRemoveRoleAdminV3(
-                    roleId
-                )
-            );
+            Roles wrapper = new Roles(sdk);
+            net.accelbyte.sdk.api.iam.operations.roles.AdminRemoveRoleAdminV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.roles.AdminRemoveRoleAdminV3.builder()
+                            .roleId(roleId)
+                            .build();
+                    wrapper.adminRemoveRoleAdminV3(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

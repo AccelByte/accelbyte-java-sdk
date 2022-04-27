@@ -62,15 +62,14 @@ public class SyncStadiaEntitlement implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new IAP(sdk)
-            .syncStadiaEntitlement(
-                new net.accelbyte.sdk.api.platform.operations.iap.SyncStadiaEntitlement(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, StadiaSyncRequest.class)  
-                )
-            );
+            IAP wrapper = new IAP(sdk);
+            net.accelbyte.sdk.api.platform.operations.iap.SyncStadiaEntitlement operation =
+                    net.accelbyte.sdk.api.platform.operations.iap.SyncStadiaEntitlement.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, StadiaSyncRequest.class)) 
+                            .build();
+                    wrapper.syncStadiaEntitlement(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

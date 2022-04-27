@@ -59,14 +59,13 @@ public class UpdatePolicy implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Policies(sdk)
-            .updatePolicy(
-                new net.accelbyte.sdk.api.legal.operations.policies.UpdatePolicy(
-                    policyId,
-                    new ObjectMapper().readValue(body, UpdatePolicyRequest.class)  
-                )
-            );
+            Policies wrapper = new Policies(sdk);
+            net.accelbyte.sdk.api.legal.operations.policies.UpdatePolicy operation =
+                    net.accelbyte.sdk.api.legal.operations.policies.UpdatePolicy.builder()
+                            .policyId(policyId)
+                            .body(new ObjectMapper().readValue(body, UpdatePolicyRequest.class)) 
+                            .build();
+                    wrapper.updatePolicy(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

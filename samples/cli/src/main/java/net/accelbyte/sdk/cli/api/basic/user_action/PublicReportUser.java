@@ -62,15 +62,14 @@ public class PublicReportUser implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new UserAction(sdk)
-            .publicReportUser(
-                new net.accelbyte.sdk.api.basic.operations.user_action.PublicReportUser(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, UserReportRequest.class)  
-                )
-            );
+            UserAction wrapper = new UserAction(sdk);
+            net.accelbyte.sdk.api.basic.operations.user_action.PublicReportUser operation =
+                    net.accelbyte.sdk.api.basic.operations.user_action.PublicReportUser.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, UserReportRequest.class)) 
+                            .build();
+                    wrapper.publicReportUser(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

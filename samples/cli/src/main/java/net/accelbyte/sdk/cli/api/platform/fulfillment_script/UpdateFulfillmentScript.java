@@ -59,15 +59,14 @@ public class UpdateFulfillmentScript implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            FulfillmentScript wrapper = new FulfillmentScript(sdk);
+            net.accelbyte.sdk.api.platform.operations.fulfillment_script.UpdateFulfillmentScript operation =
+                    net.accelbyte.sdk.api.platform.operations.fulfillment_script.UpdateFulfillmentScript.builder()
+                            .id(id)
+                            .body(new ObjectMapper().readValue(body, FulfillmentScriptUpdate.class)) 
+                            .build();
             FulfillmentScriptInfo response =
-            new FulfillmentScript(sdk)
-            .updateFulfillmentScript(
-                new net.accelbyte.sdk.api.platform.operations.fulfillment_script.UpdateFulfillmentScript(
-                    id,
-                    new ObjectMapper().readValue(body, FulfillmentScriptUpdate.class)  
-                )
-            );
+                    wrapper.updateFulfillmentScript(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

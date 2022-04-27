@@ -59,15 +59,14 @@ public class AdminCreateTag implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            AdminTag wrapper = new AdminTag(sdk);
+            net.accelbyte.sdk.api.ugc.operations.admin_tag.AdminCreateTag operation =
+                    net.accelbyte.sdk.api.ugc.operations.admin_tag.AdminCreateTag.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsCreateTagRequest.class)) 
+                            .build();
             ModelsCreateTagResponse response =
-            new AdminTag(sdk)
-            .adminCreateTag(
-                new net.accelbyte.sdk.api.ugc.operations.admin_tag.AdminCreateTag(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsCreateTagRequest.class)  
-                )
-            );
+                    wrapper.adminCreateTag(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

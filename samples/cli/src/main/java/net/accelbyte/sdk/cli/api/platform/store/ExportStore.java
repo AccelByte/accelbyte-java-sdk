@@ -59,14 +59,13 @@ public class ExportStore implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Store(sdk)
-            .exportStore(
-                new net.accelbyte.sdk.api.platform.operations.store.ExportStore(
-                    namespace,
-                    storeId
-                )
-            );
+            Store wrapper = new Store(sdk);
+            net.accelbyte.sdk.api.platform.operations.store.ExportStore operation =
+                    net.accelbyte.sdk.api.platform.operations.store.ExportStore.builder()
+                            .namespace(namespace)
+                            .storeId(storeId)
+                            .build();
+                    wrapper.exportStore(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

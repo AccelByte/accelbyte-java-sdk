@@ -59,15 +59,14 @@ public class ChangeNamespaceStatus implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Namespace wrapper = new Namespace(sdk);
+            net.accelbyte.sdk.api.basic.operations.namespace.ChangeNamespaceStatus operation =
+                    net.accelbyte.sdk.api.basic.operations.namespace.ChangeNamespaceStatus.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, NamespaceStatusUpdate.class)) 
+                            .build();
             NamespaceInfo response =
-            new Namespace(sdk)
-            .changeNamespaceStatus(
-                new net.accelbyte.sdk.api.basic.operations.namespace.ChangeNamespaceStatus(
-                    namespace,
-                    new ObjectMapper().readValue(body, NamespaceStatusUpdate.class)  
-                )
-            );
+                    wrapper.changeNamespaceStatus(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

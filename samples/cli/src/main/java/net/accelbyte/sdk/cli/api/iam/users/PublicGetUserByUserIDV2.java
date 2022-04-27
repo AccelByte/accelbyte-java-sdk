@@ -59,15 +59,14 @@ public class PublicGetUserByUserIDV2 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.PublicGetUserByUserIDV2 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.PublicGetUserByUserIDV2.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             ModelUserResponse response =
-            new Users(sdk)
-            .publicGetUserByUserIDV2(
-                new net.accelbyte.sdk.api.iam.operations.users.PublicGetUserByUserIDV2(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.publicGetUserByUserIDV2(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

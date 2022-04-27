@@ -62,15 +62,14 @@ public class DecreaseTicketSale implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Ticket(sdk)
-            .decreaseTicketSale(
-                new net.accelbyte.sdk.api.platform.operations.ticket.DecreaseTicketSale(
-                    boothName,
-                    namespace,
-                    new ObjectMapper().readValue(body, TicketSaleDecrementRequest.class)  
-                )
-            );
+            Ticket wrapper = new Ticket(sdk);
+            net.accelbyte.sdk.api.platform.operations.ticket.DecreaseTicketSale operation =
+                    net.accelbyte.sdk.api.platform.operations.ticket.DecreaseTicketSale.builder()
+                            .boothName(boothName)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, TicketSaleDecrementRequest.class)) 
+                            .build();
+                    wrapper.decreaseTicketSale(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

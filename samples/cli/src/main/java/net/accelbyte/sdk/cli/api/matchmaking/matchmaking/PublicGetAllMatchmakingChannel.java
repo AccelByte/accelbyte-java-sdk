@@ -56,14 +56,13 @@ public class PublicGetAllMatchmakingChannel implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Matchmaking wrapper = new Matchmaking(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking.PublicGetAllMatchmakingChannel operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking.PublicGetAllMatchmakingChannel.builder()
+                            .namespace(namespace)
+                            .build();
             List<ModelsChannelV1> response =
-            new Matchmaking(sdk)
-            .publicGetAllMatchmakingChannel(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking.PublicGetAllMatchmakingChannel(
-                    namespace
-                )
-            );
+                    wrapper.publicGetAllMatchmakingChannel(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

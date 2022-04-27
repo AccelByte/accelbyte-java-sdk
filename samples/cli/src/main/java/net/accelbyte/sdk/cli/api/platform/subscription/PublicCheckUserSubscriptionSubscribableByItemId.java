@@ -62,16 +62,15 @@ public class PublicCheckUserSubscriptionSubscribableByItemId implements Callable
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Subscription wrapper = new Subscription(sdk);
+            net.accelbyte.sdk.api.platform.operations.subscription.PublicCheckUserSubscriptionSubscribableByItemId operation =
+                    net.accelbyte.sdk.api.platform.operations.subscription.PublicCheckUserSubscriptionSubscribableByItemId.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .itemId(itemId)
+                            .build();
             Subscribable response =
-            new Subscription(sdk)
-            .publicCheckUserSubscriptionSubscribableByItemId(
-                new net.accelbyte.sdk.api.platform.operations.subscription.PublicCheckUserSubscriptionSubscribableByItemId(
-                    namespace,
-                    userId,
-                    itemId
-                )
-            );
+                    wrapper.publicCheckUserSubscriptionSubscribableByItemId(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

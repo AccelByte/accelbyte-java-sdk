@@ -71,19 +71,18 @@ public class GetUserStatItems implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UserStatistic wrapper = new UserStatistic(sdk);
+            net.accelbyte.sdk.api.social.operations.user_statistic.GetUserStatItems operation =
+                    net.accelbyte.sdk.api.social.operations.user_statistic.GetUserStatItems.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .limit(limit)
+                            .offset(offset)
+                            .statCodes(statCodes)
+                            .tags(tags)
+                            .build();
             UserStatItemPagingSlicedResult response =
-            new UserStatistic(sdk)
-            .getUserStatItems(
-                new net.accelbyte.sdk.api.social.operations.user_statistic.GetUserStatItems(
-                    namespace,
-                    userId,
-                    limit,
-                    offset,
-                    statCodes,
-                    tags
-                )
-            );
+                    wrapper.getUserStatItems(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

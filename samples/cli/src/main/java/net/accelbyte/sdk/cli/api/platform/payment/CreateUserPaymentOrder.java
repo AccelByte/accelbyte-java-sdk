@@ -62,16 +62,15 @@ public class CreateUserPaymentOrder implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Payment wrapper = new Payment(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment.CreateUserPaymentOrder operation =
+                    net.accelbyte.sdk.api.platform.operations.payment.CreateUserPaymentOrder.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, PaymentOrderCreate.class)) 
+                            .build();
             PaymentOrderInfo response =
-            new Payment(sdk)
-            .createUserPaymentOrder(
-                new net.accelbyte.sdk.api.platform.operations.payment.CreateUserPaymentOrder(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, PaymentOrderCreate.class)  
-                )
-            );
+                    wrapper.createUserPaymentOrder(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

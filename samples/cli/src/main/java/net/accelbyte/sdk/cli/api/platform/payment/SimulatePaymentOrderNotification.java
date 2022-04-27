@@ -62,16 +62,15 @@ public class SimulatePaymentOrderNotification implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Payment wrapper = new Payment(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment.SimulatePaymentOrderNotification operation =
+                    net.accelbyte.sdk.api.platform.operations.payment.SimulatePaymentOrderNotification.builder()
+                            .namespace(namespace)
+                            .paymentOrderNo(paymentOrderNo)
+                            .body(new ObjectMapper().readValue(body, PaymentOrderNotifySimulation.class)) 
+                            .build();
             NotificationProcessResult response =
-            new Payment(sdk)
-            .simulatePaymentOrderNotification(
-                new net.accelbyte.sdk.api.platform.operations.payment.SimulatePaymentOrderNotification(
-                    namespace,
-                    paymentOrderNo,
-                    new ObjectMapper().readValue(body, PaymentOrderNotifySimulation.class)  
-                )
-            );
+                    wrapper.simulatePaymentOrderNotification(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

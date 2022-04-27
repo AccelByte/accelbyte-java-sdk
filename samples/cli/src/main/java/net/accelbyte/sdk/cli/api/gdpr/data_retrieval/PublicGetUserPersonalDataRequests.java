@@ -65,17 +65,16 @@ public class PublicGetUserPersonalDataRequests implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            DataRetrieval wrapper = new DataRetrieval(sdk);
+            net.accelbyte.sdk.api.gdpr.operations.data_retrieval.PublicGetUserPersonalDataRequests operation =
+                    net.accelbyte.sdk.api.gdpr.operations.data_retrieval.PublicGetUserPersonalDataRequests.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsUserPersonalDataResponse response =
-            new DataRetrieval(sdk)
-            .publicGetUserPersonalDataRequests(
-                new net.accelbyte.sdk.api.gdpr.operations.data_retrieval.PublicGetUserPersonalDataRequests(
-                    namespace,
-                    userId,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.publicGetUserPersonalDataRequests(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -59,15 +59,14 @@ public class TestCheckoutConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PaymentConfig wrapper = new PaymentConfig(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_config.TestCheckoutConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_config.TestCheckoutConfig.builder()
+                            .sandbox(sandbox)
+                            .body(new ObjectMapper().readValue(body, CheckoutConfig.class)) 
+                            .build();
             TestResult response =
-            new PaymentConfig(sdk)
-            .testCheckoutConfig(
-                new net.accelbyte.sdk.api.platform.operations.payment_config.TestCheckoutConfig(
-                    sandbox,
-                    new ObjectMapper().readValue(body, CheckoutConfig.class)  
-                )
-            );
+                    wrapper.testCheckoutConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

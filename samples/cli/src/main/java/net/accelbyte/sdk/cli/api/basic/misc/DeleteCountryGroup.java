@@ -59,14 +59,13 @@ public class DeleteCountryGroup implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Misc(sdk)
-            .deleteCountryGroup(
-                new net.accelbyte.sdk.api.basic.operations.misc.DeleteCountryGroup(
-                    countryGroupCode,
-                    namespace
-                )
-            );
+            Misc wrapper = new Misc(sdk);
+            net.accelbyte.sdk.api.basic.operations.misc.DeleteCountryGroup operation =
+                    net.accelbyte.sdk.api.basic.operations.misc.DeleteCountryGroup.builder()
+                            .countryGroupCode(countryGroupCode)
+                            .namespace(namespace)
+                            .build();
+                    wrapper.deleteCountryGroup(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -62,16 +62,15 @@ public class PublicGetUserSeason implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Season wrapper = new Season(sdk);
+            net.accelbyte.sdk.api.seasonpass.operations.season.PublicGetUserSeason operation =
+                    net.accelbyte.sdk.api.seasonpass.operations.season.PublicGetUserSeason.builder()
+                            .namespace(namespace)
+                            .seasonId(seasonId)
+                            .userId(userId)
+                            .build();
             ClaimableUserSeasonInfo response =
-            new Season(sdk)
-            .publicGetUserSeason(
-                new net.accelbyte.sdk.api.seasonpass.operations.season.PublicGetUserSeason(
-                    namespace,
-                    seasonId,
-                    userId
-                )
-            );
+                    wrapper.publicGetUserSeason(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

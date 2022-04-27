@@ -59,14 +59,13 @@ public class PublicUpdatePasswordV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .publicUpdatePasswordV3(
-                new net.accelbyte.sdk.api.iam.operations.users.PublicUpdatePasswordV3(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelUserPasswordUpdateV3Request.class)  
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.PublicUpdatePasswordV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.PublicUpdatePasswordV3.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelUserPasswordUpdateV3Request.class)) 
+                            .build();
+                    wrapper.publicUpdatePasswordV3(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

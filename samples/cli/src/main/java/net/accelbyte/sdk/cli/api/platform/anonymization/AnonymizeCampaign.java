@@ -59,14 +59,13 @@ public class AnonymizeCampaign implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Anonymization(sdk)
-            .anonymizeCampaign(
-                new net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeCampaign(
-                    namespace,
-                    userId
-                )
-            );
+            Anonymization wrapper = new Anonymization(sdk);
+            net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeCampaign operation =
+                    net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeCampaign.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.anonymizeCampaign(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

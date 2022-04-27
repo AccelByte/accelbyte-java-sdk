@@ -59,15 +59,14 @@ public class GetSingleGroupAdminV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Group wrapper = new Group(sdk);
+            net.accelbyte.sdk.api.group.operations.group.GetSingleGroupAdminV1 operation =
+                    net.accelbyte.sdk.api.group.operations.group.GetSingleGroupAdminV1.builder()
+                            .groupId(groupId)
+                            .namespace(namespace)
+                            .build();
             ModelsGroupResponseV1 response =
-            new Group(sdk)
-            .getSingleGroupAdminV1(
-                new net.accelbyte.sdk.api.group.operations.group.GetSingleGroupAdminV1(
-                    groupId,
-                    namespace
-                )
-            );
+                    wrapper.getSingleGroupAdminV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

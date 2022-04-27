@@ -56,14 +56,13 @@ public class SpecificEventLevelDescriptionHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            EventDescriptions wrapper = new EventDescriptions(sdk);
+            net.accelbyte.sdk.api.eventlog.operations.event_descriptions.SpecificEventLevelDescriptionHandler operation =
+                    net.accelbyte.sdk.api.eventlog.operations.event_descriptions.SpecificEventLevelDescriptionHandler.builder()
+                            .eventLevels(eventLevels)
+                            .build();
             ModelsMultipleEventLevel response =
-            new EventDescriptions(sdk)
-            .specificEventLevelDescriptionHandler(
-                new net.accelbyte.sdk.api.eventlog.operations.event_descriptions.SpecificEventLevelDescriptionHandler(
-                    eventLevels
-                )
-            );
+                    wrapper.specificEventLevelDescriptionHandler(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

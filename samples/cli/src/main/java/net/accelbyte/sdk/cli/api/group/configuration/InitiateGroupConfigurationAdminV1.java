@@ -56,14 +56,13 @@ public class InitiateGroupConfigurationAdminV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Configuration wrapper = new Configuration(sdk);
+            net.accelbyte.sdk.api.group.operations.configuration.InitiateGroupConfigurationAdminV1 operation =
+                    net.accelbyte.sdk.api.group.operations.configuration.InitiateGroupConfigurationAdminV1.builder()
+                            .namespace(namespace)
+                            .build();
             ModelsCreateGroupConfigurationResponseV1 response =
-            new Configuration(sdk)
-            .initiateGroupConfigurationAdminV1(
-                new net.accelbyte.sdk.api.group.operations.configuration.InitiateGroupConfigurationAdminV1(
-                    namespace
-                )
-            );
+                    wrapper.initiateGroupConfigurationAdminV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

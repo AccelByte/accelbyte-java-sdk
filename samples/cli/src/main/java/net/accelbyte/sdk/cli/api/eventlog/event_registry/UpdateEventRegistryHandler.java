@@ -59,14 +59,13 @@ public class UpdateEventRegistryHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new EventRegistry(sdk)
-            .updateEventRegistryHandler(
-                new net.accelbyte.sdk.api.eventlog.operations.event_registry.UpdateEventRegistryHandler(
-                    eventId,
-                    new ObjectMapper().readValue(body, ModelsEventRegistry.class)  
-                )
-            );
+            EventRegistry wrapper = new EventRegistry(sdk);
+            net.accelbyte.sdk.api.eventlog.operations.event_registry.UpdateEventRegistryHandler operation =
+                    net.accelbyte.sdk.api.eventlog.operations.event_registry.UpdateEventRegistryHandler.builder()
+                            .eventId(eventId)
+                            .body(new ObjectMapper().readValue(body, ModelsEventRegistry.class)) 
+                            .build();
+                    wrapper.updateEventRegistryHandler(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

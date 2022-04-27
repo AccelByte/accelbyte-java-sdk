@@ -56,13 +56,12 @@ public class DeleteServer implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Admin(sdk)
-            .deleteServer(
-                new net.accelbyte.sdk.api.qosm.operations.admin.DeleteServer(
-                    region
-                )
-            );
+            Admin wrapper = new Admin(sdk);
+            net.accelbyte.sdk.api.qosm.operations.admin.DeleteServer operation =
+                    net.accelbyte.sdk.api.qosm.operations.admin.DeleteServer.builder()
+                            .region(region)
+                            .build();
+                    wrapper.deleteServer(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

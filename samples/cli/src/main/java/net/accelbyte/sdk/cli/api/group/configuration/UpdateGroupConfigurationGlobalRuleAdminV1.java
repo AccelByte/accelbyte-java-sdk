@@ -65,17 +65,16 @@ public class UpdateGroupConfigurationGlobalRuleAdminV1 implements Callable<Integ
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Configuration wrapper = new Configuration(sdk);
+            net.accelbyte.sdk.api.group.operations.configuration.UpdateGroupConfigurationGlobalRuleAdminV1 operation =
+                    net.accelbyte.sdk.api.group.operations.configuration.UpdateGroupConfigurationGlobalRuleAdminV1.builder()
+                            .allowedAction(allowedAction)
+                            .configurationCode(configurationCode)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsUpdateGroupConfigurationGlobalRulesRequestV1.class)) 
+                            .build();
             ModelsUpdateGroupConfigurationResponseV1 response =
-            new Configuration(sdk)
-            .updateGroupConfigurationGlobalRuleAdminV1(
-                new net.accelbyte.sdk.api.group.operations.configuration.UpdateGroupConfigurationGlobalRuleAdminV1(
-                    allowedAction,
-                    configurationCode,
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsUpdateGroupConfigurationGlobalRulesRequestV1.class)  
-                )
-            );
+                    wrapper.updateGroupConfigurationGlobalRuleAdminV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -62,15 +62,14 @@ public class AdminUpdateAchievementListOrder implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Achievements(sdk)
-            .adminUpdateAchievementListOrder(
-                new net.accelbyte.sdk.api.achievement.operations.achievements.AdminUpdateAchievementListOrder(
-                    achievementCode,
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsAchievementOrderUpdateRequest.class)  
-                )
-            );
+            Achievements wrapper = new Achievements(sdk);
+            net.accelbyte.sdk.api.achievement.operations.achievements.AdminUpdateAchievementListOrder operation =
+                    net.accelbyte.sdk.api.achievement.operations.achievements.AdminUpdateAchievementListOrder.builder()
+                            .achievementCode(achievementCode)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsAchievementOrderUpdateRequest.class)) 
+                            .build();
+                    wrapper.adminUpdateAchievementListOrder(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

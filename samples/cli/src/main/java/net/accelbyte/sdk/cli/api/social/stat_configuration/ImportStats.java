@@ -62,16 +62,15 @@ public class ImportStats implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            StatConfiguration wrapper = new StatConfiguration(sdk);
+            net.accelbyte.sdk.api.social.operations.stat_configuration.ImportStats operation =
+                    net.accelbyte.sdk.api.social.operations.stat_configuration.ImportStats.builder()
+                            .namespace(namespace)
+                            .replaceExisting(replaceExisting)
+                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .build();
             StatImportInfo response =
-            new StatConfiguration(sdk)
-            .importStats(
-                new net.accelbyte.sdk.api.social.operations.stat_configuration.ImportStats(
-                    namespace,
-                    replaceExisting,
-                    file != null ? FileUtils.openInputStream(file) : null
-                )
-            );
+                    wrapper.importStats(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

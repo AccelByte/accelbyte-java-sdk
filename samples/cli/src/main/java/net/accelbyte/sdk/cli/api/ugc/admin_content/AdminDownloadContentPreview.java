@@ -59,15 +59,14 @@ public class AdminDownloadContentPreview implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            AdminContent wrapper = new AdminContent(sdk);
+            net.accelbyte.sdk.api.ugc.operations.admin_content.AdminDownloadContentPreview operation =
+                    net.accelbyte.sdk.api.ugc.operations.admin_content.AdminDownloadContentPreview.builder()
+                            .contentId(contentId)
+                            .namespace(namespace)
+                            .build();
             ModelsGetContentPreviewResponse response =
-            new AdminContent(sdk)
-            .adminDownloadContentPreview(
-                new net.accelbyte.sdk.api.ugc.operations.admin_content.AdminDownloadContentPreview(
-                    contentId,
-                    namespace
-                )
-            );
+                    wrapper.adminDownloadContentPreview(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

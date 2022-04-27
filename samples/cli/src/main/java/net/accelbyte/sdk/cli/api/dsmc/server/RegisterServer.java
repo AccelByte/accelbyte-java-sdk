@@ -59,15 +59,14 @@ public class RegisterServer implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Server wrapper = new Server(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.server.RegisterServer operation =
+                    net.accelbyte.sdk.api.dsmc.operations.server.RegisterServer.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsRegisterServerRequest.class)) 
+                            .build();
             ModelsServer response =
-            new Server(sdk)
-            .registerServer(
-                new net.accelbyte.sdk.api.dsmc.operations.server.RegisterServer(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsRegisterServerRequest.class)  
-                )
-            );
+                    wrapper.registerServer(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

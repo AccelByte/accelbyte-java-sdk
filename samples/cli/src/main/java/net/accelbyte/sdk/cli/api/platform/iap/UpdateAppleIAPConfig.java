@@ -59,15 +59,14 @@ public class UpdateAppleIAPConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            IAP wrapper = new IAP(sdk);
+            net.accelbyte.sdk.api.platform.operations.iap.UpdateAppleIAPConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.iap.UpdateAppleIAPConfig.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, AppleIAPConfigRequest.class)) 
+                            .build();
             AppleIAPConfigInfo response =
-            new IAP(sdk)
-            .updateAppleIAPConfig(
-                new net.accelbyte.sdk.api.platform.operations.iap.UpdateAppleIAPConfig(
-                    namespace,
-                    new ObjectMapper().readValue(body, AppleIAPConfigRequest.class)  
-                )
-            );
+                    wrapper.updateAppleIAPConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

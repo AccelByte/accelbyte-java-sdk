@@ -56,14 +56,12 @@ public class AdminUpdateInputValidations implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new InputValidations(sdk)
-            .adminUpdateInputValidations(
-                new net.accelbyte.sdk.api.iam.operations.input_validations.AdminUpdateInputValidations(
-                    new ObjectMapper().readValue(body, new TypeReference<List<ModelInputValidationUpdatePayload>>() {})
- 
-                )
-            );
+            InputValidations wrapper = new InputValidations(sdk);
+            net.accelbyte.sdk.api.iam.operations.input_validations.AdminUpdateInputValidations operation =
+                    net.accelbyte.sdk.api.iam.operations.input_validations.AdminUpdateInputValidations.builder()
+                            .body(new ObjectMapper().readValue(body, new TypeReference<List<ModelInputValidationUpdatePayload>>() {}))
+                            .build();
+                    wrapper.adminUpdateInputValidations(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -62,16 +62,15 @@ public class GetAllChannelsHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Matchmaking wrapper = new Matchmaking(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking.GetAllChannelsHandler operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking.GetAllChannelsHandler.builder()
+                            .namespace(namespace)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsGetChannelsResponse response =
-            new Matchmaking(sdk)
-            .getAllChannelsHandler(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking.GetAllChannelsHandler(
-                    namespace,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.getAllChannelsHandler(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

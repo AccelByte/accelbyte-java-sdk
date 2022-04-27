@@ -71,23 +71,17 @@ public class UserAuthenticationV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new OAuth20Extension(sdk)
-            .userAuthenticationV3(
-                new net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.UserAuthenticationV3(
-                    clientId != null ? clientId : null
-                    ,
-                    extendExp != null ? extendExp : null
-                    ,
-                    redirectUri != null ? redirectUri : null
-                    ,
-                    password != null ? password : null
-                    ,
-                    requestId != null ? requestId : null
-                    ,
-                    userName != null ? userName : null
-                )
-            );
+            OAuth20Extension wrapper = new OAuth20Extension(sdk);
+            net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.UserAuthenticationV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.UserAuthenticationV3.builder()
+                            .clientId(clientId != null ? clientId : null)
+                            .extendExp(extendExp != null ? extendExp : null)
+                            .redirectUri(redirectUri != null ? redirectUri : null)
+                            .password(password != null ? password : null)
+                            .requestId(requestId != null ? requestId : null)
+                            .userName(userName != null ? userName : null)
+                            .build();
+                    wrapper.userAuthenticationV3(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

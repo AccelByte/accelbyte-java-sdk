@@ -62,16 +62,15 @@ public class AdminUpdateClientV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Clients wrapper = new Clients(sdk);
+            net.accelbyte.sdk.api.iam.operations.clients.AdminUpdateClientV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.clients.AdminUpdateClientV3.builder()
+                            .clientId(clientId)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ClientmodelClientUpdateV3Request.class)) 
+                            .build();
             ClientmodelClientV3Response response =
-            new Clients(sdk)
-            .adminUpdateClientV3(
-                new net.accelbyte.sdk.api.iam.operations.clients.AdminUpdateClientV3(
-                    clientId,
-                    namespace,
-                    new ObjectMapper().readValue(body, ClientmodelClientUpdateV3Request.class)  
-                )
-            );
+                    wrapper.adminUpdateClientV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

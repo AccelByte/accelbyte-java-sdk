@@ -62,16 +62,14 @@ public class AdminDeleteUserRolesV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .adminDeleteUserRolesV3(
-                new net.accelbyte.sdk.api.iam.operations.users.AdminDeleteUserRolesV3(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, new TypeReference<List<String>>() {})
- 
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.AdminDeleteUserRolesV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.AdminDeleteUserRolesV3.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, new TypeReference<List<String>>() {}))
+                            .build();
+                    wrapper.adminDeleteUserRolesV3(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

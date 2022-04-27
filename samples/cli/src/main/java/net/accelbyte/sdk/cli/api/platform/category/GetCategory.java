@@ -62,16 +62,15 @@ public class GetCategory implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Category wrapper = new Category(sdk);
+            net.accelbyte.sdk.api.platform.operations.category.GetCategory operation =
+                    net.accelbyte.sdk.api.platform.operations.category.GetCategory.builder()
+                            .categoryPath(categoryPath)
+                            .namespace(namespace)
+                            .storeId(storeId)
+                            .build();
             FullCategoryInfo response =
-            new Category(sdk)
-            .getCategory(
-                new net.accelbyte.sdk.api.platform.operations.category.GetCategory(
-                    categoryPath,
-                    namespace,
-                    storeId
-                )
-            );
+                    wrapper.getCategory(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

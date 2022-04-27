@@ -59,14 +59,13 @@ public class AdminDeleteAllUserChannels implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Anonymization(sdk)
-            .adminDeleteAllUserChannels(
-                new net.accelbyte.sdk.api.ugc.operations.anonymization.AdminDeleteAllUserChannels(
-                    namespace,
-                    userId
-                )
-            );
+            Anonymization wrapper = new Anonymization(sdk);
+            net.accelbyte.sdk.api.ugc.operations.anonymization.AdminDeleteAllUserChannels operation =
+                    net.accelbyte.sdk.api.ugc.operations.anonymization.AdminDeleteAllUserChannels.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.adminDeleteAllUserChannels(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

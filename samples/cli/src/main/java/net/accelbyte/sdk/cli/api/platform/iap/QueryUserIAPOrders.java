@@ -80,22 +80,21 @@ public class QueryUserIAPOrders implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            IAP wrapper = new IAP(sdk);
+            net.accelbyte.sdk.api.platform.operations.iap.QueryUserIAPOrders operation =
+                    net.accelbyte.sdk.api.platform.operations.iap.QueryUserIAPOrders.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .endTime(endTime)
+                            .limit(limit)
+                            .offset(offset)
+                            .productId(productId)
+                            .startTime(startTime)
+                            .status(status)
+                            .type(type)
+                            .build();
             IAPOrderPagingSlicedResult response =
-            new IAP(sdk)
-            .queryUserIAPOrders(
-                new net.accelbyte.sdk.api.platform.operations.iap.QueryUserIAPOrders(
-                    namespace,
-                    userId,
-                    endTime,
-                    limit,
-                    offset,
-                    productId,
-                    startTime,
-                    status,
-                    type
-                )
-            );
+                    wrapper.queryUserIAPOrders(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

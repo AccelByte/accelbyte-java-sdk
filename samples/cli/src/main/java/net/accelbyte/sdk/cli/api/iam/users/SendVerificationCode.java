@@ -62,15 +62,14 @@ public class SendVerificationCode implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .sendVerificationCode(
-                new net.accelbyte.sdk.api.iam.operations.users.SendVerificationCode(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelSendVerificationCodeRequest.class)  
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.SendVerificationCode operation =
+                    net.accelbyte.sdk.api.iam.operations.users.SendVerificationCode.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelSendVerificationCodeRequest.class)) 
+                            .build();
+                    wrapper.sendVerificationCode(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -62,16 +62,15 @@ public class UpdateStat implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            StatConfiguration wrapper = new StatConfiguration(sdk);
+            net.accelbyte.sdk.api.social.operations.stat_configuration.UpdateStat operation =
+                    net.accelbyte.sdk.api.social.operations.stat_configuration.UpdateStat.builder()
+                            .namespace(namespace)
+                            .statCode(statCode)
+                            .body(new ObjectMapper().readValue(body, StatUpdate.class)) 
+                            .build();
             StatInfo response =
-            new StatConfiguration(sdk)
-            .updateStat(
-                new net.accelbyte.sdk.api.social.operations.stat_configuration.UpdateStat(
-                    namespace,
-                    statCode,
-                    new ObjectMapper().readValue(body, StatUpdate.class)  
-                )
-            );
+                    wrapper.updateStat(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

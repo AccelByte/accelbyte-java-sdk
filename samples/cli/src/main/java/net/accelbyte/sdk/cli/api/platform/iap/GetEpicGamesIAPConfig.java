@@ -56,14 +56,13 @@ public class GetEpicGamesIAPConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            IAP wrapper = new IAP(sdk);
+            net.accelbyte.sdk.api.platform.operations.iap.GetEpicGamesIAPConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.iap.GetEpicGamesIAPConfig.builder()
+                            .namespace(namespace)
+                            .build();
             EpicGamesIAPConfigInfo response =
-            new IAP(sdk)
-            .getEpicGamesIAPConfig(
-                new net.accelbyte.sdk.api.platform.operations.iap.GetEpicGamesIAPConfig(
-                    namespace
-                )
-            );
+                    wrapper.getEpicGamesIAPConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

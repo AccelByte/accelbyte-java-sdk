@@ -68,18 +68,17 @@ public class PublicBulkGetItems implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Item wrapper = new Item(sdk);
+            net.accelbyte.sdk.api.platform.operations.item.PublicBulkGetItems operation =
+                    net.accelbyte.sdk.api.platform.operations.item.PublicBulkGetItems.builder()
+                            .namespace(namespace)
+                            .language(language)
+                            .region(region)
+                            .storeId(storeId)
+                            .itemIds(itemIds)
+                            .build();
             List<ItemInfo> response =
-            new Item(sdk)
-            .publicBulkGetItems(
-                new net.accelbyte.sdk.api.platform.operations.item.PublicBulkGetItems(
-                    namespace,
-                    language,
-                    region,
-                    storeId,
-                    itemIds
-                )
-            );
+                    wrapper.publicBulkGetItems(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

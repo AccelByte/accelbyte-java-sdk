@@ -62,17 +62,15 @@ public class UpdatePrivateCustomAttributesPartially implements Callable<Integer>
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UserProfile wrapper = new UserProfile(sdk);
+            net.accelbyte.sdk.api.basic.operations.user_profile.UpdatePrivateCustomAttributesPartially operation =
+                    net.accelbyte.sdk.api.basic.operations.user_profile.UpdatePrivateCustomAttributesPartially.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, new TypeReference<Map<String, ?>>() {}))
+                            .build();
             Map<String, ?> response =
-            new UserProfile(sdk)
-            .updatePrivateCustomAttributesPartially(
-                new net.accelbyte.sdk.api.basic.operations.user_profile.UpdatePrivateCustomAttributesPartially(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, new TypeReference<Map<String, ?>>() {})
- 
-                )
-            );
+                    wrapper.updatePrivateCustomAttributesPartially(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

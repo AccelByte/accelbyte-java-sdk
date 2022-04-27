@@ -59,14 +59,13 @@ public class DeleteMemberRoleAdminV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new GroupRoles(sdk)
-            .deleteMemberRoleAdminV1(
-                new net.accelbyte.sdk.api.group.operations.group_roles.DeleteMemberRoleAdminV1(
-                    memberRoleId,
-                    namespace
-                )
-            );
+            GroupRoles wrapper = new GroupRoles(sdk);
+            net.accelbyte.sdk.api.group.operations.group_roles.DeleteMemberRoleAdminV1 operation =
+                    net.accelbyte.sdk.api.group.operations.group_roles.DeleteMemberRoleAdminV1.builder()
+                            .memberRoleId(memberRoleId)
+                            .namespace(namespace)
+                            .build();
+                    wrapper.deleteMemberRoleAdminV1(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

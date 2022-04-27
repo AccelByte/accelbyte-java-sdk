@@ -68,18 +68,17 @@ public class PublicGetItemBySku implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Item wrapper = new Item(sdk);
+            net.accelbyte.sdk.api.platform.operations.item.PublicGetItemBySku operation =
+                    net.accelbyte.sdk.api.platform.operations.item.PublicGetItemBySku.builder()
+                            .namespace(namespace)
+                            .language(language)
+                            .region(region)
+                            .storeId(storeId)
+                            .sku(sku)
+                            .build();
             ItemInfo response =
-            new Item(sdk)
-            .publicGetItemBySku(
-                new net.accelbyte.sdk.api.platform.operations.item.PublicGetItemBySku(
-                    namespace,
-                    language,
-                    region,
-                    storeId,
-                    sku
-                )
-            );
+                    wrapper.publicGetItemBySku(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

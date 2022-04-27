@@ -77,21 +77,20 @@ public class SearchSessions implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Matchmaking wrapper = new Matchmaking(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking.SearchSessions operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking.SearchSessions.builder()
+                            .namespace(namespace)
+                            .channel(channel)
+                            .deleted(deleted)
+                            .matchID(matchID)
+                            .partyID(partyID)
+                            .userID(userID)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ServiceGetSessionHistorySearchResponse response =
-            new Matchmaking(sdk)
-            .searchSessions(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking.SearchSessions(
-                    namespace,
-                    channel,
-                    deleted,
-                    matchID,
-                    partyID,
-                    userID,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.searchSessions(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

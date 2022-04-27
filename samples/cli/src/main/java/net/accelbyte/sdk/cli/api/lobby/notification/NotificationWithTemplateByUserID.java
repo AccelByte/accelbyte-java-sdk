@@ -62,15 +62,14 @@ public class NotificationWithTemplateByUserID implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Notification(sdk)
-            .notificationWithTemplateByUserID(
-                new net.accelbyte.sdk.api.lobby.operations.notification.NotificationWithTemplateByUserID(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelNotificationWithTemplateRequest.class)  
-                )
-            );
+            Notification wrapper = new Notification(sdk);
+            net.accelbyte.sdk.api.lobby.operations.notification.NotificationWithTemplateByUserID operation =
+                    net.accelbyte.sdk.api.lobby.operations.notification.NotificationWithTemplateByUserID.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelNotificationWithTemplateRequest.class)) 
+                            .build();
+                    wrapper.notificationWithTemplateByUserID(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -59,15 +59,14 @@ public class UpdateUserV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.UpdateUserV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.UpdateUserV3.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelUserUpdateRequestV3.class)) 
+                            .build();
             List<ModelUserResponseV3> response =
-            new Users(sdk)
-            .updateUserV3(
-                new net.accelbyte.sdk.api.iam.operations.users.UpdateUserV3(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelUserUpdateRequestV3.class)  
-                )
-            );
+                    wrapper.updateUserV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

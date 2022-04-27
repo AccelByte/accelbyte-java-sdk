@@ -53,13 +53,12 @@ public class ListServer implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Public wrapper = new Public(sdk);
+            net.accelbyte.sdk.api.qosm.operations.public_.ListServer operation =
+                    net.accelbyte.sdk.api.qosm.operations.public_.ListServer.builder()
+                            .build();
             ModelsListServerResponse response =
-            new Public(sdk)
-            .listServer(
-                new net.accelbyte.sdk.api.qosm.operations.public_.ListServer(
-                )
-            );
+                    wrapper.listServer(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

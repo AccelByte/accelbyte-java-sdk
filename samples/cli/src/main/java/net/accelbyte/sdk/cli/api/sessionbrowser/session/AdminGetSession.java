@@ -59,15 +59,14 @@ public class AdminGetSession implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Session wrapper = new Session(sdk);
+            net.accelbyte.sdk.api.sessionbrowser.operations.session.AdminGetSession operation =
+                    net.accelbyte.sdk.api.sessionbrowser.operations.session.AdminGetSession.builder()
+                            .namespace(namespace)
+                            .sessionID(sessionID)
+                            .build();
             ModelsAdminSessionResponse response =
-            new Session(sdk)
-            .adminGetSession(
-                new net.accelbyte.sdk.api.sessionbrowser.operations.session.AdminGetSession(
-                    namespace,
-                    sessionID
-                )
-            );
+                    wrapper.adminGetSession(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

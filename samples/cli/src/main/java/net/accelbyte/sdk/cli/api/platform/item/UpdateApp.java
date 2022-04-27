@@ -65,17 +65,16 @@ public class UpdateApp implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Item wrapper = new Item(sdk);
+            net.accelbyte.sdk.api.platform.operations.item.UpdateApp operation =
+                    net.accelbyte.sdk.api.platform.operations.item.UpdateApp.builder()
+                            .itemId(itemId)
+                            .namespace(namespace)
+                            .storeId(storeId)
+                            .body(new ObjectMapper().readValue(body, AppUpdate.class)) 
+                            .build();
             FullAppInfo response =
-            new Item(sdk)
-            .updateApp(
-                new net.accelbyte.sdk.api.platform.operations.item.UpdateApp(
-                    itemId,
-                    namespace,
-                    storeId,
-                    new ObjectMapper().readValue(body, AppUpdate.class)  
-                )
-            );
+                    wrapper.updateApp(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

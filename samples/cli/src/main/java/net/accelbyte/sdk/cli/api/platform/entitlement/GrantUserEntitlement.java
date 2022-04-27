@@ -62,17 +62,15 @@ public class GrantUserEntitlement implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Entitlement wrapper = new Entitlement(sdk);
+            net.accelbyte.sdk.api.platform.operations.entitlement.GrantUserEntitlement operation =
+                    net.accelbyte.sdk.api.platform.operations.entitlement.GrantUserEntitlement.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, new TypeReference<List<EntitlementGrant>>() {}))
+                            .build();
             List<StackableEntitlementInfo> response =
-            new Entitlement(sdk)
-            .grantUserEntitlement(
-                new net.accelbyte.sdk.api.platform.operations.entitlement.GrantUserEntitlement(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, new TypeReference<List<EntitlementGrant>>() {})
- 
-                )
-            );
+                    wrapper.grantUserEntitlement(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -62,16 +62,15 @@ public class AdminGetType implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            AdminType wrapper = new AdminType(sdk);
+            net.accelbyte.sdk.api.ugc.operations.admin_type.AdminGetType operation =
+                    net.accelbyte.sdk.api.ugc.operations.admin_type.AdminGetType.builder()
+                            .namespace(namespace)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsPaginatedGetTypeResponse response =
-            new AdminType(sdk)
-            .adminGetType(
-                new net.accelbyte.sdk.api.ugc.operations.admin_type.AdminGetType(
-                    namespace,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.adminGetType(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

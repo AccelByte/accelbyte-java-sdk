@@ -59,14 +59,13 @@ public class ClaimServer implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Session(sdk)
-            .claimServer(
-                new net.accelbyte.sdk.api.dsmc.operations.session.ClaimServer(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsClaimSessionRequest.class)  
-                )
-            );
+            Session wrapper = new Session(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.session.ClaimServer operation =
+                    net.accelbyte.sdk.api.dsmc.operations.session.ClaimServer.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsClaimSessionRequest.class)) 
+                            .build();
+                    wrapper.claimServer(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

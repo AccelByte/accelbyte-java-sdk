@@ -59,15 +59,14 @@ public class GetCreator implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicCreator wrapper = new PublicCreator(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_creator.GetCreator operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_creator.GetCreator.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             ModelsCreatorOverviewResponse response =
-            new PublicCreator(sdk)
-            .getCreator(
-                new net.accelbyte.sdk.api.ugc.operations.public_creator.GetCreator(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.getCreator(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

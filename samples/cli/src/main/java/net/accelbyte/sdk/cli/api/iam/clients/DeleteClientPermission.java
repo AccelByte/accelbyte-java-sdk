@@ -62,15 +62,14 @@ public class DeleteClientPermission implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Clients(sdk)
-            .deleteClientPermission(
-                new net.accelbyte.sdk.api.iam.operations.clients.DeleteClientPermission(
-                    action,
-                    clientId,
-                    resource
-                )
-            );
+            Clients wrapper = new Clients(sdk);
+            net.accelbyte.sdk.api.iam.operations.clients.DeleteClientPermission operation =
+                    net.accelbyte.sdk.api.iam.operations.clients.DeleteClientPermission.builder()
+                            .action(action)
+                            .clientId(clientId)
+                            .resource(resource)
+                            .build();
+                    wrapper.deleteClientPermission(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

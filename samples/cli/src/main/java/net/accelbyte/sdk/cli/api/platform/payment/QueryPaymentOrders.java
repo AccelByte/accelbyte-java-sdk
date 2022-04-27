@@ -71,19 +71,18 @@ public class QueryPaymentOrders implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Payment wrapper = new Payment(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment.QueryPaymentOrders operation =
+                    net.accelbyte.sdk.api.platform.operations.payment.QueryPaymentOrders.builder()
+                            .namespace(namespace)
+                            .channel(channel)
+                            .extTxId(extTxId)
+                            .limit(limit)
+                            .offset(offset)
+                            .status(status)
+                            .build();
             PaymentOrderPagingSlicedResult response =
-            new Payment(sdk)
-            .queryPaymentOrders(
-                new net.accelbyte.sdk.api.platform.operations.payment.QueryPaymentOrders(
-                    namespace,
-                    channel,
-                    extTxId,
-                    limit,
-                    offset,
-                    status
-                )
-            );
+                    wrapper.queryPaymentOrders(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

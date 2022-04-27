@@ -59,15 +59,14 @@ public class GetSessionByUserIDs implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Session wrapper = new Session(sdk);
+            net.accelbyte.sdk.api.sessionbrowser.operations.session.GetSessionByUserIDs operation =
+                    net.accelbyte.sdk.api.sessionbrowser.operations.session.GetSessionByUserIDs.builder()
+                            .namespace(namespace)
+                            .userIds(userIds)
+                            .build();
             ModelsSessionByUserIDsResponse response =
-            new Session(sdk)
-            .getSessionByUserIDs(
-                new net.accelbyte.sdk.api.sessionbrowser.operations.session.GetSessionByUserIDs(
-                    namespace,
-                    userIds
-                )
-            );
+                    wrapper.getSessionByUserIDs(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

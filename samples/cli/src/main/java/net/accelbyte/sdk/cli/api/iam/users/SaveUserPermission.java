@@ -62,15 +62,14 @@ public class SaveUserPermission implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .saveUserPermission(
-                new net.accelbyte.sdk.api.iam.operations.users.SaveUserPermission(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, AccountcommonPermissions.class)  
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.SaveUserPermission operation =
+                    net.accelbyte.sdk.api.iam.operations.users.SaveUserPermission.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, AccountcommonPermissions.class)) 
+                            .build();
+                    wrapper.saveUserPermission(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

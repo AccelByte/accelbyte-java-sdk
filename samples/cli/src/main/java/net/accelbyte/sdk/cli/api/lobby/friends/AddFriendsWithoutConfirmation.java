@@ -62,15 +62,14 @@ public class AddFriendsWithoutConfirmation implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Friends(sdk)
-            .addFriendsWithoutConfirmation(
-                new net.accelbyte.sdk.api.lobby.operations.friends.AddFriendsWithoutConfirmation(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelBulkAddFriendsRequest.class)  
-                )
-            );
+            Friends wrapper = new Friends(sdk);
+            net.accelbyte.sdk.api.lobby.operations.friends.AddFriendsWithoutConfirmation operation =
+                    net.accelbyte.sdk.api.lobby.operations.friends.AddFriendsWithoutConfirmation.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelBulkAddFriendsRequest.class)) 
+                            .build();
+                    wrapper.addFriendsWithoutConfirmation(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

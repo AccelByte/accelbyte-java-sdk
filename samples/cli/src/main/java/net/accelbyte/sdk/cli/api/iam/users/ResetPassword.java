@@ -59,14 +59,13 @@ public class ResetPassword implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .resetPassword(
-                new net.accelbyte.sdk.api.iam.operations.users.ResetPassword(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelResetPasswordRequest.class)  
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.ResetPassword operation =
+                    net.accelbyte.sdk.api.iam.operations.users.ResetPassword.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelResetPasswordRequest.class)) 
+                            .build();
+                    wrapper.resetPassword(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

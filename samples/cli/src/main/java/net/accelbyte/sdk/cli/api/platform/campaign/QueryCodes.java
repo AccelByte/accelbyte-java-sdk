@@ -74,20 +74,19 @@ public class QueryCodes implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Campaign wrapper = new Campaign(sdk);
+            net.accelbyte.sdk.api.platform.operations.campaign.QueryCodes operation =
+                    net.accelbyte.sdk.api.platform.operations.campaign.QueryCodes.builder()
+                            .campaignId(campaignId)
+                            .namespace(namespace)
+                            .activeOnly(activeOnly)
+                            .batchNo(batchNo)
+                            .code(code)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             CodeInfoPagingSlicedResult response =
-            new Campaign(sdk)
-            .queryCodes(
-                new net.accelbyte.sdk.api.platform.operations.campaign.QueryCodes(
-                    campaignId,
-                    namespace,
-                    activeOnly,
-                    batchNo,
-                    code,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.queryCodes(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

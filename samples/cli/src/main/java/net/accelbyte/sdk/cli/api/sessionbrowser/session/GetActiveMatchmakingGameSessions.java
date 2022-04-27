@@ -65,17 +65,16 @@ public class GetActiveMatchmakingGameSessions implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Session wrapper = new Session(sdk);
+            net.accelbyte.sdk.api.sessionbrowser.operations.session.GetActiveMatchmakingGameSessions operation =
+                    net.accelbyte.sdk.api.sessionbrowser.operations.session.GetActiveMatchmakingGameSessions.builder()
+                            .namespace(namespace)
+                            .matchId(matchId)
+                            .serverRegion(serverRegion)
+                            .sessionId(sessionId)
+                            .build();
             ModelsActiveMatchmakingGameResponse response =
-            new Session(sdk)
-            .getActiveMatchmakingGameSessions(
-                new net.accelbyte.sdk.api.sessionbrowser.operations.session.GetActiveMatchmakingGameSessions(
-                    namespace,
-                    matchId,
-                    serverRegion,
-                    sessionId
-                )
-            );
+                    wrapper.getActiveMatchmakingGameSessions(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

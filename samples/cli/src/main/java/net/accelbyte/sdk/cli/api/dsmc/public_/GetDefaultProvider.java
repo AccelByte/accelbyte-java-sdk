@@ -53,13 +53,12 @@ public class GetDefaultProvider implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Public wrapper = new Public(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.public_.GetDefaultProvider operation =
+                    net.accelbyte.sdk.api.dsmc.operations.public_.GetDefaultProvider.builder()
+                            .build();
             ModelsDefaultProvider response =
-            new Public(sdk)
-            .getDefaultProvider(
-                new net.accelbyte.sdk.api.dsmc.operations.public_.GetDefaultProvider(
-                )
-            );
+                    wrapper.getDefaultProvider(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

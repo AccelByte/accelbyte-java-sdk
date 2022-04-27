@@ -62,16 +62,15 @@ public class GetAllPodConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PodConfig wrapper = new PodConfig(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.pod_config.GetAllPodConfig operation =
+                    net.accelbyte.sdk.api.dsmc.operations.pod_config.GetAllPodConfig.builder()
+                            .namespace(namespace)
+                            .count(count)
+                            .offset(offset)
+                            .build();
             ModelsListPodConfigResponse response =
-            new PodConfig(sdk)
-            .getAllPodConfig(
-                new net.accelbyte.sdk.api.dsmc.operations.pod_config.GetAllPodConfig(
-                    namespace,
-                    count,
-                    offset
-                )
-            );
+                    wrapper.getAllPodConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

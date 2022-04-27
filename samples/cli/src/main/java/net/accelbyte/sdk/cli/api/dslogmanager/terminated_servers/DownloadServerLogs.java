@@ -59,14 +59,13 @@ public class DownloadServerLogs implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new TerminatedServers(sdk)
-            .downloadServerLogs(
-                new net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers.DownloadServerLogs(
-                    namespace,
-                    podName
-                )
-            );
+            TerminatedServers wrapper = new TerminatedServers(sdk);
+            net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers.DownloadServerLogs operation =
+                    net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers.DownloadServerLogs.builder()
+                            .namespace(namespace)
+                            .podName(podName)
+                            .build();
+                    wrapper.downloadServerLogs(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

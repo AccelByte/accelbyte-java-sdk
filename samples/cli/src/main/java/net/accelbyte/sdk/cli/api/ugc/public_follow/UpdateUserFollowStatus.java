@@ -62,16 +62,15 @@ public class UpdateUserFollowStatus implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicFollow wrapper = new PublicFollow(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_follow.UpdateUserFollowStatus operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_follow.UpdateUserFollowStatus.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelsUserFollowRequest.class)) 
+                            .build();
             ModelsUserFollowResponse response =
-            new PublicFollow(sdk)
-            .updateUserFollowStatus(
-                new net.accelbyte.sdk.api.ugc.operations.public_follow.UpdateUserFollowStatus(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelsUserFollowRequest.class)  
-                )
-            );
+                    wrapper.updateUserFollowStatus(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

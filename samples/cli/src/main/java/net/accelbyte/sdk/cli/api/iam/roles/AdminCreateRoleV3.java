@@ -56,14 +56,13 @@ public class AdminCreateRoleV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Roles wrapper = new Roles(sdk);
+            net.accelbyte.sdk.api.iam.operations.roles.AdminCreateRoleV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.roles.AdminCreateRoleV3.builder()
+                            .body(new ObjectMapper().readValue(body, ModelRoleCreateV3Request.class)) 
+                            .build();
             AccountcommonRoleV3 response =
-            new Roles(sdk)
-            .adminCreateRoleV3(
-                new net.accelbyte.sdk.api.iam.operations.roles.AdminCreateRoleV3(
-                    new ObjectMapper().readValue(body, ModelRoleCreateV3Request.class)  
-                )
-            );
+                    wrapper.adminCreateRoleV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

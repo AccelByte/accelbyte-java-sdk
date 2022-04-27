@@ -65,17 +65,16 @@ public class ListPlayerRecordHandlerV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            AdminPlayerRecord wrapper = new AdminPlayerRecord(sdk);
+            net.accelbyte.sdk.api.cloudsave.operations.admin_player_record.ListPlayerRecordHandlerV1 operation =
+                    net.accelbyte.sdk.api.cloudsave.operations.admin_player_record.ListPlayerRecordHandlerV1.builder()
+                            .namespace(namespace)
+                            .limit(limit)
+                            .offset(offset)
+                            .query(query)
+                            .build();
             ModelsListPlayerRecordKeysResponse response =
-            new AdminPlayerRecord(sdk)
-            .listPlayerRecordHandlerV1(
-                new net.accelbyte.sdk.api.cloudsave.operations.admin_player_record.ListPlayerRecordHandlerV1(
-                    namespace,
-                    limit,
-                    offset,
-                    query
-                )
-            );
+                    wrapper.listPlayerRecordHandlerV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

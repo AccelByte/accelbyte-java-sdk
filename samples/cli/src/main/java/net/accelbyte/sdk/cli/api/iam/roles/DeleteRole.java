@@ -56,13 +56,12 @@ public class DeleteRole implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Roles(sdk)
-            .deleteRole(
-                new net.accelbyte.sdk.api.iam.operations.roles.DeleteRole(
-                    roleId
-                )
-            );
+            Roles wrapper = new Roles(sdk);
+            net.accelbyte.sdk.api.iam.operations.roles.DeleteRole operation =
+                    net.accelbyte.sdk.api.iam.operations.roles.DeleteRole.builder()
+                            .roleId(roleId)
+                            .build();
+                    wrapper.deleteRole(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

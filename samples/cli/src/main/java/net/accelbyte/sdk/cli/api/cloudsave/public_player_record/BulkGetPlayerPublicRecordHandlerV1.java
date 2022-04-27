@@ -62,16 +62,15 @@ public class BulkGetPlayerPublicRecordHandlerV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicPlayerRecord wrapper = new PublicPlayerRecord(sdk);
+            net.accelbyte.sdk.api.cloudsave.operations.public_player_record.BulkGetPlayerPublicRecordHandlerV1 operation =
+                    net.accelbyte.sdk.api.cloudsave.operations.public_player_record.BulkGetPlayerPublicRecordHandlerV1.builder()
+                            .key(key)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsBulkUserIDsRequest.class)) 
+                            .build();
             ModelsBulkGetPlayerRecordResponse response =
-            new PublicPlayerRecord(sdk)
-            .bulkGetPlayerPublicRecordHandlerV1(
-                new net.accelbyte.sdk.api.cloudsave.operations.public_player_record.BulkGetPlayerPublicRecordHandlerV1(
-                    key,
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsBulkUserIDsRequest.class)  
-                )
-            );
+                    wrapper.bulkGetPlayerPublicRecordHandlerV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -62,16 +62,15 @@ public class UpdateUserProfile implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UserProfile wrapper = new UserProfile(sdk);
+            net.accelbyte.sdk.api.basic.operations.user_profile.UpdateUserProfile operation =
+                    net.accelbyte.sdk.api.basic.operations.user_profile.UpdateUserProfile.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, UserProfileAdmin.class)) 
+                            .build();
             UserProfilePrivateInfo response =
-            new UserProfile(sdk)
-            .updateUserProfile(
-                new net.accelbyte.sdk.api.basic.operations.user_profile.UpdateUserProfile(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, UserProfileAdmin.class)  
-                )
-            );
+                    wrapper.updateUserProfile(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

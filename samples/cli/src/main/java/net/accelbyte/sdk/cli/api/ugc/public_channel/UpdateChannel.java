@@ -65,17 +65,16 @@ public class UpdateChannel implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicChannel wrapper = new PublicChannel(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_channel.UpdateChannel operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_channel.UpdateChannel.builder()
+                            .channelId(channelId)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelsChannelRequest.class)) 
+                            .build();
             ModelsChannelResponse response =
-            new PublicChannel(sdk)
-            .updateChannel(
-                new net.accelbyte.sdk.api.ugc.operations.public_channel.UpdateChannel(
-                    channelId,
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelsChannelRequest.class)  
-                )
-            );
+                    wrapper.updateChannel(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -62,16 +62,15 @@ public class GetTag implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicTag wrapper = new PublicTag(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_tag.GetTag operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_tag.GetTag.builder()
+                            .namespace(namespace)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsPaginatedGetTagResponse response =
-            new PublicTag(sdk)
-            .getTag(
-                new net.accelbyte.sdk.api.ugc.operations.public_tag.GetTag(
-                    namespace,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.getTag(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

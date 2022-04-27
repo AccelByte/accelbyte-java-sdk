@@ -59,15 +59,14 @@ public class PublicGetQRCode implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PaymentStation wrapper = new PaymentStation(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_station.PublicGetQRCode operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_station.PublicGetQRCode.builder()
+                            .namespace(namespace)
+                            .code(code)
+                            .build();
             InputStream response =
-            new PaymentStation(sdk)
-            .publicGetQRCode(
-                new net.accelbyte.sdk.api.platform.operations.payment_station.PublicGetQRCode(
-                    namespace,
-                    code
-                )
-            );
+                    wrapper.publicGetQRCode(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

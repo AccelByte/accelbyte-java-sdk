@@ -59,15 +59,14 @@ public class AcceptGroupJoinRequestPublicV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            GroupMember wrapper = new GroupMember(sdk);
+            net.accelbyte.sdk.api.group.operations.group_member.AcceptGroupJoinRequestPublicV1 operation =
+                    net.accelbyte.sdk.api.group.operations.group_member.AcceptGroupJoinRequestPublicV1.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             ModelsMemberRequestGroupResponseV1 response =
-            new GroupMember(sdk)
-            .acceptGroupJoinRequestPublicV1(
-                new net.accelbyte.sdk.api.group.operations.group_member.AcceptGroupJoinRequestPublicV1(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.acceptGroupJoinRequestPublicV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

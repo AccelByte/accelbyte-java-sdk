@@ -62,16 +62,15 @@ public class DeleteGroupConfigurationGlobalRuleAdminV1 implements Callable<Integ
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Configuration wrapper = new Configuration(sdk);
+            net.accelbyte.sdk.api.group.operations.configuration.DeleteGroupConfigurationGlobalRuleAdminV1 operation =
+                    net.accelbyte.sdk.api.group.operations.configuration.DeleteGroupConfigurationGlobalRuleAdminV1.builder()
+                            .allowedAction(allowedAction)
+                            .configurationCode(configurationCode)
+                            .namespace(namespace)
+                            .build();
             ModelsUpdateGroupConfigurationResponseV1 response =
-            new Configuration(sdk)
-            .deleteGroupConfigurationGlobalRuleAdminV1(
-                new net.accelbyte.sdk.api.group.operations.configuration.DeleteGroupConfigurationGlobalRuleAdminV1(
-                    allowedAction,
-                    configurationCode,
-                    namespace
-                )
-            );
+                    wrapper.deleteGroupConfigurationGlobalRuleAdminV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

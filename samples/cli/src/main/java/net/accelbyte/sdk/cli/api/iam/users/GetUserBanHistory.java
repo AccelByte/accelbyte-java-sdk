@@ -59,15 +59,14 @@ public class GetUserBanHistory implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.GetUserBanHistory operation =
+                    net.accelbyte.sdk.api.iam.operations.users.GetUserBanHistory.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             List<ModelUserBanResponse> response =
-            new Users(sdk)
-            .getUserBanHistory(
-                new net.accelbyte.sdk.api.iam.operations.users.GetUserBanHistory(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.getUserBanHistory(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

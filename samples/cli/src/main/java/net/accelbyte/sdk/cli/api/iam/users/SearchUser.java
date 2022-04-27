@@ -59,15 +59,14 @@ public class SearchUser implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.SearchUser operation =
+                    net.accelbyte.sdk.api.iam.operations.users.SearchUser.builder()
+                            .namespace(namespace)
+                            .query(query)
+                            .build();
             ModelSearchUsersResponse response =
-            new Users(sdk)
-            .searchUser(
-                new net.accelbyte.sdk.api.iam.operations.users.SearchUser(
-                    namespace,
-                    query
-                )
-            );
+                    wrapper.searchUser(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

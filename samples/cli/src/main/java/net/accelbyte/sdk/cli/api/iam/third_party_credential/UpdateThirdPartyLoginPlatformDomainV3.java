@@ -62,16 +62,15 @@ public class UpdateThirdPartyLoginPlatformDomainV3 implements Callable<Integer> 
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
+            net.accelbyte.sdk.api.iam.operations.third_party_credential.UpdateThirdPartyLoginPlatformDomainV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.third_party_credential.UpdateThirdPartyLoginPlatformDomainV3.builder()
+                            .namespace(namespace)
+                            .platformId(platformId)
+                            .body(new ObjectMapper().readValue(body, ModelPlatformDomainUpdateRequest.class)) 
+                            .build();
             ModelPlatformDomainResponse response =
-            new ThirdPartyCredential(sdk)
-            .updateThirdPartyLoginPlatformDomainV3(
-                new net.accelbyte.sdk.api.iam.operations.third_party_credential.UpdateThirdPartyLoginPlatformDomainV3(
-                    namespace,
-                    platformId,
-                    new ObjectMapper().readValue(body, ModelPlatformDomainUpdateRequest.class)  
-                )
-            );
+                    wrapper.updateThirdPartyLoginPlatformDomainV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

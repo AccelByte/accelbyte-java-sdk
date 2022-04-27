@@ -56,13 +56,12 @@ public class DeleteSteamIAPConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new IAP(sdk)
-            .deleteSteamIAPConfig(
-                new net.accelbyte.sdk.api.platform.operations.iap.DeleteSteamIAPConfig(
-                    namespace
-                )
-            );
+            IAP wrapper = new IAP(sdk);
+            net.accelbyte.sdk.api.platform.operations.iap.DeleteSteamIAPConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.iap.DeleteSteamIAPConfig.builder()
+                            .namespace(namespace)
+                            .build();
+                    wrapper.deleteSteamIAPConfig(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

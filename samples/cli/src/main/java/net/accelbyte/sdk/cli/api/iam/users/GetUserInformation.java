@@ -59,15 +59,14 @@ public class GetUserInformation implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.GetUserInformation operation =
+                    net.accelbyte.sdk.api.iam.operations.users.GetUserInformation.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             ModelUserInformation response =
-            new Users(sdk)
-            .getUserInformation(
-                new net.accelbyte.sdk.api.iam.operations.users.GetUserInformation(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.getUserInformation(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

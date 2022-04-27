@@ -59,15 +59,13 @@ public class UpdateAdminEmailConfiguration implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new DataRetrieval(sdk)
-            .updateAdminEmailConfiguration(
-                new net.accelbyte.sdk.api.gdpr.operations.data_retrieval.UpdateAdminEmailConfiguration(
-                    namespace,
-                    new ObjectMapper().readValue(body, new TypeReference<List<String>>() {})
- 
-                )
-            );
+            DataRetrieval wrapper = new DataRetrieval(sdk);
+            net.accelbyte.sdk.api.gdpr.operations.data_retrieval.UpdateAdminEmailConfiguration operation =
+                    net.accelbyte.sdk.api.gdpr.operations.data_retrieval.UpdateAdminEmailConfiguration.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, new TypeReference<List<String>>() {}))
+                            .build();
+                    wrapper.updateAdminEmailConfiguration(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

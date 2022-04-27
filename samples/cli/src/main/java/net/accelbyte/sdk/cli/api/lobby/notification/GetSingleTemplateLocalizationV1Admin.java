@@ -62,16 +62,15 @@ public class GetSingleTemplateLocalizationV1Admin implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Notification wrapper = new Notification(sdk);
+            net.accelbyte.sdk.api.lobby.operations.notification.GetSingleTemplateLocalizationV1Admin operation =
+                    net.accelbyte.sdk.api.lobby.operations.notification.GetSingleTemplateLocalizationV1Admin.builder()
+                            .namespace(namespace)
+                            .templateLanguage(templateLanguage)
+                            .templateSlug(templateSlug)
+                            .build();
             ModelLocalization response =
-            new Notification(sdk)
-            .getSingleTemplateLocalizationV1Admin(
-                new net.accelbyte.sdk.api.lobby.operations.notification.GetSingleTemplateLocalizationV1Admin(
-                    namespace,
-                    templateLanguage,
-                    templateSlug
-                )
-            );
+                    wrapper.getSingleTemplateLocalizationV1Admin(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

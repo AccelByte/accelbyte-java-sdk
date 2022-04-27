@@ -56,14 +56,13 @@ public class GetAllNotificationTemplatesV1Admin implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Notification wrapper = new Notification(sdk);
+            net.accelbyte.sdk.api.lobby.operations.notification.GetAllNotificationTemplatesV1Admin operation =
+                    net.accelbyte.sdk.api.lobby.operations.notification.GetAllNotificationTemplatesV1Admin.builder()
+                            .namespace(namespace)
+                            .build();
             List<ModelNotificationTemplateResponse> response =
-            new Notification(sdk)
-            .getAllNotificationTemplatesV1Admin(
-                new net.accelbyte.sdk.api.lobby.operations.notification.GetAllNotificationTemplatesV1Admin(
-                    namespace
-                )
-            );
+                    wrapper.getAllNotificationTemplatesV1Admin(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

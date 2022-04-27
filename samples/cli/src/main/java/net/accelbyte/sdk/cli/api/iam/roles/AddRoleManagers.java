@@ -59,14 +59,13 @@ public class AddRoleManagers implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Roles(sdk)
-            .addRoleManagers(
-                new net.accelbyte.sdk.api.iam.operations.roles.AddRoleManagers(
-                    roleId,
-                    new ObjectMapper().readValue(body, ModelRoleManagersRequest.class)  
-                )
-            );
+            Roles wrapper = new Roles(sdk);
+            net.accelbyte.sdk.api.iam.operations.roles.AddRoleManagers operation =
+                    net.accelbyte.sdk.api.iam.operations.roles.AddRoleManagers.builder()
+                            .roleId(roleId)
+                            .body(new ObjectMapper().readValue(body, ModelRoleManagersRequest.class)) 
+                            .build();
+                    wrapper.addRoleManagers(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

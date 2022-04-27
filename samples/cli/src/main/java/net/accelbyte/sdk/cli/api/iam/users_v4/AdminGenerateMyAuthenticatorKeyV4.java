@@ -53,13 +53,12 @@ public class AdminGenerateMyAuthenticatorKeyV4 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UsersV4 wrapper = new UsersV4(sdk);
+            net.accelbyte.sdk.api.iam.operations.users_v4.AdminGenerateMyAuthenticatorKeyV4 operation =
+                    net.accelbyte.sdk.api.iam.operations.users_v4.AdminGenerateMyAuthenticatorKeyV4.builder()
+                            .build();
             ModelAuthenticatorKeyResponseV4 response =
-            new UsersV4(sdk)
-            .adminGenerateMyAuthenticatorKeyV4(
-                new net.accelbyte.sdk.api.iam.operations.users_v4.AdminGenerateMyAuthenticatorKeyV4(
-                )
-            );
+                    wrapper.adminGenerateMyAuthenticatorKeyV4(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

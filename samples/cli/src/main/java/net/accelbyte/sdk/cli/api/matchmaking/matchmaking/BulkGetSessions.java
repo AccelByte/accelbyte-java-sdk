@@ -59,15 +59,14 @@ public class BulkGetSessions implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Matchmaking wrapper = new Matchmaking(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking.BulkGetSessions operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking.BulkGetSessions.builder()
+                            .namespace(namespace)
+                            .matchIDs(matchIDs)
+                            .build();
             List<ModelsMatchmakingResult> response =
-            new Matchmaking(sdk)
-            .bulkGetSessions(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking.BulkGetSessions(
-                    namespace,
-                    matchIDs
-                )
-            );
+                    wrapper.bulkGetSessions(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

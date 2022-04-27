@@ -80,22 +80,21 @@ public class QueryOrders implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Order wrapper = new Order(sdk);
+            net.accelbyte.sdk.api.platform.operations.order.QueryOrders operation =
+                    net.accelbyte.sdk.api.platform.operations.order.QueryOrders.builder()
+                            .namespace(namespace)
+                            .endTime(endTime)
+                            .limit(limit)
+                            .offset(offset)
+                            .orderNos(orderNos)
+                            .sortBy(sortBy)
+                            .startTime(startTime)
+                            .status(status)
+                            .withTotal(withTotal)
+                            .build();
             OrderPagingResult response =
-            new Order(sdk)
-            .queryOrders(
-                new net.accelbyte.sdk.api.platform.operations.order.QueryOrders(
-                    namespace,
-                    endTime,
-                    limit,
-                    offset,
-                    orderNos,
-                    sortBy,
-                    startTime,
-                    status,
-                    withTotal
-                )
-            );
+                    wrapper.queryOrders(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

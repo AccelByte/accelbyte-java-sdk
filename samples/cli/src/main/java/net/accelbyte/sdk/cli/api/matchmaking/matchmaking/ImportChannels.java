@@ -62,17 +62,15 @@ public class ImportChannels implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Matchmaking wrapper = new Matchmaking(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking.ImportChannels operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking.ImportChannels.builder()
+                            .namespace(namespace)
+                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .strategy(strategy != null ? strategy : null)
+                            .build();
             ModelsImportConfigResponse response =
-            new Matchmaking(sdk)
-            .importChannels(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking.ImportChannels(
-                    namespace,
-                    file != null ? FileUtils.openInputStream(file) : null
-                    ,
-                    strategy != null ? strategy : null
-                )
-            );
+                    wrapper.importChannels(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

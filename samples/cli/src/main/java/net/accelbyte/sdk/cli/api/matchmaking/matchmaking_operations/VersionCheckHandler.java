@@ -53,12 +53,11 @@ public class VersionCheckHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new MatchmakingOperations(sdk)
-            .versionCheckHandler(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.VersionCheckHandler(
-                )
-            );
+            MatchmakingOperations wrapper = new MatchmakingOperations(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.VersionCheckHandler operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.VersionCheckHandler.builder()
+                            .build();
+                    wrapper.versionCheckHandler(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -65,16 +65,15 @@ public class DeleteImagePatch implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new ImageConfig(sdk)
-            .deleteImagePatch(
-                new net.accelbyte.sdk.api.dsmc.operations.image_config.DeleteImagePatch(
-                    namespace,
-                    imageURI,
-                    version,
-                    versionPatch
-                )
-            );
+            ImageConfig wrapper = new ImageConfig(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.image_config.DeleteImagePatch operation =
+                    net.accelbyte.sdk.api.dsmc.operations.image_config.DeleteImagePatch.builder()
+                            .namespace(namespace)
+                            .imageURI(imageURI)
+                            .version(version)
+                            .versionPatch(versionPatch)
+                            .build();
+                    wrapper.deleteImagePatch(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

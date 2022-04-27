@@ -62,15 +62,14 @@ public class DeleteImage implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new ImageConfig(sdk)
-            .deleteImage(
-                new net.accelbyte.sdk.api.dsmc.operations.image_config.DeleteImage(
-                    namespace,
-                    imageURI,
-                    version
-                )
-            );
+            ImageConfig wrapper = new ImageConfig(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.image_config.DeleteImage operation =
+                    net.accelbyte.sdk.api.dsmc.operations.image_config.DeleteImage.builder()
+                            .namespace(namespace)
+                            .imageURI(imageURI)
+                            .version(version)
+                            .build();
+                    wrapper.deleteImage(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

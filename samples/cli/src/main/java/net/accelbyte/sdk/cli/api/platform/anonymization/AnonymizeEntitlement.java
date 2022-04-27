@@ -59,14 +59,13 @@ public class AnonymizeEntitlement implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Anonymization(sdk)
-            .anonymizeEntitlement(
-                new net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeEntitlement(
-                    namespace,
-                    userId
-                )
-            );
+            Anonymization wrapper = new Anonymization(sdk);
+            net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeEntitlement operation =
+                    net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeEntitlement.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.anonymizeEntitlement(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -53,13 +53,12 @@ public class ListProviders implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Public wrapper = new Public(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.public_.ListProviders operation =
+                    net.accelbyte.sdk.api.dsmc.operations.public_.ListProviders.builder()
+                            .build();
             List<String> response =
-            new Public(sdk)
-            .listProviders(
-                new net.accelbyte.sdk.api.dsmc.operations.public_.ListProviders(
-                )
-            );
+                    wrapper.listProviders(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

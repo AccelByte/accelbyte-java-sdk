@@ -59,14 +59,13 @@ public class DeleteUser implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .deleteUser(
-                new net.accelbyte.sdk.api.iam.operations.users.DeleteUser(
-                    namespace,
-                    userId
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.DeleteUser operation =
+                    net.accelbyte.sdk.api.iam.operations.users.DeleteUser.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.deleteUser(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

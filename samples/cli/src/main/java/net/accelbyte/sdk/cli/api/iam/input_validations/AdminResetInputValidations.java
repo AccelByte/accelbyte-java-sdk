@@ -56,13 +56,12 @@ public class AdminResetInputValidations implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new InputValidations(sdk)
-            .adminResetInputValidations(
-                new net.accelbyte.sdk.api.iam.operations.input_validations.AdminResetInputValidations(
-                    field
-                )
-            );
+            InputValidations wrapper = new InputValidations(sdk);
+            net.accelbyte.sdk.api.iam.operations.input_validations.AdminResetInputValidations operation =
+                    net.accelbyte.sdk.api.iam.operations.input_validations.AdminResetInputValidations.builder()
+                            .field(field)
+                            .build();
+                    wrapper.adminResetInputValidations(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

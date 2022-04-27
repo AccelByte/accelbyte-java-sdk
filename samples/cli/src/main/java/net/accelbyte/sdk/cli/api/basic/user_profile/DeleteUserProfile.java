@@ -59,15 +59,14 @@ public class DeleteUserProfile implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UserProfile wrapper = new UserProfile(sdk);
+            net.accelbyte.sdk.api.basic.operations.user_profile.DeleteUserProfile operation =
+                    net.accelbyte.sdk.api.basic.operations.user_profile.DeleteUserProfile.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             UserProfilePrivateInfo response =
-            new UserProfile(sdk)
-            .deleteUserProfile(
-                new net.accelbyte.sdk.api.basic.operations.user_profile.DeleteUserProfile(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.deleteUserProfile(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

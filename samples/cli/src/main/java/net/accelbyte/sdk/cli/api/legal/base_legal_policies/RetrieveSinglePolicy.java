@@ -56,14 +56,13 @@ public class RetrieveSinglePolicy implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            BaseLegalPolicies wrapper = new BaseLegalPolicies(sdk);
+            net.accelbyte.sdk.api.legal.operations.base_legal_policies.RetrieveSinglePolicy operation =
+                    net.accelbyte.sdk.api.legal.operations.base_legal_policies.RetrieveSinglePolicy.builder()
+                            .basePolicyId(basePolicyId)
+                            .build();
             RetrieveBasePolicyResponse response =
-            new BaseLegalPolicies(sdk)
-            .retrieveSinglePolicy(
-                new net.accelbyte.sdk.api.legal.operations.base_legal_policies.RetrieveSinglePolicy(
-                    basePolicyId
-                )
-            );
+                    wrapper.retrieveSinglePolicy(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

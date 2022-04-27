@@ -65,17 +65,16 @@ public class PublicGeneratePersonalDataURL implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            DataRetrieval wrapper = new DataRetrieval(sdk);
+            net.accelbyte.sdk.api.gdpr.operations.data_retrieval.PublicGeneratePersonalDataURL operation =
+                    net.accelbyte.sdk.api.gdpr.operations.data_retrieval.PublicGeneratePersonalDataURL.builder()
+                            .namespace(namespace)
+                            .requestDate(requestDate)
+                            .userId(userId)
+                            .password(password != null ? password : null)
+                            .build();
             ModelsUserDataURL response =
-            new DataRetrieval(sdk)
-            .publicGeneratePersonalDataURL(
-                new net.accelbyte.sdk.api.gdpr.operations.data_retrieval.PublicGeneratePersonalDataURL(
-                    namespace,
-                    requestDate,
-                    userId,
-                    password != null ? password : null
-                )
-            );
+                    wrapper.publicGeneratePersonalDataURL(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -56,14 +56,13 @@ public class ImportImages implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            ImageConfig wrapper = new ImageConfig(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.image_config.ImportImages operation =
+                    net.accelbyte.sdk.api.dsmc.operations.image_config.ImportImages.builder()
+                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .build();
             ModelsImportResponse response =
-            new ImageConfig(sdk)
-            .importImages(
-                new net.accelbyte.sdk.api.dsmc.operations.image_config.ImportImages(
-                    file != null ? FileUtils.openInputStream(file) : null
-                )
-            );
+                    wrapper.importImages(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

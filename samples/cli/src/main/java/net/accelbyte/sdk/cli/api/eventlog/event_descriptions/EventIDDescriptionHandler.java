@@ -53,13 +53,12 @@ public class EventIDDescriptionHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            EventDescriptions wrapper = new EventDescriptions(sdk);
+            net.accelbyte.sdk.api.eventlog.operations.event_descriptions.EventIDDescriptionHandler operation =
+                    net.accelbyte.sdk.api.eventlog.operations.event_descriptions.EventIDDescriptionHandler.builder()
+                            .build();
             ModelsMultipleEventID response =
-            new EventDescriptions(sdk)
-            .eventIDDescriptionHandler(
-                new net.accelbyte.sdk.api.eventlog.operations.event_descriptions.EventIDDescriptionHandler(
-                )
-            );
+                    wrapper.eventIDDescriptionHandler(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

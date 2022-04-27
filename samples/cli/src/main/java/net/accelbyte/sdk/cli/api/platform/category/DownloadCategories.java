@@ -62,16 +62,15 @@ public class DownloadCategories implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Category wrapper = new Category(sdk);
+            net.accelbyte.sdk.api.platform.operations.category.DownloadCategories operation =
+                    net.accelbyte.sdk.api.platform.operations.category.DownloadCategories.builder()
+                            .namespace(namespace)
+                            .language(language)
+                            .storeId(storeId)
+                            .build();
             List<HierarchicalCategoryInfo> response =
-            new Category(sdk)
-            .downloadCategories(
-                new net.accelbyte.sdk.api.platform.operations.category.DownloadCategories(
-                    namespace,
-                    language,
-                    storeId
-                )
-            );
+                    wrapper.downloadCategories(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

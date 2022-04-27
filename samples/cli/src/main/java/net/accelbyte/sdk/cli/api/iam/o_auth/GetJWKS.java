@@ -53,13 +53,12 @@ public class GetJWKS implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            OAuth wrapper = new OAuth(sdk);
+            net.accelbyte.sdk.api.iam.operations.o_auth.GetJWKS operation =
+                    net.accelbyte.sdk.api.iam.operations.o_auth.GetJWKS.builder()
+                            .build();
             OauthcommonJWKSet response =
-            new OAuth(sdk)
-            .getJWKS(
-                new net.accelbyte.sdk.api.iam.operations.o_auth.GetJWKS(
-                )
-            );
+                    wrapper.getJWKS(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

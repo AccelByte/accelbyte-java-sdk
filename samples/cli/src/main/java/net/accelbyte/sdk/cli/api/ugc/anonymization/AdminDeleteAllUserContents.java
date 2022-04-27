@@ -59,14 +59,13 @@ public class AdminDeleteAllUserContents implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Anonymization(sdk)
-            .adminDeleteAllUserContents(
-                new net.accelbyte.sdk.api.ugc.operations.anonymization.AdminDeleteAllUserContents(
-                    namespace,
-                    userId
-                )
-            );
+            Anonymization wrapper = new Anonymization(sdk);
+            net.accelbyte.sdk.api.ugc.operations.anonymization.AdminDeleteAllUserContents operation =
+                    net.accelbyte.sdk.api.ugc.operations.anonymization.AdminDeleteAllUserContents.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.adminDeleteAllUserContents(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

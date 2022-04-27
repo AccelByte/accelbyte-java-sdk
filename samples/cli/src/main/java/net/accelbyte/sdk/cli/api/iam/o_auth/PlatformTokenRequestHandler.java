@@ -65,18 +65,16 @@ public class PlatformTokenRequestHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            OAuth wrapper = new OAuth(sdk);
+            net.accelbyte.sdk.api.iam.operations.o_auth.PlatformTokenRequestHandler operation =
+                    net.accelbyte.sdk.api.iam.operations.o_auth.PlatformTokenRequestHandler.builder()
+                            .namespace(namespace)
+                            .platformId(platformId)
+                            .deviceId(deviceId != null ? deviceId : null)
+                            .platformToken(platformToken != null ? platformToken : null)
+                            .build();
             OauthmodelTokenResponse response =
-            new OAuth(sdk)
-            .platformTokenRequestHandler(
-                new net.accelbyte.sdk.api.iam.operations.o_auth.PlatformTokenRequestHandler(
-                    namespace,
-                    platformId,
-                    deviceId != null ? deviceId : null
-                    ,
-                    platformToken != null ? platformToken : null
-                )
-            );
+                    wrapper.platformTokenRequestHandler(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

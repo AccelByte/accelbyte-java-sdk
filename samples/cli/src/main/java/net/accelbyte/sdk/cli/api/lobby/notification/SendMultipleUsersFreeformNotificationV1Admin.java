@@ -59,14 +59,13 @@ public class SendMultipleUsersFreeformNotificationV1Admin implements Callable<In
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Notification(sdk)
-            .sendMultipleUsersFreeformNotificationV1Admin(
-                new net.accelbyte.sdk.api.lobby.operations.notification.SendMultipleUsersFreeformNotificationV1Admin(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelBulkUsersFreeFormNotificationRequestV1.class)  
-                )
-            );
+            Notification wrapper = new Notification(sdk);
+            net.accelbyte.sdk.api.lobby.operations.notification.SendMultipleUsersFreeformNotificationV1Admin operation =
+                    net.accelbyte.sdk.api.lobby.operations.notification.SendMultipleUsersFreeformNotificationV1Admin.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelBulkUsersFreeFormNotificationRequestV1.class)) 
+                            .build();
+                    wrapper.sendMultipleUsersFreeformNotificationV1Admin(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

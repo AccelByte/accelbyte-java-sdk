@@ -68,18 +68,17 @@ public class GetLeaderboardConfigurationsAdminV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            LeaderboardConfiguration wrapper = new LeaderboardConfiguration(sdk);
+            net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.GetLeaderboardConfigurationsAdminV1 operation =
+                    net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.GetLeaderboardConfigurationsAdminV1.builder()
+                            .namespace(namespace)
+                            .isArchived(isArchived)
+                            .isDeleted(isDeleted)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsGetAllLeaderboardConfigsResp response =
-            new LeaderboardConfiguration(sdk)
-            .getLeaderboardConfigurationsAdminV1(
-                new net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.GetLeaderboardConfigurationsAdminV1(
-                    namespace,
-                    isArchived,
-                    isDeleted,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.getLeaderboardConfigurationsAdminV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

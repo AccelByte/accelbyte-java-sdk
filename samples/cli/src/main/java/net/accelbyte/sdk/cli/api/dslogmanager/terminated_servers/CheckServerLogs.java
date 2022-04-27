@@ -59,15 +59,14 @@ public class CheckServerLogs implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            TerminatedServers wrapper = new TerminatedServers(sdk);
+            net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers.CheckServerLogs operation =
+                    net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers.CheckServerLogs.builder()
+                            .namespace(namespace)
+                            .podName(podName)
+                            .build();
             ModelsLogFileStatus response =
-            new TerminatedServers(sdk)
-            .checkServerLogs(
-                new net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers.CheckServerLogs(
-                    namespace,
-                    podName
-                )
-            );
+                    wrapper.checkServerLogs(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -56,14 +56,13 @@ public class ListLocalServer implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Admin wrapper = new Admin(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.admin.ListLocalServer operation =
+                    net.accelbyte.sdk.api.dsmc.operations.admin.ListLocalServer.builder()
+                            .namespace(namespace)
+                            .build();
             ModelsListServerResponse response =
-            new Admin(sdk)
-            .listLocalServer(
-                new net.accelbyte.sdk.api.dsmc.operations.admin.ListLocalServer(
-                    namespace
-                )
-            );
+                    wrapper.listLocalServer(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

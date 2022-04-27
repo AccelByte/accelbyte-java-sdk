@@ -68,18 +68,17 @@ public class UpdateContentDirect implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicContent wrapper = new PublicContent(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_content.UpdateContentDirect operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_content.UpdateContentDirect.builder()
+                            .channelId(channelId)
+                            .contentId(contentId)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelsCreateContentRequest.class)) 
+                            .build();
             ModelsCreateContentResponse response =
-            new PublicContent(sdk)
-            .updateContentDirect(
-                new net.accelbyte.sdk.api.ugc.operations.public_content.UpdateContentDirect(
-                    channelId,
-                    contentId,
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelsCreateContentRequest.class)  
-                )
-            );
+                    wrapper.updateContentDirect(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

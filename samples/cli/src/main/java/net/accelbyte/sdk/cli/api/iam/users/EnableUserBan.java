@@ -62,16 +62,15 @@ public class EnableUserBan implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.EnableUserBan operation =
+                    net.accelbyte.sdk.api.iam.operations.users.EnableUserBan.builder()
+                            .banId(banId)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             ModelUserBanResponse response =
-            new Users(sdk)
-            .enableUserBan(
-                new net.accelbyte.sdk.api.iam.operations.users.EnableUserBan(
-                    banId,
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.enableUserBan(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -59,15 +59,14 @@ public class UpdateNamespace implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Namespace wrapper = new Namespace(sdk);
+            net.accelbyte.sdk.api.basic.operations.namespace.UpdateNamespace operation =
+                    net.accelbyte.sdk.api.basic.operations.namespace.UpdateNamespace.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, NamespaceUpdate.class)) 
+                            .build();
             NamespaceInfo response =
-            new Namespace(sdk)
-            .updateNamespace(
-                new net.accelbyte.sdk.api.basic.operations.namespace.UpdateNamespace(
-                    namespace,
-                    new ObjectMapper().readValue(body, NamespaceUpdate.class)  
-                )
-            );
+                    wrapper.updateNamespace(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

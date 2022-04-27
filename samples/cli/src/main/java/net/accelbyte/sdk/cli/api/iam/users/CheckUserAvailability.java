@@ -62,15 +62,14 @@ public class CheckUserAvailability implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .checkUserAvailability(
-                new net.accelbyte.sdk.api.iam.operations.users.CheckUserAvailability(
-                    namespace,
-                    field,
-                    query
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.CheckUserAvailability operation =
+                    net.accelbyte.sdk.api.iam.operations.users.CheckUserAvailability.builder()
+                            .namespace(namespace)
+                            .field(field)
+                            .query(query)
+                            .build();
+                    wrapper.checkUserAvailability(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

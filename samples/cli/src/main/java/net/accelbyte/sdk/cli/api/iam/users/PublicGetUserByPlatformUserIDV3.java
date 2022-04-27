@@ -62,16 +62,15 @@ public class PublicGetUserByPlatformUserIDV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.PublicGetUserByPlatformUserIDV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.PublicGetUserByPlatformUserIDV3.builder()
+                            .namespace(namespace)
+                            .platformId(platformId)
+                            .platformUserId(platformUserId)
+                            .build();
             ModelUserResponseV3 response =
-            new Users(sdk)
-            .publicGetUserByPlatformUserIDV3(
-                new net.accelbyte.sdk.api.iam.operations.users.PublicGetUserByPlatformUserIDV3(
-                    namespace,
-                    platformId,
-                    platformUserId
-                )
-            );
+                    wrapper.publicGetUserByPlatformUserIDV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -53,12 +53,11 @@ public class Logout implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new OAuth20Extension(sdk)
-            .logout(
-                new net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.Logout(
-                )
-            );
+            OAuth20Extension wrapper = new OAuth20Extension(sdk);
+            net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.Logout operation =
+                    net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.Logout.builder()
+                            .build();
+                    wrapper.logout(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

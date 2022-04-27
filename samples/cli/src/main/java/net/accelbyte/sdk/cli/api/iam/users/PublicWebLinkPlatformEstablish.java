@@ -62,15 +62,14 @@ public class PublicWebLinkPlatformEstablish implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .publicWebLinkPlatformEstablish(
-                new net.accelbyte.sdk.api.iam.operations.users.PublicWebLinkPlatformEstablish(
-                    namespace,
-                    platformId,
-                    state
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.PublicWebLinkPlatformEstablish operation =
+                    net.accelbyte.sdk.api.iam.operations.users.PublicWebLinkPlatformEstablish.builder()
+                            .namespace(namespace)
+                            .platformId(platformId)
+                            .state(state)
+                            .build();
+                    wrapper.publicWebLinkPlatformEstablish(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

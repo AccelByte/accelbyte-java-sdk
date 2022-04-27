@@ -59,14 +59,13 @@ public class AdminUpdateRolePermissionsV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Roles(sdk)
-            .adminUpdateRolePermissionsV3(
-                new net.accelbyte.sdk.api.iam.operations.roles.AdminUpdateRolePermissionsV3(
-                    roleId,
-                    new ObjectMapper().readValue(body, AccountcommonPermissionsV3.class)  
-                )
-            );
+            Roles wrapper = new Roles(sdk);
+            net.accelbyte.sdk.api.iam.operations.roles.AdminUpdateRolePermissionsV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.roles.AdminUpdateRolePermissionsV3.builder()
+                            .roleId(roleId)
+                            .body(new ObjectMapper().readValue(body, AccountcommonPermissionsV3.class)) 
+                            .build();
+                    wrapper.adminUpdateRolePermissionsV3(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -56,14 +56,13 @@ public class GetAdminEmailConfiguration implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            DataRetrieval wrapper = new DataRetrieval(sdk);
+            net.accelbyte.sdk.api.gdpr.operations.data_retrieval.GetAdminEmailConfiguration operation =
+                    net.accelbyte.sdk.api.gdpr.operations.data_retrieval.GetAdminEmailConfiguration.builder()
+                            .namespace(namespace)
+                            .build();
             List<String> response =
-            new DataRetrieval(sdk)
-            .getAdminEmailConfiguration(
-                new net.accelbyte.sdk.api.gdpr.operations.data_retrieval.GetAdminEmailConfiguration(
-                    namespace
-                )
-            );
+                    wrapper.getAdminEmailConfiguration(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

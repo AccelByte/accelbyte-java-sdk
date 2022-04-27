@@ -59,15 +59,14 @@ public class PublicDownloadContentPreview implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicContent wrapper = new PublicContent(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_content.PublicDownloadContentPreview operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_content.PublicDownloadContentPreview.builder()
+                            .contentId(contentId)
+                            .namespace(namespace)
+                            .build();
             ModelsGetContentPreviewResponse response =
-            new PublicContent(sdk)
-            .publicDownloadContentPreview(
-                new net.accelbyte.sdk.api.ugc.operations.public_content.PublicDownloadContentPreview(
-                    contentId,
-                    namespace
-                )
-            );
+                    wrapper.publicDownloadContentPreview(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

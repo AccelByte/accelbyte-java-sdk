@@ -56,13 +56,12 @@ public class ExportStats implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new StatConfiguration(sdk)
-            .exportStats(
-                new net.accelbyte.sdk.api.social.operations.stat_configuration.ExportStats(
-                    namespace
-                )
-            );
+            StatConfiguration wrapper = new StatConfiguration(sdk);
+            net.accelbyte.sdk.api.social.operations.stat_configuration.ExportStats operation =
+                    net.accelbyte.sdk.api.social.operations.stat_configuration.ExportStats.builder()
+                            .namespace(namespace)
+                            .build();
+                    wrapper.exportStats(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

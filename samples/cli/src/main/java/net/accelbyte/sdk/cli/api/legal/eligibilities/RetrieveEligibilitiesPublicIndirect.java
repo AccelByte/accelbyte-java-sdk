@@ -65,17 +65,16 @@ public class RetrieveEligibilitiesPublicIndirect implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Eligibilities wrapper = new Eligibilities(sdk);
+            net.accelbyte.sdk.api.legal.operations.eligibilities.RetrieveEligibilitiesPublicIndirect operation =
+                    net.accelbyte.sdk.api.legal.operations.eligibilities.RetrieveEligibilitiesPublicIndirect.builder()
+                            .clientId(clientId)
+                            .countryCode(countryCode)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             RetrieveUserEligibilitiesIndirectResponse response =
-            new Eligibilities(sdk)
-            .retrieveEligibilitiesPublicIndirect(
-                new net.accelbyte.sdk.api.legal.operations.eligibilities.RetrieveEligibilitiesPublicIndirect(
-                    clientId,
-                    countryCode,
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.retrieveEligibilitiesPublicIndirect(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

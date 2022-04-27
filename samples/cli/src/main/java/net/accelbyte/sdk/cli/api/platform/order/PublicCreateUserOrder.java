@@ -62,16 +62,15 @@ public class PublicCreateUserOrder implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Order wrapper = new Order(sdk);
+            net.accelbyte.sdk.api.platform.operations.order.PublicCreateUserOrder operation =
+                    net.accelbyte.sdk.api.platform.operations.order.PublicCreateUserOrder.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, OrderCreate.class)) 
+                            .build();
             OrderInfo response =
-            new Order(sdk)
-            .publicCreateUserOrder(
-                new net.accelbyte.sdk.api.platform.operations.order.PublicCreateUserOrder(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, OrderCreate.class)  
-                )
-            );
+                    wrapper.publicCreateUserOrder(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -56,13 +56,12 @@ public class DeleteNamespaceSlotConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new SlotConfig(sdk)
-            .deleteNamespaceSlotConfig(
-                new net.accelbyte.sdk.api.social.operations.slot_config.DeleteNamespaceSlotConfig(
-                    namespace
-                )
-            );
+            SlotConfig wrapper = new SlotConfig(sdk);
+            net.accelbyte.sdk.api.social.operations.slot_config.DeleteNamespaceSlotConfig operation =
+                    net.accelbyte.sdk.api.social.operations.slot_config.DeleteNamespaceSlotConfig.builder()
+                            .namespace(namespace)
+                            .build();
+                    wrapper.deleteNamespaceSlotConfig(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -74,20 +74,19 @@ public class GetLocaleItemBySku implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Item wrapper = new Item(sdk);
+            net.accelbyte.sdk.api.platform.operations.item.GetLocaleItemBySku operation =
+                    net.accelbyte.sdk.api.platform.operations.item.GetLocaleItemBySku.builder()
+                            .namespace(namespace)
+                            .activeOnly(activeOnly)
+                            .language(language)
+                            .populateBundle(populateBundle)
+                            .region(region)
+                            .storeId(storeId)
+                            .sku(sku)
+                            .build();
             PopulatedItemInfo response =
-            new Item(sdk)
-            .getLocaleItemBySku(
-                new net.accelbyte.sdk.api.platform.operations.item.GetLocaleItemBySku(
-                    namespace,
-                    activeOnly,
-                    language,
-                    populateBundle,
-                    region,
-                    storeId,
-                    sku
-                )
-            );
+                    wrapper.getLocaleItemBySku(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

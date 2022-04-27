@@ -62,15 +62,14 @@ public class DeleteUserSubscription implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Subscription(sdk)
-            .deleteUserSubscription(
-                new net.accelbyte.sdk.api.platform.operations.subscription.DeleteUserSubscription(
-                    namespace,
-                    subscriptionId,
-                    userId
-                )
-            );
+            Subscription wrapper = new Subscription(sdk);
+            net.accelbyte.sdk.api.platform.operations.subscription.DeleteUserSubscription operation =
+                    net.accelbyte.sdk.api.platform.operations.subscription.DeleteUserSubscription.builder()
+                            .namespace(namespace)
+                            .subscriptionId(subscriptionId)
+                            .userId(userId)
+                            .build();
+                    wrapper.deleteUserSubscription(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

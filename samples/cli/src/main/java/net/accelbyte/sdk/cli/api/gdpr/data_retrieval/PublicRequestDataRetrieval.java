@@ -62,16 +62,15 @@ public class PublicRequestDataRetrieval implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            DataRetrieval wrapper = new DataRetrieval(sdk);
+            net.accelbyte.sdk.api.gdpr.operations.data_retrieval.PublicRequestDataRetrieval operation =
+                    net.accelbyte.sdk.api.gdpr.operations.data_retrieval.PublicRequestDataRetrieval.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .password(password != null ? password : null)
+                            .build();
             ModelsDataRetrievalResponse response =
-            new DataRetrieval(sdk)
-            .publicRequestDataRetrieval(
-                new net.accelbyte.sdk.api.gdpr.operations.data_retrieval.PublicRequestDataRetrieval(
-                    namespace,
-                    userId,
-                    password != null ? password : null
-                )
-            );
+                    wrapper.publicRequestDataRetrieval(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

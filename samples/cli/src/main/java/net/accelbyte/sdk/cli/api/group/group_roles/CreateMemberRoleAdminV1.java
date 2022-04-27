@@ -59,15 +59,14 @@ public class CreateMemberRoleAdminV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            GroupRoles wrapper = new GroupRoles(sdk);
+            net.accelbyte.sdk.api.group.operations.group_roles.CreateMemberRoleAdminV1 operation =
+                    net.accelbyte.sdk.api.group.operations.group_roles.CreateMemberRoleAdminV1.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsCreateMemberRoleRequestV1.class)) 
+                            .build();
             ModelsCreateMemberRoleResponseV1 response =
-            new GroupRoles(sdk)
-            .createMemberRoleAdminV1(
-                new net.accelbyte.sdk.api.group.operations.group_roles.CreateMemberRoleAdminV1(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsCreateMemberRoleRequestV1.class)  
-                )
-            );
+                    wrapper.createMemberRoleAdminV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

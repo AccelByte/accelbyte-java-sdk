@@ -59,15 +59,14 @@ public class UpdateGoogleIAPConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            IAP wrapper = new IAP(sdk);
+            net.accelbyte.sdk.api.platform.operations.iap.UpdateGoogleIAPConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.iap.UpdateGoogleIAPConfig.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, GoogleIAPConfigRequest.class)) 
+                            .build();
             GoogleIAPConfigInfo response =
-            new IAP(sdk)
-            .updateGoogleIAPConfig(
-                new net.accelbyte.sdk.api.platform.operations.iap.UpdateGoogleIAPConfig(
-                    namespace,
-                    new ObjectMapper().readValue(body, GoogleIAPConfigRequest.class)  
-                )
-            );
+                    wrapper.updateGoogleIAPConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

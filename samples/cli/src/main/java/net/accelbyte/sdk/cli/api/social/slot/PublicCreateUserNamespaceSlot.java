@@ -74,21 +74,18 @@ public class PublicCreateUserNamespaceSlot implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Slot(sdk)
-            .publicCreateUserNamespaceSlot(
-                new net.accelbyte.sdk.api.social.operations.slot.PublicCreateUserNamespaceSlot(
-                    namespace,
-                    userId,
-                    label,
-                    tags,
-                    checksum != null ? checksum : null
-                    ,
-                    customAttribute != null ? customAttribute : null
-                    ,
-                    file != null ? FileUtils.openInputStream(file) : null
-                )
-            );
+            Slot wrapper = new Slot(sdk);
+            net.accelbyte.sdk.api.social.operations.slot.PublicCreateUserNamespaceSlot operation =
+                    net.accelbyte.sdk.api.social.operations.slot.PublicCreateUserNamespaceSlot.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .label(label)
+                            .tags(tags)
+                            .checksum(checksum != null ? checksum : null)
+                            .customAttribute(customAttribute != null ? customAttribute : null)
+                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .build();
+                    wrapper.publicCreateUserNamespaceSlot(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

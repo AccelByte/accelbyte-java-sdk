@@ -59,15 +59,14 @@ public class ListCategoriesBasic implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Category wrapper = new Category(sdk);
+            net.accelbyte.sdk.api.platform.operations.category.ListCategoriesBasic operation =
+                    net.accelbyte.sdk.api.platform.operations.category.ListCategoriesBasic.builder()
+                            .namespace(namespace)
+                            .storeId(storeId)
+                            .build();
             List<BasicCategoryInfo> response =
-            new Category(sdk)
-            .listCategoriesBasic(
-                new net.accelbyte.sdk.api.platform.operations.category.ListCategoriesBasic(
-                    namespace,
-                    storeId
-                )
-            );
+                    wrapper.listCategoriesBasic(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

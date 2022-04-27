@@ -59,15 +59,14 @@ public class PublicUpgradeHeadlessAccountWithVerificationCodeV4 implements Calla
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UsersV4 wrapper = new UsersV4(sdk);
+            net.accelbyte.sdk.api.iam.operations.users_v4.PublicUpgradeHeadlessAccountWithVerificationCodeV4 operation =
+                    net.accelbyte.sdk.api.iam.operations.users_v4.PublicUpgradeHeadlessAccountWithVerificationCodeV4.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4.class)) 
+                            .build();
             AccountUserResponseV4 response =
-            new UsersV4(sdk)
-            .publicUpgradeHeadlessAccountWithVerificationCodeV4(
-                new net.accelbyte.sdk.api.iam.operations.users_v4.PublicUpgradeHeadlessAccountWithVerificationCodeV4(
-                    namespace,
-                    new ObjectMapper().readValue(body, AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4.class)  
-                )
-            );
+                    wrapper.publicUpgradeHeadlessAccountWithVerificationCodeV4(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -56,14 +56,13 @@ public class ExportImages implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            ImageConfig wrapper = new ImageConfig(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.image_config.ExportImages operation =
+                    net.accelbyte.sdk.api.dsmc.operations.image_config.ExportImages.builder()
+                            .namespace(namespace)
+                            .build();
             List<ModelsImageRecord> response =
-            new ImageConfig(sdk)
-            .exportImages(
-                new net.accelbyte.sdk.api.dsmc.operations.image_config.ExportImages(
-                    namespace
-                )
-            );
+                    wrapper.exportImages(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -59,15 +59,14 @@ public class PublicGetUserAccountDeletionStatus implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            DataDeletion wrapper = new DataDeletion(sdk);
+            net.accelbyte.sdk.api.gdpr.operations.data_deletion.PublicGetUserAccountDeletionStatus operation =
+                    net.accelbyte.sdk.api.gdpr.operations.data_deletion.PublicGetUserAccountDeletionStatus.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             ModelsDeletionStatus response =
-            new DataDeletion(sdk)
-            .publicGetUserAccountDeletionStatus(
-                new net.accelbyte.sdk.api.gdpr.operations.data_deletion.PublicGetUserAccountDeletionStatus(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.publicGetUserAccountDeletionStatus(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

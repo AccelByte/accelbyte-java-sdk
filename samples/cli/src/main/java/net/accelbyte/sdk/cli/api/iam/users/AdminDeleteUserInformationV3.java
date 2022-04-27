@@ -59,14 +59,13 @@ public class AdminDeleteUserInformationV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .adminDeleteUserInformationV3(
-                new net.accelbyte.sdk.api.iam.operations.users.AdminDeleteUserInformationV3(
-                    namespace,
-                    userId
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.AdminDeleteUserInformationV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.AdminDeleteUserInformationV3.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.adminDeleteUserInformationV3(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

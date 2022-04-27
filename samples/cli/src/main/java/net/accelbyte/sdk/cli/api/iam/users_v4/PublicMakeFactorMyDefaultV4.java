@@ -59,14 +59,13 @@ public class PublicMakeFactorMyDefaultV4 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new UsersV4(sdk)
-            .publicMakeFactorMyDefaultV4(
-                new net.accelbyte.sdk.api.iam.operations.users_v4.PublicMakeFactorMyDefaultV4(
-                    namespace,
-                    factor != null ? factor : null
-                )
-            );
+            UsersV4 wrapper = new UsersV4(sdk);
+            net.accelbyte.sdk.api.iam.operations.users_v4.PublicMakeFactorMyDefaultV4 operation =
+                    net.accelbyte.sdk.api.iam.operations.users_v4.PublicMakeFactorMyDefaultV4.builder()
+                            .namespace(namespace)
+                            .factor(factor != null ? factor : null)
+                            .build();
+                    wrapper.publicMakeFactorMyDefaultV4(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

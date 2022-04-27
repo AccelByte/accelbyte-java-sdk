@@ -59,15 +59,14 @@ public class GetKeyGroup implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            KeyGroup wrapper = new KeyGroup(sdk);
+            net.accelbyte.sdk.api.platform.operations.key_group.GetKeyGroup operation =
+                    net.accelbyte.sdk.api.platform.operations.key_group.GetKeyGroup.builder()
+                            .keyGroupId(keyGroupId)
+                            .namespace(namespace)
+                            .build();
             KeyGroupInfo response =
-            new KeyGroup(sdk)
-            .getKeyGroup(
-                new net.accelbyte.sdk.api.platform.operations.key_group.GetKeyGroup(
-                    keyGroupId,
-                    namespace
-                )
-            );
+                    wrapper.getKeyGroup(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

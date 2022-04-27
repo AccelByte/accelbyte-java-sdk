@@ -59,14 +59,13 @@ public class PublishPolicyVersion implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new PolicyVersions(sdk)
-            .publishPolicyVersion(
-                new net.accelbyte.sdk.api.legal.operations.policy_versions.PublishPolicyVersion(
-                    policyVersionId,
-                    shouldNotify
-                )
-            );
+            PolicyVersions wrapper = new PolicyVersions(sdk);
+            net.accelbyte.sdk.api.legal.operations.policy_versions.PublishPolicyVersion operation =
+                    net.accelbyte.sdk.api.legal.operations.policy_versions.PublishPolicyVersion.builder()
+                            .policyVersionId(policyVersionId)
+                            .shouldNotify(shouldNotify)
+                            .build();
+                    wrapper.publishPolicyVersion(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

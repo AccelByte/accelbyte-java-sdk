@@ -65,16 +65,15 @@ public class AdminDeletePlatformLinkV2 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .adminDeletePlatformLinkV2(
-                new net.accelbyte.sdk.api.iam.operations.users.AdminDeletePlatformLinkV2(
-                    namespace,
-                    platformId,
-                    userId,
-                    platformNamespace != null ? platformNamespace : null
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.AdminDeletePlatformLinkV2 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.AdminDeletePlatformLinkV2.builder()
+                            .namespace(namespace)
+                            .platformId(platformId)
+                            .userId(userId)
+                            .platformNamespace(platformNamespace != null ? platformNamespace : null)
+                            .build();
+                    wrapper.adminDeletePlatformLinkV2(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

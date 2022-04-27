@@ -65,17 +65,16 @@ public class GetCurrentMonthLeaderboardRankingPublicV1 implements Callable<Integ
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            LeaderboardData wrapper = new LeaderboardData(sdk);
+            net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.GetCurrentMonthLeaderboardRankingPublicV1 operation =
+                    net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.GetCurrentMonthLeaderboardRankingPublicV1.builder()
+                            .leaderboardCode(leaderboardCode)
+                            .namespace(namespace)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsGetLeaderboardRankingResp response =
-            new LeaderboardData(sdk)
-            .getCurrentMonthLeaderboardRankingPublicV1(
-                new net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.GetCurrentMonthLeaderboardRankingPublicV1(
-                    leaderboardCode,
-                    namespace,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.getCurrentMonthLeaderboardRankingPublicV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

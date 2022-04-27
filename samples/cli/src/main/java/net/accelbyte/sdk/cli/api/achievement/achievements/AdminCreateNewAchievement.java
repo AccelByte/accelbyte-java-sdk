@@ -59,15 +59,14 @@ public class AdminCreateNewAchievement implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Achievements wrapper = new Achievements(sdk);
+            net.accelbyte.sdk.api.achievement.operations.achievements.AdminCreateNewAchievement operation =
+                    net.accelbyte.sdk.api.achievement.operations.achievements.AdminCreateNewAchievement.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsAchievementRequest.class)) 
+                            .build();
             ModelsAchievementResponse response =
-            new Achievements(sdk)
-            .adminCreateNewAchievement(
-                new net.accelbyte.sdk.api.achievement.operations.achievements.AdminCreateNewAchievement(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsAchievementRequest.class)  
-                )
-            );
+                    wrapper.adminCreateNewAchievement(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

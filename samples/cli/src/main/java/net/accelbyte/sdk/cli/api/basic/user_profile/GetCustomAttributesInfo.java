@@ -59,15 +59,14 @@ public class GetCustomAttributesInfo implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UserProfile wrapper = new UserProfile(sdk);
+            net.accelbyte.sdk.api.basic.operations.user_profile.GetCustomAttributesInfo operation =
+                    net.accelbyte.sdk.api.basic.operations.user_profile.GetCustomAttributesInfo.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             Map<String, ?> response =
-            new UserProfile(sdk)
-            .getCustomAttributesInfo(
-                new net.accelbyte.sdk.api.basic.operations.user_profile.GetCustomAttributesInfo(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.getCustomAttributesInfo(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

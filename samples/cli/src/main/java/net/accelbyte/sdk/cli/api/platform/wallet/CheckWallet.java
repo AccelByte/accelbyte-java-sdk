@@ -62,15 +62,14 @@ public class CheckWallet implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Wallet(sdk)
-            .checkWallet(
-                new net.accelbyte.sdk.api.platform.operations.wallet.CheckWallet(
-                    currencyCode,
-                    namespace,
-                    userId
-                )
-            );
+            Wallet wrapper = new Wallet(sdk);
+            net.accelbyte.sdk.api.platform.operations.wallet.CheckWallet operation =
+                    net.accelbyte.sdk.api.platform.operations.wallet.CheckWallet.builder()
+                            .currencyCode(currencyCode)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.checkWallet(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

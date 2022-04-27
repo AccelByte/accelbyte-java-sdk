@@ -62,15 +62,14 @@ public class PublicDeleteUserNamespaceSlot implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Slot(sdk)
-            .publicDeleteUserNamespaceSlot(
-                new net.accelbyte.sdk.api.social.operations.slot.PublicDeleteUserNamespaceSlot(
-                    namespace,
-                    slotId,
-                    userId
-                )
-            );
+            Slot wrapper = new Slot(sdk);
+            net.accelbyte.sdk.api.social.operations.slot.PublicDeleteUserNamespaceSlot operation =
+                    net.accelbyte.sdk.api.social.operations.slot.PublicDeleteUserNamespaceSlot.builder()
+                            .namespace(namespace)
+                            .slotId(slotId)
+                            .userId(userId)
+                            .build();
+                    wrapper.publicDeleteUserNamespaceSlot(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

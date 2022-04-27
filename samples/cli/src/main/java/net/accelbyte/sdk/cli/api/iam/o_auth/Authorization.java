@@ -74,25 +74,18 @@ public class Authorization implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new OAuth(sdk)
-            .authorization(
-                new net.accelbyte.sdk.api.iam.operations.o_auth.Authorization(
-                    login != null ? login : null
-                    ,
-                    password != null ? password : null
-                    ,
-                    scope != null ? scope : null
-                    ,
-                    state != null ? state : null
-                    ,
-                    clientId != null ? clientId : null
-                    ,
-                    redirectUri != null ? redirectUri : null
-                    ,
-                    responseType != null ? responseType : null
-                )
-            );
+            OAuth wrapper = new OAuth(sdk);
+            net.accelbyte.sdk.api.iam.operations.o_auth.Authorization operation =
+                    net.accelbyte.sdk.api.iam.operations.o_auth.Authorization.builder()
+                            .login(login != null ? login : null)
+                            .password(password != null ? password : null)
+                            .scope(scope != null ? scope : null)
+                            .state(state != null ? state : null)
+                            .clientId(clientId != null ? clientId : null)
+                            .redirectUri(redirectUri != null ? redirectUri : null)
+                            .responseType(responseType != null ? responseType : null)
+                            .build();
+                    wrapper.authorization(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

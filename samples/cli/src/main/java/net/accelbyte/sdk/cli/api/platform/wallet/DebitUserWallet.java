@@ -65,17 +65,16 @@ public class DebitUserWallet implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Wallet wrapper = new Wallet(sdk);
+            net.accelbyte.sdk.api.platform.operations.wallet.DebitUserWallet operation =
+                    net.accelbyte.sdk.api.platform.operations.wallet.DebitUserWallet.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .walletId(walletId)
+                            .body(new ObjectMapper().readValue(body, DebitRequest.class)) 
+                            .build();
             WalletInfo response =
-            new Wallet(sdk)
-            .debitUserWallet(
-                new net.accelbyte.sdk.api.platform.operations.wallet.DebitUserWallet(
-                    namespace,
-                    userId,
-                    walletId,
-                    new ObjectMapper().readValue(body, DebitRequest.class)  
-                )
-            );
+                    wrapper.debitUserWallet(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -65,16 +65,15 @@ public class ProcessUserSubscriptionNotification implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Subscription(sdk)
-            .processUserSubscriptionNotification(
-                new net.accelbyte.sdk.api.platform.operations.subscription.ProcessUserSubscriptionNotification(
-                    namespace,
-                    subscriptionId,
-                    userId,
-                    new ObjectMapper().readValue(body, TradeNotification.class)  
-                )
-            );
+            Subscription wrapper = new Subscription(sdk);
+            net.accelbyte.sdk.api.platform.operations.subscription.ProcessUserSubscriptionNotification operation =
+                    net.accelbyte.sdk.api.platform.operations.subscription.ProcessUserSubscriptionNotification.builder()
+                            .namespace(namespace)
+                            .subscriptionId(subscriptionId)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, TradeNotification.class)) 
+                            .build();
+                    wrapper.processUserSubscriptionNotification(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

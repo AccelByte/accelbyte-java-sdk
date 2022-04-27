@@ -56,14 +56,13 @@ public class GetPublishedStore implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Store wrapper = new Store(sdk);
+            net.accelbyte.sdk.api.platform.operations.store.GetPublishedStore operation =
+                    net.accelbyte.sdk.api.platform.operations.store.GetPublishedStore.builder()
+                            .namespace(namespace)
+                            .build();
             StoreInfo response =
-            new Store(sdk)
-            .getPublishedStore(
-                new net.accelbyte.sdk.api.platform.operations.store.GetPublishedStore(
-                    namespace
-                )
-            );
+                    wrapper.getPublishedStore(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

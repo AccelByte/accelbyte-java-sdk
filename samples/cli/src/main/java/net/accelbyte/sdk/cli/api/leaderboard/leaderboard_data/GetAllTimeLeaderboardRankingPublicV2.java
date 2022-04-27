@@ -65,17 +65,16 @@ public class GetAllTimeLeaderboardRankingPublicV2 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            LeaderboardData wrapper = new LeaderboardData(sdk);
+            net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.GetAllTimeLeaderboardRankingPublicV2 operation =
+                    net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.GetAllTimeLeaderboardRankingPublicV2.builder()
+                            .leaderboardCode(leaderboardCode)
+                            .namespace(namespace)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             V2GetPublicLeaderboardRankingResponse response =
-            new LeaderboardData(sdk)
-            .getAllTimeLeaderboardRankingPublicV2(
-                new net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.GetAllTimeLeaderboardRankingPublicV2(
-                    leaderboardCode,
-                    namespace,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.getAllTimeLeaderboardRankingPublicV2(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

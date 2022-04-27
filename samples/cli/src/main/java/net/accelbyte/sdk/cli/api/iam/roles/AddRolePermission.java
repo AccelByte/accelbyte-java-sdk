@@ -65,16 +65,15 @@ public class AddRolePermission implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Roles(sdk)
-            .addRolePermission(
-                new net.accelbyte.sdk.api.iam.operations.roles.AddRolePermission(
-                    action,
-                    resource,
-                    roleId,
-                    new ObjectMapper().readValue(body, ModelUpdatePermissionScheduleRequest.class)  
-                )
-            );
+            Roles wrapper = new Roles(sdk);
+            net.accelbyte.sdk.api.iam.operations.roles.AddRolePermission operation =
+                    net.accelbyte.sdk.api.iam.operations.roles.AddRolePermission.builder()
+                            .action(action)
+                            .resource(resource)
+                            .roleId(roleId)
+                            .body(new ObjectMapper().readValue(body, ModelUpdatePermissionScheduleRequest.class)) 
+                            .build();
+                    wrapper.addRolePermission(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -89,25 +89,24 @@ public class PublicSearchContent implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicContent wrapper = new PublicContent(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_content.PublicSearchContent operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_content.PublicSearchContent.builder()
+                            .namespace(namespace)
+                            .creator(creator)
+                            .isofficial(isofficial)
+                            .limit(limit)
+                            .name(name)
+                            .offset(offset)
+                            .orderby(orderby)
+                            .sortby(sortby)
+                            .subtype(subtype)
+                            .tags(tags)
+                            .type(type)
+                            .userId(userId)
+                            .build();
             ModelsPaginatedContentDownloadResponse response =
-            new PublicContent(sdk)
-            .publicSearchContent(
-                new net.accelbyte.sdk.api.ugc.operations.public_content.PublicSearchContent(
-                    namespace,
-                    creator,
-                    isofficial,
-                    limit,
-                    name,
-                    offset,
-                    orderby,
-                    sortby,
-                    subtype,
-                    tags,
-                    type,
-                    userId
-                )
-            );
+                    wrapper.publicSearchContent(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

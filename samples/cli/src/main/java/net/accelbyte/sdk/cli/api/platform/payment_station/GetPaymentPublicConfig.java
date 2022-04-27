@@ -65,17 +65,16 @@ public class GetPaymentPublicConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PaymentStation wrapper = new PaymentStation(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_station.GetPaymentPublicConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_station.GetPaymentPublicConfig.builder()
+                            .namespace(namespace)
+                            .sandbox(sandbox)
+                            .paymentProvider(paymentProvider)
+                            .region(region)
+                            .build();
             Map<String, ?> response =
-            new PaymentStation(sdk)
-            .getPaymentPublicConfig(
-                new net.accelbyte.sdk.api.platform.operations.payment_station.GetPaymentPublicConfig(
-                    namespace,
-                    sandbox,
-                    paymentProvider,
-                    region
-                )
-            );
+                    wrapper.getPaymentPublicConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -62,16 +62,15 @@ public class PublicSubmitUserAccountDeletionRequest implements Callable<Integer>
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            DataDeletion wrapper = new DataDeletion(sdk);
+            net.accelbyte.sdk.api.gdpr.operations.data_deletion.PublicSubmitUserAccountDeletionRequest operation =
+                    net.accelbyte.sdk.api.gdpr.operations.data_deletion.PublicSubmitUserAccountDeletionRequest.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .password(password != null ? password : null)
+                            .build();
             ModelsRequestDeleteResponse response =
-            new DataDeletion(sdk)
-            .publicSubmitUserAccountDeletionRequest(
-                new net.accelbyte.sdk.api.gdpr.operations.data_deletion.PublicSubmitUserAccountDeletionRequest(
-                    namespace,
-                    userId,
-                    password != null ? password : null
-                )
-            );
+                    wrapper.publicSubmitUserAccountDeletionRequest(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

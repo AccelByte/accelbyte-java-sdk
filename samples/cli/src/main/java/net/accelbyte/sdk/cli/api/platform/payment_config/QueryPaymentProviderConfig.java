@@ -65,17 +65,16 @@ public class QueryPaymentProviderConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PaymentConfig wrapper = new PaymentConfig(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_config.QueryPaymentProviderConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_config.QueryPaymentProviderConfig.builder()
+                            .limit(limit)
+                            .namespace(namespace)
+                            .offset(offset)
+                            .region(region)
+                            .build();
             PaymentProviderConfigPagingSlicedResult response =
-            new PaymentConfig(sdk)
-            .queryPaymentProviderConfig(
-                new net.accelbyte.sdk.api.platform.operations.payment_config.QueryPaymentProviderConfig(
-                    limit,
-                    namespace,
-                    offset,
-                    region
-                )
-            );
+                    wrapper.queryPaymentProviderConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

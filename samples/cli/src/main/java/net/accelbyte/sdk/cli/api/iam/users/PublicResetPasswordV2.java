@@ -59,14 +59,13 @@ public class PublicResetPasswordV2 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Users(sdk)
-            .publicResetPasswordV2(
-                new net.accelbyte.sdk.api.iam.operations.users.PublicResetPasswordV2(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelResetPasswordRequest.class)  
-                )
-            );
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.PublicResetPasswordV2 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.PublicResetPasswordV2.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelResetPasswordRequest.class)) 
+                            .build();
+                    wrapper.publicResetPasswordV2(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

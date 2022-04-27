@@ -59,15 +59,14 @@ public class AdminAssignUserToRoleV4 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Roles wrapper = new Roles(sdk);
+            net.accelbyte.sdk.api.iam.operations.roles.AdminAssignUserToRoleV4 operation =
+                    net.accelbyte.sdk.api.iam.operations.roles.AdminAssignUserToRoleV4.builder()
+                            .roleId(roleId)
+                            .body(new ObjectMapper().readValue(body, ModelAssignUserV4Request.class)) 
+                            .build();
             ModelAssignedUserV4Response response =
-            new Roles(sdk)
-            .adminAssignUserToRoleV4(
-                new net.accelbyte.sdk.api.iam.operations.roles.AdminAssignUserToRoleV4(
-                    roleId,
-                    new ObjectMapper().readValue(body, ModelAssignUserV4Request.class)  
-                )
-            );
+                    wrapper.adminAssignUserToRoleV4(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

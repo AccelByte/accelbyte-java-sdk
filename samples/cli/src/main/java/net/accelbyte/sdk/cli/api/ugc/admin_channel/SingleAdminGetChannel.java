@@ -62,16 +62,15 @@ public class SingleAdminGetChannel implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            AdminChannel wrapper = new AdminChannel(sdk);
+            net.accelbyte.sdk.api.ugc.operations.admin_channel.SingleAdminGetChannel operation =
+                    net.accelbyte.sdk.api.ugc.operations.admin_channel.SingleAdminGetChannel.builder()
+                            .namespace(namespace)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsPaginatedGetChannelResponse response =
-            new AdminChannel(sdk)
-            .singleAdminGetChannel(
-                new net.accelbyte.sdk.api.ugc.operations.admin_channel.SingleAdminGetChannel(
-                    namespace,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.singleAdminGetChannel(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

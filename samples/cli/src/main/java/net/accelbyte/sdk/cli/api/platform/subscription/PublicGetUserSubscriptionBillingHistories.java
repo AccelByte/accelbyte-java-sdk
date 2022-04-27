@@ -71,19 +71,18 @@ public class PublicGetUserSubscriptionBillingHistories implements Callable<Integ
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Subscription wrapper = new Subscription(sdk);
+            net.accelbyte.sdk.api.platform.operations.subscription.PublicGetUserSubscriptionBillingHistories operation =
+                    net.accelbyte.sdk.api.platform.operations.subscription.PublicGetUserSubscriptionBillingHistories.builder()
+                            .namespace(namespace)
+                            .subscriptionId(subscriptionId)
+                            .userId(userId)
+                            .excludeFree(excludeFree)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             BillingHistoryPagingSlicedResult response =
-            new Subscription(sdk)
-            .publicGetUserSubscriptionBillingHistories(
-                new net.accelbyte.sdk.api.platform.operations.subscription.PublicGetUserSubscriptionBillingHistories(
-                    namespace,
-                    subscriptionId,
-                    userId,
-                    excludeFree,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.publicGetUserSubscriptionBillingHistories(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -71,19 +71,18 @@ public class ListImages implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            ImageConfig wrapper = new ImageConfig(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.image_config.ListImages operation =
+                    net.accelbyte.sdk.api.dsmc.operations.image_config.ListImages.builder()
+                            .namespace(namespace)
+                            .count(count)
+                            .offset(offset)
+                            .q(q)
+                            .sortBy(sortBy)
+                            .sortDirection(sortDirection)
+                            .build();
             ModelsListImageResponse response =
-            new ImageConfig(sdk)
-            .listImages(
-                new net.accelbyte.sdk.api.dsmc.operations.image_config.ListImages(
-                    namespace,
-                    count,
-                    offset,
-                    q,
-                    sortBy,
-                    sortDirection
-                )
-            );
+                    wrapper.listImages(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

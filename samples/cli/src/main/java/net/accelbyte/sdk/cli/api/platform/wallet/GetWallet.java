@@ -59,15 +59,14 @@ public class GetWallet implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Wallet wrapper = new Wallet(sdk);
+            net.accelbyte.sdk.api.platform.operations.wallet.GetWallet operation =
+                    net.accelbyte.sdk.api.platform.operations.wallet.GetWallet.builder()
+                            .namespace(namespace)
+                            .walletId(walletId)
+                            .build();
             WalletInfo response =
-            new Wallet(sdk)
-            .getWallet(
-                new net.accelbyte.sdk.api.platform.operations.wallet.GetWallet(
-                    namespace,
-                    walletId
-                )
-            );
+                    wrapper.getWallet(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

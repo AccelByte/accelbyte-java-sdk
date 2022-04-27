@@ -59,14 +59,13 @@ public class DeleteUserActivitiesHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new UserInformation(sdk)
-            .deleteUserActivitiesHandler(
-                new net.accelbyte.sdk.api.eventlog.operations.user_information.DeleteUserActivitiesHandler(
-                    namespace,
-                    userId
-                )
-            );
+            UserInformation wrapper = new UserInformation(sdk);
+            net.accelbyte.sdk.api.eventlog.operations.user_information.DeleteUserActivitiesHandler operation =
+                    net.accelbyte.sdk.api.eventlog.operations.user_information.DeleteUserActivitiesHandler.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.deleteUserActivitiesHandler(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

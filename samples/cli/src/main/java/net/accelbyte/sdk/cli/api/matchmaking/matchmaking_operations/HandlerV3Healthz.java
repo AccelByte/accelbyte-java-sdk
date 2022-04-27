@@ -53,12 +53,11 @@ public class HandlerV3Healthz implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new MatchmakingOperations(sdk)
-            .handlerV3Healthz(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.HandlerV3Healthz(
-                )
-            );
+            MatchmakingOperations wrapper = new MatchmakingOperations(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.HandlerV3Healthz operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.HandlerV3Healthz.builder()
+                            .build();
+                    wrapper.handlerV3Healthz(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

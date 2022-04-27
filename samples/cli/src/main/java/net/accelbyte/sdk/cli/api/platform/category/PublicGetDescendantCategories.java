@@ -65,17 +65,16 @@ public class PublicGetDescendantCategories implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Category wrapper = new Category(sdk);
+            net.accelbyte.sdk.api.platform.operations.category.PublicGetDescendantCategories operation =
+                    net.accelbyte.sdk.api.platform.operations.category.PublicGetDescendantCategories.builder()
+                            .categoryPath(categoryPath)
+                            .namespace(namespace)
+                            .language(language)
+                            .storeId(storeId)
+                            .build();
             List<CategoryInfo> response =
-            new Category(sdk)
-            .publicGetDescendantCategories(
-                new net.accelbyte.sdk.api.platform.operations.category.PublicGetDescendantCategories(
-                    categoryPath,
-                    namespace,
-                    language,
-                    storeId
-                )
-            );
+                    wrapper.publicGetDescendantCategories(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

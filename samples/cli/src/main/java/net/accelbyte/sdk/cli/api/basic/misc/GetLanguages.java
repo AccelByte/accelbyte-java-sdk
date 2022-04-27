@@ -56,14 +56,13 @@ public class GetLanguages implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Misc wrapper = new Misc(sdk);
+            net.accelbyte.sdk.api.basic.operations.misc.GetLanguages operation =
+                    net.accelbyte.sdk.api.basic.operations.misc.GetLanguages.builder()
+                            .namespace(namespace)
+                            .build();
             Map<String, ?> response =
-            new Misc(sdk)
-            .getLanguages(
-                new net.accelbyte.sdk.api.basic.operations.misc.GetLanguages(
-                    namespace
-                )
-            );
+                    wrapper.getLanguages(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

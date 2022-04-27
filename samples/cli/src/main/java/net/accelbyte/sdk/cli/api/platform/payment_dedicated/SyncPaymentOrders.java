@@ -62,16 +62,15 @@ public class SyncPaymentOrders implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PaymentDedicated wrapper = new PaymentDedicated(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_dedicated.SyncPaymentOrders operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_dedicated.SyncPaymentOrders.builder()
+                            .nextEvaluatedKey(nextEvaluatedKey)
+                            .end(end)
+                            .start(start)
+                            .build();
             PaymentOrderSyncResult response =
-            new PaymentDedicated(sdk)
-            .syncPaymentOrders(
-                new net.accelbyte.sdk.api.platform.operations.payment_dedicated.SyncPaymentOrders(
-                    nextEvaluatedKey,
-                    end,
-                    start
-                )
-            );
+                    wrapper.syncPaymentOrders(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

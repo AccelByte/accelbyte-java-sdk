@@ -62,15 +62,14 @@ public class PublicUnlockAchievement implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Achievements(sdk)
-            .publicUnlockAchievement(
-                new net.accelbyte.sdk.api.achievement.operations.achievements.PublicUnlockAchievement(
-                    achievementCode,
-                    namespace,
-                    userId
-                )
-            );
+            Achievements wrapper = new Achievements(sdk);
+            net.accelbyte.sdk.api.achievement.operations.achievements.PublicUnlockAchievement operation =
+                    net.accelbyte.sdk.api.achievement.operations.achievements.PublicUnlockAchievement.builder()
+                            .achievementCode(achievementCode)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.publicUnlockAchievement(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

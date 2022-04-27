@@ -59,14 +59,13 @@ public class AnonymizeWallet implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Anonymization(sdk)
-            .anonymizeWallet(
-                new net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeWallet(
-                    namespace,
-                    userId
-                )
-            );
+            Anonymization wrapper = new Anonymization(sdk);
+            net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeWallet operation =
+                    net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeWallet.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.anonymizeWallet(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -53,13 +53,12 @@ public class AgentTypeDescriptionHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            EventDescriptions wrapper = new EventDescriptions(sdk);
+            net.accelbyte.sdk.api.eventlog.operations.event_descriptions.AgentTypeDescriptionHandler operation =
+                    net.accelbyte.sdk.api.eventlog.operations.event_descriptions.AgentTypeDescriptionHandler.builder()
+                            .build();
             ModelsMultipleAgentType response =
-            new EventDescriptions(sdk)
-            .agentTypeDescriptionHandler(
-                new net.accelbyte.sdk.api.eventlog.operations.event_descriptions.AgentTypeDescriptionHandler(
-                )
-            );
+                    wrapper.agentTypeDescriptionHandler(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

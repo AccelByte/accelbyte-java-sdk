@@ -56,13 +56,12 @@ public class AdminGetEventsGameTelemetryV1AdminEventsGet implements Callable<Int
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new GametelemetryOperations(sdk)
-            .adminGetEventsGameTelemetryV1AdminEventsGet(
-                new net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.AdminGetEventsGameTelemetryV1AdminEventsGet(
-                    namespace
-                )
-            );
+            GametelemetryOperations wrapper = new GametelemetryOperations(sdk);
+            net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.AdminGetEventsGameTelemetryV1AdminEventsGet operation =
+                    net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.AdminGetEventsGameTelemetryV1AdminEventsGet.builder()
+                            .namespace(namespace)
+                            .build();
+                    wrapper.adminGetEventsGameTelemetryV1AdminEventsGet(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

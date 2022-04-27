@@ -56,14 +56,13 @@ public class AdminGetProfanityRule implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Profanity wrapper = new Profanity(sdk);
+            net.accelbyte.sdk.api.lobby.operations.profanity.AdminGetProfanityRule operation =
+                    net.accelbyte.sdk.api.lobby.operations.profanity.AdminGetProfanityRule.builder()
+                            .namespace(namespace)
+                            .build();
             ModelsProfanityRule response =
-            new Profanity(sdk)
-            .adminGetProfanityRule(
-                new net.accelbyte.sdk.api.lobby.operations.profanity.AdminGetProfanityRule(
-                    namespace
-                )
-            );
+                    wrapper.adminGetProfanityRule(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

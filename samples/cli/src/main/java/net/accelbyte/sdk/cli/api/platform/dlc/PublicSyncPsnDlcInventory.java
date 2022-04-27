@@ -62,15 +62,14 @@ public class PublicSyncPsnDlcInventory implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new DLC(sdk)
-            .publicSyncPsnDlcInventory(
-                new net.accelbyte.sdk.api.platform.operations.dlc.PublicSyncPsnDlcInventory(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, PlayStationDLCSyncRequest.class)  
-                )
-            );
+            DLC wrapper = new DLC(sdk);
+            net.accelbyte.sdk.api.platform.operations.dlc.PublicSyncPsnDlcInventory operation =
+                    net.accelbyte.sdk.api.platform.operations.dlc.PublicSyncPsnDlcInventory.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, PlayStationDLCSyncRequest.class)) 
+                            .build();
+                    wrapper.publicSyncPsnDlcInventory(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

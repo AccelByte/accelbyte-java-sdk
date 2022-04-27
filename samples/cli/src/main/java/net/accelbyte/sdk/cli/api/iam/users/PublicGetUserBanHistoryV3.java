@@ -71,19 +71,18 @@ public class PublicGetUserBanHistoryV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.PublicGetUserBanHistoryV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.PublicGetUserBanHistoryV3.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .activeOnly(activeOnly)
+                            .after(after)
+                            .before(before)
+                            .limit(limit)
+                            .build();
             ModelGetUserBanV3Response response =
-            new Users(sdk)
-            .publicGetUserBanHistoryV3(
-                new net.accelbyte.sdk.api.iam.operations.users.PublicGetUserBanHistoryV3(
-                    namespace,
-                    userId,
-                    activeOnly,
-                    after,
-                    before,
-                    limit
-                )
-            );
+                    wrapper.publicGetUserBanHistoryV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

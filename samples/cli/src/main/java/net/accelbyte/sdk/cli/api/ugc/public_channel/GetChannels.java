@@ -65,17 +65,16 @@ public class GetChannels implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicChannel wrapper = new PublicChannel(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_channel.GetChannels operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_channel.GetChannels.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsPaginatedGetChannelResponse response =
-            new PublicChannel(sdk)
-            .getChannels(
-                new net.accelbyte.sdk.api.ugc.operations.public_channel.GetChannels(
-                    namespace,
-                    userId,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.getChannels(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

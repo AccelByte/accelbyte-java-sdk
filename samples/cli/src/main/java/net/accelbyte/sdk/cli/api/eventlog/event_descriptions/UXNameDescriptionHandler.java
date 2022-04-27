@@ -53,13 +53,12 @@ public class UXNameDescriptionHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            EventDescriptions wrapper = new EventDescriptions(sdk);
+            net.accelbyte.sdk.api.eventlog.operations.event_descriptions.UXNameDescriptionHandler operation =
+                    net.accelbyte.sdk.api.eventlog.operations.event_descriptions.UXNameDescriptionHandler.builder()
+                            .build();
             ModelsMultipleUX response =
-            new EventDescriptions(sdk)
-            .uxNameDescriptionHandler(
-                new net.accelbyte.sdk.api.eventlog.operations.event_descriptions.UXNameDescriptionHandler(
-                )
-            );
+                    wrapper.uxNameDescriptionHandler(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -65,17 +65,16 @@ public class GetUserParticipatedSeasons implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Season wrapper = new Season(sdk);
+            net.accelbyte.sdk.api.seasonpass.operations.season.GetUserParticipatedSeasons operation =
+                    net.accelbyte.sdk.api.seasonpass.operations.season.GetUserParticipatedSeasons.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ListUserSeasonInfoPagingSlicedResult response =
-            new Season(sdk)
-            .getUserParticipatedSeasons(
-                new net.accelbyte.sdk.api.seasonpass.operations.season.GetUserParticipatedSeasons(
-                    namespace,
-                    userId,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.getUserParticipatedSeasons(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

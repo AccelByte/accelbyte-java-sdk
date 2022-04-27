@@ -59,14 +59,13 @@ public class UserUnfriendRequest implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Friends(sdk)
-            .userUnfriendRequest(
-                new net.accelbyte.sdk.api.lobby.operations.friends.UserUnfriendRequest(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelUserUnfriendRequest.class)  
-                )
-            );
+            Friends wrapper = new Friends(sdk);
+            net.accelbyte.sdk.api.lobby.operations.friends.UserUnfriendRequest operation =
+                    net.accelbyte.sdk.api.lobby.operations.friends.UserUnfriendRequest.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelUserUnfriendRequest.class)) 
+                            .build();
+                    wrapper.userUnfriendRequest(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

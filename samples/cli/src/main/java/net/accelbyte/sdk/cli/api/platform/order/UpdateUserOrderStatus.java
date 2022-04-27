@@ -65,17 +65,16 @@ public class UpdateUserOrderStatus implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Order wrapper = new Order(sdk);
+            net.accelbyte.sdk.api.platform.operations.order.UpdateUserOrderStatus operation =
+                    net.accelbyte.sdk.api.platform.operations.order.UpdateUserOrderStatus.builder()
+                            .namespace(namespace)
+                            .orderNo(orderNo)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, OrderUpdate.class)) 
+                            .build();
             OrderInfo response =
-            new Order(sdk)
-            .updateUserOrderStatus(
-                new net.accelbyte.sdk.api.platform.operations.order.UpdateUserOrderStatus(
-                    namespace,
-                    orderNo,
-                    userId,
-                    new ObjectMapper().readValue(body, OrderUpdate.class)  
-                )
-            );
+                    wrapper.updateUserOrderStatus(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -59,15 +59,14 @@ public class GetAllSessionsInChannel implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Matchmaking wrapper = new Matchmaking(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking.GetAllSessionsInChannel operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking.GetAllSessionsInChannel.builder()
+                            .channelName(channelName)
+                            .namespace(namespace)
+                            .build();
             List<ModelsMatchmakingResult> response =
-            new Matchmaking(sdk)
-            .getAllSessionsInChannel(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking.GetAllSessionsInChannel(
-                    channelName,
-                    namespace
-                )
-            );
+                    wrapper.getAllSessionsInChannel(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

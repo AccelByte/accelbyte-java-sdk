@@ -68,18 +68,17 @@ public class QueryCampaigns implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Campaign wrapper = new Campaign(sdk);
+            net.accelbyte.sdk.api.platform.operations.campaign.QueryCampaigns operation =
+                    net.accelbyte.sdk.api.platform.operations.campaign.QueryCampaigns.builder()
+                            .namespace(namespace)
+                            .limit(limit)
+                            .name(name)
+                            .offset(offset)
+                            .tag(tag)
+                            .build();
             CampaignPagingSlicedResult response =
-            new Campaign(sdk)
-            .queryCampaigns(
-                new net.accelbyte.sdk.api.platform.operations.campaign.QueryCampaigns(
-                    namespace,
-                    limit,
-                    name,
-                    offset,
-                    tag
-                )
-            );
+                    wrapper.queryCampaigns(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

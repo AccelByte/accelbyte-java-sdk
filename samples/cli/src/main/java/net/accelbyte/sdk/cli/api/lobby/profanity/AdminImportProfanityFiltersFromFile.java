@@ -62,16 +62,14 @@ public class AdminImportProfanityFiltersFromFile implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Profanity(sdk)
-            .adminImportProfanityFiltersFromFile(
-                new net.accelbyte.sdk.api.lobby.operations.profanity.AdminImportProfanityFiltersFromFile(
-                    list,
-                    namespace,
-                    new ObjectMapper().readValue(body, new TypeReference<List<Integer>>() {})
- 
-                )
-            );
+            Profanity wrapper = new Profanity(sdk);
+            net.accelbyte.sdk.api.lobby.operations.profanity.AdminImportProfanityFiltersFromFile operation =
+                    net.accelbyte.sdk.api.lobby.operations.profanity.AdminImportProfanityFiltersFromFile.builder()
+                            .list(list)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, new TypeReference<List<Integer>>() {}))
+                            .build();
+                    wrapper.adminImportProfanityFiltersFromFile(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

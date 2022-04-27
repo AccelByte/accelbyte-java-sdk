@@ -62,16 +62,15 @@ public class GetPass implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Pass wrapper = new Pass(sdk);
+            net.accelbyte.sdk.api.seasonpass.operations.pass.GetPass operation =
+                    net.accelbyte.sdk.api.seasonpass.operations.pass.GetPass.builder()
+                            .code(code)
+                            .namespace(namespace)
+                            .seasonId(seasonId)
+                            .build();
             PassInfo response =
-            new Pass(sdk)
-            .getPass(
-                new net.accelbyte.sdk.api.seasonpass.operations.pass.GetPass(
-                    code,
-                    namespace,
-                    seasonId
-                )
-            );
+                    wrapper.getPass(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

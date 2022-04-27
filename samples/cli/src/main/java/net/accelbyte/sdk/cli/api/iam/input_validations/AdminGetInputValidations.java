@@ -53,13 +53,12 @@ public class AdminGetInputValidations implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            InputValidations wrapper = new InputValidations(sdk);
+            net.accelbyte.sdk.api.iam.operations.input_validations.AdminGetInputValidations operation =
+                    net.accelbyte.sdk.api.iam.operations.input_validations.AdminGetInputValidations.builder()
+                            .build();
             ModelInputValidationsResponse response =
-            new InputValidations(sdk)
-            .adminGetInputValidations(
-                new net.accelbyte.sdk.api.iam.operations.input_validations.AdminGetInputValidations(
-                )
-            );
+                    wrapper.adminGetInputValidations(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

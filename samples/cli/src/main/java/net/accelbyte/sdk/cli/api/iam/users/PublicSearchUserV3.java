@@ -62,16 +62,15 @@ public class PublicSearchUserV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.PublicSearchUserV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.PublicSearchUserV3.builder()
+                            .namespace(namespace)
+                            .by(by)
+                            .query(query)
+                            .build();
             ModelPublicUserInformationResponseV3 response =
-            new Users(sdk)
-            .publicSearchUserV3(
-                new net.accelbyte.sdk.api.iam.operations.users.PublicSearchUserV3(
-                    namespace,
-                    by,
-                    query
-                )
-            );
+                    wrapper.publicSearchUserV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

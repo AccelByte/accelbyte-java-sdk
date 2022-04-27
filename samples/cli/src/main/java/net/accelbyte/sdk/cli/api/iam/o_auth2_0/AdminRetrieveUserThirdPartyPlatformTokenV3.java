@@ -62,16 +62,15 @@ public class AdminRetrieveUserThirdPartyPlatformTokenV3 implements Callable<Inte
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            OAuth20 wrapper = new OAuth20(sdk);
+            net.accelbyte.sdk.api.iam.operations.o_auth2_0.AdminRetrieveUserThirdPartyPlatformTokenV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.o_auth2_0.AdminRetrieveUserThirdPartyPlatformTokenV3.builder()
+                            .namespace(namespace)
+                            .platformId(platformId)
+                            .userId(userId)
+                            .build();
             OauthmodelTokenThirdPartyResponse response =
-            new OAuth20(sdk)
-            .adminRetrieveUserThirdPartyPlatformTokenV3(
-                new net.accelbyte.sdk.api.iam.operations.o_auth2_0.AdminRetrieveUserThirdPartyPlatformTokenV3(
-                    namespace,
-                    platformId,
-                    userId
-                )
-            );
+                    wrapper.adminRetrieveUserThirdPartyPlatformTokenV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

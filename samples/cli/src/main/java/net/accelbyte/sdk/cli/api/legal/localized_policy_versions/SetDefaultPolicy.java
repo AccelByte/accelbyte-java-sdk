@@ -56,13 +56,12 @@ public class SetDefaultPolicy implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new LocalizedPolicyVersions(sdk)
-            .setDefaultPolicy(
-                new net.accelbyte.sdk.api.legal.operations.localized_policy_versions.SetDefaultPolicy(
-                    localizedPolicyVersionId
-                )
-            );
+            LocalizedPolicyVersions wrapper = new LocalizedPolicyVersions(sdk);
+            net.accelbyte.sdk.api.legal.operations.localized_policy_versions.SetDefaultPolicy operation =
+                    net.accelbyte.sdk.api.legal.operations.localized_policy_versions.SetDefaultPolicy.builder()
+                            .localizedPolicyVersionId(localizedPolicyVersionId)
+                            .build();
+                    wrapper.setDefaultPolicy(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

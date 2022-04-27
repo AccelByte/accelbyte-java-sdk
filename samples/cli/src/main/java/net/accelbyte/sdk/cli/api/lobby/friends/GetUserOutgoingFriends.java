@@ -56,14 +56,13 @@ public class GetUserOutgoingFriends implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Friends wrapper = new Friends(sdk);
+            net.accelbyte.sdk.api.lobby.operations.friends.GetUserOutgoingFriends operation =
+                    net.accelbyte.sdk.api.lobby.operations.friends.GetUserOutgoingFriends.builder()
+                            .namespace(namespace)
+                            .build();
             List<ModelGetUserOutgoingFriendsResponse> response =
-            new Friends(sdk)
-            .getUserOutgoingFriends(
-                new net.accelbyte.sdk.api.lobby.operations.friends.GetUserOutgoingFriends(
-                    namespace
-                )
-            );
+                    wrapper.getUserOutgoingFriends(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

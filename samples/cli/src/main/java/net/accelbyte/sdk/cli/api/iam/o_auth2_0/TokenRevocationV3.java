@@ -56,13 +56,12 @@ public class TokenRevocationV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new OAuth20(sdk)
-            .tokenRevocationV3(
-                new net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenRevocationV3(
-                    token != null ? token : null
-                )
-            );
+            OAuth20 wrapper = new OAuth20(sdk);
+            net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenRevocationV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenRevocationV3.builder()
+                            .token(token != null ? token : null)
+                            .build();
+                    wrapper.tokenRevocationV3(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

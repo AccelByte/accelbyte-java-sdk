@@ -59,14 +59,13 @@ public class DeleteGroupConfigurationV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Configuration(sdk)
-            .deleteGroupConfigurationV1(
-                new net.accelbyte.sdk.api.group.operations.configuration.DeleteGroupConfigurationV1(
-                    configurationCode,
-                    namespace
-                )
-            );
+            Configuration wrapper = new Configuration(sdk);
+            net.accelbyte.sdk.api.group.operations.configuration.DeleteGroupConfigurationV1 operation =
+                    net.accelbyte.sdk.api.group.operations.configuration.DeleteGroupConfigurationV1.builder()
+                            .configurationCode(configurationCode)
+                            .namespace(namespace)
+                            .build();
+                    wrapper.deleteGroupConfigurationV1(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

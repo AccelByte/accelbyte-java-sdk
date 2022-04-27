@@ -59,15 +59,14 @@ public class GetUserStatus implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UserAction wrapper = new UserAction(sdk);
+            net.accelbyte.sdk.api.basic.operations.user_action.GetUserStatus operation =
+                    net.accelbyte.sdk.api.basic.operations.user_action.GetUserStatus.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             ADTOObjectForEqu8UserStatus response =
-            new UserAction(sdk)
-            .getUserStatus(
-                new net.accelbyte.sdk.api.basic.operations.user_action.GetUserStatus(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.getUserStatus(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

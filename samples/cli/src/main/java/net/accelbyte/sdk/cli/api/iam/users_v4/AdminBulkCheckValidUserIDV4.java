@@ -59,15 +59,14 @@ public class AdminBulkCheckValidUserIDV4 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UsersV4 wrapper = new UsersV4(sdk);
+            net.accelbyte.sdk.api.iam.operations.users_v4.AdminBulkCheckValidUserIDV4 operation =
+                    net.accelbyte.sdk.api.iam.operations.users_v4.AdminBulkCheckValidUserIDV4.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelCheckValidUserIDRequestV4.class)) 
+                            .build();
             ModelListValidUserIDResponseV4 response =
-            new UsersV4(sdk)
-            .adminBulkCheckValidUserIDV4(
-                new net.accelbyte.sdk.api.iam.operations.users_v4.AdminBulkCheckValidUserIDV4(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelCheckValidUserIDRequestV4.class)  
-                )
-            );
+                    wrapper.adminBulkCheckValidUserIDV4(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

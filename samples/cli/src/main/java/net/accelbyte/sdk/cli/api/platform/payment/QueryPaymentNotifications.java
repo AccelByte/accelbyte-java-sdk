@@ -83,23 +83,22 @@ public class QueryPaymentNotifications implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Payment wrapper = new Payment(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment.QueryPaymentNotifications operation =
+                    net.accelbyte.sdk.api.platform.operations.payment.QueryPaymentNotifications.builder()
+                            .namespace(namespace)
+                            .endDate(endDate)
+                            .externalId(externalId)
+                            .limit(limit)
+                            .notificationSource(notificationSource)
+                            .notificationType(notificationType)
+                            .offset(offset)
+                            .paymentOrderNo(paymentOrderNo)
+                            .startDate(startDate)
+                            .status(status)
+                            .build();
             PaymentNotificationPagingSlicedResult response =
-            new Payment(sdk)
-            .queryPaymentNotifications(
-                new net.accelbyte.sdk.api.platform.operations.payment.QueryPaymentNotifications(
-                    namespace,
-                    endDate,
-                    externalId,
-                    limit,
-                    notificationSource,
-                    notificationType,
-                    offset,
-                    paymentOrderNo,
-                    startDate,
-                    status
-                )
-            );
+                    wrapper.queryPaymentNotifications(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

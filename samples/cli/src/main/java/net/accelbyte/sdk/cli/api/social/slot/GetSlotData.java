@@ -62,16 +62,15 @@ public class GetSlotData implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Slot wrapper = new Slot(sdk);
+            net.accelbyte.sdk.api.social.operations.slot.GetSlotData operation =
+                    net.accelbyte.sdk.api.social.operations.slot.GetSlotData.builder()
+                            .namespace(namespace)
+                            .slotId(slotId)
+                            .userId(userId)
+                            .build();
             InputStream response =
-            new Slot(sdk)
-            .getSlotData(
-                new net.accelbyte.sdk.api.social.operations.slot.GetSlotData(
-                    namespace,
-                    slotId,
-                    userId
-                )
-            );
+                    wrapper.getSlotData(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

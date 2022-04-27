@@ -53,13 +53,12 @@ public class AdminGetAllConfigV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Config wrapper = new Config(sdk);
+            net.accelbyte.sdk.api.lobby.operations.config.AdminGetAllConfigV1 operation =
+                    net.accelbyte.sdk.api.lobby.operations.config.AdminGetAllConfigV1.builder()
+                            .build();
             ModelsConfigList response =
-            new Config(sdk)
-            .adminGetAllConfigV1(
-                new net.accelbyte.sdk.api.lobby.operations.config.AdminGetAllConfigV1(
-                )
-            );
+                    wrapper.adminGetAllConfigV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

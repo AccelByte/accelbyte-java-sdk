@@ -59,14 +59,13 @@ public class AdminCancelUserAccountDeletionRequest implements Callable<Integer> 
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new DataDeletion(sdk)
-            .adminCancelUserAccountDeletionRequest(
-                new net.accelbyte.sdk.api.gdpr.operations.data_deletion.AdminCancelUserAccountDeletionRequest(
-                    namespace,
-                    userId
-                )
-            );
+            DataDeletion wrapper = new DataDeletion(sdk);
+            net.accelbyte.sdk.api.gdpr.operations.data_deletion.AdminCancelUserAccountDeletionRequest operation =
+                    net.accelbyte.sdk.api.gdpr.operations.data_deletion.AdminCancelUserAccountDeletionRequest.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.adminCancelUserAccountDeletionRequest(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

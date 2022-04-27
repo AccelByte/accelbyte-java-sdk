@@ -65,17 +65,16 @@ public class UpdateUserPointAdminV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            LeaderboardData wrapper = new LeaderboardData(sdk);
+            net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.UpdateUserPointAdminV1 operation =
+                    net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.UpdateUserPointAdminV1.builder()
+                            .leaderboardCode(leaderboardCode)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelsUpdateUserPointAdminV1Request.class)) 
+                            .build();
             ModelsUpdateUserPointAdminV1Response response =
-            new LeaderboardData(sdk)
-            .updateUserPointAdminV1(
-                new net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.UpdateUserPointAdminV1(
-                    leaderboardCode,
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelsUpdateUserPointAdminV1Request.class)  
-                )
-            );
+                    wrapper.updateUserPointAdminV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

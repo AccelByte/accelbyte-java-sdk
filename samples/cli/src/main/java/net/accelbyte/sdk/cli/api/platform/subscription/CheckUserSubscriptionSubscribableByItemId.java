@@ -62,16 +62,15 @@ public class CheckUserSubscriptionSubscribableByItemId implements Callable<Integ
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Subscription wrapper = new Subscription(sdk);
+            net.accelbyte.sdk.api.platform.operations.subscription.CheckUserSubscriptionSubscribableByItemId operation =
+                    net.accelbyte.sdk.api.platform.operations.subscription.CheckUserSubscriptionSubscribableByItemId.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .itemId(itemId)
+                            .build();
             Subscribable response =
-            new Subscription(sdk)
-            .checkUserSubscriptionSubscribableByItemId(
-                new net.accelbyte.sdk.api.platform.operations.subscription.CheckUserSubscriptionSubscribableByItemId(
-                    namespace,
-                    userId,
-                    itemId
-                )
-            );
+                    wrapper.checkUserSubscriptionSubscribableByItemId(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

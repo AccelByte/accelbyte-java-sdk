@@ -62,16 +62,15 @@ public class PublicReconcilePlayStationStore implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            IAP wrapper = new IAP(sdk);
+            net.accelbyte.sdk.api.platform.operations.iap.PublicReconcilePlayStationStore operation =
+                    net.accelbyte.sdk.api.platform.operations.iap.PublicReconcilePlayStationStore.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, PlayStationReconcileRequest.class)) 
+                            .build();
             List<PlayStationReconcileResult> response =
-            new IAP(sdk)
-            .publicReconcilePlayStationStore(
-                new net.accelbyte.sdk.api.platform.operations.iap.PublicReconcilePlayStationStore(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, PlayStationReconcileRequest.class)  
-                )
-            );
+                    wrapper.publicReconcilePlayStationStore(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

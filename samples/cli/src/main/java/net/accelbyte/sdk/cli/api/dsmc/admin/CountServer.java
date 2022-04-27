@@ -56,14 +56,13 @@ public class CountServer implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Admin wrapper = new Admin(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.admin.CountServer operation =
+                    net.accelbyte.sdk.api.dsmc.operations.admin.CountServer.builder()
+                            .namespace(namespace)
+                            .build();
             ModelsCountServerResponse response =
-            new Admin(sdk)
-            .countServer(
-                new net.accelbyte.sdk.api.dsmc.operations.admin.CountServer(
-                    namespace
-                )
-            );
+                    wrapper.countServer(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

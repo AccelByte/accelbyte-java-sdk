@@ -62,15 +62,14 @@ public class PublicFulfillAppleIAPItem implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new IAP(sdk)
-            .publicFulfillAppleIAPItem(
-                new net.accelbyte.sdk.api.platform.operations.iap.PublicFulfillAppleIAPItem(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, AppleIAPReceipt.class)  
-                )
-            );
+            IAP wrapper = new IAP(sdk);
+            net.accelbyte.sdk.api.platform.operations.iap.PublicFulfillAppleIAPItem operation =
+                    net.accelbyte.sdk.api.platform.operations.iap.PublicFulfillAppleIAPItem.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, AppleIAPReceipt.class)) 
+                            .build();
+                    wrapper.publicFulfillAppleIAPItem(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

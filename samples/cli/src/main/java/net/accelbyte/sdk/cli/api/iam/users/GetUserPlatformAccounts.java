@@ -59,15 +59,14 @@ public class GetUserPlatformAccounts implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.GetUserPlatformAccounts operation =
+                    net.accelbyte.sdk.api.iam.operations.users.GetUserPlatformAccounts.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             List<AccountcommonUserLinkedPlatform> response =
-            new Users(sdk)
-            .getUserPlatformAccounts(
-                new net.accelbyte.sdk.api.iam.operations.users.GetUserPlatformAccounts(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.getUserPlatformAccounts(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

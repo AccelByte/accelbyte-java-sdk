@@ -62,16 +62,15 @@ public class RemovePlayerFromSession implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Session wrapper = new Session(sdk);
+            net.accelbyte.sdk.api.sessionbrowser.operations.session.RemovePlayerFromSession operation =
+                    net.accelbyte.sdk.api.sessionbrowser.operations.session.RemovePlayerFromSession.builder()
+                            .namespace(namespace)
+                            .sessionID(sessionID)
+                            .userID(userID)
+                            .build();
             ModelsAddPlayerResponse response =
-            new Session(sdk)
-            .removePlayerFromSession(
-                new net.accelbyte.sdk.api.sessionbrowser.operations.session.RemovePlayerFromSession(
-                    namespace,
-                    sessionID,
-                    userID
-                )
-            );
+                    wrapper.removePlayerFromSession(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

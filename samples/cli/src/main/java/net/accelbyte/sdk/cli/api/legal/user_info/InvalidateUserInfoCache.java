@@ -56,13 +56,12 @@ public class InvalidateUserInfoCache implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new UserInfo(sdk)
-            .invalidateUserInfoCache(
-                new net.accelbyte.sdk.api.legal.operations.user_info.InvalidateUserInfoCache(
-                    namespace
-                )
-            );
+            UserInfo wrapper = new UserInfo(sdk);
+            net.accelbyte.sdk.api.legal.operations.user_info.InvalidateUserInfoCache operation =
+                    net.accelbyte.sdk.api.legal.operations.user_info.InvalidateUserInfoCache.builder()
+                            .namespace(namespace)
+                            .build();
+                    wrapper.invalidateUserInfoCache(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

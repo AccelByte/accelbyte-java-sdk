@@ -56,14 +56,13 @@ public class AdminGetAgeRestrictionStatusV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.AdminGetAgeRestrictionStatusV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.AdminGetAgeRestrictionStatusV3.builder()
+                            .namespace(namespace)
+                            .build();
             ModelAgeRestrictionResponseV3 response =
-            new Users(sdk)
-            .adminGetAgeRestrictionStatusV3(
-                new net.accelbyte.sdk.api.iam.operations.users.AdminGetAgeRestrictionStatusV3(
-                    namespace
-                )
-            );
+                    wrapper.adminGetAgeRestrictionStatusV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

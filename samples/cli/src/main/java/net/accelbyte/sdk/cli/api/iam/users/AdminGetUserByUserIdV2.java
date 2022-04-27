@@ -59,15 +59,14 @@ public class AdminGetUserByUserIdV2 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.AdminGetUserByUserIdV2 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.AdminGetUserByUserIdV2.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
             ModelUserResponse response =
-            new Users(sdk)
-            .adminGetUserByUserIdV2(
-                new net.accelbyte.sdk.api.iam.operations.users.AdminGetUserByUserIdV2(
-                    namespace,
-                    userId
-                )
-            );
+                    wrapper.adminGetUserByUserIdV2(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

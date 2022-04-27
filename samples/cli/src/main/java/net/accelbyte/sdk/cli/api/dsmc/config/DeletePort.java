@@ -59,15 +59,14 @@ public class DeletePort implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Config wrapper = new Config(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.config.DeletePort operation =
+                    net.accelbyte.sdk.api.dsmc.operations.config.DeletePort.builder()
+                            .name(name)
+                            .namespace(namespace)
+                            .build();
             ModelsDSMConfigRecord response =
-            new Config(sdk)
-            .deletePort(
-                new net.accelbyte.sdk.api.dsmc.operations.config.DeletePort(
-                    name,
-                    namespace
-                )
-            );
+                    wrapper.deletePort(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

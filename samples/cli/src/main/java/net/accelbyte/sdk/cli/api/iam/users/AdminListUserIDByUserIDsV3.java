@@ -59,15 +59,14 @@ public class AdminListUserIDByUserIDsV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.AdminListUserIDByUserIDsV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.users.AdminListUserIDByUserIDsV3.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelUserIDsRequest.class)) 
+                            .build();
             ModelListUserInformationResult response =
-            new Users(sdk)
-            .adminListUserIDByUserIDsV3(
-                new net.accelbyte.sdk.api.iam.operations.users.AdminListUserIDByUserIDsV3(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelUserIDsRequest.class)  
-                )
-            );
+                    wrapper.adminListUserIDByUserIDsV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

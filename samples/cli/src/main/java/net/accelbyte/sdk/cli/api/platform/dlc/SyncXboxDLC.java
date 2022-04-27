@@ -62,15 +62,14 @@ public class SyncXboxDLC implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new DLC(sdk)
-            .syncXboxDLC(
-                new net.accelbyte.sdk.api.platform.operations.dlc.SyncXboxDLC(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, XblDLCSyncRequest.class)  
-                )
-            );
+            DLC wrapper = new DLC(sdk);
+            net.accelbyte.sdk.api.platform.operations.dlc.SyncXboxDLC operation =
+                    net.accelbyte.sdk.api.platform.operations.dlc.SyncXboxDLC.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, XblDLCSyncRequest.class)) 
+                            .build();
+                    wrapper.syncXboxDLC(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

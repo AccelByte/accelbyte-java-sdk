@@ -77,20 +77,19 @@ public class AuthorizeV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new OAuth20(sdk)
-            .authorizeV3(
-                new net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthorizeV3(
-                    codeChallenge,
-                    codeChallengeMethod,
-                    redirectUri,
-                    scope,
-                    state,
-                    targetAuthPage,
-                    clientId,
-                    responseType
-                )
-            );
+            OAuth20 wrapper = new OAuth20(sdk);
+            net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthorizeV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthorizeV3.builder()
+                            .codeChallenge(codeChallenge)
+                            .codeChallengeMethod(codeChallengeMethod)
+                            .redirectUri(redirectUri)
+                            .scope(scope)
+                            .state(state)
+                            .targetAuthPage(targetAuthPage)
+                            .clientId(clientId)
+                            .responseType(responseType)
+                            .build();
+                    wrapper.authorizeV3(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

@@ -56,14 +56,13 @@ public class PublicGenerateMyAuthenticatorKeyV4 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            UsersV4 wrapper = new UsersV4(sdk);
+            net.accelbyte.sdk.api.iam.operations.users_v4.PublicGenerateMyAuthenticatorKeyV4 operation =
+                    net.accelbyte.sdk.api.iam.operations.users_v4.PublicGenerateMyAuthenticatorKeyV4.builder()
+                            .namespace(namespace)
+                            .build();
             ModelAuthenticatorKeyResponseV4 response =
-            new UsersV4(sdk)
-            .publicGenerateMyAuthenticatorKeyV4(
-                new net.accelbyte.sdk.api.iam.operations.users_v4.PublicGenerateMyAuthenticatorKeyV4(
-                    namespace
-                )
-            );
+                    wrapper.publicGenerateMyAuthenticatorKeyV4(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

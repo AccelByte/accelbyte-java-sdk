@@ -65,17 +65,16 @@ public class CreateContentS3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PublicContent wrapper = new PublicContent(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_content.CreateContentS3 operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_content.CreateContentS3.builder()
+                            .channelId(channelId)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, ModelsCreateContentRequestS3.class)) 
+                            .build();
             ModelsCreateContentResponse response =
-            new PublicContent(sdk)
-            .createContentS3(
-                new net.accelbyte.sdk.api.ugc.operations.public_content.CreateContentS3(
-                    channelId,
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, ModelsCreateContentRequestS3.class)  
-                )
-            );
+                    wrapper.createContentS3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

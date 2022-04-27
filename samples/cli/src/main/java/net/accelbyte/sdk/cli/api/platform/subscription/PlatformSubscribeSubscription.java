@@ -62,16 +62,15 @@ public class PlatformSubscribeSubscription implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Subscription wrapper = new Subscription(sdk);
+            net.accelbyte.sdk.api.platform.operations.subscription.PlatformSubscribeSubscription operation =
+                    net.accelbyte.sdk.api.platform.operations.subscription.PlatformSubscribeSubscription.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, PlatformSubscribeRequest.class)) 
+                            .build();
             SubscriptionInfo response =
-            new Subscription(sdk)
-            .platformSubscribeSubscription(
-                new net.accelbyte.sdk.api.platform.operations.subscription.PlatformSubscribeSubscription(
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, PlatformSubscribeRequest.class)  
-                )
-            );
+                    wrapper.platformSubscribeSubscription(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

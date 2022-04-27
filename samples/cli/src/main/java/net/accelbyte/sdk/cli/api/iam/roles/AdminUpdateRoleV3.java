@@ -59,15 +59,14 @@ public class AdminUpdateRoleV3 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Roles wrapper = new Roles(sdk);
+            net.accelbyte.sdk.api.iam.operations.roles.AdminUpdateRoleV3 operation =
+                    net.accelbyte.sdk.api.iam.operations.roles.AdminUpdateRoleV3.builder()
+                            .roleId(roleId)
+                            .body(new ObjectMapper().readValue(body, ModelRoleUpdateRequestV3.class)) 
+                            .build();
             ModelRoleResponseV3 response =
-            new Roles(sdk)
-            .adminUpdateRoleV3(
-                new net.accelbyte.sdk.api.iam.operations.roles.AdminUpdateRoleV3(
-                    roleId,
-                    new ObjectMapper().readValue(body, ModelRoleUpdateRequestV3.class)  
-                )
-            );
+                    wrapper.adminUpdateRoleV3(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

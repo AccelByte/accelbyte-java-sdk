@@ -59,14 +59,13 @@ public class DeleteDeployment implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new DeploymentConfig(sdk)
-            .deleteDeployment(
-                new net.accelbyte.sdk.api.dsmc.operations.deployment_config.DeleteDeployment(
-                    deployment,
-                    namespace
-                )
-            );
+            DeploymentConfig wrapper = new DeploymentConfig(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.deployment_config.DeleteDeployment operation =
+                    net.accelbyte.sdk.api.dsmc.operations.deployment_config.DeleteDeployment.builder()
+                            .deployment(deployment)
+                            .namespace(namespace)
+                            .build();
+                    wrapper.deleteDeployment(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

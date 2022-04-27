@@ -95,27 +95,26 @@ public class ListAllTerminatedServers implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            AllTerminatedServers wrapper = new AllTerminatedServers(sdk);
+            net.accelbyte.sdk.api.dslogmanager.operations.all_terminated_servers.ListAllTerminatedServers operation =
+                    net.accelbyte.sdk.api.dslogmanager.operations.all_terminated_servers.ListAllTerminatedServers.builder()
+                            .deployment(deployment)
+                            .endDate(endDate)
+                            .gameMode(gameMode)
+                            .limit(limit)
+                            .namespace(namespace)
+                            .next(next)
+                            .partyId(partyId)
+                            .podName(podName)
+                            .previous(previous)
+                            .provider(provider)
+                            .region(region)
+                            .sessionId(sessionId)
+                            .startDate(startDate)
+                            .userId(userId)
+                            .build();
             ModelsListTerminatedServersResponse response =
-            new AllTerminatedServers(sdk)
-            .listAllTerminatedServers(
-                new net.accelbyte.sdk.api.dslogmanager.operations.all_terminated_servers.ListAllTerminatedServers(
-                    deployment,
-                    endDate,
-                    gameMode,
-                    limit,
-                    namespace,
-                    next,
-                    partyId,
-                    podName,
-                    previous,
-                    provider,
-                    region,
-                    sessionId,
-                    startDate,
-                    userId
-                )
-            );
+                    wrapper.listAllTerminatedServers(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

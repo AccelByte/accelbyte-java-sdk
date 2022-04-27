@@ -53,13 +53,12 @@ public class GetSpecialPaymentProviders implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            PaymentConfig wrapper = new PaymentConfig(sdk);
+            net.accelbyte.sdk.api.platform.operations.payment_config.GetSpecialPaymentProviders operation =
+                    net.accelbyte.sdk.api.platform.operations.payment_config.GetSpecialPaymentProviders.builder()
+                            .build();
             List<String> response =
-            new PaymentConfig(sdk)
-            .getSpecialPaymentProviders(
-                new net.accelbyte.sdk.api.platform.operations.payment_config.GetSpecialPaymentProviders(
-                )
-            );
+                    wrapper.getSpecialPaymentProviders(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

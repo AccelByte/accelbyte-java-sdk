@@ -62,16 +62,15 @@ public class GetProfile implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            GameProfile wrapper = new GameProfile(sdk);
+            net.accelbyte.sdk.api.social.operations.game_profile.GetProfile operation =
+                    net.accelbyte.sdk.api.social.operations.game_profile.GetProfile.builder()
+                            .namespace(namespace)
+                            .profileId(profileId)
+                            .userId(userId)
+                            .build();
             GameProfileInfo response =
-            new GameProfile(sdk)
-            .getProfile(
-                new net.accelbyte.sdk.api.social.operations.game_profile.GetProfile(
-                    namespace,
-                    profileId,
-                    userId
-                )
-            );
+                    wrapper.getProfile(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

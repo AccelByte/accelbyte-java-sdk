@@ -59,14 +59,13 @@ public class DeleteGameRecordHandlerV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new PublicGameRecord(sdk)
-            .deleteGameRecordHandlerV1(
-                new net.accelbyte.sdk.api.cloudsave.operations.public_game_record.DeleteGameRecordHandlerV1(
-                    key,
-                    namespace
-                )
-            );
+            PublicGameRecord wrapper = new PublicGameRecord(sdk);
+            net.accelbyte.sdk.api.cloudsave.operations.public_game_record.DeleteGameRecordHandlerV1 operation =
+                    net.accelbyte.sdk.api.cloudsave.operations.public_game_record.DeleteGameRecordHandlerV1.builder()
+                            .key(key)
+                            .namespace(namespace)
+                            .build();
+                    wrapper.deleteGameRecordHandlerV1(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

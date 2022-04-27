@@ -62,15 +62,14 @@ public class PutGameRecordConcurrentHandlerV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new ConcurrentRecord(sdk)
-            .putGameRecordConcurrentHandlerV1(
-                new net.accelbyte.sdk.api.cloudsave.operations.concurrent_record.PutGameRecordConcurrentHandlerV1(
-                    key,
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsConcurrentRecordRequest.class)  
-                )
-            );
+            ConcurrentRecord wrapper = new ConcurrentRecord(sdk);
+            net.accelbyte.sdk.api.cloudsave.operations.concurrent_record.PutGameRecordConcurrentHandlerV1 operation =
+                    net.accelbyte.sdk.api.cloudsave.operations.concurrent_record.PutGameRecordConcurrentHandlerV1.builder()
+                            .key(key)
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsConcurrentRecordRequest.class)) 
+                            .build();
+                    wrapper.putGameRecordConcurrentHandlerV1(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

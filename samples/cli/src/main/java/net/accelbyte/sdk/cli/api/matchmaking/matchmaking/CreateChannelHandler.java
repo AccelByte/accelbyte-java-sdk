@@ -59,15 +59,14 @@ public class CreateChannelHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Matchmaking wrapper = new Matchmaking(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking.CreateChannelHandler operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking.CreateChannelHandler.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, ModelsChannelRequest.class)) 
+                            .build();
             ModelsCreateChannelResponse response =
-            new Matchmaking(sdk)
-            .createChannelHandler(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking.CreateChannelHandler(
-                    namespace,
-                    new ObjectMapper().readValue(body, ModelsChannelRequest.class)  
-                )
-            );
+                    wrapper.createChannelHandler(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

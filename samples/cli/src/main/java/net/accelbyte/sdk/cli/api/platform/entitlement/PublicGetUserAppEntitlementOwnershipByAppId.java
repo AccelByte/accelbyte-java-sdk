@@ -62,16 +62,15 @@ public class PublicGetUserAppEntitlementOwnershipByAppId implements Callable<Int
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Entitlement wrapper = new Entitlement(sdk);
+            net.accelbyte.sdk.api.platform.operations.entitlement.PublicGetUserAppEntitlementOwnershipByAppId operation =
+                    net.accelbyte.sdk.api.platform.operations.entitlement.PublicGetUserAppEntitlementOwnershipByAppId.builder()
+                            .namespace(namespace)
+                            .userId(userId)
+                            .appId(appId)
+                            .build();
             Ownership response =
-            new Entitlement(sdk)
-            .publicGetUserAppEntitlementOwnershipByAppId(
-                new net.accelbyte.sdk.api.platform.operations.entitlement.PublicGetUserAppEntitlementOwnershipByAppId(
-                    namespace,
-                    userId,
-                    appId
-                )
-            );
+                    wrapper.publicGetUserAppEntitlementOwnershipByAppId(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

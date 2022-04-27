@@ -62,16 +62,15 @@ public class CheckEventCondition implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Reward wrapper = new Reward(sdk);
+            net.accelbyte.sdk.api.platform.operations.reward.CheckEventCondition operation =
+                    net.accelbyte.sdk.api.platform.operations.reward.CheckEventCondition.builder()
+                            .namespace(namespace)
+                            .rewardId(rewardId)
+                            .body(new ObjectMapper().readValue(body, EventPayload.class)) 
+                            .build();
             ConditionMatchResult response =
-            new Reward(sdk)
-            .checkEventCondition(
-                new net.accelbyte.sdk.api.platform.operations.reward.CheckEventCondition(
-                    namespace,
-                    rewardId,
-                    new ObjectMapper().readValue(body, EventPayload.class)  
-                )
-            );
+                    wrapper.checkEventCondition(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

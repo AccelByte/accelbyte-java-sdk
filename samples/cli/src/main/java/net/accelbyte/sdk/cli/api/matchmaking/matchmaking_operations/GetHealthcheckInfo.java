@@ -53,12 +53,11 @@ public class GetHealthcheckInfo implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new MatchmakingOperations(sdk)
-            .getHealthcheckInfo(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.GetHealthcheckInfo(
-                )
-            );
+            MatchmakingOperations wrapper = new MatchmakingOperations(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.GetHealthcheckInfo operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.GetHealthcheckInfo.builder()
+                            .build();
+                    wrapper.getHealthcheckInfo(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

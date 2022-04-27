@@ -65,17 +65,16 @@ public class GetTodayLeaderboardRankingAdminV1 implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            LeaderboardData wrapper = new LeaderboardData(sdk);
+            net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.GetTodayLeaderboardRankingAdminV1 operation =
+                    net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.GetTodayLeaderboardRankingAdminV1.builder()
+                            .leaderboardCode(leaderboardCode)
+                            .namespace(namespace)
+                            .limit(limit)
+                            .offset(offset)
+                            .build();
             ModelsGetLeaderboardRankingResp response =
-            new LeaderboardData(sdk)
-            .getTodayLeaderboardRankingAdminV1(
-                new net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.GetTodayLeaderboardRankingAdminV1(
-                    leaderboardCode,
-                    namespace,
-                    limit,
-                    offset
-                )
-            );
+                    wrapper.getTodayLeaderboardRankingAdminV1(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -59,14 +59,13 @@ public class DeleteChannelHandler implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new Matchmaking(sdk)
-            .deleteChannelHandler(
-                new net.accelbyte.sdk.api.matchmaking.operations.matchmaking.DeleteChannelHandler(
-                    channel,
-                    namespace
-                )
-            );
+            Matchmaking wrapper = new Matchmaking(sdk);
+            net.accelbyte.sdk.api.matchmaking.operations.matchmaking.DeleteChannelHandler operation =
+                    net.accelbyte.sdk.api.matchmaking.operations.matchmaking.DeleteChannelHandler.builder()
+                            .channel(channel)
+                            .namespace(namespace)
+                            .build();
+                    wrapper.deleteChannelHandler(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

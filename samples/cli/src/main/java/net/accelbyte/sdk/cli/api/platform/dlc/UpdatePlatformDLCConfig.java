@@ -59,15 +59,14 @@ public class UpdatePlatformDLCConfig implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            DLC wrapper = new DLC(sdk);
+            net.accelbyte.sdk.api.platform.operations.dlc.UpdatePlatformDLCConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.dlc.UpdatePlatformDLCConfig.builder()
+                            .namespace(namespace)
+                            .body(new ObjectMapper().readValue(body, PlatformDLCConfigUpdate.class)) 
+                            .build();
             PlatformDLCConfigInfo response =
-            new DLC(sdk)
-            .updatePlatformDLCConfig(
-                new net.accelbyte.sdk.api.platform.operations.dlc.UpdatePlatformDLCConfig(
-                    namespace,
-                    new ObjectMapper().readValue(body, PlatformDLCConfigUpdate.class)  
-                )
-            );
+                    wrapper.updatePlatformDLCConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

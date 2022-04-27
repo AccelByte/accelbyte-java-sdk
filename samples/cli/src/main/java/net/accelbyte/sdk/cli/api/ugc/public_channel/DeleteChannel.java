@@ -62,15 +62,14 @@ public class DeleteChannel implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
-            new PublicChannel(sdk)
-            .deleteChannel(
-                new net.accelbyte.sdk.api.ugc.operations.public_channel.DeleteChannel(
-                    channelId,
-                    namespace,
-                    userId
-                )
-            );
+            PublicChannel wrapper = new PublicChannel(sdk);
+            net.accelbyte.sdk.api.ugc.operations.public_channel.DeleteChannel operation =
+                    net.accelbyte.sdk.api.ugc.operations.public_channel.DeleteChannel.builder()
+                            .channelId(channelId)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .build();
+                    wrapper.deleteChannel(operation);
             log.info("Operation successful");
             return 0;
         } catch (HttpResponseException e) {

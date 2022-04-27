@@ -59,15 +59,14 @@ public class PublicGetAsyncStatus implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Users wrapper = new Users(sdk);
+            net.accelbyte.sdk.api.iam.operations.users.PublicGetAsyncStatus operation =
+                    net.accelbyte.sdk.api.iam.operations.users.PublicGetAsyncStatus.builder()
+                            .namespace(namespace)
+                            .requestId(requestId)
+                            .build();
             ModelLinkRequest response =
-            new Users(sdk)
-            .publicGetAsyncStatus(
-                new net.accelbyte.sdk.api.iam.operations.users.PublicGetAsyncStatus(
-                    namespace,
-                    requestId
-                )
-            );
+                    wrapper.publicGetAsyncStatus(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

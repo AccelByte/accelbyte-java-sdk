@@ -68,18 +68,17 @@ public class UpdateOverrideRegionOverride implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            DeploymentConfig wrapper = new DeploymentConfig(sdk);
+            net.accelbyte.sdk.api.dsmc.operations.deployment_config.UpdateOverrideRegionOverride operation =
+                    net.accelbyte.sdk.api.dsmc.operations.deployment_config.UpdateOverrideRegionOverride.builder()
+                            .deployment(deployment)
+                            .namespace(namespace)
+                            .region(region)
+                            .version(version)
+                            .body(new ObjectMapper().readValue(body, ModelsUpdateRegionOverrideRequest.class)) 
+                            .build();
             ModelsDeploymentWithOverride response =
-            new DeploymentConfig(sdk)
-            .updateOverrideRegionOverride(
-                new net.accelbyte.sdk.api.dsmc.operations.deployment_config.UpdateOverrideRegionOverride(
-                    deployment,
-                    namespace,
-                    region,
-                    version,
-                    new ObjectMapper().readValue(body, ModelsUpdateRegionOverrideRequest.class)  
-                )
-            );
+                    wrapper.updateOverrideRegionOverride(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

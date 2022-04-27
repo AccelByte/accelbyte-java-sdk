@@ -65,17 +65,16 @@ public class PayWithUserWallet implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            
+            Wallet wrapper = new Wallet(sdk);
+            net.accelbyte.sdk.api.platform.operations.wallet.PayWithUserWallet operation =
+                    net.accelbyte.sdk.api.platform.operations.wallet.PayWithUserWallet.builder()
+                            .currencyCode(currencyCode)
+                            .namespace(namespace)
+                            .userId(userId)
+                            .body(new ObjectMapper().readValue(body, PaymentRequest.class)) 
+                            .build();
             WalletInfo response =
-            new Wallet(sdk)
-            .payWithUserWallet(
-                new net.accelbyte.sdk.api.platform.operations.wallet.PayWithUserWallet(
-                    currencyCode,
-                    namespace,
-                    userId,
-                    new ObjectMapper().readValue(body, PaymentRequest.class)  
-                )
-            );
+                    wrapper.payWithUserWallet(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;
