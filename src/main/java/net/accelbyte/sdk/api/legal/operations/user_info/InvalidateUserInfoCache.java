@@ -80,6 +80,10 @@ public class InvalidateUserInfoCache extends Operation {
         return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
+    @Override
+    public boolean isValid() {
+        return true;
+    }
 
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         if(code != 204){

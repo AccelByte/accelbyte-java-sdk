@@ -54,9 +54,7 @@ public abstract class Operation {
         return new HashMap<>();
     }
 
-    public boolean isValid() {
-        return false;
-    }
+    public abstract boolean isValid();
 
     protected Map<String, String> getCollectionFormatMap() {
         return new HashMap<>();

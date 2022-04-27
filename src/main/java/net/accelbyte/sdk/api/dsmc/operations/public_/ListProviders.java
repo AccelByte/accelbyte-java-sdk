@@ -66,6 +66,10 @@ public class ListProviders extends Operation {
         return createFullUrl(this.url, baseUrl, this.getPathParams(), this.getQueryParams(), this.getCollectionFormatMap());
     }
 
+    @Override
+    public boolean isValid() {
+        return true;
+    }
 
     public List<String> parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);

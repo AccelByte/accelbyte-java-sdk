@@ -25,6 +25,11 @@ class HttpbinOperation extends Operation {
                 this.getCollectionFormatMap());
     }
 
+    @Override
+    public boolean isValid() {
+        return true;
+    }
+
     public HttpbinAnythingResponse parseResponse(int code, String contentTpe, InputStream payload)
             throws HttpResponseException, IOException {
         String json = this.convertInputStreamToString(payload);
