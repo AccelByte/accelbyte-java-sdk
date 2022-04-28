@@ -14,16 +14,22 @@ import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
 
 @Command(name = "loginClient", mixinStandardHelpOptions = true)
 public class LoginClient implements Runnable {
 
     private static final Logger log = LogManager.getLogger(LoginClient.class);
 
+    @Option(names = {"--logging"}, description = "logger")
+    boolean logging;
+
     @Override
     public void run() {
         OkhttpClient httpClient = new OkhttpClient();
-        httpClient.setLogger(new OkhttpLogger());
+        if (logging) {
+            httpClient.setLogger(new OkhttpLogger());
+        }
         AccelByteSDK sdk = new AccelByteSDK(
                 httpClient,
                 CLITokenRepositoryImpl.getInstance(),

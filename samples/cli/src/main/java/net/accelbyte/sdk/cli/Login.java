@@ -26,10 +26,15 @@ public class Login implements Runnable {
     @Option(names = {"-p", "--password"}, description = "password")
     String password;
 
+    @Option(names = {"--logging"}, description = "logger")
+    boolean logging;
+
     @Override
     public void run() {
         OkhttpClient httpClient = new OkhttpClient();
-        httpClient.setLogger(new OkhttpLogger());
+        if (logging) {
+            httpClient.setLogger(new OkhttpLogger());
+        }
         AccelByteSDK sdk = new AccelByteSDK(
                 httpClient,
                 CLITokenRepositoryImpl.getInstance(),
