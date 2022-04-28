@@ -26,8 +26,11 @@ import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import net.accelbyte.sdk.api.achievement.models.ModelsAchievementRequest;
 import net.accelbyte.sdk.api.achievement.models.ModelsAchievementResponse;
@@ -193,7 +196,8 @@ import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 
 @Tag("test-integration")
-public class TestIntegration {
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+class TestIntegration {
         private static AccelByteSDK _sdk;
 
         @BeforeAll
@@ -244,7 +248,8 @@ public class TestIntegration {
         // Admin integration tests
 
         @Test
-        public void AchievementServiceTests() throws HttpResponseException, IOException {
+        @Order(1)
+        void AchievementServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String achievementCode = "java-sdk-test";
                 final String achievementName = "Java Server SDK Test";
@@ -337,7 +342,8 @@ public class TestIntegration {
         }
 
         @Test
-        public void BasicServiceTests() throws HttpResponseException, IOException {
+        @Order(2)
+        void BasicServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String profileFirstName = "Integration Test";
                 final String profileLastName = "Java Server SDK";
@@ -396,7 +402,8 @@ public class TestIntegration {
         }
 
         @Test
-        public void CloudSaveServiceTests() throws HttpResponseException, IOException {
+        @Order(3)
+        void CloudSaveServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String gameRecordKey = "foo_bar_record";
                 final String gameRecordFoo = "bar";
@@ -487,7 +494,8 @@ public class TestIntegration {
         }
 
         @Test
-        public void DSLogManagerServiceTests() throws HttpResponseException, IOException {
+        @Order(4)
+        void DSLogManagerServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
                 TerminatedServers wTerminatedServers = new TerminatedServers(_sdk);
@@ -501,7 +509,8 @@ public class TestIntegration {
         }
 
         @Test
-        public void EventLogServiceTests() throws HttpResponseException, IOException {
+        @Order(5)
+        void EventLogServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
                 Users wUsers = new Users(_sdk);
@@ -537,7 +546,8 @@ public class TestIntegration {
         }
 
         @Test
-        public void GDPRServiceTests() throws HttpResponseException, IOException {
+        @Order(6)
+        void GDPRServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String emailToTest = "dummy@example.com";
                 final String anotherEmailToTest = "another_email_to_test@dummy.com";
@@ -570,7 +580,8 @@ public class TestIntegration {
         }
 
         @Test
-        public void GroupServiceTests() throws HttpResponseException, IOException {
+        @Order(7)
+        void GroupServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String initialConfigCode = "initialConfigurationCode";
                 final String configurationCode = "csharpServerSdkConfigCode";
@@ -715,7 +726,8 @@ public class TestIntegration {
         }
 
         @Test
-        public void IamServiceTests() throws HttpResponseException, IOException, IllegalArgumentException {
+        @Order(8)
+        void IamServiceTests() throws HttpResponseException, IOException, IllegalArgumentException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String userName = ("javasdk_" + GenerateRandomId(8));
                 final String userPassword = GenerateRandomPassword(10);
@@ -801,7 +813,8 @@ public class TestIntegration {
         }
 
         @Test
-        public void LeaderboardServiceTests() throws HttpResponseException, IOException {
+        @Order(9)
+        void LeaderboardServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String leaderboarsName = "Java SDK Leaderboard Test";
 
@@ -885,7 +898,8 @@ public class TestIntegration {
         }
 
         @Test
-        public void LegalServiceTests() throws HttpResponseException, IOException {
+        @Order(10)
+        void LegalServiceTests() throws HttpResponseException, IOException {
                 Agreement wLegalAgreement = new Agreement(_sdk);
 
                 List<RetrieveAcceptedAgreementResponse> aggrs = wLegalAgreement
@@ -911,7 +925,8 @@ public class TestIntegration {
         }
 
         @Test
-        public void PlatformServiceTests() throws HttpResponseException, IOException {
+        @Order(11)
+        void PlatformServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String storeTitle = "Java SDK Store Test";
                 final String storeDescription = "Description for Java Server SDK store service integration test.";
@@ -975,8 +990,9 @@ public class TestIntegration {
                 Assertions.assertNotNull(dStore);
         }
 
-        //@Test
-        public void SessionBrowserServiceTests() throws HttpResponseException, IOException {
+        @Test
+        @Order(12)
+        void SessionBrowserServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
                 String usernameToTest = "dummy@example.com";
@@ -1046,7 +1062,8 @@ public class TestIntegration {
         }
 
         @Test
-        public void SocialServiceTests() throws HttpResponseException, IOException {
+        @Order(13)
+        void SocialServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
                 String stat_code = "javaserversdkteststat";
@@ -1104,7 +1121,8 @@ public class TestIntegration {
         }
 
         @Test
-        public void UGCServiceTests() throws HttpResponseException, IOException {
+        @Order(14)
+        void UGCServiceTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
                 String tag_name = "java_server_sdk_test";
@@ -1158,7 +1176,8 @@ public class TestIntegration {
         // Client integration test
 
         @Test
-        public void SocialServiceUserStatTests() throws HttpResponseException, IOException {
+        @Order(15)
+        void SocialServiceUserStatTests() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String user_login_id = System.getenv("AB_USERNAME");
                 final String stat_code = "cs-server-sdk-test";
@@ -1211,9 +1230,8 @@ public class TestIntegration {
         // Matchmaking integration test
 
         @Test
-        public void MatchmakingTestSuite() throws HttpResponseException, IOException, InterruptedException {
-                SessionBrowserServiceTests();           // Temporary workaround to run SessionBrowserServiceTests before MatchmakingTestSuite
-
+        @Order(16)
+        void MatchmakingTestSuite() throws HttpResponseException, IOException, InterruptedException {
                 DSMCListLocalServerTest();
                 DSMCServiceTests();
                 MatchmakingServiceApiTests();
