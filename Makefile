@@ -7,13 +7,15 @@ SHELL := /bin/bash
 .PHONY: build samples
 
 build:
-	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GRADLE_USER_HOME=/data/.gradle gradle:7-jdk8 gradle -i build -x test
+	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GRADLE_USER_HOME=/data/.gradle gradle:7-jdk8 \
+			gradle -i build -x test
 
 samples:
 	rm -f samples.err
 	find samples -type f -iname build.gradle -exec dirname {} \; | while read DIRECTORY; do \
 		echo "# $$DIRECTORY"; \
-		docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/$$DIRECTORY -e GRADLE_USER_HOME=/data/.gradle gradle:7-jdk8 gradle -i build -x test || touch samples.err; \
+		docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/$$DIRECTORY -e GRADLE_USER_HOME=/data/.gradle gradle:7-jdk8 \
+				gradle -i build -x test || touch samples.err; \
 	done
 	[ ! -f samples.err ] || (rm samples.err && exit 1)
 

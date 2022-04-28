@@ -10,7 +10,7 @@ import net.accelbyte.sdk.api.cloudsave.models.ModelsGameRecordRequest;
 @Builder
 @Getter
 @Setter
-public class TestModelsGameRecordRequest extends ModelsGameRecordRequest
+public class DummyGameRecord extends ModelsGameRecordRequest
 {
     @JsonProperty("foo")
     private String Foo;

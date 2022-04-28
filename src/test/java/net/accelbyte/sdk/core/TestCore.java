@@ -28,8 +28,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Tag("unit-test")
-class CoreUnitTest {
+@Tag("test-core")
+class TestCore {
     private final HttpClient<?> httpClient = new OkhttpClient();
     private final TokenRepository tokenRepository = DefaultTokenRepository.getInstance();
     private final ConfigRepository httpbinConfigRepository = new HttpbinConfigRepository();

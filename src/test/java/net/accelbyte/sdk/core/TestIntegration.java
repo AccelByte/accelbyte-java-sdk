@@ -192,8 +192,8 @@ import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 
-@Tag("integration-test")
-public class IntegrationTest {
+@Tag("test-integration")
+public class TestIntegration {
         private static AccelByteSDK _sdk;
 
         @BeforeAll
@@ -407,7 +407,7 @@ public class IntegrationTest {
 
                 // Create new game record
 
-                TestModelsGameRecordRequest gameRecord = TestModelsGameRecordRequest.builder()
+                DummyGameRecord gameRecord = DummyGameRecord.builder()
                                 .Foo(gameRecordFoo)
                                 .FooBar(gameRecordFooBar)
                                 .FooValue(gameRecordFooValue)
@@ -438,7 +438,7 @@ public class IntegrationTest {
 
                 // Update game record
 
-                TestModelsGameRecordRequest updateRecord = TestModelsGameRecordRequest.builder()
+                DummyGameRecord updateRecord = DummyGameRecord.builder()
                                 .Foo(gameRecordFoo)
                                 .FooBar(gameRecordFooBar + "update")
                                 .FooValue(gameRecordFooValue)
