@@ -10,8 +10,6 @@ import lombok.Getter;
 import lombok.Setter;
 import net.accelbyte.sdk.core.util.Helper;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;

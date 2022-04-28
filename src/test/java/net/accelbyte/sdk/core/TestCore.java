@@ -37,7 +37,17 @@ class TestCore {
     @Test
     void testCookie() throws IOException, HttpResponseException {
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
-        HttpbinOperation op = new HttpbinOperation("GET") {
+        HttpbinOperation op = new HttpbinOperation() {
+            @Override
+            public String getMethod() {
+                return "GET";
+            }
+
+            @Override
+            public String getPath() {
+                return "/anything";
+            }
+
             @Override
             public Map<String, String> getCookieParams() {
                 Map<String,String> cookies = new HashMap<>();
@@ -69,7 +79,17 @@ class TestCore {
                 tokenRepository,
                 httpbinConfigRepository);
         tokenRepository.storeToken(token);
-        HttpbinOperation op = new HttpbinOperation("GET");
+        HttpbinOperation op = new HttpbinOperation() {
+            @Override
+            public String getMethod() {
+                return "GET";
+            }
+
+            @Override
+            public String getPath() {
+                return "/anything";
+            }
+        };
         op.getSecurities().add("Cookie");
         HttpResponse res = sdk.runRequest(op);
         HttpbinAnythingResponse result = op.parseResponse(
