@@ -85,7 +85,7 @@ public class Helper {
                             String val = valItr.next();
                             if (val != null) {
                                 collectionBuilder
-                                        .append(qParams.getKey())
+                                        .append(URLEncoder.encode(qParams.getKey(), "UTF-8"))
                                         .append("=")
                                         .append(URLEncoder.encode(val, "UTF-8"));
                                 if (valItr.hasNext()) {
@@ -107,7 +107,7 @@ public class Helper {
                             delimiter = ","; // Collection format CSV by default
                         }
                         collectionBuilder
-                                .append(qParams.getKey())
+                                .append(URLEncoder.encode(qParams.getKey(), "UTF-8"))
                                 .append("=");
                         Iterator<String> val = qParams.getValue().iterator();
                         while (val.hasNext()) {
@@ -120,7 +120,7 @@ public class Helper {
                     }
                     queryParamBuilder.append(collectionBuilder);
                 } else {
-                    queryParamBuilder.append(qParams.getKey());
+                    queryParamBuilder.append(URLEncoder.encode(qParams.getKey(), "UTF-8"));
                     queryParamBuilder.append("=");
                     queryParamBuilder.append(URLEncoder.encode(qParams.getValue().get(0), "UTF-8"));
                 }
