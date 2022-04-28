@@ -83,7 +83,7 @@ pipeline {
         label "justice-codegen-sdk"
       }
       stages {
-        stage('Unit Test Core') {
+        stage('Core Tests') {
           steps {
             sh "make test_core"
           }
