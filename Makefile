@@ -26,8 +26,8 @@ test_core:
 			gradle -i test
 	
 test_integration:
-	@test -n "$(INTEGRATION_TEST_ENV_FILE_PATH)" || (echo "INTEGRATION_TEST_ENV_FILE_PATH is not set" ; exit 1)
-	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ --env-file $(INTEGRATION_TEST_ENV_FILE_PATH) -e GRADLE_USER_HOME=/data/.gradle gradle:7-jdk8 \
+	@test -n "$(ENV_FILE_PATH)" || (echo "ENV_FILE_PATH is not set" ; exit 1)
+	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ --env-file $(ENV_FILE_PATH) -e GRADLE_USER_HOME=/data/.gradle gradle:7-jdk8 \
 			gradle -i testIntegration
 
 test_cli:
