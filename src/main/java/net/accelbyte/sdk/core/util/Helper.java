@@ -42,7 +42,6 @@ public class Helper {
     public static String createFullUrl(String baseUrl, String path, Map<String, String> pathParams,
             Map<String, List<String>> queryParams, Map<String, String> collectionFormatMap)
             throws UnsupportedEncodingException {
-        final String ENC = "UTF-8";
         StringBuilder result = new StringBuilder();
 
         if (path == null) {
@@ -62,7 +61,7 @@ public class Helper {
         // path params
         if (pathParams.size() > 0) {
             for (Map.Entry<String, String> pathParam : pathParams.entrySet()) {
-                path = path.replace("{" + pathParam.getKey() + "}", URLEncoder.encode(pathParam.getValue(), ENC));
+                path = path.replace("{" + pathParam.getKey() + "}", URLEncoder.encode(pathParam.getValue(), "UTF-8"));
             }
         }
         result.append(path);
@@ -88,7 +87,7 @@ public class Helper {
                                 collectionBuilder
                                         .append(qParams.getKey())
                                         .append("=")
-                                        .append(URLEncoder.encode(val, ENC));
+                                        .append(URLEncoder.encode(val, "UTF-8"));
                                 if (valItr.hasNext()) {
                                     collectionBuilder.append("&");
                                 }
@@ -112,7 +111,7 @@ public class Helper {
                                 .append("=");
                         Iterator<String> val = qParams.getValue().iterator();
                         while (val.hasNext()) {
-                            collectionBuilder.append(URLEncoder.encode(val.next(), ENC));
+                            collectionBuilder.append(URLEncoder.encode(val.next(), "UTF-8"));
                             if (val.hasNext()) {
                                 collectionBuilder.append(delimiter);
                             }
@@ -123,7 +122,7 @@ public class Helper {
                 } else {
                     queryParamBuilder.append(qParams.getKey());
                     queryParamBuilder.append("=");
-                    queryParamBuilder.append(URLEncoder.encode(qParams.getValue().get(0), ENC));
+                    queryParamBuilder.append(URLEncoder.encode(qParams.getValue().get(0), "UTF-8"));
                 }
                 if (queryParamItr.hasNext()) {
                     queryParamBuilder.append("&");
@@ -209,25 +208,26 @@ public class Helper {
         return result.toString();
     }
 
-    public static <T> Map<String, T> convertJsonToMap (String json) {
+    public static <T> Map<String, T> convertJsonToMap(String json) {
         try {
-            return new ObjectMapper().readValue(json, new TypeReference<Map<String, T>>() {});
+            return new ObjectMapper().readValue(json, new TypeReference<Map<String, T>>() {
+            });
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
         return new HashMap<>();
     }
 
-    public static List<String> convertWSMListToListString (String json) {
+    public static List<String> convertWSMListToListString(String json) {
         String result = json.substring(1, json.length() - 1);
-        return new ArrayList<>(Arrays.asList( result.split(",")));
+        return new ArrayList<>(Arrays.asList(result.split(",")));
     }
 
-    public static List<Integer> convertWSMListToListInteger (String json) {
+    public static List<Integer> convertWSMListToListInteger(String json) {
         String list = json.substring(1, json.length() - 1);
         List<String> stringList = new ArrayList<>(Arrays.asList(list.split(",")));
         List<Integer> result = new ArrayList<>();
-        for (String val: stringList){
+        for (String val : stringList) {
             result.add(Integer.valueOf(val));
         }
         return result;
