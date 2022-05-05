@@ -3,6 +3,7 @@ package net.accelbyte.sdk.core;
 import java.io.IOException;
 import java.io.InputStream;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import net.accelbyte.sdk.core.util.Helper;
@@ -17,7 +18,7 @@ class HttpbinOperation extends Operation {
             throws HttpResponseException, IOException {
         String json = Helper.convertInputStreamToString(payload);
         if (code == 200) {
-            return new ObjectMapper().readValue(json, HttpbinAnythingResponse.class);
+            return new ObjectMapper().readValue(json, new TypeReference<HttpbinAnythingResponse>() { });
         }
         throw new HttpResponseException(code, json);
     }

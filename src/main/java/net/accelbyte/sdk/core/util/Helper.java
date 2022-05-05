@@ -94,26 +94,23 @@ public class Helper {
                             }
                         }
                     } else {
-                        String delimiter = null;
-                        if (collectionFormat == "csv") {
-                            delimiter = ",";
-                        } else if (collectionFormat == "ssv") {
+                        String delimiter = ","; // Collection format CSV by default
+                        if (collectionFormat == "ssv") {
                             delimiter = " ";
                         } else if (collectionFormat == "tsv") {
                             delimiter = "\t";
                         } else if (collectionFormat == "pipes") {
                             delimiter = "|";
-                        } else {
-                            delimiter = ","; // Collection format CSV by default
                         }
                         collectionBuilder
                                 .append(URLEncoder.encode(qParams.getKey(), "UTF-8"))
                                 .append("=");
                         Iterator<String> val = qParams.getValue().iterator();
                         while (val.hasNext()) {
-                            collectionBuilder.append(URLEncoder.encode(val.next(), "UTF-8"));
+                            final String escaped = "\"" + val.next().replace("\"", "\"\"") + "\"";
+                            collectionBuilder.append(URLEncoder.encode(escaped, "UTF-8"));
                             if (val.hasNext()) {
-                                collectionBuilder.append(delimiter);
+                                collectionBuilder.append(URLEncoder.encode(delimiter, "UTF-8"));
                             }
                         }
 

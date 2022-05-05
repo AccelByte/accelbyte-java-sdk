@@ -19,7 +19,7 @@ class HttpbinAnythingResponse extends Model {
     public String url;
 
     @JsonProperty("args")
-    public Map<String, String> args;
+    public Map<String, ?> args;
 
     @JsonProperty("headers")
     public Map<String, String> headers;

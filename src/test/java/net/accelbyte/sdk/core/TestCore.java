@@ -9,6 +9,7 @@ package net.accelbyte.sdk.core;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import net.accelbyte.sdk.core.client.OkhttpClient;
@@ -28,12 +29,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Tag("test-core")
@@ -68,7 +71,7 @@ class TestCore {
 
     @Test
     void testHttpRequestPathParams() throws HttpResponseException, IOException {
-        final String testPathParam = "abc/def:123?x=1&y=2";
+        final String testParams = "abc/def:123?x=1&y=2";
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation() {
             @Override
@@ -83,7 +86,7 @@ class TestCore {
 
             @Override
             public Map<String, String> getPathParams() {
-                return Collections.singletonMap("test_path_param", testPathParam);
+                return Collections.singletonMap("test_path_param", testParams);
             }
         };
         HttpResponse res = sdk.runRequest(op);
@@ -98,7 +101,7 @@ class TestCore {
 
     @Test
     void testHttpRequestQueryParams() throws HttpResponseException, IOException {
-        final Map<String, List<String>> testPathParam = Collections.singletonMap("?key=1&",
+        final Map<String, List<String>> testParams = Collections.singletonMap("?key=1&",
                 Arrays.asList("?value=1&"));
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation() {
@@ -114,7 +117,7 @@ class TestCore {
 
             @Override
             public Map<String, List<String>> getQueryParams() {
-                return testPathParam;
+                return testParams;
             }
         };
         HttpResponse res = sdk.runRequest(op);
@@ -124,8 +127,64 @@ class TestCore {
                 res.getPayload());
         assertNotNull(result);
         assertEquals("GET", result.getMethod());
-        assertTrue(result.getArgs().size() > 0);
+        assertTrue(result.getArgs().size() == testParams.size());
         assertEquals("?value=1&", result.getArgs().get("?key=1&"));
+    }
+
+    static Stream<String> queryParamsArrayFormats() {
+        return Stream.of(null, "", "csv", "multi", "ssv", "tsv", "pipes", "unknown");
+    }
+
+    @ParameterizedTest
+    @MethodSource("queryParamsArrayFormats")
+    void testHttpRequestQueryParamsArray(String format) throws HttpResponseException, IOException {
+        final Map<String, List<String>> testParams = Collections.singletonMap("?key=1&",
+                Arrays.asList("?value\"1a&", "?value\"1b&"));
+        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        HttpbinOperation op = new HttpbinOperation() {
+            @Override
+            public String getMethod() {
+                return "GET";
+            }
+
+            @Override
+            public String getPath() {
+                return "/anything";
+            }
+
+            @Override
+            public Map<String, List<String>> getQueryParams() {
+                return testParams;
+            }
+
+            @Override
+            protected Map<String, String> getCollectionFormatMap() {
+                return Collections.singletonMap("?key=1&", format);
+            }
+        };
+        HttpResponse res = sdk.runRequest(op);
+        HttpbinAnythingResponse result = op.parseResponse(
+                res.getCode(),
+                res.getContentType(),
+                res.getPayload());
+        assertNotNull(result);
+        assertEquals("GET", result.getMethod());
+        assertTrue(result.getArgs().size() == testParams.size());
+        String delimiter = ","; // Collection format CSV by default
+        if (format == "ssv") {
+            delimiter = " ";
+        } else if (format == "tsv") {
+            delimiter = "\t";
+        } else if (format == "pipes") {
+            delimiter = "|";
+        }
+        if (format == "multi") {
+            assertEquals("[?value\"1a&, ?value\"1b&]",
+                    result.getArgs().get("?key=1&").toString());
+        } else {
+            assertEquals("\"?value\"\"1a&\"" + delimiter + "\"?value\"\"1b&\"",
+                    result.getArgs().get("?key=1&"));
+        }
     }
 
     @ParameterizedTest
@@ -191,7 +250,7 @@ class TestCore {
     }
 
     @Test
-    void testRequestCookie() throws IOException, HttpResponseException {
+    void testHttpRequestCookie() throws IOException, HttpResponseException {
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation() {
             @Override
@@ -229,7 +288,7 @@ class TestCore {
     }
 
     @Test
-    void testRequestCookieAccessToken() throws IOException, HttpResponseException {
+    void testHttpRequestCookieAccessToken() throws IOException, HttpResponseException {
         final String token = "token12345";
         AccelByteSDK sdk = new AccelByteSDK(httpClient,
                 tokenRepository,
@@ -364,125 +423,138 @@ class TestCore {
         assertEquals("replace", result.getForm().get("strategy"));
     }
 
-    private final String namespace = "accelbyte";
-    private final String userId = "511132939439";
-    private final String baseUrl = "https://accelbyte.io";
+    @ParameterizedTest
+    @ValueSource(strings = { "POST" })
+    void testHttpResponseLocationQuery(String input) throws HttpResponseException, IOException {
+        final String redirectUrl = "https://demo.accelbyte.io/admin?code=1234567890&state=";
+        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        HttpbinOperation op = new HttpbinOperation() {
+            @Override
+            public String getMethod() {
+                return input;
+            }
 
-    @Test
-    void testCreateFullUrlNoneListQueryParams() throws Exception {
-        Map<String, String> pathParams = new HashMap<>();
-        Map<String, List<String>> queryParams = new HashMap<>();
-        Map<String, String> collectionFormatMap = new HashMap<>();
-        String url = "/platform/namespace/{namespace}/userId/{userId}";
-        pathParams.put("namespace", namespace);
-        pathParams.put("userId", userId);
-        // not an array query string value
-        queryParams.put("city", Collections.singletonList("Seattle"));
-        queryParams.put("color", Collections.singletonList("red"));
-        String expected = "https://accelbyte.io/platform/namespace/accelbyte/userId/511132939439?color=red&city=Seattle";
-        String fullUrl = Helper.createFullUrl(baseUrl, url, pathParams, queryParams, collectionFormatMap);
-        assertEquals(expected, fullUrl);
+            @Override
+            public String getPath() {
+                return "/redirect-to";
+            }
+
+            @Override
+            public Map<String, List<String>> getQueryParams() {
+                return Collections.singletonMap("url",
+                        Arrays.asList(redirectUrl));
+            }
+        };
+        HttpResponse res = sdk.runRequest(op);
+        String location = Helper.convertInputStreamToString(res.getPayload());
+        assertEquals(redirectUrl, location);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = { "GET" })
+    void testHttpResponseBodyEmpty(String input) throws HttpResponseException, IOException {
+        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        HttpbinOperation op = new HttpbinOperation() {
+            @Override
+            public String getMethod() {
+                return input;
+            }
+
+            @Override
+            public String getPath() {
+                return "/status/200";
+            }
+        };
+        HttpResponse res = sdk.runRequest(op);
+        assertNotNull(res);
+        assertEquals(200, res.getCode());
+        assertNull(res.getPayload());
     }
 
     @Test
-    void testCreateFullUrlDefaultCollectionFormat() throws Exception {
-        Map<String, String> pathParams = new HashMap<>();
-        Map<String, List<String>> queryParams = new HashMap<>();
-        Map<String, String> collectionFormatMap = new HashMap<>();
-        String url = "/platform/namespace/{namespace}/userId/{userId}";
-        pathParams.put("namespace", namespace);
-        pathParams.put("userId", userId);
-        queryParams.put("emails", Arrays.asList("test@test.net", "check@check.io"));
-        queryParams.put("appIds", Arrays.asList("1", "2"));
-        collectionFormatMap.put("emails", "notDefinedType");
-        collectionFormatMap.put("appIds", null);
-        String expected = "https://accelbyte.io/platform/namespace/accelbyte/userId/511132939439?emails=test%40test.net,check%40check.io&appIds=1,2";
-        String fullUrl = Helper.createFullUrl(baseUrl, url, pathParams, queryParams, collectionFormatMap);
-        assertEquals(expected, fullUrl);
+    void testHttpResponseBodyJson() throws HttpResponseException, IOException {
+        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        HttpbinOperation op = new HttpbinOperation() {
+            @Override
+            public String getMethod() {
+                return "GET";
+            }
+
+            @Override
+            public String getPath() {
+                return "/json";
+            }
+        };
+        HttpResponse res = sdk.runRequest(op);
+        assertNotNull(res);
+        assertEquals(200, res.getCode()); // Httpbin JSON can only return 200
+        assertNotNull(res.getPayload());
+        final String text = Helper.convertInputStreamToString(res.getPayload());
+        assertTrue(text.contains("WonderWidgets"));
     }
 
     @Test
-    void testCreateFullUrlCSVCollectionFormat() throws Exception {
-        Map<String, String> pathParams = new HashMap<>();
-        Map<String, List<String>> queryParams = new HashMap<>();
-        Map<String, String> collectionFormatMap = new HashMap<>();
-        String url = "/platform/namespace/{namespace}/userId/{userId}";
-        pathParams.put("namespace", namespace);
-        pathParams.put("userId", userId);
-        queryParams.put("emails", Arrays.asList("test@test.net", "check@check.io"));
-        queryParams.put("appIds", Arrays.asList("1", "2"));
-        collectionFormatMap.put("emails", "csv");
-        collectionFormatMap.put("appIds", "csv");
-        String expected = "https://accelbyte.io/platform/namespace/accelbyte/userId/511132939439?emails=test%40test.net,check%40check.io&appIds=1,2";
-        String fullUrl = Helper.createFullUrl(baseUrl, url, pathParams, queryParams, collectionFormatMap);
-        assertEquals(expected, fullUrl);
+    void testHttpResponseBodyBinary() throws HttpResponseException, IOException {
+        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        HttpbinOperation op = new HttpbinOperation() {
+            @Override
+            public String getMethod() {
+                return "GET";
+            }
+
+            @Override
+            public String getPath() {
+                return "/image/jpeg";
+            }
+        };
+        HttpResponse res = sdk.runRequest(op);
+        assertNotNull(res);
+        assertEquals(200, res.getCode()); // Httpbin JSON can only return 200
+        assertNotNull(res.getPayload());
+        final String text = Helper.convertInputStreamToString(res.getPayload());
+        assertTrue(text.contains("JFIF"));
     }
 
     @Test
-    void testCreateFullUrlMultiCollectionFormat() throws Exception {
-        Map<String, String> pathParams = new HashMap<>();
-        Map<String, List<String>> queryParams = new HashMap<>();
-        Map<String, String> collectionFormatMap = new HashMap<>();
-        String url = "/platform/namespace/{namespace}/userId/{userId}";
-        pathParams.put("namespace", namespace);
-        pathParams.put("userId", userId);
-        queryParams.put("appIds", Arrays.asList("1", "2"));
-        queryParams.put("skus", Arrays.asList("3", "4"));
-        collectionFormatMap.put("appIds", "multi");
-        collectionFormatMap.put("skus", "multi");
-        String expected = "https://accelbyte.io/platform/namespace/accelbyte/userId/511132939439?appIds=1&appIds=2&skus=3&skus=4";
-        String fullUrl = Helper.createFullUrl(baseUrl, url, pathParams, queryParams, collectionFormatMap);
-        assertEquals(expected, fullUrl);
+    void testHttpResponseBodyHtml() throws HttpResponseException, IOException {
+        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        HttpbinOperation op = new HttpbinOperation() {
+            @Override
+            public String getMethod() {
+                return "GET";
+            }
+
+            @Override
+            public String getPath() {
+                return "/html";
+            }
+        };
+        HttpResponse res = sdk.runRequest(op);
+        assertNotNull(res);
+        assertEquals(200, res.getCode()); // Httpbin JSON can only return 200
+        assertNotNull(res.getPayload());
+        final String text = Helper.convertInputStreamToString(res.getPayload());
+        assertTrue(text.contains("Melville"));
     }
 
-    @Test
-    void testCreateFullUrlPipesCollectionFormat() throws Exception {
-        Map<String, String> pathParams = new HashMap<>();
-        Map<String, List<String>> queryParams = new HashMap<>();
-        Map<String, String> collectionFormatMap = new HashMap<>();
-        String url = "/platform/namespace/{namespace}/userId/{userId}";
-        pathParams.put("namespace", namespace);
-        pathParams.put("userId", userId);
-        queryParams.put("emails", Arrays.asList("test@test.net", "check@check.io"));
-        queryParams.put("appIds", Arrays.asList("1", "2"));
-        collectionFormatMap.put("emails", "pipes");
-        collectionFormatMap.put("appIds", "pipes");
-        String expected = "https://accelbyte.io/platform/namespace/accelbyte/userId/511132939439?emails=test%40test.net|check%40check.io&appIds=1|2";
-        String fullUrl = Helper.createFullUrl(baseUrl, url, pathParams, queryParams, collectionFormatMap);
-        assertEquals(expected, fullUrl);
-    }
+    @ParameterizedTest
+    @ValueSource(ints = { 403, 404, 503 })
+    void testHttpResponseStatusError(int input) throws HttpResponseException, IOException {
+        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        HttpbinOperation op = new HttpbinOperation() {
+            @Override
+            public String getMethod() {
+                return "GET";
+            }
 
-    @Test
-    void testCreateFullUrlTsvCollectionFormat() throws Exception {
-        Map<String, String> pathParams = new HashMap<>();
-        Map<String, List<String>> queryParams = new HashMap<>();
-        Map<String, String> collectionFormatMap = new HashMap<>();
-        String url = "/platform/namespace/{namespace}/userId/{userId}";
-        pathParams.put("namespace", namespace);
-        pathParams.put("userId", userId);
-        queryParams.put("emails", Arrays.asList("test@test.net", "check@check.io"));
-        queryParams.put("appIds", Arrays.asList("1", "2"));
-        collectionFormatMap.put("emails", "tsv");
-        collectionFormatMap.put("appIds", "tsv");
-        String expected = "https://accelbyte.io/platform/namespace/accelbyte/userId/511132939439?emails=test%40test.net\tcheck%40check.io&appIds=1\t2";
-        String fullUrl = Helper.createFullUrl(baseUrl, url, pathParams, queryParams, collectionFormatMap);
-        assertEquals(expected, fullUrl);
-    }
-
-    @Test
-    void testCreateFullUrlSsvCollectionFormat() throws Exception {
-        Map<String, String> pathParams = new HashMap<>();
-        Map<String, List<String>> queryParams = new HashMap<>();
-        Map<String, String> collectionFormatMap = new HashMap<>();
-        String url = "/platform/namespace/{namespace}/userId/{userId}";
-        pathParams.put("namespace", namespace);
-        pathParams.put("userId", userId);
-        queryParams.put("emails", Arrays.asList("test@test.net", "check@check.io"));
-        queryParams.put("appIds", Arrays.asList("1", "2"));
-        collectionFormatMap.put("emails", "ssv");
-        collectionFormatMap.put("appIds", "ssv");
-        String expected = "https://accelbyte.io/platform/namespace/accelbyte/userId/511132939439?emails=test%40test.net check%40check.io&appIds=1 2";
-        String fullUrl = Helper.createFullUrl(baseUrl, url, pathParams, queryParams, collectionFormatMap);
-        assertEquals(expected, fullUrl);
+            @Override
+            public String getPath() {
+                return "/status/" + input;
+            }
+        };
+        HttpResponse res = sdk.runRequest(op);
+        assertNotNull(res);
+        assertEquals(input, res.getCode());
+        assertNull(res.getPayload());
     }
 }
