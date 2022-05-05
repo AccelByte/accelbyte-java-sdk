@@ -55,7 +55,7 @@ class HttpbinConfigRepository implements ConfigRepository {
 
     @Override
     public AppInfo getAppInfo() {
-        return new AppInfo("Java Server SDK Test", "0.0.0");
+        return new AppInfo("Java Server SDK Test", "9.9.9");
     }
 
 }

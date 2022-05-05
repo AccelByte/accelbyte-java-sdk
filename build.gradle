@@ -25,9 +25,10 @@ dependencies {
     implementation sharedDependencies.apacheHttpClient
     implementation sharedDependencies.jackson.databind
     implementation sharedDependencies.apacheCommonIO
-
-    testRuntimeOnly sharedDependencies.junitEngine
+    
     testImplementation sharedDependencies.junitApi
+    testImplementation  sharedDependencies.junitParams
+    testRuntimeOnly sharedDependencies.junitEngine
 }
 
 checkstyle {

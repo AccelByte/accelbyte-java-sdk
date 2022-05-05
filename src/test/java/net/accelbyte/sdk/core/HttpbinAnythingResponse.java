@@ -5,6 +5,11 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 class HttpbinAnythingResponse extends Model {
     @JsonProperty("method")
@@ -12,6 +17,9 @@ class HttpbinAnythingResponse extends Model {
 
     @JsonProperty("url")
     public String url;
+
+    @JsonProperty("args")
+    public Map<String, String> args;
 
     @JsonProperty("headers")
     public Map<String, String> headers;
@@ -21,4 +29,7 @@ class HttpbinAnythingResponse extends Model {
 
     @JsonProperty("data")
     public String data;
+
+    @JsonProperty("files")
+    public Map<String, String> files;
 }

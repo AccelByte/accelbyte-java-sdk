@@ -16,6 +16,7 @@ ext {
             apacheHttpClient: "org.apache.httpcomponents:httpclient:${dependencyVersions.apacheHttpClient}",
             junitApi        : "org.junit.jupiter:junit-jupiter-api:${dependencyVersions.junit}",
             junitEngine     : "org.junit.jupiter:junit-jupiter-engine:${dependencyVersions.junit}",
+            junitParams     : "org.junit.jupiter:junit-jupiter-params:${dependencyVersions.junit}",
             apacheCommonIO  : "commons-io:commons-io:${dependencyVersions.apacheCommonIO}"
     ]
 }

@@ -8,34 +8,190 @@ package net.accelbyte.sdk.core;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
-import net.accelbyte.sdk.core.client.HttpClient;
 import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 import net.accelbyte.sdk.core.repository.TokenRepository;
 import net.accelbyte.sdk.core.util.Helper;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Tag("test-core")
 class TestCore {
-    private final HttpClient<?> httpClient = new OkhttpClient();
+    private final OkhttpClient httpClient = new OkhttpClient();
     private final TokenRepository tokenRepository = DefaultTokenRepository.getInstance();
     private final ConfigRepository httpbinConfigRepository = new HttpbinConfigRepository();
 
+    @ParameterizedTest
+    @ValueSource(strings = { "GET", "POST", "PUT", "PATCH", "DELETE" })
+    void testHttpRequestMethod(String input) throws HttpResponseException, IOException {
+        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        HttpbinOperation op = new HttpbinOperation() {
+            @Override
+            public String getMethod() {
+                return input;
+            }
+
+            @Override
+            public String getPath() {
+                return "/anything";
+            }
+        };
+        HttpResponse res = sdk.runRequest(op);
+        HttpbinAnythingResponse result = op.parseResponse(
+                res.getCode(),
+                res.getContentType(),
+                res.getPayload());
+        assertNotNull(result);
+        assertEquals(input, result.getMethod());
+    }
+
     @Test
-    void testCookie() throws IOException, HttpResponseException {
+    void testHttpRequestPathParams() throws HttpResponseException, IOException {
+        final String testPathParam = "abc/def:123?x=1&y=2";
+        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        HttpbinOperation op = new HttpbinOperation() {
+            @Override
+            public String getMethod() {
+                return "POST";
+            }
+
+            @Override
+            public String getPath() {
+                return "/anything/{test_path_param}";
+            }
+
+            @Override
+            public Map<String, String> getPathParams() {
+                return Collections.singletonMap("test_path_param", testPathParam);
+            }
+        };
+        HttpResponse res = sdk.runRequest(op);
+        HttpbinAnythingResponse result = op.parseResponse(
+                res.getCode(),
+                res.getContentType(),
+                res.getPayload());
+        assertNotNull(result);
+        assertEquals("POST", result.getMethod());
+        assertFalse(result.getArgs().size() > 0);
+    }
+
+    @Test
+    void testHttpRequestQueryParams() throws HttpResponseException, IOException {
+        final Map<String, List<String>> testPathParam = Collections.singletonMap("?key=1&",
+                Arrays.asList("?value=1&"));
+        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        HttpbinOperation op = new HttpbinOperation() {
+            @Override
+            public String getMethod() {
+                return "GET";
+            }
+
+            @Override
+            public String getPath() {
+                return "/anything";
+            }
+
+            @Override
+            public Map<String, List<String>> getQueryParams() {
+                return testPathParam;
+            }
+        };
+        HttpResponse res = sdk.runRequest(op);
+        HttpbinAnythingResponse result = op.parseResponse(
+                res.getCode(),
+                res.getContentType(),
+                res.getPayload());
+        assertNotNull(result);
+        assertEquals("GET", result.getMethod());
+        assertTrue(result.getArgs().size() > 0);
+        assertEquals("?value=1&", result.getArgs().get("?key=1&"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = { "GET" })
+    void testHttpRequestUserAgent(String input) throws HttpResponseException, IOException {
+        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        HttpbinOperation op = new HttpbinOperation() {
+            @Override
+            public String getMethod() {
+                return input;
+            }
+
+            @Override
+            public String getPath() {
+                return "/anything";
+            }
+        };
+        HttpResponse res = sdk.runRequest(op);
+        HttpbinAnythingResponse result = op.parseResponse(
+                res.getCode(),
+                res.getContentType(),
+                res.getPayload());
+        assertNotNull(result);
+        assertNotNull(result.getHeaders().get(HttpHeaders.USER_AGENT));
+        String pattern = "(.*)/(.*) \\((.*)/(.*)\\)";
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(result.getHeaders().get(HttpHeaders.USER_AGENT));
+        assertTrue(m.find());
+        assertEquals(SDKInfo.getInstance().getSdkName(), m.group(1));
+        assertEquals(SDKInfo.getInstance().getSdkVersion(), m.group(2));
+        AppInfo appInfo = httpbinConfigRepository
+                .getAppInfo();
+        assertEquals(appInfo.getAppName(), m.group(3));
+        assertEquals(appInfo.getAppVersion(), m.group(4));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = { "GET" })
+    void testHttpRequestAmazonTraceId(String input) throws HttpResponseException, IOException {
+        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        HttpbinOperation op = new HttpbinOperation() {
+            @Override
+            public String getMethod() {
+                return input;
+            }
+
+            @Override
+            public String getPath() {
+                return "/anything";
+            }
+        };
+        HttpResponse res = sdk.runRequest(op);
+        HttpbinAnythingResponse result = op.parseResponse(
+                res.getCode(),
+                res.getContentType(),
+                res.getPayload());
+        assertNotNull(result);
+        assertNotNull(result.getHeaders().get(HttpHeaders.X_AMZN_TRACE_ID));
+        String pattern = "Root=.+";
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(result.getHeaders().get(HttpHeaders.X_AMZN_TRACE_ID));
+        assertTrue(m.find());
+    }
+
+    @Test
+    void testRequestCookie() throws IOException, HttpResponseException {
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation() {
             @Override
@@ -50,7 +206,7 @@ class TestCore {
 
             @Override
             public Map<String, String> getCookieParams() {
-                Map<String,String> cookies = new HashMap<>();
+                Map<String, String> cookies = new HashMap<>();
                 cookies.put("test 1=1", "value 1=1");
                 cookies.put("test 2=2", "value 2=2");
                 cookies.put("test 3=3", "value 3=3");
@@ -73,7 +229,7 @@ class TestCore {
     }
 
     @Test
-    void testCookieAccessToken() throws IOException, HttpResponseException {
+    void testRequestCookieAccessToken() throws IOException, HttpResponseException {
         final String token = "token12345";
         AccelByteSDK sdk = new AccelByteSDK(httpClient,
                 tokenRepository,
@@ -99,6 +255,113 @@ class TestCore {
         String cookies = result.headers.get(HttpHeaders.COOKIE);
         assertNotNull(cookies); // Make sure cookie header is present
         assertTrue(cookies.contains("access_token=" + token));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = { "POST" })
+    void testHttpRequestForm(String input) throws HttpResponseException, IOException {
+        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        HttpbinOperation op = new HttpbinOperation() {
+            @Override
+            public String getMethod() {
+                return input;
+            }
+
+            @Override
+            public String getPath() {
+                return "/anything";
+            }
+
+            @Override
+            public Map<String, Object> getFormParams() {
+                Map<String, Object> params = new HashMap<>();
+                params.put("?key=1&", "value=1&");
+                params.put("?key=2&", "value=2&");
+                return params;
+            }
+        };
+        HttpResponse res = sdk.runRequest(op);
+        HttpbinAnythingResponse result = op.parseResponse(
+                res.getCode(),
+                res.getContentType(),
+                res.getPayload());
+        assertNotNull(result);
+        assertEquals("value=1&", result.getForm().get("?key=1&"));
+        assertEquals("value=2&", result.getForm().get("?key=2&"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = { "POST" })
+    void testHttpRequestJson(String input) throws HttpResponseException, IOException {
+        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        HttpbinOperation op = new HttpbinOperation() {
+            @Override
+            public String getMethod() {
+                return input;
+            }
+
+            @Override
+            public String getPath() {
+                return "/anything";
+            }
+
+            @Override
+            public Object getBodyParams() {
+                return new DummyGameRecord("1", "2", 3);
+            }
+        };
+        HttpResponse res = sdk.runRequest(op);
+        HttpbinAnythingResponse result = op.parseResponse(
+                res.getCode(),
+                res.getContentType(),
+                res.getPayload());
+        assertNotNull(result);
+        DummyGameRecord ret = new ObjectMapper().readValue(result.getData(), DummyGameRecord.class);
+        assertEquals("1", ret.getFoo());
+        assertEquals("2", ret.getFooBar());
+        assertEquals(3, ret.getFooValue());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = { "POST" })
+    void testHttpRequestMultipart(String input) throws HttpResponseException, IOException {
+        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        HttpbinOperation op = new HttpbinOperation() {
+            @Override
+            public String getMethod() {
+                return input;
+            }
+
+            @Override
+            public String getPath() {
+                return "/anything";
+            }
+
+            @Override
+            public List<String> getConsumes() {
+                return Arrays.asList("multipart/form-data");
+            }
+
+            @Override
+            public Map<String, Object> getFormParams() {
+                try {
+                    Map<String, Object> params = new HashMap<>();
+                    params.put("file", new ByteArrayInputStream("test".getBytes("UTF-8")));
+                    params.put("strategy", "replace");
+                    return params;
+                } catch (UnsupportedEncodingException e) {
+                    return null;
+                }
+            }
+        };
+        HttpResponse res = sdk.runRequest(op);
+        HttpbinAnythingResponse result = op.parseResponse(
+                res.getCode(),
+                res.getContentType(),
+                res.getPayload());
+        assertNotNull(result);
+        assertEquals("test", result.getFiles().get("file"));
+        assertEquals("replace", result.getForm().get("strategy"));
     }
 
     private final String namespace = "accelbyte";
