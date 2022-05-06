@@ -249,7 +249,7 @@ class TestIntegration {
 
         @Test
         @Order(1)
-        void AchievementServiceTests() throws HttpResponseException, IOException {
+        void testServiceAchievement() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String achievementCode = "java-sdk-test";
                 final String achievementName = "Java Server SDK Test";
@@ -343,7 +343,7 @@ class TestIntegration {
 
         @Test
         @Order(2)
-        void BasicServiceTests() throws HttpResponseException, IOException {
+        void testServiceBasic() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String profileFirstName = "Integration Test";
                 final String profileLastName = "Java Server SDK";
@@ -403,7 +403,7 @@ class TestIntegration {
 
         @Test
         @Order(3)
-        void CloudSaveServiceTests() throws HttpResponseException, IOException {
+        void testServiceCloudSave() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String gameRecordKey = "foo_bar_record";
                 final String gameRecordFoo = "bar";
@@ -495,7 +495,7 @@ class TestIntegration {
 
         @Test
         @Order(4)
-        void DSLogManagerServiceTests() throws HttpResponseException, IOException {
+        void testServiceDsLogManager() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
                 TerminatedServers wTerminatedServers = new TerminatedServers(_sdk);
@@ -510,7 +510,7 @@ class TestIntegration {
 
         @Test
         @Order(5)
-        void EventLogServiceTests() throws HttpResponseException, IOException {
+        void testServiceEventLog() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
                 Users wUsers = new Users(_sdk);
@@ -547,7 +547,7 @@ class TestIntegration {
 
         @Test
         @Order(6)
-        void GDPRServiceTests() throws HttpResponseException, IOException {
+        void testServiceGdpr() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String emailToTest = "dummy@example.com";
                 final String anotherEmailToTest = "another_email_to_test@dummy.com";
@@ -581,7 +581,7 @@ class TestIntegration {
 
         @Test
         @Order(7)
-        void GroupServiceTests() throws HttpResponseException, IOException {
+        void testServiceGroup() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String initialConfigCode = "initialConfigurationCode";
                 final String configurationCode = "csharpServerSdkConfigCode";
@@ -727,7 +727,7 @@ class TestIntegration {
 
         @Test
         @Order(8)
-        void IamServiceTests() throws HttpResponseException, IOException, IllegalArgumentException {
+        void testServiceIam() throws HttpResponseException, IOException, IllegalArgumentException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String userName = ("javasdk_" + GenerateRandomId(8));
                 final String userPassword = GenerateRandomPassword(10);
@@ -814,7 +814,7 @@ class TestIntegration {
 
         @Test
         @Order(9)
-        void LeaderboardServiceTests() throws HttpResponseException, IOException {
+        void testServiceLeaderboard() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String leaderboarsName = "Java SDK Leaderboard Test";
 
@@ -899,7 +899,7 @@ class TestIntegration {
 
         @Test
         @Order(10)
-        void LegalServiceTests() throws HttpResponseException, IOException {
+        void testServiceLegal() throws HttpResponseException, IOException {
                 Agreement wLegalAgreement = new Agreement(_sdk);
 
                 List<RetrieveAcceptedAgreementResponse> aggrs = wLegalAgreement
@@ -926,7 +926,7 @@ class TestIntegration {
 
         @Test
         @Order(11)
-        void PlatformServiceTests() throws HttpResponseException, IOException {
+        void testServicePlatform() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String storeTitle = "Java SDK Store Test";
                 final String storeDescription = "Description for Java Server SDK store service integration test.";
@@ -992,7 +992,7 @@ class TestIntegration {
 
         @Test
         @Order(12)
-        void SessionBrowserServiceTests() throws HttpResponseException, IOException {
+        void testSessionBrowser() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
                 String usernameToTest = "dummy@example.com";
@@ -1063,7 +1063,7 @@ class TestIntegration {
 
         @Test
         @Order(13)
-        void SocialServiceTests() throws HttpResponseException, IOException {
+        void testServiceSocial() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
                 String stat_code = "javaserversdkteststat";
@@ -1122,7 +1122,7 @@ class TestIntegration {
 
         @Test
         @Order(14)
-        void UGCServiceTests() throws HttpResponseException, IOException {
+        void testServiceUgc() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
                 String tag_name = "java_server_sdk_test";
@@ -1177,7 +1177,7 @@ class TestIntegration {
 
         @Test
         @Order(15)
-        void SocialServiceUserStatTests() throws HttpResponseException, IOException {
+        void testScenarioUserStats() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String user_login_id = System.getenv("AB_USERNAME");
                 final String stat_code = "cs-server-sdk-test";
@@ -1231,15 +1231,15 @@ class TestIntegration {
 
         @Test
         @Order(16)
-        void MatchmakingTestSuite() throws HttpResponseException, IOException, InterruptedException {
-                DSMCListLocalServerTest();
-                DSMCServiceTests();
-                MatchmakingServiceApiTests();
-                LobbyAPIServiceTests();
-                LobbyWebSocketServiceTests();
+        void testScenarioMatchmaking() throws HttpResponseException, IOException, InterruptedException {
+                testDsmcLocalServer();
+                testDsmc();
+                testMatchmaking();
+                testLobby();
+                testLobbyWebsocket();
         }
 
-        public void DSMCListLocalServerTest() throws HttpResponseException, IOException {
+        public void testDsmcLocalServer() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 Admin wDsmcAdmin = new Admin(_sdk);
                 ModelsListServerResponse serverResp = wDsmcAdmin.listLocalServer(ListLocalServer.builder()
@@ -1248,7 +1248,7 @@ class TestIntegration {
                 Assertions.assertNotNull(serverResp);
         }
 
-        public void DSMCServiceTests() throws HttpResponseException, IOException, InterruptedException {
+        public void testDsmc() throws HttpResponseException, IOException, InterruptedException {
                 final String usernameToTest = "dummy@example.com";
                 final String target_namespace = "armadademotestqa";
                 final String target_deployment = "deployruli";
@@ -1361,7 +1361,7 @@ class TestIntegration {
                 Assertions.assertNotNull(delResp);
         }
 
-        public void MatchmakingServiceApiTests() throws HttpResponseException, IOException {
+        public void testMatchmaking() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String channelName = "csharp_sdk_gm_" + GenerateRandomId(8);
                 final String channelDescription = "CSharp Server SDK Test";
@@ -1463,7 +1463,7 @@ class TestIntegration {
                 });
         }
 
-        public void LobbyAPIServiceTests() throws HttpResponseException, IOException {
+        public void testLobby() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
 
                 Notification wLobbyNotification = new Notification(_sdk);
@@ -1481,7 +1481,7 @@ class TestIntegration {
                                 .build());
         }
 
-        public void LobbyWebSocketServiceTests() throws InterruptedException {
+        public void testLobbyWebsocket() throws InterruptedException {
                 final String request_id = GenerateRandomId(64);
                 final CountDownLatch response = new CountDownLatch(1);
                 final StringBuilder responseMessage = new StringBuilder();
