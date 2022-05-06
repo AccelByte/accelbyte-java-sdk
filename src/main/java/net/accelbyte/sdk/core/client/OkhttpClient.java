@@ -24,6 +24,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 import okhttp3.OkHttpClient.Builder;
 
 import java.io.ByteArrayInputStream;
@@ -162,9 +163,12 @@ public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
             }
             byte[] locationBytes = location.getBytes(StandardCharsets.UTF_8);
             payload = new ByteArrayInputStream(locationBytes);
-        } else if (response.body() != null) {
-            responseContentType = String.valueOf(response.body().contentType());
-            payload = response.body().byteStream();
+        } else {
+            final ResponseBody body = response.body();
+            if (body != null && body.contentLength() != 0) {
+                responseContentType = String.valueOf(body.contentType());
+                payload = body.byteStream();
+            }
         }
 
         return new HttpResponse(response.code(),
