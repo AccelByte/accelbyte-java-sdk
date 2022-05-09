@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..16"
+echo "1..17"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -152,12 +152,20 @@ eval_tap $? 14 'AddPlayerToSession' test.out
     > test.out 2>&1
 eval_tap $? 15 'RemovePlayerFromSession' test.out
 
-#- 16 GetRecentPlayer
+#- 16 UpdateSettings
+./ng net.accelbyte.sdk.cli.Main sessionbrowser updateSettings \
+    --body '{}' \
+    --namespace "$AB_NAMESPACE" \
+    --sessionID 'vASUoxdx' \
+    > test.out 2>&1
+eval_tap $? 16 'UpdateSettings' test.out
+
+#- 17 GetRecentPlayer
 ./ng net.accelbyte.sdk.cli.Main sessionbrowser getRecentPlayer \
     --namespace "$AB_NAMESPACE" \
-    --userID 'vASUoxdx' \
+    --userID 'xFqmAGTJ' \
     > test.out 2>&1
-eval_tap $? 16 'GetRecentPlayer' test.out
+eval_tap $? 17 'GetRecentPlayer' test.out
 
 
 rm -f "tmp.dat"
