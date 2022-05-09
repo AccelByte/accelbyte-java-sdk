@@ -788,8 +788,11 @@ class TestIntegration {
 
                 Assertions.assertNotNull(uuResp);
                 Assertions.assertNotNull(uuResp.getDateOfBirth());
-                Assertions.assertEquals(userDateOfBirthUpdated,
-                                Instant.parse(uuResp.getDateOfBirth())
+                Instant userDateOfBirthActual = Instant.parse(uuResp.getDateOfBirth());
+                Assertions.assertNotNull(userDateOfBirthActual);
+                Assertions.assertEquals(
+                                userDateOfBirthUpdated,
+                                userDateOfBirthActual
                                                 .atZone(ZoneId.systemDefault())
                                                 .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 
