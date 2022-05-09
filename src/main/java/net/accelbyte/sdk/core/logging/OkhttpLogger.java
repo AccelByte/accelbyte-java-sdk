@@ -60,7 +60,7 @@ public class OkhttpLogger implements HttpLogger<Request, Response> {
                     body.writeTo(buffer);
 
                     if (type != null && type.equals(MediaType.parse("multipart/form-data"))) {
-                        String bEncoded = new String(Base64.getEncoder().encode(buffer.readByteArray()));
+                        String bEncoded = Base64.getEncoder().encodeToString(buffer.readByteArray());
                         bw.write("body: !!binary |");
                         bw.newLine();
                         bw.write(bEncoded);
@@ -128,7 +128,7 @@ public class OkhttpLogger implements HttpLogger<Request, Response> {
                     bw.write("body: " + buffer.readUtf8());
                     bw.newLine();
                 } else {
-                    String bEncoded = new String(Base64.getEncoder().encode(buffer.readByteArray()));
+                    String bEncoded = Base64.getEncoder().encodeToString(buffer.readByteArray());
                     bw.write("body: !!binary |");
                     bw.newLine();
                     bw.write(bEncoded);
