@@ -15,7 +15,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.models.WalletTransactionPagingSlicedResult;
+import net.accelbyte.sdk.api.platform.models.DetailedWalletTransactionPagingSlicedResult;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -118,10 +118,10 @@ public class ListUserWalletTransactions extends Operation {
         return true;
     }
 
-    public WalletTransactionPagingSlicedResult parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+    public DetailedWalletTransactionPagingSlicedResult parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = Helper.convertInputStreamToString(payload);
         if(code == 200){
-            return new WalletTransactionPagingSlicedResult().createFromJson(json);
+            return new DetailedWalletTransactionPagingSlicedResult().createFromJson(json);
         }
         throw new HttpResponseException(code, json);
     }

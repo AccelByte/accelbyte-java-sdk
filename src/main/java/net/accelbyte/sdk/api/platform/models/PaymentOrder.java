@@ -105,6 +105,9 @@ public class PaymentOrder extends Model {
     @JsonProperty("paymentStationUrl")
     private String paymentStationUrl;
 
+    @JsonProperty("platform")
+    private String platform;
+
     @JsonProperty("price")
     private Integer price;
 

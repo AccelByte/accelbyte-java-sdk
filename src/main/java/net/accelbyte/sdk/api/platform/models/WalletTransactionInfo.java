@@ -51,6 +51,9 @@ public class WalletTransactionInfo extends Model {
     @JsonProperty("reason")
     private String reason;
 
+    @JsonProperty("transactionAmountDetails")
+    private List<TransactionAmountDetails> transactionAmountDetails;
+
     @JsonProperty("updatedAt")
     private String updatedAt;
 
@@ -59,9 +62,6 @@ public class WalletTransactionInfo extends Model {
 
     @JsonProperty("walletAction")
     private String walletAction;
-
-    @JsonProperty("walletId")
-    private String walletId;
 
 
     

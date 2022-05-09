@@ -51,6 +51,9 @@ public class FulfillmentRequest extends Model {
     @JsonProperty("orderNo")
     private String orderNo;
 
+    @JsonProperty("origin")
+    private String origin;
+
     @JsonProperty("quantity")
     private Integer quantity;
 
@@ -67,6 +70,26 @@ public class FulfillmentRequest extends Model {
     private String storeId;
 
 
+    
+    @JsonIgnore
+    public String getOrigin() {
+        return this.origin;
+    }
+    
+    @JsonIgnore
+    public Origin getOriginAsEnum() {
+        return Origin.valueOf(this.origin);
+    }
+    
+    @JsonIgnore
+    public void setOrigin(final String origin) {
+        this.origin = origin;
+    }
+    
+    @JsonIgnore
+    public void setOriginFromEnum(final Origin origin) {
+        this.origin = origin.toString();
+    }
     
     @JsonIgnore
     public String getSource() {
@@ -99,6 +122,31 @@ public class FulfillmentRequest extends Model {
     }
 
     
+    public enum Origin {
+        Playstation("Playstation"),
+        Xbox("Xbox"),
+        Steam("Steam"),
+        Epic("Epic"),
+        Stadia("Stadia"),
+        IOS("IOS"),
+        GooglePlay("GooglePlay"),
+        Twitch("Twitch"),
+        Nintendo("Nintendo"),
+        System("System"),
+        Other("Other");
+
+        private String value;
+
+        Origin(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
     public enum Source {
         PURCHASE("PURCHASE"),
         IAP("IAP"),
@@ -124,8 +172,19 @@ public class FulfillmentRequest extends Model {
     }
     
     public static class FulfillmentRequestBuilder {
+        private String origin;
         private String source;
         
+        
+        public FulfillmentRequestBuilder origin(final String origin) {
+            this.origin = origin;
+            return this;
+        }
+        
+        public FulfillmentRequestBuilder originFromEnum(final Origin origin) {
+            this.origin = origin.toString();
+            return this;
+        }
         
         public FulfillmentRequestBuilder source(final String source) {
             this.source = source;

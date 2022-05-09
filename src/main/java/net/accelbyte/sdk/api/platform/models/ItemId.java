@@ -33,6 +33,9 @@ public class ItemId extends Model {
     @JsonProperty("itemId")
     private String itemId;
 
+    @JsonProperty("sku")
+    private String sku;
+
 
 
     @JsonIgnore

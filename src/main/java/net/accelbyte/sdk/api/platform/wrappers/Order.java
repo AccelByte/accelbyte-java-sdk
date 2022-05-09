@@ -123,6 +123,25 @@ public class Order {
     }
 
     /**
+     * @see AdminCreateUserOrder
+     */
+    public OrderInfo adminCreateUserOrder(AdminCreateUserOrder input) throws HttpResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
      * @see CountOfPurchasedItem
      */
     public PurchasedItemCount countOfPurchasedItem(CountOfPurchasedItem input) throws HttpResponseException, IOException {

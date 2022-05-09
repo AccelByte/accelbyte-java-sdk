@@ -36,6 +36,8 @@ import java.util.*;
  * if there are new players being matched to the session.
  * 
  * Possible session statuses are "sessionInQueue", "sessionFull", and "sessionTimeout".
+ * 
+ * if party_id value empty/null, field will not show in response body.
  */
 @Getter
 @Setter

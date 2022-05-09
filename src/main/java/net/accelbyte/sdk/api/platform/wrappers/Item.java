@@ -180,6 +180,25 @@ public class Item {
     }
 
     /**
+     * @see GetBulkItemIdBySkus
+     */
+    public List<ItemId> getBulkItemIdBySkus(GetBulkItemIdBySkus input) throws HttpResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
      * @see BulkGetLocaleItems
      */
     public List<ItemInfo> bulkGetLocaleItems(BulkGetLocaleItems input) throws HttpResponseException, IOException {

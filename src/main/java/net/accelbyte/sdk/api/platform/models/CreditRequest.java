@@ -33,6 +33,12 @@ public class CreditRequest extends Model {
     @JsonProperty("amount")
     private Integer amount;
 
+    @JsonProperty("expireAt")
+    private String expireAt;
+
+    @JsonProperty("origin")
+    private String origin;
+
     @JsonProperty("reason")
     private String reason;
 
@@ -40,6 +46,26 @@ public class CreditRequest extends Model {
     private String source;
 
 
+    
+    @JsonIgnore
+    public String getOrigin() {
+        return this.origin;
+    }
+    
+    @JsonIgnore
+    public Origin getOriginAsEnum() {
+        return Origin.valueOf(this.origin);
+    }
+    
+    @JsonIgnore
+    public void setOrigin(final String origin) {
+        this.origin = origin;
+    }
+    
+    @JsonIgnore
+    public void setOriginFromEnum(final Origin origin) {
+        this.origin = origin.toString();
+    }
     
     @JsonIgnore
     public String getSource() {
@@ -72,6 +98,31 @@ public class CreditRequest extends Model {
     }
 
     
+    public enum Origin {
+        Playstation("Playstation"),
+        Xbox("Xbox"),
+        Steam("Steam"),
+        Epic("Epic"),
+        Stadia("Stadia"),
+        IOS("IOS"),
+        GooglePlay("GooglePlay"),
+        Twitch("Twitch"),
+        Nintendo("Nintendo"),
+        System("System"),
+        Other("Other");
+
+        private String value;
+
+        Origin(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
     public enum Source {
         PURCHASE("PURCHASE"),
         IAP("IAP"),
@@ -97,8 +148,19 @@ public class CreditRequest extends Model {
     }
     
     public static class CreditRequestBuilder {
+        private String origin;
         private String source;
         
+        
+        public CreditRequestBuilder origin(final String origin) {
+            this.origin = origin;
+            return this;
+        }
+        
+        public CreditRequestBuilder originFromEnum(final Origin origin) {
+            this.origin = origin.toString();
+            return this;
+        }
         
         public CreditRequestBuilder source(final String source) {
             this.source = source;

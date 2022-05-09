@@ -42,6 +42,9 @@ public class ClientmodelClientUpdateV3Request extends Model {
     @JsonProperty("clientPermissions")
     private List<AccountcommonPermissionV3> clientPermissions;
 
+    @JsonProperty("clientPlatform")
+    private String clientPlatform;
+
     @JsonProperty("deletable")
     private Boolean deletable;
 

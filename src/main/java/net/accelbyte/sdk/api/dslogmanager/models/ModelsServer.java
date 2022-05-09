@@ -54,6 +54,9 @@ public class ModelsServer extends Model {
     @JsonProperty("is_override_game_version")
     private Boolean isOverrideGameVersion;
 
+    @JsonProperty("job_id")
+    private String jobId;
+
     @JsonProperty("last_update")
     private String lastUpdate;
 

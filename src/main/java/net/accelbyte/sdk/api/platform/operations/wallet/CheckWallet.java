@@ -26,7 +26,7 @@ import java.util.*;
 /**
  * checkWallet
  *
- *  [SERVICE COMMUNICATION ONLY] Check wallet whether it's inactive.
+ *  [SERVICE COMMUNICATION ONLY] Check wallet by balance origin and currency code whether it's inactive.
  * Other detail info:
  * 
  *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:WALLET", action=2 (READ)
@@ -50,22 +50,26 @@ public class CheckWallet extends Operation {
     private String currencyCode;
     private String namespace;
     private String userId;
+    private String origin;
 
     /**
     * @param currencyCode required
     * @param namespace required
     * @param userId required
+    * @param origin required
     */
     @Builder
     public CheckWallet(
             String currencyCode,
             String namespace,
-            String userId
+            String userId,
+            String origin
     )
     {
         this.currencyCode = currencyCode;
         this.namespace = namespace;
         this.userId = userId;
+        this.origin = origin;
         
         securities.add("Bearer");
     }
@@ -85,6 +89,12 @@ public class CheckWallet extends Operation {
         return pathParams;
     }
 
+    @Override
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("origin", this.origin == null ? null : Arrays.asList(this.origin));
+        return queryParams;
+    }
 
 
 
@@ -100,6 +110,9 @@ public class CheckWallet extends Operation {
         if(this.userId == null) {
             return false;
         }
+        if(this.origin == null) {
+            return false;
+        }
         return true;
     }
 
@@ -110,4 +123,10 @@ public class CheckWallet extends Operation {
         }
     }
 
+    @Override
+    protected Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("origin", "None");
+        return result;
+    }
 }

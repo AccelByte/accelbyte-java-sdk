@@ -63,6 +63,9 @@ public class ExternalPaymentOrderCreate extends Model {
     @JsonProperty("omitNotification")
     private Boolean omitNotification;
 
+    @JsonProperty("platform")
+    private String platform;
+
     @JsonProperty("price")
     private Integer price;
 

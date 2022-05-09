@@ -30,6 +30,9 @@ import java.util.Map;
 @NoArgsConstructor
 public class RewardsRequest extends Model {
 
+    @JsonProperty("origin")
+    private String origin;
+
     @JsonProperty("rewards")
     private List<PlatformReward> rewards;
 
@@ -37,6 +40,26 @@ public class RewardsRequest extends Model {
     private String source;
 
 
+    
+    @JsonIgnore
+    public String getOrigin() {
+        return this.origin;
+    }
+    
+    @JsonIgnore
+    public Origin getOriginAsEnum() {
+        return Origin.valueOf(this.origin);
+    }
+    
+    @JsonIgnore
+    public void setOrigin(final String origin) {
+        this.origin = origin;
+    }
+    
+    @JsonIgnore
+    public void setOriginFromEnum(final Origin origin) {
+        this.origin = origin.toString();
+    }
     
     @JsonIgnore
     public String getSource() {
@@ -69,6 +92,31 @@ public class RewardsRequest extends Model {
     }
 
     
+    public enum Origin {
+        Playstation("Playstation"),
+        Xbox("Xbox"),
+        Steam("Steam"),
+        Epic("Epic"),
+        Stadia("Stadia"),
+        IOS("IOS"),
+        GooglePlay("GooglePlay"),
+        Twitch("Twitch"),
+        Nintendo("Nintendo"),
+        System("System"),
+        Other("Other");
+
+        private String value;
+
+        Origin(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
     public enum Source {
         PURCHASE("PURCHASE"),
         IAP("IAP"),
@@ -94,8 +142,19 @@ public class RewardsRequest extends Model {
     }
     
     public static class RewardsRequestBuilder {
+        private String origin;
         private String source;
         
+        
+        public RewardsRequestBuilder origin(final String origin) {
+            this.origin = origin;
+            return this;
+        }
+        
+        public RewardsRequestBuilder originFromEnum(final Origin origin) {
+            this.origin = origin.toString();
+            return this;
+        }
         
         public RewardsRequestBuilder source(final String source) {
             this.source = source;

@@ -15,7 +15,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.models.WalletInfo;
+import net.accelbyte.sdk.api.platform.models.PlatformWallet;
 import net.accelbyte.sdk.api.platform.models.PaymentRequest;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * payWithUserWallet
  *
- * Pay with user wallet by currency code.
+ * Pay with user wallet by currency code and client platform.
  * Other detail info:
  * 
  *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:WALLET", action=4 (UPDATE)
@@ -112,10 +112,10 @@ public class PayWithUserWallet extends Operation {
         return true;
     }
 
-    public WalletInfo parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+    public PlatformWallet parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = Helper.convertInputStreamToString(payload);
         if(code == 200){
-            return new WalletInfo().createFromJson(json);
+            return new PlatformWallet().createFromJson(json);
         }
         throw new HttpResponseException(code, json);
     }

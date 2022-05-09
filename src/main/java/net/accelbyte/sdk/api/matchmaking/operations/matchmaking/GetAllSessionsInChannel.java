@@ -31,6 +31,8 @@ import java.util.*;
  * Required Scope: social
  * 
  * Get all sessions in a channel.
+ * 
+ * if party_id value empty/null, field will not show in response body.
  */
 @Getter
 @Setter

@@ -48,16 +48,19 @@ public class PublicListCurrencies extends Operation {
      * fields as input parameter
      */
     private String namespace;
+    private String currencyType;
 
     /**
     * @param namespace required
     */
     @Builder
     public PublicListCurrencies(
-            String namespace
+            String namespace,
+            String currencyType
     )
     {
         this.namespace = namespace;
+        this.currencyType = currencyType;
         
     }
 
@@ -70,6 +73,12 @@ public class PublicListCurrencies extends Operation {
         return pathParams;
     }
 
+    @Override
+    public Map<String, List<String>> getQueryParams(){
+        Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("currencyType", this.currencyType == null ? null : Arrays.asList(this.currencyType));
+        return queryParams;
+    }
 
 
 
@@ -90,4 +99,10 @@ public class PublicListCurrencies extends Operation {
         throw new HttpResponseException(code, json);
     }
 
+    @Override
+    protected Map<String, String> getCollectionFormatMap() {
+        Map<String, String> result = new HashMap<>();
+        result.put("currencyType", "None");
+        return result;
+    }
 }

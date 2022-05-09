@@ -55,7 +55,7 @@ public class SearchChannelSpecificContent extends Operation {
     private String orderby;
     private String sortby;
     private String subtype;
-    private String tags;
+    private List<String> tags;
     private String type;
     private String userId;
 
@@ -75,7 +75,7 @@ public class SearchChannelSpecificContent extends Operation {
             String orderby,
             String sortby,
             String subtype,
-            String tags,
+            List<String> tags,
             String type,
             String userId
     )
@@ -120,7 +120,7 @@ public class SearchChannelSpecificContent extends Operation {
         queryParams.put("orderby", this.orderby == null ? null : Arrays.asList(this.orderby));
         queryParams.put("sortby", this.sortby == null ? null : Arrays.asList(this.sortby));
         queryParams.put("subtype", this.subtype == null ? null : Arrays.asList(this.subtype));
-        queryParams.put("tags", this.tags == null ? null : Arrays.asList(this.tags));
+        queryParams.put("tags", this.tags == null ? null : this.tags);
         queryParams.put("type", this.type == null ? null : Arrays.asList(this.type));
         queryParams.put("userId", this.userId == null ? null : Arrays.asList(this.userId));
         return queryParams;
@@ -159,7 +159,7 @@ public class SearchChannelSpecificContent extends Operation {
         result.put("orderby", "None");
         result.put("sortby", "None");
         result.put("subtype", "None");
-        result.put("tags", "None");
+        result.put("tags", "csv");
         result.put("type", "None");
         result.put("userId", "None");
         return result;

@@ -33,6 +33,9 @@ public class WalletInfo extends Model {
     @JsonProperty("balance")
     private Integer balance;
 
+    @JsonProperty("balanceOrigin")
+    private String balanceOrigin;
+
     @JsonProperty("createdAt")
     private String createdAt;
 
@@ -50,6 +53,15 @@ public class WalletInfo extends Model {
 
     @JsonProperty("status")
     private String status;
+
+    @JsonProperty("timeLimitedBalances")
+    private List<TimeLimitedBalance> timeLimitedBalances;
+
+    @JsonProperty("totalPermanentBalance")
+    private Integer totalPermanentBalance;
+
+    @JsonProperty("totalTimeLimitedBalance")
+    private Integer totalTimeLimitedBalance;
 
     @JsonProperty("updatedAt")
     private String updatedAt;

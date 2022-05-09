@@ -45,6 +45,9 @@ public class ClientmodelClientV3Response extends Model {
     @JsonProperty("clientPermissions")
     private List<AccountcommonPermissionV3> clientPermissions;
 
+    @JsonProperty("clientPlatform")
+    private String clientPlatform;
+
     @JsonProperty("createdAt")
     private String createdAt;
 

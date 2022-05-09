@@ -28,8 +28,8 @@ import java.util.*;
  *
  * Delete user's statItems given stat code.
  * Other detail info:
- *                 *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=8 (DELETE)
- *                 *  Returns : no content
+ *               *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=8 (DELETE)
+ *               *  Returns : no content
  */
 @Getter
 @Setter

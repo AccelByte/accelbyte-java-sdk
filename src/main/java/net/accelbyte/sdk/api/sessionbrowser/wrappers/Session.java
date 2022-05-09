@@ -294,6 +294,25 @@ public class Session {
     }
 
     /**
+     * @see UpdateSettings
+     */
+    public ModelsSessionResponse updateSettings(UpdateSettings input) throws HttpResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
      * @see GetRecentPlayer
      */
     public ModelsRecentPlayerQueryResponse getRecentPlayer(GetRecentPlayer input) throws HttpResponseException, IOException {

@@ -33,7 +33,30 @@ public class PaymentRequest extends Model {
     @JsonProperty("amount")
     private Integer amount;
 
+    @JsonProperty("walletPlatform")
+    private String walletPlatform;
 
+
+    
+    @JsonIgnore
+    public String getWalletPlatform() {
+        return this.walletPlatform;
+    }
+    
+    @JsonIgnore
+    public WalletPlatform getWalletPlatformAsEnum() {
+        return WalletPlatform.valueOf(this.walletPlatform);
+    }
+    
+    @JsonIgnore
+    public void setWalletPlatform(final String walletPlatform) {
+        this.walletPlatform = walletPlatform;
+    }
+    
+    @JsonIgnore
+    public void setWalletPlatformFromEnum(final WalletPlatform walletPlatform) {
+        this.walletPlatform = walletPlatform.toString();
+    }
 
     @JsonIgnore
     public PaymentRequest createFromJson(String json) throws JsonProcessingException {
@@ -46,4 +69,40 @@ public class PaymentRequest extends Model {
     }
 
     
+    public enum WalletPlatform {
+        Playstation("Playstation"),
+        Xbox("Xbox"),
+        Steam("Steam"),
+        Epic("Epic"),
+        IOS("IOS"),
+        GooglePlay("GooglePlay"),
+        Nintendo("Nintendo"),
+        Other("Other");
+
+        private String value;
+
+        WalletPlatform(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class PaymentRequestBuilder {
+        private String walletPlatform;
+        
+        
+        public PaymentRequestBuilder walletPlatform(final String walletPlatform) {
+            this.walletPlatform = walletPlatform;
+            return this;
+        }
+        
+        public PaymentRequestBuilder walletPlatformFromEnum(final WalletPlatform walletPlatform) {
+            this.walletPlatform = walletPlatform.toString();
+            return this;
+        }
+    }
 }

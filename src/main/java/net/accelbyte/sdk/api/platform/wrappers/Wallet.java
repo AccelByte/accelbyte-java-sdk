@@ -28,6 +28,101 @@ public class Wallet {
     }
 
     /**
+     * @see GetPlatformWalletConfig
+     */
+    public PlatformWalletConfigInfo getPlatformWalletConfig(GetPlatformWalletConfig input) throws HttpResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see UpdatePlatformWalletConfig
+     */
+    public PlatformWalletConfigInfo updatePlatformWalletConfig(UpdatePlatformWalletConfig input) throws HttpResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see ResetPlatformWalletConfig
+     */
+    public PlatformWalletConfigInfo resetPlatformWalletConfig(ResetPlatformWalletConfig input) throws HttpResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see QueryUserCurrencyWallets
+     */
+    public List<CurrencyWallet> queryUserCurrencyWallets(QueryUserCurrencyWallets input) throws HttpResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see ListUserCurrencyTransactions
+     */
+    public WalletTransactionPagingSlicedResult listUserCurrencyTransactions(ListUserCurrencyTransactions input) throws HttpResponseException, IOException {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
      * @see CheckWallet
      */
     public void checkWallet(CheckWallet input) throws HttpResponseException, IOException {
@@ -68,7 +163,7 @@ public class Wallet {
     /**
      * @see PayWithUserWallet
      */
-    public WalletInfo payWithUserWallet(PayWithUserWallet input) throws HttpResponseException, IOException {
+    public PlatformWallet payWithUserWallet(PayWithUserWallet input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +258,7 @@ public class Wallet {
     /**
      * @see ListUserWalletTransactions
      */
-    public WalletTransactionPagingSlicedResult listUserWalletTransactions(ListUserWalletTransactions input) throws HttpResponseException, IOException {
+    public DetailedWalletTransactionPagingSlicedResult listUserWalletTransactions(ListUserWalletTransactions input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +315,7 @@ public class Wallet {
     /**
      * @see PublicGetMyWallet
      */
-    public WalletInfo publicGetMyWallet(PublicGetMyWallet input) throws HttpResponseException, IOException {
+    public PlatformWallet publicGetMyWallet(PublicGetMyWallet input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +334,7 @@ public class Wallet {
     /**
      * @see PublicGetWallet
      */
-    public WalletInfo publicGetWallet(PublicGetWallet input) throws HttpResponseException, IOException {
+    public PlatformWallet publicGetWallet(PublicGetWallet input) throws HttpResponseException, IOException {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

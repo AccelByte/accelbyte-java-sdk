@@ -53,6 +53,7 @@ public class QueryWallets extends Operation {
     private String currencyCode;
     private Integer limit;
     private Integer offset;
+    private String origin;
     private String userId;
 
     /**
@@ -64,6 +65,7 @@ public class QueryWallets extends Operation {
             String currencyCode,
             Integer limit,
             Integer offset,
+            String origin,
             String userId
     )
     {
@@ -71,6 +73,7 @@ public class QueryWallets extends Operation {
         this.currencyCode = currencyCode;
         this.limit = limit;
         this.offset = offset;
+        this.origin = origin;
         this.userId = userId;
         
         securities.add("Bearer");
@@ -91,6 +94,7 @@ public class QueryWallets extends Operation {
         queryParams.put("currencyCode", this.currencyCode == null ? null : Arrays.asList(this.currencyCode));
         queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
         queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+        queryParams.put("origin", this.origin == null ? null : Arrays.asList(this.origin));
         queryParams.put("userId", this.userId == null ? null : Arrays.asList(this.userId));
         return queryParams;
     }
@@ -120,6 +124,7 @@ public class QueryWallets extends Operation {
         result.put("currencyCode", "None");
         result.put("limit", "None");
         result.put("offset", "None");
+        result.put("origin", "None");
         result.put("userId", "None");
         return result;
     }
