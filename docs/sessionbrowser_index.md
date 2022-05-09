@@ -21,6 +21,7 @@
 | `/sessionbrowser/namespaces/{namespace}/gamesession/{sessionID}/localds` | DELETE | DeleteSessionLocalDS | [DeleteSessionLocalDS](../src/main/java/net/accelbyte/sdk/api/sessionbrowser/operations/session/DeleteSessionLocalDS.java) | [DeleteSessionLocalDS](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/sessionbrowser/session/DeleteSessionLocalDS.java) |
 | `/sessionbrowser/namespaces/{namespace}/gamesession/{sessionID}/player` | POST | AddPlayerToSession | [AddPlayerToSession](../src/main/java/net/accelbyte/sdk/api/sessionbrowser/operations/session/AddPlayerToSession.java) | [AddPlayerToSession](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/sessionbrowser/session/AddPlayerToSession.java) |
 | `/sessionbrowser/namespaces/{namespace}/gamesession/{sessionID}/player/{userID}` | DELETE | RemovePlayerFromSession | [RemovePlayerFromSession](../src/main/java/net/accelbyte/sdk/api/sessionbrowser/operations/session/RemovePlayerFromSession.java) | [RemovePlayerFromSession](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/sessionbrowser/session/RemovePlayerFromSession.java) |
+| `/sessionbrowser/namespaces/{namespace}/gamesession/{sessionID}/settings` | PUT | UpdateSettings | [UpdateSettings](../src/main/java/net/accelbyte/sdk/api/sessionbrowser/operations/session/UpdateSettings.java) | [UpdateSettings](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/sessionbrowser/session/UpdateSettings.java) |
 | `/sessionbrowser/namespaces/{namespace}/recentplayer/{userID}` | GET | GetRecentPlayer | [GetRecentPlayer](../src/main/java/net/accelbyte/sdk/api/sessionbrowser/operations/session/GetRecentPlayer.java) | [GetRecentPlayer](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/sessionbrowser/session/GetRecentPlayer.java) |
 
 
@@ -54,5 +55,6 @@
 | `models.SessionResponse` | [ModelsSessionResponse](../src/main/java/net/accelbyte/sdk/api/sessionbrowser/models/ModelsSessionResponse.java) |
 | `models.StatusHistory` | [ModelsStatusHistory](../src/main/java/net/accelbyte/sdk/api/sessionbrowser/models/ModelsStatusHistory.java) |
 | `models.UpdateSessionRequest` | [ModelsUpdateSessionRequest](../src/main/java/net/accelbyte/sdk/api/sessionbrowser/models/ModelsUpdateSessionRequest.java) |
+| `models.UpdateSettingsRequest` | [ModelsUpdateSettingsRequest](../src/main/java/net/accelbyte/sdk/api/sessionbrowser/models/ModelsUpdateSettingsRequest.java) |
 | `response.Error` | [ResponseError](../src/main/java/net/accelbyte/sdk/api/sessionbrowser/models/ResponseError.java) |
 | `restapi.ErrorResponseV2` | [RestapiErrorResponseV2](../src/main/java/net/accelbyte/sdk/api/sessionbrowser/models/RestapiErrorResponseV2.java) |
