@@ -171,14 +171,14 @@ class TestCore {
         assertEquals("GET", result.getMethod());
         assertTrue(result.getArgs().size() == testParams.size());
         String delimiter = ","; // Collection format CSV by default
-        if (format == "ssv") {
+        if ("ssv".equals(format)) {
             delimiter = " ";
-        } else if (format == "tsv") {
+        } else if ("tsv".equals(format)) {
             delimiter = "\t";
-        } else if (format == "pipes") {
+        } else if ("pipes".equals(format)) {
             delimiter = "|";
         }
-        if (format == "multi") {
+        if ("multi".equals(format)) {
             assertEquals("[?value\"1a&, ?value\"1b&]",
                     result.getArgs().get("?key=1&").toString());
         } else {
