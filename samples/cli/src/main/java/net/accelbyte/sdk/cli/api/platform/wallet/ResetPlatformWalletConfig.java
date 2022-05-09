@@ -31,26 +31,23 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "publicGetWallet", mixinStandardHelpOptions = true)
-public class PublicGetWallet implements Callable<Integer> {
+@Command(name = "resetPlatformWalletConfig", mixinStandardHelpOptions = true)
+public class ResetPlatformWalletConfig implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(PublicGetWallet.class);
-
-    @Option(names = {"--currencyCode"}, description = "currencyCode")
-    String currencyCode;
+    private static final Logger log = LogManager.getLogger(ResetPlatformWalletConfig.class);
 
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
 
-    @Option(names = {"--userId"}, description = "userId")
-    String userId;
+    @Option(names = {"--platform"}, description = "platform")
+    String platform;
 
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new PublicGetWallet()).execute(args);
+        int exitCode = new CommandLine(new ResetPlatformWalletConfig()).execute(args);
         System.exit(exitCode);
     }
 
@@ -63,14 +60,13 @@ public class PublicGetWallet implements Callable<Integer> {
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             Wallet wrapper = new Wallet(sdk);
-            net.accelbyte.sdk.api.platform.operations.wallet.PublicGetWallet operation =
-                    net.accelbyte.sdk.api.platform.operations.wallet.PublicGetWallet.builder()
-                            .currencyCode(currencyCode)
+            net.accelbyte.sdk.api.platform.operations.wallet.ResetPlatformWalletConfig operation =
+                    net.accelbyte.sdk.api.platform.operations.wallet.ResetPlatformWalletConfig.builder()
                             .namespace(namespace)
-                            .userId(userId)
+                            .platform(platform)
                             .build();
-            PlatformWallet response =
-                    wrapper.publicGetWallet(operation);
+            PlatformWalletConfigInfo response =
+                    wrapper.resetPlatformWalletConfig(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

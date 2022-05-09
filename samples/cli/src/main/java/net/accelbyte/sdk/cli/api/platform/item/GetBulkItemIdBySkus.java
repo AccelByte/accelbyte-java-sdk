@@ -6,12 +6,12 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.platform.wallet;
+package net.accelbyte.sdk.cli.api.platform.item;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.wrappers.Wallet;
+import net.accelbyte.sdk.api.platform.wrappers.Item;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -31,26 +31,26 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "publicGetWallet", mixinStandardHelpOptions = true)
-public class PublicGetWallet implements Callable<Integer> {
+@Command(name = "getBulkItemIdBySkus", mixinStandardHelpOptions = true)
+public class GetBulkItemIdBySkus implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(PublicGetWallet.class);
-
-    @Option(names = {"--currencyCode"}, description = "currencyCode")
-    String currencyCode;
+    private static final Logger log = LogManager.getLogger(GetBulkItemIdBySkus.class);
 
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
 
-    @Option(names = {"--userId"}, description = "userId")
-    String userId;
+    @Option(names = {"--sku"}, description = "sku")
+    List<String> sku;
+
+    @Option(names = {"--storeId"}, description = "storeId")
+    String storeId;
 
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new PublicGetWallet()).execute(args);
+        int exitCode = new CommandLine(new GetBulkItemIdBySkus()).execute(args);
         System.exit(exitCode);
     }
 
@@ -62,15 +62,15 @@ public class PublicGetWallet implements Callable<Integer> {
                 httpClient.setLogger(new OkhttpLogger());
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            Wallet wrapper = new Wallet(sdk);
-            net.accelbyte.sdk.api.platform.operations.wallet.PublicGetWallet operation =
-                    net.accelbyte.sdk.api.platform.operations.wallet.PublicGetWallet.builder()
-                            .currencyCode(currencyCode)
+            Item wrapper = new Item(sdk);
+            net.accelbyte.sdk.api.platform.operations.item.GetBulkItemIdBySkus operation =
+                    net.accelbyte.sdk.api.platform.operations.item.GetBulkItemIdBySkus.builder()
                             .namespace(namespace)
-                            .userId(userId)
+                            .sku(sku)
+                            .storeId(storeId)
                             .build();
-            PlatformWallet response =
-                    wrapper.publicGetWallet(operation);
+            List<ItemId> response =
+                    wrapper.getBulkItemIdBySkus(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

@@ -48,6 +48,9 @@ public class QueryWallets implements Callable<Integer> {
     @Option(names = {"--offset"}, description = "offset")
     Integer offset;
 
+    @Option(names = {"--origin"}, description = "origin")
+    String origin;
+
     @Option(names = {"--userId"}, description = "userId")
     String userId;
 
@@ -75,6 +78,7 @@ public class QueryWallets implements Callable<Integer> {
                             .currencyCode(currencyCode)
                             .limit(limit)
                             .offset(offset)
+                            .origin(origin)
                             .userId(userId)
                             .build();
             WalletPagingSlicedResult response =

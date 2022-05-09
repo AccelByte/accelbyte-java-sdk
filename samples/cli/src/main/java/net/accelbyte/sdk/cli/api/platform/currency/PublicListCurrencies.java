@@ -39,6 +39,9 @@ public class PublicListCurrencies implements Callable<Integer> {
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
 
+    @Option(names = {"--currencyType"}, description = "currencyType")
+    String currencyType;
+
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
@@ -60,6 +63,7 @@ public class PublicListCurrencies implements Callable<Integer> {
             net.accelbyte.sdk.api.platform.operations.currency.PublicListCurrencies operation =
                     net.accelbyte.sdk.api.platform.operations.currency.PublicListCurrencies.builder()
                             .namespace(namespace)
+                            .currencyType(currencyType)
                             .build();
             List<CurrencyInfo> response =
                     wrapper.publicListCurrencies(operation);

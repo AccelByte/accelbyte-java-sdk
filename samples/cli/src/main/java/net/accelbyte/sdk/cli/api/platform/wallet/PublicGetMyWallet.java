@@ -65,7 +65,7 @@ public class PublicGetMyWallet implements Callable<Integer> {
                             .currencyCode(currencyCode)
                             .namespace(namespace)
                             .build();
-            WalletInfo response =
+            PlatformWallet response =
                     wrapper.publicGetMyWallet(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);

@@ -77,7 +77,7 @@ public class ListUserWalletTransactions implements Callable<Integer> {
                             .limit(limit)
                             .offset(offset)
                             .build();
-            WalletTransactionPagingSlicedResult response =
+            DetailedWalletTransactionPagingSlicedResult response =
                     wrapper.listUserWalletTransactions(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);

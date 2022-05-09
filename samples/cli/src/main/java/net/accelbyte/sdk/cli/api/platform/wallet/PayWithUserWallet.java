@@ -73,7 +73,7 @@ public class PayWithUserWallet implements Callable<Integer> {
                             .userId(userId)
                             .body(new ObjectMapper().readValue(body, PaymentRequest.class)) 
                             .build();
-            WalletInfo response =
+            PlatformWallet response =
                     wrapper.payWithUserWallet(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);

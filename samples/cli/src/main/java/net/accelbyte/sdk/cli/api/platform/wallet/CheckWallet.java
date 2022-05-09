@@ -45,6 +45,9 @@ public class CheckWallet implements Callable<Integer> {
     @Option(names = {"--userId"}, description = "userId")
     String userId;
 
+    @Option(names = {"--origin"}, description = "origin")
+    String origin;
+
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
@@ -68,6 +71,7 @@ public class CheckWallet implements Callable<Integer> {
                             .currencyCode(currencyCode)
                             .namespace(namespace)
                             .userId(userId)
+                            .origin(origin)
                             .build();
                     wrapper.checkWallet(operation);
             log.info("Operation successful");

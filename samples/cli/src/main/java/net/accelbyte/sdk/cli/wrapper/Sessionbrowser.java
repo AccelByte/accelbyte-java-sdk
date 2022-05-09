@@ -29,6 +29,7 @@ import picocli.CommandLine.Command;
                 DeleteSessionLocalDS.class,
                 AddPlayerToSession.class,
                 RemovePlayerFromSession.class,
+                UpdateSettings.class,
                 GetRecentPlayer.class,
         }
 )

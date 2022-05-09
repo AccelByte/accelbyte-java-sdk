@@ -31,10 +31,10 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "publicGetWallet", mixinStandardHelpOptions = true)
-public class PublicGetWallet implements Callable<Integer> {
+@Command(name = "listUserCurrencyTransactions", mixinStandardHelpOptions = true)
+public class ListUserCurrencyTransactions implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(PublicGetWallet.class);
+    private static final Logger log = LogManager.getLogger(ListUserCurrencyTransactions.class);
 
     @Option(names = {"--currencyCode"}, description = "currencyCode")
     String currencyCode;
@@ -45,12 +45,18 @@ public class PublicGetWallet implements Callable<Integer> {
     @Option(names = {"--userId"}, description = "userId")
     String userId;
 
+    @Option(names = {"--limit"}, description = "limit")
+    Integer limit;
+
+    @Option(names = {"--offset"}, description = "offset")
+    Integer offset;
+
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new PublicGetWallet()).execute(args);
+        int exitCode = new CommandLine(new ListUserCurrencyTransactions()).execute(args);
         System.exit(exitCode);
     }
 
@@ -63,14 +69,16 @@ public class PublicGetWallet implements Callable<Integer> {
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             Wallet wrapper = new Wallet(sdk);
-            net.accelbyte.sdk.api.platform.operations.wallet.PublicGetWallet operation =
-                    net.accelbyte.sdk.api.platform.operations.wallet.PublicGetWallet.builder()
+            net.accelbyte.sdk.api.platform.operations.wallet.ListUserCurrencyTransactions operation =
+                    net.accelbyte.sdk.api.platform.operations.wallet.ListUserCurrencyTransactions.builder()
                             .currencyCode(currencyCode)
                             .namespace(namespace)
                             .userId(userId)
+                            .limit(limit)
+                            .offset(offset)
                             .build();
-            PlatformWallet response =
-                    wrapper.publicGetWallet(operation);
+            WalletTransactionPagingSlicedResult response =
+                    wrapper.listUserCurrencyTransactions(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

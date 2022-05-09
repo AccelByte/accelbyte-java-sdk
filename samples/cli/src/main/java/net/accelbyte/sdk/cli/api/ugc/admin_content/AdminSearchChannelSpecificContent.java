@@ -67,7 +67,7 @@ public class AdminSearchChannelSpecificContent implements Callable<Integer> {
     String subtype;
 
     @Option(names = {"--tags"}, description = "tags")
-    String tags;
+    List<String> tags;
 
     @Option(names = {"--type"}, description = "type")
     String type;

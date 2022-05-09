@@ -31,13 +31,10 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-@Command(name = "publicGetWallet", mixinStandardHelpOptions = true)
-public class PublicGetWallet implements Callable<Integer> {
+@Command(name = "queryUserCurrencyWallets", mixinStandardHelpOptions = true)
+public class QueryUserCurrencyWallets implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(PublicGetWallet.class);
-
-    @Option(names = {"--currencyCode"}, description = "currencyCode")
-    String currencyCode;
+    private static final Logger log = LogManager.getLogger(QueryUserCurrencyWallets.class);
 
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
@@ -50,7 +47,7 @@ public class PublicGetWallet implements Callable<Integer> {
     boolean logging;
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new PublicGetWallet()).execute(args);
+        int exitCode = new CommandLine(new QueryUserCurrencyWallets()).execute(args);
         System.exit(exitCode);
     }
 
@@ -63,14 +60,13 @@ public class PublicGetWallet implements Callable<Integer> {
             }
             AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
             Wallet wrapper = new Wallet(sdk);
-            net.accelbyte.sdk.api.platform.operations.wallet.PublicGetWallet operation =
-                    net.accelbyte.sdk.api.platform.operations.wallet.PublicGetWallet.builder()
-                            .currencyCode(currencyCode)
+            net.accelbyte.sdk.api.platform.operations.wallet.QueryUserCurrencyWallets operation =
+                    net.accelbyte.sdk.api.platform.operations.wallet.QueryUserCurrencyWallets.builder()
                             .namespace(namespace)
                             .userId(userId)
                             .build();
-            PlatformWallet response =
-                    wrapper.publicGetWallet(operation);
+            List<CurrencyWallet> response =
+                    wrapper.queryUserCurrencyWallets(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
             return 0;

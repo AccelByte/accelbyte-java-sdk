@@ -22,13 +22,13 @@ import net.accelbyte.sdk.cli.api.platform.order.*;
 import net.accelbyte.sdk.cli.api.platform.payment_callback_config.*;
 import net.accelbyte.sdk.cli.api.platform.payment.*;
 import net.accelbyte.sdk.cli.api.platform.payment_dedicated.*;
+import net.accelbyte.sdk.cli.api.platform.wallet.*;
 import net.accelbyte.sdk.cli.api.platform.reward.*;
 import net.accelbyte.sdk.cli.api.platform.store.*;
 import net.accelbyte.sdk.cli.api.platform.catalog_changes.*;
 import net.accelbyte.sdk.cli.api.platform.subscription.*;
 import net.accelbyte.sdk.cli.api.platform.ticket.*;
 import net.accelbyte.sdk.cli.api.platform.anonymization.*;
-import net.accelbyte.sdk.cli.api.platform.wallet.*;
 import net.accelbyte.sdk.cli.api.platform.order_dedicated.*;
 import net.accelbyte.sdk.cli.api.platform.payment_config.*;
 import net.accelbyte.sdk.cli.api.platform.payment_station.*;
@@ -119,6 +119,7 @@ import picocli.CommandLine.Command;
                 GetItemBySku.class,
                 GetLocaleItemBySku.class,
                 GetItemIdBySku.class,
+                GetBulkItemIdBySkus.class,
                 BulkGetLocaleItems.class,
                 SearchItems.class,
                 QueryUncategorizedItems.class,
@@ -157,6 +158,9 @@ import picocli.CommandLine.Command;
                 RefundPaymentOrderByDedicated.class,
                 SimulatePaymentOrderNotification.class,
                 GetPaymentOrderChargeStatus.class,
+                GetPlatformWalletConfig.class,
+                UpdatePlatformWalletConfig.class,
+                ResetPlatformWalletConfig.class,
                 CreateReward.class,
                 QueryRewards.class,
                 ExportRewards.class,
@@ -219,6 +223,7 @@ import picocli.CommandLine.Command;
                 QueryAllUserIAPOrders.class,
                 MockFulfillIAPItem.class,
                 QueryUserOrders.class,
+                AdminCreateUserOrder.class,
                 CountOfPurchasedItem.class,
                 GetUserOrder.class,
                 UpdateUserOrderStatus.class,
@@ -241,6 +246,8 @@ import picocli.CommandLine.Command;
                 GetUserSubscriptionBillingHistories.class,
                 ProcessUserSubscriptionNotification.class,
                 AcquireUserTicket.class,
+                QueryUserCurrencyWallets.class,
+                ListUserCurrencyTransactions.class,
                 CheckWallet.class,
                 CreditUserWallet.class,
                 PayWithUserWallet.class,
