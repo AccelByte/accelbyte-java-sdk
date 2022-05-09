@@ -1,17 +1,65 @@
+<a name="v0.10.0"></a>
+## [v0.10.0] - 2022-05-09
+### Chore
+- gitignore tap test results
+- bump version
+- **core:** helper - minor clean up
+- **core:** operation - remove unused toJson and createFromJson methods
+- **core:** model - make abstract
+- **core:** operation - isValid method is abstract now
+- **core:** operation - use parent GetFullUrl method
+- **core:** improve base64 encoding in okhttplogger
+- **core:** refactor sdkinfo class
+- **doc:** regenerate doc index for justice 3.22
+- **model:** remove unused getFieldInfo method
+- **samples:** cli - use builder pattern
+- **samples:** regenerate cli sample app for justice 3.22
+- **sdk:** regenerate sdk for justice 3.22
+- **spec:** update spec for justice 3.22
+- **test:** move cli test shell scripts
+- **test:** revise HttpbinOperation for testing
+- **test:** regenerate cli sample app test for justice 3.22
+- **test:** rename test core and test integration
+
+### Ci
+- **jenkinsfile:** rename core tests
+- **jenkinsfile:** revise lint code
+- **jenkinsfile:** send build status earlier
+- **jenkinsfile.nightly:** revise integration tests
+- **nightly:** fix wrong cli test tap result path
+
+### Docs
+- update changelog
+- **index:** add example column
+
+### Fix
+- **core:** okhttpclient - empty body handling
+- **helper:** createFullUrl - query string key not escaped properly
+- **samples:** cli - make logging optional on login, loginclient, logout
+
+### Test
+- **core:** fix string equals problem
+- **core:** add http response test
+- **core:** revise http request test
+- **integration:** fix possible null error when parsing date
+- **integration:** rename tests
+- **integration:** fix execution ordering
+
+
 <a name="v0.9.0"></a>
 ## [v0.9.0] - 2022-04-26
 ### Chore
 - bump version
-- **core:** operation - remove unnecessary jsonignore
 - **core:** refactor okhttpclient send request logic
 - **core:** operation - make getCollectionFormatMap protected
 - **core:** operation - remove unused method getAllParams
+- **core:** operation - remove unused method getHeaderParams
 - **core:** operation - remove parseResponse, handleEmptyResponse methods
 - **core:** operation - make abstract
-- **core:** operation - remove unused method getHeaderParams
 - **core:** operation - make createFullUrl protected
 - **core:** operation - move createFullUrl logic to helper
 - **core:** revise core Header to HttpHeaders
+- **core:** operation - remove unnecessary jsonignore
 - **doc:** regenerate doc index for justice 3.21
 - **gradle:** use gradle lombok plugin
 - **makefile:** pin gradle docker image to version 7-jdk8
@@ -22,10 +70,10 @@
 - **sdk:** refactor accelbytesdk
 - **sdk:** regenerate sdk (prepare to add enum)
 - **sdk:** regenerate sdk for justice 3.21
-- **spec:** update spec for more cookie support
+- **spec:** update spec
 - **spec:** update spec for justice 3.21
 - **spec:** update spec for cookie support
-- **spec:** update spec
+- **spec:** update spec for more cookie support
 - **test:** regenerate cli test for justice 3.21
 - **test:** remove run-java-cli-all-unit-test.sh
 
@@ -37,6 +85,7 @@
 - **nightly:** publish tap report
 
 ### Docs
+- update changelog
 - **cli:** use installdist instead of fatjar
 - **readme:** mention reference docs + fix wording
 
@@ -334,6 +383,7 @@
 - replace unnecessary object
 
 
+[v0.10.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.9.0...v0.10.0
 [v0.9.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.8.0...v0.9.0
 [v0.8.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.7.0...v0.8.0
 [v0.7.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.6.0...v0.7.0
