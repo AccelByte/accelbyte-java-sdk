@@ -6,6 +6,8 @@
 
 package net.accelbyte.sdk.core;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -73,6 +75,11 @@ import net.accelbyte.sdk.api.eventlog.models.ModelsGenericQueryPayload;
 import net.accelbyte.sdk.api.eventlog.operations.event_v2.GetEventSpecificUserV2Handler;
 import net.accelbyte.sdk.api.eventlog.operations.event_v2.QueryEventStreamHandler;
 import net.accelbyte.sdk.api.eventlog.wrappers.EventV2;
+import net.accelbyte.sdk.api.gametelemetry.models.TelemetryBody;
+import net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet;
+import net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost;
+import net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut;
+import net.accelbyte.sdk.api.gametelemetry.wrappers.GametelemetryOperations;
 import net.accelbyte.sdk.api.gdpr.operations.data_retrieval.DeleteAdminEmailConfiguration;
 import net.accelbyte.sdk.api.gdpr.operations.data_retrieval.GetAdminEmailConfiguration;
 import net.accelbyte.sdk.api.gdpr.operations.data_retrieval.SaveAdminEmailConfiguration;
@@ -1176,10 +1183,51 @@ class TestIntegration {
                                 AdminDeleteTag.builder().namespace(namespace).tagId(tag_id).build());
         }
 
+        @Test
+        @Order(15)
+        void testServiceGametelemetry() throws HttpResponseException, IOException {
+                final String steamId = "76561199259217491";
+                final String playTime = "4";
+
+                GametelemetryOperations wGameTelemetry = new GametelemetryOperations(_sdk);
+
+                TelemetryBody telemetryBody = TelemetryBody.builder()
+                                .eventId("javasdk")
+                                .eventName("javasdkevent")
+                                .eventNamespace("test")
+                                .eventTimestamp("0001-01-01T00:00:00.000Z")
+                                .payload(Collections.singletonMap("foo", "bar"))
+                                .build();
+
+                ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost opSave = ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost
+                                .builder()
+                                .body(Arrays.asList(telemetryBody))
+                                .build();
+
+                wGameTelemetry.protectedSaveEventsGameTelemetryV1ProtectedEventsPost(opSave);
+
+                ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut opPut =
+                    ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut.builder()
+                            .playtime(playTime)
+                            .steamId(steamId)
+                            .build();
+                        
+                wGameTelemetry.protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut(opPut);
+
+                ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet opGet = ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet
+                                .builder()
+                                .steamId(steamId)
+                                .build();
+
+                Map<String, ?> resGet = wGameTelemetry.protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(opGet);
+
+                assertEquals(playTime, resGet.get("total_playtime"));
+        }
+
         // Client integration test
 
         @Test
-        @Order(15)
+        @Order(50)
         void testScenarioUserStats() throws HttpResponseException, IOException {
                 final String namespace = System.getenv("AB_NAMESPACE");
                 final String user_login_id = System.getenv("AB_USERNAME");
@@ -1233,7 +1281,7 @@ class TestIntegration {
         // Matchmaking integration test
 
         @Test
-        @Order(16)
+        @Order(51)
         void testScenarioMatchmaking() throws HttpResponseException, IOException, InterruptedException {
                 testDsmcLocalServer();
                 testDsmc();
