@@ -34,7 +34,7 @@ public class AccelByteSDK {
     private static final String COOKIE_KEY_ACCESS_TOKEN = "access_token";
     private static final String LOGIN_USER_SCOPE = "commerce account social publishing analytics";
 
-    AccelByteConfig sdkConfiguration;
+    private AccelByteConfig sdkConfiguration;
 
     public AccelByteSDK(AccelByteConfig sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
