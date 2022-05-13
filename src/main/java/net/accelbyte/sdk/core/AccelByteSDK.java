@@ -9,6 +9,7 @@ package net.accelbyte.sdk.core;
 import net.accelbyte.sdk.api.iam.models.OauthmodelTokenResponseV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthorizeV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenGrantV3;
+import net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthorizeV3.CodeChallengeMethod;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.UserAuthenticationV3;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20Extension;
@@ -30,6 +31,9 @@ import java.util.List;
 import java.util.Map;
 
 public class AccelByteSDK {
+    private static final String COOKIE_KEY_ACCESS_TOKEN = "access_token";
+    private static final String LOGIN_USER_SCOPE = "commerce account social publishing analytics";
+
     AccelByteConfig sdkConfiguration;
 
     public AccelByteSDK(AccelByteConfig sdkConfiguration) {
@@ -46,7 +50,7 @@ public class AccelByteSDK {
     }
 
     public HttpResponse runRequest(Operation operation) throws IOException {
-        String selectedSecurity = "Basic";
+        String selectedSecurity = Operation.Security.Basic.toString();
         if (!operation.getPreferredSecurityMethod().isEmpty())
             selectedSecurity = operation.getPreferredSecurityMethod();
         else if (operation.getSecurities().size() > 0) {
@@ -55,25 +59,22 @@ public class AccelByteSDK {
         final HttpHeaders headers = new HttpHeaders();
         final String token = sdkConfiguration.getTokenRepository().getToken();
         final Map<String, String> cookies = operation.getCookieParams();
-        switch (selectedSecurity) {
-            case "Basic":
-                final String clientId = sdkConfiguration.getConfigRepository()
-                        .getClientId();
-                final String clientSecret = sdkConfiguration.getConfigRepository()
-                        .getClientSecret();
+        if (Operation.Security.Basic.toString().equals(selectedSecurity)) {
+            final String clientId = sdkConfiguration.getConfigRepository()
+                    .getClientId();
+            final String clientSecret = sdkConfiguration.getConfigRepository()
+                    .getClientSecret();
+            headers.put(HttpHeaders.AUTHORIZATION,
+                    Credentials.basic(clientId, clientSecret));
+        } else if (Operation.Security.Bearer.toString().equals(selectedSecurity)) {
+            if (token != null && !token.equals("")) {
                 headers.put(HttpHeaders.AUTHORIZATION,
-                        Credentials.basic(clientId, clientSecret));
-                break;
-            case "Bearer":
-                if (token != null && !token.equals("")) {
-                    headers.put(HttpHeaders.AUTHORIZATION, "Bearer " + token);
-                }
-                break;
-            case "Cookie":
-                if (token != null && !token.equals("")) {
-                    cookies.put("access_token", token);
-                }
-                break;
+                        Operation.Security.Bearer.toString() + " " + token);
+            }
+        } else if (Operation.Security.Cookie.toString().equals(selectedSecurity)) {
+            if (token != null && !token.equals("")) {
+                cookies.put(COOKIE_KEY_ACCESS_TOKEN, token);
+            }
         }
         if (sdkConfiguration.getConfigRepository().isAmazonTraceId()) {
             final String version = sdkConfiguration.getConfigRepository()
@@ -95,8 +96,8 @@ public class AccelByteSDK {
         if (cookies.size() > 0) {
             final List<String> cookieEntries = new ArrayList<String>();
             for (Map.Entry<String, String> key : cookies.entrySet()) {
-                cookieEntries.add(URLEncoder.encode(key.getKey(), "UTF-8") +
-                        "=" + URLEncoder.encode(key.getValue(), "UTF-8"));
+                cookieEntries.add(URLEncoder.encode(key.getKey(), StandardCharsets.UTF_8.toString()) +
+                        "=" + URLEncoder.encode(key.getValue(), StandardCharsets.UTF_8.toString()));
             }
             headers.put(HttpHeaders.COOKIE, String.join("; ", cookieEntries));
         }
@@ -115,10 +116,10 @@ public class AccelByteSDK {
             final OAuth20 oAuth20 = new OAuth20(this);
             final AuthorizeV3 authorizeV3 = AuthorizeV3.builder()
                     .codeChallenge(codeChallenge)
-                    .codeChallengeMethod("S256")
-                    .scope("commerce account social publishing analytics")
+                    .codeChallengeMethodFromEnum(CodeChallengeMethod.S256)
+                    .scope(LOGIN_USER_SCOPE)
                     .clientId(clientId)
-                    .responseType("code")
+                    .responseTypeFromEnum(AuthorizeV3.ResponseType.Code)
                     .build();
             final String authorizeResponse = oAuth20.authorizeV3(authorizeV3);
             final List<NameValuePair> authorizeParams = URLEncodedUtils.parse(
@@ -152,7 +153,7 @@ public class AccelByteSDK {
                     .clientId(clientId)
                     .code(code)
                     .codeVerifier(codeVerifier)
-                    .grantType("authorization_code")
+                    .grantTypeFromEnum(TokenGrantV3.GrantType.AuthorizationCode)
                     .build();
             final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
             this.sdkConfiguration.getTokenRepository().storeToken(token.getAccessToken());
@@ -166,7 +167,7 @@ public class AccelByteSDK {
     public boolean loginClient() {
         try {
             final TokenGrantV3 tokenGrantV3 = TokenGrantV3.builder()
-                    .grantType("client_credentials")
+                    .grantTypeFromEnum(TokenGrantV3.GrantType.ClientCredentials)
                     .build();
             final OAuth20 oAuth20 = new OAuth20(this);
             final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);

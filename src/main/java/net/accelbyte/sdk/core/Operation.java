@@ -59,4 +59,21 @@ public abstract class Operation {
     protected Map<String, String> getCollectionFormatMap() {
         return new HashMap<>();
     }
+
+    public enum Security {
+        Basic("Basic"),
+        Bearer("Bearer"),
+        Cookie("Cookie");
+
+        private String value;
+
+        Security(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
 }
