@@ -208,4 +208,41 @@ public class PublicNormalizePaymentReturnUrl extends Operation {
         result.put("returnUrl", "None");
         return result;
     }
+    public enum PaymentProvider {
+        ADYEN("ADYEN"),
+        ALIPAY("ALIPAY"),
+        CHECKOUT("CHECKOUT"),
+        PAYPAL("PAYPAL"),
+        STRIPE("STRIPE"),
+        WALLET("WALLET"),
+        WXPAY("WXPAY"),
+        XSOLLA("XSOLLA");
+
+        private String value;
+
+        PaymentProvider(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class PublicNormalizePaymentReturnUrlBuilder {
+        private String paymentProvider;
+        
+        
+        public PublicNormalizePaymentReturnUrlBuilder paymentProvider(final String paymentProvider) {
+            this.paymentProvider = paymentProvider;
+            return this;
+        }
+        
+        public PublicNormalizePaymentReturnUrlBuilder paymentProviderFromEnum(final PaymentProvider paymentProvider) {
+            this.paymentProvider = paymentProvider.toString();
+            return this;
+        }
+    }
 }

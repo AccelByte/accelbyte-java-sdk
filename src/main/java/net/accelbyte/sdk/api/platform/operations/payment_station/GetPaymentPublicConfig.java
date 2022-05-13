@@ -123,4 +123,41 @@ public class GetPaymentPublicConfig extends Operation {
         result.put("region", "None");
         return result;
     }
+    public enum PaymentProvider {
+        ADYEN("ADYEN"),
+        ALIPAY("ALIPAY"),
+        CHECKOUT("CHECKOUT"),
+        PAYPAL("PAYPAL"),
+        STRIPE("STRIPE"),
+        WALLET("WALLET"),
+        WXPAY("WXPAY"),
+        XSOLLA("XSOLLA");
+
+        private String value;
+
+        PaymentProvider(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class GetPaymentPublicConfigBuilder {
+        private String paymentProvider;
+        
+        
+        public GetPaymentPublicConfigBuilder paymentProvider(final String paymentProvider) {
+            this.paymentProvider = paymentProvider;
+            return this;
+        }
+        
+        public GetPaymentPublicConfigBuilder paymentProviderFromEnum(final PaymentProvider paymentProvider) {
+            this.paymentProvider = paymentProvider.toString();
+            return this;
+        }
+    }
 }

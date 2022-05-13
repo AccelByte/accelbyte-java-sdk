@@ -120,4 +120,38 @@ public class PublicGetMyEntitlementOwnershipBySku extends Operation {
         result.put("sku", "None");
         return result;
     }
+    public enum EntitlementClazz {
+        APP("APP"),
+        CODE("CODE"),
+        ENTITLEMENT("ENTITLEMENT"),
+        MEDIA("MEDIA"),
+        SUBSCRIPTION("SUBSCRIPTION");
+
+        private String value;
+
+        EntitlementClazz(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class PublicGetMyEntitlementOwnershipBySkuBuilder {
+        private String entitlementClazz;
+        
+        
+        public PublicGetMyEntitlementOwnershipBySkuBuilder entitlementClazz(final String entitlementClazz) {
+            this.entitlementClazz = entitlementClazz;
+            return this;
+        }
+        
+        public PublicGetMyEntitlementOwnershipBySkuBuilder entitlementClazzFromEnum(final EntitlementClazz entitlementClazz) {
+            this.entitlementClazz = entitlementClazz.toString();
+            return this;
+        }
+    }
 }

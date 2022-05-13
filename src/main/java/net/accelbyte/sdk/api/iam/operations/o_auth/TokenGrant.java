@@ -348,4 +348,37 @@ public class TokenGrant extends Operation {
         throw new HttpResponseException(code, json);
     }
 
+    public enum GrantType {
+        AuthorizationCode("authorization_code"),
+        ClientCredentials("client_credentials"),
+        Password("password"),
+        RefreshToken("refresh_token");
+
+        private String value;
+
+        GrantType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class TokenGrantBuilder {
+        private String grantType;
+        
+        
+        public TokenGrantBuilder grantType(final String grantType) {
+            this.grantType = grantType;
+            return this;
+        }
+        
+        public TokenGrantBuilder grantTypeFromEnum(final GrantType grantType) {
+            this.grantType = grantType.toString();
+            return this;
+        }
+    }
 }

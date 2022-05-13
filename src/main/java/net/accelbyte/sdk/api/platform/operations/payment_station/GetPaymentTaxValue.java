@@ -124,4 +124,41 @@ public class GetPaymentTaxValue extends Operation {
         result.put("paymentProvider", "None");
         return result;
     }
+    public enum PaymentProvider {
+        ADYEN("ADYEN"),
+        ALIPAY("ALIPAY"),
+        CHECKOUT("CHECKOUT"),
+        PAYPAL("PAYPAL"),
+        STRIPE("STRIPE"),
+        WALLET("WALLET"),
+        WXPAY("WXPAY"),
+        XSOLLA("XSOLLA");
+
+        private String value;
+
+        PaymentProvider(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class GetPaymentTaxValueBuilder {
+        private String paymentProvider;
+        
+        
+        public GetPaymentTaxValueBuilder paymentProvider(final String paymentProvider) {
+            this.paymentProvider = paymentProvider;
+            return this;
+        }
+        
+        public GetPaymentTaxValueBuilder paymentProviderFromEnum(final PaymentProvider paymentProvider) {
+            this.paymentProvider = paymentProvider.toString();
+            return this;
+        }
+    }
 }

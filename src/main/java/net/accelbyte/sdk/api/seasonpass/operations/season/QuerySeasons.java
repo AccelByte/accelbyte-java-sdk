@@ -119,4 +119,38 @@ public class QuerySeasons extends Operation {
         result.put("status", "multi");
         return result;
     }
+    public enum Status {
+        DRAFT("DRAFT"),
+        PUBLISHED("PUBLISHED"),
+        RETIRED("RETIRED");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class QuerySeasonsBuilder {
+        private List<String> status;
+        
+        
+        public QuerySeasonsBuilder status(final List<String> status) {
+            this.status = status;
+            return this;
+        }
+        
+        public QuerySeasonsBuilder statusFromEnum(final List<Status> status) {
+            ArrayList<String> en = new ArrayList<String>();
+            for(Status e : status) en.add(e.toString());
+            this.status = en;
+            return this;
+        }
+    }
 }

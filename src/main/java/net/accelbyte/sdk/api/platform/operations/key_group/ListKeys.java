@@ -128,4 +128,35 @@ public class ListKeys extends Operation {
         result.put("status", "None");
         return result;
     }
+    public enum Status {
+        ACQUIRED("ACQUIRED"),
+        ACTIVE("ACTIVE");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class ListKeysBuilder {
+        private String status;
+        
+        
+        public ListKeysBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public ListKeysBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
+    }
 }

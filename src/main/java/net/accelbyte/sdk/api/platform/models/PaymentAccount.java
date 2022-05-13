@@ -73,8 +73,8 @@ public class PaymentAccount extends Model {
 
     
     public enum Type {
-        Card("Card"),
-        Paypal("Paypal");
+        Card("card"),
+        Paypal("paypal");
 
         private String value;
 

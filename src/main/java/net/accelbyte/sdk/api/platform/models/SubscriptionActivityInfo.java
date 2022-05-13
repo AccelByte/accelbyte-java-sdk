@@ -131,10 +131,10 @@ public class SubscriptionActivityInfo extends Model {
     public enum Action {
         SUBSCRIBE("SUBSCRIBE"),
         CANCEL("CANCEL"),
-        IMMEDIATECANCEL("IMMEDIATECANCEL"),
+        IMMEDIATECANCEL("IMMEDIATE_CANCEL"),
         RESUBSCRIBE("RESUBSCRIBE"),
-        GRANTDAYS("GRANTDAYS"),
-        CHANGEBILLINGACCOUNT("CHANGEBILLINGACCOUNT");
+        GRANTDAYS("GRANT_DAYS"),
+        CHANGEBILLINGACCOUNT("CHANGE_BILLING_ACCOUNT");
 
         private String value;
 

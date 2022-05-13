@@ -151,7 +151,7 @@ public class XsollaPaywallConfig extends Model {
     public enum Theme {
         DEFAULT("DEFAULT"),
         DARK("DARK"),
-        DEFAULTDARK("DEFAULTDARK");
+        DEFAULTDARK("DEFAULT_DARK");
 
         private String value;
 

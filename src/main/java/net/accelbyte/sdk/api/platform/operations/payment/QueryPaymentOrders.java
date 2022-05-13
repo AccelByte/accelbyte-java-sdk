@@ -128,4 +128,73 @@ public class QueryPaymentOrders extends Operation {
         result.put("status", "None");
         return result;
     }
+    public enum Channel {
+        EXTERNAL("EXTERNAL"),
+        INTERNAL("INTERNAL");
+
+        private String value;
+
+        Channel(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Status {
+        AUTHORISED("AUTHORISED"),
+        AUTHORISEFAILED("AUTHORISE_FAILED"),
+        CHARGEBACK("CHARGEBACK"),
+        CHARGEBACKREVERSED("CHARGEBACK_REVERSED"),
+        CHARGED("CHARGED"),
+        CHARGEFAILED("CHARGE_FAILED"),
+        DELETED("DELETED"),
+        INIT("INIT"),
+        NOTIFICATIONOFCHARGEBACK("NOTIFICATION_OF_CHARGEBACK"),
+        REFUNDED("REFUNDED"),
+        REFUNDING("REFUNDING"),
+        REFUNDFAILED("REFUND_FAILED"),
+        REQUESTFORINFORMATION("REQUEST_FOR_INFORMATION");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class QueryPaymentOrdersBuilder {
+        private String channel;
+        private String status;
+        
+        
+        public QueryPaymentOrdersBuilder channel(final String channel) {
+            this.channel = channel;
+            return this;
+        }
+        
+        public QueryPaymentOrdersBuilder channelFromEnum(final Channel channel) {
+            this.channel = channel.toString();
+            return this;
+        }
+        
+        public QueryPaymentOrdersBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public QueryPaymentOrdersBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
+    }
 }

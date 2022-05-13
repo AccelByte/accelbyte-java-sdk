@@ -121,4 +121,35 @@ public class PublicDeletePaymentAccount extends Operation {
         }
     }
 
+    public enum Type {
+        Card("card"),
+        Paypal("paypal");
+
+        private String value;
+
+        Type(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class PublicDeletePaymentAccountBuilder {
+        private String type;
+        
+        
+        public PublicDeletePaymentAccountBuilder type(final String type) {
+            this.type = type;
+            return this;
+        }
+        
+        public PublicDeletePaymentAccountBuilder typeFromEnum(final Type type) {
+            this.type = type.toString();
+            return this;
+        }
+    }
 }

@@ -111,4 +111,41 @@ public class UpdatePlatformWalletConfig extends Operation {
         throw new HttpResponseException(code, json);
     }
 
+    public enum Platform {
+        Epic("Epic"),
+        GooglePlay("GooglePlay"),
+        IOS("IOS"),
+        Nintendo("Nintendo"),
+        Other("Other"),
+        Playstation("Playstation"),
+        Steam("Steam"),
+        Xbox("Xbox");
+
+        private String value;
+
+        Platform(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class UpdatePlatformWalletConfigBuilder {
+        private String platform;
+        
+        
+        public UpdatePlatformWalletConfigBuilder platform(final String platform) {
+            this.platform = platform;
+            return this;
+        }
+        
+        public UpdatePlatformWalletConfigBuilder platformFromEnum(final Platform platform) {
+            this.platform = platform.toString();
+            return this;
+        }
+    }
 }

@@ -127,4 +127,38 @@ public class PublicGetUserEntitlementOwnershipBySku extends Operation {
         result.put("sku", "None");
         return result;
     }
+    public enum EntitlementClazz {
+        APP("APP"),
+        CODE("CODE"),
+        ENTITLEMENT("ENTITLEMENT"),
+        MEDIA("MEDIA"),
+        SUBSCRIPTION("SUBSCRIPTION");
+
+        private String value;
+
+        EntitlementClazz(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class PublicGetUserEntitlementOwnershipBySkuBuilder {
+        private String entitlementClazz;
+        
+        
+        public PublicGetUserEntitlementOwnershipBySkuBuilder entitlementClazz(final String entitlementClazz) {
+            this.entitlementClazz = entitlementClazz;
+            return this;
+        }
+        
+        public PublicGetUserEntitlementOwnershipBySkuBuilder entitlementClazzFromEnum(final EntitlementClazz entitlementClazz) {
+            this.entitlementClazz = entitlementClazz.toString();
+            return this;
+        }
+    }
 }

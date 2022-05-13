@@ -73,8 +73,8 @@ public class IAPItemEntry extends Model {
 
     
     public enum ItemIdentityType {
-        ITEMID("ITEMID"),
-        ITEMSKU("ITEMSKU");
+        ITEMID("ITEM_ID"),
+        ITEMSKU("ITEM_SKU");
 
         private String value;
 

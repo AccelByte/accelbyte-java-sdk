@@ -128,4 +128,63 @@ public class ListImages extends Operation {
         result.put("sortDirection", "None");
         return result;
     }
+    public enum SortBy {
+        CreatedAt("createdAt"),
+        UpdatedAt("updatedAt"),
+        Version("version");
+
+        private String value;
+
+        SortBy(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum SortDirection {
+        Asc("asc"),
+        Desc("desc");
+
+        private String value;
+
+        SortDirection(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class ListImagesBuilder {
+        private String sortBy;
+        private String sortDirection;
+        
+        
+        public ListImagesBuilder sortBy(final String sortBy) {
+            this.sortBy = sortBy;
+            return this;
+        }
+        
+        public ListImagesBuilder sortByFromEnum(final SortBy sortBy) {
+            this.sortBy = sortBy.toString();
+            return this;
+        }
+        
+        public ListImagesBuilder sortDirection(final String sortDirection) {
+            this.sortDirection = sortDirection;
+            return this;
+        }
+        
+        public ListImagesBuilder sortDirectionFromEnum(final SortDirection sortDirection) {
+            this.sortDirection = sortDirection.toString();
+            return this;
+        }
+    }
 }

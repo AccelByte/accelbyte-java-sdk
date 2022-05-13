@@ -164,4 +164,70 @@ public class PublicQueryItems extends Operation {
         result.put("tags", "None");
         return result;
     }
+    public enum AppType {
+        DEMO("DEMO"),
+        DLC("DLC"),
+        GAME("GAME"),
+        SOFTWARE("SOFTWARE");
+
+        private String value;
+
+        AppType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum ItemType {
+        APP("APP"),
+        BUNDLE("BUNDLE"),
+        CODE("CODE"),
+        COINS("COINS"),
+        INGAMEITEM("INGAMEITEM"),
+        MEDIA("MEDIA"),
+        SEASON("SEASON"),
+        SUBSCRIPTION("SUBSCRIPTION");
+
+        private String value;
+
+        ItemType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class PublicQueryItemsBuilder {
+        private String appType;
+        private String itemType;
+        
+        
+        public PublicQueryItemsBuilder appType(final String appType) {
+            this.appType = appType;
+            return this;
+        }
+        
+        public PublicQueryItemsBuilder appTypeFromEnum(final AppType appType) {
+            this.appType = appType.toString();
+            return this;
+        }
+        
+        public PublicQueryItemsBuilder itemType(final String itemType) {
+            this.itemType = itemType;
+            return this;
+        }
+        
+        public PublicQueryItemsBuilder itemTypeFromEnum(final ItemType itemType) {
+            this.itemType = itemType.toString();
+            return this;
+        }
+    }
 }

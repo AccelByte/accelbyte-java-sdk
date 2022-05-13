@@ -133,4 +133,37 @@ public class PublicQueryUserEntitlementsByAppType extends Operation {
         result.put("appType", "None");
         return result;
     }
+    public enum AppType {
+        DEMO("DEMO"),
+        DLC("DLC"),
+        GAME("GAME"),
+        SOFTWARE("SOFTWARE");
+
+        private String value;
+
+        AppType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class PublicQueryUserEntitlementsByAppTypeBuilder {
+        private String appType;
+        
+        
+        public PublicQueryUserEntitlementsByAppTypeBuilder appType(final String appType) {
+            this.appType = appType;
+            return this;
+        }
+        
+        public PublicQueryUserEntitlementsByAppTypeBuilder appTypeFromEnum(final AppType appType) {
+            this.appType = appType.toString();
+            return this;
+        }
+    }
 }

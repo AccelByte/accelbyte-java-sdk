@@ -129,4 +129,44 @@ public class CheckWallet extends Operation {
         result.put("origin", "None");
         return result;
     }
+    public enum Origin {
+        Epic("Epic"),
+        GooglePlay("GooglePlay"),
+        IOS("IOS"),
+        Nintendo("Nintendo"),
+        Other("Other"),
+        Playstation("Playstation"),
+        Stadia("Stadia"),
+        Steam("Steam"),
+        System("System"),
+        Twitch("Twitch"),
+        Xbox("Xbox");
+
+        private String value;
+
+        Origin(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class CheckWalletBuilder {
+        private String origin;
+        
+        
+        public CheckWalletBuilder origin(final String origin) {
+            this.origin = origin;
+            return this;
+        }
+        
+        public CheckWalletBuilder originFromEnum(final Origin origin) {
+            this.origin = origin.toString();
+            return this;
+        }
+    }
 }

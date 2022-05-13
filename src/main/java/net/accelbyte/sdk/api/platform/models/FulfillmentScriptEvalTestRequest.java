@@ -73,7 +73,7 @@ public class FulfillmentScriptEvalTestRequest extends Model {
 
     
     public enum Type {
-        GrantDays("GrantDays");
+        GrantDays("grantDays");
 
         private String value;
 

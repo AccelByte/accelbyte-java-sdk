@@ -213,4 +213,61 @@ public class AuthorizeV3 extends Operation {
         result.put("response_type", "None");
         return result;
     }
+    public enum CodeChallengeMethod {
+        S256("S256"),
+        Plain("plain");
+
+        private String value;
+
+        CodeChallengeMethod(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum ResponseType {
+        Code("code");
+
+        private String value;
+
+        ResponseType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class AuthorizeV3Builder {
+        private String codeChallengeMethod;
+        private String responseType;
+        
+        
+        public AuthorizeV3Builder codeChallengeMethod(final String codeChallengeMethod) {
+            this.codeChallengeMethod = codeChallengeMethod;
+            return this;
+        }
+        
+        public AuthorizeV3Builder codeChallengeMethodFromEnum(final CodeChallengeMethod codeChallengeMethod) {
+            this.codeChallengeMethod = codeChallengeMethod.toString();
+            return this;
+        }
+        
+        public AuthorizeV3Builder responseType(final String responseType) {
+            this.responseType = responseType;
+            return this;
+        }
+        
+        public AuthorizeV3Builder responseTypeFromEnum(final ResponseType responseType) {
+            this.responseType = responseType.toString();
+            return this;
+        }
+    }
 }

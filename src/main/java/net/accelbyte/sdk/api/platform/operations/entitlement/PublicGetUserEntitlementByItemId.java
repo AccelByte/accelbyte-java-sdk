@@ -127,4 +127,38 @@ public class PublicGetUserEntitlementByItemId extends Operation {
         result.put("itemId", "None");
         return result;
     }
+    public enum EntitlementClazz {
+        APP("APP"),
+        CODE("CODE"),
+        ENTITLEMENT("ENTITLEMENT"),
+        MEDIA("MEDIA"),
+        SUBSCRIPTION("SUBSCRIPTION");
+
+        private String value;
+
+        EntitlementClazz(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class PublicGetUserEntitlementByItemIdBuilder {
+        private String entitlementClazz;
+        
+        
+        public PublicGetUserEntitlementByItemIdBuilder entitlementClazz(final String entitlementClazz) {
+            this.entitlementClazz = entitlementClazz;
+            return this;
+        }
+        
+        public PublicGetUserEntitlementByItemIdBuilder entitlementClazzFromEnum(final EntitlementClazz entitlementClazz) {
+            this.entitlementClazz = entitlementClazz.toString();
+            return this;
+        }
+    }
 }

@@ -257,8 +257,8 @@ public class EntitlementInfo extends Model {
         IAP("IAP"),
         PROMOTION("PROMOTION"),
         ACHIEVEMENT("ACHIEVEMENT"),
-        REFERRALBONUS("REFERRALBONUS"),
-        REDEEMCODE("REDEEMCODE"),
+        REFERRALBONUS("REFERRAL_BONUS"),
+        REDEEMCODE("REDEEM_CODE"),
         REWARD("REWARD"),
         GIFT("GIFT"),
         OTHER("OTHER");

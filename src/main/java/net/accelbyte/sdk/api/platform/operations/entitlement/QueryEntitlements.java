@@ -144,4 +144,67 @@ public class QueryEntitlements extends Operation {
         result.put("userId", "None");
         return result;
     }
+    public enum AppType {
+        DEMO("DEMO"),
+        DLC("DLC"),
+        GAME("GAME"),
+        SOFTWARE("SOFTWARE");
+
+        private String value;
+
+        AppType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum EntitlementClazz {
+        APP("APP"),
+        CODE("CODE"),
+        ENTITLEMENT("ENTITLEMENT"),
+        MEDIA("MEDIA"),
+        SUBSCRIPTION("SUBSCRIPTION");
+
+        private String value;
+
+        EntitlementClazz(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class QueryEntitlementsBuilder {
+        private String appType;
+        private String entitlementClazz;
+        
+        
+        public QueryEntitlementsBuilder appType(final String appType) {
+            this.appType = appType;
+            return this;
+        }
+        
+        public QueryEntitlementsBuilder appTypeFromEnum(final AppType appType) {
+            this.appType = appType.toString();
+            return this;
+        }
+        
+        public QueryEntitlementsBuilder entitlementClazz(final String entitlementClazz) {
+            this.entitlementClazz = entitlementClazz;
+            return this;
+        }
+        
+        public QueryEntitlementsBuilder entitlementClazzFromEnum(final EntitlementClazz entitlementClazz) {
+            this.entitlementClazz = entitlementClazz.toString();
+            return this;
+        }
+    }
 }

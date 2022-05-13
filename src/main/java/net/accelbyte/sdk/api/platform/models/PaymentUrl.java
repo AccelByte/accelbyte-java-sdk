@@ -124,7 +124,7 @@ public class PaymentUrl extends Model {
     }
     
     public enum PaymentType {
-        QRCODE("QRCODE"),
+        QRCODE("QR_CODE"),
         LINK("LINK");
 
         private String value;

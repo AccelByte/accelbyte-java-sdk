@@ -103,4 +103,41 @@ public class ResetPlatformWalletConfig extends Operation {
         throw new HttpResponseException(code, json);
     }
 
+    public enum Platform {
+        Epic("Epic"),
+        GooglePlay("GooglePlay"),
+        IOS("IOS"),
+        Nintendo("Nintendo"),
+        Other("Other"),
+        Playstation("Playstation"),
+        Steam("Steam"),
+        Xbox("Xbox");
+
+        private String value;
+
+        Platform(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class ResetPlatformWalletConfigBuilder {
+        private String platform;
+        
+        
+        public ResetPlatformWalletConfigBuilder platform(final String platform) {
+            this.platform = platform;
+            return this;
+        }
+        
+        public ResetPlatformWalletConfigBuilder platformFromEnum(final Platform platform) {
+            this.platform = platform.toString();
+            return this;
+        }
+    }
 }

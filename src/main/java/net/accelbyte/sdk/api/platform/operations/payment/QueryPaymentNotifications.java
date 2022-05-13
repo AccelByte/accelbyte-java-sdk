@@ -148,4 +148,70 @@ public class QueryPaymentNotifications extends Operation {
         result.put("status", "None");
         return result;
     }
+    public enum NotificationSource {
+        ADYEN("ADYEN"),
+        ALIPAY("ALIPAY"),
+        CHECKOUT("CHECKOUT"),
+        PAYPAL("PAYPAL"),
+        STRIPE("STRIPE"),
+        WALLET("WALLET"),
+        WXPAY("WXPAY"),
+        XSOLLA("XSOLLA");
+
+        private String value;
+
+        NotificationSource(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Status {
+        ERROR("ERROR"),
+        IGNORED("IGNORED"),
+        PROCESSED("PROCESSED"),
+        WARN("WARN");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class QueryPaymentNotificationsBuilder {
+        private String notificationSource;
+        private String status;
+        
+        
+        public QueryPaymentNotificationsBuilder notificationSource(final String notificationSource) {
+            this.notificationSource = notificationSource;
+            return this;
+        }
+        
+        public QueryPaymentNotificationsBuilder notificationSourceFromEnum(final NotificationSource notificationSource) {
+            this.notificationSource = notificationSource.toString();
+            return this;
+        }
+        
+        public QueryPaymentNotificationsBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public QueryPaymentNotificationsBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
+    }
 }

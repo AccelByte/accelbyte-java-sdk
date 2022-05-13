@@ -174,4 +174,70 @@ public class QueryItems extends Operation {
         result.put("targetNamespace", "None");
         return result;
     }
+    public enum AppType {
+        DEMO("DEMO"),
+        DLC("DLC"),
+        GAME("GAME"),
+        SOFTWARE("SOFTWARE");
+
+        private String value;
+
+        AppType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum ItemType {
+        APP("APP"),
+        BUNDLE("BUNDLE"),
+        CODE("CODE"),
+        COINS("COINS"),
+        INGAMEITEM("INGAMEITEM"),
+        MEDIA("MEDIA"),
+        SEASON("SEASON"),
+        SUBSCRIPTION("SUBSCRIPTION");
+
+        private String value;
+
+        ItemType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class QueryItemsBuilder {
+        private String appType;
+        private String itemType;
+        
+        
+        public QueryItemsBuilder appType(final String appType) {
+            this.appType = appType;
+            return this;
+        }
+        
+        public QueryItemsBuilder appTypeFromEnum(final AppType appType) {
+            this.appType = appType.toString();
+            return this;
+        }
+        
+        public QueryItemsBuilder itemType(final String itemType) {
+            this.itemType = itemType;
+            return this;
+        }
+        
+        public QueryItemsBuilder itemTypeFromEnum(final ItemType itemType) {
+            this.itemType = itemType.toString();
+            return this;
+        }
+    }
 }

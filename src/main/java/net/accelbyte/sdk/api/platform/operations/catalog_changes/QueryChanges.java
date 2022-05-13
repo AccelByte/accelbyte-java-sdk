@@ -158,4 +158,124 @@ public class QueryChanges extends Operation {
         result.put("updatedAtStart", "None");
         return result;
     }
+    public enum Action {
+        CREATE("CREATE"),
+        DELETE("DELETE"),
+        UPDATE("UPDATE");
+
+        private String value;
+
+        Action(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum ItemType {
+        APP("APP"),
+        BUNDLE("BUNDLE"),
+        CODE("CODE"),
+        COINS("COINS"),
+        INGAMEITEM("INGAMEITEM"),
+        MEDIA("MEDIA"),
+        SEASON("SEASON"),
+        SUBSCRIPTION("SUBSCRIPTION");
+
+        private String value;
+
+        ItemType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Status {
+        PUBLISHED("PUBLISHED"),
+        UNPUBLISHED("UNPUBLISHED");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Type {
+        CATEGORY("CATEGORY"),
+        ITEM("ITEM"),
+        STORE("STORE");
+
+        private String value;
+
+        Type(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class QueryChangesBuilder {
+        private String action;
+        private String itemType;
+        private String status;
+        private String type;
+        
+        
+        public QueryChangesBuilder action(final String action) {
+            this.action = action;
+            return this;
+        }
+        
+        public QueryChangesBuilder actionFromEnum(final Action action) {
+            this.action = action.toString();
+            return this;
+        }
+        
+        public QueryChangesBuilder itemType(final String itemType) {
+            this.itemType = itemType;
+            return this;
+        }
+        
+        public QueryChangesBuilder itemTypeFromEnum(final ItemType itemType) {
+            this.itemType = itemType.toString();
+            return this;
+        }
+        
+        public QueryChangesBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public QueryChangesBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
+        
+        public QueryChangesBuilder type(final String type) {
+            this.type = type;
+            return this;
+        }
+        
+        public QueryChangesBuilder typeFromEnum(final Type type) {
+            this.type = type.toString();
+            return this;
+        }
+    }
 }

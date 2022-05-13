@@ -335,4 +335,37 @@ public class TokenGrantV3 extends Operation {
         throw new HttpResponseException(code, json);
     }
 
+    public enum GrantType {
+        AuthorizationCode("authorization_code"),
+        ClientCredentials("client_credentials"),
+        Password("password"),
+        RefreshToken("refresh_token");
+
+        private String value;
+
+        GrantType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class TokenGrantV3Builder {
+        private String grantType;
+        
+        
+        public TokenGrantV3Builder grantType(final String grantType) {
+            this.grantType = grantType;
+            return this;
+        }
+        
+        public TokenGrantV3Builder grantTypeFromEnum(final GrantType grantType) {
+            this.grantType = grantType.toString();
+            return this;
+        }
+    }
 }

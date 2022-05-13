@@ -107,4 +107,35 @@ public class ListCurrencies extends Operation {
         result.put("currencyType", "None");
         return result;
     }
+    public enum CurrencyType {
+        REAL("REAL"),
+        VIRTUAL("VIRTUAL");
+
+        private String value;
+
+        CurrencyType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class ListCurrenciesBuilder {
+        private String currencyType;
+        
+        
+        public ListCurrenciesBuilder currencyType(final String currencyType) {
+            this.currencyType = currencyType;
+            return this;
+        }
+        
+        public ListCurrenciesBuilder currencyTypeFromEnum(final CurrencyType currencyType) {
+            this.currencyType = currencyType.toString();
+            return this;
+        }
+    }
 }

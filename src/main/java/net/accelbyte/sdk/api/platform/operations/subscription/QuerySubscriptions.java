@@ -143,4 +143,94 @@ public class QuerySubscriptions extends Operation {
         result.put("userId", "None");
         return result;
     }
+    public enum ChargeStatus {
+        CHARGED("CHARGED"),
+        CHARGEFAILED("CHARGE_FAILED"),
+        NEVER("NEVER"),
+        RECURRINGCHARGING("RECURRING_CHARGING"),
+        SETUP("SETUP");
+
+        private String value;
+
+        ChargeStatus(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum Status {
+        ACTIVE("ACTIVE"),
+        CANCELLED("CANCELLED"),
+        EXPIRED("EXPIRED"),
+        INIT("INIT");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum SubscribedBy {
+        PLATFORM("PLATFORM"),
+        USER("USER");
+
+        private String value;
+
+        SubscribedBy(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class QuerySubscriptionsBuilder {
+        private String chargeStatus;
+        private String status;
+        private String subscribedBy;
+        
+        
+        public QuerySubscriptionsBuilder chargeStatus(final String chargeStatus) {
+            this.chargeStatus = chargeStatus;
+            return this;
+        }
+        
+        public QuerySubscriptionsBuilder chargeStatusFromEnum(final ChargeStatus chargeStatus) {
+            this.chargeStatus = chargeStatus.toString();
+            return this;
+        }
+        
+        public QuerySubscriptionsBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public QuerySubscriptionsBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
+        
+        public QuerySubscriptionsBuilder subscribedBy(final String subscribedBy) {
+            this.subscribedBy = subscribedBy;
+            return this;
+        }
+        
+        public QuerySubscriptionsBuilder subscribedByFromEnum(final SubscribedBy subscribedBy) {
+            this.subscribedBy = subscribedBy.toString();
+            return this;
+        }
+    }
 }

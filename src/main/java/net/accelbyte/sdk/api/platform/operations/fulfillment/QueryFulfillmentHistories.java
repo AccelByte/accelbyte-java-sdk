@@ -123,4 +123,35 @@ public class QueryFulfillmentHistories extends Operation {
         result.put("userId", "None");
         return result;
     }
+    public enum Status {
+        FAIL("FAIL"),
+        SUCCESS("SUCCESS");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class QueryFulfillmentHistoriesBuilder {
+        private String status;
+        
+        
+        public QueryFulfillmentHistoriesBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public QueryFulfillmentHistoriesBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
+    }
 }

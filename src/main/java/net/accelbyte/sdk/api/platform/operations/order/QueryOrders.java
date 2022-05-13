@@ -143,4 +143,44 @@ public class QueryOrders extends Operation {
         result.put("withTotal", "None");
         return result;
     }
+    public enum Status {
+        CHARGEBACK("CHARGEBACK"),
+        CHARGEBACKREVERSED("CHARGEBACK_REVERSED"),
+        CHARGED("CHARGED"),
+        CLOSED("CLOSED"),
+        DELETED("DELETED"),
+        FULFILLED("FULFILLED"),
+        FULFILLFAILED("FULFILL_FAILED"),
+        INIT("INIT"),
+        REFUNDED("REFUNDED"),
+        REFUNDING("REFUNDING"),
+        REFUNDFAILED("REFUND_FAILED");
+
+        private String value;
+
+        Status(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class QueryOrdersBuilder {
+        private String status;
+        
+        
+        public QueryOrdersBuilder status(final String status) {
+            this.status = status;
+            return this;
+        }
+        
+        public QueryOrdersBuilder statusFromEnum(final Status status) {
+            this.status = status.toString();
+            return this;
+        }
+    }
 }

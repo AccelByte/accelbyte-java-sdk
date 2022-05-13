@@ -131,4 +131,35 @@ public class RetrieveLatestPoliciesPublic extends Operation {
         result.put("tags", "None");
         return result;
     }
+    public enum PolicyType {
+        LEGALDOCUMENTTYPE("LEGAL_DOCUMENT_TYPE"),
+        MARKETINGPREFERENCETYPE("MARKETING_PREFERENCE_TYPE");
+
+        private String value;
+
+        PolicyType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class RetrieveLatestPoliciesPublicBuilder {
+        private String policyType;
+        
+        
+        public RetrieveLatestPoliciesPublicBuilder policyType(final String policyType) {
+            this.policyType = policyType;
+            return this;
+        }
+        
+        public RetrieveLatestPoliciesPublicBuilder policyTypeFromEnum(final PolicyType policyType) {
+            this.policyType = policyType.toString();
+            return this;
+        }
+    }
 }

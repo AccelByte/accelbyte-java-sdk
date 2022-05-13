@@ -235,9 +235,9 @@ public class SubscriptionInfo extends Model {
     public enum ChargeStatus {
         NEVER("NEVER"),
         SETUP("SETUP"),
-        RECURRINGCHARGING("RECURRINGCHARGING"),
+        RECURRINGCHARGING("RECURRING_CHARGING"),
         CHARGED("CHARGED"),
-        CHARGEFAILED("CHARGEFAILED");
+        CHARGEFAILED("CHARGE_FAILED");
 
         private String value;
 

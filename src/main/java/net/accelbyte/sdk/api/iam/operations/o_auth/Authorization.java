@@ -218,4 +218,35 @@ public class Authorization extends Operation {
         return json;
     }
 
+    public enum ResponseType {
+        Code("code"),
+        Token("token");
+
+        private String value;
+
+        ResponseType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class AuthorizationBuilder {
+        private String responseType;
+        
+        
+        public AuthorizationBuilder responseType(final String responseType) {
+            this.responseType = responseType;
+            return this;
+        }
+        
+        public AuthorizationBuilder responseTypeFromEnum(final ResponseType responseType) {
+            this.responseType = responseType.toString();
+            return this;
+        }
+    }
 }
