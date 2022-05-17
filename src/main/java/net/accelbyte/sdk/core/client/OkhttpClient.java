@@ -32,6 +32,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
+import java.util.Objects;
 
 public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
     private static final OkHttpClient client = new OkHttpClient.Builder()
@@ -47,21 +48,8 @@ public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
         return mediaType.startsWith("application/") && mediaType.endsWith("+json");
     }
 
-    @Override
-    public HttpResponse sendRequest(Operation operation, String baseURL, HttpHeaders headers)
-            throws IllegalArgumentException, IOException, JsonProcessingException {
-        if (operation == null) {
-            throw new IllegalArgumentException("Operation cannot be null");
-        }
-
-        if (baseURL == null || baseURL.isEmpty()) {
-            throw new IllegalArgumentException("Base URL cannot be null or empty");
-        }
-
-        if (headers == null) {
-            throw new IllegalArgumentException("Header cannot be null");
-        }
-
+    private static Request createRequest(Operation operation, String baseURL, HttpHeaders headers)
+            throws IOException {
         String requestContentType = "application/json"; // Default
 
         if (!operation.getConsumes().isEmpty()) {
@@ -81,8 +69,7 @@ public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
             final Object bodyParams = operation.getBodyParams();
             final Map<String, ?> formDataParams = operation.getFormParams();
 
-            RequestBody requestBody = RequestBody
-                    .create(new byte[0]); // Default
+            RequestBody requestBody = RequestBody.create(new byte[0]); // Default
 
             if (bodyParams != null) {
                 if (isMediaTypeJson(requestContentType)) {
@@ -129,30 +116,16 @@ public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
                     requestBody = formBuilder.build();
                 }
             }
+
             requestBuilder.method(method, requestBody);
         }
 
-        Builder okHttpBuilder = client.newBuilder();
+        return requestBuilder.build();
+    }
 
-        if (logger != null) {
-            okHttpBuilder = okHttpBuilder.addNetworkInterceptor(new Interceptor() {
-                @Override
-                public Response intercept(Chain chain) throws IOException {
-                    Request request = chain.request();
-                    logger.logRequest(request);
-                    Response response = chain.proceed(request);
-                    logger.logResponse(response);
-                    return response;
-                }
-            });
-        }
-
-        final Request request = requestBuilder.build();
-        final Response response = okHttpBuilder.build()
-                .newCall(request)
-                .execute();
-
-        String responseContentType = requestContentType; // default
+    private static HttpResponse createResponse(Response response)
+    {
+        String responseContentType = "application/json"; // Default
         InputStream payload = null;
 
         if (response.isRedirect()) {
@@ -174,6 +147,41 @@ public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
         return new HttpResponse(response.code(),
                 responseContentType,
                 payload);
+    }
+
+    @Override
+    public HttpResponse sendRequest(Operation operation, String baseURL, HttpHeaders headers)
+            throws IllegalArgumentException, IOException, JsonProcessingException {
+        Objects.requireNonNull(operation, "Operation must not be null");
+        Objects.requireNonNull(baseURL, "Base URL must not be null");
+        Objects.requireNonNull(headers, "Headers must not be null");
+
+        if (baseURL.isEmpty()) {
+            throw new IllegalArgumentException("Base URL must not be empty");
+        }
+
+        final Request request = createRequest(operation, baseURL, headers);
+
+        Builder okHttpBuilder = client.newBuilder();
+
+        if (logger != null) {
+            okHttpBuilder = okHttpBuilder.addNetworkInterceptor(new Interceptor() {
+                @Override
+                public Response intercept(Chain chain) throws IOException {
+                    Request request = chain.request();
+                    logger.logRequest(request);
+                    Response response = chain.proceed(request);
+                    logger.logResponse(response);
+                    return response;
+                }
+            });
+        }
+
+        final Response response = okHttpBuilder.build()
+                .newCall(request)
+                .execute();
+
+        return createResponse(response);
     }
 
     @Override
