@@ -30,7 +30,7 @@ public class OAuth {
     /**
      * @see Authorization
      */
-    public String authorization(Authorization input) throws HttpResponseException, IOException {
+    public String authorization(Authorization input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class OAuth {
     /**
      * @see GetJWKS
      */
-    public OauthcommonJWKSet getJWKS(GetJWKS input) throws HttpResponseException, IOException {
+    public OauthcommonJWKSet getJWKS(GetJWKS input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -70,7 +70,7 @@ public class OAuth {
      * @deprecated
      */
     @Deprecated
-    public OauthmodelTokenResponse platformTokenRequestHandler(PlatformTokenRequestHandler input) throws HttpResponseException, IOException {
+    public OauthmodelTokenResponse platformTokenRequestHandler(PlatformTokenRequestHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -89,7 +89,7 @@ public class OAuth {
     /**
      * @see RevokeUser
      */
-    public void revokeUser(RevokeUser input) throws HttpResponseException, IOException {
+    public void revokeUser(RevokeUser input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -108,7 +108,7 @@ public class OAuth {
     /**
      * @see GetRevocationList
      */
-    public OauthapiRevocationList getRevocationList(GetRevocationList input) throws HttpResponseException, IOException {
+    public OauthapiRevocationList getRevocationList(GetRevocationList input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -129,7 +129,7 @@ public class OAuth {
      * @deprecated
      */
     @Deprecated
-    public void revokeToken(RevokeToken input) throws HttpResponseException, IOException {
+    public void revokeToken(RevokeToken input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -150,7 +150,7 @@ public class OAuth {
      * @deprecated
      */
     @Deprecated
-    public void revokeAUser(RevokeAUser input) throws HttpResponseException, IOException {
+    public void revokeAUser(RevokeAUser input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -169,7 +169,7 @@ public class OAuth {
     /**
      * @see TokenGrant
      */
-    public OauthmodelTokenResponse tokenGrant(TokenGrant input) throws HttpResponseException, IOException {
+    public OauthmodelTokenResponse tokenGrant(TokenGrant input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -188,7 +188,7 @@ public class OAuth {
     /**
      * @see VerifyToken
      */
-    public OauthmodelTokenResponse verifyToken(VerifyToken input) throws HttpResponseException, IOException {
+    public OauthmodelTokenResponse verifyToken(VerifyToken input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

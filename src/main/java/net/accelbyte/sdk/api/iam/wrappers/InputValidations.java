@@ -30,7 +30,7 @@ public class InputValidations {
     /**
      * @see AdminGetInputValidations
      */
-    public ModelInputValidationsResponse adminGetInputValidations(AdminGetInputValidations input) throws HttpResponseException, IOException {
+    public ModelInputValidationsResponse adminGetInputValidations(AdminGetInputValidations input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class InputValidations {
     /**
      * @see AdminUpdateInputValidations
      */
-    public void adminUpdateInputValidations(AdminUpdateInputValidations input) throws HttpResponseException, IOException {
+    public void adminUpdateInputValidations(AdminUpdateInputValidations input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class InputValidations {
     /**
      * @see AdminResetInputValidations
      */
-    public void adminResetInputValidations(AdminResetInputValidations input) throws HttpResponseException, IOException {
+    public void adminResetInputValidations(AdminResetInputValidations input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class InputValidations {
     /**
      * @see PublicGetInputValidations
      */
-    public ModelInputValidationsPublicResponse publicGetInputValidations(PublicGetInputValidations input) throws HttpResponseException, IOException {
+    public ModelInputValidationsPublicResponse publicGetInputValidations(PublicGetInputValidations input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -30,7 +30,7 @@ public class Pass {
     /**
      * @see QueryPasses
      */
-    public List<PassInfo> queryPasses(QueryPasses input) throws HttpResponseException, IOException {
+    public List<PassInfo> queryPasses(QueryPasses input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Pass {
     /**
      * @see CreatePass
      */
-    public PassInfo createPass(CreatePass input) throws HttpResponseException, IOException {
+    public PassInfo createPass(CreatePass input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Pass {
     /**
      * @see GetPass
      */
-    public PassInfo getPass(GetPass input) throws HttpResponseException, IOException {
+    public PassInfo getPass(GetPass input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Pass {
     /**
      * @see DeletePass
      */
-    public void deletePass(DeletePass input) throws HttpResponseException, IOException {
+    public void deletePass(DeletePass input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Pass {
     /**
      * @see UpdatePass
      */
-    public PassInfo updatePass(UpdatePass input) throws HttpResponseException, IOException {
+    public PassInfo updatePass(UpdatePass input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Pass {
     /**
      * @see GrantUserPass
      */
-    public UserSeasonSummary grantUserPass(GrantUserPass input) throws HttpResponseException, IOException {
+    public UserSeasonSummary grantUserPass(GrantUserPass input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

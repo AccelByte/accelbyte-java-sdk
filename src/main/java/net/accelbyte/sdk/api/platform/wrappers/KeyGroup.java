@@ -30,7 +30,7 @@ public class KeyGroup {
     /**
      * @see QueryKeyGroups
      */
-    public KeyGroupPagingSlicedResult queryKeyGroups(QueryKeyGroups input) throws HttpResponseException, IOException {
+    public KeyGroupPagingSlicedResult queryKeyGroups(QueryKeyGroups input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class KeyGroup {
     /**
      * @see CreateKeyGroup
      */
-    public KeyGroupInfo createKeyGroup(CreateKeyGroup input) throws HttpResponseException, IOException {
+    public KeyGroupInfo createKeyGroup(CreateKeyGroup input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class KeyGroup {
     /**
      * @see GetKeyGroup
      */
-    public KeyGroupInfo getKeyGroup(GetKeyGroup input) throws HttpResponseException, IOException {
+    public KeyGroupInfo getKeyGroup(GetKeyGroup input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class KeyGroup {
     /**
      * @see UpdateKeyGroup
      */
-    public KeyGroupInfo updateKeyGroup(UpdateKeyGroup input) throws HttpResponseException, IOException {
+    public KeyGroupInfo updateKeyGroup(UpdateKeyGroup input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class KeyGroup {
     /**
      * @see GetKeyGroupDynamic
      */
-    public KeyGroupDynamicInfo getKeyGroupDynamic(GetKeyGroupDynamic input) throws HttpResponseException, IOException {
+    public KeyGroupDynamicInfo getKeyGroupDynamic(GetKeyGroupDynamic input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class KeyGroup {
     /**
      * @see ListKeys
      */
-    public KeyPagingSliceResult listKeys(ListKeys input) throws HttpResponseException, IOException {
+    public KeyPagingSliceResult listKeys(ListKeys input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class KeyGroup {
     /**
      * @see UploadKeys
      */
-    public BulkOperationResult uploadKeys(UploadKeys input) throws HttpResponseException, IOException {
+    public BulkOperationResult uploadKeys(UploadKeys input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -30,7 +30,7 @@ public class Utility {
     /**
      * @see CheckReadiness
      */
-    public LegalReadinessStatusResponse checkReadiness(CheckReadiness input) throws HttpResponseException, IOException {
+    public LegalReadinessStatusResponse checkReadiness(CheckReadiness input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

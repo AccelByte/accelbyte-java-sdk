@@ -30,7 +30,7 @@ public class ThirdPartyCredential {
     /**
      * @see RetrieveAllThirdPartyLoginPlatformCredentialV3
      */
-    public List<ModelThirdPartyLoginPlatformCredentialResponse> retrieveAllThirdPartyLoginPlatformCredentialV3(RetrieveAllThirdPartyLoginPlatformCredentialV3 input) throws HttpResponseException, IOException {
+    public List<ModelThirdPartyLoginPlatformCredentialResponse> retrieveAllThirdPartyLoginPlatformCredentialV3(RetrieveAllThirdPartyLoginPlatformCredentialV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class ThirdPartyCredential {
     /**
      * @see RetrieveAllActiveThirdPartyLoginPlatformCredentialV3
      */
-    public List<ModelThirdPartyLoginPlatformCredentialResponse> retrieveAllActiveThirdPartyLoginPlatformCredentialV3(RetrieveAllActiveThirdPartyLoginPlatformCredentialV3 input) throws HttpResponseException, IOException {
+    public List<ModelThirdPartyLoginPlatformCredentialResponse> retrieveAllActiveThirdPartyLoginPlatformCredentialV3(RetrieveAllActiveThirdPartyLoginPlatformCredentialV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class ThirdPartyCredential {
     /**
      * @see RetrieveThirdPartyLoginPlatformCredentialV3
      */
-    public ModelThirdPartyLoginPlatformCredentialResponse retrieveThirdPartyLoginPlatformCredentialV3(RetrieveThirdPartyLoginPlatformCredentialV3 input) throws HttpResponseException, IOException {
+    public ModelThirdPartyLoginPlatformCredentialResponse retrieveThirdPartyLoginPlatformCredentialV3(RetrieveThirdPartyLoginPlatformCredentialV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class ThirdPartyCredential {
     /**
      * @see AddThirdPartyLoginPlatformCredentialV3
      */
-    public ModelThirdPartyLoginPlatformCredentialResponse addThirdPartyLoginPlatformCredentialV3(AddThirdPartyLoginPlatformCredentialV3 input) throws HttpResponseException, IOException {
+    public ModelThirdPartyLoginPlatformCredentialResponse addThirdPartyLoginPlatformCredentialV3(AddThirdPartyLoginPlatformCredentialV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class ThirdPartyCredential {
     /**
      * @see DeleteThirdPartyLoginPlatformCredentialV3
      */
-    public void deleteThirdPartyLoginPlatformCredentialV3(DeleteThirdPartyLoginPlatformCredentialV3 input) throws HttpResponseException, IOException {
+    public void deleteThirdPartyLoginPlatformCredentialV3(DeleteThirdPartyLoginPlatformCredentialV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class ThirdPartyCredential {
     /**
      * @see UpdateThirdPartyLoginPlatformCredentialV3
      */
-    public ModelThirdPartyLoginPlatformCredentialResponse updateThirdPartyLoginPlatformCredentialV3(UpdateThirdPartyLoginPlatformCredentialV3 input) throws HttpResponseException, IOException {
+    public ModelThirdPartyLoginPlatformCredentialResponse updateThirdPartyLoginPlatformCredentialV3(UpdateThirdPartyLoginPlatformCredentialV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class ThirdPartyCredential {
     /**
      * @see UpdateThirdPartyLoginPlatformDomainV3
      */
-    public ModelPlatformDomainResponse updateThirdPartyLoginPlatformDomainV3(UpdateThirdPartyLoginPlatformDomainV3 input) throws HttpResponseException, IOException {
+    public ModelPlatformDomainResponse updateThirdPartyLoginPlatformDomainV3(UpdateThirdPartyLoginPlatformDomainV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class ThirdPartyCredential {
     /**
      * @see DeleteThirdPartyLoginPlatformDomainV3
      */
-    public void deleteThirdPartyLoginPlatformDomainV3(DeleteThirdPartyLoginPlatformDomainV3 input) throws HttpResponseException, IOException {
+    public void deleteThirdPartyLoginPlatformDomainV3(DeleteThirdPartyLoginPlatformDomainV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class ThirdPartyCredential {
     /**
      * @see RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3
      */
-    public List<ModelPublicThirdPartyPlatformInfo> retrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3(RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3 input) throws HttpResponseException, IOException {
+    public List<ModelPublicThirdPartyPlatformInfo> retrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3(RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

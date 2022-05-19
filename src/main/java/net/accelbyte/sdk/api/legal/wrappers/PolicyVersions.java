@@ -30,7 +30,7 @@ public class PolicyVersions {
     /**
      * @see UpdatePolicyVersion
      */
-    public UpdatePolicyVersionResponse updatePolicyVersion(UpdatePolicyVersion input) throws HttpResponseException, IOException {
+    public UpdatePolicyVersionResponse updatePolicyVersion(UpdatePolicyVersion input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PolicyVersions {
     /**
      * @see PublishPolicyVersion
      */
-    public void publishPolicyVersion(PublishPolicyVersion input) throws HttpResponseException, IOException {
+    public void publishPolicyVersion(PublishPolicyVersion input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class PolicyVersions {
     /**
      * @see RetrieveSinglePolicyVersion
      */
-    public List<RetrievePolicyVersionResponse> retrieveSinglePolicyVersion(RetrieveSinglePolicyVersion input) throws HttpResponseException, IOException {
+    public List<RetrievePolicyVersionResponse> retrieveSinglePolicyVersion(RetrieveSinglePolicyVersion input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class PolicyVersions {
     /**
      * @see CreatePolicyVersion
      */
-    public CreatePolicyVersionResponse createPolicyVersion(CreatePolicyVersion input) throws HttpResponseException, IOException {
+    public CreatePolicyVersionResponse createPolicyVersion(CreatePolicyVersion input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class PolicyVersions {
     /**
      * @see RetrievePolicyVersions
      */
-    public List<RetrievePolicyVersionResponse> retrievePolicyVersions(RetrievePolicyVersions input) throws HttpResponseException, IOException {
+    public List<RetrievePolicyVersionResponse> retrievePolicyVersions(RetrievePolicyVersions input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

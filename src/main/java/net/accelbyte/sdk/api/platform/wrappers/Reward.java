@@ -30,7 +30,7 @@ public class Reward {
     /**
      * @see CreateReward
      */
-    public RewardInfo createReward(CreateReward input) throws HttpResponseException, IOException {
+    public RewardInfo createReward(CreateReward input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Reward {
     /**
      * @see QueryRewards
      */
-    public RewardPagingSlicedResult queryRewards(QueryRewards input) throws HttpResponseException, IOException {
+    public RewardPagingSlicedResult queryRewards(QueryRewards input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Reward {
     /**
      * @see ExportRewards
      */
-    public void exportRewards(ExportRewards input) throws HttpResponseException, IOException {
+    public void exportRewards(ExportRewards input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Reward {
     /**
      * @see ImportRewards
      */
-    public void importRewards(ImportRewards input) throws HttpResponseException, IOException {
+    public void importRewards(ImportRewards input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Reward {
     /**
      * @see GetReward
      */
-    public RewardInfo getReward(GetReward input) throws HttpResponseException, IOException {
+    public RewardInfo getReward(GetReward input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Reward {
     /**
      * @see UpdateReward
      */
-    public RewardInfo updateReward(UpdateReward input) throws HttpResponseException, IOException {
+    public RewardInfo updateReward(UpdateReward input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Reward {
     /**
      * @see DeleteReward
      */
-    public RewardInfo deleteReward(DeleteReward input) throws HttpResponseException, IOException {
+    public RewardInfo deleteReward(DeleteReward input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Reward {
     /**
      * @see CheckEventCondition
      */
-    public ConditionMatchResult checkEventCondition(CheckEventCondition input) throws HttpResponseException, IOException {
+    public ConditionMatchResult checkEventCondition(CheckEventCondition input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class Reward {
     /**
      * @see GetRewardByCode
      */
-    public RewardInfo getRewardByCode(GetRewardByCode input) throws HttpResponseException, IOException {
+    public RewardInfo getRewardByCode(GetRewardByCode input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class Reward {
     /**
      * @see QueryRewards1
      */
-    public RewardPagingSlicedResult queryRewards1(QueryRewards1 input) throws HttpResponseException, IOException {
+    public RewardPagingSlicedResult queryRewards1(QueryRewards1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class Reward {
     /**
      * @see GetReward1
      */
-    public RewardInfo getReward1(GetReward1 input) throws HttpResponseException, IOException {
+    public RewardInfo getReward1(GetReward1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

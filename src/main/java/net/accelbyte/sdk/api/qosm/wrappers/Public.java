@@ -30,7 +30,7 @@ public class Public {
     /**
      * @see ListServer
      */
-    public ModelsListServerResponse listServer(ListServer input) throws HttpResponseException, IOException {
+    public ModelsListServerResponse listServer(ListServer input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

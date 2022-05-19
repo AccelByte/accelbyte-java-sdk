@@ -30,7 +30,7 @@ public class Friends {
     /**
      * @see GetUserFriendsUpdated
      */
-    public List<ModelGetUserFriendsResponse> getUserFriendsUpdated(GetUserFriendsUpdated input) throws HttpResponseException, IOException {
+    public List<ModelGetUserFriendsResponse> getUserFriendsUpdated(GetUserFriendsUpdated input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Friends {
     /**
      * @see GetUserIncomingFriends
      */
-    public List<ModelGetUserIncomingFriendsResponse> getUserIncomingFriends(GetUserIncomingFriends input) throws HttpResponseException, IOException {
+    public List<ModelGetUserIncomingFriendsResponse> getUserIncomingFriends(GetUserIncomingFriends input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Friends {
     /**
      * @see GetUserOutgoingFriends
      */
-    public List<ModelGetUserOutgoingFriendsResponse> getUserOutgoingFriends(GetUserOutgoingFriends input) throws HttpResponseException, IOException {
+    public List<ModelGetUserOutgoingFriendsResponse> getUserOutgoingFriends(GetUserOutgoingFriends input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Friends {
     /**
      * @see UserRequestFriend
      */
-    public void userRequestFriend(UserRequestFriend input) throws HttpResponseException, IOException {
+    public void userRequestFriend(UserRequestFriend input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Friends {
     /**
      * @see UserAcceptFriendRequest
      */
-    public void userAcceptFriendRequest(UserAcceptFriendRequest input) throws HttpResponseException, IOException {
+    public void userAcceptFriendRequest(UserAcceptFriendRequest input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Friends {
     /**
      * @see UserCancelFriendRequest
      */
-    public void userCancelFriendRequest(UserCancelFriendRequest input) throws HttpResponseException, IOException {
+    public void userCancelFriendRequest(UserCancelFriendRequest input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Friends {
     /**
      * @see UserRejectFriendRequest
      */
-    public void userRejectFriendRequest(UserRejectFriendRequest input) throws HttpResponseException, IOException {
+    public void userRejectFriendRequest(UserRejectFriendRequest input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Friends {
     /**
      * @see UserGetFriendshipStatus
      */
-    public ModelUserGetFriendshipStatusResponse userGetFriendshipStatus(UserGetFriendshipStatus input) throws HttpResponseException, IOException {
+    public ModelUserGetFriendshipStatusResponse userGetFriendshipStatus(UserGetFriendshipStatus input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class Friends {
     /**
      * @see UserUnfriendRequest
      */
-    public void userUnfriendRequest(UserUnfriendRequest input) throws HttpResponseException, IOException {
+    public void userUnfriendRequest(UserUnfriendRequest input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class Friends {
     /**
      * @see AddFriendsWithoutConfirmation
      */
-    public void addFriendsWithoutConfirmation(AddFriendsWithoutConfirmation input) throws HttpResponseException, IOException {
+    public void addFriendsWithoutConfirmation(AddFriendsWithoutConfirmation input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class Friends {
     /**
      * @see GetListOfFriends
      */
-    public ModelGetFriendsResponse getListOfFriends(GetListOfFriends input) throws HttpResponseException, IOException {
+    public ModelGetFriendsResponse getListOfFriends(GetListOfFriends input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

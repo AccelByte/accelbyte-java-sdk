@@ -77,8 +77,8 @@ public class AdminUploadContentS3 implements Callable<Integer> {
         } catch (HttpResponseException e) {
             log.error("HttpResponseException occur with message below:\n{}", e.getMessage());
             System.err.print(e.getHttpCode());
-        } catch (IOException e) {
-            log.error("IOException occur with message below:\n{}", e.getMessage());
+        } catch (Exception e) {
+            log.error("Exception occur with message below:\n{}", e.getMessage());
         }
         return 1;
     }

@@ -30,7 +30,7 @@ public class SSOSAML20 {
     /**
      * @see PlatformAuthenticateSAMLV3Handler
      */
-    public String platformAuthenticateSAMLV3Handler(PlatformAuthenticateSAMLV3Handler input) throws HttpResponseException, IOException {
+    public String platformAuthenticateSAMLV3Handler(PlatformAuthenticateSAMLV3Handler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

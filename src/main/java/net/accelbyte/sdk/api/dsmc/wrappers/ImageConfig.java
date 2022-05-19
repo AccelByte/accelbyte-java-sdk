@@ -30,7 +30,7 @@ public class ImageConfig {
     /**
      * @see UpdateImage
      */
-    public void updateImage(UpdateImage input) throws HttpResponseException, IOException {
+    public void updateImage(UpdateImage input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class ImageConfig {
     /**
      * @see CreateImage
      */
-    public void createImage(CreateImage input) throws HttpResponseException, IOException {
+    public void createImage(CreateImage input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class ImageConfig {
     /**
      * @see ImportImages
      */
-    public ModelsImportResponse importImages(ImportImages input) throws HttpResponseException, IOException {
+    public ModelsImportResponse importImages(ImportImages input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class ImageConfig {
     /**
      * @see CreateImagePatch
      */
-    public void createImagePatch(CreateImagePatch input) throws HttpResponseException, IOException {
+    public void createImagePatch(CreateImagePatch input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class ImageConfig {
     /**
      * @see ListImages
      */
-    public ModelsListImageResponse listImages(ListImages input) throws HttpResponseException, IOException {
+    public ModelsListImageResponse listImages(ListImages input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class ImageConfig {
     /**
      * @see DeleteImage
      */
-    public void deleteImage(DeleteImage input) throws HttpResponseException, IOException {
+    public void deleteImage(DeleteImage input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class ImageConfig {
     /**
      * @see ExportImages
      */
-    public List<ModelsImageRecord> exportImages(ExportImages input) throws HttpResponseException, IOException {
+    public List<ModelsImageRecord> exportImages(ExportImages input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class ImageConfig {
     /**
      * @see GetImageLimit
      */
-    public ModelsGetImageLimitResponse getImageLimit(GetImageLimit input) throws HttpResponseException, IOException {
+    public ModelsGetImageLimitResponse getImageLimit(GetImageLimit input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class ImageConfig {
     /**
      * @see DeleteImagePatch
      */
-    public void deleteImagePatch(DeleteImagePatch input) throws HttpResponseException, IOException {
+    public void deleteImagePatch(DeleteImagePatch input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class ImageConfig {
     /**
      * @see GetImageDetail
      */
-    public ModelsGetImageDetailResponse getImageDetail(GetImageDetail input) throws HttpResponseException, IOException {
+    public ModelsGetImageDetailResponse getImageDetail(GetImageDetail input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class ImageConfig {
     /**
      * @see GetImagePatches
      */
-    public ModelsListImagePatchesResponse getImagePatches(GetImagePatches input) throws HttpResponseException, IOException {
+    public ModelsListImagePatchesResponse getImagePatches(GetImagePatches input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +239,7 @@ public class ImageConfig {
     /**
      * @see GetImagePatchDetail
      */
-    public ModelsGetImagePatchDetailResponse getImagePatchDetail(GetImagePatchDetail input) throws HttpResponseException, IOException {
+    public ModelsGetImagePatchDetailResponse getImagePatchDetail(GetImagePatchDetail input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -258,7 +258,7 @@ public class ImageConfig {
     /**
      * @see ImageDetailClient
      */
-    public ModelsGetImageDetailResponse imageDetailClient(ImageDetailClient input) throws HttpResponseException, IOException {
+    public ModelsGetImageDetailResponse imageDetailClient(ImageDetailClient input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

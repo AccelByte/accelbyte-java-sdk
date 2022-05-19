@@ -30,7 +30,7 @@ public class AdminUserAgreement {
     /**
      * @see IndirectBulkAcceptVersionedPolicy
      */
-    public AcceptAgreementResponse indirectBulkAcceptVersionedPolicy(IndirectBulkAcceptVersionedPolicy input) throws HttpResponseException, IOException {
+    public AcceptAgreementResponse indirectBulkAcceptVersionedPolicy(IndirectBulkAcceptVersionedPolicy input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

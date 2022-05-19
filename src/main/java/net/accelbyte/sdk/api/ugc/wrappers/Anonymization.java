@@ -30,7 +30,7 @@ public class Anonymization {
     /**
      * @see AdminDeleteAllUserChannels
      */
-    public void adminDeleteAllUserChannels(AdminDeleteAllUserChannels input) throws HttpResponseException, IOException {
+    public void adminDeleteAllUserChannels(AdminDeleteAllUserChannels input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Anonymization {
     /**
      * @see AdminDeleteAllUserContents
      */
-    public void adminDeleteAllUserContents(AdminDeleteAllUserContents input) throws HttpResponseException, IOException {
+    public void adminDeleteAllUserContents(AdminDeleteAllUserContents input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Anonymization {
     /**
      * @see AdminDeleteAllUserGroup
      */
-    public void adminDeleteAllUserGroup(AdminDeleteAllUserGroup input) throws HttpResponseException, IOException {
+    public void adminDeleteAllUserGroup(AdminDeleteAllUserGroup input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Anonymization {
     /**
      * @see AdminDeleteAllUserStates
      */
-    public void adminDeleteAllUserStates(AdminDeleteAllUserStates input) throws HttpResponseException, IOException {
+    public void adminDeleteAllUserStates(AdminDeleteAllUserStates input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Anonymization {
     /**
      * @see DeleteAllUserChannel
      */
-    public void deleteAllUserChannel(DeleteAllUserChannel input) throws HttpResponseException, IOException {
+    public void deleteAllUserChannel(DeleteAllUserChannel input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Anonymization {
     /**
      * @see DeleteAllUserContents
      */
-    public void deleteAllUserContents(DeleteAllUserContents input) throws HttpResponseException, IOException {
+    public void deleteAllUserContents(DeleteAllUserContents input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Anonymization {
     /**
      * @see DeleteAllUserGroup
      */
-    public void deleteAllUserGroup(DeleteAllUserGroup input) throws HttpResponseException, IOException {
+    public void deleteAllUserGroup(DeleteAllUserGroup input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Anonymization {
     /**
      * @see DeleteAllUserStates
      */
-    public void deleteAllUserStates(DeleteAllUserStates input) throws HttpResponseException, IOException {
+    public void deleteAllUserStates(DeleteAllUserStates input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

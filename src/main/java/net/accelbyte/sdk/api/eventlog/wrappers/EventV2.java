@@ -30,7 +30,7 @@ public class EventV2 {
     /**
      * @see QueryEventStreamHandler
      */
-    public ModelsEventResponseV2 queryEventStreamHandler(QueryEventStreamHandler input) throws HttpResponseException, IOException {
+    public ModelsEventResponseV2 queryEventStreamHandler(QueryEventStreamHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class EventV2 {
     /**
      * @see GetEventSpecificUserV2Handler
      */
-    public ModelsEventResponseV2 getEventSpecificUserV2Handler(GetEventSpecificUserV2Handler input) throws HttpResponseException, IOException {
+    public ModelsEventResponseV2 getEventSpecificUserV2Handler(GetEventSpecificUserV2Handler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class EventV2 {
     /**
      * @see GetPublicEditHistory
      */
-    public ModelsEventResponseV2 getPublicEditHistory(GetPublicEditHistory input) throws HttpResponseException, IOException {
+    public ModelsEventResponseV2 getPublicEditHistory(GetPublicEditHistory input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class EventV2 {
     /**
      * @see GetUserEventsV2Public
      */
-    public ModelsEventResponseV2 getUserEventsV2Public(GetUserEventsV2Public input) throws HttpResponseException, IOException {
+    public ModelsEventResponseV2 getUserEventsV2Public(GetUserEventsV2Public input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

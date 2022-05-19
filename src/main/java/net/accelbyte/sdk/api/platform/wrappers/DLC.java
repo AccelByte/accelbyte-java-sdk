@@ -30,7 +30,7 @@ public class DLC {
     /**
      * @see GetDLCItemConfig
      */
-    public DLCItemConfigInfo getDLCItemConfig(GetDLCItemConfig input) throws HttpResponseException, IOException {
+    public DLCItemConfigInfo getDLCItemConfig(GetDLCItemConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class DLC {
     /**
      * @see UpdateDLCItemConfig
      */
-    public DLCItemConfigInfo updateDLCItemConfig(UpdateDLCItemConfig input) throws HttpResponseException, IOException {
+    public DLCItemConfigInfo updateDLCItemConfig(UpdateDLCItemConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class DLC {
     /**
      * @see DeleteDLCItemConfig
      */
-    public void deleteDLCItemConfig(DeleteDLCItemConfig input) throws HttpResponseException, IOException {
+    public void deleteDLCItemConfig(DeleteDLCItemConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class DLC {
     /**
      * @see GetPlatformDLCConfig
      */
-    public PlatformDLCConfigInfo getPlatformDLCConfig(GetPlatformDLCConfig input) throws HttpResponseException, IOException {
+    public PlatformDLCConfigInfo getPlatformDLCConfig(GetPlatformDLCConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class DLC {
     /**
      * @see UpdatePlatformDLCConfig
      */
-    public PlatformDLCConfigInfo updatePlatformDLCConfig(UpdatePlatformDLCConfig input) throws HttpResponseException, IOException {
+    public PlatformDLCConfigInfo updatePlatformDLCConfig(UpdatePlatformDLCConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class DLC {
     /**
      * @see DeletePlatformDLCConfig
      */
-    public void deletePlatformDLCConfig(DeletePlatformDLCConfig input) throws HttpResponseException, IOException {
+    public void deletePlatformDLCConfig(DeletePlatformDLCConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class DLC {
     /**
      * @see PublicSyncPsnDlcInventory
      */
-    public void publicSyncPsnDlcInventory(PublicSyncPsnDlcInventory input) throws HttpResponseException, IOException {
+    public void publicSyncPsnDlcInventory(PublicSyncPsnDlcInventory input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class DLC {
     /**
      * @see SyncSteamDLC
      */
-    public void syncSteamDLC(SyncSteamDLC input) throws HttpResponseException, IOException {
+    public void syncSteamDLC(SyncSteamDLC input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class DLC {
     /**
      * @see SyncXboxDLC
      */
-    public void syncXboxDLC(SyncXboxDLC input) throws HttpResponseException, IOException {
+    public void syncXboxDLC(SyncXboxDLC input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

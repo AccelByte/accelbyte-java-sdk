@@ -30,7 +30,7 @@ public class CatalogChanges {
     /**
      * @see QueryChanges
      */
-    public List<CatalogChangePagingSlicedResult> queryChanges(QueryChanges input) throws HttpResponseException, IOException {
+    public List<CatalogChangePagingSlicedResult> queryChanges(QueryChanges input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class CatalogChanges {
     /**
      * @see PublishAll
      */
-    public StoreInfo publishAll(PublishAll input) throws HttpResponseException, IOException {
+    public StoreInfo publishAll(PublishAll input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -30,7 +30,7 @@ public class LocalizedPolicyVersions {
     /**
      * @see RetrieveLocalizedPolicyVersions
      */
-    public List<RetrieveLocalizedPolicyVersionResponse> retrieveLocalizedPolicyVersions(RetrieveLocalizedPolicyVersions input) throws HttpResponseException, IOException {
+    public List<RetrieveLocalizedPolicyVersionResponse> retrieveLocalizedPolicyVersions(RetrieveLocalizedPolicyVersions input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class LocalizedPolicyVersions {
     /**
      * @see CreateLocalizedPolicyVersion
      */
-    public CreateLocalizedPolicyVersionResponse createLocalizedPolicyVersion(CreateLocalizedPolicyVersion input) throws HttpResponseException, IOException {
+    public CreateLocalizedPolicyVersionResponse createLocalizedPolicyVersion(CreateLocalizedPolicyVersion input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class LocalizedPolicyVersions {
     /**
      * @see RetrieveSingleLocalizedPolicyVersion
      */
-    public UpdateLocalizedPolicyVersionResponse retrieveSingleLocalizedPolicyVersion(RetrieveSingleLocalizedPolicyVersion input) throws HttpResponseException, IOException {
+    public UpdateLocalizedPolicyVersionResponse retrieveSingleLocalizedPolicyVersion(RetrieveSingleLocalizedPolicyVersion input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class LocalizedPolicyVersions {
     /**
      * @see UpdateLocalizedPolicyVersion
      */
-    public UpdateLocalizedPolicyVersionResponse updateLocalizedPolicyVersion(UpdateLocalizedPolicyVersion input) throws HttpResponseException, IOException {
+    public UpdateLocalizedPolicyVersionResponse updateLocalizedPolicyVersion(UpdateLocalizedPolicyVersion input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class LocalizedPolicyVersions {
     /**
      * @see RequestPresignedURL
      */
-    public UploadLocalizedPolicyVersionAttachmentResponse requestPresignedURL(RequestPresignedURL input) throws HttpResponseException, IOException {
+    public UploadLocalizedPolicyVersionAttachmentResponse requestPresignedURL(RequestPresignedURL input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class LocalizedPolicyVersions {
     /**
      * @see SetDefaultPolicy
      */
-    public void setDefaultPolicy(SetDefaultPolicy input) throws HttpResponseException, IOException {
+    public void setDefaultPolicy(SetDefaultPolicy input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class LocalizedPolicyVersions {
     /**
      * @see RetrieveSingleLocalizedPolicyVersion1
      */
-    public RetrieveLocalizedPolicyVersionPublicResponse retrieveSingleLocalizedPolicyVersion1(RetrieveSingleLocalizedPolicyVersion1 input) throws HttpResponseException, IOException {
+    public RetrieveLocalizedPolicyVersionPublicResponse retrieveSingleLocalizedPolicyVersion1(RetrieveSingleLocalizedPolicyVersion1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

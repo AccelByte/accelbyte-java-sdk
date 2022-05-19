@@ -30,7 +30,7 @@ public class AdminUserEligibilities {
     /**
      * @see AdminRetrieveEligibilities
      */
-    public RetrieveUserEligibilitiesIndirectResponse adminRetrieveEligibilities(AdminRetrieveEligibilities input) throws HttpResponseException, IOException {
+    public RetrieveUserEligibilitiesIndirectResponse adminRetrieveEligibilities(AdminRetrieveEligibilities input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

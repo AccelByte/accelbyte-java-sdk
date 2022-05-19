@@ -30,7 +30,7 @@ public class PaymentCallbackConfig {
     /**
      * @see GetPaymentCallbackConfig
      */
-    public PaymentCallbackConfigInfo getPaymentCallbackConfig(GetPaymentCallbackConfig input) throws HttpResponseException, IOException {
+    public PaymentCallbackConfigInfo getPaymentCallbackConfig(GetPaymentCallbackConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PaymentCallbackConfig {
     /**
      * @see UpdatePaymentCallbackConfig
      */
-    public PaymentCallbackConfigInfo updatePaymentCallbackConfig(UpdatePaymentCallbackConfig input) throws HttpResponseException, IOException {
+    public PaymentCallbackConfigInfo updatePaymentCallbackConfig(UpdatePaymentCallbackConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

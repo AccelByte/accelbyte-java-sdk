@@ -30,7 +30,7 @@ public class DataRetrieval {
     /**
      * @see GetAdminEmailConfiguration
      */
-    public List<String> getAdminEmailConfiguration(GetAdminEmailConfiguration input) throws HttpResponseException, IOException {
+    public List<String> getAdminEmailConfiguration(GetAdminEmailConfiguration input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class DataRetrieval {
     /**
      * @see UpdateAdminEmailConfiguration
      */
-    public void updateAdminEmailConfiguration(UpdateAdminEmailConfiguration input) throws HttpResponseException, IOException {
+    public void updateAdminEmailConfiguration(UpdateAdminEmailConfiguration input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class DataRetrieval {
     /**
      * @see SaveAdminEmailConfiguration
      */
-    public void saveAdminEmailConfiguration(SaveAdminEmailConfiguration input) throws HttpResponseException, IOException {
+    public void saveAdminEmailConfiguration(SaveAdminEmailConfiguration input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class DataRetrieval {
     /**
      * @see DeleteAdminEmailConfiguration
      */
-    public void deleteAdminEmailConfiguration(DeleteAdminEmailConfiguration input) throws HttpResponseException, IOException {
+    public void deleteAdminEmailConfiguration(DeleteAdminEmailConfiguration input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class DataRetrieval {
     /**
      * @see AdminGetListPersonalDataRequest
      */
-    public ModelsListPersonalDataResponse adminGetListPersonalDataRequest(AdminGetListPersonalDataRequest input) throws HttpResponseException, IOException {
+    public ModelsListPersonalDataResponse adminGetListPersonalDataRequest(AdminGetListPersonalDataRequest input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class DataRetrieval {
     /**
      * @see AdminGetUserPersonalDataRequests
      */
-    public ModelsUserPersonalDataResponse adminGetUserPersonalDataRequests(AdminGetUserPersonalDataRequests input) throws HttpResponseException, IOException {
+    public ModelsUserPersonalDataResponse adminGetUserPersonalDataRequests(AdminGetUserPersonalDataRequests input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class DataRetrieval {
     /**
      * @see AdminRequestDataRetrieval
      */
-    public ModelsDataRetrievalResponse adminRequestDataRetrieval(AdminRequestDataRetrieval input) throws HttpResponseException, IOException {
+    public ModelsDataRetrievalResponse adminRequestDataRetrieval(AdminRequestDataRetrieval input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class DataRetrieval {
     /**
      * @see AdminCancelUserPersonalDataRequest
      */
-    public void adminCancelUserPersonalDataRequest(AdminCancelUserPersonalDataRequest input) throws HttpResponseException, IOException {
+    public void adminCancelUserPersonalDataRequest(AdminCancelUserPersonalDataRequest input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class DataRetrieval {
     /**
      * @see AdminGeneratePersonalDataURL
      */
-    public ModelsUserDataURL adminGeneratePersonalDataURL(AdminGeneratePersonalDataURL input) throws HttpResponseException, IOException {
+    public ModelsUserDataURL adminGeneratePersonalDataURL(AdminGeneratePersonalDataURL input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class DataRetrieval {
     /**
      * @see PublicGetUserPersonalDataRequests
      */
-    public ModelsUserPersonalDataResponse publicGetUserPersonalDataRequests(PublicGetUserPersonalDataRequests input) throws HttpResponseException, IOException {
+    public ModelsUserPersonalDataResponse publicGetUserPersonalDataRequests(PublicGetUserPersonalDataRequests input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class DataRetrieval {
     /**
      * @see PublicRequestDataRetrieval
      */
-    public ModelsDataRetrievalResponse publicRequestDataRetrieval(PublicRequestDataRetrieval input) throws HttpResponseException, IOException {
+    public ModelsDataRetrievalResponse publicRequestDataRetrieval(PublicRequestDataRetrieval input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +239,7 @@ public class DataRetrieval {
     /**
      * @see PublicCancelUserPersonalDataRequest
      */
-    public void publicCancelUserPersonalDataRequest(PublicCancelUserPersonalDataRequest input) throws HttpResponseException, IOException {
+    public void publicCancelUserPersonalDataRequest(PublicCancelUserPersonalDataRequest input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -258,7 +258,7 @@ public class DataRetrieval {
     /**
      * @see PublicGeneratePersonalDataURL
      */
-    public ModelsUserDataURL publicGeneratePersonalDataURL(PublicGeneratePersonalDataURL input) throws HttpResponseException, IOException {
+    public ModelsUserDataURL publicGeneratePersonalDataURL(PublicGeneratePersonalDataURL input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

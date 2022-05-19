@@ -30,7 +30,7 @@ public class UserInfo {
     /**
      * @see GetUserInfoStatus
      */
-    public List<RetrieveUserInfoCacheStatusResponse> getUserInfoStatus(GetUserInfoStatus input) throws HttpResponseException, IOException {
+    public List<RetrieveUserInfoCacheStatusResponse> getUserInfoStatus(GetUserInfoStatus input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class UserInfo {
     /**
      * @see SyncUserInfo
      */
-    public void syncUserInfo(SyncUserInfo input) throws HttpResponseException, IOException {
+    public void syncUserInfo(SyncUserInfo input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class UserInfo {
     /**
      * @see InvalidateUserInfoCache
      */
-    public void invalidateUserInfoCache(InvalidateUserInfoCache input) throws HttpResponseException, IOException {
+    public void invalidateUserInfoCache(InvalidateUserInfoCache input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

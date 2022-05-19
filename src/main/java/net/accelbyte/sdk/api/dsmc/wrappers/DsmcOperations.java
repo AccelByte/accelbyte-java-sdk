@@ -30,7 +30,7 @@ public class DsmcOperations {
     /**
      * @see PublicGetMessages
      */
-    public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws HttpResponseException, IOException {
+    public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

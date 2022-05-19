@@ -30,7 +30,7 @@ public class FileUpload {
     /**
      * @see GeneratedUploadUrl
      */
-    public FileUploadUrlInfo generatedUploadUrl(GeneratedUploadUrl input) throws HttpResponseException, IOException {
+    public FileUploadUrlInfo generatedUploadUrl(GeneratedUploadUrl input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class FileUpload {
     /**
      * @see GeneratedUserUploadContentUrl
      */
-    public FileUploadUrlInfo generatedUserUploadContentUrl(GeneratedUserUploadContentUrl input) throws HttpResponseException, IOException {
+    public FileUploadUrlInfo generatedUserUploadContentUrl(GeneratedUserUploadContentUrl input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class FileUpload {
     /**
      * @see PublicGeneratedUploadUrl
      */
-    public FileUploadUrlInfo publicGeneratedUploadUrl(PublicGeneratedUploadUrl input) throws HttpResponseException, IOException {
+    public FileUploadUrlInfo publicGeneratedUploadUrl(PublicGeneratedUploadUrl input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class FileUpload {
     /**
      * @see PublicGeneratedUserUploadContentUrl
      */
-    public FileUploadUrlInfo publicGeneratedUserUploadContentUrl(PublicGeneratedUserUploadContentUrl input) throws HttpResponseException, IOException {
+    public FileUploadUrlInfo publicGeneratedUserUploadContentUrl(PublicGeneratedUserUploadContentUrl input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -30,7 +30,7 @@ public class Bans {
     /**
      * @see GetBansType
      */
-    public AccountcommonBans getBansType(GetBansType input) throws HttpResponseException, IOException {
+    public AccountcommonBans getBansType(GetBansType input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Bans {
     /**
      * @see GetListBanReason
      */
-    public AccountcommonBanReasons getListBanReason(GetListBanReason input) throws HttpResponseException, IOException {
+    public AccountcommonBanReasons getListBanReason(GetListBanReason input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Bans {
     /**
      * @see AdminGetBansTypeV3
      */
-    public AccountcommonBansV3 adminGetBansTypeV3(AdminGetBansTypeV3 input) throws HttpResponseException, IOException {
+    public AccountcommonBansV3 adminGetBansTypeV3(AdminGetBansTypeV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Bans {
     /**
      * @see AdminGetListBanReasonV3
      */
-    public AccountcommonBanReasonsV3 adminGetListBanReasonV3(AdminGetListBanReasonV3 input) throws HttpResponseException, IOException {
+    public AccountcommonBanReasonsV3 adminGetListBanReasonV3(AdminGetListBanReasonV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Bans {
     /**
      * @see AdminGetBannedUsersV3
      */
-    public ModelGetUserBanV3Response adminGetBannedUsersV3(AdminGetBannedUsersV3 input) throws HttpResponseException, IOException {
+    public ModelGetUserBanV3Response adminGetBannedUsersV3(AdminGetBannedUsersV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Bans {
     /**
      * @see AdminGetBansTypeWithNamespaceV3
      */
-    public AccountcommonBansV3 adminGetBansTypeWithNamespaceV3(AdminGetBansTypeWithNamespaceV3 input) throws HttpResponseException, IOException {
+    public AccountcommonBansV3 adminGetBansTypeWithNamespaceV3(AdminGetBansTypeWithNamespaceV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

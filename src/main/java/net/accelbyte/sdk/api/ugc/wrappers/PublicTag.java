@@ -30,7 +30,7 @@ public class PublicTag {
     /**
      * @see GetTag
      */
-    public ModelsPaginatedGetTagResponse getTag(GetTag input) throws HttpResponseException, IOException {
+    public ModelsPaginatedGetTagResponse getTag(GetTag input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

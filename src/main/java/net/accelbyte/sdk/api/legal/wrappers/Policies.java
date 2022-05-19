@@ -30,7 +30,7 @@ public class Policies {
     /**
      * @see RetrievePolicies
      */
-    public List<RetrievePolicyResponse> retrievePolicies(RetrievePolicies input) throws HttpResponseException, IOException {
+    public List<RetrievePolicyResponse> retrievePolicies(RetrievePolicies input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Policies {
     /**
      * @see UpdatePolicy
      */
-    public void updatePolicy(UpdatePolicy input) throws HttpResponseException, IOException {
+    public void updatePolicy(UpdatePolicy input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Policies {
     /**
      * @see SetDefaultPolicy1
      */
-    public void setDefaultPolicy1(SetDefaultPolicy1 input) throws HttpResponseException, IOException {
+    public void setDefaultPolicy1(SetDefaultPolicy1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Policies {
     /**
      * @see RetrieveLatestPolicies
      */
-    public List<RetrievePolicyPublicResponse> retrieveLatestPolicies(RetrieveLatestPolicies input) throws HttpResponseException, IOException {
+    public List<RetrievePolicyPublicResponse> retrieveLatestPolicies(RetrieveLatestPolicies input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Policies {
     /**
      * @see RetrieveLatestPoliciesPublic
      */
-    public List<RetrievePolicyPublicResponse> retrieveLatestPoliciesPublic(RetrieveLatestPoliciesPublic input) throws HttpResponseException, IOException {
+    public List<RetrievePolicyPublicResponse> retrieveLatestPoliciesPublic(RetrieveLatestPoliciesPublic input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Policies {
     /**
      * @see RetrieveLatestPoliciesByNamespaceAndCountryPublic
      */
-    public List<RetrievePolicyPublicResponse> retrieveLatestPoliciesByNamespaceAndCountryPublic(RetrieveLatestPoliciesByNamespaceAndCountryPublic input) throws HttpResponseException, IOException {
+    public List<RetrievePolicyPublicResponse> retrieveLatestPoliciesByNamespaceAndCountryPublic(RetrieveLatestPoliciesByNamespaceAndCountryPublic input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -30,7 +30,7 @@ public class GroupRoles {
     /**
      * @see GetMemberRolesListAdminV1
      */
-    public ModelsGetMemberRolesListResponseV1 getMemberRolesListAdminV1(GetMemberRolesListAdminV1 input) throws HttpResponseException, IOException {
+    public ModelsGetMemberRolesListResponseV1 getMemberRolesListAdminV1(GetMemberRolesListAdminV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class GroupRoles {
     /**
      * @see CreateMemberRoleAdminV1
      */
-    public ModelsCreateMemberRoleResponseV1 createMemberRoleAdminV1(CreateMemberRoleAdminV1 input) throws HttpResponseException, IOException {
+    public ModelsCreateMemberRoleResponseV1 createMemberRoleAdminV1(CreateMemberRoleAdminV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class GroupRoles {
     /**
      * @see GetSingleMemberRoleAdminV1
      */
-    public ModelsGetMemberRoleResponseV1 getSingleMemberRoleAdminV1(GetSingleMemberRoleAdminV1 input) throws HttpResponseException, IOException {
+    public ModelsGetMemberRoleResponseV1 getSingleMemberRoleAdminV1(GetSingleMemberRoleAdminV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class GroupRoles {
     /**
      * @see DeleteMemberRoleAdminV1
      */
-    public void deleteMemberRoleAdminV1(DeleteMemberRoleAdminV1 input) throws HttpResponseException, IOException {
+    public void deleteMemberRoleAdminV1(DeleteMemberRoleAdminV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class GroupRoles {
     /**
      * @see UpdateMemberRoleAdminV1
      */
-    public ModelsUpdateMemberRoleResponseV1 updateMemberRoleAdminV1(UpdateMemberRoleAdminV1 input) throws HttpResponseException, IOException {
+    public ModelsUpdateMemberRoleResponseV1 updateMemberRoleAdminV1(UpdateMemberRoleAdminV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class GroupRoles {
     /**
      * @see UpdateMemberRolePermissionAdminV1
      */
-    public ModelsUpdateMemberRoleResponseV1 updateMemberRolePermissionAdminV1(UpdateMemberRolePermissionAdminV1 input) throws HttpResponseException, IOException {
+    public ModelsUpdateMemberRoleResponseV1 updateMemberRolePermissionAdminV1(UpdateMemberRolePermissionAdminV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class GroupRoles {
     /**
      * @see GetMemberRolesListPublicV1
      */
-    public ModelsGetMemberRolesListResponseV1 getMemberRolesListPublicV1(GetMemberRolesListPublicV1 input) throws HttpResponseException, IOException {
+    public ModelsGetMemberRolesListResponseV1 getMemberRolesListPublicV1(GetMemberRolesListPublicV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class GroupRoles {
     /**
      * @see UpdateMemberRolePublicV1
      */
-    public ModelsGetUserGroupInformationResponseV1 updateMemberRolePublicV1(UpdateMemberRolePublicV1 input) throws HttpResponseException, IOException {
+    public ModelsGetUserGroupInformationResponseV1 updateMemberRolePublicV1(UpdateMemberRolePublicV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class GroupRoles {
     /**
      * @see DeleteMemberRolePublicV1
      */
-    public ModelsUpdateMemberRoleResponseV1 deleteMemberRolePublicV1(DeleteMemberRolePublicV1 input) throws HttpResponseException, IOException {
+    public ModelsUpdateMemberRoleResponseV1 deleteMemberRolePublicV1(DeleteMemberRolePublicV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

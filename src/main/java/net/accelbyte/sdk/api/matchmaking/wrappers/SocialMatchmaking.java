@@ -30,7 +30,7 @@ public class SocialMatchmaking {
     /**
      * @see UpdatePlayTimeWeight
      */
-    public ModelsUpdatePlayerPlaytimeWeightResponse updatePlayTimeWeight(UpdatePlayTimeWeight input) throws HttpResponseException, IOException {
+    public ModelsUpdatePlayerPlaytimeWeightResponse updatePlayTimeWeight(UpdatePlayTimeWeight input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -30,7 +30,7 @@ public class SSO {
     /**
      * @see LoginSSOClient
      */
-    public void loginSSOClient(LoginSSOClient input) throws HttpResponseException, IOException {
+    public void loginSSOClient(LoginSSOClient input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class SSO {
     /**
      * @see LogoutSSOClient
      */
-    public void logoutSSOClient(LogoutSSOClient input) throws HttpResponseException, IOException {
+    public void logoutSSOClient(LogoutSSOClient input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

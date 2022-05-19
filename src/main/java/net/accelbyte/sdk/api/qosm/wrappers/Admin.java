@@ -30,7 +30,7 @@ public class Admin {
     /**
      * @see DeleteServer
      */
-    public void deleteServer(DeleteServer input) throws HttpResponseException, IOException {
+    public void deleteServer(DeleteServer input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Admin {
     /**
      * @see SetServerAlias
      */
-    public void setServerAlias(SetServerAlias input) throws HttpResponseException, IOException {
+    public void setServerAlias(SetServerAlias input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

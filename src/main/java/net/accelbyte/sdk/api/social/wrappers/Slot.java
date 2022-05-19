@@ -30,7 +30,7 @@ public class Slot {
     /**
      * @see GetUserNamespaceSlots
      */
-    public List<SlotInfo> getUserNamespaceSlots(GetUserNamespaceSlots input) throws HttpResponseException, IOException {
+    public List<SlotInfo> getUserNamespaceSlots(GetUserNamespaceSlots input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Slot {
     /**
      * @see GetSlotData
      */
-    public InputStream getSlotData(GetSlotData input) throws HttpResponseException, IOException {
+    public InputStream getSlotData(GetSlotData input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Slot {
     /**
      * @see PublicGetUserNamespaceSlots
      */
-    public List<SlotInfo> publicGetUserNamespaceSlots(PublicGetUserNamespaceSlots input) throws HttpResponseException, IOException {
+    public List<SlotInfo> publicGetUserNamespaceSlots(PublicGetUserNamespaceSlots input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Slot {
     /**
      * @see PublicCreateUserNamespaceSlot
      */
-    public void publicCreateUserNamespaceSlot(PublicCreateUserNamespaceSlot input) throws HttpResponseException, IOException {
+    public void publicCreateUserNamespaceSlot(PublicCreateUserNamespaceSlot input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Slot {
     /**
      * @see PublicGetSlotData
      */
-    public InputStream publicGetSlotData(PublicGetSlotData input) throws HttpResponseException, IOException {
+    public InputStream publicGetSlotData(PublicGetSlotData input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Slot {
     /**
      * @see PublicUpdateUserNamespaceSlot
      */
-    public SlotInfo publicUpdateUserNamespaceSlot(PublicUpdateUserNamespaceSlot input) throws HttpResponseException, IOException {
+    public SlotInfo publicUpdateUserNamespaceSlot(PublicUpdateUserNamespaceSlot input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Slot {
     /**
      * @see PublicDeleteUserNamespaceSlot
      */
-    public void publicDeleteUserNamespaceSlot(PublicDeleteUserNamespaceSlot input) throws HttpResponseException, IOException {
+    public void publicDeleteUserNamespaceSlot(PublicDeleteUserNamespaceSlot input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Slot {
     /**
      * @see PublicUpdateUserNamespaceSlotMetadata
      */
-    public SlotInfo publicUpdateUserNamespaceSlotMetadata(PublicUpdateUserNamespaceSlotMetadata input) throws HttpResponseException, IOException {
+    public SlotInfo publicUpdateUserNamespaceSlotMetadata(PublicUpdateUserNamespaceSlotMetadata input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

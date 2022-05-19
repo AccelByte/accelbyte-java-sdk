@@ -38,6 +38,10 @@ The following environment variables need to be set when using `DefaultConfigRepo
 ## Usage
 
 ### Instantiation
+
+#### With Default HTTP Client (OkhttpClient)
+
+Use this to get SDK instance with basic HTTP functionality.
     
 ```java
 AccelByteConfig config = new AccelByteConfig(
@@ -48,9 +52,31 @@ AccelByteConfig config = new AccelByteConfig(
 AccelByteSDK sdk = new AccelByteSDK(config);
 ```
 
-## Login
+#### With Reliable HTTP client
 
-### Login Using Username and Password
+Use this to get SDK instance with HTTP retry functionality.
+
+```java
+final DefaultHttpRetryPolicy retryPolicy = new DefaultHttpRetryPolicy();
+
+retryPolicy.setCallTimeout(3000);   // In milliseconds
+retryPolicy.setMaxRetry(3);
+retryPolicy.setRetryInterval(2000);    // In milliseconds
+retryPolicy.setRetryIntervalType(RetryIntervalType.LINEAR);    // LINEAR, EXPONENTIAL are available
+
+private final ReliableHttpClient reliableHttpClient = new ReliableHttpClient(retryPolicy);
+
+AccelByteConfig config = new AccelByteConfig(
+      reliableHttpClient,
+      DefaultTokenRepository.getInstance(),
+      new DefaultConfigRepository());     // Using DefaultConfigRepository, make sure the required environment variables are set
+
+AccelByteSDK sdk = new AccelByteSDK(config);
+```
+
+### Login
+
+#### Login Using Username and Password
 
 ```java
 boolean login = sdk.loginUser("myUsername", "myPassword");
@@ -61,7 +87,7 @@ if (!login) {
 ```
 
 
-### Login Using OAuth Client (Public or Private)
+#### Login Using OAuth Client (Public or Private)
 
 ```java
 boolean login = sdk.loginClient();
@@ -71,7 +97,7 @@ if (!login) {
 }
 ```
 
-## Interacting with a Service Endpoint
+### Interacting with a Service Endpoint
 
 As an example, we will get current user profile info using [getMyProfileInfo](https://demo.accelbyte.io/basic/apidocs/#/UserProfile/getMyProfileInfo) endpoint available in [basic](https://demo.accelbyte.io/basic/apidocs) service.
 
@@ -108,7 +134,7 @@ try {
 }
 ```
 
-## Logout
+### Logout
 ```java
 boolean logout = sdk.logout();
 

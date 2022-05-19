@@ -23,7 +23,6 @@ import org.apache.http.client.utils.URLEncodedUtils;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -49,7 +48,7 @@ public class AccelByteSDK {
         return sdkConfiguration;
     }
 
-    public HttpResponse runRequest(Operation operation) throws IOException {
+    public HttpResponse runRequest(Operation operation) throws Exception {
         String selectedSecurity = Operation.Security.Basic.toString();
         if (!operation.getPreferredSecurityMethod().isEmpty())
             selectedSecurity = operation.getPreferredSecurityMethod();
@@ -158,7 +157,7 @@ public class AccelByteSDK {
             final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
             this.sdkConfiguration.getTokenRepository().storeToken(token.getAccessToken());
             return true;
-        } catch (HttpResponseException | IOException | URISyntaxException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
@@ -173,7 +172,7 @@ public class AccelByteSDK {
             final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
             this.sdkConfiguration.getTokenRepository().storeToken(token.getAccessToken());
             return true;
-        } catch (HttpResponseException | IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return false;

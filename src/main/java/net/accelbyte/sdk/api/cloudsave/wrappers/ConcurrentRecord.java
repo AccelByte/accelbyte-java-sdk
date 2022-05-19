@@ -30,7 +30,7 @@ public class ConcurrentRecord {
     /**
      * @see PutGameRecordConcurrentHandlerV1
      */
-    public void putGameRecordConcurrentHandlerV1(PutGameRecordConcurrentHandlerV1 input) throws HttpResponseException, IOException {
+    public void putGameRecordConcurrentHandlerV1(PutGameRecordConcurrentHandlerV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class ConcurrentRecord {
     /**
      * @see PutPlayerPublicRecordConcurrentHandlerV1
      */
-    public void putPlayerPublicRecordConcurrentHandlerV1(PutPlayerPublicRecordConcurrentHandlerV1 input) throws HttpResponseException, IOException {
+    public void putPlayerPublicRecordConcurrentHandlerV1(PutPlayerPublicRecordConcurrentHandlerV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

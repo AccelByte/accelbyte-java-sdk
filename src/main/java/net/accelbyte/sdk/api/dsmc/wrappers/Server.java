@@ -30,7 +30,7 @@ public class Server {
     /**
      * @see DeregisterLocalServer
      */
-    public void deregisterLocalServer(DeregisterLocalServer input) throws HttpResponseException, IOException {
+    public void deregisterLocalServer(DeregisterLocalServer input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Server {
     /**
      * @see RegisterLocalServer
      */
-    public ModelsServer registerLocalServer(RegisterLocalServer input) throws HttpResponseException, IOException {
+    public ModelsServer registerLocalServer(RegisterLocalServer input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Server {
     /**
      * @see RegisterServer
      */
-    public ModelsServer registerServer(RegisterServer input) throws HttpResponseException, IOException {
+    public ModelsServer registerServer(RegisterServer input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Server {
     /**
      * @see ShutdownServer
      */
-    public void shutdownServer(ShutdownServer input) throws HttpResponseException, IOException {
+    public void shutdownServer(ShutdownServer input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Server {
     /**
      * @see GetServerSession
      */
-    public ModelsServerSessionResponse getServerSession(GetServerSession input) throws HttpResponseException, IOException {
+    public ModelsServerSessionResponse getServerSession(GetServerSession input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

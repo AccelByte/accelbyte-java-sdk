@@ -30,7 +30,7 @@ public class AllTerminatedServers {
     /**
      * @see BatchDownloadServerLogs
      */
-    public void batchDownloadServerLogs(BatchDownloadServerLogs input) throws HttpResponseException, IOException {
+    public void batchDownloadServerLogs(BatchDownloadServerLogs input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class AllTerminatedServers {
     /**
      * @see ListAllTerminatedServers
      */
-    public ModelsListTerminatedServersResponse listAllTerminatedServers(ListAllTerminatedServers input) throws HttpResponseException, IOException {
+    public ModelsListTerminatedServersResponse listAllTerminatedServers(ListAllTerminatedServers input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

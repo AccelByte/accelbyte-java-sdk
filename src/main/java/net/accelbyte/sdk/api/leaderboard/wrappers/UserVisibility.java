@@ -30,7 +30,7 @@ public class UserVisibility {
     /**
      * @see GetHiddenUsersV2
      */
-    public ModelsGetHiddenUserResponse getHiddenUsersV2(GetHiddenUsersV2 input) throws HttpResponseException, IOException {
+    public ModelsGetHiddenUserResponse getHiddenUsersV2(GetHiddenUsersV2 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class UserVisibility {
     /**
      * @see GetUserVisibilityStatusV2
      */
-    public ModelsGetUserVisibilityResponse getUserVisibilityStatusV2(GetUserVisibilityStatusV2 input) throws HttpResponseException, IOException {
+    public ModelsGetUserVisibilityResponse getUserVisibilityStatusV2(GetUserVisibilityStatusV2 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class UserVisibility {
     /**
      * @see SetUserLeaderboardVisibilityStatusV2
      */
-    public ModelsGetUserVisibilityResponse setUserLeaderboardVisibilityStatusV2(SetUserLeaderboardVisibilityStatusV2 input) throws HttpResponseException, IOException {
+    public ModelsGetUserVisibilityResponse setUserLeaderboardVisibilityStatusV2(SetUserLeaderboardVisibilityStatusV2 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class UserVisibility {
     /**
      * @see SetUserVisibilityStatusV2
      */
-    public ModelsGetUserVisibilityResponse setUserVisibilityStatusV2(SetUserVisibilityStatusV2 input) throws HttpResponseException, IOException {
+    public ModelsGetUserVisibilityResponse setUserVisibilityStatusV2(SetUserVisibilityStatusV2 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

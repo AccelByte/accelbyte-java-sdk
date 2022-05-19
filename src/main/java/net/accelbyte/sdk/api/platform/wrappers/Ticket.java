@@ -30,7 +30,7 @@ public class Ticket {
     /**
      * @see GetTicketDynamic
      */
-    public TicketDynamicInfo getTicketDynamic(GetTicketDynamic input) throws HttpResponseException, IOException {
+    public TicketDynamicInfo getTicketDynamic(GetTicketDynamic input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Ticket {
     /**
      * @see DecreaseTicketSale
      */
-    public void decreaseTicketSale(DecreaseTicketSale input) throws HttpResponseException, IOException {
+    public void decreaseTicketSale(DecreaseTicketSale input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Ticket {
     /**
      * @see GetTicketBoothID
      */
-    public TicketBoothID getTicketBoothID(GetTicketBoothID input) throws HttpResponseException, IOException {
+    public TicketBoothID getTicketBoothID(GetTicketBoothID input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Ticket {
     /**
      * @see IncreaseTicketSale
      */
-    public TicketSaleIncrementResult increaseTicketSale(IncreaseTicketSale input) throws HttpResponseException, IOException {
+    public TicketSaleIncrementResult increaseTicketSale(IncreaseTicketSale input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Ticket {
     /**
      * @see AcquireUserTicket
      */
-    public TicketAcquireResult acquireUserTicket(AcquireUserTicket input) throws HttpResponseException, IOException {
+    public TicketAcquireResult acquireUserTicket(AcquireUserTicket input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

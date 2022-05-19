@@ -30,7 +30,7 @@ public class Notification {
     /**
      * @see SendMultipleUsersFreeformNotificationV1Admin
      */
-    public void sendMultipleUsersFreeformNotificationV1Admin(SendMultipleUsersFreeformNotificationV1Admin input) throws HttpResponseException, IOException {
+    public void sendMultipleUsersFreeformNotificationV1Admin(SendMultipleUsersFreeformNotificationV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Notification {
     /**
      * @see SendUsersFreeformNotificationV1Admin
      */
-    public void sendUsersFreeformNotificationV1Admin(SendUsersFreeformNotificationV1Admin input) throws HttpResponseException, IOException {
+    public void sendUsersFreeformNotificationV1Admin(SendUsersFreeformNotificationV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Notification {
     /**
      * @see SendPartyFreeformNotificationV1Admin
      */
-    public void sendPartyFreeformNotificationV1Admin(SendPartyFreeformNotificationV1Admin input) throws HttpResponseException, IOException {
+    public void sendPartyFreeformNotificationV1Admin(SendPartyFreeformNotificationV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Notification {
     /**
      * @see SendPartyTemplatedNotificationV1Admin
      */
-    public void sendPartyTemplatedNotificationV1Admin(SendPartyTemplatedNotificationV1Admin input) throws HttpResponseException, IOException {
+    public void sendPartyTemplatedNotificationV1Admin(SendPartyTemplatedNotificationV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Notification {
     /**
      * @see GetAllNotificationTemplatesV1Admin
      */
-    public List<ModelNotificationTemplateResponse> getAllNotificationTemplatesV1Admin(GetAllNotificationTemplatesV1Admin input) throws HttpResponseException, IOException {
+    public List<ModelNotificationTemplateResponse> getAllNotificationTemplatesV1Admin(GetAllNotificationTemplatesV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Notification {
     /**
      * @see CreateNotificationTemplateV1Admin
      */
-    public void createNotificationTemplateV1Admin(CreateNotificationTemplateV1Admin input) throws HttpResponseException, IOException {
+    public void createNotificationTemplateV1Admin(CreateNotificationTemplateV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Notification {
     /**
      * @see SendUsersTemplatedNotificationV1Admin
      */
-    public void sendUsersTemplatedNotificationV1Admin(SendUsersTemplatedNotificationV1Admin input) throws HttpResponseException, IOException {
+    public void sendUsersTemplatedNotificationV1Admin(SendUsersTemplatedNotificationV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Notification {
     /**
      * @see GetTemplateSlugLocalizationsTemplateV1Admin
      */
-    public ModelGetAllNotificationTemplateSlugResp getTemplateSlugLocalizationsTemplateV1Admin(GetTemplateSlugLocalizationsTemplateV1Admin input) throws HttpResponseException, IOException {
+    public ModelGetAllNotificationTemplateSlugResp getTemplateSlugLocalizationsTemplateV1Admin(GetTemplateSlugLocalizationsTemplateV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class Notification {
     /**
      * @see DeleteNotificationTemplateSlugV1Admin
      */
-    public void deleteNotificationTemplateSlugV1Admin(DeleteNotificationTemplateSlugV1Admin input) throws HttpResponseException, IOException {
+    public void deleteNotificationTemplateSlugV1Admin(DeleteNotificationTemplateSlugV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class Notification {
     /**
      * @see GetSingleTemplateLocalizationV1Admin
      */
-    public ModelLocalization getSingleTemplateLocalizationV1Admin(GetSingleTemplateLocalizationV1Admin input) throws HttpResponseException, IOException {
+    public ModelLocalization getSingleTemplateLocalizationV1Admin(GetSingleTemplateLocalizationV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class Notification {
     /**
      * @see UpdateTemplateLocalizationV1Admin
      */
-    public void updateTemplateLocalizationV1Admin(UpdateTemplateLocalizationV1Admin input) throws HttpResponseException, IOException {
+    public void updateTemplateLocalizationV1Admin(UpdateTemplateLocalizationV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +239,7 @@ public class Notification {
     /**
      * @see DeleteTemplateLocalizationV1Admin
      */
-    public void deleteTemplateLocalizationV1Admin(DeleteTemplateLocalizationV1Admin input) throws HttpResponseException, IOException {
+    public void deleteTemplateLocalizationV1Admin(DeleteTemplateLocalizationV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -258,7 +258,7 @@ public class Notification {
     /**
      * @see PublishTemplateLocalizationV1Admin
      */
-    public void publishTemplateLocalizationV1Admin(PublishTemplateLocalizationV1Admin input) throws HttpResponseException, IOException {
+    public void publishTemplateLocalizationV1Admin(PublishTemplateLocalizationV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -277,7 +277,7 @@ public class Notification {
     /**
      * @see GetAllNotificationTopicsV1Admin
      */
-    public ModelGetAllNotificationTopicsResponse getAllNotificationTopicsV1Admin(GetAllNotificationTopicsV1Admin input) throws HttpResponseException, IOException {
+    public ModelGetAllNotificationTopicsResponse getAllNotificationTopicsV1Admin(GetAllNotificationTopicsV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -296,7 +296,7 @@ public class Notification {
     /**
      * @see CreateNotificationTopicV1Admin
      */
-    public void createNotificationTopicV1Admin(CreateNotificationTopicV1Admin input) throws HttpResponseException, IOException {
+    public void createNotificationTopicV1Admin(CreateNotificationTopicV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -315,7 +315,7 @@ public class Notification {
     /**
      * @see GetNotificationTopicV1Admin
      */
-    public ModelNotificationTopicResponseV1 getNotificationTopicV1Admin(GetNotificationTopicV1Admin input) throws HttpResponseException, IOException {
+    public ModelNotificationTopicResponseV1 getNotificationTopicV1Admin(GetNotificationTopicV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -334,7 +334,7 @@ public class Notification {
     /**
      * @see UpdateNotificationTopicV1Admin
      */
-    public void updateNotificationTopicV1Admin(UpdateNotificationTopicV1Admin input) throws HttpResponseException, IOException {
+    public void updateNotificationTopicV1Admin(UpdateNotificationTopicV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -353,7 +353,7 @@ public class Notification {
     /**
      * @see DeleteNotificationTopicV1Admin
      */
-    public void deleteNotificationTopicV1Admin(DeleteNotificationTopicV1Admin input) throws HttpResponseException, IOException {
+    public void deleteNotificationTopicV1Admin(DeleteNotificationTopicV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -372,7 +372,7 @@ public class Notification {
     /**
      * @see SendSpecificUserFreeformNotificationV1Admin
      */
-    public void sendSpecificUserFreeformNotificationV1Admin(SendSpecificUserFreeformNotificationV1Admin input) throws HttpResponseException, IOException {
+    public void sendSpecificUserFreeformNotificationV1Admin(SendSpecificUserFreeformNotificationV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -391,7 +391,7 @@ public class Notification {
     /**
      * @see SendSpecificUserTemplatedNotificationV1Admin
      */
-    public void sendSpecificUserTemplatedNotificationV1Admin(SendSpecificUserTemplatedNotificationV1Admin input) throws HttpResponseException, IOException {
+    public void sendSpecificUserTemplatedNotificationV1Admin(SendSpecificUserTemplatedNotificationV1Admin input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -410,7 +410,7 @@ public class Notification {
     /**
      * @see FreeFormNotification
      */
-    public void freeFormNotification(FreeFormNotification input) throws HttpResponseException, IOException {
+    public void freeFormNotification(FreeFormNotification input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -429,7 +429,7 @@ public class Notification {
     /**
      * @see NotificationWithTemplate
      */
-    public void notificationWithTemplate(NotificationWithTemplate input) throws HttpResponseException, IOException {
+    public void notificationWithTemplate(NotificationWithTemplate input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -448,7 +448,7 @@ public class Notification {
     /**
      * @see GetGameTemplate
      */
-    public List<ModelTemplateResponse> getGameTemplate(GetGameTemplate input) throws HttpResponseException, IOException {
+    public List<ModelTemplateResponse> getGameTemplate(GetGameTemplate input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -467,7 +467,7 @@ public class Notification {
     /**
      * @see CreateTemplate
      */
-    public void createTemplate(CreateTemplate input) throws HttpResponseException, IOException {
+    public void createTemplate(CreateTemplate input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -486,7 +486,7 @@ public class Notification {
     /**
      * @see GetSlugTemplate
      */
-    public ModelTemplateLocalizationResponse getSlugTemplate(GetSlugTemplate input) throws HttpResponseException, IOException {
+    public ModelTemplateLocalizationResponse getSlugTemplate(GetSlugTemplate input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -505,7 +505,7 @@ public class Notification {
     /**
      * @see DeleteTemplateSlug
      */
-    public void deleteTemplateSlug(DeleteTemplateSlug input) throws HttpResponseException, IOException {
+    public void deleteTemplateSlug(DeleteTemplateSlug input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -524,7 +524,7 @@ public class Notification {
     /**
      * @see GetLocalizationTemplate
      */
-    public ModelTemplateLocalization getLocalizationTemplate(GetLocalizationTemplate input) throws HttpResponseException, IOException {
+    public ModelTemplateLocalization getLocalizationTemplate(GetLocalizationTemplate input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -543,7 +543,7 @@ public class Notification {
     /**
      * @see UpdateLocalizationTemplate
      */
-    public void updateLocalizationTemplate(UpdateLocalizationTemplate input) throws HttpResponseException, IOException {
+    public void updateLocalizationTemplate(UpdateLocalizationTemplate input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -562,7 +562,7 @@ public class Notification {
     /**
      * @see DeleteTemplateLocalization
      */
-    public void deleteTemplateLocalization(DeleteTemplateLocalization input) throws HttpResponseException, IOException {
+    public void deleteTemplateLocalization(DeleteTemplateLocalization input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -581,7 +581,7 @@ public class Notification {
     /**
      * @see PublishTemplate
      */
-    public void publishTemplate(PublishTemplate input) throws HttpResponseException, IOException {
+    public void publishTemplate(PublishTemplate input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -600,7 +600,7 @@ public class Notification {
     /**
      * @see GetTopicByNamespace
      */
-    public ModelTopicByNamespacesResponse getTopicByNamespace(GetTopicByNamespace input) throws HttpResponseException, IOException {
+    public ModelTopicByNamespacesResponse getTopicByNamespace(GetTopicByNamespace input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -619,7 +619,7 @@ public class Notification {
     /**
      * @see CreateTopic
      */
-    public void createTopic(CreateTopic input) throws HttpResponseException, IOException {
+    public void createTopic(CreateTopic input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -638,7 +638,7 @@ public class Notification {
     /**
      * @see GetTopicByTopicName
      */
-    public ModelNotificationTopicResponse getTopicByTopicName(GetTopicByTopicName input) throws HttpResponseException, IOException {
+    public ModelNotificationTopicResponse getTopicByTopicName(GetTopicByTopicName input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -657,7 +657,7 @@ public class Notification {
     /**
      * @see UpdateTopicByTopicName
      */
-    public void updateTopicByTopicName(UpdateTopicByTopicName input) throws HttpResponseException, IOException {
+    public void updateTopicByTopicName(UpdateTopicByTopicName input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -676,7 +676,7 @@ public class Notification {
     /**
      * @see DeleteTopicByTopicName
      */
-    public void deleteTopicByTopicName(DeleteTopicByTopicName input) throws HttpResponseException, IOException {
+    public void deleteTopicByTopicName(DeleteTopicByTopicName input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -695,7 +695,7 @@ public class Notification {
     /**
      * @see FreeFormNotificationByUserID
      */
-    public void freeFormNotificationByUserID(FreeFormNotificationByUserID input) throws HttpResponseException, IOException {
+    public void freeFormNotificationByUserID(FreeFormNotificationByUserID input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -714,7 +714,7 @@ public class Notification {
     /**
      * @see NotificationWithTemplateByUserID
      */
-    public void notificationWithTemplateByUserID(NotificationWithTemplateByUserID input) throws HttpResponseException, IOException {
+    public void notificationWithTemplateByUserID(NotificationWithTemplateByUserID input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

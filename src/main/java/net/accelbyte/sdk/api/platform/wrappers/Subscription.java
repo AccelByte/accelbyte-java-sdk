@@ -30,7 +30,7 @@ public class Subscription {
     /**
      * @see QuerySubscriptions
      */
-    public SubscriptionPagingSlicedResult querySubscriptions(QuerySubscriptions input) throws HttpResponseException, IOException {
+    public SubscriptionPagingSlicedResult querySubscriptions(QuerySubscriptions input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Subscription {
     /**
      * @see RecurringChargeSubscription
      */
-    public RecurringChargeResult recurringChargeSubscription(RecurringChargeSubscription input) throws HttpResponseException, IOException {
+    public RecurringChargeResult recurringChargeSubscription(RecurringChargeSubscription input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Subscription {
     /**
      * @see QueryUserSubscriptions
      */
-    public SubscriptionPagingSlicedResult queryUserSubscriptions(QueryUserSubscriptions input) throws HttpResponseException, IOException {
+    public SubscriptionPagingSlicedResult queryUserSubscriptions(QueryUserSubscriptions input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Subscription {
     /**
      * @see GetUserSubscriptionActivities
      */
-    public SubscriptionActivityPagingSlicedResult getUserSubscriptionActivities(GetUserSubscriptionActivities input) throws HttpResponseException, IOException {
+    public SubscriptionActivityPagingSlicedResult getUserSubscriptionActivities(GetUserSubscriptionActivities input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Subscription {
     /**
      * @see PlatformSubscribeSubscription
      */
-    public SubscriptionInfo platformSubscribeSubscription(PlatformSubscribeSubscription input) throws HttpResponseException, IOException {
+    public SubscriptionInfo platformSubscribeSubscription(PlatformSubscribeSubscription input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Subscription {
     /**
      * @see CheckUserSubscriptionSubscribableByItemId
      */
-    public Subscribable checkUserSubscriptionSubscribableByItemId(CheckUserSubscriptionSubscribableByItemId input) throws HttpResponseException, IOException {
+    public Subscribable checkUserSubscriptionSubscribableByItemId(CheckUserSubscriptionSubscribableByItemId input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Subscription {
     /**
      * @see GetUserSubscription
      */
-    public SubscriptionInfo getUserSubscription(GetUserSubscription input) throws HttpResponseException, IOException {
+    public SubscriptionInfo getUserSubscription(GetUserSubscription input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Subscription {
     /**
      * @see DeleteUserSubscription
      */
-    public void deleteUserSubscription(DeleteUserSubscription input) throws HttpResponseException, IOException {
+    public void deleteUserSubscription(DeleteUserSubscription input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class Subscription {
     /**
      * @see CancelSubscription
      */
-    public SubscriptionInfo cancelSubscription(CancelSubscription input) throws HttpResponseException, IOException {
+    public SubscriptionInfo cancelSubscription(CancelSubscription input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class Subscription {
     /**
      * @see GrantDaysToSubscription
      */
-    public SubscriptionInfo grantDaysToSubscription(GrantDaysToSubscription input) throws HttpResponseException, IOException {
+    public SubscriptionInfo grantDaysToSubscription(GrantDaysToSubscription input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class Subscription {
     /**
      * @see GetUserSubscriptionBillingHistories
      */
-    public BillingHistoryPagingSlicedResult getUserSubscriptionBillingHistories(GetUserSubscriptionBillingHistories input) throws HttpResponseException, IOException {
+    public BillingHistoryPagingSlicedResult getUserSubscriptionBillingHistories(GetUserSubscriptionBillingHistories input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +239,7 @@ public class Subscription {
     /**
      * @see ProcessUserSubscriptionNotification
      */
-    public void processUserSubscriptionNotification(ProcessUserSubscriptionNotification input) throws HttpResponseException, IOException {
+    public void processUserSubscriptionNotification(ProcessUserSubscriptionNotification input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -258,7 +258,7 @@ public class Subscription {
     /**
      * @see PublicQueryUserSubscriptions
      */
-    public SubscriptionPagingSlicedResult publicQueryUserSubscriptions(PublicQueryUserSubscriptions input) throws HttpResponseException, IOException {
+    public SubscriptionPagingSlicedResult publicQueryUserSubscriptions(PublicQueryUserSubscriptions input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -277,7 +277,7 @@ public class Subscription {
     /**
      * @see PublicSubscribeSubscription
      */
-    public void publicSubscribeSubscription(PublicSubscribeSubscription input) throws HttpResponseException, IOException {
+    public void publicSubscribeSubscription(PublicSubscribeSubscription input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -296,7 +296,7 @@ public class Subscription {
     /**
      * @see PublicCheckUserSubscriptionSubscribableByItemId
      */
-    public Subscribable publicCheckUserSubscriptionSubscribableByItemId(PublicCheckUserSubscriptionSubscribableByItemId input) throws HttpResponseException, IOException {
+    public Subscribable publicCheckUserSubscriptionSubscribableByItemId(PublicCheckUserSubscriptionSubscribableByItemId input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -315,7 +315,7 @@ public class Subscription {
     /**
      * @see PublicGetUserSubscription
      */
-    public SubscriptionInfo publicGetUserSubscription(PublicGetUserSubscription input) throws HttpResponseException, IOException {
+    public SubscriptionInfo publicGetUserSubscription(PublicGetUserSubscription input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -334,7 +334,7 @@ public class Subscription {
     /**
      * @see PublicChangeSubscriptionBillingAccount
      */
-    public SubscriptionInfo publicChangeSubscriptionBillingAccount(PublicChangeSubscriptionBillingAccount input) throws HttpResponseException, IOException {
+    public SubscriptionInfo publicChangeSubscriptionBillingAccount(PublicChangeSubscriptionBillingAccount input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -353,7 +353,7 @@ public class Subscription {
     /**
      * @see PublicCancelSubscription
      */
-    public SubscriptionInfo publicCancelSubscription(PublicCancelSubscription input) throws HttpResponseException, IOException {
+    public SubscriptionInfo publicCancelSubscription(PublicCancelSubscription input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -372,7 +372,7 @@ public class Subscription {
     /**
      * @see PublicGetUserSubscriptionBillingHistories
      */
-    public BillingHistoryPagingSlicedResult publicGetUserSubscriptionBillingHistories(PublicGetUserSubscriptionBillingHistories input) throws HttpResponseException, IOException {
+    public BillingHistoryPagingSlicedResult publicGetUserSubscriptionBillingHistories(PublicGetUserSubscriptionBillingHistories input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

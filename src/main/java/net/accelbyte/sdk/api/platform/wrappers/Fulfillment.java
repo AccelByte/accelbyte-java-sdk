@@ -30,7 +30,7 @@ public class Fulfillment {
     /**
      * @see QueryFulfillmentHistories
      */
-    public FulfillmentHistoryPagingSlicedResult queryFulfillmentHistories(QueryFulfillmentHistories input) throws HttpResponseException, IOException {
+    public FulfillmentHistoryPagingSlicedResult queryFulfillmentHistories(QueryFulfillmentHistories input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Fulfillment {
     /**
      * @see FulfillItem
      */
-    public FulfillmentResult fulfillItem(FulfillItem input) throws HttpResponseException, IOException {
+    public FulfillmentResult fulfillItem(FulfillItem input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Fulfillment {
     /**
      * @see RedeemCode
      */
-    public FulfillmentResult redeemCode(RedeemCode input) throws HttpResponseException, IOException {
+    public FulfillmentResult redeemCode(RedeemCode input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Fulfillment {
     /**
      * @see FulfillRewards
      */
-    public void fulfillRewards(FulfillRewards input) throws HttpResponseException, IOException {
+    public void fulfillRewards(FulfillRewards input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Fulfillment {
     /**
      * @see PublicRedeemCode
      */
-    public FulfillmentResult publicRedeemCode(PublicRedeemCode input) throws HttpResponseException, IOException {
+    public FulfillmentResult publicRedeemCode(PublicRedeemCode input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

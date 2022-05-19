@@ -30,7 +30,7 @@ public class Namespace {
     /**
      * @see GetNamespaces
      */
-    public List<NamespaceInfo> getNamespaces(GetNamespaces input) throws HttpResponseException, IOException {
+    public List<NamespaceInfo> getNamespaces(GetNamespaces input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Namespace {
     /**
      * @see CreateNamespace
      */
-    public NamespaceInfo createNamespace(CreateNamespace input) throws HttpResponseException, IOException {
+    public NamespaceInfo createNamespace(CreateNamespace input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Namespace {
     /**
      * @see GetNamespace
      */
-    public NamespaceInfo getNamespace(GetNamespace input) throws HttpResponseException, IOException {
+    public NamespaceInfo getNamespace(GetNamespace input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Namespace {
     /**
      * @see DeleteNamespace
      */
-    public NamespaceInfo deleteNamespace(DeleteNamespace input) throws HttpResponseException, IOException {
+    public NamespaceInfo deleteNamespace(DeleteNamespace input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Namespace {
     /**
      * @see UpdateNamespace
      */
-    public NamespaceInfo updateNamespace(UpdateNamespace input) throws HttpResponseException, IOException {
+    public NamespaceInfo updateNamespace(UpdateNamespace input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Namespace {
     /**
      * @see GetNamespacePublisher
      */
-    public NamespacePublisherInfo getNamespacePublisher(GetNamespacePublisher input) throws HttpResponseException, IOException {
+    public NamespacePublisherInfo getNamespacePublisher(GetNamespacePublisher input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Namespace {
     /**
      * @see ChangeNamespaceStatus
      */
-    public NamespaceInfo changeNamespaceStatus(ChangeNamespaceStatus input) throws HttpResponseException, IOException {
+    public NamespaceInfo changeNamespaceStatus(ChangeNamespaceStatus input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Namespace {
     /**
      * @see PublicGetNamespaces
      */
-    public List<NamespaceInfo> publicGetNamespaces(PublicGetNamespaces input) throws HttpResponseException, IOException {
+    public List<NamespaceInfo> publicGetNamespaces(PublicGetNamespaces input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class Namespace {
     /**
      * @see PublicGetNamespacePublisher
      */
-    public NamespacePublisherInfo publicGetNamespacePublisher(PublicGetNamespacePublisher input) throws HttpResponseException, IOException {
+    public NamespacePublisherInfo publicGetNamespacePublisher(PublicGetNamespacePublisher input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

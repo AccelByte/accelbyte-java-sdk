@@ -30,7 +30,7 @@ public class EQU8Config {
     /**
      * @see GetConfig
      */
-    public Equ8Config getConfig(GetConfig input) throws HttpResponseException, IOException {
+    public Equ8Config getConfig(GetConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class EQU8Config {
     /**
      * @see DeleteConfig
      */
-    public void deleteConfig(DeleteConfig input) throws HttpResponseException, IOException {
+    public void deleteConfig(DeleteConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class EQU8Config {
     /**
      * @see UpdateConfig
      */
-    public Equ8Config updateConfig(UpdateConfig input) throws HttpResponseException, IOException {
+    public Equ8Config updateConfig(UpdateConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

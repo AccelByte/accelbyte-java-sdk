@@ -32,7 +32,7 @@ public class EventRegistry {
      * @deprecated
      */
     @Deprecated
-    public ModelsEventRegistry getRegisteredEventsHandler(GetRegisteredEventsHandler input) throws HttpResponseException, IOException {
+    public ModelsEventRegistry getRegisteredEventsHandler(GetRegisteredEventsHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -53,7 +53,7 @@ public class EventRegistry {
      * @deprecated
      */
     @Deprecated
-    public void registerEventHandler(RegisterEventHandler input) throws HttpResponseException, IOException {
+    public void registerEventHandler(RegisterEventHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -74,7 +74,7 @@ public class EventRegistry {
      * @deprecated
      */
     @Deprecated
-    public ModelsEventRegistry getRegisteredEventIDHandler(GetRegisteredEventIDHandler input) throws HttpResponseException, IOException {
+    public ModelsEventRegistry getRegisteredEventIDHandler(GetRegisteredEventIDHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -95,7 +95,7 @@ public class EventRegistry {
      * @deprecated
      */
     @Deprecated
-    public void updateEventRegistryHandler(UpdateEventRegistryHandler input) throws HttpResponseException, IOException {
+    public void updateEventRegistryHandler(UpdateEventRegistryHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -116,7 +116,7 @@ public class EventRegistry {
      * @deprecated
      */
     @Deprecated
-    public void unregisterEventIDHandler(UnregisterEventIDHandler input) throws HttpResponseException, IOException {
+    public void unregisterEventIDHandler(UnregisterEventIDHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -137,7 +137,7 @@ public class EventRegistry {
      * @deprecated
      */
     @Deprecated
-    public ModelsEventRegistry getRegisteredEventsByEventTypeHandler(GetRegisteredEventsByEventTypeHandler input) throws HttpResponseException, IOException {
+    public ModelsEventRegistry getRegisteredEventsByEventTypeHandler(GetRegisteredEventsByEventTypeHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

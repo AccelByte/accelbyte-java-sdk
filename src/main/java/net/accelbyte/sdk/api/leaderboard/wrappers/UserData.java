@@ -30,7 +30,7 @@ public class UserData {
     /**
      * @see GetUserLeaderboardRankingsAdminV1
      */
-    public ModelsGetAllUserLeaderboardsResp getUserLeaderboardRankingsAdminV1(GetUserLeaderboardRankingsAdminV1 input) throws HttpResponseException, IOException {
+    public ModelsGetAllUserLeaderboardsResp getUserLeaderboardRankingsAdminV1(GetUserLeaderboardRankingsAdminV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

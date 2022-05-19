@@ -30,7 +30,7 @@ public class Anonymization {
     /**
      * @see AnonymizeUserProfile
      */
-    public void anonymizeUserProfile(AnonymizeUserProfile input) throws HttpResponseException, IOException {
+    public void anonymizeUserProfile(AnonymizeUserProfile input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

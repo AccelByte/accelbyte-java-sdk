@@ -30,7 +30,7 @@ public class PodConfig {
     /**
      * @see GetAllPodConfig
      */
-    public ModelsListPodConfigResponse getAllPodConfig(GetAllPodConfig input) throws HttpResponseException, IOException {
+    public ModelsListPodConfigResponse getAllPodConfig(GetAllPodConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PodConfig {
     /**
      * @see GetPodConfig
      */
-    public ModelsPodConfigRecord getPodConfig(GetPodConfig input) throws HttpResponseException, IOException {
+    public ModelsPodConfigRecord getPodConfig(GetPodConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class PodConfig {
     /**
      * @see CreatePodConfig
      */
-    public ModelsPodConfigRecord createPodConfig(CreatePodConfig input) throws HttpResponseException, IOException {
+    public ModelsPodConfigRecord createPodConfig(CreatePodConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class PodConfig {
     /**
      * @see DeletePodConfig
      */
-    public void deletePodConfig(DeletePodConfig input) throws HttpResponseException, IOException {
+    public void deletePodConfig(DeletePodConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class PodConfig {
     /**
      * @see UpdatePodConfig
      */
-    public ModelsPodConfigRecord updatePodConfig(UpdatePodConfig input) throws HttpResponseException, IOException {
+    public ModelsPodConfigRecord updatePodConfig(UpdatePodConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

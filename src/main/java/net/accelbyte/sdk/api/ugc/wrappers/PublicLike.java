@@ -30,7 +30,7 @@ public class PublicLike {
     /**
      * @see GetLikedContent
      */
-    public ModelsPaginatedContentDownloadResponse getLikedContent(GetLikedContent input) throws HttpResponseException, IOException {
+    public ModelsPaginatedContentDownloadResponse getLikedContent(GetLikedContent input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PublicLike {
     /**
      * @see UpdateContentLikeStatus
      */
-    public ModelsContentLikeResponse updateContentLikeStatus(UpdateContentLikeStatus input) throws HttpResponseException, IOException {
+    public ModelsContentLikeResponse updateContentLikeStatus(UpdateContentLikeStatus input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

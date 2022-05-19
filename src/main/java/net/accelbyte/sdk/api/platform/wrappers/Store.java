@@ -30,7 +30,7 @@ public class Store {
     /**
      * @see ListStores
      */
-    public List<StoreInfo> listStores(ListStores input) throws HttpResponseException, IOException {
+    public List<StoreInfo> listStores(ListStores input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Store {
     /**
      * @see CreateStore
      */
-    public StoreInfo createStore(CreateStore input) throws HttpResponseException, IOException {
+    public StoreInfo createStore(CreateStore input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Store {
     /**
      * @see ImportStore
      */
-    public StoreInfo importStore(ImportStore input) throws HttpResponseException, IOException {
+    public StoreInfo importStore(ImportStore input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Store {
     /**
      * @see GetPublishedStore
      */
-    public StoreInfo getPublishedStore(GetPublishedStore input) throws HttpResponseException, IOException {
+    public StoreInfo getPublishedStore(GetPublishedStore input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Store {
     /**
      * @see DeletePublishedStore
      */
-    public StoreInfo deletePublishedStore(DeletePublishedStore input) throws HttpResponseException, IOException {
+    public StoreInfo deletePublishedStore(DeletePublishedStore input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Store {
     /**
      * @see GetPublishedStoreBackup
      */
-    public StoreBackupInfo getPublishedStoreBackup(GetPublishedStoreBackup input) throws HttpResponseException, IOException {
+    public StoreBackupInfo getPublishedStoreBackup(GetPublishedStoreBackup input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Store {
     /**
      * @see RollbackPublishedStore
      */
-    public StoreInfo rollbackPublishedStore(RollbackPublishedStore input) throws HttpResponseException, IOException {
+    public StoreInfo rollbackPublishedStore(RollbackPublishedStore input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Store {
     /**
      * @see GetStore
      */
-    public StoreInfo getStore(GetStore input) throws HttpResponseException, IOException {
+    public StoreInfo getStore(GetStore input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class Store {
     /**
      * @see UpdateStore
      */
-    public StoreInfo updateStore(UpdateStore input) throws HttpResponseException, IOException {
+    public StoreInfo updateStore(UpdateStore input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class Store {
     /**
      * @see DeleteStore
      */
-    public StoreInfo deleteStore(DeleteStore input) throws HttpResponseException, IOException {
+    public StoreInfo deleteStore(DeleteStore input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class Store {
     /**
      * @see CloneStore
      */
-    public StoreInfo cloneStore(CloneStore input) throws HttpResponseException, IOException {
+    public StoreInfo cloneStore(CloneStore input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +239,7 @@ public class Store {
     /**
      * @see ExportStore
      */
-    public void exportStore(ExportStore input) throws HttpResponseException, IOException {
+    public void exportStore(ExportStore input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -258,7 +258,7 @@ public class Store {
     /**
      * @see PublicListStores
      */
-    public List<StoreInfo> publicListStores(PublicListStores input) throws HttpResponseException, IOException {
+    public List<StoreInfo> publicListStores(PublicListStores input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

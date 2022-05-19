@@ -30,7 +30,7 @@ public class Public {
     /**
      * @see GetDefaultProvider
      */
-    public ModelsDefaultProvider getDefaultProvider(GetDefaultProvider input) throws HttpResponseException, IOException {
+    public ModelsDefaultProvider getDefaultProvider(GetDefaultProvider input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Public {
     /**
      * @see ListProviders
      */
-    public List<String> listProviders(ListProviders input) throws HttpResponseException, IOException {
+    public List<String> listProviders(ListProviders input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Public {
     /**
      * @see ListProvidersByRegion
      */
-    public ModelsDefaultProvider listProvidersByRegion(ListProvidersByRegion input) throws HttpResponseException, IOException {
+    public ModelsDefaultProvider listProvidersByRegion(ListProvidersByRegion input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

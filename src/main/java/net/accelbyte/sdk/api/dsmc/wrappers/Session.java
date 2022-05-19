@@ -30,7 +30,7 @@ public class Session {
     /**
      * @see CreateSession
      */
-    public ModelsSessionResponse createSession(CreateSession input) throws HttpResponseException, IOException {
+    public ModelsSessionResponse createSession(CreateSession input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Session {
     /**
      * @see ClaimServer
      */
-    public void claimServer(ClaimServer input) throws HttpResponseException, IOException {
+    public void claimServer(ClaimServer input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Session {
     /**
      * @see GetSession
      */
-    public ModelsSessionResponse getSession(GetSession input) throws HttpResponseException, IOException {
+    public ModelsSessionResponse getSession(GetSession input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

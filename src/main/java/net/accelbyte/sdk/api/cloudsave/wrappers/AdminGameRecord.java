@@ -30,7 +30,7 @@ public class AdminGameRecord {
     /**
      * @see ListGameRecordsHandlerV1
      */
-    public ModelsListGameRecordKeysResponse listGameRecordsHandlerV1(ListGameRecordsHandlerV1 input) throws HttpResponseException, IOException {
+    public ModelsListGameRecordKeysResponse listGameRecordsHandlerV1(ListGameRecordsHandlerV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class AdminGameRecord {
     /**
      * @see AdminGetGameRecordHandlerV1
      */
-    public ModelsGameRecordResponse adminGetGameRecordHandlerV1(AdminGetGameRecordHandlerV1 input) throws HttpResponseException, IOException {
+    public ModelsGameRecordResponse adminGetGameRecordHandlerV1(AdminGetGameRecordHandlerV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class AdminGameRecord {
     /**
      * @see AdminPutGameRecordHandlerV1
      */
-    public void adminPutGameRecordHandlerV1(AdminPutGameRecordHandlerV1 input) throws HttpResponseException, IOException {
+    public void adminPutGameRecordHandlerV1(AdminPutGameRecordHandlerV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class AdminGameRecord {
     /**
      * @see AdminPostGameRecordHandlerV1
      */
-    public void adminPostGameRecordHandlerV1(AdminPostGameRecordHandlerV1 input) throws HttpResponseException, IOException {
+    public void adminPostGameRecordHandlerV1(AdminPostGameRecordHandlerV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class AdminGameRecord {
     /**
      * @see AdminDeleteGameRecordHandlerV1
      */
-    public void adminDeleteGameRecordHandlerV1(AdminDeleteGameRecordHandlerV1 input) throws HttpResponseException, IOException {
+    public void adminDeleteGameRecordHandlerV1(AdminDeleteGameRecordHandlerV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -30,7 +30,7 @@ public class GlobalStatistic {
     /**
      * @see GetGlobalStatItems
      */
-    public GlobalStatItemPagingSlicedResult getGlobalStatItems(GetGlobalStatItems input) throws HttpResponseException, IOException {
+    public GlobalStatItemPagingSlicedResult getGlobalStatItems(GetGlobalStatItems input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

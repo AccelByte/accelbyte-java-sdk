@@ -30,7 +30,7 @@ public class StatConfiguration {
     /**
      * @see GetStats
      */
-    public StatPagingSlicedResult getStats(GetStats input) throws HttpResponseException, IOException {
+    public StatPagingSlicedResult getStats(GetStats input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class StatConfiguration {
     /**
      * @see CreateStat
      */
-    public StatInfo createStat(CreateStat input) throws HttpResponseException, IOException {
+    public StatInfo createStat(CreateStat input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class StatConfiguration {
     /**
      * @see ExportStats
      */
-    public void exportStats(ExportStats input) throws HttpResponseException, IOException {
+    public void exportStats(ExportStats input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class StatConfiguration {
     /**
      * @see ImportStats
      */
-    public StatImportInfo importStats(ImportStats input) throws HttpResponseException, IOException {
+    public StatImportInfo importStats(ImportStats input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class StatConfiguration {
     /**
      * @see QueryStats
      */
-    public StatPagingSlicedResult queryStats(QueryStats input) throws HttpResponseException, IOException {
+    public StatPagingSlicedResult queryStats(QueryStats input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class StatConfiguration {
     /**
      * @see GetStat
      */
-    public StatInfo getStat(GetStat input) throws HttpResponseException, IOException {
+    public StatInfo getStat(GetStat input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class StatConfiguration {
     /**
      * @see DeleteStat
      */
-    public void deleteStat(DeleteStat input) throws HttpResponseException, IOException {
+    public void deleteStat(DeleteStat input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class StatConfiguration {
     /**
      * @see UpdateStat
      */
-    public StatInfo updateStat(UpdateStat input) throws HttpResponseException, IOException {
+    public StatInfo updateStat(UpdateStat input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class StatConfiguration {
     /**
      * @see CreateStat1
      */
-    public StatInfo createStat1(CreateStat1 input) throws HttpResponseException, IOException {
+    public StatInfo createStat1(CreateStat1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

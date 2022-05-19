@@ -30,7 +30,7 @@ public class Session {
     /**
      * @see GetTotalActiveSession
      */
-    public ModelsCountActiveSessionResponse getTotalActiveSession(GetTotalActiveSession input) throws HttpResponseException, IOException {
+    public ModelsCountActiveSessionResponse getTotalActiveSession(GetTotalActiveSession input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Session {
     /**
      * @see GetActiveCustomGameSessions
      */
-    public ModelsActiveCustomGameResponse getActiveCustomGameSessions(GetActiveCustomGameSessions input) throws HttpResponseException, IOException {
+    public ModelsActiveCustomGameResponse getActiveCustomGameSessions(GetActiveCustomGameSessions input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Session {
     /**
      * @see GetActiveMatchmakingGameSessions
      */
-    public ModelsActiveMatchmakingGameResponse getActiveMatchmakingGameSessions(GetActiveMatchmakingGameSessions input) throws HttpResponseException, IOException {
+    public ModelsActiveMatchmakingGameResponse getActiveMatchmakingGameSessions(GetActiveMatchmakingGameSessions input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Session {
     /**
      * @see AdminGetSession
      */
-    public ModelsAdminSessionResponse adminGetSession(AdminGetSession input) throws HttpResponseException, IOException {
+    public ModelsAdminSessionResponse adminGetSession(AdminGetSession input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Session {
     /**
      * @see QuerySession
      */
-    public ModelsSessionQueryResponse querySession(QuerySession input) throws HttpResponseException, IOException {
+    public ModelsSessionQueryResponse querySession(QuerySession input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Session {
     /**
      * @see CreateSession
      */
-    public ModelsSessionResponse createSession(CreateSession input) throws HttpResponseException, IOException {
+    public ModelsSessionResponse createSession(CreateSession input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Session {
     /**
      * @see GetSessionByUserIDs
      */
-    public ModelsSessionByUserIDsResponse getSessionByUserIDs(GetSessionByUserIDs input) throws HttpResponseException, IOException {
+    public ModelsSessionByUserIDsResponse getSessionByUserIDs(GetSessionByUserIDs input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Session {
     /**
      * @see GetSession
      */
-    public ModelsSessionResponse getSession(GetSession input) throws HttpResponseException, IOException {
+    public ModelsSessionResponse getSession(GetSession input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class Session {
     /**
      * @see UpdateSession
      */
-    public ModelsSessionResponse updateSession(UpdateSession input) throws HttpResponseException, IOException {
+    public ModelsSessionResponse updateSession(UpdateSession input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class Session {
     /**
      * @see DeleteSession
      */
-    public ModelsSessionResponse deleteSession(DeleteSession input) throws HttpResponseException, IOException {
+    public ModelsSessionResponse deleteSession(DeleteSession input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class Session {
     /**
      * @see JoinSession
      */
-    public ModelsSessionResponse joinSession(JoinSession input) throws HttpResponseException, IOException {
+    public ModelsSessionResponse joinSession(JoinSession input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +239,7 @@ public class Session {
     /**
      * @see DeleteSessionLocalDS
      */
-    public ModelsSessionResponse deleteSessionLocalDS(DeleteSessionLocalDS input) throws HttpResponseException, IOException {
+    public ModelsSessionResponse deleteSessionLocalDS(DeleteSessionLocalDS input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -258,7 +258,7 @@ public class Session {
     /**
      * @see AddPlayerToSession
      */
-    public ModelsAddPlayerResponse addPlayerToSession(AddPlayerToSession input) throws HttpResponseException, IOException {
+    public ModelsAddPlayerResponse addPlayerToSession(AddPlayerToSession input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -277,7 +277,7 @@ public class Session {
     /**
      * @see RemovePlayerFromSession
      */
-    public ModelsAddPlayerResponse removePlayerFromSession(RemovePlayerFromSession input) throws HttpResponseException, IOException {
+    public ModelsAddPlayerResponse removePlayerFromSession(RemovePlayerFromSession input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -296,7 +296,7 @@ public class Session {
     /**
      * @see UpdateSettings
      */
-    public ModelsSessionResponse updateSettings(UpdateSettings input) throws HttpResponseException, IOException {
+    public ModelsSessionResponse updateSettings(UpdateSettings input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -315,7 +315,7 @@ public class Session {
     /**
      * @see GetRecentPlayer
      */
-    public ModelsRecentPlayerQueryResponse getRecentPlayer(GetRecentPlayer input) throws HttpResponseException, IOException {
+    public ModelsRecentPlayerQueryResponse getRecentPlayer(GetRecentPlayer input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

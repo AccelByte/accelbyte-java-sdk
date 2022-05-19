@@ -30,7 +30,7 @@ public class Server {
     /**
      * @see Heartbeat
      */
-    public void heartbeat(Heartbeat input) throws HttpResponseException, IOException {
+    public void heartbeat(Heartbeat input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

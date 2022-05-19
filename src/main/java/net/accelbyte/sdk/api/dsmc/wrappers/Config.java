@@ -30,7 +30,7 @@ public class Config {
     /**
      * @see ListConfig
      */
-    public ModelsListConfigResponse listConfig(ListConfig input) throws HttpResponseException, IOException {
+    public ModelsListConfigResponse listConfig(ListConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -51,7 +51,7 @@ public class Config {
      * @deprecated
      */
     @Deprecated
-    public void saveConfig(SaveConfig input) throws HttpResponseException, IOException {
+    public void saveConfig(SaveConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -70,7 +70,7 @@ public class Config {
     /**
      * @see GetConfig
      */
-    public ModelsDSMConfigRecord getConfig(GetConfig input) throws HttpResponseException, IOException {
+    public ModelsDSMConfigRecord getConfig(GetConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -89,7 +89,7 @@ public class Config {
     /**
      * @see CreateConfig
      */
-    public ModelsDSMConfigRecord createConfig(CreateConfig input) throws HttpResponseException, IOException {
+    public ModelsDSMConfigRecord createConfig(CreateConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -108,7 +108,7 @@ public class Config {
     /**
      * @see DeleteConfig
      */
-    public void deleteConfig(DeleteConfig input) throws HttpResponseException, IOException {
+    public void deleteConfig(DeleteConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -127,7 +127,7 @@ public class Config {
     /**
      * @see UpdateConfig
      */
-    public ModelsDSMConfigRecord updateConfig(UpdateConfig input) throws HttpResponseException, IOException {
+    public ModelsDSMConfigRecord updateConfig(UpdateConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -146,7 +146,7 @@ public class Config {
     /**
      * @see ClearCache
      */
-    public void clearCache(ClearCache input) throws HttpResponseException, IOException {
+    public void clearCache(ClearCache input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -165,7 +165,7 @@ public class Config {
     /**
      * @see AddPort
      */
-    public ModelsDSMConfigRecord addPort(AddPort input) throws HttpResponseException, IOException {
+    public ModelsDSMConfigRecord addPort(AddPort input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -184,7 +184,7 @@ public class Config {
     /**
      * @see DeletePort
      */
-    public ModelsDSMConfigRecord deletePort(DeletePort input) throws HttpResponseException, IOException {
+    public ModelsDSMConfigRecord deletePort(DeletePort input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -203,7 +203,7 @@ public class Config {
     /**
      * @see UpdatePort
      */
-    public ModelsDSMConfigRecord updatePort(UpdatePort input) throws HttpResponseException, IOException {
+    public ModelsDSMConfigRecord updatePort(UpdatePort input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -222,7 +222,7 @@ public class Config {
     /**
      * @see ExportConfigV1
      */
-    public ModelsDSMConfigExport exportConfigV1(ExportConfigV1 input) throws HttpResponseException, IOException {
+    public ModelsDSMConfigExport exportConfigV1(ExportConfigV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -241,7 +241,7 @@ public class Config {
     /**
      * @see ImportConfigV1
      */
-    public ModelsImportResponse importConfigV1(ImportConfigV1 input) throws HttpResponseException, IOException {
+    public ModelsImportResponse importConfigV1(ImportConfigV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -30,7 +30,7 @@ public class PaymentDedicated {
     /**
      * @see CreatePaymentOrderByDedicated
      */
-    public PaymentOrderCreateResult createPaymentOrderByDedicated(CreatePaymentOrderByDedicated input) throws HttpResponseException, IOException {
+    public PaymentOrderCreateResult createPaymentOrderByDedicated(CreatePaymentOrderByDedicated input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PaymentDedicated {
     /**
      * @see RefundPaymentOrderByDedicated
      */
-    public PaymentOrderRefundResult refundPaymentOrderByDedicated(RefundPaymentOrderByDedicated input) throws HttpResponseException, IOException {
+    public PaymentOrderRefundResult refundPaymentOrderByDedicated(RefundPaymentOrderByDedicated input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class PaymentDedicated {
     /**
      * @see SyncPaymentOrders
      */
-    public PaymentOrderSyncResult syncPaymentOrders(SyncPaymentOrders input) throws HttpResponseException, IOException {
+    public PaymentOrderSyncResult syncPaymentOrders(SyncPaymentOrders input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

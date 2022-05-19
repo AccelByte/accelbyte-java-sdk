@@ -6,7 +6,6 @@
 
 package net.accelbyte.sdk.core.client;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 
 import org.apache.commons.io.IOUtils;
@@ -33,6 +32,7 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
     private static final OkHttpClient client = new OkHttpClient.Builder()
@@ -123,8 +123,7 @@ public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
         return requestBuilder.build();
     }
 
-    private static HttpResponse createResponse(Response response)
-    {
+    private static HttpResponse createResponse(Response response) {
         String responseContentType = "application/json"; // Default
         InputStream payload = null;
 
@@ -150,8 +149,12 @@ public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
     }
 
     @Override
-    public HttpResponse sendRequest(Operation operation, String baseURL, HttpHeaders headers)
-            throws IllegalArgumentException, IOException, JsonProcessingException {
+    public HttpResponse sendRequest(Operation operation, String baseURL, HttpHeaders headers) throws Exception {
+        return sendRequest(operation, baseURL, headers, 60000);
+    }
+
+    protected HttpResponse sendRequest(Operation operation, String baseURL, HttpHeaders headers, int callTimeoutMillis)
+            throws Exception {
         Objects.requireNonNull(operation, "Operation must not be null");
         Objects.requireNonNull(baseURL, "Base URL must not be null");
         Objects.requireNonNull(headers, "Headers must not be null");
@@ -177,7 +180,9 @@ public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
             });
         }
 
-        final Response response = okHttpBuilder.build()
+        final Response response = okHttpBuilder
+                .callTimeout(callTimeoutMillis, TimeUnit.MILLISECONDS)
+                .build()
                 .newCall(request)
                 .execute();
 

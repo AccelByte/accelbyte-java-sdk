@@ -30,7 +30,7 @@ public class Eligibilities {
     /**
      * @see RetrieveEligibilitiesPublic
      */
-    public List<RetrieveUserEligibilitiesResponse> retrieveEligibilitiesPublic(RetrieveEligibilitiesPublic input) throws HttpResponseException, IOException {
+    public List<RetrieveUserEligibilitiesResponse> retrieveEligibilitiesPublic(RetrieveEligibilitiesPublic input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Eligibilities {
     /**
      * @see RetrieveEligibilitiesPublicIndirect
      */
-    public RetrieveUserEligibilitiesIndirectResponse retrieveEligibilitiesPublicIndirect(RetrieveEligibilitiesPublicIndirect input) throws HttpResponseException, IOException {
+    public RetrieveUserEligibilitiesIndirectResponse retrieveEligibilitiesPublicIndirect(RetrieveEligibilitiesPublicIndirect input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

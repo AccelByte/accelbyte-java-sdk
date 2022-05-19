@@ -30,7 +30,7 @@ public class Agreement {
     /**
      * @see ChangePreferenceConsent
      */
-    public void changePreferenceConsent(ChangePreferenceConsent input) throws HttpResponseException, IOException {
+    public void changePreferenceConsent(ChangePreferenceConsent input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Agreement {
     /**
      * @see RetrieveAcceptedAgreements
      */
-    public List<RetrieveAcceptedAgreementResponse> retrieveAcceptedAgreements(RetrieveAcceptedAgreements input) throws HttpResponseException, IOException {
+    public List<RetrieveAcceptedAgreementResponse> retrieveAcceptedAgreements(RetrieveAcceptedAgreements input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Agreement {
     /**
      * @see RetrieveAllUsersByPolicyVersion
      */
-    public List<PagedRetrieveUserAcceptedAgreementResponse> retrieveAllUsersByPolicyVersion(RetrieveAllUsersByPolicyVersion input) throws HttpResponseException, IOException {
+    public List<PagedRetrieveUserAcceptedAgreementResponse> retrieveAllUsersByPolicyVersion(RetrieveAllUsersByPolicyVersion input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Agreement {
     /**
      * @see ChangePreferenceConsent1
      */
-    public void changePreferenceConsent1(ChangePreferenceConsent1 input) throws HttpResponseException, IOException {
+    public void changePreferenceConsent1(ChangePreferenceConsent1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Agreement {
     /**
      * @see AcceptVersionedPolicy
      */
-    public void acceptVersionedPolicy(AcceptVersionedPolicy input) throws HttpResponseException, IOException {
+    public void acceptVersionedPolicy(AcceptVersionedPolicy input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Agreement {
     /**
      * @see RetrieveAgreementsPublic
      */
-    public List<RetrieveAcceptedAgreementResponse> retrieveAgreementsPublic(RetrieveAgreementsPublic input) throws HttpResponseException, IOException {
+    public List<RetrieveAcceptedAgreementResponse> retrieveAgreementsPublic(RetrieveAgreementsPublic input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Agreement {
     /**
      * @see BulkAcceptVersionedPolicy
      */
-    public AcceptAgreementResponse bulkAcceptVersionedPolicy(BulkAcceptVersionedPolicy input) throws HttpResponseException, IOException {
+    public AcceptAgreementResponse bulkAcceptVersionedPolicy(BulkAcceptVersionedPolicy input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Agreement {
     /**
      * @see IndirectBulkAcceptVersionedPolicyV2
      */
-    public AcceptAgreementResponse indirectBulkAcceptVersionedPolicyV2(IndirectBulkAcceptVersionedPolicyV2 input) throws HttpResponseException, IOException {
+    public AcceptAgreementResponse indirectBulkAcceptVersionedPolicyV2(IndirectBulkAcceptVersionedPolicyV2 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class Agreement {
     /**
      * @see IndirectBulkAcceptVersionedPolicy1
      */
-    public AcceptAgreementResponse indirectBulkAcceptVersionedPolicy1(IndirectBulkAcceptVersionedPolicy1 input) throws HttpResponseException, IOException {
+    public AcceptAgreementResponse indirectBulkAcceptVersionedPolicy1(IndirectBulkAcceptVersionedPolicy1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -32,7 +32,7 @@ public class Event {
      * @deprecated
      */
     @Deprecated
-    public ModelsEventResponse getEventByNamespaceHandler(GetEventByNamespaceHandler input) throws HttpResponseException, IOException {
+    public ModelsEventResponse getEventByNamespaceHandler(GetEventByNamespaceHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -53,7 +53,7 @@ public class Event {
      * @deprecated
      */
     @Deprecated
-    public void postEventHandler(PostEventHandler input) throws HttpResponseException, IOException {
+    public void postEventHandler(PostEventHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -74,7 +74,7 @@ public class Event {
      * @deprecated
      */
     @Deprecated
-    public ModelsEventResponse getEventByEventIDHandler(GetEventByEventIDHandler input) throws HttpResponseException, IOException {
+    public ModelsEventResponse getEventByEventIDHandler(GetEventByEventIDHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -95,7 +95,7 @@ public class Event {
      * @deprecated
      */
     @Deprecated
-    public ModelsEventResponse getEventByEventTypeHandler(GetEventByEventTypeHandler input) throws HttpResponseException, IOException {
+    public ModelsEventResponse getEventByEventTypeHandler(GetEventByEventTypeHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -116,7 +116,7 @@ public class Event {
      * @deprecated
      */
     @Deprecated
-    public ModelsEventResponse getEventByEventTypeAndEventIDHandler(GetEventByEventTypeAndEventIDHandler input) throws HttpResponseException, IOException {
+    public ModelsEventResponse getEventByEventTypeAndEventIDHandler(GetEventByEventTypeAndEventIDHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -137,7 +137,7 @@ public class Event {
      * @deprecated
      */
     @Deprecated
-    public ModelsEventResponse getEventByUserIDHandler(GetEventByUserIDHandler input) throws HttpResponseException, IOException {
+    public ModelsEventResponse getEventByUserIDHandler(GetEventByUserIDHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -158,7 +158,7 @@ public class Event {
      * @deprecated
      */
     @Deprecated
-    public ModelsEventResponse getEventByUserIDAndEventIDHandler(GetEventByUserIDAndEventIDHandler input) throws HttpResponseException, IOException {
+    public ModelsEventResponse getEventByUserIDAndEventIDHandler(GetEventByUserIDAndEventIDHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -179,7 +179,7 @@ public class Event {
      * @deprecated
      */
     @Deprecated
-    public ModelsEventResponse getEventByUserIDAndEventTypeHandler(GetEventByUserIDAndEventTypeHandler input) throws HttpResponseException, IOException {
+    public ModelsEventResponse getEventByUserIDAndEventTypeHandler(GetEventByUserIDAndEventTypeHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -200,7 +200,7 @@ public class Event {
      * @deprecated
      */
     @Deprecated
-    public ModelsEventResponse getEventByUserEventIDAndEventTypeHandler(GetEventByUserEventIDAndEventTypeHandler input) throws HttpResponseException, IOException {
+    public ModelsEventResponse getEventByUserEventIDAndEventTypeHandler(GetEventByUserEventIDAndEventTypeHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

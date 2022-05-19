@@ -30,7 +30,7 @@ public class Category {
     /**
      * @see GetRootCategories
      */
-    public List<FullCategoryInfo> getRootCategories(GetRootCategories input) throws HttpResponseException, IOException {
+    public List<FullCategoryInfo> getRootCategories(GetRootCategories input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Category {
     /**
      * @see CreateCategory
      */
-    public FullCategoryInfo createCategory(CreateCategory input) throws HttpResponseException, IOException {
+    public FullCategoryInfo createCategory(CreateCategory input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Category {
     /**
      * @see ListCategoriesBasic
      */
-    public List<BasicCategoryInfo> listCategoriesBasic(ListCategoriesBasic input) throws HttpResponseException, IOException {
+    public List<BasicCategoryInfo> listCategoriesBasic(ListCategoriesBasic input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Category {
     /**
      * @see GetCategory
      */
-    public FullCategoryInfo getCategory(GetCategory input) throws HttpResponseException, IOException {
+    public FullCategoryInfo getCategory(GetCategory input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Category {
     /**
      * @see UpdateCategory
      */
-    public FullCategoryInfo updateCategory(UpdateCategory input) throws HttpResponseException, IOException {
+    public FullCategoryInfo updateCategory(UpdateCategory input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Category {
     /**
      * @see DeleteCategory
      */
-    public FullCategoryInfo deleteCategory(DeleteCategory input) throws HttpResponseException, IOException {
+    public FullCategoryInfo deleteCategory(DeleteCategory input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Category {
     /**
      * @see GetChildCategories
      */
-    public List<FullCategoryInfo> getChildCategories(GetChildCategories input) throws HttpResponseException, IOException {
+    public List<FullCategoryInfo> getChildCategories(GetChildCategories input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Category {
     /**
      * @see GetDescendantCategories
      */
-    public List<FullCategoryInfo> getDescendantCategories(GetDescendantCategories input) throws HttpResponseException, IOException {
+    public List<FullCategoryInfo> getDescendantCategories(GetDescendantCategories input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class Category {
     /**
      * @see PublicGetRootCategories
      */
-    public List<CategoryInfo> publicGetRootCategories(PublicGetRootCategories input) throws HttpResponseException, IOException {
+    public List<CategoryInfo> publicGetRootCategories(PublicGetRootCategories input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class Category {
     /**
      * @see DownloadCategories
      */
-    public List<HierarchicalCategoryInfo> downloadCategories(DownloadCategories input) throws HttpResponseException, IOException {
+    public List<HierarchicalCategoryInfo> downloadCategories(DownloadCategories input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class Category {
     /**
      * @see PublicGetCategory
      */
-    public CategoryInfo publicGetCategory(PublicGetCategory input) throws HttpResponseException, IOException {
+    public CategoryInfo publicGetCategory(PublicGetCategory input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +239,7 @@ public class Category {
     /**
      * @see PublicGetChildCategories
      */
-    public List<CategoryInfo> publicGetChildCategories(PublicGetChildCategories input) throws HttpResponseException, IOException {
+    public List<CategoryInfo> publicGetChildCategories(PublicGetChildCategories input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -258,7 +258,7 @@ public class Category {
     /**
      * @see PublicGetDescendantCategories
      */
-    public List<CategoryInfo> publicGetDescendantCategories(PublicGetDescendantCategories input) throws HttpResponseException, IOException {
+    public List<CategoryInfo> publicGetDescendantCategories(PublicGetDescendantCategories input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

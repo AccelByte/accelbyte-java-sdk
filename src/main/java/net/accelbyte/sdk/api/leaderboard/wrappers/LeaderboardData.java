@@ -30,7 +30,7 @@ public class LeaderboardData {
     /**
      * @see AdminGetArchivedLeaderboardRankingDataV1Handler
      */
-    public List<ModelsArchiveLeaderboardSignedURLResponse> adminGetArchivedLeaderboardRankingDataV1Handler(AdminGetArchivedLeaderboardRankingDataV1Handler input) throws HttpResponseException, IOException {
+    public List<ModelsArchiveLeaderboardSignedURLResponse> adminGetArchivedLeaderboardRankingDataV1Handler(AdminGetArchivedLeaderboardRankingDataV1Handler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class LeaderboardData {
     /**
      * @see CreateArchivedLeaderboardRankingDataV1Handler
      */
-    public void createArchivedLeaderboardRankingDataV1Handler(CreateArchivedLeaderboardRankingDataV1Handler input) throws HttpResponseException, IOException {
+    public void createArchivedLeaderboardRankingDataV1Handler(CreateArchivedLeaderboardRankingDataV1Handler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class LeaderboardData {
     /**
      * @see GetAllTimeLeaderboardRankingAdminV1
      */
-    public ModelsGetLeaderboardRankingResp getAllTimeLeaderboardRankingAdminV1(GetAllTimeLeaderboardRankingAdminV1 input) throws HttpResponseException, IOException {
+    public ModelsGetLeaderboardRankingResp getAllTimeLeaderboardRankingAdminV1(GetAllTimeLeaderboardRankingAdminV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class LeaderboardData {
     /**
      * @see GetCurrentMonthLeaderboardRankingAdminV1
      */
-    public ModelsGetLeaderboardRankingResp getCurrentMonthLeaderboardRankingAdminV1(GetCurrentMonthLeaderboardRankingAdminV1 input) throws HttpResponseException, IOException {
+    public ModelsGetLeaderboardRankingResp getCurrentMonthLeaderboardRankingAdminV1(GetCurrentMonthLeaderboardRankingAdminV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class LeaderboardData {
     /**
      * @see GetCurrentSeasonLeaderboardRankingAdminV1
      */
-    public ModelsGetLeaderboardRankingResp getCurrentSeasonLeaderboardRankingAdminV1(GetCurrentSeasonLeaderboardRankingAdminV1 input) throws HttpResponseException, IOException {
+    public ModelsGetLeaderboardRankingResp getCurrentSeasonLeaderboardRankingAdminV1(GetCurrentSeasonLeaderboardRankingAdminV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class LeaderboardData {
     /**
      * @see GetTodayLeaderboardRankingAdminV1
      */
-    public ModelsGetLeaderboardRankingResp getTodayLeaderboardRankingAdminV1(GetTodayLeaderboardRankingAdminV1 input) throws HttpResponseException, IOException {
+    public ModelsGetLeaderboardRankingResp getTodayLeaderboardRankingAdminV1(GetTodayLeaderboardRankingAdminV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class LeaderboardData {
     /**
      * @see GetUserRankingAdminV1
      */
-    public ModelsUserRankingResponse getUserRankingAdminV1(GetUserRankingAdminV1 input) throws HttpResponseException, IOException {
+    public ModelsUserRankingResponse getUserRankingAdminV1(GetUserRankingAdminV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class LeaderboardData {
     /**
      * @see UpdateUserPointAdminV1
      */
-    public ModelsUpdateUserPointAdminV1Response updateUserPointAdminV1(UpdateUserPointAdminV1 input) throws HttpResponseException, IOException {
+    public ModelsUpdateUserPointAdminV1Response updateUserPointAdminV1(UpdateUserPointAdminV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class LeaderboardData {
     /**
      * @see DeleteUserRankingAdminV1
      */
-    public void deleteUserRankingAdminV1(DeleteUserRankingAdminV1 input) throws HttpResponseException, IOException {
+    public void deleteUserRankingAdminV1(DeleteUserRankingAdminV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class LeaderboardData {
     /**
      * @see GetCurrentWeekLeaderboardRankingAdminV1
      */
-    public ModelsGetLeaderboardRankingResp getCurrentWeekLeaderboardRankingAdminV1(GetCurrentWeekLeaderboardRankingAdminV1 input) throws HttpResponseException, IOException {
+    public ModelsGetLeaderboardRankingResp getCurrentWeekLeaderboardRankingAdminV1(GetCurrentWeekLeaderboardRankingAdminV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class LeaderboardData {
     /**
      * @see DeleteUserRankingsAdminV1
      */
-    public void deleteUserRankingsAdminV1(DeleteUserRankingsAdminV1 input) throws HttpResponseException, IOException {
+    public void deleteUserRankingsAdminV1(DeleteUserRankingsAdminV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +239,7 @@ public class LeaderboardData {
     /**
      * @see GetAllTimeLeaderboardRankingPublicV1
      */
-    public ModelsGetLeaderboardRankingResp getAllTimeLeaderboardRankingPublicV1(GetAllTimeLeaderboardRankingPublicV1 input) throws HttpResponseException, IOException {
+    public ModelsGetLeaderboardRankingResp getAllTimeLeaderboardRankingPublicV1(GetAllTimeLeaderboardRankingPublicV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -258,7 +258,7 @@ public class LeaderboardData {
     /**
      * @see GetArchivedLeaderboardRankingDataV1Handler
      */
-    public List<ModelsArchiveLeaderboardSignedURLResponse> getArchivedLeaderboardRankingDataV1Handler(GetArchivedLeaderboardRankingDataV1Handler input) throws HttpResponseException, IOException {
+    public List<ModelsArchiveLeaderboardSignedURLResponse> getArchivedLeaderboardRankingDataV1Handler(GetArchivedLeaderboardRankingDataV1Handler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -277,7 +277,7 @@ public class LeaderboardData {
     /**
      * @see GetCurrentMonthLeaderboardRankingPublicV1
      */
-    public ModelsGetLeaderboardRankingResp getCurrentMonthLeaderboardRankingPublicV1(GetCurrentMonthLeaderboardRankingPublicV1 input) throws HttpResponseException, IOException {
+    public ModelsGetLeaderboardRankingResp getCurrentMonthLeaderboardRankingPublicV1(GetCurrentMonthLeaderboardRankingPublicV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -296,7 +296,7 @@ public class LeaderboardData {
     /**
      * @see GetCurrentSeasonLeaderboardRankingPublicV1
      */
-    public ModelsGetLeaderboardRankingResp getCurrentSeasonLeaderboardRankingPublicV1(GetCurrentSeasonLeaderboardRankingPublicV1 input) throws HttpResponseException, IOException {
+    public ModelsGetLeaderboardRankingResp getCurrentSeasonLeaderboardRankingPublicV1(GetCurrentSeasonLeaderboardRankingPublicV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -315,7 +315,7 @@ public class LeaderboardData {
     /**
      * @see GetTodayLeaderboardRankingPublicV1
      */
-    public ModelsGetLeaderboardRankingResp getTodayLeaderboardRankingPublicV1(GetTodayLeaderboardRankingPublicV1 input) throws HttpResponseException, IOException {
+    public ModelsGetLeaderboardRankingResp getTodayLeaderboardRankingPublicV1(GetTodayLeaderboardRankingPublicV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -334,7 +334,7 @@ public class LeaderboardData {
     /**
      * @see GetUserRankingPublicV1
      */
-    public ModelsUserRankingResponse getUserRankingPublicV1(GetUserRankingPublicV1 input) throws HttpResponseException, IOException {
+    public ModelsUserRankingResponse getUserRankingPublicV1(GetUserRankingPublicV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -353,7 +353,7 @@ public class LeaderboardData {
     /**
      * @see DeleteUserRankingPublicV1
      */
-    public void deleteUserRankingPublicV1(DeleteUserRankingPublicV1 input) throws HttpResponseException, IOException {
+    public void deleteUserRankingPublicV1(DeleteUserRankingPublicV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -372,7 +372,7 @@ public class LeaderboardData {
     /**
      * @see GetCurrentWeekLeaderboardRankingPublicV1
      */
-    public ModelsGetLeaderboardRankingResp getCurrentWeekLeaderboardRankingPublicV1(GetCurrentWeekLeaderboardRankingPublicV1 input) throws HttpResponseException, IOException {
+    public ModelsGetLeaderboardRankingResp getCurrentWeekLeaderboardRankingPublicV1(GetCurrentWeekLeaderboardRankingPublicV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -391,7 +391,7 @@ public class LeaderboardData {
     /**
      * @see GetAllTimeLeaderboardRankingPublicV2
      */
-    public V2GetPublicLeaderboardRankingResponse getAllTimeLeaderboardRankingPublicV2(GetAllTimeLeaderboardRankingPublicV2 input) throws HttpResponseException, IOException {
+    public V2GetPublicLeaderboardRankingResponse getAllTimeLeaderboardRankingPublicV2(GetAllTimeLeaderboardRankingPublicV2 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

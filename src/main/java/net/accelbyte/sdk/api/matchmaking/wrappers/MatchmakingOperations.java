@@ -30,7 +30,7 @@ public class MatchmakingOperations {
     /**
      * @see GetHealthcheckInfo
      */
-    public void getHealthcheckInfo(GetHealthcheckInfo input) throws HttpResponseException, IOException {
+    public void getHealthcheckInfo(GetHealthcheckInfo input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class MatchmakingOperations {
     /**
      * @see HandlerV3Healthz
      */
-    public void handlerV3Healthz(HandlerV3Healthz input) throws HttpResponseException, IOException {
+    public void handlerV3Healthz(HandlerV3Healthz input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class MatchmakingOperations {
     /**
      * @see PublicGetMessages
      */
-    public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws HttpResponseException, IOException {
+    public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class MatchmakingOperations {
     /**
      * @see VersionCheckHandler
      */
-    public void versionCheckHandler(VersionCheckHandler input) throws HttpResponseException, IOException {
+    public void versionCheckHandler(VersionCheckHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

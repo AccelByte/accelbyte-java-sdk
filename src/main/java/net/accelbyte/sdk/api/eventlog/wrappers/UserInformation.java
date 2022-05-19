@@ -32,7 +32,7 @@ public class UserInformation {
      * @deprecated
      */
     @Deprecated
-    public ModelsEventResponse getUserActivitiesHandler(GetUserActivitiesHandler input) throws HttpResponseException, IOException {
+    public ModelsEventResponse getUserActivitiesHandler(GetUserActivitiesHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -53,7 +53,7 @@ public class UserInformation {
      * @deprecated
      */
     @Deprecated
-    public void deleteUserActivitiesHandler(DeleteUserActivitiesHandler input) throws HttpResponseException, IOException {
+    public void deleteUserActivitiesHandler(DeleteUserActivitiesHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -74,7 +74,7 @@ public class UserInformation {
      * @deprecated
      */
     @Deprecated
-    public ModelsUserLastActivity lastUserActivityTimeHandler(LastUserActivityTimeHandler input) throws HttpResponseException, IOException {
+    public ModelsUserLastActivity lastUserActivityTimeHandler(LastUserActivityTimeHandler input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -30,7 +30,7 @@ public class PublicGroup {
     /**
      * @see GetGroups
      */
-    public ModelsPaginatedGroupResponse getGroups(GetGroups input) throws HttpResponseException, IOException {
+    public ModelsPaginatedGroupResponse getGroups(GetGroups input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PublicGroup {
     /**
      * @see CreateGroup
      */
-    public ModelsCreateGroupResponse createGroup(CreateGroup input) throws HttpResponseException, IOException {
+    public ModelsCreateGroupResponse createGroup(CreateGroup input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class PublicGroup {
     /**
      * @see GetGroup
      */
-    public ModelsCreateGroupResponse getGroup(GetGroup input) throws HttpResponseException, IOException {
+    public ModelsCreateGroupResponse getGroup(GetGroup input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class PublicGroup {
     /**
      * @see UpdateGroup
      */
-    public ModelsCreateGroupResponse updateGroup(UpdateGroup input) throws HttpResponseException, IOException {
+    public ModelsCreateGroupResponse updateGroup(UpdateGroup input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class PublicGroup {
     /**
      * @see DeleteGroup
      */
-    public void deleteGroup(DeleteGroup input) throws HttpResponseException, IOException {
+    public void deleteGroup(DeleteGroup input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class PublicGroup {
     /**
      * @see GetGroupContent
      */
-    public ModelsPaginatedContentDownloadResponse getGroupContent(GetGroupContent input) throws HttpResponseException, IOException {
+    public ModelsPaginatedContentDownloadResponse getGroupContent(GetGroupContent input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

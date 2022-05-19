@@ -30,7 +30,7 @@ public class PublicDownloadCount {
     /**
      * @see AddDownloadCount
      */
-    public ModelsAddDownloadCountResponse addDownloadCount(AddDownloadCount input) throws HttpResponseException, IOException {
+    public ModelsAddDownloadCountResponse addDownloadCount(AddDownloadCount input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

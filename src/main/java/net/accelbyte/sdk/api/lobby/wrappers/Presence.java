@@ -30,7 +30,7 @@ public class Presence {
     /**
      * @see UsersPresenceHandlerV1
      */
-    public HandlersGetUsersPresenceResponse usersPresenceHandlerV1(UsersPresenceHandlerV1 input) throws HttpResponseException, IOException {
+    public HandlersGetUsersPresenceResponse usersPresenceHandlerV1(UsersPresenceHandlerV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

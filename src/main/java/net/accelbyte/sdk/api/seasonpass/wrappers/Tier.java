@@ -30,7 +30,7 @@ public class Tier {
     /**
      * @see QueryTiers
      */
-    public TierPagingSlicedResult queryTiers(QueryTiers input) throws HttpResponseException, IOException {
+    public TierPagingSlicedResult queryTiers(QueryTiers input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Tier {
     /**
      * @see CreateTier
      */
-    public List<net.accelbyte.sdk.api.seasonpass.models.Tier> createTier(CreateTier input) throws HttpResponseException, IOException {
+    public List<net.accelbyte.sdk.api.seasonpass.models.Tier> createTier(CreateTier input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Tier {
     /**
      * @see UpdateTier
      */
-    public net.accelbyte.sdk.api.seasonpass.models.Tier updateTier(UpdateTier input) throws HttpResponseException, IOException {
+    public net.accelbyte.sdk.api.seasonpass.models.Tier updateTier(UpdateTier input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Tier {
     /**
      * @see DeleteTier
      */
-    public void deleteTier(DeleteTier input) throws HttpResponseException, IOException {
+    public void deleteTier(DeleteTier input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Tier {
     /**
      * @see ReorderTier
      */
-    public net.accelbyte.sdk.api.seasonpass.models.Tier reorderTier(ReorderTier input) throws HttpResponseException, IOException {
+    public net.accelbyte.sdk.api.seasonpass.models.Tier reorderTier(ReorderTier input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Tier {
     /**
      * @see GrantUserExp
      */
-    public UserSeasonSummary grantUserExp(GrantUserExp input) throws HttpResponseException, IOException {
+    public UserSeasonSummary grantUserExp(GrantUserExp input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Tier {
     /**
      * @see GrantUserTier
      */
-    public UserSeasonSummary grantUserTier(GrantUserTier input) throws HttpResponseException, IOException {
+    public UserSeasonSummary grantUserTier(GrantUserTier input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

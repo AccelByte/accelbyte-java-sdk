@@ -30,7 +30,7 @@ public class PublicType {
     /**
      * @see GetType
      */
-    public ModelsPaginatedGetTypeResponse getType(GetType input) throws HttpResponseException, IOException {
+    public ModelsPaginatedGetTypeResponse getType(GetType input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

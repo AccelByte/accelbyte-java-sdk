@@ -30,7 +30,7 @@ public class TerminatedServers {
     /**
      * @see ListTerminatedServers
      */
-    public ModelsListTerminatedServersResponse listTerminatedServers(ListTerminatedServers input) throws HttpResponseException, IOException {
+    public ModelsListTerminatedServersResponse listTerminatedServers(ListTerminatedServers input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class TerminatedServers {
     /**
      * @see DownloadServerLogs
      */
-    public void downloadServerLogs(DownloadServerLogs input) throws HttpResponseException, IOException {
+    public void downloadServerLogs(DownloadServerLogs input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class TerminatedServers {
     /**
      * @see CheckServerLogs
      */
-    public ModelsLogFileStatus checkServerLogs(CheckServerLogs input) throws HttpResponseException, IOException {
+    public ModelsLogFileStatus checkServerLogs(CheckServerLogs input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

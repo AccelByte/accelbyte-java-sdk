@@ -30,7 +30,7 @@ public class Anonymization {
     /**
      * @see AnonymizeUserAgreement
      */
-    public void anonymizeUserAgreement(AnonymizeUserAgreement input) throws HttpResponseException, IOException {
+    public void anonymizeUserAgreement(AnonymizeUserAgreement input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

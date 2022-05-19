@@ -32,7 +32,7 @@ public class Clients {
      * @deprecated
      */
     @Deprecated
-    public List<ClientmodelClientResponse> getClients(GetClients input) throws HttpResponseException, IOException {
+    public List<ClientmodelClientResponse> getClients(GetClients input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -53,7 +53,7 @@ public class Clients {
      * @deprecated
      */
     @Deprecated
-    public ClientmodelClientCreationResponse createClient(CreateClient input) throws HttpResponseException, IOException {
+    public ClientmodelClientCreationResponse createClient(CreateClient input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -72,7 +72,7 @@ public class Clients {
     /**
      * @see GetClient
      */
-    public ClientmodelClientResponse getClient(GetClient input) throws HttpResponseException, IOException {
+    public ClientmodelClientResponse getClient(GetClient input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -91,7 +91,7 @@ public class Clients {
     /**
      * @see UpdateClient
      */
-    public ClientmodelClientResponse updateClient(UpdateClient input) throws HttpResponseException, IOException {
+    public ClientmodelClientResponse updateClient(UpdateClient input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -112,7 +112,7 @@ public class Clients {
      * @deprecated
      */
     @Deprecated
-    public void deleteClient(DeleteClient input) throws HttpResponseException, IOException {
+    public void deleteClient(DeleteClient input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -131,7 +131,7 @@ public class Clients {
     /**
      * @see UpdateClientPermission
      */
-    public void updateClientPermission(UpdateClientPermission input) throws HttpResponseException, IOException {
+    public void updateClientPermission(UpdateClientPermission input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -150,7 +150,7 @@ public class Clients {
     /**
      * @see AddClientPermission
      */
-    public void addClientPermission(AddClientPermission input) throws HttpResponseException, IOException {
+    public void addClientPermission(AddClientPermission input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -169,7 +169,7 @@ public class Clients {
     /**
      * @see DeleteClientPermission
      */
-    public void deleteClientPermission(DeleteClientPermission input) throws HttpResponseException, IOException {
+    public void deleteClientPermission(DeleteClientPermission input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -188,7 +188,7 @@ public class Clients {
     /**
      * @see UpdateClientSecret
      */
-    public void updateClientSecret(UpdateClientSecret input) throws HttpResponseException, IOException {
+    public void updateClientSecret(UpdateClientSecret input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -207,7 +207,7 @@ public class Clients {
     /**
      * @see GetClientsbyNamespace
      */
-    public List<ClientmodelClientResponse> getClientsbyNamespace(GetClientsbyNamespace input) throws HttpResponseException, IOException {
+    public List<ClientmodelClientResponse> getClientsbyNamespace(GetClientsbyNamespace input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -226,7 +226,7 @@ public class Clients {
     /**
      * @see CreateClientByNamespace
      */
-    public ClientmodelClientCreationResponse createClientByNamespace(CreateClientByNamespace input) throws HttpResponseException, IOException {
+    public ClientmodelClientCreationResponse createClientByNamespace(CreateClientByNamespace input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -245,7 +245,7 @@ public class Clients {
     /**
      * @see DeleteClientByNamespace
      */
-    public void deleteClientByNamespace(DeleteClientByNamespace input) throws HttpResponseException, IOException {
+    public void deleteClientByNamespace(DeleteClientByNamespace input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -264,7 +264,7 @@ public class Clients {
     /**
      * @see AdminGetClientsByNamespaceV3
      */
-    public ClientmodelClientsV3Response adminGetClientsByNamespaceV3(AdminGetClientsByNamespaceV3 input) throws HttpResponseException, IOException {
+    public ClientmodelClientsV3Response adminGetClientsByNamespaceV3(AdminGetClientsByNamespaceV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -283,7 +283,7 @@ public class Clients {
     /**
      * @see AdminCreateClientV3
      */
-    public ClientmodelClientV3Response adminCreateClientV3(AdminCreateClientV3 input) throws HttpResponseException, IOException {
+    public ClientmodelClientV3Response adminCreateClientV3(AdminCreateClientV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -302,7 +302,7 @@ public class Clients {
     /**
      * @see AdminGetClientsbyNamespacebyIDV3
      */
-    public ClientmodelClientV3Response adminGetClientsbyNamespacebyIDV3(AdminGetClientsbyNamespacebyIDV3 input) throws HttpResponseException, IOException {
+    public ClientmodelClientV3Response adminGetClientsbyNamespacebyIDV3(AdminGetClientsbyNamespacebyIDV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -321,7 +321,7 @@ public class Clients {
     /**
      * @see AdminDeleteClientV3
      */
-    public void adminDeleteClientV3(AdminDeleteClientV3 input) throws HttpResponseException, IOException {
+    public void adminDeleteClientV3(AdminDeleteClientV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -340,7 +340,7 @@ public class Clients {
     /**
      * @see AdminUpdateClientV3
      */
-    public ClientmodelClientV3Response adminUpdateClientV3(AdminUpdateClientV3 input) throws HttpResponseException, IOException {
+    public ClientmodelClientV3Response adminUpdateClientV3(AdminUpdateClientV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -359,7 +359,7 @@ public class Clients {
     /**
      * @see AdminUpdateClientPermissionV3
      */
-    public void adminUpdateClientPermissionV3(AdminUpdateClientPermissionV3 input) throws HttpResponseException, IOException {
+    public void adminUpdateClientPermissionV3(AdminUpdateClientPermissionV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -378,7 +378,7 @@ public class Clients {
     /**
      * @see AdminAddClientPermissionsV3
      */
-    public void adminAddClientPermissionsV3(AdminAddClientPermissionsV3 input) throws HttpResponseException, IOException {
+    public void adminAddClientPermissionsV3(AdminAddClientPermissionsV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -397,7 +397,7 @@ public class Clients {
     /**
      * @see AdminDeleteClientPermissionV3
      */
-    public void adminDeleteClientPermissionV3(AdminDeleteClientPermissionV3 input) throws HttpResponseException, IOException {
+    public void adminDeleteClientPermissionV3(AdminDeleteClientPermissionV3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

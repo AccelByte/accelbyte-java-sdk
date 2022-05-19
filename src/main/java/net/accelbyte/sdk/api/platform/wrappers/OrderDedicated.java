@@ -30,7 +30,7 @@ public class OrderDedicated {
     /**
      * @see SyncOrders
      */
-    public OrderSyncResult syncOrders(SyncOrders input) throws HttpResponseException, IOException {
+    public OrderSyncResult syncOrders(SyncOrders input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

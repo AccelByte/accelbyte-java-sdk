@@ -30,7 +30,7 @@ public class AdminTag {
     /**
      * @see AdminGetTag
      */
-    public ModelsPaginatedGetTagResponse adminGetTag(AdminGetTag input) throws HttpResponseException, IOException {
+    public ModelsPaginatedGetTagResponse adminGetTag(AdminGetTag input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class AdminTag {
     /**
      * @see AdminCreateTag
      */
-    public ModelsCreateTagResponse adminCreateTag(AdminCreateTag input) throws HttpResponseException, IOException {
+    public ModelsCreateTagResponse adminCreateTag(AdminCreateTag input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class AdminTag {
     /**
      * @see AdminUpdateTag
      */
-    public ModelsCreateTagResponse adminUpdateTag(AdminUpdateTag input) throws HttpResponseException, IOException {
+    public ModelsCreateTagResponse adminUpdateTag(AdminUpdateTag input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class AdminTag {
     /**
      * @see AdminDeleteTag
      */
-    public void adminDeleteTag(AdminDeleteTag input) throws HttpResponseException, IOException {
+    public void adminDeleteTag(AdminDeleteTag input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -30,7 +30,7 @@ public class GameProfile {
     /**
      * @see GetUserProfiles
      */
-    public List<GameProfileHeader> getUserProfiles(GetUserProfiles input) throws HttpResponseException, IOException {
+    public List<GameProfileHeader> getUserProfiles(GetUserProfiles input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class GameProfile {
     /**
      * @see GetProfile
      */
-    public GameProfileInfo getProfile(GetProfile input) throws HttpResponseException, IOException {
+    public GameProfileInfo getProfile(GetProfile input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class GameProfile {
     /**
      * @see PublicGetUserGameProfiles
      */
-    public List<UserGameProfiles> publicGetUserGameProfiles(PublicGetUserGameProfiles input) throws HttpResponseException, IOException {
+    public List<UserGameProfiles> publicGetUserGameProfiles(PublicGetUserGameProfiles input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class GameProfile {
     /**
      * @see PublicGetUserProfiles
      */
-    public List<GameProfileHeader> publicGetUserProfiles(PublicGetUserProfiles input) throws HttpResponseException, IOException {
+    public List<GameProfileHeader> publicGetUserProfiles(PublicGetUserProfiles input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class GameProfile {
     /**
      * @see PublicCreateProfile
      */
-    public void publicCreateProfile(PublicCreateProfile input) throws HttpResponseException, IOException {
+    public void publicCreateProfile(PublicCreateProfile input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class GameProfile {
     /**
      * @see PublicGetProfile
      */
-    public GameProfileInfo publicGetProfile(PublicGetProfile input) throws HttpResponseException, IOException {
+    public GameProfileInfo publicGetProfile(PublicGetProfile input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class GameProfile {
     /**
      * @see PublicUpdateProfile
      */
-    public GameProfileInfo publicUpdateProfile(PublicUpdateProfile input) throws HttpResponseException, IOException {
+    public GameProfileInfo publicUpdateProfile(PublicUpdateProfile input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class GameProfile {
     /**
      * @see PublicDeleteProfile
      */
-    public void publicDeleteProfile(PublicDeleteProfile input) throws HttpResponseException, IOException {
+    public void publicDeleteProfile(PublicDeleteProfile input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class GameProfile {
     /**
      * @see PublicGetProfileAttribute
      */
-    public Attribute publicGetProfileAttribute(PublicGetProfileAttribute input) throws HttpResponseException, IOException {
+    public Attribute publicGetProfileAttribute(PublicGetProfileAttribute input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class GameProfile {
     /**
      * @see PublicUpdateAttribute
      */
-    public GameProfileInfo publicUpdateAttribute(PublicUpdateAttribute input) throws HttpResponseException, IOException {
+    public GameProfileInfo publicUpdateAttribute(PublicUpdateAttribute input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

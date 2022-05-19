@@ -30,7 +30,7 @@ public class Chat {
     /**
      * @see PersonalChatHistory
      */
-    public List<ModelChatMessageResponse> personalChatHistory(PersonalChatHistory input) throws HttpResponseException, IOException {
+    public List<ModelChatMessageResponse> personalChatHistory(PersonalChatHistory input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Chat {
     /**
      * @see AdminChatHistory
      */
-    public List<ModelChatMessageResponse> adminChatHistory(AdminChatHistory input) throws HttpResponseException, IOException {
+    public List<ModelChatMessageResponse> adminChatHistory(AdminChatHistory input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Chat {
     /**
      * @see GetPersonalChatHistoryV1Public
      */
-    public List<ModelChatMessageResponse> getPersonalChatHistoryV1Public(GetPersonalChatHistoryV1Public input) throws HttpResponseException, IOException {
+    public List<ModelChatMessageResponse> getPersonalChatHistoryV1Public(GetPersonalChatHistoryV1Public input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

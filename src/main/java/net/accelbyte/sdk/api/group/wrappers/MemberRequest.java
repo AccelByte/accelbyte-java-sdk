@@ -30,7 +30,7 @@ public class MemberRequest {
     /**
      * @see GetGroupJoinRequestPublicV1
      */
-    public ModelsGetMemberRequestsListResponseV1 getGroupJoinRequestPublicV1(GetGroupJoinRequestPublicV1 input) throws HttpResponseException, IOException {
+    public ModelsGetMemberRequestsListResponseV1 getGroupJoinRequestPublicV1(GetGroupJoinRequestPublicV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class MemberRequest {
     /**
      * @see GetGroupInvitationRequestPublicV1
      */
-    public ModelsGetMemberRequestsListResponseV1 getGroupInvitationRequestPublicV1(GetGroupInvitationRequestPublicV1 input) throws HttpResponseException, IOException {
+    public ModelsGetMemberRequestsListResponseV1 getGroupInvitationRequestPublicV1(GetGroupInvitationRequestPublicV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

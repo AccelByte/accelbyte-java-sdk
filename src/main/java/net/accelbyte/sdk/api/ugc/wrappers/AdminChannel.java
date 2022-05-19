@@ -30,7 +30,7 @@ public class AdminChannel {
     /**
      * @see SingleAdminGetChannel
      */
-    public ModelsPaginatedGetChannelResponse singleAdminGetChannel(SingleAdminGetChannel input) throws HttpResponseException, IOException {
+    public ModelsPaginatedGetChannelResponse singleAdminGetChannel(SingleAdminGetChannel input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class AdminChannel {
     /**
      * @see AdminCreateChannel
      */
-    public ModelsChannelResponse adminCreateChannel(AdminCreateChannel input) throws HttpResponseException, IOException {
+    public ModelsChannelResponse adminCreateChannel(AdminCreateChannel input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class AdminChannel {
     /**
      * @see SingleAdminUpdateChannel
      */
-    public ModelsChannelResponse singleAdminUpdateChannel(SingleAdminUpdateChannel input) throws HttpResponseException, IOException {
+    public ModelsChannelResponse singleAdminUpdateChannel(SingleAdminUpdateChannel input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class AdminChannel {
     /**
      * @see SingleAdminDeleteChannel
      */
-    public void singleAdminDeleteChannel(SingleAdminDeleteChannel input) throws HttpResponseException, IOException {
+    public void singleAdminDeleteChannel(SingleAdminDeleteChannel input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class AdminChannel {
     /**
      * @see AdminGetChannel
      */
-    public ModelsPaginatedGetChannelResponse adminGetChannel(AdminGetChannel input) throws HttpResponseException, IOException {
+    public ModelsPaginatedGetChannelResponse adminGetChannel(AdminGetChannel input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class AdminChannel {
     /**
      * @see AdminUpdateChannel
      */
-    public ModelsChannelResponse adminUpdateChannel(AdminUpdateChannel input) throws HttpResponseException, IOException {
+    public ModelsChannelResponse adminUpdateChannel(AdminUpdateChannel input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class AdminChannel {
     /**
      * @see AdminDeleteChannel
      */
-    public void adminDeleteChannel(AdminDeleteChannel input) throws HttpResponseException, IOException {
+    public void adminDeleteChannel(AdminDeleteChannel input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

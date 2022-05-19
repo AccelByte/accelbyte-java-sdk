@@ -30,7 +30,7 @@ public class PublicChannel {
     /**
      * @see GetChannels
      */
-    public ModelsPaginatedGetChannelResponse getChannels(GetChannels input) throws HttpResponseException, IOException {
+    public ModelsPaginatedGetChannelResponse getChannels(GetChannels input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PublicChannel {
     /**
      * @see CreateChannel
      */
-    public ModelsChannelResponse createChannel(CreateChannel input) throws HttpResponseException, IOException {
+    public ModelsChannelResponse createChannel(CreateChannel input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class PublicChannel {
     /**
      * @see UpdateChannel
      */
-    public ModelsChannelResponse updateChannel(UpdateChannel input) throws HttpResponseException, IOException {
+    public ModelsChannelResponse updateChannel(UpdateChannel input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class PublicChannel {
     /**
      * @see DeleteChannel
      */
-    public void deleteChannel(DeleteChannel input) throws HttpResponseException, IOException {
+    public void deleteChannel(DeleteChannel input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

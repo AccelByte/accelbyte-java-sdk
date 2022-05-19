@@ -30,7 +30,7 @@ public class ThirdParty {
     /**
      * @see AdminGetThirdPartyConfig
      */
-    public ModelsGetConfigResponse adminGetThirdPartyConfig(AdminGetThirdPartyConfig input) throws HttpResponseException, IOException {
+    public ModelsGetConfigResponse adminGetThirdPartyConfig(AdminGetThirdPartyConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class ThirdParty {
     /**
      * @see AdminUpdateThirdPartyConfig
      */
-    public ModelsUpdateConfigResponse adminUpdateThirdPartyConfig(AdminUpdateThirdPartyConfig input) throws HttpResponseException, IOException {
+    public ModelsUpdateConfigResponse adminUpdateThirdPartyConfig(AdminUpdateThirdPartyConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class ThirdParty {
     /**
      * @see AdminCreateThirdPartyConfig
      */
-    public ModelsCreateConfigResponse adminCreateThirdPartyConfig(AdminCreateThirdPartyConfig input) throws HttpResponseException, IOException {
+    public ModelsCreateConfigResponse adminCreateThirdPartyConfig(AdminCreateThirdPartyConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class ThirdParty {
     /**
      * @see AdminDeleteThirdPartyConfig
      */
-    public void adminDeleteThirdPartyConfig(AdminDeleteThirdPartyConfig input) throws HttpResponseException, IOException {
+    public void adminDeleteThirdPartyConfig(AdminDeleteThirdPartyConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

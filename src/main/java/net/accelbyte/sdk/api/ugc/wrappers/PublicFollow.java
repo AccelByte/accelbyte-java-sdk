@@ -30,7 +30,7 @@ public class PublicFollow {
     /**
      * @see GetFollowedContent
      */
-    public ModelsPaginatedContentDownloadResponse getFollowedContent(GetFollowedContent input) throws HttpResponseException, IOException {
+    public ModelsPaginatedContentDownloadResponse getFollowedContent(GetFollowedContent input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class PublicFollow {
     /**
      * @see GetFollowedUsers
      */
-    public ModelsPaginatedCreatorOverviewResponse getFollowedUsers(GetFollowedUsers input) throws HttpResponseException, IOException {
+    public ModelsPaginatedCreatorOverviewResponse getFollowedUsers(GetFollowedUsers input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class PublicFollow {
     /**
      * @see UpdateUserFollowStatus
      */
-    public ModelsUserFollowResponse updateUserFollowStatus(UpdateUserFollowStatus input) throws HttpResponseException, IOException {
+    public ModelsUserFollowResponse updateUserFollowStatus(UpdateUserFollowStatus input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class PublicFollow {
     /**
      * @see GetPublicFollowers
      */
-    public ModelsPaginatedCreatorOverviewResponse getPublicFollowers(GetPublicFollowers input) throws HttpResponseException, IOException {
+    public ModelsPaginatedCreatorOverviewResponse getPublicFollowers(GetPublicFollowers input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class PublicFollow {
     /**
      * @see GetPublicFollowing
      */
-    public ModelsPaginatedCreatorOverviewResponse getPublicFollowing(GetPublicFollowing input) throws HttpResponseException, IOException {
+    public ModelsPaginatedCreatorOverviewResponse getPublicFollowing(GetPublicFollowing input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

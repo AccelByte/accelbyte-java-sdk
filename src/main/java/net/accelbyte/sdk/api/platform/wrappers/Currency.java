@@ -30,7 +30,7 @@ public class Currency {
     /**
      * @see ListCurrencies
      */
-    public List<CurrencyInfo> listCurrencies(ListCurrencies input) throws HttpResponseException, IOException {
+    public List<CurrencyInfo> listCurrencies(ListCurrencies input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Currency {
     /**
      * @see CreateCurrency
      */
-    public CurrencyInfo createCurrency(CreateCurrency input) throws HttpResponseException, IOException {
+    public CurrencyInfo createCurrency(CreateCurrency input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Currency {
     /**
      * @see UpdateCurrency
      */
-    public CurrencyInfo updateCurrency(UpdateCurrency input) throws HttpResponseException, IOException {
+    public CurrencyInfo updateCurrency(UpdateCurrency input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Currency {
     /**
      * @see DeleteCurrency
      */
-    public CurrencyInfo deleteCurrency(DeleteCurrency input) throws HttpResponseException, IOException {
+    public CurrencyInfo deleteCurrency(DeleteCurrency input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Currency {
     /**
      * @see GetCurrencyConfig
      */
-    public CurrencyConfig getCurrencyConfig(GetCurrencyConfig input) throws HttpResponseException, IOException {
+    public CurrencyConfig getCurrencyConfig(GetCurrencyConfig input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Currency {
     /**
      * @see GetCurrencySummary
      */
-    public CurrencySummary getCurrencySummary(GetCurrencySummary input) throws HttpResponseException, IOException {
+    public CurrencySummary getCurrencySummary(GetCurrencySummary input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Currency {
     /**
      * @see PublicListCurrencies
      */
-    public List<CurrencyInfo> publicListCurrencies(PublicListCurrencies input) throws HttpResponseException, IOException {
+    public List<CurrencyInfo> publicListCurrencies(PublicListCurrencies input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

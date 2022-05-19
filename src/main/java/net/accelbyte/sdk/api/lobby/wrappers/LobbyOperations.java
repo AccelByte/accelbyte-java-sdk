@@ -30,7 +30,7 @@ public class LobbyOperations {
     /**
      * @see AdminUpdatePartyAttributesV1
      */
-    public ModelsPartyData adminUpdatePartyAttributesV1(AdminUpdatePartyAttributesV1 input) throws HttpResponseException, IOException {
+    public ModelsPartyData adminUpdatePartyAttributesV1(AdminUpdatePartyAttributesV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class LobbyOperations {
     /**
      * @see AdminJoinPartyV1
      */
-    public void adminJoinPartyV1(AdminJoinPartyV1 input) throws HttpResponseException, IOException {
+    public void adminJoinPartyV1(AdminJoinPartyV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class LobbyOperations {
     /**
      * @see PublicGetMessages
      */
-    public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws HttpResponseException, IOException {
+    public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

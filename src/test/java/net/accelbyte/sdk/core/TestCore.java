@@ -12,14 +12,17 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import net.accelbyte.sdk.api.lobby.operations.friends.GetUserFriendsUpdated;
+import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy;
 import net.accelbyte.sdk.core.client.OkhttpClient;
+import net.accelbyte.sdk.core.client.ReliableHttpClient;
+import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy.RetryIntervalType;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 import net.accelbyte.sdk.core.repository.TokenRepository;
 import net.accelbyte.sdk.core.util.Helper;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Arrays;
@@ -38,16 +41,23 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 @Tag("test-core")
 class TestCore {
     private final OkhttpClient httpClient = new OkhttpClient();
+
+    private final ReliableHttpClient reliableHttpClient = new ReliableHttpClient(null);
+
     private final TokenRepository tokenRepository = DefaultTokenRepository.getInstance();
+
     private final ConfigRepository httpbinConfigRepository = new HttpbinConfigRepository();
+
+    private final ConfigRepository mockServerConfigRepository = new MockServerConfigRepository();
 
     @ParameterizedTest
     @ValueSource(strings = { "GET", "POST", "PUT", "PATCH", "DELETE" })
-    void testHttpRequestMethod(String input) throws HttpResponseException, IOException {
+    void testHttpRequestMethod(String input) throws Exception {
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation() {
             @Override
@@ -70,7 +80,7 @@ class TestCore {
     }
 
     @Test
-    void testHttpRequestPathParams() throws HttpResponseException, IOException {
+    void testHttpRequestPathParams() throws Exception {
         final String testParams = "abc/def:123?x=1&y=2";
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation() {
@@ -100,7 +110,7 @@ class TestCore {
     }
 
     @Test
-    void testHttpRequestQueryParams() throws HttpResponseException, IOException {
+    void testHttpRequestQueryParams() throws Exception {
         final Map<String, List<String>> testParams = Collections.singletonMap("?key=1&",
                 Arrays.asList("?value=1&"));
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
@@ -137,7 +147,7 @@ class TestCore {
 
     @ParameterizedTest
     @MethodSource("queryParamsArrayFormats")
-    void testHttpRequestQueryParamsArray(String format) throws HttpResponseException, IOException {
+    void testHttpRequestQueryParamsArray(String format) throws Exception {
         final Map<String, List<String>> testParams = Collections.singletonMap("?key=1&",
                 Arrays.asList("?value\"1a&", "?value\"1b&"));
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
@@ -189,7 +199,7 @@ class TestCore {
 
     @ParameterizedTest
     @ValueSource(strings = { "GET" })
-    void testHttpRequestUserAgent(String input) throws HttpResponseException, IOException {
+    void testHttpRequestUserAgent(String input) throws Exception {
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation() {
             @Override
@@ -223,7 +233,7 @@ class TestCore {
 
     @ParameterizedTest
     @ValueSource(strings = { "GET" })
-    void testHttpRequestAmazonTraceId(String input) throws HttpResponseException, IOException {
+    void testHttpRequestAmazonTraceId(String input) throws Exception {
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation() {
             @Override
@@ -250,7 +260,7 @@ class TestCore {
     }
 
     @Test
-    void testHttpRequestCookie() throws IOException, HttpResponseException {
+    void testHttpRequestCookie() throws Exception {
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation() {
             @Override
@@ -288,7 +298,7 @@ class TestCore {
     }
 
     @Test
-    void testHttpRequestCookieAccessToken() throws IOException, HttpResponseException {
+    void testHttpRequestCookieAccessToken() throws Exception {
         final String token = "token12345";
         AccelByteSDK sdk = new AccelByteSDK(httpClient,
                 tokenRepository,
@@ -318,7 +328,7 @@ class TestCore {
 
     @ParameterizedTest
     @ValueSource(strings = { "POST" })
-    void testHttpRequestForm(String input) throws HttpResponseException, IOException {
+    void testHttpRequestForm(String input) throws Exception {
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation() {
             @Override
@@ -351,7 +361,7 @@ class TestCore {
 
     @ParameterizedTest
     @ValueSource(strings = { "POST" })
-    void testHttpRequestJson(String input) throws HttpResponseException, IOException {
+    void testHttpRequestJson(String input) throws Exception {
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation() {
             @Override
@@ -383,7 +393,7 @@ class TestCore {
 
     @ParameterizedTest
     @ValueSource(strings = { "POST" })
-    void testHttpRequestMultipart(String input) throws HttpResponseException, IOException {
+    void testHttpRequestMultipart(String input) throws Exception {
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation() {
             @Override
@@ -425,7 +435,7 @@ class TestCore {
 
     @ParameterizedTest
     @ValueSource(strings = { "POST" })
-    void testHttpResponseLocationQuery(String input) throws HttpResponseException, IOException {
+    void testHttpResponseLocationQuery(String input) throws Exception {
         final String redirectUrl = "https://demo.accelbyte.io/admin?code=1234567890&state=";
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation() {
@@ -452,7 +462,7 @@ class TestCore {
 
     @ParameterizedTest
     @ValueSource(strings = { "GET" })
-    void testHttpResponseBodyEmpty(String input) throws HttpResponseException, IOException {
+    void testHttpResponseBodyEmpty(String input) throws Exception {
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation() {
             @Override
@@ -472,7 +482,7 @@ class TestCore {
     }
 
     @Test
-    void testHttpResponseBodyJson() throws HttpResponseException, IOException {
+    void testHttpResponseBodyJson() throws Exception {
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation() {
             @Override
@@ -494,7 +504,7 @@ class TestCore {
     }
 
     @Test
-    void testHttpResponseBodyBinary() throws HttpResponseException, IOException {
+    void testHttpResponseBodyBinary() throws Exception {
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation() {
             @Override
@@ -516,7 +526,7 @@ class TestCore {
     }
 
     @Test
-    void testHttpResponseBodyHtml() throws HttpResponseException, IOException {
+    void testHttpResponseBodyHtml() throws Exception {
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation() {
             @Override
@@ -539,7 +549,7 @@ class TestCore {
 
     @ParameterizedTest
     @ValueSource(ints = { 403, 404, 503 })
-    void testHttpResponseStatusError(int input) throws HttpResponseException, IOException {
+    void testHttpResponseStatusError(int input) throws Exception {
         AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         HttpbinOperation op = new HttpbinOperation() {
             @Override
@@ -556,5 +566,151 @@ class TestCore {
         assertNotNull(res);
         assertEquals(input, res.getCode());
         assertNull(res.getPayload());
+    }
+
+    @Test
+    void testHttpRetryStatus() throws Exception {
+        final MockServerResetResponseOperation mockResetOp = new MockServerResetResponseOperation();
+        final MockServerConfigureResponseOperation mockConfigureOp = new MockServerConfigureResponseOperation();
+        final MockServerResponseConfiguration mockConf = new MockServerResponseConfiguration();
+        final int mockErrorStatusCode = 503;
+        final int mockSuccessStatusCode = 200;
+
+        mockConfigureOp.setBody(mockConf);
+        mockConf.setEnabled(true);
+        mockConf.setOverwrite(true);
+
+        final DefaultHttpRetryPolicy retryPolicy = new DefaultHttpRetryPolicy() {
+            @Override
+            public boolean doRetry(int attempt, Operation operation, HttpResponse response, Exception exception) {
+                final int remaining = getMaxRetry() - attempt;
+                if (remaining > 1) {
+                    assertEquals(mockErrorStatusCode, response.getCode());
+                } else {
+                    try {
+                        mockConf.setStatus(mockSuccessStatusCode); // Make the last attempt to be successful
+                        httpClient.sendRequest(mockConfigureOp, mockServerConfigRepository.getBaseURL(),
+                                new HttpHeaders());
+                    } catch (Exception e) {
+                        fail("Failed to configure mock server");
+                    }
+                }
+
+                return super.doRetry(attempt, operation, response, exception);
+            }
+        };
+
+        retryPolicy.setCallTimeout(3000);
+        retryPolicy.setMaxRetry(3);
+        retryPolicy.setRetryInterval(2000);
+        
+        final AccelByteSDK sdk = new AccelByteSDK(reliableHttpClient, tokenRepository, mockServerConfigRepository);
+
+        reliableHttpClient.setHttpRetryPolicy(retryPolicy);
+        
+        final GetUserFriendsUpdated op = GetUserFriendsUpdated.builder()
+                .namespace("test")
+                .build();
+
+        HttpResponse res = null;
+
+        retryPolicy.setRetryIntervalType(RetryIntervalType.LINEAR);
+        mockConf.setStatus(mockErrorStatusCode);
+        httpClient.sendRequest(mockResetOp, mockServerConfigRepository.getBaseURL(), new HttpHeaders());
+        httpClient.sendRequest(mockConfigureOp, mockServerConfigRepository.getBaseURL(), new HttpHeaders());
+        long beforeLinear = System.currentTimeMillis();
+        res = sdk.runRequest(op);
+        long afterLinear = System.currentTimeMillis();
+
+        assertNotNull(res);
+        assertEquals(mockSuccessStatusCode, res.getCode());
+        assertNotNull(res.getPayload());
+
+        retryPolicy.setRetryIntervalType(RetryIntervalType.EXPONENTIAL);
+        mockConf.setStatus(mockErrorStatusCode);
+        httpClient.sendRequest(mockResetOp, mockServerConfigRepository.getBaseURL(), new HttpHeaders());
+        httpClient.sendRequest(mockConfigureOp, mockServerConfigRepository.getBaseURL(), new HttpHeaders());
+        long beforeExponential = System.currentTimeMillis();
+        res = sdk.runRequest(op);
+        long afterExponential = System.currentTimeMillis();
+
+        assertNotNull(res);
+        assertEquals(mockSuccessStatusCode, res.getCode());
+        assertNotNull(res.getPayload());
+
+        assertTrue(afterLinear - beforeLinear < afterExponential - beforeExponential);
+    }
+
+    @Test
+    void testHttpRetryTimeout() throws Exception {
+        final MockServerResetResponseOperation mockResetOp = new MockServerResetResponseOperation();
+        final MockServerConfigureResponseOperation mockConfigureOp = new MockServerConfigureResponseOperation();
+        final MockServerResponseConfiguration mockConf = new MockServerResponseConfiguration();
+
+        mockConfigureOp.setBody(mockConf);
+        mockConf.setEnabled(true);
+        mockConf.setOverwrite(true);
+        mockConf.setStatus(200);
+
+        final DefaultHttpRetryPolicy retryPolicy = new DefaultHttpRetryPolicy() {
+            @Override
+            public boolean doRetry(int attempt, Operation operation, HttpResponse response, Exception exception) {
+                final int remaining = getMaxRetry() - attempt;
+                if (remaining > 1) {
+                    assertNull(response);
+                    assertNotNull(exception);
+                } else {
+                    try {
+                        mockConf.setDelay(0);
+                        httpClient.sendRequest(mockConfigureOp, mockServerConfigRepository.getBaseURL(),
+                                new HttpHeaders());
+                    } catch (Exception e) {
+                        fail("Failed to configure mock server");
+                    }
+                }
+
+                return super.doRetry(attempt, operation, response, exception);
+            }
+        };
+
+        retryPolicy.setCallTimeout(3000);
+        retryPolicy.setMaxRetry(3);
+        retryPolicy.setRetryInterval(2000);
+        
+        final AccelByteSDK sdk = new AccelByteSDK(reliableHttpClient, tokenRepository, mockServerConfigRepository);
+
+        reliableHttpClient.setHttpRetryPolicy(retryPolicy);
+        
+        final GetUserFriendsUpdated op = GetUserFriendsUpdated.builder()
+                .namespace("test")
+                .build();
+
+        HttpResponse res = null;
+
+        retryPolicy.setRetryIntervalType(RetryIntervalType.LINEAR);
+        mockConf.setDelay(retryPolicy.getCallTimeout() / 1000 + 1);
+        httpClient.sendRequest(mockResetOp, mockServerConfigRepository.getBaseURL(), new HttpHeaders());
+        httpClient.sendRequest(mockConfigureOp, mockServerConfigRepository.getBaseURL(), new HttpHeaders());
+        long beforeLinear = System.currentTimeMillis();
+        res = sdk.runRequest(op);
+        long afterLinear = System.currentTimeMillis();
+
+        assertNotNull(res);
+        assertEquals(200, res.getCode());
+        assertNotNull(res.getPayload());
+
+        retryPolicy.setRetryIntervalType(RetryIntervalType.EXPONENTIAL);
+        mockConf.setDelay(retryPolicy.getCallTimeout() / 1000 + 1);
+        httpClient.sendRequest(mockResetOp, mockServerConfigRepository.getBaseURL(), new HttpHeaders());
+        httpClient.sendRequest(mockConfigureOp, mockServerConfigRepository.getBaseURL(), new HttpHeaders());
+        long beforeExponential = System.currentTimeMillis();
+        res = sdk.runRequest(op);
+        long afterExponential = System.currentTimeMillis();
+
+        assertNotNull(res);
+        assertEquals(200, res.getCode());
+        assertNotNull(res.getPayload());
+
+        assertTrue(afterLinear - beforeLinear < afterExponential - beforeExponential);
     }
 }

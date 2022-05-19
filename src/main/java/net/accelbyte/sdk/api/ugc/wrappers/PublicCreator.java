@@ -30,7 +30,7 @@ public class PublicCreator {
     /**
      * @see GetCreator
      */
-    public ModelsCreatorOverviewResponse getCreator(GetCreator input) throws HttpResponseException, IOException {
+    public ModelsCreatorOverviewResponse getCreator(GetCreator input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

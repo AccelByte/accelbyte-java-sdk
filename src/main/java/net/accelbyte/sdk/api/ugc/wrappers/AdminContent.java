@@ -32,7 +32,7 @@ public class AdminContent {
      * @deprecated
      */
     @Deprecated
-    public ModelsCreateContentResponse adminUploadContentDirect(AdminUploadContentDirect input) throws HttpResponseException, IOException {
+    public ModelsCreateContentResponse adminUploadContentDirect(AdminUploadContentDirect input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -51,7 +51,7 @@ public class AdminContent {
     /**
      * @see AdminUploadContentS3
      */
-    public ModelsCreateContentResponse adminUploadContentS3(AdminUploadContentS3 input) throws HttpResponseException, IOException {
+    public ModelsCreateContentResponse adminUploadContentS3(AdminUploadContentS3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -70,7 +70,7 @@ public class AdminContent {
     /**
      * @see SingleAdminUpdateContentS3
      */
-    public ModelsCreateContentResponse singleAdminUpdateContentS3(SingleAdminUpdateContentS3 input) throws HttpResponseException, IOException {
+    public ModelsCreateContentResponse singleAdminUpdateContentS3(SingleAdminUpdateContentS3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -89,7 +89,7 @@ public class AdminContent {
     /**
      * @see AdminSearchChannelSpecificContent
      */
-    public ModelsPaginatedContentDownloadResponse adminSearchChannelSpecificContent(AdminSearchChannelSpecificContent input) throws HttpResponseException, IOException {
+    public ModelsPaginatedContentDownloadResponse adminSearchChannelSpecificContent(AdminSearchChannelSpecificContent input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -110,7 +110,7 @@ public class AdminContent {
      * @deprecated
      */
     @Deprecated
-    public ModelsCreateContentResponse singleAdminUpdateContentDirect(SingleAdminUpdateContentDirect input) throws HttpResponseException, IOException {
+    public ModelsCreateContentResponse singleAdminUpdateContentDirect(SingleAdminUpdateContentDirect input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -129,7 +129,7 @@ public class AdminContent {
     /**
      * @see SingleAdminDeleteContent
      */
-    public void singleAdminDeleteContent(SingleAdminDeleteContent input) throws HttpResponseException, IOException {
+    public void singleAdminDeleteContent(SingleAdminDeleteContent input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -148,7 +148,7 @@ public class AdminContent {
     /**
      * @see SingleAdminGetContent
      */
-    public ModelsPaginatedContentDownloadResponse singleAdminGetContent(SingleAdminGetContent input) throws HttpResponseException, IOException {
+    public ModelsPaginatedContentDownloadResponse singleAdminGetContent(SingleAdminGetContent input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -167,7 +167,7 @@ public class AdminContent {
     /**
      * @see AdminSearchContent
      */
-    public ModelsPaginatedContentDownloadResponse adminSearchContent(AdminSearchContent input) throws HttpResponseException, IOException {
+    public ModelsPaginatedContentDownloadResponse adminSearchContent(AdminSearchContent input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -186,7 +186,7 @@ public class AdminContent {
     /**
      * @see AdminGetSpecificContent
      */
-    public ModelsContentDownloadResponse adminGetSpecificContent(AdminGetSpecificContent input) throws HttpResponseException, IOException {
+    public ModelsContentDownloadResponse adminGetSpecificContent(AdminGetSpecificContent input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -205,7 +205,7 @@ public class AdminContent {
     /**
      * @see AdminDownloadContentPreview
      */
-    public ModelsGetContentPreviewResponse adminDownloadContentPreview(AdminDownloadContentPreview input) throws HttpResponseException, IOException {
+    public ModelsGetContentPreviewResponse adminDownloadContentPreview(AdminDownloadContentPreview input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -224,7 +224,7 @@ public class AdminContent {
     /**
      * @see AdminUpdateScreenshots
      */
-    public ModelsUpdateScreenshotResponse adminUpdateScreenshots(AdminUpdateScreenshots input) throws HttpResponseException, IOException {
+    public ModelsUpdateScreenshotResponse adminUpdateScreenshots(AdminUpdateScreenshots input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -243,7 +243,7 @@ public class AdminContent {
     /**
      * @see AdminUploadContentScreenshot
      */
-    public ModelsCreateScreenshotResponse adminUploadContentScreenshot(AdminUploadContentScreenshot input) throws HttpResponseException, IOException {
+    public ModelsCreateScreenshotResponse adminUploadContentScreenshot(AdminUploadContentScreenshot input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -262,7 +262,7 @@ public class AdminContent {
     /**
      * @see AdminDeleteContentScreenshot
      */
-    public void adminDeleteContentScreenshot(AdminDeleteContentScreenshot input) throws HttpResponseException, IOException {
+    public void adminDeleteContentScreenshot(AdminDeleteContentScreenshot input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -281,7 +281,7 @@ public class AdminContent {
     /**
      * @see AdminUpdateContentS3
      */
-    public ModelsCreateContentResponse adminUpdateContentS3(AdminUpdateContentS3 input) throws HttpResponseException, IOException {
+    public ModelsCreateContentResponse adminUpdateContentS3(AdminUpdateContentS3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -302,7 +302,7 @@ public class AdminContent {
      * @deprecated
      */
     @Deprecated
-    public ModelsCreateContentResponse adminUpdateContentDirect(AdminUpdateContentDirect input) throws HttpResponseException, IOException {
+    public ModelsCreateContentResponse adminUpdateContentDirect(AdminUpdateContentDirect input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -321,7 +321,7 @@ public class AdminContent {
     /**
      * @see AdminDeleteContent
      */
-    public void adminDeleteContent(AdminDeleteContent input) throws HttpResponseException, IOException {
+    public void adminDeleteContent(AdminDeleteContent input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -340,7 +340,7 @@ public class AdminContent {
     /**
      * @see AdminGetContent
      */
-    public ModelsPaginatedContentDownloadResponse adminGetContent(AdminGetContent input) throws HttpResponseException, IOException {
+    public ModelsPaginatedContentDownloadResponse adminGetContent(AdminGetContent input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -359,7 +359,7 @@ public class AdminContent {
     /**
      * @see AdminHideUserContent
      */
-    public ModelsCreateContentResponse adminHideUserContent(AdminHideUserContent input) throws HttpResponseException, IOException {
+    public ModelsCreateContentResponse adminHideUserContent(AdminHideUserContent input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

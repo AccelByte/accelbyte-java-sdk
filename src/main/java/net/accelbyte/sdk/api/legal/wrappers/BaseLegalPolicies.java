@@ -30,7 +30,7 @@ public class BaseLegalPolicies {
     /**
      * @see RetrieveAllLegalPolicies
      */
-    public List<RetrieveBasePolicyResponse> retrieveAllLegalPolicies(RetrieveAllLegalPolicies input) throws HttpResponseException, IOException {
+    public List<RetrieveBasePolicyResponse> retrieveAllLegalPolicies(RetrieveAllLegalPolicies input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class BaseLegalPolicies {
     /**
      * @see CreatePolicy
      */
-    public CreateBasePolicyResponse createPolicy(CreatePolicy input) throws HttpResponseException, IOException {
+    public CreateBasePolicyResponse createPolicy(CreatePolicy input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class BaseLegalPolicies {
     /**
      * @see RetrieveSinglePolicy
      */
-    public RetrieveBasePolicyResponse retrieveSinglePolicy(RetrieveSinglePolicy input) throws HttpResponseException, IOException {
+    public RetrieveBasePolicyResponse retrieveSinglePolicy(RetrieveSinglePolicy input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class BaseLegalPolicies {
     /**
      * @see PartialUpdatePolicy
      */
-    public UpdateBasePolicyResponse partialUpdatePolicy(PartialUpdatePolicy input) throws HttpResponseException, IOException {
+    public UpdateBasePolicyResponse partialUpdatePolicy(PartialUpdatePolicy input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class BaseLegalPolicies {
     /**
      * @see RetrievePolicyCountry
      */
-    public RetrievePolicyResponse retrievePolicyCountry(RetrievePolicyCountry input) throws HttpResponseException, IOException {
+    public RetrievePolicyResponse retrievePolicyCountry(RetrievePolicyCountry input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class BaseLegalPolicies {
     /**
      * @see RetrieveAllPolicyTypes
      */
-    public List<RetrievePolicyTypeResponse> retrieveAllPolicyTypes(RetrieveAllPolicyTypes input) throws HttpResponseException, IOException {
+    public List<RetrievePolicyTypeResponse> retrieveAllPolicyTypes(RetrieveAllPolicyTypes input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

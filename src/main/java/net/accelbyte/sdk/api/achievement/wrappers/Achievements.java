@@ -30,7 +30,7 @@ public class Achievements {
     /**
      * @see AdminListAchievements
      */
-    public ModelsPaginatedAchievementResponse adminListAchievements(AdminListAchievements input) throws HttpResponseException, IOException {
+    public ModelsPaginatedAchievementResponse adminListAchievements(AdminListAchievements input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Achievements {
     /**
      * @see AdminCreateNewAchievement
      */
-    public ModelsAchievementResponse adminCreateNewAchievement(AdminCreateNewAchievement input) throws HttpResponseException, IOException {
+    public ModelsAchievementResponse adminCreateNewAchievement(AdminCreateNewAchievement input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Achievements {
     /**
      * @see ExportAchievements
      */
-    public List<ModelsAchievement> exportAchievements(ExportAchievements input) throws HttpResponseException, IOException {
+    public List<ModelsAchievement> exportAchievements(ExportAchievements input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Achievements {
     /**
      * @see ImportAchievements
      */
-    public ServiceImportConfigResponse importAchievements(ImportAchievements input) throws HttpResponseException, IOException {
+    public ServiceImportConfigResponse importAchievements(ImportAchievements input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Achievements {
     /**
      * @see AdminGetAchievement
      */
-    public ModelsAchievementResponse adminGetAchievement(AdminGetAchievement input) throws HttpResponseException, IOException {
+    public ModelsAchievementResponse adminGetAchievement(AdminGetAchievement input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class Achievements {
     /**
      * @see AdminUpdateAchievement
      */
-    public ModelsAchievementResponse adminUpdateAchievement(AdminUpdateAchievement input) throws HttpResponseException, IOException {
+    public ModelsAchievementResponse adminUpdateAchievement(AdminUpdateAchievement input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class Achievements {
     /**
      * @see AdminDeleteAchievement
      */
-    public void adminDeleteAchievement(AdminDeleteAchievement input) throws HttpResponseException, IOException {
+    public void adminDeleteAchievement(AdminDeleteAchievement input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class Achievements {
     /**
      * @see AdminUpdateAchievementListOrder
      */
-    public void adminUpdateAchievementListOrder(AdminUpdateAchievementListOrder input) throws HttpResponseException, IOException {
+    public void adminUpdateAchievementListOrder(AdminUpdateAchievementListOrder input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class Achievements {
     /**
      * @see AdminListUserAchievements
      */
-    public ModelsPaginatedUserAchievementResponse adminListUserAchievements(AdminListUserAchievements input) throws HttpResponseException, IOException {
+    public ModelsPaginatedUserAchievementResponse adminListUserAchievements(AdminListUserAchievements input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class Achievements {
     /**
      * @see AdminUnlockAchievement
      */
-    public void adminUnlockAchievement(AdminUnlockAchievement input) throws HttpResponseException, IOException {
+    public void adminUnlockAchievement(AdminUnlockAchievement input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class Achievements {
     /**
      * @see PublicListAchievements
      */
-    public ModelsPublicAchievementsResponse publicListAchievements(PublicListAchievements input) throws HttpResponseException, IOException {
+    public ModelsPublicAchievementsResponse publicListAchievements(PublicListAchievements input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +239,7 @@ public class Achievements {
     /**
      * @see PublicGetAchievement
      */
-    public ModelsPublicAchievementResponse publicGetAchievement(PublicGetAchievement input) throws HttpResponseException, IOException {
+    public ModelsPublicAchievementResponse publicGetAchievement(PublicGetAchievement input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -258,7 +258,7 @@ public class Achievements {
     /**
      * @see PublicListUserAchievements
      */
-    public ModelsPaginatedUserAchievementResponse publicListUserAchievements(PublicListUserAchievements input) throws HttpResponseException, IOException {
+    public ModelsPaginatedUserAchievementResponse publicListUserAchievements(PublicListUserAchievements input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -277,7 +277,7 @@ public class Achievements {
     /**
      * @see PublicUnlockAchievement
      */
-    public void publicUnlockAchievement(PublicUnlockAchievement input) throws HttpResponseException, IOException {
+    public void publicUnlockAchievement(PublicUnlockAchievement input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

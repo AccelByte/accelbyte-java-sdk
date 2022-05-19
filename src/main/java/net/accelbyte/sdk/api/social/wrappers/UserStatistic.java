@@ -30,7 +30,7 @@ public class UserStatistic {
     /**
      * @see BulkFetchStatItems
      */
-    public List<UserStatItemInfo> bulkFetchStatItems(BulkFetchStatItems input) throws HttpResponseException, IOException {
+    public List<UserStatItemInfo> bulkFetchStatItems(BulkFetchStatItems input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class UserStatistic {
     /**
      * @see BulkIncUserStatItem
      */
-    public List<BulkStatItemOperationResult> bulkIncUserStatItem(BulkIncUserStatItem input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> bulkIncUserStatItem(BulkIncUserStatItem input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class UserStatistic {
     /**
      * @see BulkIncUserStatItemValue
      */
-    public List<BulkStatItemOperationResult> bulkIncUserStatItemValue(BulkIncUserStatItemValue input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> bulkIncUserStatItemValue(BulkIncUserStatItemValue input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class UserStatistic {
     /**
      * @see BulkFetchOrDefaultStatItems
      */
-    public List<ADTOObjectForUserStatItemValue> bulkFetchOrDefaultStatItems(BulkFetchOrDefaultStatItems input) throws HttpResponseException, IOException {
+    public List<ADTOObjectForUserStatItemValue> bulkFetchOrDefaultStatItems(BulkFetchOrDefaultStatItems input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class UserStatistic {
     /**
      * @see BulkResetUserStatItem
      */
-    public List<BulkStatItemOperationResult> bulkResetUserStatItem(BulkResetUserStatItem input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> bulkResetUserStatItem(BulkResetUserStatItem input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -125,7 +125,7 @@ public class UserStatistic {
     /**
      * @see GetUserStatItems
      */
-    public UserStatItemPagingSlicedResult getUserStatItems(GetUserStatItems input) throws HttpResponseException, IOException {
+    public UserStatItemPagingSlicedResult getUserStatItems(GetUserStatItems input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -144,7 +144,7 @@ public class UserStatistic {
     /**
      * @see BulkCreateUserStatItems
      */
-    public List<BulkStatItemOperationResult> bulkCreateUserStatItems(BulkCreateUserStatItems input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> bulkCreateUserStatItems(BulkCreateUserStatItems input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -163,7 +163,7 @@ public class UserStatistic {
     /**
      * @see BulkIncUserStatItem1
      */
-    public List<BulkStatItemOperationResult> bulkIncUserStatItem1(BulkIncUserStatItem1 input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> bulkIncUserStatItem1(BulkIncUserStatItem1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -182,7 +182,7 @@ public class UserStatistic {
     /**
      * @see BulkIncUserStatItemValue1
      */
-    public List<BulkStatItemOperationResult> bulkIncUserStatItemValue1(BulkIncUserStatItemValue1 input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> bulkIncUserStatItemValue1(BulkIncUserStatItemValue1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -201,7 +201,7 @@ public class UserStatistic {
     /**
      * @see BulkResetUserStatItem1
      */
-    public List<BulkStatItemOperationResult> bulkResetUserStatItem1(BulkResetUserStatItem1 input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> bulkResetUserStatItem1(BulkResetUserStatItem1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -220,7 +220,7 @@ public class UserStatistic {
     /**
      * @see CreateUserStatItem
      */
-    public void createUserStatItem(CreateUserStatItem input) throws HttpResponseException, IOException {
+    public void createUserStatItem(CreateUserStatItem input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -239,7 +239,7 @@ public class UserStatistic {
     /**
      * @see DeleteUserStatItems
      */
-    public void deleteUserStatItems(DeleteUserStatItems input) throws HttpResponseException, IOException {
+    public void deleteUserStatItems(DeleteUserStatItems input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -258,7 +258,7 @@ public class UserStatistic {
     /**
      * @see IncUserStatItemValue
      */
-    public StatItemIncResult incUserStatItemValue(IncUserStatItemValue input) throws HttpResponseException, IOException {
+    public StatItemIncResult incUserStatItemValue(IncUserStatItemValue input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -277,7 +277,7 @@ public class UserStatistic {
     /**
      * @see ResetUserStatItemValue
      */
-    public StatItemIncResult resetUserStatItemValue(ResetUserStatItemValue input) throws HttpResponseException, IOException {
+    public StatItemIncResult resetUserStatItemValue(ResetUserStatItemValue input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -296,7 +296,7 @@ public class UserStatistic {
     /**
      * @see BulkFetchStatItems1
      */
-    public List<UserStatItemInfo> bulkFetchStatItems1(BulkFetchStatItems1 input) throws HttpResponseException, IOException {
+    public List<UserStatItemInfo> bulkFetchStatItems1(BulkFetchStatItems1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -315,7 +315,7 @@ public class UserStatistic {
     /**
      * @see PublicBulkIncUserStatItem
      */
-    public List<BulkStatItemOperationResult> publicBulkIncUserStatItem(PublicBulkIncUserStatItem input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> publicBulkIncUserStatItem(PublicBulkIncUserStatItem input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -334,7 +334,7 @@ public class UserStatistic {
     /**
      * @see PublicBulkIncUserStatItemValue
      */
-    public List<BulkStatItemOperationResult> publicBulkIncUserStatItemValue(PublicBulkIncUserStatItemValue input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> publicBulkIncUserStatItemValue(PublicBulkIncUserStatItemValue input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -353,7 +353,7 @@ public class UserStatistic {
     /**
      * @see BulkResetUserStatItem2
      */
-    public List<BulkStatItemOperationResult> bulkResetUserStatItem2(BulkResetUserStatItem2 input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> bulkResetUserStatItem2(BulkResetUserStatItem2 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -372,7 +372,7 @@ public class UserStatistic {
     /**
      * @see PublicQueryUserStatItems
      */
-    public UserStatItemPagingSlicedResult publicQueryUserStatItems(PublicQueryUserStatItems input) throws HttpResponseException, IOException {
+    public UserStatItemPagingSlicedResult publicQueryUserStatItems(PublicQueryUserStatItems input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -391,7 +391,7 @@ public class UserStatistic {
     /**
      * @see PublicBulkCreateUserStatItems
      */
-    public List<BulkStatItemOperationResult> publicBulkCreateUserStatItems(PublicBulkCreateUserStatItems input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> publicBulkCreateUserStatItems(PublicBulkCreateUserStatItems input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -410,7 +410,7 @@ public class UserStatistic {
     /**
      * @see PublicQueryUserStatItems1
      */
-    public List<ADTOObjectForUserStatItemValue> publicQueryUserStatItems1(PublicQueryUserStatItems1 input) throws HttpResponseException, IOException {
+    public List<ADTOObjectForUserStatItemValue> publicQueryUserStatItems1(PublicQueryUserStatItems1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -429,7 +429,7 @@ public class UserStatistic {
     /**
      * @see PublicBulkIncUserStatItem1
      */
-    public List<BulkStatItemOperationResult> publicBulkIncUserStatItem1(PublicBulkIncUserStatItem1 input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> publicBulkIncUserStatItem1(PublicBulkIncUserStatItem1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -448,7 +448,7 @@ public class UserStatistic {
     /**
      * @see BulkIncUserStatItemValue2
      */
-    public List<BulkStatItemOperationResult> bulkIncUserStatItemValue2(BulkIncUserStatItemValue2 input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> bulkIncUserStatItemValue2(BulkIncUserStatItemValue2 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -467,7 +467,7 @@ public class UserStatistic {
     /**
      * @see BulkResetUserStatItem3
      */
-    public List<BulkStatItemOperationResult> bulkResetUserStatItem3(BulkResetUserStatItem3 input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> bulkResetUserStatItem3(BulkResetUserStatItem3 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -486,7 +486,7 @@ public class UserStatistic {
     /**
      * @see PublicCreateUserStatItem
      */
-    public void publicCreateUserStatItem(PublicCreateUserStatItem input) throws HttpResponseException, IOException {
+    public void publicCreateUserStatItem(PublicCreateUserStatItem input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -505,7 +505,7 @@ public class UserStatistic {
     /**
      * @see DeleteUserStatItems1
      */
-    public void deleteUserStatItems1(DeleteUserStatItems1 input) throws HttpResponseException, IOException {
+    public void deleteUserStatItems1(DeleteUserStatItems1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -524,7 +524,7 @@ public class UserStatistic {
     /**
      * @see PublicIncUserStatItem
      */
-    public StatItemIncResult publicIncUserStatItem(PublicIncUserStatItem input) throws HttpResponseException, IOException {
+    public StatItemIncResult publicIncUserStatItem(PublicIncUserStatItem input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -543,7 +543,7 @@ public class UserStatistic {
     /**
      * @see PublicIncUserStatItemValue
      */
-    public StatItemIncResult publicIncUserStatItemValue(PublicIncUserStatItemValue input) throws HttpResponseException, IOException {
+    public StatItemIncResult publicIncUserStatItemValue(PublicIncUserStatItemValue input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -562,7 +562,7 @@ public class UserStatistic {
     /**
      * @see ResetUserStatItemValue1
      */
-    public StatItemIncResult resetUserStatItemValue1(ResetUserStatItemValue1 input) throws HttpResponseException, IOException {
+    public StatItemIncResult resetUserStatItemValue1(ResetUserStatItemValue1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -581,7 +581,7 @@ public class UserStatistic {
     /**
      * @see BulkUpdateUserStatItemV2
      */
-    public List<BulkStatItemOperationResult> bulkUpdateUserStatItemV2(BulkUpdateUserStatItemV2 input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> bulkUpdateUserStatItemV2(BulkUpdateUserStatItemV2 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -600,7 +600,7 @@ public class UserStatistic {
     /**
      * @see BulkFetchOrDefaultStatItems1
      */
-    public List<ADTOObjectForUserStatItemValue> bulkFetchOrDefaultStatItems1(BulkFetchOrDefaultStatItems1 input) throws HttpResponseException, IOException {
+    public List<ADTOObjectForUserStatItemValue> bulkFetchOrDefaultStatItems1(BulkFetchOrDefaultStatItems1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -619,7 +619,7 @@ public class UserStatistic {
     /**
      * @see BulkUpdateUserStatItem
      */
-    public List<BulkStatItemOperationResult> bulkUpdateUserStatItem(BulkUpdateUserStatItem input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> bulkUpdateUserStatItem(BulkUpdateUserStatItem input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -638,7 +638,7 @@ public class UserStatistic {
     /**
      * @see BulkResetUserStatItemValues
      */
-    public List<BulkStatItemOperationResult> bulkResetUserStatItemValues(BulkResetUserStatItemValues input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> bulkResetUserStatItemValues(BulkResetUserStatItemValues input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -657,7 +657,7 @@ public class UserStatistic {
     /**
      * @see DeleteUserStatItems2
      */
-    public void deleteUserStatItems2(DeleteUserStatItems2 input) throws HttpResponseException, IOException {
+    public void deleteUserStatItems2(DeleteUserStatItems2 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -676,7 +676,7 @@ public class UserStatistic {
     /**
      * @see UpdateUserStatItemValue
      */
-    public StatItemIncResult updateUserStatItemValue(UpdateUserStatItemValue input) throws HttpResponseException, IOException {
+    public StatItemIncResult updateUserStatItemValue(UpdateUserStatItemValue input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -695,7 +695,7 @@ public class UserStatistic {
     /**
      * @see BulkUpdateUserStatItem1
      */
-    public List<BulkStatItemOperationResult> bulkUpdateUserStatItem1(BulkUpdateUserStatItem1 input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> bulkUpdateUserStatItem1(BulkUpdateUserStatItem1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -714,7 +714,7 @@ public class UserStatistic {
     /**
      * @see PublicQueryUserStatItems2
      */
-    public List<ADTOObjectForUserStatItemValue> publicQueryUserStatItems2(PublicQueryUserStatItems2 input) throws HttpResponseException, IOException {
+    public List<ADTOObjectForUserStatItemValue> publicQueryUserStatItems2(PublicQueryUserStatItems2 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -733,7 +733,7 @@ public class UserStatistic {
     /**
      * @see BulkUpdateUserStatItem2
      */
-    public List<BulkStatItemOperationResult> bulkUpdateUserStatItem2(BulkUpdateUserStatItem2 input) throws HttpResponseException, IOException {
+    public List<BulkStatItemOperationResult> bulkUpdateUserStatItem2(BulkUpdateUserStatItem2 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -752,7 +752,7 @@ public class UserStatistic {
     /**
      * @see UpdateUserStatItemValue1
      */
-    public StatItemIncResult updateUserStatItemValue1(UpdateUserStatItemValue1 input) throws HttpResponseException, IOException {
+    public StatItemIncResult updateUserStatItemValue1(UpdateUserStatItemValue1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

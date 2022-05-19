@@ -30,7 +30,7 @@ public class Config {
     /**
      * @see AdminGetAllConfigV1
      */
-    public ModelsConfigList adminGetAllConfigV1(AdminGetAllConfigV1 input) throws HttpResponseException, IOException {
+    public ModelsConfigList adminGetAllConfigV1(AdminGetAllConfigV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -49,7 +49,7 @@ public class Config {
     /**
      * @see AdminGetConfigV1
      */
-    public ModelsConfigReq adminGetConfigV1(AdminGetConfigV1 input) throws HttpResponseException, IOException {
+    public ModelsConfigReq adminGetConfigV1(AdminGetConfigV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -68,7 +68,7 @@ public class Config {
     /**
      * @see AdminUpdateConfigV1
      */
-    public ModelsConfigReq adminUpdateConfigV1(AdminUpdateConfigV1 input) throws HttpResponseException, IOException {
+    public ModelsConfigReq adminUpdateConfigV1(AdminUpdateConfigV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -87,7 +87,7 @@ public class Config {
     /**
      * @see AdminExportConfigV1
      */
-    public ModelsConfigExport adminExportConfigV1(AdminExportConfigV1 input) throws HttpResponseException, IOException {
+    public ModelsConfigExport adminExportConfigV1(AdminExportConfigV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
@@ -106,7 +106,7 @@ public class Config {
     /**
      * @see AdminImportConfigV1
      */
-    public ModelsImportConfigResponse adminImportConfigV1(AdminImportConfigV1 input) throws HttpResponseException, IOException {
+    public ModelsImportConfigResponse adminImportConfigV1(AdminImportConfigV1 input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);
