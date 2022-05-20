@@ -28,6 +28,7 @@ import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
@@ -1185,6 +1186,7 @@ class TestIntegration {
 
         @Test
         @Order(15)
+        @Disabled("Unreliable")
         void testServiceGametelemetry() throws Exception {
                 final String steamId = "76561199259217491";
                 final String playTime = "4";
