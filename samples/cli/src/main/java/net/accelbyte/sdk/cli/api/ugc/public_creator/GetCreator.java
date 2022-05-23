@@ -65,7 +65,7 @@ public class GetCreator implements Callable<Integer> {
                             .namespace(namespace)
                             .userId(userId)
                             .build();
-            ModelsCreatorOverviewResponse response =
+            ModelsCreatorResponse response =
                     wrapper.getCreator(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);
