@@ -585,6 +585,7 @@ class TestCore {
             public boolean doRetry(int attempt, Operation operation, HttpResponse response, Exception exception) {
                 final int remaining = getMaxRetry() - attempt;
                 if (remaining > 1) {
+                    assertNotNull(response);
                     assertEquals(mockErrorStatusCode, response.getCode());
                 } else {
                     try {

@@ -802,7 +802,7 @@ class TestIntegration {
                                 userDateOfBirthUpdated,
                                 userDateOfBirthActual
                                                 .atZone(ZoneId.systemDefault())
-                                                .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+                                                .format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))); // coverity[null_method_call]
 
                 // Delete user
 
@@ -1208,12 +1208,12 @@ class TestIntegration {
 
                 wGameTelemetry.protectedSaveEventsGameTelemetryV1ProtectedEventsPost(opSave);
 
-                ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut opPut =
-                    ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut.builder()
-                            .playtime(playTime)
-                            .steamId(steamId)
-                            .build();
-                        
+                ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut opPut = ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
+                                .builder()
+                                .playtime(playTime)
+                                .steamId(steamId)
+                                .build();
+
                 wGameTelemetry.protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut(opPut);
 
                 ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet opGet = ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet
@@ -1221,7 +1221,8 @@ class TestIntegration {
                                 .steamId(steamId)
                                 .build();
 
-                Map<String, ?> resGet = wGameTelemetry.protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(opGet);
+                Map<String, ?> resGet = wGameTelemetry
+                                .protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(opGet);
 
                 assertEquals(playTime, resGet.get("total_playtime"));
         }
