@@ -36,6 +36,9 @@ public class ModelsGetImageLimitResponseData extends Model {
     @JsonProperty("image_limit")
     private Integer imageLimit;
 
+    @JsonProperty("non_persistent_image_number")
+    private Integer nonPersistentImageNumber;
+
 
 
     @JsonIgnore

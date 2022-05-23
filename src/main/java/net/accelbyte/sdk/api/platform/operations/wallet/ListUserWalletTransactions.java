@@ -32,7 +32,10 @@ import java.util.*;
  * 
  *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:WALLET", action=2 (READ)
  *   *  Returns : wallet transaction info
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class ListUserWalletTransactions extends Operation {

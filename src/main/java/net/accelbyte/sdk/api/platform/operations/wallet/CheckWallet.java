@@ -30,7 +30,10 @@ import java.util.*;
  * Other detail info:
  * 
  *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:WALLET", action=2 (READ)
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class CheckWallet extends Operation {

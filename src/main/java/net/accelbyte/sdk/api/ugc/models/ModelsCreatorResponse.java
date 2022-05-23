@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.iam.models;
+package net.accelbyte.sdk.api.ugc.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -28,30 +28,36 @@ import java.util.Map;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ModelUserBaseInfo extends Model {
+public class ModelsCreatorResponse extends Model {
 
-    @JsonProperty("avatarUrl")
-    private String avatarUrl;
+    @JsonProperty("creatorFollowState")
+    private ModelsCreatorFollowState creatorFollowState;
 
-    @JsonProperty("displayName")
-    private String displayName;
+    @JsonProperty("followCount")
+    private Integer followCount;
 
-    @JsonProperty("platformUserIds")
-    private Map<String, String> platformUserIds;
+    @JsonProperty("followingCount")
+    private Integer followingCount;
 
-    @JsonProperty("userId")
-    private String userId;
+    @JsonProperty("id")
+    private String id;
+
+    @JsonProperty("namespace")
+    private String namespace;
+
+    @JsonProperty("totalLikedContent")
+    private Integer totalLikedContent;
 
 
 
     @JsonIgnore
-    public ModelUserBaseInfo createFromJson(String json) throws JsonProcessingException {
+    public ModelsCreatorResponse createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<ModelUserBaseInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserBaseInfo>>() {});
+    public List<ModelsCreatorResponse> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreatorResponse>>() {});
     }
 
     

@@ -32,7 +32,10 @@ import java.util.*;
  * Other detail info:
  * 
  *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:WALLET", action=4 (UPDATE)
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class DebitUserWallet extends Operation {

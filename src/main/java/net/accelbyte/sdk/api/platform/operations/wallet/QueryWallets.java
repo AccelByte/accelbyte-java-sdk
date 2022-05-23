@@ -32,7 +32,10 @@ import java.util.*;
  * 
  *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:WALLET", action=2 (READ)
  *   *  Returns : paginated wallets info
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class QueryWallets extends Operation {

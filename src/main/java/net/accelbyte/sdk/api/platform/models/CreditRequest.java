@@ -133,6 +133,7 @@ public class CreditRequest extends Model {
         REWARD("REWARD"),
         GIFT("GIFT"),
         REFUND("REFUND"),
+        DLC("DLC"),
         OTHER("OTHER");
 
         private String value;

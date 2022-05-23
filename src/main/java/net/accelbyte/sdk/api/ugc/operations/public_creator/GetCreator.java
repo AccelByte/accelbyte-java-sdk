@@ -15,7 +15,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import net.accelbyte.sdk.api.ugc.models.*;
-import net.accelbyte.sdk.api.ugc.models.ModelsCreatorOverviewResponse;
+import net.accelbyte.sdk.api.ugc.models.ModelsCreatorResponse;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -26,6 +26,8 @@ import java.util.*;
 
 /**
  * GetCreator
+ *
+ * Public user can access without token or if token specified, requires valid user token
  */
 @Getter
 @Setter
@@ -89,10 +91,10 @@ public class GetCreator extends Operation {
         return true;
     }
 
-    public ModelsCreatorOverviewResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+    public ModelsCreatorResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = Helper.convertInputStreamToString(payload);
         if(code == 200){
-            return new ModelsCreatorOverviewResponse().createFromJson(json);
+            return new ModelsCreatorResponse().createFromJson(json);
         }
         throw new HttpResponseException(code, json);
     }

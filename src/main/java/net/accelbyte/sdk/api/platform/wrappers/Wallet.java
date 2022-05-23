@@ -124,7 +124,9 @@ public class Wallet {
 
     /**
      * @see CheckWallet
+     * @deprecated
      */
+    @Deprecated
     public void checkWallet(CheckWallet input) throws Exception {
         HttpResponse httpResponse = null;
         try {
@@ -181,7 +183,9 @@ public class Wallet {
 
     /**
      * @see GetUserWallet
+     * @deprecated
      */
+    @Deprecated
     public WalletInfo getUserWallet(GetUserWallet input) throws Exception {
         HttpResponse httpResponse = null;
         try {
@@ -200,7 +204,9 @@ public class Wallet {
 
     /**
      * @see DebitUserWallet
+     * @deprecated
      */
+    @Deprecated
     public WalletInfo debitUserWallet(DebitUserWallet input) throws Exception {
         HttpResponse httpResponse = null;
         try {
@@ -219,7 +225,9 @@ public class Wallet {
 
     /**
      * @see DisableUserWallet
+     * @deprecated
      */
+    @Deprecated
     public void disableUserWallet(DisableUserWallet input) throws Exception {
         HttpResponse httpResponse = null;
         try {
@@ -238,7 +246,9 @@ public class Wallet {
 
     /**
      * @see EnableUserWallet
+     * @deprecated
      */
+    @Deprecated
     public void enableUserWallet(EnableUserWallet input) throws Exception {
         HttpResponse httpResponse = null;
         try {
@@ -257,7 +267,9 @@ public class Wallet {
 
     /**
      * @see ListUserWalletTransactions
+     * @deprecated
      */
+    @Deprecated
     public DetailedWalletTransactionPagingSlicedResult listUserWalletTransactions(ListUserWalletTransactions input) throws Exception {
         HttpResponse httpResponse = null;
         try {
@@ -276,7 +288,9 @@ public class Wallet {
 
     /**
      * @see QueryWallets
+     * @deprecated
      */
+    @Deprecated
     public WalletPagingSlicedResult queryWallets(QueryWallets input) throws Exception {
         HttpResponse httpResponse = null;
         try {
@@ -295,7 +309,9 @@ public class Wallet {
 
     /**
      * @see GetWallet
+     * @deprecated
      */
+    @Deprecated
     public WalletInfo getWallet(GetWallet input) throws Exception {
         HttpResponse httpResponse = null;
         try {
