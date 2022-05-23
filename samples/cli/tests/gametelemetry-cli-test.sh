@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..6"
+echo "1..4"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -53,35 +53,24 @@ fi
 
 touch "tmp.dat"
 
-#- 2 AdminGetEventsGameTelemetryV1AdminEventsGet
-./ng net.accelbyte.sdk.cli.Main gametelemetry adminGetEventsGameTelemetryV1AdminEventsGet \
-    --namespace "$AB_NAMESPACE" \
-    > test.out 2>&1
-eval_tap $? 2 'AdminGetEventsGameTelemetryV1AdminEventsGet' test.out
-
-#- 3 AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet
-./ng net.accelbyte.sdk.cli.Main gametelemetry adminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet \
-    > test.out 2>&1
-eval_tap $? 3 'AdminGetNamespaceGameTelemetryV1AdminTelemetrynamespaceGet' test.out
-
-#- 4 ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost
+#- 2 ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost
 ./ng net.accelbyte.sdk.cli.Main gametelemetry protectedSaveEventsGameTelemetryV1ProtectedEventsPost \
     --body '[{"EventId": "FtBxyZcD", "EventName": "XBpGlsQu", "EventNamespace": "Ju8vMf0I", "EventTimestamp": "1980-10-10T00:00:00Z", "Payload": {"kTrd8IDc": {}}}]' \
     > test.out 2>&1
-eval_tap $? 4 'ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost' test.out
+eval_tap $? 2 'ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost' test.out
 
-#- 5 ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet
+#- 3 ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet
 ./ng net.accelbyte.sdk.cli.Main gametelemetry protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet \
     --steamId 'V2zXnTKj' \
     > test.out 2>&1
-eval_tap $? 5 'ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet' test.out
+eval_tap $? 3 'ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet' test.out
 
-#- 6 ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
+#- 4 ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
 ./ng net.accelbyte.sdk.cli.Main gametelemetry protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut \
     --playtime 'XY1bPqam' \
     --steamId 'iBxx9Cs1' \
     > test.out 2>&1
-eval_tap $? 6 'ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut' test.out
+eval_tap $? 4 'ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut' test.out
 
 
 rm -f "tmp.dat"
