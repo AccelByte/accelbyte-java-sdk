@@ -1,5 +1,36 @@
+<a name="v0.11.0"></a>
+## [v0.11.0] - 2022-05-23
+### Chore
+- bump version
+- fix coverity issues
+- **doc:** regenerate doc index for justice 3.23
+- **samples:** regenerate cli sample app for justice 3.23
+- **sdk:** use more enums
+- **sdk:** regenerate sdk for justice 3.23
+- **sdk:** okhttpclient - refactor create request and response
+- **spec:** update spec for justice 3.23
+- **test:** regenerate cli sample app test for justice 3.23
+
+### Ci
+- **coverity:** do not run test
+
+### Docs
+- update changelog
+- **samples:** cli - refresh readme
+
+### Feat
+- **sdk:** operation - add enum and builder for enum
+
+### Fix
+- **sdk:** sdkConfiguration is supposed to be private
+
+### Test
+- **integration:** disable gametelemetry for now because it is unreliable
+- **integration:** add gametelemetry
+
+
 <a name="v0.10.0"></a>
-## [v0.10.0] - 2022-05-09
+## [v0.10.0] - 2022-05-10
 ### Chore
 - gitignore tap test results
 - bump version
@@ -383,6 +414,7 @@
 - replace unnecessary object
 
 
+[v0.11.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.10.0...v0.11.0
 [v0.10.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.9.0...v0.10.0
 [v0.9.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.8.0...v0.9.0
 [v0.8.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.7.0...v0.8.0
