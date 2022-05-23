@@ -24,7 +24,7 @@ pipeline {
         script {
           sh "rm -rfv cov-int java-server-sdk.bz2"
           sh "chmod a+x ./gradlew"
-          sh "JAVA_OPTS=\"-Xmx1g\" cov-build --dir cov-int ./gradlew clean build --no-daemon"    // https://github.com/gradle/gradle/issues/7746#issuecomment-439582166
+          sh "JAVA_OPTS=\"-Xmx1g\" cov-build --dir cov-int ./gradlew clean build -x test --no-daemon"    // https://github.com/gradle/gradle/issues/7746#issuecomment-439582166
           sh "tar caf java-server-sdk.bz2 cov-int"
           withCredentials([usernamePassword(credentialsId: 'coverity-accelbyte-java-sdk', passwordVariable: 'COVERITY_TOKEN', usernameVariable: 'COVERITY_EMAIL')]) {
             gitCommitHashShort = git.getCommitHashShort()
