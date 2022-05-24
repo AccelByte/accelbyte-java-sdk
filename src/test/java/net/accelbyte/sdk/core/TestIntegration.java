@@ -196,8 +196,11 @@ import net.accelbyte.sdk.api.ugc.operations.admin_tag.AdminDeleteTag;
 import net.accelbyte.sdk.api.ugc.operations.admin_tag.AdminGetTag;
 import net.accelbyte.sdk.api.ugc.operations.admin_tag.AdminUpdateTag;
 import net.accelbyte.sdk.api.ugc.wrappers.AdminTag;
+import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy;
 import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.client.OkhttpWebSocketClient;
+import net.accelbyte.sdk.core.client.ReliableHttpClient;
+import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy.RetryIntervalType;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 import okhttp3.WebSocket;
@@ -1386,17 +1389,49 @@ class TestIntegration {
                                 .build());
                 Assertions.assertNotNull(csResp);
 
-                // Waiting for the server to be ready
+                // Claim (use reliable http retry)
 
-                Thread.sleep(5000);
+                final DefaultHttpRetryPolicy retryPolicy = new DefaultHttpRetryPolicy() {
+                        @Override
+                        public boolean doRetry(int attempt, Operation operation, HttpResponse response,
+                                        Exception exception) {
+                                // Custom logic to handle DSMC claim server 425 server is not ready
+                                if (response != null && response.getCode() == 425) {
+                                        try {
+                                                final int multiplier = this
+                                                                .getRetryIntervalType() == RetryIntervalType.EXPONENTIAL
+                                                                                ? attempt
+                                                                                : 1;
+                                                Thread.sleep(this.getRetryInterval() * multiplier); // Wait before retry
+                                        } catch (InterruptedException ie) {
+                                                Thread.currentThread().interrupt();
+                                        }
 
-                // Claim
+                                        return true;
+                                }
+
+                                return false;
+                        }
+                };
+
+                retryPolicy.setRetryIntervalType(RetryIntervalType.LINEAR);
+                retryPolicy.setCallTimeout(5000);
+                retryPolicy.setMaxRetry(20);
+                retryPolicy.setRetryInterval(2000);
+
+                final AccelByteSDK reliableSdk = new AccelByteSDK(
+                                new ReliableHttpClient(retryPolicy),
+                                _sdk.getSdkConfiguration().getTokenRepository(),
+                                _sdk.getSdkConfiguration().getConfigRepository());
+
+                net.accelbyte.sdk.api.dsmc.wrappers.Session wSessionReliable = new net.accelbyte.sdk.api.dsmc.wrappers.Session(
+                                reliableSdk);
 
                 ModelsClaimSessionRequest claimServer = ModelsClaimSessionRequest.builder()
                                 .sessionId(session_id)
                                 .build();
 
-                wSession.claimServer(ClaimServer.builder()
+                wSessionReliable.claimServer(ClaimServer.builder()
                                 .namespace(target_namespace)
                                 .body(claimServer)
                                 .build());
