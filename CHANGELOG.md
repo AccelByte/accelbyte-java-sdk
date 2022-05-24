@@ -1,5 +1,5 @@
 <a name="v0.11.0"></a>
-## [v0.11.0] - 2022-05-23
+## [v0.11.0] - 2022-05-24
 ### Chore
 - bump version
 - fix coverity issues
@@ -25,6 +25,7 @@
 - **sdk:** sdkConfiguration is supposed to be private
 
 ### Test
+- **integration:** use http retry for dsmc claim server
 - **integration:** disable gametelemetry for now because it is unreliable
 - **integration:** add gametelemetry
 
