@@ -1396,18 +1396,22 @@ class TestIntegration {
                         public boolean doRetry(int attempt, Operation operation, HttpResponse response,
                                         Exception exception) {
                                 // Custom logic to handle DSMC claim server 425 server is not ready
-                                if (response != null && response.getCode() == 425) {
-                                        try {
-                                                final int multiplier = this
-                                                                .getRetryIntervalType() == RetryIntervalType.EXPONENTIAL
-                                                                                ? attempt
-                                                                                : 1;
-                                                Thread.sleep(this.getRetryInterval() * multiplier); // Wait before retry
-                                        } catch (InterruptedException ie) {
-                                                Thread.currentThread().interrupt();
-                                        }
+                                if (attempt < this.getMaxRetry()) {
+                                        if (response != null && response.getCode() == 425) {
+                                                try {
+                                                        final int multiplier = this
+                                                                        .getRetryIntervalType() == RetryIntervalType.EXPONENTIAL
+                                                                                        ? attempt
+                                                                                        : 1;
+                                                        Thread.sleep(this.getRetryInterval() * multiplier); // Wait
+                                                                                                            // before
+                                                                                                            // retry
+                                                } catch (InterruptedException ie) {
+                                                        Thread.currentThread().interrupt();
+                                                }
 
-                                        return true;
+                                                return true;
+                                        }
                                 }
 
                                 return false;
