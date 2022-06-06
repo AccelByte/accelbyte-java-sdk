@@ -1,3 +1,17 @@
+<a name="v0.12.0"></a>
+## [v0.12.0] - 2022-06-06
+### Chore
+- bump to version 0.12 for justice 3.24
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for justice 3.24
+- **spec:** update spec for justice 3.24
+
+### Docs
+- update changelog for justice 3.24
+
+### Test
+- **integration:** improve dsmc retry policy logic
+
+
 <a name="v0.11.0"></a>
 ## [v0.11.0] - 2022-05-24
 ### Chore
@@ -15,6 +29,7 @@
 - **coverity:** do not run test
 
 ### Docs
+- update changelog
 - update changelog
 - **samples:** cli - refresh readme
 
@@ -415,6 +430,7 @@
 - replace unnecessary object
 
 
+[v0.12.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.11.0...v0.12.0
 [v0.11.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.10.0...v0.11.0
 [v0.10.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.9.0...v0.10.0
 [v0.9.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.8.0...v0.9.0
