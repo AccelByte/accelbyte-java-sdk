@@ -55,6 +55,26 @@ public class ModelUserCreateFromInvitationRequestV4 extends Model {
     private String username;
 
 
+    
+    @JsonIgnore
+    public String getAuthType() {
+        return this.authType;
+    }
+    
+    @JsonIgnore
+    public AuthType getAuthTypeAsEnum() {
+        return AuthType.valueOf(this.authType);
+    }
+    
+    @JsonIgnore
+    public void setAuthType(final String authType) {
+        this.authType = authType;
+    }
+    
+    @JsonIgnore
+    public void setAuthTypeFromEnum(final AuthType authType) {
+        this.authType = authType.toString();
+    }
 
     @JsonIgnore
     public ModelUserCreateFromInvitationRequestV4 createFromJson(String json) throws JsonProcessingException {
@@ -67,4 +87,33 @@ public class ModelUserCreateFromInvitationRequestV4 extends Model {
     }
 
     
+    public enum AuthType {
+        EMAILPASSWD("EMAILPASSWD");
+
+        private String value;
+
+        AuthType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class ModelUserCreateFromInvitationRequestV4Builder {
+        private String authType;
+        
+        
+        public ModelUserCreateFromInvitationRequestV4Builder authType(final String authType) {
+            this.authType = authType;
+            return this;
+        }
+        
+        public ModelUserCreateFromInvitationRequestV4Builder authTypeFromEnum(final AuthType authType) {
+            this.authType = authType.toString();
+            return this;
+        }
+    }
 }

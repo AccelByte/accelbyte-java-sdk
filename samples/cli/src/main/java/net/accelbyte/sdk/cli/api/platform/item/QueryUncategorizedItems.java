@@ -49,7 +49,7 @@ public class QueryUncategorizedItems implements Callable<Integer> {
     Integer offset;
 
     @Option(names = {"--sortBy"}, description = "sortBy")
-    String sortBy;
+    List<String> sortBy;
 
     @Option(names = {"--storeId"}, description = "storeId")
     String storeId;

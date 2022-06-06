@@ -42,6 +42,9 @@ public class AuthorizeV3 implements Callable<Integer> {
     @Option(names = {"--codeChallengeMethod"}, description = "codeChallengeMethod")
     String codeChallengeMethod;
 
+    @Option(names = {"--createHeadless"}, description = "createHeadless")
+    Boolean createHeadless;
+
     @Option(names = {"--redirectUri"}, description = "redirectUri")
     String redirectUri;
 
@@ -82,6 +85,7 @@ public class AuthorizeV3 implements Callable<Integer> {
                     net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthorizeV3.builder()
                             .codeChallenge(codeChallenge)
                             .codeChallengeMethod(codeChallengeMethod)
+                            .createHeadless(createHeadless)
                             .redirectUri(redirectUri)
                             .scope(scope)
                             .state(state)

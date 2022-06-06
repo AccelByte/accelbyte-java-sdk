@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..5"
+echo "1..7"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -53,29 +53,43 @@ fi
 
 touch "tmp.dat"
 
-#- 2 DeleteServer
-./ng net.accelbyte.sdk.cli.Main qosm deleteServer \
-    --region 'FtBxyZcD' \
+#- 2 UpdateServerConfig
+./ng net.accelbyte.sdk.cli.Main qosm updateServerConfig \
+    --body '{"status": "FtBxyZcD"}' \
+    --namespace "$AB_NAMESPACE" \
+    --region 'XBpGlsQu' \
     > test.out 2>&1
-eval_tap $? 2 'DeleteServer' test.out
+eval_tap $? 2 'UpdateServerConfig' test.out
 
-#- 3 SetServerAlias
-./ng net.accelbyte.sdk.cli.Main qosm setServerAlias \
-    --body '{"alias": "XBpGlsQu"}' \
+#- 3 DeleteServer
+./ng net.accelbyte.sdk.cli.Main qosm deleteServer \
     --region 'Ju8vMf0I' \
     > test.out 2>&1
-eval_tap $? 3 'SetServerAlias' test.out
+eval_tap $? 3 'DeleteServer' test.out
 
-#- 4 ListServer
+#- 4 SetServerAlias
+./ng net.accelbyte.sdk.cli.Main qosm setServerAlias \
+    --body '{"alias": "sJkTrd8I"}' \
+    --region 'DcV2zXnT' \
+    > test.out 2>&1
+eval_tap $? 4 'SetServerAlias' test.out
+
+#- 5 ListServerPerNamespace
+./ng net.accelbyte.sdk.cli.Main qosm listServerPerNamespace \
+    --namespace "$AB_NAMESPACE" \
+    > test.out 2>&1
+eval_tap $? 5 'ListServerPerNamespace' test.out
+
+#- 6 ListServer
 ./ng net.accelbyte.sdk.cli.Main qosm listServer \
     > test.out 2>&1
-eval_tap $? 4 'ListServer' test.out
+eval_tap $? 6 'ListServer' test.out
 
-#- 5 Heartbeat
+#- 7 Heartbeat
 ./ng net.accelbyte.sdk.cli.Main qosm heartbeat \
-    --body '{"ip": "sJkTrd8I", "port": 59, "region": "cV2zXnTK"}' \
+    --body '{"ip": "KjXY1bPq", "port": 1, "region": "miBxx9Cs"}' \
     > test.out 2>&1
-eval_tap $? 5 'Heartbeat' test.out
+eval_tap $? 7 'Heartbeat' test.out
 
 
 rm -f "tmp.dat"

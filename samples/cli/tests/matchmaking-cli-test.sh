@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..29"
+echo "1..30"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -90,158 +90,165 @@ eval_tap $? 6 'DeleteChannelHandler' test.out
     > test.out 2>&1
 eval_tap $? 7 'StoreMatchResults' test.out
 
-#- 8 QueueSessionHandler
+#- 8 Rebalance
+./ng net.accelbyte.sdk.cli.Main matchmaking rebalance \
+    --body '{"match_id": "qJbnQsoB"}' \
+    --namespace "$AB_NAMESPACE" \
+    > test.out 2>&1
+eval_tap $? 8 'Rebalance' test.out
+
+#- 9 QueueSessionHandler
 ./ng net.accelbyte.sdk.cli.Main matchmaking queueSessionHandler \
-    --body '{"channel": "qJbnQsoB", "client_version": "giVpP8Cm", "deployment": "3yvASUox", "game_mode": "dxxFqmAG", "joinable": true, "match_id": "dagEtp4w", "matching_allies": [{"matching_parties": [{"first_ticket_created_at": 73, "party_attributes": {"Ou9c19R6": {}}, "party_id": "XDqWHkkP", "party_members": [{"extra_attributes": {"8npLEKMf": {}}, "user_id": "jiX7jpkV"}]}]}], "namespace": "Zk3IaQYE", "party_attributes": {"mqGodOEG": {}}, "party_id": "t9gPOj0c", "queued_at": 16, "region": "0JkvIas7", "server_name": "3ucYnFAJ", "status": "3DK5T4Eo", "updated_at": "1974-02-20T00:00:00Z"}' \
+    --body '{"channel": "giVpP8Cm", "client_version": "3yvASUox", "deployment": "dxxFqmAG", "game_mode": "TJ8IEdag", "joinable": true, "match_id": "tp4w29KO", "matching_allies": [{"matching_parties": [{"first_ticket_created_at": 41, "party_attributes": {"9c19R6XD": {}}, "party_id": "qWHkkP8n", "party_members": [{"extra_attributes": {"pLEKMfji": {}}, "user_id": "X7jpkVZk"}]}]}], "namespace": "3IaQYEmq", "party_attributes": {"GodOEGt9": {}}, "party_id": "gPOj0c6i", "queued_at": 70, "region": "kvIas73u", "server_name": "cYnFAJ3D", "status": "K5T4Eogg", "updated_at": "1997-04-22T00:00:00Z"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 8 'QueueSessionHandler' test.out
+eval_tap $? 9 'QueueSessionHandler' test.out
 
-#- 9 DequeueSessionHandler
+#- 10 DequeueSessionHandler
 ./ng net.accelbyte.sdk.cli.Main matchmaking dequeueSessionHandler \
-    --body '{"match_id": "0Y39UoYl"}' \
+    --body '{"match_id": "Ylpv5bVA"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 9 'DequeueSessionHandler' test.out
+eval_tap $? 10 'DequeueSessionHandler' test.out
 
-#- 10 QuerySessionHandler
+#- 11 QuerySessionHandler
 ./ng net.accelbyte.sdk.cli.Main matchmaking querySessionHandler \
-    --matchID 'pv5bVAgt' \
+    --matchID 'gtsDhUTD' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 10 'QuerySessionHandler' test.out
+eval_tap $? 11 'QuerySessionHandler' test.out
 
-#- 11 UpdatePlayTimeWeight
+#- 12 UpdatePlayTimeWeight
 ./ng net.accelbyte.sdk.cli.Main matchmaking updatePlayTimeWeight \
-    --body '{"playtime": 36, "userID": "DhUTDUsc", "weight": 0.018605669361531185}' \
+    --body '{"playtime": 93, "userID": "scbQDjbT", "weight": 0.6691126847871068}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 11 'UpdatePlayTimeWeight' test.out
+eval_tap $? 12 'UpdatePlayTimeWeight' test.out
 
-#- 12 GetAllPartyInAllChannel
+#- 13 GetAllPartyInAllChannel
 ./ng net.accelbyte.sdk.cli.Main matchmaking getAllPartyInAllChannel \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 12 'GetAllPartyInAllChannel' test.out
+eval_tap $? 13 'GetAllPartyInAllChannel' test.out
 
-#- 13 BulkGetSessions
+#- 14 BulkGetSessions
 ./ng net.accelbyte.sdk.cli.Main matchmaking bulkGetSessions \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 13 'BulkGetSessions' test.out
+eval_tap $? 14 'BulkGetSessions' test.out
 
-#- 14 ExportChannels
+#- 15 ExportChannels
 ./ng net.accelbyte.sdk.cli.Main matchmaking exportChannels \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 14 'ExportChannels' test.out
+eval_tap $? 15 'ExportChannels' test.out
 
-#- 15 ImportChannels
+#- 16 ImportChannels
 ./ng net.accelbyte.sdk.cli.Main matchmaking importChannels \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 15 'ImportChannels' test.out
+eval_tap $? 16 'ImportChannels' test.out
 
-#- 16 GetSingleMatchmakingChannel
+#- 17 GetSingleMatchmakingChannel
 ./ng net.accelbyte.sdk.cli.Main matchmaking getSingleMatchmakingChannel \
-    --channelName 'DjbTQuPM' \
+    --channelName 'PMz2PTRl' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 16 'GetSingleMatchmakingChannel' test.out
+eval_tap $? 17 'GetSingleMatchmakingChannel' test.out
 
-#- 17 UpdateMatchmakingChannel
+#- 18 UpdateMatchmakingChannel
 ./ng net.accelbyte.sdk.cli.Main matchmaking updateMatchmakingChannel \
-    --body '{"deployment": "z2PTRlky", "description": "U89ZPOw6", "findMatchTimeoutSeconds": 50, "joinable": true, "max_delay_ms": 71, "ruleSet": {"alliance": {"maxNumber": 5, "minNumber": 45, "playerMaxNumber": 25, "playerMinNumber": 50}, "alliance_flexing_rule": [{"duration": 55, "max_number": 54, "min_number": 88, "player_max_number": 76, "player_min_number": 78}], "flexingRules": [{"attribute": "coAAOjKN", "criteria": "jfcYHm09", "duration": 0, "reference": 0.7842530988331963}], "match_options": {"options": [{"name": "BU1sqjyK", "type": "0XH45PaR"}]}, "matchingRules": [{"attribute": "SOFQBtu2", "criteria": "3REZ8hRV", "reference": 0.772246792360384}], "sub_game_modes": {}}, "sessionQueueTimeoutSeconds": 74, "socialMatchmaking": true, "use_sub_gamemode": true}' \
+    --body '{"deployment": "kyU89ZPO", "description": "w6zPFJ42", "findMatchTimeoutSeconds": 5, "joinable": true, "max_delay_ms": 25, "ruleSet": {"alliance": {"maxNumber": 50, "minNumber": 55, "playerMaxNumber": 54, "playerMinNumber": 88}, "alliance_flexing_rule": [{"duration": 76, "max_number": 78, "min_number": 4, "player_max_number": 28, "player_min_number": 53}], "flexingRules": [{"attribute": "AOjKNjfc", "criteria": "YHm093aY", "duration": 13, "reference": 0.43681487232294225}], "match_options": {"options": [{"name": "1sqjyK0X", "type": "H45PaRSO"}]}, "matchingRules": [{"attribute": "FQBtu23R", "criteria": "EZ8hRVX7", "reference": 0.5818754397817744}], "sub_game_modes": {}}, "sessionQueueTimeoutSeconds": 81, "socialMatchmaking": true, "use_sub_gamemode": true}' \
     --channelName 'dYiQS9i7' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 17 'UpdateMatchmakingChannel' test.out
+eval_tap $? 18 'UpdateMatchmakingChannel' test.out
 
-#- 18 GetAllPartyInChannel
+#- 19 GetAllPartyInChannel
 ./ng net.accelbyte.sdk.cli.Main matchmaking getAllPartyInChannel \
     --channelName 'mV1C91pj' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 18 'GetAllPartyInChannel' test.out
+eval_tap $? 19 'GetAllPartyInChannel' test.out
 
-#- 19 GetAllSessionsInChannel
+#- 20 GetAllSessionsInChannel
 ./ng net.accelbyte.sdk.cli.Main matchmaking getAllSessionsInChannel \
     --channelName 'G9gpxL6y' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 19 'GetAllSessionsInChannel' test.out
+eval_tap $? 20 'GetAllSessionsInChannel' test.out
 
-#- 20 AddUserIntoSessionInChannel
+#- 21 AddUserIntoSessionInChannel
 ./ng net.accelbyte.sdk.cli.Main matchmaking addUserIntoSessionInChannel \
     --body '{"blocked_players": ["cTQdvln2"], "party_id": "LAuSQWEX", "user_id": "L6LFE1YH"}' \
     --channelName 'o9m126ZW' \
     --matchID 'c8hHtWvb' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 20 'AddUserIntoSessionInChannel' test.out
+eval_tap $? 21 'AddUserIntoSessionInChannel' test.out
 
-#- 21 DeleteSessionInChannel
+#- 22 DeleteSessionInChannel
 ./ng net.accelbyte.sdk.cli.Main matchmaking deleteSessionInChannel \
     --channelName 'NYqgUqsl' \
     --matchID 'ArFPiHUI' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 21 'DeleteSessionInChannel' test.out
+eval_tap $? 22 'DeleteSessionInChannel' test.out
 
-#- 22 DeleteUserFromSessionInChannel
+#- 23 DeleteUserFromSessionInChannel
 ./ng net.accelbyte.sdk.cli.Main matchmaking deleteUserFromSessionInChannel \
     --channelName 'vaCv8kU9' \
     --matchID 'dBBpdsJL' \
     --namespace "$AB_NAMESPACE" \
     --userID 'hsVyExrk' \
     > test.out 2>&1
-eval_tap $? 22 'DeleteUserFromSessionInChannel' test.out
+eval_tap $? 23 'DeleteUserFromSessionInChannel' test.out
 
-#- 23 SearchSessions
+#- 24 SearchSessions
 ./ng net.accelbyte.sdk.cli.Main matchmaking searchSessions \
     --namespace "$AB_NAMESPACE" \
     --limit '46' \
     --offset '29' \
     > test.out 2>&1
-eval_tap $? 23 'SearchSessions' test.out
+eval_tap $? 24 'SearchSessions' test.out
 
-#- 24 GetSessionHistoryDetailed
+#- 25 GetSessionHistoryDetailed
 ./ng net.accelbyte.sdk.cli.Main matchmaking getSessionHistoryDetailed \
     --matchID 'ot0B7WOf' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 24 'GetSessionHistoryDetailed' test.out
+eval_tap $? 25 'GetSessionHistoryDetailed' test.out
 
-#- 25 PublicGetMessages
+#- 26 PublicGetMessages
 ./ng net.accelbyte.sdk.cli.Main matchmaking publicGetMessages \
     > test.out 2>&1
-eval_tap $? 25 'PublicGetMessages' test.out
+eval_tap $? 26 'PublicGetMessages' test.out
 
-#- 26 PublicGetAllMatchmakingChannel
+#- 27 PublicGetAllMatchmakingChannel
 ./ng net.accelbyte.sdk.cli.Main matchmaking publicGetAllMatchmakingChannel \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 26 'PublicGetAllMatchmakingChannel' test.out
+eval_tap $? 27 'PublicGetAllMatchmakingChannel' test.out
 
-#- 27 PublicGetSingleMatchmakingChannel
+#- 28 PublicGetSingleMatchmakingChannel
 ./ng net.accelbyte.sdk.cli.Main matchmaking publicGetSingleMatchmakingChannel \
     --channelName 'ercZdpMc' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 27 'PublicGetSingleMatchmakingChannel' test.out
+eval_tap $? 28 'PublicGetSingleMatchmakingChannel' test.out
 
-#- 28 SearchSessionsV2
+#- 29 SearchSessionsV2
 ./ng net.accelbyte.sdk.cli.Main matchmaking searchSessionsV2 \
     --namespace "$AB_NAMESPACE" \
     --limit '17' \
     --offset '58' \
     > test.out 2>&1
-eval_tap $? 28 'SearchSessionsV2' test.out
+eval_tap $? 29 'SearchSessionsV2' test.out
 
-#- 29 VersionCheckHandler
+#- 30 VersionCheckHandler
 ./ng net.accelbyte.sdk.cli.Main matchmaking versionCheckHandler \
     > test.out 2>&1
-eval_tap $? 29 'VersionCheckHandler' test.out
+eval_tap $? 30 'VersionCheckHandler' test.out
 
 
 rm -f "tmp.dat"

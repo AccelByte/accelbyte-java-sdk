@@ -55,7 +55,7 @@ public class QueryChanges implements Callable<Integer> {
     Integer offset;
 
     @Option(names = {"--sortBy"}, description = "sortBy")
-    String sortBy;
+    List<String> sortBy;
 
     @Option(names = {"--status"}, description = "status")
     String status;

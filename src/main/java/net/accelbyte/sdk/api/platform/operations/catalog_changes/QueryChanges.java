@@ -55,7 +55,7 @@ public class QueryChanges extends Operation {
     private String itemType;
     private Integer limit;
     private Integer offset;
-    private String sortBy;
+    private List<String> sortBy;
     private String status;
     private String type;
     private String updatedAtEnd;
@@ -73,7 +73,7 @@ public class QueryChanges extends Operation {
             String itemType,
             Integer limit,
             Integer offset,
-            String sortBy,
+            List<String> sortBy,
             String status,
             String type,
             String updatedAtEnd,
@@ -114,7 +114,7 @@ public class QueryChanges extends Operation {
         queryParams.put("itemType", this.itemType == null ? null : Arrays.asList(this.itemType));
         queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
         queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
-        queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
+        queryParams.put("sortBy", this.sortBy == null ? null : this.sortBy);
         queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));
         queryParams.put("type", this.type == null ? null : Arrays.asList(this.type));
         queryParams.put("updatedAtEnd", this.updatedAtEnd == null ? null : Arrays.asList(this.updatedAtEnd));
@@ -151,7 +151,7 @@ public class QueryChanges extends Operation {
         result.put("itemType", "None");
         result.put("limit", "None");
         result.put("offset", "None");
-        result.put("sortBy", "None");
+        result.put("sortBy", "csv");
         result.put("status", "None");
         result.put("type", "None");
         result.put("updatedAtEnd", "None");
@@ -188,6 +188,26 @@ public class QueryChanges extends Operation {
         private String value;
 
         ItemType(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public enum SortBy {
+        CreatedAt("createdAt"),
+        CreatedAtasc("createdAt:asc"),
+        CreatedAtdesc("createdAt:desc"),
+        UpdatedAt("updatedAt"),
+        UpdatedAtasc("updatedAt:asc"),
+        UpdatedAtdesc("updatedAt:desc");
+
+        private String value;
+
+        SortBy(String value){
             this.value = value;
         }
 
@@ -234,6 +254,7 @@ public class QueryChanges extends Operation {
     public static class QueryChangesBuilder {
         private String action;
         private String itemType;
+        private List<String> sortBy;
         private String status;
         private String type;
         
@@ -255,6 +276,18 @@ public class QueryChanges extends Operation {
         
         public QueryChangesBuilder itemTypeFromEnum(final ItemType itemType) {
             this.itemType = itemType.toString();
+            return this;
+        }
+        
+        public QueryChangesBuilder sortBy(final List<String> sortBy) {
+            this.sortBy = sortBy;
+            return this;
+        }
+        
+        public QueryChangesBuilder sortByFromEnum(final List<SortBy> sortBy) {
+            ArrayList<String> en = new ArrayList<String>();
+            for(SortBy e : sortBy) en.add(e.toString());
+            this.sortBy = en;
             return this;
         }
         

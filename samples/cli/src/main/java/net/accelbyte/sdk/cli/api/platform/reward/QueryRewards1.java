@@ -49,7 +49,7 @@ public class QueryRewards1 implements Callable<Integer> {
     Integer offset;
 
     @Option(names = {"--sortBy"}, description = "sortBy")
-    String sortBy;
+    List<String> sortBy;
 
 
     @Option(names = {"--logging"}, description = "logger")

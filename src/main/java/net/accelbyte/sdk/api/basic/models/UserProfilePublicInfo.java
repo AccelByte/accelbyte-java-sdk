@@ -45,6 +45,9 @@ public class UserProfilePublicInfo extends Model {
     @JsonProperty("namespace")
     private String namespace;
 
+    @JsonProperty("publicId")
+    private String publicId;
+
     @JsonProperty("timeZone")
     private String timeZone;
 

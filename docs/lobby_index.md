@@ -165,7 +165,6 @@
 | `model.NotificationWithTemplateRequest` | [ModelNotificationWithTemplateRequest](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelNotificationWithTemplateRequest.java) |
 | `model.NotificationWithTemplateRequestV1` | [ModelNotificationWithTemplateRequestV1](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelNotificationWithTemplateRequestV1.java) |
 | `model.Pagination` | [ModelPagination](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelPagination.java) |
-| `model.RequestFriendsRequest` | [ModelRequestFriendsRequest](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelRequestFriendsRequest.java) |
 | `model.TemplateContent` | [ModelTemplateContent](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelTemplateContent.java) |
 | `model.TemplateLocalization` | [ModelTemplateLocalization](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelTemplateLocalization.java) |
 | `model.TemplateLocalizationResponse` | [ModelTemplateLocalizationResponse](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelTemplateLocalizationResponse.java) |
@@ -177,6 +176,7 @@
 | `model.UserCancelFriendRequest` | [ModelUserCancelFriendRequest](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelUserCancelFriendRequest.java) |
 | `model.UserGetFriendshipStatusResponse` | [ModelUserGetFriendshipStatusResponse](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelUserGetFriendshipStatusResponse.java) |
 | `model.UserRejectFriendRequest` | [ModelUserRejectFriendRequest](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelUserRejectFriendRequest.java) |
+| `model.UserRequestFriendRequest` | [ModelUserRequestFriendRequest](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelUserRequestFriendRequest.java) |
 | `model.UserUnfriendRequest` | [ModelUserUnfriendRequest](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelUserUnfriendRequest.java) |
 | `models.AdminAddProfanityFilterIntoListRequest` | [ModelsAdminAddProfanityFilterIntoListRequest](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsAdminAddProfanityFilterIntoListRequest.java) |
 | `models.AdminAddProfanityFiltersFilterRequest` | [ModelsAdminAddProfanityFiltersFilterRequest](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsAdminAddProfanityFiltersFilterRequest.java) |

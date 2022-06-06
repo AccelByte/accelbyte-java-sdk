@@ -33,6 +33,15 @@ public class ModelLinkRequest extends Model {
     @JsonProperty("client_id")
     private String clientId;
 
+    @JsonProperty("conflict_publisher_user_id")
+    private String conflictPublisherUserId;
+
+    @JsonProperty("conflict_user_linked_games")
+    private List<String> conflictUserLinkedGames;
+
+    @JsonProperty("current_user_linked_games")
+    private List<String> currentUserLinkedGames;
+
     @JsonProperty("error")
     private RestErrorResponse error;
 
@@ -47,6 +56,15 @@ public class ModelLinkRequest extends Model {
 
     @JsonProperty("payload")
     private Map<String, ?> payload;
+
+    @JsonProperty("platformDisplayName")
+    private String platformDisplayName;
+
+    @JsonProperty("platformID")
+    private String platformID;
+
+    @JsonProperty("platform_user_id")
+    private String platformUserId;
 
     @JsonProperty("redirect_uri")
     private String redirectUri;

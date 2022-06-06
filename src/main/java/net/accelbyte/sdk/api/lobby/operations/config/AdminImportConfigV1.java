@@ -52,16 +52,19 @@ public class AdminImportConfigV1 extends Operation {
      * fields as input parameter
      */
     private String namespace;
+    private InputStream file;
 
     /**
     * @param namespace required
     */
     @Builder
     public AdminImportConfigV1(
-            String namespace
+            String namespace,
+            InputStream file
     )
     {
         this.namespace = namespace;
+        this.file = file;
         
         securities.add("Bearer");
     }
@@ -78,6 +81,14 @@ public class AdminImportConfigV1 extends Operation {
 
 
 
+    @Override
+    public Map<String, Object> getFormParams(){
+        Map<String, Object> formDataParams = new HashMap<>();
+        if (this.file != null) {
+            formDataParams.put("file", this.file);
+        }
+        return formDataParams;
+    }
 
     @Override
     public boolean isValid() {

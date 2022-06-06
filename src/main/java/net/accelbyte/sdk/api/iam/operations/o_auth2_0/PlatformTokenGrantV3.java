@@ -289,6 +289,7 @@ public class PlatformTokenGrantV3 extends Operation {
      */
     private String platformId;
     private String clientId;
+    private Boolean createHeadless;
     private String deviceId;
     private String platformToken;
 
@@ -299,12 +300,14 @@ public class PlatformTokenGrantV3 extends Operation {
     public PlatformTokenGrantV3(
             String platformId,
             String clientId,
+            Boolean createHeadless,
             String deviceId,
             String platformToken
     )
     {
         this.platformId = platformId;
         this.clientId = clientId;
+        this.createHeadless = createHeadless;
         this.deviceId = deviceId;
         this.platformToken = platformToken;
         
@@ -328,6 +331,9 @@ public class PlatformTokenGrantV3 extends Operation {
         Map<String, Object> formDataParams = new HashMap<>();
         if (this.clientId != null) {
             formDataParams.put("client_id", this.clientId);
+        }
+        if (this.createHeadless != null) {
+            formDataParams.put("createHeadless", this.createHeadless == null ? null : String.valueOf(this.createHeadless));
         }
         if (this.deviceId != null) {
             formDataParams.put("device_id", this.deviceId);

@@ -59,6 +59,8 @@ public class PublicSearchUserV3 extends Operation {
      */
     private String namespace;
     private String by;
+    private String limit;
+    private String offset;
     private String query;
 
     /**
@@ -68,11 +70,15 @@ public class PublicSearchUserV3 extends Operation {
     public PublicSearchUserV3(
             String namespace,
             String by,
+            String limit,
+            String offset,
             String query
     )
     {
         this.namespace = namespace;
         this.by = by;
+        this.limit = limit;
+        this.offset = offset;
         this.query = query;
         
         securities.add("Bearer");
@@ -91,6 +97,8 @@ public class PublicSearchUserV3 extends Operation {
     public Map<String, List<String>> getQueryParams(){
         Map<String, List<String>> queryParams = new HashMap<>();
         queryParams.put("by", this.by == null ? null : Arrays.asList(this.by));
+        queryParams.put("limit", this.limit == null ? null : Arrays.asList(this.limit));
+        queryParams.put("offset", this.offset == null ? null : Arrays.asList(this.offset));
         queryParams.put("query", this.query == null ? null : Arrays.asList(this.query));
         return queryParams;
     }
@@ -118,6 +126,8 @@ public class PublicSearchUserV3 extends Operation {
     protected Map<String, String> getCollectionFormatMap() {
         Map<String, String> result = new HashMap<>();
         result.put("by", "None");
+        result.put("limit", "None");
+        result.put("offset", "None");
         result.put("query", "None");
         return result;
     }

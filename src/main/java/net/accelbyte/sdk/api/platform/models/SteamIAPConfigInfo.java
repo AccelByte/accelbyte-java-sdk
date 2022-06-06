@@ -30,6 +30,9 @@ import java.util.Map;
 @NoArgsConstructor
 public class SteamIAPConfigInfo extends Model {
 
+    @JsonProperty("appId")
+    private String appId;
+
     @JsonProperty("namespace")
     private String namespace;
 

@@ -126,4 +126,42 @@ public class PublicListAchievements extends Operation {
         result.put("language", "None");
         return result;
     }
+    public enum SortBy {
+        ListOrder("listOrder"),
+        ListOrderasc("listOrder:asc"),
+        ListOrderdesc("listOrder:desc"),
+        CreatedAt("createdAt"),
+        CreatedAtasc("createdAt:asc"),
+        CreatedAtdesc("createdAt:desc"),
+        UpdatedAt("updatedAt"),
+        UpdatedAtasc("updatedAt:asc"),
+        UpdatedAtdesc("updatedAt:desc");
+
+        private String value;
+
+        SortBy(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class PublicListAchievementsBuilder {
+        private String sortBy;
+        
+        
+        public PublicListAchievementsBuilder sortBy(final String sortBy) {
+            this.sortBy = sortBy;
+            return this;
+        }
+        
+        public PublicListAchievementsBuilder sortByFromEnum(final SortBy sortBy) {
+            this.sortBy = sortBy.toString();
+            return this;
+        }
+    }
 }

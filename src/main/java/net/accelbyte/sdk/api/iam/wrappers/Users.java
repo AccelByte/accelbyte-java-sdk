@@ -2491,6 +2491,25 @@ public class Users {
     }
 
     /**
+     * @see PublicPlatformUnlinkAllV3
+     */
+    public void publicPlatformUnlinkAllV3(PublicPlatformUnlinkAllV3 input) throws Exception {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
      * @see PublicWebLinkPlatform
      */
     public ModelWebLinkingResponse publicWebLinkPlatform(PublicWebLinkPlatform input) throws Exception {
@@ -2586,6 +2605,25 @@ public class Users {
     }
 
     /**
+     * @see PublicListUserAllPlatformAccountsDistinctV3
+     */
+    public AccountcommonDistinctPlatformResponseV3 publicListUserAllPlatformAccountsDistinctV3(PublicListUserAllPlatformAccountsDistinctV3 input) throws Exception {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
      * @see PublicGetUserLoginHistoriesV3
      */
     public ModelLoginHistoriesResponse publicGetUserLoginHistoriesV3(PublicGetUserLoginHistoriesV3 input) throws Exception {
@@ -2627,6 +2665,25 @@ public class Users {
      * @see PublicLinkPlatformAccount
      */
     public void publicLinkPlatformAccount(PublicLinkPlatformAccount input) throws Exception {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see PublicForceLinkPlatformWithProgression
+     */
+    public void publicForceLinkPlatformWithProgression(PublicForceLinkPlatformWithProgression input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

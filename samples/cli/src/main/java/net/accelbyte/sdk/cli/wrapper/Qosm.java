@@ -17,8 +17,10 @@ import picocli.CommandLine.Command;
 @Command(name = "qosm",
         mixinStandardHelpOptions = true,
         subcommands = {
+                UpdateServerConfig.class,
                 DeleteServer.class,
                 SetServerAlias.class,
+                ListServerPerNamespace.class,
                 ListServer.class,
                 Heartbeat.class,
         }

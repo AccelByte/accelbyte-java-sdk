@@ -54,7 +54,7 @@ public class QueryUncategorizedItems extends Operation {
     private Boolean activeOnly;
     private Integer limit;
     private Integer offset;
-    private String sortBy;
+    private List<String> sortBy;
     private String storeId;
 
     /**
@@ -66,7 +66,7 @@ public class QueryUncategorizedItems extends Operation {
             Boolean activeOnly,
             Integer limit,
             Integer offset,
-            String sortBy,
+            List<String> sortBy,
             String storeId
     )
     {
@@ -95,7 +95,7 @@ public class QueryUncategorizedItems extends Operation {
         queryParams.put("activeOnly", this.activeOnly == null ? null : Arrays.asList(String.valueOf(this.activeOnly)));
         queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
         queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
-        queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
+        queryParams.put("sortBy", this.sortBy == null ? null : this.sortBy);
         queryParams.put("storeId", this.storeId == null ? null : Arrays.asList(this.storeId));
         return queryParams;
     }
@@ -125,8 +125,51 @@ public class QueryUncategorizedItems extends Operation {
         result.put("activeOnly", "None");
         result.put("limit", "None");
         result.put("offset", "None");
-        result.put("sortBy", "None");
+        result.put("sortBy", "csv");
         result.put("storeId", "None");
         return result;
+    }
+    public enum SortBy {
+        Name("name"),
+        Nameasc("name:asc"),
+        Namedesc("name:desc"),
+        CreatedAt("createdAt"),
+        CreatedAtasc("createdAt:asc"),
+        CreatedAtdesc("createdAt:desc"),
+        UpdatedAt("updatedAt"),
+        UpdatedAtasc("updatedAt:asc"),
+        UpdatedAtdesc("updatedAt:desc"),
+        DisplayOrder("displayOrder"),
+        DisplayOrderasc("displayOrder:asc"),
+        DisplayOrderdesc("displayOrder:desc");
+
+        private String value;
+
+        SortBy(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class QueryUncategorizedItemsBuilder {
+        private List<String> sortBy;
+        
+        
+        public QueryUncategorizedItemsBuilder sortBy(final List<String> sortBy) {
+            this.sortBy = sortBy;
+            return this;
+        }
+        
+        public QueryUncategorizedItemsBuilder sortByFromEnum(final List<SortBy> sortBy) {
+            ArrayList<String> en = new ArrayList<String>();
+            for(SortBy e : sortBy) en.add(e.toString());
+            this.sortBy = en;
+            return this;
+        }
     }
 }

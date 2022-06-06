@@ -60,6 +60,9 @@ public class UserProfilePrivateInfo extends Model {
     @JsonProperty("privateCustomAttributes")
     private Map<String, ?> privateCustomAttributes;
 
+    @JsonProperty("publicId")
+    private String publicId;
+
     @JsonProperty("status")
     private String status;
 

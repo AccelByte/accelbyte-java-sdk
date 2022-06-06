@@ -61,7 +61,7 @@ public class PublicQueryItems extends Operation {
     private Integer limit;
     private Integer offset;
     private String region;
-    private String sortBy;
+    private List<String> sortBy;
     private String storeId;
     private String tags;
 
@@ -80,7 +80,7 @@ public class PublicQueryItems extends Operation {
             Integer limit,
             Integer offset,
             String region,
-            String sortBy,
+            List<String> sortBy,
             String storeId,
             String tags
     )
@@ -122,7 +122,7 @@ public class PublicQueryItems extends Operation {
         queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
         queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
         queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
-        queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
+        queryParams.put("sortBy", this.sortBy == null ? null : this.sortBy);
         queryParams.put("storeId", this.storeId == null ? null : Arrays.asList(this.storeId));
         queryParams.put("tags", this.tags == null ? null : Arrays.asList(this.tags));
         return queryParams;
@@ -159,7 +159,7 @@ public class PublicQueryItems extends Operation {
         result.put("limit", "None");
         result.put("offset", "None");
         result.put("region", "None");
-        result.put("sortBy", "None");
+        result.put("sortBy", "csv");
         result.put("storeId", "None");
         result.put("tags", "None");
         return result;
@@ -204,10 +204,37 @@ public class PublicQueryItems extends Operation {
         }
     }
     
+    public enum SortBy {
+        Name("name"),
+        Nameasc("name:asc"),
+        Namedesc("name:desc"),
+        CreatedAt("createdAt"),
+        CreatedAtasc("createdAt:asc"),
+        CreatedAtdesc("createdAt:desc"),
+        UpdatedAt("updatedAt"),
+        UpdatedAtasc("updatedAt:asc"),
+        UpdatedAtdesc("updatedAt:desc"),
+        DisplayOrder("displayOrder"),
+        DisplayOrderasc("displayOrder:asc"),
+        DisplayOrderdesc("displayOrder:desc");
+
+        private String value;
+
+        SortBy(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
     
     public static class PublicQueryItemsBuilder {
         private String appType;
         private String itemType;
+        private List<String> sortBy;
         
         
         public PublicQueryItemsBuilder appType(final String appType) {
@@ -227,6 +254,18 @@ public class PublicQueryItems extends Operation {
         
         public PublicQueryItemsBuilder itemTypeFromEnum(final ItemType itemType) {
             this.itemType = itemType.toString();
+            return this;
+        }
+        
+        public PublicQueryItemsBuilder sortBy(final List<String> sortBy) {
+            this.sortBy = sortBy;
+            return this;
+        }
+        
+        public PublicQueryItemsBuilder sortByFromEnum(final List<SortBy> sortBy) {
+            ArrayList<String> en = new ArrayList<String>();
+            for(SortBy e : sortBy) en.add(e.toString());
+            this.sortBy = en;
             return this;
         }
     }

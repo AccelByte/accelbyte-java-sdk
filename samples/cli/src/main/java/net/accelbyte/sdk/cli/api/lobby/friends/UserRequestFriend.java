@@ -63,7 +63,7 @@ public class UserRequestFriend implements Callable<Integer> {
             net.accelbyte.sdk.api.lobby.operations.friends.UserRequestFriend operation =
                     net.accelbyte.sdk.api.lobby.operations.friends.UserRequestFriend.builder()
                             .namespace(namespace)
-                            .body(new ObjectMapper().readValue(body, ModelRequestFriendsRequest.class)) 
+                            .body(new ObjectMapper().readValue(body, ModelUserRequestFriendRequest.class)) 
                             .build();
                     wrapper.userRequestFriend(operation);
             log.info("Operation successful");

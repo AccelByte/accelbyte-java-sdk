@@ -15,7 +15,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import net.accelbyte.sdk.api.lobby.models.*;
-import net.accelbyte.sdk.api.lobby.models.ModelRequestFriendsRequest;
+import net.accelbyte.sdk.api.lobby.models.ModelUserRequestFriendRequest;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -26,6 +26,8 @@ import java.util.*;
 
 /**
  * userRequestFriend
+ *
+ * Client should provide either friendID or friendPublicID. If both are provided, friendID will be chosen to be used.
  */
 @Getter
 @Setter
@@ -44,7 +46,7 @@ public class UserRequestFriend extends Operation {
      * fields as input parameter
      */
     private String namespace;
-    private ModelRequestFriendsRequest body;
+    private ModelUserRequestFriendRequest body;
 
     /**
     * @param namespace required
@@ -53,7 +55,7 @@ public class UserRequestFriend extends Operation {
     @Builder
     public UserRequestFriend(
             String namespace,
-            ModelRequestFriendsRequest body
+            ModelUserRequestFriendRequest body
     )
     {
         this.namespace = namespace;
@@ -74,7 +76,7 @@ public class UserRequestFriend extends Operation {
 
 
     @Override
-    public ModelRequestFriendsRequest getBodyParams(){
+    public ModelUserRequestFriendRequest getBodyParams(){
         return this.body;
     }
 

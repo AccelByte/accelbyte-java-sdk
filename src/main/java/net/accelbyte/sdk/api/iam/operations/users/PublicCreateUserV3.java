@@ -36,7 +36,7 @@ import java.util.*;
  * 
  * 
  * 
- *                   1.  EMAILPASSWD : an authentication type used for new user registration through email.
+ *                   1. EMAILPASSWD : an authentication type used for new user registration through email.
  * 
  * 
  * 

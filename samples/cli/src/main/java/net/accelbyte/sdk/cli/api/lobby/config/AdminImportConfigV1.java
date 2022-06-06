@@ -39,6 +39,9 @@ public class AdminImportConfigV1 implements Callable<Integer> {
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
 
+    @Option(names = {"--file"}, description = "file")
+    File file;
+
 
     @Option(names = {"--logging"}, description = "logger")
     boolean logging;
@@ -60,6 +63,7 @@ public class AdminImportConfigV1 implements Callable<Integer> {
             net.accelbyte.sdk.api.lobby.operations.config.AdminImportConfigV1 operation =
                     net.accelbyte.sdk.api.lobby.operations.config.AdminImportConfigV1.builder()
                             .namespace(namespace)
+                            .file(file != null ? FileUtils.openInputStream(file) : null)
                             .build();
             ModelsImportConfigResponse response =
                     wrapper.adminImportConfigV1(operation);

@@ -30,6 +30,9 @@ import java.util.Map;
 @NoArgsConstructor
 public class SteamIAPConfigRequest extends Model {
 
+    @JsonProperty("appId")
+    private String appId;
+
     @JsonProperty("publisherAuthenticationKey")
     private String publisherAuthenticationKey;
 

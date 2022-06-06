@@ -42,6 +42,12 @@ public class PublicSearchUserV3 implements Callable<Integer> {
     @Option(names = {"--by"}, description = "by")
     String by;
 
+    @Option(names = {"--limit"}, description = "limit")
+    String limit;
+
+    @Option(names = {"--offset"}, description = "offset")
+    String offset;
+
     @Option(names = {"--query"}, description = "query")
     String query;
 
@@ -67,6 +73,8 @@ public class PublicSearchUserV3 implements Callable<Integer> {
                     net.accelbyte.sdk.api.iam.operations.users.PublicSearchUserV3.builder()
                             .namespace(namespace)
                             .by(by)
+                            .limit(limit)
+                            .offset(offset)
                             .query(query)
                             .build();
             ModelPublicUserInformationResponseV3 response =

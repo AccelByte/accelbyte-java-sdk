@@ -27,7 +27,7 @@ import java.util.*;
 /**
  * GetTag
  *
- * Requires valid user token
+ * Publicly accessible
  */
 @Getter
 @Setter

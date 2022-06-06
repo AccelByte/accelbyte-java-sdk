@@ -70,7 +70,7 @@ public class QueryItems implements Callable<Integer> {
     String region;
 
     @Option(names = {"--sortBy"}, description = "sortBy")
-    String sortBy;
+    List<String> sortBy;
 
     @Option(names = {"--storeId"}, description = "storeId")
     String storeId;

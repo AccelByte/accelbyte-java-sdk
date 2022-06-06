@@ -57,6 +57,9 @@ public class UserProfileInfo extends Model {
     @JsonProperty("namespace")
     private String namespace;
 
+    @JsonProperty("publicId")
+    private String publicId;
+
     @JsonProperty("status")
     private String status;
 

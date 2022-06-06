@@ -23,6 +23,7 @@ import picocli.CommandLine.Command;
                 CreateChannelHandler.class,
                 DeleteChannelHandler.class,
                 StoreMatchResults.class,
+                Rebalance.class,
                 QueueSessionHandler.class,
                 DequeueSessionHandler.class,
                 QuerySessionHandler.class,

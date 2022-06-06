@@ -33,6 +33,9 @@ public class TransactionAmountDetails extends Model {
     @JsonProperty("amount")
     private Integer amount;
 
+    @JsonProperty("expireAt")
+    private String expireAt;
+
     @JsonProperty("origin")
     private String origin;
 

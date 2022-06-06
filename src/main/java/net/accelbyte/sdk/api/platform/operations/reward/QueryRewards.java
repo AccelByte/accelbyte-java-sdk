@@ -54,7 +54,7 @@ public class QueryRewards extends Operation {
     private String eventTopic;
     private Integer limit;
     private Integer offset;
-    private String sortBy;
+    private List<String> sortBy;
 
     /**
     * @param namespace required
@@ -65,7 +65,7 @@ public class QueryRewards extends Operation {
             String eventTopic,
             Integer limit,
             Integer offset,
-            String sortBy
+            List<String> sortBy
     )
     {
         this.namespace = namespace;
@@ -92,7 +92,7 @@ public class QueryRewards extends Operation {
         queryParams.put("eventTopic", this.eventTopic == null ? null : Arrays.asList(this.eventTopic));
         queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
         queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
-        queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
+        queryParams.put("sortBy", this.sortBy == null ? null : this.sortBy);
         return queryParams;
     }
 
@@ -121,7 +121,44 @@ public class QueryRewards extends Operation {
         result.put("eventTopic", "None");
         result.put("limit", "None");
         result.put("offset", "None");
-        result.put("sortBy", "None");
+        result.put("sortBy", "csv");
         return result;
+    }
+    public enum SortBy {
+        Namespace("namespace"),
+        Namespaceasc("namespace:asc"),
+        Namespacedesc("namespace:desc"),
+        RewardCode("rewardCode"),
+        RewardCodeasc("rewardCode:asc"),
+        RewardCodedesc("rewardCode:desc");
+
+        private String value;
+
+        SortBy(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class QueryRewardsBuilder {
+        private List<String> sortBy;
+        
+        
+        public QueryRewardsBuilder sortBy(final List<String> sortBy) {
+            this.sortBy = sortBy;
+            return this;
+        }
+        
+        public QueryRewardsBuilder sortByFromEnum(final List<SortBy> sortBy) {
+            ArrayList<String> en = new ArrayList<String>();
+            for(SortBy e : sortBy) en.add(e.toString());
+            this.sortBy = en;
+            return this;
+        }
     }
 }

@@ -28,6 +28,25 @@ public class UserProfile {
     }
 
     /**
+     * @see GetUserProfileInfoByPublicId
+     */
+    public UserProfileInfo getUserProfileInfoByPublicId(GetUserProfileInfoByPublicId input) throws Exception {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
      * @see AdminGetUserProfilePublicInfoByIds
      */
     public List<UserProfilePublicInfo> adminGetUserProfilePublicInfoByIds(AdminGetUserProfilePublicInfoByIds input) throws Exception {
@@ -202,6 +221,25 @@ public class UserProfile {
      * @see PublicGetUserProfilePublicInfoByIds
      */
     public List<UserProfilePublicInfo> publicGetUserProfilePublicInfoByIds(PublicGetUserProfilePublicInfoByIds input) throws Exception {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see PublicGetUserProfileInfoByPublicId
+     */
+    public UserProfilePublicInfo publicGetUserProfileInfoByPublicId(PublicGetUserProfileInfoByPublicId input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

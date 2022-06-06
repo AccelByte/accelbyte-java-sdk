@@ -30,6 +30,9 @@ import java.util.Map;
 @NoArgsConstructor
 public class OauthmodelErrorResponse extends Model {
 
+    @JsonProperty("clientId")
+    private String clientId;
+
     @JsonProperty("default_factor")
     private String defaultFactor;
 
@@ -45,8 +48,14 @@ public class OauthmodelErrorResponse extends Model {
     @JsonProperty("factors")
     private List<String> factors;
 
+    @JsonProperty("linkingToken")
+    private String linkingToken;
+
     @JsonProperty("mfa_token")
     private String mfaToken;
+
+    @JsonProperty("platformId")
+    private String platformId;
 
 
 

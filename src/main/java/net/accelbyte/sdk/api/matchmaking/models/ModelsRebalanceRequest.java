@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.lobby.models;
+package net.accelbyte.sdk.api.matchmaking.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -28,21 +28,21 @@ import java.util.Map;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ModelRequestFriendsRequest extends Model {
+public class ModelsRebalanceRequest extends Model {
 
-    @JsonProperty("friendId")
-    private String friendId;
+    @JsonProperty("match_id")
+    private String matchId;
 
 
 
     @JsonIgnore
-    public ModelRequestFriendsRequest createFromJson(String json) throws JsonProcessingException {
+    public ModelsRebalanceRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<ModelRequestFriendsRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelRequestFriendsRequest>>() {});
+    public List<ModelsRebalanceRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsRebalanceRequest>>() {});
     }
 
     
