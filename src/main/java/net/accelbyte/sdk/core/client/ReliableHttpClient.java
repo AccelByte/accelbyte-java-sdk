@@ -30,7 +30,7 @@ public class ReliableHttpClient extends OkhttpClient {
             }
 
             if (httpRetryPolicy != null) {
-                if (httpRetryPolicy.doRetry(attempt, operation, response, exception)) { // coverity[var_deref_model]
+                if (httpRetryPolicy.doRetry(attempt, operation, response, exception)) {
                     attempt++;
                     continue;
                 }

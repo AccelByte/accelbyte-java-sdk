@@ -10,7 +10,7 @@ class HttpbinConfigRepository implements ConfigRepository {
 
     @Override
     public String getClientSecret() {
-        return "DUMMY_CLIENT_SECRET"; // coverity[hardcoded_credential]
+        return "DUMMY_CLIENT_SECRET"; 
     }
 
     @Override

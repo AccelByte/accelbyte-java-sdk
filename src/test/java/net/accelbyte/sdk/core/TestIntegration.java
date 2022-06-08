@@ -805,7 +805,7 @@ class TestIntegration {
                                 userDateOfBirthUpdated,
                                 userDateOfBirthActual
                                                 .atZone(ZoneId.systemDefault())
-                                                .format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))); // coverity[null_method_call]
+                                                .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 
                 // Delete user
 
