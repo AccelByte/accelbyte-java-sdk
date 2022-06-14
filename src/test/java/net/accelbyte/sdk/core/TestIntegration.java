@@ -7,8 +7,10 @@
 package net.accelbyte.sdk.core;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -26,13 +28,13 @@ import java.util.concurrent.TimeUnit;
 
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import net.accelbyte.sdk.api.achievement.models.ModelsAchievementRequest;
@@ -108,6 +110,7 @@ import net.accelbyte.sdk.api.iam.models.ModelPublicUserResponse;
 import net.accelbyte.sdk.api.iam.models.ModelUserResponse;
 import net.accelbyte.sdk.api.iam.models.ModelUserResponseV3;
 import net.accelbyte.sdk.api.iam.models.ModelUserUpdateRequest;
+import net.accelbyte.sdk.api.iam.models.AccountCreateUserRequestV4.AuthType;
 import net.accelbyte.sdk.api.iam.operations.users.AdminGetMyUserV3;
 import net.accelbyte.sdk.api.iam.operations.users.DeleteUser;
 import net.accelbyte.sdk.api.iam.operations.users.GetUserByLoginID;
@@ -197,84 +200,77 @@ import net.accelbyte.sdk.api.ugc.operations.admin_tag.AdminGetTag;
 import net.accelbyte.sdk.api.ugc.operations.admin_tag.AdminUpdateTag;
 import net.accelbyte.sdk.api.ugc.wrappers.AdminTag;
 import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy;
+import net.accelbyte.sdk.core.client.HttpClient;
 import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.client.OkhttpWebSocketClient;
 import net.accelbyte.sdk.core.client.ReliableHttpClient;
 import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy.RetryIntervalType;
+import net.accelbyte.sdk.core.repository.ConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
+import net.accelbyte.sdk.core.repository.TokenRepository;
 import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 
 @Tag("test-integration")
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class TestIntegration {
-        private static AccelByteSDK _sdk;
+        private AccelByteSDK sdk;
+        private String namespace;
+        private String username;
 
         @BeforeAll
-        static void setup() {
-                AccelByteConfig sdkConfig = new AccelByteConfig(
-                                new OkhttpClient(),
-                                DefaultTokenRepository.getInstance(),
-                                new DefaultConfigRepository());
+        public void setup() {
+                final HttpClient<?> httpClient = new OkhttpClient();
+                final TokenRepository tokenRepo = DefaultTokenRepository.getInstance();
+                final ConfigRepository configRepo = new DefaultConfigRepository();
+                final AccelByteConfig sdkConfig = new AccelByteConfig(httpClient, tokenRepo, configRepo);
 
-                String baseUrl = sdkConfig
-                                .getConfigRepository()
-                                .getBaseURL();
-                String clientId = sdkConfig
-                                .getConfigRepository()
-                                .getClientId();
-                String clientSecret = sdkConfig
-                                .getConfigRepository()
-                                .getClientSecret();
+                final String baseUrl = configRepo.getBaseURL();
+                final String clientId = configRepo.getClientId();
+                final String clientSecret = configRepo.getClientSecret();
+                final String username = System.getenv("AB_USERNAME");
+                final String password = System.getenv("AB_PASSWORD");
+                final String namespace = System.getenv("AB_NAMESPACE");
 
-                _sdk = new AccelByteSDK(sdkConfig);
+                assertTrue(baseUrl != null && !baseUrl.isEmpty());
+                assertTrue(clientId != null && !clientId.isEmpty());
+                assertTrue(clientSecret != null && !clientSecret.isEmpty());
+                assertTrue(username != null && !username.isEmpty());
+                assertTrue(password != null && !password.isEmpty());
+                assertTrue(namespace != null && !namespace.isEmpty());
 
-                String username = System.getenv("AB_USERNAME");
-                String password = System.getenv("AB_PASSWORD");
-                String namespace = System.getenv("AB_NAMESPACE");
+                this.sdk = new AccelByteSDK(sdkConfig);
+                this.namespace = namespace;
+                this.username = username;
 
-                Assertions.assertTrue(baseUrl != null &&
-                                !baseUrl.isEmpty());
-                Assertions.assertTrue(clientId != null &&
-                                !clientId.isEmpty());
-                Assertions.assertTrue(clientSecret != null &&
-                                !clientSecret.isEmpty());
-                Assertions.assertTrue(username != null && !username.isEmpty());
-                Assertions.assertTrue(password != null && !password.isEmpty());
-                Assertions.assertTrue(namespace != null && !namespace.isEmpty());
+                final boolean isLoginUserOk = sdk.loginUser(username, password);
+                final String token = tokenRepo.getToken();
 
-                boolean isLoginUserOk;
-
-                isLoginUserOk = _sdk.loginUser(username, password);
-
-                String token = _sdk.getSdkConfiguration()
-                                .getTokenRepository()
-                                .getToken();
-
-                Assertions.assertTrue(isLoginUserOk);
-                Assertions.assertTrue(token != null && !token.isEmpty());
+                assertTrue(isLoginUserOk);
+                assertTrue(token != null && !token.isEmpty());
         }
 
-        // Admin integration tests
+        // Admin integration test
 
         @Test
         @Order(1)
-        void testServiceAchievement() throws Exception {
-                final String namespace = System.getenv("AB_NAMESPACE");
+        public void testServiceAchievement() throws Exception {
                 final String achievementCode = "java-sdk-test";
                 final String achievementName = "Java Server SDK Test";
-                final String achievementDesc = "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...";
+                final String achievementDescription = "This is a Java Server SDK test";
+                final String achievementLanguage = "en";
 
-                Achievements wAchievements = new Achievements(_sdk);
+                final Achievements achievementWrapper = new Achievements(sdk);
 
-                // Creating achievement
+                // Create achievement
 
-                ModelsAchievementRequest newAchievement = ModelsAchievementRequest.builder()
+                final ModelsAchievementRequest createAchievement = ModelsAchievementRequest.builder()
                                 .achievementCode(achievementCode)
-                                .defaultLanguage("en")
-                                .name(Collections.singletonMap("en", achievementName))
-                                .description(Collections.singletonMap("en", achievementDesc))
+                                .defaultLanguage(achievementLanguage)
+                                .name(Collections.singletonMap(achievementLanguage, achievementName))
+                                .description(Collections.singletonMap(achievementLanguage, achievementDescription))
                                 .goalValue(1000f)
                                 .statCode(achievementCode)
                                 .hidden(true)
@@ -289,64 +285,63 @@ class TestIntegration {
                                                 .build() }))
                                 .tags(Arrays.asList(new String[] { "sdk", "test", "java" }))
                                 .build();
-
-                ModelsAchievementResponse cResp = wAchievements.adminCreateNewAchievement(
+                final ModelsAchievementResponse createAchievementResult = achievementWrapper.adminCreateNewAchievement(
                                 AdminCreateNewAchievement.builder()
-                                                .namespace(namespace)
-                                                .body(newAchievement)
+                                                .namespace(this.namespace)
+                                                .body(createAchievement)
                                                 .build());
+                assertNotNull(createAchievementResult);
+                assertEquals(createAchievementResult.getAchievementCode(), achievementCode);
 
-                Assertions.assertNotNull(cResp);
-                Assertions.assertEquals(cResp.getAchievementCode(), achievementCode);
+                // Update achievement
 
-                // Updating achievement
-
-                ModelsAchievementUpdateRequest updateAchievement = ModelsAchievementUpdateRequest.builder()
+                final ModelsAchievementUpdateRequest updateAchievement = ModelsAchievementUpdateRequest.builder()
                                 .goalValue(2000f)
                                 .build();
 
-                ModelsAchievementResponse uResp = wAchievements.adminUpdateAchievement(
+                final ModelsAchievementResponse updateAchievementResult = achievementWrapper.adminUpdateAchievement(
                                 AdminUpdateAchievement.builder()
-                                                .namespace(namespace)
+                                                .namespace(this.namespace)
                                                 .achievementCode(achievementCode)
                                                 .body(updateAchievement)
                                                 .build());
-                Assertions.assertNotNull(uResp);
-                Assertions.assertEquals(uResp.getGoalValue(), 2000f);
+                assertNotNull(updateAchievementResult);
+                assertEquals(updateAchievementResult.getGoalValue(), 2000f);
 
-                // Retrieve achievement by code
+                // Get achievement by code
 
-                ModelsAchievementResponse rResp = wAchievements.adminGetAchievement(AdminGetAchievement.builder()
-                                .namespace(namespace)
-                                .achievementCode(achievementCode)
-                                .build());
-                Assertions.assertNotNull(rResp);
-                Assertions.assertEquals(rResp.getGoalValue(), 2000f);
-                Assertions.assertEquals(rResp.getName().get("en"), achievementName);
+                final ModelsAchievementResponse getAchievementResult = achievementWrapper
+                                .adminGetAchievement(AdminGetAchievement.builder()
+                                                .namespace(this.namespace)
+                                                .achievementCode(achievementCode)
+                                                .build());
+                assertNotNull(getAchievementResult);
+                assertEquals(getAchievementResult.getGoalValue(), 2000f);
+                assertEquals(getAchievementResult.getName().get("en"), achievementName);
 
-                // Get all achievements
+                // Get achievement list
 
-                ModelsPaginatedAchievementResponse gaResp = wAchievements
+                final ModelsPaginatedAchievementResponse getAchievementListResult = achievementWrapper
                                 .adminListAchievements(AdminListAchievements.builder()
-                                                .namespace(namespace)
+                                                .namespace(this.namespace)
                                                 .limit(100)
                                                 .offset(0)
                                                 .build());
-                Assertions.assertNotNull(gaResp);
-                Assertions.assertTrue(gaResp.getData().size() > 0);
+                assertNotNull(getAchievementListResult);
+                assertTrue(getAchievementListResult.getData().size() > 0);
 
                 // Delete achievement
 
-                wAchievements.adminDeleteAchievement(AdminDeleteAchievement.builder()
-                                .namespace(namespace)
+                achievementWrapper.adminDeleteAchievement(AdminDeleteAchievement.builder()
+                                .namespace(this.namespace)
                                 .achievementCode(achievementCode)
                                 .build());
 
-                // Finally, recheck if the data is truly deleted.
+                // Confirm if achievement is deleted
 
-                Assertions.assertThrows(HttpResponseException.class, () -> {
-                        wAchievements.adminGetAchievement(AdminGetAchievement.builder()
-                                        .namespace(namespace)
+                assertThrows(HttpResponseException.class, () -> {
+                        achievementWrapper.adminGetAchievement(AdminGetAchievement.builder()
+                                        .namespace(this.namespace)
                                         .achievementCode(achievementCode)
                                         .build());
                 });
@@ -354,105 +349,103 @@ class TestIntegration {
 
         @Test
         @Order(2)
-        void testServiceBasic() throws Exception {
-                final String namespace = System.getenv("AB_NAMESPACE");
+        public void testServiceBasic() throws Exception {
                 final String profileFirstName = "Integration Test";
                 final String profileLastName = "Java Server SDK";
                 final LocalDate profileDateOfBirth = LocalDate.of(2022, 1, 1);
                 final String profileLanguage = "en";
                 final String profileTimeZone = "Asia/Jakarta";
 
-                UserProfile wProfile = new UserProfile(_sdk);
+                final UserProfile profileWrapper = new UserProfile(sdk);
 
-                // Create user's own profile info
+                // Create own user profile
 
-                UserProfilePrivateCreate createProfile = UserProfilePrivateCreate.builder()
+                final UserProfilePrivateCreate createProfile = UserProfilePrivateCreate.builder()
                                 .firstName(profileFirstName)
                                 .lastName(profileLastName)
                                 .dateOfBirth(profileDateOfBirth.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")))
                                 .language(profileLanguage)
                                 .build();
 
-                UserProfilePrivateInfo cInfo = wProfile.createMyProfile(CreateMyProfile.builder()
-                                .namespace(namespace)
-                                .body(createProfile)
-                                .build());
-                Assertions.assertNotNull(cInfo);
-                Assertions.assertEquals(cInfo.getFirstName(), profileFirstName);
+                final UserProfilePrivateInfo createProfileResult = profileWrapper
+                                .createMyProfile(CreateMyProfile.builder()
+                                                .namespace(this.namespace)
+                                                .body(createProfile)
+                                                .build());
+                assertNotNull(createProfileResult);
+                assertEquals(createProfileResult.getFirstName(), profileFirstName);
 
-                // Get user's own profile info
+                // Get own user profile
 
-                UserProfilePrivateInfo ownResp = wProfile.getMyProfileInfo(GetMyProfileInfo.builder()
-                                .namespace(namespace)
-                                .build());
-                Assertions.assertNotNull(ownResp);
-                Assertions.assertEquals(ownResp.getLastName(), profileLastName);
+                final UserProfilePrivateInfo getProfileResult = profileWrapper
+                                .getMyProfileInfo(GetMyProfileInfo.builder()
+                                                .namespace(this.namespace)
+                                                .build());
+                assertNotNull(getProfileResult);
+                assertEquals(getProfileResult.getLastName(), profileLastName);
 
-                // Update user's own profile info
+                // Update own user profile
 
-                UserProfilePrivateUpdate updateProfile = UserProfilePrivateUpdate.builder()
+                final UserProfilePrivateUpdate updateProfile = UserProfilePrivateUpdate.builder()
                                 .timeZone(profileTimeZone)
                                 .build();
 
-                UserProfilePrivateInfo updResp = wProfile.updateMyProfile(UpdateMyProfile.builder()
-                                .namespace(namespace)
-                                .body(updateProfile)
-                                .build());
-                Assertions.assertNotNull(updResp);
-                Assertions.assertEquals(updResp.getTimeZone(), profileTimeZone);
+                final UserProfilePrivateInfo updateProfileResult = profileWrapper
+                                .updateMyProfile(UpdateMyProfile.builder()
+                                                .namespace(this.namespace)
+                                                .body(updateProfile)
+                                                .build());
+                assertNotNull(updateProfileResult);
+                assertEquals(updateProfileResult.getTimeZone(), profileTimeZone);
 
-                // Delete user's own profile info
+                // Delete own user profile
 
-                String userId = ownResp.getUserId();
+                final String userId = getProfileResult.getUserId();
 
-                UserProfilePrivateInfo delResp = wProfile.deleteUserProfile(DeleteUserProfile.builder()
-                                .namespace(namespace)
+                final UserProfilePrivateInfo delResp = profileWrapper.deleteUserProfile(DeleteUserProfile.builder()
+                                .namespace(this.namespace)
                                 .userId(userId)
                                 .build());
-                Assertions.assertNotNull(delResp);
+                assertNotNull(delResp);
         }
 
         @Test
         @Order(3)
-        void testServiceCloudSave() throws Exception {
-                final String namespace = System.getenv("AB_NAMESPACE");
+        public void testServiceCloudSave() throws Exception {
                 final String gameRecordKey = "foo_bar_record";
                 final String gameRecordFoo = "bar";
                 final String gameRecordFooBar = "foo";
                 final int gameRecordFooValue = 4893;
 
-                PublicGameRecord wPublicGameRecord = new PublicGameRecord(_sdk);
+                final PublicGameRecord publicGameRecordWrapper = new PublicGameRecord(sdk);
 
-                // Create new game record
+                // Create game record
 
-                DummyGameRecord gameRecord = DummyGameRecord.builder()
+                final DummyGameRecord createGameRecord = DummyGameRecord.builder()
                                 .Foo(gameRecordFoo)
                                 .FooBar(gameRecordFooBar)
                                 .FooValue(gameRecordFooValue)
                                 .build();
 
-                wPublicGameRecord.postGameRecordHandlerV1(PostGameRecordHandlerV1.builder()
-                                .namespace(namespace)
+                publicGameRecordWrapper.postGameRecordHandlerV1(PostGameRecordHandlerV1.builder()
+                                .namespace(this.namespace)
                                 .key(gameRecordKey)
-                                .body(gameRecord)
+                                .body(createGameRecord)
                                 .build());
 
                 // Get game record
 
-                ModelsGameRecordResponse gRecord = wPublicGameRecord
+                final ModelsGameRecordResponse getGameRecordResult1 = publicGameRecordWrapper
                                 .getGameRecordHandlerV1(GetGameRecordHandlerV1.builder()
-                                                .namespace(namespace)
+                                                .namespace(this.namespace)
                                                 .key(gameRecordKey)
                                                 .build());
 
-                Assertions.assertNotNull(gRecord);
-
-                Map<String, ?> gRecordValue = gRecord.getValue();
-
-                Assertions.assertNotNull(gRecordValue);
-
-                Assertions.assertTrue(gRecordValue.containsKey("foo_bar"));
-                Assertions.assertEquals(gameRecordFooBar, gRecordValue.get("foo_bar").toString());
+                assertNotNull(getGameRecordResult1);
+                final Map<String, ?> gameRecordValue1 = getGameRecordResult1.getValue();
+                assertNotNull(gameRecordValue1);
+                assertTrue(gameRecordValue1.containsKey("foo_bar"));
+                assertEquals(gameRecordFooBar, gameRecordValue1.get("foo_bar").toString());
 
                 // Update game record
 
@@ -462,43 +455,40 @@ class TestIntegration {
                                 .FooValue(gameRecordFooValue)
                                 .build();
 
-                wPublicGameRecord.putGameRecordHandlerV1(PutGameRecordHandlerV1.builder()
-                                .namespace(namespace)
+                publicGameRecordWrapper.putGameRecordHandlerV1(PutGameRecordHandlerV1.builder()
+                                .namespace(this.namespace)
                                 .key(gameRecordKey)
                                 .body(updateRecord)
                                 .build());
 
-                // Re-check updated game record
+                // Confirm if game record is updated
 
-                gRecord = wPublicGameRecord.getGameRecordHandlerV1(GetGameRecordHandlerV1.builder()
-                                .namespace(namespace)
-                                .key(gameRecordKey)
-                                .build());
+                final ModelsGameRecordResponse getGameRecordResult2 = publicGameRecordWrapper
+                                .getGameRecordHandlerV1(GetGameRecordHandlerV1.builder()
+                                                .namespace(this.namespace)
+                                                .key(gameRecordKey)
+                                                .build());
 
-                Assertions.assertNotNull(gRecord);
-
-                gRecordValue = gRecord.getValue();
-
-                Assertions.assertNotNull(gRecordValue);
-
-                Assertions.assertTrue(gRecordValue.containsKey("foo"));
-                Assertions.assertEquals(gameRecordFoo, gRecordValue.get("foo").toString());
-
-                Assertions.assertTrue(gRecordValue.containsKey("foo_bar"));
-                Assertions.assertEquals(gameRecordFooBar + "update", gRecordValue.get("foo_bar").toString());
+                assertNotNull(getGameRecordResult2);
+                final Map<String, ?> gameRecordValue2 = getGameRecordResult2.getValue();
+                assertNotNull(gameRecordValue2);
+                assertTrue(gameRecordValue2.containsKey("foo"));
+                assertEquals(gameRecordFoo, gameRecordValue2.get("foo").toString());
+                assertTrue(gameRecordValue2.containsKey("foo_bar"));
+                assertEquals(gameRecordFooBar + "update", gameRecordValue2.get("foo_bar").toString());
 
                 // Delete game record
 
-                wPublicGameRecord.deleteGameRecordHandlerV1(DeleteGameRecordHandlerV1.builder()
-                                .namespace(namespace)
+                publicGameRecordWrapper.deleteGameRecordHandlerV1(DeleteGameRecordHandlerV1.builder()
+                                .namespace(this.namespace)
                                 .key(gameRecordKey)
                                 .build());
 
-                // Finally, recheck if the data is truly deleted
+                // Confirm if game record is deleted
 
-                Assertions.assertThrows(HttpResponseException.class, () -> {
-                        wPublicGameRecord.getGameRecordHandlerV1(GetGameRecordHandlerV1.builder()
-                                        .namespace(namespace)
+                assertThrows(HttpResponseException.class, () -> {
+                        publicGameRecordWrapper.getGameRecordHandlerV1(GetGameRecordHandlerV1.builder()
+                                        .namespace(this.namespace)
                                         .key(gameRecordKey)
                                         .build());
                 });
@@ -506,129 +496,122 @@ class TestIntegration {
 
         @Test
         @Order(4)
-        void testServiceDsLogManager() throws Exception {
-                final String namespace = System.getenv("AB_NAMESPACE");
-
-                TerminatedServers wTerminatedServers = new TerminatedServers(_sdk);
-                ModelsListTerminatedServersResponse tsResp = wTerminatedServers
+        public void testServiceDsLogManager() throws Exception {
+                final TerminatedServers terminatedServersWrapper = new TerminatedServers(sdk);
+                final ModelsListTerminatedServersResponse terminatedServersResult = terminatedServersWrapper
                                 .listTerminatedServers(ListTerminatedServers.builder()
-                                                .namespace(namespace)
+                                                .namespace(this.namespace)
                                                 .limit(10)
                                                 .build());
-
-                Assertions.assertNotNull(tsResp);
+                assertNotNull(terminatedServersResult);
         }
 
         @Test
         @Order(5)
-        void testServiceEventLog() throws Exception {
-                final String namespace = System.getenv("AB_NAMESPACE");
+        public void testServiceEventLog() throws Exception {
+                final Users usersWrapper = new Users(sdk);
+                final EventV2 eventV2Wrapper = new EventV2(sdk);
 
-                Users wUsers = new Users(_sdk);
+                final ModelUserResponseV3 getUserResult = usersWrapper
+                                .adminGetMyUserV3(new AdminGetMyUserV3());
 
-                ModelUserResponseV3 eMyUser = wUsers
-                                .adminGetMyUserV3(
-                                                new AdminGetMyUserV3());
-                Assertions.assertNotNull(eMyUser);
+                assertNotNull(getUserResult);
 
-                EventV2 wEvent = new EventV2(_sdk);
-
-                ModelsGenericQueryPayload eQueryPayload = ModelsGenericQueryPayload.builder()
-                                .clientId(_sdk.getSdkConfiguration().getConfigRepository().getClientId())
+                final ModelsGenericQueryPayload queryEventStream = ModelsGenericQueryPayload.builder()
+                                .clientId(sdk.getSdkConfiguration().getConfigRepository().getClientId())
                                 .build();
 
-                ModelsEventResponseV2 eResp = wEvent.queryEventStreamHandler(QueryEventStreamHandler.builder()
-                                .namespace(namespace)
-                                .offset(0)
-                                .pageSize(10)
-                                .body(eQueryPayload)
-                                .build());
-                Assertions.assertNotNull(eResp);
-                Assertions.assertTrue(eResp.getData().size() > 0);
+                final ModelsEventResponseV2 queryEventStreamResult1 = eventV2Wrapper
+                                .queryEventStreamHandler(QueryEventStreamHandler.builder()
+                                                .namespace(this.namespace)
+                                                .offset(0)
+                                                .pageSize(10)
+                                                .body(queryEventStream)
+                                                .build());
 
-                eResp = wEvent.getEventSpecificUserV2Handler(GetEventSpecificUserV2Handler.builder()
-                                .namespace(namespace)
-                                .userId(eMyUser.getUserId())
-                                .offset(0)
-                                .pageSize(10)
-                                .build());
-                Assertions.assertNotNull(eResp);
-                Assertions.assertTrue(eResp.getData().size() > 0);
+                assertNotNull(queryEventStreamResult1);
+                assertTrue(queryEventStreamResult1.getData().size() > 0);
+
+                final ModelsEventResponseV2 queryEventStreamResult2 = eventV2Wrapper
+                                .getEventSpecificUserV2Handler(GetEventSpecificUserV2Handler.builder()
+                                                .namespace(this.namespace)
+                                                .userId(getUserResult.getUserId())
+                                                .offset(0)
+                                                .pageSize(10)
+                                                .build());
+
+                assertNotNull(queryEventStreamResult2);
+                assertTrue(queryEventStreamResult2.getData().size() > 0);
         }
 
         @Test
         @Order(6)
-        void testServiceGdpr() throws Exception {
-                final String namespace = System.getenv("AB_NAMESPACE");
-                final String emailToTest = "dummy@example.com";
-                final String anotherEmailToTest = "another_email_to_test@dummy.com";
+        public void testServiceGdpr() throws Exception {
+                final String email1 = "email1@example.com";
+                final String email2 = "email2@dummy.com";
 
-                DataRetrieval wGdprRetrieval = new DataRetrieval(_sdk);
+                final DataRetrieval dataRetrievalWrapper = new DataRetrieval(sdk);
 
-                wGdprRetrieval.saveAdminEmailConfiguration(
+                dataRetrievalWrapper.saveAdminEmailConfiguration(
                                 SaveAdminEmailConfiguration.builder()
-                                                .namespace(namespace)
-                                                .body(Arrays.asList(new String[] { emailToTest }))
+                                                .namespace(this.namespace)
+                                                .body(Arrays.asList(new String[] { email1 }))
                                                 .build());
 
-                List<String> emails = wGdprRetrieval.getAdminEmailConfiguration(
+                final List<String> emails = dataRetrievalWrapper.getAdminEmailConfiguration(
                                 GetAdminEmailConfiguration.builder()
-                                                .namespace(namespace)
+                                                .namespace(this.namespace)
                                                 .build());
 
-                Assertions.assertNotNull(emails);
+                assertNotNull(emails);
 
-                wGdprRetrieval.updateAdminEmailConfiguration(UpdateAdminEmailConfiguration.builder()
-                                .namespace(namespace)
-                                .body(Arrays.asList(new String[] { anotherEmailToTest }))
+                dataRetrievalWrapper.updateAdminEmailConfiguration(UpdateAdminEmailConfiguration.builder()
+                                .namespace(this.namespace)
+                                .body(Arrays.asList(new String[] { email2 }))
                                 .build());
 
-                wGdprRetrieval.deleteAdminEmailConfiguration(
+                dataRetrievalWrapper.deleteAdminEmailConfiguration(
                                 DeleteAdminEmailConfiguration.builder()
-                                                .namespace(namespace)
-                                                .emails(Arrays.asList(new String[] { anotherEmailToTest }))
+                                                .namespace(this.namespace)
+                                                .emails(Arrays.asList(new String[] { email2 }))
                                                 .build());
         }
 
         @Test
         @Order(7)
-        void testServiceGroup() throws Exception {
-                final String namespace = System.getenv("AB_NAMESPACE");
+        public void testServiceGroup() throws Exception {
                 final String initialConfigCode = "initialConfigurationCode";
                 final String configurationCode = "csharpServerSdkConfigCode";
                 final String groupName = "Java SDK Test Group";
                 final String groupDescriptionUpdated = "Updated description.";
+
+                final Configuration configurationWrapper = new Configuration(sdk);
+                final Group groupWrapper = new Group(sdk);
+
                 String defaultAdminRoleId = "";
                 String defaultMemberRoleId = "";
 
-                Configuration wConfig = new Configuration(_sdk);
-                Group wGroup = new Group(_sdk);
-
                 try {
-                        ModelsGetGroupConfigurationResponseV1 gConfigCheck = wConfig
+                        final ModelsGetGroupConfigurationResponseV1 getGroupConfigResult = configurationWrapper
                                         .getGroupConfigurationAdminV1(
                                                         GetGroupConfigurationAdminV1.builder()
-                                                                        .namespace(namespace)
+                                                                        .namespace(this.namespace)
                                                                         .configurationCode(initialConfigCode)
                                                                         .build());
-
-                        Assertions.assertNotNull(gConfigCheck);
-
-                        defaultAdminRoleId = gConfigCheck.getGroupAdminRoleId();
-                        defaultMemberRoleId = gConfigCheck.getGroupMemberRoleId();
+                        assertNotNull(getGroupConfigResult);
+                        defaultAdminRoleId = getGroupConfigResult.getGroupAdminRoleId();
+                        defaultMemberRoleId = getGroupConfigResult.getGroupMemberRoleId();
                 } catch (HttpResponseException rex) {
-                        boolean isInitialConfigurationNotAvailable = rex.getErrorMessage()
-                                        .contains("73131"); // No inital configuration yet
-
-                        if (isInitialConfigurationNotAvailable) {
-                                ModelsCreateGroupConfigurationResponseV1 iConfigResp = wConfig
+                        final boolean isNotAvailable = rex.getErrorMessage().contains("73131"); // No inital
+                                                                                                // configuration yet
+                        if (isNotAvailable) {
+                                ModelsCreateGroupConfigurationResponseV1 initiateGroupConfigResult = configurationWrapper
                                                 .initiateGroupConfigurationAdminV1(
                                                                 InitiateGroupConfigurationAdminV1.builder()
-                                                                                .namespace(namespace)
+                                                                                .namespace(this.namespace)
                                                                                 .build());
-
-                                defaultAdminRoleId = iConfigResp.getGroupAdminRoleId();
-                                defaultMemberRoleId = iConfigResp.getGroupMemberRoleId();
+                                defaultAdminRoleId = initiateGroupConfigResult.getGroupAdminRoleId();
+                                defaultMemberRoleId = initiateGroupConfigResult.getGroupMemberRoleId();
                         } else {
                                 throw rex;
                         }
@@ -636,26 +619,26 @@ class TestIntegration {
 
                 // Create group configuration
 
-                ModelsCreateGroupConfigurationRequestV1 gcRequest = ModelsCreateGroupConfigurationRequestV1.builder()
-                                .configurationCode(configurationCode)
-                                .description("CSharp SDK Test Configuration Group")
-                                .groupMaxMember(50)
-                                .name("CSharp SDK Test Configuration Group")
-                                .groupAdminRoleId(defaultAdminRoleId)
-                                .groupMemberRoleId(defaultMemberRoleId)
-                                .build();
-
                 try {
-                        ModelsCreateGroupConfigurationResponseV1 gcResp = wConfig.createGroupConfigurationAdminV1(
-                                        CreateGroupConfigurationAdminV1.builder()
-                                                        .namespace(namespace)
-                                                        .body(gcRequest)
-                                                        .build());
-
-                        Assertions.assertNotNull(gcResp);
+                        final ModelsCreateGroupConfigurationRequestV1 createGroupConfig = ModelsCreateGroupConfigurationRequestV1
+                                        .builder()
+                                        .configurationCode(configurationCode)
+                                        .description("CSharp SDK Test Configuration Group")
+                                        .groupMaxMember(50)
+                                        .name("CSharp SDK Test Configuration Group")
+                                        .groupAdminRoleId(defaultAdminRoleId)
+                                        .groupMemberRoleId(defaultMemberRoleId)
+                                        .build();
+                        final ModelsCreateGroupConfigurationResponseV1 createGroupConfigResult = configurationWrapper
+                                        .createGroupConfigurationAdminV1(
+                                                        CreateGroupConfigurationAdminV1.builder()
+                                                                        .namespace(this.namespace)
+                                                                        .body(createGroupConfig)
+                                                                        .build());
+                        assertNotNull(createGroupConfigResult);
                 } catch (HttpResponseException rex) {
                         boolean isAlreadyExist = rex.getErrorMessage()
-                                        .contains("73130"); // unable to create global
+                                        .contains("73130"); // Unable to create global
                                                             // configuration: global
                                                             // configuration already exist
 
@@ -666,7 +649,7 @@ class TestIntegration {
 
                 // Create a group
 
-                ModelsPublicCreateNewGroupRequestV1 createGroup = ModelsPublicCreateNewGroupRequestV1.builder()
+                final ModelsPublicCreateNewGroupRequestV1 createGroup = ModelsPublicCreateNewGroupRequestV1.builder()
                                 .groupName("Java SDK Test Group")
                                 .groupType("PUBLIC")
                                 .groupDescription("Yeah, anything is welcome here.")
@@ -674,254 +657,254 @@ class TestIntegration {
                                 .groupRegion("us-west-1")
                                 .configurationCode(configurationCode)
                                 .build();
+                final ModelsGroupResponseV1 createGroupResult = groupWrapper
+                                .createNewGroupPublicV1(CreateNewGroupPublicV1.builder()
+                                                .namespace(this.namespace)
+                                                .body(createGroup)
+                                                .build());
+                assertNotNull(createGroupResult);
+                assertEquals(groupName, createGroupResult.getGroupName());
 
-                ModelsGroupResponseV1 cGroup = wGroup.createNewGroupPublicV1(CreateNewGroupPublicV1.builder()
-                                .namespace(namespace)
-                                .body(createGroup)
-                                .build());
-                Assertions.assertNotNull(cGroup);
-
-                Assertions.assertEquals(groupName, cGroup.getGroupName());
-
-                String group_id = cGroup.getGroupId();
+                final String groupId = createGroupResult.getGroupId();
 
                 // Get single group
 
-                ModelsGroupResponseV1 gGroup = wGroup.getSingleGroupPublicV1(GetSingleGroupPublicV1.builder()
-                                .namespace(namespace)
-                                .groupId(group_id)
-                                .build());
-
-                Assertions.assertNotNull(gGroup);
-
-                Assertions.assertEquals(groupName, cGroup.getGroupName());
+                final ModelsGroupResponseV1 getSingleGroupResult = groupWrapper
+                                .getSingleGroupPublicV1(GetSingleGroupPublicV1.builder()
+                                                .namespace(this.namespace)
+                                                .groupId(groupId)
+                                                .build());
+                assertNotNull(getSingleGroupResult);
+                assertEquals(groupName, createGroupResult.getGroupName());
 
                 // Update a group
 
-                ModelsUpdateGroupRequestV1 updateGroup = ModelsUpdateGroupRequestV1.builder()
+                final ModelsUpdateGroupRequestV1 updateGroup = ModelsUpdateGroupRequestV1.builder()
                                 .groupDescription(groupDescriptionUpdated)
                                 .build();
+                final ModelsGroupResponseV1 updateGroupResult = groupWrapper
+                                .updateSingleGroupV1(UpdateSingleGroupV1.builder()
+                                                .namespace(this.namespace)
+                                                .groupId(groupId)
+                                                .body(updateGroup)
+                                                .build());
 
-                ModelsGroupResponseV1 uGroup = wGroup.updateSingleGroupV1(UpdateSingleGroupV1.builder()
-                                .namespace(namespace)
-                                .groupId(group_id)
-                                .body(updateGroup)
-                                .build());
-
-                Assertions.assertNotNull(uGroup);
-                Assertions.assertEquals(groupDescriptionUpdated, uGroup.getGroupDescription());
+                assertNotNull(updateGroupResult);
+                assertEquals(groupDescriptionUpdated, updateGroupResult.getGroupDescription());
 
                 // Delete a group
 
-                wGroup.deleteGroupPublicV1(DeleteGroupPublicV1.builder()
-                                .namespace(namespace)
-                                .groupId(group_id)
+                groupWrapper.deleteGroupPublicV1(DeleteGroupPublicV1.builder()
+                                .namespace(this.namespace)
+                                .groupId(groupId)
                                 .build());
 
-                // Finally, recheck if the data is truly deleted.
+                // Confirm if group is deleted
 
-                Assertions.assertThrows(HttpResponseException.class, () -> {
-                        wGroup.getSingleGroupPublicV1(GetSingleGroupPublicV1.builder()
-                                        .namespace(namespace)
-                                        .groupId(group_id)
+                assertThrows(HttpResponseException.class, () -> {
+                        groupWrapper.getSingleGroupPublicV1(GetSingleGroupPublicV1.builder()
+                                        .namespace(this.namespace)
+                                        .groupId(groupId)
                                         .build());
                 });
 
                 // Delete group configuration
 
-                wConfig.deleteGroupConfigurationV1(
+                configurationWrapper.deleteGroupConfigurationV1(
                                 DeleteGroupConfigurationV1.builder()
-                                                .namespace(namespace)
+                                                .namespace(this.namespace)
                                                 .configurationCode(configurationCode)
                                                 .build());
         }
 
         @Test
         @Order(8)
-        void testServiceIam() throws Exception, IllegalArgumentException {
-                final String namespace = System.getenv("AB_NAMESPACE");
+        public void testServiceIam() throws Exception, IllegalArgumentException {
                 final String userName = ("javasdk_" + GenerateRandomId(8));
                 final String userPassword = GenerateRandomPassword(10);
                 final String userEmail = (userName + "@test.com");
                 final String userDisplayName = "Java Server SDK Test";
                 final String userDateOfBirth = "1995-01-10";
-                final String userDateOfBirthUpdated = "1996-01-10";
+                final String userDateOfBirthUpdate = "1996-01-10";
+                final String userCountry = "ID";
 
-                Users wIamUser = new Users(_sdk);
-                UsersV4 wIamUserV4 = new UsersV4(_sdk);
+                final Users usersWrapper = new Users(sdk);
+                final UsersV4 usersV4Wrapper = new UsersV4(sdk);
 
                 // Create user
 
-                AccountCreateUserRequestV4 newUser = AccountCreateUserRequestV4.builder()
-                                .authType("EMAILPASSWD")
+                final AccountCreateUserRequestV4 createUser = AccountCreateUserRequestV4.builder()
+                                .authTypeFromEnum(AuthType.EMAILPASSWD)
                                 .emailAddress(userEmail)
                                 .password(userPassword)
                                 .displayName(userDisplayName)
                                 .username(userName)
-                                .country("ID")
+                                .country(userCountry)
                                 .dateOfBirth(userDateOfBirth)
                                 .build();
 
-                AccountCreateUserResponseV4 cuResp = wIamUserV4.publicCreateUserV4(
+                final AccountCreateUserResponseV4 createUserResult = usersV4Wrapper.publicCreateUserV4(
                                 PublicCreateUserV4.builder()
-                                                .namespace(namespace)
-                                                .body(newUser)
+                                                .namespace(this.namespace)
+                                                .body(createUser)
                                                 .build());
 
-                Assertions.assertNotNull(cuResp);
-                Assertions.assertEquals(userEmail, cuResp.getEmailAddress());
+                assertNotNull(createUserResult);
+                assertEquals(userEmail, createUserResult.getEmailAddress());
 
-                String user_id = cuResp.getUserId();
+                final String userId = createUserResult.getUserId();
 
-                // Get the user
+                // Get user
 
-                ModelUserResponse gUser = wIamUser.getUserByUserID(
+                final ModelUserResponse getUserResult = usersWrapper.getUserByUserID(
                                 GetUserByUserID.builder()
-                                                .namespace(namespace)
-                                                .userId(user_id)
+                                                .namespace(this.namespace)
+                                                .userId(userId)
                                                 .build());
 
-                Assertions.assertNotNull(gUser);
-                Assertions.assertEquals(userDisplayName, gUser.getDisplayName());
+                assertNotNull(getUserResult);
+                assertEquals(userDisplayName, getUserResult.getDisplayName());
 
                 // Update user
 
-                ModelUserUpdateRequest updateUser = ModelUserUpdateRequest.builder()
-                                .dateOfBirth(userDateOfBirthUpdated)
+                final ModelUserUpdateRequest updateUser = ModelUserUpdateRequest.builder()
+                                .dateOfBirth(userDateOfBirthUpdate)
                                 .build();
 
-                ModelUserResponse uuResp = wIamUser.updateUser(
+                final ModelUserResponse updateUserResult = usersWrapper.updateUser(
                                 UpdateUser.builder()
-                                                .namespace(namespace)
-                                                .userId(user_id)
+                                                .namespace(this.namespace)
+                                                .userId(userId)
                                                 .body(updateUser)
                                                 .build());
 
-                Assertions.assertNotNull(uuResp);
-                Assertions.assertNotNull(uuResp.getDateOfBirth());
-                Instant userDateOfBirthActual = Instant.parse(uuResp.getDateOfBirth());
-                Assertions.assertNotNull(userDateOfBirthActual);
-                Assertions.assertEquals(
-                                userDateOfBirthUpdated,
+                assertNotNull(updateUserResult);
+                assertNotNull(updateUserResult.getDateOfBirth());
+
+                final Instant userDateOfBirthActual = Instant.parse(updateUserResult.getDateOfBirth());
+
+                assertNotNull(userDateOfBirthActual);
+                assertEquals(
+                                userDateOfBirthUpdate,
                                 userDateOfBirthActual
                                                 .atZone(ZoneId.systemDefault())
                                                 .format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 
                 // Delete user
 
-                wIamUser.deleteUser(
+                usersWrapper.deleteUser(
                                 DeleteUser.builder()
-                                                .namespace(namespace)
-                                                .userId(user_id)
+                                                .namespace(this.namespace)
+                                                .userId(userId)
                                                 .build());
 
-                // Finally, recheck if the data is truly deleted.
+                // Confirm if user is deleted
 
-                Assertions.assertThrows(HttpResponseException.class, () -> {
-                        wIamUser.getUserByUserID(
+                assertThrows(HttpResponseException.class, () -> {
+                        usersWrapper.getUserByUserID(
                                         GetUserByUserID.builder()
-                                                        .namespace(namespace)
-                                                        .userId(user_id)
+                                                        .namespace(this.namespace)
+                                                        .userId(userId)
                                                         .build());
                 });
         }
 
         @Test
         @Order(9)
-        void testServiceLeaderboard() throws Exception {
-                final String namespace = System.getenv("AB_NAMESPACE");
-                final String leaderboarsName = "Java SDK Leaderboard Test";
-
-                LeaderboardConfiguration wLeaderboard = new LeaderboardConfiguration(_sdk);
-                String leaderboard_code = "javasdklbtest" + java.util.UUID.randomUUID().toString().substring(0, 6);
-                String start_time = Instant.now()
+        public void testServiceLeaderboard() throws Exception {
+                final String leaderboardName = "Java Server SDK Leaderboard Test";
+                final String leaderboardCode = "javasdklbtest" + java.util.UUID.randomUUID().toString().substring(0, 6);
+                final String startTime = Instant.now()
                                 .plus(31, ChronoUnit.DAYS)
                                 .atZone(ZoneId.systemDefault())
                                 .format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSxxx"));
 
+                final LeaderboardConfiguration leaderboardConfigWrapper = new LeaderboardConfiguration(sdk);
+
                 // Create a leaderboard
 
-                ModelsLeaderboardConfigReq newLeaderboard = ModelsLeaderboardConfigReq.builder()
-                                .leaderboardCode(leaderboard_code)
-                                .name(leaderboarsName)
+                final ModelsLeaderboardConfigReq createLeaderboard = ModelsLeaderboardConfigReq.builder()
+                                .leaderboardCode(leaderboardCode)
+                                .name(leaderboardName)
                                 .statCode("1")
                                 .seasonPeriod(36)
                                 .descending(false)
-                                .startTime(start_time)
+                                .startTime(startTime)
                                 .daily(ModelsDailyConfig.builder().resetTime("00:00:00").build())
                                 .weekly(ModelsWeeklyConfig.builder().resetDay(0).resetTime("00:00:00").build())
                                 .monthly(ModelsMonthlyConfig.builder().resetDate(1).resetTime("00:00:00").build())
                                 .build();
 
-                ModelsLeaderboardConfigReq cLeaderboard = wLeaderboard
+                final ModelsLeaderboardConfigReq createLeaderboardResult = leaderboardConfigWrapper
                                 .createLeaderboardConfigurationAdminV1(CreateLeaderboardConfigurationAdminV1.builder()
-                                                .namespace(namespace)
-                                                .body(newLeaderboard)
+                                                .namespace(this.namespace)
+                                                .body(createLeaderboard)
                                                 .build());
 
-                Assertions.assertNotNull(cLeaderboard);
-                Assertions.assertEquals(leaderboarsName, cLeaderboard.getName());
+                assertNotNull(createLeaderboardResult);
+                assertEquals(leaderboardName, createLeaderboardResult.getName());
 
                 // Get a leaderboard
 
-                ModelsGetLeaderboardConfigResp gLeaderboard = wLeaderboard
+                final ModelsGetLeaderboardConfigResp getLeaderboardResult1 = leaderboardConfigWrapper
                                 .getLeaderboardConfigurationAdminV1(GetLeaderboardConfigurationAdminV1.builder()
-                                                .namespace(namespace)
-                                                .leaderboardCode(leaderboard_code)
+                                                .namespace(this.namespace)
+                                                .leaderboardCode(leaderboardCode)
                                                 .build());
 
-                Assertions.assertNotNull(gLeaderboard);
-                Assertions.assertEquals(leaderboarsName, gLeaderboard.getName());
+                assertNotNull(getLeaderboardResult1);
+                assertEquals(leaderboardName, getLeaderboardResult1.getName());
 
                 // Update a leaderboard
 
-                ModelsUpdateLeaderboardConfigReq updateLeaderboard = ModelsUpdateLeaderboardConfigReq.builder()
-                                .name(leaderboarsName)
+                final ModelsUpdateLeaderboardConfigReq updateLeaderboard = ModelsUpdateLeaderboardConfigReq.builder()
+                                .name(leaderboardName)
                                 .statCode("1")
-                                .startTime(start_time)
+                                .startTime(startTime)
                                 .seasonPeriod(40)
                                 .build();
 
-                ModelsGetLeaderboardConfigResp uLeaderboard = wLeaderboard
+                final ModelsGetLeaderboardConfigResp updateLeaderboardResult = leaderboardConfigWrapper
                                 .updateLeaderboardConfigurationAdminV1(UpdateLeaderboardConfigurationAdminV1.builder()
-                                                .namespace(namespace)
-                                                .leaderboardCode(leaderboard_code)
+                                                .namespace(this.namespace)
+                                                .leaderboardCode(leaderboardCode)
                                                 .body(updateLeaderboard)
                                                 .build());
 
-                Assertions.assertNotNull(uLeaderboard);
-                Assertions.assertEquals(40, uLeaderboard.getSeasonPeriod());
+                assertNotNull(updateLeaderboardResult);
+                assertEquals(40, updateLeaderboardResult.getSeasonPeriod());
 
                 // Delete a leaderboard
 
-                wLeaderboard.deleteLeaderboardConfigurationAdminV1(DeleteLeaderboardConfigurationAdminV1.builder()
-                                .namespace(namespace)
-                                .leaderboardCode(leaderboard_code)
-                                .build());
-
-                // Finally, recheck if the data is truly deleted
-
-                ModelsGetLeaderboardConfigResp dcLeaderboard = wLeaderboard
-                                .getLeaderboardConfigurationAdminV1(GetLeaderboardConfigurationAdminV1.builder()
-                                                .namespace(namespace)
-                                                .leaderboardCode(leaderboard_code)
+                leaderboardConfigWrapper
+                                .deleteLeaderboardConfigurationAdminV1(DeleteLeaderboardConfigurationAdminV1.builder()
+                                                .namespace(this.namespace)
+                                                .leaderboardCode(leaderboardCode)
                                                 .build());
 
-                Assertions.assertNotNull(dcLeaderboard);
-                Assertions.assertTrue(dcLeaderboard.getIsDeleted());
+                // Confirm if leaderboard is deleted
+
+                final ModelsGetLeaderboardConfigResp getLeaderboardResult2 = leaderboardConfigWrapper
+                                .getLeaderboardConfigurationAdminV1(GetLeaderboardConfigurationAdminV1.builder()
+                                                .namespace(this.namespace)
+                                                .leaderboardCode(leaderboardCode)
+                                                .build());
+
+                assertNotNull(getLeaderboardResult2);
+                assertTrue(getLeaderboardResult2.getIsDeleted());
         }
 
         @Test
         @Order(10)
-        void testServiceLegal() throws Exception {
-                Agreement wLegalAgreement = new Agreement(_sdk);
+        public void testServiceLegal() throws Exception {
+                final Agreement agreementWrapper = new Agreement(sdk);
 
-                List<RetrieveAcceptedAgreementResponse> aggrs = wLegalAgreement
+                final List<RetrieveAcceptedAgreementResponse> aggrs = agreementWrapper
                                 .retrieveAgreementsPublic(RetrieveAgreementsPublic.builder().build());
 
-                Assertions.assertNotNull(aggrs);
+                assertNotNull(aggrs);
 
-                List<AcceptAgreementRequest> aggreementRequests = Arrays.asList(new AcceptAgreementRequest[] {
+                final List<AcceptAgreementRequest> acceptAgreements = Arrays.asList(new AcceptAgreementRequest[] {
                                 AcceptAgreementRequest.builder()
                                                 .localizedPolicyVersionId("152b9b0f-7b8e-4a9e-8a9d-8c82420ad8b3")
                                                 .policyVersionId("a76ea12c-14fd-46c5-886f-fd3d0ded4408")
@@ -932,27 +915,26 @@ class TestIntegration {
                                                 .build()
                 });
 
-                wLegalAgreement.changePreferenceConsent(
+                agreementWrapper.changePreferenceConsent(
                                 ChangePreferenceConsent.builder()
-                                                .body(aggreementRequests)
+                                                .body(acceptAgreements)
                                                 .build());
         }
 
         @Test
         @Order(11)
-        void testServicePlatform() throws Exception {
-                final String namespace = System.getenv("AB_NAMESPACE");
-                final String storeTitle = "Java SDK Store Test";
+        public void testServicePlatform() throws Exception {
+                final String storeTitle = "Java Server SDK Store Test";
                 final String storeDescription = "Description for Java Server SDK store service integration test.";
-                final String storeDescriptionUpdated = "Updated description.";
+                final String storeDescriptionUpdate = "Updated description.";
 
-                Store wStore = new Store(_sdk);
+                final Store storeWrapper = new Store(sdk);
 
                 // TODO Setup store
 
                 // Create a store
 
-                StoreCreate createStore = StoreCreate.builder()
+                final StoreCreate createStore = StoreCreate.builder()
                                 .title(storeTitle)
                                 .description(storeDescription)
                                 .defaultLanguage("en")
@@ -961,66 +943,64 @@ class TestIntegration {
                                 .supportedRegions(Arrays.asList(new String[] { "US", "ID" }))
                                 .build();
 
-                StoreInfo cStore = wStore.createStore(CreateStore.builder()
-                                .namespace(namespace)
+                final StoreInfo createStoreResult = storeWrapper.createStore(CreateStore.builder()
+                                .namespace(this.namespace)
                                 .body(createStore)
                                 .build());
 
-                Assertions.assertNotNull(cStore);
-                Assertions.assertEquals(storeTitle, cStore.getTitle());
+                assertNotNull(createStoreResult);
+                assertEquals(storeTitle, createStoreResult.getTitle());
 
-                String store_id = cStore.getStoreId();
+                final String storeId = createStoreResult.getStoreId();
 
                 // Get a store
 
-                StoreInfo gStore = wStore.getStore(GetStore.builder()
-                                .namespace(namespace)
-                                .storeId(store_id)
+                final StoreInfo getStore = storeWrapper.getStore(GetStore.builder()
+                                .namespace(this.namespace)
+                                .storeId(storeId)
                                 .build());
 
-                Assertions.assertNotNull(gStore);
-                Assertions.assertEquals(storeTitle, gStore.getTitle());
+                assertNotNull(getStore);
+                assertEquals(storeTitle, getStore.getTitle());
 
                 // Update a store
 
-                StoreUpdate updateStore = StoreUpdate.builder().description(storeDescriptionUpdated).build();
+                final StoreUpdate updateStore = StoreUpdate.builder().description(storeDescriptionUpdate).build();
 
-                StoreInfo cStoreUpdate = wStore.updateStore(UpdateStore.builder()
-                                .namespace(namespace)
-                                .storeId(store_id)
+                final StoreInfo updateStoreResult = storeWrapper.updateStore(UpdateStore.builder()
+                                .namespace(this.namespace)
+                                .storeId(storeId)
                                 .body(updateStore)
                                 .build());
 
-                Assertions.assertNotNull(cStoreUpdate);
-                Assertions.assertEquals(storeDescriptionUpdated, cStoreUpdate.getDescription());
+                assertNotNull(updateStoreResult);
+                assertEquals(storeDescriptionUpdate, updateStoreResult.getDescription());
 
                 // Delete a store
 
-                StoreInfo dStore = wStore.deleteStore(DeleteStore.builder()
-                                .namespace(namespace)
-                                .storeId(store_id)
+                final StoreInfo deleteStoreResult = storeWrapper.deleteStore(DeleteStore.builder()
+                                .namespace(this.namespace)
+                                .storeId(storeId)
                                 .build());
 
-                Assertions.assertNotNull(dStore);
+                assertNotNull(deleteStoreResult);
         }
 
         @Test
         @Order(12)
-        void testSessionBrowser() throws Exception {
-                final String namespace = System.getenv("AB_NAMESPACE");
+        public void testSessionBrowser() throws Exception {
+                final String sessionUsername = "email@example.com";
+                final String sessionGameVersion = "0.3.0";
 
-                String usernameToTest = "dummy@example.com";
-                String session_id = "";
-
-                Session wSBSession = new Session(_sdk);
+                final Session sessionWrapper = new Session(sdk);
 
                 // Create a session
 
-                ModelsCreateSessionRequest createSession = ModelsCreateSessionRequest.builder()
-                                .namespace(namespace)
+                final ModelsCreateSessionRequest createSession = ModelsCreateSessionRequest.builder()
+                                .namespace(this.namespace)
                                 .sessionType("p2p")
-                                .gameVersion("0.3.0")
-                                .username(usernameToTest)
+                                .gameVersion(sessionGameVersion)
+                                .username(sessionUsername)
                                 .gameSessionSetting(ModelsGameSessionSetting.builder()
                                                 .mode("deathmatch")
                                                 .allowJoinInProgress(true)
@@ -1029,67 +1009,65 @@ class TestIntegration {
                                                 .build())
                                 .build();
 
-                ModelsSessionResponse cResp = wSBSession.createSession(
+                final ModelsSessionResponse createSessionResult = sessionWrapper.createSession(
                                 CreateSession.builder()
-                                                .namespace(namespace)
+                                                .namespace(this.namespace)
                                                 .body(createSession)
                                                 .build());
 
-                Assertions.assertNotNull(cResp);
-                Assertions.assertEquals(usernameToTest, cResp.getUsername());
+                assertNotNull(createSessionResult);
+                assertEquals(sessionUsername, createSessionResult.getUsername());
 
-                session_id = cResp.getSessionId();
+                final String sessionId = createSessionResult.getSessionId();
 
                 // Get a session
 
-                ModelsSessionResponse gResp = wSBSession.getSession(
+                final ModelsSessionResponse getSessionResult = sessionWrapper.getSession(
                                 GetSession.builder()
-                                                .namespace(namespace)
-                                                .sessionID(session_id)
+                                                .namespace(this.namespace)
+                                                .sessionID(sessionId)
                                                 .build());
 
-                Assertions.assertNotNull(gResp);
-                Assertions.assertEquals("0.3.0", gResp.getGameVersion());
+                assertNotNull(getSessionResult);
+                assertEquals(sessionGameVersion, getSessionResult.getGameVersion());
 
                 // Update a session
 
-                ModelsUpdateSessionRequest updateSession = ModelsUpdateSessionRequest.builder()
+                final ModelsUpdateSessionRequest updateSession = ModelsUpdateSessionRequest.builder()
                                 .gameMaxPlayer(150)
                                 .build();
 
-                ModelsSessionResponse uResp = wSBSession.updateSession(
+                final ModelsSessionResponse updateSessionResult = sessionWrapper.updateSession(
                                 UpdateSession.builder()
-                                                .namespace(namespace)
-                                                .sessionID(session_id)
+                                                .namespace(this.namespace)
+                                                .sessionID(sessionId)
                                                 .body(updateSession)
                                                 .build());
 
-                Assertions.assertNotNull(uResp);
-                Assertions.assertEquals(150, uResp.getGameSessionSetting().getMaxPlayer());
+                assertNotNull(updateSessionResult);
+                assertEquals(150, updateSessionResult.getGameSessionSetting().getMaxPlayer());
 
                 // Delete a session
 
-                ModelsSessionResponse dResp = wSBSession.deleteSession(
-                                DeleteSession.builder().namespace(namespace).sessionID(session_id).build());
+                final ModelsSessionResponse dResp = sessionWrapper.deleteSession(
+                                DeleteSession.builder().namespace(this.namespace).sessionID(sessionId).build());
 
-                Assertions.assertNotNull(dResp);
+                assertNotNull(dResp);
         }
 
         @Test
         @Order(13)
-        void testServiceSocial() throws Exception {
-                final String namespace = System.getenv("AB_NAMESPACE");
+        public void testServiceSocial() throws Exception {
+                final String statCode = "javaserversdkteststat";
 
-                String stat_code = "javaserversdkteststat";
-
-                StatConfiguration wStatConfig = new StatConfiguration(_sdk);
+                final StatConfiguration statConfigWrapper = new StatConfiguration(sdk);
 
                 // Create a statistic
 
-                StatCreate createStat = StatCreate.builder()
+                final StatCreate createStat = StatCreate.builder()
                                 .name("Java Server SDK Test Stat")
                                 .description("Java server sdk integration test.")
-                                .statCode(stat_code)
+                                .statCode(statCode)
                                 .setByFromEnum(StatCreate.SetBy.SERVER)
                                 .minimum(0f)
                                 .maximum(100f)
@@ -1099,104 +1077,112 @@ class TestIntegration {
                                 .tags(Arrays.asList(new String[] { "java", "server_sdk", "test" }))
                                 .build();
 
-                StatInfo cStat = wStatConfig.createStat(
+                final StatInfo createStatResult = statConfigWrapper.createStat(
                                 CreateStat.builder()
-                                                .namespace(namespace)
+                                                .namespace(this.namespace)
                                                 .body(createStat)
                                                 .build());
 
-                Assertions.assertNotNull(cStat);
-                Assertions.assertEquals("Java Server SDK Test Stat", cStat.getName());
+                assertNotNull(createStatResult);
+                assertEquals("Java Server SDK Test Stat", createStatResult.getName());
 
                 // Get a statistic
 
-                StatInfo gStat = wStatConfig.getStat(
+                final StatInfo getStatResult = statConfigWrapper.getStat(
                                 GetStat.builder()
-                                                .namespace(namespace)
-                                                .statCode(stat_code)
+                                                .namespace(this.namespace)
+                                                .statCode(statCode)
                                                 .build());
 
-                Assertions.assertNotNull(gStat);
-                Assertions.assertEquals("Java Server SDK Test Stat", gStat.getName());
+                assertNotNull(getStatResult);
+                assertEquals("Java Server SDK Test Stat", getStatResult.getName());
 
                 // Update a statistic
 
-                StatUpdate updateStat = StatUpdate.builder().description("Updated description.").build();
+                final StatUpdate updateStat = StatUpdate.builder().description("Updated description.").build();
 
-                StatInfo uStat = wStatConfig.updateStat(
-                                UpdateStat.builder().namespace(namespace).statCode(stat_code).body(updateStat).build());
+                final StatInfo updateStatResult = statConfigWrapper.updateStat(
+                                UpdateStat.builder().namespace(this.namespace).statCode(statCode).body(updateStat)
+                                                .build());
 
-                Assertions.assertNotNull(uStat);
-                Assertions.assertEquals("Updated description.", uStat.getDescription());
+                assertNotNull(updateStatResult);
+                assertEquals("Updated description.", updateStatResult.getDescription());
 
                 // Delete a statistic
 
-                wStatConfig.deleteStat(DeleteStat.builder().namespace(namespace).statCode(stat_code).build());
+                statConfigWrapper.deleteStat(DeleteStat.builder().namespace(this.namespace).statCode(statCode).build());
         }
 
         @Test
         @Order(14)
-        void testServiceUgc() throws Exception {
-                final String namespace = System.getenv("AB_NAMESPACE");
+        public void testServiceUgc() throws Exception {
+                final String tagName = "java_server_sdk_test";
+                final String tagNameUpdate = "java_server_sdk_test_update";
 
-                String tag_name = "java_server_sdk_test";
-                String tag_name_u = "java_server_sdk_test_update";
-
-                AdminTag wAdminTag = new AdminTag(_sdk);
+                final AdminTag adminTagWrapper = new AdminTag(sdk);
 
                 // Create a tag
 
-                ModelsCreateTagRequest createTag = ModelsCreateTagRequest.builder().tag(tag_name).build();
+                final ModelsCreateTagRequest createTag = ModelsCreateTagRequest.builder()
+                                .tag(tagName)
+                                .build();
 
-                ModelsCreateTagResponse cTag = wAdminTag.adminCreateTag(
-                                AdminCreateTag.builder().namespace(namespace).body(createTag).build());
+                final ModelsCreateTagResponse createTagResult = adminTagWrapper.adminCreateTag(
+                                AdminCreateTag.builder()
+                                                .namespace(this.namespace)
+                                                .body(createTag)
+                                                .build());
 
-                Assertions.assertNotNull(cTag);
-                Assertions.assertEquals(tag_name, cTag.getTag());
+                assertNotNull(createTagResult);
+                assertEquals(tagName, createTagResult.getTag());
 
-                String tag_id = cTag.getId();
+                final String tagId = createTagResult.getId();
 
                 // Get tags
 
-                ModelsPaginatedGetTagResponse gTag = wAdminTag.adminGetTag(
+                final ModelsPaginatedGetTagResponse getTagResult = adminTagWrapper.adminGetTag(
                                 AdminGetTag.builder()
-                                                .namespace(namespace)
+                                                .namespace(this.namespace)
                                                 .offset(0)
                                                 .limit(10)
                                                 .build());
 
-                Assertions.assertNotNull(gTag);
+                assertNotNull(getTagResult);
 
                 // Update a tag
 
-                ModelsCreateTagRequest updateTag = ModelsCreateTagRequest.builder().tag(tag_name_u).build();
+                final ModelsCreateTagRequest updateTag = ModelsCreateTagRequest.builder()
+                                .tag(tagNameUpdate)
+                                .build();
 
-                ModelsCreateTagResponse uTag = wAdminTag.adminUpdateTag(
+                final ModelsCreateTagResponse updateTagResult = adminTagWrapper.adminUpdateTag(
                                 AdminUpdateTag.builder()
-                                                .namespace(namespace)
-                                                .tagId(tag_id)
+                                                .namespace(this.namespace)
+                                                .tagId(tagId)
                                                 .body(updateTag)
                                                 .build());
 
-                Assertions.assertNotNull(uTag);
-                Assertions.assertEquals(tag_name_u, uTag.getTag());
+                assertNotNull(updateTagResult);
+                assertEquals(tagNameUpdate, updateTagResult.getTag());
 
                 // Delete a tag
 
-                wAdminTag.adminDeleteTag(
-                                AdminDeleteTag.builder().namespace(namespace).tagId(tag_id).build());
+                adminTagWrapper.adminDeleteTag(
+                                AdminDeleteTag.builder()
+                                                .namespace(this.namespace).tagId(tagId)
+                                                .build());
         }
 
         @Test
         @Order(15)
-        @Disabled("Unreliable")
-        void testServiceGametelemetry() throws Exception {
+        @Disabled("Test unreliable")
+        public void testServiceGametelemetry() throws Exception {
                 final String steamId = "76561199259217491";
                 final String playTime = "4";
 
-                GametelemetryOperations wGameTelemetry = new GametelemetryOperations(_sdk);
+                final GametelemetryOperations gameTelemetryWrapper = new GametelemetryOperations(sdk);
 
-                TelemetryBody telemetryBody = TelemetryBody.builder()
+                final TelemetryBody saveTelemetry = TelemetryBody.builder()
                                 .eventId("javasdk")
                                 .eventName("javasdkevent")
                                 .eventNamespace("test")
@@ -1204,83 +1190,82 @@ class TestIntegration {
                                 .payload(Collections.singletonMap("foo", "bar"))
                                 .build();
 
-                ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost opSave = ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost
-                                .builder()
-                                .body(Arrays.asList(telemetryBody))
-                                .build();
+                gameTelemetryWrapper.protectedSaveEventsGameTelemetryV1ProtectedEventsPost(
+                                ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost
+                                                .builder()
+                                                .body(Arrays.asList(saveTelemetry))
+                                                .build());
 
-                wGameTelemetry.protectedSaveEventsGameTelemetryV1ProtectedEventsPost(opSave);
+                gameTelemetryWrapper
+                                .protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut(
+                                                ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
+                                                                .builder()
+                                                                .playtime(playTime)
+                                                                .steamId(steamId)
+                                                                .build());
 
-                ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut opPut = ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
-                                .builder()
-                                .playtime(playTime)
-                                .steamId(steamId)
-                                .build();
+                final Map<String, ?> getTelemetry = gameTelemetryWrapper
+                                .protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(
+                                                ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet
+                                                                .builder()
+                                                                .steamId(steamId)
+                                                                .build());
 
-                wGameTelemetry.protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut(opPut);
-
-                ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet opGet = ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet
-                                .builder()
-                                .steamId(steamId)
-                                .build();
-
-                Map<String, ?> resGet = wGameTelemetry
-                                .protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(opGet);
-
-                assertEquals(playTime, resGet.get("total_playtime"));
+                assertEquals(playTime, getTelemetry.get("total_playtime"));
         }
 
         // Client integration test
 
         @Test
         @Order(50)
-        void testScenarioUserStats() throws Exception {
-                final String namespace = System.getenv("AB_NAMESPACE");
-                final String user_login_id = System.getenv("AB_USERNAME");
-                final String stat_code = "cs-server-sdk-test";
+        public void testScenarioUserStats() throws Exception {
+                final String statCode = "cs-server-sdk-test";
 
-                UserStatistic wUserStat = new UserStatistic(_sdk);
+                final UserStatistic userStatisticWrapper = new UserStatistic(sdk);
+                final Users usersWrapper = new Users(sdk);
 
-                Users wUsers = new Users(_sdk);
-                ModelPublicUserResponse uResp = wUsers.getUserByLoginID(
+                final ModelPublicUserResponse getUserResult = usersWrapper.getUserByLoginID(
                                 GetUserByLoginID.builder()
-                                                .namespace(namespace)
-                                                .loginId(user_login_id)
+                                                .namespace(this.namespace)
+                                                .loginId(this.username)
                                                 .build());
 
-                Assertions.assertNotNull(uResp);
-                String user_id = uResp.getUserId();
+                assertNotNull(getUserResult);
 
-                wUserStat.createUserStatItem(CreateUserStatItem.builder()
-                                .namespace(namespace)
-                                .userId(user_id)
-                                .statCode(stat_code)
+                final String userId = getUserResult.getUserId();
+
+                userStatisticWrapper.createUserStatItem(CreateUserStatItem.builder()
+                                .namespace(this.namespace)
+                                .userId(userId)
+                                .statCode(statCode)
                                 .build());
 
-                UserStatItemPagingSlicedResult gsResult = wUserStat.getUserStatItems(GetUserStatItems.builder()
-                                .namespace(namespace)
-                                .userId(user_id)
-                                .statCodes(stat_code)
-                                .offset(0)
-                                .limit(10)
-                                .build());
+                final UserStatItemPagingSlicedResult getUserStatItemsResult = userStatisticWrapper
+                                .getUserStatItems(GetUserStatItems.builder()
+                                                .namespace(this.namespace)
+                                                .userId(userId)
+                                                .statCodes(statCode)
+                                                .offset(0)
+                                                .limit(10)
+                                                .build());
 
-                Assertions.assertNotNull(gsResult);
-                Assertions.assertTrue(gsResult.getData().size() > 0);
+                assertNotNull(getUserStatItemsResult);
+                assertTrue(getUserStatItemsResult.getData().size() > 0);
 
-                StatItemIncResult incResult = wUserStat.incUserStatItemValue(IncUserStatItemValue.builder()
-                                .namespace(namespace)
-                                .userId(user_id)
-                                .statCode(stat_code)
-                                .body(StatItemInc.builder().inc(5f).build())
-                                .build());
+                final StatItemIncResult incUserStatItemValueResult = userStatisticWrapper
+                                .incUserStatItemValue(IncUserStatItemValue.builder()
+                                                .namespace(this.namespace)
+                                                .userId(userId)
+                                                .statCode(statCode)
+                                                .body(StatItemInc.builder().inc(5f).build())
+                                                .build());
 
-                Assertions.assertNotNull(incResult);
+                assertNotNull(incUserStatItemValueResult);
 
-                wUserStat.deleteUserStatItems(DeleteUserStatItems.builder()
-                                .namespace(namespace)
-                                .userId(user_id)
-                                .statCode(stat_code)
+                userStatisticWrapper.deleteUserStatItems(DeleteUserStatItems.builder()
+                                .namespace(this.namespace)
+                                .userId(userId)
+                                .statCode(statCode)
                                 .build());
         }
 
@@ -1288,7 +1273,7 @@ class TestIntegration {
 
         @Test
         @Order(51)
-        void testScenarioMatchmaking() throws Exception, InterruptedException {
+        public void testScenarioMatchmaking() throws Exception, InterruptedException {
                 testDsmcLocalServer();
                 testDsmc();
                 testMatchmaking();
@@ -1297,59 +1282,57 @@ class TestIntegration {
         }
 
         public void testDsmcLocalServer() throws Exception {
-                final String namespace = System.getenv("AB_NAMESPACE");
-                Admin wDsmcAdmin = new Admin(_sdk);
-                ModelsListServerResponse serverResp = wDsmcAdmin.listLocalServer(ListLocalServer.builder()
-                                .namespace(namespace)
+                final Admin adminWrapper = new Admin(sdk);
+                final ModelsListServerResponse serverResp = adminWrapper.listLocalServer(ListLocalServer.builder()
+                                .namespace(this.namespace)
                                 .build());
-                Assertions.assertNotNull(serverResp);
+                assertNotNull(serverResp);
         }
 
         public void testDsmc() throws Exception, InterruptedException {
-                final String usernameToTest = "dummy@example.com";
-                final String target_namespace = "armadademotestqa";
-                final String target_deployment = "deployruli";
-                final String game_mode = "soloyogs";
-                final String party_id = "PARTY_ID";
-                final String party_user_id = System.getenv("AB_USERNAME");
+                final String targetUsername = "dummy@example.com";
+                final String targetNamespace = "armadademotestqa";
+                final String targetDeployment = "deployruli";
+                final String gameMode = "soloyogs";
+                final String partyId = "PARTY_ID";
 
-                net.accelbyte.sdk.api.dsmc.wrappers.Session wSession = new net.accelbyte.sdk.api.dsmc.wrappers.Session(
-                                _sdk);
-                Admin wDsmcAdmin = new Admin(_sdk);
-
-                Session wSBSession = new Session(_sdk);
+                final net.accelbyte.sdk.api.dsmc.wrappers.Session dsmcSessionWrapper = new net.accelbyte.sdk.api.dsmc.wrappers.Session(
+                                sdk);
+                final Admin dsmcAdminWrapper = new Admin(sdk);
+                final Session sessionBrowserWrapper = new Session(sdk);
 
                 // Create a session
 
-                ModelsCreateSessionRequest createSession = ModelsCreateSessionRequest.builder()
+                final ModelsCreateSessionRequest createSession = ModelsCreateSessionRequest.builder()
                                 .sessionType("p2p")
                                 .gameVersion("0.3.0")
-                                .namespace(target_namespace)
-                                .username(usernameToTest)
+                                .namespace(targetNamespace)
+                                .username(targetUsername)
                                 .gameSessionSetting(ModelsGameSessionSetting.builder()
-                                                .mode(game_mode)
+                                                .mode(gameMode)
                                                 .allowJoinInProgress(true)
                                                 .mapName("CSharp SDK Integration Test")
                                                 .maxPlayer(100)
                                                 .build())
                                 .build();
 
-                ModelsSessionResponse cResp = wSBSession.createSession(
-                                CreateSession.builder().namespace(target_namespace)
+                final ModelsSessionResponse createSessionResult = sessionBrowserWrapper.createSession(
+                                CreateSession.builder().namespace(targetNamespace)
                                                 .body(createSession).build());
 
-                Assertions.assertNotNull(cResp);
-                Assertions.assertEquals(usernameToTest, cResp.getUsername());
-                String session_id = cResp.getSessionId();
+                assertNotNull(createSessionResult);
+                assertEquals(targetUsername, createSessionResult.getUsername());
+
+                final String sessionId = createSessionResult.getSessionId();
 
                 // Create a session
 
-                net.accelbyte.sdk.api.dsmc.models.ModelsCreateSessionRequest sessionRequest = net.accelbyte.sdk.api.dsmc.models.ModelsCreateSessionRequest
+                final net.accelbyte.sdk.api.dsmc.models.ModelsCreateSessionRequest createSessionDsmc = net.accelbyte.sdk.api.dsmc.models.ModelsCreateSessionRequest
                                 .builder()
                                 .clientVersion("0.3.0")
                                 .configuration("")
-                                .deployment(target_deployment)
-                                .gameMode(game_mode)
+                                .deployment(targetDeployment)
+                                .gameMode(gameMode)
                                 .matchingAllies(Arrays.asList(new ModelsRequestMatchingAlly[] {
                                                 ModelsRequestMatchingAlly.builder()
                                                                 .matchingParties(Arrays
@@ -1358,12 +1341,12 @@ class TestIntegration {
                                                                                                                 .builder()
                                                                                                                 .partyAttributes(
                                                                                                                                 new HashMap<String, Object>())
-                                                                                                                .partyId(party_id)
+                                                                                                                .partyId(partyId)
                                                                                                                 .partyMembers(Arrays
                                                                                                                                 .asList(new ModelsRequestMatchMember[] {
                                                                                                                                                 ModelsRequestMatchMember
                                                                                                                                                                 .builder()
-                                                                                                                                                                .userId(party_user_id)
+                                                                                                                                                                .userId(this.username)
                                                                                                                                                                 .build()
                                                                                                                                 }))
                                                                                                                 .build()
@@ -1372,22 +1355,25 @@ class TestIntegration {
                                 }))
                                 .region("")
                                 .podName("")
-                                .sessionId(session_id)
-                                .namespace(target_namespace)
+                                .sessionId(sessionId)
+                                .namespace(targetNamespace)
                                 .build();
 
-                net.accelbyte.sdk.api.dsmc.models.ModelsSessionResponse csResp = wSession
+                final net.accelbyte.sdk.api.dsmc.models.ModelsSessionResponse createSessionDsmcResult = dsmcSessionWrapper
                                 .createSession(net.accelbyte.sdk.api.dsmc.operations.session.CreateSession.builder()
-                                                .namespace(target_namespace)
-                                                .body(sessionRequest)
+                                                .namespace(targetNamespace)
+                                                .body(createSessionDsmc)
                                                 .build());
-                Assertions.assertNotNull(csResp);
 
-                csResp = wSession.getSession(net.accelbyte.sdk.api.dsmc.operations.session.GetSession.builder()
-                                .namespace(target_namespace)
-                                .sessionID(session_id)
-                                .build());
-                Assertions.assertNotNull(csResp);
+                assertNotNull(createSessionDsmcResult);
+
+                final net.accelbyte.sdk.api.dsmc.models.ModelsSessionResponse getSessionDsmcResult = dsmcSessionWrapper
+                                .getSession(net.accelbyte.sdk.api.dsmc.operations.session.GetSession.builder()
+                                                .namespace(targetNamespace)
+                                                .sessionID(sessionId)
+                                                .build());
+
+                assertNotNull(getSessionDsmcResult);
 
                 // Claim (use reliable http retry)
 
@@ -1418,53 +1404,53 @@ class TestIntegration {
                         }
                 };
 
+                final AccelByteSDK sdkReliable = new AccelByteSDK(
+                                new ReliableHttpClient(retryPolicy),
+                                sdk.getSdkConfiguration().getTokenRepository(),
+                                sdk.getSdkConfiguration().getConfigRepository());
+
                 retryPolicy.setRetryIntervalType(RetryIntervalType.LINEAR);
                 retryPolicy.setCallTimeout(5000);
                 retryPolicy.setMaxRetry(20);
                 retryPolicy.setRetryInterval(2000);
 
-                final AccelByteSDK reliableSdk = new AccelByteSDK(
-                                new ReliableHttpClient(retryPolicy),
-                                _sdk.getSdkConfiguration().getTokenRepository(),
-                                _sdk.getSdkConfiguration().getConfigRepository());
-
-                net.accelbyte.sdk.api.dsmc.wrappers.Session wSessionReliable = new net.accelbyte.sdk.api.dsmc.wrappers.Session(
-                                reliableSdk);
+                final net.accelbyte.sdk.api.dsmc.wrappers.Session dsmcSessionReliableWrapper = new net.accelbyte.sdk.api.dsmc.wrappers.Session(
+                                sdkReliable);
 
                 ModelsClaimSessionRequest claimServer = ModelsClaimSessionRequest.builder()
-                                .sessionId(session_id)
+                                .sessionId(sessionId)
                                 .build();
 
-                wSessionReliable.claimServer(ClaimServer.builder()
-                                .namespace(target_namespace)
+                dsmcSessionReliableWrapper.claimServer(ClaimServer.builder()
+                                .namespace(targetNamespace)
                                 .body(claimServer)
                                 .build());
 
                 // Clean up
 
-                wDsmcAdmin.deleteSession(net.accelbyte.sdk.api.dsmc.operations.admin.DeleteSession.builder()
-                                .namespace(target_namespace)
-                                .sessionID(session_id)
+                dsmcAdminWrapper.deleteSession(net.accelbyte.sdk.api.dsmc.operations.admin.DeleteSession.builder()
+                                .namespace(targetNamespace)
+                                .sessionID(sessionId)
                                 .build());
 
-                ModelsSessionResponse delResp = wSBSession.deleteSession(DeleteSession.builder()
-                                .namespace(target_namespace)
-                                .sessionID(session_id)
+                ModelsSessionResponse deleteSessionResult = sessionBrowserWrapper.deleteSession(DeleteSession.builder()
+                                .namespace(targetNamespace)
+                                .sessionID(sessionId)
                                 .build());
-                Assertions.assertNotNull(delResp);
+
+                assertNotNull(deleteSessionResult);
         }
 
         public void testMatchmaking() throws Exception {
-                final String namespace = System.getenv("AB_NAMESPACE");
                 final String channelName = "csharp_sdk_gm_" + GenerateRandomId(8);
-                final String channelDescription = "CSharp Server SDK Test";
-                final String channelDescriptionUpdated = "Updated description.";
+                final String channelDescription = "This is a Java Server SDK test";
+                final String channelDescriptionUpdate = "This is a Java Server SDK test update";
 
-                Matchmaking wMatchmaking = new Matchmaking(_sdk);
+                Matchmaking matchmakingWrapper = new Matchmaking(sdk);
 
                 // Create a channel
 
-                ModelsChannelRequest channelReq = ModelsChannelRequest.builder()
+                final ModelsChannelRequest createChannel = ModelsChannelRequest.builder()
                                 .deployment("")
                                 .description(channelDescription)
                                 .findMatchTimeoutSeconds(3600)
@@ -1491,85 +1477,86 @@ class TestIntegration {
                                                 .build())
                                 .build();
 
-                ModelsCreateChannelResponse cResp = wMatchmaking.createChannelHandler(CreateChannelHandler.builder()
-                                .namespace(namespace)
-                                .body(channelReq)
-                                .build());
+                final ModelsCreateChannelResponse createChannelResult = matchmakingWrapper
+                                .createChannelHandler(CreateChannelHandler.builder()
+                                                .namespace(this.namespace)
+                                                .body(createChannel)
+                                                .build());
 
-                Assertions.assertNotNull(cResp);
-                Assertions.assertEquals(channelName, cResp.getGameMode());
+                assertNotNull(createChannelResult);
+                assertEquals(channelName, createChannelResult.getGameMode());
 
                 // Get a channel
 
-                ModelsChannelV1 gResp = wMatchmaking.getSingleMatchmakingChannel(GetSingleMatchmakingChannel.builder()
-                                .namespace(namespace)
-                                .channelName(channelName)
-                                .build());
+                final ModelsChannelV1 getSingleChannelResult1 = matchmakingWrapper
+                                .getSingleMatchmakingChannel(GetSingleMatchmakingChannel.builder()
+                                                .namespace(this.namespace)
+                                                .channelName(channelName)
+                                                .build());
 
-                Assertions.assertNotNull(gResp);
-                Assertions.assertEquals(channelDescription, gResp.getDescription());
+                assertNotNull(getSingleChannelResult1);
+                assertEquals(channelDescription, getSingleChannelResult1.getDescription());
 
                 // Get sessions in channel
 
-                List<ModelsMatchmakingResult> mResults = wMatchmaking
+                final List<ModelsMatchmakingResult> getSessionsResult = matchmakingWrapper
                                 .getAllSessionsInChannel(GetAllSessionsInChannel.builder()
-                                                .namespace(namespace)
+                                                .namespace(this.namespace)
                                                 .channelName(channelName)
                                                 .build());
-                Assertions.assertNotNull(mResults);
+                assertNotNull(getSessionsResult);
 
                 // Update a channel
 
-                ModelsUpdateChannelRequest updateChannel = ModelsUpdateChannelRequest.builder()
-                                .description(channelDescriptionUpdated)
+                final ModelsUpdateChannelRequest updateChannel = ModelsUpdateChannelRequest.builder()
+                                .description(channelDescriptionUpdate)
                                 .build();
 
-                wMatchmaking.updateMatchmakingChannel(UpdateMatchmakingChannel.builder()
-                                .namespace(namespace)
+                matchmakingWrapper.updateMatchmakingChannel(UpdateMatchmakingChannel.builder()
+                                .namespace(this.namespace)
                                 .channelName(channelName)
                                 .body(updateChannel)
                                 .build());
 
-                // Get a channel back to confirm update
+                // Confirm if channel is updated
 
-                gResp = wMatchmaking.getSingleMatchmakingChannel(GetSingleMatchmakingChannel.builder()
-                                .namespace(namespace)
-                                .channelName(channelName)
-                                .build());
-                Assertions.assertNotNull(gResp);
-                Assertions.assertEquals(channelDescriptionUpdated, gResp.getDescription());
+                final ModelsChannelV1 getSingleChannelResult2 = matchmakingWrapper
+                                .getSingleMatchmakingChannel(GetSingleMatchmakingChannel.builder()
+                                                .namespace(this.namespace)
+                                                .channelName(channelName)
+                                                .build());
+                assertNotNull(getSingleChannelResult2);
+                assertEquals(channelDescriptionUpdate, getSingleChannelResult2.getDescription());
 
                 // Delete a channel
 
-                wMatchmaking.deleteChannelHandler(DeleteChannelHandler.builder()
-                                .namespace(namespace)
+                matchmakingWrapper.deleteChannelHandler(DeleteChannelHandler.builder()
+                                .namespace(this.namespace)
                                 .channel(channelName)
                                 .build());
 
-                // Finally, recheck if the data is truly deleted
+                // Confirm if channel is deleted
 
-                Assertions.assertThrows(HttpResponseException.class, () -> {
-                        wMatchmaking.getSingleMatchmakingChannel(GetSingleMatchmakingChannel.builder()
-                                        .namespace(namespace)
+                assertThrows(HttpResponseException.class, () -> {
+                        matchmakingWrapper.getSingleMatchmakingChannel(GetSingleMatchmakingChannel.builder()
+                                        .namespace(this.namespace)
                                         .channelName(channelName)
                                         .build());
                 });
         }
 
         public void testLobby() throws Exception {
-                final String namespace = System.getenv("AB_NAMESPACE");
-
-                Notification wLobbyNotification = new Notification(_sdk);
+                final Notification notifWrapper = new Notification(sdk);
 
                 // Sending a free from notification to all user(s)
 
-                ModelFreeFormNotificationRequest notifBody = ModelFreeFormNotificationRequest.builder()
-                                .topic("csharp_sdk_test")
-                                .message("This is integration test for CSharp Server SDK.")
+                final ModelFreeFormNotificationRequest notifBody = ModelFreeFormNotificationRequest.builder()
+                                .topic("java_sdk_test")
+                                .message("This is a Java Server SDK test")
                                 .build();
 
-                wLobbyNotification.freeFormNotification(FreeFormNotification.builder()
-                                .namespace(namespace)
+                notifWrapper.freeFormNotification(FreeFormNotification.builder()
+                                .namespace(this.namespace)
                                 .body(notifBody)
                                 .build());
         }
@@ -1579,7 +1566,7 @@ class TestIntegration {
                 final CountDownLatch response = new CountDownLatch(1);
                 final StringBuilder responseMessage = new StringBuilder();
 
-                WebSocketListener listener = new WebSocketListener() {
+                final WebSocketListener listener = new WebSocketListener() {
                         @Override
                         public void onMessage(@NotNull WebSocket webSocket, @NotNull String text) {
                                 if (response.getCount() > 0) {
@@ -1589,12 +1576,12 @@ class TestIntegration {
                         }
                 };
 
-                OkhttpWebSocketClient ws = OkhttpWebSocketClient.create(
+                final OkhttpWebSocketClient ws = OkhttpWebSocketClient.create(
                                 new DefaultConfigRepository(),
                                 DefaultTokenRepository.getInstance(),
                                 listener);
 
-                String requestMessage = PartyCreateRequest.builder()
+                final String requestMessage = PartyCreateRequest.builder()
                                 .id(request_id)
                                 .build()
                                 .toWSM();
@@ -1611,16 +1598,13 @@ class TestIntegration {
         }
 
         @AfterAll
-        static void tear() {
-                boolean isLogoutOk;
-
-                isLogoutOk = _sdk.logout();
-
-                String token = _sdk.getSdkConfiguration().getTokenRepository()
+        public void tear() {
+                final boolean isLogoutOk = sdk.logout();
+                final String token = sdk.getSdkConfiguration().getTokenRepository()
                                 .getToken();
 
-                Assertions.assertTrue(isLogoutOk);
-                Assertions.assertTrue(token == null || token.isEmpty());
+                assertTrue(isLogoutOk);
+                assertTrue(token == null || token.isEmpty());
         }
 
         private String GenerateRandomId(int length) {
@@ -1631,16 +1615,16 @@ class TestIntegration {
                 if (length < 8) {
                         throw new IllegalArgumentException("Length must be >= 8");
                 }
-                String part1 = GetRandomString("ABCDEFGHIJKLMNOPQRSTUVW", (length - 2) / 2);
-                String part2 = GetRandomString("abcdefghijklmnopqrstuvw", (length - 2) / 2);
-                String part3 = GetRandomString("0123456789", 1);
-                String part4 = GetRandomString("!@#$%^&*()", 1);
+                final String part1 = GetRandomString("ABCDEFGHIJKLMNOPQRSTUVW", (length - 2) / 2);
+                final String part2 = GetRandomString("abcdefghijklmnopqrstuvw", (length - 2) / 2);
+                final String part3 = GetRandomString("0123456789", 1);
+                final String part4 = GetRandomString("!@#$%^&*()", 1);
                 return part1 + part2 + part3 + part4;
         }
 
         private String GetRandomString(String characters, int length) {
                 final Random random = new Random();
-                char[] result = new char[length];
+                final char[] result = new char[length];
                 for (int i = 0; i < result.length; i++) {
                         result[i] = characters.charAt(random.nextInt(characters.length()));
                 }
