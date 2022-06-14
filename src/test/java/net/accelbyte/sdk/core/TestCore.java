@@ -46,20 +46,16 @@ import static org.junit.jupiter.api.Assertions.fail;
 @Tag("test-core")
 class TestCore {
     private final OkhttpClient httpClient = new OkhttpClient();
-
     private final ReliableHttpClient reliableHttpClient = new ReliableHttpClient(null);
-
     private final TokenRepository tokenRepository = DefaultTokenRepository.getInstance();
-
     private final ConfigRepository httpbinConfigRepository = new HttpbinConfigRepository();
-
     private final ConfigRepository mockServerConfigRepository = new MockServerConfigRepository();
 
     @ParameterizedTest
     @ValueSource(strings = { "GET", "POST", "PUT", "PATCH", "DELETE" })
-    void testHttpRequestMethod(String input) throws Exception {
-        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
-        HttpbinOperation op = new HttpbinOperation() {
+    public void testHttpRequestMethod(String input) throws Exception {
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        final HttpbinOperation op = new HttpbinOperation() {
             @Override
             public String getMethod() {
                 return input;
@@ -70,8 +66,8 @@ class TestCore {
                 return "/anything";
             }
         };
-        HttpResponse res = sdk.runRequest(op);
-        HttpbinAnythingResponse result = op.parseResponse(
+        final HttpResponse res = sdk.runRequest(op);
+        final HttpbinAnythingResponse result = op.parseResponse(
                 res.getCode(),
                 res.getContentType(),
                 res.getPayload());
@@ -80,10 +76,10 @@ class TestCore {
     }
 
     @Test
-    void testHttpRequestPathParams() throws Exception {
+    public void testHttpRequestPathParams() throws Exception {
         final String testParams = "abc/def:123?x=1&y=2";
-        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
-        HttpbinOperation op = new HttpbinOperation() {
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        final HttpbinOperation op = new HttpbinOperation() {
             @Override
             public String getMethod() {
                 return "POST";
@@ -99,8 +95,8 @@ class TestCore {
                 return Collections.singletonMap("test_path_param", testParams);
             }
         };
-        HttpResponse res = sdk.runRequest(op);
-        HttpbinAnythingResponse result = op.parseResponse(
+        final HttpResponse res = sdk.runRequest(op);
+        final HttpbinAnythingResponse result = op.parseResponse(
                 res.getCode(),
                 res.getContentType(),
                 res.getPayload());
@@ -110,11 +106,11 @@ class TestCore {
     }
 
     @Test
-    void testHttpRequestQueryParams() throws Exception {
+    public void testHttpRequestQueryParams() throws Exception {
         final Map<String, List<String>> testParams = Collections.singletonMap("?key=1&",
                 Arrays.asList("?value=1&"));
-        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
-        HttpbinOperation op = new HttpbinOperation() {
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        final HttpbinOperation op = new HttpbinOperation() {
             @Override
             public String getMethod() {
                 return "GET";
@@ -130,8 +126,8 @@ class TestCore {
                 return testParams;
             }
         };
-        HttpResponse res = sdk.runRequest(op);
-        HttpbinAnythingResponse result = op.parseResponse(
+        final HttpResponse res = sdk.runRequest(op);
+        final HttpbinAnythingResponse result = op.parseResponse(
                 res.getCode(),
                 res.getContentType(),
                 res.getPayload());
@@ -147,11 +143,11 @@ class TestCore {
 
     @ParameterizedTest
     @MethodSource("queryParamsArrayFormats")
-    void testHttpRequestQueryParamsArray(String format) throws Exception {
+    public void testHttpRequestQueryParamsArray(String format) throws Exception {
         final Map<String, List<String>> testParams = Collections.singletonMap("?key=1&",
                 Arrays.asList("?value\"1a&", "?value\"1b&"));
-        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
-        HttpbinOperation op = new HttpbinOperation() {
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        final HttpbinOperation op = new HttpbinOperation() {
             @Override
             public String getMethod() {
                 return "GET";
@@ -172,8 +168,8 @@ class TestCore {
                 return Collections.singletonMap("?key=1&", format);
             }
         };
-        HttpResponse res = sdk.runRequest(op);
-        HttpbinAnythingResponse result = op.parseResponse(
+        final HttpResponse res = sdk.runRequest(op);
+        final HttpbinAnythingResponse result = op.parseResponse(
                 res.getCode(),
                 res.getContentType(),
                 res.getPayload());
@@ -199,9 +195,9 @@ class TestCore {
 
     @ParameterizedTest
     @ValueSource(strings = { "GET" })
-    void testHttpRequestUserAgent(String input) throws Exception {
-        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
-        HttpbinOperation op = new HttpbinOperation() {
+    public void testHttpRequestUserAgent(String input) throws Exception {
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        final HttpbinOperation op = new HttpbinOperation() {
             @Override
             public String getMethod() {
                 return input;
@@ -212,20 +208,20 @@ class TestCore {
                 return "/anything";
             }
         };
-        HttpResponse res = sdk.runRequest(op);
-        HttpbinAnythingResponse result = op.parseResponse(
+        final HttpResponse res = sdk.runRequest(op);
+        final HttpbinAnythingResponse result = op.parseResponse(
                 res.getCode(),
                 res.getContentType(),
                 res.getPayload());
         assertNotNull(result);
         assertNotNull(result.getHeaders().get(HttpHeaders.USER_AGENT));
-        String pattern = "(.*)/(.*) \\((.*)/(.*)\\)";
-        Pattern r = Pattern.compile(pattern);
-        Matcher m = r.matcher(result.getHeaders().get(HttpHeaders.USER_AGENT));
+        final String pattern = "(.*)/(.*) \\((.*)/(.*)\\)";
+        final Pattern r = Pattern.compile(pattern);
+        final Matcher m = r.matcher(result.getHeaders().get(HttpHeaders.USER_AGENT));
         assertTrue(m.find());
         assertEquals(SDKInfo.getInstance().getSdkName(), m.group(1));
         assertEquals(SDKInfo.getInstance().getSdkVersion(), m.group(2));
-        AppInfo appInfo = httpbinConfigRepository
+        final AppInfo appInfo = httpbinConfigRepository
                 .getAppInfo();
         assertEquals(appInfo.getAppName(), m.group(3));
         assertEquals(appInfo.getAppVersion(), m.group(4));
@@ -233,9 +229,9 @@ class TestCore {
 
     @ParameterizedTest
     @ValueSource(strings = { "GET" })
-    void testHttpRequestAmazonTraceId(String input) throws Exception {
-        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
-        HttpbinOperation op = new HttpbinOperation() {
+    public void testHttpRequestAmazonTraceId(String input) throws Exception {
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        final HttpbinOperation op = new HttpbinOperation() {
             @Override
             public String getMethod() {
                 return input;
@@ -246,23 +242,23 @@ class TestCore {
                 return "/anything";
             }
         };
-        HttpResponse res = sdk.runRequest(op);
-        HttpbinAnythingResponse result = op.parseResponse(
+        final HttpResponse res = sdk.runRequest(op);
+        final HttpbinAnythingResponse result = op.parseResponse(
                 res.getCode(),
                 res.getContentType(),
                 res.getPayload());
         assertNotNull(result);
         assertNotNull(result.getHeaders().get(HttpHeaders.X_AMZN_TRACE_ID));
-        String pattern = "Root=.+";
-        Pattern r = Pattern.compile(pattern);
-        Matcher m = r.matcher(result.getHeaders().get(HttpHeaders.X_AMZN_TRACE_ID));
+        final String pattern = "Root=.+";
+        final Pattern r = Pattern.compile(pattern);
+        final Matcher m = r.matcher(result.getHeaders().get(HttpHeaders.X_AMZN_TRACE_ID));
         assertTrue(m.find());
     }
 
     @Test
-    void testHttpRequestCookie() throws Exception {
-        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
-        HttpbinOperation op = new HttpbinOperation() {
+    public void testHttpRequestCookie() throws Exception {
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        final HttpbinOperation op = new HttpbinOperation() {
             @Override
             public String getMethod() {
                 return "GET";
@@ -282,12 +278,12 @@ class TestCore {
                 return cookies;
             }
         };
-        HttpResponse res = sdk.runRequest(op);
-        HttpbinAnythingResponse result = op.parseResponse(
+        final HttpResponse res = sdk.runRequest(op);
+        final HttpbinAnythingResponse result = op.parseResponse(
                 res.getCode(),
                 res.getContentType(),
                 res.getPayload());
-        String cookies = result.headers.get(HttpHeaders.COOKIE);
+        final String cookies = result.headers.get(HttpHeaders.COOKIE);
         assertNotNull(cookies); // Make sure cookie header is present
         for (Map.Entry<String, String> c : op.getCookieParams().entrySet()) {
             // Make sure each cookie key and value is escaped
@@ -298,13 +294,13 @@ class TestCore {
     }
 
     @Test
-    void testHttpRequestCookieAccessToken() throws Exception {
+    public void testHttpRequestCookieAccessToken() throws Exception {
         final String token = "token12345";
-        AccelByteSDK sdk = new AccelByteSDK(httpClient,
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient,
                 tokenRepository,
                 httpbinConfigRepository);
         tokenRepository.storeToken(token);
-        HttpbinOperation op = new HttpbinOperation() {
+        final HttpbinOperation op = new HttpbinOperation() {
             @Override
             public String getMethod() {
                 return "GET";
@@ -316,21 +312,21 @@ class TestCore {
             }
         };
         op.getSecurities().add("Cookie");
-        HttpResponse res = sdk.runRequest(op);
-        HttpbinAnythingResponse result = op.parseResponse(
+        final HttpResponse res = sdk.runRequest(op);
+        final HttpbinAnythingResponse result = op.parseResponse(
                 res.getCode(),
                 res.getContentType(),
                 res.getPayload());
-        String cookies = result.headers.get(HttpHeaders.COOKIE);
+        final String cookies = result.headers.get(HttpHeaders.COOKIE);
         assertNotNull(cookies); // Make sure cookie header is present
         assertTrue(cookies.contains("access_token=" + token));
     }
 
     @ParameterizedTest
     @ValueSource(strings = { "POST" })
-    void testHttpRequestForm(String input) throws Exception {
-        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
-        HttpbinOperation op = new HttpbinOperation() {
+    public void testHttpRequestForm(String input) throws Exception {
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        final HttpbinOperation op = new HttpbinOperation() {
             @Override
             public String getMethod() {
                 return input;
@@ -349,8 +345,8 @@ class TestCore {
                 return params;
             }
         };
-        HttpResponse res = sdk.runRequest(op);
-        HttpbinAnythingResponse result = op.parseResponse(
+        final HttpResponse res = sdk.runRequest(op);
+        final HttpbinAnythingResponse result = op.parseResponse(
                 res.getCode(),
                 res.getContentType(),
                 res.getPayload());
@@ -361,9 +357,9 @@ class TestCore {
 
     @ParameterizedTest
     @ValueSource(strings = { "POST" })
-    void testHttpRequestJson(String input) throws Exception {
-        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
-        HttpbinOperation op = new HttpbinOperation() {
+    public void testHttpRequestJson(String input) throws Exception {
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        final HttpbinOperation op = new HttpbinOperation() {
             @Override
             public String getMethod() {
                 return input;
@@ -379,13 +375,13 @@ class TestCore {
                 return new DummyGameRecord("1", "2", 3);
             }
         };
-        HttpResponse res = sdk.runRequest(op);
-        HttpbinAnythingResponse result = op.parseResponse(
+        final HttpResponse res = sdk.runRequest(op);
+        final HttpbinAnythingResponse result = op.parseResponse(
                 res.getCode(),
                 res.getContentType(),
                 res.getPayload());
         assertNotNull(result);
-        DummyGameRecord ret = new ObjectMapper().readValue(result.getData(), DummyGameRecord.class);
+        final DummyGameRecord ret = new ObjectMapper().readValue(result.getData(), DummyGameRecord.class);
         assertEquals("1", ret.getFoo());
         assertEquals("2", ret.getFooBar());
         assertEquals(3, ret.getFooValue());
@@ -393,9 +389,9 @@ class TestCore {
 
     @ParameterizedTest
     @ValueSource(strings = { "POST" })
-    void testHttpRequestMultipart(String input) throws Exception {
-        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
-        HttpbinOperation op = new HttpbinOperation() {
+    public void testHttpRequestMultipart(String input) throws Exception {
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        final HttpbinOperation op = new HttpbinOperation() {
             @Override
             public String getMethod() {
                 return input;
@@ -423,8 +419,8 @@ class TestCore {
                 }
             }
         };
-        HttpResponse res = sdk.runRequest(op);
-        HttpbinAnythingResponse result = op.parseResponse(
+        final HttpResponse res = sdk.runRequest(op);
+        final HttpbinAnythingResponse result = op.parseResponse(
                 res.getCode(),
                 res.getContentType(),
                 res.getPayload());
@@ -435,10 +431,10 @@ class TestCore {
 
     @ParameterizedTest
     @ValueSource(strings = { "POST" })
-    void testHttpResponseLocationQuery(String input) throws Exception {
+    public void testHttpResponseLocationQuery(String input) throws Exception {
         final String redirectUrl = "https://demo.accelbyte.io/admin?code=1234567890&state=";
-        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
-        HttpbinOperation op = new HttpbinOperation() {
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        final HttpbinOperation op = new HttpbinOperation() {
             @Override
             public String getMethod() {
                 return input;
@@ -455,16 +451,16 @@ class TestCore {
                         Arrays.asList(redirectUrl));
             }
         };
-        HttpResponse res = sdk.runRequest(op);
-        String location = Helper.convertInputStreamToString(res.getPayload());
+        final HttpResponse res = sdk.runRequest(op);
+        final String location = Helper.convertInputStreamToString(res.getPayload());
         assertEquals(redirectUrl, location);
     }
 
     @ParameterizedTest
     @ValueSource(strings = { "GET" })
-    void testHttpResponseBodyEmpty(String input) throws Exception {
-        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
-        HttpbinOperation op = new HttpbinOperation() {
+    public void testHttpResponseBodyEmpty(String input) throws Exception {
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        final HttpbinOperation op = new HttpbinOperation() {
             @Override
             public String getMethod() {
                 return input;
@@ -475,16 +471,16 @@ class TestCore {
                 return "/status/200";
             }
         };
-        HttpResponse res = sdk.runRequest(op);
+        final HttpResponse res = sdk.runRequest(op);
         assertNotNull(res);
         assertEquals(200, res.getCode());
         assertNull(res.getPayload());
     }
 
     @Test
-    void testHttpResponseBodyJson() throws Exception {
-        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
-        HttpbinOperation op = new HttpbinOperation() {
+    public void testHttpResponseBodyJson() throws Exception {
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        final HttpbinOperation op = new HttpbinOperation() {
             @Override
             public String getMethod() {
                 return "GET";
@@ -495,7 +491,7 @@ class TestCore {
                 return "/json";
             }
         };
-        HttpResponse res = sdk.runRequest(op);
+        final HttpResponse res = sdk.runRequest(op);
         assertNotNull(res);
         assertEquals(200, res.getCode()); // Httpbin JSON can only return 200
         assertNotNull(res.getPayload());
@@ -504,9 +500,9 @@ class TestCore {
     }
 
     @Test
-    void testHttpResponseBodyBinary() throws Exception {
-        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
-        HttpbinOperation op = new HttpbinOperation() {
+    public void testHttpResponseBodyBinary() throws Exception {
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        final HttpbinOperation op = new HttpbinOperation() {
             @Override
             public String getMethod() {
                 return "GET";
@@ -526,9 +522,9 @@ class TestCore {
     }
 
     @Test
-    void testHttpResponseBodyHtml() throws Exception {
-        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
-        HttpbinOperation op = new HttpbinOperation() {
+    public void testHttpResponseBodyHtml() throws Exception {
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        final HttpbinOperation op = new HttpbinOperation() {
             @Override
             public String getMethod() {
                 return "GET";
@@ -539,7 +535,7 @@ class TestCore {
                 return "/html";
             }
         };
-        HttpResponse res = sdk.runRequest(op);
+        final HttpResponse res = sdk.runRequest(op);
         assertNotNull(res);
         assertEquals(200, res.getCode()); // Httpbin JSON can only return 200
         assertNotNull(res.getPayload());
@@ -549,9 +545,9 @@ class TestCore {
 
     @ParameterizedTest
     @ValueSource(ints = { 403, 404, 503 })
-    void testHttpResponseStatusError(int input) throws Exception {
-        AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
-        HttpbinOperation op = new HttpbinOperation() {
+    public void testHttpResponseStatusError(int input) throws Exception {
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
+        final HttpbinOperation op = new HttpbinOperation() {
             @Override
             public String getMethod() {
                 return "GET";
@@ -569,7 +565,7 @@ class TestCore {
     }
 
     @Test
-    void testHttpRetryStatus() throws Exception {
+    public void testHttpRetryStatus() throws Exception {
         final MockServerResetResponseOperation mockResetOp = new MockServerResetResponseOperation();
         final MockServerConfigureResponseOperation mockConfigureOp = new MockServerConfigureResponseOperation();
         final MockServerResponseConfiguration mockConf = new MockServerResponseConfiguration();
@@ -604,11 +600,11 @@ class TestCore {
         retryPolicy.setCallTimeout(3000);
         retryPolicy.setMaxRetry(3);
         retryPolicy.setRetryInterval(2000);
-        
+
         final AccelByteSDK sdk = new AccelByteSDK(reliableHttpClient, tokenRepository, mockServerConfigRepository);
 
         reliableHttpClient.setHttpRetryPolicy(retryPolicy);
-        
+
         final GetUserFriendsUpdated op = GetUserFriendsUpdated.builder()
                 .namespace("test")
                 .build();
@@ -643,7 +639,7 @@ class TestCore {
     }
 
     @Test
-    void testHttpRetryTimeout() throws Exception {
+    public void testHttpRetryTimeout() throws Exception {
         final MockServerResetResponseOperation mockResetOp = new MockServerResetResponseOperation();
         final MockServerConfigureResponseOperation mockConfigureOp = new MockServerConfigureResponseOperation();
         final MockServerResponseConfiguration mockConf = new MockServerResponseConfiguration();
@@ -677,11 +673,11 @@ class TestCore {
         retryPolicy.setCallTimeout(3000);
         retryPolicy.setMaxRetry(3);
         retryPolicy.setRetryInterval(2000);
-        
+
         final AccelByteSDK sdk = new AccelByteSDK(reliableHttpClient, tokenRepository, mockServerConfigRepository);
 
         reliableHttpClient.setHttpRetryPolicy(retryPolicy);
-        
+
         final GetUserFriendsUpdated op = GetUserFriendsUpdated.builder()
                 .namespace("test")
                 .build();
