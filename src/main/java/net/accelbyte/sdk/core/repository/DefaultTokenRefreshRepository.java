@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class DefaultTokenRefreshRepository extends DefaultTokenRepository implements TokenRefresh {
     private Date tokenExpiresAt = null;
-    private String refreshToken = "";
+    private String refreshToken = null;
     private Date refreshTokenExpiresAt = null;
 
     @Override

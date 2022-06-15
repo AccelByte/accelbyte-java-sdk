@@ -15,6 +15,7 @@ import net.accelbyte.sdk.api.iam.wrappers.OAuth20;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20Extension;
 import net.accelbyte.sdk.core.client.HttpClient;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
+import net.accelbyte.sdk.core.repository.TokenRefresh;
 import net.accelbyte.sdk.core.repository.TokenRepository;
 import net.accelbyte.sdk.core.util.Helper;
 import okhttp3.Credentials;
@@ -24,7 +25,9 @@ import org.apache.http.client.utils.URLEncodedUtils;
 import java.net.URI;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -147,6 +150,7 @@ public class AccelByteSDK {
                     .findFirst()
                     .map(NameValuePair::getValue)
                     .orElse(null);
+            final Instant utcNow = Instant.now();
             final TokenGrantV3 tokenGrantV3 = TokenGrantV3.builder()
                     .clientId(clientId)
                     .code(code)
@@ -154,7 +158,14 @@ public class AccelByteSDK {
                     .grantTypeFromEnum(TokenGrantV3.GrantType.AuthorizationCode)
                     .build();
             final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
-            this.sdkConfiguration.getTokenRepository().storeToken(token.getAccessToken());
+            final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
+            tokenRepository.storeToken(token.getAccessToken());
+            if (tokenRepository instanceof TokenRefresh) {
+                final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
+                tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getExpiresIn())));
+                tokenRefresh.storeRefreshToken(token.getRefreshToken());
+                tokenRefresh.setRefreshTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getRefreshExpiresIn())));
+            }
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -164,12 +175,20 @@ public class AccelByteSDK {
 
     public boolean loginClient() {
         try {
+            final Instant utcNow = Instant.now();
+            final OAuth20 oAuth20 = new OAuth20(this);
             final TokenGrantV3 tokenGrantV3 = TokenGrantV3.builder()
                     .grantTypeFromEnum(TokenGrantV3.GrantType.ClientCredentials)
                     .build();
-            final OAuth20 oAuth20 = new OAuth20(this);
             final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
-            this.sdkConfiguration.getTokenRepository().storeToken(token.getAccessToken());
+            final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
+            tokenRepository.storeToken(token.getAccessToken());
+            if (tokenRepository instanceof TokenRefresh) {
+                final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
+                tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getExpiresIn())));
+                tokenRefresh.storeRefreshToken(null);
+                tokenRefresh.setRefreshTokenExpiresAt(null);
+            }
             return true;
         } catch (Exception e) {
             e.printStackTrace();
