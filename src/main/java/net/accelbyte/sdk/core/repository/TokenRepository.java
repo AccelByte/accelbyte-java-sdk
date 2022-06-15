@@ -6,12 +6,10 @@
 
 package net.accelbyte.sdk.core.repository;
 
-import java.io.IOException;
-
 public interface TokenRepository {
+    void storeToken(String accessToken);
+
     String getToken();
 
-    void removeToken() throws IOException;
-
-    void storeToken(String token) throws IOException;
+    void removeToken();
 }

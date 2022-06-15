@@ -21,7 +21,6 @@ import okhttp3.Credentials;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 
-import java.io.IOException;
 import java.net.URI;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -179,12 +178,7 @@ public class AccelByteSDK {
     }
 
     public boolean logout() {
-        try {
-            this.sdkConfiguration.getTokenRepository().removeToken();
-            return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
+        this.sdkConfiguration.getTokenRepository().removeToken();
+        return true;
     }
 }
