@@ -7,9 +7,9 @@
 package net.accelbyte.sdk.core.repository;
 
 public class DefaultTokenRepository implements TokenRepository {
-    private String token = "";
+    private String accessToken = "";
 
-    private DefaultTokenRepository() {
+    protected DefaultTokenRepository() {
     }
 
     private static final class InstanceHolder {
@@ -22,16 +22,16 @@ public class DefaultTokenRepository implements TokenRepository {
 
     @Override
     public String getToken() {
-        return this.token;
+        return this.accessToken;
     }
 
     @Override
     public void removeToken() {
-        this.token = "";
+        this.accessToken = "";
     }
 
     @Override
-    public void storeToken(String token) {
-        this.token = token;
+    public void storeToken(String accessToken) {
+        this.accessToken = accessToken;
     }
 }
