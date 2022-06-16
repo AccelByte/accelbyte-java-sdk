@@ -35,6 +35,7 @@ public class AccelByteSDK {
     private static final String COOKIE_KEY_ACCESS_TOKEN = "access_token";
     private static final String LOGIN_USER_SCOPE = "commerce account social publishing analytics";
     private static final int REFRESH_TOKEN_EXPIRY_THRESHOLD = 300; // 5 minutes
+    private static Object refreshTokenLock = new Object();
 
     private AccelByteConfig sdkConfiguration;
 
@@ -60,84 +61,42 @@ public class AccelByteSDK {
             selectedSecurity = operation.getSecurities().get(0);
         }
 
+        final ConfigRepository configRepository = sdkConfiguration.getConfigRepository();
         final TokenRepository tokenRepository = sdkConfiguration.getTokenRepository();
-
-        // TODO Not thread-safe
-        // TODO broken up to separate method
-        // TODO Handle token refresh error, let developer able to check
-        if (Operation.Security.Bearer.toString().equals(selectedSecurity)
-                || Operation.Security.Cookie.toString().equals(selectedSecurity)) {
-            final String accessToken = tokenRepository.getToken();
-            if (accessToken != null && !"".equals(accessToken)) {
-                if (tokenRepository instanceof TokenRefresh) {
-                    final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
-                    final Instant utcNow = Instant.now();
-                    final boolean isAccessTokenExpired = (tokenRefresh.getTokenExpiresAt().getTime()
-                            - Date.from(utcNow).getTime()) / 1000 < REFRESH_TOKEN_EXPIRY_THRESHOLD;
-                    if (isAccessTokenExpired) {
-                        final String refreshToken = tokenRefresh.getRefreshToken();
-                        if (refreshToken != null && !"".equals(refreshToken)) {
-                            final boolean isRefreshTokenExpired = (tokenRefresh.getRefreshTokenExpiresAt().getTime()
-                                    - Date.from(utcNow).getTime()) / 1000 < REFRESH_TOKEN_EXPIRY_THRESHOLD;
-                            if (!isRefreshTokenExpired) {
-                                tokenRepository.removeToken();
-                                final OAuth20 oAuth20 = new OAuth20(this);
-                                final TokenGrantV3 tokenGrantV3 = TokenGrantV3.builder()
-                                        .refreshToken(refreshToken)
-                                        .grantTypeFromEnum(TokenGrantV3.GrantType.RefreshToken)
-                                        .build();
-                                final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
-                                tokenRepository.storeToken(token.getAccessToken());
-                                if (tokenRepository instanceof TokenRefresh) {
-                                    tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getExpiresIn())));
-                                    tokenRefresh.storeRefreshToken(token.getRefreshToken());
-                                    tokenRefresh.setRefreshTokenExpiresAt(
-                                            Date.from(utcNow.plusSeconds(token.getRefreshExpiresIn())));
-                                }
-                            }
-                        } else {
-                            tokenRepository.removeToken();
-                            this.loginClient();
-                        }
-                    }
-                }
-            }
-        }
-
         final HttpHeaders headers = new HttpHeaders();
         final Map<String, String> cookies = operation.getCookieParams();
         final String accessToken = tokenRepository.getToken();
 
         if (Operation.Security.Basic.toString().equals(selectedSecurity)) {
-            final String clientId = sdkConfiguration.getConfigRepository()
+            final String clientId = configRepository
                     .getClientId();
-            final String clientSecret = sdkConfiguration.getConfigRepository()
+            final String clientSecret = configRepository
                     .getClientSecret();
             headers.put(HttpHeaders.AUTHORIZATION,
                     Credentials.basic(clientId, clientSecret));
         } else if (Operation.Security.Bearer.toString().equals(selectedSecurity)) {
+            this.refreshToken();
             if (accessToken != null && !accessToken.equals("")) {
                 headers.put(HttpHeaders.AUTHORIZATION,
                         Operation.Security.Bearer.toString() + " " + accessToken);
             }
         } else if (Operation.Security.Cookie.toString().equals(selectedSecurity)) {
+            this.refreshToken();
             if (accessToken != null && !accessToken.equals("")) {
                 cookies.put(COOKIE_KEY_ACCESS_TOKEN, accessToken);
             }
         }
 
-        if (sdkConfiguration.getConfigRepository().isAmazonTraceId()) {
-            final String version = sdkConfiguration.getConfigRepository()
-                    .getAmazonTraceIdVersion();
+        if (configRepository.isAmazonTraceId()) {
+            final String version = configRepository.getAmazonTraceIdVersion();
             headers.put(HttpHeaders.X_AMZN_TRACE_ID, Helper
                     .generateAmazonTraceId(version));
         }
 
-        if (sdkConfiguration.getConfigRepository().isClientInfoHeader()) {
+        if (configRepository.isClientInfoHeader()) {
             final String sdkName = SDKInfo.getInstance().getSdkName();
             final String sdkVersion = SDKInfo.getInstance().getSdkVersion();
-            final AppInfo appInfo = sdkConfiguration.getConfigRepository()
-                    .getAppInfo();
+            final AppInfo appInfo = configRepository.getAppInfo();
             final String appName = appInfo.getAppName();
             final String appVersion = appInfo.getAppVersion();
             final String userAgent = String.format("%s/%s (%s/%s)", sdkName,
@@ -197,7 +156,7 @@ public class AccelByteSDK {
                     .build();
             final String authenticationResponse = oAuth20Extension
                     .userAuthenticationV3(userAuthenticationV3);
-                    
+
             final List<NameValuePair> authenticationParams = URLEncodedUtils.parse(
                     new URI(authenticationResponse), StandardCharsets.UTF_8);
             final String code = authenticationParams.stream()
@@ -250,7 +209,7 @@ public class AccelByteSDK {
                 tokenRefresh.storeRefreshToken(null);
                 tokenRefresh.setRefreshTokenExpiresAt(null);
             }
-            
+
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -258,8 +217,76 @@ public class AccelByteSDK {
         return false;
     }
 
+    public boolean refreshToken() {
+        synchronized (refreshTokenLock) {
+            final TokenRepository tokenRepository = sdkConfiguration.getTokenRepository();
+            final String accessToken = tokenRepository.getToken();
+
+            if (accessToken == null || "".equals(accessToken)) {
+                return false; // Cannot perform token refresh
+            }
+
+            if (tokenRepository instanceof TokenRefresh) {
+                return false; // Cannot perform token refresh
+            }
+
+            final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
+
+            final Instant utcNow = Instant.now();
+            final boolean isAccessTokenExpired = (tokenRefresh.getTokenExpiresAt().getTime()
+                    - Date.from(utcNow).getTime()) / 1000 < REFRESH_TOKEN_EXPIRY_THRESHOLD;
+
+            if (!isAccessTokenExpired) {
+                return true; // Token refresh not required
+            }
+
+            final String refreshToken = tokenRefresh.getRefreshToken();
+            final boolean isLoginUser = refreshToken != null && !"".equals(refreshToken);
+
+            if (isLoginUser) {
+                final boolean isRefreshTokenExpired = (tokenRefresh.getRefreshTokenExpiresAt().getTime()
+                        - Date.from(utcNow).getTime()) / 1000 < REFRESH_TOKEN_EXPIRY_THRESHOLD;
+
+                if (isRefreshTokenExpired) {
+                    return false; // Cannot perform token refresh
+                }
+
+                final OAuth20 oAuth20 = new OAuth20(this);
+                final TokenGrantV3 tokenGrantV3 = TokenGrantV3.builder()
+                        .refreshToken(refreshToken)
+                        .grantTypeFromEnum(TokenGrantV3.GrantType.RefreshToken)
+                        .build();
+                OauthmodelTokenResponseV3 token;
+                try {
+                    tokenRepository.removeToken();
+                    token = oAuth20.tokenGrantV3(tokenGrantV3);
+                    tokenRepository.storeToken(token.getAccessToken());
+                    if (tokenRepository instanceof TokenRefresh) {
+                        tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getExpiresIn())));
+                        tokenRefresh.storeRefreshToken(token.getRefreshToken());
+                        tokenRefresh.setRefreshTokenExpiresAt(
+                                Date.from(utcNow.plusSeconds(token.getRefreshExpiresIn())));
+                    }
+                    return true; // Token refresh successful
+                } catch (Exception e) {
+                    tokenRepository.storeToken(accessToken); // Put access token back if token refresh failed
+                    e.printStackTrace();
+                }
+                return false; // Token refresh failed
+            } else {
+                tokenRepository.removeToken();
+                final boolean isLoginClientOk = this.loginClient();
+                if (!isLoginClientOk) {
+                    tokenRepository.storeToken(accessToken); // Put access token back if token refresh failed
+                }
+                return isLoginClientOk; // Token refresh successful or failed
+            }
+        }
+    }
+
     public boolean logout() {
-        this.sdkConfiguration.getTokenRepository().removeToken();
+        final TokenRepository tokenRepository = sdkConfiguration.getTokenRepository();
+        tokenRepository.removeToken();
         return true;
     }
 }
