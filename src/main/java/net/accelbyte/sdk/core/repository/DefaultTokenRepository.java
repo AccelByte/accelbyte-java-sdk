@@ -9,7 +9,7 @@ package net.accelbyte.sdk.core.repository;
 public class DefaultTokenRepository implements TokenRepository {
     private String accessToken = null;
 
-    protected DefaultTokenRepository() {
+    public DefaultTokenRepository() {
     }
 
     private static final class InstanceHolder {
