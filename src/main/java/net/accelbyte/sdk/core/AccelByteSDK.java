@@ -53,18 +53,21 @@ public class AccelByteSDK {
 
     public HttpResponse runRequest(Operation operation) throws Exception {
         String selectedSecurity = Operation.Security.Basic.toString();
+
         if (!operation.getPreferredSecurityMethod().isEmpty())
             selectedSecurity = operation.getPreferredSecurityMethod();
         else if (operation.getSecurities().size() > 0) {
             selectedSecurity = operation.getSecurities().get(0);
         }
+
         final TokenRepository tokenRepository = sdkConfiguration.getTokenRepository();
-        final String accessToken = tokenRepository.getToken();
+
         // TODO Not thread-safe
         // TODO broken up to separate method
         // TODO Handle token refresh error, let developer able to check
         if (Operation.Security.Bearer.toString().equals(selectedSecurity)
                 || Operation.Security.Cookie.toString().equals(selectedSecurity)) {
+            final String accessToken = tokenRepository.getToken();
             if (accessToken != null && !"".equals(accessToken)) {
                 if (tokenRepository instanceof TokenRefresh) {
                     final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
@@ -100,8 +103,11 @@ public class AccelByteSDK {
                 }
             }
         }
+
         final HttpHeaders headers = new HttpHeaders();
         final Map<String, String> cookies = operation.getCookieParams();
+        final String accessToken = tokenRepository.getToken();
+
         if (Operation.Security.Basic.toString().equals(selectedSecurity)) {
             final String clientId = sdkConfiguration.getConfigRepository()
                     .getClientId();
@@ -119,12 +125,14 @@ public class AccelByteSDK {
                 cookies.put(COOKIE_KEY_ACCESS_TOKEN, accessToken);
             }
         }
+
         if (sdkConfiguration.getConfigRepository().isAmazonTraceId()) {
             final String version = sdkConfiguration.getConfigRepository()
                     .getAmazonTraceIdVersion();
             headers.put(HttpHeaders.X_AMZN_TRACE_ID, Helper
                     .generateAmazonTraceId(version));
         }
+
         if (sdkConfiguration.getConfigRepository().isClientInfoHeader()) {
             final String sdkName = SDKInfo.getInstance().getSdkName();
             final String sdkVersion = SDKInfo.getInstance().getSdkVersion();
@@ -136,6 +144,7 @@ public class AccelByteSDK {
                     sdkVersion, appName, appVersion);
             headers.put(HttpHeaders.USER_AGENT, userAgent);
         }
+
         if (cookies.size() > 0) {
             final List<String> cookieEntries = new ArrayList<String>();
             for (Map.Entry<String, String> key : cookies.entrySet()) {
@@ -144,8 +153,10 @@ public class AccelByteSDK {
             }
             headers.put(HttpHeaders.COOKIE, String.join("; ", cookieEntries));
         }
+
         final String baseUrl = sdkConfiguration.getConfigRepository()
                 .getBaseURL();
+
         return sdkConfiguration.getHttpClient().sendRequest(operation,
                 baseUrl, headers);
     }
@@ -155,8 +166,11 @@ public class AccelByteSDK {
         final String codeChallenge = Helper.generateCodeChallenge(codeVerifier);
         final String clientId = this.sdkConfiguration.getConfigRepository()
                 .getClientId();
+
         try {
             final OAuth20 oAuth20 = new OAuth20(this);
+            final OAuth20Extension oAuth20Extension = new OAuth20Extension(this);
+
             final AuthorizeV3 authorizeV3 = AuthorizeV3.builder()
                     .codeChallenge(codeChallenge)
                     .codeChallengeMethodFromEnum(CodeChallengeMethod.S256)
@@ -165,6 +179,7 @@ public class AccelByteSDK {
                     .responseTypeFromEnum(AuthorizeV3.ResponseType.Code)
                     .build();
             final String authorizeResponse = oAuth20.authorizeV3(authorizeV3);
+
             final List<NameValuePair> authorizeParams = URLEncodedUtils.parse(
                     new URI(authorizeResponse), StandardCharsets.UTF_8);
             final String requestId = authorizeParams.stream()
@@ -174,7 +189,6 @@ public class AccelByteSDK {
                     .findFirst()
                     .map(NameValuePair::getValue)
                     .orElse(null);
-            final OAuth20Extension oAuth20Extension = new OAuth20Extension(this);
             final UserAuthenticationV3 userAuthenticationV3 = UserAuthenticationV3.builder()
                     .clientId(clientId)
                     .userName(username)
@@ -183,6 +197,7 @@ public class AccelByteSDK {
                     .build();
             final String authenticationResponse = oAuth20Extension
                     .userAuthenticationV3(userAuthenticationV3);
+                    
             final List<NameValuePair> authenticationParams = URLEncodedUtils.parse(
                     new URI(authenticationResponse), StandardCharsets.UTF_8);
             final String code = authenticationParams.stream()
@@ -200,6 +215,7 @@ public class AccelByteSDK {
                     .grantTypeFromEnum(TokenGrantV3.GrantType.AuthorizationCode)
                     .build();
             final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
+
             final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
             tokenRepository.storeToken(token.getAccessToken());
             if (tokenRepository instanceof TokenRefresh) {
@@ -208,6 +224,7 @@ public class AccelByteSDK {
                 tokenRefresh.storeRefreshToken(token.getRefreshToken());
                 tokenRefresh.setRefreshTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getRefreshExpiresIn())));
             }
+
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -217,12 +234,14 @@ public class AccelByteSDK {
 
     public boolean loginClient() {
         try {
-            final Instant utcNow = Instant.now();
             final OAuth20 oAuth20 = new OAuth20(this);
+
+            final Instant utcNow = Instant.now();
             final TokenGrantV3 tokenGrantV3 = TokenGrantV3.builder()
                     .grantTypeFromEnum(TokenGrantV3.GrantType.ClientCredentials)
                     .build();
             final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
+
             final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
             tokenRepository.storeToken(token.getAccessToken());
             if (tokenRepository instanceof TokenRefresh) {
@@ -231,6 +250,7 @@ public class AccelByteSDK {
                 tokenRefresh.storeRefreshToken(null);
                 tokenRefresh.setRefreshTokenExpiresAt(null);
             }
+            
             return true;
         } catch (Exception e) {
             e.printStackTrace();
