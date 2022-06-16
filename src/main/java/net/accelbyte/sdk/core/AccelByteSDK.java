@@ -34,6 +34,7 @@ import java.util.Map;
 public class AccelByteSDK {
     private static final String COOKIE_KEY_ACCESS_TOKEN = "access_token";
     private static final String LOGIN_USER_SCOPE = "commerce account social publishing analytics";
+    private static final int REFRESH_TOKEN_EXPIRY_THRESHOLD = 300; // 5 minutes
 
     private AccelByteConfig sdkConfiguration;
 
@@ -57,8 +58,49 @@ public class AccelByteSDK {
         else if (operation.getSecurities().size() > 0) {
             selectedSecurity = operation.getSecurities().get(0);
         }
+        final TokenRepository tokenRepository = sdkConfiguration.getTokenRepository();
+        final String accessToken = tokenRepository.getToken();
+        // TODO Not thread-safe
+        // TODO broken up to separate method
+        // TODO Handle token refresh error, let developer able to check
+        if (Operation.Security.Bearer.toString().equals(selectedSecurity)
+                || Operation.Security.Cookie.toString().equals(selectedSecurity)) {
+            if (accessToken != null && !"".equals(accessToken)) {
+                if (tokenRepository instanceof TokenRefresh) {
+                    final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
+                    final Instant utcNow = Instant.now();
+                    final boolean isAccessTokenExpired = (tokenRefresh.getTokenExpiresAt().getTime()
+                            - Date.from(utcNow).getTime()) / 1000 < REFRESH_TOKEN_EXPIRY_THRESHOLD;
+                    if (isAccessTokenExpired) {
+                        final String refreshToken = tokenRefresh.getRefreshToken();
+                        if (refreshToken != null && !"".equals(refreshToken)) {
+                            final boolean isRefreshTokenExpired = (tokenRefresh.getRefreshTokenExpiresAt().getTime()
+                                    - Date.from(utcNow).getTime()) / 1000 < REFRESH_TOKEN_EXPIRY_THRESHOLD;
+                            if (!isRefreshTokenExpired) {
+                                tokenRepository.removeToken();
+                                final OAuth20 oAuth20 = new OAuth20(this);
+                                final TokenGrantV3 tokenGrantV3 = TokenGrantV3.builder()
+                                        .refreshToken(refreshToken)
+                                        .grantTypeFromEnum(TokenGrantV3.GrantType.RefreshToken)
+                                        .build();
+                                final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
+                                tokenRepository.storeToken(token.getAccessToken());
+                                if (tokenRepository instanceof TokenRefresh) {
+                                    tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getExpiresIn())));
+                                    tokenRefresh.storeRefreshToken(token.getRefreshToken());
+                                    tokenRefresh.setRefreshTokenExpiresAt(
+                                            Date.from(utcNow.plusSeconds(token.getRefreshExpiresIn())));
+                                }
+                            }
+                        } else {
+                            tokenRepository.removeToken();
+                            this.loginClient();
+                        }
+                    }
+                }
+            }
+        }
         final HttpHeaders headers = new HttpHeaders();
-        final String token = sdkConfiguration.getTokenRepository().getToken();
         final Map<String, String> cookies = operation.getCookieParams();
         if (Operation.Security.Basic.toString().equals(selectedSecurity)) {
             final String clientId = sdkConfiguration.getConfigRepository()
@@ -68,13 +110,13 @@ public class AccelByteSDK {
             headers.put(HttpHeaders.AUTHORIZATION,
                     Credentials.basic(clientId, clientSecret));
         } else if (Operation.Security.Bearer.toString().equals(selectedSecurity)) {
-            if (token != null && !token.equals("")) {
+            if (accessToken != null && !accessToken.equals("")) {
                 headers.put(HttpHeaders.AUTHORIZATION,
-                        Operation.Security.Bearer.toString() + " " + token);
+                        Operation.Security.Bearer.toString() + " " + accessToken);
             }
         } else if (Operation.Security.Cookie.toString().equals(selectedSecurity)) {
-            if (token != null && !token.equals("")) {
-                cookies.put(COOKIE_KEY_ACCESS_TOKEN, token);
+            if (accessToken != null && !accessToken.equals("")) {
+                cookies.put(COOKIE_KEY_ACCESS_TOKEN, accessToken);
             }
         }
         if (sdkConfiguration.getConfigRepository().isAmazonTraceId()) {
