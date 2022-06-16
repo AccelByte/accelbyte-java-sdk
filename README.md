@@ -41,7 +41,7 @@ The following environment variables need to be set when using `DefaultConfigRepo
 
 #### With Default HTTP Client (OkhttpClient)
 
-Use this to get SDK instance with basic HTTP functionality.
+Use the following to get SDK instance with basic HTTP functionality.
     
 ```java
 AccelByteConfig config = new AccelByteConfig(
@@ -54,7 +54,7 @@ AccelByteSDK sdk = new AccelByteSDK(config);
 
 #### With Reliable HTTP client
 
-Use this to get SDK instance with HTTP retry functionality.
+Use the following to get SDK instance with HTTP retry functionality.
 
 ```java
 final DefaultHttpRetryPolicy retryPolicy = new DefaultHttpRetryPolicy();
@@ -69,6 +69,19 @@ private final ReliableHttpClient reliableHttpClient = new ReliableHttpClient(ret
 AccelByteConfig config = new AccelByteConfig(
       reliableHttpClient,
       DefaultTokenRepository.getInstance(),
+      new DefaultConfigRepository());     // Using DefaultConfigRepository, make sure the required environment variables are set
+
+AccelByteSDK sdk = new AccelByteSDK(config);
+```
+
+#### Automatic Token Refresh
+
+Use the following to get SDK instance with automatic token refresh functionality which is performed before each HTTP request but only if access token is almost expired.
+    
+```java
+AccelByteConfig config = new AccelByteConfig(
+      new OkhttpClient(),
+      new DefaultTokenRefreshRepository();   // Using DefaultTokenRefreshRepository which implements TokenRefresh interface to enable automatic token refresh
       new DefaultConfigRepository());     // Using DefaultConfigRepository, make sure the required environment variables are set
 
 AccelByteSDK sdk = new AccelByteSDK(config);
@@ -131,6 +144,18 @@ try {
 
 } catch (IOException e) {     // Network error
    e.printStackTrace();    
+}
+```
+
+### Refresh Token
+```java
+boolean isOk = sdk.refreshToken();  // Trigger token refresh manually when not using automatic token refresh functionality
+
+if (isOk) {
+    // Refresh token is succesful or not required
+}
+else {
+   // Refresh token failed
 }
 ```
 
