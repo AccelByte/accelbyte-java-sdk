@@ -12,12 +12,14 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import net.accelbyte.sdk.api.lobby.operations.friends.GetUserFriendsUpdated;
+import net.accelbyte.sdk.api.iam.operations.users.GetUserByLoginID;
+import net.accelbyte.sdk.api.iam.wrappers.Users;
 import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy;
 import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.client.ReliableHttpClient;
 import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy.RetryIntervalType;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
+import net.accelbyte.sdk.core.repository.DefaultTokenRefreshRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 import net.accelbyte.sdk.core.repository.TokenRepository;
 import net.accelbyte.sdk.core.util.Helper;
@@ -25,8 +27,10 @@ import net.accelbyte.sdk.core.util.Helper;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,6 +42,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -605,8 +610,9 @@ class TestCore {
 
         reliableHttpClient.setHttpRetryPolicy(retryPolicy);
 
-        final GetUserFriendsUpdated op = GetUserFriendsUpdated.builder()
+        final GetUserByLoginID op = GetUserByLoginID.builder()
                 .namespace("test")
+                .loginId("test")
                 .build();
 
         HttpResponse res = null;
@@ -678,8 +684,9 @@ class TestCore {
 
         reliableHttpClient.setHttpRetryPolicy(retryPolicy);
 
-        final GetUserFriendsUpdated op = GetUserFriendsUpdated.builder()
+        final GetUserByLoginID op = GetUserByLoginID.builder()
                 .namespace("test")
+                .loginId("test")
                 .build();
 
         HttpResponse res = null;
@@ -709,5 +716,54 @@ class TestCore {
         assertNotNull(res.getPayload());
 
         assertTrue(afterLinear - beforeLinear < afterExponential - beforeExponential);
+    }
+
+    @Test
+    public void testTokenRefreshUser() throws Exception {
+        final DefaultTokenRefreshRepository tokenRefreshRepository = new DefaultTokenRefreshRepository();
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRefreshRepository, mockServerConfigRepository);
+        final Users usersWrapper = new Users(sdk);
+
+        sdk.loginUser("fakeuser", "fakepassword");
+
+        assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
+        assertTrue(tokenRefreshRepository.getRefreshToken() != null && !"".equals(tokenRefreshRepository.getRefreshToken()));
+
+        // Simulate token expiry within threshold and refresh token still valid for 24
+        // hours
+        tokenRefreshRepository.setTokenExpiresAt(Date.from(Instant.now().plusSeconds(60)));
+
+        usersWrapper.getUserByLoginID(
+                GetUserByLoginID.builder()
+                        .namespace("test")
+                        .loginId("admin")
+                        .build());
+
+        assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
+        assertTrue(tokenRefreshRepository.getRefreshToken() != null && !"".equals(tokenRefreshRepository.getRefreshToken()));
+    }
+
+    @Test
+    public void testTokenRefreshClient() throws Exception {
+        final DefaultTokenRefreshRepository tokenRefreshRepository = new DefaultTokenRefreshRepository();
+        final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRefreshRepository, mockServerConfigRepository);
+        final Users usersWrapper = new Users(sdk);
+
+        sdk.loginClient();
+
+        assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
+        assertTrue(tokenRefreshRepository.getRefreshToken() == null);   // Login client does not return refresh token
+
+        // Simulate token expiry within threshold
+        tokenRefreshRepository.setTokenExpiresAt(Date.from(Instant.now().plusSeconds(60)));
+
+        usersWrapper.getUserByLoginID(
+                GetUserByLoginID.builder()
+                        .namespace("test")
+                        .loginId("admin")
+                        .build());
+
+        // Check if access token is set correctly after refresh token
+        assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
     }
 }

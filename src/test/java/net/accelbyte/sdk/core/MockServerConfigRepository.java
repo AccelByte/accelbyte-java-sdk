@@ -5,12 +5,12 @@ import net.accelbyte.sdk.core.repository.ConfigRepository;
 class MockServerConfigRepository implements ConfigRepository {
     @Override
     public String getClientId() {
-        return "DUMMY_CLIENT_ID";
+        return "admin";
     }
 
     @Override
     public String getClientSecret() {
-        return "DUMMY_CLIENT_SECRET";
+        return "admin";
     }
 
     @Override
