@@ -7,9 +7,9 @@
 package net.accelbyte.sdk.core.repository;
 
 public interface TokenRepository {
-    void storeToken(String accessToken);
+    void storeToken(String accessToken) throws Exception;
 
-    String getToken();
+    String getToken() throws Exception;
 
-    void removeToken();
+    void removeToken() throws Exception;
 }

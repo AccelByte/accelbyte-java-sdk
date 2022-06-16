@@ -43,7 +43,7 @@ public class LobbyWebsocket implements Callable<Integer> {
     }
 
     @Override
-    public Integer call() throws InterruptedException {
+    public Integer call() throws Exception {
 
         // create listener object
         Listener listener = new Listener();

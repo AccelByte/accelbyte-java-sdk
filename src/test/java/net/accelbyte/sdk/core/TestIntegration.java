@@ -7,7 +7,6 @@
 package net.accelbyte.sdk.core;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -225,7 +224,7 @@ class TestIntegration {
         private String password;
 
         @BeforeAll
-        public void setup() {
+        public void setup() throws Exception {
                 final HttpClient<?> httpClient = new OkhttpClient();
                 final TokenRepository tokenRepo = DefaultTokenRepository.getInstance();
                 final ConfigRepository configRepo = new DefaultConfigRepository();
@@ -1624,7 +1623,7 @@ class TestIntegration {
                                 .build());
         }
 
-        public void testLobbyWebsocket() throws InterruptedException {
+        public void testLobbyWebsocket() throws Exception {
                 final String request_id = GenerateRandomId(64);
                 final CountDownLatch response = new CountDownLatch(1);
                 final StringBuilder responseMessage = new StringBuilder();
@@ -1661,7 +1660,7 @@ class TestIntegration {
         }
 
         @AfterAll
-        public void tear() {
+        public void tear() throws Exception {
                 final boolean isLogoutOk = sdk.logout();
                 final String token = sdk.getSdkConfiguration().getTokenRepository()
                                 .getToken();

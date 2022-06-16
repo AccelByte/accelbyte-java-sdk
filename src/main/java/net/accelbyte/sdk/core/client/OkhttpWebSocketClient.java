@@ -29,16 +29,16 @@ public class OkhttpWebSocketClient {
     public static OkhttpWebSocketClient create(
             ConfigRepository configRepository,
             TokenRepository tokenRepository,
-            WebSocketListener listener) {
+            WebSocketListener listener) throws Exception {
         String baseURL = configRepository.getBaseURL();
         if (baseURL == null || baseURL.isEmpty()) {
             throw new IllegalArgumentException("Base URL cannot be null or empty");
         }
         String url = configRepository.getBaseURL() + "/lobby/";
+        String accessToken = tokenRepository.getToken();
         Request request = new Request.Builder()
                 .url(url)
-                .addHeader("Authorization", String.format("Bearer %s",
-                        tokenRepository.getToken()))
+                .addHeader("Authorization", String.format("Bearer %s", accessToken))
                 .build();
         WebSocket websocket = client.newWebSocket(request, listener);
         OkhttpWebSocketClient websocketClient = new OkhttpWebSocketClient(websocket);

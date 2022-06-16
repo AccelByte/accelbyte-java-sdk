@@ -219,74 +219,84 @@ public class AccelByteSDK {
 
     public boolean refreshToken() {
         synchronized (refreshTokenLock) {
-            final TokenRepository tokenRepository = sdkConfiguration.getTokenRepository();
-            final String accessToken = tokenRepository.getToken();
+            try {
+                final TokenRepository tokenRepository = sdkConfiguration.getTokenRepository();
+                final String accessToken = tokenRepository.getToken();
 
-            if (accessToken == null || "".equals(accessToken)) {
-                return false; // Cannot perform token refresh
-            }
-
-            if (tokenRepository instanceof TokenRefresh) {
-                return false; // Cannot perform token refresh
-            }
-
-            final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
-
-            final Instant utcNow = Instant.now();
-            final boolean isAccessTokenExpired = (tokenRefresh.getTokenExpiresAt().getTime()
-                    - Date.from(utcNow).getTime()) / 1000 < REFRESH_TOKEN_EXPIRY_THRESHOLD;
-
-            if (!isAccessTokenExpired) {
-                return true; // Token refresh not required
-            }
-
-            final String refreshToken = tokenRefresh.getRefreshToken();
-            final boolean isLoginUser = refreshToken != null && !"".equals(refreshToken);
-
-            if (isLoginUser) {
-                final boolean isRefreshTokenExpired = (tokenRefresh.getRefreshTokenExpiresAt().getTime()
-                        - Date.from(utcNow).getTime()) / 1000 < REFRESH_TOKEN_EXPIRY_THRESHOLD;
-
-                if (isRefreshTokenExpired) {
+                if (accessToken == null || "".equals(accessToken)) {
                     return false; // Cannot perform token refresh
                 }
 
-                final OAuth20 oAuth20 = new OAuth20(this);
-                final TokenGrantV3 tokenGrantV3 = TokenGrantV3.builder()
-                        .refreshToken(refreshToken)
-                        .grantTypeFromEnum(TokenGrantV3.GrantType.RefreshToken)
-                        .build();
-                OauthmodelTokenResponseV3 token;
-                try {
-                    tokenRepository.removeToken();
-                    token = oAuth20.tokenGrantV3(tokenGrantV3);
-                    tokenRepository.storeToken(token.getAccessToken());
-                    if (tokenRepository instanceof TokenRefresh) {
-                        tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getExpiresIn())));
-                        tokenRefresh.storeRefreshToken(token.getRefreshToken());
-                        tokenRefresh.setRefreshTokenExpiresAt(
-                                Date.from(utcNow.plusSeconds(token.getRefreshExpiresIn())));
+                if (tokenRepository instanceof TokenRefresh) {
+                    return false; // Cannot perform token refresh
+                }
+
+                final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
+
+                final Instant utcNow = Instant.now();
+                final boolean isAccessTokenExpired = (tokenRefresh.getTokenExpiresAt().getTime()
+                        - Date.from(utcNow).getTime()) / 1000 < REFRESH_TOKEN_EXPIRY_THRESHOLD;
+
+                if (!isAccessTokenExpired) {
+                    return true; // Token refresh not required
+                }
+
+                final String refreshToken = tokenRefresh.getRefreshToken();
+                final boolean isLoginUser = refreshToken != null && !"".equals(refreshToken);
+
+                if (isLoginUser) {
+                    final boolean isRefreshTokenExpired = (tokenRefresh.getRefreshTokenExpiresAt().getTime()
+                            - Date.from(utcNow).getTime()) / 1000 < REFRESH_TOKEN_EXPIRY_THRESHOLD;
+
+                    if (isRefreshTokenExpired) {
+                        return false; // Cannot perform token refresh
                     }
-                    return true; // Token refresh successful
-                } catch (Exception e) {
-                    tokenRepository.storeToken(accessToken); // Put access token back if token refresh failed
-                    e.printStackTrace();
+
+                    final OAuth20 oAuth20 = new OAuth20(this);
+                    final TokenGrantV3 tokenGrantV3 = TokenGrantV3.builder()
+                            .refreshToken(refreshToken)
+                            .grantTypeFromEnum(TokenGrantV3.GrantType.RefreshToken)
+                            .build();
+                    OauthmodelTokenResponseV3 token;
+                    try {
+                        tokenRepository.removeToken();
+                        token = oAuth20.tokenGrantV3(tokenGrantV3);
+                        tokenRepository.storeToken(token.getAccessToken());
+                        if (tokenRepository instanceof TokenRefresh) {
+                            tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getExpiresIn())));
+                            tokenRefresh.storeRefreshToken(token.getRefreshToken());
+                            tokenRefresh.setRefreshTokenExpiresAt(
+                                    Date.from(utcNow.plusSeconds(token.getRefreshExpiresIn())));
+                        }
+                        return true; // Token refresh successful
+                    } catch (Exception e) {
+                        tokenRepository.storeToken(accessToken); // Put access token back if token refresh failed
+                        e.printStackTrace();
+                    }
+                    return false; // Token refresh failed
+                } else {
+                    tokenRepository.removeToken();
+                    final boolean isLoginClientOk = this.loginClient();
+                    if (!isLoginClientOk) {
+                        tokenRepository.storeToken(accessToken); // Put access token back if token refresh failed
+                    }
+                    return isLoginClientOk; // Token refresh successful or failed
                 }
-                return false; // Token refresh failed
-            } else {
-                tokenRepository.removeToken();
-                final boolean isLoginClientOk = this.loginClient();
-                if (!isLoginClientOk) {
-                    tokenRepository.storeToken(accessToken); // Put access token back if token refresh failed
-                }
-                return isLoginClientOk; // Token refresh successful or failed
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            return false;
         }
     }
 
     public boolean logout() {
         final TokenRepository tokenRepository = sdkConfiguration.getTokenRepository();
-        tokenRepository.removeToken();
-        return true;
+        try {
+            tokenRepository.removeToken();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
