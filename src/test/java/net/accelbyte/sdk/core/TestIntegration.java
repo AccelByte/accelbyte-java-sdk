@@ -7,6 +7,7 @@
 package net.accelbyte.sdk.core;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -19,6 +20,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -207,6 +209,7 @@ import net.accelbyte.sdk.core.client.ReliableHttpClient;
 import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy.RetryIntervalType;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
+import net.accelbyte.sdk.core.repository.DefaultTokenRefreshRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 import net.accelbyte.sdk.core.repository.TokenRepository;
 import okhttp3.WebSocket;
@@ -219,6 +222,7 @@ class TestIntegration {
         private AccelByteSDK sdk;
         private String namespace;
         private String username;
+        private String password;
 
         @BeforeAll
         public void setup() {
@@ -244,6 +248,7 @@ class TestIntegration {
                 this.sdk = new AccelByteSDK(sdkConfig);
                 this.namespace = namespace;
                 this.username = username;
+                this.password = password;
 
                 final boolean isLoginUserOk = sdk.loginUser(username, password);
                 final String token = tokenRepo.getToken();
@@ -1212,6 +1217,64 @@ class TestIntegration {
                                                                 .build());
 
                 assertEquals(playTime, getTelemetry.get("total_playtime"));
+        }
+
+        // Token refresh interation test
+
+        @Test
+        @Order(40)
+        public void testTokenRefreshUser() throws Exception {
+                final DefaultTokenRefreshRepository tokenRefreshRepository = new DefaultTokenRefreshRepository();
+                final AccelByteSDK sdk = new AccelByteSDK(
+                                this.sdk.getSdkConfiguration().getHttpClient(),
+                                tokenRefreshRepository,
+                                this.sdk.getSdkConfiguration().getConfigRepository());
+                final Users usersWrapper = new Users(sdk);
+
+                sdk.loginUser(this.username, this.password);
+
+                assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
+                assertTrue(tokenRefreshRepository.getRefreshToken() != null && !"".equals(tokenRefreshRepository.getRefreshToken()));
+
+                // Simulate token expiry within threshold
+                tokenRefreshRepository.setTokenExpiresAt(Date.from(Instant.now().plusSeconds(60)));
+
+                usersWrapper.getUserByLoginID(
+                                GetUserByLoginID.builder()
+                                                .namespace(this.namespace)
+                                                .loginId(this.username)
+                                                .build());
+
+                assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
+                assertTrue(tokenRefreshRepository.getRefreshToken() != null && !"".equals(tokenRefreshRepository.getRefreshToken()));        
+        }
+
+        @Test
+        @Order(40)
+        public void testTokenRefreshClient() throws Exception {
+                final DefaultTokenRefreshRepository tokenRefreshRepository = new DefaultTokenRefreshRepository();
+                final AccelByteSDK sdk = new AccelByteSDK(
+                                this.sdk.getSdkConfiguration().getHttpClient(),
+                                tokenRefreshRepository,
+                                this.sdk.getSdkConfiguration().getConfigRepository());
+                final Users usersWrapper = new Users(sdk);
+
+                sdk.loginClient();
+
+                assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
+                assertTrue(tokenRefreshRepository.getRefreshToken() == null);   // Login client does not return refresh token
+
+                // Simulate token expiry within threshold
+                tokenRefreshRepository.setTokenExpiresAt(Date.from(Instant.now().plusSeconds(60)));
+
+                usersWrapper.getUserByLoginID(
+                                GetUserByLoginID.builder()
+                                                .namespace(this.namespace)
+                                                .loginId(this.username)
+                                                .build());
+
+                assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
+                assertTrue(tokenRefreshRepository.getRefreshToken() == null);   // Login client does not return refresh token
         }
 
         // Client integration test
