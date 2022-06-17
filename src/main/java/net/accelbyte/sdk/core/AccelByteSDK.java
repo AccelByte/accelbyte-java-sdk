@@ -227,7 +227,7 @@ public class AccelByteSDK {
                     return false; // Cannot perform token refresh
                 }
 
-                if (tokenRepository instanceof TokenRefresh) {
+                if (!(tokenRepository instanceof TokenRefresh)) {
                     return false; // Cannot perform token refresh
                 }
 
