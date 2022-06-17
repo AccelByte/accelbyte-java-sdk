@@ -47,6 +47,25 @@ public class ConcurrentRecord {
     }
 
     /**
+     * @see PutPlayerRecordConcurrentHandlerV1
+     */
+    public void putPlayerRecordConcurrentHandlerV1(PutPlayerRecordConcurrentHandlerV1 input) throws Exception {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
      * @see PutPlayerPublicRecordConcurrentHandlerV1
      */
     public void putPlayerPublicRecordConcurrentHandlerV1(PutPlayerPublicRecordConcurrentHandlerV1 input) throws Exception {

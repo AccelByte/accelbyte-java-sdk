@@ -33,6 +33,9 @@ public class ModelPublicUserResponseV3 extends Model {
     @JsonProperty("authType")
     private String authType;
 
+    @JsonProperty("avatarUrl")
+    private String avatarUrl;
+
     @JsonProperty("bans")
     private List<ModelUserActiveBanResponseV3> bans;
 

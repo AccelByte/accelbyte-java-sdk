@@ -47,6 +47,25 @@ public class AdminConcurrentRecord {
     }
 
     /**
+     * @see AdminPutPlayerRecordConcurrentHandlerV1
+     */
+    public void adminPutPlayerRecordConcurrentHandlerV1(AdminPutPlayerRecordConcurrentHandlerV1 input) throws Exception {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
      * @see AdminPutPlayerPublicRecordConcurrentHandlerV1
      */
     public void adminPutPlayerPublicRecordConcurrentHandlerV1(AdminPutPlayerPublicRecordConcurrentHandlerV1 input) throws Exception {

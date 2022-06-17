@@ -51,6 +51,8 @@ import picocli.CommandLine.Command;
                 CheckSeasonPurchasable.class,
                 ResetUserSeason.class,
                 GrantUserTier.class,
+                QueryUserExpGrantHistory.class,
+                QueryUserExpGrantHistoryTag.class,
                 GetUserSeason.class,
                 PublicGetCurrentSeason.class,
                 PublicGetCurrentUserSeason.class,

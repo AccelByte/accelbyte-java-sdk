@@ -40,7 +40,7 @@ import java.util.*;
  * 
  * 
  * 
- * Supported field {country, displayName, languageTag, dateOfBirth}
+ * Supported field {country, displayName, languageTag, dateOfBirth, avatarUrl}
  * 
  * 
  * 

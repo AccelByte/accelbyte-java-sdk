@@ -83,6 +83,7 @@
 | `/lobby/v1/admin/party/namespaces/{namespace}/users/{userId}/party` | GET | AdminGetUserPartyV1 | [AdminGetUserPartyV1](../src/main/java/net/accelbyte/sdk/api/lobby/operations/party/AdminGetUserPartyV1.java) | [AdminGetUserPartyV1](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/party/AdminGetUserPartyV1.java) |
 | `/lobby/v1/public/party/namespaces/{namespace}/parties/{partyId}` | GET | PublicGetPartyDataV1 | [PublicGetPartyDataV1](../src/main/java/net/accelbyte/sdk/api/lobby/operations/party/PublicGetPartyDataV1.java) | [PublicGetPartyDataV1](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/party/PublicGetPartyDataV1.java) |
 | `/lobby/v1/public/party/namespaces/{namespace}/parties/{partyId}/attributes` | PUT | PublicUpdatePartyAttributesV1 | [PublicUpdatePartyAttributesV1](../src/main/java/net/accelbyte/sdk/api/lobby/operations/party/PublicUpdatePartyAttributesV1.java) | [PublicUpdatePartyAttributesV1](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/party/PublicUpdatePartyAttributesV1.java) |
+| `/lobby/v1/public/party/namespaces/{namespace}/parties/{partyId}/limit` | PUT | PublicSetPartyLimitV1 | [PublicSetPartyLimitV1](../src/main/java/net/accelbyte/sdk/api/lobby/operations/party/PublicSetPartyLimitV1.java) | [PublicSetPartyLimitV1](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/party/PublicSetPartyLimitV1.java) |
 
 ### Lobby Operations Wrapper:  [LobbyOperations](../src/main/java/net/accelbyte/sdk/api/lobby/wrappers/LobbyOperations.java)
 | Endpoint | Method | ID | Class | Example |
@@ -208,6 +209,7 @@
 | `models.ListBlockedPlayerRequest` | [ModelsListBlockedPlayerRequest](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsListBlockedPlayerRequest.java) |
 | `models.PartyData` | [ModelsPartyData](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsPartyData.java) |
 | `models.PartyPUTCustomAttributesRequest` | [ModelsPartyPUTCustomAttributesRequest](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsPartyPUTCustomAttributesRequest.java) |
+| `models.PartyPUTLimitSizeRequest` | [ModelsPartyPUTLimitSizeRequest](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsPartyPUTLimitSizeRequest.java) |
 | `models.ProfanityFilter` | [ModelsProfanityFilter](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsProfanityFilter.java) |
 | `models.ProfanityRule` | [ModelsProfanityRule](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsProfanityRule.java) |
 | `models.SetPlayerSessionAttributeRequest` | [ModelsSetPlayerSessionAttributeRequest](../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsSetPlayerSessionAttributeRequest.java) |

@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.iam.models;
+package net.accelbyte.sdk.api.lobby.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -28,36 +28,21 @@ import java.util.Map;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ModelUserUpdateRequestV3 extends Model {
+public class ModelsPartyPUTLimitSizeRequest extends Model {
 
-    @JsonProperty("avatarUrl")
-    private String avatarUrl;
-
-    @JsonProperty("country")
-    private String country;
-
-    @JsonProperty("dateOfBirth")
-    private String dateOfBirth;
-
-    @JsonProperty("displayName")
-    private String displayName;
-
-    @JsonProperty("languageTag")
-    private String languageTag;
-
-    @JsonProperty("userName")
-    private String userName;
+    @JsonProperty("limit")
+    private Integer limit;
 
 
 
     @JsonIgnore
-    public ModelUserUpdateRequestV3 createFromJson(String json) throws JsonProcessingException {
+    public ModelsPartyPUTLimitSizeRequest createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<ModelUserUpdateRequestV3> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserUpdateRequestV3>>() {});
+    public List<ModelsPartyPUTLimitSizeRequest> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPartyPUTLimitSizeRequest>>() {});
     }
 
     

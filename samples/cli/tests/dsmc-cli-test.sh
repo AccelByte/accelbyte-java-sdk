@@ -237,58 +237,60 @@ eval_tap $? 26 'UpdateOverrideRegionOverride' test.out
 #- 27 GetAllPodConfig
 ./ng net.accelbyte.sdk.cli.Main dsmc getAllPodConfig \
     --namespace "$AB_NAMESPACE" \
+    --count '33' \
+    --offset '98' \
     > test.out 2>&1
 eval_tap $? 27 'GetAllPodConfig' test.out
 
 #- 28 GetPodConfig
 ./ng net.accelbyte.sdk.cli.Main dsmc getPodConfig \
-    --name 'q0XiPLQX' \
+    --name 'iPLQXSe0' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 28 'GetPodConfig' test.out
 
 #- 29 CreatePodConfig
 ./ng net.accelbyte.sdk.cli.Main dsmc createPodConfig \
-    --body '{"cpu_limit": 89, "mem_limit": 9, "params": "07ZddOGT"}' \
-    --name 'MlJjBwj9' \
+    --body '{"cpu_limit": 7, "mem_limit": 6, "params": "OGTMlJjB"}' \
+    --name 'wj9HJHQK' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 29 'CreatePodConfig' test.out
 
 #- 30 DeletePodConfig
 ./ng net.accelbyte.sdk.cli.Main dsmc deletePodConfig \
-    --name 'HJHQKseE' \
+    --name 'seEdSXRD' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 30 'DeletePodConfig' test.out
 
 #- 31 UpdatePodConfig
 ./ng net.accelbyte.sdk.cli.Main dsmc updatePodConfig \
-    --body '{"cpu_limit": 6, "mem_limit": 88, "name": "XRDSvgua", "params": "uw1xT7eM"}' \
-    --name 'wSl9MLH0' \
+    --body '{"cpu_limit": 89, "mem_limit": 43, "name": "guauw1xT", "params": "7eMwSl9M"}' \
+    --name 'LH0NnTJ2' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 31 'UpdatePodConfig' test.out
 
 #- 32 AddPort
 ./ng net.accelbyte.sdk.cli.Main dsmc addPort \
-    --body '{"port": 79}' \
-    --name 'nTJ2ulNz' \
+    --body '{"port": 41}' \
+    --name 'lNzBvwJa' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 32 'AddPort' test.out
 
 #- 33 DeletePort
 ./ng net.accelbyte.sdk.cli.Main dsmc deletePort \
-    --name 'BvwJaQa5' \
+    --name 'Qa547Jll' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 33 'DeletePort' test.out
 
 #- 34 UpdatePort
 ./ng net.accelbyte.sdk.cli.Main dsmc updatePort \
-    --body '{"name": "47JllvA8", "port": 86}' \
-    --name 'WSpabUt7' \
+    --body '{"name": "vA8RWSpa", "port": 2}' \
+    --name 'Ut7xk6Qx' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 34 'UpdatePort' test.out
@@ -302,8 +304,8 @@ eval_tap $? 35 'ListImages' test.out
 #- 36 DeleteImage
 ./ng net.accelbyte.sdk.cli.Main dsmc deleteImage \
     --namespace "$AB_NAMESPACE" \
-    --imageURI 'xk6QxyWh' \
-    --version 'fqoWfJw2' \
+    --imageURI 'yWhfqoWf' \
+    --version 'Jw2o8oWU' \
     > test.out 2>&1
 eval_tap $? 36 'DeleteImage' test.out
 
@@ -322,31 +324,31 @@ eval_tap $? 38 'GetImageLimit' test.out
 #- 39 DeleteImagePatch
 ./ng net.accelbyte.sdk.cli.Main dsmc deleteImagePatch \
     --namespace "$AB_NAMESPACE" \
-    --imageURI 'o8oWUqvP' \
-    --version 'CZ2HzT7N' \
-    --versionPatch 'XmWDlXsu' \
+    --imageURI 'qvPCZ2Hz' \
+    --version 'T7NXmWDl' \
+    --versionPatch 'XsuNIdQJ' \
     > test.out 2>&1
 eval_tap $? 39 'DeleteImagePatch' test.out
 
 #- 40 GetImageDetail
 ./ng net.accelbyte.sdk.cli.Main dsmc getImageDetail \
     --namespace "$AB_NAMESPACE" \
-    --version 'NIdQJR5l' \
+    --version 'R5lsNOlv' \
     > test.out 2>&1
 eval_tap $? 40 'GetImageDetail' test.out
 
 #- 41 GetImagePatches
 ./ng net.accelbyte.sdk.cli.Main dsmc getImagePatches \
     --namespace "$AB_NAMESPACE" \
-    --version 'sNOlvkfw' \
+    --version 'kfwaSbns' \
     > test.out 2>&1
 eval_tap $? 41 'GetImagePatches' test.out
 
 #- 42 GetImagePatchDetail
 ./ng net.accelbyte.sdk.cli.Main dsmc getImagePatchDetail \
     --namespace "$AB_NAMESPACE" \
-    --version 'aSbnsuLC' \
-    --versionPatch 'gToxuVTe' \
+    --version 'uLCgToxu' \
+    --versionPatch 'VTekJgvg' \
     > test.out 2>&1
 eval_tap $? 42 'GetImagePatchDetail' test.out
 
@@ -376,7 +378,7 @@ eval_tap $? 46 'ListLocalServer' test.out
 
 #- 47 DeleteLocalServer
 ./ng net.accelbyte.sdk.cli.Main dsmc deleteLocalServer \
-    --name 'kJgvg6h5' \
+    --name '6h5HIpH0' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 47 'DeleteLocalServer' test.out
@@ -384,21 +386,21 @@ eval_tap $? 47 'DeleteLocalServer' test.out
 #- 48 GetServer
 ./ng net.accelbyte.sdk.cli.Main dsmc getServer \
     --namespace "$AB_NAMESPACE" \
-    --podName 'HIpH0Dvi' \
+    --podName 'DviplEk4' \
     > test.out 2>&1
 eval_tap $? 48 'GetServer' test.out
 
 #- 49 DeleteServer
 ./ng net.accelbyte.sdk.cli.Main dsmc deleteServer \
     --namespace "$AB_NAMESPACE" \
-    --podName 'plEk4vj3' \
+    --podName 'vj3LDp4y' \
     > test.out 2>&1
 eval_tap $? 49 'DeleteServer' test.out
 
 #- 50 GetServerLogs
 ./ng net.accelbyte.sdk.cli.Main dsmc getServerLogs \
     --namespace "$AB_NAMESPACE" \
-    --podName 'LDp4yqDt' \
+    --podName 'qDt8QUZD' \
     > test.out 2>&1
 eval_tap $? 50 'GetServerLogs' test.out
 
@@ -417,7 +419,7 @@ eval_tap $? 52 'CountSession' test.out
 #- 53 DeleteSession
 ./ng net.accelbyte.sdk.cli.Main dsmc deleteSession \
     --namespace "$AB_NAMESPACE" \
-    --sessionID '8QUZDpxl' \
+    --sessionID 'pxlHasin' \
     > test.out 2>&1
 eval_tap $? 53 'DeleteSession' test.out
 
@@ -436,34 +438,34 @@ eval_tap $? 55 'ImportConfigV1' test.out
 #- 56 ImageDetailClient
 ./ng net.accelbyte.sdk.cli.Main dsmc imageDetailClient \
     --namespace "$AB_NAMESPACE" \
-    --version 'HasinGcj' \
+    --version 'GcjrkmRM' \
     > test.out 2>&1
 eval_tap $? 56 'ImageDetailClient' test.out
 
 #- 57 DeregisterLocalServer
 ./ng net.accelbyte.sdk.cli.Main dsmc deregisterLocalServer \
-    --body '{"name": "rkmRMttg"}' \
+    --body '{"name": "ttgjDSaI"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 57 'DeregisterLocalServer' test.out
 
 #- 58 RegisterLocalServer
 ./ng net.accelbyte.sdk.cli.Main dsmc registerLocalServer \
-    --body '{"custom_attribute": "jDSaIVBm", "ip": "ft3Udg7p", "name": "9PGmY2H5", "port": 20}' \
+    --body '{"custom_attribute": "VBmft3Ud", "ip": "g7p9PGmY", "name": "2H5kX4Ms", "port": 17}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 58 'RegisterLocalServer' test.out
 
 #- 59 RegisterServer
 ./ng net.accelbyte.sdk.cli.Main dsmc registerServer \
-    --body '{"custom_attribute": "X4MsisSX", "pod_name": "28nARxWR"}' \
+    --body '{"custom_attribute": "sSX28nAR", "pod_name": "xWRpv5ou"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 59 'RegisterServer' test.out
 
 #- 60 ShutdownServer
 ./ng net.accelbyte.sdk.cli.Main dsmc shutdownServer \
-    --body '{"kill_me": false, "pod_name": "v5ou5xtv"}' \
+    --body '{"kill_me": true, "pod_name": "tvd28OUf"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 60 'ShutdownServer' test.out
@@ -471,20 +473,20 @@ eval_tap $? 60 'ShutdownServer' test.out
 #- 61 GetServerSession
 ./ng net.accelbyte.sdk.cli.Main dsmc getServerSession \
     --namespace "$AB_NAMESPACE" \
-    --podName 'd28OUfCt' \
+    --podName 'Ct8UJC5f' \
     > test.out 2>&1
 eval_tap $? 61 'GetServerSession' test.out
 
 #- 62 CreateSession
 ./ng net.accelbyte.sdk.cli.Main dsmc createSession \
-    --body '{"client_version": "8UJC5flN", "configuration": "yj6HsTtX", "deployment": "8P3llnaa", "game_mode": "S9lqyygP", "matching_allies": [{"matching_parties": [{"party_attributes": {"cfkJIxfQ": {}}, "party_id": "Zza8kNVb", "party_members": [{"user_id": "DxVMq7HJ"}]}]}], "namespace": "k0F89xAc", "notification_payload": {}, "pod_name": "3YVfaENt", "region": "rl0pTKZT", "session_id": "XqzHuBMY"}' \
+    --body '{"client_version": "lNyj6HsT", "configuration": "tX8P3lln", "deployment": "aaS9lqyy", "game_mode": "gPcfkJIx", "matching_allies": [{"matching_parties": [{"party_attributes": {"fQZza8kN": {}}, "party_id": "VbDxVMq7", "party_members": [{"user_id": "HJk0F89x"}]}]}], "namespace": "Ac3YVfaE", "notification_payload": {}, "pod_name": "Ntrl0pTK", "region": "ZTXqzHuB", "session_id": "MYQSA2jz"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 62 'CreateSession' test.out
 
 #- 63 ClaimServer
 ./ng net.accelbyte.sdk.cli.Main dsmc claimServer \
-    --body '{"session_id": "QSA2jz1Z"}' \
+    --body '{"session_id": "1ZOpdOjS"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 63 'ClaimServer' test.out
@@ -492,7 +494,7 @@ eval_tap $? 63 'ClaimServer' test.out
 #- 64 GetSession
 ./ng net.accelbyte.sdk.cli.Main dsmc getSession \
     --namespace "$AB_NAMESPACE" \
-    --sessionID 'OpdOjSyM' \
+    --sessionID 'yMddB41J' \
     > test.out 2>&1
 eval_tap $? 64 'GetSession' test.out
 
@@ -508,7 +510,7 @@ eval_tap $? 66 'ListProviders' test.out
 
 #- 67 ListProvidersByRegion
 ./ng net.accelbyte.sdk.cli.Main dsmc listProvidersByRegion \
-    --region 'ddB41JuM' \
+    --region 'uMf7RUyB' \
     > test.out 2>&1
 eval_tap $? 67 'ListProvidersByRegion' test.out
 

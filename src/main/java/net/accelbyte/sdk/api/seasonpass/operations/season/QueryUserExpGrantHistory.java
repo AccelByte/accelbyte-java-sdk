@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.achievement.operations.achievements;
+package net.accelbyte.sdk.api.seasonpass.operations.season;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,8 +14,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.accelbyte.sdk.api.achievement.models.*;
-import net.accelbyte.sdk.api.achievement.models.ModelsPaginatedUserAchievementResponse;
+import net.accelbyte.sdk.api.seasonpass.models.*;
+import net.accelbyte.sdk.api.seasonpass.models.ExpGrantHistoryPagingSlicedResult;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,29 +25,25 @@ import java.io.InputStream;
 import java.util.*;
 
 /**
- * PublicListUserAchievements
+ * queryUserExpGrantHistory
  *
+ * This API is used to get user exp acquisition history, season only located in non-publisher namespace.
  * 
+ * Other detail info:
  * 
- * Required permission
- * `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope `social`
- * 
- * 
- * 
- * 
- * Note: user achievement status value mean: `status = 1 (in progress)` and `status = 2 (unlocked)
- * 
- * `
+ *   * default will query from current active season
+ *   *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+ *   *  Returns : paginated grant history
  */
 @Getter
 @Setter
-public class PublicListUserAchievements extends Operation {
+public class QueryUserExpGrantHistory extends Operation {
     /**
      * generated field's value
      */
-    private String path = "/achievement/v1/public/namespaces/{namespace}/users/{userId}/achievements";
+    private String path = "/seasonpass/admin/namespaces/{namespace}/users/{userId}/seasons/exp/history";
     private String method = "GET";
-    private List<String> consumes = Arrays.asList("application/json");
+    private List<String> consumes = Arrays.asList();
     private List<String> produces = Arrays.asList("application/json");
     @Deprecated
     private String security = "Bearer";
@@ -57,28 +53,40 @@ public class PublicListUserAchievements extends Operation {
      */
     private String namespace;
     private String userId;
+    private String from;
     private Integer limit;
     private Integer offset;
-    private Boolean preferUnlocked;
+    private String seasonId;
+    private String source;
+    private List<String> tags;
+    private String to;
 
     /**
     * @param namespace required
     * @param userId required
     */
     @Builder
-    public PublicListUserAchievements(
+    public QueryUserExpGrantHistory(
             String namespace,
             String userId,
+            String from,
             Integer limit,
             Integer offset,
-            Boolean preferUnlocked
+            String seasonId,
+            String source,
+            List<String> tags,
+            String to
     )
     {
         this.namespace = namespace;
         this.userId = userId;
+        this.from = from;
         this.limit = limit;
         this.offset = offset;
-        this.preferUnlocked = preferUnlocked;
+        this.seasonId = seasonId;
+        this.source = source;
+        this.tags = tags;
+        this.to = to;
         
         securities.add("Bearer");
     }
@@ -98,9 +106,13 @@ public class PublicListUserAchievements extends Operation {
     @Override
     public Map<String, List<String>> getQueryParams(){
         Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("from", this.from == null ? null : Arrays.asList(this.from));
         queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
         queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
-        queryParams.put("preferUnlocked", this.preferUnlocked == null ? null : Arrays.asList(String.valueOf(this.preferUnlocked)));
+        queryParams.put("seasonId", this.seasonId == null ? null : Arrays.asList(this.seasonId));
+        queryParams.put("source", this.source == null ? null : Arrays.asList(this.source));
+        queryParams.put("tags", this.tags == null ? null : this.tags);
+        queryParams.put("to", this.to == null ? null : Arrays.asList(this.to));
         return queryParams;
     }
 
@@ -118,10 +130,10 @@ public class PublicListUserAchievements extends Operation {
         return true;
     }
 
-    public ModelsPaginatedUserAchievementResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+    public ExpGrantHistoryPagingSlicedResult parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = Helper.convertInputStreamToString(payload);
         if(code == 200){
-            return new ModelsPaginatedUserAchievementResponse().createFromJson(json);
+            return new ExpGrantHistoryPagingSlicedResult().createFromJson(json);
         }
         throw new HttpResponseException(code, json);
     }
@@ -129,9 +141,44 @@ public class PublicListUserAchievements extends Operation {
     @Override
     protected Map<String, String> getCollectionFormatMap() {
         Map<String, String> result = new HashMap<>();
+        result.put("from", "None");
         result.put("limit", "None");
         result.put("offset", "None");
-        result.put("preferUnlocked", "None");
+        result.put("seasonId", "None");
+        result.put("source", "None");
+        result.put("tags", "multi");
+        result.put("to", "None");
         return result;
+    }
+    public enum Source {
+        PAIDFOR("PAID_FOR"),
+        SWEAT("SWEAT");
+
+        private String value;
+
+        Source(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class QueryUserExpGrantHistoryBuilder {
+        private String source;
+        
+        
+        public QueryUserExpGrantHistoryBuilder source(final String source) {
+            this.source = source;
+            return this;
+        }
+        
+        public QueryUserExpGrantHistoryBuilder sourceFromEnum(final Source source) {
+            this.source = source.toString();
+            return this;
+        }
     }
 }

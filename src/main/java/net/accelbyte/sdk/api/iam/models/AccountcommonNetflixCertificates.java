@@ -28,36 +28,27 @@ import java.util.Map;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ModelUserUpdateRequestV3 extends Model {
+public class AccountcommonNetflixCertificates extends Model {
 
-    @JsonProperty("avatarUrl")
-    private String avatarUrl;
+    @JsonProperty("encryptedPrivateKey")
+    private String encryptedPrivateKey;
 
-    @JsonProperty("country")
-    private String country;
+    @JsonProperty("publicCertificate")
+    private String publicCertificate;
 
-    @JsonProperty("dateOfBirth")
-    private String dateOfBirth;
-
-    @JsonProperty("displayName")
-    private String displayName;
-
-    @JsonProperty("languageTag")
-    private String languageTag;
-
-    @JsonProperty("userName")
-    private String userName;
+    @JsonProperty("rootCertificate")
+    private String rootCertificate;
 
 
 
     @JsonIgnore
-    public ModelUserUpdateRequestV3 createFromJson(String json) throws JsonProcessingException {
+    public AccountcommonNetflixCertificates createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<ModelUserUpdateRequestV3> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserUpdateRequestV3>>() {});
+    public List<AccountcommonNetflixCertificates> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonNetflixCertificates>>() {});
     }
 
     

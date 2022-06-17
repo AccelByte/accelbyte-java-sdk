@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..91"
+echo "1..92"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -550,149 +550,157 @@ eval_tap $? 70 'PublicGetPartyDataV1' test.out
     > test.out 2>&1
 eval_tap $? 71 'PublicUpdatePartyAttributesV1' test.out
 
-#- 72 PublicGetPlayerBlockedPlayersV1
+#- 72 PublicSetPartyLimitV1
+./ng net.accelbyte.sdk.cli.Main lobby publicSetPartyLimitV1 \
+    --body '{"limit": 19}' \
+    --namespace "$AB_NAMESPACE" \
+    --partyId '3LDp4yqD' \
+    > test.out 2>&1
+eval_tap $? 72 'PublicSetPartyLimitV1' test.out
+
+#- 73 PublicGetPlayerBlockedPlayersV1
 ./ng net.accelbyte.sdk.cli.Main lobby publicGetPlayerBlockedPlayersV1 \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 72 'PublicGetPlayerBlockedPlayersV1' test.out
+eval_tap $? 73 'PublicGetPlayerBlockedPlayersV1' test.out
 
-#- 73 PublicGetPlayerBlockedByPlayersV1
+#- 74 PublicGetPlayerBlockedByPlayersV1
 ./ng net.accelbyte.sdk.cli.Main lobby publicGetPlayerBlockedByPlayersV1 \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 73 'PublicGetPlayerBlockedByPlayersV1' test.out
+eval_tap $? 74 'PublicGetPlayerBlockedByPlayersV1' test.out
 
-#- 74 UsersPresenceHandlerV1
+#- 75 UsersPresenceHandlerV1
 ./ng net.accelbyte.sdk.cli.Main lobby usersPresenceHandlerV1 \
     --namespace "$AB_NAMESPACE" \
-    --userIds 'j3LDp4yq' \
+    --userIds 't8QUZDpx' \
     > test.out 2>&1
-eval_tap $? 74 'UsersPresenceHandlerV1' test.out
+eval_tap $? 75 'UsersPresenceHandlerV1' test.out
 
-#- 75 FreeFormNotification
+#- 76 FreeFormNotification
 ./ng net.accelbyte.sdk.cli.Main lobby freeFormNotification \
-    --body '{"message": "Dt8QUZDp", "topic": "xlHasinG"}' \
+    --body '{"message": "lHasinGc", "topic": "jrkmRMtt"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 75 'FreeFormNotification' test.out
+eval_tap $? 76 'FreeFormNotification' test.out
 
-#- 76 NotificationWithTemplate
+#- 77 NotificationWithTemplate
 ./ng net.accelbyte.sdk.cli.Main lobby notificationWithTemplate \
-    --body '{"templateContext": {"cjrkmRMt": "tgjDSaIV"}, "templateLanguage": "Bmft3Udg", "templateSlug": "7p9PGmY2", "topic": "H5kX4Msi"}' \
+    --body '{"templateContext": {"gjDSaIVB": "mft3Udg7"}, "templateLanguage": "p9PGmY2H", "templateSlug": "5kX4Msis", "topic": "SX28nARx"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 76 'NotificationWithTemplate' test.out
+eval_tap $? 77 'NotificationWithTemplate' test.out
 
-#- 77 GetGameTemplate
+#- 78 GetGameTemplate
 ./ng net.accelbyte.sdk.cli.Main lobby getGameTemplate \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 77 'GetGameTemplate' test.out
+eval_tap $? 78 'GetGameTemplate' test.out
 
-#- 78 CreateTemplate
+#- 79 CreateTemplate
 ./ng net.accelbyte.sdk.cli.Main lobby createTemplate \
-    --body '{"templateContent": "sSX28nAR", "templateLanguage": "xWRpv5ou", "templateSlug": "5xtvd28O"}' \
+    --body '{"templateContent": "WRpv5ou5", "templateLanguage": "xtvd28OU", "templateSlug": "fCt8UJC5"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 78 'CreateTemplate' test.out
+eval_tap $? 79 'CreateTemplate' test.out
 
-#- 79 GetSlugTemplate
+#- 80 GetSlugTemplate
 ./ng net.accelbyte.sdk.cli.Main lobby getSlugTemplate \
     --namespace "$AB_NAMESPACE" \
-    --templateSlug 'UfCt8UJC' \
+    --templateSlug 'flNyj6Hs' \
     > test.out 2>&1
-eval_tap $? 79 'GetSlugTemplate' test.out
+eval_tap $? 80 'GetSlugTemplate' test.out
 
-#- 80 DeleteTemplateSlug
+#- 81 DeleteTemplateSlug
 ./ng net.accelbyte.sdk.cli.Main lobby deleteTemplateSlug \
     --namespace "$AB_NAMESPACE" \
-    --templateSlug '5flNyj6H' \
+    --templateSlug 'TtX8P3ll' \
     > test.out 2>&1
-eval_tap $? 80 'DeleteTemplateSlug' test.out
+eval_tap $? 81 'DeleteTemplateSlug' test.out
 
-#- 81 GetLocalizationTemplate
+#- 82 GetLocalizationTemplate
 ./ng net.accelbyte.sdk.cli.Main lobby getLocalizationTemplate \
     --namespace "$AB_NAMESPACE" \
-    --templateLanguage 'sTtX8P3l' \
-    --templateSlug 'lnaaS9lq' \
+    --templateLanguage 'naaS9lqy' \
+    --templateSlug 'ygPcfkJI' \
     > test.out 2>&1
-eval_tap $? 81 'GetLocalizationTemplate' test.out
+eval_tap $? 82 'GetLocalizationTemplate' test.out
 
-#- 82 UpdateLocalizationTemplate
+#- 83 UpdateLocalizationTemplate
 ./ng net.accelbyte.sdk.cli.Main lobby updateLocalizationTemplate \
-    --body '{"templateContent": "yygPcfkJ"}' \
+    --body '{"templateContent": "xfQZza8k"}' \
     --namespace "$AB_NAMESPACE" \
-    --templateLanguage 'IxfQZza8' \
-    --templateSlug 'kNVbDxVM' \
+    --templateLanguage 'NVbDxVMq' \
+    --templateSlug '7HJk0F89' \
     > test.out 2>&1
-eval_tap $? 82 'UpdateLocalizationTemplate' test.out
+eval_tap $? 83 'UpdateLocalizationTemplate' test.out
 
-#- 83 DeleteTemplateLocalization
+#- 84 DeleteTemplateLocalization
 ./ng net.accelbyte.sdk.cli.Main lobby deleteTemplateLocalization \
     --namespace "$AB_NAMESPACE" \
-    --templateLanguage 'q7HJk0F8' \
-    --templateSlug '9xAc3YVf' \
+    --templateLanguage 'xAc3YVfa' \
+    --templateSlug 'ENtrl0pT' \
     > test.out 2>&1
-eval_tap $? 83 'DeleteTemplateLocalization' test.out
+eval_tap $? 84 'DeleteTemplateLocalization' test.out
 
-#- 84 PublishTemplate
+#- 85 PublishTemplate
 ./ng net.accelbyte.sdk.cli.Main lobby publishTemplate \
     --namespace "$AB_NAMESPACE" \
-    --templateLanguage 'aENtrl0p' \
-    --templateSlug 'TKZTXqzH' \
+    --templateLanguage 'KZTXqzHu' \
+    --templateSlug 'BMYQSA2j' \
     > test.out 2>&1
-eval_tap $? 84 'PublishTemplate' test.out
+eval_tap $? 85 'PublishTemplate' test.out
 
-#- 85 GetTopicByNamespace
+#- 86 GetTopicByNamespace
 ./ng net.accelbyte.sdk.cli.Main lobby getTopicByNamespace \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 85 'GetTopicByNamespace' test.out
+eval_tap $? 86 'GetTopicByNamespace' test.out
 
-#- 86 CreateTopic
+#- 87 CreateTopic
 ./ng net.accelbyte.sdk.cli.Main lobby createTopic \
-    --body '{"description": "uBMYQSA2", "topic": "jz1ZOpdO"}' \
+    --body '{"description": "z1ZOpdOj", "topic": "SyMddB41"}' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 86 'CreateTopic' test.out
+eval_tap $? 87 'CreateTopic' test.out
 
-#- 87 GetTopicByTopicName
+#- 88 GetTopicByTopicName
 ./ng net.accelbyte.sdk.cli.Main lobby getTopicByTopicName \
     --namespace "$AB_NAMESPACE" \
-    --topic 'jSyMddB4' \
+    --topic 'JuMf7RUy' \
     > test.out 2>&1
-eval_tap $? 87 'GetTopicByTopicName' test.out
+eval_tap $? 88 'GetTopicByTopicName' test.out
 
-#- 88 UpdateTopicByTopicName
+#- 89 UpdateTopicByTopicName
 ./ng net.accelbyte.sdk.cli.Main lobby updateTopicByTopicName \
-    --body '{"description": "1JuMf7RU"}' \
+    --body '{"description": "BHRj8IiR"}' \
     --namespace "$AB_NAMESPACE" \
-    --topic 'yBHRj8Ii' \
+    --topic 'imRllHT6' \
     > test.out 2>&1
-eval_tap $? 88 'UpdateTopicByTopicName' test.out
+eval_tap $? 89 'UpdateTopicByTopicName' test.out
 
-#- 89 DeleteTopicByTopicName
+#- 90 DeleteTopicByTopicName
 ./ng net.accelbyte.sdk.cli.Main lobby deleteTopicByTopicName \
     --namespace "$AB_NAMESPACE" \
-    --topic 'RimRllHT' \
+    --topic 'Dc40vFFA' \
     > test.out 2>&1
-eval_tap $? 89 'DeleteTopicByTopicName' test.out
+eval_tap $? 90 'DeleteTopicByTopicName' test.out
 
-#- 90 FreeFormNotificationByUserID
+#- 91 FreeFormNotificationByUserID
 ./ng net.accelbyte.sdk.cli.Main lobby freeFormNotificationByUserID \
-    --body '{"message": "6Dc40vFF", "topic": "A6gpU7EW"}' \
+    --body '{"message": "6gpU7EW3", "topic": "x1dCpm55"}' \
     --namespace "$AB_NAMESPACE" \
-    --userId '3x1dCpm5' \
+    --userId 'gOeqQIqc' \
     > test.out 2>&1
-eval_tap $? 90 'FreeFormNotificationByUserID' test.out
+eval_tap $? 91 'FreeFormNotificationByUserID' test.out
 
-#- 91 NotificationWithTemplateByUserID
+#- 92 NotificationWithTemplateByUserID
 ./ng net.accelbyte.sdk.cli.Main lobby notificationWithTemplateByUserID \
-    --body '{"templateContext": {"5gOeqQIq": "cJVKmBM1"}, "templateLanguage": "J1IbuTrr", "templateSlug": "kbmuT1wh", "topic": "OqmEnDXI"}' \
+    --body '{"templateContext": {"JVKmBM1J": "1IbuTrrk"}, "templateLanguage": "bmuT1whO", "templateSlug": "qmEnDXIW", "topic": "rBPlSay4"}' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'WrBPlSay' \
+    --userId '6mv71BAZ' \
     > test.out 2>&1
-eval_tap $? 91 'NotificationWithTemplateByUserID' test.out
+eval_tap $? 92 'NotificationWithTemplateByUserID' test.out
 
 
 rm -f "tmp.dat"

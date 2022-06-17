@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..40"
+echo "1..42"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -255,98 +255,112 @@ eval_tap $? 27 'GetUserParticipatedSeasons' test.out
 ./ng net.accelbyte.sdk.cli.Main seasonpass grantUserExp \
     --namespace "$AB_NAMESPACE" \
     --userId 'suNIdQJR' \
-    --body '{"exp": 23}' \
+    --body '{"exp": 23, "source": "SWEAT", "tags": ["NOlvkfwa"]}' \
     > test.out 2>&1
 eval_tap $? 28 'GrantUserExp' test.out
 
 #- 29 GrantUserPass
 ./ng net.accelbyte.sdk.cli.Main seasonpass grantUserPass \
     --namespace "$AB_NAMESPACE" \
-    --userId 'sNOlvkfw' \
-    --body '{"passCode": "aSbnsuLC", "passItemId": "gToxuVTe"}' \
+    --userId 'SbnsuLCg' \
+    --body '{"passCode": "ToxuVTek", "passItemId": "Jgvg6h5H"}' \
     > test.out 2>&1
 eval_tap $? 29 'GrantUserPass' test.out
 
 #- 30 ExistsAnyPassByPassCodes
 ./ng net.accelbyte.sdk.cli.Main seasonpass existsAnyPassByPassCodes \
     --namespace "$AB_NAMESPACE" \
-    --userId 'kJgvg6h5' \
+    --userId 'IpH0Dvip' \
     > test.out 2>&1
 eval_tap $? 30 'ExistsAnyPassByPassCodes' test.out
 
 #- 31 GetCurrentUserSeasonProgression
 ./ng net.accelbyte.sdk.cli.Main seasonpass getCurrentUserSeasonProgression \
     --namespace "$AB_NAMESPACE" \
-    --userId 'HIpH0Dvi' \
+    --userId 'lEk4vj3L' \
     > test.out 2>&1
 eval_tap $? 31 'GetCurrentUserSeasonProgression' test.out
 
 #- 32 CheckSeasonPurchasable
 ./ng net.accelbyte.sdk.cli.Main seasonpass checkSeasonPurchasable \
     --namespace "$AB_NAMESPACE" \
-    --userId 'plEk4vj3' \
-    --body '{"passItemId": "LDp4yqDt", "tierItemCount": 85, "tierItemId": "UZDpxlHa"}' \
+    --userId 'Dp4yqDt8' \
+    --body '{"passItemId": "QUZDpxlH", "tierItemCount": 1, "tierItemId": "sinGcjrk"}' \
     > test.out 2>&1
 eval_tap $? 32 'CheckSeasonPurchasable' test.out
 
 #- 33 ResetUserSeason
 ./ng net.accelbyte.sdk.cli.Main seasonpass resetUserSeason \
     --namespace "$AB_NAMESPACE" \
-    --userId 'sinGcjrk' \
+    --userId 'mRMttgjD' \
     > test.out 2>&1
 eval_tap $? 33 'ResetUserSeason' test.out
 
 #- 34 GrantUserTier
 ./ng net.accelbyte.sdk.cli.Main seasonpass grantUserTier \
     --namespace "$AB_NAMESPACE" \
-    --userId 'mRMttgjD' \
-    --body '{"count": 88}' \
+    --userId 'SaIVBmft' \
+    --body '{"count": 93, "source": "PAID_FOR", "tags": ["g7p9PGmY"]}' \
     > test.out 2>&1
 eval_tap $? 34 'GrantUserTier' test.out
 
-#- 35 GetUserSeason
+#- 35 QueryUserExpGrantHistory
+./ng net.accelbyte.sdk.cli.Main seasonpass queryUserExpGrantHistory \
+    --namespace "$AB_NAMESPACE" \
+    --userId '2H5kX4Ms' \
+    > test.out 2>&1
+eval_tap $? 35 'QueryUserExpGrantHistory' test.out
+
+#- 36 QueryUserExpGrantHistoryTag
+./ng net.accelbyte.sdk.cli.Main seasonpass queryUserExpGrantHistoryTag \
+    --namespace "$AB_NAMESPACE" \
+    --userId 'isSX28nA' \
+    > test.out 2>&1
+eval_tap $? 36 'QueryUserExpGrantHistoryTag' test.out
+
+#- 37 GetUserSeason
 ./ng net.accelbyte.sdk.cli.Main seasonpass getUserSeason \
     --namespace "$AB_NAMESPACE" \
-    --seasonId 'aIVBmft3' \
-    --userId 'Udg7p9PG' \
+    --seasonId 'RxWRpv5o' \
+    --userId 'u5xtvd28' \
     > test.out 2>&1
-eval_tap $? 35 'GetUserSeason' test.out
+eval_tap $? 37 'GetUserSeason' test.out
 
-#- 36 PublicGetCurrentSeason
+#- 38 PublicGetCurrentSeason
 ./ng net.accelbyte.sdk.cli.Main seasonpass publicGetCurrentSeason \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 36 'PublicGetCurrentSeason' test.out
+eval_tap $? 38 'PublicGetCurrentSeason' test.out
 
-#- 37 PublicGetCurrentUserSeason
+#- 39 PublicGetCurrentUserSeason
 ./ng net.accelbyte.sdk.cli.Main seasonpass publicGetCurrentUserSeason \
     --namespace "$AB_NAMESPACE" \
-    --userId 'mY2H5kX4' \
+    --userId 'OUfCt8UJ' \
     > test.out 2>&1
-eval_tap $? 37 'PublicGetCurrentUserSeason' test.out
+eval_tap $? 39 'PublicGetCurrentUserSeason' test.out
 
-#- 38 PublicClaimUserReward
+#- 40 PublicClaimUserReward
 ./ng net.accelbyte.sdk.cli.Main seasonpass publicClaimUserReward \
     --namespace "$AB_NAMESPACE" \
-    --userId 'MsisSX28' \
-    --body '{"passCode": "nARxWRpv", "rewardCode": "5ou5xtvd", "tierIndex": 80}' \
+    --userId 'C5flNyj6' \
+    --body '{"passCode": "HsTtX8P3", "rewardCode": "llnaaS9l", "tierIndex": 33}' \
     > test.out 2>&1
-eval_tap $? 38 'PublicClaimUserReward' test.out
+eval_tap $? 40 'PublicClaimUserReward' test.out
 
-#- 39 PublicBulkClaimUserRewards
+#- 41 PublicBulkClaimUserRewards
 ./ng net.accelbyte.sdk.cli.Main seasonpass publicBulkClaimUserRewards \
     --namespace "$AB_NAMESPACE" \
-    --userId 'UfCt8UJC' \
+    --userId 'yygPcfkJ' \
     > test.out 2>&1
-eval_tap $? 39 'PublicBulkClaimUserRewards' test.out
+eval_tap $? 41 'PublicBulkClaimUserRewards' test.out
 
-#- 40 PublicGetUserSeason
+#- 42 PublicGetUserSeason
 ./ng net.accelbyte.sdk.cli.Main seasonpass publicGetUserSeason \
     --namespace "$AB_NAMESPACE" \
-    --seasonId '5flNyj6H' \
-    --userId 'sTtX8P3l' \
+    --seasonId 'IxfQZza8' \
+    --userId 'kNVbDxVM' \
     > test.out 2>&1
-eval_tap $? 40 'PublicGetUserSeason' test.out
+eval_tap $? 42 'PublicGetUserSeason' test.out
 
 
 rm -f "tmp.dat"

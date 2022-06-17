@@ -42,6 +42,9 @@ public class CatalogChangeInfo extends Model {
     @JsonProperty("createdAt")
     private String createdAt;
 
+    @JsonProperty("description")
+    private String description;
+
     @JsonProperty("itemId")
     private String itemId;
 

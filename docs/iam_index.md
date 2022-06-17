@@ -399,6 +399,7 @@
 | `accountcommon.JWTBanV3` | [AccountcommonJWTBanV3](../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonJWTBanV3.java) |
 | `accountcommon.ListUsersWithPlatformAccountsResponse` | [AccountcommonListUsersWithPlatformAccountsResponse](../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonListUsersWithPlatformAccountsResponse.java) |
 | `accountcommon.NamespaceRole` | [AccountcommonNamespaceRole](../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonNamespaceRole.java) |
+| `accountcommon.NetflixCertificates` | [AccountcommonNetflixCertificates](../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonNetflixCertificates.java) |
 | `accountcommon.Pagination` | [AccountcommonPagination](../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPagination.java) |
 | `accountcommon.PaginationV3` | [AccountcommonPaginationV3](../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPaginationV3.java) |
 | `accountcommon.Permission` | [AccountcommonPermission](../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPermission.java) |

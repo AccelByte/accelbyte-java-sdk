@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..33"
+echo "1..35"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -102,211 +102,229 @@ eval_tap $? 7 'AdminDeleteGameRecordHandlerV1' test.out
 #- 8 ListPlayerRecordHandlerV1
 eval_tap 0 8 'ListPlayerRecordHandlerV1 # SKIP deprecated' test.out
 
-#- 9 AdminPutPlayerPublicRecordConcurrentHandlerV1
-./ng net.accelbyte.sdk.cli.Main cloudsave adminPutPlayerPublicRecordConcurrentHandlerV1 \
+#- 9 AdminPutPlayerRecordConcurrentHandlerV1
+./ng net.accelbyte.sdk.cli.Main cloudsave adminPutPlayerRecordConcurrentHandlerV1 \
     --body '{"set_by": "tqRzHU1o", "updatedAt": "h570KQBV", "value": {"aewc72kr": {}}}' \
     --key 'Sha68n3Y' \
     --namespace "$AB_NAMESPACE" \
     --userId 'nozp1C2K' \
     > test.out 2>&1
-eval_tap $? 9 'AdminPutPlayerPublicRecordConcurrentHandlerV1' test.out
+eval_tap $? 9 'AdminPutPlayerRecordConcurrentHandlerV1' test.out
 
-#- 10 AdminRetrievePlayerRecords
-./ng net.accelbyte.sdk.cli.Main cloudsave adminRetrievePlayerRecords \
-    --namespace "$AB_NAMESPACE" \
-    --userId 'mIQTuBdN' \
-    > test.out 2>&1
-eval_tap $? 10 'AdminRetrievePlayerRecords' test.out
-
-#- 11 AdminGetPlayerRecordHandlerV1
-./ng net.accelbyte.sdk.cli.Main cloudsave adminGetPlayerRecordHandlerV1 \
-    --key 'EUsxFb8C' \
-    --namespace "$AB_NAMESPACE" \
-    --userId 'J17M7DJZ' \
-    > test.out 2>&1
-eval_tap $? 11 'AdminGetPlayerRecordHandlerV1' test.out
-
-#- 12 AdminPutPlayerRecordHandlerV1
-./ng net.accelbyte.sdk.cli.Main cloudsave adminPutPlayerRecordHandlerV1 \
-    --body '{}' \
+#- 10 AdminPutPlayerPublicRecordConcurrentHandlerV1
+./ng net.accelbyte.sdk.cli.Main cloudsave adminPutPlayerPublicRecordConcurrentHandlerV1 \
+    --body '{"set_by": "mIQTuBdN", "updatedAt": "EUsxFb8C", "value": {"J17M7DJZ": {}}}' \
     --key 'aMSxECbZ' \
     --namespace "$AB_NAMESPACE" \
     --userId 'bygyoarO' \
     > test.out 2>&1
-eval_tap $? 12 'AdminPutPlayerRecordHandlerV1' test.out
+eval_tap $? 10 'AdminPutPlayerPublicRecordConcurrentHandlerV1' test.out
 
-#- 13 AdminPostPlayerRecordHandlerV1
+#- 11 AdminRetrievePlayerRecords
+./ng net.accelbyte.sdk.cli.Main cloudsave adminRetrievePlayerRecords \
+    --namespace "$AB_NAMESPACE" \
+    --userId 'RoeNHSb8' \
+    > test.out 2>&1
+eval_tap $? 11 'AdminRetrievePlayerRecords' test.out
+
+#- 12 AdminGetPlayerRecordHandlerV1
+./ng net.accelbyte.sdk.cli.Main cloudsave adminGetPlayerRecordHandlerV1 \
+    --key 'Rh3kgs9q' \
+    --namespace "$AB_NAMESPACE" \
+    --userId 'qJbnQsoB' \
+    > test.out 2>&1
+eval_tap $? 12 'AdminGetPlayerRecordHandlerV1' test.out
+
+#- 13 AdminPutPlayerRecordHandlerV1
+./ng net.accelbyte.sdk.cli.Main cloudsave adminPutPlayerRecordHandlerV1 \
+    --body '{}' \
+    --key 'giVpP8Cm' \
+    --namespace "$AB_NAMESPACE" \
+    --userId '3yvASUox' \
+    > test.out 2>&1
+eval_tap $? 13 'AdminPutPlayerRecordHandlerV1' test.out
+
+#- 14 AdminPostPlayerRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave adminPostPlayerRecordHandlerV1 \
     --body '{}' \
-    --key 'RoeNHSb8' \
+    --key 'dxxFqmAG' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'Rh3kgs9q' \
+    --userId 'TJ8IEdag' \
     > test.out 2>&1
-eval_tap $? 13 'AdminPostPlayerRecordHandlerV1' test.out
+eval_tap $? 14 'AdminPostPlayerRecordHandlerV1' test.out
 
-#- 14 AdminDeletePlayerRecordHandlerV1
+#- 15 AdminDeletePlayerRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave adminDeletePlayerRecordHandlerV1 \
-    --key 'qJbnQsoB' \
+    --key 'Etp4w29K' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'giVpP8Cm' \
+    --userId 'Ou9c19R6' \
     > test.out 2>&1
-eval_tap $? 14 'AdminDeletePlayerRecordHandlerV1' test.out
+eval_tap $? 15 'AdminDeletePlayerRecordHandlerV1' test.out
 
-#- 15 AdminGetPlayerPublicRecordHandlerV1
+#- 16 AdminGetPlayerPublicRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave adminGetPlayerPublicRecordHandlerV1 \
-    --key '3yvASUox' \
+    --key 'XDqWHkkP' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'dxxFqmAG' \
+    --userId '8npLEKMf' \
     > test.out 2>&1
-eval_tap $? 15 'AdminGetPlayerPublicRecordHandlerV1' test.out
+eval_tap $? 16 'AdminGetPlayerPublicRecordHandlerV1' test.out
 
-#- 16 AdminPutPlayerPublicRecordHandlerV1
+#- 17 AdminPutPlayerPublicRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave adminPutPlayerPublicRecordHandlerV1 \
     --body '{}' \
-    --key 'TJ8IEdag' \
+    --key 'jiX7jpkV' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'Etp4w29K' \
+    --userId 'Zk3IaQYE' \
     > test.out 2>&1
-eval_tap $? 16 'AdminPutPlayerPublicRecordHandlerV1' test.out
+eval_tap $? 17 'AdminPutPlayerPublicRecordHandlerV1' test.out
 
-#- 17 AdminPostPlayerPublicRecordHandlerV1
+#- 18 AdminPostPlayerPublicRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave adminPostPlayerPublicRecordHandlerV1 \
     --body '{}' \
-    --key 'Ou9c19R6' \
+    --key 'mqGodOEG' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'XDqWHkkP' \
+    --userId 't9gPOj0c' \
     > test.out 2>&1
-eval_tap $? 17 'AdminPostPlayerPublicRecordHandlerV1' test.out
+eval_tap $? 18 'AdminPostPlayerPublicRecordHandlerV1' test.out
 
-#- 18 AdminDeletePlayerPublicRecordHandlerV1
+#- 19 AdminDeletePlayerPublicRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave adminDeletePlayerPublicRecordHandlerV1 \
-    --key '8npLEKMf' \
-    --namespace "$AB_NAMESPACE" \
-    --userId 'jiX7jpkV' \
-    > test.out 2>&1
-eval_tap $? 18 'AdminDeletePlayerPublicRecordHandlerV1' test.out
-
-#- 19 PutGameRecordConcurrentHandlerV1
-./ng net.accelbyte.sdk.cli.Main cloudsave putGameRecordConcurrentHandlerV1 \
-    --body '{"updatedAt": "Zk3IaQYE", "value": {"mqGodOEG": {}}}' \
-    --key 't9gPOj0c' \
-    --namespace "$AB_NAMESPACE" \
-    > test.out 2>&1
-eval_tap $? 19 'PutGameRecordConcurrentHandlerV1' test.out
-
-#- 20 GetGameRecordHandlerV1
-./ng net.accelbyte.sdk.cli.Main cloudsave getGameRecordHandlerV1 \
     --key '6i0JkvIa' \
     --namespace "$AB_NAMESPACE" \
+    --userId 's73ucYnF' \
     > test.out 2>&1
-eval_tap $? 20 'GetGameRecordHandlerV1' test.out
+eval_tap $? 19 'AdminDeletePlayerPublicRecordHandlerV1' test.out
 
-#- 21 PutGameRecordHandlerV1
-./ng net.accelbyte.sdk.cli.Main cloudsave putGameRecordHandlerV1 \
-    --body '{}' \
-    --key 's73ucYnF' \
+#- 20 PutGameRecordConcurrentHandlerV1
+./ng net.accelbyte.sdk.cli.Main cloudsave putGameRecordConcurrentHandlerV1 \
+    --body '{"updatedAt": "AJ3DK5T4", "value": {"Eogg0Y39": {}}}' \
+    --key 'UoYlpv5b' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 21 'PutGameRecordHandlerV1' test.out
+eval_tap $? 20 'PutGameRecordConcurrentHandlerV1' test.out
 
-#- 22 PostGameRecordHandlerV1
-./ng net.accelbyte.sdk.cli.Main cloudsave postGameRecordHandlerV1 \
-    --body '{}' \
-    --key 'AJ3DK5T4' \
-    --namespace "$AB_NAMESPACE" \
-    > test.out 2>&1
-eval_tap $? 22 'PostGameRecordHandlerV1' test.out
-
-#- 23 DeleteGameRecordHandlerV1
-./ng net.accelbyte.sdk.cli.Main cloudsave deleteGameRecordHandlerV1 \
-    --key 'Eogg0Y39' \
-    --namespace "$AB_NAMESPACE" \
-    > test.out 2>&1
-eval_tap $? 23 'DeleteGameRecordHandlerV1' test.out
-
-#- 24 BulkGetPlayerPublicRecordHandlerV1
-./ng net.accelbyte.sdk.cli.Main cloudsave bulkGetPlayerPublicRecordHandlerV1 \
-    --body '{"userIds": ["UoYlpv5b"]}' \
+#- 21 GetGameRecordHandlerV1
+./ng net.accelbyte.sdk.cli.Main cloudsave getGameRecordHandlerV1 \
     --key 'VAgtsDhU' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 24 'BulkGetPlayerPublicRecordHandlerV1' test.out
+eval_tap $? 21 'GetGameRecordHandlerV1' test.out
 
-#- 25 PublicDeletePlayerPublicRecordHandlerV1
-./ng net.accelbyte.sdk.cli.Main cloudsave publicDeletePlayerPublicRecordHandlerV1 \
+#- 22 PutGameRecordHandlerV1
+./ng net.accelbyte.sdk.cli.Main cloudsave putGameRecordHandlerV1 \
+    --body '{}' \
     --key 'TDUscbQD' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 25 'PublicDeletePlayerPublicRecordHandlerV1' test.out
+eval_tap $? 22 'PutGameRecordHandlerV1' test.out
 
-#- 26 PutPlayerPublicRecordConcurrentHandlerV1
-./ng net.accelbyte.sdk.cli.Main cloudsave putPlayerPublicRecordConcurrentHandlerV1 \
-    --body '{"updatedAt": "jbTQuPMz", "value": {"2PTRlkyU": {}}}' \
-    --key '89ZPOw6z' \
+#- 23 PostGameRecordHandlerV1
+./ng net.accelbyte.sdk.cli.Main cloudsave postGameRecordHandlerV1 \
+    --body '{}' \
+    --key 'jbTQuPMz' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'PFJ42cwm' \
     > test.out 2>&1
-eval_tap $? 26 'PutPlayerPublicRecordConcurrentHandlerV1' test.out
+eval_tap $? 23 'PostGameRecordHandlerV1' test.out
 
-#- 27 GetPlayerRecordHandlerV1
-./ng net.accelbyte.sdk.cli.Main cloudsave getPlayerRecordHandlerV1 \
+#- 24 DeleteGameRecordHandlerV1
+./ng net.accelbyte.sdk.cli.Main cloudsave deleteGameRecordHandlerV1 \
+    --key '2PTRlkyU' \
+    --namespace "$AB_NAMESPACE" \
+    > test.out 2>&1
+eval_tap $? 24 'DeleteGameRecordHandlerV1' test.out
+
+#- 25 BulkGetPlayerPublicRecordHandlerV1
+./ng net.accelbyte.sdk.cli.Main cloudsave bulkGetPlayerPublicRecordHandlerV1 \
+    --body '{"userIds": ["89ZPOw6z"]}' \
+    --key 'PFJ42cwm' \
+    --namespace "$AB_NAMESPACE" \
+    > test.out 2>&1
+eval_tap $? 25 'BulkGetPlayerPublicRecordHandlerV1' test.out
+
+#- 26 PublicDeletePlayerPublicRecordHandlerV1
+./ng net.accelbyte.sdk.cli.Main cloudsave publicDeletePlayerPublicRecordHandlerV1 \
     --key 'zBBSMNco' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'AAOjKNjf' \
     > test.out 2>&1
-eval_tap $? 27 'GetPlayerRecordHandlerV1' test.out
+eval_tap $? 26 'PublicDeletePlayerPublicRecordHandlerV1' test.out
 
-#- 28 PutPlayerRecordHandlerV1
+#- 27 PutPlayerRecordConcurrentHandlerV1
+./ng net.accelbyte.sdk.cli.Main cloudsave putPlayerRecordConcurrentHandlerV1 \
+    --body '{"updatedAt": "AAOjKNjf", "value": {"cYHm093a": {}}}' \
+    --key 'YgBU1sqj' \
+    --namespace "$AB_NAMESPACE" \
+    --userId 'yK0XH45P' \
+    > test.out 2>&1
+eval_tap $? 27 'PutPlayerRecordConcurrentHandlerV1' test.out
+
+#- 28 PutPlayerPublicRecordConcurrentHandlerV1
+./ng net.accelbyte.sdk.cli.Main cloudsave putPlayerPublicRecordConcurrentHandlerV1 \
+    --body '{"updatedAt": "aRSOFQBt", "value": {"u23REZ8h": {}}}' \
+    --key 'RVX7LGOv' \
+    --namespace "$AB_NAMESPACE" \
+    --userId 'DdYiQS9i' \
+    > test.out 2>&1
+eval_tap $? 28 'PutPlayerPublicRecordConcurrentHandlerV1' test.out
+
+#- 29 GetPlayerRecordHandlerV1
+./ng net.accelbyte.sdk.cli.Main cloudsave getPlayerRecordHandlerV1 \
+    --key '7mV1C91p' \
+    --namespace "$AB_NAMESPACE" \
+    --userId 'jG9gpxL6' \
+    > test.out 2>&1
+eval_tap $? 29 'GetPlayerRecordHandlerV1' test.out
+
+#- 30 PutPlayerRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave putPlayerRecordHandlerV1 \
     --body '{}' \
-    --key 'cYHm093a' \
+    --key 'ycTQdvln' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'YgBU1sqj' \
+    --userId '2LAuSQWE' \
     > test.out 2>&1
-eval_tap $? 28 'PutPlayerRecordHandlerV1' test.out
+eval_tap $? 30 'PutPlayerRecordHandlerV1' test.out
 
-#- 29 PostPlayerRecordHandlerV1
+#- 31 PostPlayerRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave postPlayerRecordHandlerV1 \
     --body '{}' \
-    --key 'yK0XH45P' \
+    --key 'XL6LFE1Y' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'aRSOFQBt' \
+    --userId 'Ho9m126Z' \
     > test.out 2>&1
-eval_tap $? 29 'PostPlayerRecordHandlerV1' test.out
+eval_tap $? 31 'PostPlayerRecordHandlerV1' test.out
 
-#- 30 DeletePlayerRecordHandlerV1
+#- 32 DeletePlayerRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave deletePlayerRecordHandlerV1 \
-    --key 'u23REZ8h' \
+    --key 'Wc8hHtWv' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'RVX7LGOv' \
+    --userId 'bNYqgUqs' \
     > test.out 2>&1
-eval_tap $? 30 'DeletePlayerRecordHandlerV1' test.out
+eval_tap $? 32 'DeletePlayerRecordHandlerV1' test.out
 
-#- 31 GetPlayerPublicRecordHandlerV1
+#- 33 GetPlayerPublicRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave getPlayerPublicRecordHandlerV1 \
-    --key 'DdYiQS9i' \
+    --key 'lArFPiHU' \
     --namespace "$AB_NAMESPACE" \
-    --userId '7mV1C91p' \
+    --userId 'IvaCv8kU' \
     > test.out 2>&1
-eval_tap $? 31 'GetPlayerPublicRecordHandlerV1' test.out
+eval_tap $? 33 'GetPlayerPublicRecordHandlerV1' test.out
 
-#- 32 PutPlayerPublicRecordHandlerV1
+#- 34 PutPlayerPublicRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave putPlayerPublicRecordHandlerV1 \
     --body '{}' \
-    --key 'jG9gpxL6' \
+    --key '9dBBpdsJ' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'ycTQdvln' \
+    --userId 'LhsVyExr' \
     > test.out 2>&1
-eval_tap $? 32 'PutPlayerPublicRecordHandlerV1' test.out
+eval_tap $? 34 'PutPlayerPublicRecordHandlerV1' test.out
 
-#- 33 PostPlayerPublicRecordHandlerV1
+#- 35 PostPlayerPublicRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave postPlayerPublicRecordHandlerV1 \
     --body '{}' \
-    --key '2LAuSQWE' \
+    --key 'kxoot0B7' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'XL6LFE1Y' \
+    --userId 'WOfercZd' \
     > test.out 2>&1
-eval_tap $? 33 'PostPlayerPublicRecordHandlerV1' test.out
+eval_tap $? 35 'PostPlayerPublicRecordHandlerV1' test.out
 
 
 rm -f "tmp.dat"

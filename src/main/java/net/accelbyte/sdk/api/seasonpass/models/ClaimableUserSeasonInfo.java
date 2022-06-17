@@ -72,6 +72,15 @@ public class ClaimableUserSeasonInfo extends Model {
     @JsonProperty("toClaimRewards")
     private Map<String, ?> toClaimRewards;
 
+    @JsonProperty("totalExp")
+    private Integer totalExp;
+
+    @JsonProperty("totalPaidForExp")
+    private Integer totalPaidForExp;
+
+    @JsonProperty("totalSweatExp")
+    private Integer totalSweatExp;
+
     @JsonProperty("updatedAt")
     private String updatedAt;
 

@@ -94,6 +94,7 @@ import picocli.CommandLine.Command;
                 GetPersonalChatHistoryV1Public.class,
                 PublicGetPartyDataV1.class,
                 PublicUpdatePartyAttributesV1.class,
+                PublicSetPartyLimitV1.class,
                 PublicGetPlayerBlockedPlayersV1.class,
                 PublicGetPlayerBlockedByPlayersV1.class,
                 UsersPresenceHandlerV1.class,

@@ -33,7 +33,33 @@ public class UserExpGrant extends Model {
     @JsonProperty("exp")
     private Integer exp;
 
+    @JsonProperty("source")
+    private String source;
 
+    @JsonProperty("tags")
+    private List<String> tags;
+
+
+    
+    @JsonIgnore
+    public String getSource() {
+        return this.source;
+    }
+    
+    @JsonIgnore
+    public Source getSourceAsEnum() {
+        return Source.valueOf(this.source);
+    }
+    
+    @JsonIgnore
+    public void setSource(final String source) {
+        this.source = source;
+    }
+    
+    @JsonIgnore
+    public void setSourceFromEnum(final Source source) {
+        this.source = source.toString();
+    }
 
     @JsonIgnore
     public UserExpGrant createFromJson(String json) throws JsonProcessingException {
@@ -46,4 +72,34 @@ public class UserExpGrant extends Model {
     }
 
     
+    public enum Source {
+        PAIDFOR("PAID_FOR"),
+        SWEAT("SWEAT");
+
+        private String value;
+
+        Source(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+    
+    public static class UserExpGrantBuilder {
+        private String source;
+        
+        
+        public UserExpGrantBuilder source(final String source) {
+            this.source = source;
+            return this;
+        }
+        
+        public UserExpGrantBuilder sourceFromEnum(final Source source) {
+            this.source = source.toString();
+            return this;
+        }
+    }
 }

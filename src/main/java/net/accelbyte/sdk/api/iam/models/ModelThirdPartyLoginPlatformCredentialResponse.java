@@ -69,6 +69,9 @@ public class ModelThirdPartyLoginPlatformCredentialResponse extends Model {
     @JsonProperty("Namespace")
     private String namespace;
 
+    @JsonProperty("NetflixCertificates")
+    private AccountcommonNetflixCertificates netflixCertificates;
+
     @JsonProperty("OrganizationId")
     private String organizationId;
 

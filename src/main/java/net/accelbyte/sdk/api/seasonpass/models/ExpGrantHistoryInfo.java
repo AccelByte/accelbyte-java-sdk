@@ -28,16 +28,31 @@ import java.util.Map;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserTierGrant extends Model {
+public class ExpGrantHistoryInfo extends Model {
 
-    @JsonProperty("count")
-    private Integer count;
+    @JsonProperty("createdAt")
+    private String createdAt;
+
+    @JsonProperty("grantExp")
+    private Integer grantExp;
+
+    @JsonProperty("id")
+    private String id;
+
+    @JsonProperty("namespace")
+    private String namespace;
+
+    @JsonProperty("seasonId")
+    private String seasonId;
 
     @JsonProperty("source")
     private String source;
 
     @JsonProperty("tags")
     private List<String> tags;
+
+    @JsonProperty("userId")
+    private String userId;
 
 
     
@@ -62,13 +77,13 @@ public class UserTierGrant extends Model {
     }
 
     @JsonIgnore
-    public UserTierGrant createFromJson(String json) throws JsonProcessingException {
+    public ExpGrantHistoryInfo createFromJson(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, this.getClass());
     }
 
     @JsonIgnore
-    public List<UserTierGrant> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<UserTierGrant>>() {});
+    public List<ExpGrantHistoryInfo> createFromJsonList(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, new TypeReference<List<ExpGrantHistoryInfo>>() {});
     }
 
     
@@ -88,16 +103,16 @@ public class UserTierGrant extends Model {
         }
     }
     
-    public static class UserTierGrantBuilder {
+    public static class ExpGrantHistoryInfoBuilder {
         private String source;
         
         
-        public UserTierGrantBuilder source(final String source) {
+        public ExpGrantHistoryInfoBuilder source(final String source) {
             this.source = source;
             return this;
         }
         
-        public UserTierGrantBuilder sourceFromEnum(final Source source) {
+        public ExpGrantHistoryInfoBuilder sourceFromEnum(final Source source) {
             this.source = source.toString();
             return this;
         }

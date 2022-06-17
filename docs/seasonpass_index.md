@@ -22,6 +22,8 @@
 | `/seasonpass/admin/namespaces/{namespace}/users/{userId}/seasons/current/progression` | GET | GetCurrentUserSeasonProgression | [GetCurrentUserSeasonProgression](../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/GetCurrentUserSeasonProgression.java) | [GetCurrentUserSeasonProgression](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/GetCurrentUserSeasonProgression.java) |
 | `/seasonpass/admin/namespaces/{namespace}/users/{userId}/seasons/current/purchasable` | POST | CheckSeasonPurchasable | [CheckSeasonPurchasable](../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/CheckSeasonPurchasable.java) | [CheckSeasonPurchasable](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/CheckSeasonPurchasable.java) |
 | `/seasonpass/admin/namespaces/{namespace}/users/{userId}/seasons/current/reset` | DELETE | ResetUserSeason | [ResetUserSeason](../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/ResetUserSeason.java) | [ResetUserSeason](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/ResetUserSeason.java) |
+| `/seasonpass/admin/namespaces/{namespace}/users/{userId}/seasons/exp/history` | GET | QueryUserExpGrantHistory | [QueryUserExpGrantHistory](../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/QueryUserExpGrantHistory.java) | [QueryUserExpGrantHistory](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/QueryUserExpGrantHistory.java) |
+| `/seasonpass/admin/namespaces/{namespace}/users/{userId}/seasons/exp/history/tags` | GET | QueryUserExpGrantHistoryTag | [QueryUserExpGrantHistoryTag](../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/QueryUserExpGrantHistoryTag.java) | [QueryUserExpGrantHistoryTag](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/QueryUserExpGrantHistoryTag.java) |
 | `/seasonpass/admin/namespaces/{namespace}/users/{userId}/seasons/{seasonId}/data` | GET | GetUserSeason | [GetUserSeason](../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/GetUserSeason.java) | [GetUserSeason](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/GetUserSeason.java) |
 | `/seasonpass/public/namespaces/{namespace}/seasons/current` | GET | PublicGetCurrentSeason | [PublicGetCurrentSeason](../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/PublicGetCurrentSeason.java) | [PublicGetCurrentSeason](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/PublicGetCurrentSeason.java) |
 | `/seasonpass/public/namespaces/{namespace}/users/{userId}/seasons/current/data` | GET | PublicGetCurrentUserSeason | [PublicGetCurrentUserSeason](../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/PublicGetCurrentUserSeason.java) | [PublicGetCurrentUserSeason](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/PublicGetCurrentUserSeason.java) |
@@ -70,6 +72,8 @@
 | `ClaimableUserSeasonInfo` | [ClaimableUserSeasonInfo](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/ClaimableUserSeasonInfo.java) |
 | `ErrorEntity` | [ErrorEntity](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/ErrorEntity.java) |
 | `ExcessStrategy` | [ExcessStrategy](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/ExcessStrategy.java) |
+| `ExpGrantHistoryInfo` | [ExpGrantHistoryInfo](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/ExpGrantHistoryInfo.java) |
+| `ExpGrantHistoryPagingSlicedResult` | [ExpGrantHistoryPagingSlicedResult](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/ExpGrantHistoryPagingSlicedResult.java) |
 | `FieldValidationError` | [FieldValidationError](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/FieldValidationError.java) |
 | `Image` | [Image](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/Image.java) |
 | `ListSeasonInfo` | [ListSeasonInfo](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/ListSeasonInfo.java) |
@@ -84,6 +88,7 @@
 | `PassCreate` | [PassCreate](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/PassCreate.java) |
 | `PassInfo` | [PassInfo](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/PassInfo.java) |
 | `PassUpdate` | [PassUpdate](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/PassUpdate.java) |
+| `ReasonTagsResult` | [ReasonTagsResult](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/ReasonTagsResult.java) |
 | `RewardCreate` | [RewardCreate](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/RewardCreate.java) |
 | `RewardCurrency` | [RewardCurrency](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/RewardCurrency.java) |
 | `RewardInfo` | [RewardInfo](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/RewardInfo.java) |
