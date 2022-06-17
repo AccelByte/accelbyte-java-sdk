@@ -1,5 +1,40 @@
+<a name="v0.13.0"></a>
+## [v0.13.0] - 2022-06-17
+### Chore
+- bump to version 0.13 for justice 3.25
+- remove non-functioning coverity suppress warning
+- **core:** clean up AccelByteSDK
+- **makefile:** simplify mock server launch for testing
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for justice 3.25
+- **spec:** update spec for justice 3.25
+
+### Ci
+- **github:** add release note input
+
+### Docs
+- update changelog for justice 3.25
+- **readme:** add token refresh
+
+### Feat
+- **core:** token repository, token refresh interface may throw exception
+- **core:** finalize token refresh logic implementation
+- **core:** make DefaultTokenRepository constructor public
+- **core:** wip token refresh logic implementation
+- **core:** store token refresh info at login user/client
+- **core:** add TokenRefresh interface
+
+### Fix
+- **core:** wrong token repo type check
+
+### Test
+- **core:** add token refresh tests
+- **core:** clean up
+- **integration:** add token refresh tests
+- **integration:** clean up
+
+
 <a name="v0.12.0"></a>
-## [v0.12.0] - 2022-06-06
+## [v0.12.0] - 2022-06-07
 ### Chore
 - bump to version 0.12 for justice 3.24
 - **sdk:** regenerate sdk, cli sample app, cli test, doc index for justice 3.24
@@ -430,6 +465,7 @@
 - replace unnecessary object
 
 
+[v0.13.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.12.0...v0.13.0
 [v0.12.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.11.0...v0.12.0
 [v0.11.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.10.0...v0.11.0
 [v0.10.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.9.0...v0.10.0
