@@ -1,5 +1,5 @@
 <a name="v0.13.0"></a>
-## [v0.13.0] - 2022-06-17
+## [v0.13.0] - 2022-06-20
 ### Chore
 - bump to version 0.13 for justice 3.25
 - remove non-functioning coverity suppress warning
@@ -25,6 +25,7 @@
 
 ### Fix
 - **core:** wrong token repo type check
+- **sdk:** unnecessary token repository instance check
 
 ### Test
 - **core:** add token refresh tests
