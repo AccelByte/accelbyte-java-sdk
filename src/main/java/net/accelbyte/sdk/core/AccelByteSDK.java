@@ -257,17 +257,14 @@ public class AccelByteSDK {
                             .refreshToken(refreshToken)
                             .grantTypeFromEnum(TokenGrantV3.GrantType.RefreshToken)
                             .build();
-                    OauthmodelTokenResponseV3 token;
                     try {
                         tokenRepository.removeToken();
-                        token = oAuth20.tokenGrantV3(tokenGrantV3);
+                        final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
                         tokenRepository.storeToken(token.getAccessToken());
-                        if (tokenRepository instanceof TokenRefresh) {
-                            tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getExpiresIn())));
-                            tokenRefresh.storeRefreshToken(token.getRefreshToken());
-                            tokenRefresh.setRefreshTokenExpiresAt(
-                                    Date.from(utcNow.plusSeconds(token.getRefreshExpiresIn())));
-                        }
+                        tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getExpiresIn())));
+                        tokenRefresh.storeRefreshToken(token.getRefreshToken());
+                        tokenRefresh.setRefreshTokenExpiresAt(
+                                Date.from(utcNow.plusSeconds(token.getRefreshExpiresIn())));
                         return true; // Token refresh successful
                     } catch (Exception e) {
                         tokenRepository.storeToken(accessToken); // Put access token back if token refresh failed
