@@ -362,6 +362,34 @@ class TestIntegration {
 
                 final UserProfile profileWrapper = new UserProfile(sdk);
 
+                // Check existing own user profile (if any)
+
+                try {
+                        final UserProfilePrivateInfo getProfileResult = profileWrapper
+                                        .getMyProfileInfo(GetMyProfileInfo.builder()
+                                                        .namespace(this.namespace)
+                                                        .build());
+                        assertNotNull(getProfileResult);
+
+                        final String userId = getProfileResult.getUserId();
+
+                        final UserProfilePrivateInfo deleteUserProfileResult = profileWrapper
+                                        .deleteUserProfile(DeleteUserProfile.builder()
+                                                        .namespace(this.namespace)
+                                                        .userId(userId)
+                                                        .build());
+                        assertNotNull(deleteUserProfileResult);
+                } catch (HttpResponseException hex) {
+                        final int httpCode = hex.getHttpCode();
+                        final String errorMessage = hex.getErrorMessage();
+                        final boolean isUserProfileNotFound = httpCode == 404
+                                        && errorMessage.contains("11440"); // User profile not found
+                        if (!isUserProfileNotFound) {
+                                throw hex; // Error other than user profile not found is not acceptable
+                        }
+
+                }
+
                 // Create own user profile
 
                 final UserProfilePrivateCreate createProfile = UserProfilePrivateCreate.builder()
@@ -406,11 +434,21 @@ class TestIntegration {
 
                 final String userId = getProfileResult.getUserId();
 
-                final UserProfilePrivateInfo delResp = profileWrapper.deleteUserProfile(DeleteUserProfile.builder()
-                                .namespace(this.namespace)
-                                .userId(userId)
-                                .build());
-                assertNotNull(delResp);
+                final UserProfilePrivateInfo deleteUserProfileResult = profileWrapper
+                                .deleteUserProfile(DeleteUserProfile.builder()
+                                                .namespace(this.namespace)
+                                                .userId(userId)
+                                                .build());
+                assertNotNull(deleteUserProfileResult);
+
+                // Confirm if own user profile is deleted
+
+                assertThrows(HttpResponseException.class, () -> {
+                        profileWrapper
+                                        .getMyProfileInfo(GetMyProfileInfo.builder()
+                                                        .namespace(this.namespace)
+                                                        .build());
+                });
         }
 
         @Test
