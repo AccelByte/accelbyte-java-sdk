@@ -1231,7 +1231,7 @@ class TestIntegration {
                 }
         }
 
-        // Token refresh interation test
+        // Token refresh integration test
 
         @Test
         @Order(40)
@@ -1246,7 +1246,8 @@ class TestIntegration {
                 sdk.loginUser(this.username, this.password);
 
                 assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
-                assertTrue(tokenRefreshRepository.getRefreshToken() != null && !"".equals(tokenRefreshRepository.getRefreshToken()));
+                assertTrue(tokenRefreshRepository.getRefreshToken() != null
+                                && !"".equals(tokenRefreshRepository.getRefreshToken()));
 
                 // Simulate token expiry within threshold
                 tokenRefreshRepository.setTokenExpiresAt(Date.from(Instant.now().plusSeconds(60)));
@@ -1258,7 +1259,8 @@ class TestIntegration {
                                                 .build());
 
                 assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
-                assertTrue(tokenRefreshRepository.getRefreshToken() != null && !"".equals(tokenRefreshRepository.getRefreshToken()));        
+                assertTrue(tokenRefreshRepository.getRefreshToken() != null
+                                && !"".equals(tokenRefreshRepository.getRefreshToken()));
         }
 
         @Test
@@ -1274,7 +1276,8 @@ class TestIntegration {
                 sdk.loginClient();
 
                 assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
-                assertTrue(tokenRefreshRepository.getRefreshToken() == null);   // Login client does not return refresh token
+                assertTrue(tokenRefreshRepository.getRefreshToken() == null); // Login client does not return refresh
+                                                                              // token
 
                 // Simulate token expiry within threshold
                 tokenRefreshRepository.setTokenExpiresAt(Date.from(Instant.now().plusSeconds(60)));
@@ -1286,7 +1289,8 @@ class TestIntegration {
                                                 .build());
 
                 assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
-                assertTrue(tokenRefreshRepository.getRefreshToken() == null);   // Login client does not return refresh token
+                assertTrue(tokenRefreshRepository.getRefreshToken() == null); // Login client does not return refresh
+                                                                              // token
         }
 
         // Client integration test
