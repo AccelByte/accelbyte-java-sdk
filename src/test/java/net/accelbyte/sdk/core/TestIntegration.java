@@ -1179,7 +1179,6 @@ class TestIntegration {
 
         @Test
         @Order(15)
-        @Disabled("Test unreliable")
         public void testServiceGametelemetry() throws Exception {
                 final String steamId = "76561199259217491";
                 final String playTime = "4";
@@ -1200,13 +1199,24 @@ class TestIntegration {
                                                 .body(Arrays.asList(saveTelemetry))
                                                 .build());
 
-                gameTelemetryWrapper
-                                .protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut(
-                                                ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
-                                                                .builder()
-                                                                .playtime(playTime)
-                                                                .steamId(steamId)
-                                                                .build());
+                boolean isUserNotFound = false;
+
+                try {
+                        gameTelemetryWrapper
+                                        .protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut(
+                                                        ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
+                                                                        .builder()
+                                                                        .playtime(playTime)
+                                                                        .steamId(steamId)
+                                                                        .build());
+                } catch (HttpResponseException hex) {
+                        final int httpCode = hex.getHttpCode();
+                        final String message = hex.getErrorMessage();
+                        isUserNotFound = httpCode == 404 && message != null && message.contains("20008");
+                        if (!isUserNotFound) {
+                                throw hex; // Error response other than user not found is not acceptable for this test
+                        }
+                }
 
                 final Map<String, ?> getTelemetry = gameTelemetryWrapper
                                 .protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(
@@ -1215,7 +1225,10 @@ class TestIntegration {
                                                                 .steamId(steamId)
                                                                 .build());
 
-                assertEquals(playTime, getTelemetry.get("total_playtime"));
+                if (!isUserNotFound) {
+                        assertEquals(playTime, getTelemetry.get("total_playtime")); // Only assert total_playtime if
+                                                                                    // user is found
+                }
         }
 
         // Token refresh interation test
