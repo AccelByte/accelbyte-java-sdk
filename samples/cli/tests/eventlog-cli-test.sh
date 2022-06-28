@@ -139,29 +139,48 @@ eval_tap 0 29 'GetRegisteredEventsByEventTypeHandler # SKIP deprecated' test.out
 
 #- 30 QueryEventStreamHandler
 ./ng net.accelbyte.sdk.cli.Main eventlog queryEventStreamHandler \
-    --body '{"clientId": "FtBxyZcD", "eventName": "XBpGlsQu", "payloadQuery": {"Ju8vMf0I": {}}, "sessionId": "sJkTrd8I", "traceId": "DcV2zXnT", "userId": "KjXY1bPq", "version": 1}' \
     --namespace "$AB_NAMESPACE" \
+    --endDate 'FtBxyZcD' \
+    --offset '98' \
+    --pageSize '55' \
+    --startDate 'pGlsQuJu' \
+    --body '{"clientId": "8vMf0IsJ", "eventName": "kTrd8IDc", "payloadQuery": {"V2zXnTKj": {}}, "sessionId": "XY1bPqam", "traceId": "iBxx9Cs1", "userId": "8EY84ekI", "version": 39}' \
     > test.out 2>&1
 eval_tap $? 30 'QueryEventStreamHandler' test.out
 
 #- 31 GetEventSpecificUserV2Handler
 ./ng net.accelbyte.sdk.cli.Main eventlog getEventSpecificUserV2Handler \
     --namespace "$AB_NAMESPACE" \
-    --userId 'miBxx9Cs' \
+    --userId 'qRzHU1oh' \
+    --endDate '570KQBVa' \
+    --eventName 'ewc72krS' \
+    --offset '14' \
+    --pageSize '0' \
+    --startDate '68n3Ynoz' \
     > test.out 2>&1
 eval_tap $? 31 'GetEventSpecificUserV2Handler' test.out
 
 #- 32 GetPublicEditHistory
 ./ng net.accelbyte.sdk.cli.Main eventlog getPublicEditHistory \
     --namespace "$AB_NAMESPACE" \
-    --userId '18EY84ek' \
+    --userId 'p1C2KmIQ' \
+    --endDate 'TuBdNEUs' \
+    --offset '46' \
+    --pageSize '62' \
+    --startDate 'b8CJ17M7' \
+    --type 'DJZaMSxE' \
     > test.out 2>&1
 eval_tap $? 32 'GetPublicEditHistory' test.out
 
 #- 33 GetUserEventsV2Public
 ./ng net.accelbyte.sdk.cli.Main eventlog getUserEventsV2Public \
     --namespace "$AB_NAMESPACE" \
-    --userId 'ItqRzHU1' \
+    --userId 'CbZbygyo' \
+    --endDate 'arORoeNH' \
+    --eventName 'Sb8Rh3kg' \
+    --offset '37' \
+    --pageSize '32' \
+    --startDate 'qJbnQsoB' \
     > test.out 2>&1
 eval_tap $? 33 'GetUserEventsV2Public' test.out
 

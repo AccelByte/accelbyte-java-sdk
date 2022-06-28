@@ -56,31 +56,58 @@ touch "tmp.dat"
 #- 2 ListTerminatedServers
 ./ng net.accelbyte.sdk.cli.Main dslogmanager listTerminatedServers \
     --namespace "$AB_NAMESPACE" \
+    --deployment 'FtBxyZcD' \
+    --endDate 'XBpGlsQu' \
+    --gameMode 'Ju8vMf0I' \
+    --limit '36' \
+    --next 'JkTrd8ID' \
+    --partyId 'cV2zXnTK' \
+    --podName 'jXY1bPqa' \
+    --previous 'miBxx9Cs' \
+    --provider '18EY84ek' \
+    --region 'ItqRzHU1' \
+    --sessionId 'oh570KQB' \
+    --startDate 'Vaewc72k' \
+    --userId 'rSha68n3' \
     > test.out 2>&1
 eval_tap $? 2 'ListTerminatedServers' test.out
 
 #- 3 DownloadServerLogs
 ./ng net.accelbyte.sdk.cli.Main dslogmanager downloadServerLogs \
     --namespace "$AB_NAMESPACE" \
-    --podName 'FtBxyZcD' \
+    --podName 'Ynozp1C2' \
     > test.out 2>&1
 eval_tap $? 3 'DownloadServerLogs' test.out
 
 #- 4 CheckServerLogs
 ./ng net.accelbyte.sdk.cli.Main dslogmanager checkServerLogs \
     --namespace "$AB_NAMESPACE" \
-    --podName 'XBpGlsQu' \
+    --podName 'KmIQTuBd' \
     > test.out 2>&1
 eval_tap $? 4 'CheckServerLogs' test.out
 
 #- 5 BatchDownloadServerLogs
 ./ng net.accelbyte.sdk.cli.Main dslogmanager batchDownloadServerLogs \
-    --body '{"Downloads": [{"alloc_id": "Ju8vMf0I", "namespace": "sJkTrd8I", "pod_name": "DcV2zXnT"}]}' \
+    --body '{"Downloads": [{"alloc_id": "NEUsxFb8", "namespace": "CJ17M7DJ", "pod_name": "ZaMSxECb"}]}' \
     > test.out 2>&1
 eval_tap $? 5 'BatchDownloadServerLogs' test.out
 
 #- 6 ListAllTerminatedServers
 ./ng net.accelbyte.sdk.cli.Main dslogmanager listAllTerminatedServers \
+    --deployment 'Zbygyoar' \
+    --endDate 'ORoeNHSb' \
+    --gameMode '8Rh3kgs9' \
+    --limit '32' \
+    --namespace "$AB_NAMESPACE" \
+    --next 'qJbnQsoB' \
+    --partyId 'giVpP8Cm' \
+    --podName '3yvASUox' \
+    --previous 'dxxFqmAG' \
+    --provider 'TJ8IEdag' \
+    --region 'Etp4w29K' \
+    --sessionId 'Ou9c19R6' \
+    --startDate 'XDqWHkkP' \
+    --userId '8npLEKMf' \
     > test.out 2>&1
 eval_tap $? 6 'ListAllTerminatedServers' test.out
 

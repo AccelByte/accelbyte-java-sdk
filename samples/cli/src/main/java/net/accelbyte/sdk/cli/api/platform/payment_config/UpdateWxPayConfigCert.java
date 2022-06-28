@@ -63,7 +63,7 @@ public class UpdateWxPayConfigCert implements Callable<Integer> {
             net.accelbyte.sdk.api.platform.operations.payment_config.UpdateWxPayConfigCert operation =
                     net.accelbyte.sdk.api.platform.operations.payment_config.UpdateWxPayConfigCert.builder()
                             .id(id)
-                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .file(file != null ? file : null)
                             .build();
             PaymentMerchantConfigInfo response =
                     wrapper.updateWxPayConfigCert(operation);

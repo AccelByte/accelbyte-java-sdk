@@ -63,7 +63,7 @@ public class UpdateGoogleP12File implements Callable<Integer> {
             net.accelbyte.sdk.api.platform.operations.iap.UpdateGoogleP12File operation =
                     net.accelbyte.sdk.api.platform.operations.iap.UpdateGoogleP12File.builder()
                             .namespace(namespace)
-                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .file(file != null ? file : null)
                             .build();
             GoogleIAPConfigInfo response =
                     wrapper.updateGoogleP12File(operation);

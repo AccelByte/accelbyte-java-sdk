@@ -66,7 +66,7 @@ public class ImportChannels implements Callable<Integer> {
             net.accelbyte.sdk.api.matchmaking.operations.matchmaking.ImportChannels operation =
                     net.accelbyte.sdk.api.matchmaking.operations.matchmaking.ImportChannels.builder()
                             .namespace(namespace)
-                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .file(file != null ? file : null)
                             .strategy(strategy != null ? strategy : null)
                             .build();
             ModelsImportConfigResponse response =

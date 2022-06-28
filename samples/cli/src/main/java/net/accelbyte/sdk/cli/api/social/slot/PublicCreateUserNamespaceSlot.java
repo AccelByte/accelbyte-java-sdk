@@ -83,7 +83,7 @@ public class PublicCreateUserNamespaceSlot implements Callable<Integer> {
                             .tags(tags)
                             .checksum(checksum != null ? checksum : null)
                             .customAttribute(customAttribute != null ? customAttribute : null)
-                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .file(file != null ? file : null)
                             .build();
                     wrapper.publicCreateUserNamespaceSlot(operation);
             log.info("Operation successful");

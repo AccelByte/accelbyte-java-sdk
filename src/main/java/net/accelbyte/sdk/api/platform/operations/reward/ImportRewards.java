@@ -19,6 +19,7 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.core.HttpResponseException;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
@@ -50,7 +51,7 @@ public class ImportRewards extends Operation {
      */
     private String namespace;
     private Boolean replaceExisting;
-    private InputStream file;
+    private File file;
 
     /**
     * @param namespace required
@@ -60,7 +61,7 @@ public class ImportRewards extends Operation {
     public ImportRewards(
             String namespace,
             Boolean replaceExisting,
-            InputStream file
+            File file
     )
     {
         this.namespace = namespace;

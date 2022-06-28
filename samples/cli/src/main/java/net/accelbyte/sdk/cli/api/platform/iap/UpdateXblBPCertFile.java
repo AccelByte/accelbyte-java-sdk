@@ -66,7 +66,7 @@ public class UpdateXblBPCertFile implements Callable<Integer> {
             net.accelbyte.sdk.api.platform.operations.iap.UpdateXblBPCertFile operation =
                     net.accelbyte.sdk.api.platform.operations.iap.UpdateXblBPCertFile.builder()
                             .namespace(namespace)
-                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .file(file != null ? file : null)
                             .password(password != null ? password : null)
                             .build();
             XblIAPConfigInfo response =

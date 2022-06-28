@@ -67,7 +67,7 @@ public class ImportStats implements Callable<Integer> {
                     net.accelbyte.sdk.api.social.operations.stat_configuration.ImportStats.builder()
                             .namespace(namespace)
                             .replaceExisting(replaceExisting)
-                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .file(file != null ? file : null)
                             .build();
             StatImportInfo response =
                     wrapper.importStats(operation);

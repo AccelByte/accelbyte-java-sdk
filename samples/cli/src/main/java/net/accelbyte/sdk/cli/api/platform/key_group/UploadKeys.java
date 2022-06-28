@@ -67,7 +67,7 @@ public class UploadKeys implements Callable<Integer> {
                     net.accelbyte.sdk.api.platform.operations.key_group.UploadKeys.builder()
                             .keyGroupId(keyGroupId)
                             .namespace(namespace)
-                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .file(file != null ? file : null)
                             .build();
             BulkOperationResult response =
                     wrapper.uploadKeys(operation);

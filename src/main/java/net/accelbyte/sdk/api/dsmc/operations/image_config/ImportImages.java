@@ -20,6 +20,7 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.core.HttpResponseException;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
@@ -61,14 +62,14 @@ public class ImportImages extends Operation {
     /**
      * fields as input parameter
      */
-    private InputStream file;
+    private File file;
 
     /**
     * @param file required
     */
     @Builder
     public ImportImages(
-            InputStream file
+            File file
     )
     {
         this.file = file;

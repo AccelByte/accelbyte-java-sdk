@@ -67,7 +67,7 @@ public class ImportRewards implements Callable<Integer> {
                     net.accelbyte.sdk.api.platform.operations.reward.ImportRewards.builder()
                             .namespace(namespace)
                             .replaceExisting(replaceExisting)
-                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .file(file != null ? file : null)
                             .build();
                     wrapper.importRewards(operation);
             log.info("Operation successful");

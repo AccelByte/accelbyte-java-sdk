@@ -59,7 +59,7 @@ public class ImportImages implements Callable<Integer> {
             ImageConfig wrapper = new ImageConfig(sdk);
             net.accelbyte.sdk.api.dsmc.operations.image_config.ImportImages operation =
                     net.accelbyte.sdk.api.dsmc.operations.image_config.ImportImages.builder()
-                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .file(file != null ? file : null)
                             .build();
             ModelsImportResponse response =
                     wrapper.importImages(operation);

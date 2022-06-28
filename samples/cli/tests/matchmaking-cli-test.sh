@@ -66,48 +66,50 @@ eval_tap $? 3 'HandlerV3Healthz' test.out
 #- 4 GetAllChannelsHandler
 ./ng net.accelbyte.sdk.cli.Main matchmaking getAllChannelsHandler \
     --namespace "$AB_NAMESPACE" \
+    --limit '62' \
+    --offset '39' \
     > test.out 2>&1
 eval_tap $? 4 'GetAllChannelsHandler' test.out
 
 #- 5 CreateChannelHandler
 ./ng net.accelbyte.sdk.cli.Main matchmaking createChannelHandler \
-    --body '{"deployment": "FtBxyZcD", "description": "XBpGlsQu", "find_match_timeout_seconds": 71, "game_mode": "u8vMf0Is", "joinable": false, "max_delay_ms": 90, "rule_set": {"alliance": {"max_number": 34, "min_number": 6, "player_max_number": 68, "player_min_number": 59}, "alliance_flexing_rule": [{"duration": 4, "max_number": 95, "min_number": 51, "player_max_number": 98, "player_min_number": 27}], "flexing_rule": [{"attribute": "TKjXY1bP", "criteria": "qamiBxx9", "duration": 57, "reference": 0.2813861209359233}], "match_options": {"options": [{"name": "8EY84ekI", "type": "tqRzHU1o"}]}, "matching_rule": [{"attribute": "h570KQBV", "criteria": "aewc72kr", "reference": 0.698496946052087}], "sub_game_modes": {"a68n3Yno": {"alliance": {"max_number": 51, "min_number": 31, "player_max_number": 56, "player_min_number": 72}, "alliance_flexing_rule": [{"duration": 24, "max_number": 68, "min_number": 85, "player_max_number": 91, "player_min_number": 41}], "name": "BdNEUsxF"}}}, "session_queue_timeout_seconds": 2, "social_matchmaking": true, "use_sub_gamemode": true}' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"deployment": "BxyZcDXB", "description": "pGlsQuJu", "find_match_timeout_seconds": 42, "game_mode": "Mf0IsJkT", "joinable": true, "max_delay_ms": 6, "rule_set": {"alliance": {"max_number": 68, "min_number": 59, "player_max_number": 4, "player_min_number": 95}, "alliance_flexing_rule": [{"duration": 51, "max_number": 98, "min_number": 27, "player_max_number": 90, "player_min_number": 72}], "flexing_rule": [{"attribute": "jXY1bPqa", "criteria": "miBxx9Cs", "duration": 61, "reference": 0.7882727753594041}], "match_options": {"options": [{"name": "4ekItqRz", "type": "HU1oh570"}]}, "matching_rule": [{"attribute": "KQBVaewc", "criteria": "72krSha6", "reference": 0.9394925476514028}], "sub_game_modes": {"3Ynozp1C": {"alliance": {"max_number": 72, "min_number": 24, "player_max_number": 68, "player_min_number": 85}, "alliance_flexing_rule": [{"duration": 91, "max_number": 41, "min_number": 54, "player_max_number": 6, "player_min_number": 79}], "name": "EUsxFb8C"}}}, "session_queue_timeout_seconds": 70, "social_matchmaking": true, "use_sub_gamemode": false}' \
     > test.out 2>&1
 eval_tap $? 5 'CreateChannelHandler' test.out
 
 #- 6 DeleteChannelHandler
 ./ng net.accelbyte.sdk.cli.Main matchmaking deleteChannelHandler \
-    --channel 'JZaMSxEC' \
+    --channel 'MSxECbZb' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 6 'DeleteChannelHandler' test.out
 
 #- 7 StoreMatchResults
 ./ng net.accelbyte.sdk.cli.Main matchmaking storeMatchResults \
-    --body '{"match_id": "bZbygyoa", "players": [{"results": [{"attribute": "rORoeNHS", "value": 0.019251152430858398}], "user_id": "Rh3kgs9q"}]}' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"match_id": "ygyoarOR", "players": [{"results": [{"attribute": "oeNHSb8R", "value": 0.11532727529392972}], "user_id": "kgs9qqJb"}]}' \
     > test.out 2>&1
 eval_tap $? 7 'StoreMatchResults' test.out
 
 #- 8 Rebalance
 ./ng net.accelbyte.sdk.cli.Main matchmaking rebalance \
-    --body '{"match_id": "qJbnQsoB"}' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"match_id": "nQsoBgiV"}' \
     > test.out 2>&1
 eval_tap $? 8 'Rebalance' test.out
 
 #- 9 QueueSessionHandler
 ./ng net.accelbyte.sdk.cli.Main matchmaking queueSessionHandler \
-    --body '{"channel": "giVpP8Cm", "client_version": "3yvASUox", "deployment": "dxxFqmAG", "game_mode": "TJ8IEdag", "joinable": true, "match_id": "tp4w29KO", "matching_allies": [{"matching_parties": [{"first_ticket_created_at": 41, "party_attributes": {"9c19R6XD": {}}, "party_id": "qWHkkP8n", "party_members": [{"extra_attributes": {"pLEKMfji": {}}, "user_id": "X7jpkVZk"}]}]}], "namespace": "3IaQYEmq", "party_attributes": {"GodOEGt9": {}}, "party_id": "gPOj0c6i", "queued_at": 70, "region": "kvIas73u", "server_name": "cYnFAJ3D", "status": "K5T4Eogg", "updated_at": "1997-04-22T00:00:00Z"}' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"channel": "pP8Cm3yv", "client_version": "ASUoxdxx", "deployment": "FqmAGTJ8", "game_mode": "IEdagEtp", "joinable": true, "match_id": "29KOu9c1", "matching_allies": [{"matching_parties": [{"first_ticket_created_at": 87, "party_attributes": {"6XDqWHkk": {}}, "party_id": "P8npLEKM", "party_members": [{"extra_attributes": {"fjiX7jpk": {}}, "user_id": "VZk3IaQY"}]}]}], "namespace": "EmqGodOE", "party_attributes": {"Gt9gPOj0": {}}, "party_id": "c6i0JkvI", "queued_at": 0, "region": "s73ucYnF", "server_name": "AJ3DK5T4", "status": "Eogg0Y39", "updated_at": "1994-04-23T00:00:00Z"}' \
     > test.out 2>&1
 eval_tap $? 9 'QueueSessionHandler' test.out
 
 #- 10 DequeueSessionHandler
 ./ng net.accelbyte.sdk.cli.Main matchmaking dequeueSessionHandler \
-    --body '{"match_id": "Ylpv5bVA"}' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"match_id": "Ylpv5bVA"}' \
     > test.out 2>&1
 eval_tap $? 10 'DequeueSessionHandler' test.out
 
@@ -120,8 +122,8 @@ eval_tap $? 11 'QuerySessionHandler' test.out
 
 #- 12 UpdatePlayTimeWeight
 ./ng net.accelbyte.sdk.cli.Main matchmaking updatePlayTimeWeight \
-    --body '{"playtime": 93, "userID": "scbQDjbT", "weight": 0.6691126847871068}' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"playtime": 93, "userID": "scbQDjbT", "weight": 0.6691126847871068}' \
     > test.out 2>&1
 eval_tap $? 12 'UpdatePlayTimeWeight' test.out
 
@@ -134,6 +136,7 @@ eval_tap $? 13 'GetAllPartyInAllChannel' test.out
 #- 14 BulkGetSessions
 ./ng net.accelbyte.sdk.cli.Main matchmaking bulkGetSessions \
     --namespace "$AB_NAMESPACE" \
+    --matchIDs 'PMz2PTRl' \
     > test.out 2>&1
 eval_tap $? 14 'BulkGetSessions' test.out
 
@@ -146,75 +149,82 @@ eval_tap $? 15 'ExportChannels' test.out
 #- 16 ImportChannels
 ./ng net.accelbyte.sdk.cli.Main matchmaking importChannels \
     --namespace "$AB_NAMESPACE" \
+    --file 'tmp.dat' \
+    --strategy 'kyU89ZPO' \
     > test.out 2>&1
 eval_tap $? 16 'ImportChannels' test.out
 
 #- 17 GetSingleMatchmakingChannel
 ./ng net.accelbyte.sdk.cli.Main matchmaking getSingleMatchmakingChannel \
-    --channelName 'PMz2PTRl' \
+    --channelName 'w6zPFJ42' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 17 'GetSingleMatchmakingChannel' test.out
 
 #- 18 UpdateMatchmakingChannel
 ./ng net.accelbyte.sdk.cli.Main matchmaking updateMatchmakingChannel \
-    --body '{"deployment": "kyU89ZPO", "description": "w6zPFJ42", "findMatchTimeoutSeconds": 5, "joinable": true, "max_delay_ms": 25, "ruleSet": {"alliance": {"maxNumber": 50, "minNumber": 55, "playerMaxNumber": 54, "playerMinNumber": 88}, "alliance_flexing_rule": [{"duration": 76, "max_number": 78, "min_number": 4, "player_max_number": 28, "player_min_number": 53}], "flexingRules": [{"attribute": "AOjKNjfc", "criteria": "YHm093aY", "duration": 13, "reference": 0.43681487232294225}], "match_options": {"options": [{"name": "1sqjyK0X", "type": "H45PaRSO"}]}, "matchingRules": [{"attribute": "FQBtu23R", "criteria": "EZ8hRVX7", "reference": 0.5818754397817744}], "sub_game_modes": {}}, "sessionQueueTimeoutSeconds": 81, "socialMatchmaking": true, "use_sub_gamemode": true}' \
-    --channelName 'dYiQS9i7' \
+    --channelName 'cwmzBBSM' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"deployment": "NcoAAOjK", "description": "NjfcYHm0", "findMatchTimeoutSeconds": 0, "joinable": false, "max_delay_ms": 55, "ruleSet": {"alliance": {"maxNumber": 92, "minNumber": 36, "playerMaxNumber": 33, "playerMinNumber": 19}, "alliance_flexing_rule": [{"duration": 49, "max_number": 72, "min_number": 99, "player_max_number": 66, "player_min_number": 83}], "flexingRules": [{"attribute": "aRSOFQBt", "criteria": "u23REZ8h", "duration": 87, "reference": 0.7363428903538494}], "match_options": {"options": [{"name": "7LGOvDdY", "type": "iQS9i7mV"}]}, "matchingRules": [{"attribute": "1C91pjG9", "criteria": "gpxL6ycT", "reference": 0.9789171812609249}], "sub_game_modes": {}}, "sessionQueueTimeoutSeconds": 84, "socialMatchmaking": false, "use_sub_gamemode": true}' \
     > test.out 2>&1
 eval_tap $? 18 'UpdateMatchmakingChannel' test.out
 
 #- 19 GetAllPartyInChannel
 ./ng net.accelbyte.sdk.cli.Main matchmaking getAllPartyInChannel \
-    --channelName 'mV1C91pj' \
+    --channelName 'ln2LAuSQ' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 19 'GetAllPartyInChannel' test.out
 
 #- 20 GetAllSessionsInChannel
 ./ng net.accelbyte.sdk.cli.Main matchmaking getAllSessionsInChannel \
-    --channelName 'G9gpxL6y' \
+    --channelName 'WEXL6LFE' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 20 'GetAllSessionsInChannel' test.out
 
 #- 21 AddUserIntoSessionInChannel
 ./ng net.accelbyte.sdk.cli.Main matchmaking addUserIntoSessionInChannel \
-    --body '{"blocked_players": ["cTQdvln2"], "party_id": "LAuSQWEX", "user_id": "L6LFE1YH"}' \
-    --channelName 'o9m126ZW' \
-    --matchID 'c8hHtWvb' \
+    --channelName '1YHo9m12' \
+    --matchID '6ZWc8hHt' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"blocked_players": ["WvbNYqgU"], "party_id": "qslArFPi", "user_id": "HUIvaCv8"}' \
     > test.out 2>&1
 eval_tap $? 21 'AddUserIntoSessionInChannel' test.out
 
 #- 22 DeleteSessionInChannel
 ./ng net.accelbyte.sdk.cli.Main matchmaking deleteSessionInChannel \
-    --channelName 'NYqgUqsl' \
-    --matchID 'ArFPiHUI' \
+    --channelName 'kU9dBBpd' \
+    --matchID 'sJLhsVyE' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 22 'DeleteSessionInChannel' test.out
 
 #- 23 DeleteUserFromSessionInChannel
 ./ng net.accelbyte.sdk.cli.Main matchmaking deleteUserFromSessionInChannel \
-    --channelName 'vaCv8kU9' \
-    --matchID 'dBBpdsJL' \
+    --channelName 'xrkxoot0' \
+    --matchID 'B7WOferc' \
     --namespace "$AB_NAMESPACE" \
-    --userID 'hsVyExrk' \
+    --userID 'ZdpMci37' \
     > test.out 2>&1
 eval_tap $? 23 'DeleteUserFromSessionInChannel' test.out
 
 #- 24 SearchSessions
 ./ng net.accelbyte.sdk.cli.Main matchmaking searchSessions \
     --namespace "$AB_NAMESPACE" \
-    --limit '46' \
-    --offset '29' \
+    --channel 'Ds7YSfEx' \
+    --deleted  \
+    --matchID 'aI3uzLte' \
+    --partyID 'MbFAlt4h' \
+    --userID 'r7HmOYiB' \
+    --limit '53' \
+    --offset '22' \
     > test.out 2>&1
 eval_tap $? 24 'SearchSessions' test.out
 
 #- 25 GetSessionHistoryDetailed
 ./ng net.accelbyte.sdk.cli.Main matchmaking getSessionHistoryDetailed \
-    --matchID 'ot0B7WOf' \
+    --matchID 'tAOXmlG6' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 25 'GetSessionHistoryDetailed' test.out
@@ -232,7 +242,7 @@ eval_tap $? 27 'PublicGetAllMatchmakingChannel' test.out
 
 #- 28 PublicGetSingleMatchmakingChannel
 ./ng net.accelbyte.sdk.cli.Main matchmaking publicGetSingleMatchmakingChannel \
-    --channelName 'ercZdpMc' \
+    --channelName 'eh1dTdoT' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 28 'PublicGetSingleMatchmakingChannel' test.out
@@ -240,8 +250,13 @@ eval_tap $? 28 'PublicGetSingleMatchmakingChannel' test.out
 #- 29 SearchSessionsV2
 ./ng net.accelbyte.sdk.cli.Main matchmaking searchSessionsV2 \
     --namespace "$AB_NAMESPACE" \
-    --limit '17' \
-    --offset '58' \
+    --channel 'FpBIcuC1' \
+    --deleted  \
+    --matchID 'dQY93OJn' \
+    --partyID 'J6Te9vD8' \
+    --userID 'ldz7Hu8A' \
+    --limit '59' \
+    --offset '20' \
     > test.out 2>&1
 eval_tap $? 29 'SearchSessionsV2' test.out
 

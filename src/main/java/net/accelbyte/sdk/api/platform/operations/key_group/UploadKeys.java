@@ -20,6 +20,7 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.core.HttpResponseException;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
@@ -52,7 +53,7 @@ public class UploadKeys extends Operation {
      */
     private String keyGroupId;
     private String namespace;
-    private InputStream file;
+    private File file;
 
     /**
     * @param keyGroupId required
@@ -62,7 +63,7 @@ public class UploadKeys extends Operation {
     public UploadKeys(
             String keyGroupId,
             String namespace,
-            InputStream file
+            File file
     )
     {
         this.keyGroupId = keyGroupId;

@@ -20,6 +20,7 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.core.HttpResponseException;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
@@ -50,7 +51,7 @@ public class UpdateWxPayConfigCert extends Operation {
      * fields as input parameter
      */
     private String id;
-    private InputStream file;
+    private File file;
 
     /**
     * @param id required
@@ -58,7 +59,7 @@ public class UpdateWxPayConfigCert extends Operation {
     @Builder
     public UpdateWxPayConfigCert(
             String id,
-            InputStream file
+            File file
     )
     {
         this.id = id;

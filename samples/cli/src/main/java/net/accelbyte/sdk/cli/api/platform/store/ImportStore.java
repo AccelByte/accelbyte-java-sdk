@@ -67,7 +67,7 @@ public class ImportStore implements Callable<Integer> {
                     net.accelbyte.sdk.api.platform.operations.store.ImportStore.builder()
                             .namespace(namespace)
                             .storeId(storeId)
-                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .file(file != null ? file : null)
                             .build();
             StoreInfo response =
                     wrapper.importStore(operation);

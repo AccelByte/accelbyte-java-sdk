@@ -63,7 +63,7 @@ public class UpdateStadiaJsonConfigFile implements Callable<Integer> {
             net.accelbyte.sdk.api.platform.operations.iap.UpdateStadiaJsonConfigFile operation =
                     net.accelbyte.sdk.api.platform.operations.iap.UpdateStadiaJsonConfigFile.builder()
                             .namespace(namespace)
-                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .file(file != null ? file : null)
                             .build();
             StadiaIAPConfigInfo response =
                     wrapper.updateStadiaJsonConfigFile(operation);

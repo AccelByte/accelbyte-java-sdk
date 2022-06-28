@@ -63,7 +63,7 @@ public class ImportConfigV1 implements Callable<Integer> {
             net.accelbyte.sdk.api.dsmc.operations.config.ImportConfigV1 operation =
                     net.accelbyte.sdk.api.dsmc.operations.config.ImportConfigV1.builder()
                             .namespace(namespace)
-                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .file(file != null ? file : null)
                             .build();
             ModelsImportResponse response =
                     wrapper.importConfigV1(operation);

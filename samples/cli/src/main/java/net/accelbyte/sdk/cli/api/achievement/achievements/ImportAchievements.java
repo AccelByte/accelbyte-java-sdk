@@ -66,7 +66,7 @@ public class ImportAchievements implements Callable<Integer> {
             net.accelbyte.sdk.api.achievement.operations.achievements.ImportAchievements operation =
                     net.accelbyte.sdk.api.achievement.operations.achievements.ImportAchievements.builder()
                             .namespace(namespace)
-                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .file(file != null ? file : null)
                             .strategy(strategy != null ? strategy : null)
                             .build();
             ServiceImportConfigResponse response =

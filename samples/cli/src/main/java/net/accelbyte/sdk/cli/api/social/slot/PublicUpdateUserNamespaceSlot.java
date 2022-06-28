@@ -87,7 +87,7 @@ public class PublicUpdateUserNamespaceSlot implements Callable<Integer> {
                             .tags(tags)
                             .checksum(checksum != null ? checksum : null)
                             .customAttribute(customAttribute != null ? customAttribute : null)
-                            .file(file != null ? FileUtils.openInputStream(file) : null)
+                            .file(file != null ? file : null)
                             .build();
             SlotInfo response =
                     wrapper.publicUpdateUserNamespaceSlot(operation);

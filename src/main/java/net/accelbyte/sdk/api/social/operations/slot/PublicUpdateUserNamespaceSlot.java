@@ -20,6 +20,7 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.core.HttpResponseException;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
@@ -55,7 +56,7 @@ public class PublicUpdateUserNamespaceSlot extends Operation {
     private List<String> tags;
     private String checksum;
     private String customAttribute;
-    private InputStream file;
+    private File file;
 
     /**
     * @param namespace required
@@ -71,7 +72,7 @@ public class PublicUpdateUserNamespaceSlot extends Operation {
             List<String> tags,
             String checksum,
             String customAttribute,
-            InputStream file
+            File file
     )
     {
         this.namespace = namespace;

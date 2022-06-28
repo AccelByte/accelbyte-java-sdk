@@ -20,6 +20,7 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.core.HttpResponseException;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
@@ -50,7 +51,7 @@ public class UpdateStadiaJsonConfigFile extends Operation {
      * fields as input parameter
      */
     private String namespace;
-    private InputStream file;
+    private File file;
 
     /**
     * @param namespace required
@@ -58,7 +59,7 @@ public class UpdateStadiaJsonConfigFile extends Operation {
     @Builder
     public UpdateStadiaJsonConfigFile(
             String namespace,
-            InputStream file
+            File file
     )
     {
         this.namespace = namespace;

@@ -20,6 +20,7 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.core.HttpResponseException;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
@@ -51,7 +52,7 @@ public class ImportStore extends Operation {
      */
     private String namespace;
     private String storeId;
-    private InputStream file;
+    private File file;
 
     /**
     * @param namespace required
@@ -60,7 +61,7 @@ public class ImportStore extends Operation {
     public ImportStore(
             String namespace,
             String storeId,
-            InputStream file
+            File file
     )
     {
         this.namespace = namespace;

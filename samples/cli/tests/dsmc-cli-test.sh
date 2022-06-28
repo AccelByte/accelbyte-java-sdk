@@ -93,8 +93,8 @@ eval_tap $? 8 'GetConfig' test.out
 
 #- 9 CreateConfig
 ./ng net.accelbyte.sdk.cli.Main dsmc createConfig \
-    --body '{"claim_timeout": 76, "creation_timeout": 59, "default_version": "JZaMSxEC", "port": 2, "ports": {"Zbygyoar": 81}, "protocol": "RoeNHSb8", "providers": ["Rh3kgs9q"], "session_timeout": 33, "unreachable_timeout": 71}' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"claim_timeout": 76, "creation_timeout": 59, "default_version": "JZaMSxEC", "port": 2, "ports": {"Zbygyoar": 81}, "protocol": "RoeNHSb8", "providers": ["Rh3kgs9q"], "session_timeout": 33, "unreachable_timeout": 71}' \
     > test.out 2>&1
 eval_tap $? 9 'CreateConfig' test.out
 
@@ -106,8 +106,8 @@ eval_tap $? 10 'DeleteConfig' test.out
 
 #- 11 UpdateConfig
 ./ng net.accelbyte.sdk.cli.Main dsmc updateConfig \
-    --body '{"claim_timeout": 2, "creation_timeout": 27, "default_version": "QsoBgiVp", "port": 82, "protocol": "8Cm3yvAS", "providers": ["UoxdxxFq"], "session_timeout": 24, "unreachable_timeout": 52}' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"claim_timeout": 2, "creation_timeout": 27, "default_version": "QsoBgiVp", "port": 82, "protocol": "8Cm3yvAS", "providers": ["UoxdxxFq"], "session_timeout": 24, "unreachable_timeout": 52}' \
     > test.out 2>&1
 eval_tap $? 11 'UpdateConfig' test.out
 
@@ -120,192 +120,200 @@ eval_tap $? 12 'ClearCache' test.out
 #- 13 GetAllDeployment
 ./ng net.accelbyte.sdk.cli.Main dsmc getAllDeployment \
     --namespace "$AB_NAMESPACE" \
+    --count '65' \
+    --name 'TJ8IEdag' \
+    --offset '60' \
     > test.out 2>&1
 eval_tap $? 13 'GetAllDeployment' test.out
 
 #- 14 GetDeployment
 ./ng net.accelbyte.sdk.cli.Main dsmc getDeployment \
-    --deployment 'GTJ8IEda' \
+    --deployment 'tp4w29KO' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 14 'GetDeployment' test.out
 
 #- 15 CreateDeployment
 ./ng net.accelbyte.sdk.cli.Main dsmc createDeployment \
-    --body '{"allow_version_override": false, "buffer_count": 60, "buffer_percent": 38, "configuration": "p4w29KOu", "enable_region_overrides": false, "game_version": "19R6XDqW", "max_count": 67, "min_count": 20, "overrides": {"kP8npLEK": {"buffer_count": 76, "buffer_percent": 11, "configuration": "jiX7jpkV", "enable_region_overrides": false, "game_version": "3IaQYEmq", "max_count": 64, "min_count": 29, "name": "dOEGt9gP", "region_overrides": {"Oj0c6i0J": {"buffer_count": 21, "buffer_percent": 42, "max_count": 69, "min_count": 0, "name": "s73ucYnF", "use_buffer_percent": true}}, "regions": ["J3DK5T4E"], "use_buffer_percent": false}}, "region_overrides": {"gg0Y39Uo": {"buffer_count": 23, "buffer_percent": 31, "max_count": 43, "min_count": 3, "name": "VAgtsDhU", "use_buffer_percent": true}}, "regions": ["UscbQDjb"], "use_buffer_percent": true}' \
-    --deployment 'PMz2PTRl' \
+    --deployment 'u9c19R6X' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"allow_version_override": true, "buffer_count": 33, "buffer_percent": 96, "configuration": "HkkP8npL", "enable_region_overrides": true, "game_version": "KMfjiX7j", "max_count": 31, "min_count": 21, "overrides": {"VZk3IaQY": {"buffer_count": 60, "buffer_percent": 24, "configuration": "qGodOEGt", "enable_region_overrides": false, "game_version": "POj0c6i0", "max_count": 70, "min_count": 21, "name": "vIas73uc", "region_overrides": {"YnFAJ3DK": {"buffer_count": 91, "buffer_percent": 61, "max_count": 28, "min_count": 13, "name": "g0Y39UoY", "use_buffer_percent": false}}, "regions": ["pv5bVAgt"], "use_buffer_percent": true}}, "region_overrides": {"DhUTDUsc": {"buffer_count": 2, "buffer_percent": 85, "max_count": 59, "min_count": 18, "name": "bTQuPMz2", "use_buffer_percent": false}}, "regions": ["kyU89ZPO"], "use_buffer_percent": true}' \
     > test.out 2>&1
 eval_tap $? 15 'CreateDeployment' test.out
 
 #- 16 DeleteDeployment
 ./ng net.accelbyte.sdk.cli.Main dsmc deleteDeployment \
-    --deployment 'kyU89ZPO' \
+    --deployment '6zPFJ42c' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 16 'DeleteDeployment' test.out
 
 #- 17 UpdateDeployment
 ./ng net.accelbyte.sdk.cli.Main dsmc updateDeployment \
-    --body '{"allow_version_override": true, "buffer_count": 50, "buffer_percent": 83, "configuration": "FJ42cwmz", "enable_region_overrides": true, "game_version": "BSMNcoAA", "max_count": 81, "min_count": 19, "regions": ["KNjfcYHm"], "use_buffer_percent": false}' \
-    --deployment 'YgBU1sqj' \
+    --deployment 'wmzBBSMN' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"allow_version_override": false, "buffer_count": 28, "buffer_percent": 53, "configuration": "AOjKNjfc", "enable_region_overrides": false, "game_version": "093aYgBU", "max_count": 36, "min_count": 33, "regions": ["jyK0XH45"], "use_buffer_percent": false}' \
     > test.out 2>&1
 eval_tap $? 17 'UpdateDeployment' test.out
 
 #- 18 CreateRootRegionOverride
 ./ng net.accelbyte.sdk.cli.Main dsmc createRootRegionOverride \
-    --body '{"buffer_count": 49, "buffer_percent": 72, "max_count": 99, "min_count": 66, "use_buffer_percent": false}' \
     --deployment 'RSOFQBtu' \
     --namespace "$AB_NAMESPACE" \
     --region '23REZ8hR' \
+    --body '{"buffer_count": 94, "buffer_percent": 98, "max_count": 74, "min_count": 64, "use_buffer_percent": true}' \
     > test.out 2>&1
 eval_tap $? 18 'CreateRootRegionOverride' test.out
 
 #- 19 DeleteRootRegionOverride
 ./ng net.accelbyte.sdk.cli.Main dsmc deleteRootRegionOverride \
-    --deployment 'VX7LGOvD' \
+    --deployment 'DdYiQS9i' \
     --namespace "$AB_NAMESPACE" \
-    --region 'dYiQS9i7' \
+    --region '7mV1C91p' \
     > test.out 2>&1
 eval_tap $? 19 'DeleteRootRegionOverride' test.out
 
 #- 20 UpdateRootRegionOverride
 ./ng net.accelbyte.sdk.cli.Main dsmc updateRootRegionOverride \
-    --body '{"buffer_count": 24, "buffer_percent": 94, "max_count": 57, "min_count": 30, "use_buffer_percent": false}' \
-    --deployment 'G9gpxL6y' \
+    --deployment 'jG9gpxL6' \
     --namespace "$AB_NAMESPACE" \
-    --region 'cTQdvln2' \
+    --region 'ycTQdvln' \
+    --body '{"buffer_count": 74, "buffer_percent": 52, "max_count": 41, "min_count": 89, "use_buffer_percent": true}' \
     > test.out 2>&1
 eval_tap $? 20 'UpdateRootRegionOverride' test.out
 
 #- 21 CreateDeploymentOverride
 ./ng net.accelbyte.sdk.cli.Main dsmc createDeploymentOverride \
-    --body '{"buffer_count": 74, "buffer_percent": 52, "configuration": "uSQWEXL6", "enable_region_overrides": true, "game_version": "E1YHo9m1", "max_count": 96, "min_count": 4, "region_overrides": {"8hHtWvbN": {"buffer_count": 33, "buffer_percent": 12, "max_count": 92, "min_count": 33, "name": "slArFPiH", "use_buffer_percent": true}}, "regions": ["aCv8kU9d"], "use_buffer_percent": true}' \
-    --deployment 'BpdsJLhs' \
+    --deployment 'XL6LFE1Y' \
     --namespace "$AB_NAMESPACE" \
-    --version 'VyExrkxo' \
+    --version 'Ho9m126Z' \
+    --body '{"buffer_count": 96, "buffer_percent": 4, "configuration": "8hHtWvbN", "enable_region_overrides": true, "game_version": "gUqslArF", "max_count": 82, "min_count": 17, "region_overrides": {"HUIvaCv8": {"buffer_count": 20, "buffer_percent": 92, "max_count": 6, "min_count": 55, "name": "BpdsJLhs", "use_buffer_percent": true}}, "regions": ["Exrkxoot"], "use_buffer_percent": true}' \
     > test.out 2>&1
 eval_tap $? 21 'CreateDeploymentOverride' test.out
 
 #- 22 DeleteDeploymentOverride
 ./ng net.accelbyte.sdk.cli.Main dsmc deleteDeploymentOverride \
-    --deployment 'ot0B7WOf' \
+    --deployment '7WOfercZ' \
     --namespace "$AB_NAMESPACE" \
-    --version 'ercZdpMc' \
+    --version 'dpMci37D' \
     > test.out 2>&1
 eval_tap $? 22 'DeleteDeploymentOverride' test.out
 
 #- 23 UpdateDeploymentOverride
 ./ng net.accelbyte.sdk.cli.Main dsmc updateDeploymentOverride \
-    --body '{"buffer_count": 17, "buffer_percent": 58, "configuration": "s7YSfExa", "enable_region_overrides": true, "game_version": "zLteMbFA", "max_count": 23, "min_count": 39, "regions": ["4hr7HmOY"], "use_buffer_percent": false}' \
-    --deployment 'BA5ltAOX' \
+    --deployment 's7YSfExa' \
     --namespace "$AB_NAMESPACE" \
-    --version 'mlG6eh1d' \
+    --version 'I3uzLteM' \
+    --body '{"buffer_count": 3, "buffer_percent": 62, "configuration": "Alt4hr7H", "enable_region_overrides": false, "game_version": "OYiBA5lt", "max_count": 52, "min_count": 81, "regions": ["XmlG6eh1"], "use_buffer_percent": false}' \
     > test.out 2>&1
 eval_tap $? 23 'UpdateDeploymentOverride' test.out
 
 #- 24 CreateOverrideRegionOverride
 ./ng net.accelbyte.sdk.cli.Main dsmc createOverrideRegionOverride \
-    --body '{"buffer_count": 90, "buffer_percent": 6, "max_count": 29, "min_count": 91, "use_buffer_percent": true}' \
-    --deployment 'pBIcuC1d' \
+    --deployment 'TdoTFpBI' \
     --namespace "$AB_NAMESPACE" \
-    --region 'QY93OJnJ' \
-    --version '6Te9vD8l' \
+    --region 'cuC1dQY9' \
+    --version '3OJnJ6Te' \
+    --body '{"buffer_count": 42, "buffer_percent": 59, "max_count": 22, "min_count": 7, "use_buffer_percent": true}' \
     > test.out 2>&1
 eval_tap $? 24 'CreateOverrideRegionOverride' test.out
 
 #- 25 DeleteOverrideRegionOverride
 ./ng net.accelbyte.sdk.cli.Main dsmc deleteOverrideRegionOverride \
-    --deployment 'dz7Hu8AD' \
+    --deployment '7Hu8AD79' \
     --namespace "$AB_NAMESPACE" \
-    --region '79kdWunv' \
-    --version 'izU0q1pH' \
+    --region 'kdWunviz' \
+    --version 'U0q1pHyh' \
     > test.out 2>&1
 eval_tap $? 25 'DeleteOverrideRegionOverride' test.out
 
 #- 26 UpdateOverrideRegionOverride
 ./ng net.accelbyte.sdk.cli.Main dsmc updateOverrideRegionOverride \
-    --body '{"buffer_count": 49, "buffer_percent": 15, "max_count": 15, "min_count": 61, "use_buffer_percent": false}' \
-    --deployment 'GgdrysMi' \
+    --deployment 'hERoGgdr' \
     --namespace "$AB_NAMESPACE" \
-    --region 'zBGSRdP2' \
-    --version 'l7DNSZ8A' \
+    --region 'ysMizBGS' \
+    --version 'RdP2l7DN' \
+    --body '{"buffer_count": 89, "buffer_percent": 53, "max_count": 33, "min_count": 98, "use_buffer_percent": false}' \
     > test.out 2>&1
 eval_tap $? 26 'UpdateOverrideRegionOverride' test.out
 
 #- 27 GetAllPodConfig
 ./ng net.accelbyte.sdk.cli.Main dsmc getAllPodConfig \
     --namespace "$AB_NAMESPACE" \
-    --count '33' \
-    --offset '98' \
+    --count '82' \
+    --offset '75' \
     > test.out 2>&1
 eval_tap $? 27 'GetAllPodConfig' test.out
 
 #- 28 GetPodConfig
 ./ng net.accelbyte.sdk.cli.Main dsmc getPodConfig \
-    --name 'iPLQXSe0' \
+    --name 'QXSe07Zd' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 28 'GetPodConfig' test.out
 
 #- 29 CreatePodConfig
 ./ng net.accelbyte.sdk.cli.Main dsmc createPodConfig \
-    --body '{"cpu_limit": 7, "mem_limit": 6, "params": "OGTMlJjB"}' \
-    --name 'wj9HJHQK' \
+    --name 'dOGTMlJj' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"cpu_limit": 54, "mem_limit": 45, "params": "j9HJHQKs"}' \
     > test.out 2>&1
 eval_tap $? 29 'CreatePodConfig' test.out
 
 #- 30 DeletePodConfig
 ./ng net.accelbyte.sdk.cli.Main dsmc deletePodConfig \
-    --name 'seEdSXRD' \
+    --name 'eEdSXRDS' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 30 'DeletePodConfig' test.out
 
 #- 31 UpdatePodConfig
 ./ng net.accelbyte.sdk.cli.Main dsmc updatePodConfig \
-    --body '{"cpu_limit": 89, "mem_limit": 43, "name": "guauw1xT", "params": "7eMwSl9M"}' \
-    --name 'LH0NnTJ2' \
+    --name 'vguauw1x' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"cpu_limit": 91, "mem_limit": 9, "name": "MwSl9MLH", "params": "0NnTJ2ul"}' \
     > test.out 2>&1
 eval_tap $? 31 'UpdatePodConfig' test.out
 
 #- 32 AddPort
 ./ng net.accelbyte.sdk.cli.Main dsmc addPort \
-    --body '{"port": 41}' \
-    --name 'lNzBvwJa' \
+    --name 'NzBvwJaQ' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"port": 0}' \
     > test.out 2>&1
 eval_tap $? 32 'AddPort' test.out
 
 #- 33 DeletePort
 ./ng net.accelbyte.sdk.cli.Main dsmc deletePort \
-    --name 'Qa547Jll' \
+    --name '547JllvA' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 33 'DeletePort' test.out
 
 #- 34 UpdatePort
 ./ng net.accelbyte.sdk.cli.Main dsmc updatePort \
-    --body '{"name": "vA8RWSpa", "port": 2}' \
-    --name 'Ut7xk6Qx' \
+    --name '8RWSpabU' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"name": "t7xk6Qxy", "port": 96}' \
     > test.out 2>&1
 eval_tap $? 34 'UpdatePort' test.out
 
 #- 35 ListImages
 ./ng net.accelbyte.sdk.cli.Main dsmc listImages \
     --namespace "$AB_NAMESPACE" \
+    --count '15' \
+    --offset '11' \
+    --q 'qoWfJw2o' \
+    --sortBy 'createdAt' \
+    --sortDirection 'desc' \
     > test.out 2>&1
 eval_tap $? 35 'ListImages' test.out
 
 #- 36 DeleteImage
 ./ng net.accelbyte.sdk.cli.Main dsmc deleteImage \
     --namespace "$AB_NAMESPACE" \
-    --imageURI 'yWhfqoWf' \
-    --version 'Jw2o8oWU' \
+    --imageURI 'vPCZ2HzT' \
+    --version '7NXmWDlX' \
     > test.out 2>&1
 eval_tap $? 36 'DeleteImage' test.out
 
@@ -324,37 +332,40 @@ eval_tap $? 38 'GetImageLimit' test.out
 #- 39 DeleteImagePatch
 ./ng net.accelbyte.sdk.cli.Main dsmc deleteImagePatch \
     --namespace "$AB_NAMESPACE" \
-    --imageURI 'qvPCZ2Hz' \
-    --version 'T7NXmWDl' \
-    --versionPatch 'XsuNIdQJ' \
+    --imageURI 'suNIdQJR' \
+    --version '5lsNOlvk' \
+    --versionPatch 'fwaSbnsu' \
     > test.out 2>&1
 eval_tap $? 39 'DeleteImagePatch' test.out
 
 #- 40 GetImageDetail
 ./ng net.accelbyte.sdk.cli.Main dsmc getImageDetail \
     --namespace "$AB_NAMESPACE" \
-    --version 'R5lsNOlv' \
+    --version 'LCgToxuV' \
     > test.out 2>&1
 eval_tap $? 40 'GetImageDetail' test.out
 
 #- 41 GetImagePatches
 ./ng net.accelbyte.sdk.cli.Main dsmc getImagePatches \
     --namespace "$AB_NAMESPACE" \
-    --version 'kfwaSbns' \
+    --version 'TekJgvg6' \
     > test.out 2>&1
 eval_tap $? 41 'GetImagePatches' test.out
 
 #- 42 GetImagePatchDetail
 ./ng net.accelbyte.sdk.cli.Main dsmc getImagePatchDetail \
     --namespace "$AB_NAMESPACE" \
-    --version 'uLCgToxu' \
-    --versionPatch 'VTekJgvg' \
+    --version 'h5HIpH0D' \
+    --versionPatch 'viplEk4v' \
     > test.out 2>&1
 eval_tap $? 42 'GetImagePatchDetail' test.out
 
 #- 43 ListServer
 ./ng net.accelbyte.sdk.cli.Main dsmc listServer \
     --namespace "$AB_NAMESPACE" \
+    --count '19' \
+    --offset '75' \
+    --region 'Dp4yqDt8' \
     > test.out 2>&1
 eval_tap $? 43 'ListServer' test.out
 
@@ -367,6 +378,7 @@ eval_tap $? 44 'CountServer' test.out
 #- 45 CountServerDetailed
 ./ng net.accelbyte.sdk.cli.Main dsmc countServerDetailed \
     --namespace "$AB_NAMESPACE" \
+    --region 'QUZDpxlH' \
     > test.out 2>&1
 eval_tap $? 45 'CountServerDetailed' test.out
 
@@ -378,7 +390,7 @@ eval_tap $? 46 'ListLocalServer' test.out
 
 #- 47 DeleteLocalServer
 ./ng net.accelbyte.sdk.cli.Main dsmc deleteLocalServer \
-    --name '6h5HIpH0' \
+    --name 'asinGcjr' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 47 'DeleteLocalServer' test.out
@@ -386,40 +398,45 @@ eval_tap $? 47 'DeleteLocalServer' test.out
 #- 48 GetServer
 ./ng net.accelbyte.sdk.cli.Main dsmc getServer \
     --namespace "$AB_NAMESPACE" \
-    --podName 'DviplEk4' \
+    --podName 'kmRMttgj' \
     > test.out 2>&1
 eval_tap $? 48 'GetServer' test.out
 
 #- 49 DeleteServer
 ./ng net.accelbyte.sdk.cli.Main dsmc deleteServer \
     --namespace "$AB_NAMESPACE" \
-    --podName 'vj3LDp4y' \
+    --podName 'DSaIVBmf' \
     > test.out 2>&1
 eval_tap $? 49 'DeleteServer' test.out
 
 #- 50 GetServerLogs
 ./ng net.accelbyte.sdk.cli.Main dsmc getServerLogs \
     --namespace "$AB_NAMESPACE" \
-    --podName 'qDt8QUZD' \
+    --podName 't3Udg7p9' \
     > test.out 2>&1
 eval_tap $? 50 'GetServerLogs' test.out
 
 #- 51 ListSession
 ./ng net.accelbyte.sdk.cli.Main dsmc listSession \
     --namespace "$AB_NAMESPACE" \
+    --count '82' \
+    --offset '65' \
+    --region 'mY2H5kX4' \
+    --withServer  \
     > test.out 2>&1
 eval_tap $? 51 'ListSession' test.out
 
 #- 52 CountSession
 ./ng net.accelbyte.sdk.cli.Main dsmc countSession \
     --namespace "$AB_NAMESPACE" \
+    --region 'MsisSX28' \
     > test.out 2>&1
 eval_tap $? 52 'CountSession' test.out
 
 #- 53 DeleteSession
 ./ng net.accelbyte.sdk.cli.Main dsmc deleteSession \
     --namespace "$AB_NAMESPACE" \
-    --sessionID 'pxlHasin' \
+    --sessionID 'nARxWRpv' \
     > test.out 2>&1
 eval_tap $? 53 'DeleteSession' test.out
 
@@ -432,69 +449,70 @@ eval_tap $? 54 'ExportConfigV1' test.out
 #- 55 ImportConfigV1
 ./ng net.accelbyte.sdk.cli.Main dsmc importConfigV1 \
     --namespace "$AB_NAMESPACE" \
+    --file 'tmp.dat' \
     > test.out 2>&1
 eval_tap $? 55 'ImportConfigV1' test.out
 
 #- 56 ImageDetailClient
 ./ng net.accelbyte.sdk.cli.Main dsmc imageDetailClient \
     --namespace "$AB_NAMESPACE" \
-    --version 'GcjrkmRM' \
+    --version '5ou5xtvd' \
     > test.out 2>&1
 eval_tap $? 56 'ImageDetailClient' test.out
 
 #- 57 DeregisterLocalServer
 ./ng net.accelbyte.sdk.cli.Main dsmc deregisterLocalServer \
-    --body '{"name": "ttgjDSaI"}' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"name": "28OUfCt8"}' \
     > test.out 2>&1
 eval_tap $? 57 'DeregisterLocalServer' test.out
 
 #- 58 RegisterLocalServer
 ./ng net.accelbyte.sdk.cli.Main dsmc registerLocalServer \
-    --body '{"custom_attribute": "VBmft3Ud", "ip": "g7p9PGmY", "name": "2H5kX4Ms", "port": 17}' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"custom_attribute": "UJC5flNy", "ip": "j6HsTtX8", "name": "P3llnaaS", "port": 23}' \
     > test.out 2>&1
 eval_tap $? 58 'RegisterLocalServer' test.out
 
 #- 59 RegisterServer
 ./ng net.accelbyte.sdk.cli.Main dsmc registerServer \
-    --body '{"custom_attribute": "sSX28nAR", "pod_name": "xWRpv5ou"}' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"custom_attribute": "qyygPcfk", "pod_name": "JIxfQZza"}' \
     > test.out 2>&1
 eval_tap $? 59 'RegisterServer' test.out
 
 #- 60 ShutdownServer
 ./ng net.accelbyte.sdk.cli.Main dsmc shutdownServer \
-    --body '{"kill_me": true, "pod_name": "tvd28OUf"}' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"kill_me": false, "pod_name": "NVbDxVMq"}' \
     > test.out 2>&1
 eval_tap $? 60 'ShutdownServer' test.out
 
 #- 61 GetServerSession
 ./ng net.accelbyte.sdk.cli.Main dsmc getServerSession \
     --namespace "$AB_NAMESPACE" \
-    --podName 'Ct8UJC5f' \
+    --podName '7HJk0F89' \
     > test.out 2>&1
 eval_tap $? 61 'GetServerSession' test.out
 
 #- 62 CreateSession
 ./ng net.accelbyte.sdk.cli.Main dsmc createSession \
-    --body '{"client_version": "lNyj6HsT", "configuration": "tX8P3lln", "deployment": "aaS9lqyy", "game_mode": "gPcfkJIx", "matching_allies": [{"matching_parties": [{"party_attributes": {"fQZza8kN": {}}, "party_id": "VbDxVMq7", "party_members": [{"user_id": "HJk0F89x"}]}]}], "namespace": "Ac3YVfaE", "notification_payload": {}, "pod_name": "Ntrl0pTK", "region": "ZTXqzHuB", "session_id": "MYQSA2jz"}' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"client_version": "xAc3YVfa", "configuration": "ENtrl0pT", "deployment": "KZTXqzHu", "game_mode": "BMYQSA2j", "matching_allies": [{"matching_parties": [{"party_attributes": {"z1ZOpdOj": {}}, "party_id": "SyMddB41", "party_members": [{"user_id": "JuMf7RUy"}]}]}], "namespace": "BHRj8IiR", "notification_payload": {}, "pod_name": "imRllHT6", "region": "Dc40vFFA", "session_id": "6gpU7EW3"}' \
     > test.out 2>&1
 eval_tap $? 62 'CreateSession' test.out
 
 #- 63 ClaimServer
 ./ng net.accelbyte.sdk.cli.Main dsmc claimServer \
-    --body '{"session_id": "1ZOpdOjS"}' \
     --namespace "$AB_NAMESPACE" \
+    --body '{"session_id": "x1dCpm55"}' \
     > test.out 2>&1
 eval_tap $? 63 'ClaimServer' test.out
 
 #- 64 GetSession
 ./ng net.accelbyte.sdk.cli.Main dsmc getSession \
     --namespace "$AB_NAMESPACE" \
-    --sessionID 'yMddB41J' \
+    --sessionID 'gOeqQIqc' \
     > test.out 2>&1
 eval_tap $? 64 'GetSession' test.out
 
@@ -510,7 +528,7 @@ eval_tap $? 66 'ListProviders' test.out
 
 #- 67 ListProvidersByRegion
 ./ng net.accelbyte.sdk.cli.Main dsmc listProvidersByRegion \
-    --region 'uMf7RUyB' \
+    --region 'JVKmBM1J' \
     > test.out 2>&1
 eval_tap $? 67 'ListProvidersByRegion' test.out
 
