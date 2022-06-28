@@ -25,6 +25,8 @@ import net.accelbyte.sdk.core.repository.TokenRepository;
 import net.accelbyte.sdk.core.util.Helper;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.time.Instant;
@@ -394,6 +396,13 @@ class TestCore {
     @ParameterizedTest
     @ValueSource(strings = { "POST" })
     public void testHttpRequestMultipart(String input) throws Exception {
+        final File testFile = new File("test.json");
+        final String testJson = "{ \"data\" : \"test http request multipart\"}";
+        final String testStrategy = "replace";
+        testFile.deleteOnExit();
+        final FileWriter testFileWriter = new FileWriter(testFile);
+        testFileWriter.write(testJson);
+        testFileWriter.close();
         final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         final HttpbinOperation op = new HttpbinOperation() {
             @Override
@@ -413,14 +422,10 @@ class TestCore {
 
             @Override
             public Map<String, Object> getFormParams() {
-                try {
-                    Map<String, Object> params = new HashMap<>();
-                    params.put("file", new ByteArrayInputStream("test".getBytes("UTF-8")));
-                    params.put("strategy", "replace");
-                    return params;
-                } catch (UnsupportedEncodingException e) {
-                    return null;
-                }
+                Map<String, Object> params = new HashMap<>();
+                params.put("file", testFile);
+                params.put("strategy", testStrategy);
+                return params;
             }
         };
         final HttpResponse res = sdk.runRequest(op);
@@ -429,8 +434,8 @@ class TestCore {
                 res.getContentType(),
                 res.getPayload());
         assertNotNull(result);
-        assertEquals("test", result.getFiles().get("file"));
-        assertEquals("replace", result.getForm().get("strategy"));
+        assertEquals(testJson, result.getFiles().get("file"));
+        assertEquals(testStrategy, result.getForm().get("strategy"));
     }
 
     @ParameterizedTest
@@ -726,7 +731,8 @@ class TestCore {
         sdk.loginUser("fakeuser", "fakepassword");
 
         assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
-        assertTrue(tokenRefreshRepository.getRefreshToken() != null && !"".equals(tokenRefreshRepository.getRefreshToken()));
+        assertTrue(tokenRefreshRepository.getRefreshToken() != null
+                && !"".equals(tokenRefreshRepository.getRefreshToken()));
 
         // Simulate token expiry within threshold and refresh token still valid for 24
         // hours
@@ -739,7 +745,8 @@ class TestCore {
                         .build());
 
         assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
-        assertTrue(tokenRefreshRepository.getRefreshToken() != null && !"".equals(tokenRefreshRepository.getRefreshToken()));
+        assertTrue(tokenRefreshRepository.getRefreshToken() != null
+                && !"".equals(tokenRefreshRepository.getRefreshToken()));
     }
 
     @Test
@@ -751,7 +758,7 @@ class TestCore {
         sdk.loginClient();
 
         assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
-        assertTrue(tokenRefreshRepository.getRefreshToken() == null);   // Login client does not return refresh token
+        assertTrue(tokenRefreshRepository.getRefreshToken() == null); // Login client does not return refresh token
 
         // Simulate token expiry within threshold
         tokenRefreshRepository.setTokenExpiresAt(Date.from(Instant.now().plusSeconds(60)));

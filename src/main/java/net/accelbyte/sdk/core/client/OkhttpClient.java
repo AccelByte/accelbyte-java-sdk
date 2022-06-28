@@ -8,8 +8,6 @@ package net.accelbyte.sdk.core.client;
 
 import com.fasterxml.jackson.databind.json.JsonMapper;
 
-import org.apache.commons.io.IOUtils;
-
 import net.accelbyte.sdk.core.HttpHeaders;
 import net.accelbyte.sdk.core.HttpResponse;
 import net.accelbyte.sdk.core.Operation;
@@ -27,6 +25,7 @@ import okhttp3.ResponseBody;
 import okhttp3.OkHttpClient.Builder;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -89,12 +88,11 @@ public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
                     int filename = 0;
                     for (Map.Entry<String, ?> entry : formDataParams.entrySet()) {
                         if (entry.getValue() != null) {
-                            if (entry.getValue() instanceof InputStream) {
-                                byte[] valueBytes = IOUtils.toByteArray(
-                                        (InputStream) entry.getValue());
+                            if (entry.getValue() instanceof File) {
                                 multipartBuilder.addFormDataPart(entry.getKey(),
                                         String.valueOf(++filename),
-                                        RequestBody.create(valueBytes));
+                                        RequestBody.create((File) entry.getValue(),
+                                                null));
                             } else if (entry.getValue() instanceof String) {
                                 multipartBuilder.addFormDataPart(entry.getKey(),
                                         (String) entry.getValue());
