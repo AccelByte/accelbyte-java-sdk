@@ -116,13 +116,13 @@ public class MockIAPReceipt extends Model {
     
     public enum Type {
         APPLE("APPLE"),
+        EPICGAMES("EPICGAMES"),
         GOOGLE("GOOGLE"),
         PLAYSTATION("PLAYSTATION"),
-        STEAM("STEAM"),
-        XBOX("XBOX"),
         STADIA("STADIA"),
-        EPICGAMES("EPICGAMES"),
-        TWITCH("TWITCH");
+        STEAM("STEAM"),
+        TWITCH("TWITCH"),
+        XBOX("XBOX");
 
         private String value;
 

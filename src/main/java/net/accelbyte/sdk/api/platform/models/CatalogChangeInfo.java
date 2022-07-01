@@ -57,6 +57,9 @@ public class CatalogChangeInfo extends Model {
     @JsonProperty("publishedAt")
     private String publishedAt;
 
+    @JsonProperty("selected")
+    private Boolean selected;
+
     @JsonProperty("sku")
     private String sku;
 
@@ -170,8 +173,8 @@ public class CatalogChangeInfo extends Model {
     
     public enum Action {
         CREATE("CREATE"),
-        UPDATE("UPDATE"),
-        DELETE("DELETE");
+        DELETE("DELETE"),
+        UPDATE("UPDATE");
 
         private String value;
 
@@ -187,13 +190,13 @@ public class CatalogChangeInfo extends Model {
     
     public enum ItemType {
         APP("APP"),
-        COINS("COINS"),
-        INGAMEITEM("INGAMEITEM"),
         BUNDLE("BUNDLE"),
         CODE("CODE"),
-        SUBSCRIPTION("SUBSCRIPTION"),
+        COINS("COINS"),
+        INGAMEITEM("INGAMEITEM"),
+        MEDIA("MEDIA"),
         SEASON("SEASON"),
-        MEDIA("MEDIA");
+        SUBSCRIPTION("SUBSCRIPTION");
 
         private String value;
 
@@ -208,8 +211,8 @@ public class CatalogChangeInfo extends Model {
     }
     
     public enum Status {
-        UNPUBLISHED("UNPUBLISHED"),
-        PUBLISHED("PUBLISHED");
+        PUBLISHED("PUBLISHED"),
+        UNPUBLISHED("UNPUBLISHED");
 
         private String value;
 
@@ -224,9 +227,9 @@ public class CatalogChangeInfo extends Model {
     }
     
     public enum Type {
-        STORE("STORE"),
         CATEGORY("CATEGORY"),
-        ITEM("ITEM");
+        ITEM("ITEM"),
+        STORE("STORE");
 
         private String value;
 

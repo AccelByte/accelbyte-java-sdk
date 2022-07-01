@@ -39,17 +39,17 @@ public class ListSession implements Callable<Integer> {
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
 
-    @Option(names = {"--count"}, description = "count")
-    Integer count;
-
-    @Option(names = {"--offset"}, description = "offset")
-    Integer offset;
-
     @Option(names = {"--region"}, description = "region")
     String region;
 
     @Option(names = {"--withServer"}, description = "withServer")
     Boolean withServer;
+
+    @Option(names = {"--count"}, description = "count")
+    Integer count;
+
+    @Option(names = {"--offset"}, description = "offset")
+    Integer offset;
 
 
     @Option(names = {"--logging"}, description = "logger")
@@ -72,10 +72,10 @@ public class ListSession implements Callable<Integer> {
             net.accelbyte.sdk.api.dsmc.operations.admin.ListSession operation =
                     net.accelbyte.sdk.api.dsmc.operations.admin.ListSession.builder()
                             .namespace(namespace)
-                            .count(count)
-                            .offset(offset)
                             .region(region)
                             .withServer(withServer)
+                            .count(count)
+                            .offset(offset)
                             .build();
             ModelsListSessionResponse response =
                     wrapper.listSession(operation);

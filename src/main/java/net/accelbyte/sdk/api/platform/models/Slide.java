@@ -119,8 +119,8 @@ public class Slide extends Model {
     
     public enum VideoSource {
         Generic("generic"),
-        Youtube("youtube"),
-        Vimeo("vimeo");
+        Vimeo("vimeo"),
+        Youtube("youtube");
 
         private String value;
 

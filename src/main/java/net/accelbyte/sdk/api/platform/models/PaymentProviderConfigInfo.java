@@ -118,8 +118,8 @@ public class PaymentProviderConfigInfo extends Model {
 
     
     public enum Aggregate {
-        XSOLLA("XSOLLA"),
-        ADYEN("ADYEN");
+        ADYEN("ADYEN"),
+        XSOLLA("XSOLLA");
 
         private String value;
 
@@ -134,14 +134,14 @@ public class PaymentProviderConfigInfo extends Model {
     }
     
     public enum Specials {
-        WALLET("WALLET"),
-        XSOLLA("XSOLLA"),
         ADYEN("ADYEN"),
-        STRIPE("STRIPE"),
-        CHECKOUT("CHECKOUT"),
         ALIPAY("ALIPAY"),
+        CHECKOUT("CHECKOUT"),
+        PAYPAL("PAYPAL"),
+        STRIPE("STRIPE"),
+        WALLET("WALLET"),
         WXPAY("WXPAY"),
-        PAYPAL("PAYPAL");
+        XSOLLA("XSOLLA");
 
         private String value;
 

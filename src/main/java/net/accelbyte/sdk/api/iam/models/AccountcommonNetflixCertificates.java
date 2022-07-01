@@ -33,11 +33,20 @@ public class AccountcommonNetflixCertificates extends Model {
     @JsonProperty("encryptedPrivateKey")
     private String encryptedPrivateKey;
 
+    @JsonProperty("encryptedPrivateKeyName")
+    private String encryptedPrivateKeyName;
+
     @JsonProperty("publicCertificate")
     private String publicCertificate;
 
+    @JsonProperty("publicCertificateName")
+    private String publicCertificateName;
+
     @JsonProperty("rootCertificate")
     private String rootCertificate;
+
+    @JsonProperty("rootCertificateName")
+    private String rootCertificateName;
 
 
 

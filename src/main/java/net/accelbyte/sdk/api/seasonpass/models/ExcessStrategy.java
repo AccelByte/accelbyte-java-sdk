@@ -73,8 +73,8 @@ public class ExcessStrategy extends Model {
 
     
     public enum Method {
-        NONE("NONE"),
-        CURRENCY("CURRENCY");
+        CURRENCY("CURRENCY"),
+        NONE("NONE");
 
         private String value;
 

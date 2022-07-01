@@ -669,7 +669,7 @@ eval_tap $? 76 'UpdateScreenshots' test.out
     --contentId 'loVS3rYp' \
     --namespace "$AB_NAMESPACE" \
     --userId '8QtcEmCE' \
-    --body '{"screenshots": [{"contentType": "Vc75Ufey", "description": "pWjDNhzC", "fileExtension": "bmp"}]}' \
+    --body '{"screenshots": [{"contentType": "Vc75Ufey", "description": "pWjDNhzC", "fileExtension": "pjp"}]}' \
     > test.out 2>&1
 eval_tap $? 77 'UploadContentScreenshot' test.out
 
@@ -694,83 +694,83 @@ eval_tap $? 79 'UpdateUserFollowStatus' test.out
 ./ng net.accelbyte.sdk.cli.Main ugc getPublicFollowers \
     --namespace "$AB_NAMESPACE" \
     --userId 'HpwK2Jaq' \
-    --limit 'enDGn7a2' \
-    --offset 'NUplWiLj' \
+    --limit '9' \
+    --offset '26' \
     > test.out 2>&1
 eval_tap $? 80 'GetPublicFollowers' test.out
 
 #- 81 GetPublicFollowing
 ./ng net.accelbyte.sdk.cli.Main ugc getPublicFollowing \
     --namespace "$AB_NAMESPACE" \
-    --userId 'q06n6a0r' \
-    --limit 'W8EfkpaX' \
-    --offset 'twYZJaQ4' \
+    --userId 'DGn7a2NU' \
+    --limit '31' \
+    --offset '22' \
     > test.out 2>&1
 eval_tap $? 81 'GetPublicFollowing' test.out
 
 #- 82 GetGroups
 ./ng net.accelbyte.sdk.cli.Main ugc getGroups \
     --namespace "$AB_NAMESPACE" \
-    --userId 'WbwNmsFY' \
-    --limit '8' \
-    --offset '38' \
+    --userId 'WiLjq06n' \
+    --limit '1' \
+    --offset '34' \
     > test.out 2>&1
 eval_tap $? 82 'GetGroups' test.out
 
 #- 83 CreateGroup
 ./ng net.accelbyte.sdk.cli.Main ugc createGroup \
     --namespace "$AB_NAMESPACE" \
-    --userId 'jEurH8el' \
-    --body '{"contents": ["oJzNKtRU"], "name": "aTz1ETds"}' \
+    --userId 'W8EfkpaX' \
+    --body '{"contents": ["twYZJaQ4"], "name": "WbwNmsFY"}' \
     > test.out 2>&1
 eval_tap $? 83 'CreateGroup' test.out
 
 #- 84 DeleteAllUserGroup
 ./ng net.accelbyte.sdk.cli.Main ugc deleteAllUserGroup \
     --namespace "$AB_NAMESPACE" \
-    --userId 'mwzjkkn9' \
+    --userId 'etjEurH8' \
     > test.out 2>&1
 eval_tap $? 84 'DeleteAllUserGroup' test.out
 
 #- 85 GetGroup
 ./ng net.accelbyte.sdk.cli.Main ugc getGroup \
-    --groupId 'oiQl05g7' \
+    --groupId 'eloJzNKt' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'cO3ZMb6O' \
+    --userId 'RUaTz1ET' \
     > test.out 2>&1
 eval_tap $? 85 'GetGroup' test.out
 
 #- 86 UpdateGroup
 ./ng net.accelbyte.sdk.cli.Main ugc updateGroup \
-    --groupId 'jlo6DMNp' \
+    --groupId 'dsmwzjkk' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'P2qMrTQ1' \
-    --body '{"contents": ["UpjfU6wJ"], "name": "hy1jOVkk"}' \
+    --userId 'n9oiQl05' \
+    --body '{"contents": ["g7cO3ZMb"], "name": "6Ojlo6DM"}' \
     > test.out 2>&1
 eval_tap $? 86 'UpdateGroup' test.out
 
 #- 87 DeleteGroup
 ./ng net.accelbyte.sdk.cli.Main ugc deleteGroup \
-    --groupId 'UlS79527' \
+    --groupId 'NpP2qMrT' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'EZ25Ia8u' \
+    --userId 'Q1UpjfU6' \
     > test.out 2>&1
 eval_tap $? 87 'DeleteGroup' test.out
 
 #- 88 GetGroupContent
 ./ng net.accelbyte.sdk.cli.Main ugc getGroupContent \
-    --groupId 'CeZFlLtE' \
+    --groupId 'wJhy1jOV' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'VpDAEbA8' \
-    --limit '18' \
-    --offset '49' \
+    --userId 'kkUlS795' \
+    --limit '60' \
+    --offset '69' \
     > test.out 2>&1
 eval_tap $? 88 'GetGroupContent' test.out
 
 #- 89 DeleteAllUserStates
 ./ng net.accelbyte.sdk.cli.Main ugc deleteAllUserStates \
     --namespace "$AB_NAMESPACE" \
-    --userId '74lq0pDE' \
+    --userId 'a8uCeZFl' \
     > test.out 2>&1
 eval_tap $? 89 'DeleteAllUserStates' test.out
 

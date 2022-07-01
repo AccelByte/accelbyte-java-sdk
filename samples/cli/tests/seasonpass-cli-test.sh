@@ -65,7 +65,7 @@ eval_tap $? 2 'QuerySeasons' test.out
 #- 3 CreateSeason
 ./ng net.accelbyte.sdk.cli.Main seasonpass createSeason \
     --namespace "$AB_NAMESPACE" \
-    --body '{"autoClaim": true, "defaultLanguage": "yZcDXBpG", "defaultRequiredExp": 22, "draftStoreId": "sQuJu8vM", "end": "1973-10-06T00:00:00Z", "excessStrategy": {"currency": "sJkTrd8I", "method": "CURRENCY", "percentPerExp": 4}, "images": [{"as": "V2zXnTKj", "caption": "XY1bPqam", "height": 17, "imageUrl": "Bxx9Cs18", "smallImageUrl": "EY84ekIt", "width": 32}], "localizations": {"RzHU1oh5": {"description": "70KQBVae", "title": "wc72krSh"}}, "name": "a68n3Yno", "start": "1983-05-05T00:00:00Z", "tierItemId": "1C2KmIQT"}' \
+    --body '{"autoClaim": true, "defaultLanguage": "yZcDXBpG", "defaultRequiredExp": 22, "draftStoreId": "sQuJu8vM", "end": "1973-10-06T00:00:00Z", "excessStrategy": {"currency": "sJkTrd8I", "method": "NONE", "percentPerExp": 4}, "images": [{"as": "V2zXnTKj", "caption": "XY1bPqam", "height": 17, "imageUrl": "Bxx9Cs18", "smallImageUrl": "EY84ekIt", "width": 32}], "localizations": {"RzHU1oh5": {"description": "70KQBVae", "title": "wc72krSh"}}, "name": "a68n3Yno", "start": "1983-05-05T00:00:00Z", "tierItemId": "1C2KmIQT"}' \
     > test.out 2>&1
 eval_tap $? 3 'CreateSeason' test.out
 
@@ -93,7 +93,7 @@ eval_tap $? 6 'DeleteSeason' test.out
 ./ng net.accelbyte.sdk.cli.Main seasonpass updateSeason \
     --namespace "$AB_NAMESPACE" \
     --seasonId '7DJZaMSx' \
-    --body '{"autoClaim": true, "defaultLanguage": "CbZbygyo", "defaultRequiredExp": 1, "draftStoreId": "rORoeNHS", "end": "1971-12-17T00:00:00Z", "excessStrategy": {"currency": "h3kgs9qq", "method": "NONE", "percentPerExp": 27}, "images": [{"as": "QsoBgiVp", "caption": "P8Cm3yvA", "height": 89, "imageUrl": "UoxdxxFq", "smallImageUrl": "mAGTJ8IE", "width": 6}], "localizations": {"agEtp4w2": {"description": "9KOu9c19", "title": "R6XDqWHk"}}, "name": "kP8npLEK", "start": "1990-02-13T00:00:00Z", "tierItemId": "jiX7jpkV"}' \
+    --body '{"autoClaim": true, "defaultLanguage": "CbZbygyo", "defaultRequiredExp": 1, "draftStoreId": "rORoeNHS", "end": "1971-12-17T00:00:00Z", "excessStrategy": {"currency": "h3kgs9qq", "method": "CURRENCY", "percentPerExp": 27}, "images": [{"as": "QsoBgiVp", "caption": "P8Cm3yvA", "height": 89, "imageUrl": "UoxdxxFq", "smallImageUrl": "mAGTJ8IE", "width": 6}], "localizations": {"agEtp4w2": {"description": "9KOu9c19", "title": "R6XDqWHk"}}, "name": "kP8npLEK", "start": "1990-02-13T00:00:00Z", "tierItemId": "jiX7jpkV"}' \
     > test.out 2>&1
 eval_tap $? 7 'UpdateSeason' test.out
 
@@ -172,7 +172,7 @@ eval_tap $? 16 'QueryRewards' test.out
 ./ng net.accelbyte.sdk.cli.Main seasonpass createReward \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'BpdsJLhs' \
-    --body '{"code": "VyExrkxo", "currency": {"currencyCode": "ot0B7WOf", "namespace": "ercZdpMc"}, "image": {"as": "i37Ds7YS", "caption": "fExaI3uz", "height": 74, "imageUrl": "teMbFAlt", "smallImageUrl": "4hr7HmOY", "width": 16}, "itemId": "BA5ltAOX", "quantity": 25, "type": "ITEM"}' \
+    --body '{"code": "VyExrkxo", "currency": {"currencyCode": "ot0B7WOf", "namespace": "ercZdpMc"}, "image": {"as": "i37Ds7YS", "caption": "fExaI3uz", "height": 74, "imageUrl": "teMbFAlt", "smallImageUrl": "4hr7HmOY", "width": 16}, "itemId": "BA5ltAOX", "quantity": 25, "type": "CURRENCY"}' \
     > test.out 2>&1
 eval_tap $? 17 'CreateReward' test.out
 
@@ -197,7 +197,7 @@ eval_tap $? 19 'DeleteReward' test.out
     --code 'D8ldz7Hu' \
     --namespace "$AB_NAMESPACE" \
     --seasonId '8AD79kdW' \
-    --body '{"currency": {"currencyCode": "unvizU0q", "namespace": "1pHyhhER"}, "image": {"as": "oGgdrysM", "caption": "izBGSRdP", "height": 23, "imageUrl": "7DNSZ8Aq", "smallImageUrl": "0XiPLQXS", "width": 9}, "itemId": "07ZddOGT", "nullFields": ["MlJjBwj9"], "quantity": 66, "type": "CURRENCY"}' \
+    --body '{"currency": {"currencyCode": "unvizU0q", "namespace": "1pHyhhER"}, "image": {"as": "oGgdrysM", "caption": "izBGSRdP", "height": 23, "imageUrl": "7DNSZ8Aq", "smallImageUrl": "0XiPLQXS", "width": 9}, "itemId": "07ZddOGT", "nullFields": ["MlJjBwj9"], "quantity": 66, "type": "ITEM"}' \
     > test.out 2>&1
 eval_tap $? 20 'UpdateReward' test.out
 

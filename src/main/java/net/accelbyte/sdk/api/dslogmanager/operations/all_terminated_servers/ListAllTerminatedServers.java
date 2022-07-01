@@ -63,6 +63,7 @@ public class ListAllTerminatedServers extends Operation {
     private String region;
     private String sessionId;
     private String startDate;
+    private String status;
     private String userId;
 
     /**
@@ -82,6 +83,7 @@ public class ListAllTerminatedServers extends Operation {
             String region,
             String sessionId,
             String startDate,
+            String status,
             String userId
     )
     {
@@ -98,6 +100,7 @@ public class ListAllTerminatedServers extends Operation {
         this.region = region;
         this.sessionId = sessionId;
         this.startDate = startDate;
+        this.status = status;
         this.userId = userId;
         
         securities.add("Bearer");
@@ -120,6 +123,7 @@ public class ListAllTerminatedServers extends Operation {
         queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
         queryParams.put("session_id", this.sessionId == null ? null : Arrays.asList(this.sessionId));
         queryParams.put("start_date", this.startDate == null ? null : Arrays.asList(this.startDate));
+        queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));
         queryParams.put("user_id", this.userId == null ? null : Arrays.asList(this.userId));
         return queryParams;
     }
@@ -156,6 +160,7 @@ public class ListAllTerminatedServers extends Operation {
         result.put("region", "None");
         result.put("session_id", "None");
         result.put("start_date", "None");
+        result.put("status", "None");
         result.put("user_id", "None");
         return result;
     }

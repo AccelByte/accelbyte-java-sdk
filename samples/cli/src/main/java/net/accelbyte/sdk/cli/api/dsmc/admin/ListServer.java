@@ -39,14 +39,14 @@ public class ListServer implements Callable<Integer> {
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
 
+    @Option(names = {"--region"}, description = "region")
+    String region;
+
     @Option(names = {"--count"}, description = "count")
     Integer count;
 
     @Option(names = {"--offset"}, description = "offset")
     Integer offset;
-
-    @Option(names = {"--region"}, description = "region")
-    String region;
 
 
     @Option(names = {"--logging"}, description = "logger")
@@ -69,9 +69,9 @@ public class ListServer implements Callable<Integer> {
             net.accelbyte.sdk.api.dsmc.operations.admin.ListServer operation =
                     net.accelbyte.sdk.api.dsmc.operations.admin.ListServer.builder()
                             .namespace(namespace)
+                            .region(region)
                             .count(count)
                             .offset(offset)
-                            .region(region)
                             .build();
             ModelsListServerResponse response =
                     wrapper.listServer(operation);

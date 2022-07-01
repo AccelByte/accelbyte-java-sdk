@@ -129,12 +129,12 @@ public class SubscriptionActivityInfo extends Model {
 
     
     public enum Action {
-        SUBSCRIBE("SUBSCRIBE"),
         CANCEL("CANCEL"),
+        CHANGEBILLINGACCOUNT("CHANGE_BILLING_ACCOUNT"),
+        GRANTDAYS("GRANT_DAYS"),
         IMMEDIATECANCEL("IMMEDIATE_CANCEL"),
         RESUBSCRIBE("RESUBSCRIBE"),
-        GRANTDAYS("GRANT_DAYS"),
-        CHANGEBILLINGACCOUNT("CHANGE_BILLING_ACCOUNT");
+        SUBSCRIBE("SUBSCRIBE");
 
         private String value;
 
@@ -149,8 +149,8 @@ public class SubscriptionActivityInfo extends Model {
     }
     
     public enum SubscribedBy {
-        USER("USER"),
-        PLATFORM("PLATFORM");
+        PLATFORM("PLATFORM"),
+        USER("USER");
 
         private String value;
 

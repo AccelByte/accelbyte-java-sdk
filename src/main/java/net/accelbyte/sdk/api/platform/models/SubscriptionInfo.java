@@ -233,11 +233,11 @@ public class SubscriptionInfo extends Model {
 
     
     public enum ChargeStatus {
-        NEVER("NEVER"),
-        SETUP("SETUP"),
-        RECURRINGCHARGING("RECURRING_CHARGING"),
         CHARGED("CHARGED"),
-        CHARGEFAILED("CHARGE_FAILED");
+        CHARGEFAILED("CHARGE_FAILED"),
+        NEVER("NEVER"),
+        RECURRINGCHARGING("RECURRING_CHARGING"),
+        SETUP("SETUP");
 
         private String value;
 
@@ -252,10 +252,10 @@ public class SubscriptionInfo extends Model {
     }
     
     public enum Status {
-        INIT("INIT"),
         ACTIVE("ACTIVE"),
         CANCELLED("CANCELLED"),
-        EXPIRED("EXPIRED");
+        EXPIRED("EXPIRED"),
+        INIT("INIT");
 
         private String value;
 
@@ -270,8 +270,8 @@ public class SubscriptionInfo extends Model {
     }
     
     public enum SubscribedBy {
-        USER("USER"),
-        PLATFORM("PLATFORM");
+        PLATFORM("PLATFORM"),
+        USER("USER");
 
         private String value;
 

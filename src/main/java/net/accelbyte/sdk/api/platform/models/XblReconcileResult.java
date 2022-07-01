@@ -79,9 +79,9 @@ public class XblReconcileResult extends Model {
 
     
     public enum IapOrderStatus {
-        VERIFIED("VERIFIED"),
+        FAILED("FAILED"),
         FULFILLED("FULFILLED"),
-        FAILED("FAILED");
+        VERIFIED("VERIFIED");
 
         private String value;
 

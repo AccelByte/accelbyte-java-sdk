@@ -117,14 +117,14 @@ public class PaymentNotificationInfo extends Model {
 
     
     public enum NotificationSource {
-        WALLET("WALLET"),
-        XSOLLA("XSOLLA"),
         ADYEN("ADYEN"),
-        STRIPE("STRIPE"),
-        CHECKOUT("CHECKOUT"),
         ALIPAY("ALIPAY"),
+        CHECKOUT("CHECKOUT"),
+        PAYPAL("PAYPAL"),
+        STRIPE("STRIPE"),
+        WALLET("WALLET"),
         WXPAY("WXPAY"),
-        PAYPAL("PAYPAL");
+        XSOLLA("XSOLLA");
 
         private String value;
 
@@ -139,10 +139,10 @@ public class PaymentNotificationInfo extends Model {
     }
     
     public enum Status {
-        PROCESSED("PROCESSED"),
         ERROR("ERROR"),
-        WARN("WARN"),
-        IGNORED("IGNORED");
+        IGNORED("IGNORED"),
+        PROCESSED("PROCESSED"),
+        WARN("WARN");
 
         private String value;
 

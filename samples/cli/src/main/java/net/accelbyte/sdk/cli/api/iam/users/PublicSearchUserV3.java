@@ -43,10 +43,10 @@ public class PublicSearchUserV3 implements Callable<Integer> {
     String by;
 
     @Option(names = {"--limit"}, description = "limit")
-    String limit;
+    Integer limit;
 
     @Option(names = {"--offset"}, description = "offset")
-    String offset;
+    Integer offset;
 
     @Option(names = {"--query"}, description = "query")
     String query;

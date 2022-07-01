@@ -103,8 +103,8 @@ public class FulfillmentHistoryInfo extends Model {
 
     
     public enum Status {
-        SUCCESS("SUCCESS"),
-        FAIL("FAIL");
+        FAIL("FAIL"),
+        SUCCESS("SUCCESS");
 
         private String value;
 

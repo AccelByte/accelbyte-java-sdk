@@ -69,7 +69,7 @@ public class RetrievePolicyVersions implements Callable<Integer> {
                             .localeId(localeId)
                             .namespace(namespace)
                             .build();
-            List<RetrievePolicyVersionResponse> response =
+            RetrievePolicyVersionResponse response =
                     wrapper.retrievePolicyVersions(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);

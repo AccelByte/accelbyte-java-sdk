@@ -68,7 +68,7 @@ public class LocalizedPolicyVersions {
     /**
      * @see RetrieveSingleLocalizedPolicyVersion
      */
-    public UpdateLocalizedPolicyVersionResponse retrieveSingleLocalizedPolicyVersion(RetrieveSingleLocalizedPolicyVersion input) throws Exception {
+    public RetrieveLocalizedPolicyVersionResponse retrieveSingleLocalizedPolicyVersion(RetrieveSingleLocalizedPolicyVersion input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

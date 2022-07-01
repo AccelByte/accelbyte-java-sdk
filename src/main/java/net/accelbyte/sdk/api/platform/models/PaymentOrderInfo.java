@@ -282,13 +282,13 @@ public class PaymentOrderInfo extends Model {
     
     public enum ItemType {
         APP("APP"),
-        COINS("COINS"),
-        INGAMEITEM("INGAMEITEM"),
         BUNDLE("BUNDLE"),
         CODE("CODE"),
-        SUBSCRIPTION("SUBSCRIPTION"),
+        COINS("COINS"),
+        INGAMEITEM("INGAMEITEM"),
+        MEDIA("MEDIA"),
         SEASON("SEASON"),
-        MEDIA("MEDIA");
+        SUBSCRIPTION("SUBSCRIPTION");
 
         private String value;
 
@@ -303,14 +303,14 @@ public class PaymentOrderInfo extends Model {
     }
     
     public enum PaymentProvider {
-        WALLET("WALLET"),
-        XSOLLA("XSOLLA"),
         ADYEN("ADYEN"),
-        STRIPE("STRIPE"),
-        CHECKOUT("CHECKOUT"),
         ALIPAY("ALIPAY"),
+        CHECKOUT("CHECKOUT"),
+        PAYPAL("PAYPAL"),
+        STRIPE("STRIPE"),
+        WALLET("WALLET"),
         WXPAY("WXPAY"),
-        PAYPAL("PAYPAL");
+        XSOLLA("XSOLLA");
 
         private String value;
 
@@ -325,19 +325,19 @@ public class PaymentOrderInfo extends Model {
     }
     
     public enum Status {
-        INIT("INIT"),
         AUTHORISED("AUTHORISED"),
         AUTHORISEFAILED("AUTHORISE_FAILED"),
-        CHARGED("CHARGED"),
-        CHARGEFAILED("CHARGE_FAILED"),
-        NOTIFICATIONOFCHARGEBACK("NOTIFICATION_OF_CHARGEBACK"),
-        REQUESTFORINFORMATION("REQUEST_FOR_INFORMATION"),
         CHARGEBACK("CHARGEBACK"),
         CHARGEBACKREVERSED("CHARGEBACK_REVERSED"),
-        REFUNDING("REFUNDING"),
+        CHARGED("CHARGED"),
+        CHARGEFAILED("CHARGE_FAILED"),
+        DELETED("DELETED"),
+        INIT("INIT"),
+        NOTIFICATIONOFCHARGEBACK("NOTIFICATION_OF_CHARGEBACK"),
         REFUNDED("REFUNDED"),
+        REFUNDING("REFUNDING"),
         REFUNDFAILED("REFUND_FAILED"),
-        DELETED("DELETED");
+        REQUESTFORINFORMATION("REQUEST_FOR_INFORMATION");
 
         private String value;
 

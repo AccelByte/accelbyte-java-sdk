@@ -39,12 +39,6 @@ public class ListImages implements Callable<Integer> {
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
 
-    @Option(names = {"--count"}, description = "count")
-    Integer count;
-
-    @Option(names = {"--offset"}, description = "offset")
-    Integer offset;
-
     @Option(names = {"--q"}, description = "q")
     String q;
 
@@ -53,6 +47,12 @@ public class ListImages implements Callable<Integer> {
 
     @Option(names = {"--sortDirection"}, description = "sortDirection")
     String sortDirection;
+
+    @Option(names = {"--count"}, description = "count")
+    Integer count;
+
+    @Option(names = {"--offset"}, description = "offset")
+    Integer offset;
 
 
     @Option(names = {"--logging"}, description = "logger")
@@ -75,11 +75,11 @@ public class ListImages implements Callable<Integer> {
             net.accelbyte.sdk.api.dsmc.operations.image_config.ListImages operation =
                     net.accelbyte.sdk.api.dsmc.operations.image_config.ListImages.builder()
                             .namespace(namespace)
-                            .count(count)
-                            .offset(offset)
                             .q(q)
                             .sortBy(sortBy)
                             .sortDirection(sortDirection)
+                            .count(count)
+                            .offset(offset)
                             .build();
             ModelsListImageResponse response =
                     wrapper.listImages(operation);

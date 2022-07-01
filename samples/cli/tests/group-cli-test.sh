@@ -64,7 +64,7 @@ eval_tap $? 2 'ListGroupConfigurationAdminV1' test.out
 #- 3 CreateGroupConfigurationAdminV1
 ./ng net.accelbyte.sdk.cli.Main group createGroupConfigurationAdminV1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"configurationCode": "BxyZcDXB", "description": "pGlsQuJu", "globalRules": [{"allowedAction": "8vMf0IsJ", "ruleDetail": [{"ruleAttribute": "kTrd8IDc", "ruleCriteria": "MAXIMUM", "ruleValue": 0.8532586947362557}]}], "groupAdminRoleId": "XnTKjXY1", "groupMaxMember": 3, "groupMemberRoleId": "PqamiBxx", "name": "9Cs18EY8"}' \
+    --body '{"configurationCode": "BxyZcDXB", "description": "pGlsQuJu", "globalRules": [{"allowedAction": "8vMf0IsJ", "ruleDetail": [{"ruleAttribute": "kTrd8IDc", "ruleCriteria": "MINIMUM", "ruleValue": 0.8532586947362557}]}], "groupAdminRoleId": "XnTKjXY1", "groupMaxMember": 3, "groupMemberRoleId": "PqamiBxx", "name": "9Cs18EY8"}' \
     > test.out 2>&1
 eval_tap $? 3 'CreateGroupConfigurationAdminV1' test.out
 
@@ -101,7 +101,7 @@ eval_tap $? 7 'UpdateGroupConfigurationAdminV1' test.out
     --allowedAction '2KmIQTuB' \
     --configurationCode 'dNEUsxFb' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"ruleDetail": [{"ruleAttribute": "8CJ17M7D", "ruleCriteria": "MAXIMUM", "ruleValue": 0.804006479705769}]}' \
+    --body '{"ruleDetail": [{"ruleAttribute": "8CJ17M7D", "ruleCriteria": "MINIMUM", "ruleValue": 0.804006479705769}]}' \
     > test.out 2>&1
 eval_tap $? 8 'UpdateGroupConfigurationGlobalRuleAdminV1' test.out
 
@@ -206,7 +206,7 @@ eval_tap $? 20 'GetGroupListPublicV1' test.out
 #- 21 CreateNewGroupPublicV1
 ./ng net.accelbyte.sdk.cli.Main group createNewGroupPublicV1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"configurationCode": "oYlpv5bV", "customAttributes": {"AgtsDhUT": {}}, "groupDescription": "DUscbQDj", "groupIcon": "bTQuPMz2", "groupMaxMember": 82, "groupName": "TRlkyU89", "groupRegion": "ZPOw6zPF", "groupRules": {"groupCustomRule": {}, "groupPredefinedRules": [{"allowedAction": "J42cwmzB", "ruleDetail": [{"ruleAttribute": "BSMNcoAA", "ruleCriteria": "MAXIMUM", "ruleValue": 0.14933364513729908}]}]}, "groupType": "NjfcYHm0"}' \
+    --body '{"configurationCode": "oYlpv5bV", "customAttributes": {"AgtsDhUT": {}}, "groupDescription": "DUscbQDj", "groupIcon": "bTQuPMz2", "groupMaxMember": 82, "groupName": "TRlkyU89", "groupRegion": "ZPOw6zPF", "groupRules": {"groupCustomRule": {}, "groupPredefinedRules": [{"allowedAction": "J42cwmzB", "ruleDetail": [{"ruleAttribute": "BSMNcoAA", "ruleCriteria": "MINIMUM", "ruleValue": 0.14933364513729908}]}]}, "groupType": "NjfcYHm0"}' \
     > test.out 2>&1
 eval_tap $? 21 'CreateNewGroupPublicV1' test.out
 
@@ -308,7 +308,7 @@ eval_tap $? 33 'UpdateGroupCustomRulePublicV1' test.out
     --allowedAction 'OXmlG6eh' \
     --groupId '1dTdoTFp' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"ruleDetail": [{"ruleAttribute": "BIcuC1dQ", "ruleCriteria": "MAXIMUM", "ruleValue": 0.9976391908037776}]}' \
+    --body '{"ruleDetail": [{"ruleAttribute": "BIcuC1dQ", "ruleCriteria": "MINIMUM", "ruleValue": 0.9976391908037776}]}' \
     > test.out 2>&1
 eval_tap $? 34 'UpdateGroupPredefinedRulePublicV1' test.out
 

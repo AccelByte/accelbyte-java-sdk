@@ -83,6 +83,9 @@ import java.util.*;
  *                 * stadia
  * 
  * 
+ *                 * snapchat
+ * 
+ * 
  * 
  * 
  * Unlink user's account from a specific platform. 'justice' platform might have multiple accounts from different namespaces linked.

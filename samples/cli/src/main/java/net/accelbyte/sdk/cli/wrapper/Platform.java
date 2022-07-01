@@ -28,6 +28,7 @@ import net.accelbyte.sdk.cli.api.platform.store.*;
 import net.accelbyte.sdk.cli.api.platform.catalog_changes.*;
 import net.accelbyte.sdk.cli.api.platform.subscription.*;
 import net.accelbyte.sdk.cli.api.platform.ticket.*;
+import net.accelbyte.sdk.cli.api.platform.achievement_platform.*;
 import net.accelbyte.sdk.cli.api.platform.anonymization.*;
 import net.accelbyte.sdk.cli.api.platform.order_dedicated.*;
 import net.accelbyte.sdk.cli.api.platform.payment_config.*;
@@ -181,6 +182,12 @@ import picocli.CommandLine.Command;
                 DeleteStore.class,
                 QueryChanges.class,
                 PublishAll.class,
+                PublishSelected.class,
+                SelectAllRecords.class,
+                GetStatistic.class,
+                UnselectAllRecords.class,
+                SelectRecord.class,
+                UnselectRecord.class,
                 CloneStore.class,
                 ExportStore.class,
                 QuerySubscriptions.class,
@@ -189,6 +196,8 @@ import picocli.CommandLine.Command;
                 DecreaseTicketSale.class,
                 GetTicketBoothID.class,
                 IncreaseTicketSale.class,
+                UnlockSteamUserAchievement.class,
+                UpdateXblUserAchievement.class,
                 AnonymizeCampaign.class,
                 AnonymizeEntitlement.class,
                 AnonymizeFulfillment.class,

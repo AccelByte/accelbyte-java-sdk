@@ -70,14 +70,14 @@ public class PaymentRequest extends Model {
 
     
     public enum WalletPlatform {
-        Playstation("Playstation"),
-        Xbox("Xbox"),
-        Steam("Steam"),
         Epic("Epic"),
-        IOS("IOS"),
         GooglePlay("GooglePlay"),
+        IOS("IOS"),
         Nintendo("Nintendo"),
-        Other("Other");
+        Other("Other"),
+        Playstation("Playstation"),
+        Steam("Steam"),
+        Xbox("Xbox");
 
         private String value;
 

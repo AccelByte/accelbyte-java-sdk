@@ -220,10 +220,10 @@ public class ItemSnapshot extends Model {
 
     
     public enum AppType {
-        GAME("GAME"),
-        SOFTWARE("SOFTWARE"),
+        DEMO("DEMO"),
         DLC("DLC"),
-        DEMO("DEMO");
+        GAME("GAME"),
+        SOFTWARE("SOFTWARE");
 
         private String value;
 
@@ -238,8 +238,8 @@ public class ItemSnapshot extends Model {
     }
     
     public enum EntitlementType {
-        DURABLE("DURABLE"),
-        CONSUMABLE("CONSUMABLE");
+        CONSUMABLE("CONSUMABLE"),
+        DURABLE("DURABLE");
 
         private String value;
 
@@ -255,13 +255,13 @@ public class ItemSnapshot extends Model {
     
     public enum ItemType {
         APP("APP"),
-        COINS("COINS"),
-        INGAMEITEM("INGAMEITEM"),
         BUNDLE("BUNDLE"),
         CODE("CODE"),
-        SUBSCRIPTION("SUBSCRIPTION"),
+        COINS("COINS"),
+        INGAMEITEM("INGAMEITEM"),
+        MEDIA("MEDIA"),
         SEASON("SEASON"),
-        MEDIA("MEDIA");
+        SUBSCRIPTION("SUBSCRIPTION");
 
         private String value;
 

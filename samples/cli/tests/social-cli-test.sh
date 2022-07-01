@@ -563,7 +563,7 @@ eval_tap $? 64 'ResetUserStatItemValue1' test.out
 #- 65 BulkUpdateUserStatItemV2
 ./ng net.accelbyte.sdk.cli.Main social bulkUpdateUserStatItemV2 \
     --namespace "$AB_NAMESPACE" \
-    --body '[{"additionalData": {"ciLIgRwF": {}}, "additionalKey": "Rr0gwB9t", "statCode": "z3vp99XV", "updateStrategy": "INCREMENT", "userId": "V8rK3tE6", "value": 0.20620088145245408}]' \
+    --body '[{"additionalData": {"ciLIgRwF": {}}, "additionalKey": "Rr0gwB9t", "statCode": "z3vp99XV", "updateStrategy": "MAX", "userId": "V8rK3tE6", "value": 0.20620088145245408}]' \
     > test.out 2>&1
 eval_tap $? 65 'BulkUpdateUserStatItemV2' test.out
 
@@ -581,7 +581,7 @@ eval_tap $? 66 'BulkFetchOrDefaultStatItems1' test.out
     --namespace "$AB_NAMESPACE" \
     --userId 'cCVOXcVa' \
     --additionalKey '80TmCwtD' \
-    --body '[{"additionalData": {"2lAH01o6": {}}, "statCode": "NdcBIgzr", "updateStrategy": "MIN", "value": 0.377125276256834}]' \
+    --body '[{"additionalData": {"2lAH01o6": {}}, "statCode": "NdcBIgzr", "updateStrategy": "OVERRIDE", "value": 0.377125276256834}]' \
     > test.out 2>&1
 eval_tap $? 67 'BulkUpdateUserStatItem' test.out
 
@@ -609,14 +609,14 @@ eval_tap $? 69 'DeleteUserStatItems2' test.out
     --statCode 'CX4IjiK4' \
     --userId 'DEUJRVK3' \
     --additionalKey 'l9Eb0R1X' \
-    --body '{"additionalData": {"Rb0RH8vS": {}}, "updateStrategy": "MAX", "value": 0.1879216288360802}' \
+    --body '{"additionalData": {"Rb0RH8vS": {}}, "updateStrategy": "MIN", "value": 0.1879216288360802}' \
     > test.out 2>&1
 eval_tap $? 70 'UpdateUserStatItemValue' test.out
 
 #- 71 BulkUpdateUserStatItem1
 ./ng net.accelbyte.sdk.cli.Main social bulkUpdateUserStatItem1 \
     --namespace "$AB_NAMESPACE" \
-    --body '[{"additionalData": {"OlngrdTX": {}}, "additionalKey": "CzaPBtkZ", "statCode": "Mio4wcyh", "updateStrategy": "INCREMENT", "userId": "oVS3rYp8", "value": 0.660053066762855}]' \
+    --body '[{"additionalData": {"OlngrdTX": {}}, "additionalKey": "CzaPBtkZ", "statCode": "Mio4wcyh", "updateStrategy": "MAX", "userId": "oVS3rYp8", "value": 0.660053066762855}]' \
     > test.out 2>&1
 eval_tap $? 71 'BulkUpdateUserStatItem1' test.out
 
@@ -635,7 +635,7 @@ eval_tap $? 72 'PublicQueryUserStatItems2' test.out
     --namespace "$AB_NAMESPACE" \
     --userId '63iEklkz' \
     --additionalKey 'Lm88LpLu' \
-    --body '[{"additionalData": {"YRO3C55y": {}}, "statCode": "HpwK2Jaq", "updateStrategy": "OVERRIDE", "value": 0.20736603777944584}]' \
+    --body '[{"additionalData": {"YRO3C55y": {}}, "statCode": "HpwK2Jaq", "updateStrategy": "INCREMENT", "value": 0.20736603777944584}]' \
     > test.out 2>&1
 eval_tap $? 73 'BulkUpdateUserStatItem2' test.out
 
@@ -645,7 +645,7 @@ eval_tap $? 73 'BulkUpdateUserStatItem2' test.out
     --statCode 'Gn7a2NUp' \
     --userId 'lWiLjq06' \
     --additionalKey 'n6a0rW8E' \
-    --body '{"additionalData": {"fkpaXtwY": {}}, "updateStrategy": "OVERRIDE", "value": 0.6614483884523056}' \
+    --body '{"additionalData": {"fkpaXtwY": {}}, "updateStrategy": "INCREMENT", "value": 0.6614483884523056}' \
     > test.out 2>&1
 eval_tap $? 74 'UpdateUserStatItemValue1' test.out
 

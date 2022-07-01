@@ -123,17 +123,17 @@ public class FulfillmentRequest extends Model {
 
     
     public enum Origin {
-        Playstation("Playstation"),
-        Xbox("Xbox"),
-        Steam("Steam"),
         Epic("Epic"),
-        Stadia("Stadia"),
-        IOS("IOS"),
         GooglePlay("GooglePlay"),
-        Twitch("Twitch"),
+        IOS("IOS"),
         Nintendo("Nintendo"),
+        Other("Other"),
+        Playstation("Playstation"),
+        Stadia("Stadia"),
+        Steam("Steam"),
         System("System"),
-        Other("Other");
+        Twitch("Twitch"),
+        Xbox("Xbox");
 
         private String value;
 
@@ -148,16 +148,16 @@ public class FulfillmentRequest extends Model {
     }
     
     public enum Source {
-        PURCHASE("PURCHASE"),
-        IAP("IAP"),
-        PROMOTION("PROMOTION"),
         ACHIEVEMENT("ACHIEVEMENT"),
-        REFERRALBONUS("REFERRAL_BONUS"),
-        REDEEMCODE("REDEEM_CODE"),
-        REWARD("REWARD"),
-        GIFT("GIFT"),
         DLC("DLC"),
-        OTHER("OTHER");
+        GIFT("GIFT"),
+        IAP("IAP"),
+        OTHER("OTHER"),
+        PROMOTION("PROMOTION"),
+        PURCHASE("PURCHASE"),
+        REDEEMCODE("REDEEM_CODE"),
+        REFERRALBONUS("REFERRAL_BONUS"),
+        REWARD("REWARD");
 
         private String value;
 

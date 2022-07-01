@@ -98,8 +98,8 @@ public class WalletTransactionInfo extends Model {
     
     public enum WalletAction {
         CREDIT("CREDIT"),
-        PAYMENT("PAYMENT"),
-        DEBIT("DEBIT");
+        DEBIT("DEBIT"),
+        PAYMENT("PAYMENT");
 
         private String value;
 

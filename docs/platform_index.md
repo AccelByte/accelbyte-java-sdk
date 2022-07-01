@@ -325,6 +325,12 @@
 |---|---|---|---|---|
 | `/platform/admin/namespaces/{namespace}/stores/{storeId}/catalogChanges/byCriteria` | GET | QueryChanges | [QueryChanges](../src/main/java/net/accelbyte/sdk/api/platform/operations/catalog_changes/QueryChanges.java) | [QueryChanges](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/catalog_changes/QueryChanges.java) |
 | `/platform/admin/namespaces/{namespace}/stores/{storeId}/catalogChanges/publishAll` | PUT | PublishAll | [PublishAll](../src/main/java/net/accelbyte/sdk/api/platform/operations/catalog_changes/PublishAll.java) | [PublishAll](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/catalog_changes/PublishAll.java) |
+| `/platform/admin/namespaces/{namespace}/stores/{storeId}/catalogChanges/publishSelected` | PUT | PublishSelected | [PublishSelected](../src/main/java/net/accelbyte/sdk/api/platform/operations/catalog_changes/PublishSelected.java) | [PublishSelected](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/catalog_changes/PublishSelected.java) |
+| `/platform/admin/namespaces/{namespace}/stores/{storeId}/catalogChanges/selectAll` | PUT | SelectAllRecords | [SelectAllRecords](../src/main/java/net/accelbyte/sdk/api/platform/operations/catalog_changes/SelectAllRecords.java) | [SelectAllRecords](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/catalog_changes/SelectAllRecords.java) |
+| `/platform/admin/namespaces/{namespace}/stores/{storeId}/catalogChanges/statistics` | GET | GetStatistic | [GetStatistic](../src/main/java/net/accelbyte/sdk/api/platform/operations/catalog_changes/GetStatistic.java) | [GetStatistic](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/catalog_changes/GetStatistic.java) |
+| `/platform/admin/namespaces/{namespace}/stores/{storeId}/catalogChanges/unselectAll` | PUT | UnselectAllRecords | [UnselectAllRecords](../src/main/java/net/accelbyte/sdk/api/platform/operations/catalog_changes/UnselectAllRecords.java) | [UnselectAllRecords](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/catalog_changes/UnselectAllRecords.java) |
+| `/platform/admin/namespaces/{namespace}/stores/{storeId}/catalogChanges/{changeId}/select` | PUT | SelectRecord | [SelectRecord](../src/main/java/net/accelbyte/sdk/api/platform/operations/catalog_changes/SelectRecord.java) | [SelectRecord](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/catalog_changes/SelectRecord.java) |
+| `/platform/admin/namespaces/{namespace}/stores/{storeId}/catalogChanges/{changeId}/unselect` | PUT | UnselectRecord | [UnselectRecord](../src/main/java/net/accelbyte/sdk/api/platform/operations/catalog_changes/UnselectRecord.java) | [UnselectRecord](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/catalog_changes/UnselectRecord.java) |
 
 ### Subscription Wrapper:  [Subscription](../src/main/java/net/accelbyte/sdk/api/platform/wrappers/Subscription.java)
 | Endpoint | Method | ID | Class | Example |
@@ -357,6 +363,12 @@
 | `/platform/admin/namespaces/{namespace}/tickets/{boothName}/id` | GET | GetTicketBoothID | [GetTicketBoothID](../src/main/java/net/accelbyte/sdk/api/platform/operations/ticket/GetTicketBoothID.java) | [GetTicketBoothID](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/ticket/GetTicketBoothID.java) |
 | `/platform/admin/namespaces/{namespace}/tickets/{boothName}/increment` | PUT | IncreaseTicketSale | [IncreaseTicketSale](../src/main/java/net/accelbyte/sdk/api/platform/operations/ticket/IncreaseTicketSale.java) | [IncreaseTicketSale](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/ticket/IncreaseTicketSale.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/tickets/{boothName}` | POST | AcquireUserTicket | [AcquireUserTicket](../src/main/java/net/accelbyte/sdk/api/platform/operations/ticket/AcquireUserTicket.java) | [AcquireUserTicket](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/ticket/AcquireUserTicket.java) |
+
+### Achievement(Platform) Wrapper:  [AchievementPlatform](../src/main/java/net/accelbyte/sdk/api/platform/wrappers/AchievementPlatform.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/platform/admin/namespaces/{namespace}/users/{userId}/achievement/steam` | PUT | UnlockSteamUserAchievement | [UnlockSteamUserAchievement](../src/main/java/net/accelbyte/sdk/api/platform/operations/achievement_platform/UnlockSteamUserAchievement.java) | [UnlockSteamUserAchievement](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/achievement_platform/UnlockSteamUserAchievement.java) |
+| `/platform/admin/namespaces/{namespace}/users/{userId}/achievement/xbl` | PUT | UpdateXblUserAchievement | [UpdateXblUserAchievement](../src/main/java/net/accelbyte/sdk/api/platform/operations/achievement_platform/UpdateXblUserAchievement.java) | [UpdateXblUserAchievement](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/achievement_platform/UpdateXblUserAchievement.java) |
 
 ### Anonymization Wrapper:  [Anonymization](../src/main/java/net/accelbyte/sdk/api/platform/wrappers/Anonymization.java)
 | Endpoint | Method | ID | Class | Example |
@@ -440,6 +452,8 @@
 
 | Model | Class |
 |---|---|
+| `A DTO object for unlock steam achievement API` | [ADTOObjectForUnlockSteamAchievementAPI](../src/main/java/net/accelbyte/sdk/api/platform/models/ADTOObjectForUnlockSteamAchievementAPI.java) |
+| `A DTO object for update xbox achievement complete percentage API` | [ADTOObjectForUpdateXboxAchievementCompletePercentageAPI](../src/main/java/net/accelbyte/sdk/api/platform/models/ADTOObjectForUpdateXboxAchievementCompletePercentageAPI.java) |
 | `AdditionalData` | [AdditionalData](../src/main/java/net/accelbyte/sdk/api/platform/models/AdditionalData.java) |
 | `AdminOrderCreate` | [AdminOrderCreate](../src/main/java/net/accelbyte/sdk/api/platform/models/AdminOrderCreate.java) |
 | `AdyenConfig` | [AdyenConfig](../src/main/java/net/accelbyte/sdk/api/platform/models/AdyenConfig.java) |
@@ -467,6 +481,7 @@
 | `CancelRequest` | [CancelRequest](../src/main/java/net/accelbyte/sdk/api/platform/models/CancelRequest.java) |
 | `CatalogChangeInfo` | [CatalogChangeInfo](../src/main/java/net/accelbyte/sdk/api/platform/models/CatalogChangeInfo.java) |
 | `CatalogChangePagingSlicedResult` | [CatalogChangePagingSlicedResult](../src/main/java/net/accelbyte/sdk/api/platform/models/CatalogChangePagingSlicedResult.java) |
+| `CatalogChangeStatistics` | [CatalogChangeStatistics](../src/main/java/net/accelbyte/sdk/api/platform/models/CatalogChangeStatistics.java) |
 | `CategoryCreate` | [CategoryCreate](../src/main/java/net/accelbyte/sdk/api/platform/models/CategoryCreate.java) |
 | `CategoryInfo` | [CategoryInfo](../src/main/java/net/accelbyte/sdk/api/platform/models/CategoryInfo.java) |
 | `CategoryUpdate` | [CategoryUpdate](../src/main/java/net/accelbyte/sdk/api/platform/models/CategoryUpdate.java) |
@@ -688,3 +703,5 @@
 | `XsollaConfig` | [XsollaConfig](../src/main/java/net/accelbyte/sdk/api/platform/models/XsollaConfig.java) |
 | `XsollaPaywallConfig` | [XsollaPaywallConfig](../src/main/java/net/accelbyte/sdk/api/platform/models/XsollaPaywallConfig.java) |
 | `XsollaPaywallConfigRequest` | [XsollaPaywallConfigRequest](../src/main/java/net/accelbyte/sdk/api/platform/models/XsollaPaywallConfigRequest.java) |
+| `steam achievement request` | [SteamAchievementRequest](../src/main/java/net/accelbyte/sdk/api/platform/models/SteamAchievementRequest.java) |
+| `xbox achievement request` | [XboxAchievementRequest](../src/main/java/net/accelbyte/sdk/api/platform/models/XboxAchievementRequest.java) |

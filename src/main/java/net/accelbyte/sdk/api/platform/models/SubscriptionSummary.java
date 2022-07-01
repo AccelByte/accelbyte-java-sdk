@@ -111,10 +111,10 @@ public class SubscriptionSummary extends Model {
 
     
     public enum Status {
-        INIT("INIT"),
         ACTIVE("ACTIVE"),
         CANCELLED("CANCELLED"),
-        EXPIRED("EXPIRED");
+        EXPIRED("EXPIRED"),
+        INIT("INIT");
 
         private String value;
 
@@ -129,8 +129,8 @@ public class SubscriptionSummary extends Model {
     }
     
     public enum SubscribedBy {
-        USER("USER"),
-        PLATFORM("PLATFORM");
+        PLATFORM("PLATFORM"),
+        USER("USER");
 
         private String value;
 

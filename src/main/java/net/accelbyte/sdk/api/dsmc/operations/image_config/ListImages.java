@@ -33,6 +33,8 @@ import java.util.*;
  * Required scope: social
  * 
  * This endpoint lists all of dedicated servers images.
+ * 
+ * Parameter Offset and Count is Required
  */
 @Getter
 @Setter
@@ -51,31 +53,33 @@ public class ListImages extends Operation {
      * fields as input parameter
      */
     private String namespace;
-    private Integer count;
-    private Integer offset;
     private String q;
     private String sortBy;
     private String sortDirection;
+    private Integer count;
+    private Integer offset;
 
     /**
     * @param namespace required
+    * @param count required
+    * @param offset required
     */
     @Builder
     public ListImages(
             String namespace,
-            Integer count,
-            Integer offset,
             String q,
             String sortBy,
-            String sortDirection
+            String sortDirection,
+            Integer count,
+            Integer offset
     )
     {
         this.namespace = namespace;
-        this.count = count;
-        this.offset = offset;
         this.q = q;
         this.sortBy = sortBy;
         this.sortDirection = sortDirection;
+        this.count = count;
+        this.offset = offset;
         
         securities.add("Bearer");
     }
@@ -92,11 +96,11 @@ public class ListImages extends Operation {
     @Override
     public Map<String, List<String>> getQueryParams(){
         Map<String, List<String>> queryParams = new HashMap<>();
-        queryParams.put("count", this.count == null ? null : Arrays.asList(String.valueOf(this.count)));
-        queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
         queryParams.put("q", this.q == null ? null : Arrays.asList(this.q));
         queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
         queryParams.put("sortDirection", this.sortDirection == null ? null : Arrays.asList(this.sortDirection));
+        queryParams.put("count", this.count == null ? null : Arrays.asList(String.valueOf(this.count)));
+        queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
         return queryParams;
     }
 
@@ -106,6 +110,12 @@ public class ListImages extends Operation {
     @Override
     public boolean isValid() {
         if(this.namespace == null) {
+            return false;
+        }
+        if(this.count == null) {
+            return false;
+        }
+        if(this.offset == null) {
             return false;
         }
         return true;
@@ -122,11 +132,11 @@ public class ListImages extends Operation {
     @Override
     protected Map<String, String> getCollectionFormatMap() {
         Map<String, String> result = new HashMap<>();
-        result.put("count", "None");
-        result.put("offset", "None");
         result.put("q", "None");
         result.put("sortBy", "None");
         result.put("sortDirection", "None");
+        result.put("count", "None");
+        result.put("offset", "None");
         return result;
     }
     public enum SortBy {

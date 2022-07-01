@@ -118,12 +118,12 @@ public class RewardInfo extends Model {
     
     public enum ItemType {
         APP("APP"),
-        COINS("COINS"),
-        INGAMEITEM("INGAMEITEM"),
         BUNDLE("BUNDLE"),
         CODE("CODE"),
-        SUBSCRIPTION("SUBSCRIPTION"),
-        SEASON("SEASON");
+        COINS("COINS"),
+        INGAMEITEM("INGAMEITEM"),
+        SEASON("SEASON"),
+        SUBSCRIPTION("SUBSCRIPTION");
 
         private String value;
 
@@ -138,8 +138,8 @@ public class RewardInfo extends Model {
     }
     
     public enum Type {
-        ITEM("ITEM"),
-        CURRENCY("CURRENCY");
+        CURRENCY("CURRENCY"),
+        ITEM("ITEM");
 
         private String value;
 

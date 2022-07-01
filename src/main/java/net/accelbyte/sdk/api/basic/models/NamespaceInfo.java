@@ -80,8 +80,8 @@ public class NamespaceInfo extends Model {
     
     public enum Status {
         ACTIVE("ACTIVE"),
-        INACTIVE("INACTIVE"),
-        DELETED("DELETED");
+        DELETED("DELETED"),
+        INACTIVE("INACTIVE");
 
         private String value;
 

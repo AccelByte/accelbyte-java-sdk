@@ -76,9 +76,9 @@ public class Recurring extends Model {
 
     
     public enum Cycle {
-        WEEKLY("WEEKLY"),
         MONTHLY("MONTHLY"),
         QUARTERLY("QUARTERLY"),
+        WEEKLY("WEEKLY"),
         YEARLY("YEARLY");
 
         private String value;

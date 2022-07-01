@@ -147,9 +147,9 @@ public class IAPOrderInfo extends Model {
 
     
     public enum Status {
-        VERIFIED("VERIFIED"),
+        FAILED("FAILED"),
         FULFILLED("FULFILLED"),
-        FAILED("FAILED");
+        VERIFIED("VERIFIED");
 
         private String value;
 
@@ -165,13 +165,13 @@ public class IAPOrderInfo extends Model {
     
     public enum Type {
         APPLE("APPLE"),
+        EPICGAMES("EPICGAMES"),
         GOOGLE("GOOGLE"),
         PLAYSTATION("PLAYSTATION"),
-        STEAM("STEAM"),
-        XBOX("XBOX"),
         STADIA("STADIA"),
-        EPICGAMES("EPICGAMES"),
-        TWITCH("TWITCH");
+        STEAM("STEAM"),
+        TWITCH("TWITCH"),
+        XBOX("XBOX");
 
         private String value;
 

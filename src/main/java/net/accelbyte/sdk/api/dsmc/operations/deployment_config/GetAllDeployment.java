@@ -33,6 +33,8 @@ import java.util.*;
  * Required scope: social
  * 
  * This endpoint get a all deployments in a namespace
+ * 
+ * Parameter Offset and Count is Required
  */
 @Getter
 @Setter
@@ -51,24 +53,26 @@ public class GetAllDeployment extends Operation {
      * fields as input parameter
      */
     private String namespace;
-    private Integer count;
     private String name;
+    private Integer count;
     private Integer offset;
 
     /**
     * @param namespace required
+    * @param count required
+    * @param offset required
     */
     @Builder
     public GetAllDeployment(
             String namespace,
-            Integer count,
             String name,
+            Integer count,
             Integer offset
     )
     {
         this.namespace = namespace;
-        this.count = count;
         this.name = name;
+        this.count = count;
         this.offset = offset;
         
         securities.add("Bearer");
@@ -86,8 +90,8 @@ public class GetAllDeployment extends Operation {
     @Override
     public Map<String, List<String>> getQueryParams(){
         Map<String, List<String>> queryParams = new HashMap<>();
-        queryParams.put("count", this.count == null ? null : Arrays.asList(String.valueOf(this.count)));
         queryParams.put("name", this.name == null ? null : Arrays.asList(this.name));
+        queryParams.put("count", this.count == null ? null : Arrays.asList(String.valueOf(this.count)));
         queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
         return queryParams;
     }
@@ -98,6 +102,12 @@ public class GetAllDeployment extends Operation {
     @Override
     public boolean isValid() {
         if(this.namespace == null) {
+            return false;
+        }
+        if(this.count == null) {
+            return false;
+        }
+        if(this.offset == null) {
             return false;
         }
         return true;
@@ -114,8 +124,8 @@ public class GetAllDeployment extends Operation {
     @Override
     protected Map<String, String> getCollectionFormatMap() {
         Map<String, String> result = new HashMap<>();
-        result.put("count", "None");
         result.put("name", "None");
+        result.put("count", "None");
         result.put("offset", "None");
         return result;
     }

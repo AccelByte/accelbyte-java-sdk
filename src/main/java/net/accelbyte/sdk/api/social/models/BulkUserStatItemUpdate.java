@@ -82,10 +82,10 @@ public class BulkUserStatItemUpdate extends Model {
 
     
     public enum UpdateStrategy {
-        OVERRIDE("OVERRIDE"),
         INCREMENT("INCREMENT"),
         MAX("MAX"),
-        MIN("MIN");
+        MIN("MIN"),
+        OVERRIDE("OVERRIDE");
 
         private String value;
 

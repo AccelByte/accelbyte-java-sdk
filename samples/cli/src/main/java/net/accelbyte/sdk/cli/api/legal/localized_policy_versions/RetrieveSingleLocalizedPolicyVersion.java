@@ -61,7 +61,7 @@ public class RetrieveSingleLocalizedPolicyVersion implements Callable<Integer> {
                     net.accelbyte.sdk.api.legal.operations.localized_policy_versions.RetrieveSingleLocalizedPolicyVersion.builder()
                             .localizedPolicyVersionId(localizedPolicyVersionId)
                             .build();
-            UpdateLocalizedPolicyVersionResponse response =
+            RetrieveLocalizedPolicyVersionResponse response =
                     wrapper.retrieveSingleLocalizedPolicyVersion(operation);
             String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
             log.info("Operation successful with response below:\n{}", responseString);

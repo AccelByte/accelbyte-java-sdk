@@ -45,6 +45,9 @@ public class QueryChanges implements Callable<Integer> {
     @Option(names = {"--action"}, description = "action")
     String action;
 
+    @Option(names = {"--itemSku"}, description = "itemSku")
+    String itemSku;
+
     @Option(names = {"--itemType"}, description = "itemType")
     String itemType;
 
@@ -53,6 +56,9 @@ public class QueryChanges implements Callable<Integer> {
 
     @Option(names = {"--offset"}, description = "offset")
     Integer offset;
+
+    @Option(names = {"--selected"}, description = "selected")
+    Boolean selected;
 
     @Option(names = {"--sortBy"}, description = "sortBy")
     List<String> sortBy;
@@ -92,9 +98,11 @@ public class QueryChanges implements Callable<Integer> {
                             .namespace(namespace)
                             .storeId(storeId)
                             .action(action)
+                            .itemSku(itemSku)
                             .itemType(itemType)
                             .limit(limit)
                             .offset(offset)
+                            .selected(selected)
                             .sortBy(sortBy)
                             .status(status)
                             .type(type)

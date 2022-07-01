@@ -33,6 +33,8 @@ import java.util.*;
  * Required scope: social
  * 
  * This endpoint lists all of dedicated servers in a namespace managed by this service.
+ * 
+ * Parameter Offset and Count is Required
  */
 @Getter
 @Setter
@@ -51,25 +53,27 @@ public class ListServer extends Operation {
      * fields as input parameter
      */
     private String namespace;
+    private String region;
     private Integer count;
     private Integer offset;
-    private String region;
 
     /**
     * @param namespace required
+    * @param count required
+    * @param offset required
     */
     @Builder
     public ListServer(
             String namespace,
+            String region,
             Integer count,
-            Integer offset,
-            String region
+            Integer offset
     )
     {
         this.namespace = namespace;
+        this.region = region;
         this.count = count;
         this.offset = offset;
-        this.region = region;
         
         securities.add("Bearer");
     }
@@ -86,9 +90,9 @@ public class ListServer extends Operation {
     @Override
     public Map<String, List<String>> getQueryParams(){
         Map<String, List<String>> queryParams = new HashMap<>();
+        queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
         queryParams.put("count", this.count == null ? null : Arrays.asList(String.valueOf(this.count)));
         queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
-        queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
         return queryParams;
     }
 
@@ -98,6 +102,12 @@ public class ListServer extends Operation {
     @Override
     public boolean isValid() {
         if(this.namespace == null) {
+            return false;
+        }
+        if(this.count == null) {
+            return false;
+        }
+        if(this.offset == null) {
             return false;
         }
         return true;
@@ -114,9 +124,9 @@ public class ListServer extends Operation {
     @Override
     protected Map<String, String> getCollectionFormatMap() {
         Map<String, String> result = new HashMap<>();
+        result.put("region", "None");
         result.put("count", "None");
         result.put("offset", "None");
-        result.put("region", "None");
         return result;
     }
 }

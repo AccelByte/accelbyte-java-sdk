@@ -74,8 +74,8 @@ public class ModelsRuleInformation extends Model {
     
     public enum RuleCriteria {
         EQUAL("EQUAL"),
-        MINIMUM("MINIMUM"),
-        MAXIMUM("MAXIMUM");
+        MAXIMUM("MAXIMUM"),
+        MINIMUM("MINIMUM");
 
         private String value;
 

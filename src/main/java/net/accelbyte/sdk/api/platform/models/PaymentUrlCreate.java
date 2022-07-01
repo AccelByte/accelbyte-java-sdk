@@ -79,14 +79,14 @@ public class PaymentUrlCreate extends Model {
 
     
     public enum PaymentProvider {
-        WALLET("WALLET"),
-        XSOLLA("XSOLLA"),
         ADYEN("ADYEN"),
-        STRIPE("STRIPE"),
-        CHECKOUT("CHECKOUT"),
         ALIPAY("ALIPAY"),
+        CHECKOUT("CHECKOUT"),
+        PAYPAL("PAYPAL"),
+        STRIPE("STRIPE"),
+        WALLET("WALLET"),
         WXPAY("WXPAY"),
-        PAYPAL("PAYPAL");
+        XSOLLA("XSOLLA");
 
         private String value;
 

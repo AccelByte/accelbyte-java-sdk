@@ -75,6 +75,9 @@ public class ListTerminatedServers implements Callable<Integer> {
     @Option(names = {"--startDate"}, description = "startDate")
     String startDate;
 
+    @Option(names = {"--status"}, description = "status")
+    String status;
+
     @Option(names = {"--userId"}, description = "userId")
     String userId;
 
@@ -111,6 +114,7 @@ public class ListTerminatedServers implements Callable<Integer> {
                             .region(region)
                             .sessionId(sessionId)
                             .startDate(startDate)
+                            .status(status)
                             .userId(userId)
                             .build();
             ModelsListTerminatedServersResponse response =

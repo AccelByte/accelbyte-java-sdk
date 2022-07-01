@@ -76,10 +76,10 @@ public class NotificationProcessResult extends Model {
 
     
     public enum Status {
-        PROCESSED("PROCESSED"),
         ERROR("ERROR"),
-        WARN("WARN"),
-        IGNORED("IGNORED");
+        IGNORED("IGNORED"),
+        PROCESSED("PROCESSED"),
+        WARN("WARN");
 
         private String value;
 

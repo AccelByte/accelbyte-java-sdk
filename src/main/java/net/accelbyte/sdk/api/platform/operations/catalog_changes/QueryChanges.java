@@ -53,9 +53,11 @@ public class QueryChanges extends Operation {
     private String namespace;
     private String storeId;
     private String action;
+    private String itemSku;
     private String itemType;
     private Integer limit;
     private Integer offset;
+    private Boolean selected;
     private List<String> sortBy;
     private String status;
     private String type;
@@ -71,9 +73,11 @@ public class QueryChanges extends Operation {
             String namespace,
             String storeId,
             String action,
+            String itemSku,
             String itemType,
             Integer limit,
             Integer offset,
+            Boolean selected,
             List<String> sortBy,
             String status,
             String type,
@@ -84,9 +88,11 @@ public class QueryChanges extends Operation {
         this.namespace = namespace;
         this.storeId = storeId;
         this.action = action;
+        this.itemSku = itemSku;
         this.itemType = itemType;
         this.limit = limit;
         this.offset = offset;
+        this.selected = selected;
         this.sortBy = sortBy;
         this.status = status;
         this.type = type;
@@ -112,9 +118,11 @@ public class QueryChanges extends Operation {
     public Map<String, List<String>> getQueryParams(){
         Map<String, List<String>> queryParams = new HashMap<>();
         queryParams.put("action", this.action == null ? null : Arrays.asList(this.action));
+        queryParams.put("itemSku", this.itemSku == null ? null : Arrays.asList(this.itemSku));
         queryParams.put("itemType", this.itemType == null ? null : Arrays.asList(this.itemType));
         queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
         queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+        queryParams.put("selected", this.selected == null ? null : Arrays.asList(String.valueOf(this.selected)));
         queryParams.put("sortBy", this.sortBy == null ? null : this.sortBy);
         queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));
         queryParams.put("type", this.type == null ? null : Arrays.asList(this.type));
@@ -149,9 +157,11 @@ public class QueryChanges extends Operation {
     protected Map<String, String> getCollectionFormatMap() {
         Map<String, String> result = new HashMap<>();
         result.put("action", "None");
+        result.put("itemSku", "None");
         result.put("itemType", "None");
         result.put("limit", "None");
         result.put("offset", "None");
+        result.put("selected", "None");
         result.put("sortBy", "csv");
         result.put("status", "None");
         result.put("type", "None");

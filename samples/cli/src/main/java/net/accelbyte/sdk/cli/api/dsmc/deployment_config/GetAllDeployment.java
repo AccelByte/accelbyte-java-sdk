@@ -39,11 +39,11 @@ public class GetAllDeployment implements Callable<Integer> {
     @Option(names = {"--namespace"}, description = "namespace")
     String namespace;
 
-    @Option(names = {"--count"}, description = "count")
-    Integer count;
-
     @Option(names = {"--name"}, description = "name")
     String name;
+
+    @Option(names = {"--count"}, description = "count")
+    Integer count;
 
     @Option(names = {"--offset"}, description = "offset")
     Integer offset;
@@ -69,8 +69,8 @@ public class GetAllDeployment implements Callable<Integer> {
             net.accelbyte.sdk.api.dsmc.operations.deployment_config.GetAllDeployment operation =
                     net.accelbyte.sdk.api.dsmc.operations.deployment_config.GetAllDeployment.builder()
                             .namespace(namespace)
-                            .count(count)
                             .name(name)
+                            .count(count)
                             .offset(offset)
                             .build();
             ModelsListDeploymentResponse response =

@@ -132,9 +132,9 @@ public class XsollaPaywallConfigRequest extends Model {
     }
     
     public enum Size {
-        SMALL("SMALL"),
+        LARGE("LARGE"),
         MEDIUM("MEDIUM"),
-        LARGE("LARGE");
+        SMALL("SMALL");
 
         private String value;
 
@@ -149,8 +149,8 @@ public class XsollaPaywallConfigRequest extends Model {
     }
     
     public enum Theme {
-        DEFAULT("DEFAULT"),
         DARK("DARK"),
+        DEFAULT("DEFAULT"),
         DEFAULTDARK("DEFAULT_DARK");
 
         private String value;

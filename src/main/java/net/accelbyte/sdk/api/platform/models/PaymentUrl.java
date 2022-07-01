@@ -102,14 +102,14 @@ public class PaymentUrl extends Model {
 
     
     public enum PaymentProvider {
-        WALLET("WALLET"),
-        XSOLLA("XSOLLA"),
         ADYEN("ADYEN"),
-        STRIPE("STRIPE"),
-        CHECKOUT("CHECKOUT"),
         ALIPAY("ALIPAY"),
+        CHECKOUT("CHECKOUT"),
+        PAYPAL("PAYPAL"),
+        STRIPE("STRIPE"),
+        WALLET("WALLET"),
         WXPAY("WXPAY"),
-        PAYPAL("PAYPAL");
+        XSOLLA("XSOLLA");
 
         private String value;
 
@@ -124,8 +124,8 @@ public class PaymentUrl extends Model {
     }
     
     public enum PaymentType {
-        QRCODE("QR_CODE"),
-        LINK("LINK");
+        LINK("LINK"),
+        QRCODE("QR_CODE");
 
         private String value;
 

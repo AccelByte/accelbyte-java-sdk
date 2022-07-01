@@ -161,14 +161,14 @@ public class Transaction extends Model {
 
     
     public enum Provider {
-        WALLET("WALLET"),
-        XSOLLA("XSOLLA"),
         ADYEN("ADYEN"),
-        STRIPE("STRIPE"),
-        CHECKOUT("CHECKOUT"),
         ALIPAY("ALIPAY"),
+        CHECKOUT("CHECKOUT"),
+        PAYPAL("PAYPAL"),
+        STRIPE("STRIPE"),
+        WALLET("WALLET"),
         WXPAY("WXPAY"),
-        PAYPAL("PAYPAL");
+        XSOLLA("XSOLLA");
 
         private String value;
 
@@ -183,8 +183,8 @@ public class Transaction extends Model {
     }
     
     public enum Status {
-        FINISHED("FINISHED"),
-        FAILED("FAILED");
+        FAILED("FAILED"),
+        FINISHED("FINISHED");
 
         private String value;
 
@@ -201,13 +201,13 @@ public class Transaction extends Model {
     public enum Type {
         AUTHORISATION("AUTHORISATION"),
         CHARGE("CHARGE"),
-        CHARGEFAILED("CHARGE_FAILED"),
-        NOTIFICATIONOFCHARGEBACK("NOTIFICATION_OF_CHARGEBACK"),
-        REQUESTFORINFORMATION("REQUEST_FOR_INFORMATION"),
         CHARGEBACK("CHARGEBACK"),
         CHARGEBACKREVERSED("CHARGEBACK_REVERSED"),
+        CHARGEFAILED("CHARGE_FAILED"),
+        NOTIFICATIONOFCHARGEBACK("NOTIFICATION_OF_CHARGEBACK"),
         REFUND("REFUND"),
-        REFUNDFAILED("REFUND_FAILED");
+        REFUNDFAILED("REFUND_FAILED"),
+        REQUESTFORINFORMATION("REQUEST_FOR_INFORMATION");
 
         private String value;
 

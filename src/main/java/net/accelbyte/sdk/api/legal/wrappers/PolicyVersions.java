@@ -106,7 +106,7 @@ public class PolicyVersions {
     /**
      * @see RetrievePolicyVersions
      */
-    public List<RetrievePolicyVersionResponse> retrievePolicyVersions(RetrievePolicyVersions input) throws Exception {
+    public RetrievePolicyVersionResponse retrievePolicyVersions(RetrievePolicyVersions input) throws Exception {
         HttpResponse httpResponse = null;
         try {
           httpResponse = sdk.runRequest(input);

@@ -184,8 +184,8 @@ public class FullAppInfo extends Model {
         FreeToPlay("FreeToPlay"),
         Indie("Indie"),
         MassivelyMultiplayer("MassivelyMultiplayer"),
-        Racing("Racing"),
         RPG("RPG"),
+        Racing("Racing"),
         Simulation("Simulation"),
         Sports("Sports"),
         Strategy("Strategy");
@@ -203,11 +203,11 @@ public class FullAppInfo extends Model {
     }
     
     public enum Platforms {
-        Windows("Windows"),
-        MacOS("MacOS"),
-        Linux("Linux"),
+        Android("Android"),
         IOS("IOS"),
-        Android("Android");
+        Linux("Linux"),
+        MacOS("MacOS"),
+        Windows("Windows");
 
         private String value;
 
@@ -222,12 +222,12 @@ public class FullAppInfo extends Model {
     }
     
     public enum Players {
-        Single("Single"),
-        Multi("Multi"),
-        CrossPlatformMulti("CrossPlatformMulti"),
-        MMO("MMO"),
         Coop("Coop"),
-        LocalCoop("LocalCoop");
+        CrossPlatformMulti("CrossPlatformMulti"),
+        LocalCoop("LocalCoop"),
+        MMO("MMO"),
+        Multi("Multi"),
+        Single("Single");
 
         private String value;
 
@@ -248,8 +248,8 @@ public class FullAppInfo extends Model {
         FreeToPlay("FreeToPlay"),
         Indie("Indie"),
         MassivelyMultiplayer("MassivelyMultiplayer"),
-        Racing("Racing"),
         RPG("RPG"),
+        Racing("Racing"),
         Simulation("Simulation"),
         Sports("Sports"),
         Strategy("Strategy");

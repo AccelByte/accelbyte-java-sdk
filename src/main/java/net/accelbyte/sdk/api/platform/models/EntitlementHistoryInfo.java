@@ -88,12 +88,12 @@ public class EntitlementHistoryInfo extends Model {
 
     
     public enum Action {
-        GRANT("GRANT"),
-        UPDATE("UPDATE"),
         DECREMENT("DECREMENT"),
-        REVOKE("REVOKE"),
         DISABLE("DISABLE"),
-        ENABLE("ENABLE");
+        ENABLE("ENABLE"),
+        GRANT("GRANT"),
+        REVOKE("REVOKE"),
+        UPDATE("UPDATE");
 
         private String value;
 

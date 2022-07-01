@@ -80,8 +80,8 @@ public class EntitlementUpdate extends Model {
     
     public enum Status {
         ACTIVE("ACTIVE"),
-        INACTIVE("INACTIVE"),
         CONSUMED("CONSUMED"),
+        INACTIVE("INACTIVE"),
         REVOKED("REVOKED");
 
         private String value;

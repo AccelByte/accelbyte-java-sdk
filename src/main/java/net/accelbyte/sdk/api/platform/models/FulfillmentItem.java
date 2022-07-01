@@ -86,13 +86,13 @@ public class FulfillmentItem extends Model {
     
     public enum ItemType {
         APP("APP"),
-        COINS("COINS"),
-        INGAMEITEM("INGAMEITEM"),
         BUNDLE("BUNDLE"),
         CODE("CODE"),
-        SUBSCRIPTION("SUBSCRIPTION"),
+        COINS("COINS"),
+        INGAMEITEM("INGAMEITEM"),
+        MEDIA("MEDIA"),
         SEASON("SEASON"),
-        MEDIA("MEDIA");
+        SUBSCRIPTION("SUBSCRIPTION");
 
         private String value;
 

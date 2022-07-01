@@ -70,17 +70,17 @@ public class OrderUpdate extends Model {
 
     
     public enum Status {
-        INIT("INIT"),
-        CHARGED("CHARGED"),
         CHARGEBACK("CHARGEBACK"),
         CHARGEBACKREVERSED("CHARGEBACK_REVERSED"),
+        CHARGED("CHARGED"),
+        CLOSED("CLOSED"),
+        DELETED("DELETED"),
         FULFILLED("FULFILLED"),
         FULFILLFAILED("FULFILL_FAILED"),
-        REFUNDING("REFUNDING"),
+        INIT("INIT"),
         REFUNDED("REFUNDED"),
-        REFUNDFAILED("REFUND_FAILED"),
-        CLOSED("CLOSED"),
-        DELETED("DELETED");
+        REFUNDING("REFUNDING"),
+        REFUNDFAILED("REFUND_FAILED");
 
         private String value;
 

@@ -120,10 +120,10 @@ public class AppEntitlementInfo extends Model {
 
     
     public enum AppType {
-        GAME("GAME"),
-        SOFTWARE("SOFTWARE"),
+        DEMO("DEMO"),
         DLC("DLC"),
-        DEMO("DEMO");
+        GAME("GAME"),
+        SOFTWARE("SOFTWARE");
 
         private String value;
 
@@ -139,8 +139,8 @@ public class AppEntitlementInfo extends Model {
     
     public enum Status {
         ACTIVE("ACTIVE"),
-        INACTIVE("INACTIVE"),
         CONSUMED("CONSUMED"),
+        INACTIVE("INACTIVE"),
         REVOKED("REVOKED");
 
         private String value;

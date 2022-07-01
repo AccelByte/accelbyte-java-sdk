@@ -15,6 +15,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import net.accelbyte.sdk.api.legal.models.*;
+import net.accelbyte.sdk.api.legal.models.RetrievePolicyVersionResponse;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -87,10 +88,10 @@ public class RetrievePolicyVersions extends Operation {
         return true;
     }
 
-    public List<RetrievePolicyVersionResponse> parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+    public RetrievePolicyVersionResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
         String json = Helper.convertInputStreamToString(payload);
         if(code == 200){
-            return new ObjectMapper().readValue(json, new TypeReference<List<RetrievePolicyVersionResponse>>() {});
+            return new RetrievePolicyVersionResponse().createFromJson(json);
         }
         throw new HttpResponseException(code, json);
     }

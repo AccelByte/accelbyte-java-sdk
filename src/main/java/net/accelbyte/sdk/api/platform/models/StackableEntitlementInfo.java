@@ -219,10 +219,10 @@ public class StackableEntitlementInfo extends Model {
 
     
     public enum AppType {
-        GAME("GAME"),
-        SOFTWARE("SOFTWARE"),
+        DEMO("DEMO"),
         DLC("DLC"),
-        DEMO("DEMO");
+        GAME("GAME"),
+        SOFTWARE("SOFTWARE");
 
         private String value;
 
@@ -238,10 +238,10 @@ public class StackableEntitlementInfo extends Model {
     
     public enum Clazz {
         APP("APP"),
-        ENTITLEMENT("ENTITLEMENT"),
         CODE("CODE"),
-        SUBSCRIPTION("SUBSCRIPTION"),
-        MEDIA("MEDIA");
+        ENTITLEMENT("ENTITLEMENT"),
+        MEDIA("MEDIA"),
+        SUBSCRIPTION("SUBSCRIPTION");
 
         private String value;
 
@@ -256,15 +256,15 @@ public class StackableEntitlementInfo extends Model {
     }
     
     public enum Source {
-        PURCHASE("PURCHASE"),
-        IAP("IAP"),
-        PROMOTION("PROMOTION"),
         ACHIEVEMENT("ACHIEVEMENT"),
-        REFERRALBONUS("REFERRAL_BONUS"),
-        REDEEMCODE("REDEEM_CODE"),
-        REWARD("REWARD"),
         GIFT("GIFT"),
-        OTHER("OTHER");
+        IAP("IAP"),
+        OTHER("OTHER"),
+        PROMOTION("PROMOTION"),
+        PURCHASE("PURCHASE"),
+        REDEEMCODE("REDEEM_CODE"),
+        REFERRALBONUS("REFERRAL_BONUS"),
+        REWARD("REWARD");
 
         private String value;
 
@@ -280,8 +280,8 @@ public class StackableEntitlementInfo extends Model {
     
     public enum Status {
         ACTIVE("ACTIVE"),
-        INACTIVE("INACTIVE"),
         CONSUMED("CONSUMED"),
+        INACTIVE("INACTIVE"),
         REVOKED("REVOKED");
 
         private String value;
@@ -297,8 +297,8 @@ public class StackableEntitlementInfo extends Model {
     }
     
     public enum Type {
-        DURABLE("DURABLE"),
-        CONSUMABLE("CONSUMABLE");
+        CONSUMABLE("CONSUMABLE"),
+        DURABLE("DURABLE");
 
         private String value;
 

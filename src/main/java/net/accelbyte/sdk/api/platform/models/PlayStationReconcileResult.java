@@ -79,9 +79,9 @@ public class PlayStationReconcileResult extends Model {
 
     
     public enum Status {
-        VERIFIED("VERIFIED"),
+        FAILED("FAILED"),
         FULFILLED("FULFILLED"),
-        FAILED("FAILED");
+        VERIFIED("VERIFIED");
 
         private String value;
 

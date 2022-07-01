@@ -88,17 +88,17 @@ public class OrderHistoryInfo extends Model {
 
     
     public enum Action {
-        INIT("INIT"),
-        CHARGED("CHARGED"),
         CHARGEBACK("CHARGEBACK"),
         CHARGEBACKREVERSED("CHARGEBACK_REVERSED"),
-        FULFILLED("FULFILLED"),
-        FULFILLFAILED("FULFILL_FAILED"),
-        REFUNDING("REFUNDING"),
-        REFUNDED("REFUNDED"),
-        REFUNDFAILED("REFUND_FAILED"),
+        CHARGED("CHARGED"),
         CLOSE("CLOSE"),
         DELETED("DELETED"),
+        FULFILLED("FULFILLED"),
+        FULFILLFAILED("FULFILL_FAILED"),
+        INIT("INIT"),
+        REFUNDED("REFUNDED"),
+        REFUNDING("REFUNDING"),
+        REFUNDFAILED("REFUND_FAILED"),
         SETSTATUS("SET_STATUS");
 
         private String value;

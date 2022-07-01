@@ -136,9 +136,9 @@ public class BillingHistoryInfo extends Model {
 
     
     public enum Status {
-        INIT("INIT"),
         CHARGED("CHARGED"),
         CHARGEFAILED("CHARGE_FAILED"),
+        INIT("INIT"),
         REFUNDED("REFUNDED"),
         REFUNDFAILED("REFUND_FAILED");
 

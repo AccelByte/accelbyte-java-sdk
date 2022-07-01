@@ -94,8 +94,8 @@ public class KeyInfo extends Model {
 
     
     public enum Status {
-        ACTIVE("ACTIVE"),
-        ACQUIRED("ACQUIRED");
+        ACQUIRED("ACQUIRED"),
+        ACTIVE("ACTIVE");
 
         private String value;
 

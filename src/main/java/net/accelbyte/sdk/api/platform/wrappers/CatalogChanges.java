@@ -65,4 +65,118 @@ public class CatalogChanges {
         }
     }
 
+    /**
+     * @see PublishSelected
+     */
+    public StoreInfo publishSelected(PublishSelected input) throws Exception {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see SelectAllRecords
+     */
+    public void selectAllRecords(SelectAllRecords input) throws Exception {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see GetStatistic
+     */
+    public CatalogChangeStatistics getStatistic(GetStatistic input) throws Exception {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          return input
+              .parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see UnselectAllRecords
+     */
+    public void unselectAllRecords(UnselectAllRecords input) throws Exception {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see SelectRecord
+     */
+    public void selectRecord(SelectRecord input) throws Exception {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
+    /**
+     * @see UnselectRecord
+     */
+    public void unselectRecord(UnselectRecord input) throws Exception {
+        HttpResponse httpResponse = null;
+        try {
+          httpResponse = sdk.runRequest(input);
+          input
+              .handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
+          );
+        }
+        finally {
+          if (httpResponse != null && httpResponse.getPayload() != null) {
+            httpResponse.getPayload().close();
+          }
+        }
+    }
+
 }

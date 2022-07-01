@@ -73,11 +73,11 @@ public class ModelsCreateScreenshotRequestItem extends Model {
 
     
     public enum FileExtension {
-        Pjp("pjp"),
-        Jpg("jpg"),
-        Jpeg("jpeg"),
-        Jfif("jfif"),
         Bmp("bmp"),
+        Jfif("jfif"),
+        Jpeg("jpeg"),
+        Jpg("jpg"),
+        Pjp("pjp"),
         Png("png");
 
         private String value;

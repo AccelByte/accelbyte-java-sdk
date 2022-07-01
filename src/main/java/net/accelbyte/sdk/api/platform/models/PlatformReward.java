@@ -76,8 +76,8 @@ public class PlatformReward extends Model {
 
     
     public enum Type {
-        ITEM("ITEM"),
-        CURRENCY("CURRENCY");
+        CURRENCY("CURRENCY"),
+        ITEM("ITEM");
 
         private String value;
 

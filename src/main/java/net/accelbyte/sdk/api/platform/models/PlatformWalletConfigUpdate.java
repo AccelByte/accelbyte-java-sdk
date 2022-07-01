@@ -71,17 +71,17 @@ public class PlatformWalletConfigUpdate extends Model {
 
     
     public enum AllowedBalanceOrigins {
-        Playstation("Playstation"),
-        Xbox("Xbox"),
-        Steam("Steam"),
         Epic("Epic"),
-        Stadia("Stadia"),
-        IOS("IOS"),
         GooglePlay("GooglePlay"),
-        Twitch("Twitch"),
+        IOS("IOS"),
         Nintendo("Nintendo"),
+        Other("Other"),
+        Playstation("Playstation"),
+        Stadia("Stadia"),
+        Steam("Steam"),
         System("System"),
-        Other("Other");
+        Twitch("Twitch"),
+        Xbox("Xbox");
 
         private String value;
 

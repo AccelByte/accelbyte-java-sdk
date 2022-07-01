@@ -97,14 +97,14 @@ public class AdminOrderCreate extends Model {
 
     
     public enum Platform {
-        Playstation("Playstation"),
-        Xbox("Xbox"),
-        Steam("Steam"),
         Epic("Epic"),
-        IOS("IOS"),
         GooglePlay("GooglePlay"),
+        IOS("IOS"),
         Nintendo("Nintendo"),
-        Other("Other");
+        Other("Other"),
+        Playstation("Playstation"),
+        Steam("Steam"),
+        Xbox("Xbox");
 
         private String value;
 

@@ -66,6 +66,10 @@ import java.util.*;
  *                 * google
  * This endpoint redirects to google login page, then redirect back to platform
  * authenticate endpoint after successfully authenticating google user.
+ * 
+ *                 * snapchat
+ * This endpoint redirects to snapchat login page, then redirect back to platform
+ * authenticate endpoint after successfully authenticating snapchat user.
  * action code : 10702'
  */
 @Getter

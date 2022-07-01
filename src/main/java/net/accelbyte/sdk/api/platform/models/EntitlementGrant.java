@@ -94,15 +94,15 @@ public class EntitlementGrant extends Model {
 
     
     public enum Source {
-        PURCHASE("PURCHASE"),
-        IAP("IAP"),
-        PROMOTION("PROMOTION"),
         ACHIEVEMENT("ACHIEVEMENT"),
-        REFERRALBONUS("REFERRAL_BONUS"),
-        REDEEMCODE("REDEEM_CODE"),
-        REWARD("REWARD"),
         GIFT("GIFT"),
-        OTHER("OTHER");
+        IAP("IAP"),
+        OTHER("OTHER"),
+        PROMOTION("PROMOTION"),
+        PURCHASE("PURCHASE"),
+        REDEEMCODE("REDEEM_CODE"),
+        REFERRALBONUS("REFERRAL_BONUS"),
+        REWARD("REWARD");
 
         private String value;
 

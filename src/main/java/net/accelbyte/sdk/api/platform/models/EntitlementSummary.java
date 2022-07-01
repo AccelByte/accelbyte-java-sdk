@@ -127,10 +127,10 @@ public class EntitlementSummary extends Model {
     
     public enum Clazz {
         APP("APP"),
-        ENTITLEMENT("ENTITLEMENT"),
         CODE("CODE"),
-        SUBSCRIPTION("SUBSCRIPTION"),
-        MEDIA("MEDIA");
+        ENTITLEMENT("ENTITLEMENT"),
+        MEDIA("MEDIA"),
+        SUBSCRIPTION("SUBSCRIPTION");
 
         private String value;
 
@@ -145,8 +145,8 @@ public class EntitlementSummary extends Model {
     }
     
     public enum Type {
-        DURABLE("DURABLE"),
-        CONSUMABLE("CONSUMABLE");
+        CONSUMABLE("CONSUMABLE"),
+        DURABLE("DURABLE");
 
         private String value;
 

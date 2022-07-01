@@ -75,6 +75,10 @@ import java.util.*;
  *                   * google
  * Google login page will redirects to this endpoint after login success
  * as previously defined on authorize request parameter `redirect_uri`
+ * 
+ *                   * snapchat
+ * Snapchat login page will redirects to this endpoint after login success
+ * as previously defined on authorize request parameter `redirect_uri`
  * action code : 10709
  */
 @Getter

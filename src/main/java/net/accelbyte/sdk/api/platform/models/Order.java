@@ -216,14 +216,14 @@ public class Order extends Model {
 
     
     public enum PaymentProvider {
-        WALLET("WALLET"),
-        XSOLLA("XSOLLA"),
         ADYEN("ADYEN"),
-        STRIPE("STRIPE"),
-        CHECKOUT("CHECKOUT"),
         ALIPAY("ALIPAY"),
+        CHECKOUT("CHECKOUT"),
+        PAYPAL("PAYPAL"),
+        STRIPE("STRIPE"),
+        WALLET("WALLET"),
         WXPAY("WXPAY"),
-        PAYPAL("PAYPAL");
+        XSOLLA("XSOLLA");
 
         private String value;
 
@@ -238,17 +238,17 @@ public class Order extends Model {
     }
     
     public enum Status {
-        INIT("INIT"),
-        CHARGED("CHARGED"),
         CHARGEBACK("CHARGEBACK"),
         CHARGEBACKREVERSED("CHARGEBACK_REVERSED"),
+        CHARGED("CHARGED"),
+        CLOSED("CLOSED"),
+        DELETED("DELETED"),
         FULFILLED("FULFILLED"),
         FULFILLFAILED("FULFILL_FAILED"),
-        REFUNDING("REFUNDING"),
+        INIT("INIT"),
         REFUNDED("REFUNDED"),
-        REFUNDFAILED("REFUND_FAILED"),
-        CLOSED("CLOSED"),
-        DELETED("DELETED");
+        REFUNDING("REFUNDING"),
+        REFUNDFAILED("REFUND_FAILED");
 
         private String value;
 

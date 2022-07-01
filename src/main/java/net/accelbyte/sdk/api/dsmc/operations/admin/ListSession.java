@@ -33,6 +33,8 @@ import java.util.*;
  * Required scope: social
  * 
  * This endpoint lists all of sessions in a namespace managed by this service.
+ * 
+ * Parameter Offset and Count is Required
  */
 @Getter
 @Setter
@@ -51,28 +53,30 @@ public class ListSession extends Operation {
      * fields as input parameter
      */
     private String namespace;
-    private Integer count;
-    private Integer offset;
     private String region;
     private Boolean withServer;
+    private Integer count;
+    private Integer offset;
 
     /**
     * @param namespace required
+    * @param count required
+    * @param offset required
     */
     @Builder
     public ListSession(
             String namespace,
-            Integer count,
-            Integer offset,
             String region,
-            Boolean withServer
+            Boolean withServer,
+            Integer count,
+            Integer offset
     )
     {
         this.namespace = namespace;
-        this.count = count;
-        this.offset = offset;
         this.region = region;
         this.withServer = withServer;
+        this.count = count;
+        this.offset = offset;
         
         securities.add("Bearer");
     }
@@ -89,10 +93,10 @@ public class ListSession extends Operation {
     @Override
     public Map<String, List<String>> getQueryParams(){
         Map<String, List<String>> queryParams = new HashMap<>();
-        queryParams.put("count", this.count == null ? null : Arrays.asList(String.valueOf(this.count)));
-        queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
         queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
         queryParams.put("withServer", this.withServer == null ? null : Arrays.asList(String.valueOf(this.withServer)));
+        queryParams.put("count", this.count == null ? null : Arrays.asList(String.valueOf(this.count)));
+        queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
         return queryParams;
     }
 
@@ -102,6 +106,12 @@ public class ListSession extends Operation {
     @Override
     public boolean isValid() {
         if(this.namespace == null) {
+            return false;
+        }
+        if(this.count == null) {
+            return false;
+        }
+        if(this.offset == null) {
             return false;
         }
         return true;
@@ -118,10 +128,10 @@ public class ListSession extends Operation {
     @Override
     protected Map<String, String> getCollectionFormatMap() {
         Map<String, String> result = new HashMap<>();
-        result.put("count", "None");
-        result.put("offset", "None");
         result.put("region", "None");
         result.put("withServer", "None");
+        result.put("count", "None");
+        result.put("offset", "None");
         return result;
     }
 }

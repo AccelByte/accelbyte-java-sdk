@@ -94,7 +94,7 @@ public class ReportUser extends Operation {
     }
 
     public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        if(code != 204){
+        if(code != 201){
             String json = Helper.convertInputStreamToString(payload);
             throw new HttpResponseException(code, json);
         }
