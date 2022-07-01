@@ -1,5 +1,29 @@
+<a name="v0.14.0"></a>
+## [v0.14.0] - 2022-07-04
+### Chore
+- bump to version 0.14 for justice 3.26
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for justice 3.26
+- **spec:** update spec for justice 3.26
+- **test:** clean up unused import
+- **test:** clean up integration
+
+### Ci
+- **github:** implement point release
+- **github:** fix wrong slack channel
+
+### Docs
+- update changelog for justice 3.26
+
+### Fix
+- **test:** coverity issue
+
+### Test
+- **integration:** basic - delete existing user profile first
+- **integration:** re-enable gametelemetry test
+
+
 <a name="v0.13.0"></a>
-## [v0.13.0] - 2022-06-20
+## [v0.13.0] - 2022-06-21
 ### Chore
 - bump to version 0.13 for justice 3.25
 - remove non-functioning coverity suppress warning
@@ -12,6 +36,7 @@
 - **github:** add release note input
 
 ### Docs
+- update changelog for justice 3.25
 - update changelog for justice 3.25
 - **readme:** add token refresh
 
@@ -466,6 +491,7 @@
 - replace unnecessary object
 
 
+[v0.14.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.13.0...v0.14.0
 [v0.13.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.12.0...v0.13.0
 [v0.12.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.11.0...v0.12.0
 [v0.11.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.10.0...v0.11.0
