@@ -24,11 +24,11 @@ import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 import net.accelbyte.sdk.core.repository.TokenRepository;
 import net.accelbyte.sdk.core.util.Helper;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.UnsupportedEncodingException;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.Collections;
@@ -400,9 +400,10 @@ class TestCore {
         final String testJson = "{ \"data\" : \"test http request multipart\"}";
         final String testStrategy = "replace";
         testFile.deleteOnExit();
-        final FileWriter testFileWriter = new FileWriter(testFile);
-        testFileWriter.write(testJson);
-        testFileWriter.close();
+        try (OutputStreamWriter testFileWriter = new OutputStreamWriter(new FileOutputStream(testFile),
+                StandardCharsets.UTF_8)) {
+            testFileWriter.write(testJson);
+        }
         final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, httpbinConfigRepository);
         final HttpbinOperation op = new HttpbinOperation() {
             @Override
