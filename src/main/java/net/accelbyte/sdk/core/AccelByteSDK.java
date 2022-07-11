@@ -6,8 +6,10 @@
 
 package net.accelbyte.sdk.core;
 
+import net.accelbyte.sdk.api.iam.models.OauthmodelTokenResponse;
 import net.accelbyte.sdk.api.iam.models.OauthmodelTokenResponseV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthorizeV3;
+import net.accelbyte.sdk.api.iam.operations.o_auth2_0.PlatformTokenGrantV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenGrantV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthorizeV3.CodeChallengeMethod;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.UserAuthenticationV3;
@@ -208,6 +210,33 @@ public class AccelByteSDK {
                 tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getExpiresIn())));
                 tokenRefresh.storeRefreshToken(null);
                 tokenRefresh.setRefreshTokenExpiresAt(null);
+            }
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean loginPlatform(String platformId, String platformToken) {
+        try {
+            final OAuth20 oAuth20 = new OAuth20(this);
+
+            final Instant utcNow = Instant.now();
+            final PlatformTokenGrantV3 tokenGrantV3 = PlatformTokenGrantV3.builder()
+                    .platformId(platformId)
+                    .platformToken(platformToken)
+                    .build();
+            final OauthmodelTokenResponse token = oAuth20.platformTokenGrantV3(tokenGrantV3);
+
+            final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
+            tokenRepository.storeToken(token.getAccessToken());
+            if (tokenRepository instanceof TokenRefresh) {
+                final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
+                tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getExpiresIn())));
+                tokenRefresh.storeRefreshToken(token.getRefreshToken());
+                tokenRefresh.setRefreshTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getRefreshExpiresIn())));
             }
 
             return true;
