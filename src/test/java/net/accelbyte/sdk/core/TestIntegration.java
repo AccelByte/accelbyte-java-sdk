@@ -37,6 +37,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestMethodOrder;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import net.accelbyte.sdk.api.achievement.models.ModelsAchievementRequest;
 import net.accelbyte.sdk.api.achievement.models.ModelsAchievementResponse;
 import net.accelbyte.sdk.api.achievement.models.ModelsAchievementUpdateRequest;
@@ -210,6 +213,10 @@ import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRefreshRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 import net.accelbyte.sdk.core.repository.TokenRepository;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 
@@ -1328,6 +1335,62 @@ class TestIntegration {
                 assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
                 assertTrue(tokenRefreshRepository.getRefreshToken() == null); // Login client does not return refresh
                                                                               // token
+        }
+
+        // Login platform test
+
+        @Test
+        @Order(40)
+        public void testLoginPlatform() throws Exception {
+                final DefaultTokenRefreshRepository tokenRepository = new DefaultTokenRefreshRepository();
+                final AccelByteSDK sdk = new AccelByteSDK(
+                                this.sdk.getSdkConfiguration().getHttpClient(),
+                                tokenRepository,
+                                this.sdk.getSdkConfiguration().getConfigRepository());
+
+                final OkHttpClient phClient = new OkHttpClient();
+
+                Request tokenRequest = new Request.Builder()
+                                .url("https://phantauth.net/user/test.serversdk1/token/authorization")
+                                .build();
+
+                String phToken = null;
+
+                try (Response tokenResponse = phClient.newCall(tokenRequest).execute()) {
+                        phToken = tokenResponse.body().string();
+                }
+
+                assertTrue(phToken != null && !phToken.isEmpty());
+
+                Request authRequest = new Request.Builder()
+                                .url("https://phantauth.net/auth/token")
+                                .post(new FormBody.Builder()
+                                                .add("grant_type", "authorization_code")
+                                                .add("client_id", "test.client")
+                                                .add("client_secret", "UTBcWwt5")
+                                                .add("redirect_uri", "http://localhost")
+                                                .add("code", phToken)
+                                                .build())
+                                .build();
+
+                PhantauthTokens phAuth = null;
+
+                try (Response authResponse = phClient.newCall(authRequest).execute()) {
+                        phAuth = new ObjectMapper().readValue(authResponse.body().string(), new TypeReference<PhantauthTokens>() { });
+                }
+
+                assertTrue(phAuth != null);
+                assertTrue(phAuth.getAccessToken() != null && !phAuth.getAccessToken().isEmpty());
+                assertTrue(phAuth.getIdToken() != null && !phAuth.getIdToken().isEmpty());
+                assertTrue(phAuth.getRefreshToken() != null && !phAuth.getRefreshToken().isEmpty());
+                assertTrue(phAuth.getTokenType() != null && !phAuth.getTokenType().isEmpty());
+
+                final boolean isLoginOk = sdk.loginPlatform("phantauth", phAuth.getIdToken());
+
+                assertTrue(isLoginOk);
+
+                assertTrue(tokenRepository.getToken() != null && !tokenRepository.getToken().isEmpty());
+                assertTrue(tokenRepository.getRefreshToken() != null); 
         }
 
         // Client integration test
