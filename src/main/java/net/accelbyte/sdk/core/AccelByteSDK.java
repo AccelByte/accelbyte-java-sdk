@@ -32,14 +32,22 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class AccelByteSDK {
     private static final String COOKIE_KEY_ACCESS_TOKEN = "access_token";
     private static final String LOGIN_USER_SCOPE = "commerce account social publishing analytics";
-    private static final int REFRESH_TOKEN_EXPIRY_THRESHOLD = 300; // 5 minutes
-    private static Object refreshTokenLock = new Object();
+    private static final float TOKEN_REFRESH_RATIO = 0.8f;
 
     private AccelByteConfig sdkConfiguration;
+
+    private final Timer refreshTokenTimer = new Timer("RefreshTokenTimer");
+    private final Object refreshTokenTaskLock = new Object();
+    private TimerTask refreshTokenTask = null;
+
+    private final ReentrantLock refreshTokenMethodLock = new ReentrantLock();
 
     public AccelByteSDK(AccelByteConfig sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
@@ -63,11 +71,11 @@ public class AccelByteSDK {
             selectedSecurity = operation.getSecurities().get(0);
         }
 
-        final ConfigRepository configRepository = sdkConfiguration.getConfigRepository();
-        final TokenRepository tokenRepository = sdkConfiguration.getTokenRepository();
         final HttpHeaders headers = new HttpHeaders();
         final Map<String, String> cookies = operation.getCookieParams();
-        final String accessToken = tokenRepository.getToken();
+        final ConfigRepository configRepository = sdkConfiguration.getConfigRepository();
+
+        final String accessToken = sdkConfiguration.getTokenRepository().getToken();
 
         if (Operation.Security.Basic.toString().equals(selectedSecurity)) {
             final String clientId = configRepository
@@ -77,14 +85,12 @@ public class AccelByteSDK {
             headers.put(HttpHeaders.AUTHORIZATION,
                     Credentials.basic(clientId, clientSecret));
         } else if (Operation.Security.Bearer.toString().equals(selectedSecurity)) {
-            this.refreshToken();
-            if (accessToken != null && !accessToken.equals("")) {
+            if (accessToken != null && !accessToken.isEmpty()) {
                 headers.put(HttpHeaders.AUTHORIZATION,
                         Operation.Security.Bearer.toString() + " " + accessToken);
             }
         } else if (Operation.Security.Cookie.toString().equals(selectedSecurity)) {
-            this.refreshToken();
-            if (accessToken != null && !accessToken.equals("")) {
+            if (accessToken != null && !accessToken.isEmpty()) {
                 cookies.put(COOKIE_KEY_ACCESS_TOKEN, accessToken);
             }
         }
@@ -181,9 +187,14 @@ public class AccelByteSDK {
             tokenRepository.storeToken(token.getAccessToken());
             if (tokenRepository instanceof TokenRefresh) {
                 final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
-                tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getExpiresIn())));
+                final long expiresIn = (long) (token.getExpiresIn() * TOKEN_REFRESH_RATIO);
+                final long refreshExpiresIn = (long) (token.getRefreshExpiresIn() * TOKEN_REFRESH_RATIO);
+                tokenRefresh.setTokenExpiresAt(
+                        Date.from(utcNow.plusSeconds(expiresIn)));
                 tokenRefresh.storeRefreshToken(token.getRefreshToken());
-                tokenRefresh.setRefreshTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getRefreshExpiresIn())));
+                tokenRefresh.setRefreshTokenExpiresAt(
+                        Date.from(utcNow.plusSeconds(refreshExpiresIn)));
+                scheduleRefreshTokenTask(expiresIn);
             }
 
             return true;
@@ -207,9 +218,12 @@ public class AccelByteSDK {
             tokenRepository.storeToken(token.getAccessToken());
             if (tokenRepository instanceof TokenRefresh) {
                 final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
-                tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getExpiresIn())));
+                final long expiresIn = (long) (token.getExpiresIn() * TOKEN_REFRESH_RATIO);
+                tokenRefresh.setTokenExpiresAt(
+                        Date.from(utcNow.plusSeconds(expiresIn)));
                 tokenRefresh.storeRefreshToken(null);
                 tokenRefresh.setRefreshTokenExpiresAt(null);
+                scheduleRefreshTokenTask(expiresIn);
             }
 
             return true;
@@ -234,9 +248,14 @@ public class AccelByteSDK {
             tokenRepository.storeToken(token.getAccessToken());
             if (tokenRepository instanceof TokenRefresh) {
                 final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
-                tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getExpiresIn())));
+                final long expiresIn = (long) (token.getExpiresIn() * TOKEN_REFRESH_RATIO);
+                final long refreshExpiresIn = (long) (token.getRefreshExpiresIn() * TOKEN_REFRESH_RATIO);
+                tokenRefresh.setTokenExpiresAt(
+                        Date.from(utcNow.plusSeconds(expiresIn)));
                 tokenRefresh.storeRefreshToken(token.getRefreshToken());
-                tokenRefresh.setRefreshTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getRefreshExpiresIn())));
+                tokenRefresh.setRefreshTokenExpiresAt(
+                        Date.from(utcNow.plusSeconds(refreshExpiresIn)));
+                scheduleRefreshTokenTask(expiresIn);
             }
 
             return true;
@@ -247,82 +266,136 @@ public class AccelByteSDK {
     }
 
     public boolean refreshToken() {
-        synchronized (refreshTokenLock) {
-            try {
-                final TokenRepository tokenRepository = sdkConfiguration.getTokenRepository();
-                final String accessToken = tokenRepository.getToken();
+        try {
+            if (!refreshTokenMethodLock.tryLock()) {
+                return false; // Refresh token in-progress
+            }
 
-                if (accessToken == null || "".equals(accessToken)) {
+            final TokenRepository tokenRepository = sdkConfiguration.getTokenRepository();
+            final String accessToken = tokenRepository.getToken();
+
+            if (accessToken == null || accessToken.isEmpty()) {
+                return false; // Cannot perform token refresh
+            }
+
+            if (!(tokenRepository instanceof TokenRefresh)) {
+                return false; // Cannot perform token refresh
+            }
+
+            final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
+            
+            final Date accessTokenExpiresAt = tokenRefresh.getTokenExpiresAt();
+            final String refreshToken = tokenRefresh.getRefreshToken();
+
+            final boolean isLoginUserOrLoginPlatform = refreshToken != null && !refreshToken.isEmpty();
+
+            final Date refreshTokenExpiresAt = isLoginUserOrLoginPlatform ? tokenRefresh.getRefreshTokenExpiresAt() : null;
+
+            if (accessTokenExpiresAt == null) {
+                return false; // Cannot perform token refresh
+            }
+
+            if (isLoginUserOrLoginPlatform) {
+                final boolean isRefreshTokenExpired = isExpired(refreshTokenExpiresAt);
+
+                if (isRefreshTokenExpired) {
                     return false; // Cannot perform token refresh
                 }
 
-                if (!(tokenRepository instanceof TokenRefresh)) {
-                    return false; // Cannot perform token refresh
-                }
-
-                final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
-
-                final Instant utcNow = Instant.now();
-                final boolean isAccessTokenExpired = (tokenRefresh.getTokenExpiresAt().getTime()
-                        - Date.from(utcNow).getTime()) / 1000 < REFRESH_TOKEN_EXPIRY_THRESHOLD;
-
-                if (!isAccessTokenExpired) {
-                    return true; // Token refresh not required
-                }
-
-                final String refreshToken = tokenRefresh.getRefreshToken();
-                final boolean isLoginUser = refreshToken != null && !"".equals(refreshToken);
-
-                if (isLoginUser) {
-                    final boolean isRefreshTokenExpired = (tokenRefresh.getRefreshTokenExpiresAt().getTime()
-                            - Date.from(utcNow).getTime()) / 1000 < REFRESH_TOKEN_EXPIRY_THRESHOLD;
-
-                    if (isRefreshTokenExpired) {
-                        return false; // Cannot perform token refresh
-                    }
-
+                try {
+                    final Instant utcNow = Instant.now();
                     final OAuth20 oAuth20 = new OAuth20(this);
                     final TokenGrantV3 tokenGrantV3 = TokenGrantV3.builder()
                             .refreshToken(refreshToken)
                             .grantTypeFromEnum(TokenGrantV3.GrantType.RefreshToken)
                             .build();
-                    try {
-                        tokenRepository.removeToken();
-                        final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
-                        tokenRepository.storeToken(token.getAccessToken());
-                        tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(token.getExpiresIn())));
-                        tokenRefresh.storeRefreshToken(token.getRefreshToken());
-                        tokenRefresh.setRefreshTokenExpiresAt(
-                                Date.from(utcNow.plusSeconds(token.getRefreshExpiresIn())));
-                        return true; // Token refresh successful
-                    } catch (Exception e) {
-                        tokenRepository.storeToken(accessToken); // Put access token back if token refresh failed
-                        e.printStackTrace();
-                    }
-                    return false; // Token refresh failed
-                } else {
-                    tokenRepository.removeToken();
-                    final boolean isLoginClientOk = this.loginClient();
-                    if (!isLoginClientOk) {
-                        tokenRepository.storeToken(accessToken); // Put access token back if token refresh failed
-                    }
-                    return isLoginClientOk; // Token refresh successful or failed
+                    final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
+
+                    final long expiresIn = (long) (token.getExpiresIn() * TOKEN_REFRESH_RATIO);
+                    final long refreshExpiresIn = (long) (token.getRefreshExpiresIn() * TOKEN_REFRESH_RATIO);
+                    tokenRepository.storeToken(token.getAccessToken());
+                    tokenRefresh.setTokenExpiresAt(
+                            Date.from(utcNow.plusSeconds(expiresIn)));
+                    tokenRefresh.storeRefreshToken(token.getRefreshToken());
+                    tokenRefresh.setRefreshTokenExpiresAt(Date
+                            .from(utcNow.plusSeconds(refreshExpiresIn)));
+                    scheduleRefreshTokenTask(expiresIn);
+
+                    return true; // Token refresh successful
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+
+                return false; // Token refresh failed
+            } else {
+                final boolean isLoginClientOk = this.loginClient();
+
+                return isLoginClientOk; // Token refresh successful or failed
             }
-            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            refreshTokenMethodLock.unlock();
         }
+
+        return false;
     }
 
     public boolean logout() {
-        final TokenRepository tokenRepository = sdkConfiguration.getTokenRepository();
         try {
+            final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
             tokenRepository.removeToken();
+            if (tokenRepository instanceof TokenRefresh) {
+                final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
+                tokenRefresh.setTokenExpiresAt(null);
+                tokenRefresh.removeRefreshToken();
+                tokenRefresh.setRefreshTokenExpiresAt(null);
+                cancelRefreshTokenTask();
+            }
+
             return true;
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return false;
+    }
+
+    private void scheduleRefreshTokenTask(long delaySeconds) {
+        synchronized (refreshTokenTaskLock) {
+            if (refreshTokenTask != null) {
+                refreshTokenTask.cancel();
+            }
+
+            refreshTokenTask = new TimerTask() {
+                public void run() {
+                    final boolean isRefreshTokenOk = refreshToken();
+
+                    if (!isRefreshTokenOk)
+                    {
+                        scheduleRefreshTokenTask(10);
+                    }
+                }
+            };
+
+            refreshTokenTimer.schedule(refreshTokenTask, delaySeconds * 1000);
+        }
+    }
+
+    private void cancelRefreshTokenTask() {
+        synchronized (refreshTokenTaskLock) {
+            if (refreshTokenTask != null) {
+                refreshTokenTask.cancel();
+            }
+        }
+    }
+
+    private static boolean isExpired(Date expiresAt) {
+        final long tokenExpiresAtEpoch = expiresAt.getTime();
+        final long utcNowEpoch = Date.from(Instant.now()).getTime();
+
+        final boolean isExpired = (tokenExpiresAtEpoch - utcNowEpoch) <= 0;
+
+        return isExpired;
     }
 }
