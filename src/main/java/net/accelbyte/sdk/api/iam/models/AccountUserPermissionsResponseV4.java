@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,32 +26,31 @@ import java.util.Map;
 @NoArgsConstructor
 public class AccountUserPermissionsResponseV4 extends Model {
 
-    @JsonProperty("action")
-    private Integer action;
+  @JsonProperty("action")
+  private Integer action;
 
-    @JsonProperty("resource")
-    private String resource;
+  @JsonProperty("resource")
+  private String resource;
 
-    @JsonProperty("schedAction")
-    private Integer schedAction;
+  @JsonProperty("schedAction")
+  private Integer schedAction;
 
-    @JsonProperty("schedCron")
-    private String schedCron;
+  @JsonProperty("schedCron")
+  private String schedCron;
 
-    @JsonProperty("schedRange")
-    private List<String> schedRange;
+  @JsonProperty("schedRange")
+  private List<String> schedRange;
 
+  @JsonIgnore
+  public AccountUserPermissionsResponseV4 createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public AccountUserPermissionsResponseV4 createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<AccountUserPermissionsResponseV4> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<AccountUserPermissionsResponseV4>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<AccountUserPermissionsResponseV4> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<AccountUserPermissionsResponseV4>>() {});
+  }
 }

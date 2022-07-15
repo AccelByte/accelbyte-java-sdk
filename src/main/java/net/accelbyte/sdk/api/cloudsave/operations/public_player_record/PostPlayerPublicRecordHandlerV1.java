@@ -8,203 +8,147 @@
 
 package net.accelbyte.sdk.api.cloudsave.operations.public_player_record;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.cloudsave.models.*;
-import net.accelbyte.sdk.api.cloudsave.models.ModelsPlayerRecordRequest;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.cloudsave.models.*;
+import net.accelbyte.sdk.api.cloudsave.models.ModelsPlayerRecordRequest;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * postPlayerPublicRecordHandlerV1
  *
- * Required Permission | `NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [WRITE]`
+ * <p>Required Permission | `NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [WRITE]`
  * --------------------|-----------------------------------------------------------------------
- * Required Scope      | `social`
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * ## Description
- * 
- * 
- * 
- * This endpoints will create new player public record or append the existing player public record.
- * 
- *  Append example:
- * 
- * Example 1
- * - Existing JSON:
- * 
- * 
- * 
- *     { "data1": "value" }
- * 
- * 
- * - New JSON:
- * 
- * 
- * 
- *     { "data2": "new value" }
- * 
- * 
- * - Result:
- * 
- * 
- * 
- *     { "data1": "value", "data2": "new value" }
- * 
- * 
- * 
- * Example 2
- * - Existing JSON:
- * 
- * 
- * 
- *     { "data1": { "data2": "value" }
- * 
- * 
- * - New JSON:
- * 
- * 
- * 
- *     { "data1": { "data3": "new value" }
- * 
- * 
- * - Result:
- * 
- * 
- * 
- *     { "data1": { "data2": "value", "data3": "new value" }
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * ## Reserved Word
- * 
- * 
- * 
- * Reserved Word List: __META
- * 
- * The reserved word cannot be used as a field in record value,
- * If still defining the field when creating or updating the record, it will be ignored.
- * 
- * 
- * 
- * 
- * 
- * ## Warning: This endpoint is going to deprecate
- * 
- * 
- * 
- * This endpoint is going to deprecate in the future please don't use it.
- * 
- * For alternative, please use these endpoints:
- * - POST /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key} and utilizing __META functionality
- * - PUT /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key} and utilizing __META functionality
- * - DELETE /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key}
+ * Required Scope | `social`
+ *
+ * <p>## Description
+ *
+ * <p>This endpoints will create new player public record or append the existing player public
+ * record.
+ *
+ * <p>Append example:
+ *
+ * <p>Example 1 - Existing JSON:
+ *
+ * <p>{ "data1": "value" }
+ *
+ * <p>- New JSON:
+ *
+ * <p>{ "data2": "new value" }
+ *
+ * <p>- Result:
+ *
+ * <p>{ "data1": "value", "data2": "new value" }
+ *
+ * <p>Example 2 - Existing JSON:
+ *
+ * <p>{ "data1": { "data2": "value" }
+ *
+ * <p>- New JSON:
+ *
+ * <p>{ "data1": { "data3": "new value" }
+ *
+ * <p>- Result:
+ *
+ * <p>{ "data1": { "data2": "value", "data3": "new value" }
+ *
+ * <p>## Reserved Word
+ *
+ * <p>Reserved Word List: __META
+ *
+ * <p>The reserved word cannot be used as a field in record value, If still defining the field when
+ * creating or updating the record, it will be ignored.
+ *
+ * <p>## Warning: This endpoint is going to deprecate
+ *
+ * <p>This endpoint is going to deprecate in the future please don't use it.
+ *
+ * <p>For alternative, please use these endpoints: - POST
+ * /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key} and utilizing __META
+ * functionality - PUT /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key} and
+ * utilizing __META functionality - DELETE
+ * /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key}
  */
 @Getter
 @Setter
 public class PostPlayerPublicRecordHandlerV1 extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key}/public";
-    private String method = "POST";
-    private List<String> consumes = Arrays.asList("application/json");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String key;
-    private String namespace;
-    private String userId;
-    private ModelsPlayerRecordRequest body;
+  /** generated field's value */
+  private String path = "/cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key}/public";
 
-    /**
-    * @param key required
-    * @param namespace required
-    * @param userId required
-    * @param body required
-    */
-    @Builder
-    public PostPlayerPublicRecordHandlerV1(
-            String key,
-            String namespace,
-            String userId,
-            ModelsPlayerRecordRequest body
-    )
-    {
-        this.key = key;
-        this.namespace = namespace;
-        this.userId = userId;
-        this.body = body;
-        
-        securities.add("Bearer");
+  private String method = "POST";
+  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String key;
+
+  private String namespace;
+  private String userId;
+  private ModelsPlayerRecordRequest body;
+
+  /**
+   * @param key required
+   * @param namespace required
+   * @param userId required
+   * @param body required
+   */
+  @Builder
+  public PostPlayerPublicRecordHandlerV1(
+      String key, String namespace, String userId, ModelsPlayerRecordRequest body) {
+    this.key = key;
+    this.namespace = namespace;
+    this.userId = userId;
+    this.body = body;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.key != null) {
+      pathParams.put("key", this.key);
     }
-
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.key != null){
-            pathParams.put("key", this.key);
-        }
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        if (this.userId != null){
-            pathParams.put("userId", this.userId);
-        }
-        return pathParams;
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
-
-
-
-    @Override
-    public ModelsPlayerRecordRequest getBodyParams(){
-        return this.body;
+    if (this.userId != null) {
+      pathParams.put("userId", this.userId);
     }
+    return pathParams;
+  }
 
+  @Override
+  public ModelsPlayerRecordRequest getBodyParams() {
+    return this.body;
+  }
 
-    @Override
-    public boolean isValid() {
-        if(this.key == null) {
-            return false;
-        }
-        if(this.namespace == null) {
-            return false;
-        }
-        if(this.userId == null) {
-            return false;
-        }
-        return true;
+  @Override
+  public boolean isValid() {
+    if (this.key == null) {
+      return false;
     }
-
-    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        if(code != 201){
-            String json = Helper.convertInputStreamToString(payload);
-            throw new HttpResponseException(code, json);
-        }
+    if (this.namespace == null) {
+      return false;
     }
+    if (this.userId == null) {
+      return false;
+    }
+    return true;
+  }
 
+  public void handleEmptyResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    if (code != 201) {
+      String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
+    }
+  }
 }

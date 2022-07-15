@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,23 +26,22 @@ import java.util.Map;
 @NoArgsConstructor
 public class ADTOObjectForUnlockSteamAchievementAPI extends Model {
 
-    @JsonProperty("achievements")
-    private List<SteamAchievementRequest> achievements;
+  @JsonProperty("achievements")
+  private List<SteamAchievementRequest> achievements;
 
-    @JsonProperty("steamUserId")
-    private String steamUserId;
+  @JsonProperty("steamUserId")
+  private String steamUserId;
 
+  @JsonIgnore
+  public ADTOObjectForUnlockSteamAchievementAPI createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ADTOObjectForUnlockSteamAchievementAPI createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ADTOObjectForUnlockSteamAchievementAPI> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ADTOObjectForUnlockSteamAchievementAPI>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ADTOObjectForUnlockSteamAchievementAPI> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ADTOObjectForUnlockSteamAchievementAPI>>() {});
+  }
 }

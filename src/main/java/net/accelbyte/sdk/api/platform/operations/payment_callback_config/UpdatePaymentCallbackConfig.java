@@ -8,98 +8,82 @@
 
 package net.accelbyte.sdk.api.platform.operations.payment_callback_config;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.models.PaymentCallbackConfigInfo;
-import net.accelbyte.sdk.api.platform.models.PaymentCallbackConfigUpdate;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.platform.models.*;
+import net.accelbyte.sdk.api.platform.models.PaymentCallbackConfigInfo;
+import net.accelbyte.sdk.api.platform.models.PaymentCallbackConfigUpdate;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * updatePaymentCallbackConfig
  *
- * Update payment callback configuration.
- * Other detail info:
- * 
- *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT:CONFIG", action=4 (UPDATE)
- *   *  Returns : Payment callback config
+ * <p>Update payment callback configuration. Other detail info:
+ *
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT:CONFIG", action=4
+ * (UPDATE) * Returns : Payment callback config
  */
 @Getter
 @Setter
 public class UpdatePaymentCallbackConfig extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/platform/admin/namespaces/{namespace}/payment/config/callback";
-    private String method = "PUT";
-    private List<String> consumes = Arrays.asList("application/json");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String namespace;
-    private PaymentCallbackConfigUpdate body;
+  /** generated field's value */
+  private String path = "/platform/admin/namespaces/{namespace}/payment/config/callback";
 
-    /**
-    * @param namespace required
-    */
-    @Builder
-    public UpdatePaymentCallbackConfig(
-            String namespace,
-            PaymentCallbackConfigUpdate body
-    )
-    {
-        this.namespace = namespace;
-        this.body = body;
-        
-        securities.add("Bearer");
+  private String method = "PUT";
+  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String namespace;
+
+  private PaymentCallbackConfigUpdate body;
+
+  /**
+   * @param namespace required
+   */
+  @Builder
+  public UpdatePaymentCallbackConfig(String namespace, PaymentCallbackConfigUpdate body) {
+    this.namespace = namespace;
+    this.body = body;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
+    return pathParams;
+  }
 
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        return pathParams;
+  @Override
+  public PaymentCallbackConfigUpdate getBodyParams() {
+    return this.body;
+  }
+
+  @Override
+  public boolean isValid() {
+    if (this.namespace == null) {
+      return false;
     }
+    return true;
+  }
 
-
-
-    @Override
-    public PaymentCallbackConfigUpdate getBodyParams(){
-        return this.body;
+  public PaymentCallbackConfigInfo parseResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 200) {
+      return new PaymentCallbackConfigInfo().createFromJson(json);
     }
-
-
-    @Override
-    public boolean isValid() {
-        if(this.namespace == null) {
-            return false;
-        }
-        return true;
-    }
-
-    public PaymentCallbackConfigInfo parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 200){
-            return new PaymentCallbackConfigInfo().createFromJson(json);
-        }
-        throw new HttpResponseException(code, json);
-    }
-
+    throw new HttpResponseException(code, json);
+  }
 }

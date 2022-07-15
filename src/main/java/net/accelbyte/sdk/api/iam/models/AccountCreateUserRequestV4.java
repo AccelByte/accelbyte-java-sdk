@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,99 +26,97 @@ import java.util.Map;
 @NoArgsConstructor
 public class AccountCreateUserRequestV4 extends Model {
 
-    @JsonProperty("acceptedPolicies")
-    private List<LegalAcceptedPoliciesRequest> acceptedPolicies;
+  @JsonProperty("acceptedPolicies")
+  private List<LegalAcceptedPoliciesRequest> acceptedPolicies;
 
-    @JsonProperty("authType")
+  @JsonProperty("authType")
+  private String authType;
+
+  @JsonProperty("code")
+  private String code;
+
+  @JsonProperty("country")
+  private String country;
+
+  @JsonProperty("dateOfBirth")
+  private String dateOfBirth;
+
+  @JsonProperty("displayName")
+  private String displayName;
+
+  @JsonProperty("emailAddress")
+  private String emailAddress;
+
+  @JsonProperty("password")
+  private String password;
+
+  @JsonProperty("passwordMD5Sum")
+  private String passwordMD5Sum;
+
+  @JsonProperty("reachMinimumAge")
+  private Boolean reachMinimumAge;
+
+  @JsonProperty("username")
+  private String username;
+
+  @JsonIgnore
+  public String getAuthType() {
+    return this.authType;
+  }
+
+  @JsonIgnore
+  public AuthType getAuthTypeAsEnum() {
+    return AuthType.valueOf(this.authType);
+  }
+
+  @JsonIgnore
+  public void setAuthType(final String authType) {
+    this.authType = authType;
+  }
+
+  @JsonIgnore
+  public void setAuthTypeFromEnum(final AuthType authType) {
+    this.authType = authType.toString();
+  }
+
+  @JsonIgnore
+  public AccountCreateUserRequestV4 createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<AccountCreateUserRequestV4> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<AccountCreateUserRequestV4>>() {});
+  }
+
+  public enum AuthType {
+    EMAILPASSWD("EMAILPASSWD");
+
+    private String value;
+
+    AuthType(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class AccountCreateUserRequestV4Builder {
     private String authType;
 
-    @JsonProperty("code")
-    private String code;
-
-    @JsonProperty("country")
-    private String country;
-
-    @JsonProperty("dateOfBirth")
-    private String dateOfBirth;
-
-    @JsonProperty("displayName")
-    private String displayName;
-
-    @JsonProperty("emailAddress")
-    private String emailAddress;
-
-    @JsonProperty("password")
-    private String password;
-
-    @JsonProperty("passwordMD5Sum")
-    private String passwordMD5Sum;
-
-    @JsonProperty("reachMinimumAge")
-    private Boolean reachMinimumAge;
-
-    @JsonProperty("username")
-    private String username;
-
-
-    
-    @JsonIgnore
-    public String getAuthType() {
-        return this.authType;
-    }
-    
-    @JsonIgnore
-    public AuthType getAuthTypeAsEnum() {
-        return AuthType.valueOf(this.authType);
-    }
-    
-    @JsonIgnore
-    public void setAuthType(final String authType) {
-        this.authType = authType;
-    }
-    
-    @JsonIgnore
-    public void setAuthTypeFromEnum(final AuthType authType) {
-        this.authType = authType.toString();
+    public AccountCreateUserRequestV4Builder authType(final String authType) {
+      this.authType = authType;
+      return this;
     }
 
-    @JsonIgnore
-    public AccountCreateUserRequestV4 createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public AccountCreateUserRequestV4Builder authTypeFromEnum(final AuthType authType) {
+      this.authType = authType.toString();
+      return this;
     }
-
-    @JsonIgnore
-    public List<AccountCreateUserRequestV4> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<AccountCreateUserRequestV4>>() {});
-    }
-
-    
-    public enum AuthType {
-        EMAILPASSWD("EMAILPASSWD");
-
-        private String value;
-
-        AuthType(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class AccountCreateUserRequestV4Builder {
-        private String authType;
-        
-        
-        public AccountCreateUserRequestV4Builder authType(final String authType) {
-            this.authType = authType;
-            return this;
-        }
-        
-        public AccountCreateUserRequestV4Builder authTypeFromEnum(final AuthType authType) {
-            this.authType = authType.toString();
-            return this;
-        }
-    }
+  }
 }

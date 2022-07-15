@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,44 +26,40 @@ import java.util.Map;
 @NoArgsConstructor
 public class Requirement extends Model {
 
-    @JsonProperty("additionals")
-    private String additionals;
+  @JsonProperty("additionals")
+  private String additionals;
 
-    @JsonProperty("directXVersion")
-    private String directXVersion;
+  @JsonProperty("directXVersion")
+  private String directXVersion;
 
-    @JsonProperty("diskSpace")
-    private String diskSpace;
+  @JsonProperty("diskSpace")
+  private String diskSpace;
 
-    @JsonProperty("graphics")
-    private String graphics;
+  @JsonProperty("graphics")
+  private String graphics;
 
-    @JsonProperty("label")
-    private String label;
+  @JsonProperty("label")
+  private String label;
 
-    @JsonProperty("osVersion")
-    private String osVersion;
+  @JsonProperty("osVersion")
+  private String osVersion;
 
-    @JsonProperty("processor")
-    private String processor;
+  @JsonProperty("processor")
+  private String processor;
 
-    @JsonProperty("ram")
-    private String ram;
+  @JsonProperty("ram")
+  private String ram;
 
-    @JsonProperty("soundCard")
-    private String soundCard;
+  @JsonProperty("soundCard")
+  private String soundCard;
 
+  @JsonIgnore
+  public Requirement createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public Requirement createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<Requirement> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<Requirement>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<Requirement> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<Requirement>>() {});
+  }
 }

@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,23 +26,21 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsListDeploymentResponse extends Model {
 
-    @JsonProperty("deployments")
-    private List<ModelsDeploymentWithOverride> deployments;
+  @JsonProperty("deployments")
+  private List<ModelsDeploymentWithOverride> deployments;
 
-    @JsonProperty("paging")
-    private ModelsPagingCursor paging;
+  @JsonProperty("paging")
+  private ModelsPagingCursor paging;
 
+  @JsonIgnore
+  public ModelsListDeploymentResponse createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsListDeploymentResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsListDeploymentResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsListDeploymentResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsListDeploymentResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsListDeploymentResponse>>() {});
+  }
 }

@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,38 +27,34 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsPartyData extends Model {
 
-    @JsonProperty("custom_attribute")
-    private Map<String, ?> customAttribute;
+  @JsonProperty("custom_attribute")
+  private Map<String, ?> customAttribute;
 
-    @JsonProperty("invitees")
-    private List<String> invitees;
+  @JsonProperty("invitees")
+  private List<String> invitees;
 
-    @JsonProperty("leader")
-    private String leader;
+  @JsonProperty("leader")
+  private String leader;
 
-    @JsonProperty("members")
-    private List<String> members;
+  @JsonProperty("members")
+  private List<String> members;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("partyId")
-    private String partyId;
+  @JsonProperty("partyId")
+  private String partyId;
 
-    @JsonProperty("updatedAt")
-    private Integer updatedAt;
+  @JsonProperty("updatedAt")
+  private Integer updatedAt;
 
+  @JsonIgnore
+  public ModelsPartyData createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsPartyData createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsPartyData> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPartyData>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsPartyData> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPartyData>>() {});
+  }
 }

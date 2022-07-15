@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,32 +26,28 @@ import java.util.Map;
 @NoArgsConstructor
 public class XsollaConfig extends Model {
 
-    @JsonProperty("apiKey")
-    private String apiKey;
+  @JsonProperty("apiKey")
+  private String apiKey;
 
-    @JsonProperty("flowCompletionUrl")
-    private String flowCompletionUrl;
+  @JsonProperty("flowCompletionUrl")
+  private String flowCompletionUrl;
 
-    @JsonProperty("merchantId")
-    private Integer merchantId;
+  @JsonProperty("merchantId")
+  private Integer merchantId;
 
-    @JsonProperty("projectId")
-    private Integer projectId;
+  @JsonProperty("projectId")
+  private Integer projectId;
 
-    @JsonProperty("projectSecretKey")
-    private String projectSecretKey;
+  @JsonProperty("projectSecretKey")
+  private String projectSecretKey;
 
+  @JsonIgnore
+  public XsollaConfig createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public XsollaConfig createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<XsollaConfig> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<XsollaConfig>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<XsollaConfig> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<XsollaConfig>>() {});
+  }
 }

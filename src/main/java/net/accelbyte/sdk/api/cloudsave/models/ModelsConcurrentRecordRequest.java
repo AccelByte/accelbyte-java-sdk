@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,23 +27,21 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsConcurrentRecordRequest extends Model {
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
+  @JsonProperty("updatedAt")
+  private String updatedAt;
 
-    @JsonProperty("value")
-    private Map<String, ?> value;
+  @JsonProperty("value")
+  private Map<String, ?> value;
 
+  @JsonIgnore
+  public ModelsConcurrentRecordRequest createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsConcurrentRecordRequest createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsConcurrentRecordRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsConcurrentRecordRequest>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsConcurrentRecordRequest> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsConcurrentRecordRequest>>() {});
+  }
 }

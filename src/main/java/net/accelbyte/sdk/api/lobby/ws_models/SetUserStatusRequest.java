@@ -8,86 +8,65 @@
 
 package net.accelbyte.sdk.api.lobby.ws_models;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import static net.accelbyte.sdk.core.util.Helper.*;
+
+import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.*;
-
-import static net.accelbyte.sdk.core.util.Helper.*;
-
 @Getter
 @Setter
 public class SetUserStatusRequest {
-    private String activity;
-    private Integer availability;
-    private String id;
+  private String activity;
+  private Integer availability;
+  private String id;
 
-    private SetUserStatusRequest() {
+  private SetUserStatusRequest() {}
 
+  @Builder
+  public SetUserStatusRequest(String activity, Integer availability, String id) {
+    this.activity = activity;
+    this.availability = availability;
+    this.id = id;
+  }
+
+  public static String getType() {
+    return "setUserStatusRequest";
+  }
+
+  public static SetUserStatusRequest createFromWSM(String message) {
+    SetUserStatusRequest result = new SetUserStatusRequest();
+    Map<String, String> response = parseWSM(message);
+    result.activity = response.get("activity") != null ? response.get("activity") : null;
+    result.availability =
+        response.get("availability") != null ? Integer.valueOf(response.get("availability")) : null;
+    result.id = response.get("id") != null ? response.get("id") : null;
+    return result;
+  }
+
+  public String toWSM() {
+    StringBuilder stringBuilder = new StringBuilder();
+    stringBuilder.append("type: ").append(SetUserStatusRequest.getType());
+    if (activity != null) {
+      stringBuilder.append("\n").append("activity: ").append(activity);
     }
-
-    @Builder
-    public SetUserStatusRequest (
-        String activity,
-        Integer availability,
-        String id
-    ) {
-        this.activity = activity;
-        this.availability = availability;
-        this.id = id;
+    if (availability != null) {
+      stringBuilder.append("\n").append("availability: ").append(availability);
     }
-
-    public static String getType(){
-        return "setUserStatusRequest";
+    if (id != null) {
+      stringBuilder.append("\n").append("id: ").append(id);
+    } else {
+      stringBuilder.append("\n").append("id: ").append(generateUUID());
     }
+    return stringBuilder.toString();
+  }
 
-    public static SetUserStatusRequest createFromWSM(String message) {
-        SetUserStatusRequest result = new SetUserStatusRequest();
-        Map<String, String> response = parseWSM(message);
-        result.activity = response.get("activity") != null ? response.get("activity") : null;
-        result.availability = response.get("availability") != null ? Integer.valueOf(response.get("availability")) : null;
-        result.id = response.get("id") != null ? response.get("id") : null;
-        return result;
-    }
-
-    public String toWSM() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("type: ").append(SetUserStatusRequest.getType());
-        if (activity != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("activity: ")
-                    .append(activity);
-        }
-        if (availability != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("availability: ")
-                    .append(availability);
-        }
-        if (id != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("id: ")
-                    .append(id);
-        } else {
-            stringBuilder
-                    .append("\n")
-                    .append("id: ")
-                    .append(generateUUID());
-        }
-        return stringBuilder.toString();
-    }
-
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("activity","activity");
-        result.put("availability","availability");
-        result.put("id","id");
-        return result;
-    }
+  public static Map<String, String> getFieldInfo() {
+    Map<String, String> result = new HashMap<>();
+    result.put("activity", "activity");
+    result.put("availability", "availability");
+    result.put("id", "id");
+    return result;
+  }
 }

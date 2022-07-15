@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,23 +26,19 @@ import java.util.Map;
 @NoArgsConstructor
 public class StadiaIAPConfigInfo extends Model {
 
-    @JsonProperty("jsonFile")
-    private String jsonFile;
+  @JsonProperty("jsonFile")
+  private String jsonFile;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
+  @JsonIgnore
+  public StadiaIAPConfigInfo createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public StadiaIAPConfigInfo createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<StadiaIAPConfigInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<StadiaIAPConfigInfo>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<StadiaIAPConfigInfo> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<StadiaIAPConfigInfo>>() {});
+  }
 }

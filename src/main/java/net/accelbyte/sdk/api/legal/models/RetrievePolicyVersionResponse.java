@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,53 +26,51 @@ import java.util.Map;
 @NoArgsConstructor
 public class RetrievePolicyVersionResponse extends Model {
 
-    @JsonProperty("basePolicyId")
-    private String basePolicyId;
+  @JsonProperty("basePolicyId")
+  private String basePolicyId;
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+  @JsonProperty("createdAt")
+  private String createdAt;
 
-    @JsonProperty("description")
-    private String description;
+  @JsonProperty("description")
+  private String description;
 
-    @JsonProperty("displayVersion")
-    private String displayVersion;
+  @JsonProperty("displayVersion")
+  private String displayVersion;
 
-    @JsonProperty("id")
-    private String id;
+  @JsonProperty("id")
+  private String id;
 
-    @JsonProperty("isCommitted")
-    private Boolean isCommitted;
+  @JsonProperty("isCommitted")
+  private Boolean isCommitted;
 
-    @JsonProperty("isInEffect")
-    private Boolean isInEffect;
+  @JsonProperty("isInEffect")
+  private Boolean isInEffect;
 
-    @JsonProperty("localizedPolicyVersions")
-    private List<LocalizedPolicyVersionObject> localizedPolicyVersions;
+  @JsonProperty("localizedPolicyVersions")
+  private List<LocalizedPolicyVersionObject> localizedPolicyVersions;
 
-    @JsonProperty("policyId")
-    private String policyId;
+  @JsonProperty("policyId")
+  private String policyId;
 
-    @JsonProperty("publishedDate")
-    private String publishedDate;
+  @JsonProperty("publishedDate")
+  private String publishedDate;
 
-    @JsonProperty("status")
-    private String status;
+  @JsonProperty("status")
+  private String status;
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
+  @JsonProperty("updatedAt")
+  private String updatedAt;
 
+  @JsonIgnore
+  public RetrievePolicyVersionResponse createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public RetrievePolicyVersionResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<RetrievePolicyVersionResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<RetrievePolicyVersionResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<RetrievePolicyVersionResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<RetrievePolicyVersionResponse>>() {});
+  }
 }

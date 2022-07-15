@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,29 +26,28 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelPlatformDomainUpdateRequest extends Model {
 
-    @JsonProperty("affectedClientIDs")
-    private List<String> affectedClientIDs;
+  @JsonProperty("affectedClientIDs")
+  private List<String> affectedClientIDs;
 
-    @JsonProperty("assignedNamespaces")
-    private List<String> assignedNamespaces;
+  @JsonProperty("assignedNamespaces")
+  private List<String> assignedNamespaces;
 
-    @JsonProperty("domain")
-    private String domain;
+  @JsonProperty("domain")
+  private String domain;
 
-    @JsonProperty("roleId")
-    private String roleId;
+  @JsonProperty("roleId")
+  private String roleId;
 
+  @JsonIgnore
+  public ModelPlatformDomainUpdateRequest createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelPlatformDomainUpdateRequest createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelPlatformDomainUpdateRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelPlatformDomainUpdateRequest>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelPlatformDomainUpdateRequest> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelPlatformDomainUpdateRequest>>() {});
+  }
 }

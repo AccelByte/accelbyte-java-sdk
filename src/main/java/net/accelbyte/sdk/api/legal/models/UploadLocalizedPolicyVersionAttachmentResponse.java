@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,26 +26,26 @@ import java.util.Map;
 @NoArgsConstructor
 public class UploadLocalizedPolicyVersionAttachmentResponse extends Model {
 
-    @JsonProperty("attachmentChecksum")
-    private String attachmentChecksum;
+  @JsonProperty("attachmentChecksum")
+  private String attachmentChecksum;
 
-    @JsonProperty("attachmentLocation")
-    private String attachmentLocation;
+  @JsonProperty("attachmentLocation")
+  private String attachmentLocation;
 
-    @JsonProperty("attachmentUploadUrl")
-    private String attachmentUploadUrl;
+  @JsonProperty("attachmentUploadUrl")
+  private String attachmentUploadUrl;
 
+  @JsonIgnore
+  public UploadLocalizedPolicyVersionAttachmentResponse createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public UploadLocalizedPolicyVersionAttachmentResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<UploadLocalizedPolicyVersionAttachmentResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<UploadLocalizedPolicyVersionAttachmentResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<UploadLocalizedPolicyVersionAttachmentResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(
+            json, new TypeReference<List<UploadLocalizedPolicyVersionAttachmentResponse>>() {});
+  }
 }

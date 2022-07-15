@@ -8,42 +8,34 @@
 
 package net.accelbyte.sdk.api.dslogmanager.wrappers;
 
+import java.util.List;
 import net.accelbyte.sdk.api.dslogmanager.models.*;
 import net.accelbyte.sdk.api.dslogmanager.operations.dslogmanager_operations.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
 
 public class DslogmanagerOperations {
 
-    private AccelByteSDK sdk;
+  private AccelByteSDK sdk;
 
-    public DslogmanagerOperations(AccelByteSDK sdk){
-        this.sdk = sdk;
+  public DslogmanagerOperations(AccelByteSDK sdk) {
+    this.sdk = sdk;
+  }
+
+  /**
+   * @see PublicGetMessages
+   */
+  public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input)
+      throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
-
-    /**
-     * @see PublicGetMessages
-     */
-    public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          return input
-              .parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
-    }
-
+  }
 }

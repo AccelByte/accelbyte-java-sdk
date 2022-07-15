@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,154 +26,150 @@ import java.util.Map;
 @NoArgsConstructor
 public class AppEntitlementInfo extends Model {
 
-    @JsonProperty("appId")
-    private String appId;
+  @JsonProperty("appId")
+  private String appId;
 
-    @JsonProperty("appType")
+  @JsonProperty("appType")
+  private String appType;
+
+  @JsonProperty("endDate")
+  private String endDate;
+
+  @JsonProperty("grantedAt")
+  private String grantedAt;
+
+  @JsonProperty("itemId")
+  private String itemId;
+
+  @JsonProperty("itemSnapshot")
+  private ItemSnapshot itemSnapshot;
+
+  @JsonProperty("namespace")
+  private String namespace;
+
+  @JsonProperty("sku")
+  private String sku;
+
+  @JsonProperty("startDate")
+  private String startDate;
+
+  @JsonProperty("status")
+  private String status;
+
+  @JsonProperty("storeId")
+  private String storeId;
+
+  @JsonProperty("userId")
+  private String userId;
+
+  @JsonIgnore
+  public String getAppType() {
+    return this.appType;
+  }
+
+  @JsonIgnore
+  public AppType getAppTypeAsEnum() {
+    return AppType.valueOf(this.appType);
+  }
+
+  @JsonIgnore
+  public void setAppType(final String appType) {
+    this.appType = appType;
+  }
+
+  @JsonIgnore
+  public void setAppTypeFromEnum(final AppType appType) {
+    this.appType = appType.toString();
+  }
+
+  @JsonIgnore
+  public String getStatus() {
+    return this.status;
+  }
+
+  @JsonIgnore
+  public Status getStatusAsEnum() {
+    return Status.valueOf(this.status);
+  }
+
+  @JsonIgnore
+  public void setStatus(final String status) {
+    this.status = status;
+  }
+
+  @JsonIgnore
+  public void setStatusFromEnum(final Status status) {
+    this.status = status.toString();
+  }
+
+  @JsonIgnore
+  public AppEntitlementInfo createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<AppEntitlementInfo> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<AppEntitlementInfo>>() {});
+  }
+
+  public enum AppType {
+    DEMO("DEMO"),
+    DLC("DLC"),
+    GAME("GAME"),
+    SOFTWARE("SOFTWARE");
+
+    private String value;
+
+    AppType(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public enum Status {
+    ACTIVE("ACTIVE"),
+    CONSUMED("CONSUMED"),
+    INACTIVE("INACTIVE"),
+    REVOKED("REVOKED");
+
+    private String value;
+
+    Status(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class AppEntitlementInfoBuilder {
     private String appType;
-
-    @JsonProperty("endDate")
-    private String endDate;
-
-    @JsonProperty("grantedAt")
-    private String grantedAt;
-
-    @JsonProperty("itemId")
-    private String itemId;
-
-    @JsonProperty("itemSnapshot")
-    private ItemSnapshot itemSnapshot;
-
-    @JsonProperty("namespace")
-    private String namespace;
-
-    @JsonProperty("sku")
-    private String sku;
-
-    @JsonProperty("startDate")
-    private String startDate;
-
-    @JsonProperty("status")
     private String status;
 
-    @JsonProperty("storeId")
-    private String storeId;
-
-    @JsonProperty("userId")
-    private String userId;
-
-
-    
-    @JsonIgnore
-    public String getAppType() {
-        return this.appType;
-    }
-    
-    @JsonIgnore
-    public AppType getAppTypeAsEnum() {
-        return AppType.valueOf(this.appType);
-    }
-    
-    @JsonIgnore
-    public void setAppType(final String appType) {
-        this.appType = appType;
-    }
-    
-    @JsonIgnore
-    public void setAppTypeFromEnum(final AppType appType) {
-        this.appType = appType.toString();
-    }
-    
-    @JsonIgnore
-    public String getStatus() {
-        return this.status;
-    }
-    
-    @JsonIgnore
-    public Status getStatusAsEnum() {
-        return Status.valueOf(this.status);
-    }
-    
-    @JsonIgnore
-    public void setStatus(final String status) {
-        this.status = status;
-    }
-    
-    @JsonIgnore
-    public void setStatusFromEnum(final Status status) {
-        this.status = status.toString();
+    public AppEntitlementInfoBuilder appType(final String appType) {
+      this.appType = appType;
+      return this;
     }
 
-    @JsonIgnore
-    public AppEntitlementInfo createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public AppEntitlementInfoBuilder appTypeFromEnum(final AppType appType) {
+      this.appType = appType.toString();
+      return this;
     }
 
-    @JsonIgnore
-    public List<AppEntitlementInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<AppEntitlementInfo>>() {});
+    public AppEntitlementInfoBuilder status(final String status) {
+      this.status = status;
+      return this;
     }
 
-    
-    public enum AppType {
-        DEMO("DEMO"),
-        DLC("DLC"),
-        GAME("GAME"),
-        SOFTWARE("SOFTWARE");
-
-        private String value;
-
-        AppType(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
+    public AppEntitlementInfoBuilder statusFromEnum(final Status status) {
+      this.status = status.toString();
+      return this;
     }
-    
-    public enum Status {
-        ACTIVE("ACTIVE"),
-        CONSUMED("CONSUMED"),
-        INACTIVE("INACTIVE"),
-        REVOKED("REVOKED");
-
-        private String value;
-
-        Status(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class AppEntitlementInfoBuilder {
-        private String appType;
-        private String status;
-        
-        
-        public AppEntitlementInfoBuilder appType(final String appType) {
-            this.appType = appType;
-            return this;
-        }
-        
-        public AppEntitlementInfoBuilder appTypeFromEnum(final AppType appType) {
-            this.appType = appType.toString();
-            return this;
-        }
-        
-        public AppEntitlementInfoBuilder status(final String status) {
-            this.status = status;
-            return this;
-        }
-        
-        public AppEntitlementInfoBuilder statusFromEnum(final Status status) {
-            this.status = status.toString();
-            return this;
-        }
-    }
+  }
 }

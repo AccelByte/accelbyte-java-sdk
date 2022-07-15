@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,56 +27,53 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsDSMConfigRecord extends Model {
 
-    @JsonProperty("claim_timeout")
-    private Integer claimTimeout;
+  @JsonProperty("claim_timeout")
+  private Integer claimTimeout;
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+  @JsonProperty("createdAt")
+  private String createdAt;
 
-    @JsonProperty("creation_timeout")
-    private Integer creationTimeout;
+  @JsonProperty("creation_timeout")
+  private Integer creationTimeout;
 
-    @JsonProperty("default_version")
-    private String defaultVersion;
+  @JsonProperty("default_version")
+  private String defaultVersion;
 
-    @JsonProperty("modifiedBy")
-    private String modifiedBy;
+  @JsonProperty("modifiedBy")
+  private String modifiedBy;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("port")
-    private Integer port;
+  @JsonProperty("port")
+  private Integer port;
 
-    @JsonProperty("ports")
-    private Map<String, Integer> ports;
+  @JsonProperty("ports")
+  private Map<String, Integer> ports;
 
-    @JsonProperty("protocol")
-    private String protocol;
+  @JsonProperty("protocol")
+  private String protocol;
 
-    @JsonProperty("providers")
-    private List<String> providers;
+  @JsonProperty("providers")
+  private List<String> providers;
 
-    @JsonProperty("session_timeout")
-    private Integer sessionTimeout;
+  @JsonProperty("session_timeout")
+  private Integer sessionTimeout;
 
-    @JsonProperty("unreachable_timeout")
-    private Integer unreachableTimeout;
+  @JsonProperty("unreachable_timeout")
+  private Integer unreachableTimeout;
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
+  @JsonProperty("updatedAt")
+  private String updatedAt;
 
+  @JsonIgnore
+  public ModelsDSMConfigRecord createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsDSMConfigRecord createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsDSMConfigRecord> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDSMConfigRecord>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsDSMConfigRecord> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDSMConfigRecord>>() {});
+  }
 }

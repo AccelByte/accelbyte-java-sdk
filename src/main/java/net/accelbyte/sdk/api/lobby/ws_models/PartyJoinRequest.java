@@ -8,86 +8,65 @@
 
 package net.accelbyte.sdk.api.lobby.ws_models;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import static net.accelbyte.sdk.core.util.Helper.*;
+
+import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.*;
-
-import static net.accelbyte.sdk.core.util.Helper.*;
-
 @Getter
 @Setter
 public class PartyJoinRequest {
-    private String id;
-    private String invitationToken;
-    private String partyId;
+  private String id;
+  private String invitationToken;
+  private String partyId;
 
-    private PartyJoinRequest() {
+  private PartyJoinRequest() {}
 
+  @Builder
+  public PartyJoinRequest(String id, String invitationToken, String partyId) {
+    this.id = id;
+    this.invitationToken = invitationToken;
+    this.partyId = partyId;
+  }
+
+  public static String getType() {
+    return "partyJoinRequest";
+  }
+
+  public static PartyJoinRequest createFromWSM(String message) {
+    PartyJoinRequest result = new PartyJoinRequest();
+    Map<String, String> response = parseWSM(message);
+    result.id = response.get("id") != null ? response.get("id") : null;
+    result.invitationToken =
+        response.get("invitationToken") != null ? response.get("invitationToken") : null;
+    result.partyId = response.get("partyId") != null ? response.get("partyId") : null;
+    return result;
+  }
+
+  public String toWSM() {
+    StringBuilder stringBuilder = new StringBuilder();
+    stringBuilder.append("type: ").append(PartyJoinRequest.getType());
+    if (id != null) {
+      stringBuilder.append("\n").append("id: ").append(id);
+    } else {
+      stringBuilder.append("\n").append("id: ").append(generateUUID());
     }
-
-    @Builder
-    public PartyJoinRequest (
-        String id,
-        String invitationToken,
-        String partyId
-    ) {
-        this.id = id;
-        this.invitationToken = invitationToken;
-        this.partyId = partyId;
+    if (invitationToken != null) {
+      stringBuilder.append("\n").append("invitationToken: ").append(invitationToken);
     }
-
-    public static String getType(){
-        return "partyJoinRequest";
+    if (partyId != null) {
+      stringBuilder.append("\n").append("partyId: ").append(partyId);
     }
+    return stringBuilder.toString();
+  }
 
-    public static PartyJoinRequest createFromWSM(String message) {
-        PartyJoinRequest result = new PartyJoinRequest();
-        Map<String, String> response = parseWSM(message);
-        result.id = response.get("id") != null ? response.get("id") : null;
-        result.invitationToken = response.get("invitationToken") != null ? response.get("invitationToken") : null;
-        result.partyId = response.get("partyId") != null ? response.get("partyId") : null;
-        return result;
-    }
-
-    public String toWSM() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("type: ").append(PartyJoinRequest.getType());
-        if (id != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("id: ")
-                    .append(id);
-        } else {
-            stringBuilder
-                    .append("\n")
-                    .append("id: ")
-                    .append(generateUUID());
-        }
-        if (invitationToken != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("invitationToken: ")
-                    .append(invitationToken);
-        }
-        if (partyId != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("partyId: ")
-                    .append(partyId);
-        }
-        return stringBuilder.toString();
-    }
-
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("id","id");
-        result.put("invitationToken","invitationToken");
-        result.put("partyId","partyId");
-        return result;
-    }
+  public static Map<String, String> getFieldInfo() {
+    Map<String, String> result = new HashMap<>();
+    result.put("id", "id");
+    result.put("invitationToken", "invitationToken");
+    result.put("partyId", "partyId");
+    return result;
+  }
 }

@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,26 +26,22 @@ import java.util.Map;
 @NoArgsConstructor
 public class SeasonCloneRequest extends Model {
 
-    @JsonProperty("end")
-    private String end;
+  @JsonProperty("end")
+  private String end;
 
-    @JsonProperty("name")
-    private String name;
+  @JsonProperty("name")
+  private String name;
 
-    @JsonProperty("start")
-    private String start;
+  @JsonProperty("start")
+  private String start;
 
+  @JsonIgnore
+  public SeasonCloneRequest createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public SeasonCloneRequest createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<SeasonCloneRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<SeasonCloneRequest>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<SeasonCloneRequest> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<SeasonCloneRequest>>() {});
+  }
 }

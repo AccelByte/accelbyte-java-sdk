@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,50 +26,48 @@ import java.util.Map;
 @NoArgsConstructor
 public class RetrieveBasePolicyResponse extends Model {
 
-    @JsonProperty("affectedClientIds")
-    private List<String> affectedClientIds;
+  @JsonProperty("affectedClientIds")
+  private List<String> affectedClientIds;
 
-    @JsonProperty("basePolicyName")
-    private String basePolicyName;
+  @JsonProperty("basePolicyName")
+  private String basePolicyName;
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+  @JsonProperty("createdAt")
+  private String createdAt;
 
-    @JsonProperty("description")
-    private String description;
+  @JsonProperty("description")
+  private String description;
 
-    @JsonProperty("id")
-    private String id;
+  @JsonProperty("id")
+  private String id;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("policies")
-    private List<PolicyObject> policies;
+  @JsonProperty("policies")
+  private List<PolicyObject> policies;
 
-    @JsonProperty("policyTypeId")
-    private String policyTypeId;
+  @JsonProperty("policyTypeId")
+  private String policyTypeId;
 
-    @JsonProperty("policyTypeName")
-    private String policyTypeName;
+  @JsonProperty("policyTypeName")
+  private String policyTypeName;
 
-    @JsonProperty("tags")
-    private List<String> tags;
+  @JsonProperty("tags")
+  private List<String> tags;
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
+  @JsonProperty("updatedAt")
+  private String updatedAt;
 
+  @JsonIgnore
+  public RetrieveBasePolicyResponse createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public RetrieveBasePolicyResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<RetrieveBasePolicyResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<RetrieveBasePolicyResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<RetrieveBasePolicyResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<RetrieveBasePolicyResponse>>() {});
+  }
 }

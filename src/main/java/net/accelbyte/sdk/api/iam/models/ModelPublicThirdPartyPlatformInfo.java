@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,32 +26,31 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelPublicThirdPartyPlatformInfo extends Model {
 
-    @JsonProperty("AppId")
-    private String appId;
+  @JsonProperty("AppId")
+  private String appId;
 
-    @JsonProperty("ClientId")
-    private String clientId;
+  @JsonProperty("ClientId")
+  private String clientId;
 
-    @JsonProperty("Environment")
-    private String environment;
+  @JsonProperty("Environment")
+  private String environment;
 
-    @JsonProperty("IsActive")
-    private Boolean isActive;
+  @JsonProperty("IsActive")
+  private Boolean isActive;
 
-    @JsonProperty("PlatformId")
-    private String platformId;
+  @JsonProperty("PlatformId")
+  private String platformId;
 
+  @JsonIgnore
+  public ModelPublicThirdPartyPlatformInfo createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelPublicThirdPartyPlatformInfo createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelPublicThirdPartyPlatformInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelPublicThirdPartyPlatformInfo>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelPublicThirdPartyPlatformInfo> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelPublicThirdPartyPlatformInfo>>() {});
+  }
 }

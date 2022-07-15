@@ -8,86 +8,65 @@
 
 package net.accelbyte.sdk.api.lobby.ws_models;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import static net.accelbyte.sdk.core.util.Helper.*;
+
+import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.*;
-
-import static net.accelbyte.sdk.core.util.Helper.*;
-
 @Getter
 @Setter
 public class UserMetricResponse {
-    private Integer code;
-    private String id;
-    private Integer playerCount;
+  private Integer code;
+  private String id;
+  private Integer playerCount;
 
-    private UserMetricResponse() {
+  private UserMetricResponse() {}
 
+  @Builder
+  public UserMetricResponse(Integer code, String id, Integer playerCount) {
+    this.code = code;
+    this.id = id;
+    this.playerCount = playerCount;
+  }
+
+  public static String getType() {
+    return "userMetricResponse";
+  }
+
+  public static UserMetricResponse createFromWSM(String message) {
+    UserMetricResponse result = new UserMetricResponse();
+    Map<String, String> response = parseWSM(message);
+    result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
+    result.id = response.get("id") != null ? response.get("id") : null;
+    result.playerCount =
+        response.get("playerCount") != null ? Integer.valueOf(response.get("playerCount")) : null;
+    return result;
+  }
+
+  public String toWSM() {
+    StringBuilder stringBuilder = new StringBuilder();
+    stringBuilder.append("type: ").append(UserMetricResponse.getType());
+    if (code != null) {
+      stringBuilder.append("\n").append("code: ").append(code);
     }
-
-    @Builder
-    public UserMetricResponse (
-        Integer code,
-        String id,
-        Integer playerCount
-    ) {
-        this.code = code;
-        this.id = id;
-        this.playerCount = playerCount;
+    if (id != null) {
+      stringBuilder.append("\n").append("id: ").append(id);
+    } else {
+      stringBuilder.append("\n").append("id: ").append(generateUUID());
     }
-
-    public static String getType(){
-        return "userMetricResponse";
+    if (playerCount != null) {
+      stringBuilder.append("\n").append("playerCount: ").append(playerCount);
     }
+    return stringBuilder.toString();
+  }
 
-    public static UserMetricResponse createFromWSM(String message) {
-        UserMetricResponse result = new UserMetricResponse();
-        Map<String, String> response = parseWSM(message);
-        result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
-        result.id = response.get("id") != null ? response.get("id") : null;
-        result.playerCount = response.get("playerCount") != null ? Integer.valueOf(response.get("playerCount")) : null;
-        return result;
-    }
-
-    public String toWSM() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("type: ").append(UserMetricResponse.getType());
-        if (code != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("code: ")
-                    .append(code);
-        }
-        if (id != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("id: ")
-                    .append(id);
-        } else {
-            stringBuilder
-                    .append("\n")
-                    .append("id: ")
-                    .append(generateUUID());
-        }
-        if (playerCount != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("playerCount: ")
-                    .append(playerCount);
-        }
-        return stringBuilder.toString();
-    }
-
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("code","code");
-        result.put("id","id");
-        result.put("playerCount","playerCount");
-        return result;
-    }
+  public static Map<String, String> getFieldInfo() {
+    Map<String, String> result = new HashMap<>();
+    result.put("code", "code");
+    result.put("id", "id");
+    result.put("playerCount", "playerCount");
+    return result;
+  }
 }

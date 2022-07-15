@@ -10,106 +10,93 @@ package net.accelbyte.sdk.api.social.operations.game_profile;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.social.models.*;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.social.models.*;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * publicGetUserGameProfiles
  *
- * Returns all profiles for specified users.
- * Other detail info:
- *         *  Required permission : resource="NAMESPACE:{namespace}:GAMEPROFILE", action=2 (READ)
- * 
- *         *  Returns : list of profiles
+ * <p>Returns all profiles for specified users. Other detail info: * Required permission :
+ * resource="NAMESPACE:{namespace}:GAMEPROFILE", action=2 (READ)
+ *
+ * <p>* Returns : list of profiles
  */
 @Getter
 @Setter
 public class PublicGetUserGameProfiles extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/social/public/namespaces/{namespace}/profiles";
-    private String method = "GET";
-    private List<String> consumes = Arrays.asList();
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String namespace;
-    private List<String> userIds;
+  /** generated field's value */
+  private String path = "/social/public/namespaces/{namespace}/profiles";
 
-    /**
-    * @param namespace required
-    * @param userIds required
-    */
-    @Builder
-    public PublicGetUserGameProfiles(
-            String namespace,
-            List<String> userIds
-    )
-    {
-        this.namespace = namespace;
-        this.userIds = userIds;
-        
-        securities.add("Bearer");
+  private String method = "GET";
+  private List<String> consumes = Arrays.asList();
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String namespace;
+
+  private List<String> userIds;
+
+  /**
+   * @param namespace required
+   * @param userIds required
+   */
+  @Builder
+  public PublicGetUserGameProfiles(String namespace, List<String> userIds) {
+    this.namespace = namespace;
+    this.userIds = userIds;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
+    return pathParams;
+  }
 
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        return pathParams;
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("userIds", this.userIds == null ? null : this.userIds);
+    return queryParams;
+  }
+
+  @Override
+  public boolean isValid() {
+    if (this.namespace == null) {
+      return false;
     }
-
-    @Override
-    public Map<String, List<String>> getQueryParams(){
-        Map<String, List<String>> queryParams = new HashMap<>();
-        queryParams.put("userIds", this.userIds == null ? null : this.userIds);
-        return queryParams;
+    if (this.userIds == null) {
+      return false;
     }
+    return true;
+  }
 
-
-
-
-    @Override
-    public boolean isValid() {
-        if(this.namespace == null) {
-            return false;
-        }
-        if(this.userIds == null) {
-            return false;
-        }
-        return true;
+  public List<UserGameProfiles> parseResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 200) {
+      return new ObjectMapper().readValue(json, new TypeReference<List<UserGameProfiles>>() {});
     }
+    throw new HttpResponseException(code, json);
+  }
 
-    public List<UserGameProfiles> parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 200){
-            return new ObjectMapper().readValue(json, new TypeReference<List<UserGameProfiles>>() {});
-        }
-        throw new HttpResponseException(code, json);
-    }
-
-    @Override
-    protected Map<String, String> getCollectionFormatMap() {
-        Map<String, String> result = new HashMap<>();
-        result.put("userIds", "multi");
-        return result;
-    }
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("userIds", "multi");
+    return result;
+  }
 }

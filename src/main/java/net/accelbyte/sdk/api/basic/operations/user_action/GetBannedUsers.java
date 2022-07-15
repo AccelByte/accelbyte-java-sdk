@@ -10,105 +10,94 @@ package net.accelbyte.sdk.api.basic.operations.user_action;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.basic.models.*;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.basic.models.*;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * getBannedUsers
  *
- * Get banned status.
- * Unbanned users will not return, for example: request has 8 userIds, only 5 of then were banned, then the api will these 5 user status.Other detail info:
- * 
- *   * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=2 (READ)
+ * <p>Get banned status. Unbanned users will not return, for example: request has 8 userIds, only 5
+ * of then were banned, then the api will these 5 user status.Other detail info:
+ *
+ * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=2 (READ)
  */
 @Getter
 @Setter
 public class GetBannedUsers extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/basic/v1/admin/namespaces/{namespace}/actions/banned";
-    private String method = "GET";
-    private List<String> consumes = Arrays.asList();
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String namespace;
-    private List<String> userIds;
+  /** generated field's value */
+  private String path = "/basic/v1/admin/namespaces/{namespace}/actions/banned";
 
-    /**
-    * @param namespace required
-    * @param userIds required
-    */
-    @Builder
-    public GetBannedUsers(
-            String namespace,
-            List<String> userIds
-    )
-    {
-        this.namespace = namespace;
-        this.userIds = userIds;
-        
-        securities.add("Bearer");
+  private String method = "GET";
+  private List<String> consumes = Arrays.asList();
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String namespace;
+
+  private List<String> userIds;
+
+  /**
+   * @param namespace required
+   * @param userIds required
+   */
+  @Builder
+  public GetBannedUsers(String namespace, List<String> userIds) {
+    this.namespace = namespace;
+    this.userIds = userIds;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
+    return pathParams;
+  }
 
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        return pathParams;
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("userIds", this.userIds == null ? null : this.userIds);
+    return queryParams;
+  }
+
+  @Override
+  public boolean isValid() {
+    if (this.namespace == null) {
+      return false;
     }
-
-    @Override
-    public Map<String, List<String>> getQueryParams(){
-        Map<String, List<String>> queryParams = new HashMap<>();
-        queryParams.put("userIds", this.userIds == null ? null : this.userIds);
-        return queryParams;
+    if (this.userIds == null) {
+      return false;
     }
+    return true;
+  }
 
-
-
-
-    @Override
-    public boolean isValid() {
-        if(this.namespace == null) {
-            return false;
-        }
-        if(this.userIds == null) {
-            return false;
-        }
-        return true;
+  public List<ADTOObjectForEqu8UserBanStatus> parseResponse(
+      int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 200) {
+      return new ObjectMapper()
+          .readValue(json, new TypeReference<List<ADTOObjectForEqu8UserBanStatus>>() {});
     }
+    throw new HttpResponseException(code, json);
+  }
 
-    public List<ADTOObjectForEqu8UserBanStatus> parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 200){
-            return new ObjectMapper().readValue(json, new TypeReference<List<ADTOObjectForEqu8UserBanStatus>>() {});
-        }
-        throw new HttpResponseException(code, json);
-    }
-
-    @Override
-    protected Map<String, String> getCollectionFormatMap() {
-        Map<String, String> result = new HashMap<>();
-        result.put("userIds", "multi");
-        return result;
-    }
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("userIds", "multi");
+    return result;
+  }
 }

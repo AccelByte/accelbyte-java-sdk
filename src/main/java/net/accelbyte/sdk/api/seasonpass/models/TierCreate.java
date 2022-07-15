@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,26 +26,22 @@ import java.util.Map;
 @NoArgsConstructor
 public class TierCreate extends Model {
 
-    @JsonProperty("index")
-    private Integer index;
+  @JsonProperty("index")
+  private Integer index;
 
-    @JsonProperty("quantity")
-    private Integer quantity;
+  @JsonProperty("quantity")
+  private Integer quantity;
 
-    @JsonProperty("tier")
-    private TierInput tier;
+  @JsonProperty("tier")
+  private TierInput tier;
 
+  @JsonIgnore
+  public TierCreate createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public TierCreate createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<TierCreate> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<TierCreate>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<TierCreate> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<TierCreate>>() {});
+  }
 }

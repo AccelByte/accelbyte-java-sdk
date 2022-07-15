@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,83 +26,79 @@ import java.util.Map;
 @NoArgsConstructor
 public class XblReconcileResult extends Model {
 
-    @JsonProperty("iapOrderStatus")
+  @JsonProperty("iapOrderStatus")
+  private String iapOrderStatus;
+
+  @JsonProperty("itemId")
+  private String itemId;
+
+  @JsonProperty("sku")
+  private String sku;
+
+  @JsonProperty("transactionId")
+  private String transactionId;
+
+  @JsonProperty("xboxProductId")
+  private String xboxProductId;
+
+  @JsonIgnore
+  public String getIapOrderStatus() {
+    return this.iapOrderStatus;
+  }
+
+  @JsonIgnore
+  public IapOrderStatus getIapOrderStatusAsEnum() {
+    return IapOrderStatus.valueOf(this.iapOrderStatus);
+  }
+
+  @JsonIgnore
+  public void setIapOrderStatus(final String iapOrderStatus) {
+    this.iapOrderStatus = iapOrderStatus;
+  }
+
+  @JsonIgnore
+  public void setIapOrderStatusFromEnum(final IapOrderStatus iapOrderStatus) {
+    this.iapOrderStatus = iapOrderStatus.toString();
+  }
+
+  @JsonIgnore
+  public XblReconcileResult createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<XblReconcileResult> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<XblReconcileResult>>() {});
+  }
+
+  public enum IapOrderStatus {
+    FAILED("FAILED"),
+    FULFILLED("FULFILLED"),
+    VERIFIED("VERIFIED");
+
+    private String value;
+
+    IapOrderStatus(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class XblReconcileResultBuilder {
     private String iapOrderStatus;
 
-    @JsonProperty("itemId")
-    private String itemId;
-
-    @JsonProperty("sku")
-    private String sku;
-
-    @JsonProperty("transactionId")
-    private String transactionId;
-
-    @JsonProperty("xboxProductId")
-    private String xboxProductId;
-
-
-    
-    @JsonIgnore
-    public String getIapOrderStatus() {
-        return this.iapOrderStatus;
-    }
-    
-    @JsonIgnore
-    public IapOrderStatus getIapOrderStatusAsEnum() {
-        return IapOrderStatus.valueOf(this.iapOrderStatus);
-    }
-    
-    @JsonIgnore
-    public void setIapOrderStatus(final String iapOrderStatus) {
-        this.iapOrderStatus = iapOrderStatus;
-    }
-    
-    @JsonIgnore
-    public void setIapOrderStatusFromEnum(final IapOrderStatus iapOrderStatus) {
-        this.iapOrderStatus = iapOrderStatus.toString();
+    public XblReconcileResultBuilder iapOrderStatus(final String iapOrderStatus) {
+      this.iapOrderStatus = iapOrderStatus;
+      return this;
     }
 
-    @JsonIgnore
-    public XblReconcileResult createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public XblReconcileResultBuilder iapOrderStatusFromEnum(final IapOrderStatus iapOrderStatus) {
+      this.iapOrderStatus = iapOrderStatus.toString();
+      return this;
     }
-
-    @JsonIgnore
-    public List<XblReconcileResult> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<XblReconcileResult>>() {});
-    }
-
-    
-    public enum IapOrderStatus {
-        FAILED("FAILED"),
-        FULFILLED("FULFILLED"),
-        VERIFIED("VERIFIED");
-
-        private String value;
-
-        IapOrderStatus(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class XblReconcileResultBuilder {
-        private String iapOrderStatus;
-        
-        
-        public XblReconcileResultBuilder iapOrderStatus(final String iapOrderStatus) {
-            this.iapOrderStatus = iapOrderStatus;
-            return this;
-        }
-        
-        public XblReconcileResultBuilder iapOrderStatusFromEnum(final IapOrderStatus iapOrderStatus) {
-            this.iapOrderStatus = iapOrderStatus.toString();
-            return this;
-        }
-    }
+  }
 }

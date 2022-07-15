@@ -8,64 +8,56 @@
 
 package net.accelbyte.sdk.api.lobby.ws_models;
 
+import static net.accelbyte.sdk.core.util.Helper.*;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.*;
-
-import static net.accelbyte.sdk.core.util.Helper.*;
-
 @Getter
 @Setter
 public class SystemComponentsStatus {
-    private Map<String, Boolean> components;
+  private Map<String, Boolean> components;
 
-    private SystemComponentsStatus() {
+  private SystemComponentsStatus() {}
 
+  @Builder
+  public SystemComponentsStatus(Map<String, Boolean> components) {
+    this.components = components;
+  }
+
+  public static String getType() {
+    return "systemComponentsStatus";
+  }
+
+  public static SystemComponentsStatus createFromWSM(String message) {
+    SystemComponentsStatus result = new SystemComponentsStatus();
+    Map<String, String> response = parseWSM(message);
+    result.components =
+        response.get("components") != null ? convertJsonToMap(response.get("components")) : null;
+    return result;
+  }
+
+  public String toWSM() {
+    StringBuilder stringBuilder = new StringBuilder();
+    stringBuilder.append("type: ").append(SystemComponentsStatus.getType());
+    if (components != null) {
+      try {
+        String json = new ObjectMapper().writeValueAsString(components);
+        stringBuilder.append("\n").append("components: ").append(json);
+      } catch (JsonProcessingException e) {
+        e.printStackTrace();
+      }
     }
+    return stringBuilder.toString();
+  }
 
-    @Builder
-    public SystemComponentsStatus (
-        Map<String, Boolean> components
-    ) {
-        this.components = components;
-    }
-
-    public static String getType(){
-        return "systemComponentsStatus";
-    }
-
-    public static SystemComponentsStatus createFromWSM(String message) {
-        SystemComponentsStatus result = new SystemComponentsStatus();
-        Map<String, String> response = parseWSM(message);
-        result.components = response.get("components") != null ? convertJsonToMap(response.get("components")) : null;
-        return result;
-    }
-
-    public String toWSM() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("type: ").append(SystemComponentsStatus.getType());
-        if (components != null) {
-            try {
-                String json = new ObjectMapper().writeValueAsString(components);
-                stringBuilder
-                    .append("\n")
-                    .append("components: ")
-                    .append(json);
-            } catch (JsonProcessingException e) {
-                e.printStackTrace();
-            }
-        }
-        return stringBuilder.toString();
-    }
-
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("components","components");
-        return result;
-    }
+  public static Map<String, String> getFieldInfo() {
+    Map<String, String> result = new HashMap<>();
+    result.put("components", "components");
+    return result;
+  }
 }

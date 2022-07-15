@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,29 +26,25 @@ import java.util.Map;
 @NoArgsConstructor
 public class AliPayConfig extends Model {
 
-    @JsonProperty("appId")
-    private String appId;
+  @JsonProperty("appId")
+  private String appId;
 
-    @JsonProperty("privateKey")
-    private String privateKey;
+  @JsonProperty("privateKey")
+  private String privateKey;
 
-    @JsonProperty("publicKey")
-    private String publicKey;
+  @JsonProperty("publicKey")
+  private String publicKey;
 
-    @JsonProperty("returnUrl")
-    private String returnUrl;
+  @JsonProperty("returnUrl")
+  private String returnUrl;
 
+  @JsonIgnore
+  public AliPayConfig createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public AliPayConfig createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<AliPayConfig> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<AliPayConfig>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<AliPayConfig> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<AliPayConfig>>() {});
+  }
 }

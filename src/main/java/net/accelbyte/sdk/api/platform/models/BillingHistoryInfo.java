@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,142 +26,138 @@ import java.util.Map;
 @NoArgsConstructor
 public class BillingHistoryInfo extends Model {
 
-    @JsonProperty("amount")
-    private Integer amount;
+  @JsonProperty("amount")
+  private Integer amount;
 
-    @JsonProperty("billingAccount")
-    private BillingAccount billingAccount;
+  @JsonProperty("billingAccount")
+  private BillingAccount billingAccount;
 
-    @JsonProperty("changeBillingAccount")
-    private Boolean changeBillingAccount;
+  @JsonProperty("changeBillingAccount")
+  private Boolean changeBillingAccount;
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+  @JsonProperty("createdAt")
+  private String createdAt;
 
-    @JsonProperty("currency")
-    private CurrencySummary currency;
+  @JsonProperty("currency")
+  private CurrencySummary currency;
 
-    @JsonProperty("description")
-    private String description;
+  @JsonProperty("description")
+  private String description;
 
-    @JsonProperty("extTxId")
-    private String extTxId;
+  @JsonProperty("extTxId")
+  private String extTxId;
 
-    @JsonProperty("itemId")
-    private String itemId;
+  @JsonProperty("itemId")
+  private String itemId;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("paymentOrderNo")
-    private String paymentOrderNo;
+  @JsonProperty("paymentOrderNo")
+  private String paymentOrderNo;
 
-    @JsonProperty("recurringOrderNo")
-    private String recurringOrderNo;
+  @JsonProperty("recurringOrderNo")
+  private String recurringOrderNo;
 
-    @JsonProperty("retryAttempted")
-    private Integer retryAttempted;
+  @JsonProperty("retryAttempted")
+  private Integer retryAttempted;
 
-    @JsonProperty("sandbox")
-    private Boolean sandbox;
+  @JsonProperty("sandbox")
+  private Boolean sandbox;
 
-    @JsonProperty("sku")
-    private String sku;
+  @JsonProperty("sku")
+  private String sku;
 
-    @JsonProperty("status")
+  @JsonProperty("status")
+  private String status;
+
+  @JsonProperty("statusReason")
+  private String statusReason;
+
+  @JsonProperty("subscriptionId")
+  private String subscriptionId;
+
+  @JsonProperty("subtotalPrice")
+  private Integer subtotalPrice;
+
+  @JsonProperty("title")
+  private String title;
+
+  @JsonProperty("totalPrice")
+  private Integer totalPrice;
+
+  @JsonProperty("totalTax")
+  private Integer totalTax;
+
+  @JsonProperty("txEndTime")
+  private String txEndTime;
+
+  @JsonProperty("updatedAt")
+  private String updatedAt;
+
+  @JsonProperty("userId")
+  private String userId;
+
+  @JsonIgnore
+  public String getStatus() {
+    return this.status;
+  }
+
+  @JsonIgnore
+  public Status getStatusAsEnum() {
+    return Status.valueOf(this.status);
+  }
+
+  @JsonIgnore
+  public void setStatus(final String status) {
+    this.status = status;
+  }
+
+  @JsonIgnore
+  public void setStatusFromEnum(final Status status) {
+    this.status = status.toString();
+  }
+
+  @JsonIgnore
+  public BillingHistoryInfo createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<BillingHistoryInfo> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<BillingHistoryInfo>>() {});
+  }
+
+  public enum Status {
+    CHARGED("CHARGED"),
+    CHARGEFAILED("CHARGE_FAILED"),
+    INIT("INIT"),
+    REFUNDED("REFUNDED"),
+    REFUNDFAILED("REFUND_FAILED");
+
+    private String value;
+
+    Status(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class BillingHistoryInfoBuilder {
     private String status;
 
-    @JsonProperty("statusReason")
-    private String statusReason;
-
-    @JsonProperty("subscriptionId")
-    private String subscriptionId;
-
-    @JsonProperty("subtotalPrice")
-    private Integer subtotalPrice;
-
-    @JsonProperty("title")
-    private String title;
-
-    @JsonProperty("totalPrice")
-    private Integer totalPrice;
-
-    @JsonProperty("totalTax")
-    private Integer totalTax;
-
-    @JsonProperty("txEndTime")
-    private String txEndTime;
-
-    @JsonProperty("updatedAt")
-    private String updatedAt;
-
-    @JsonProperty("userId")
-    private String userId;
-
-
-    
-    @JsonIgnore
-    public String getStatus() {
-        return this.status;
-    }
-    
-    @JsonIgnore
-    public Status getStatusAsEnum() {
-        return Status.valueOf(this.status);
-    }
-    
-    @JsonIgnore
-    public void setStatus(final String status) {
-        this.status = status;
-    }
-    
-    @JsonIgnore
-    public void setStatusFromEnum(final Status status) {
-        this.status = status.toString();
+    public BillingHistoryInfoBuilder status(final String status) {
+      this.status = status;
+      return this;
     }
 
-    @JsonIgnore
-    public BillingHistoryInfo createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public BillingHistoryInfoBuilder statusFromEnum(final Status status) {
+      this.status = status.toString();
+      return this;
     }
-
-    @JsonIgnore
-    public List<BillingHistoryInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<BillingHistoryInfo>>() {});
-    }
-
-    
-    public enum Status {
-        CHARGED("CHARGED"),
-        CHARGEFAILED("CHARGE_FAILED"),
-        INIT("INIT"),
-        REFUNDED("REFUNDED"),
-        REFUNDFAILED("REFUND_FAILED");
-
-        private String value;
-
-        Status(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class BillingHistoryInfoBuilder {
-        private String status;
-        
-        
-        public BillingHistoryInfoBuilder status(final String status) {
-            this.status = status;
-            return this;
-        }
-        
-        public BillingHistoryInfoBuilder statusFromEnum(final Status status) {
-            this.status = status.toString();
-            return this;
-        }
-    }
+  }
 }

@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,23 +26,19 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsEventResponse extends Model {
 
-    @JsonProperty("Data")
-    private List<ModelsEvent> data;
+  @JsonProperty("Data")
+  private List<ModelsEvent> data;
 
-    @JsonProperty("Pagination")
-    private ModelsPagination pagination;
+  @JsonProperty("Pagination")
+  private ModelsPagination pagination;
 
+  @JsonIgnore
+  public ModelsEventResponse createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsEventResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsEventResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsEventResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsEventResponse> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsEventResponse>>() {});
+  }
 }

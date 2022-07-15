@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,41 +27,37 @@ import java.util.Map;
 @NoArgsConstructor
 public class GameProfileRequest extends Model {
 
-    @JsonProperty("achievements")
-    private List<String> achievements;
+  @JsonProperty("achievements")
+  private List<String> achievements;
 
-    @JsonProperty("attributes")
-    private Map<String, String> attributes;
+  @JsonProperty("attributes")
+  private Map<String, String> attributes;
 
-    @JsonProperty("avatarUrl")
-    private String avatarUrl;
+  @JsonProperty("avatarUrl")
+  private String avatarUrl;
 
-    @JsonProperty("inventories")
-    private List<String> inventories;
+  @JsonProperty("inventories")
+  private List<String> inventories;
 
-    @JsonProperty("label")
-    private String label;
+  @JsonProperty("label")
+  private String label;
 
-    @JsonProperty("profileName")
-    private String profileName;
+  @JsonProperty("profileName")
+  private String profileName;
 
-    @JsonProperty("statistics")
-    private List<String> statistics;
+  @JsonProperty("statistics")
+  private List<String> statistics;
 
-    @JsonProperty("tags")
-    private List<String> tags;
+  @JsonProperty("tags")
+  private List<String> tags;
 
+  @JsonIgnore
+  public GameProfileRequest createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public GameProfileRequest createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<GameProfileRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<GameProfileRequest>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<GameProfileRequest> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<GameProfileRequest>>() {});
+  }
 }

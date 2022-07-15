@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,29 +26,25 @@ import java.util.Map;
 @NoArgsConstructor
 public class FileUploadUrlInfo extends Model {
 
-    @JsonProperty("accessUrl")
-    private String accessUrl;
+  @JsonProperty("accessUrl")
+  private String accessUrl;
 
-    @JsonProperty("contentType")
-    private String contentType;
+  @JsonProperty("contentType")
+  private String contentType;
 
-    @JsonProperty("method")
-    private String method;
+  @JsonProperty("method")
+  private String method;
 
-    @JsonProperty("url")
-    private String url;
+  @JsonProperty("url")
+  private String url;
 
+  @JsonIgnore
+  public FileUploadUrlInfo createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public FileUploadUrlInfo createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<FileUploadUrlInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<FileUploadUrlInfo>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<FileUploadUrlInfo> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<FileUploadUrlInfo>>() {});
+  }
 }

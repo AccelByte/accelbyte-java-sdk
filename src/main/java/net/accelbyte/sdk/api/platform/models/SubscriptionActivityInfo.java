@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,163 +26,161 @@ import java.util.Map;
 @NoArgsConstructor
 public class SubscriptionActivityInfo extends Model {
 
-    @JsonProperty("action")
+  @JsonProperty("action")
+  private String action;
+
+  @JsonProperty("chargedCycles")
+  private Integer chargedCycles;
+
+  @JsonProperty("createdAt")
+  private String createdAt;
+
+  @JsonProperty("currentCycle")
+  private Integer currentCycle;
+
+  @JsonProperty("grantDays")
+  private Integer grantDays;
+
+  @JsonProperty("inFixedCycleTrial")
+  private Boolean inFixedCycleTrial;
+
+  @JsonProperty("inFixedFreeDays")
+  private Boolean inFixedFreeDays;
+
+  @JsonProperty("namespace")
+  private String namespace;
+
+  @JsonProperty("operator")
+  private String operator;
+
+  @JsonProperty("reason")
+  private String reason;
+
+  @JsonProperty("subscribedBy")
+  private String subscribedBy;
+
+  @JsonProperty("subscriptionId")
+  private String subscriptionId;
+
+  @JsonProperty("trialedCycles")
+  private Integer trialedCycles;
+
+  @JsonProperty("updatedAt")
+  private String updatedAt;
+
+  @JsonProperty("userId")
+  private String userId;
+
+  @JsonIgnore
+  public String getAction() {
+    return this.action;
+  }
+
+  @JsonIgnore
+  public Action getActionAsEnum() {
+    return Action.valueOf(this.action);
+  }
+
+  @JsonIgnore
+  public void setAction(final String action) {
+    this.action = action;
+  }
+
+  @JsonIgnore
+  public void setActionFromEnum(final Action action) {
+    this.action = action.toString();
+  }
+
+  @JsonIgnore
+  public String getSubscribedBy() {
+    return this.subscribedBy;
+  }
+
+  @JsonIgnore
+  public SubscribedBy getSubscribedByAsEnum() {
+    return SubscribedBy.valueOf(this.subscribedBy);
+  }
+
+  @JsonIgnore
+  public void setSubscribedBy(final String subscribedBy) {
+    this.subscribedBy = subscribedBy;
+  }
+
+  @JsonIgnore
+  public void setSubscribedByFromEnum(final SubscribedBy subscribedBy) {
+    this.subscribedBy = subscribedBy.toString();
+  }
+
+  @JsonIgnore
+  public SubscriptionActivityInfo createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<SubscriptionActivityInfo> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<SubscriptionActivityInfo>>() {});
+  }
+
+  public enum Action {
+    CANCEL("CANCEL"),
+    CHANGEBILLINGACCOUNT("CHANGE_BILLING_ACCOUNT"),
+    GRANTDAYS("GRANT_DAYS"),
+    IMMEDIATECANCEL("IMMEDIATE_CANCEL"),
+    RESUBSCRIBE("RESUBSCRIBE"),
+    SUBSCRIBE("SUBSCRIBE");
+
+    private String value;
+
+    Action(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public enum SubscribedBy {
+    PLATFORM("PLATFORM"),
+    USER("USER");
+
+    private String value;
+
+    SubscribedBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class SubscriptionActivityInfoBuilder {
     private String action;
-
-    @JsonProperty("chargedCycles")
-    private Integer chargedCycles;
-
-    @JsonProperty("createdAt")
-    private String createdAt;
-
-    @JsonProperty("currentCycle")
-    private Integer currentCycle;
-
-    @JsonProperty("grantDays")
-    private Integer grantDays;
-
-    @JsonProperty("inFixedCycleTrial")
-    private Boolean inFixedCycleTrial;
-
-    @JsonProperty("inFixedFreeDays")
-    private Boolean inFixedFreeDays;
-
-    @JsonProperty("namespace")
-    private String namespace;
-
-    @JsonProperty("operator")
-    private String operator;
-
-    @JsonProperty("reason")
-    private String reason;
-
-    @JsonProperty("subscribedBy")
     private String subscribedBy;
 
-    @JsonProperty("subscriptionId")
-    private String subscriptionId;
-
-    @JsonProperty("trialedCycles")
-    private Integer trialedCycles;
-
-    @JsonProperty("updatedAt")
-    private String updatedAt;
-
-    @JsonProperty("userId")
-    private String userId;
-
-
-    
-    @JsonIgnore
-    public String getAction() {
-        return this.action;
-    }
-    
-    @JsonIgnore
-    public Action getActionAsEnum() {
-        return Action.valueOf(this.action);
-    }
-    
-    @JsonIgnore
-    public void setAction(final String action) {
-        this.action = action;
-    }
-    
-    @JsonIgnore
-    public void setActionFromEnum(final Action action) {
-        this.action = action.toString();
-    }
-    
-    @JsonIgnore
-    public String getSubscribedBy() {
-        return this.subscribedBy;
-    }
-    
-    @JsonIgnore
-    public SubscribedBy getSubscribedByAsEnum() {
-        return SubscribedBy.valueOf(this.subscribedBy);
-    }
-    
-    @JsonIgnore
-    public void setSubscribedBy(final String subscribedBy) {
-        this.subscribedBy = subscribedBy;
-    }
-    
-    @JsonIgnore
-    public void setSubscribedByFromEnum(final SubscribedBy subscribedBy) {
-        this.subscribedBy = subscribedBy.toString();
+    public SubscriptionActivityInfoBuilder action(final String action) {
+      this.action = action;
+      return this;
     }
 
-    @JsonIgnore
-    public SubscriptionActivityInfo createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public SubscriptionActivityInfoBuilder actionFromEnum(final Action action) {
+      this.action = action.toString();
+      return this;
     }
 
-    @JsonIgnore
-    public List<SubscriptionActivityInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<SubscriptionActivityInfo>>() {});
+    public SubscriptionActivityInfoBuilder subscribedBy(final String subscribedBy) {
+      this.subscribedBy = subscribedBy;
+      return this;
     }
 
-    
-    public enum Action {
-        CANCEL("CANCEL"),
-        CHANGEBILLINGACCOUNT("CHANGE_BILLING_ACCOUNT"),
-        GRANTDAYS("GRANT_DAYS"),
-        IMMEDIATECANCEL("IMMEDIATE_CANCEL"),
-        RESUBSCRIBE("RESUBSCRIBE"),
-        SUBSCRIBE("SUBSCRIBE");
-
-        private String value;
-
-        Action(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
+    public SubscriptionActivityInfoBuilder subscribedByFromEnum(final SubscribedBy subscribedBy) {
+      this.subscribedBy = subscribedBy.toString();
+      return this;
     }
-    
-    public enum SubscribedBy {
-        PLATFORM("PLATFORM"),
-        USER("USER");
-
-        private String value;
-
-        SubscribedBy(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class SubscriptionActivityInfoBuilder {
-        private String action;
-        private String subscribedBy;
-        
-        
-        public SubscriptionActivityInfoBuilder action(final String action) {
-            this.action = action;
-            return this;
-        }
-        
-        public SubscriptionActivityInfoBuilder actionFromEnum(final Action action) {
-            this.action = action.toString();
-            return this;
-        }
-        
-        public SubscriptionActivityInfoBuilder subscribedBy(final String subscribedBy) {
-            this.subscribedBy = subscribedBy;
-            return this;
-        }
-        
-        public SubscriptionActivityInfoBuilder subscribedByFromEnum(final SubscribedBy subscribedBy) {
-            this.subscribedBy = subscribedBy.toString();
-            return this;
-        }
-    }
+  }
 }

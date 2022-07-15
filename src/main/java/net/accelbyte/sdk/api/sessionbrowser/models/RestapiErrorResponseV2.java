@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,32 +27,29 @@ import java.util.Map;
 @NoArgsConstructor
 public class RestapiErrorResponseV2 extends Model {
 
-    @JsonProperty("attributes")
-    private Map<String, String> attributes;
+  @JsonProperty("attributes")
+  private Map<String, String> attributes;
 
-    @JsonProperty("errorCode")
-    private Integer errorCode;
+  @JsonProperty("errorCode")
+  private Integer errorCode;
 
-    @JsonProperty("errorMessage")
-    private String errorMessage;
+  @JsonProperty("errorMessage")
+  private String errorMessage;
 
-    @JsonProperty("message")
-    private String message;
+  @JsonProperty("message")
+  private String message;
 
-    @JsonProperty("name")
-    private String name;
+  @JsonProperty("name")
+  private String name;
 
+  @JsonIgnore
+  public RestapiErrorResponseV2 createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public RestapiErrorResponseV2 createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<RestapiErrorResponseV2> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<RestapiErrorResponseV2>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<RestapiErrorResponseV2> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<RestapiErrorResponseV2>>() {});
+  }
 }

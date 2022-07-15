@@ -12,82 +12,68 @@ import net.accelbyte.sdk.api.eventlog.models.*;
 import net.accelbyte.sdk.api.eventlog.operations.user_information.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
 
 public class UserInformation {
 
-    private AccelByteSDK sdk;
+  private AccelByteSDK sdk;
 
-    public UserInformation(AccelByteSDK sdk){
-        this.sdk = sdk;
+  public UserInformation(AccelByteSDK sdk) {
+    this.sdk = sdk;
+  }
+
+  /**
+   * @see GetUserActivitiesHandler
+   * @deprecated
+   */
+  @Deprecated
+  public ModelsEventResponse getUserActivitiesHandler(GetUserActivitiesHandler input)
+      throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
+  }
 
-    /**
-     * @see GetUserActivitiesHandler
-     * @deprecated
-     */
-    @Deprecated
-    public ModelsEventResponse getUserActivitiesHandler(GetUserActivitiesHandler input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          return input
-              .parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
+  /**
+   * @see DeleteUserActivitiesHandler
+   * @deprecated
+   */
+  @Deprecated
+  public void deleteUserActivitiesHandler(DeleteUserActivitiesHandler input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
+  }
 
-    /**
-     * @see DeleteUserActivitiesHandler
-     * @deprecated
-     */
-    @Deprecated
-    public void deleteUserActivitiesHandler(DeleteUserActivitiesHandler input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          input
-              .handleEmptyResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
+  /**
+   * @see LastUserActivityTimeHandler
+   * @deprecated
+   */
+  @Deprecated
+  public ModelsUserLastActivity lastUserActivityTimeHandler(LastUserActivityTimeHandler input)
+      throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
-
-    /**
-     * @see LastUserActivityTimeHandler
-     * @deprecated
-     */
-    @Deprecated
-    public ModelsUserLastActivity lastUserActivityTimeHandler(LastUserActivityTimeHandler input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          return input
-              .parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
-    }
-
+  }
 }

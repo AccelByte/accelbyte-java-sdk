@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,38 +26,34 @@ import java.util.Map;
 @NoArgsConstructor
 public class SteamSyncRequest extends Model {
 
-    @JsonProperty("appId")
-    private String appId;
+  @JsonProperty("appId")
+  private String appId;
 
-    @JsonProperty("currencyCode")
-    private String currencyCode;
+  @JsonProperty("currencyCode")
+  private String currencyCode;
 
-    @JsonProperty("language")
-    private String language;
+  @JsonProperty("language")
+  private String language;
 
-    @JsonProperty("price")
-    private Float price;
+  @JsonProperty("price")
+  private Float price;
 
-    @JsonProperty("productId")
-    private String productId;
+  @JsonProperty("productId")
+  private String productId;
 
-    @JsonProperty("region")
-    private String region;
+  @JsonProperty("region")
+  private String region;
 
-    @JsonProperty("steamId")
-    private String steamId;
+  @JsonProperty("steamId")
+  private String steamId;
 
+  @JsonIgnore
+  public SteamSyncRequest createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public SteamSyncRequest createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<SteamSyncRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<SteamSyncRequest>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<SteamSyncRequest> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<SteamSyncRequest>>() {});
+  }
 }

@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,32 +26,30 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelTopicByNamespacesResponse extends Model {
 
-    @JsonProperty("first")
-    private String first;
+  @JsonProperty("first")
+  private String first;
 
-    @JsonProperty("last")
-    private String last;
+  @JsonProperty("last")
+  private String last;
 
-    @JsonProperty("next")
-    private String next;
+  @JsonProperty("next")
+  private String next;
 
-    @JsonProperty("previous")
-    private String previous;
+  @JsonProperty("previous")
+  private String previous;
 
-    @JsonProperty("topics")
-    private List<ModelNotificationTopicResponse> topics;
+  @JsonProperty("topics")
+  private List<ModelNotificationTopicResponse> topics;
 
+  @JsonIgnore
+  public ModelTopicByNamespacesResponse createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelTopicByNamespacesResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelTopicByNamespacesResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelTopicByNamespacesResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelTopicByNamespacesResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelTopicByNamespacesResponse>>() {});
+  }
 }

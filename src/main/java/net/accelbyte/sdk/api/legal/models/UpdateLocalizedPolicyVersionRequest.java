@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,32 +26,31 @@ import java.util.Map;
 @NoArgsConstructor
 public class UpdateLocalizedPolicyVersionRequest extends Model {
 
-    @JsonProperty("attachmentChecksum")
-    private String attachmentChecksum;
+  @JsonProperty("attachmentChecksum")
+  private String attachmentChecksum;
 
-    @JsonProperty("attachmentLocation")
-    private String attachmentLocation;
+  @JsonProperty("attachmentLocation")
+  private String attachmentLocation;
 
-    @JsonProperty("attachmentVersionIdentifier")
-    private String attachmentVersionIdentifier;
+  @JsonProperty("attachmentVersionIdentifier")
+  private String attachmentVersionIdentifier;
 
-    @JsonProperty("contentType")
-    private String contentType;
+  @JsonProperty("contentType")
+  private String contentType;
 
-    @JsonProperty("description")
-    private String description;
+  @JsonProperty("description")
+  private String description;
 
+  @JsonIgnore
+  public UpdateLocalizedPolicyVersionRequest createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public UpdateLocalizedPolicyVersionRequest createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<UpdateLocalizedPolicyVersionRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<UpdateLocalizedPolicyVersionRequest>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<UpdateLocalizedPolicyVersionRequest> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<UpdateLocalizedPolicyVersionRequest>>() {});
+  }
 }

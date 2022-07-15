@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,41 +26,39 @@ import java.util.Map;
 @NoArgsConstructor
 public class AccountCreateUserResponseV4 extends Model {
 
-    @JsonProperty("authType")
-    private String authType;
+  @JsonProperty("authType")
+  private String authType;
 
-    @JsonProperty("country")
-    private String country;
+  @JsonProperty("country")
+  private String country;
 
-    @JsonProperty("dateOfBirth")
-    private String dateOfBirth;
+  @JsonProperty("dateOfBirth")
+  private String dateOfBirth;
 
-    @JsonProperty("displayName")
-    private String displayName;
+  @JsonProperty("displayName")
+  private String displayName;
 
-    @JsonProperty("emailAddress")
-    private String emailAddress;
+  @JsonProperty("emailAddress")
+  private String emailAddress;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("userId")
-    private String userId;
+  @JsonProperty("userId")
+  private String userId;
 
-    @JsonProperty("username")
-    private String username;
+  @JsonProperty("username")
+  private String username;
 
+  @JsonIgnore
+  public AccountCreateUserResponseV4 createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public AccountCreateUserResponseV4 createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<AccountCreateUserResponseV4> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<AccountCreateUserResponseV4>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<AccountCreateUserResponseV4> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<AccountCreateUserResponseV4>>() {});
+  }
 }

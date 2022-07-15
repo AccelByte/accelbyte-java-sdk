@@ -8,108 +8,93 @@
 
 package net.accelbyte.sdk.api.platform.operations.order_dedicated;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.models.OrderSyncResult;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.platform.models.*;
+import net.accelbyte.sdk.api.platform.models.OrderSyncResult;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * syncOrders
  *
- * Sync orders. If response contains nextEvaluatedKey, please use it as query param in the next call to fetch the next batch, a batch has 1000 elements or less.
- * Other detail info:
- * 
- *   * Required permission : resource="ADMIN:ORDER", action=2 (READ)
- *   *  Returns : sync orders
+ * <p>Sync orders. If response contains nextEvaluatedKey, please use it as query param in the next
+ * call to fetch the next batch, a batch has 1000 elements or less. Other detail info:
+ *
+ * <p>* Required permission : resource="ADMIN:ORDER", action=2 (READ) * Returns : sync orders
  */
 @Getter
 @Setter
 public class SyncOrders extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/platform/admin/orders";
-    private String method = "GET";
-    private List<String> consumes = Arrays.asList();
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String nextEvaluatedKey;
-    private String end;
-    private String start;
+  /** generated field's value */
+  private String path = "/platform/admin/orders";
 
-    /**
-    * @param end required
-    * @param start required
-    */
-    @Builder
-    public SyncOrders(
-            String nextEvaluatedKey,
-            String end,
-            String start
-    )
-    {
-        this.nextEvaluatedKey = nextEvaluatedKey;
-        this.end = end;
-        this.start = start;
-        
-        securities.add("Bearer");
+  private String method = "GET";
+  private List<String> consumes = Arrays.asList();
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String nextEvaluatedKey;
+
+  private String end;
+  private String start;
+
+  /**
+   * @param end required
+   * @param start required
+   */
+  @Builder
+  public SyncOrders(String nextEvaluatedKey, String end, String start) {
+    this.nextEvaluatedKey = nextEvaluatedKey;
+    this.end = end;
+    this.start = start;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "nextEvaluatedKey",
+        this.nextEvaluatedKey == null ? null : Arrays.asList(this.nextEvaluatedKey));
+    queryParams.put("end", this.end == null ? null : Arrays.asList(this.end));
+    queryParams.put("start", this.start == null ? null : Arrays.asList(this.start));
+    return queryParams;
+  }
+
+  @Override
+  public boolean isValid() {
+    if (this.end == null) {
+      return false;
     }
-
-
-    @Override
-    public Map<String, List<String>> getQueryParams(){
-        Map<String, List<String>> queryParams = new HashMap<>();
-        queryParams.put("nextEvaluatedKey", this.nextEvaluatedKey == null ? null : Arrays.asList(this.nextEvaluatedKey));
-        queryParams.put("end", this.end == null ? null : Arrays.asList(this.end));
-        queryParams.put("start", this.start == null ? null : Arrays.asList(this.start));
-        return queryParams;
+    if (this.start == null) {
+      return false;
     }
+    return true;
+  }
 
-
-
-
-    @Override
-    public boolean isValid() {
-        if(this.end == null) {
-            return false;
-        }
-        if(this.start == null) {
-            return false;
-        }
-        return true;
+  public OrderSyncResult parseResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 200) {
+      return new OrderSyncResult().createFromJson(json);
     }
+    throw new HttpResponseException(code, json);
+  }
 
-    public OrderSyncResult parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 200){
-            return new OrderSyncResult().createFromJson(json);
-        }
-        throw new HttpResponseException(code, json);
-    }
-
-    @Override
-    protected Map<String, String> getCollectionFormatMap() {
-        Map<String, String> result = new HashMap<>();
-        result.put("nextEvaluatedKey", "None");
-        result.put("end", "None");
-        result.put("start", "None");
-        return result;
-    }
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("nextEvaluatedKey", "None");
+    result.put("end", "None");
+    result.put("start", "None");
+    return result;
+  }
 }

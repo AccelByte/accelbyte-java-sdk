@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,71 +26,67 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsConfigReq extends Model {
 
-    @JsonProperty("allowInviteNonConnectedUser")
-    private Boolean allowInviteNonConnectedUser;
+  @JsonProperty("allowInviteNonConnectedUser")
+  private Boolean allowInviteNonConnectedUser;
 
-    @JsonProperty("allowJoinPartyDuringMatchmaking")
-    private Boolean allowJoinPartyDuringMatchmaking;
+  @JsonProperty("allowJoinPartyDuringMatchmaking")
+  private Boolean allowJoinPartyDuringMatchmaking;
 
-    @JsonProperty("autoKickOnDisconnect")
-    private Boolean autoKickOnDisconnect;
+  @JsonProperty("autoKickOnDisconnect")
+  private Boolean autoKickOnDisconnect;
 
-    @JsonProperty("autoKickOnDisconnectDelay")
-    private Integer autoKickOnDisconnectDelay;
+  @JsonProperty("autoKickOnDisconnectDelay")
+  private Integer autoKickOnDisconnectDelay;
 
-    @JsonProperty("cancelTicketOnDisconnect")
-    private Boolean cancelTicketOnDisconnect;
+  @JsonProperty("cancelTicketOnDisconnect")
+  private Boolean cancelTicketOnDisconnect;
 
-    @JsonProperty("chatRateLimitBurst")
-    private Integer chatRateLimitBurst;
+  @JsonProperty("chatRateLimitBurst")
+  private Integer chatRateLimitBurst;
 
-    @JsonProperty("chatRateLimitDuration")
-    private Integer chatRateLimitDuration;
+  @JsonProperty("chatRateLimitDuration")
+  private Integer chatRateLimitDuration;
 
-    @JsonProperty("concurrentUsersLimit")
-    private Integer concurrentUsersLimit;
+  @JsonProperty("concurrentUsersLimit")
+  private Integer concurrentUsersLimit;
 
-    @JsonProperty("disableInvitationOnJoinParty")
-    private Boolean disableInvitationOnJoinParty;
+  @JsonProperty("disableInvitationOnJoinParty")
+  private Boolean disableInvitationOnJoinParty;
 
-    @JsonProperty("enableChat")
-    private Boolean enableChat;
+  @JsonProperty("enableChat")
+  private Boolean enableChat;
 
-    @JsonProperty("entitlementCheck")
-    private Boolean entitlementCheck;
+  @JsonProperty("entitlementCheck")
+  private Boolean entitlementCheck;
 
-    @JsonProperty("entitlementItemID")
-    private String entitlementItemID;
+  @JsonProperty("entitlementItemID")
+  private String entitlementItemID;
 
-    @JsonProperty("generalRateLimitBurst")
-    private Integer generalRateLimitBurst;
+  @JsonProperty("generalRateLimitBurst")
+  private Integer generalRateLimitBurst;
 
-    @JsonProperty("generalRateLimitDuration")
-    private Integer generalRateLimitDuration;
+  @JsonProperty("generalRateLimitDuration")
+  private Integer generalRateLimitDuration;
 
-    @JsonProperty("keepPresenceActivityOnDisconnect")
-    private Boolean keepPresenceActivityOnDisconnect;
+  @JsonProperty("keepPresenceActivityOnDisconnect")
+  private Boolean keepPresenceActivityOnDisconnect;
 
-    @JsonProperty("maxPartyMember")
-    private Integer maxPartyMember;
+  @JsonProperty("maxPartyMember")
+  private Integer maxPartyMember;
 
-    @JsonProperty("profanityFilter")
-    private Boolean profanityFilter;
+  @JsonProperty("profanityFilter")
+  private Boolean profanityFilter;
 
-    @JsonProperty("readyConsentTimeout")
-    private Integer readyConsentTimeout;
+  @JsonProperty("readyConsentTimeout")
+  private Integer readyConsentTimeout;
 
+  @JsonIgnore
+  public ModelsConfigReq createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsConfigReq createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsConfigReq> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsConfigReq>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsConfigReq> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsConfigReq>>() {});
+  }
 }

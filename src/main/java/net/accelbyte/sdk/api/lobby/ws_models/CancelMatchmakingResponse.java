@@ -8,75 +8,57 @@
 
 package net.accelbyte.sdk.api.lobby.ws_models;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import static net.accelbyte.sdk.core.util.Helper.*;
+
+import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.*;
-
-import static net.accelbyte.sdk.core.util.Helper.*;
-
 @Getter
 @Setter
 public class CancelMatchmakingResponse {
-    private Integer code;
-    private String id;
+  private Integer code;
+  private String id;
 
-    private CancelMatchmakingResponse() {
+  private CancelMatchmakingResponse() {}
 
+  @Builder
+  public CancelMatchmakingResponse(Integer code, String id) {
+    this.code = code;
+    this.id = id;
+  }
+
+  public static String getType() {
+    return "cancelMatchmakingResponse";
+  }
+
+  public static CancelMatchmakingResponse createFromWSM(String message) {
+    CancelMatchmakingResponse result = new CancelMatchmakingResponse();
+    Map<String, String> response = parseWSM(message);
+    result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
+    result.id = response.get("id") != null ? response.get("id") : null;
+    return result;
+  }
+
+  public String toWSM() {
+    StringBuilder stringBuilder = new StringBuilder();
+    stringBuilder.append("type: ").append(CancelMatchmakingResponse.getType());
+    if (code != null) {
+      stringBuilder.append("\n").append("code: ").append(code);
     }
-
-    @Builder
-    public CancelMatchmakingResponse (
-        Integer code,
-        String id
-    ) {
-        this.code = code;
-        this.id = id;
+    if (id != null) {
+      stringBuilder.append("\n").append("id: ").append(id);
+    } else {
+      stringBuilder.append("\n").append("id: ").append(generateUUID());
     }
+    return stringBuilder.toString();
+  }
 
-    public static String getType(){
-        return "cancelMatchmakingResponse";
-    }
-
-    public static CancelMatchmakingResponse createFromWSM(String message) {
-        CancelMatchmakingResponse result = new CancelMatchmakingResponse();
-        Map<String, String> response = parseWSM(message);
-        result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
-        result.id = response.get("id") != null ? response.get("id") : null;
-        return result;
-    }
-
-    public String toWSM() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("type: ").append(CancelMatchmakingResponse.getType());
-        if (code != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("code: ")
-                    .append(code);
-        }
-        if (id != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("id: ")
-                    .append(id);
-        } else {
-            stringBuilder
-                    .append("\n")
-                    .append("id: ")
-                    .append(generateUUID());
-        }
-        return stringBuilder.toString();
-    }
-
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("code","code");
-        result.put("id","id");
-        return result;
-    }
+  public static Map<String, String> getFieldInfo() {
+    Map<String, String> result = new HashMap<>();
+    result.put("code", "code");
+    result.put("id", "id");
+    return result;
+  }
 }

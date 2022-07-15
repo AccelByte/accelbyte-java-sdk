@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,35 +26,33 @@ import java.util.Map;
 @NoArgsConstructor
 public class LogAppMessageDeclaration extends Model {
 
-    @JsonProperty("Attributes")
-    private List<String> attributes;
+  @JsonProperty("Attributes")
+  private List<String> attributes;
 
-    @JsonProperty("Code")
-    private String code;
+  @JsonProperty("Code")
+  private String code;
 
-    @JsonProperty("CodeName")
-    private String codeName;
+  @JsonProperty("CodeName")
+  private String codeName;
 
-    @JsonProperty("Section")
-    private String section;
+  @JsonProperty("Section")
+  private String section;
 
-    @JsonProperty("Service")
-    private String service;
+  @JsonProperty("Service")
+  private String service;
 
-    @JsonProperty("Text")
-    private String text;
+  @JsonProperty("Text")
+  private String text;
 
+  @JsonIgnore
+  public LogAppMessageDeclaration createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public LogAppMessageDeclaration createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<LogAppMessageDeclaration> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<LogAppMessageDeclaration>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<LogAppMessageDeclaration> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<LogAppMessageDeclaration>>() {});
+  }
 }

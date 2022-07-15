@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,41 +27,39 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsPlayerRecordResponse extends Model {
 
-    @JsonProperty("created_at")
-    private String createdAt;
+  @JsonProperty("created_at")
+  private String createdAt;
 
-    @JsonProperty("is_public")
-    private Boolean isPublic;
+  @JsonProperty("is_public")
+  private Boolean isPublic;
 
-    @JsonProperty("key")
-    private String key;
+  @JsonProperty("key")
+  private String key;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("set_by")
-    private String setBy;
+  @JsonProperty("set_by")
+  private String setBy;
 
-    @JsonProperty("updated_at")
-    private String updatedAt;
+  @JsonProperty("updated_at")
+  private String updatedAt;
 
-    @JsonProperty("user_id")
-    private String userId;
+  @JsonProperty("user_id")
+  private String userId;
 
-    @JsonProperty("value")
-    private Map<String, ?> value;
+  @JsonProperty("value")
+  private Map<String, ?> value;
 
+  @JsonIgnore
+  public ModelsPlayerRecordResponse createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsPlayerRecordResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsPlayerRecordResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPlayerRecordResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsPlayerRecordResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsPlayerRecordResponse>>() {});
+  }
 }

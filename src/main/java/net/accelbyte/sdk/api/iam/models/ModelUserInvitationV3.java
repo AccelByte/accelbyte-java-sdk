@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,29 +26,26 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelUserInvitationV3 extends Model {
 
-    @JsonProperty("email")
-    private String email;
+  @JsonProperty("email")
+  private String email;
 
-    @JsonProperty("expiredAt")
-    private String expiredAt;
+  @JsonProperty("expiredAt")
+  private String expiredAt;
 
-    @JsonProperty("id")
-    private String id;
+  @JsonProperty("id")
+  private String id;
 
-    @JsonProperty("roles")
-    private List<AccountcommonNamespaceRole> roles;
+  @JsonProperty("roles")
+  private List<AccountcommonNamespaceRole> roles;
 
+  @JsonIgnore
+  public ModelUserInvitationV3 createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelUserInvitationV3 createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelUserInvitationV3> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserInvitationV3>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelUserInvitationV3> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserInvitationV3>>() {});
+  }
 }

@@ -8,122 +8,107 @@
 
 package net.accelbyte.sdk.api.ugc.operations.public_content;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.ugc.models.*;
-import net.accelbyte.sdk.api.ugc.models.ModelsCreateScreenshotResponse;
-import net.accelbyte.sdk.api.ugc.models.ModelsCreateScreenshotRequest;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.ugc.models.*;
+import net.accelbyte.sdk.api.ugc.models.ModelsCreateScreenshotRequest;
+import net.accelbyte.sdk.api.ugc.models.ModelsCreateScreenshotResponse;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * UploadContentScreenshot
  *
- * Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [CREATE].
- * 
- * All request body are required except for contentType field.
- * contentType values is used to enforce the Content-Type header needed by the client to upload the content using the presigned URL.
- * If not specified, it will use fileExtension value.
- * Supported file extensions: pjp, jpg, jpeg, jfif, bmp, png.
- * 
- * Maximum description length: 1024.
+ * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [CREATE].
+ *
+ * <p>All request body are required except for contentType field. contentType values is used to
+ * enforce the Content-Type header needed by the client to upload the content using the presigned
+ * URL. If not specified, it will use fileExtension value. Supported file extensions: pjp, jpg,
+ * jpeg, jfif, bmp, png.
+ *
+ * <p>Maximum description length: 1024.
  */
 @Getter
 @Setter
 public class UploadContentScreenshot extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/ugc/v1/public/namespaces/{namespace}/users/{userId}/contents/{contentId}/screenshots";
-    private String method = "POST";
-    private List<String> consumes = Arrays.asList("application/json","application/octet-stream");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String contentId;
-    private String namespace;
-    private String userId;
-    private ModelsCreateScreenshotRequest body;
+  /** generated field's value */
+  private String path =
+      "/ugc/v1/public/namespaces/{namespace}/users/{userId}/contents/{contentId}/screenshots";
 
-    /**
-    * @param contentId required
-    * @param namespace required
-    * @param userId required
-    * @param body required
-    */
-    @Builder
-    public UploadContentScreenshot(
-            String contentId,
-            String namespace,
-            String userId,
-            ModelsCreateScreenshotRequest body
-    )
-    {
-        this.contentId = contentId;
-        this.namespace = namespace;
-        this.userId = userId;
-        this.body = body;
-        
-        securities.add("Bearer");
+  private String method = "POST";
+  private List<String> consumes = Arrays.asList("application/json", "application/octet-stream");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String contentId;
+
+  private String namespace;
+  private String userId;
+  private ModelsCreateScreenshotRequest body;
+
+  /**
+   * @param contentId required
+   * @param namespace required
+   * @param userId required
+   * @param body required
+   */
+  @Builder
+  public UploadContentScreenshot(
+      String contentId, String namespace, String userId, ModelsCreateScreenshotRequest body) {
+    this.contentId = contentId;
+    this.namespace = namespace;
+    this.userId = userId;
+    this.body = body;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.contentId != null) {
+      pathParams.put("contentId", this.contentId);
     }
-
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.contentId != null){
-            pathParams.put("contentId", this.contentId);
-        }
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        if (this.userId != null){
-            pathParams.put("userId", this.userId);
-        }
-        return pathParams;
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
-
-
-
-    @Override
-    public ModelsCreateScreenshotRequest getBodyParams(){
-        return this.body;
+    if (this.userId != null) {
+      pathParams.put("userId", this.userId);
     }
+    return pathParams;
+  }
 
+  @Override
+  public ModelsCreateScreenshotRequest getBodyParams() {
+    return this.body;
+  }
 
-    @Override
-    public boolean isValid() {
-        if(this.contentId == null) {
-            return false;
-        }
-        if(this.namespace == null) {
-            return false;
-        }
-        if(this.userId == null) {
-            return false;
-        }
-        return true;
+  @Override
+  public boolean isValid() {
+    if (this.contentId == null) {
+      return false;
     }
-
-    public ModelsCreateScreenshotResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 201){
-            return new ModelsCreateScreenshotResponse().createFromJson(json);
-        }
-        throw new HttpResponseException(code, json);
+    if (this.namespace == null) {
+      return false;
     }
+    if (this.userId == null) {
+      return false;
+    }
+    return true;
+  }
 
+  public ModelsCreateScreenshotResponse parseResponse(
+      int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 201) {
+      return new ModelsCreateScreenshotResponse().createFromJson(json);
+    }
+    throw new HttpResponseException(code, json);
+  }
 }

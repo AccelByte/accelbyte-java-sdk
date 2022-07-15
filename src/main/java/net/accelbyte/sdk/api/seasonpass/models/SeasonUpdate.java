@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,50 +27,46 @@ import java.util.Map;
 @NoArgsConstructor
 public class SeasonUpdate extends Model {
 
-    @JsonProperty("autoClaim")
-    private Boolean autoClaim;
+  @JsonProperty("autoClaim")
+  private Boolean autoClaim;
 
-    @JsonProperty("defaultLanguage")
-    private String defaultLanguage;
+  @JsonProperty("defaultLanguage")
+  private String defaultLanguage;
 
-    @JsonProperty("defaultRequiredExp")
-    private Integer defaultRequiredExp;
+  @JsonProperty("defaultRequiredExp")
+  private Integer defaultRequiredExp;
 
-    @JsonProperty("draftStoreId")
-    private String draftStoreId;
+  @JsonProperty("draftStoreId")
+  private String draftStoreId;
 
-    @JsonProperty("end")
-    private String end;
+  @JsonProperty("end")
+  private String end;
 
-    @JsonProperty("excessStrategy")
-    private ExcessStrategy excessStrategy;
+  @JsonProperty("excessStrategy")
+  private ExcessStrategy excessStrategy;
 
-    @JsonProperty("images")
-    private List<Image> images;
+  @JsonProperty("images")
+  private List<Image> images;
 
-    @JsonProperty("localizations")
-    private Map<String, Localization> localizations;
+  @JsonProperty("localizations")
+  private Map<String, Localization> localizations;
 
-    @JsonProperty("name")
-    private String name;
+  @JsonProperty("name")
+  private String name;
 
-    @JsonProperty("start")
-    private String start;
+  @JsonProperty("start")
+  private String start;
 
-    @JsonProperty("tierItemId")
-    private String tierItemId;
+  @JsonProperty("tierItemId")
+  private String tierItemId;
 
+  @JsonIgnore
+  public SeasonUpdate createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public SeasonUpdate createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<SeasonUpdate> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<SeasonUpdate>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<SeasonUpdate> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<SeasonUpdate>>() {});
+  }
 }

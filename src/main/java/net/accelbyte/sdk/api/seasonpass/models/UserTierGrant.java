@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,76 +26,72 @@ import java.util.Map;
 @NoArgsConstructor
 public class UserTierGrant extends Model {
 
-    @JsonProperty("count")
-    private Integer count;
+  @JsonProperty("count")
+  private Integer count;
 
-    @JsonProperty("source")
+  @JsonProperty("source")
+  private String source;
+
+  @JsonProperty("tags")
+  private List<String> tags;
+
+  @JsonIgnore
+  public String getSource() {
+    return this.source;
+  }
+
+  @JsonIgnore
+  public Source getSourceAsEnum() {
+    return Source.valueOf(this.source);
+  }
+
+  @JsonIgnore
+  public void setSource(final String source) {
+    this.source = source;
+  }
+
+  @JsonIgnore
+  public void setSourceFromEnum(final Source source) {
+    this.source = source.toString();
+  }
+
+  @JsonIgnore
+  public UserTierGrant createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<UserTierGrant> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<UserTierGrant>>() {});
+  }
+
+  public enum Source {
+    PAIDFOR("PAID_FOR"),
+    SWEAT("SWEAT");
+
+    private String value;
+
+    Source(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class UserTierGrantBuilder {
     private String source;
 
-    @JsonProperty("tags")
-    private List<String> tags;
-
-
-    
-    @JsonIgnore
-    public String getSource() {
-        return this.source;
-    }
-    
-    @JsonIgnore
-    public Source getSourceAsEnum() {
-        return Source.valueOf(this.source);
-    }
-    
-    @JsonIgnore
-    public void setSource(final String source) {
-        this.source = source;
-    }
-    
-    @JsonIgnore
-    public void setSourceFromEnum(final Source source) {
-        this.source = source.toString();
+    public UserTierGrantBuilder source(final String source) {
+      this.source = source;
+      return this;
     }
 
-    @JsonIgnore
-    public UserTierGrant createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public UserTierGrantBuilder sourceFromEnum(final Source source) {
+      this.source = source.toString();
+      return this;
     }
-
-    @JsonIgnore
-    public List<UserTierGrant> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<UserTierGrant>>() {});
-    }
-
-    
-    public enum Source {
-        PAIDFOR("PAID_FOR"),
-        SWEAT("SWEAT");
-
-        private String value;
-
-        Source(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class UserTierGrantBuilder {
-        private String source;
-        
-        
-        public UserTierGrantBuilder source(final String source) {
-            this.source = source;
-            return this;
-        }
-        
-        public UserTierGrantBuilder sourceFromEnum(final Source source) {
-            this.source = source.toString();
-            return this;
-        }
-    }
+  }
 }

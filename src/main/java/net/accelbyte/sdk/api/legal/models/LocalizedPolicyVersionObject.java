@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,53 +26,51 @@ import java.util.Map;
 @NoArgsConstructor
 public class LocalizedPolicyVersionObject extends Model {
 
-    @JsonProperty("attachmentChecksum")
-    private String attachmentChecksum;
+  @JsonProperty("attachmentChecksum")
+  private String attachmentChecksum;
 
-    @JsonProperty("attachmentLocation")
-    private String attachmentLocation;
+  @JsonProperty("attachmentLocation")
+  private String attachmentLocation;
 
-    @JsonProperty("attachmentVersionIdentifier")
-    private String attachmentVersionIdentifier;
+  @JsonProperty("attachmentVersionIdentifier")
+  private String attachmentVersionIdentifier;
 
-    @JsonProperty("contentType")
-    private String contentType;
+  @JsonProperty("contentType")
+  private String contentType;
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+  @JsonProperty("createdAt")
+  private String createdAt;
 
-    @JsonProperty("description")
-    private String description;
+  @JsonProperty("description")
+  private String description;
 
-    @JsonProperty("id")
-    private String id;
+  @JsonProperty("id")
+  private String id;
 
-    @JsonProperty("isDefaultSelection")
-    private Boolean isDefaultSelection;
+  @JsonProperty("isDefaultSelection")
+  private Boolean isDefaultSelection;
 
-    @JsonProperty("localeCode")
-    private String localeCode;
+  @JsonProperty("localeCode")
+  private String localeCode;
 
-    @JsonProperty("publishedDate")
-    private String publishedDate;
+  @JsonProperty("publishedDate")
+  private String publishedDate;
 
-    @JsonProperty("status")
-    private String status;
+  @JsonProperty("status")
+  private String status;
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
+  @JsonProperty("updatedAt")
+  private String updatedAt;
 
+  @JsonIgnore
+  public LocalizedPolicyVersionObject createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public LocalizedPolicyVersionObject createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<LocalizedPolicyVersionObject> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<LocalizedPolicyVersionObject>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<LocalizedPolicyVersionObject> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<LocalizedPolicyVersionObject>>() {});
+  }
 }

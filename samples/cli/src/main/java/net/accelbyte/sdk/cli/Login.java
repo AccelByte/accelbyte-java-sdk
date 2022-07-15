@@ -18,33 +18,37 @@ import picocli.CommandLine.Option;
 
 @Command(name = "login", mixinStandardHelpOptions = true)
 public class Login implements Runnable {
-    private static final Logger log = LogManager.getLogger(Login.class);
+  private static final Logger log = LogManager.getLogger(Login.class);
 
-    @Option(names = {"-u", "--username"}, description = "username")
-    String username;
+  @Option(
+      names = {"-u", "--username"},
+      description = "username")
+  String username;
 
-    @Option(names = {"-p", "--password"}, description = "password")
-    String password;
+  @Option(
+      names = {"-p", "--password"},
+      description = "password")
+  String password;
 
-    @Option(names = {"--logging"}, description = "logger")
-    boolean logging;
+  @Option(
+      names = {"--logging"},
+      description = "logger")
+  boolean logging;
 
-    @Override
-    public void run() {
-        OkhttpClient httpClient = new OkhttpClient();
-        if (logging) {
-            httpClient.setLogger(new OkhttpLogger());
-        }
-        AccelByteSDK sdk = new AccelByteSDK(
-                httpClient,
-                CLITokenRepositoryImpl.getInstance(),
-                new DefaultConfigRepository()
-        );
-        boolean login = sdk.loginUser(username, password);
-        if (login) {
-            log.info("login success");
-        } else {
-            log.fatal("login failed");
-        }
+  @Override
+  public void run() {
+    OkhttpClient httpClient = new OkhttpClient();
+    if (logging) {
+      httpClient.setLogger(new OkhttpLogger());
     }
+    AccelByteSDK sdk =
+        new AccelByteSDK(
+            httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
+    boolean login = sdk.loginUser(username, password);
+    if (login) {
+      log.info("login success");
+    } else {
+      log.fatal("login failed");
+    }
+  }
 }

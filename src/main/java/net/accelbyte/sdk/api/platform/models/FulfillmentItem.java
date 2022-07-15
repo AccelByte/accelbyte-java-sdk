@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,94 +26,90 @@ import java.util.Map;
 @NoArgsConstructor
 public class FulfillmentItem extends Model {
 
-    @JsonProperty("extraSubscriptionDays")
-    private Integer extraSubscriptionDays;
+  @JsonProperty("extraSubscriptionDays")
+  private Integer extraSubscriptionDays;
 
-    @JsonProperty("itemId")
-    private String itemId;
+  @JsonProperty("itemId")
+  private String itemId;
 
-    @JsonProperty("itemName")
-    private String itemName;
+  @JsonProperty("itemName")
+  private String itemName;
 
-    @JsonProperty("itemSku")
-    private String itemSku;
+  @JsonProperty("itemSku")
+  private String itemSku;
 
-    @JsonProperty("itemType")
+  @JsonProperty("itemType")
+  private String itemType;
+
+  @JsonProperty("quantity")
+  private Integer quantity;
+
+  @JsonProperty("storeId")
+  private String storeId;
+
+  @JsonIgnore
+  public String getItemType() {
+    return this.itemType;
+  }
+
+  @JsonIgnore
+  public ItemType getItemTypeAsEnum() {
+    return ItemType.valueOf(this.itemType);
+  }
+
+  @JsonIgnore
+  public void setItemType(final String itemType) {
+    this.itemType = itemType;
+  }
+
+  @JsonIgnore
+  public void setItemTypeFromEnum(final ItemType itemType) {
+    this.itemType = itemType.toString();
+  }
+
+  @JsonIgnore
+  public FulfillmentItem createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<FulfillmentItem> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<FulfillmentItem>>() {});
+  }
+
+  public enum ItemType {
+    APP("APP"),
+    BUNDLE("BUNDLE"),
+    CODE("CODE"),
+    COINS("COINS"),
+    INGAMEITEM("INGAMEITEM"),
+    MEDIA("MEDIA"),
+    SEASON("SEASON"),
+    SUBSCRIPTION("SUBSCRIPTION");
+
+    private String value;
+
+    ItemType(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class FulfillmentItemBuilder {
     private String itemType;
 
-    @JsonProperty("quantity")
-    private Integer quantity;
-
-    @JsonProperty("storeId")
-    private String storeId;
-
-
-    
-    @JsonIgnore
-    public String getItemType() {
-        return this.itemType;
-    }
-    
-    @JsonIgnore
-    public ItemType getItemTypeAsEnum() {
-        return ItemType.valueOf(this.itemType);
-    }
-    
-    @JsonIgnore
-    public void setItemType(final String itemType) {
-        this.itemType = itemType;
-    }
-    
-    @JsonIgnore
-    public void setItemTypeFromEnum(final ItemType itemType) {
-        this.itemType = itemType.toString();
+    public FulfillmentItemBuilder itemType(final String itemType) {
+      this.itemType = itemType;
+      return this;
     }
 
-    @JsonIgnore
-    public FulfillmentItem createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public FulfillmentItemBuilder itemTypeFromEnum(final ItemType itemType) {
+      this.itemType = itemType.toString();
+      return this;
     }
-
-    @JsonIgnore
-    public List<FulfillmentItem> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<FulfillmentItem>>() {});
-    }
-
-    
-    public enum ItemType {
-        APP("APP"),
-        BUNDLE("BUNDLE"),
-        CODE("CODE"),
-        COINS("COINS"),
-        INGAMEITEM("INGAMEITEM"),
-        MEDIA("MEDIA"),
-        SEASON("SEASON"),
-        SUBSCRIPTION("SUBSCRIPTION");
-
-        private String value;
-
-        ItemType(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class FulfillmentItemBuilder {
-        private String itemType;
-        
-        
-        public FulfillmentItemBuilder itemType(final String itemType) {
-            this.itemType = itemType;
-            return this;
-        }
-        
-        public FulfillmentItemBuilder itemTypeFromEnum(final ItemType itemType) {
-            this.itemType = itemType.toString();
-            return this;
-        }
-    }
+  }
 }

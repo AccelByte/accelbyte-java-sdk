@@ -8,108 +8,92 @@
 
 package net.accelbyte.sdk.api.platform.operations.campaign;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.models.CodeCreateResult;
-import net.accelbyte.sdk.api.platform.models.CodeCreate;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.platform.models.*;
+import net.accelbyte.sdk.api.platform.models.CodeCreate;
+import net.accelbyte.sdk.api.platform.models.CodeCreateResult;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * createCodes
  *
- * This API is used to create campaign codes, it will increase the batch No. based on last creation.
- * Other detail info:
- * 
- *   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=1 (CREATE)
- *   *  Returns : number of codes created
+ * <p>This API is used to create campaign codes, it will increase the batch No. based on last
+ * creation. Other detail info:
+ *
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=1 (CREATE) *
+ * Returns : number of codes created
  */
 @Getter
 @Setter
 public class CreateCodes extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/platform/admin/namespaces/{namespace}/codes/campaigns/{campaignId}";
-    private String method = "POST";
-    private List<String> consumes = Arrays.asList("application/json");
-    private List<String> produces = Arrays.asList();
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String campaignId;
-    private String namespace;
-    private CodeCreate body;
+  /** generated field's value */
+  private String path = "/platform/admin/namespaces/{namespace}/codes/campaigns/{campaignId}";
 
-    /**
-    * @param campaignId required
-    * @param namespace required
-    */
-    @Builder
-    public CreateCodes(
-            String campaignId,
-            String namespace,
-            CodeCreate body
-    )
-    {
-        this.campaignId = campaignId;
-        this.namespace = namespace;
-        this.body = body;
-        
-        securities.add("Bearer");
+  private String method = "POST";
+  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> produces = Arrays.asList();
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String campaignId;
+
+  private String namespace;
+  private CodeCreate body;
+
+  /**
+   * @param campaignId required
+   * @param namespace required
+   */
+  @Builder
+  public CreateCodes(String campaignId, String namespace, CodeCreate body) {
+    this.campaignId = campaignId;
+    this.namespace = namespace;
+    this.body = body;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.campaignId != null) {
+      pathParams.put("campaignId", this.campaignId);
     }
-
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.campaignId != null){
-            pathParams.put("campaignId", this.campaignId);
-        }
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        return pathParams;
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
+    return pathParams;
+  }
 
+  @Override
+  public CodeCreate getBodyParams() {
+    return this.body;
+  }
 
-
-    @Override
-    public CodeCreate getBodyParams(){
-        return this.body;
+  @Override
+  public boolean isValid() {
+    if (this.campaignId == null) {
+      return false;
     }
-
-
-    @Override
-    public boolean isValid() {
-        if(this.campaignId == null) {
-            return false;
-        }
-        if(this.namespace == null) {
-            return false;
-        }
-        return true;
+    if (this.namespace == null) {
+      return false;
     }
+    return true;
+  }
 
-    public CodeCreateResult parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 201){
-            return new CodeCreateResult().createFromJson(json);
-        }
-        throw new HttpResponseException(code, json);
+  public CodeCreateResult parseResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 201) {
+      return new CodeCreateResult().createFromJson(json);
     }
-
+    throw new HttpResponseException(code, json);
+  }
 }

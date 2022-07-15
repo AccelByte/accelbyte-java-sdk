@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,84 +26,80 @@ import java.util.Map;
 @NoArgsConstructor
 public class EntitlementUpdate extends Model {
 
-    @JsonProperty("endDate")
-    private String endDate;
+  @JsonProperty("endDate")
+  private String endDate;
 
-    @JsonProperty("nullFieldList")
-    private List<String> nullFieldList;
+  @JsonProperty("nullFieldList")
+  private List<String> nullFieldList;
 
-    @JsonProperty("startDate")
-    private String startDate;
+  @JsonProperty("startDate")
+  private String startDate;
 
-    @JsonProperty("status")
+  @JsonProperty("status")
+  private String status;
+
+  @JsonProperty("useCount")
+  private Integer useCount;
+
+  @JsonIgnore
+  public String getStatus() {
+    return this.status;
+  }
+
+  @JsonIgnore
+  public Status getStatusAsEnum() {
+    return Status.valueOf(this.status);
+  }
+
+  @JsonIgnore
+  public void setStatus(final String status) {
+    this.status = status;
+  }
+
+  @JsonIgnore
+  public void setStatusFromEnum(final Status status) {
+    this.status = status.toString();
+  }
+
+  @JsonIgnore
+  public EntitlementUpdate createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<EntitlementUpdate> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<EntitlementUpdate>>() {});
+  }
+
+  public enum Status {
+    ACTIVE("ACTIVE"),
+    CONSUMED("CONSUMED"),
+    INACTIVE("INACTIVE"),
+    REVOKED("REVOKED");
+
+    private String value;
+
+    Status(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class EntitlementUpdateBuilder {
     private String status;
 
-    @JsonProperty("useCount")
-    private Integer useCount;
-
-
-    
-    @JsonIgnore
-    public String getStatus() {
-        return this.status;
-    }
-    
-    @JsonIgnore
-    public Status getStatusAsEnum() {
-        return Status.valueOf(this.status);
-    }
-    
-    @JsonIgnore
-    public void setStatus(final String status) {
-        this.status = status;
-    }
-    
-    @JsonIgnore
-    public void setStatusFromEnum(final Status status) {
-        this.status = status.toString();
+    public EntitlementUpdateBuilder status(final String status) {
+      this.status = status;
+      return this;
     }
 
-    @JsonIgnore
-    public EntitlementUpdate createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public EntitlementUpdateBuilder statusFromEnum(final Status status) {
+      this.status = status.toString();
+      return this;
     }
-
-    @JsonIgnore
-    public List<EntitlementUpdate> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<EntitlementUpdate>>() {});
-    }
-
-    
-    public enum Status {
-        ACTIVE("ACTIVE"),
-        CONSUMED("CONSUMED"),
-        INACTIVE("INACTIVE"),
-        REVOKED("REVOKED");
-
-        private String value;
-
-        Status(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class EntitlementUpdateBuilder {
-        private String status;
-        
-        
-        public EntitlementUpdateBuilder status(final String status) {
-            this.status = status;
-            return this;
-        }
-        
-        public EntitlementUpdateBuilder statusFromEnum(final Status status) {
-            this.status = status.toString();
-            return this;
-        }
-    }
+  }
 }

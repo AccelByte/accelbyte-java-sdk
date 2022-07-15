@@ -19,27 +19,27 @@ import picocli.CommandLine.Option;
 @Command(name = "loginClient", mixinStandardHelpOptions = true)
 public class LoginClient implements Runnable {
 
-    private static final Logger log = LogManager.getLogger(LoginClient.class);
+  private static final Logger log = LogManager.getLogger(LoginClient.class);
 
-    @Option(names = {"--logging"}, description = "logger")
-    boolean logging;
+  @Option(
+      names = {"--logging"},
+      description = "logger")
+  boolean logging;
 
-    @Override
-    public void run() {
-        OkhttpClient httpClient = new OkhttpClient();
-        if (logging) {
-            httpClient.setLogger(new OkhttpLogger());
-        }
-        AccelByteSDK sdk = new AccelByteSDK(
-                httpClient,
-                CLITokenRepositoryImpl.getInstance(),
-                new DefaultConfigRepository()
-        );
-        boolean login = sdk.loginClient();
-        if (login) {
-            log.info("login success");
-        } else {
-            log.fatal("login failed");
-        }
+  @Override
+  public void run() {
+    OkhttpClient httpClient = new OkhttpClient();
+    if (logging) {
+      httpClient.setLogger(new OkhttpLogger());
     }
+    AccelByteSDK sdk =
+        new AccelByteSDK(
+            httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
+    boolean login = sdk.loginClient();
+    if (login) {
+      log.info("login success");
+    } else {
+      log.fatal("login failed");
+    }
+  }
 }

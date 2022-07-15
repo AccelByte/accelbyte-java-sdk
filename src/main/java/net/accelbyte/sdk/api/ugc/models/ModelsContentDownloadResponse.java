@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,83 +26,81 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsContentDownloadResponse extends Model {
 
-    @JsonProperty("channelId")
-    private String channelId;
+  @JsonProperty("channelId")
+  private String channelId;
 
-    @JsonProperty("createdTime")
-    private String createdTime;
+  @JsonProperty("createdTime")
+  private String createdTime;
 
-    @JsonProperty("creatorFollowState")
-    private ModelsCreatorFollowState creatorFollowState;
+  @JsonProperty("creatorFollowState")
+  private ModelsCreatorFollowState creatorFollowState;
 
-    @JsonProperty("creatorName")
-    private String creatorName;
+  @JsonProperty("creatorName")
+  private String creatorName;
 
-    @JsonProperty("downloadCount")
-    private Integer downloadCount;
+  @JsonProperty("downloadCount")
+  private Integer downloadCount;
 
-    @JsonProperty("fileExtension")
-    private String fileExtension;
+  @JsonProperty("fileExtension")
+  private String fileExtension;
 
-    @JsonProperty("groups")
-    private List<String> groups;
+  @JsonProperty("groups")
+  private List<String> groups;
 
-    @JsonProperty("id")
-    private String id;
+  @JsonProperty("id")
+  private String id;
 
-    @JsonProperty("isHidden")
-    private Boolean isHidden;
+  @JsonProperty("isHidden")
+  private Boolean isHidden;
 
-    @JsonProperty("isOfficial")
-    private Boolean isOfficial;
+  @JsonProperty("isOfficial")
+  private Boolean isOfficial;
 
-    @JsonProperty("likeCount")
-    private Integer likeCount;
+  @JsonProperty("likeCount")
+  private Integer likeCount;
 
-    @JsonProperty("likeState")
-    private ModelsLikeState likeState;
+  @JsonProperty("likeState")
+  private ModelsLikeState likeState;
 
-    @JsonProperty("name")
-    private String name;
+  @JsonProperty("name")
+  private String name;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("payload")
-    private String payload;
+  @JsonProperty("payload")
+  private String payload;
 
-    @JsonProperty("payloadURL")
-    private List<ModelsPayloadURL> payloadURL;
+  @JsonProperty("payloadURL")
+  private List<ModelsPayloadURL> payloadURL;
 
-    @JsonProperty("screenshots")
-    private List<ModelsScreenshotResponse> screenshots;
+  @JsonProperty("screenshots")
+  private List<ModelsScreenshotResponse> screenshots;
 
-    @JsonProperty("shareCode")
-    private String shareCode;
+  @JsonProperty("shareCode")
+  private String shareCode;
 
-    @JsonProperty("subType")
-    private String subType;
+  @JsonProperty("subType")
+  private String subType;
 
-    @JsonProperty("tags")
-    private List<String> tags;
+  @JsonProperty("tags")
+  private List<String> tags;
 
-    @JsonProperty("type")
-    private String type;
+  @JsonProperty("type")
+  private String type;
 
-    @JsonProperty("userId")
-    private String userId;
+  @JsonProperty("userId")
+  private String userId;
 
+  @JsonIgnore
+  public ModelsContentDownloadResponse createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsContentDownloadResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsContentDownloadResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsContentDownloadResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsContentDownloadResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsContentDownloadResponse>>() {});
+  }
 }

@@ -8,48 +8,32 @@
 
 package net.accelbyte.sdk.api.iam.operations.o_auth;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.iam.models.*;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * RevokeAUser
  *
- * 
- * 
- * ## The endpoint is going to be deprecated at 21 August, 2018. Please use this instead: oauth/namespaces/{namespace}/users/{userId}/revoke
- * 
- * 
- * 
- * 
- * This endpoint revokes a user.
- * 
- * 
- * 
- * 
- * This endpoint requires all requests to have Authorization header set with Bearer access authentication with valid access token.
- * 
- * 
- * 
- * 
- * Required permission 'NAMESPACE:{namespace}:USER:{userID}:ADMIN [UPDATE]'
- * 
- * 
- * 
- * 
- * When other clients know that the userID has been revoked and the token is issued before the revocation, forcing a new token will contain banned permissions.
+ * <p>## The endpoint is going to be deprecated at 21 August, 2018. Please use this instead:
+ * oauth/namespaces/{namespace}/users/{userId}/revoke
+ *
+ * <p>This endpoint revokes a user.
+ *
+ * <p>This endpoint requires all requests to have Authorization header set with Bearer access
+ * authentication with valid access token.
+ *
+ * <p>Required permission 'NAMESPACE:{namespace}:USER:{userID}:ADMIN [UPDATE]'
+ *
+ * <p>When other clients know that the userID has been revoked and the token is issued before the
+ * revocation, forcing a new token will contain banned permissions.
  *
  * @deprecated
  */
@@ -57,60 +41,49 @@ import java.util.*;
 @Getter
 @Setter
 public class RevokeAUser extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/iam/oauth/revoke/user";
-    private String method = "POST";
-    private List<String> consumes = Arrays.asList("application/x-www-form-urlencoded");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String userID;
+  /** generated field's value */
+  private String path = "/iam/oauth/revoke/user";
 
-    /**
-    * @param userID required
-    */
-    @Builder
-    public RevokeAUser(
-            String userID
-    )
-    {
-        this.userID = userID;
-        
-        securities.add("Bearer");
+  private String method = "POST";
+  private List<String> consumes = Arrays.asList("application/x-www-form-urlencoded");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String userID;
+
+  /**
+   * @param userID required
+   */
+  @Builder
+  public RevokeAUser(String userID) {
+    this.userID = userID;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, Object> getFormParams() {
+    Map<String, Object> formDataParams = new HashMap<>();
+    if (this.userID != null) {
+      formDataParams.put("userID", this.userID);
     }
+    return formDataParams;
+  }
 
-
-
-
-
-    @Override
-    public Map<String, Object> getFormParams(){
-        Map<String, Object> formDataParams = new HashMap<>();
-        if (this.userID != null) {
-            formDataParams.put("userID", this.userID);
-        }
-        return formDataParams;
+  @Override
+  public boolean isValid() {
+    if (this.userID == null) {
+      return false;
     }
+    return true;
+  }
 
-    @Override
-    public boolean isValid() {
-        if(this.userID == null) {
-            return false;
-        }
-        return true;
+  public void handleEmptyResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    if (code != 200) {
+      String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
     }
-
-    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        if(code != 200){
-            String json = Helper.convertInputStreamToString(payload);
-            throw new HttpResponseException(code, json);
-        }
-    }
-
+  }
 }

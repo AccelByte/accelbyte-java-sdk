@@ -8,8 +8,8 @@
 
 package net.accelbyte.sdk.cli.api.iam.o_auth;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.*;
+import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
@@ -18,82 +18,92 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.logging.OkhttpLogger;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
-import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.*;
-import java.util.concurrent.Callable;
-
 @Command(name = "authorization", mixinStandardHelpOptions = true)
 public class Authorization implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(Authorization.class);
+  private static final Logger log = LogManager.getLogger(Authorization.class);
 
-    @Option(names = {"--login"}, description = "login")
-    String login;
+  @Option(
+      names = {"--login"},
+      description = "login")
+  String login;
 
-    @Option(names = {"--password"}, description = "password")
-    String password;
+  @Option(
+      names = {"--password"},
+      description = "password")
+  String password;
 
-    @Option(names = {"--scope"}, description = "scope")
-    String scope;
+  @Option(
+      names = {"--scope"},
+      description = "scope")
+  String scope;
 
-    @Option(names = {"--state"}, description = "state")
-    String state;
+  @Option(
+      names = {"--state"},
+      description = "state")
+  String state;
 
-    @Option(names = {"--clientId"}, description = "clientId")
-    String clientId;
+  @Option(
+      names = {"--clientId"},
+      description = "clientId")
+  String clientId;
 
-    @Option(names = {"--redirectUri"}, description = "redirectUri")
-    String redirectUri;
+  @Option(
+      names = {"--redirectUri"},
+      description = "redirectUri")
+  String redirectUri;
 
-    @Option(names = {"--responseType"}, description = "responseType")
-    String responseType;
+  @Option(
+      names = {"--responseType"},
+      description = "responseType")
+  String responseType;
 
+  @Option(
+      names = {"--logging"},
+      description = "logger")
+  boolean logging;
 
-    @Option(names = {"--logging"}, description = "logger")
-    boolean logging;
+  public static void main(String[] args) {
+    int exitCode = new CommandLine(new Authorization()).execute(args);
+    System.exit(exitCode);
+  }
 
-    public static void main(String[] args) {
-        int exitCode = new CommandLine(new Authorization()).execute(args);
-        System.exit(exitCode);
+  @Override
+  public Integer call() {
+    try {
+      OkhttpClient httpClient = new OkhttpClient();
+      if (logging) {
+        httpClient.setLogger(new OkhttpLogger());
+      }
+      AccelByteSDK sdk =
+          new AccelByteSDK(
+              httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
+      OAuth wrapper = new OAuth(sdk);
+      net.accelbyte.sdk.api.iam.operations.o_auth.Authorization operation =
+          net.accelbyte.sdk.api.iam.operations.o_auth.Authorization.builder()
+              .login(login != null ? login : null)
+              .password(password != null ? password : null)
+              .scope(scope != null ? scope : null)
+              .state(state != null ? state : null)
+              .clientId(clientId != null ? clientId : null)
+              .redirectUri(redirectUri != null ? redirectUri : null)
+              .responseType(responseType != null ? responseType : null)
+              .build();
+      wrapper.authorization(operation);
+      log.info("Operation successful");
+      return 0;
+    } catch (HttpResponseException e) {
+      log.error("HttpResponseException occur with message below:\n{}", e.getMessage());
+      System.err.print(e.getHttpCode());
+    } catch (Exception e) {
+      log.error("Exception occur with message below:\n{}", e.getMessage());
     }
-
-    @Override
-    public Integer call() {
-        try {
-            OkhttpClient httpClient = new OkhttpClient();
-            if (logging) {
-                httpClient.setLogger(new OkhttpLogger());
-            }
-            AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            OAuth wrapper = new OAuth(sdk);
-            net.accelbyte.sdk.api.iam.operations.o_auth.Authorization operation =
-                    net.accelbyte.sdk.api.iam.operations.o_auth.Authorization.builder()
-                            .login(login != null ? login : null)
-                            .password(password != null ? password : null)
-                            .scope(scope != null ? scope : null)
-                            .state(state != null ? state : null)
-                            .clientId(clientId != null ? clientId : null)
-                            .redirectUri(redirectUri != null ? redirectUri : null)
-                            .responseType(responseType != null ? responseType : null)
-                            .build();
-                    wrapper.authorization(operation);
-            log.info("Operation successful");
-            return 0;
-        } catch (HttpResponseException e) {
-            log.error("HttpResponseException occur with message below:\n{}", e.getMessage());
-            System.err.print(e.getHttpCode());
-        } catch (Exception e) {
-            log.error("Exception occur with message below:\n{}", e.getMessage());
-        }
-        return 1;
-    }
+    return 1;
+  }
 }

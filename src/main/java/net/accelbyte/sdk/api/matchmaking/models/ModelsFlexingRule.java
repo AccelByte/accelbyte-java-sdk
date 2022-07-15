@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,29 +26,25 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsFlexingRule extends Model {
 
-    @JsonProperty("attribute")
-    private String attribute;
+  @JsonProperty("attribute")
+  private String attribute;
 
-    @JsonProperty("criteria")
-    private String criteria;
+  @JsonProperty("criteria")
+  private String criteria;
 
-    @JsonProperty("duration")
-    private Integer duration;
+  @JsonProperty("duration")
+  private Integer duration;
 
-    @JsonProperty("reference")
-    private Float reference;
+  @JsonProperty("reference")
+  private Float reference;
 
+  @JsonIgnore
+  public ModelsFlexingRule createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsFlexingRule createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsFlexingRule> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsFlexingRule>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsFlexingRule> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsFlexingRule>>() {});
+  }
 }

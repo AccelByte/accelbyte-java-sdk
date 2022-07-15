@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,74 +26,72 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelPublicUserResponse extends Model {
 
-    @JsonProperty("AuthType")
-    private String authType;
+  @JsonProperty("AuthType")
+  private String authType;
 
-    @JsonProperty("Bans")
-    private List<ModelUserActiveBanResponse> bans;
+  @JsonProperty("Bans")
+  private List<ModelUserActiveBanResponse> bans;
 
-    @JsonProperty("CreatedAt")
-    private String createdAt;
+  @JsonProperty("CreatedAt")
+  private String createdAt;
 
-    @JsonProperty("DeletionStatus")
-    private Boolean deletionStatus;
+  @JsonProperty("DeletionStatus")
+  private Boolean deletionStatus;
 
-    @JsonProperty("DisplayName")
-    private String displayName;
+  @JsonProperty("DisplayName")
+  private String displayName;
 
-    @JsonProperty("EmailVerified")
-    private Boolean emailVerified;
+  @JsonProperty("EmailVerified")
+  private Boolean emailVerified;
 
-    @JsonProperty("Enabled")
-    private Boolean enabled;
+  @JsonProperty("Enabled")
+  private Boolean enabled;
 
-    @JsonProperty("LastEnabledChangedTime")
-    private String lastEnabledChangedTime;
+  @JsonProperty("LastEnabledChangedTime")
+  private String lastEnabledChangedTime;
 
-    @JsonProperty("LoginId")
-    private String loginId;
+  @JsonProperty("LoginId")
+  private String loginId;
 
-    @JsonProperty("Namespace")
-    private String namespace;
+  @JsonProperty("Namespace")
+  private String namespace;
 
-    @JsonProperty("NamespaceRoles")
-    private List<AccountcommonNamespaceRole> namespaceRoles;
+  @JsonProperty("NamespaceRoles")
+  private List<AccountcommonNamespaceRole> namespaceRoles;
 
-    @JsonProperty("Permissions")
-    private List<AccountcommonPermission> permissions;
+  @JsonProperty("Permissions")
+  private List<AccountcommonPermission> permissions;
 
-    @JsonProperty("PhoneVerified")
-    private Boolean phoneVerified;
+  @JsonProperty("PhoneVerified")
+  private Boolean phoneVerified;
 
-    @JsonProperty("PlatformId")
-    private String platformId;
+  @JsonProperty("PlatformId")
+  private String platformId;
 
-    @JsonProperty("PlatformUserId")
-    private String platformUserId;
+  @JsonProperty("PlatformUserId")
+  private String platformUserId;
 
-    @JsonProperty("Roles")
-    private List<String> roles;
+  @JsonProperty("Roles")
+  private List<String> roles;
 
-    @JsonProperty("UserId")
-    private String userId;
+  @JsonProperty("UserId")
+  private String userId;
 
-    @JsonProperty("Username")
-    private String username;
+  @JsonProperty("Username")
+  private String username;
 
-    @JsonProperty("XUID")
-    private String xuid;
+  @JsonProperty("XUID")
+  private String xuid;
 
+  @JsonIgnore
+  public ModelPublicUserResponse createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelPublicUserResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelPublicUserResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelPublicUserResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelPublicUserResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelPublicUserResponse>>() {});
+  }
 }

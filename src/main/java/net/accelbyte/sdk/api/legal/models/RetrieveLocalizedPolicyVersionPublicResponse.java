@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,62 +26,62 @@ import java.util.Map;
 @NoArgsConstructor
 public class RetrieveLocalizedPolicyVersionPublicResponse extends Model {
 
-    @JsonProperty("attachmentChecksum")
-    private String attachmentChecksum;
+  @JsonProperty("attachmentChecksum")
+  private String attachmentChecksum;
 
-    @JsonProperty("attachmentLocation")
-    private String attachmentLocation;
+  @JsonProperty("attachmentLocation")
+  private String attachmentLocation;
 
-    @JsonProperty("attachmentVersionIdentifier")
-    private String attachmentVersionIdentifier;
+  @JsonProperty("attachmentVersionIdentifier")
+  private String attachmentVersionIdentifier;
 
-    @JsonProperty("basePolicyId")
-    private String basePolicyId;
+  @JsonProperty("basePolicyId")
+  private String basePolicyId;
 
-    @JsonProperty("baseUrls")
-    private List<String> baseUrls;
+  @JsonProperty("baseUrls")
+  private List<String> baseUrls;
 
-    @JsonProperty("contentType")
-    private String contentType;
+  @JsonProperty("contentType")
+  private String contentType;
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+  @JsonProperty("createdAt")
+  private String createdAt;
 
-    @JsonProperty("description")
-    private String description;
+  @JsonProperty("description")
+  private String description;
 
-    @JsonProperty("id")
-    private String id;
+  @JsonProperty("id")
+  private String id;
 
-    @JsonProperty("localeCode")
-    private String localeCode;
+  @JsonProperty("localeCode")
+  private String localeCode;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("policy")
-    private PolicyObject policy;
+  @JsonProperty("policy")
+  private PolicyObject policy;
 
-    @JsonProperty("policyVersion")
-    private PolicyVersionObject policyVersion;
+  @JsonProperty("policyVersion")
+  private PolicyVersionObject policyVersion;
 
-    @JsonProperty("tags")
-    private List<String> tags;
+  @JsonProperty("tags")
+  private List<String> tags;
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
+  @JsonProperty("updatedAt")
+  private String updatedAt;
 
+  @JsonIgnore
+  public RetrieveLocalizedPolicyVersionPublicResponse createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public RetrieveLocalizedPolicyVersionPublicResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<RetrieveLocalizedPolicyVersionPublicResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<RetrieveLocalizedPolicyVersionPublicResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<RetrieveLocalizedPolicyVersionPublicResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(
+            json, new TypeReference<List<RetrieveLocalizedPolicyVersionPublicResponse>>() {});
+  }
 }

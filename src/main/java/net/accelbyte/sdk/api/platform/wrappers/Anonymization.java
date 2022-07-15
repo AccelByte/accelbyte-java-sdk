@@ -12,171 +12,140 @@ import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.anonymization.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
 
 public class Anonymization {
 
-    private AccelByteSDK sdk;
+  private AccelByteSDK sdk;
 
-    public Anonymization(AccelByteSDK sdk){
-        this.sdk = sdk;
+  public Anonymization(AccelByteSDK sdk) {
+    this.sdk = sdk;
+  }
+
+  /**
+   * @see AnonymizeCampaign
+   */
+  public void anonymizeCampaign(AnonymizeCampaign input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
+  }
 
-    /**
-     * @see AnonymizeCampaign
-     */
-    public void anonymizeCampaign(AnonymizeCampaign input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          input
-              .handleEmptyResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
+  /**
+   * @see AnonymizeEntitlement
+   */
+  public void anonymizeEntitlement(AnonymizeEntitlement input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
+  }
 
-    /**
-     * @see AnonymizeEntitlement
-     */
-    public void anonymizeEntitlement(AnonymizeEntitlement input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          input
-              .handleEmptyResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
+  /**
+   * @see AnonymizeFulfillment
+   */
+  public void anonymizeFulfillment(AnonymizeFulfillment input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
+  }
 
-    /**
-     * @see AnonymizeFulfillment
-     */
-    public void anonymizeFulfillment(AnonymizeFulfillment input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          input
-              .handleEmptyResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
+  /**
+   * @see AnonymizeIntegration
+   */
+  public void anonymizeIntegration(AnonymizeIntegration input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
+  }
 
-    /**
-     * @see AnonymizeIntegration
-     */
-    public void anonymizeIntegration(AnonymizeIntegration input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          input
-              .handleEmptyResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
+  /**
+   * @see AnonymizeOrder
+   */
+  public void anonymizeOrder(AnonymizeOrder input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
+  }
 
-    /**
-     * @see AnonymizeOrder
-     */
-    public void anonymizeOrder(AnonymizeOrder input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          input
-              .handleEmptyResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
+  /**
+   * @see AnonymizePayment
+   */
+  public void anonymizePayment(AnonymizePayment input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
+  }
 
-    /**
-     * @see AnonymizePayment
-     */
-    public void anonymizePayment(AnonymizePayment input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          input
-              .handleEmptyResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
+  /**
+   * @see AnonymizeSubscription
+   */
+  public void anonymizeSubscription(AnonymizeSubscription input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
+  }
 
-    /**
-     * @see AnonymizeSubscription
-     */
-    public void anonymizeSubscription(AnonymizeSubscription input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          input
-              .handleEmptyResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
+  /**
+   * @see AnonymizeWallet
+   */
+  public void anonymizeWallet(AnonymizeWallet input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
-
-    /**
-     * @see AnonymizeWallet
-     */
-    public void anonymizeWallet(AnonymizeWallet input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          input
-              .handleEmptyResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
-    }
-
+  }
 }

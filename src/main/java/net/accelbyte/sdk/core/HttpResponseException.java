@@ -12,12 +12,12 @@ import lombok.Setter;
 @Getter
 @Setter
 public class HttpResponseException extends Exception {
-    private final int httpCode;
-    private final String errorMessage;
+  private final int httpCode;
+  private final String errorMessage;
 
-    public HttpResponseException(int httpStatusCode, String errorMessage) {
-        super(errorMessage);
-        this.httpCode = httpStatusCode;
-        this.errorMessage = errorMessage;
-    }
+  public HttpResponseException(int httpStatusCode, String errorMessage) {
+    super(errorMessage);
+    this.httpCode = httpStatusCode;
+    this.errorMessage = errorMessage;
+  }
 }

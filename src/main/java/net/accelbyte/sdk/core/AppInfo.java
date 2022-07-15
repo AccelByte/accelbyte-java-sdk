@@ -13,15 +13,14 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AppInfo {
-    private String appName = "AccelByteJavaApp";
-    private String appVersion = "0.0.0";
+  private String appName = "AccelByteJavaApp";
+  private String appVersion = "0.0.0";
 
-    public AppInfo() {
-    }
+  public AppInfo() {}
 
-    @Builder
-    public AppInfo(String appName, String appVersion) {
-        this.appName = appName;
-        this.appVersion = appVersion;
-    }
+  @Builder
+  public AppInfo(String appName, String appVersion) {
+    this.appName = appName;
+    this.appVersion = appVersion;
+  }
 }

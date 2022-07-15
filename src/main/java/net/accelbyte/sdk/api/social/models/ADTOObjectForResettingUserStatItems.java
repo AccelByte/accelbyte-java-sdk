@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,23 +27,22 @@ import java.util.Map;
 @NoArgsConstructor
 public class ADTOObjectForResettingUserStatItems extends Model {
 
-    @JsonProperty("additionalData")
-    private Map<String, ?> additionalData;
+  @JsonProperty("additionalData")
+  private Map<String, ?> additionalData;
 
-    @JsonProperty("statCode")
-    private String statCode;
+  @JsonProperty("statCode")
+  private String statCode;
 
+  @JsonIgnore
+  public ADTOObjectForResettingUserStatItems createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ADTOObjectForResettingUserStatItems createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ADTOObjectForResettingUserStatItems> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ADTOObjectForResettingUserStatItems>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ADTOObjectForResettingUserStatItems> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ADTOObjectForResettingUserStatItems>>() {});
+  }
 }

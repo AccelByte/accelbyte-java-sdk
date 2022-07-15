@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,213 +26,209 @@ import java.util.Map;
 @NoArgsConstructor
 public class CampaignInfo extends Model {
 
-    @JsonProperty("boothName")
-    private String boothName;
+  @JsonProperty("boothName")
+  private String boothName;
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+  @JsonProperty("createdAt")
+  private String createdAt;
 
-    @JsonProperty("description")
-    private String description;
+  @JsonProperty("description")
+  private String description;
 
-    @JsonProperty("id")
-    private String id;
+  @JsonProperty("id")
+  private String id;
 
-    @JsonProperty("items")
-    private List<RedeemableItem> items;
+  @JsonProperty("items")
+  private List<RedeemableItem> items;
 
-    @JsonProperty("maxRedeemCountPerCampaignPerUser")
-    private Integer maxRedeemCountPerCampaignPerUser;
+  @JsonProperty("maxRedeemCountPerCampaignPerUser")
+  private Integer maxRedeemCountPerCampaignPerUser;
 
-    @JsonProperty("maxRedeemCountPerCode")
-    private Integer maxRedeemCountPerCode;
+  @JsonProperty("maxRedeemCountPerCode")
+  private Integer maxRedeemCountPerCode;
 
-    @JsonProperty("maxRedeemCountPerCodePerUser")
-    private Integer maxRedeemCountPerCodePerUser;
+  @JsonProperty("maxRedeemCountPerCodePerUser")
+  private Integer maxRedeemCountPerCodePerUser;
 
-    @JsonProperty("maxSaleCount")
-    private Integer maxSaleCount;
+  @JsonProperty("maxSaleCount")
+  private Integer maxSaleCount;
 
-    @JsonProperty("name")
-    private String name;
+  @JsonProperty("name")
+  private String name;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("redeemEnd")
-    private String redeemEnd;
+  @JsonProperty("redeemEnd")
+  private String redeemEnd;
 
-    @JsonProperty("redeemStart")
-    private String redeemStart;
+  @JsonProperty("redeemStart")
+  private String redeemStart;
 
-    @JsonProperty("redeemType")
+  @JsonProperty("redeemType")
+  private String redeemType;
+
+  @JsonProperty("status")
+  private String status;
+
+  @JsonProperty("tags")
+  private List<String> tags;
+
+  @JsonProperty("type")
+  private String type;
+
+  @JsonProperty("updatedAt")
+  private String updatedAt;
+
+  @JsonIgnore
+  public String getRedeemType() {
+    return this.redeemType;
+  }
+
+  @JsonIgnore
+  public RedeemType getRedeemTypeAsEnum() {
+    return RedeemType.valueOf(this.redeemType);
+  }
+
+  @JsonIgnore
+  public void setRedeemType(final String redeemType) {
+    this.redeemType = redeemType;
+  }
+
+  @JsonIgnore
+  public void setRedeemTypeFromEnum(final RedeemType redeemType) {
+    this.redeemType = redeemType.toString();
+  }
+
+  @JsonIgnore
+  public String getStatus() {
+    return this.status;
+  }
+
+  @JsonIgnore
+  public Status getStatusAsEnum() {
+    return Status.valueOf(this.status);
+  }
+
+  @JsonIgnore
+  public void setStatus(final String status) {
+    this.status = status;
+  }
+
+  @JsonIgnore
+  public void setStatusFromEnum(final Status status) {
+    this.status = status.toString();
+  }
+
+  @JsonIgnore
+  public String getType() {
+    return this.type;
+  }
+
+  @JsonIgnore
+  public Type getTypeAsEnum() {
+    return Type.valueOf(this.type);
+  }
+
+  @JsonIgnore
+  public void setType(final String type) {
+    this.type = type;
+  }
+
+  @JsonIgnore
+  public void setTypeFromEnum(final Type type) {
+    this.type = type.toString();
+  }
+
+  @JsonIgnore
+  public CampaignInfo createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<CampaignInfo> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<CampaignInfo>>() {});
+  }
+
+  public enum RedeemType {
+    ITEM("ITEM");
+
+    private String value;
+
+    RedeemType(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public enum Status {
+    ACTIVE("ACTIVE"),
+    INACTIVE("INACTIVE");
+
+    private String value;
+
+    Status(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public enum Type {
+    REDEMPTION("REDEMPTION");
+
+    private String value;
+
+    Type(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class CampaignInfoBuilder {
     private String redeemType;
-
-    @JsonProperty("status")
     private String status;
-
-    @JsonProperty("tags")
-    private List<String> tags;
-
-    @JsonProperty("type")
     private String type;
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
-
-
-    
-    @JsonIgnore
-    public String getRedeemType() {
-        return this.redeemType;
-    }
-    
-    @JsonIgnore
-    public RedeemType getRedeemTypeAsEnum() {
-        return RedeemType.valueOf(this.redeemType);
-    }
-    
-    @JsonIgnore
-    public void setRedeemType(final String redeemType) {
-        this.redeemType = redeemType;
-    }
-    
-    @JsonIgnore
-    public void setRedeemTypeFromEnum(final RedeemType redeemType) {
-        this.redeemType = redeemType.toString();
-    }
-    
-    @JsonIgnore
-    public String getStatus() {
-        return this.status;
-    }
-    
-    @JsonIgnore
-    public Status getStatusAsEnum() {
-        return Status.valueOf(this.status);
-    }
-    
-    @JsonIgnore
-    public void setStatus(final String status) {
-        this.status = status;
-    }
-    
-    @JsonIgnore
-    public void setStatusFromEnum(final Status status) {
-        this.status = status.toString();
-    }
-    
-    @JsonIgnore
-    public String getType() {
-        return this.type;
-    }
-    
-    @JsonIgnore
-    public Type getTypeAsEnum() {
-        return Type.valueOf(this.type);
-    }
-    
-    @JsonIgnore
-    public void setType(final String type) {
-        this.type = type;
-    }
-    
-    @JsonIgnore
-    public void setTypeFromEnum(final Type type) {
-        this.type = type.toString();
+    public CampaignInfoBuilder redeemType(final String redeemType) {
+      this.redeemType = redeemType;
+      return this;
     }
 
-    @JsonIgnore
-    public CampaignInfo createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public CampaignInfoBuilder redeemTypeFromEnum(final RedeemType redeemType) {
+      this.redeemType = redeemType.toString();
+      return this;
     }
 
-    @JsonIgnore
-    public List<CampaignInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<CampaignInfo>>() {});
+    public CampaignInfoBuilder status(final String status) {
+      this.status = status;
+      return this;
     }
 
-    
-    public enum RedeemType {
-        ITEM("ITEM");
-
-        private String value;
-
-        RedeemType(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
+    public CampaignInfoBuilder statusFromEnum(final Status status) {
+      this.status = status.toString();
+      return this;
     }
-    
-    public enum Status {
-        ACTIVE("ACTIVE"),
-        INACTIVE("INACTIVE");
 
-        private String value;
-
-        Status(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
+    public CampaignInfoBuilder type(final String type) {
+      this.type = type;
+      return this;
     }
-    
-    public enum Type {
-        REDEMPTION("REDEMPTION");
 
-        private String value;
-
-        Type(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
+    public CampaignInfoBuilder typeFromEnum(final Type type) {
+      this.type = type.toString();
+      return this;
     }
-    
-    public static class CampaignInfoBuilder {
-        private String redeemType;
-        private String status;
-        private String type;
-        
-        
-        public CampaignInfoBuilder redeemType(final String redeemType) {
-            this.redeemType = redeemType;
-            return this;
-        }
-        
-        public CampaignInfoBuilder redeemTypeFromEnum(final RedeemType redeemType) {
-            this.redeemType = redeemType.toString();
-            return this;
-        }
-        
-        public CampaignInfoBuilder status(final String status) {
-            this.status = status;
-            return this;
-        }
-        
-        public CampaignInfoBuilder statusFromEnum(final Status status) {
-            this.status = status.toString();
-            return this;
-        }
-        
-        public CampaignInfoBuilder type(final String type) {
-            this.type = type;
-            return this;
-        }
-        
-        public CampaignInfoBuilder typeFromEnum(final Type type) {
-            this.type = type.toString();
-            return this;
-        }
-    }
+  }
 }

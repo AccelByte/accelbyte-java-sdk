@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,76 +26,72 @@ import java.util.Map;
 @NoArgsConstructor
 public class ExcessStrategy extends Model {
 
-    @JsonProperty("currency")
-    private String currency;
+  @JsonProperty("currency")
+  private String currency;
 
-    @JsonProperty("method")
+  @JsonProperty("method")
+  private String method;
+
+  @JsonProperty("percentPerExp")
+  private Integer percentPerExp;
+
+  @JsonIgnore
+  public String getMethod() {
+    return this.method;
+  }
+
+  @JsonIgnore
+  public Method getMethodAsEnum() {
+    return Method.valueOf(this.method);
+  }
+
+  @JsonIgnore
+  public void setMethod(final String method) {
+    this.method = method;
+  }
+
+  @JsonIgnore
+  public void setMethodFromEnum(final Method method) {
+    this.method = method.toString();
+  }
+
+  @JsonIgnore
+  public ExcessStrategy createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<ExcessStrategy> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ExcessStrategy>>() {});
+  }
+
+  public enum Method {
+    CURRENCY("CURRENCY"),
+    NONE("NONE");
+
+    private String value;
+
+    Method(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ExcessStrategyBuilder {
     private String method;
 
-    @JsonProperty("percentPerExp")
-    private Integer percentPerExp;
-
-
-    
-    @JsonIgnore
-    public String getMethod() {
-        return this.method;
-    }
-    
-    @JsonIgnore
-    public Method getMethodAsEnum() {
-        return Method.valueOf(this.method);
-    }
-    
-    @JsonIgnore
-    public void setMethod(final String method) {
-        this.method = method;
-    }
-    
-    @JsonIgnore
-    public void setMethodFromEnum(final Method method) {
-        this.method = method.toString();
+    public ExcessStrategyBuilder method(final String method) {
+      this.method = method;
+      return this;
     }
 
-    @JsonIgnore
-    public ExcessStrategy createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public ExcessStrategyBuilder methodFromEnum(final Method method) {
+      this.method = method.toString();
+      return this;
     }
-
-    @JsonIgnore
-    public List<ExcessStrategy> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ExcessStrategy>>() {});
-    }
-
-    
-    public enum Method {
-        CURRENCY("CURRENCY"),
-        NONE("NONE");
-
-        private String value;
-
-        Method(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class ExcessStrategyBuilder {
-        private String method;
-        
-        
-        public ExcessStrategyBuilder method(final String method) {
-            this.method = method;
-            return this;
-        }
-        
-        public ExcessStrategyBuilder methodFromEnum(final Method method) {
-            this.method = method.toString();
-            return this;
-        }
-    }
+  }
 }

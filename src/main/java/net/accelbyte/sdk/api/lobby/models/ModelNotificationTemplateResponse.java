@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,23 +26,22 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelNotificationTemplateResponse extends Model {
 
-    @JsonProperty("templateLocalizations")
-    private List<ModelLocalization> templateLocalizations;
+  @JsonProperty("templateLocalizations")
+  private List<ModelLocalization> templateLocalizations;
 
-    @JsonProperty("templateSlug")
-    private String templateSlug;
+  @JsonProperty("templateSlug")
+  private String templateSlug;
 
+  @JsonIgnore
+  public ModelNotificationTemplateResponse createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelNotificationTemplateResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelNotificationTemplateResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelNotificationTemplateResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelNotificationTemplateResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelNotificationTemplateResponse>>() {});
+  }
 }

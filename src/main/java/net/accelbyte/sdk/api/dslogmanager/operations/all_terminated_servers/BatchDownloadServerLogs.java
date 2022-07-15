@@ -8,82 +8,66 @@
 
 package net.accelbyte.sdk.api.dslogmanager.operations.all_terminated_servers;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.dslogmanager.models.*;
-import net.accelbyte.sdk.api.dslogmanager.models.ModelsBatchDownloadLogsRequest;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.dslogmanager.models.*;
+import net.accelbyte.sdk.api.dslogmanager.models.ModelsBatchDownloadLogsRequest;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * batchDownloadServerLogs
  *
- * Required permission: ADMIN:NAMESPACE:{namespace}:DSLM:LOG [READ]
- * 
- * Required scope: social
- * 
- * This endpoint will download dedicated server's log file (.zip).
+ * <p>Required permission: ADMIN:NAMESPACE:{namespace}:DSLM:LOG [READ]
+ *
+ * <p>Required scope: social
+ *
+ * <p>This endpoint will download dedicated server's log file (.zip).
  */
 @Getter
 @Setter
 public class BatchDownloadServerLogs extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/dslogmanager/servers/logs/download";
-    private String method = "POST";
-    private List<String> consumes = Arrays.asList("application/json");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private ModelsBatchDownloadLogsRequest body;
+  /** generated field's value */
+  private String path = "/dslogmanager/servers/logs/download";
 
-    /**
-    * @param body required
-    */
-    @Builder
-    public BatchDownloadServerLogs(
-            ModelsBatchDownloadLogsRequest body
-    )
-    {
-        this.body = body;
-        
-        securities.add("Bearer");
+  private String method = "POST";
+  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private ModelsBatchDownloadLogsRequest body;
+
+  /**
+   * @param body required
+   */
+  @Builder
+  public BatchDownloadServerLogs(ModelsBatchDownloadLogsRequest body) {
+    this.body = body;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public ModelsBatchDownloadLogsRequest getBodyParams() {
+    return this.body;
+  }
+
+  @Override
+  public boolean isValid() {
+    return true;
+  }
+
+  public void handleEmptyResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    if (code != 200) {
+      String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
     }
-
-
-
-
-    @Override
-    public ModelsBatchDownloadLogsRequest getBodyParams(){
-        return this.body;
-    }
-
-
-    @Override
-    public boolean isValid() {
-        return true;
-    }
-
-    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        if(code != 200){
-            String json = Helper.convertInputStreamToString(payload);
-            throw new HttpResponseException(code, json);
-        }
-    }
-
+  }
 }

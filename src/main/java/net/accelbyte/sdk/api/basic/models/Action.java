@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,38 +26,34 @@ import java.util.Map;
 @NoArgsConstructor
 public class Action extends Model {
 
-    @JsonProperty("color")
-    private String color;
+  @JsonProperty("color")
+  private String color;
 
-    @JsonProperty("description")
-    private String description;
+  @JsonProperty("description")
+  private String description;
 
-    @JsonProperty("duration")
-    private Integer duration;
+  @JsonProperty("duration")
+  private Integer duration;
 
-    @JsonProperty("icon")
-    private String icon;
+  @JsonProperty("icon")
+  private String icon;
 
-    @JsonProperty("id")
-    private Integer id;
+  @JsonProperty("id")
+  private Integer id;
 
-    @JsonProperty("name")
-    private String name;
+  @JsonProperty("name")
+  private String name;
 
-    @JsonProperty("priority")
-    private Integer priority;
+  @JsonProperty("priority")
+  private Integer priority;
 
+  @JsonIgnore
+  public Action createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public Action createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<Action> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<Action>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<Action> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<Action>>() {});
+  }
 }

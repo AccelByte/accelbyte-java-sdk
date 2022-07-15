@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,35 +26,32 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelUserCreateRequest extends Model {
 
-    @JsonProperty("AuthType")
-    private String authType;
+  @JsonProperty("AuthType")
+  private String authType;
 
-    @JsonProperty("Country")
-    private String country;
+  @JsonProperty("Country")
+  private String country;
 
-    @JsonProperty("DisplayName")
-    private String displayName;
+  @JsonProperty("DisplayName")
+  private String displayName;
 
-    @JsonProperty("LoginId")
-    private String loginId;
+  @JsonProperty("LoginId")
+  private String loginId;
 
-    @JsonProperty("Password")
-    private String password;
+  @JsonProperty("Password")
+  private String password;
 
-    @JsonProperty("PasswordMD5Sum")
-    private String passwordMD5Sum;
+  @JsonProperty("PasswordMD5Sum")
+  private String passwordMD5Sum;
 
+  @JsonIgnore
+  public ModelUserCreateRequest createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelUserCreateRequest createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelUserCreateRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserCreateRequest>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelUserCreateRequest> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserCreateRequest>>() {});
+  }
 }

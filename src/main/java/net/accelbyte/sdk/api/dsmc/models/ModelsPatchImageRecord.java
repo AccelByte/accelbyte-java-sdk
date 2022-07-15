@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,47 +26,44 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsPatchImageRecord extends Model {
 
-    @JsonProperty("artifactPath")
-    private String artifactPath;
+  @JsonProperty("artifactPath")
+  private String artifactPath;
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+  @JsonProperty("createdAt")
+  private String createdAt;
 
-    @JsonProperty("dockerPath")
-    private String dockerPath;
+  @JsonProperty("dockerPath")
+  private String dockerPath;
 
-    @JsonProperty("image")
-    private String image;
+  @JsonProperty("image")
+  private String image;
 
-    @JsonProperty("modifiedBy")
-    private String modifiedBy;
+  @JsonProperty("modifiedBy")
+  private String modifiedBy;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("patchVersion")
-    private String patchVersion;
+  @JsonProperty("patchVersion")
+  private String patchVersion;
 
-    @JsonProperty("persistent")
-    private Boolean persistent;
+  @JsonProperty("persistent")
+  private Boolean persistent;
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
+  @JsonProperty("updatedAt")
+  private String updatedAt;
 
-    @JsonProperty("version")
-    private String version;
+  @JsonProperty("version")
+  private String version;
 
+  @JsonIgnore
+  public ModelsPatchImageRecord createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsPatchImageRecord createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsPatchImageRecord> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPatchImageRecord>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsPatchImageRecord> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPatchImageRecord>>() {});
+  }
 }

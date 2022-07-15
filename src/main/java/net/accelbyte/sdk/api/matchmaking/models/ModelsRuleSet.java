@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,35 +27,31 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsRuleSet extends Model {
 
-    @JsonProperty("alliance")
-    private ModelsAllianceRule alliance;
+  @JsonProperty("alliance")
+  private ModelsAllianceRule alliance;
 
-    @JsonProperty("alliance_flexing_rule")
-    private List<ModelsAllianceFlexingRule> allianceFlexingRule;
+  @JsonProperty("alliance_flexing_rule")
+  private List<ModelsAllianceFlexingRule> allianceFlexingRule;
 
-    @JsonProperty("flexing_rule")
-    private List<ModelsFlexingRule> flexingRule;
+  @JsonProperty("flexing_rule")
+  private List<ModelsFlexingRule> flexingRule;
 
-    @JsonProperty("match_options")
-    private ModelsMatchOptionRule matchOptions;
+  @JsonProperty("match_options")
+  private ModelsMatchOptionRule matchOptions;
 
-    @JsonProperty("matching_rule")
-    private List<ModelsMatchingRule> matchingRule;
+  @JsonProperty("matching_rule")
+  private List<ModelsMatchingRule> matchingRule;
 
-    @JsonProperty("sub_game_modes")
-    private Map<String, ModelsSubGameMode> subGameModes;
+  @JsonProperty("sub_game_modes")
+  private Map<String, ModelsSubGameMode> subGameModes;
 
+  @JsonIgnore
+  public ModelsRuleSet createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsRuleSet createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsRuleSet> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsRuleSet>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsRuleSet> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsRuleSet>>() {});
+  }
 }

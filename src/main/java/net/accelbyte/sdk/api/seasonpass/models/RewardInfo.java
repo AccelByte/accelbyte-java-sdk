@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,152 +26,148 @@ import java.util.Map;
 @NoArgsConstructor
 public class RewardInfo extends Model {
 
-    @JsonProperty("code")
-    private String code;
+  @JsonProperty("code")
+  private String code;
 
-    @JsonProperty("currency")
-    private RewardCurrency currency;
+  @JsonProperty("currency")
+  private RewardCurrency currency;
 
-    @JsonProperty("image")
-    private Image image;
+  @JsonProperty("image")
+  private Image image;
 
-    @JsonProperty("itemId")
-    private String itemId;
+  @JsonProperty("itemId")
+  private String itemId;
 
-    @JsonProperty("itemName")
-    private String itemName;
+  @JsonProperty("itemName")
+  private String itemName;
 
-    @JsonProperty("itemSku")
-    private String itemSku;
+  @JsonProperty("itemSku")
+  private String itemSku;
 
-    @JsonProperty("itemType")
+  @JsonProperty("itemType")
+  private String itemType;
+
+  @JsonProperty("namespace")
+  private String namespace;
+
+  @JsonProperty("quantity")
+  private Integer quantity;
+
+  @JsonProperty("seasonId")
+  private String seasonId;
+
+  @JsonProperty("type")
+  private String type;
+
+  @JsonIgnore
+  public String getItemType() {
+    return this.itemType;
+  }
+
+  @JsonIgnore
+  public ItemType getItemTypeAsEnum() {
+    return ItemType.valueOf(this.itemType);
+  }
+
+  @JsonIgnore
+  public void setItemType(final String itemType) {
+    this.itemType = itemType;
+  }
+
+  @JsonIgnore
+  public void setItemTypeFromEnum(final ItemType itemType) {
+    this.itemType = itemType.toString();
+  }
+
+  @JsonIgnore
+  public String getType() {
+    return this.type;
+  }
+
+  @JsonIgnore
+  public Type getTypeAsEnum() {
+    return Type.valueOf(this.type);
+  }
+
+  @JsonIgnore
+  public void setType(final String type) {
+    this.type = type;
+  }
+
+  @JsonIgnore
+  public void setTypeFromEnum(final Type type) {
+    this.type = type.toString();
+  }
+
+  @JsonIgnore
+  public RewardInfo createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<RewardInfo> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<RewardInfo>>() {});
+  }
+
+  public enum ItemType {
+    APP("APP"),
+    BUNDLE("BUNDLE"),
+    CODE("CODE"),
+    COINS("COINS"),
+    INGAMEITEM("INGAMEITEM"),
+    SEASON("SEASON"),
+    SUBSCRIPTION("SUBSCRIPTION");
+
+    private String value;
+
+    ItemType(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public enum Type {
+    CURRENCY("CURRENCY"),
+    ITEM("ITEM");
+
+    private String value;
+
+    Type(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class RewardInfoBuilder {
     private String itemType;
-
-    @JsonProperty("namespace")
-    private String namespace;
-
-    @JsonProperty("quantity")
-    private Integer quantity;
-
-    @JsonProperty("seasonId")
-    private String seasonId;
-
-    @JsonProperty("type")
     private String type;
 
-
-    
-    @JsonIgnore
-    public String getItemType() {
-        return this.itemType;
-    }
-    
-    @JsonIgnore
-    public ItemType getItemTypeAsEnum() {
-        return ItemType.valueOf(this.itemType);
-    }
-    
-    @JsonIgnore
-    public void setItemType(final String itemType) {
-        this.itemType = itemType;
-    }
-    
-    @JsonIgnore
-    public void setItemTypeFromEnum(final ItemType itemType) {
-        this.itemType = itemType.toString();
-    }
-    
-    @JsonIgnore
-    public String getType() {
-        return this.type;
-    }
-    
-    @JsonIgnore
-    public Type getTypeAsEnum() {
-        return Type.valueOf(this.type);
-    }
-    
-    @JsonIgnore
-    public void setType(final String type) {
-        this.type = type;
-    }
-    
-    @JsonIgnore
-    public void setTypeFromEnum(final Type type) {
-        this.type = type.toString();
+    public RewardInfoBuilder itemType(final String itemType) {
+      this.itemType = itemType;
+      return this;
     }
 
-    @JsonIgnore
-    public RewardInfo createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public RewardInfoBuilder itemTypeFromEnum(final ItemType itemType) {
+      this.itemType = itemType.toString();
+      return this;
     }
 
-    @JsonIgnore
-    public List<RewardInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<RewardInfo>>() {});
+    public RewardInfoBuilder type(final String type) {
+      this.type = type;
+      return this;
     }
 
-    
-    public enum ItemType {
-        APP("APP"),
-        BUNDLE("BUNDLE"),
-        CODE("CODE"),
-        COINS("COINS"),
-        INGAMEITEM("INGAMEITEM"),
-        SEASON("SEASON"),
-        SUBSCRIPTION("SUBSCRIPTION");
-
-        private String value;
-
-        ItemType(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
+    public RewardInfoBuilder typeFromEnum(final Type type) {
+      this.type = type.toString();
+      return this;
     }
-    
-    public enum Type {
-        CURRENCY("CURRENCY"),
-        ITEM("ITEM");
-
-        private String value;
-
-        Type(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class RewardInfoBuilder {
-        private String itemType;
-        private String type;
-        
-        
-        public RewardInfoBuilder itemType(final String itemType) {
-            this.itemType = itemType;
-            return this;
-        }
-        
-        public RewardInfoBuilder itemTypeFromEnum(final ItemType itemType) {
-            this.itemType = itemType.toString();
-            return this;
-        }
-        
-        public RewardInfoBuilder type(final String type) {
-            this.type = type;
-            return this;
-        }
-        
-        public RewardInfoBuilder typeFromEnum(final Type type) {
-            this.type = type.toString();
-            return this;
-        }
-    }
+  }
 }

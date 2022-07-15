@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,32 +27,28 @@ import java.util.Map;
 @NoArgsConstructor
 public class PassUpdate extends Model {
 
-    @JsonProperty("autoEnroll")
-    private Boolean autoEnroll;
+  @JsonProperty("autoEnroll")
+  private Boolean autoEnroll;
 
-    @JsonProperty("displayOrder")
-    private Integer displayOrder;
+  @JsonProperty("displayOrder")
+  private Integer displayOrder;
 
-    @JsonProperty("images")
-    private List<Image> images;
+  @JsonProperty("images")
+  private List<Image> images;
 
-    @JsonProperty("localizations")
-    private Map<String, Localization> localizations;
+  @JsonProperty("localizations")
+  private Map<String, Localization> localizations;
 
-    @JsonProperty("passItemId")
-    private String passItemId;
+  @JsonProperty("passItemId")
+  private String passItemId;
 
+  @JsonIgnore
+  public PassUpdate createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public PassUpdate createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<PassUpdate> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<PassUpdate>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<PassUpdate> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<PassUpdate>>() {});
+  }
 }

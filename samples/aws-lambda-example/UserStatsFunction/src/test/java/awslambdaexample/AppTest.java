@@ -1,17 +1,15 @@
 package awslambdaexample;
 
-import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
-import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assume.assumeFalse;
 
+import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
+import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.junit.Test;
-
 import net.accelbyte.sdk.core.repository.ConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
+import org.junit.Test;
 
 public class AppTest {
   @Test
@@ -28,7 +26,8 @@ public class AppTest {
 
     final App app = new App();
 
-    // curl 'http://localhost:3000/user-stats/accelbyte/b284a13ac1ab4605aba444102fdb02a1' -d '{"statCode":"testme"}'
+    // curl 'http://localhost:3000/user-stats/accelbyte/b284a13ac1ab4605aba444102fdb02a1' -d
+    // '{"statCode":"testme"}'
 
     final Map<String, String> pathParameters = new HashMap<>();
     pathParameters.put("namespace", "accelbyte");
@@ -58,7 +57,8 @@ public class AppTest {
 
     final App app = new App();
 
-    // curl 'http://localhost:3000/user-stats/accelbyte/b284a13ac1ab4605aba444102fdb02a1?statCodes=testme'
+    // curl
+    // 'http://localhost:3000/user-stats/accelbyte/b284a13ac1ab4605aba444102fdb02a1?statCodes=testme'
 
     final Map<String, String> pathParameters = new HashMap<>();
     pathParameters.put("namespace", "accelbyte");
@@ -91,7 +91,8 @@ public class AppTest {
 
     final App app = new App();
 
-    // curl -X DELETE 'http://localhost:3000/user-stats/accelbyte/b284a13ac1ab4605aba444102fdb02a1/testme'
+    // curl -X DELETE
+    // 'http://localhost:3000/user-stats/accelbyte/b284a13ac1ab4605aba444102fdb02a1/testme'
 
     final Map<String, String> pathParameters = new HashMap<>();
     pathParameters.put("namespace", "accelbyte");

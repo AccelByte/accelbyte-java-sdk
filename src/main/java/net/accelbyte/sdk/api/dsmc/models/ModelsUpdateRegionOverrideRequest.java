@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,32 +26,31 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsUpdateRegionOverrideRequest extends Model {
 
-    @JsonProperty("buffer_count")
-    private Integer bufferCount;
+  @JsonProperty("buffer_count")
+  private Integer bufferCount;
 
-    @JsonProperty("buffer_percent")
-    private Integer bufferPercent;
+  @JsonProperty("buffer_percent")
+  private Integer bufferPercent;
 
-    @JsonProperty("max_count")
-    private Integer maxCount;
+  @JsonProperty("max_count")
+  private Integer maxCount;
 
-    @JsonProperty("min_count")
-    private Integer minCount;
+  @JsonProperty("min_count")
+  private Integer minCount;
 
-    @JsonProperty("use_buffer_percent")
-    private Boolean useBufferPercent;
+  @JsonProperty("use_buffer_percent")
+  private Boolean useBufferPercent;
 
+  @JsonIgnore
+  public ModelsUpdateRegionOverrideRequest createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsUpdateRegionOverrideRequest createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsUpdateRegionOverrideRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateRegionOverrideRequest>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsUpdateRegionOverrideRequest> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsUpdateRegionOverrideRequest>>() {});
+  }
 }

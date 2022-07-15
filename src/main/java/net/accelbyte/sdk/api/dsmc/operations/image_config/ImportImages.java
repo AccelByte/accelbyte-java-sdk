@@ -8,102 +8,82 @@
 
 package net.accelbyte.sdk.api.dsmc.operations.image_config;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.dsmc.models.*;
-import net.accelbyte.sdk.api.dsmc.models.ModelsImportResponse;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.dsmc.models.*;
+import net.accelbyte.sdk.api.dsmc.models.ModelsImportResponse;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * ImportImages
  *
- * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [CREATE]
- * 
- * Required scope: social
- * 
- * This endpoint import a dedicated servers images in a namespace.
- * 
- * The image will be upsert. Existing version will be replaced with imported image, will create new one if not found.
- * 
- * Example data inside imported file
- * [
- * {
- * "namespace": "dewa",
- * "image": "123456789.dkr.ecr.us-west-2.amazonaws.com/ds-dewa:0.0.1-alpha",
- * "version": "0.0.1",
- * "persistent": true
- * }
- * ]
+ * <p>Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [CREATE]
+ *
+ * <p>Required scope: social
+ *
+ * <p>This endpoint import a dedicated servers images in a namespace.
+ *
+ * <p>The image will be upsert. Existing version will be replaced with imported image, will create
+ * new one if not found.
+ *
+ * <p>Example data inside imported file [ { "namespace": "dewa", "image":
+ * "123456789.dkr.ecr.us-west-2.amazonaws.com/ds-dewa:0.0.1-alpha", "version": "0.0.1",
+ * "persistent": true } ]
  */
 @Getter
 @Setter
 public class ImportImages extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/dsmcontroller/admin/images/import";
-    private String method = "POST";
-    private List<String> consumes = Arrays.asList("multipart/form-data");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private File file;
+  /** generated field's value */
+  private String path = "/dsmcontroller/admin/images/import";
 
-    /**
-    * @param file required
-    */
-    @Builder
-    public ImportImages(
-            File file
-    )
-    {
-        this.file = file;
-        
-        securities.add("Bearer");
+  private String method = "POST";
+  private List<String> consumes = Arrays.asList("multipart/form-data");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private File file;
+
+  /**
+   * @param file required
+   */
+  @Builder
+  public ImportImages(File file) {
+    this.file = file;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, Object> getFormParams() {
+    Map<String, Object> formDataParams = new HashMap<>();
+    if (this.file != null) {
+      formDataParams.put("file", this.file);
     }
+    return formDataParams;
+  }
 
-
-
-
-
-    @Override
-    public Map<String, Object> getFormParams(){
-        Map<String, Object> formDataParams = new HashMap<>();
-        if (this.file != null) {
-            formDataParams.put("file", this.file);
-        }
-        return formDataParams;
+  @Override
+  public boolean isValid() {
+    if (this.file == null) {
+      return false;
     }
+    return true;
+  }
 
-    @Override
-    public boolean isValid() {
-        if(this.file == null) {
-            return false;
-        }
-        return true;
+  public ModelsImportResponse parseResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 200) {
+      return new ModelsImportResponse().createFromJson(json);
     }
-
-    public ModelsImportResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 200){
-            return new ModelsImportResponse().createFromJson(json);
-        }
-        throw new HttpResponseException(code, json);
-    }
-
+    throw new HttpResponseException(code, json);
+  }
 }

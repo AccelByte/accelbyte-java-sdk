@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,35 +26,33 @@ import java.util.Map;
 @NoArgsConstructor
 public class PlatformSubscribeRequest extends Model {
 
-    @JsonProperty("grantDays")
-    private Integer grantDays;
+  @JsonProperty("grantDays")
+  private Integer grantDays;
 
-    @JsonProperty("itemId")
-    private String itemId;
+  @JsonProperty("itemId")
+  private String itemId;
 
-    @JsonProperty("language")
-    private String language;
+  @JsonProperty("language")
+  private String language;
 
-    @JsonProperty("reason")
-    private String reason;
+  @JsonProperty("reason")
+  private String reason;
 
-    @JsonProperty("region")
-    private String region;
+  @JsonProperty("region")
+  private String region;
 
-    @JsonProperty("source")
-    private String source;
+  @JsonProperty("source")
+  private String source;
 
+  @JsonIgnore
+  public PlatformSubscribeRequest createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public PlatformSubscribeRequest createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<PlatformSubscribeRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<PlatformSubscribeRequest>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<PlatformSubscribeRequest> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<PlatformSubscribeRequest>>() {});
+  }
 }

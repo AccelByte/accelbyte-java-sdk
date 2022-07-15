@@ -7,31 +7,30 @@
 package net.accelbyte.sdk.core.repository;
 
 public class DefaultTokenRepository implements TokenRepository {
-    private String accessToken = null;
+  private String accessToken = null;
 
-    public DefaultTokenRepository() {
-    }
+  public DefaultTokenRepository() {}
 
-    private static final class InstanceHolder {
-        static final DefaultTokenRepository instance = new DefaultTokenRepository();
-    }
+  private static final class InstanceHolder {
+    static final DefaultTokenRepository instance = new DefaultTokenRepository();
+  }
 
-    public static DefaultTokenRepository getInstance() {
-        return InstanceHolder.instance;
-    }
+  public static DefaultTokenRepository getInstance() {
+    return InstanceHolder.instance;
+  }
 
-    @Override
-    public String getToken() {
-        return this.accessToken;
-    }
+  @Override
+  public String getToken() {
+    return this.accessToken;
+  }
 
-    @Override
-    public void removeToken() {
-        this.accessToken = "";
-    }
+  @Override
+  public void removeToken() {
+    this.accessToken = "";
+  }
 
-    @Override
-    public void storeToken(String accessToken) {
-        this.accessToken = accessToken;
-    }
+  @Override
+  public void storeToken(String accessToken) {
+    this.accessToken = accessToken;
+  }
 }

@@ -1,10 +1,8 @@
 package net.accelbyte.sdk.core;
 
-import java.util.Map;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import java.util.Map;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,24 +10,24 @@ import lombok.Setter;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 class HttpbinAnythingResponse extends Model {
-    @JsonProperty("method")
-    public String method;
+  @JsonProperty("method")
+  public String method;
 
-    @JsonProperty("url")
-    public String url;
+  @JsonProperty("url")
+  public String url;
 
-    @JsonProperty("args")
-    public Map<String, ?> args;
+  @JsonProperty("args")
+  public Map<String, ?> args;
 
-    @JsonProperty("headers")
-    public Map<String, String> headers;
+  @JsonProperty("headers")
+  public Map<String, String> headers;
 
-    @JsonProperty("form")
-    public Map<String, String> form;
+  @JsonProperty("form")
+  public Map<String, String> form;
 
-    @JsonProperty("data")
-    public String data;
+  @JsonProperty("data")
+  public String data;
 
-    @JsonProperty("files")
-    public Map<String, String> files;
+  @JsonProperty("files")
+  public Map<String, String> files;
 }

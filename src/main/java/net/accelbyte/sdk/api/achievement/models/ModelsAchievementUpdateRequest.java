@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,47 +27,45 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsAchievementUpdateRequest extends Model {
 
-    @JsonProperty("defaultLanguage")
-    private String defaultLanguage;
+  @JsonProperty("defaultLanguage")
+  private String defaultLanguage;
 
-    @JsonProperty("description")
-    private Map<String, String> description;
+  @JsonProperty("description")
+  private Map<String, String> description;
 
-    @JsonProperty("goalValue")
-    private Float goalValue;
+  @JsonProperty("goalValue")
+  private Float goalValue;
 
-    @JsonProperty("hidden")
-    private Boolean hidden;
+  @JsonProperty("hidden")
+  private Boolean hidden;
 
-    @JsonProperty("incremental")
-    private Boolean incremental;
+  @JsonProperty("incremental")
+  private Boolean incremental;
 
-    @JsonProperty("lockedIcons")
-    private List<ModelsIcon> lockedIcons;
+  @JsonProperty("lockedIcons")
+  private List<ModelsIcon> lockedIcons;
 
-    @JsonProperty("name")
-    private Map<String, String> name;
+  @JsonProperty("name")
+  private Map<String, String> name;
 
-    @JsonProperty("statCode")
-    private String statCode;
+  @JsonProperty("statCode")
+  private String statCode;
 
-    @JsonProperty("tags")
-    private List<String> tags;
+  @JsonProperty("tags")
+  private List<String> tags;
 
-    @JsonProperty("unlockedIcons")
-    private List<ModelsIcon> unlockedIcons;
+  @JsonProperty("unlockedIcons")
+  private List<ModelsIcon> unlockedIcons;
 
+  @JsonIgnore
+  public ModelsAchievementUpdateRequest createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsAchievementUpdateRequest createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsAchievementUpdateRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAchievementUpdateRequest>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsAchievementUpdateRequest> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsAchievementUpdateRequest>>() {});
+  }
 }

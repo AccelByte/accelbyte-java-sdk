@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,29 +26,30 @@ import java.util.Map;
 @NoArgsConstructor
 public class ADTOObjectForUpdateXboxAchievementCompletePercentageAPI extends Model {
 
-    @JsonProperty("achievements")
-    private List<XboxAchievementRequest> achievements;
+  @JsonProperty("achievements")
+  private List<XboxAchievementRequest> achievements;
 
-    @JsonProperty("serviceConfigId")
-    private String serviceConfigId;
+  @JsonProperty("serviceConfigId")
+  private String serviceConfigId;
 
-    @JsonProperty("titleId")
-    private String titleId;
+  @JsonProperty("titleId")
+  private String titleId;
 
-    @JsonProperty("xboxUserId")
-    private String xboxUserId;
+  @JsonProperty("xboxUserId")
+  private String xboxUserId;
 
+  @JsonIgnore
+  public ADTOObjectForUpdateXboxAchievementCompletePercentageAPI createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ADTOObjectForUpdateXboxAchievementCompletePercentageAPI createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ADTOObjectForUpdateXboxAchievementCompletePercentageAPI> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ADTOObjectForUpdateXboxAchievementCompletePercentageAPI>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ADTOObjectForUpdateXboxAchievementCompletePercentageAPI> createFromJsonList(
+      String json) throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(
+            json,
+            new TypeReference<List<ADTOObjectForUpdateXboxAchievementCompletePercentageAPI>>() {});
+  }
 }

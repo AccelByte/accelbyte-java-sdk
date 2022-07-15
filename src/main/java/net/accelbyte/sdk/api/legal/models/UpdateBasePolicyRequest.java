@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,35 +26,33 @@ import java.util.Map;
 @NoArgsConstructor
 public class UpdateBasePolicyRequest extends Model {
 
-    @JsonProperty("affectedClientIds")
-    private List<String> affectedClientIds;
+  @JsonProperty("affectedClientIds")
+  private List<String> affectedClientIds;
 
-    @JsonProperty("affectedCountries")
-    private List<String> affectedCountries;
+  @JsonProperty("affectedCountries")
+  private List<String> affectedCountries;
 
-    @JsonProperty("basePolicyName")
-    private String basePolicyName;
+  @JsonProperty("basePolicyName")
+  private String basePolicyName;
 
-    @JsonProperty("description")
-    private String description;
+  @JsonProperty("description")
+  private String description;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("tags")
-    private List<String> tags;
+  @JsonProperty("tags")
+  private List<String> tags;
 
+  @JsonIgnore
+  public UpdateBasePolicyRequest createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public UpdateBasePolicyRequest createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<UpdateBasePolicyRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<UpdateBasePolicyRequest>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<UpdateBasePolicyRequest> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<UpdateBasePolicyRequest>>() {});
+  }
 }

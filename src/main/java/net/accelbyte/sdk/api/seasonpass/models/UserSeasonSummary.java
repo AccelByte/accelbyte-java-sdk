@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,56 +26,52 @@ import java.util.Map;
 @NoArgsConstructor
 public class UserSeasonSummary extends Model {
 
-    @JsonProperty("cleared")
-    private Boolean cleared;
+  @JsonProperty("cleared")
+  private Boolean cleared;
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+  @JsonProperty("createdAt")
+  private String createdAt;
 
-    @JsonProperty("currentExp")
-    private Integer currentExp;
+  @JsonProperty("currentExp")
+  private Integer currentExp;
 
-    @JsonProperty("currentTierIndex")
-    private Integer currentTierIndex;
+  @JsonProperty("currentTierIndex")
+  private Integer currentTierIndex;
 
-    @JsonProperty("enrolledAt")
-    private String enrolledAt;
+  @JsonProperty("enrolledAt")
+  private String enrolledAt;
 
-    @JsonProperty("enrolledPasses")
-    private List<String> enrolledPasses;
+  @JsonProperty("enrolledPasses")
+  private List<String> enrolledPasses;
 
-    @JsonProperty("id")
-    private String id;
+  @JsonProperty("id")
+  private String id;
 
-    @JsonProperty("lastTierIndex")
-    private Integer lastTierIndex;
+  @JsonProperty("lastTierIndex")
+  private Integer lastTierIndex;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("requiredExp")
-    private Integer requiredExp;
+  @JsonProperty("requiredExp")
+  private Integer requiredExp;
 
-    @JsonProperty("seasonId")
-    private String seasonId;
+  @JsonProperty("seasonId")
+  private String seasonId;
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
+  @JsonProperty("updatedAt")
+  private String updatedAt;
 
-    @JsonProperty("userId")
-    private String userId;
+  @JsonProperty("userId")
+  private String userId;
 
+  @JsonIgnore
+  public UserSeasonSummary createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public UserSeasonSummary createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<UserSeasonSummary> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<UserSeasonSummary>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<UserSeasonSummary> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<UserSeasonSummary>>() {});
+  }
 }

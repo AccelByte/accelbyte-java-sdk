@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,59 +26,55 @@ import java.util.Map;
 @NoArgsConstructor
 public class SlotInfo extends Model {
 
-    @JsonProperty("checksum")
-    private String checksum;
+  @JsonProperty("checksum")
+  private String checksum;
 
-    @JsonProperty("customAttribute")
-    private String customAttribute;
+  @JsonProperty("customAttribute")
+  private String customAttribute;
 
-    @JsonProperty("dateAccessed")
-    private String dateAccessed;
+  @JsonProperty("dateAccessed")
+  private String dateAccessed;
 
-    @JsonProperty("dateCreated")
-    private String dateCreated;
+  @JsonProperty("dateCreated")
+  private String dateCreated;
 
-    @JsonProperty("dateModified")
-    private String dateModified;
+  @JsonProperty("dateModified")
+  private String dateModified;
 
-    @JsonProperty("label")
-    private String label;
+  @JsonProperty("label")
+  private String label;
 
-    @JsonProperty("mimeType")
-    private String mimeType;
+  @JsonProperty("mimeType")
+  private String mimeType;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("originalName")
-    private String originalName;
+  @JsonProperty("originalName")
+  private String originalName;
 
-    @JsonProperty("size")
-    private Integer size;
+  @JsonProperty("size")
+  private Integer size;
 
-    @JsonProperty("slotId")
-    private String slotId;
+  @JsonProperty("slotId")
+  private String slotId;
 
-    @JsonProperty("storedName")
-    private String storedName;
+  @JsonProperty("storedName")
+  private String storedName;
 
-    @JsonProperty("tags")
-    private List<String> tags;
+  @JsonProperty("tags")
+  private List<String> tags;
 
-    @JsonProperty("userId")
-    private String userId;
+  @JsonProperty("userId")
+  private String userId;
 
+  @JsonIgnore
+  public SlotInfo createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public SlotInfo createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<SlotInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<SlotInfo>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<SlotInfo> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<SlotInfo>>() {});
+  }
 }

@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,50 +26,46 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelUserBanResponse extends Model {
 
-    @JsonProperty("Ban")
-    private String ban;
+  @JsonProperty("Ban")
+  private String ban;
 
-    @JsonProperty("BanId")
-    private String banId;
+  @JsonProperty("BanId")
+  private String banId;
 
-    @JsonProperty("BannedBy")
-    private BannedBy bannedBy;
+  @JsonProperty("BannedBy")
+  private BannedBy bannedBy;
 
-    @JsonProperty("Comment")
-    private String comment;
+  @JsonProperty("Comment")
+  private String comment;
 
-    @JsonProperty("CreatedAt")
-    private String createdAt;
+  @JsonProperty("CreatedAt")
+  private String createdAt;
 
-    @JsonProperty("DisabledDate")
-    private String disabledDate;
+  @JsonProperty("DisabledDate")
+  private String disabledDate;
 
-    @JsonProperty("Enabled")
-    private Boolean enabled;
+  @JsonProperty("Enabled")
+  private Boolean enabled;
 
-    @JsonProperty("EndDate")
-    private String endDate;
+  @JsonProperty("EndDate")
+  private String endDate;
 
-    @JsonProperty("Namespace")
-    private String namespace;
+  @JsonProperty("Namespace")
+  private String namespace;
 
-    @JsonProperty("Reason")
-    private String reason;
+  @JsonProperty("Reason")
+  private String reason;
 
-    @JsonProperty("UserId")
-    private String userId;
+  @JsonProperty("UserId")
+  private String userId;
 
+  @JsonIgnore
+  public ModelUserBanResponse createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelUserBanResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelUserBanResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserBanResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelUserBanResponse> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserBanResponse>>() {});
+  }
 }

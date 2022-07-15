@@ -12,38 +12,28 @@ import net.accelbyte.sdk.api.legal.models.*;
 import net.accelbyte.sdk.api.legal.operations.utility.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
 
 public class Utility {
 
-    private AccelByteSDK sdk;
+  private AccelByteSDK sdk;
 
-    public Utility(AccelByteSDK sdk){
-        this.sdk = sdk;
+  public Utility(AccelByteSDK sdk) {
+    this.sdk = sdk;
+  }
+
+  /**
+   * @see CheckReadiness
+   */
+  public LegalReadinessStatusResponse checkReadiness(CheckReadiness input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
-
-    /**
-     * @see CheckReadiness
-     */
-    public LegalReadinessStatusResponse checkReadiness(CheckReadiness input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          return input
-              .parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
-    }
-
+  }
 }

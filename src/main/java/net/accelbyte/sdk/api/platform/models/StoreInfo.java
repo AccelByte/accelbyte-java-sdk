@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,53 +26,49 @@ import java.util.Map;
 @NoArgsConstructor
 public class StoreInfo extends Model {
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+  @JsonProperty("createdAt")
+  private String createdAt;
 
-    @JsonProperty("defaultLanguage")
-    private String defaultLanguage;
+  @JsonProperty("defaultLanguage")
+  private String defaultLanguage;
 
-    @JsonProperty("defaultRegion")
-    private String defaultRegion;
+  @JsonProperty("defaultRegion")
+  private String defaultRegion;
 
-    @JsonProperty("description")
-    private String description;
+  @JsonProperty("description")
+  private String description;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("published")
-    private Boolean published;
+  @JsonProperty("published")
+  private Boolean published;
 
-    @JsonProperty("publishedTime")
-    private String publishedTime;
+  @JsonProperty("publishedTime")
+  private String publishedTime;
 
-    @JsonProperty("storeId")
-    private String storeId;
+  @JsonProperty("storeId")
+  private String storeId;
 
-    @JsonProperty("supportedLanguages")
-    private List<String> supportedLanguages;
+  @JsonProperty("supportedLanguages")
+  private List<String> supportedLanguages;
 
-    @JsonProperty("supportedRegions")
-    private List<String> supportedRegions;
+  @JsonProperty("supportedRegions")
+  private List<String> supportedRegions;
 
-    @JsonProperty("title")
-    private String title;
+  @JsonProperty("title")
+  private String title;
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
+  @JsonProperty("updatedAt")
+  private String updatedAt;
 
+  @JsonIgnore
+  public StoreInfo createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public StoreInfo createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<StoreInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<StoreInfo>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<StoreInfo> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<StoreInfo>>() {});
+  }
 }

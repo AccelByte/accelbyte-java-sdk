@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,38 +27,34 @@ import java.util.Map;
 @NoArgsConstructor
 public class FullCategoryInfo extends Model {
 
-    @JsonProperty("categoryPath")
-    private String categoryPath;
+  @JsonProperty("categoryPath")
+  private String categoryPath;
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+  @JsonProperty("createdAt")
+  private String createdAt;
 
-    @JsonProperty("localizationDisplayNames")
-    private Map<String, String> localizationDisplayNames;
+  @JsonProperty("localizationDisplayNames")
+  private Map<String, String> localizationDisplayNames;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("parentCategoryPath")
-    private String parentCategoryPath;
+  @JsonProperty("parentCategoryPath")
+  private String parentCategoryPath;
 
-    @JsonProperty("root")
-    private Boolean root;
+  @JsonProperty("root")
+  private Boolean root;
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
+  @JsonProperty("updatedAt")
+  private String updatedAt;
 
+  @JsonIgnore
+  public FullCategoryInfo createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public FullCategoryInfo createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<FullCategoryInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<FullCategoryInfo>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<FullCategoryInfo> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<FullCategoryInfo>>() {});
+  }
 }

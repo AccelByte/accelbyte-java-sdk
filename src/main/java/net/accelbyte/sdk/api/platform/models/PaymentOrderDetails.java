@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,44 +26,40 @@ import java.util.Map;
 @NoArgsConstructor
 public class PaymentOrderDetails extends Model {
 
-    @JsonProperty("charging")
-    private Boolean charging;
+  @JsonProperty("charging")
+  private Boolean charging;
 
-    @JsonProperty("currencyCode")
-    private String currencyCode;
+  @JsonProperty("currencyCode")
+  private String currencyCode;
 
-    @JsonProperty("currencySymbol")
-    private String currencySymbol;
+  @JsonProperty("currencySymbol")
+  private String currencySymbol;
 
-    @JsonProperty("description")
-    private String description;
+  @JsonProperty("description")
+  private String description;
 
-    @JsonProperty("displayName")
-    private String displayName;
+  @JsonProperty("displayName")
+  private String displayName;
 
-    @JsonProperty("price")
-    private String price;
+  @JsonProperty("price")
+  private String price;
 
-    @JsonProperty("region")
-    private String region;
+  @JsonProperty("region")
+  private String region;
 
-    @JsonProperty("sandbox")
-    private Boolean sandbox;
+  @JsonProperty("sandbox")
+  private Boolean sandbox;
 
-    @JsonProperty("title")
-    private String title;
+  @JsonProperty("title")
+  private String title;
 
+  @JsonIgnore
+  public PaymentOrderDetails createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public PaymentOrderDetails createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<PaymentOrderDetails> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<PaymentOrderDetails>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<PaymentOrderDetails> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<PaymentOrderDetails>>() {});
+  }
 }

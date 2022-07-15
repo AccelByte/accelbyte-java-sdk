@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,82 +26,78 @@ import java.util.Map;
 @NoArgsConstructor
 public class CurrencySummary extends Model {
 
-    @JsonProperty("currencyCode")
-    private String currencyCode;
+  @JsonProperty("currencyCode")
+  private String currencyCode;
 
-    @JsonProperty("currencySymbol")
-    private String currencySymbol;
+  @JsonProperty("currencySymbol")
+  private String currencySymbol;
 
-    @JsonProperty("currencyType")
+  @JsonProperty("currencyType")
+  private String currencyType;
+
+  @JsonProperty("decimals")
+  private Integer decimals;
+
+  @JsonProperty("namespace")
+  private String namespace;
+
+  @JsonIgnore
+  public String getCurrencyType() {
+    return this.currencyType;
+  }
+
+  @JsonIgnore
+  public CurrencyType getCurrencyTypeAsEnum() {
+    return CurrencyType.valueOf(this.currencyType);
+  }
+
+  @JsonIgnore
+  public void setCurrencyType(final String currencyType) {
+    this.currencyType = currencyType;
+  }
+
+  @JsonIgnore
+  public void setCurrencyTypeFromEnum(final CurrencyType currencyType) {
+    this.currencyType = currencyType.toString();
+  }
+
+  @JsonIgnore
+  public CurrencySummary createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<CurrencySummary> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<CurrencySummary>>() {});
+  }
+
+  public enum CurrencyType {
+    REAL("REAL"),
+    VIRTUAL("VIRTUAL");
+
+    private String value;
+
+    CurrencyType(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class CurrencySummaryBuilder {
     private String currencyType;
 
-    @JsonProperty("decimals")
-    private Integer decimals;
-
-    @JsonProperty("namespace")
-    private String namespace;
-
-
-    
-    @JsonIgnore
-    public String getCurrencyType() {
-        return this.currencyType;
-    }
-    
-    @JsonIgnore
-    public CurrencyType getCurrencyTypeAsEnum() {
-        return CurrencyType.valueOf(this.currencyType);
-    }
-    
-    @JsonIgnore
-    public void setCurrencyType(final String currencyType) {
-        this.currencyType = currencyType;
-    }
-    
-    @JsonIgnore
-    public void setCurrencyTypeFromEnum(final CurrencyType currencyType) {
-        this.currencyType = currencyType.toString();
+    public CurrencySummaryBuilder currencyType(final String currencyType) {
+      this.currencyType = currencyType;
+      return this;
     }
 
-    @JsonIgnore
-    public CurrencySummary createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public CurrencySummaryBuilder currencyTypeFromEnum(final CurrencyType currencyType) {
+      this.currencyType = currencyType.toString();
+      return this;
     }
-
-    @JsonIgnore
-    public List<CurrencySummary> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<CurrencySummary>>() {});
-    }
-
-    
-    public enum CurrencyType {
-        REAL("REAL"),
-        VIRTUAL("VIRTUAL");
-
-        private String value;
-
-        CurrencyType(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class CurrencySummaryBuilder {
-        private String currencyType;
-        
-        
-        public CurrencySummaryBuilder currencyType(final String currencyType) {
-            this.currencyType = currencyType;
-            return this;
-        }
-        
-        public CurrencySummaryBuilder currencyTypeFromEnum(final CurrencyType currencyType) {
-            this.currencyType = currencyType.toString();
-            return this;
-        }
-    }
+  }
 }

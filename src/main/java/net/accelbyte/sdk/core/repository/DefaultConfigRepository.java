@@ -9,78 +9,77 @@ package net.accelbyte.sdk.core.repository;
 import net.accelbyte.sdk.core.AppInfo;
 
 public class DefaultConfigRepository implements ConfigRepository {
-    private static final String CLIENT_ID = "AB_CLIENT_ID";
-    private static final String CLIENT_SECRET = "AB_CLIENT_SECRET";
-    private static final String BASE_URL = "AB_BASE_URL";
-    private AppInfo appInfo = new AppInfo();
-    private boolean amazonTraceId = true;
-    private String amazonTraceIdVersion = "1";
-    private boolean clientInfoHeader = true;
+  private static final String CLIENT_ID = "AB_CLIENT_ID";
+  private static final String CLIENT_SECRET = "AB_CLIENT_SECRET";
+  private static final String BASE_URL = "AB_BASE_URL";
+  private AppInfo appInfo = new AppInfo();
+  private boolean amazonTraceId = true;
+  private String amazonTraceIdVersion = "1";
+  private boolean clientInfoHeader = true;
 
-    @Override
-    public String getClientId() {
-        if (System.getenv(CLIENT_ID) == null) {
-            return "";
-        }
-        return System.getenv(CLIENT_ID);
+  @Override
+  public String getClientId() {
+    if (System.getenv(CLIENT_ID) == null) {
+      return "";
     }
+    return System.getenv(CLIENT_ID);
+  }
 
-    @Override
-    public String getClientSecret() {
-        if (System.getenv(CLIENT_SECRET) == null) {
-            return "";
-        }
-        return System.getenv(CLIENT_SECRET);
-
+  @Override
+  public String getClientSecret() {
+    if (System.getenv(CLIENT_SECRET) == null) {
+      return "";
     }
+    return System.getenv(CLIENT_SECRET);
+  }
 
-    @Override
-    public String getBaseURL() {
-        if (System.getenv(BASE_URL) == null) {
-            return "";
-        }
-        return System.getenv(BASE_URL);
+  @Override
+  public String getBaseURL() {
+    if (System.getenv(BASE_URL) == null) {
+      return "";
     }
+    return System.getenv(BASE_URL);
+  }
 
-    @Override
-    public boolean isAmazonTraceId() {
-        return this.amazonTraceId;
-    }
+  @Override
+  public boolean isAmazonTraceId() {
+    return this.amazonTraceId;
+  }
 
-    @Override
-    public void activateAmazonTraceId(String amazonTraceIdVersion) {
-        this.amazonTraceId = true;
-        this.amazonTraceIdVersion = amazonTraceIdVersion != null ? amazonTraceIdVersion : "1";
-    }
+  @Override
+  public void activateAmazonTraceId(String amazonTraceIdVersion) {
+    this.amazonTraceId = true;
+    this.amazonTraceIdVersion = amazonTraceIdVersion != null ? amazonTraceIdVersion : "1";
+  }
 
-    @Override
-    public void deactivateAmazonTraceId() {
-        this.amazonTraceId = false;
-    }
+  @Override
+  public void deactivateAmazonTraceId() {
+    this.amazonTraceId = false;
+  }
 
-    @Override
-    public String getAmazonTraceIdVersion() {
-        return this.amazonTraceIdVersion;
-    }
+  @Override
+  public String getAmazonTraceIdVersion() {
+    return this.amazonTraceIdVersion;
+  }
 
-    @Override
-    public void activateClientInfoHeader(AppInfo appInfo) {
-        this.clientInfoHeader = true;
-        this.appInfo = appInfo != null ? appInfo : new AppInfo();
-    }
+  @Override
+  public void activateClientInfoHeader(AppInfo appInfo) {
+    this.clientInfoHeader = true;
+    this.appInfo = appInfo != null ? appInfo : new AppInfo();
+  }
 
-    @Override
-    public void deactivateClientInfoHeader() {
-        this.clientInfoHeader = false;
-    }
+  @Override
+  public void deactivateClientInfoHeader() {
+    this.clientInfoHeader = false;
+  }
 
-    @Override
-    public AppInfo getAppInfo() {
-        return this.appInfo;
-    }
+  @Override
+  public AppInfo getAppInfo() {
+    return this.appInfo;
+  }
 
-    @Override
-    public boolean isClientInfoHeader() {
-        return this.clientInfoHeader;
-    }
+  @Override
+  public boolean isClientInfoHeader() {
+    return this.clientInfoHeader;
+  }
 }

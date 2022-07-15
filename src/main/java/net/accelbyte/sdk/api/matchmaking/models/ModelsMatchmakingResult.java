@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,62 +27,60 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsMatchmakingResult extends Model {
 
-    @JsonProperty("channel")
-    private String channel;
+  @JsonProperty("channel")
+  private String channel;
 
-    @JsonProperty("client_version")
-    private String clientVersion;
+  @JsonProperty("client_version")
+  private String clientVersion;
 
-    @JsonProperty("deployment")
-    private String deployment;
+  @JsonProperty("deployment")
+  private String deployment;
 
-    @JsonProperty("game_mode")
-    private String gameMode;
+  @JsonProperty("game_mode")
+  private String gameMode;
 
-    @JsonProperty("joinable")
-    private Boolean joinable;
+  @JsonProperty("joinable")
+  private Boolean joinable;
 
-    @JsonProperty("match_id")
-    private String matchId;
+  @JsonProperty("match_id")
+  private String matchId;
 
-    @JsonProperty("matching_allies")
-    private List<ModelsMatchingAlly> matchingAllies;
+  @JsonProperty("matching_allies")
+  private List<ModelsMatchingAlly> matchingAllies;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("party_attributes")
-    private Map<String, ?> partyAttributes;
+  @JsonProperty("party_attributes")
+  private Map<String, ?> partyAttributes;
 
-    @JsonProperty("party_id")
-    private String partyId;
+  @JsonProperty("party_id")
+  private String partyId;
 
-    @JsonProperty("queued_at")
-    private Integer queuedAt;
+  @JsonProperty("queued_at")
+  private Integer queuedAt;
 
-    @JsonProperty("region")
-    private String region;
+  @JsonProperty("region")
+  private String region;
 
-    @JsonProperty("server_name")
-    private String serverName;
+  @JsonProperty("server_name")
+  private String serverName;
 
-    @JsonProperty("status")
-    private String status;
+  @JsonProperty("status")
+  private String status;
 
-    @JsonProperty("updated_at")
-    private String updatedAt;
+  @JsonProperty("updated_at")
+  private String updatedAt;
 
+  @JsonIgnore
+  public ModelsMatchmakingResult createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsMatchmakingResult createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsMatchmakingResult> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMatchmakingResult>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsMatchmakingResult> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsMatchmakingResult>>() {});
+  }
 }

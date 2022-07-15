@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,56 +26,54 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsCreateChannelResponse extends Model {
 
-    @JsonProperty("deployment")
-    private String deployment;
+  @JsonProperty("deployment")
+  private String deployment;
 
-    @JsonProperty("description")
-    private String description;
+  @JsonProperty("description")
+  private String description;
 
-    @JsonProperty("find_match_timeout_seconds")
-    private Integer findMatchTimeoutSeconds;
+  @JsonProperty("find_match_timeout_seconds")
+  private Integer findMatchTimeoutSeconds;
 
-    @JsonProperty("game_mode")
-    private String gameMode;
+  @JsonProperty("game_mode")
+  private String gameMode;
 
-    @JsonProperty("joinable")
-    private Boolean joinable;
+  @JsonProperty("joinable")
+  private Boolean joinable;
 
-    @JsonProperty("max_delay_ms")
-    private Integer maxDelayMs;
+  @JsonProperty("max_delay_ms")
+  private Integer maxDelayMs;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("ruleset")
-    private ModelsRuleSet ruleset;
+  @JsonProperty("ruleset")
+  private ModelsRuleSet ruleset;
 
-    @JsonProperty("session_queue_timeout_seconds")
-    private Integer sessionQueueTimeoutSeconds;
+  @JsonProperty("session_queue_timeout_seconds")
+  private Integer sessionQueueTimeoutSeconds;
 
-    @JsonProperty("slug")
-    private String slug;
+  @JsonProperty("slug")
+  private String slug;
 
-    @JsonProperty("social_matchmaking")
-    private Boolean socialMatchmaking;
+  @JsonProperty("social_matchmaking")
+  private Boolean socialMatchmaking;
 
-    @JsonProperty("updated_at")
-    private String updatedAt;
+  @JsonProperty("updated_at")
+  private String updatedAt;
 
-    @JsonProperty("use_sub_gamemode")
-    private Boolean useSubGamemode;
+  @JsonProperty("use_sub_gamemode")
+  private Boolean useSubGamemode;
 
+  @JsonIgnore
+  public ModelsCreateChannelResponse createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsCreateChannelResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsCreateChannelResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCreateChannelResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsCreateChannelResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsCreateChannelResponse>>() {});
+  }
 }

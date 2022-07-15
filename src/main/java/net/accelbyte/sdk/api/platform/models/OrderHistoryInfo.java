@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,101 +26,97 @@ import java.util.Map;
 @NoArgsConstructor
 public class OrderHistoryInfo extends Model {
 
-    @JsonProperty("action")
+  @JsonProperty("action")
+  private String action;
+
+  @JsonProperty("createdAt")
+  private String createdAt;
+
+  @JsonProperty("namespace")
+  private String namespace;
+
+  @JsonProperty("operator")
+  private String operator;
+
+  @JsonProperty("orderNo")
+  private String orderNo;
+
+  @JsonProperty("reason")
+  private String reason;
+
+  @JsonProperty("updatedAt")
+  private String updatedAt;
+
+  @JsonProperty("userId")
+  private String userId;
+
+  @JsonIgnore
+  public String getAction() {
+    return this.action;
+  }
+
+  @JsonIgnore
+  public Action getActionAsEnum() {
+    return Action.valueOf(this.action);
+  }
+
+  @JsonIgnore
+  public void setAction(final String action) {
+    this.action = action;
+  }
+
+  @JsonIgnore
+  public void setActionFromEnum(final Action action) {
+    this.action = action.toString();
+  }
+
+  @JsonIgnore
+  public OrderHistoryInfo createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<OrderHistoryInfo> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<OrderHistoryInfo>>() {});
+  }
+
+  public enum Action {
+    CHARGEBACK("CHARGEBACK"),
+    CHARGEBACKREVERSED("CHARGEBACK_REVERSED"),
+    CHARGED("CHARGED"),
+    CLOSE("CLOSE"),
+    DELETED("DELETED"),
+    FULFILLED("FULFILLED"),
+    FULFILLFAILED("FULFILL_FAILED"),
+    INIT("INIT"),
+    REFUNDED("REFUNDED"),
+    REFUNDING("REFUNDING"),
+    REFUNDFAILED("REFUND_FAILED"),
+    SETSTATUS("SET_STATUS");
+
+    private String value;
+
+    Action(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class OrderHistoryInfoBuilder {
     private String action;
 
-    @JsonProperty("createdAt")
-    private String createdAt;
-
-    @JsonProperty("namespace")
-    private String namespace;
-
-    @JsonProperty("operator")
-    private String operator;
-
-    @JsonProperty("orderNo")
-    private String orderNo;
-
-    @JsonProperty("reason")
-    private String reason;
-
-    @JsonProperty("updatedAt")
-    private String updatedAt;
-
-    @JsonProperty("userId")
-    private String userId;
-
-
-    
-    @JsonIgnore
-    public String getAction() {
-        return this.action;
-    }
-    
-    @JsonIgnore
-    public Action getActionAsEnum() {
-        return Action.valueOf(this.action);
-    }
-    
-    @JsonIgnore
-    public void setAction(final String action) {
-        this.action = action;
-    }
-    
-    @JsonIgnore
-    public void setActionFromEnum(final Action action) {
-        this.action = action.toString();
+    public OrderHistoryInfoBuilder action(final String action) {
+      this.action = action;
+      return this;
     }
 
-    @JsonIgnore
-    public OrderHistoryInfo createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public OrderHistoryInfoBuilder actionFromEnum(final Action action) {
+      this.action = action.toString();
+      return this;
     }
-
-    @JsonIgnore
-    public List<OrderHistoryInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<OrderHistoryInfo>>() {});
-    }
-
-    
-    public enum Action {
-        CHARGEBACK("CHARGEBACK"),
-        CHARGEBACKREVERSED("CHARGEBACK_REVERSED"),
-        CHARGED("CHARGED"),
-        CLOSE("CLOSE"),
-        DELETED("DELETED"),
-        FULFILLED("FULFILLED"),
-        FULFILLFAILED("FULFILL_FAILED"),
-        INIT("INIT"),
-        REFUNDED("REFUNDED"),
-        REFUNDING("REFUNDING"),
-        REFUNDFAILED("REFUND_FAILED"),
-        SETSTATUS("SET_STATUS");
-
-        private String value;
-
-        Action(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class OrderHistoryInfoBuilder {
-        private String action;
-        
-        
-        public OrderHistoryInfoBuilder action(final String action) {
-            this.action = action;
-            return this;
-        }
-        
-        public OrderHistoryInfoBuilder actionFromEnum(final Action action) {
-            this.action = action.toString();
-            return this;
-        }
-    }
+  }
 }

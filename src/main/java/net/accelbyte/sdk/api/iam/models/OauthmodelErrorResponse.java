@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,44 +26,42 @@ import java.util.Map;
 @NoArgsConstructor
 public class OauthmodelErrorResponse extends Model {
 
-    @JsonProperty("clientId")
-    private String clientId;
+  @JsonProperty("clientId")
+  private String clientId;
 
-    @JsonProperty("default_factor")
-    private String defaultFactor;
+  @JsonProperty("default_factor")
+  private String defaultFactor;
 
-    @JsonProperty("error")
-    private String error;
+  @JsonProperty("error")
+  private String error;
 
-    @JsonProperty("error_description")
-    private String errorDescription;
+  @JsonProperty("error_description")
+  private String errorDescription;
 
-    @JsonProperty("error_uri")
-    private String errorUri;
+  @JsonProperty("error_uri")
+  private String errorUri;
 
-    @JsonProperty("factors")
-    private List<String> factors;
+  @JsonProperty("factors")
+  private List<String> factors;
 
-    @JsonProperty("linkingToken")
-    private String linkingToken;
+  @JsonProperty("linkingToken")
+  private String linkingToken;
 
-    @JsonProperty("mfa_token")
-    private String mfaToken;
+  @JsonProperty("mfa_token")
+  private String mfaToken;
 
-    @JsonProperty("platformId")
-    private String platformId;
+  @JsonProperty("platformId")
+  private String platformId;
 
+  @JsonIgnore
+  public OauthmodelErrorResponse createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public OauthmodelErrorResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<OauthmodelErrorResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<OauthmodelErrorResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<OauthmodelErrorResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<OauthmodelErrorResponse>>() {});
+  }
 }

@@ -11,15 +11,14 @@ import lombok.Getter;
 @Getter
 public class SDKInfo {
 
-    private static final SDKInfo instance = new SDKInfo();
+  private static final SDKInfo instance = new SDKInfo();
 
-    private String sdkName = "AccelByteJavaSDK";
-    private String sdkVersion = "0.14.0";
+  private String sdkName = "AccelByteJavaSDK";
+  private String sdkVersion = "0.14.0";
 
-    private SDKInfo() {
-    }
+  private SDKInfo() {}
 
-    public static SDKInfo getInstance() {
-        return instance;
-    }
+  public static SDKInfo getInstance() {
+    return instance;
+  }
 }

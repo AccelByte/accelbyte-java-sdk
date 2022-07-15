@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,26 +27,24 @@ import java.util.Map;
 @NoArgsConstructor
 public class AcceptAgreementResponse extends Model {
 
-    @JsonProperty("comply")
-    private Boolean comply;
+  @JsonProperty("comply")
+  private Boolean comply;
 
-    @JsonProperty("ext")
-    private Map<String, ?> ext;
+  @JsonProperty("ext")
+  private Map<String, ?> ext;
 
-    @JsonProperty("proceed")
-    private Boolean proceed;
+  @JsonProperty("proceed")
+  private Boolean proceed;
 
+  @JsonIgnore
+  public AcceptAgreementResponse createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public AcceptAgreementResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<AcceptAgreementResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<AcceptAgreementResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<AcceptAgreementResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<AcceptAgreementResponse>>() {});
+  }
 }

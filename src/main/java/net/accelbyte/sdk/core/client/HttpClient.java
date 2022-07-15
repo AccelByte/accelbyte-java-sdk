@@ -12,7 +12,8 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.logging.HttpLogger;
 
 public interface HttpClient<T extends HttpLogger<?, ?>> {
-    HttpResponse sendRequest(Operation operation, String baseURL, HttpHeaders headers) throws Exception;
+  HttpResponse sendRequest(Operation operation, String baseURL, HttpHeaders headers)
+      throws Exception;
 
-    void setLogger(T logger);
+  void setLogger(T logger);
 }

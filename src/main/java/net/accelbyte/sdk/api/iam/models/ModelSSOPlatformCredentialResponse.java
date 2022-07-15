@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,47 +26,46 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelSSOPlatformCredentialResponse extends Model {
 
-    @JsonProperty("acsUrl")
-    private String acsUrl;
+  @JsonProperty("acsUrl")
+  private String acsUrl;
 
-    @JsonProperty("appId")
-    private String appId;
+  @JsonProperty("appId")
+  private String appId;
 
-    @JsonProperty("federationMetadataUrl")
-    private String federationMetadataUrl;
+  @JsonProperty("federationMetadataUrl")
+  private String federationMetadataUrl;
 
-    @JsonProperty("isActive")
-    private Boolean isActive;
+  @JsonProperty("isActive")
+  private Boolean isActive;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("platformId")
-    private String platformId;
+  @JsonProperty("platformId")
+  private String platformId;
 
-    @JsonProperty("redirectUri")
-    private String redirectUri;
+  @JsonProperty("redirectUri")
+  private String redirectUri;
 
-    @JsonProperty("secret")
-    private String secret;
+  @JsonProperty("secret")
+  private String secret;
 
-    @JsonProperty("ssoUrl")
-    private String ssoUrl;
+  @JsonProperty("ssoUrl")
+  private String ssoUrl;
 
-    @JsonProperty("truncatedApiKey")
-    private String truncatedApiKey;
+  @JsonProperty("truncatedApiKey")
+  private String truncatedApiKey;
 
+  @JsonIgnore
+  public ModelSSOPlatformCredentialResponse createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelSSOPlatformCredentialResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelSSOPlatformCredentialResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelSSOPlatformCredentialResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelSSOPlatformCredentialResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelSSOPlatformCredentialResponse>>() {});
+  }
 }

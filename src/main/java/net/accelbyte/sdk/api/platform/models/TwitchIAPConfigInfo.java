@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,29 +26,25 @@ import java.util.Map;
 @NoArgsConstructor
 public class TwitchIAPConfigInfo extends Model {
 
-    @JsonProperty("clientId")
-    private String clientId;
+  @JsonProperty("clientId")
+  private String clientId;
 
-    @JsonProperty("clientSecret")
-    private String clientSecret;
+  @JsonProperty("clientSecret")
+  private String clientSecret;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("organizationId")
-    private String organizationId;
+  @JsonProperty("organizationId")
+  private String organizationId;
 
+  @JsonIgnore
+  public TwitchIAPConfigInfo createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public TwitchIAPConfigInfo createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<TwitchIAPConfigInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<TwitchIAPConfigInfo>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<TwitchIAPConfigInfo> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<TwitchIAPConfigInfo>>() {});
+  }
 }

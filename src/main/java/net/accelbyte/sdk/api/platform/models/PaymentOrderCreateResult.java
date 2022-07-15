@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,99 +26,97 @@ import java.util.Map;
 @NoArgsConstructor
 public class PaymentOrderCreateResult extends Model {
 
-    @JsonProperty("createdTime")
-    private String createdTime;
+  @JsonProperty("createdTime")
+  private String createdTime;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("paymentOrderNo")
-    private String paymentOrderNo;
+  @JsonProperty("paymentOrderNo")
+  private String paymentOrderNo;
 
-    @JsonProperty("paymentStationUrl")
-    private String paymentStationUrl;
+  @JsonProperty("paymentStationUrl")
+  private String paymentStationUrl;
 
-    @JsonProperty("status")
+  @JsonProperty("status")
+  private String status;
+
+  @JsonProperty("targetNamespace")
+  private String targetNamespace;
+
+  @JsonProperty("targetUserId")
+  private String targetUserId;
+
+  @JsonIgnore
+  public String getStatus() {
+    return this.status;
+  }
+
+  @JsonIgnore
+  public Status getStatusAsEnum() {
+    return Status.valueOf(this.status);
+  }
+
+  @JsonIgnore
+  public void setStatus(final String status) {
+    this.status = status;
+  }
+
+  @JsonIgnore
+  public void setStatusFromEnum(final Status status) {
+    this.status = status.toString();
+  }
+
+  @JsonIgnore
+  public PaymentOrderCreateResult createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<PaymentOrderCreateResult> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<PaymentOrderCreateResult>>() {});
+  }
+
+  public enum Status {
+    AUTHORISED("AUTHORISED"),
+    AUTHORISEFAILED("AUTHORISE_FAILED"),
+    CHARGEBACK("CHARGEBACK"),
+    CHARGEBACKREVERSED("CHARGEBACK_REVERSED"),
+    CHARGED("CHARGED"),
+    CHARGEFAILED("CHARGE_FAILED"),
+    DELETED("DELETED"),
+    INIT("INIT"),
+    NOTIFICATIONOFCHARGEBACK("NOTIFICATION_OF_CHARGEBACK"),
+    REFUNDED("REFUNDED"),
+    REFUNDING("REFUNDING"),
+    REFUNDFAILED("REFUND_FAILED"),
+    REQUESTFORINFORMATION("REQUEST_FOR_INFORMATION");
+
+    private String value;
+
+    Status(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class PaymentOrderCreateResultBuilder {
     private String status;
 
-    @JsonProperty("targetNamespace")
-    private String targetNamespace;
-
-    @JsonProperty("targetUserId")
-    private String targetUserId;
-
-
-    
-    @JsonIgnore
-    public String getStatus() {
-        return this.status;
-    }
-    
-    @JsonIgnore
-    public Status getStatusAsEnum() {
-        return Status.valueOf(this.status);
-    }
-    
-    @JsonIgnore
-    public void setStatus(final String status) {
-        this.status = status;
-    }
-    
-    @JsonIgnore
-    public void setStatusFromEnum(final Status status) {
-        this.status = status.toString();
+    public PaymentOrderCreateResultBuilder status(final String status) {
+      this.status = status;
+      return this;
     }
 
-    @JsonIgnore
-    public PaymentOrderCreateResult createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public PaymentOrderCreateResultBuilder statusFromEnum(final Status status) {
+      this.status = status.toString();
+      return this;
     }
-
-    @JsonIgnore
-    public List<PaymentOrderCreateResult> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<PaymentOrderCreateResult>>() {});
-    }
-
-    
-    public enum Status {
-        AUTHORISED("AUTHORISED"),
-        AUTHORISEFAILED("AUTHORISE_FAILED"),
-        CHARGEBACK("CHARGEBACK"),
-        CHARGEBACKREVERSED("CHARGEBACK_REVERSED"),
-        CHARGED("CHARGED"),
-        CHARGEFAILED("CHARGE_FAILED"),
-        DELETED("DELETED"),
-        INIT("INIT"),
-        NOTIFICATIONOFCHARGEBACK("NOTIFICATION_OF_CHARGEBACK"),
-        REFUNDED("REFUNDED"),
-        REFUNDING("REFUNDING"),
-        REFUNDFAILED("REFUND_FAILED"),
-        REQUESTFORINFORMATION("REQUEST_FOR_INFORMATION");
-
-        private String value;
-
-        Status(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class PaymentOrderCreateResultBuilder {
-        private String status;
-        
-        
-        public PaymentOrderCreateResultBuilder status(final String status) {
-            this.status = status;
-            return this;
-        }
-        
-        public PaymentOrderCreateResultBuilder statusFromEnum(final Status status) {
-            this.status = status.toString();
-            return this;
-        }
-    }
+  }
 }

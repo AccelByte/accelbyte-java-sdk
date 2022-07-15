@@ -8,97 +8,81 @@
 
 package net.accelbyte.sdk.api.basic.operations.equ8_config;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.basic.models.*;
-import net.accelbyte.sdk.api.basic.models.Equ8Config;
-import net.accelbyte.sdk.api.basic.models.ADTOForUpdateEqu8ConfigAPICall;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.basic.models.*;
+import net.accelbyte.sdk.api.basic.models.ADTOForUpdateEqu8ConfigAPICall;
+import net.accelbyte.sdk.api.basic.models.Equ8Config;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * updateConfig
  *
- * Update equ8 config, create if not exists.
- * Other detail info:
- * 
- *   * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:EQU8CONFIG" , action=4 (UPDATE)
+ * <p>Update equ8 config, create if not exists. Other detail info:
+ *
+ * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:EQU8CONFIG" , action=4 (UPDATE)
  */
 @Getter
 @Setter
 public class UpdateConfig extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/basic/v1/admin/namespaces/{namespace}/equ8/config";
-    private String method = "PATCH";
-    private List<String> consumes = Arrays.asList("application/json");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String namespace;
-    private ADTOForUpdateEqu8ConfigAPICall body;
+  /** generated field's value */
+  private String path = "/basic/v1/admin/namespaces/{namespace}/equ8/config";
 
-    /**
-    * @param namespace required
-    */
-    @Builder
-    public UpdateConfig(
-            String namespace,
-            ADTOForUpdateEqu8ConfigAPICall body
-    )
-    {
-        this.namespace = namespace;
-        this.body = body;
-        
-        securities.add("Bearer");
+  private String method = "PATCH";
+  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String namespace;
+
+  private ADTOForUpdateEqu8ConfigAPICall body;
+
+  /**
+   * @param namespace required
+   */
+  @Builder
+  public UpdateConfig(String namespace, ADTOForUpdateEqu8ConfigAPICall body) {
+    this.namespace = namespace;
+    this.body = body;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
+    return pathParams;
+  }
 
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        return pathParams;
+  @Override
+  public ADTOForUpdateEqu8ConfigAPICall getBodyParams() {
+    return this.body;
+  }
+
+  @Override
+  public boolean isValid() {
+    if (this.namespace == null) {
+      return false;
     }
+    return true;
+  }
 
-
-
-    @Override
-    public ADTOForUpdateEqu8ConfigAPICall getBodyParams(){
-        return this.body;
+  public Equ8Config parseResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 200) {
+      return new Equ8Config().createFromJson(json);
     }
-
-
-    @Override
-    public boolean isValid() {
-        if(this.namespace == null) {
-            return false;
-        }
-        return true;
-    }
-
-    public Equ8Config parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 200){
-            return new Equ8Config().createFromJson(json);
-        }
-        throw new HttpResponseException(code, json);
-    }
-
+    throw new HttpResponseException(code, json);
+  }
 }

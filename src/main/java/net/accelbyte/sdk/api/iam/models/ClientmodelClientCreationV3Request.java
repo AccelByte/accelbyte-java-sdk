@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,50 +26,49 @@ import java.util.Map;
 @NoArgsConstructor
 public class ClientmodelClientCreationV3Request extends Model {
 
-    @JsonProperty("audiences")
-    private List<String> audiences;
+  @JsonProperty("audiences")
+  private List<String> audiences;
 
-    @JsonProperty("baseUri")
-    private String baseUri;
+  @JsonProperty("baseUri")
+  private String baseUri;
 
-    @JsonProperty("clientId")
-    private String clientId;
+  @JsonProperty("clientId")
+  private String clientId;
 
-    @JsonProperty("clientName")
-    private String clientName;
+  @JsonProperty("clientName")
+  private String clientName;
 
-    @JsonProperty("clientPermissions")
-    private List<AccountcommonPermissionV3> clientPermissions;
+  @JsonProperty("clientPermissions")
+  private List<AccountcommonPermissionV3> clientPermissions;
 
-    @JsonProperty("clientPlatform")
-    private String clientPlatform;
+  @JsonProperty("clientPlatform")
+  private String clientPlatform;
 
-    @JsonProperty("deletable")
-    private Boolean deletable;
+  @JsonProperty("deletable")
+  private Boolean deletable;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("oauthClientType")
-    private String oauthClientType;
+  @JsonProperty("oauthClientType")
+  private String oauthClientType;
 
-    @JsonProperty("redirectUri")
-    private String redirectUri;
+  @JsonProperty("redirectUri")
+  private String redirectUri;
 
-    @JsonProperty("secret")
-    private String secret;
+  @JsonProperty("secret")
+  private String secret;
 
+  @JsonIgnore
+  public ClientmodelClientCreationV3Request createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ClientmodelClientCreationV3Request createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ClientmodelClientCreationV3Request> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ClientmodelClientCreationV3Request>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ClientmodelClientCreationV3Request> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ClientmodelClientCreationV3Request>>() {});
+  }
 }

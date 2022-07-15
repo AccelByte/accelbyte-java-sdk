@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,38 +26,37 @@ import java.util.Map;
 @NoArgsConstructor
 public class OauthmodelTokenIntrospectResponse extends Model {
 
-    @JsonProperty("active")
-    private Boolean active;
+  @JsonProperty("active")
+  private Boolean active;
 
-    @JsonProperty("aud")
-    private String aud;
+  @JsonProperty("aud")
+  private String aud;
 
-    @JsonProperty("client_id")
-    private String clientId;
+  @JsonProperty("client_id")
+  private String clientId;
 
-    @JsonProperty("exp")
-    private Integer exp;
+  @JsonProperty("exp")
+  private Integer exp;
 
-    @JsonProperty("iat")
-    private Integer iat;
+  @JsonProperty("iat")
+  private Integer iat;
 
-    @JsonProperty("scope")
-    private String scope;
+  @JsonProperty("scope")
+  private String scope;
 
-    @JsonProperty("sub")
-    private String sub;
+  @JsonProperty("sub")
+  private String sub;
 
+  @JsonIgnore
+  public OauthmodelTokenIntrospectResponse createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public OauthmodelTokenIntrospectResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<OauthmodelTokenIntrospectResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<OauthmodelTokenIntrospectResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<OauthmodelTokenIntrospectResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<OauthmodelTokenIntrospectResponse>>() {});
+  }
 }

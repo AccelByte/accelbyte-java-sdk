@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,81 +26,77 @@ import java.util.Map;
 @NoArgsConstructor
 public class Recurring extends Model {
 
-    @JsonProperty("cycle")
+  @JsonProperty("cycle")
+  private String cycle;
+
+  @JsonProperty("fixedFreeDays")
+  private Integer fixedFreeDays;
+
+  @JsonProperty("fixedTrialCycles")
+  private Integer fixedTrialCycles;
+
+  @JsonProperty("graceDays")
+  private Integer graceDays;
+
+  @JsonIgnore
+  public String getCycle() {
+    return this.cycle;
+  }
+
+  @JsonIgnore
+  public Cycle getCycleAsEnum() {
+    return Cycle.valueOf(this.cycle);
+  }
+
+  @JsonIgnore
+  public void setCycle(final String cycle) {
+    this.cycle = cycle;
+  }
+
+  @JsonIgnore
+  public void setCycleFromEnum(final Cycle cycle) {
+    this.cycle = cycle.toString();
+  }
+
+  @JsonIgnore
+  public Recurring createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<Recurring> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<Recurring>>() {});
+  }
+
+  public enum Cycle {
+    MONTHLY("MONTHLY"),
+    QUARTERLY("QUARTERLY"),
+    WEEKLY("WEEKLY"),
+    YEARLY("YEARLY");
+
+    private String value;
+
+    Cycle(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class RecurringBuilder {
     private String cycle;
 
-    @JsonProperty("fixedFreeDays")
-    private Integer fixedFreeDays;
-
-    @JsonProperty("fixedTrialCycles")
-    private Integer fixedTrialCycles;
-
-    @JsonProperty("graceDays")
-    private Integer graceDays;
-
-
-    
-    @JsonIgnore
-    public String getCycle() {
-        return this.cycle;
-    }
-    
-    @JsonIgnore
-    public Cycle getCycleAsEnum() {
-        return Cycle.valueOf(this.cycle);
-    }
-    
-    @JsonIgnore
-    public void setCycle(final String cycle) {
-        this.cycle = cycle;
-    }
-    
-    @JsonIgnore
-    public void setCycleFromEnum(final Cycle cycle) {
-        this.cycle = cycle.toString();
+    public RecurringBuilder cycle(final String cycle) {
+      this.cycle = cycle;
+      return this;
     }
 
-    @JsonIgnore
-    public Recurring createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public RecurringBuilder cycleFromEnum(final Cycle cycle) {
+      this.cycle = cycle.toString();
+      return this;
     }
-
-    @JsonIgnore
-    public List<Recurring> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<Recurring>>() {});
-    }
-
-    
-    public enum Cycle {
-        MONTHLY("MONTHLY"),
-        QUARTERLY("QUARTERLY"),
-        WEEKLY("WEEKLY"),
-        YEARLY("YEARLY");
-
-        private String value;
-
-        Cycle(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class RecurringBuilder {
-        private String cycle;
-        
-        
-        public RecurringBuilder cycle(final String cycle) {
-            this.cycle = cycle;
-            return this;
-        }
-        
-        public RecurringBuilder cycleFromEnum(final Cycle cycle) {
-            this.cycle = cycle.toString();
-            return this;
-        }
-    }
+  }
 }

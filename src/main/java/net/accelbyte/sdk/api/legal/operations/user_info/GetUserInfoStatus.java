@@ -10,88 +10,74 @@ package net.accelbyte.sdk.api.legal.operations.user_info;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.legal.models.*;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.legal.models.*;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * getUserInfoStatus
  *
- * Get user info cache last updated time per namespace.
- * The query parameter namespaces can be a list of namespace separated by comma.
- * If query parameter namespaces is empty, user info cache status for all available namespaces will be returned.
- * Other detail info:
- * 
- *   * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+ * <p>Get user info cache last updated time per namespace. The query parameter namespaces can be a
+ * list of namespace separated by comma. If query parameter namespaces is empty, user info cache
+ * status for all available namespaces will be returned. Other detail info:
+ *
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
  */
 @Getter
 @Setter
 public class GetUserInfoStatus extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/agreement/admin/userInfo";
-    private String method = "GET";
-    private List<String> consumes = Arrays.asList();
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String namespaces;
+  /** generated field's value */
+  private String path = "/agreement/admin/userInfo";
 
-    /**
-    */
-    @Builder
-    public GetUserInfoStatus(
-            String namespaces
-    )
-    {
-        this.namespaces = namespaces;
-        
-        securities.add("Bearer");
+  private String method = "GET";
+  private List<String> consumes = Arrays.asList();
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String namespaces;
+
+  /** */
+  @Builder
+  public GetUserInfoStatus(String namespaces) {
+    this.namespaces = namespaces;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("namespaces", this.namespaces == null ? null : Arrays.asList(this.namespaces));
+    return queryParams;
+  }
+
+  @Override
+  public boolean isValid() {
+    return true;
+  }
+
+  public List<RetrieveUserInfoCacheStatusResponse> parseResponse(
+      int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 200) {
+      return new ObjectMapper()
+          .readValue(json, new TypeReference<List<RetrieveUserInfoCacheStatusResponse>>() {});
     }
+    throw new HttpResponseException(code, json);
+  }
 
-
-    @Override
-    public Map<String, List<String>> getQueryParams(){
-        Map<String, List<String>> queryParams = new HashMap<>();
-        queryParams.put("namespaces", this.namespaces == null ? null : Arrays.asList(this.namespaces));
-        return queryParams;
-    }
-
-
-
-
-    @Override
-    public boolean isValid() {
-        return true;
-    }
-
-    public List<RetrieveUserInfoCacheStatusResponse> parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 200){
-            return new ObjectMapper().readValue(json, new TypeReference<List<RetrieveUserInfoCacheStatusResponse>>() {});
-        }
-        throw new HttpResponseException(code, json);
-    }
-
-    @Override
-    protected Map<String, String> getCollectionFormatMap() {
-        Map<String, String> result = new HashMap<>();
-        result.put("namespaces", "None");
-        return result;
-    }
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("namespaces", "None");
+    return result;
+  }
 }

@@ -8,95 +8,79 @@
 
 package net.accelbyte.sdk.api.legal.operations.policies;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.legal.models.*;
-import net.accelbyte.sdk.api.legal.models.UpdatePolicyRequest;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.legal.models.*;
+import net.accelbyte.sdk.api.legal.models.UpdatePolicyRequest;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * updatePolicy
  *
- * Update country-specific policy.
- * Other detail info:
- * 
- *   * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+ * <p>Update country-specific policy. Other detail info:
+ *
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
  */
 @Getter
 @Setter
 public class UpdatePolicy extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/agreement/admin/policies/{policyId}";
-    private String method = "PATCH";
-    private List<String> consumes = Arrays.asList("application/json");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String policyId;
-    private UpdatePolicyRequest body;
+  /** generated field's value */
+  private String path = "/agreement/admin/policies/{policyId}";
 
-    /**
-    * @param policyId required
-    */
-    @Builder
-    public UpdatePolicy(
-            String policyId,
-            UpdatePolicyRequest body
-    )
-    {
-        this.policyId = policyId;
-        this.body = body;
-        
-        securities.add("Bearer");
+  private String method = "PATCH";
+  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String policyId;
+
+  private UpdatePolicyRequest body;
+
+  /**
+   * @param policyId required
+   */
+  @Builder
+  public UpdatePolicy(String policyId, UpdatePolicyRequest body) {
+    this.policyId = policyId;
+    this.body = body;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.policyId != null) {
+      pathParams.put("policyId", this.policyId);
     }
+    return pathParams;
+  }
 
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.policyId != null){
-            pathParams.put("policyId", this.policyId);
-        }
-        return pathParams;
+  @Override
+  public UpdatePolicyRequest getBodyParams() {
+    return this.body;
+  }
+
+  @Override
+  public boolean isValid() {
+    if (this.policyId == null) {
+      return false;
     }
+    return true;
+  }
 
-
-
-    @Override
-    public UpdatePolicyRequest getBodyParams(){
-        return this.body;
+  public void handleEmptyResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    if (code != 200) {
+      String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
     }
-
-
-    @Override
-    public boolean isValid() {
-        if(this.policyId == null) {
-            return false;
-        }
-        return true;
-    }
-
-    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        if(code != 200){
-            String json = Helper.convertInputStreamToString(payload);
-            throw new HttpResponseException(code, json);
-        }
-    }
-
+  }
 }

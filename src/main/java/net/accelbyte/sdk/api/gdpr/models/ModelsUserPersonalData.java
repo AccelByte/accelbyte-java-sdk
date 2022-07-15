@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,26 +26,23 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsUserPersonalData extends Model {
 
-    @JsonProperty("DataExpirationDate")
-    private String dataExpirationDate;
+  @JsonProperty("DataExpirationDate")
+  private String dataExpirationDate;
 
-    @JsonProperty("RequestDate")
-    private String requestDate;
+  @JsonProperty("RequestDate")
+  private String requestDate;
 
-    @JsonProperty("Status")
-    private String status;
+  @JsonProperty("Status")
+  private String status;
 
+  @JsonIgnore
+  public ModelsUserPersonalData createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsUserPersonalData createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsUserPersonalData> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUserPersonalData>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsUserPersonalData> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUserPersonalData>>() {});
+  }
 }

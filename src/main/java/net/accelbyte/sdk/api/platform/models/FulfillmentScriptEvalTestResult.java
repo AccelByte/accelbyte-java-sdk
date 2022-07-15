@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,23 +27,22 @@ import java.util.Map;
 @NoArgsConstructor
 public class FulfillmentScriptEvalTestResult extends Model {
 
-    @JsonProperty("errorStackTrace")
-    private String errorStackTrace;
+  @JsonProperty("errorStackTrace")
+  private String errorStackTrace;
 
-    @JsonProperty("result")
-    private Map<String, ?> result;
+  @JsonProperty("result")
+  private Map<String, ?> result;
 
+  @JsonIgnore
+  public FulfillmentScriptEvalTestResult createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public FulfillmentScriptEvalTestResult createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<FulfillmentScriptEvalTestResult> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<FulfillmentScriptEvalTestResult>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<FulfillmentScriptEvalTestResult> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<FulfillmentScriptEvalTestResult>>() {});
+  }
 }

@@ -8,114 +8,98 @@
 
 package net.accelbyte.sdk.api.ugc.operations.public_content;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.ugc.models.*;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.ugc.models.*;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * DeleteContentScreenshot
  *
- * Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [DELETE].
+ * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [DELETE].
  */
 @Getter
 @Setter
 public class DeleteContentScreenshot extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/ugc/v1/public/namespaces/{namespace}/users/{userId}/contents/{contentId}/screenshots/{screenshotId}";
-    private String method = "DELETE";
-    private List<String> consumes = Arrays.asList("application/json","application/octet-stream");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String contentId;
-    private String namespace;
-    private String screenshotId;
-    private String userId;
+  /** generated field's value */
+  private String path =
+      "/ugc/v1/public/namespaces/{namespace}/users/{userId}/contents/{contentId}/screenshots/{screenshotId}";
 
-    /**
-    * @param contentId required
-    * @param namespace required
-    * @param screenshotId required
-    * @param userId required
-    */
-    @Builder
-    public DeleteContentScreenshot(
-            String contentId,
-            String namespace,
-            String screenshotId,
-            String userId
-    )
-    {
-        this.contentId = contentId;
-        this.namespace = namespace;
-        this.screenshotId = screenshotId;
-        this.userId = userId;
-        
-        securities.add("Bearer");
+  private String method = "DELETE";
+  private List<String> consumes = Arrays.asList("application/json", "application/octet-stream");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String contentId;
+
+  private String namespace;
+  private String screenshotId;
+  private String userId;
+
+  /**
+   * @param contentId required
+   * @param namespace required
+   * @param screenshotId required
+   * @param userId required
+   */
+  @Builder
+  public DeleteContentScreenshot(
+      String contentId, String namespace, String screenshotId, String userId) {
+    this.contentId = contentId;
+    this.namespace = namespace;
+    this.screenshotId = screenshotId;
+    this.userId = userId;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.contentId != null) {
+      pathParams.put("contentId", this.contentId);
     }
-
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.contentId != null){
-            pathParams.put("contentId", this.contentId);
-        }
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        if (this.screenshotId != null){
-            pathParams.put("screenshotId", this.screenshotId);
-        }
-        if (this.userId != null){
-            pathParams.put("userId", this.userId);
-        }
-        return pathParams;
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
-
-
-
-
-
-    @Override
-    public boolean isValid() {
-        if(this.contentId == null) {
-            return false;
-        }
-        if(this.namespace == null) {
-            return false;
-        }
-        if(this.screenshotId == null) {
-            return false;
-        }
-        if(this.userId == null) {
-            return false;
-        }
-        return true;
+    if (this.screenshotId != null) {
+      pathParams.put("screenshotId", this.screenshotId);
     }
-
-    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        if(code != 204){
-            String json = Helper.convertInputStreamToString(payload);
-            throw new HttpResponseException(code, json);
-        }
+    if (this.userId != null) {
+      pathParams.put("userId", this.userId);
     }
+    return pathParams;
+  }
 
+  @Override
+  public boolean isValid() {
+    if (this.contentId == null) {
+      return false;
+    }
+    if (this.namespace == null) {
+      return false;
+    }
+    if (this.screenshotId == null) {
+      return false;
+    }
+    if (this.userId == null) {
+      return false;
+    }
+    return true;
+  }
+
+  public void handleEmptyResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    if (code != 204) {
+      String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
+    }
+  }
 }

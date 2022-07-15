@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,32 +26,30 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsAllianceFlexingRule extends Model {
 
-    @JsonProperty("duration")
-    private Integer duration;
+  @JsonProperty("duration")
+  private Integer duration;
 
-    @JsonProperty("max_number")
-    private Integer maxNumber;
+  @JsonProperty("max_number")
+  private Integer maxNumber;
 
-    @JsonProperty("min_number")
-    private Integer minNumber;
+  @JsonProperty("min_number")
+  private Integer minNumber;
 
-    @JsonProperty("player_max_number")
-    private Integer playerMaxNumber;
+  @JsonProperty("player_max_number")
+  private Integer playerMaxNumber;
 
-    @JsonProperty("player_min_number")
-    private Integer playerMinNumber;
+  @JsonProperty("player_min_number")
+  private Integer playerMinNumber;
 
+  @JsonIgnore
+  public ModelsAllianceFlexingRule createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsAllianceFlexingRule createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsAllianceFlexingRule> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAllianceFlexingRule>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsAllianceFlexingRule> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsAllianceFlexingRule>>() {});
+  }
 }

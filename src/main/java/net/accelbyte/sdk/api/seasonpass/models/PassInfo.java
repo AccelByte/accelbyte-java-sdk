@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,50 +27,46 @@ import java.util.Map;
 @NoArgsConstructor
 public class PassInfo extends Model {
 
-    @JsonProperty("autoEnroll")
-    private Boolean autoEnroll;
+  @JsonProperty("autoEnroll")
+  private Boolean autoEnroll;
 
-    @JsonProperty("code")
-    private String code;
+  @JsonProperty("code")
+  private String code;
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+  @JsonProperty("createdAt")
+  private String createdAt;
 
-    @JsonProperty("displayOrder")
-    private String displayOrder;
+  @JsonProperty("displayOrder")
+  private String displayOrder;
 
-    @JsonProperty("images")
-    private List<Image> images;
+  @JsonProperty("images")
+  private List<Image> images;
 
-    @JsonProperty("localizations")
-    private Map<String, Localization> localizations;
+  @JsonProperty("localizations")
+  private Map<String, Localization> localizations;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("passItemId")
-    private String passItemId;
+  @JsonProperty("passItemId")
+  private String passItemId;
 
-    @JsonProperty("passItemName")
-    private String passItemName;
+  @JsonProperty("passItemName")
+  private String passItemName;
 
-    @JsonProperty("seasonId")
-    private String seasonId;
+  @JsonProperty("seasonId")
+  private String seasonId;
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
+  @JsonProperty("updatedAt")
+  private String updatedAt;
 
+  @JsonIgnore
+  public PassInfo createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public PassInfo createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<PassInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<PassInfo>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<PassInfo> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<PassInfo>>() {});
+  }
 }

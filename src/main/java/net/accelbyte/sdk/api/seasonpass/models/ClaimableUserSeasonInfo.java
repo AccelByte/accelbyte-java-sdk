@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,74 +27,72 @@ import java.util.Map;
 @NoArgsConstructor
 public class ClaimableUserSeasonInfo extends Model {
 
-    @JsonProperty("claimingRewards")
-    private Map<String, ?> claimingRewards;
+  @JsonProperty("claimingRewards")
+  private Map<String, ?> claimingRewards;
 
-    @JsonProperty("cleared")
-    private Boolean cleared;
+  @JsonProperty("cleared")
+  private Boolean cleared;
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+  @JsonProperty("createdAt")
+  private String createdAt;
 
-    @JsonProperty("currentExp")
-    private Integer currentExp;
+  @JsonProperty("currentExp")
+  private Integer currentExp;
 
-    @JsonProperty("currentTierIndex")
-    private Integer currentTierIndex;
+  @JsonProperty("currentTierIndex")
+  private Integer currentTierIndex;
 
-    @JsonProperty("enrolledAt")
-    private String enrolledAt;
+  @JsonProperty("enrolledAt")
+  private String enrolledAt;
 
-    @JsonProperty("enrolledPasses")
-    private List<String> enrolledPasses;
+  @JsonProperty("enrolledPasses")
+  private List<String> enrolledPasses;
 
-    @JsonProperty("id")
-    private String id;
+  @JsonProperty("id")
+  private String id;
 
-    @JsonProperty("lastTierIndex")
-    private Integer lastTierIndex;
+  @JsonProperty("lastTierIndex")
+  private Integer lastTierIndex;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("requiredExp")
-    private Integer requiredExp;
+  @JsonProperty("requiredExp")
+  private Integer requiredExp;
 
-    @JsonProperty("season")
-    private SeasonSummary season;
+  @JsonProperty("season")
+  private SeasonSummary season;
 
-    @JsonProperty("seasonId")
-    private String seasonId;
+  @JsonProperty("seasonId")
+  private String seasonId;
 
-    @JsonProperty("toClaimRewards")
-    private Map<String, ?> toClaimRewards;
+  @JsonProperty("toClaimRewards")
+  private Map<String, ?> toClaimRewards;
 
-    @JsonProperty("totalExp")
-    private Integer totalExp;
+  @JsonProperty("totalExp")
+  private Integer totalExp;
 
-    @JsonProperty("totalPaidForExp")
-    private Integer totalPaidForExp;
+  @JsonProperty("totalPaidForExp")
+  private Integer totalPaidForExp;
 
-    @JsonProperty("totalSweatExp")
-    private Integer totalSweatExp;
+  @JsonProperty("totalSweatExp")
+  private Integer totalSweatExp;
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
+  @JsonProperty("updatedAt")
+  private String updatedAt;
 
-    @JsonProperty("userId")
-    private String userId;
+  @JsonProperty("userId")
+  private String userId;
 
+  @JsonIgnore
+  public ClaimableUserSeasonInfo createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ClaimableUserSeasonInfo createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ClaimableUserSeasonInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ClaimableUserSeasonInfo>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ClaimableUserSeasonInfo> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ClaimableUserSeasonInfo>>() {});
+  }
 }

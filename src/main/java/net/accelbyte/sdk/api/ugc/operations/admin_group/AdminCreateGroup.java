@@ -8,95 +8,80 @@
 
 package net.accelbyte.sdk.api.ugc.operations.admin_group;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.ugc.models.*;
-import net.accelbyte.sdk.api.ugc.models.ModelsCreateGroupResponse;
-import net.accelbyte.sdk.api.ugc.models.ModelsCreateGroupRequest;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.ugc.models.*;
+import net.accelbyte.sdk.api.ugc.models.ModelsCreateGroupRequest;
+import net.accelbyte.sdk.api.ugc.models.ModelsCreateGroupResponse;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * AdminCreateGroup
  *
- * Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [CREATE]
+ * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [CREATE]
  */
 @Getter
 @Setter
 public class AdminCreateGroup extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/ugc/v1/admin/namespaces/{namespace}/groups";
-    private String method = "POST";
-    private List<String> consumes = Arrays.asList("application/json");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String namespace;
-    private ModelsCreateGroupRequest body;
+  /** generated field's value */
+  private String path = "/ugc/v1/admin/namespaces/{namespace}/groups";
 
-    /**
-    * @param namespace required
-    * @param body required
-    */
-    @Builder
-    public AdminCreateGroup(
-            String namespace,
-            ModelsCreateGroupRequest body
-    )
-    {
-        this.namespace = namespace;
-        this.body = body;
-        
-        securities.add("Bearer");
+  private String method = "POST";
+  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String namespace;
+
+  private ModelsCreateGroupRequest body;
+
+  /**
+   * @param namespace required
+   * @param body required
+   */
+  @Builder
+  public AdminCreateGroup(String namespace, ModelsCreateGroupRequest body) {
+    this.namespace = namespace;
+    this.body = body;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
+    return pathParams;
+  }
 
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        return pathParams;
+  @Override
+  public ModelsCreateGroupRequest getBodyParams() {
+    return this.body;
+  }
+
+  @Override
+  public boolean isValid() {
+    if (this.namespace == null) {
+      return false;
     }
+    return true;
+  }
 
-
-
-    @Override
-    public ModelsCreateGroupRequest getBodyParams(){
-        return this.body;
+  public ModelsCreateGroupResponse parseResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 201) {
+      return new ModelsCreateGroupResponse().createFromJson(json);
     }
-
-
-    @Override
-    public boolean isValid() {
-        if(this.namespace == null) {
-            return false;
-        }
-        return true;
-    }
-
-    public ModelsCreateGroupResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 201){
-            return new ModelsCreateGroupResponse().createFromJson(json);
-        }
-        throw new HttpResponseException(code, json);
-    }
-
+    throw new HttpResponseException(code, json);
+  }
 }

@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,35 +26,31 @@ import java.util.Map;
 @NoArgsConstructor
 public class Image extends Model {
 
-    @JsonProperty("as")
-    private String as;
+  @JsonProperty("as")
+  private String as;
 
-    @JsonProperty("caption")
-    private String caption;
+  @JsonProperty("caption")
+  private String caption;
 
-    @JsonProperty("height")
-    private Integer height;
+  @JsonProperty("height")
+  private Integer height;
 
-    @JsonProperty("imageUrl")
-    private String imageUrl;
+  @JsonProperty("imageUrl")
+  private String imageUrl;
 
-    @JsonProperty("smallImageUrl")
-    private String smallImageUrl;
+  @JsonProperty("smallImageUrl")
+  private String smallImageUrl;
 
-    @JsonProperty("width")
-    private Integer width;
+  @JsonProperty("width")
+  private Integer width;
 
+  @JsonIgnore
+  public Image createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public Image createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<Image> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<Image>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<Image> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<Image>>() {});
+  }
 }

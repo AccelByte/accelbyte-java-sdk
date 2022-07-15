@@ -8,194 +8,183 @@
 
 package net.accelbyte.sdk.api.dsmc.operations.image_config;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.dsmc.models.*;
-import net.accelbyte.sdk.api.dsmc.models.ModelsListImageResponse;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.dsmc.models.*;
+import net.accelbyte.sdk.api.dsmc.models.ModelsListImageResponse;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * ListImages
  *
- * Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [READ]
- * 
- * Required scope: social
- * 
- * This endpoint lists all of dedicated servers images.
- * 
- * Parameter Offset and Count is Required
+ * <p>Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [READ]
+ *
+ * <p>Required scope: social
+ *
+ * <p>This endpoint lists all of dedicated servers images.
+ *
+ * <p>Parameter Offset and Count is Required
  */
 @Getter
 @Setter
 public class ListImages extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/dsmcontroller/admin/namespaces/{namespace}/images";
-    private String method = "GET";
-    private List<String> consumes = Arrays.asList("application/json");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String namespace;
-    private String q;
+  /** generated field's value */
+  private String path = "/dsmcontroller/admin/namespaces/{namespace}/images";
+
+  private String method = "GET";
+  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String namespace;
+
+  private String q;
+  private String sortBy;
+  private String sortDirection;
+  private Integer count;
+  private Integer offset;
+
+  /**
+   * @param namespace required
+   * @param count required
+   * @param offset required
+   */
+  @Builder
+  public ListImages(
+      String namespace,
+      String q,
+      String sortBy,
+      String sortDirection,
+      Integer count,
+      Integer offset) {
+    this.namespace = namespace;
+    this.q = q;
+    this.sortBy = sortBy;
+    this.sortDirection = sortDirection;
+    this.count = count;
+    this.offset = offset;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
+    }
+    return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("q", this.q == null ? null : Arrays.asList(this.q));
+    queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
+    queryParams.put(
+        "sortDirection", this.sortDirection == null ? null : Arrays.asList(this.sortDirection));
+    queryParams.put("count", this.count == null ? null : Arrays.asList(String.valueOf(this.count)));
+    queryParams.put(
+        "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    return queryParams;
+  }
+
+  @Override
+  public boolean isValid() {
+    if (this.namespace == null) {
+      return false;
+    }
+    if (this.count == null) {
+      return false;
+    }
+    if (this.offset == null) {
+      return false;
+    }
+    return true;
+  }
+
+  public ModelsListImageResponse parseResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 200) {
+      return new ModelsListImageResponse().createFromJson(json);
+    }
+    throw new HttpResponseException(code, json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("q", "None");
+    result.put("sortBy", "None");
+    result.put("sortDirection", "None");
+    result.put("count", "None");
+    result.put("offset", "None");
+    return result;
+  }
+
+  public enum SortBy {
+    CreatedAt("createdAt"),
+    UpdatedAt("updatedAt"),
+    Version("version");
+
+    private String value;
+
+    SortBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public enum SortDirection {
+    Asc("asc"),
+    Desc("desc");
+
+    private String value;
+
+    SortDirection(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ListImagesBuilder {
     private String sortBy;
     private String sortDirection;
-    private Integer count;
-    private Integer offset;
 
-    /**
-    * @param namespace required
-    * @param count required
-    * @param offset required
-    */
-    @Builder
-    public ListImages(
-            String namespace,
-            String q,
-            String sortBy,
-            String sortDirection,
-            Integer count,
-            Integer offset
-    )
-    {
-        this.namespace = namespace;
-        this.q = q;
-        this.sortBy = sortBy;
-        this.sortDirection = sortDirection;
-        this.count = count;
-        this.offset = offset;
-        
-        securities.add("Bearer");
+    public ListImagesBuilder sortBy(final String sortBy) {
+      this.sortBy = sortBy;
+      return this;
     }
 
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        return pathParams;
+    public ListImagesBuilder sortByFromEnum(final SortBy sortBy) {
+      this.sortBy = sortBy.toString();
+      return this;
     }
 
-    @Override
-    public Map<String, List<String>> getQueryParams(){
-        Map<String, List<String>> queryParams = new HashMap<>();
-        queryParams.put("q", this.q == null ? null : Arrays.asList(this.q));
-        queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
-        queryParams.put("sortDirection", this.sortDirection == null ? null : Arrays.asList(this.sortDirection));
-        queryParams.put("count", this.count == null ? null : Arrays.asList(String.valueOf(this.count)));
-        queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
-        return queryParams;
+    public ListImagesBuilder sortDirection(final String sortDirection) {
+      this.sortDirection = sortDirection;
+      return this;
     }
 
-
-
-
-    @Override
-    public boolean isValid() {
-        if(this.namespace == null) {
-            return false;
-        }
-        if(this.count == null) {
-            return false;
-        }
-        if(this.offset == null) {
-            return false;
-        }
-        return true;
+    public ListImagesBuilder sortDirectionFromEnum(final SortDirection sortDirection) {
+      this.sortDirection = sortDirection.toString();
+      return this;
     }
-
-    public ModelsListImageResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 200){
-            return new ModelsListImageResponse().createFromJson(json);
-        }
-        throw new HttpResponseException(code, json);
-    }
-
-    @Override
-    protected Map<String, String> getCollectionFormatMap() {
-        Map<String, String> result = new HashMap<>();
-        result.put("q", "None");
-        result.put("sortBy", "None");
-        result.put("sortDirection", "None");
-        result.put("count", "None");
-        result.put("offset", "None");
-        return result;
-    }
-    public enum SortBy {
-        CreatedAt("createdAt"),
-        UpdatedAt("updatedAt"),
-        Version("version");
-
-        private String value;
-
-        SortBy(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public enum SortDirection {
-        Asc("asc"),
-        Desc("desc");
-
-        private String value;
-
-        SortDirection(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    
-    public static class ListImagesBuilder {
-        private String sortBy;
-        private String sortDirection;
-        
-        
-        public ListImagesBuilder sortBy(final String sortBy) {
-            this.sortBy = sortBy;
-            return this;
-        }
-        
-        public ListImagesBuilder sortByFromEnum(final SortBy sortBy) {
-            this.sortBy = sortBy.toString();
-            return this;
-        }
-        
-        public ListImagesBuilder sortDirection(final String sortDirection) {
-            this.sortDirection = sortDirection;
-            return this;
-        }
-        
-        public ListImagesBuilder sortDirectionFromEnum(final SortDirection sortDirection) {
-            this.sortDirection = sortDirection.toString();
-            return this;
-        }
-    }
+  }
 }

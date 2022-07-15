@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,26 +26,24 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsDataRetrievalResponse extends Model {
 
-    @JsonProperty("Namespace")
-    private String namespace;
+  @JsonProperty("Namespace")
+  private String namespace;
 
-    @JsonProperty("RequestDate")
-    private String requestDate;
+  @JsonProperty("RequestDate")
+  private String requestDate;
 
-    @JsonProperty("UserID")
-    private String userID;
+  @JsonProperty("UserID")
+  private String userID;
 
+  @JsonIgnore
+  public ModelsDataRetrievalResponse createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsDataRetrievalResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsDataRetrievalResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDataRetrievalResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsDataRetrievalResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsDataRetrievalResponse>>() {});
+  }
 }

@@ -14,6 +14,6 @@ import lombok.Setter;
 @Setter
 public class DataStore {
 
-    @JsonProperty("access_token")
-    private String accessToken;
+  @JsonProperty("access_token")
+  private String accessToken;
 }

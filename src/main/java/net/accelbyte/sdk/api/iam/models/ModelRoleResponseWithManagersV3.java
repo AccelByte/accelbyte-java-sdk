@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,35 +26,34 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelRoleResponseWithManagersV3 extends Model {
 
-    @JsonProperty("adminRole")
-    private Boolean adminRole;
+  @JsonProperty("adminRole")
+  private Boolean adminRole;
 
-    @JsonProperty("isWildcard")
-    private Boolean isWildcard;
+  @JsonProperty("isWildcard")
+  private Boolean isWildcard;
 
-    @JsonProperty("managers")
-    private List<AccountcommonRoleManagerV3> managers;
+  @JsonProperty("managers")
+  private List<AccountcommonRoleManagerV3> managers;
 
-    @JsonProperty("permissions")
-    private List<AccountcommonPermissionV3> permissions;
+  @JsonProperty("permissions")
+  private List<AccountcommonPermissionV3> permissions;
 
-    @JsonProperty("roleId")
-    private String roleId;
+  @JsonProperty("roleId")
+  private String roleId;
 
-    @JsonProperty("roleName")
-    private String roleName;
+  @JsonProperty("roleName")
+  private String roleName;
 
+  @JsonIgnore
+  public ModelRoleResponseWithManagersV3 createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelRoleResponseWithManagersV3 createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelRoleResponseWithManagersV3> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelRoleResponseWithManagersV3>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelRoleResponseWithManagersV3> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelRoleResponseWithManagersV3>>() {});
+  }
 }

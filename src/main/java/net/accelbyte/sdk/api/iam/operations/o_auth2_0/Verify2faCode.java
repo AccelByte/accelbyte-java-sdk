@@ -8,120 +8,102 @@
 
 package net.accelbyte.sdk.api.iam.operations.o_auth2_0;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.iam.models.*;
-import net.accelbyte.sdk.api.iam.models.OauthmodelTokenResponseV3;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.iam.models.OauthmodelTokenResponseV3;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * Verify2FACode
  *
- * Verify 2FA code
- * 
- * 
- * 
- * This endpoint is used for verifying 2FA code.
+ * <p>Verify 2FA code
+ *
+ * <p>This endpoint is used for verifying 2FA code.
  */
 @Getter
 @Setter
 public class Verify2faCode extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/iam/v3/oauth/mfa/verify";
-    private String method = "POST";
-    private List<String> consumes = Arrays.asList("application/x-www-form-urlencoded");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String code;
-    private String factor;
-    private String mfaToken;
-    private Boolean rememberDevice;
+  /** generated field's value */
+  private String path = "/iam/v3/oauth/mfa/verify";
 
-    /**
-    * @param code required
-    * @param factor required
-    * @param mfaToken required
-    * @param rememberDevice required
-    */
-    @Builder
-    public Verify2faCode(
-            String code,
-            String factor,
-            String mfaToken,
-            Boolean rememberDevice
-    )
-    {
-        this.code = code;
-        this.factor = factor;
-        this.mfaToken = mfaToken;
-        this.rememberDevice = rememberDevice;
-        
-        securities.add("Bearer");
+  private String method = "POST";
+  private List<String> consumes = Arrays.asList("application/x-www-form-urlencoded");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String code;
+
+  private String factor;
+  private String mfaToken;
+  private Boolean rememberDevice;
+
+  /**
+   * @param code required
+   * @param factor required
+   * @param mfaToken required
+   * @param rememberDevice required
+   */
+  @Builder
+  public Verify2faCode(String code, String factor, String mfaToken, Boolean rememberDevice) {
+    this.code = code;
+    this.factor = factor;
+    this.mfaToken = mfaToken;
+    this.rememberDevice = rememberDevice;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, Object> getFormParams() {
+    Map<String, Object> formDataParams = new HashMap<>();
+    if (this.code != null) {
+      formDataParams.put("code", this.code);
     }
-
-
-
-
-
-    @Override
-    public Map<String, Object> getFormParams(){
-        Map<String, Object> formDataParams = new HashMap<>();
-        if (this.code != null) {
-            formDataParams.put("code", this.code);
-        }
-        if (this.factor != null) {
-            formDataParams.put("factor", this.factor);
-        }
-        if (this.mfaToken != null) {
-            formDataParams.put("mfaToken", this.mfaToken);
-        }
-        if (this.rememberDevice != null) {
-            formDataParams.put("rememberDevice", this.rememberDevice == null ? null : String.valueOf(this.rememberDevice));
-        }
-        return formDataParams;
+    if (this.factor != null) {
+      formDataParams.put("factor", this.factor);
     }
-
-    @Override
-    public boolean isValid() {
-        if(this.code == null) {
-            return false;
-        }
-        if(this.factor == null) {
-            return false;
-        }
-        if(this.mfaToken == null) {
-            return false;
-        }
-        if(this.rememberDevice == null) {
-            return false;
-        }
-        return true;
+    if (this.mfaToken != null) {
+      formDataParams.put("mfaToken", this.mfaToken);
     }
-
-    public OauthmodelTokenResponseV3 parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 200){
-            return new OauthmodelTokenResponseV3().createFromJson(json);
-        }
-        throw new HttpResponseException(code, json);
+    if (this.rememberDevice != null) {
+      formDataParams.put(
+          "rememberDevice",
+          this.rememberDevice == null ? null : String.valueOf(this.rememberDevice));
     }
+    return formDataParams;
+  }
 
+  @Override
+  public boolean isValid() {
+    if (this.code == null) {
+      return false;
+    }
+    if (this.factor == null) {
+      return false;
+    }
+    if (this.mfaToken == null) {
+      return false;
+    }
+    if (this.rememberDevice == null) {
+      return false;
+    }
+    return true;
+  }
+
+  public OauthmodelTokenResponseV3 parseResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 200) {
+      return new OauthmodelTokenResponseV3().createFromJson(json);
+    }
+    throw new HttpResponseException(code, json);
+  }
 }

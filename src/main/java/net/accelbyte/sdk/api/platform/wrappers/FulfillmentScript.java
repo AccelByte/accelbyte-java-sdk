@@ -8,137 +8,117 @@
 
 package net.accelbyte.sdk.api.platform.wrappers;
 
+import java.util.List;
 import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.fulfillment_script.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
 
 public class FulfillmentScript {
 
-    private AccelByteSDK sdk;
+  private AccelByteSDK sdk;
 
-    public FulfillmentScript(AccelByteSDK sdk){
-        this.sdk = sdk;
+  public FulfillmentScript(AccelByteSDK sdk) {
+    this.sdk = sdk;
+  }
+
+  /**
+   * @see ListFulfillmentScripts
+   */
+  public List<FulfillmentScriptInfo> listFulfillmentScripts(ListFulfillmentScripts input)
+      throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
+  }
 
-    /**
-     * @see ListFulfillmentScripts
-     */
-    public List<FulfillmentScriptInfo> listFulfillmentScripts(ListFulfillmentScripts input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          return input
-              .parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
+  /**
+   * @see TestFulfillmentScriptEval
+   */
+  public FulfillmentScriptEvalTestResult testFulfillmentScriptEval(TestFulfillmentScriptEval input)
+      throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
+  }
 
-    /**
-     * @see TestFulfillmentScriptEval
-     */
-    public FulfillmentScriptEvalTestResult testFulfillmentScriptEval(TestFulfillmentScriptEval input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          return input
-              .parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
+  /**
+   * @see GetFulfillmentScript
+   */
+  public FulfillmentScriptInfo getFulfillmentScript(GetFulfillmentScript input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
+  }
 
-    /**
-     * @see GetFulfillmentScript
-     */
-    public FulfillmentScriptInfo getFulfillmentScript(GetFulfillmentScript input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          return input
-              .parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
+  /**
+   * @see CreateFulfillmentScript
+   */
+  public FulfillmentScriptInfo createFulfillmentScript(CreateFulfillmentScript input)
+      throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
+  }
 
-    /**
-     * @see CreateFulfillmentScript
-     */
-    public FulfillmentScriptInfo createFulfillmentScript(CreateFulfillmentScript input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          return input
-              .parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
+  /**
+   * @see DeleteFulfillmentScript
+   */
+  public void deleteFulfillmentScript(DeleteFulfillmentScript input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
+  }
 
-    /**
-     * @see DeleteFulfillmentScript
-     */
-    public void deleteFulfillmentScript(DeleteFulfillmentScript input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          input
-              .handleEmptyResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
+  /**
+   * @see UpdateFulfillmentScript
+   */
+  public FulfillmentScriptInfo updateFulfillmentScript(UpdateFulfillmentScript input)
+      throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
     }
-
-    /**
-     * @see UpdateFulfillmentScript
-     */
-    public FulfillmentScriptInfo updateFulfillmentScript(UpdateFulfillmentScript input) throws Exception {
-        HttpResponse httpResponse = null;
-        try {
-          httpResponse = sdk.runRequest(input);
-          return input
-              .parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-          );
-        }
-        finally {
-          if (httpResponse != null && httpResponse.getPayload() != null) {
-            httpResponse.getPayload().close();
-          }
-        }
-    }
-
+  }
 }

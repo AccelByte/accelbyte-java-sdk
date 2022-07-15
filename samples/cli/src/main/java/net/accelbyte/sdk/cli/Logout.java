@@ -19,27 +19,27 @@ import picocli.CommandLine.Option;
 @Command(name = "logout", mixinStandardHelpOptions = true)
 public class Logout implements Runnable {
 
-    private static final Logger log = LogManager.getLogger(Logout.class);
+  private static final Logger log = LogManager.getLogger(Logout.class);
 
-    @Option(names = {"--logging"}, description = "logger")
-    boolean logging;
+  @Option(
+      names = {"--logging"},
+      description = "logger")
+  boolean logging;
 
-    @Override
-    public void run() {
-        OkhttpClient httpClient = new OkhttpClient();
-        if (logging) {
-            httpClient.setLogger(new OkhttpLogger());
-        }
-        AccelByteSDK sdk = new AccelByteSDK(
-                httpClient,
-                CLITokenRepositoryImpl.getInstance(),
-                new DefaultConfigRepository()
-        );
-        boolean logout = sdk.logout();
-        if (logout) {
-            log.info("logout success");
-        } else {
-            log.fatal("logout failed");
-        }
+  @Override
+  public void run() {
+    OkhttpClient httpClient = new OkhttpClient();
+    if (logging) {
+      httpClient.setLogger(new OkhttpLogger());
     }
+    AccelByteSDK sdk =
+        new AccelByteSDK(
+            httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
+    boolean logout = sdk.logout();
+    if (logout) {
+      log.info("logout success");
+    } else {
+      log.fatal("logout failed");
+    }
+  }
 }

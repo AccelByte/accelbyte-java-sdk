@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,35 +26,33 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsScreenshotResponse extends Model {
 
-    @JsonProperty("contentType")
-    private String contentType;
+  @JsonProperty("contentType")
+  private String contentType;
 
-    @JsonProperty("description")
-    private String description;
+  @JsonProperty("description")
+  private String description;
 
-    @JsonProperty("fileExtension")
-    private String fileExtension;
+  @JsonProperty("fileExtension")
+  private String fileExtension;
 
-    @JsonProperty("screenshotId")
-    private String screenshotId;
+  @JsonProperty("screenshotId")
+  private String screenshotId;
 
-    @JsonProperty("source")
-    private String source;
+  @JsonProperty("source")
+  private String source;
 
-    @JsonProperty("url")
-    private String url;
+  @JsonProperty("url")
+  private String url;
 
+  @JsonIgnore
+  public ModelsScreenshotResponse createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsScreenshotResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsScreenshotResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsScreenshotResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsScreenshotResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsScreenshotResponse>>() {});
+  }
 }

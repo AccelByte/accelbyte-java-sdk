@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,29 +26,28 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsGetLeaderboardConfigPublicResp extends Model {
 
-    @JsonProperty("iconURL")
-    private String iconURL;
+  @JsonProperty("iconURL")
+  private String iconURL;
 
-    @JsonProperty("leaderboardCode")
-    private String leaderboardCode;
+  @JsonProperty("leaderboardCode")
+  private String leaderboardCode;
 
-    @JsonProperty("name")
-    private String name;
+  @JsonProperty("name")
+  private String name;
 
-    @JsonProperty("statCode")
-    private String statCode;
+  @JsonProperty("statCode")
+  private String statCode;
 
+  @JsonIgnore
+  public ModelsGetLeaderboardConfigPublicResp createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsGetLeaderboardConfigPublicResp createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsGetLeaderboardConfigPublicResp> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGetLeaderboardConfigPublicResp>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsGetLeaderboardConfigPublicResp> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsGetLeaderboardConfigPublicResp>>() {});
+  }
 }

@@ -8,11 +8,11 @@ package net.accelbyte.sdk.core;
 
 import java.util.HashMap;
 
-public class HttpHeaders extends HashMap<String,String> {
-    public static final String AUTHORIZATION = "Authorization";
-    public static final String CONTENT_TYPE = "Content-Type";
-    public static final String USER_AGENT = "User-Agent";
-    public static final String COOKIE = "Cookie";
-    
-    public static final String X_AMZN_TRACE_ID = "X-Amzn-Trace-Id";
+public class HttpHeaders extends HashMap<String, String> {
+  public static final String AUTHORIZATION = "Authorization";
+  public static final String CONTENT_TYPE = "Content-Type";
+  public static final String USER_AGENT = "User-Agent";
+  public static final String COOKIE = "Cookie";
+
+  public static final String X_AMZN_TRACE_ID = "X-Amzn-Trace-Id";
 }

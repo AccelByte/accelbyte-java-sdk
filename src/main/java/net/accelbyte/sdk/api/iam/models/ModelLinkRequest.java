@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,62 +27,58 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelLinkRequest extends Model {
 
-    @JsonProperty("client_id")
-    private String clientId;
+  @JsonProperty("client_id")
+  private String clientId;
 
-    @JsonProperty("conflict_publisher_user_id")
-    private String conflictPublisherUserId;
+  @JsonProperty("conflict_publisher_user_id")
+  private String conflictPublisherUserId;
 
-    @JsonProperty("conflict_user_linked_games")
-    private List<String> conflictUserLinkedGames;
+  @JsonProperty("conflict_user_linked_games")
+  private List<String> conflictUserLinkedGames;
 
-    @JsonProperty("current_user_linked_games")
-    private List<String> currentUserLinkedGames;
+  @JsonProperty("current_user_linked_games")
+  private List<String> currentUserLinkedGames;
 
-    @JsonProperty("error")
-    private RestErrorResponse error;
+  @JsonProperty("error")
+  private RestErrorResponse error;
 
-    @JsonProperty("expiration")
-    private Integer expiration;
+  @JsonProperty("expiration")
+  private Integer expiration;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("operation_name")
-    private String operationName;
+  @JsonProperty("operation_name")
+  private String operationName;
 
-    @JsonProperty("payload")
-    private Map<String, ?> payload;
+  @JsonProperty("payload")
+  private Map<String, ?> payload;
 
-    @JsonProperty("platformDisplayName")
-    private String platformDisplayName;
+  @JsonProperty("platformDisplayName")
+  private String platformDisplayName;
 
-    @JsonProperty("platformID")
-    private String platformID;
+  @JsonProperty("platformID")
+  private String platformID;
 
-    @JsonProperty("platform_user_id")
-    private String platformUserId;
+  @JsonProperty("platform_user_id")
+  private String platformUserId;
 
-    @JsonProperty("redirect_uri")
-    private String redirectUri;
+  @JsonProperty("redirect_uri")
+  private String redirectUri;
 
-    @JsonProperty("request_id")
-    private String requestId;
+  @JsonProperty("request_id")
+  private String requestId;
 
-    @JsonProperty("status")
-    private String status;
+  @JsonProperty("status")
+  private String status;
 
+  @JsonIgnore
+  public ModelLinkRequest createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelLinkRequest createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelLinkRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelLinkRequest>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelLinkRequest> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelLinkRequest>>() {});
+  }
 }

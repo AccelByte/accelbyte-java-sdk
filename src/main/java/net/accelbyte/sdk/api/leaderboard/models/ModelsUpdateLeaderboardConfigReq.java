@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,44 +26,43 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsUpdateLeaderboardConfigReq extends Model {
 
-    @JsonProperty("daily")
-    private ModelsDailyConfig daily;
+  @JsonProperty("daily")
+  private ModelsDailyConfig daily;
 
-    @JsonProperty("descending")
-    private Boolean descending;
+  @JsonProperty("descending")
+  private Boolean descending;
 
-    @JsonProperty("iconURL")
-    private String iconURL;
+  @JsonProperty("iconURL")
+  private String iconURL;
 
-    @JsonProperty("monthly")
-    private ModelsMonthlyConfig monthly;
+  @JsonProperty("monthly")
+  private ModelsMonthlyConfig monthly;
 
-    @JsonProperty("name")
-    private String name;
+  @JsonProperty("name")
+  private String name;
 
-    @JsonProperty("seasonPeriod")
-    private Integer seasonPeriod;
+  @JsonProperty("seasonPeriod")
+  private Integer seasonPeriod;
 
-    @JsonProperty("startTime")
-    private String startTime;
+  @JsonProperty("startTime")
+  private String startTime;
 
-    @JsonProperty("statCode")
-    private String statCode;
+  @JsonProperty("statCode")
+  private String statCode;
 
-    @JsonProperty("weekly")
-    private ModelsWeeklyConfig weekly;
+  @JsonProperty("weekly")
+  private ModelsWeeklyConfig weekly;
 
+  @JsonIgnore
+  public ModelsUpdateLeaderboardConfigReq createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsUpdateLeaderboardConfigReq createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsUpdateLeaderboardConfigReq> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateLeaderboardConfigReq>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsUpdateLeaderboardConfigReq> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsUpdateLeaderboardConfigReq>>() {});
+  }
 }

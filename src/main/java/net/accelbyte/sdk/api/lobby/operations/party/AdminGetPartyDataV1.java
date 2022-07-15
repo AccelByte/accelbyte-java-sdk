@@ -8,98 +8,82 @@
 
 package net.accelbyte.sdk.api.lobby.operations.party;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.lobby.models.*;
-import net.accelbyte.sdk.api.lobby.models.ModelsPartyData;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.lobby.models.*;
+import net.accelbyte.sdk.api.lobby.models.ModelsPartyData;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * adminGetPartyDataV1
  *
- * Required permission : `ADMIN:NAMESPACE:{namespace}:PARTY:STORAGE [READ]` with scope `social`
- * 
- * get party data in a namespace.
+ * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:PARTY:STORAGE [READ]` with scope `social`
+ *
+ * <p>get party data in a namespace.
  */
 @Getter
 @Setter
 public class AdminGetPartyDataV1 extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/lobby/v1/admin/party/namespaces/{namespace}/parties/{partyId}";
-    private String method = "GET";
-    private List<String> consumes = Arrays.asList("application/json");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String namespace;
-    private String partyId;
+  /** generated field's value */
+  private String path = "/lobby/v1/admin/party/namespaces/{namespace}/parties/{partyId}";
 
-    /**
-    * @param namespace required
-    * @param partyId required
-    */
-    @Builder
-    public AdminGetPartyDataV1(
-            String namespace,
-            String partyId
-    )
-    {
-        this.namespace = namespace;
-        this.partyId = partyId;
-        
-        securities.add("Bearer");
+  private String method = "GET";
+  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String namespace;
+
+  private String partyId;
+
+  /**
+   * @param namespace required
+   * @param partyId required
+   */
+  @Builder
+  public AdminGetPartyDataV1(String namespace, String partyId) {
+    this.namespace = namespace;
+    this.partyId = partyId;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
-
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        if (this.partyId != null){
-            pathParams.put("partyId", this.partyId);
-        }
-        return pathParams;
+    if (this.partyId != null) {
+      pathParams.put("partyId", this.partyId);
     }
+    return pathParams;
+  }
 
-
-
-
-
-    @Override
-    public boolean isValid() {
-        if(this.namespace == null) {
-            return false;
-        }
-        if(this.partyId == null) {
-            return false;
-        }
-        return true;
+  @Override
+  public boolean isValid() {
+    if (this.namespace == null) {
+      return false;
     }
-
-    public ModelsPartyData parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 200){
-            return new ModelsPartyData().createFromJson(json);
-        }
-        throw new HttpResponseException(code, json);
+    if (this.partyId == null) {
+      return false;
     }
+    return true;
+  }
 
+  public ModelsPartyData parseResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 200) {
+      return new ModelsPartyData().createFromJson(json);
+    }
+    throw new HttpResponseException(code, json);
+  }
 }

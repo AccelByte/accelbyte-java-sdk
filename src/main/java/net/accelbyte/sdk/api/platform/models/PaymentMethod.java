@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,79 +26,75 @@ import java.util.Map;
 @NoArgsConstructor
 public class PaymentMethod extends Model {
 
-    @JsonProperty("name")
-    private String name;
+  @JsonProperty("name")
+  private String name;
 
-    @JsonProperty("paymentProvider")
+  @JsonProperty("paymentProvider")
+  private String paymentProvider;
+
+  @JsonIgnore
+  public String getPaymentProvider() {
+    return this.paymentProvider;
+  }
+
+  @JsonIgnore
+  public PaymentProvider getPaymentProviderAsEnum() {
+    return PaymentProvider.valueOf(this.paymentProvider);
+  }
+
+  @JsonIgnore
+  public void setPaymentProvider(final String paymentProvider) {
+    this.paymentProvider = paymentProvider;
+  }
+
+  @JsonIgnore
+  public void setPaymentProviderFromEnum(final PaymentProvider paymentProvider) {
+    this.paymentProvider = paymentProvider.toString();
+  }
+
+  @JsonIgnore
+  public PaymentMethod createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<PaymentMethod> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<PaymentMethod>>() {});
+  }
+
+  public enum PaymentProvider {
+    ADYEN("ADYEN"),
+    ALIPAY("ALIPAY"),
+    CHECKOUT("CHECKOUT"),
+    PAYPAL("PAYPAL"),
+    STRIPE("STRIPE"),
+    WALLET("WALLET"),
+    WXPAY("WXPAY"),
+    XSOLLA("XSOLLA");
+
+    private String value;
+
+    PaymentProvider(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class PaymentMethodBuilder {
     private String paymentProvider;
 
-
-    
-    @JsonIgnore
-    public String getPaymentProvider() {
-        return this.paymentProvider;
-    }
-    
-    @JsonIgnore
-    public PaymentProvider getPaymentProviderAsEnum() {
-        return PaymentProvider.valueOf(this.paymentProvider);
-    }
-    
-    @JsonIgnore
-    public void setPaymentProvider(final String paymentProvider) {
-        this.paymentProvider = paymentProvider;
-    }
-    
-    @JsonIgnore
-    public void setPaymentProviderFromEnum(final PaymentProvider paymentProvider) {
-        this.paymentProvider = paymentProvider.toString();
+    public PaymentMethodBuilder paymentProvider(final String paymentProvider) {
+      this.paymentProvider = paymentProvider;
+      return this;
     }
 
-    @JsonIgnore
-    public PaymentMethod createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public PaymentMethodBuilder paymentProviderFromEnum(final PaymentProvider paymentProvider) {
+      this.paymentProvider = paymentProvider.toString();
+      return this;
     }
-
-    @JsonIgnore
-    public List<PaymentMethod> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<PaymentMethod>>() {});
-    }
-
-    
-    public enum PaymentProvider {
-        ADYEN("ADYEN"),
-        ALIPAY("ALIPAY"),
-        CHECKOUT("CHECKOUT"),
-        PAYPAL("PAYPAL"),
-        STRIPE("STRIPE"),
-        WALLET("WALLET"),
-        WXPAY("WXPAY"),
-        XSOLLA("XSOLLA");
-
-        private String value;
-
-        PaymentProvider(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class PaymentMethodBuilder {
-        private String paymentProvider;
-        
-        
-        public PaymentMethodBuilder paymentProvider(final String paymentProvider) {
-            this.paymentProvider = paymentProvider;
-            return this;
-        }
-        
-        public PaymentMethodBuilder paymentProviderFromEnum(final PaymentProvider paymentProvider) {
-            this.paymentProvider = paymentProvider.toString();
-            return this;
-        }
-    }
+  }
 }

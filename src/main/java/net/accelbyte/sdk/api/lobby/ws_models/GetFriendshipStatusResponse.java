@@ -8,86 +8,65 @@
 
 package net.accelbyte.sdk.api.lobby.ws_models;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import static net.accelbyte.sdk.core.util.Helper.*;
+
+import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.*;
-
-import static net.accelbyte.sdk.core.util.Helper.*;
-
 @Getter
 @Setter
 public class GetFriendshipStatusResponse {
-    private Integer code;
-    private String friendshipStatus;
-    private String id;
+  private Integer code;
+  private String friendshipStatus;
+  private String id;
 
-    private GetFriendshipStatusResponse() {
+  private GetFriendshipStatusResponse() {}
 
+  @Builder
+  public GetFriendshipStatusResponse(Integer code, String friendshipStatus, String id) {
+    this.code = code;
+    this.friendshipStatus = friendshipStatus;
+    this.id = id;
+  }
+
+  public static String getType() {
+    return "getFriendshipStatusResponse";
+  }
+
+  public static GetFriendshipStatusResponse createFromWSM(String message) {
+    GetFriendshipStatusResponse result = new GetFriendshipStatusResponse();
+    Map<String, String> response = parseWSM(message);
+    result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
+    result.friendshipStatus =
+        response.get("friendshipStatus") != null ? response.get("friendshipStatus") : null;
+    result.id = response.get("id") != null ? response.get("id") : null;
+    return result;
+  }
+
+  public String toWSM() {
+    StringBuilder stringBuilder = new StringBuilder();
+    stringBuilder.append("type: ").append(GetFriendshipStatusResponse.getType());
+    if (code != null) {
+      stringBuilder.append("\n").append("code: ").append(code);
     }
-
-    @Builder
-    public GetFriendshipStatusResponse (
-        Integer code,
-        String friendshipStatus,
-        String id
-    ) {
-        this.code = code;
-        this.friendshipStatus = friendshipStatus;
-        this.id = id;
+    if (friendshipStatus != null) {
+      stringBuilder.append("\n").append("friendshipStatus: ").append(friendshipStatus);
     }
-
-    public static String getType(){
-        return "getFriendshipStatusResponse";
+    if (id != null) {
+      stringBuilder.append("\n").append("id: ").append(id);
+    } else {
+      stringBuilder.append("\n").append("id: ").append(generateUUID());
     }
+    return stringBuilder.toString();
+  }
 
-    public static GetFriendshipStatusResponse createFromWSM(String message) {
-        GetFriendshipStatusResponse result = new GetFriendshipStatusResponse();
-        Map<String, String> response = parseWSM(message);
-        result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
-        result.friendshipStatus = response.get("friendshipStatus") != null ? response.get("friendshipStatus") : null;
-        result.id = response.get("id") != null ? response.get("id") : null;
-        return result;
-    }
-
-    public String toWSM() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("type: ").append(GetFriendshipStatusResponse.getType());
-        if (code != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("code: ")
-                    .append(code);
-        }
-        if (friendshipStatus != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("friendshipStatus: ")
-                    .append(friendshipStatus);
-        }
-        if (id != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("id: ")
-                    .append(id);
-        } else {
-            stringBuilder
-                    .append("\n")
-                    .append("id: ")
-                    .append(generateUUID());
-        }
-        return stringBuilder.toString();
-    }
-
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("code","code");
-        result.put("friendshipStatus","friendshipStatus");
-        result.put("id","id");
-        return result;
-    }
+  public static Map<String, String> getFieldInfo() {
+    Map<String, String> result = new HashMap<>();
+    result.put("code", "code");
+    result.put("friendshipStatus", "friendshipStatus");
+    result.put("id", "id");
+    return result;
+  }
 }

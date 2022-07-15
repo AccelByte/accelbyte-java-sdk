@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,29 +26,25 @@ import java.util.Map;
 @NoArgsConstructor
 public class TaxResult extends Model {
 
-    @JsonProperty("enableTax")
-    private Boolean enableTax;
+  @JsonProperty("enableTax")
+  private Boolean enableTax;
 
-    @JsonProperty("formattedTax")
-    private String formattedTax;
+  @JsonProperty("formattedTax")
+  private String formattedTax;
 
-    @JsonProperty("state")
-    private String state;
+  @JsonProperty("state")
+  private String state;
 
-    @JsonProperty("tax")
-    private Integer tax;
+  @JsonProperty("tax")
+  private Integer tax;
 
+  @JsonIgnore
+  public TaxResult createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public TaxResult createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<TaxResult> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<TaxResult>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<TaxResult> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<TaxResult>>() {});
+  }
 }

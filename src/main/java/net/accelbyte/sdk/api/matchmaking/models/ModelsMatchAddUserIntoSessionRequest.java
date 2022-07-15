@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,26 +26,25 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsMatchAddUserIntoSessionRequest extends Model {
 
-    @JsonProperty("blocked_players")
-    private List<String> blockedPlayers;
+  @JsonProperty("blocked_players")
+  private List<String> blockedPlayers;
 
-    @JsonProperty("party_id")
-    private String partyId;
+  @JsonProperty("party_id")
+  private String partyId;
 
-    @JsonProperty("user_id")
-    private String userId;
+  @JsonProperty("user_id")
+  private String userId;
 
+  @JsonIgnore
+  public ModelsMatchAddUserIntoSessionRequest createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsMatchAddUserIntoSessionRequest createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsMatchAddUserIntoSessionRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMatchAddUserIntoSessionRequest>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsMatchAddUserIntoSessionRequest> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsMatchAddUserIntoSessionRequest>>() {});
+  }
 }

@@ -10,105 +10,91 @@ package net.accelbyte.sdk.api.basic.operations.user_profile;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.basic.models.*;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.basic.models.*;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * publicGetUserProfilePublicInfoByIds
  *
- * Get user public profile by ids.
- * Other detail info:
- * 
- *   * Action code : 11405
- *   *  Returns : user public profiles
+ * <p>Get user public profile by ids. Other detail info:
+ *
+ * <p>* Action code : 11405 * Returns : user public profiles
  */
 @Getter
 @Setter
 public class PublicGetUserProfilePublicInfoByIds extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/basic/v1/public/namespaces/{namespace}/profiles/public";
-    private String method = "GET";
-    private List<String> consumes = Arrays.asList();
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String namespace;
-    private String userIds;
+  /** generated field's value */
+  private String path = "/basic/v1/public/namespaces/{namespace}/profiles/public";
 
-    /**
-    * @param namespace required
-    * @param userIds required
-    */
-    @Builder
-    public PublicGetUserProfilePublicInfoByIds(
-            String namespace,
-            String userIds
-    )
-    {
-        this.namespace = namespace;
-        this.userIds = userIds;
-        
+  private String method = "GET";
+  private List<String> consumes = Arrays.asList();
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String namespace;
+
+  private String userIds;
+
+  /**
+   * @param namespace required
+   * @param userIds required
+   */
+  @Builder
+  public PublicGetUserProfilePublicInfoByIds(String namespace, String userIds) {
+    this.namespace = namespace;
+    this.userIds = userIds;
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
+    return pathParams;
+  }
 
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        return pathParams;
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("userIds", this.userIds == null ? null : Arrays.asList(this.userIds));
+    return queryParams;
+  }
+
+  @Override
+  public boolean isValid() {
+    if (this.namespace == null) {
+      return false;
     }
-
-    @Override
-    public Map<String, List<String>> getQueryParams(){
-        Map<String, List<String>> queryParams = new HashMap<>();
-        queryParams.put("userIds", this.userIds == null ? null : Arrays.asList(this.userIds));
-        return queryParams;
+    if (this.userIds == null) {
+      return false;
     }
+    return true;
+  }
 
-
-
-
-    @Override
-    public boolean isValid() {
-        if(this.namespace == null) {
-            return false;
-        }
-        if(this.userIds == null) {
-            return false;
-        }
-        return true;
+  public List<UserProfilePublicInfo> parseResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 200) {
+      return new ObjectMapper()
+          .readValue(json, new TypeReference<List<UserProfilePublicInfo>>() {});
     }
+    throw new HttpResponseException(code, json);
+  }
 
-    public List<UserProfilePublicInfo> parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 200){
-            return new ObjectMapper().readValue(json, new TypeReference<List<UserProfilePublicInfo>>() {});
-        }
-        throw new HttpResponseException(code, json);
-    }
-
-    @Override
-    protected Map<String, String> getCollectionFormatMap() {
-        Map<String, String> result = new HashMap<>();
-        result.put("userIds", "None");
-        return result;
-    }
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("userIds", "None");
+    return result;
+  }
 }

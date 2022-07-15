@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,32 +26,29 @@ import java.util.Map;
 @NoArgsConstructor
 public class AccountcommonJWTBanV3 extends Model {
 
-    @JsonProperty("ban")
-    private String ban;
+  @JsonProperty("ban")
+  private String ban;
 
-    @JsonProperty("disabledDate")
-    private String disabledDate;
+  @JsonProperty("disabledDate")
+  private String disabledDate;
 
-    @JsonProperty("enabled")
-    private Boolean enabled;
+  @JsonProperty("enabled")
+  private Boolean enabled;
 
-    @JsonProperty("endDate")
-    private String endDate;
+  @JsonProperty("endDate")
+  private String endDate;
 
-    @JsonProperty("targetedNamespace")
-    private String targetedNamespace;
+  @JsonProperty("targetedNamespace")
+  private String targetedNamespace;
 
+  @JsonIgnore
+  public AccountcommonJWTBanV3 createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public AccountcommonJWTBanV3 createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<AccountcommonJWTBanV3> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonJWTBanV3>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<AccountcommonJWTBanV3> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<AccountcommonJWTBanV3>>() {});
+  }
 }

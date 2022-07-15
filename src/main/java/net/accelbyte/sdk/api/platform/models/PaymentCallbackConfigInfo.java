@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,29 +26,27 @@ import java.util.Map;
 @NoArgsConstructor
 public class PaymentCallbackConfigInfo extends Model {
 
-    @JsonProperty("dryRun")
-    private Boolean dryRun;
+  @JsonProperty("dryRun")
+  private Boolean dryRun;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("notifyUrl")
-    private String notifyUrl;
+  @JsonProperty("notifyUrl")
+  private String notifyUrl;
 
-    @JsonProperty("privateKey")
-    private String privateKey;
+  @JsonProperty("privateKey")
+  private String privateKey;
 
+  @JsonIgnore
+  public PaymentCallbackConfigInfo createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public PaymentCallbackConfigInfo createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<PaymentCallbackConfigInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<PaymentCallbackConfigInfo>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<PaymentCallbackConfigInfo> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<PaymentCallbackConfigInfo>>() {});
+  }
 }

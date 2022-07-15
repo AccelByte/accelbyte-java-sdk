@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,26 +26,24 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelBackupCodesResponseV4 extends Model {
 
-    @JsonProperty("generatedAt")
-    private Integer generatedAt;
+  @JsonProperty("generatedAt")
+  private Integer generatedAt;
 
-    @JsonProperty("invalidCodes")
-    private List<String> invalidCodes;
+  @JsonProperty("invalidCodes")
+  private List<String> invalidCodes;
 
-    @JsonProperty("validCodes")
-    private List<String> validCodes;
+  @JsonProperty("validCodes")
+  private List<String> validCodes;
 
+  @JsonIgnore
+  public ModelBackupCodesResponseV4 createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelBackupCodesResponseV4 createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelBackupCodesResponseV4> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelBackupCodesResponseV4>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelBackupCodesResponseV4> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelBackupCodesResponseV4>>() {});
+  }
 }

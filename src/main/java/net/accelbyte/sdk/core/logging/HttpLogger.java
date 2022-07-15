@@ -6,7 +6,8 @@
 
 package net.accelbyte.sdk.core.logging;
 
-public interface HttpLogger<T,U> {
-    void logRequest(T request);
-    void logResponse(U response);
+public interface HttpLogger<T, U> {
+  void logRequest(T request);
+
+  void logResponse(U response);
 }

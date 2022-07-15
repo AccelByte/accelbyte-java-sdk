@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,59 +26,58 @@ import java.util.Map;
 @NoArgsConstructor
 public class RetrieveUserAcceptedAgreementResponse extends Model {
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+  @JsonProperty("createdAt")
+  private String createdAt;
 
-    @JsonProperty("displayName")
-    private String displayName;
+  @JsonProperty("displayName")
+  private String displayName;
 
-    @JsonProperty("email")
-    private String email;
+  @JsonProperty("email")
+  private String email;
 
-    @JsonProperty("id")
-    private String id;
+  @JsonProperty("id")
+  private String id;
 
-    @JsonProperty("isAccepted")
-    private Boolean isAccepted;
+  @JsonProperty("isAccepted")
+  private Boolean isAccepted;
 
-    @JsonProperty("localizedPolicyVersion")
-    private LocalizedPolicyVersionObject localizedPolicyVersion;
+  @JsonProperty("localizedPolicyVersion")
+  private LocalizedPolicyVersionObject localizedPolicyVersion;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("policyName")
-    private String policyName;
+  @JsonProperty("policyName")
+  private String policyName;
 
-    @JsonProperty("policyType")
-    private String policyType;
+  @JsonProperty("policyType")
+  private String policyType;
 
-    @JsonProperty("publisherUserId")
-    private String publisherUserId;
+  @JsonProperty("publisherUserId")
+  private String publisherUserId;
 
-    @JsonProperty("signingDate")
-    private String signingDate;
+  @JsonProperty("signingDate")
+  private String signingDate;
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
+  @JsonProperty("updatedAt")
+  private String updatedAt;
 
-    @JsonProperty("userId")
-    private String userId;
+  @JsonProperty("userId")
+  private String userId;
 
-    @JsonProperty("username")
-    private String username;
+  @JsonProperty("username")
+  private String username;
 
+  @JsonIgnore
+  public RetrieveUserAcceptedAgreementResponse createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public RetrieveUserAcceptedAgreementResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<RetrieveUserAcceptedAgreementResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<RetrieveUserAcceptedAgreementResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<RetrieveUserAcceptedAgreementResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<RetrieveUserAcceptedAgreementResponse>>() {});
+  }
 }

@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,88 +26,84 @@ import java.util.Map;
 @NoArgsConstructor
 public class PaymentUrlCreate extends Model {
 
-    @JsonProperty("paymentOrderNo")
-    private String paymentOrderNo;
+  @JsonProperty("paymentOrderNo")
+  private String paymentOrderNo;
 
-    @JsonProperty("paymentProvider")
+  @JsonProperty("paymentProvider")
+  private String paymentProvider;
+
+  @JsonProperty("returnUrl")
+  private String returnUrl;
+
+  @JsonProperty("ui")
+  private String ui;
+
+  @JsonProperty("zipCode")
+  private String zipCode;
+
+  @JsonIgnore
+  public String getPaymentProvider() {
+    return this.paymentProvider;
+  }
+
+  @JsonIgnore
+  public PaymentProvider getPaymentProviderAsEnum() {
+    return PaymentProvider.valueOf(this.paymentProvider);
+  }
+
+  @JsonIgnore
+  public void setPaymentProvider(final String paymentProvider) {
+    this.paymentProvider = paymentProvider;
+  }
+
+  @JsonIgnore
+  public void setPaymentProviderFromEnum(final PaymentProvider paymentProvider) {
+    this.paymentProvider = paymentProvider.toString();
+  }
+
+  @JsonIgnore
+  public PaymentUrlCreate createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<PaymentUrlCreate> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<PaymentUrlCreate>>() {});
+  }
+
+  public enum PaymentProvider {
+    ADYEN("ADYEN"),
+    ALIPAY("ALIPAY"),
+    CHECKOUT("CHECKOUT"),
+    PAYPAL("PAYPAL"),
+    STRIPE("STRIPE"),
+    WALLET("WALLET"),
+    WXPAY("WXPAY"),
+    XSOLLA("XSOLLA");
+
+    private String value;
+
+    PaymentProvider(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class PaymentUrlCreateBuilder {
     private String paymentProvider;
 
-    @JsonProperty("returnUrl")
-    private String returnUrl;
-
-    @JsonProperty("ui")
-    private String ui;
-
-    @JsonProperty("zipCode")
-    private String zipCode;
-
-
-    
-    @JsonIgnore
-    public String getPaymentProvider() {
-        return this.paymentProvider;
-    }
-    
-    @JsonIgnore
-    public PaymentProvider getPaymentProviderAsEnum() {
-        return PaymentProvider.valueOf(this.paymentProvider);
-    }
-    
-    @JsonIgnore
-    public void setPaymentProvider(final String paymentProvider) {
-        this.paymentProvider = paymentProvider;
-    }
-    
-    @JsonIgnore
-    public void setPaymentProviderFromEnum(final PaymentProvider paymentProvider) {
-        this.paymentProvider = paymentProvider.toString();
+    public PaymentUrlCreateBuilder paymentProvider(final String paymentProvider) {
+      this.paymentProvider = paymentProvider;
+      return this;
     }
 
-    @JsonIgnore
-    public PaymentUrlCreate createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public PaymentUrlCreateBuilder paymentProviderFromEnum(final PaymentProvider paymentProvider) {
+      this.paymentProvider = paymentProvider.toString();
+      return this;
     }
-
-    @JsonIgnore
-    public List<PaymentUrlCreate> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<PaymentUrlCreate>>() {});
-    }
-
-    
-    public enum PaymentProvider {
-        ADYEN("ADYEN"),
-        ALIPAY("ALIPAY"),
-        CHECKOUT("CHECKOUT"),
-        PAYPAL("PAYPAL"),
-        STRIPE("STRIPE"),
-        WALLET("WALLET"),
-        WXPAY("WXPAY"),
-        XSOLLA("XSOLLA");
-
-        private String value;
-
-        PaymentProvider(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class PaymentUrlCreateBuilder {
-        private String paymentProvider;
-        
-        
-        public PaymentUrlCreateBuilder paymentProvider(final String paymentProvider) {
-            this.paymentProvider = paymentProvider;
-            return this;
-        }
-        
-        public PaymentUrlCreateBuilder paymentProviderFromEnum(final PaymentProvider paymentProvider) {
-            this.paymentProvider = paymentProvider.toString();
-            return this;
-        }
-    }
+  }
 }

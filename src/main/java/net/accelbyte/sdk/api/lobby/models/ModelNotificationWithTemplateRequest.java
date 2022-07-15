@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,29 +27,28 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelNotificationWithTemplateRequest extends Model {
 
-    @JsonProperty("templateContext")
-    private Map<String, String> templateContext;
+  @JsonProperty("templateContext")
+  private Map<String, String> templateContext;
 
-    @JsonProperty("templateLanguage")
-    private String templateLanguage;
+  @JsonProperty("templateLanguage")
+  private String templateLanguage;
 
-    @JsonProperty("templateSlug")
-    private String templateSlug;
+  @JsonProperty("templateSlug")
+  private String templateSlug;
 
-    @JsonProperty("topic")
-    private String topic;
+  @JsonProperty("topic")
+  private String topic;
 
+  @JsonIgnore
+  public ModelNotificationWithTemplateRequest createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelNotificationWithTemplateRequest createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelNotificationWithTemplateRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelNotificationWithTemplateRequest>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelNotificationWithTemplateRequest> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelNotificationWithTemplateRequest>>() {});
+  }
 }

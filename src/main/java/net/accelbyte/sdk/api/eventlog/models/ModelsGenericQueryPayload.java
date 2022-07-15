@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,38 +27,36 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsGenericQueryPayload extends Model {
 
-    @JsonProperty("clientId")
-    private String clientId;
+  @JsonProperty("clientId")
+  private String clientId;
 
-    @JsonProperty("eventName")
-    private String eventName;
+  @JsonProperty("eventName")
+  private String eventName;
 
-    @JsonProperty("payloadQuery")
-    private Map<String, ?> payloadQuery;
+  @JsonProperty("payloadQuery")
+  private Map<String, ?> payloadQuery;
 
-    @JsonProperty("sessionId")
-    private String sessionId;
+  @JsonProperty("sessionId")
+  private String sessionId;
 
-    @JsonProperty("traceId")
-    private String traceId;
+  @JsonProperty("traceId")
+  private String traceId;
 
-    @JsonProperty("userId")
-    private String userId;
+  @JsonProperty("userId")
+  private String userId;
 
-    @JsonProperty("version")
-    private Integer version;
+  @JsonProperty("version")
+  private Integer version;
 
+  @JsonIgnore
+  public ModelsGenericQueryPayload createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsGenericQueryPayload createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsGenericQueryPayload> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsGenericQueryPayload>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsGenericQueryPayload> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsGenericQueryPayload>>() {});
+  }
 }

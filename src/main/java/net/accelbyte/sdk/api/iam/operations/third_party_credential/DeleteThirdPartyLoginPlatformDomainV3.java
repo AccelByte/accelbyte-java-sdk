@@ -8,110 +8,91 @@
 
 package net.accelbyte.sdk.api.iam.operations.third_party_credential;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.iam.models.*;
-import net.accelbyte.sdk.api.iam.models.ModelPlatformDomainDeleteRequest;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.iam.models.ModelPlatformDomainDeleteRequest;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * DeleteThirdPartyLoginPlatformDomainV3
  *
- * 
- * 
- * This is the API to unregister 3rd Platform domain.
- * 
- * 
- * 
- * 
- * It needs ADMIN:NAMESPACE:{namespace}:CLIENTDOMAIN [DELETE] resource.
+ * <p>This is the API to unregister 3rd Platform domain.
+ *
+ * <p>It needs ADMIN:NAMESPACE:{namespace}:CLIENTDOMAIN [DELETE] resource.
  */
 @Getter
 @Setter
 public class DeleteThirdPartyLoginPlatformDomainV3 extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/iam/v3/admin/namespaces/{namespace}/platforms/{platformId}/clients/domain";
-    private String method = "DELETE";
-    private List<String> consumes = Arrays.asList("application/json");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String namespace;
-    private String platformId;
-    private ModelPlatformDomainDeleteRequest body;
+  /** generated field's value */
+  private String path =
+      "/iam/v3/admin/namespaces/{namespace}/platforms/{platformId}/clients/domain";
 
-    /**
-    * @param namespace required
-    * @param platformId required
-    * @param body required
-    */
-    @Builder
-    public DeleteThirdPartyLoginPlatformDomainV3(
-            String namespace,
-            String platformId,
-            ModelPlatformDomainDeleteRequest body
-    )
-    {
-        this.namespace = namespace;
-        this.platformId = platformId;
-        this.body = body;
-        
-        securities.add("Bearer");
+  private String method = "DELETE";
+  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String namespace;
+
+  private String platformId;
+  private ModelPlatformDomainDeleteRequest body;
+
+  /**
+   * @param namespace required
+   * @param platformId required
+   * @param body required
+   */
+  @Builder
+  public DeleteThirdPartyLoginPlatformDomainV3(
+      String namespace, String platformId, ModelPlatformDomainDeleteRequest body) {
+    this.namespace = namespace;
+    this.platformId = platformId;
+    this.body = body;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
-
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        if (this.platformId != null){
-            pathParams.put("platformId", this.platformId);
-        }
-        return pathParams;
+    if (this.platformId != null) {
+      pathParams.put("platformId", this.platformId);
     }
+    return pathParams;
+  }
 
+  @Override
+  public ModelPlatformDomainDeleteRequest getBodyParams() {
+    return this.body;
+  }
 
-
-    @Override
-    public ModelPlatformDomainDeleteRequest getBodyParams(){
-        return this.body;
+  @Override
+  public boolean isValid() {
+    if (this.namespace == null) {
+      return false;
     }
-
-
-    @Override
-    public boolean isValid() {
-        if(this.namespace == null) {
-            return false;
-        }
-        if(this.platformId == null) {
-            return false;
-        }
-        return true;
+    if (this.platformId == null) {
+      return false;
     }
+    return true;
+  }
 
-    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        if(code != 204){
-            String json = Helper.convertInputStreamToString(payload);
-            throw new HttpResponseException(code, json);
-        }
+  public void handleEmptyResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    if (code != 204) {
+      String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
     }
-
+  }
 }

@@ -9,17 +9,17 @@ package net.accelbyte.sdk.core.repository;
 import java.util.Date;
 
 public interface TokenRefresh {
-    void setTokenExpiresAt(Date dateTime) throws Exception;
+  void setTokenExpiresAt(Date dateTime) throws Exception;
 
-    Date getTokenExpiresAt() throws Exception;
+  Date getTokenExpiresAt() throws Exception;
 
-    void storeRefreshToken(String refreshToken) throws Exception;
+  void storeRefreshToken(String refreshToken) throws Exception;
 
-    String getRefreshToken() throws Exception;
+  String getRefreshToken() throws Exception;
 
-    void removeRefreshToken() throws Exception;
+  void removeRefreshToken() throws Exception;
 
-    void setRefreshTokenExpiresAt(Date dateTime) throws Exception;
+  void setRefreshTokenExpiresAt(Date dateTime) throws Exception;
 
-    Date getRefreshTokenExpiresAt() throws Exception;
+  Date getRefreshTokenExpiresAt() throws Exception;
 }

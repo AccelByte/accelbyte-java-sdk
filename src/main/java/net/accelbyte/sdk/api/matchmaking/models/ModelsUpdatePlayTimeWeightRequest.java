@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,26 +26,25 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsUpdatePlayTimeWeightRequest extends Model {
 
-    @JsonProperty("playtime")
-    private Integer playtime;
+  @JsonProperty("playtime")
+  private Integer playtime;
 
-    @JsonProperty("userID")
-    private String userID;
+  @JsonProperty("userID")
+  private String userID;
 
-    @JsonProperty("weight")
-    private Float weight;
+  @JsonProperty("weight")
+  private Float weight;
 
+  @JsonIgnore
+  public ModelsUpdatePlayTimeWeightRequest createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsUpdatePlayTimeWeightRequest createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsUpdatePlayTimeWeightRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdatePlayTimeWeightRequest>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsUpdatePlayTimeWeightRequest> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsUpdatePlayTimeWeightRequest>>() {});
+  }
 }

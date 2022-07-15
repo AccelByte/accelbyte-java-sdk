@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,150 +27,148 @@ import java.util.Map;
 @NoArgsConstructor
 public class PaymentProviderConfigEdit extends Model {
 
-    @JsonProperty("aggregate")
+  @JsonProperty("aggregate")
+  private String aggregate;
+
+  @JsonProperty("namespace")
+  private String namespace;
+
+  @JsonProperty("region")
+  private String region;
+
+  @JsonProperty("sandboxTaxJarApiToken")
+  private String sandboxTaxJarApiToken;
+
+  @JsonProperty("specials")
+  private List<String> specials;
+
+  @JsonProperty("taxJarApiToken")
+  private String taxJarApiToken;
+
+  @JsonProperty("taxJarEnabled")
+  private Boolean taxJarEnabled;
+
+  @JsonProperty("useGlobalTaxJarApiToken")
+  private Boolean useGlobalTaxJarApiToken;
+
+  @JsonIgnore
+  public String getAggregate() {
+    return this.aggregate;
+  }
+
+  @JsonIgnore
+  public Aggregate getAggregateAsEnum() {
+    return Aggregate.valueOf(this.aggregate);
+  }
+
+  @JsonIgnore
+  public void setAggregate(final String aggregate) {
+    this.aggregate = aggregate;
+  }
+
+  @JsonIgnore
+  public void setAggregateFromEnum(final Aggregate aggregate) {
+    this.aggregate = aggregate.toString();
+  }
+
+  @JsonIgnore
+  public List<String> getSpecials() {
+    return this.specials;
+  }
+
+  @JsonIgnore
+  public List<Specials> getSpecialsAsEnum() {
+    ArrayList<Specials> en = new ArrayList<Specials>();
+    for (String e : this.specials) en.add(Specials.valueOf(e));
+    return en;
+  }
+
+  @JsonIgnore
+  public void setSpecials(final List<String> specials) {
+    this.specials = specials;
+  }
+
+  @JsonIgnore
+  public void setSpecialsFromEnum(final List<Specials> specials) {
+    ArrayList<String> en = new ArrayList<String>();
+    for (Specials e : specials) en.add(e.toString());
+    this.specials = en;
+  }
+
+  @JsonIgnore
+  public PaymentProviderConfigEdit createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<PaymentProviderConfigEdit> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<PaymentProviderConfigEdit>>() {});
+  }
+
+  public enum Aggregate {
+    ADYEN("ADYEN"),
+    XSOLLA("XSOLLA");
+
+    private String value;
+
+    Aggregate(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public enum Specials {
+    ADYEN("ADYEN"),
+    ALIPAY("ALIPAY"),
+    CHECKOUT("CHECKOUT"),
+    PAYPAL("PAYPAL"),
+    STRIPE("STRIPE"),
+    WALLET("WALLET"),
+    WXPAY("WXPAY"),
+    XSOLLA("XSOLLA");
+
+    private String value;
+
+    Specials(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class PaymentProviderConfigEditBuilder {
     private String aggregate;
-
-    @JsonProperty("namespace")
-    private String namespace;
-
-    @JsonProperty("region")
-    private String region;
-
-    @JsonProperty("sandboxTaxJarApiToken")
-    private String sandboxTaxJarApiToken;
-
-    @JsonProperty("specials")
     private List<String> specials;
 
-    @JsonProperty("taxJarApiToken")
-    private String taxJarApiToken;
-
-    @JsonProperty("taxJarEnabled")
-    private Boolean taxJarEnabled;
-
-    @JsonProperty("useGlobalTaxJarApiToken")
-    private Boolean useGlobalTaxJarApiToken;
-
-
-    
-    @JsonIgnore
-    public String getAggregate() {
-        return this.aggregate;
-    }
-    
-    @JsonIgnore
-    public Aggregate getAggregateAsEnum() {
-        return Aggregate.valueOf(this.aggregate);
-    }
-    
-    @JsonIgnore
-    public void setAggregate(final String aggregate) {
-        this.aggregate = aggregate;
-    }
-    
-    @JsonIgnore
-    public void setAggregateFromEnum(final Aggregate aggregate) {
-        this.aggregate = aggregate.toString();
-    }
-    
-    @JsonIgnore
-    public List<String> getSpecials() {
-        return this.specials;
-    }
-    
-    @JsonIgnore
-    public List<Specials> getSpecialsAsEnum() {
-        ArrayList<Specials> en = new ArrayList<Specials>();
-        for(String e : this.specials) en.add(Specials.valueOf(e));
-        return en;
-    }
-    
-    @JsonIgnore
-    public void setSpecials(final List<String> specials) {
-        this.specials = specials;
-    }
-    
-    @JsonIgnore
-    public void setSpecialsFromEnum(final List<Specials> specials) {
-        ArrayList<String> en = new ArrayList<String>();
-        for(Specials e : specials) en.add(e.toString());
-        this.specials = en;
+    public PaymentProviderConfigEditBuilder aggregate(final String aggregate) {
+      this.aggregate = aggregate;
+      return this;
     }
 
-    @JsonIgnore
-    public PaymentProviderConfigEdit createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public PaymentProviderConfigEditBuilder aggregateFromEnum(final Aggregate aggregate) {
+      this.aggregate = aggregate.toString();
+      return this;
     }
 
-    @JsonIgnore
-    public List<PaymentProviderConfigEdit> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<PaymentProviderConfigEdit>>() {});
+    public PaymentProviderConfigEditBuilder specials(final List<String> specials) {
+      this.specials = specials;
+      return this;
     }
 
-    
-    public enum Aggregate {
-        ADYEN("ADYEN"),
-        XSOLLA("XSOLLA");
-
-        private String value;
-
-        Aggregate(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
+    public PaymentProviderConfigEditBuilder specialsFromEnum(final List<Specials> specials) {
+      ArrayList<String> en = new ArrayList<String>();
+      for (Specials e : specials) en.add(e.toString());
+      this.specials = en;
+      return this;
     }
-    
-    public enum Specials {
-        ADYEN("ADYEN"),
-        ALIPAY("ALIPAY"),
-        CHECKOUT("CHECKOUT"),
-        PAYPAL("PAYPAL"),
-        STRIPE("STRIPE"),
-        WALLET("WALLET"),
-        WXPAY("WXPAY"),
-        XSOLLA("XSOLLA");
-
-        private String value;
-
-        Specials(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class PaymentProviderConfigEditBuilder {
-        private String aggregate;
-        private List<String> specials;
-        
-        
-        public PaymentProviderConfigEditBuilder aggregate(final String aggregate) {
-            this.aggregate = aggregate;
-            return this;
-        }
-        
-        public PaymentProviderConfigEditBuilder aggregateFromEnum(final Aggregate aggregate) {
-            this.aggregate = aggregate.toString();
-            return this;
-        }
-        
-        public PaymentProviderConfigEditBuilder specials(final List<String> specials) {
-            this.specials = specials;
-            return this;
-        }
-        
-        public PaymentProviderConfigEditBuilder specialsFromEnum(final List<Specials> specials) {
-            ArrayList<String> en = new ArrayList<String>();
-            for(Specials e : specials) en.add(e.toString());
-            this.specials = en;
-            return this;
-        }
-    }
+  }
 }

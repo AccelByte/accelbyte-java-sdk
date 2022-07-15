@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,104 +26,100 @@ import java.util.Map;
 @NoArgsConstructor
 public class EntitlementGrant extends Model {
 
-    @JsonProperty("endDate")
-    private String endDate;
+  @JsonProperty("endDate")
+  private String endDate;
 
-    @JsonProperty("grantedCode")
-    private String grantedCode;
+  @JsonProperty("grantedCode")
+  private String grantedCode;
 
-    @JsonProperty("itemId")
-    private String itemId;
+  @JsonProperty("itemId")
+  private String itemId;
 
-    @JsonProperty("itemNamespace")
-    private String itemNamespace;
+  @JsonProperty("itemNamespace")
+  private String itemNamespace;
 
-    @JsonProperty("language")
-    private String language;
+  @JsonProperty("language")
+  private String language;
 
-    @JsonProperty("quantity")
-    private Integer quantity;
+  @JsonProperty("quantity")
+  private Integer quantity;
 
-    @JsonProperty("region")
-    private String region;
+  @JsonProperty("region")
+  private String region;
 
-    @JsonProperty("source")
+  @JsonProperty("source")
+  private String source;
+
+  @JsonProperty("startDate")
+  private String startDate;
+
+  @JsonProperty("storeId")
+  private String storeId;
+
+  @JsonIgnore
+  public String getSource() {
+    return this.source;
+  }
+
+  @JsonIgnore
+  public Source getSourceAsEnum() {
+    return Source.valueOf(this.source);
+  }
+
+  @JsonIgnore
+  public void setSource(final String source) {
+    this.source = source;
+  }
+
+  @JsonIgnore
+  public void setSourceFromEnum(final Source source) {
+    this.source = source.toString();
+  }
+
+  @JsonIgnore
+  public EntitlementGrant createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<EntitlementGrant> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<EntitlementGrant>>() {});
+  }
+
+  public enum Source {
+    ACHIEVEMENT("ACHIEVEMENT"),
+    GIFT("GIFT"),
+    IAP("IAP"),
+    OTHER("OTHER"),
+    PROMOTION("PROMOTION"),
+    PURCHASE("PURCHASE"),
+    REDEEMCODE("REDEEM_CODE"),
+    REFERRALBONUS("REFERRAL_BONUS"),
+    REWARD("REWARD");
+
+    private String value;
+
+    Source(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class EntitlementGrantBuilder {
     private String source;
 
-    @JsonProperty("startDate")
-    private String startDate;
-
-    @JsonProperty("storeId")
-    private String storeId;
-
-
-    
-    @JsonIgnore
-    public String getSource() {
-        return this.source;
-    }
-    
-    @JsonIgnore
-    public Source getSourceAsEnum() {
-        return Source.valueOf(this.source);
-    }
-    
-    @JsonIgnore
-    public void setSource(final String source) {
-        this.source = source;
-    }
-    
-    @JsonIgnore
-    public void setSourceFromEnum(final Source source) {
-        this.source = source.toString();
+    public EntitlementGrantBuilder source(final String source) {
+      this.source = source;
+      return this;
     }
 
-    @JsonIgnore
-    public EntitlementGrant createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public EntitlementGrantBuilder sourceFromEnum(final Source source) {
+      this.source = source.toString();
+      return this;
     }
-
-    @JsonIgnore
-    public List<EntitlementGrant> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<EntitlementGrant>>() {});
-    }
-
-    
-    public enum Source {
-        ACHIEVEMENT("ACHIEVEMENT"),
-        GIFT("GIFT"),
-        IAP("IAP"),
-        OTHER("OTHER"),
-        PROMOTION("PROMOTION"),
-        PURCHASE("PURCHASE"),
-        REDEEMCODE("REDEEM_CODE"),
-        REFERRALBONUS("REFERRAL_BONUS"),
-        REWARD("REWARD");
-
-        private String value;
-
-        Source(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class EntitlementGrantBuilder {
-        private String source;
-        
-        
-        public EntitlementGrantBuilder source(final String source) {
-            this.source = source;
-            return this;
-        }
-        
-        public EntitlementGrantBuilder sourceFromEnum(final Source source) {
-            this.source = source.toString();
-            return this;
-        }
-    }
+  }
 }

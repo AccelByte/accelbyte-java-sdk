@@ -10,95 +10,83 @@ package net.accelbyte.sdk.api.legal.operations.base_legal_policies;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.legal.models.*;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.legal.models.*;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * retrieveAllPolicyTypes
  *
- * Retrieve all supported policy types.
- * Other detail info:
- * 
- *   * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+ * <p>Retrieve all supported policy types. Other detail info:
+ *
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
  */
 @Getter
 @Setter
 public class RetrieveAllPolicyTypes extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/agreement/admin/policy-types";
-    private String method = "GET";
-    private List<String> consumes = Arrays.asList();
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private Integer offset;
-    private Integer limit;
+  /** generated field's value */
+  private String path = "/agreement/admin/policy-types";
 
-    /**
-    * @param limit required
-    */
-    @Builder
-    public RetrieveAllPolicyTypes(
-            Integer offset,
-            Integer limit
-    )
-    {
-        this.offset = offset;
-        this.limit = limit;
-        
-        securities.add("Bearer");
+  private String method = "GET";
+  private List<String> consumes = Arrays.asList();
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private Integer offset;
+
+  private Integer limit;
+
+  /**
+   * @param limit required
+   */
+  @Builder
+  public RetrieveAllPolicyTypes(Integer offset, Integer limit) {
+    this.offset = offset;
+    this.limit = limit;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+    return queryParams;
+  }
+
+  @Override
+  public boolean isValid() {
+    if (this.limit == null) {
+      return false;
     }
+    return true;
+  }
 
-
-    @Override
-    public Map<String, List<String>> getQueryParams(){
-        Map<String, List<String>> queryParams = new HashMap<>();
-        queryParams.put("offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
-        queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
-        return queryParams;
+  public List<RetrievePolicyTypeResponse> parseResponse(
+      int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 200) {
+      return new ObjectMapper()
+          .readValue(json, new TypeReference<List<RetrievePolicyTypeResponse>>() {});
     }
+    throw new HttpResponseException(code, json);
+  }
 
-
-
-
-    @Override
-    public boolean isValid() {
-        if(this.limit == null) {
-            return false;
-        }
-        return true;
-    }
-
-    public List<RetrievePolicyTypeResponse> parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 200){
-            return new ObjectMapper().readValue(json, new TypeReference<List<RetrievePolicyTypeResponse>>() {});
-        }
-        throw new HttpResponseException(code, json);
-    }
-
-    @Override
-    protected Map<String, String> getCollectionFormatMap() {
-        Map<String, String> result = new HashMap<>();
-        result.put("offset", "None");
-        result.put("limit", "None");
-        return result;
-    }
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("offset", "None");
+    result.put("limit", "None");
+    return result;
+  }
 }

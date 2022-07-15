@@ -8,81 +8,62 @@
 
 package net.accelbyte.sdk.api.lobby.ws_models;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import static net.accelbyte.sdk.core.util.Helper.*;
+
+import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.*;
-
-import static net.accelbyte.sdk.core.util.Helper.*;
-
 @Getter
 @Setter
 public class PartyKickNotif {
-    private String leaderId;
-    private String partyId;
-    private String userId;
+  private String leaderId;
+  private String partyId;
+  private String userId;
 
-    private PartyKickNotif() {
+  private PartyKickNotif() {}
 
+  @Builder
+  public PartyKickNotif(String leaderId, String partyId, String userId) {
+    this.leaderId = leaderId;
+    this.partyId = partyId;
+    this.userId = userId;
+  }
+
+  public static String getType() {
+    return "partyKickNotif";
+  }
+
+  public static PartyKickNotif createFromWSM(String message) {
+    PartyKickNotif result = new PartyKickNotif();
+    Map<String, String> response = parseWSM(message);
+    result.leaderId = response.get("leaderId") != null ? response.get("leaderId") : null;
+    result.partyId = response.get("partyId") != null ? response.get("partyId") : null;
+    result.userId = response.get("userId") != null ? response.get("userId") : null;
+    return result;
+  }
+
+  public String toWSM() {
+    StringBuilder stringBuilder = new StringBuilder();
+    stringBuilder.append("type: ").append(PartyKickNotif.getType());
+    if (leaderId != null) {
+      stringBuilder.append("\n").append("leaderId: ").append(leaderId);
     }
-
-    @Builder
-    public PartyKickNotif (
-        String leaderId,
-        String partyId,
-        String userId
-    ) {
-        this.leaderId = leaderId;
-        this.partyId = partyId;
-        this.userId = userId;
+    if (partyId != null) {
+      stringBuilder.append("\n").append("partyId: ").append(partyId);
     }
-
-    public static String getType(){
-        return "partyKickNotif";
+    if (userId != null) {
+      stringBuilder.append("\n").append("userId: ").append(userId);
     }
+    return stringBuilder.toString();
+  }
 
-    public static PartyKickNotif createFromWSM(String message) {
-        PartyKickNotif result = new PartyKickNotif();
-        Map<String, String> response = parseWSM(message);
-        result.leaderId = response.get("leaderId") != null ? response.get("leaderId") : null;
-        result.partyId = response.get("partyId") != null ? response.get("partyId") : null;
-        result.userId = response.get("userId") != null ? response.get("userId") : null;
-        return result;
-    }
-
-    public String toWSM() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("type: ").append(PartyKickNotif.getType());
-        if (leaderId != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("leaderId: ")
-                    .append(leaderId);
-        }
-        if (partyId != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("partyId: ")
-                    .append(partyId);
-        }
-        if (userId != null) {
-            stringBuilder
-                    .append("\n")
-                    .append("userId: ")
-                    .append(userId);
-        }
-        return stringBuilder.toString();
-    }
-
-    public static Map<String, String> getFieldInfo() {
-        Map<String, String> result = new HashMap<>();
-        result.put("leaderId","leaderId");
-        result.put("partyId","partyId");
-        result.put("userId","userId");
-        return result;
-    }
+  public static Map<String, String> getFieldInfo() {
+    Map<String, String> result = new HashMap<>();
+    result.put("leaderId", "leaderId");
+    result.put("partyId", "partyId");
+    result.put("userId", "userId");
+    return result;
+  }
 }

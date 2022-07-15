@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,23 +27,19 @@ import java.util.Map;
 @NoArgsConstructor
 public class CategoryCreate extends Model {
 
-    @JsonProperty("categoryPath")
-    private String categoryPath;
+  @JsonProperty("categoryPath")
+  private String categoryPath;
 
-    @JsonProperty("localizationDisplayNames")
-    private Map<String, String> localizationDisplayNames;
+  @JsonProperty("localizationDisplayNames")
+  private Map<String, String> localizationDisplayNames;
 
+  @JsonIgnore
+  public CategoryCreate createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public CategoryCreate createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<CategoryCreate> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<CategoryCreate>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<CategoryCreate> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<CategoryCreate>>() {});
+  }
 }

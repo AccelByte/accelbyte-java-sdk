@@ -8,73 +8,56 @@
 
 package net.accelbyte.sdk.api.legal.operations.utility;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.legal.models.*;
-import net.accelbyte.sdk.api.legal.models.LegalReadinessStatusResponse;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.legal.models.*;
+import net.accelbyte.sdk.api.legal.models.LegalReadinessStatusResponse;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * checkReadiness
  *
- * Readiness status defined as at least one legal basePolicy is present and having active basePolicy.
- * Other detail info:
- *     * Required permission : resource="NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+ * <p>Readiness status defined as at least one legal basePolicy is present and having active
+ * basePolicy. Other detail info: * Required permission : resource="NAMESPACE:{namespace}:LEGAL",
+ * action=2 (READ)
  */
 @Getter
 @Setter
 public class CheckReadiness extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/agreement/public/readiness";
-    private String method = "GET";
-    private List<String> consumes = Arrays.asList();
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
+  /** generated field's value */
+  private String path = "/agreement/public/readiness";
 
-    /**
-    */
-    @Builder
-    public CheckReadiness(
-    )
-    {
-        
-        securities.add("Bearer");
+  private String method = "GET";
+  private List<String> consumes = Arrays.asList();
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+
+  /** */
+  @Builder
+  public CheckReadiness() {
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public boolean isValid() {
+    return true;
+  }
+
+  public LegalReadinessStatusResponse parseResponse(
+      int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 200) {
+      return new LegalReadinessStatusResponse().createFromJson(json);
     }
-
-
-
-
-
-
-    @Override
-    public boolean isValid() {
-        return true;
-    }
-
-    public LegalReadinessStatusResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 200){
-            return new LegalReadinessStatusResponse().createFromJson(json);
-        }
-        throw new HttpResponseException(code, json);
-    }
-
+    throw new HttpResponseException(code, json);
+  }
 }

@@ -8,88 +8,70 @@
 
 package net.accelbyte.sdk.api.iam.operations.roles;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.iam.models.*;
-import net.accelbyte.sdk.api.iam.models.ModelRoleResponse;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.iam.models.ModelRoleResponse;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * PublicGetRoleV3
  *
- * 
- * This endpoint is used to get non-admin role based on specify roleId.
- * action code : 10417
+ * <p>This endpoint is used to get non-admin role based on specify roleId. action code : 10417
  */
 @Getter
 @Setter
 public class PublicGetRoleV3 extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/iam/v3/public/roles/{roleId}";
-    private String method = "GET";
-    private List<String> consumes = Arrays.asList("application/json");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String roleId;
+  /** generated field's value */
+  private String path = "/iam/v3/public/roles/{roleId}";
 
-    /**
-    * @param roleId required
-    */
-    @Builder
-    public PublicGetRoleV3(
-            String roleId
-    )
-    {
-        this.roleId = roleId;
-        
-        securities.add("Bearer");
+  private String method = "GET";
+  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String roleId;
+
+  /**
+   * @param roleId required
+   */
+  @Builder
+  public PublicGetRoleV3(String roleId) {
+    this.roleId = roleId;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.roleId != null) {
+      pathParams.put("roleId", this.roleId);
     }
+    return pathParams;
+  }
 
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.roleId != null){
-            pathParams.put("roleId", this.roleId);
-        }
-        return pathParams;
+  @Override
+  public boolean isValid() {
+    if (this.roleId == null) {
+      return false;
     }
+    return true;
+  }
 
-
-
-
-
-    @Override
-    public boolean isValid() {
-        if(this.roleId == null) {
-            return false;
-        }
-        return true;
+  public ModelRoleResponse parseResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 200) {
+      return new ModelRoleResponse().createFromJson(json);
     }
-
-    public ModelRoleResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 200){
-            return new ModelRoleResponse().createFromJson(json);
-        }
-        throw new HttpResponseException(code, json);
-    }
-
+    throw new HttpResponseException(code, json);
+  }
 }

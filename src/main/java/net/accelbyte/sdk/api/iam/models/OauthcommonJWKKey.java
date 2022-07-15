@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,35 +26,31 @@ import java.util.Map;
 @NoArgsConstructor
 public class OauthcommonJWKKey extends Model {
 
-    @JsonProperty("alg")
-    private String alg;
+  @JsonProperty("alg")
+  private String alg;
 
-    @JsonProperty("e")
-    private String e;
+  @JsonProperty("e")
+  private String e;
 
-    @JsonProperty("kid")
-    private String kid;
+  @JsonProperty("kid")
+  private String kid;
 
-    @JsonProperty("kty")
-    private String kty;
+  @JsonProperty("kty")
+  private String kty;
 
-    @JsonProperty("n")
-    private String n;
+  @JsonProperty("n")
+  private String n;
 
-    @JsonProperty("use")
-    private String use;
+  @JsonProperty("use")
+  private String use;
 
+  @JsonIgnore
+  public OauthcommonJWKKey createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public OauthcommonJWKKey createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<OauthcommonJWKKey> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<OauthcommonJWKKey>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<OauthcommonJWKKey> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<OauthcommonJWKKey>>() {});
+  }
 }

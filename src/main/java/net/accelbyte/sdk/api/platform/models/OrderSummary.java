@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,26 +27,22 @@ import java.util.Map;
 @NoArgsConstructor
 public class OrderSummary extends Model {
 
-    @JsonProperty("currency")
-    private CurrencySummary currency;
+  @JsonProperty("currency")
+  private CurrencySummary currency;
 
-    @JsonProperty("ext")
-    private Map<String, ?> ext;
+  @JsonProperty("ext")
+  private Map<String, ?> ext;
 
-    @JsonProperty("free")
-    private Boolean free;
+  @JsonProperty("free")
+  private Boolean free;
 
+  @JsonIgnore
+  public OrderSummary createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public OrderSummary createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<OrderSummary> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<OrderSummary>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<OrderSummary> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<OrderSummary>>() {});
+  }
 }

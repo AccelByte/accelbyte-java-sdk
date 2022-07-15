@@ -4,7 +4,7 @@ import net.accelbyte.sdk.core.HttpResponse;
 import net.accelbyte.sdk.core.Operation;
 
 public interface HttpRetryPolicy {
-    int getCallTimeout();
+  int getCallTimeout();
 
-    boolean doRetry(int attempt, Operation operation, HttpResponse response, Exception exception);
+  boolean doRetry(int attempt, Operation operation, HttpResponse response, Exception exception);
 }

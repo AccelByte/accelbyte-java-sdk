@@ -8,76 +8,54 @@
 
 package net.accelbyte.sdk.api.iam.operations.users_v4;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.iam.models.*;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * AdminDisableMyAuthenticatorV4
  *
- * 
- * 
- * This endpoint is used to disable 2FA authenticator.
- * 
- * 
- * 
- * 
- * This endpoint Requires valid user access token
+ * <p>This endpoint is used to disable 2FA authenticator.
+ *
+ * <p>This endpoint Requires valid user access token
  */
 @Getter
 @Setter
 public class AdminDisableMyAuthenticatorV4 extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/iam/v4/admin/users/me/mfa/authenticator/disable";
-    private String method = "DELETE";
-    private List<String> consumes = Arrays.asList();
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
+  /** generated field's value */
+  private String path = "/iam/v4/admin/users/me/mfa/authenticator/disable";
 
-    /**
-    */
-    @Builder
-    public AdminDisableMyAuthenticatorV4(
-    )
-    {
-        
-        securities.add("Bearer");
+  private String method = "DELETE";
+  private List<String> consumes = Arrays.asList();
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+
+  /** */
+  @Builder
+  public AdminDisableMyAuthenticatorV4() {
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public boolean isValid() {
+    return true;
+  }
+
+  public void handleEmptyResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    if (code != 204) {
+      String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
     }
-
-
-
-
-
-
-    @Override
-    public boolean isValid() {
-        return true;
-    }
-
-    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        if(code != 204){
-            String json = Helper.convertInputStreamToString(payload);
-            throw new HttpResponseException(code, json);
-        }
-    }
-
+  }
 }

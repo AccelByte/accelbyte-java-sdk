@@ -8,139 +8,103 @@
 
 package net.accelbyte.sdk.api.group.operations.group_roles;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.group.models.*;
-import net.accelbyte.sdk.api.group.models.ModelsUpdateMemberRoleResponseV1;
-import net.accelbyte.sdk.api.group.models.ModelsUpdateMemberRolePermissionsRequestV1;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.group.models.*;
+import net.accelbyte.sdk.api.group.models.ModelsUpdateMemberRolePermissionsRequestV1;
+import net.accelbyte.sdk.api.group.models.ModelsUpdateMemberRoleResponseV1;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * updateMemberRolePermissionAdminV1
  *
- * 
- * 
- * Required permission ADMIN:NAMESPACE:{namespace}:GROUP:ROLE [UPDATE]
- * 
- * 
- * 
- * 
- * This endpoint is used to update member role permission. It will replace the existing permission based on the request from this endpoint
- * 
- * 
- * 
- * 
- * Action Code: 73205
- * 
- * 
- * 
- * 
- * 
- * 
- * memberRolePermissions example value :
- * 
- * 
- * 
- * 
- * "action": 2
- * 
- * 
- * 
- * 
- * "resourceName": "GROUP:ROLE"
- * 
- * 
- * 
- * 
- * The changes will update user role to be able to read a role of other member
+ * <p>Required permission ADMIN:NAMESPACE:{namespace}:GROUP:ROLE [UPDATE]
+ *
+ * <p>This endpoint is used to update member role permission. It will replace the existing
+ * permission based on the request from this endpoint
+ *
+ * <p>Action Code: 73205
+ *
+ * <p>memberRolePermissions example value :
+ *
+ * <p>"action": 2
+ *
+ * <p>"resourceName": "GROUP:ROLE"
+ *
+ * <p>The changes will update user role to be able to read a role of other member
  */
 @Getter
 @Setter
 public class UpdateMemberRolePermissionAdminV1 extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/group/v1/admin/namespaces/{namespace}/roles/{memberRoleId}/permissions";
-    private String method = "PUT";
-    private List<String> consumes = Arrays.asList("application/json");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String memberRoleId;
-    private String namespace;
-    private ModelsUpdateMemberRolePermissionsRequestV1 body;
+  /** generated field's value */
+  private String path = "/group/v1/admin/namespaces/{namespace}/roles/{memberRoleId}/permissions";
 
-    /**
-    * @param memberRoleId required
-    * @param namespace required
-    * @param body required
-    */
-    @Builder
-    public UpdateMemberRolePermissionAdminV1(
-            String memberRoleId,
-            String namespace,
-            ModelsUpdateMemberRolePermissionsRequestV1 body
-    )
-    {
-        this.memberRoleId = memberRoleId;
-        this.namespace = namespace;
-        this.body = body;
-        
-        securities.add("Bearer");
+  private String method = "PUT";
+  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String memberRoleId;
+
+  private String namespace;
+  private ModelsUpdateMemberRolePermissionsRequestV1 body;
+
+  /**
+   * @param memberRoleId required
+   * @param namespace required
+   * @param body required
+   */
+  @Builder
+  public UpdateMemberRolePermissionAdminV1(
+      String memberRoleId, String namespace, ModelsUpdateMemberRolePermissionsRequestV1 body) {
+    this.memberRoleId = memberRoleId;
+    this.namespace = namespace;
+    this.body = body;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.memberRoleId != null) {
+      pathParams.put("memberRoleId", this.memberRoleId);
     }
-
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.memberRoleId != null){
-            pathParams.put("memberRoleId", this.memberRoleId);
-        }
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        return pathParams;
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
+    return pathParams;
+  }
 
+  @Override
+  public ModelsUpdateMemberRolePermissionsRequestV1 getBodyParams() {
+    return this.body;
+  }
 
-
-    @Override
-    public ModelsUpdateMemberRolePermissionsRequestV1 getBodyParams(){
-        return this.body;
+  @Override
+  public boolean isValid() {
+    if (this.memberRoleId == null) {
+      return false;
     }
-
-
-    @Override
-    public boolean isValid() {
-        if(this.memberRoleId == null) {
-            return false;
-        }
-        if(this.namespace == null) {
-            return false;
-        }
-        return true;
+    if (this.namespace == null) {
+      return false;
     }
+    return true;
+  }
 
-    public ModelsUpdateMemberRoleResponseV1 parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 200){
-            return new ModelsUpdateMemberRoleResponseV1().createFromJson(json);
-        }
-        throw new HttpResponseException(code, json);
+  public ModelsUpdateMemberRoleResponseV1 parseResponse(
+      int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 200) {
+      return new ModelsUpdateMemberRoleResponseV1().createFromJson(json);
     }
-
+    throw new HttpResponseException(code, json);
+  }
 }

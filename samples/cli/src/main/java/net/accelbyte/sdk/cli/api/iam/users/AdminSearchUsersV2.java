@@ -8,8 +8,9 @@
 
 package net.accelbyte.sdk.cli.api.iam.users;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.*;
+import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.api.iam.wrappers.Users;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
@@ -18,96 +19,112 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.logging.OkhttpLogger;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
-import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.*;
-import java.util.concurrent.Callable;
-
 @Command(name = "adminSearchUsersV2", mixinStandardHelpOptions = true)
 public class AdminSearchUsersV2 implements Callable<Integer> {
 
-    private static final Logger log = LogManager.getLogger(AdminSearchUsersV2.class);
+  private static final Logger log = LogManager.getLogger(AdminSearchUsersV2.class);
 
-    @Option(names = {"--namespace"}, description = "namespace")
-    String namespace;
+  @Option(
+      names = {"--namespace"},
+      description = "namespace")
+  String namespace;
 
-    @Option(names = {"--after"}, description = "after")
-    String after;
+  @Option(
+      names = {"--after"},
+      description = "after")
+  String after;
 
-    @Option(names = {"--before"}, description = "before")
-    String before;
+  @Option(
+      names = {"--before"},
+      description = "before")
+  String before;
 
-    @Option(names = {"--displayName"}, description = "displayName")
-    String displayName;
+  @Option(
+      names = {"--displayName"},
+      description = "displayName")
+  String displayName;
 
-    @Option(names = {"--limit"}, description = "limit")
-    Integer limit;
+  @Option(
+      names = {"--limit"},
+      description = "limit")
+  Integer limit;
 
-    @Option(names = {"--loginId"}, description = "loginId")
-    String loginId;
+  @Option(
+      names = {"--loginId"},
+      description = "loginId")
+  String loginId;
 
-    @Option(names = {"--platformUserId"}, description = "platformUserId")
-    String platformUserId;
+  @Option(
+      names = {"--platformUserId"},
+      description = "platformUserId")
+  String platformUserId;
 
-    @Option(names = {"--roleId"}, description = "roleId")
-    String roleId;
+  @Option(
+      names = {"--roleId"},
+      description = "roleId")
+  String roleId;
 
-    @Option(names = {"--userId"}, description = "userId")
-    String userId;
+  @Option(
+      names = {"--userId"},
+      description = "userId")
+  String userId;
 
-    @Option(names = {"--platformId"}, description = "platformId")
-    String platformId;
+  @Option(
+      names = {"--platformId"},
+      description = "platformId")
+  String platformId;
 
+  @Option(
+      names = {"--logging"},
+      description = "logger")
+  boolean logging;
 
-    @Option(names = {"--logging"}, description = "logger")
-    boolean logging;
+  public static void main(String[] args) {
+    int exitCode = new CommandLine(new AdminSearchUsersV2()).execute(args);
+    System.exit(exitCode);
+  }
 
-    public static void main(String[] args) {
-        int exitCode = new CommandLine(new AdminSearchUsersV2()).execute(args);
-        System.exit(exitCode);
+  @Override
+  public Integer call() {
+    try {
+      OkhttpClient httpClient = new OkhttpClient();
+      if (logging) {
+        httpClient.setLogger(new OkhttpLogger());
+      }
+      AccelByteSDK sdk =
+          new AccelByteSDK(
+              httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
+      Users wrapper = new Users(sdk);
+      net.accelbyte.sdk.api.iam.operations.users.AdminSearchUsersV2 operation =
+          net.accelbyte.sdk.api.iam.operations.users.AdminSearchUsersV2.builder()
+              .namespace(namespace)
+              .after(after)
+              .before(before)
+              .displayName(displayName)
+              .limit(limit)
+              .loginId(loginId)
+              .platformUserId(platformUserId)
+              .roleId(roleId)
+              .userId(userId)
+              .platformId(platformId)
+              .build();
+      ModelSearchUsersByPlatformIDResponse response = wrapper.adminSearchUsersV2(operation);
+      String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful with response below:\n{}", responseString);
+      return 0;
+    } catch (HttpResponseException e) {
+      log.error("HttpResponseException occur with message below:\n{}", e.getMessage());
+      System.err.print(e.getHttpCode());
+    } catch (Exception e) {
+      log.error("Exception occur with message below:\n{}", e.getMessage());
     }
-
-    @Override
-    public Integer call() {
-        try {
-            OkhttpClient httpClient = new OkhttpClient();
-            if (logging) {
-                httpClient.setLogger(new OkhttpLogger());
-            }
-            AccelByteSDK sdk = new AccelByteSDK(httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-            Users wrapper = new Users(sdk);
-            net.accelbyte.sdk.api.iam.operations.users.AdminSearchUsersV2 operation =
-                    net.accelbyte.sdk.api.iam.operations.users.AdminSearchUsersV2.builder()
-                            .namespace(namespace)
-                            .after(after)
-                            .before(before)
-                            .displayName(displayName)
-                            .limit(limit)
-                            .loginId(loginId)
-                            .platformUserId(platformUserId)
-                            .roleId(roleId)
-                            .userId(userId)
-                            .platformId(platformId)
-                            .build();
-            ModelSearchUsersByPlatformIDResponse response =
-                    wrapper.adminSearchUsersV2(operation);
-            String responseString = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-            log.info("Operation successful with response below:\n{}", responseString);
-            return 0;
-        } catch (HttpResponseException e) {
-            log.error("HttpResponseException occur with message below:\n{}", e.getMessage());
-            System.err.print(e.getHttpCode());
-        } catch (Exception e) {
-            log.error("Exception occur with message below:\n{}", e.getMessage());
-        }
-        return 1;
-    }
+    return 1;
+  }
 }

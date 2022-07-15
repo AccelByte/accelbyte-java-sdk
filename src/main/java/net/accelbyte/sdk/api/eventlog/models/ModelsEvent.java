@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,59 +26,55 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsEvent extends Model {
 
-    @JsonProperty("AgentType")
-    private Integer agentType;
+  @JsonProperty("AgentType")
+  private Integer agentType;
 
-    @JsonProperty("ClientID")
-    private String clientID;
+  @JsonProperty("ClientID")
+  private String clientID;
 
-    @JsonProperty("ComponentID")
-    private Integer componentID;
+  @JsonProperty("ComponentID")
+  private Integer componentID;
 
-    @JsonProperty("EventID")
-    private Integer eventID;
+  @JsonProperty("EventID")
+  private Integer eventID;
 
-    @JsonProperty("EventLevel")
-    private Integer eventLevel;
+  @JsonProperty("EventLevel")
+  private Integer eventLevel;
 
-    @JsonProperty("EventType")
-    private Integer eventType;
+  @JsonProperty("EventType")
+  private Integer eventType;
 
-    @JsonProperty("IPAddress")
-    private String ipAddress;
+  @JsonProperty("IPAddress")
+  private String ipAddress;
 
-    @JsonProperty("Namespace")
-    private String namespace;
+  @JsonProperty("Namespace")
+  private String namespace;
 
-    @JsonProperty("Realm")
-    private String realm;
+  @JsonProperty("Realm")
+  private String realm;
 
-    @JsonProperty("TargetNamespace")
-    private String targetNamespace;
+  @JsonProperty("TargetNamespace")
+  private String targetNamespace;
 
-    @JsonProperty("TargetUserID")
-    private String targetUserID;
+  @JsonProperty("TargetUserID")
+  private String targetUserID;
 
-    @JsonProperty("Time")
-    private String time;
+  @JsonProperty("Time")
+  private String time;
 
-    @JsonProperty("UX")
-    private Integer ux;
+  @JsonProperty("UX")
+  private Integer ux;
 
-    @JsonProperty("UserID")
-    private String userID;
+  @JsonProperty("UserID")
+  private String userID;
 
+  @JsonIgnore
+  public ModelsEvent createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsEvent createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsEvent> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsEvent>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsEvent> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsEvent>>() {});
+  }
 }

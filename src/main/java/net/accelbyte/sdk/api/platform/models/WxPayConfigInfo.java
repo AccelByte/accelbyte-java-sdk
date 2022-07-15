@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,32 +26,28 @@ import java.util.Map;
 @NoArgsConstructor
 public class WxPayConfigInfo extends Model {
 
-    @JsonProperty("appId")
-    private String appId;
+  @JsonProperty("appId")
+  private String appId;
 
-    @JsonProperty("certPath")
-    private String certPath;
+  @JsonProperty("certPath")
+  private String certPath;
 
-    @JsonProperty("key")
-    private String key;
+  @JsonProperty("key")
+  private String key;
 
-    @JsonProperty("mchid")
-    private String mchid;
+  @JsonProperty("mchid")
+  private String mchid;
 
-    @JsonProperty("returnUrl")
-    private String returnUrl;
+  @JsonProperty("returnUrl")
+  private String returnUrl;
 
+  @JsonIgnore
+  public WxPayConfigInfo createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public WxPayConfigInfo createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<WxPayConfigInfo> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<WxPayConfigInfo>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<WxPayConfigInfo> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<WxPayConfigInfo>>() {});
+  }
 }

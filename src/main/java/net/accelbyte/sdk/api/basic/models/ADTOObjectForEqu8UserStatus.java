@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,32 +26,30 @@ import java.util.Map;
 @NoArgsConstructor
 public class ADTOObjectForEqu8UserStatus extends Model {
 
-    @JsonProperty("actionComment")
-    private String actionComment;
+  @JsonProperty("actionComment")
+  private String actionComment;
 
-    @JsonProperty("actionId")
-    private Integer actionId;
+  @JsonProperty("actionId")
+  private Integer actionId;
 
-    @JsonProperty("expires")
-    private String expires;
+  @JsonProperty("expires")
+  private String expires;
 
-    @JsonProperty("userId")
-    private String userId;
+  @JsonProperty("userId")
+  private String userId;
 
-    @JsonProperty("when")
-    private String when;
+  @JsonProperty("when")
+  private String when;
 
+  @JsonIgnore
+  public ADTOObjectForEqu8UserStatus createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ADTOObjectForEqu8UserStatus createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ADTOObjectForEqu8UserStatus> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ADTOObjectForEqu8UserStatus>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ADTOObjectForEqu8UserStatus> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ADTOObjectForEqu8UserStatus>>() {});
+  }
 }

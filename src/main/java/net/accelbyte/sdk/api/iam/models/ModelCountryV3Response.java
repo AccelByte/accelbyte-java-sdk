@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,29 +26,26 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelCountryV3Response extends Model {
 
-    @JsonProperty("ageRestriction")
-    private Integer ageRestriction;
+  @JsonProperty("ageRestriction")
+  private Integer ageRestriction;
 
-    @JsonProperty("countryCode")
-    private String countryCode;
+  @JsonProperty("countryCode")
+  private String countryCode;
 
-    @JsonProperty("countryName")
-    private String countryName;
+  @JsonProperty("countryName")
+  private String countryName;
 
-    @JsonProperty("enable")
-    private Boolean enable;
+  @JsonProperty("enable")
+  private Boolean enable;
 
+  @JsonIgnore
+  public ModelCountryV3Response createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelCountryV3Response createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelCountryV3Response> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelCountryV3Response>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelCountryV3Response> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelCountryV3Response>>() {});
+  }
 }

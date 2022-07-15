@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,85 +26,81 @@ import java.util.Map;
 @NoArgsConstructor
 public class RewardUpdate extends Model {
 
-    @JsonProperty("currency")
-    private RewardCurrency currency;
+  @JsonProperty("currency")
+  private RewardCurrency currency;
 
-    @JsonProperty("image")
-    private Image image;
+  @JsonProperty("image")
+  private Image image;
 
-    @JsonProperty("itemId")
-    private String itemId;
+  @JsonProperty("itemId")
+  private String itemId;
 
-    @JsonProperty("nullFields")
-    private List<String> nullFields;
+  @JsonProperty("nullFields")
+  private List<String> nullFields;
 
-    @JsonProperty("quantity")
-    private Integer quantity;
+  @JsonProperty("quantity")
+  private Integer quantity;
 
-    @JsonProperty("type")
+  @JsonProperty("type")
+  private String type;
+
+  @JsonIgnore
+  public String getType() {
+    return this.type;
+  }
+
+  @JsonIgnore
+  public Type getTypeAsEnum() {
+    return Type.valueOf(this.type);
+  }
+
+  @JsonIgnore
+  public void setType(final String type) {
+    this.type = type;
+  }
+
+  @JsonIgnore
+  public void setTypeFromEnum(final Type type) {
+    this.type = type.toString();
+  }
+
+  @JsonIgnore
+  public RewardUpdate createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
+
+  @JsonIgnore
+  public List<RewardUpdate> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<RewardUpdate>>() {});
+  }
+
+  public enum Type {
+    CURRENCY("CURRENCY"),
+    ITEM("ITEM");
+
+    private String value;
+
+    Type(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class RewardUpdateBuilder {
     private String type;
 
-
-    
-    @JsonIgnore
-    public String getType() {
-        return this.type;
-    }
-    
-    @JsonIgnore
-    public Type getTypeAsEnum() {
-        return Type.valueOf(this.type);
-    }
-    
-    @JsonIgnore
-    public void setType(final String type) {
-        this.type = type;
-    }
-    
-    @JsonIgnore
-    public void setTypeFromEnum(final Type type) {
-        this.type = type.toString();
+    public RewardUpdateBuilder type(final String type) {
+      this.type = type;
+      return this;
     }
 
-    @JsonIgnore
-    public RewardUpdate createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
+    public RewardUpdateBuilder typeFromEnum(final Type type) {
+      this.type = type.toString();
+      return this;
     }
-
-    @JsonIgnore
-    public List<RewardUpdate> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<RewardUpdate>>() {});
-    }
-
-    
-    public enum Type {
-        CURRENCY("CURRENCY"),
-        ITEM("ITEM");
-
-        private String value;
-
-        Type(String value){
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return this.value;
-        }
-    }
-    
-    public static class RewardUpdateBuilder {
-        private String type;
-        
-        
-        public RewardUpdateBuilder type(final String type) {
-            this.type = type;
-            return this;
-        }
-        
-        public RewardUpdateBuilder typeFromEnum(final Type type) {
-            this.type = type.toString();
-            return this;
-        }
-    }
+  }
 }

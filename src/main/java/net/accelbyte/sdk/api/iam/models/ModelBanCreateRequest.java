@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,32 +26,29 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelBanCreateRequest extends Model {
 
-    @JsonProperty("ban")
-    private String ban;
+  @JsonProperty("ban")
+  private String ban;
 
-    @JsonProperty("comment")
-    private String comment;
+  @JsonProperty("comment")
+  private String comment;
 
-    @JsonProperty("endDate")
-    private String endDate;
+  @JsonProperty("endDate")
+  private String endDate;
 
-    @JsonProperty("reason")
-    private String reason;
+  @JsonProperty("reason")
+  private String reason;
 
-    @JsonProperty("skipNotif")
-    private Boolean skipNotif;
+  @JsonProperty("skipNotif")
+  private Boolean skipNotif;
 
+  @JsonIgnore
+  public ModelBanCreateRequest createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelBanCreateRequest createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelBanCreateRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelBanCreateRequest>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelBanCreateRequest> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelBanCreateRequest>>() {});
+  }
 }

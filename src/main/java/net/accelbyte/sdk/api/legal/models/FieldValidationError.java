@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,32 +27,28 @@ import java.util.Map;
 @NoArgsConstructor
 public class FieldValidationError extends Model {
 
-    @JsonProperty("errorCode")
-    private String errorCode;
+  @JsonProperty("errorCode")
+  private String errorCode;
 
-    @JsonProperty("errorField")
-    private String errorField;
+  @JsonProperty("errorField")
+  private String errorField;
 
-    @JsonProperty("errorMessage")
-    private String errorMessage;
+  @JsonProperty("errorMessage")
+  private String errorMessage;
 
-    @JsonProperty("errorValue")
-    private String errorValue;
+  @JsonProperty("errorValue")
+  private String errorValue;
 
-    @JsonProperty("messageVariables")
-    private Map<String, String> messageVariables;
+  @JsonProperty("messageVariables")
+  private Map<String, String> messageVariables;
 
+  @JsonIgnore
+  public FieldValidationError createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public FieldValidationError createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<FieldValidationError> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<FieldValidationError>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<FieldValidationError> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<FieldValidationError>>() {});
+  }
 }

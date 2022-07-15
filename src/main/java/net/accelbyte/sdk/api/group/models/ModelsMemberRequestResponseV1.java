@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,26 +26,24 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsMemberRequestResponseV1 extends Model {
 
-    @JsonProperty("groupId")
-    private String groupId;
+  @JsonProperty("groupId")
+  private String groupId;
 
-    @JsonProperty("requestType")
-    private String requestType;
+  @JsonProperty("requestType")
+  private String requestType;
 
-    @JsonProperty("userId")
-    private String userId;
+  @JsonProperty("userId")
+  private String userId;
 
+  @JsonIgnore
+  public ModelsMemberRequestResponseV1 createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsMemberRequestResponseV1 createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsMemberRequestResponseV1> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMemberRequestResponseV1>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsMemberRequestResponseV1> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsMemberRequestResponseV1>>() {});
+  }
 }

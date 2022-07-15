@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,41 +26,38 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsPodConfigRecord extends Model {
 
-    @JsonProperty("cpu_limit")
-    private Integer cpuLimit;
+  @JsonProperty("cpu_limit")
+  private Integer cpuLimit;
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+  @JsonProperty("createdAt")
+  private String createdAt;
 
-    @JsonProperty("mem_limit")
-    private Integer memLimit;
+  @JsonProperty("mem_limit")
+  private Integer memLimit;
 
-    @JsonProperty("modifiedBy")
-    private String modifiedBy;
+  @JsonProperty("modifiedBy")
+  private String modifiedBy;
 
-    @JsonProperty("name")
-    private String name;
+  @JsonProperty("name")
+  private String name;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("params")
-    private String params;
+  @JsonProperty("params")
+  private String params;
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
+  @JsonProperty("updatedAt")
+  private String updatedAt;
 
+  @JsonIgnore
+  public ModelsPodConfigRecord createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsPodConfigRecord createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsPodConfigRecord> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPodConfigRecord>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsPodConfigRecord> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPodConfigRecord>>() {});
+  }
 }

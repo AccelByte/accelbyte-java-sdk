@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,29 +26,27 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsImportConfigResponse extends Model {
 
-    @JsonProperty("failedConfigs")
-    private List<String> failedConfigs;
+  @JsonProperty("failedConfigs")
+  private List<String> failedConfigs;
 
-    @JsonProperty("ignoredConfigs")
-    private List<String> ignoredConfigs;
+  @JsonProperty("ignoredConfigs")
+  private List<String> ignoredConfigs;
 
-    @JsonProperty("newConfigs")
-    private List<String> newConfigs;
+  @JsonProperty("newConfigs")
+  private List<String> newConfigs;
 
-    @JsonProperty("replacedConfigs")
-    private List<String> replacedConfigs;
+  @JsonProperty("replacedConfigs")
+  private List<String> replacedConfigs;
 
+  @JsonIgnore
+  public ModelsImportConfigResponse createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsImportConfigResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsImportConfigResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsImportConfigResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsImportConfigResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsImportConfigResponse>>() {});
+  }
 }

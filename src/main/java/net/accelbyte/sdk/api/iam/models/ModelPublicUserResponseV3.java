@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,74 +26,72 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelPublicUserResponseV3 extends Model {
 
-    @JsonProperty("authType")
-    private String authType;
+  @JsonProperty("authType")
+  private String authType;
 
-    @JsonProperty("avatarUrl")
-    private String avatarUrl;
+  @JsonProperty("avatarUrl")
+  private String avatarUrl;
 
-    @JsonProperty("bans")
-    private List<ModelUserActiveBanResponseV3> bans;
+  @JsonProperty("bans")
+  private List<ModelUserActiveBanResponseV3> bans;
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+  @JsonProperty("createdAt")
+  private String createdAt;
 
-    @JsonProperty("deletionStatus")
-    private Boolean deletionStatus;
+  @JsonProperty("deletionStatus")
+  private Boolean deletionStatus;
 
-    @JsonProperty("displayName")
-    private String displayName;
+  @JsonProperty("displayName")
+  private String displayName;
 
-    @JsonProperty("emailVerified")
-    private Boolean emailVerified;
+  @JsonProperty("emailVerified")
+  private Boolean emailVerified;
 
-    @JsonProperty("enabled")
-    private Boolean enabled;
+  @JsonProperty("enabled")
+  private Boolean enabled;
 
-    @JsonProperty("lastDateOfBirthChangedTime")
-    private String lastDateOfBirthChangedTime;
+  @JsonProperty("lastDateOfBirthChangedTime")
+  private String lastDateOfBirthChangedTime;
 
-    @JsonProperty("lastEnabledChangedTime")
-    private String lastEnabledChangedTime;
+  @JsonProperty("lastEnabledChangedTime")
+  private String lastEnabledChangedTime;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("namespaceRoles")
-    private List<AccountcommonNamespaceRole> namespaceRoles;
+  @JsonProperty("namespaceRoles")
+  private List<AccountcommonNamespaceRole> namespaceRoles;
 
-    @JsonProperty("permissions")
-    private List<ModelUserPermissionsResponseV3> permissions;
+  @JsonProperty("permissions")
+  private List<ModelUserPermissionsResponseV3> permissions;
 
-    @JsonProperty("phoneVerified")
-    private Boolean phoneVerified;
+  @JsonProperty("phoneVerified")
+  private Boolean phoneVerified;
 
-    @JsonProperty("platformId")
-    private String platformId;
+  @JsonProperty("platformId")
+  private String platformId;
 
-    @JsonProperty("platformUserId")
-    private String platformUserId;
+  @JsonProperty("platformUserId")
+  private String platformUserId;
 
-    @JsonProperty("roles")
-    private List<String> roles;
+  @JsonProperty("roles")
+  private List<String> roles;
 
-    @JsonProperty("userId")
-    private String userId;
+  @JsonProperty("userId")
+  private String userId;
 
-    @JsonProperty("userName")
-    private String userName;
+  @JsonProperty("userName")
+  private String userName;
 
+  @JsonIgnore
+  public ModelPublicUserResponseV3 createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelPublicUserResponseV3 createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelPublicUserResponseV3> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelPublicUserResponseV3>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelPublicUserResponseV3> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelPublicUserResponseV3>>() {});
+  }
 }

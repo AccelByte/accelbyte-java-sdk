@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,32 +26,28 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsDeletionStatus extends Model {
 
-    @JsonProperty("DeletionStatus")
-    private Boolean deletionStatus;
+  @JsonProperty("DeletionStatus")
+  private Boolean deletionStatus;
 
-    @JsonProperty("DisplayName")
-    private String displayName;
+  @JsonProperty("DisplayName")
+  private String displayName;
 
-    @JsonProperty("ExecutionDate")
-    private String executionDate;
+  @JsonProperty("ExecutionDate")
+  private String executionDate;
 
-    @JsonProperty("Status")
-    private String status;
+  @JsonProperty("Status")
+  private String status;
 
-    @JsonProperty("UserID")
-    private String userID;
+  @JsonProperty("UserID")
+  private String userID;
 
+  @JsonIgnore
+  public ModelsDeletionStatus createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsDeletionStatus createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsDeletionStatus> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDeletionStatus>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsDeletionStatus> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDeletionStatus>>() {});
+  }
 }

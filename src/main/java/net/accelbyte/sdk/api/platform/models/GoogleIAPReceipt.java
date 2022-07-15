@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,41 +26,37 @@ import java.util.Map;
 @NoArgsConstructor
 public class GoogleIAPReceipt extends Model {
 
-    @JsonProperty("autoAck")
-    private Boolean autoAck;
+  @JsonProperty("autoAck")
+  private Boolean autoAck;
 
-    @JsonProperty("language")
-    private String language;
+  @JsonProperty("language")
+  private String language;
 
-    @JsonProperty("orderId")
-    private String orderId;
+  @JsonProperty("orderId")
+  private String orderId;
 
-    @JsonProperty("packageName")
-    private String packageName;
+  @JsonProperty("packageName")
+  private String packageName;
 
-    @JsonProperty("productId")
-    private String productId;
+  @JsonProperty("productId")
+  private String productId;
 
-    @JsonProperty("purchaseTime")
-    private Integer purchaseTime;
+  @JsonProperty("purchaseTime")
+  private Integer purchaseTime;
 
-    @JsonProperty("purchaseToken")
-    private String purchaseToken;
+  @JsonProperty("purchaseToken")
+  private String purchaseToken;
 
-    @JsonProperty("region")
-    private String region;
+  @JsonProperty("region")
+  private String region;
 
+  @JsonIgnore
+  public GoogleIAPReceipt createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public GoogleIAPReceipt createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<GoogleIAPReceipt> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<GoogleIAPReceipt>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<GoogleIAPReceipt> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<GoogleIAPReceipt>>() {});
+  }
 }

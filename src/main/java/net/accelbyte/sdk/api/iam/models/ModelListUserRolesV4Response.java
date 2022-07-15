@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,23 +26,21 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelListUserRolesV4Response extends Model {
 
-    @JsonProperty("data")
-    private List<ModelUserRolesV4Response> data;
+  @JsonProperty("data")
+  private List<ModelUserRolesV4Response> data;
 
-    @JsonProperty("paging")
-    private AccountcommonPaginationV3 paging;
+  @JsonProperty("paging")
+  private AccountcommonPaginationV3 paging;
 
+  @JsonIgnore
+  public ModelListUserRolesV4Response createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelListUserRolesV4Response createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelListUserRolesV4Response> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelListUserRolesV4Response>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelListUserRolesV4Response> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelListUserRolesV4Response>>() {});
+  }
 }

@@ -8,118 +8,102 @@
 
 package net.accelbyte.sdk.api.matchmaking.operations.matchmaking;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.matchmaking.models.*;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.matchmaking.models.*;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * DeleteUserFromSessionInChannel
  *
- * Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Delete]
- * 
- * Required Scope: social
- * 
- * Delete a user from a session in the channel.
+ * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Delete]
+ *
+ * <p>Required Scope: social
+ *
+ * <p>Delete a user from a session in the channel.
  */
 @Getter
 @Setter
 public class DeleteUserFromSessionInChannel extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/sessions/{matchID}/users/{userID}";
-    private String method = "DELETE";
-    private List<String> consumes = Arrays.asList("application/json");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String channelName;
-    private String matchID;
-    private String namespace;
-    private String userID;
+  /** generated field's value */
+  private String path =
+      "/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/sessions/{matchID}/users/{userID}";
 
-    /**
-    * @param channelName required
-    * @param matchID required
-    * @param namespace required
-    * @param userID required
-    */
-    @Builder
-    public DeleteUserFromSessionInChannel(
-            String channelName,
-            String matchID,
-            String namespace,
-            String userID
-    )
-    {
-        this.channelName = channelName;
-        this.matchID = matchID;
-        this.namespace = namespace;
-        this.userID = userID;
-        
-        securities.add("Bearer");
+  private String method = "DELETE";
+  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String channelName;
+
+  private String matchID;
+  private String namespace;
+  private String userID;
+
+  /**
+   * @param channelName required
+   * @param matchID required
+   * @param namespace required
+   * @param userID required
+   */
+  @Builder
+  public DeleteUserFromSessionInChannel(
+      String channelName, String matchID, String namespace, String userID) {
+    this.channelName = channelName;
+    this.matchID = matchID;
+    this.namespace = namespace;
+    this.userID = userID;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.channelName != null) {
+      pathParams.put("channelName", this.channelName);
     }
-
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.channelName != null){
-            pathParams.put("channelName", this.channelName);
-        }
-        if (this.matchID != null){
-            pathParams.put("matchID", this.matchID);
-        }
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        if (this.userID != null){
-            pathParams.put("userID", this.userID);
-        }
-        return pathParams;
+    if (this.matchID != null) {
+      pathParams.put("matchID", this.matchID);
     }
-
-
-
-
-
-    @Override
-    public boolean isValid() {
-        if(this.channelName == null) {
-            return false;
-        }
-        if(this.matchID == null) {
-            return false;
-        }
-        if(this.namespace == null) {
-            return false;
-        }
-        if(this.userID == null) {
-            return false;
-        }
-        return true;
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
-
-    public void handleEmptyResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        if(code != 200){
-            String json = Helper.convertInputStreamToString(payload);
-            throw new HttpResponseException(code, json);
-        }
+    if (this.userID != null) {
+      pathParams.put("userID", this.userID);
     }
+    return pathParams;
+  }
 
+  @Override
+  public boolean isValid() {
+    if (this.channelName == null) {
+      return false;
+    }
+    if (this.matchID == null) {
+      return false;
+    }
+    if (this.namespace == null) {
+      return false;
+    }
+    if (this.userID == null) {
+      return false;
+    }
+    return true;
+  }
+
+  public void handleEmptyResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    if (code != 200) {
+      String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
+    }
+  }
 }

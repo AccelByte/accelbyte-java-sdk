@@ -8,112 +8,93 @@
 
 package net.accelbyte.sdk.api.iam.operations.third_party_credential;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.iam.models.*;
-import net.accelbyte.sdk.api.iam.models.ModelPlatformDomainResponse;
-import net.accelbyte.sdk.api.iam.models.ModelPlatformDomainUpdateRequest;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.iam.models.ModelPlatformDomainResponse;
+import net.accelbyte.sdk.api.iam.models.ModelPlatformDomainUpdateRequest;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * UpdateThirdPartyLoginPlatformDomainV3
  *
- * 
- * 
- * This is the API to set 3rd Platform domain.
- * 
- * 
- * 
- * 
- * It needs ADMIN:NAMESPACE:{namespace}:CLIENTDOMAIN [UPDATE] resource.
+ * <p>This is the API to set 3rd Platform domain.
+ *
+ * <p>It needs ADMIN:NAMESPACE:{namespace}:CLIENTDOMAIN [UPDATE] resource.
  */
 @Getter
 @Setter
 public class UpdateThirdPartyLoginPlatformDomainV3 extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/iam/v3/admin/namespaces/{namespace}/platforms/{platformId}/clients/domain";
-    private String method = "PUT";
-    private List<String> consumes = Arrays.asList("application/json");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String namespace;
-    private String platformId;
-    private ModelPlatformDomainUpdateRequest body;
+  /** generated field's value */
+  private String path =
+      "/iam/v3/admin/namespaces/{namespace}/platforms/{platformId}/clients/domain";
 
-    /**
-    * @param namespace required
-    * @param platformId required
-    * @param body required
-    */
-    @Builder
-    public UpdateThirdPartyLoginPlatformDomainV3(
-            String namespace,
-            String platformId,
-            ModelPlatformDomainUpdateRequest body
-    )
-    {
-        this.namespace = namespace;
-        this.platformId = platformId;
-        this.body = body;
-        
-        securities.add("Bearer");
+  private String method = "PUT";
+  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String namespace;
+
+  private String platformId;
+  private ModelPlatformDomainUpdateRequest body;
+
+  /**
+   * @param namespace required
+   * @param platformId required
+   * @param body required
+   */
+  @Builder
+  public UpdateThirdPartyLoginPlatformDomainV3(
+      String namespace, String platformId, ModelPlatformDomainUpdateRequest body) {
+    this.namespace = namespace;
+    this.platformId = platformId;
+    this.body = body;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
-
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        if (this.platformId != null){
-            pathParams.put("platformId", this.platformId);
-        }
-        return pathParams;
+    if (this.platformId != null) {
+      pathParams.put("platformId", this.platformId);
     }
+    return pathParams;
+  }
 
+  @Override
+  public ModelPlatformDomainUpdateRequest getBodyParams() {
+    return this.body;
+  }
 
-
-    @Override
-    public ModelPlatformDomainUpdateRequest getBodyParams(){
-        return this.body;
+  @Override
+  public boolean isValid() {
+    if (this.namespace == null) {
+      return false;
     }
-
-
-    @Override
-    public boolean isValid() {
-        if(this.namespace == null) {
-            return false;
-        }
-        if(this.platformId == null) {
-            return false;
-        }
-        return true;
+    if (this.platformId == null) {
+      return false;
     }
+    return true;
+  }
 
-    public ModelPlatformDomainResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 200){
-            return new ModelPlatformDomainResponse().createFromJson(json);
-        }
-        throw new HttpResponseException(code, json);
+  public ModelPlatformDomainResponse parseResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 200) {
+      return new ModelPlatformDomainResponse().createFromJson(json);
     }
-
+    throw new HttpResponseException(code, json);
+  }
 }

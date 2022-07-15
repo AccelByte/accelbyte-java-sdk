@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,41 +26,41 @@ import java.util.Map;
 @NoArgsConstructor
 public class ServiceGetSessionHistorySearchResponseItemV2 extends Model {
 
-    @JsonProperty("_id")
-    private String id;
+  @JsonProperty("_id")
+  private String id;
 
-    @JsonProperty("created_at")
-    private String createdAt;
+  @JsonProperty("created_at")
+  private String createdAt;
 
-    @JsonProperty("game_mode")
-    private String gameMode;
+  @JsonProperty("game_mode")
+  private String gameMode;
 
-    @JsonProperty("joinable")
-    private Boolean joinable;
+  @JsonProperty("joinable")
+  private Boolean joinable;
 
-    @JsonProperty("match_id")
-    private String matchId;
+  @JsonProperty("match_id")
+  private String matchId;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("status")
-    private String status;
+  @JsonProperty("status")
+  private String status;
 
-    @JsonProperty("sub_game_mode")
-    private List<String> subGameMode;
+  @JsonProperty("sub_game_mode")
+  private List<String> subGameMode;
 
+  @JsonIgnore
+  public ServiceGetSessionHistorySearchResponseItemV2 createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ServiceGetSessionHistorySearchResponseItemV2 createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ServiceGetSessionHistorySearchResponseItemV2> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ServiceGetSessionHistorySearchResponseItemV2>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ServiceGetSessionHistorySearchResponseItemV2> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(
+            json, new TypeReference<List<ServiceGetSessionHistorySearchResponseItemV2>>() {});
+  }
 }

@@ -8,106 +8,89 @@
 
 package net.accelbyte.sdk.api.iam.operations.users;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-
-import net.accelbyte.sdk.api.iam.models.*;
-import net.accelbyte.sdk.api.iam.models.ModelUserBanResponse;
-import net.accelbyte.sdk.core.Operation;
-import net.accelbyte.sdk.core.util.Helper;
-import net.accelbyte.sdk.core.HttpResponseException;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.iam.models.ModelUserBanResponse;
+import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * EnableUserBan
  *
- * Required permission 'ADMIN:NAMESPACE:{namespace}:BAN:USER:{userId} [UPDATE]'.
+ * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:BAN:USER:{userId} [UPDATE]'.
  */
 @Getter
 @Setter
 public class EnableUserBan extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/iam/namespaces/{namespace}/users/{userId}/bans/{banId}/enable";
-    private String method = "PUT";
-    private List<String> consumes = Arrays.asList("*/*");
-    private List<String> produces = Arrays.asList("application/json");
-    @Deprecated
-    private String security = "Bearer";
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String banId;
-    private String namespace;
-    private String userId;
+  /** generated field's value */
+  private String path = "/iam/namespaces/{namespace}/users/{userId}/bans/{banId}/enable";
 
-    /**
-    * @param banId required
-    * @param namespace required
-    * @param userId required
-    */
-    @Builder
-    public EnableUserBan(
-            String banId,
-            String namespace,
-            String userId
-    )
-    {
-        this.banId = banId;
-        this.namespace = namespace;
-        this.userId = userId;
-        
-        securities.add("Bearer");
+  private String method = "PUT";
+  private List<String> consumes = Arrays.asList("*/*");
+  private List<String> produces = Arrays.asList("application/json");
+  @Deprecated private String security = "Bearer";
+  private String locationQuery = null;
+  /** fields as input parameter */
+  private String banId;
+
+  private String namespace;
+  private String userId;
+
+  /**
+   * @param banId required
+   * @param namespace required
+   * @param userId required
+   */
+  @Builder
+  public EnableUserBan(String banId, String namespace, String userId) {
+    this.banId = banId;
+    this.namespace = namespace;
+    this.userId = userId;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.banId != null) {
+      pathParams.put("banId", this.banId);
     }
-
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.banId != null){
-            pathParams.put("banId", this.banId);
-        }
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        if (this.userId != null){
-            pathParams.put("userId", this.userId);
-        }
-        return pathParams;
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
-
-
-
-
-
-    @Override
-    public boolean isValid() {
-        if(this.banId == null) {
-            return false;
-        }
-        if(this.namespace == null) {
-            return false;
-        }
-        if(this.userId == null) {
-            return false;
-        }
-        return true;
+    if (this.userId != null) {
+      pathParams.put("userId", this.userId);
     }
+    return pathParams;
+  }
 
-    public ModelUserBanResponse parseResponse(int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
-        String json = Helper.convertInputStreamToString(payload);
-        if(code == 200){
-            return new ModelUserBanResponse().createFromJson(json);
-        }
-        throw new HttpResponseException(code, json);
+  @Override
+  public boolean isValid() {
+    if (this.banId == null) {
+      return false;
     }
+    if (this.namespace == null) {
+      return false;
+    }
+    if (this.userId == null) {
+      return false;
+    }
+    return true;
+  }
 
+  public ModelUserBanResponse parseResponse(int code, String contentTpe, InputStream payload)
+      throws HttpResponseException, IOException {
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 200) {
+      return new ModelUserBanResponse().createFromJson(json);
+    }
+    throw new HttpResponseException(code, json);
+  }
 }

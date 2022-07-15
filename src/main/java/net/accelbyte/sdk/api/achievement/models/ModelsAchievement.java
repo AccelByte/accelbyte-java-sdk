@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.*;
-import net.accelbyte.sdk.core.Model;
-
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
@@ -30,65 +27,61 @@ import java.util.Map;
 @NoArgsConstructor
 public class ModelsAchievement extends Model {
 
-    @JsonProperty("AchievementCode")
-    private String achievementCode;
+  @JsonProperty("AchievementCode")
+  private String achievementCode;
 
-    @JsonProperty("CreatedAt")
-    private String createdAt;
+  @JsonProperty("CreatedAt")
+  private String createdAt;
 
-    @JsonProperty("DefaultLanguage")
-    private String defaultLanguage;
+  @JsonProperty("DefaultLanguage")
+  private String defaultLanguage;
 
-    @JsonProperty("Description")
-    private Map<String, String> description;
+  @JsonProperty("Description")
+  private Map<String, String> description;
 
-    @JsonProperty("GoalValue")
-    private Float goalValue;
+  @JsonProperty("GoalValue")
+  private Float goalValue;
 
-    @JsonProperty("Hidden")
-    private Boolean hidden;
+  @JsonProperty("Hidden")
+  private Boolean hidden;
 
-    @JsonProperty("ID")
-    private String id;
+  @JsonProperty("ID")
+  private String id;
 
-    @JsonProperty("Incremental")
-    private Boolean incremental;
+  @JsonProperty("Incremental")
+  private Boolean incremental;
 
-    @JsonProperty("ListOrder")
-    private Integer listOrder;
+  @JsonProperty("ListOrder")
+  private Integer listOrder;
 
-    @JsonProperty("LockedIcons")
-    private List<ModelsIcon> lockedIcons;
+  @JsonProperty("LockedIcons")
+  private List<ModelsIcon> lockedIcons;
 
-    @JsonProperty("Name")
-    private Map<String, String> name;
+  @JsonProperty("Name")
+  private Map<String, String> name;
 
-    @JsonProperty("Namespace")
-    private String namespace;
+  @JsonProperty("Namespace")
+  private String namespace;
 
-    @JsonProperty("StatCode")
-    private String statCode;
+  @JsonProperty("StatCode")
+  private String statCode;
 
-    @JsonProperty("Tags")
-    private List<String> tags;
+  @JsonProperty("Tags")
+  private List<String> tags;
 
-    @JsonProperty("UnlockedIcons")
-    private List<ModelsIcon> unlockedIcons;
+  @JsonProperty("UnlockedIcons")
+  private List<ModelsIcon> unlockedIcons;
 
-    @JsonProperty("UpdatedAt")
-    private String updatedAt;
+  @JsonProperty("UpdatedAt")
+  private String updatedAt;
 
+  @JsonIgnore
+  public ModelsAchievement createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsAchievement createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsAchievement> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAchievement>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsAchievement> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAchievement>>() {});
+  }
 }
