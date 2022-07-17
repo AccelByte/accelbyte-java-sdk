@@ -19,10 +19,6 @@ samples:
 	done
 	[ ! -f samples.err ] || (rm samples.err && exit 1)
 
-lint:
-	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GRADLE_USER_HOME=/data/.gradle gradle:7-jdk8 \
-			gradle checkstyleMain
-
 test_core:
 	@test -n "$(SDK_MOCK_SERVER_PATH)" || (echo "SDK_MOCK_SERVER_PATH is not set" ; exit 1)
 	sed -i "s/\r//" "$(SDK_MOCK_SERVER_PATH)/mock-server.sh" && \

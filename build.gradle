@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'checkstyle'
     id 'io.freefair.lombok' version '6.4.2'
     id 'maven-publish'
 }
@@ -29,13 +28,6 @@ dependencies {
     testImplementation sharedDependencies.junitApi
     testImplementation  sharedDependencies.junitParams
     testRuntimeOnly sharedDependencies.junitEngine
-}
-
-checkstyle {
-    configFile = project.file('config/checkstyle/checkstyle.xml')
-    // https://stackoverflow.com/a/57141028
-    //ignoreFailures = false
-    //maxWarnings = 0
 }
 
 test {
