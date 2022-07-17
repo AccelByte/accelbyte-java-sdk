@@ -70,6 +70,7 @@
 | `/platform/admin/namespaces/{namespace}/dlc/config/platformMap` | GET | GetPlatformDLCConfig | [GetPlatformDLCConfig](../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/GetPlatformDLCConfig.java) | [GetPlatformDLCConfig](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/GetPlatformDLCConfig.java) |
 | `/platform/admin/namespaces/{namespace}/dlc/config/platformMap` | PUT | UpdatePlatformDLCConfig | [UpdatePlatformDLCConfig](../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/UpdatePlatformDLCConfig.java) | [UpdatePlatformDLCConfig](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/UpdatePlatformDLCConfig.java) |
 | `/platform/admin/namespaces/{namespace}/dlc/config/platformMap` | DELETE | DeletePlatformDLCConfig | [DeletePlatformDLCConfig](../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/DeletePlatformDLCConfig.java) | [DeletePlatformDLCConfig](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/DeletePlatformDLCConfig.java) |
+| `/platform/public/namespaces/{namespace}/users/{userId}/dlc/epicgames/sync` | PUT | SyncEpicGameDLC | [SyncEpicGameDLC](../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/SyncEpicGameDLC.java) | [SyncEpicGameDLC](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/SyncEpicGameDLC.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/dlc/psn/sync` | PUT | PublicSyncPsnDlcInventory | [PublicSyncPsnDlcInventory](../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/PublicSyncPsnDlcInventory.java) | [PublicSyncPsnDlcInventory](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/PublicSyncPsnDlcInventory.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/dlc/steam/sync` | PUT | SyncSteamDLC | [SyncSteamDLC](../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/SyncSteamDLC.java) | [SyncSteamDLC](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/SyncSteamDLC.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/dlc/xbl/sync` | PUT | SyncXboxDLC | [SyncXboxDLC](../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/SyncXboxDLC.java) | [SyncXboxDLC](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/SyncXboxDLC.java) |
@@ -368,6 +369,7 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/platform/admin/namespaces/{namespace}/users/{userId}/achievement/steam` | PUT | UnlockSteamUserAchievement | [UnlockSteamUserAchievement](../src/main/java/net/accelbyte/sdk/api/platform/operations/achievement_platform/UnlockSteamUserAchievement.java) | [UnlockSteamUserAchievement](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/achievement_platform/UnlockSteamUserAchievement.java) |
+| `/platform/admin/namespaces/{namespace}/users/{userId}/achievement/xbl` | GET | GetXblUserAchievements | [GetXblUserAchievements](../src/main/java/net/accelbyte/sdk/api/platform/operations/achievement_platform/GetXblUserAchievements.java) | [GetXblUserAchievements](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/achievement_platform/GetXblUserAchievements.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/achievement/xbl` | PUT | UpdateXblUserAchievement | [UpdateXblUserAchievement](../src/main/java/net/accelbyte/sdk/api/platform/operations/achievement_platform/UpdateXblUserAchievement.java) | [UpdateXblUserAchievement](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/achievement_platform/UpdateXblUserAchievement.java) |
 
 ### Anonymization Wrapper:  [Anonymization](../src/main/java/net/accelbyte/sdk/api/platform/wrappers/Anonymization.java)
@@ -452,8 +454,11 @@
 
 | Model | Class |
 |---|---|
+| `A DTO object for order creation options` | [ADTOObjectForOrderCreationOptions](../src/main/java/net/accelbyte/sdk/api/platform/models/ADTOObjectForOrderCreationOptions.java) |
+| `A DTO object for querying xbox user achievements` | [ADTOObjectForQueryingXboxUserAchievements](../src/main/java/net/accelbyte/sdk/api/platform/models/ADTOObjectForQueryingXboxUserAchievements.java) |
 | `A DTO object for unlock steam achievement API` | [ADTOObjectForUnlockSteamAchievementAPI](../src/main/java/net/accelbyte/sdk/api/platform/models/ADTOObjectForUnlockSteamAchievementAPI.java) |
 | `A DTO object for update xbox achievement complete percentage API` | [ADTOObjectForUpdateXboxAchievementCompletePercentageAPI](../src/main/java/net/accelbyte/sdk/api/platform/models/ADTOObjectForUpdateXboxAchievementCompletePercentageAPI.java) |
+| `AchievementInfo` | [AchievementInfo](../src/main/java/net/accelbyte/sdk/api/platform/models/AchievementInfo.java) |
 | `AdditionalData` | [AdditionalData](../src/main/java/net/accelbyte/sdk/api/platform/models/AdditionalData.java) |
 | `AdminOrderCreate` | [AdminOrderCreate](../src/main/java/net/accelbyte/sdk/api/platform/models/AdminOrderCreate.java) |
 | `AdyenConfig` | [AdyenConfig](../src/main/java/net/accelbyte/sdk/api/platform/models/AdyenConfig.java) |
@@ -513,6 +518,7 @@
 | `EntitlementPagingSlicedResult` | [EntitlementPagingSlicedResult](../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementPagingSlicedResult.java) |
 | `EntitlementSummary` | [EntitlementSummary](../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementSummary.java) |
 | `EntitlementUpdate` | [EntitlementUpdate](../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementUpdate.java) |
+| `EpicGamesDLCSyncRequest` | [EpicGamesDLCSyncRequest](../src/main/java/net/accelbyte/sdk/api/platform/models/EpicGamesDLCSyncRequest.java) |
 | `EpicGamesIAPConfigInfo` | [EpicGamesIAPConfigInfo](../src/main/java/net/accelbyte/sdk/api/platform/models/EpicGamesIAPConfigInfo.java) |
 | `EpicGamesIAPConfigRequest` | [EpicGamesIAPConfigRequest](../src/main/java/net/accelbyte/sdk/api/platform/models/EpicGamesIAPConfigRequest.java) |
 | `EpicGamesReconcileRequest` | [EpicGamesReconcileRequest](../src/main/java/net/accelbyte/sdk/api/platform/models/EpicGamesReconcileRequest.java) |

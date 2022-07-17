@@ -72,6 +72,7 @@ public class SelectRecord implements Callable<Integer> {
               .storeId(storeId)
               .build();
       wrapper.selectRecord(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error("HttpResponseException occur with message below:\n{}", e.getMessage());

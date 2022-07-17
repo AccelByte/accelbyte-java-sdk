@@ -119,6 +119,22 @@ public class DLC {
   }
 
   /**
+   * @see SyncEpicGameDLC
+   */
+  public void syncEpicGameDLC(SyncEpicGameDLC input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
    * @see PublicSyncPsnDlcInventory
    */
   public void publicSyncPsnDlcInventory(PublicSyncPsnDlcInventory input) throws Exception {

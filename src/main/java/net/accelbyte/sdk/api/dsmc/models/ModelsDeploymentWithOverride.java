@@ -72,6 +72,9 @@ public class ModelsDeploymentWithOverride extends Model {
   @JsonProperty("regions")
   private List<String> regions;
 
+  @JsonProperty("session_timeout")
+  private Integer sessionTimeout;
+
   @JsonProperty("updatedAt")
   private String updatedAt;
 

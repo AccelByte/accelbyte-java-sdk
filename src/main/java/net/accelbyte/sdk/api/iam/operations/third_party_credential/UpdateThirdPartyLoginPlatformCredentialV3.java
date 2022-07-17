@@ -30,6 +30,39 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>The secret for apple is base64 encoded private key.
  *
+ * <p>No secret for awscognito , we only need to configure AWS Cognito Region and User Pool
+ *
+ * <p>The secret for discord is client secret of the twitch client id.
+ *
+ * <p>The secret for epicgames is client secret of the epicgames client id.
+ *
+ * <p>The secret for facebook is client secret of the facebook client id.
+ *
+ * <p>The secret for google is client secret of the google OAuth client.
+ *
+ * <p>No secret for nintendo , we only need to configure app id of the game
+ *
+ * <p>No secret for netflix , we configure the Root, Public, Private Key certificate pem file and
+ * target environment; value: [sandbox, production]
+ *
+ * <p>The secret for oculus is app secret of the oculus app.
+ *
+ * <p>The secret for ps4, ps5, and ps4web is client secret of the psn web server.
+ *
+ * <p>The secret for stadia is the google cloud service account in base64 encode JSON format.
+ *
+ * <p>The secret for stadiaweb is client secret of the google OAuth client.
+ *
+ * <p>The secret for steam is the Steam Web API Key.
+ *
+ * <p>The secret for steamopenid is the Steam Web API Key.
+ *
+ * <p>The secret for twitch is client secret of the twitch client.
+ *
+ * <p>The secret for live is the Relying Party Private Key in base64 encode PEM format.
+ *
+ * <p>The secret for xblwebapi is client secret of the xbl client.
+ *
  * <p>If generic oauth flow is set to true:
  *
  * <p>* Current supported value for TokenAuthenticationType is idToken

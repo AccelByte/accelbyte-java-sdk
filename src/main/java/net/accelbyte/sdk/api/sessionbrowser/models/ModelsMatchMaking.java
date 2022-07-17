@@ -75,6 +75,9 @@ public class ModelsMatchMaking extends Model {
   @JsonProperty("status")
   private String status;
 
+  @JsonProperty("sub_game_mode")
+  private List<String> subGameMode;
+
   @JsonIgnore
   public ModelsMatchMaking createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

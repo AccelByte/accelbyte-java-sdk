@@ -41,6 +41,11 @@ public class GeneratedUserUploadContentUrl implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--category"},
+      description = "category")
+  String category;
+
+  @Option(
       names = {"--fileType"},
       description = "fileType")
   String fileType;
@@ -70,6 +75,7 @@ public class GeneratedUserUploadContentUrl implements Callable<Integer> {
           net.accelbyte.sdk.api.basic.operations.file_upload.GeneratedUserUploadContentUrl.builder()
               .namespace(namespace)
               .userId(userId)
+              .category(category)
               .fileType(fileType)
               .build();
       FileUploadUrlInfo response = wrapper.generatedUserUploadContentUrl(operation);

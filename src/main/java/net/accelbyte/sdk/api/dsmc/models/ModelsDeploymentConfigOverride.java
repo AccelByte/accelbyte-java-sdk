@@ -57,6 +57,9 @@ public class ModelsDeploymentConfigOverride extends Model {
   @JsonProperty("regions")
   private List<String> regions;
 
+  @JsonProperty("session_timeout")
+  private Integer sessionTimeout;
+
   @JsonProperty("use_buffer_percent")
   private Boolean useBufferPercent;
 

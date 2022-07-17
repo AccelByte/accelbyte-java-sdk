@@ -30,6 +30,9 @@ public class AdminOrderCreate extends Model {
   @JsonProperty("currencyCode")
   private String currencyCode;
 
+  @JsonProperty("currencyNamespace")
+  private String currencyNamespace;
+
   @JsonProperty("discountedPrice")
   private Integer discountedPrice;
 
@@ -41,6 +44,9 @@ public class AdminOrderCreate extends Model {
 
   @JsonProperty("language")
   private String language;
+
+  @JsonProperty("options")
+  private ADTOObjectForOrderCreationOptions options;
 
   @JsonProperty("platform")
   private String platform;

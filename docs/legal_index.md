@@ -65,7 +65,6 @@
 | `/agreement/admin/policies/versions/{policyVersionId}/latest` | PATCH | PublishPolicyVersion | [PublishPolicyVersion](../src/main/java/net/accelbyte/sdk/api/legal/operations/policy_versions/PublishPolicyVersion.java) | [PublishPolicyVersion](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/legal/policy_versions/PublishPolicyVersion.java) |
 | `/agreement/admin/policies/{policyId}/versions` | GET | RetrieveSinglePolicyVersion | [RetrieveSinglePolicyVersion](../src/main/java/net/accelbyte/sdk/api/legal/operations/policy_versions/RetrieveSinglePolicyVersion.java) | [RetrieveSinglePolicyVersion](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/legal/policy_versions/RetrieveSinglePolicyVersion.java) |
 | `/agreement/admin/policies/{policyId}/versions` | POST | CreatePolicyVersion | [CreatePolicyVersion](../src/main/java/net/accelbyte/sdk/api/legal/operations/policy_versions/CreatePolicyVersion.java) | [CreatePolicyVersion](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/legal/policy_versions/CreatePolicyVersion.java) |
-| `/agreement/public/policies` | GET | RetrievePolicyVersions | [RetrievePolicyVersions](../src/main/java/net/accelbyte/sdk/api/legal/operations/policy_versions/RetrievePolicyVersions.java) | [RetrievePolicyVersions](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/legal/policy_versions/RetrievePolicyVersions.java) |
 
 ### UserInfo Wrapper:  [UserInfo](../src/main/java/net/accelbyte/sdk/api/legal/wrappers/UserInfo.java)
 | Endpoint | Method | ID | Class | Example |

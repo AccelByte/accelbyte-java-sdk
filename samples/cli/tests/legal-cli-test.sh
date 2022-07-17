@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..43"
+echo "1..42"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -306,48 +306,40 @@ eval_tap $? 37 'RetrieveEligibilitiesPublicIndirect' test.out
     > test.out 2>&1
 eval_tap $? 38 'RetrieveSingleLocalizedPolicyVersion1' test.out
 
-#- 39 RetrievePolicyVersions
-./ng net.accelbyte.sdk.cli.Main legal retrievePolicyVersions \
-    --basePolicyId 'abUt7xk6' \
-    --localeId 'QxyWhfqo' \
-    --namespace "$AB_NAMESPACE" \
-    > test.out 2>&1
-eval_tap $? 39 'RetrievePolicyVersions' test.out
-
-#- 40 RetrieveLatestPolicies
+#- 39 RetrieveLatestPolicies
 ./ng net.accelbyte.sdk.cli.Main legal retrieveLatestPolicies \
-    --countryCode 'WfJw2o8o' \
+    --countryCode 'abUt7xk6' \
     --defaultOnEmpty  \
     --policyType 'MARKETING_PREFERENCE_TYPE' \
-    --tags 'vPCZ2HzT' \
+    --tags 'yWhfqoWf' \
     > test.out 2>&1
-eval_tap $? 40 'RetrieveLatestPolicies' test.out
+eval_tap $? 39 'RetrieveLatestPolicies' test.out
 
-#- 41 RetrieveLatestPoliciesPublic
+#- 40 RetrieveLatestPoliciesPublic
 ./ng net.accelbyte.sdk.cli.Main legal retrieveLatestPoliciesPublic \
+    --namespace "$AB_NAMESPACE" \
+    --alwaysIncludeDefault  \
+    --defaultOnEmpty  \
+    --policyType 'MARKETING_PREFERENCE_TYPE' \
+    --tags '2o8oWUqv' \
+    > test.out 2>&1
+eval_tap $? 40 'RetrieveLatestPoliciesPublic' test.out
+
+#- 41 RetrieveLatestPoliciesByNamespaceAndCountryPublic
+./ng net.accelbyte.sdk.cli.Main legal retrieveLatestPoliciesByNamespaceAndCountryPublic \
+    --countryCode 'PCZ2HzT7' \
     --namespace "$AB_NAMESPACE" \
     --alwaysIncludeDefault  \
     --defaultOnEmpty  \
     --policyType 'LEGAL_DOCUMENT_TYPE' \
     --tags 'WDlXsuNI' \
     > test.out 2>&1
-eval_tap $? 41 'RetrieveLatestPoliciesPublic' test.out
+eval_tap $? 41 'RetrieveLatestPoliciesByNamespaceAndCountryPublic' test.out
 
-#- 42 RetrieveLatestPoliciesByNamespaceAndCountryPublic
-./ng net.accelbyte.sdk.cli.Main legal retrieveLatestPoliciesByNamespaceAndCountryPublic \
-    --countryCode 'dQJR5lsN' \
-    --namespace "$AB_NAMESPACE" \
-    --alwaysIncludeDefault  \
-    --defaultOnEmpty  \
-    --policyType 'LEGAL_DOCUMENT_TYPE' \
-    --tags 'vkfwaSbn' \
-    > test.out 2>&1
-eval_tap $? 42 'RetrieveLatestPoliciesByNamespaceAndCountryPublic' test.out
-
-#- 43 CheckReadiness
+#- 42 CheckReadiness
 ./ng net.accelbyte.sdk.cli.Main legal checkReadiness \
     > test.out 2>&1
-eval_tap $? 43 'CheckReadiness' test.out
+eval_tap $? 42 'CheckReadiness' test.out
 
 
 rm -f "tmp.dat"

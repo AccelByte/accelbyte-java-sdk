@@ -42,6 +42,9 @@ public class OrderInfo extends Model {
   @JsonProperty("createdTime")
   private String createdTime;
 
+  @JsonProperty("creationOptions")
+  private ADTOObjectForOrderCreationOptions creationOptions;
+
   @JsonProperty("currency")
   private CurrencySummary currency;
 

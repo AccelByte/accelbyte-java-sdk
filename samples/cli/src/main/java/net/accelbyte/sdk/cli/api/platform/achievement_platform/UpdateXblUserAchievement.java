@@ -78,6 +78,7 @@ public class UpdateXblUserAchievement implements Callable<Integer> {
                               body, ADTOObjectForUpdateXboxAchievementCompletePercentageAPI.class))
                   .build();
       wrapper.updateXblUserAchievement(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error("HttpResponseException occur with message below:\n{}", e.getMessage());

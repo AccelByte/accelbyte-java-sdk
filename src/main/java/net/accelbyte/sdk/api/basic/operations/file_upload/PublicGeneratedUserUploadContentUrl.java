@@ -24,7 +24,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * publicGeneratedUserUploadContentUrl
  *
  * <p>Generate an upload URL for user content. It's valid for 10 minutes. There are 2 kinds of
- * storage limitation per user : maximum file count and maximum file size. Other detail info:
+ * storage limitation per user : maximum file count and maximum file size. The threshold of those
+ * limitations is different between upload category that is used. Other detail info:
  *
  * <p>* Required permission : resource = "NAMESPACE:{namespace}:USER:{userId}:FILEUPLOAD" , action=1
  * (CREATE) * Action code : 11102 * Default maximum file count per user : 10 files * Default maximum
@@ -45,6 +46,7 @@ public class PublicGeneratedUserUploadContentUrl extends Operation {
   private String namespace;
 
   private String userId;
+  private String category;
   private String fileType;
 
   /**
@@ -53,9 +55,11 @@ public class PublicGeneratedUserUploadContentUrl extends Operation {
    * @param fileType required
    */
   @Builder
-  public PublicGeneratedUserUploadContentUrl(String namespace, String userId, String fileType) {
+  public PublicGeneratedUserUploadContentUrl(
+      String namespace, String userId, String category, String fileType) {
     this.namespace = namespace;
     this.userId = userId;
+    this.category = category;
     this.fileType = fileType;
 
     securities.add("Bearer");
@@ -76,6 +80,7 @@ public class PublicGeneratedUserUploadContentUrl extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("category", this.category == null ? null : Arrays.asList(this.category));
     queryParams.put("fileType", this.fileType == null ? null : Arrays.asList(this.fileType));
     return queryParams;
   }
@@ -106,6 +111,7 @@ public class PublicGeneratedUserUploadContentUrl extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("category", "None");
     result.put("fileType", "None");
     return result;
   }

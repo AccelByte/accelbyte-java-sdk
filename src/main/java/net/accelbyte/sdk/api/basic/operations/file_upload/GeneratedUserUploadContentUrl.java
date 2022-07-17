@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * generatedUserUploadContentUrl
  *
- * <p>Generate an upload URL for user content. It's valid for 10 minutes. There are 2 kinds of
- * storage limitation per user : maximum file count and maximum file size. Other detail info:
+ * <p>Generate an upload URL for user content. It's valid for 10 minutes. Other detail info:
  *
  * <p>* Required permission : resource = "ADMIN:NAMESPACE:{namespace}:USER:{userId}:FILEUPLOAD" ,
  * action=1 (CREATE) * Action code : 11102 * Default maximum file count per user : 10 files *
@@ -45,6 +44,7 @@ public class GeneratedUserUploadContentUrl extends Operation {
   private String namespace;
 
   private String userId;
+  private String category;
   private String fileType;
 
   /**
@@ -53,9 +53,11 @@ public class GeneratedUserUploadContentUrl extends Operation {
    * @param fileType required
    */
   @Builder
-  public GeneratedUserUploadContentUrl(String namespace, String userId, String fileType) {
+  public GeneratedUserUploadContentUrl(
+      String namespace, String userId, String category, String fileType) {
     this.namespace = namespace;
     this.userId = userId;
+    this.category = category;
     this.fileType = fileType;
 
     securities.add("Bearer");
@@ -76,6 +78,7 @@ public class GeneratedUserUploadContentUrl extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("category", this.category == null ? null : Arrays.asList(this.category));
     queryParams.put("fileType", this.fileType == null ? null : Arrays.asList(this.fileType));
     return queryParams;
   }
@@ -106,6 +109,7 @@ public class GeneratedUserUploadContentUrl extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("category", "None");
     result.put("fileType", "None");
     return result;
   }

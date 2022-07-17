@@ -38,6 +38,23 @@ public class AchievementPlatform {
   }
 
   /**
+   * @see GetXblUserAchievements
+   */
+  public ADTOObjectForQueryingXboxUserAchievements getXblUserAchievements(
+      GetXblUserAchievements input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
    * @see UpdateXblUserAchievement
    */
   public void updateXblUserAchievement(UpdateXblUserAchievement input) throws Exception {

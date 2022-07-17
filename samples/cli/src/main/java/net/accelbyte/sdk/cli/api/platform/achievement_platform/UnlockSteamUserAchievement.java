@@ -77,6 +77,7 @@ public class UnlockSteamUserAchievement implements Callable<Integer> {
                           .readValue(body, ADTOObjectForUnlockSteamAchievementAPI.class))
                   .build();
       wrapper.unlockSteamUserAchievement(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error("HttpResponseException occur with message below:\n{}", e.getMessage());

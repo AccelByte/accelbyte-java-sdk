@@ -41,6 +41,11 @@ public class PublicGeneratedUserUploadContentUrl implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--category"},
+      description = "category")
+  String category;
+
+  @Option(
       names = {"--fileType"},
       description = "fileType")
   String fileType;
@@ -72,6 +77,7 @@ public class PublicGeneratedUserUploadContentUrl implements Callable<Integer> {
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
+                  .category(category)
                   .fileType(fileType)
                   .build();
       FileUploadUrlInfo response = wrapper.publicGeneratedUserUploadContentUrl(operation);

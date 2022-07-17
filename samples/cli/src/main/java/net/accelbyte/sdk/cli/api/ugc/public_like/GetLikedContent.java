@@ -36,14 +36,49 @@ public class GetLikedContent implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--isofficial"},
+      description = "isofficial")
+  Boolean isofficial;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
 
   @Option(
+      names = {"--name"},
+      description = "name")
+  String name;
+
+  @Option(
       names = {"--offset"},
       description = "offset")
   Integer offset;
+
+  @Option(
+      names = {"--orderby"},
+      description = "orderby")
+  String orderby;
+
+  @Option(
+      names = {"--sortby"},
+      description = "sortby")
+  String sortby;
+
+  @Option(
+      names = {"--subtype"},
+      description = "subtype")
+  String subtype;
+
+  @Option(
+      names = {"--tags"},
+      description = "tags")
+  List<String> tags;
+
+  @Option(
+      names = {"--type"},
+      description = "type")
+  String type;
 
   @Option(
       names = {"--logging"},
@@ -69,8 +104,15 @@ public class GetLikedContent implements Callable<Integer> {
       net.accelbyte.sdk.api.ugc.operations.public_like.GetLikedContent operation =
           net.accelbyte.sdk.api.ugc.operations.public_like.GetLikedContent.builder()
               .namespace(namespace)
+              .isofficial(isofficial)
               .limit(limit)
+              .name(name)
               .offset(offset)
+              .orderby(orderby)
+              .sortby(sortby)
+              .subtype(subtype)
+              .tags(tags)
+              .type(type)
               .build();
       ModelsPaginatedContentDownloadResponse response = wrapper.getLikedContent(operation);
       String responseString =

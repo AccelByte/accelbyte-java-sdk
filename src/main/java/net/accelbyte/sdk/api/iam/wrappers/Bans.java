@@ -22,38 +22,6 @@ public class Bans {
   }
 
   /**
-   * @see GetBansType
-   */
-  public AccountcommonBans getBansType(GetBansType input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
-  }
-
-  /**
-   * @see GetListBanReason
-   */
-  public AccountcommonBanReasons getListBanReason(GetListBanReason input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
-  }
-
-  /**
    * @see AdminGetBansTypeV3
    */
   public AccountcommonBansV3 adminGetBansTypeV3(AdminGetBansTypeV3 input) throws Exception {
