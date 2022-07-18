@@ -1,5 +1,27 @@
+<a name="v0.15.0"></a>
+## [v0.15.0] - 2022-07-18
+### Chore
+- bump to version 0.15 for justice 3.27
+- remove checkstyle
+- code formatting
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for justice 3.27
+- **spec:** update spec for justice 3.27
+
+### Docs
+- update changelog for justice 3.27
+
+### Feat
+- **sdk:** login platform
+
+### Fix
+- **sdk:** improve refresh token performance
+
+### Test
+- **integration:** login platform
+
+
 <a name="v0.14.0"></a>
-## [v0.14.0] - 2022-07-04
+## [v0.14.0] - 2022-07-05
 ### Chore
 - bump to version 0.14 for justice 3.26
 - **sdk:** regenerate sdk, cli sample app, cli test, doc index for justice 3.26
@@ -8,6 +30,7 @@
 - **test:** clean up integration
 
 ### Ci
+- **github:** fix checkout problem
 - **github:** implement point release
 - **github:** fix wrong slack channel
 
@@ -491,6 +514,7 @@
 - replace unnecessary object
 
 
+[v0.15.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.14.0...v0.15.0
 [v0.14.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.13.0...v0.14.0
 [v0.13.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.12.0...v0.13.0
 [v0.12.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.11.0...v0.12.0
