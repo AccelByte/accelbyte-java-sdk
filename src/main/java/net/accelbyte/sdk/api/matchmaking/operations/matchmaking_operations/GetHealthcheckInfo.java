@@ -8,13 +8,11 @@
 
 package net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.matchmaking.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
@@ -29,7 +27,6 @@ public class GetHealthcheckInfo extends Operation {
   private String method = "GET";
   private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList();
-  @Deprecated private String security = "Bearer";
   private String locationQuery = null;
   /** fields as input parameter */
 

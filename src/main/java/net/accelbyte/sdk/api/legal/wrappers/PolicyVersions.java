@@ -8,7 +8,8 @@
 
 package net.accelbyte.sdk.api.legal.wrappers;
 
-import java.util.List;
+import java.io.*;
+import java.util.*;
 import net.accelbyte.sdk.api.legal.models.*;
 import net.accelbyte.sdk.api.legal.operations.policy_versions.*;
 import net.accelbyte.sdk.core.AccelByteSDK;

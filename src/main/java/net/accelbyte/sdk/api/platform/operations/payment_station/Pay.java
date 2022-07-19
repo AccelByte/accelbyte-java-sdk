@@ -8,15 +8,12 @@
 
 package net.accelbyte.sdk.api.platform.operations.payment_station;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.models.PaymentProcessResult;
-import net.accelbyte.sdk.api.platform.models.PaymentToken;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
@@ -38,7 +35,6 @@ public class Pay extends Operation {
   private String method = "POST";
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
-  @Deprecated private String security = "Bearer";
   private String locationQuery = null;
   /** fields as input parameter */
   private String namespace;

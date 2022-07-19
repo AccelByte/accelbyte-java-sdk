@@ -8,14 +8,12 @@
 
 package net.accelbyte.sdk.api.legal.operations.localized_policy_versions;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import net.accelbyte.sdk.api.legal.models.*;
-import net.accelbyte.sdk.api.legal.models.RetrieveLocalizedPolicyVersionPublicResponse;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
@@ -35,7 +33,6 @@ public class RetrieveSingleLocalizedPolicyVersion1 extends Operation {
   private String method = "GET";
   private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
-  @Deprecated private String security = "Bearer";
   private String locationQuery = null;
   /** fields as input parameter */
   private String localizedPolicyVersionId;

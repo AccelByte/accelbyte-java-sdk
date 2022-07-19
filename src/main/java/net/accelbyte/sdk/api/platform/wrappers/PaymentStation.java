@@ -8,9 +8,8 @@
 
 package net.accelbyte.sdk.api.platform.wrappers;
 
-import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
+import java.io.*;
+import java.util.*;
 import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.payment_station.*;
 import net.accelbyte.sdk.core.AccelByteSDK;

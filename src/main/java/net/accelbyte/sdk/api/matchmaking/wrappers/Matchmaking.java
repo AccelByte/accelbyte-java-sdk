@@ -8,8 +8,8 @@
 
 package net.accelbyte.sdk.api.matchmaking.wrappers;
 
-import java.util.List;
-import java.util.Map;
+import java.io.*;
+import java.util.*;
 import net.accelbyte.sdk.api.matchmaking.models.*;
 import net.accelbyte.sdk.api.matchmaking.operations.matchmaking.*;
 import net.accelbyte.sdk.core.AccelByteSDK;

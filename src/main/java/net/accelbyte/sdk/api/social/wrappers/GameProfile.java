@@ -8,7 +8,8 @@
 
 package net.accelbyte.sdk.api.social.wrappers;
 
-import java.util.List;
+import java.io.*;
+import java.util.*;
 import net.accelbyte.sdk.api.social.models.*;
 import net.accelbyte.sdk.api.social.operations.game_profile.*;
 import net.accelbyte.sdk.core.AccelByteSDK;

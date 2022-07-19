@@ -10,8 +10,7 @@ package net.accelbyte.sdk.api.lobby.operations.chat;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -39,7 +38,6 @@ public class GetPersonalChatHistoryV1Public extends Operation {
   private String method = "GET";
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
-  @Deprecated private String security = "Bearer";
   private String locationQuery = null;
   /** fields as input parameter */
   private String friendId;

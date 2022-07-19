@@ -8,6 +8,8 @@
 
 package net.accelbyte.sdk.api.leaderboard.wrappers;
 
+import java.io.*;
+import java.util.*;
 import net.accelbyte.sdk.api.leaderboard.models.*;
 import net.accelbyte.sdk.api.leaderboard.operations.user_visibility.*;
 import net.accelbyte.sdk.core.AccelByteSDK;

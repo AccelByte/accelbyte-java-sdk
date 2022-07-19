@@ -8,6 +8,8 @@
 
 package net.accelbyte.sdk.api.platform.wrappers;
 
+import java.io.*;
+import java.util.*;
 import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.payment_callback_config.*;
 import net.accelbyte.sdk.core.AccelByteSDK;

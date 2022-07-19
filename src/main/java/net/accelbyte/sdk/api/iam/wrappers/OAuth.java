@@ -8,6 +8,8 @@
 
 package net.accelbyte.sdk.api.iam.wrappers;
 
+import java.io.*;
+import java.util.*;
 import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.api.iam.operations.o_auth.*;
 import net.accelbyte.sdk.core.AccelByteSDK;

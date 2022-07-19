@@ -8,15 +8,12 @@
 
 package net.accelbyte.sdk.api.ugc.operations.public_content;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import net.accelbyte.sdk.api.ugc.models.*;
-import net.accelbyte.sdk.api.ugc.models.ModelsCreateScreenshotRequest;
-import net.accelbyte.sdk.api.ugc.models.ModelsCreateScreenshotResponse;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
@@ -43,7 +40,6 @@ public class UploadContentScreenshot extends Operation {
   private String method = "POST";
   private List<String> consumes = Arrays.asList("application/json", "application/octet-stream");
   private List<String> produces = Arrays.asList("application/json");
-  @Deprecated private String security = "Bearer";
   private String locationQuery = null;
   /** fields as input parameter */
   private String contentId;

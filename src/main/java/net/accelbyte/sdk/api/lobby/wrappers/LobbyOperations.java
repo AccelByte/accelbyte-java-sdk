@@ -8,7 +8,8 @@
 
 package net.accelbyte.sdk.api.lobby.wrappers;
 
-import java.util.List;
+import java.io.*;
+import java.util.*;
 import net.accelbyte.sdk.api.lobby.models.*;
 import net.accelbyte.sdk.api.lobby.operations.lobby_operations.*;
 import net.accelbyte.sdk.core.AccelByteSDK;

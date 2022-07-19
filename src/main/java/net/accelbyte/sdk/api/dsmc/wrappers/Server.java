@@ -8,6 +8,8 @@
 
 package net.accelbyte.sdk.api.dsmc.wrappers;
 
+import java.io.*;
+import java.util.*;
 import net.accelbyte.sdk.api.dsmc.models.*;
 import net.accelbyte.sdk.api.dsmc.operations.server.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
