@@ -26,8 +26,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>1. Grant Type == `authorization_code`:
  *
  * <p>It generates the user token by given the authorization code which generated in
- * "/v3/oauth/auth" API response. It should also pass in the redirect_uri, which should be the same
- * as generating the authorization code request.
+ * "/iam/v3/authenticate" API response. It should also pass in the redirect_uri, which should be the
+ * same as generating the authorization code request.
  *
  * <p>2. Grant Type == `password`:
  *

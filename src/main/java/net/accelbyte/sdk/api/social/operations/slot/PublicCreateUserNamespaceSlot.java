@@ -20,9 +20,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicCreateUserNamespaceSlot
  *
- * <p>Creates a slot. Other detail info: * Required permission :
- * resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=1 (CREATE) * Returns : created
- * slot info
+ * <p>Creates a slot. Other detail info:
+ *
+ * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=1
+ * (CREATE) * Returns : created slot info
  */
 @Getter
 @Setter

@@ -21,9 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicUpdateUserNamespaceSlotMetadata
  *
- * <p>Updates the slot metadata. Other detail info: * Required permission :
- * resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=4 (UPDATE) * Returns : updated
- * slot
+ * <p>Updates the slot metadata. Other detail info:
+ *
+ * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=4
+ * (UPDATE) * Returns : updated slot
  */
 @Getter
 @Setter

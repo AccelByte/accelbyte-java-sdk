@@ -125,11 +125,12 @@ public class PutPlayerRecordHandlerV1 extends Operation {
     return true;
   }
 
-  public void handleEmptyResponse(int code, String contentTpe, InputStream payload)
+  public ModelsPlayerRecordResponse parseResponse(int code, String contentTpe, InputStream payload)
       throws HttpResponseException, IOException {
-    if (code != 200) {
-      String json = Helper.convertInputStreamToString(payload);
-      throw new HttpResponseException(code, json);
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 200) {
+      return new ModelsPlayerRecordResponse().createFromJson(json);
     }
+    throw new HttpResponseException(code, json);
   }
 }

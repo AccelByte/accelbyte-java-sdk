@@ -20,9 +20,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createUserStatItem
  *
- * <p>Create statItem for a user. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE) * Returns :
- * created user's statItem
+ * <p>Create statItem for a user. Other detail info:
+ *
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM",
+ * action=1 (CREATE) * Returns : created user's statItem
  */
 @Getter
 @Setter

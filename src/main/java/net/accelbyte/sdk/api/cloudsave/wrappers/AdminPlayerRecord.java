@@ -79,11 +79,12 @@ public class AdminPlayerRecord {
   /**
    * @see AdminPutPlayerRecordHandlerV1
    */
-  public void adminPutPlayerRecordHandlerV1(AdminPutPlayerRecordHandlerV1 input) throws Exception {
+  public ModelsPlayerRecordResponse adminPutPlayerRecordHandlerV1(
+      AdminPutPlayerRecordHandlerV1 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
-      input.handleEmptyResponse(
+      return input.parseResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
     } finally {
       if (httpResponse != null && httpResponse.getPayload() != null) {
@@ -95,12 +96,12 @@ public class AdminPlayerRecord {
   /**
    * @see AdminPostPlayerRecordHandlerV1
    */
-  public void adminPostPlayerRecordHandlerV1(AdminPostPlayerRecordHandlerV1 input)
-      throws Exception {
+  public ModelsPlayerRecordResponse adminPostPlayerRecordHandlerV1(
+      AdminPostPlayerRecordHandlerV1 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
-      input.handleEmptyResponse(
+      return input.parseResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
     } finally {
       if (httpResponse != null && httpResponse.getPayload() != null) {
@@ -146,12 +147,12 @@ public class AdminPlayerRecord {
   /**
    * @see AdminPutPlayerPublicRecordHandlerV1
    */
-  public void adminPutPlayerPublicRecordHandlerV1(AdminPutPlayerPublicRecordHandlerV1 input)
-      throws Exception {
+  public ModelsPlayerRecordResponse adminPutPlayerPublicRecordHandlerV1(
+      AdminPutPlayerPublicRecordHandlerV1 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
-      input.handleEmptyResponse(
+      return input.parseResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
     } finally {
       if (httpResponse != null && httpResponse.getPayload() != null) {
@@ -163,12 +164,12 @@ public class AdminPlayerRecord {
   /**
    * @see AdminPostPlayerPublicRecordHandlerV1
    */
-  public void adminPostPlayerPublicRecordHandlerV1(AdminPostPlayerPublicRecordHandlerV1 input)
-      throws Exception {
+  public ModelsPlayerRecordResponse adminPostPlayerPublicRecordHandlerV1(
+      AdminPostPlayerPublicRecordHandlerV1 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
-      input.handleEmptyResponse(
+      return input.parseResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
     } finally {
       if (httpResponse != null && httpResponse.getPayload() != null) {

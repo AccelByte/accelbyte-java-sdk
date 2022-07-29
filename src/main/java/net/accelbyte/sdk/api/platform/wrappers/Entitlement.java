@@ -225,6 +225,23 @@ public class Entitlement {
   }
 
   /**
+   * @see GetUserEntitlementOwnershipByItemIds
+   */
+  public List<EntitlementOwnership> getUserEntitlementOwnershipByItemIds(
+      GetUserEntitlementOwnershipByItemIds input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
    * @see GetUserEntitlementOwnershipBySku
    */
   public TimedOwnership getUserEntitlementOwnershipBySku(GetUserEntitlementOwnershipBySku input)
@@ -579,6 +596,23 @@ public class Entitlement {
    */
   public TimedOwnership publicGetUserEntitlementOwnershipByItemId(
       PublicGetUserEntitlementOwnershipByItemId input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
+   * @see PublicGetUserEntitlementOwnershipByItemIds
+   */
+  public List<EntitlementOwnership> publicGetUserEntitlementOwnershipByItemIds(
+      PublicGetUserEntitlementOwnershipByItemIds input) throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);

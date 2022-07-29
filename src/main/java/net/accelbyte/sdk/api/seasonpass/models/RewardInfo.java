@@ -119,6 +119,8 @@ public class RewardInfo extends Model {
     CODE("CODE"),
     COINS("COINS"),
     INGAMEITEM("INGAMEITEM"),
+    MEDIA("MEDIA"),
+    OPTIONBOX("OPTIONBOX"),
     SEASON("SEASON"),
     SUBSCRIPTION("SUBSCRIPTION");
 

@@ -24,9 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * publicQueryUserStatItems_2
  *
  * <p>Public list all statItems of user. NOTE: * If stat code does not exist, will ignore this stat
- * code. * If stat item does not exist, will return default value Other detail info: * Required
- * permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ) * Returns :
- * stat items
+ * code. * If stat item does not exist, will return default value
+ *
+ * <p>Other detail info: * Required permission :
+ * resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ) * Returns : stat items
  */
 @Getter
 @Setter

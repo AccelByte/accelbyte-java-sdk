@@ -60,11 +60,12 @@ public class AdminGameRecord {
   /**
    * @see AdminPutGameRecordHandlerV1
    */
-  public void adminPutGameRecordHandlerV1(AdminPutGameRecordHandlerV1 input) throws Exception {
+  public ModelsGameRecordResponse adminPutGameRecordHandlerV1(AdminPutGameRecordHandlerV1 input)
+      throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
-      input.handleEmptyResponse(
+      return input.parseResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
     } finally {
       if (httpResponse != null && httpResponse.getPayload() != null) {
@@ -76,11 +77,12 @@ public class AdminGameRecord {
   /**
    * @see AdminPostGameRecordHandlerV1
    */
-  public void adminPostGameRecordHandlerV1(AdminPostGameRecordHandlerV1 input) throws Exception {
+  public ModelsGameRecordResponse adminPostGameRecordHandlerV1(AdminPostGameRecordHandlerV1 input)
+      throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
-      input.handleEmptyResponse(
+      return input.parseResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
     } finally {
       if (httpResponse != null && httpResponse.getPayload() != null) {

@@ -127,11 +127,12 @@ public class AdminPostGameRecordHandlerV1 extends Operation {
     return true;
   }
 
-  public void handleEmptyResponse(int code, String contentTpe, InputStream payload)
+  public ModelsGameRecordResponse parseResponse(int code, String contentTpe, InputStream payload)
       throws HttpResponseException, IOException {
-    if (code != 201) {
-      String json = Helper.convertInputStreamToString(payload);
-      throw new HttpResponseException(code, json);
+    String json = Helper.convertInputStreamToString(payload);
+    if (code == 201) {
+      return new ModelsGameRecordResponse().createFromJson(json);
     }
+    throw new HttpResponseException(code, json);
   }
 }

@@ -4,6 +4,11 @@
 
 ## Operations
 
+### Operations Wrapper:  [Operations](../src/main/java/net/accelbyte/sdk/api/gametelemetry/wrappers/Operations.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/game-telemetry/v1/admin/namespaces/{namespace}/events` | GET | GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet | [GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet](../src/main/java/net/accelbyte/sdk/api/gametelemetry/operations/operations/GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet.java) | [GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gametelemetry/operations/GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet.java) |
+
 ### Gametelemetry Operations Wrapper:  [GametelemetryOperations](../src/main/java/net/accelbyte/sdk/api/gametelemetry/wrappers/GametelemetryOperations.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|

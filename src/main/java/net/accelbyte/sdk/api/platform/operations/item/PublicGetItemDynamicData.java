@@ -48,6 +48,8 @@ public class PublicGetItemDynamicData extends Operation {
   public PublicGetItemDynamicData(String itemId, String namespace) {
     this.itemId = itemId;
     this.namespace = namespace;
+
+    securities.add("Bearer");
   }
 
   @Override

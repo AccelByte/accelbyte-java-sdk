@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..4"
+echo "1..5"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -53,24 +53,37 @@ fi
 
 touch "tmp.dat"
 
-#- 2 ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost
+#- 2 GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet
+./ng net.accelbyte.sdk.cli.Main gametelemetry getEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet \
+    --namespace "$AB_NAMESPACE" \
+    --endTime 'RJliu0Kr' \
+    --eventId 'ICs5wsDY' \
+    --eventName 'byPnIjkA' \
+    --eventPayload '77I01s0Z' \
+    --limit '63' \
+    --offset '36' \
+    --startTime 'DF3R1WIH' \
+    > test.out 2>&1
+eval_tap $? 2 'GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet' test.out
+
+#- 3 ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost
 ./ng net.accelbyte.sdk.cli.Main gametelemetry protectedSaveEventsGameTelemetryV1ProtectedEventsPost \
-    --body '[{"EventId": "FtBxyZcD", "EventName": "XBpGlsQu", "EventNamespace": "Ju8vMf0I", "EventTimestamp": "1980-10-10T00:00:00Z", "Payload": {"kTrd8IDc": {}}}]' \
+    --body '[{"EventId": "j3Ppsig5", "EventName": "9J1jziip", "EventNamespace": "YcYyTwxI", "EventTimestamp": "1975-02-10T00:00:00Z", "Payload": {"WwqUWe8Z": {}, "Jn89pkHW": {}, "39OAjoGH": {}}}, {"EventId": "asbSIX07", "EventName": "eGTEH8tO", "EventNamespace": "FbtKkjse", "EventTimestamp": "1971-05-01T00:00:00Z", "Payload": {"Knh5sYY8": {}, "14Iv6e0Q": {}, "dDHIccdt": {}}}, {"EventId": "XRGIRZes", "EventName": "UN9uaQuQ", "EventNamespace": "260JRpYL", "EventTimestamp": "1977-01-28T00:00:00Z", "Payload": {"bCqWb2x1": {}, "p67sJhFE": {}, "b2k5cngp": {}}}]' \
     > test.out 2>&1
-eval_tap $? 2 'ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost' test.out
+eval_tap $? 3 'ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost' test.out
 
-#- 3 ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet
+#- 4 ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet
 ./ng net.accelbyte.sdk.cli.Main gametelemetry protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet \
-    --steamId 'V2zXnTKj' \
+    --steamId 'vpMwScLi' \
     > test.out 2>&1
-eval_tap $? 3 'ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet' test.out
+eval_tap $? 4 'ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet' test.out
 
-#- 4 ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
+#- 5 ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
 ./ng net.accelbyte.sdk.cli.Main gametelemetry protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut \
-    --playtime 'XY1bPqam' \
-    --steamId 'iBxx9Cs1' \
+    --playtime 'wPmcfJbt' \
+    --steamId 'sftMyToQ' \
     > test.out 2>&1
-eval_tap $? 4 'ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut' test.out
+eval_tap $? 5 'ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut' test.out
 
 
 rm -f "tmp.dat"

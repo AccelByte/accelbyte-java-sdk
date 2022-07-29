@@ -88,6 +88,7 @@ public class FulfillmentItem extends Model {
     COINS("COINS"),
     INGAMEITEM("INGAMEITEM"),
     MEDIA("MEDIA"),
+    OPTIONBOX("OPTIONBOX"),
     SEASON("SEASON"),
     SUBSCRIPTION("SUBSCRIPTION");
 

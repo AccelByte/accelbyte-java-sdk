@@ -21,9 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateDLCItemConfig
  *
- * <p>Update DLC item config. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:DLC:CONFIG", action=4 (UPDATE) * Returns : updated DLC item
- * config
+ * <p>Update DLC item config. Other detail info:
+ *
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:DLC:CONFIG", action=4 (UPDATE) *
+ * Returns : updated DLC item config
  */
 @Getter
 @Setter

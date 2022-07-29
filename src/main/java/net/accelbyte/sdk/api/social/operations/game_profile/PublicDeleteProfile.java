@@ -20,8 +20,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicDeleteProfile
  *
- * <p>Deletes game profile. Other detail info: * Required permission :
- * resource="NAMESPACE:{namespace}:USER:{userId}:GAMEPROFILE", action=8 (DELETE)
+ * <p>Deletes game profile. Other detail info:
+ *
+ * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:GAMEPROFILE", action=8
+ * (DELETE)
  */
 @Getter
 @Setter

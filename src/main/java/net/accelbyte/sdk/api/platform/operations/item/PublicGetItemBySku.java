@@ -59,6 +59,8 @@ public class PublicGetItemBySku extends Operation {
     this.region = region;
     this.storeId = storeId;
     this.sku = sku;
+
+    securities.add("Bearer");
   }
 
   @Override

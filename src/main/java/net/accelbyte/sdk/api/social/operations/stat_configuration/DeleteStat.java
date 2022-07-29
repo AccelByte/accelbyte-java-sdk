@@ -20,8 +20,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteStat
  *
- * <p>Deletes stat template. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:STAT", action=8 (DELETE)
+ * <p>Deletes stat template. Other detail info:
+ *
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STAT", action=8 (DELETE)
  */
 @Getter
 @Setter

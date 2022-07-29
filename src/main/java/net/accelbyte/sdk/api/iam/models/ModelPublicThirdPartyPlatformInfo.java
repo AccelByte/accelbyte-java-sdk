@@ -45,6 +45,9 @@ public class ModelPublicThirdPartyPlatformInfo extends Model {
   @JsonProperty("PlatformId")
   private String platformId;
 
+  @JsonProperty("PlatformName")
+  private String platformName;
+
   @JsonIgnore
   public ModelPublicThirdPartyPlatformInfo createFromJson(String json)
       throws JsonProcessingException {

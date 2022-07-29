@@ -233,4 +233,20 @@ public class OAuth20 {
       }
     }
   }
+
+  /**
+   * @see VerifyTokenV3
+   */
+  public OauthmodelTokenResponseV3 verifyTokenV3(VerifyTokenV3 input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
 }

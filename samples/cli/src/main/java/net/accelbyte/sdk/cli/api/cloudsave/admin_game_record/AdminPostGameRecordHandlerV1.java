@@ -74,8 +74,10 @@ public class AdminPostGameRecordHandlerV1 implements Callable<Integer> {
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsGameRecordRequest.class))
                   .build();
-      wrapper.adminPostGameRecordHandlerV1(operation);
-      log.info("Operation successful");
+      ModelsGameRecordResponse response = wrapper.adminPostGameRecordHandlerV1(operation);
+      String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful with response below:\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error("HttpResponseException occur with message below:\n{}", e.getMessage());

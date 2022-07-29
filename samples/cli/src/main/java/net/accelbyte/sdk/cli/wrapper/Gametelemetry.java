@@ -9,12 +9,14 @@
 package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.gametelemetry.gametelemetry_operations.*;
+import net.accelbyte.sdk.cli.api.gametelemetry.operations.*;
 import picocli.CommandLine.Command;
 
 @Command(
     name = "gametelemetry",
     mixinStandardHelpOptions = true,
     subcommands = {
+      GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet.class,
       ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost.class,
       ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet.class,
       ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut.class,

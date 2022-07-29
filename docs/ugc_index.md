@@ -132,7 +132,8 @@
 ### Public Creator Wrapper:  [PublicCreator](../src/main/java/net/accelbyte/sdk/api/ugc/wrappers/PublicCreator.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
-| `/ugc/v1/public/namespaces/{namespace}/users/{userId}` | GET | GetCreator | [GetCreator](../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_creator/GetCreator.java) | [GetCreator](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/public_creator/GetCreator.java) |
+| `/ugc/v1/public/namespaces/{namespace}/users` | GET | PublicSearchCreator | [PublicSearchCreator](../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_creator/PublicSearchCreator.java) | [PublicSearchCreator](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/public_creator/PublicSearchCreator.java) |
+| `/ugc/v1/public/namespaces/{namespace}/users/{userId}` | GET | PublicGetCreator | [PublicGetCreator](../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_creator/PublicGetCreator.java) | [PublicGetCreator](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/public_creator/PublicGetCreator.java) |
 
 ### Public Channel Wrapper:  [PublicChannel](../src/main/java/net/accelbyte/sdk/api/ugc/wrappers/PublicChannel.java)
 | Endpoint | Method | ID | Class | Example |
@@ -190,6 +191,7 @@
 | `models.PaginatedGroupResponse` | [ModelsPaginatedGroupResponse](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPaginatedGroupResponse.java) |
 | `models.PagingCursor` | [ModelsPagingCursor](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPagingCursor.java) |
 | `models.PayloadURL` | [ModelsPayloadURL](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPayloadURL.java) |
+| `models.PreviewURL` | [ModelsPreviewURL](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPreviewURL.java) |
 | `models.PublicGetContentBulkRequest` | [ModelsPublicGetContentBulkRequest](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPublicGetContentBulkRequest.java) |
 | `models.ScreenshotResponse` | [ModelsScreenshotResponse](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsScreenshotResponse.java) |
 | `models.UpdateScreenshotRequest` | [ModelsUpdateScreenshotRequest](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUpdateScreenshotRequest.java) |
@@ -197,5 +199,6 @@
 | `models.UserFollowRequest` | [ModelsUserFollowRequest](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUserFollowRequest.java) |
 | `models.UserFollowResponse` | [ModelsUserFollowResponse](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUserFollowResponse.java) |
 | `models.createScreenshotRequestItem` | [ModelsCreateScreenshotRequestItem](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsCreateScreenshotRequestItem.java) |
+| `models.previewMetadata` | [ModelsPreviewMetadata](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPreviewMetadata.java) |
 | `models.updateScreenshot` | [ModelsUpdateScreenshot](../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUpdateScreenshot.java) |
 | `response.Error` | [ResponseError](../src/main/java/net/accelbyte/sdk/api/ugc/models/ResponseError.java) |

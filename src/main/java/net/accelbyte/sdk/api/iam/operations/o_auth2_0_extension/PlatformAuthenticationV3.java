@@ -55,7 +55,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * defined on authorize request parameter `redirect_uri`
  *
  * <p>* snapchat Snapchat login page will redirects to this endpoint after login success as
- * previously defined on authorize request parameter `redirect_uri` action code : 10709
+ * previously defined on authorize request parameter `redirect_uri`
+ *
+ * <p>action code : 10709
  */
 @Getter
 @Setter

@@ -23,8 +23,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetUserGameProfiles
  *
- * <p>Returns all profiles for specified users. Other detail info: * Required permission :
- * resource="NAMESPACE:{namespace}:GAMEPROFILE", action=2 (READ)
+ * <p>Returns all profiles for specified users. Other detail info:
+ *
+ * <p>* Required permission : resource="NAMESPACE:{namespace}:GAMEPROFILE", action=2 (READ)
  *
  * <p>* Returns : list of profiles
  */

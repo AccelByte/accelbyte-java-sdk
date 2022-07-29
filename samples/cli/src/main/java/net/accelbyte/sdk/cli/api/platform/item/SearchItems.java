@@ -41,6 +41,11 @@ public class SearchItems implements Callable<Integer> {
   Boolean activeOnly;
 
   @Option(
+      names = {"--itemType"},
+      description = "itemType")
+  String itemType;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -90,6 +95,7 @@ public class SearchItems implements Callable<Integer> {
           net.accelbyte.sdk.api.platform.operations.item.SearchItems.builder()
               .namespace(namespace)
               .activeOnly(activeOnly)
+              .itemType(itemType)
               .limit(limit)
               .offset(offset)
               .storeId(storeId)

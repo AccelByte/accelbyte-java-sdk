@@ -21,9 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetProfileAttribute
  *
- * <p>Returns game profile attribute. Other detail info: * Required permission :
- * resource="NAMESPACE:{namespace}:USER:{userId}:GAMEPROFILE", action=2 (READ) * Returns : attribute
- * info
+ * <p>Returns game profile attribute. Other detail info:
+ *
+ * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:GAMEPROFILE", action=2
+ * (READ) * Returns : attribute info
  */
 @Getter
 @Setter

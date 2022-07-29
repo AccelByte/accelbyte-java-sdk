@@ -49,7 +49,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * authenticate endpoint after successfully authenticating google user.
  *
  * <p>* snapchat This endpoint redirects to snapchat login page, then redirect back to platform
- * authenticate endpoint after successfully authenticating snapchat user. action code : 10702'
+ * authenticate endpoint after successfully authenticating snapchat user.
+ *
+ * <p>action code : 10702'
  */
 @Getter
 @Setter

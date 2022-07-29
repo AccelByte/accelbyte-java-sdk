@@ -43,6 +43,7 @@ public class PublicSearchItems extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private String itemType;
   private Integer limit;
   private Integer offset;
   private String region;
@@ -58,6 +59,7 @@ public class PublicSearchItems extends Operation {
   @Builder
   public PublicSearchItems(
       String namespace,
+      String itemType,
       Integer limit,
       Integer offset,
       String region,
@@ -65,12 +67,15 @@ public class PublicSearchItems extends Operation {
       String keyword,
       String language) {
     this.namespace = namespace;
+    this.itemType = itemType;
     this.limit = limit;
     this.offset = offset;
     this.region = region;
     this.storeId = storeId;
     this.keyword = keyword;
     this.language = language;
+
+    securities.add("Bearer");
   }
 
   @Override
@@ -85,6 +90,7 @@ public class PublicSearchItems extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("itemType", this.itemType == null ? null : Arrays.asList(this.itemType));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
@@ -121,6 +127,7 @@ public class PublicSearchItems extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("itemType", "None");
     result.put("limit", "None");
     result.put("offset", "None");
     result.put("region", "None");
@@ -128,5 +135,42 @@ public class PublicSearchItems extends Operation {
     result.put("keyword", "None");
     result.put("language", "None");
     return result;
+  }
+
+  public enum ItemType {
+    APP("APP"),
+    BUNDLE("BUNDLE"),
+    CODE("CODE"),
+    COINS("COINS"),
+    INGAMEITEM("INGAMEITEM"),
+    MEDIA("MEDIA"),
+    OPTIONBOX("OPTIONBOX"),
+    SEASON("SEASON"),
+    SUBSCRIPTION("SUBSCRIPTION");
+
+    private String value;
+
+    ItemType(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class PublicSearchItemsBuilder {
+    private String itemType;
+
+    public PublicSearchItemsBuilder itemType(final String itemType) {
+      this.itemType = itemType;
+      return this;
+    }
+
+    public PublicSearchItemsBuilder itemTypeFromEnum(final ItemType itemType) {
+      this.itemType = itemType.toString();
+      return this;
+    }
   }
 }

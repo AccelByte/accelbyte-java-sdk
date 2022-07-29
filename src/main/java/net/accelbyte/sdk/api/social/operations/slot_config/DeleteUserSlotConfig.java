@@ -21,8 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * deleteUserSlotConfig
  *
  * <p>Deletes a user slot configuration in given namespace, the namespace slot configuration will be
- * returned after delete. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=8 (DELETE)
+ * returned after delete. Other detail info:
+ *
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG",
+ * action=8 (DELETE)
  */
 @Getter
 @Setter

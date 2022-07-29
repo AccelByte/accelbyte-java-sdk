@@ -39,8 +39,14 @@ public class ModelThirdPartyLoginPlatformCredentialRequest extends Model {
   @JsonProperty("AWSCognitoUserPool")
   private String awsCognitoUserPool;
 
+  @JsonProperty("AllowedClients")
+  private List<String> allowedClients;
+
   @JsonProperty("AppId")
   private String appId;
+
+  @JsonProperty("AuthorizationEndpoint")
+  private String authorizationEndpoint;
 
   @JsonProperty("ClientId")
   private String clientId;
@@ -78,6 +84,9 @@ public class ModelThirdPartyLoginPlatformCredentialRequest extends Model {
   @JsonProperty("RedirectUri")
   private String redirectUri;
 
+  @JsonProperty("RegisteredDomains")
+  private List<AccountcommonRegisteredDomain> registeredDomains;
+
   @JsonProperty("Secret")
   private String secret;
 
@@ -89,6 +98,9 @@ public class ModelThirdPartyLoginPlatformCredentialRequest extends Model {
 
   @JsonProperty("TokenClaimsMapping")
   private Map<String, String> tokenClaimsMapping;
+
+  @JsonProperty("TokenEndpoint")
+  private String tokenEndpoint;
 
   @JsonIgnore
   public ModelThirdPartyLoginPlatformCredentialRequest createFromJson(String json)

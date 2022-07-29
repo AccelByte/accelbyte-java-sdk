@@ -87,6 +87,8 @@ public class PublicQueryItems extends Operation {
     this.sortBy = sortBy;
     this.storeId = storeId;
     this.tags = tags;
+
+    securities.add("Bearer");
   }
 
   @Override
@@ -178,6 +180,7 @@ public class PublicQueryItems extends Operation {
     COINS("COINS"),
     INGAMEITEM("INGAMEITEM"),
     MEDIA("MEDIA"),
+    OPTIONBOX("OPTIONBOX"),
     SEASON("SEASON"),
     SUBSCRIPTION("SUBSCRIPTION");
 

@@ -30,6 +30,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class EntitlementDecrement extends Model {
 
+  @JsonProperty("options")
+  private List<String> options;
+
   @JsonProperty("useCount")
   private Integer useCount;
 

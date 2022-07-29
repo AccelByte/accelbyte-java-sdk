@@ -120,6 +120,7 @@ public class GetUserEntitlementOwnershipBySku extends Operation {
     CODE("CODE"),
     ENTITLEMENT("ENTITLEMENT"),
     MEDIA("MEDIA"),
+    OPTIONBOX("OPTIONBOX"),
     SUBSCRIPTION("SUBSCRIPTION");
 
     private String value;

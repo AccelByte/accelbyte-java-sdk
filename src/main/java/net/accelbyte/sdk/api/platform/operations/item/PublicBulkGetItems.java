@@ -62,6 +62,8 @@ public class PublicBulkGetItems extends Operation {
     this.region = region;
     this.storeId = storeId;
     this.itemIds = itemIds;
+
+    securities.add("Bearer");
   }
 
   @Override

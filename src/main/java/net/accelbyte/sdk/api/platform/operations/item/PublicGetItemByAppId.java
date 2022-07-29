@@ -59,6 +59,8 @@ public class PublicGetItemByAppId extends Operation {
     this.region = region;
     this.storeId = storeId;
     this.appId = appId;
+
+    securities.add("Bearer");
   }
 
   @Override

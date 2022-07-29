@@ -36,6 +36,11 @@ public class PublicSearchItems implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--itemType"},
+      description = "itemType")
+  String itemType;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -89,6 +94,7 @@ public class PublicSearchItems implements Callable<Integer> {
       net.accelbyte.sdk.api.platform.operations.item.PublicSearchItems operation =
           net.accelbyte.sdk.api.platform.operations.item.PublicSearchItems.builder()
               .namespace(namespace)
+              .itemType(itemType)
               .limit(limit)
               .offset(offset)
               .region(region)

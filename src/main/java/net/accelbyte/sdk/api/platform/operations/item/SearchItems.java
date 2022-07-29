@@ -43,6 +43,7 @@ public class SearchItems extends Operation {
   private String namespace;
 
   private Boolean activeOnly;
+  private String itemType;
   private Integer limit;
   private Integer offset;
   private String storeId;
@@ -58,6 +59,7 @@ public class SearchItems extends Operation {
   public SearchItems(
       String namespace,
       Boolean activeOnly,
+      String itemType,
       Integer limit,
       Integer offset,
       String storeId,
@@ -65,6 +67,7 @@ public class SearchItems extends Operation {
       String language) {
     this.namespace = namespace;
     this.activeOnly = activeOnly;
+    this.itemType = itemType;
     this.limit = limit;
     this.offset = offset;
     this.storeId = storeId;
@@ -89,6 +92,7 @@ public class SearchItems extends Operation {
     queryParams.put(
         "activeOnly",
         this.activeOnly == null ? null : Arrays.asList(String.valueOf(this.activeOnly)));
+    queryParams.put("itemType", this.itemType == null ? null : Arrays.asList(this.itemType));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
@@ -125,11 +129,49 @@ public class SearchItems extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("activeOnly", "None");
+    result.put("itemType", "None");
     result.put("limit", "None");
     result.put("offset", "None");
     result.put("storeId", "None");
     result.put("keyword", "None");
     result.put("language", "None");
     return result;
+  }
+
+  public enum ItemType {
+    APP("APP"),
+    BUNDLE("BUNDLE"),
+    CODE("CODE"),
+    COINS("COINS"),
+    INGAMEITEM("INGAMEITEM"),
+    MEDIA("MEDIA"),
+    OPTIONBOX("OPTIONBOX"),
+    SEASON("SEASON"),
+    SUBSCRIPTION("SUBSCRIPTION");
+
+    private String value;
+
+    ItemType(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class SearchItemsBuilder {
+    private String itemType;
+
+    public SearchItemsBuilder itemType(final String itemType) {
+      this.itemType = itemType;
+      return this;
+    }
+
+    public SearchItemsBuilder itemTypeFromEnum(final ItemType itemType) {
+      this.itemType = itemType.toString();
+      return this;
+    }
   }
 }

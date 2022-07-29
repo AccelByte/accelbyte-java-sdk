@@ -77,11 +77,12 @@ public class PublicPlayerRecord {
   /**
    * @see PutPlayerRecordHandlerV1
    */
-  public void putPlayerRecordHandlerV1(PutPlayerRecordHandlerV1 input) throws Exception {
+  public ModelsPlayerRecordResponse putPlayerRecordHandlerV1(PutPlayerRecordHandlerV1 input)
+      throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
-      input.handleEmptyResponse(
+      return input.parseResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
     } finally {
       if (httpResponse != null && httpResponse.getPayload() != null) {
@@ -93,11 +94,12 @@ public class PublicPlayerRecord {
   /**
    * @see PostPlayerRecordHandlerV1
    */
-  public void postPlayerRecordHandlerV1(PostPlayerRecordHandlerV1 input) throws Exception {
+  public ModelsPlayerRecordResponse postPlayerRecordHandlerV1(PostPlayerRecordHandlerV1 input)
+      throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
-      input.handleEmptyResponse(
+      return input.parseResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
     } finally {
       if (httpResponse != null && httpResponse.getPayload() != null) {
@@ -142,12 +144,12 @@ public class PublicPlayerRecord {
   /**
    * @see PutPlayerPublicRecordHandlerV1
    */
-  public void putPlayerPublicRecordHandlerV1(PutPlayerPublicRecordHandlerV1 input)
-      throws Exception {
+  public ModelsPlayerRecordResponse putPlayerPublicRecordHandlerV1(
+      PutPlayerPublicRecordHandlerV1 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
-      input.handleEmptyResponse(
+      return input.parseResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
     } finally {
       if (httpResponse != null && httpResponse.getPayload() != null) {
@@ -159,12 +161,12 @@ public class PublicPlayerRecord {
   /**
    * @see PostPlayerPublicRecordHandlerV1
    */
-  public void postPlayerPublicRecordHandlerV1(PostPlayerPublicRecordHandlerV1 input)
-      throws Exception {
+  public ModelsPlayerRecordResponse postPlayerPublicRecordHandlerV1(
+      PostPlayerPublicRecordHandlerV1 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
-      input.handleEmptyResponse(
+      return input.parseResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
     } finally {
       if (httpResponse != null && httpResponse.getPayload() != null) {

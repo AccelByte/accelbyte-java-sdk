@@ -184,6 +184,40 @@ public class Item {
   }
 
   /**
+   * @see GetAvailablePredicateTypes
+   */
+  public List<AvailablePredicateObject> getAvailablePredicateTypes(GetAvailablePredicateTypes input)
+      throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
+   * @see ValidateItemPurchaseCondition
+   */
+  public List<ItemPurchaseConditionValidateResult> validateItemPurchaseCondition(
+      ValidateItemPurchaseCondition input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
    * @see SearchItems
    */
   public FullItemPagingSlicedResult searchItems(SearchItems input) throws Exception {
@@ -409,6 +443,23 @@ public class Item {
   }
 
   /**
+   * @see UpdateItemPurchaseCondition
+   */
+  public FullItemInfo updateItemPurchaseCondition(UpdateItemPurchaseCondition input)
+      throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
    * @see ReturnItem
    */
   public void returnItem(ReturnItem input) throws Exception {
@@ -476,6 +527,23 @@ public class Item {
    * @see PublicBulkGetItems
    */
   public List<ItemInfo> publicBulkGetItems(PublicBulkGetItems input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
+   * @see PublicValidateItemPurchaseCondition
+   */
+  public List<ItemPurchaseConditionValidateResult> publicValidateItemPurchaseCondition(
+      PublicValidateItemPurchaseCondition input) throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);

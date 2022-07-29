@@ -188,6 +188,7 @@ public class QueryChanges extends Operation {
     COINS("COINS"),
     INGAMEITEM("INGAMEITEM"),
     MEDIA("MEDIA"),
+    OPTIONBOX("OPTIONBOX"),
     SEASON("SEASON"),
     SUBSCRIPTION("SUBSCRIPTION");
 

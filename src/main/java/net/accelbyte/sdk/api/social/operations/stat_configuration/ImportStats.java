@@ -24,8 +24,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Import stat configurations for a given namespace from file. At current, only JSON file is
  * supported.
  *
- * <p>Other detail info: * *Required permission*: resource="ADMIN:NAMESPACE:{namespace}:STAT",
- * action=1 (CREATE)
+ * <p>Other detail info:
+ *
+ * <p>* *Required permission*: resource="ADMIN:NAMESPACE:{namespace}:STAT", action=1 (CREATE)
  */
 @Getter
 @Setter
@@ -93,7 +94,7 @@ public class ImportStats extends Operation {
   public StatImportInfo parseResponse(int code, String contentTpe, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
-    if (code == 200) {
+    if (code == 201) {
       return new StatImportInfo().createFromJson(json);
     }
     throw new HttpResponseException(code, json);

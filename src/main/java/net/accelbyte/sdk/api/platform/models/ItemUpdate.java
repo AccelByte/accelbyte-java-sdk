@@ -87,6 +87,9 @@ public class ItemUpdate extends Model {
   @JsonProperty("name")
   private String name;
 
+  @JsonProperty("optionBoxConfig")
+  private OptionBoxConfig optionBoxConfig;
+
   @JsonProperty("purchasable")
   private Boolean purchasable;
 
@@ -274,6 +277,7 @@ public class ItemUpdate extends Model {
     COINS("COINS"),
     INGAMEITEM("INGAMEITEM"),
     MEDIA("MEDIA"),
+    OPTIONBOX("OPTIONBOX"),
     SEASON("SEASON"),
     SUBSCRIPTION("SUBSCRIPTION");
 

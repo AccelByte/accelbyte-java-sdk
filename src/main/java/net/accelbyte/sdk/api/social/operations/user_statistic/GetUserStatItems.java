@@ -21,9 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getUserStatItems
  *
- * <p>List user's statItems. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ) * Returns : stat
- * items
+ * <p>List user's statItems. Other detail info:
+ *
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM",
+ * action=2 (READ) * Returns : stat items
  */
 @Getter
 @Setter

@@ -22,6 +22,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * PublicDownloadContentPreview
  *
  * <p>Requires valid user token
+ *
+ * <p>NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of
+ * a content
  */
 @Getter
 @Setter

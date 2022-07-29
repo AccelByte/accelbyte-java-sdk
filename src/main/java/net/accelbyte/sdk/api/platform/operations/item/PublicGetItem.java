@@ -67,6 +67,8 @@ public class PublicGetItem extends Operation {
     this.populateBundle = populateBundle;
     this.region = region;
     this.storeId = storeId;
+
+    securities.add("Bearer");
   }
 
   @Override

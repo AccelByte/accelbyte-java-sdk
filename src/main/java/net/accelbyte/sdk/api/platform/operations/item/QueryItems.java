@@ -193,6 +193,7 @@ public class QueryItems extends Operation {
     COINS("COINS"),
     INGAMEITEM("INGAMEITEM"),
     MEDIA("MEDIA"),
+    OPTIONBOX("OPTIONBOX"),
     SEASON("SEASON"),
     SUBSCRIPTION("SUBSCRIPTION");
 

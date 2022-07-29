@@ -23,8 +23,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Export all stat configurations for a given namespace into file At current, only JSON file is
  * supported.
  *
- * <p>Other detail info: * *Required permission*: resource="ADMIN:NAMESPACE:{namespace}:STAT",
- * action=2 (READ)
+ * <p>Other detail info:
+ *
+ * <p>* *Required permission*: resource="ADMIN:NAMESPACE:{namespace}:STAT", action=2 (READ)
  */
 @Getter
 @Setter

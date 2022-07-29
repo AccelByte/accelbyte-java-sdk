@@ -26,6 +26,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>All request body are required except preview, tags, and contentType. contentType values is
  * used to enforce the Content-Type header needed by the client when uploading the content using the
  * S3 presigned URL. If not specified, it will use fileExtension value.
+ *
+ * <p>NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of
+ * a content
  */
 @Getter
 @Setter

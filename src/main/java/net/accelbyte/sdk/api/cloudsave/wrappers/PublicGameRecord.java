@@ -43,11 +43,12 @@ public class PublicGameRecord {
   /**
    * @see PutGameRecordHandlerV1
    */
-  public void putGameRecordHandlerV1(PutGameRecordHandlerV1 input) throws Exception {
+  public ModelsGameRecordResponse putGameRecordHandlerV1(PutGameRecordHandlerV1 input)
+      throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
-      input.handleEmptyResponse(
+      return input.parseResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
     } finally {
       if (httpResponse != null && httpResponse.getPayload() != null) {
@@ -59,11 +60,12 @@ public class PublicGameRecord {
   /**
    * @see PostGameRecordHandlerV1
    */
-  public void postGameRecordHandlerV1(PostGameRecordHandlerV1 input) throws Exception {
+  public ModelsGameRecordResponse postGameRecordHandlerV1(PostGameRecordHandlerV1 input)
+      throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
-      input.handleEmptyResponse(
+      return input.parseResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
     } finally {
       if (httpResponse != null && httpResponse.getPayload() != null) {

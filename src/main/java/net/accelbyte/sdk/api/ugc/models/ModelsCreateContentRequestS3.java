@@ -42,6 +42,9 @@ public class ModelsCreateContentRequestS3 extends Model {
   @JsonProperty("preview")
   private String preview;
 
+  @JsonProperty("previewMetadata")
+  private ModelsPreviewMetadata previewMetadata;
+
   @JsonProperty("subType")
   private String subType;
 

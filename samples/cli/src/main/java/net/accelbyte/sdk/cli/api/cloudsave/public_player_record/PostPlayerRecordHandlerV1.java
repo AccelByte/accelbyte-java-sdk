@@ -80,8 +80,10 @@ public class PostPlayerRecordHandlerV1 implements Callable<Integer> {
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, ModelsPlayerRecordRequest.class))
                   .build();
-      wrapper.postPlayerRecordHandlerV1(operation);
-      log.info("Operation successful");
+      ModelsPlayerRecordResponse response = wrapper.postPlayerRecordHandlerV1(operation);
+      String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful with response below:\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error("HttpResponseException occur with message below:\n{}", e.getMessage());

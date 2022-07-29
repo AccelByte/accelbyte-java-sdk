@@ -66,6 +66,9 @@ public class ModelsCreateContentResponse extends Model {
   @JsonProperty("preview")
   private String preview;
 
+  @JsonProperty("previewURL")
+  private List<ModelsPreviewURL> previewURL;
+
   @JsonProperty("shareCode")
   private String shareCode;
 
@@ -77,6 +80,9 @@ public class ModelsCreateContentResponse extends Model {
 
   @JsonProperty("type")
   private String type;
+
+  @JsonProperty("updatedTime")
+  private String updatedTime;
 
   @JsonProperty("userId")
   private String userId;

@@ -21,8 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateStat
  *
- * <p>Update stat. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:STAT", action=4 (UPDATE) * Returns : updated stat
+ * <p>Update stat. Other detail info:
+ *
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STAT", action=4 (UPDATE) *
+ * Returns : updated stat
  */
 @Getter
 @Setter

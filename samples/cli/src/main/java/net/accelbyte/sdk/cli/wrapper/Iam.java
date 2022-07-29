@@ -13,9 +13,9 @@ import net.accelbyte.sdk.cli.api.iam.bans_deprecated.*;
 import net.accelbyte.sdk.cli.api.iam.clients.*;
 import net.accelbyte.sdk.cli.api.iam.clients_deprecated.*;
 import net.accelbyte.sdk.cli.api.iam.input_validations.*;
-import net.accelbyte.sdk.cli.api.iam.o_auth.*;
 import net.accelbyte.sdk.cli.api.iam.o_auth2_0.*;
 import net.accelbyte.sdk.cli.api.iam.o_auth2_0_extension.*;
+import net.accelbyte.sdk.cli.api.iam.o_auth_deprecated.*;
 import net.accelbyte.sdk.cli.api.iam.roles.*;
 import net.accelbyte.sdk.cli.api.iam.roles_deprecated.*;
 import net.accelbyte.sdk.cli.api.iam.sso.*;
@@ -242,9 +242,11 @@ import picocli.CommandLine.Command;
       GetRevocationListV3.class,
       TokenRevocationV3.class,
       TokenGrantV3.class,
+      VerifyTokenV3.class,
       PlatformAuthenticationV3.class,
       PublicGetInputValidations.class,
       RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3.class,
+      RetrieveActiveOIDCClientsPublicV3.class,
       PublicListUserIDByPlatformUserIDsV3.class,
       PublicGetUserByPlatformUserIDV3.class,
       PublicGetAsyncStatus.class,

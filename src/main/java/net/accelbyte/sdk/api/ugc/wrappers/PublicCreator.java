@@ -24,9 +24,26 @@ public class PublicCreator {
   }
 
   /**
-   * @see GetCreator
+   * @see PublicSearchCreator
    */
-  public ModelsCreatorResponse getCreator(GetCreator input) throws Exception {
+  public ModelsPaginatedCreatorOverviewResponse publicSearchCreator(PublicSearchCreator input)
+      throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
+   * @see PublicGetCreator
+   */
+  public ModelsCreatorResponse publicGetCreator(PublicGetCreator input) throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);

@@ -33,6 +33,9 @@ public class ModelsGetContentPreviewResponse extends Model {
   @JsonProperty("preview")
   private String preview;
 
+  @JsonProperty("previewURL")
+  private ModelsPreviewURL previewURL;
+
   @JsonIgnore
   public ModelsGetContentPreviewResponse createFromJson(String json)
       throws JsonProcessingException {

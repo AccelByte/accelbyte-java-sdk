@@ -3,6 +3,4 @@
  */
 package oidcweb;
 
-class AppTest {
-   
-}
+class AppTest {}

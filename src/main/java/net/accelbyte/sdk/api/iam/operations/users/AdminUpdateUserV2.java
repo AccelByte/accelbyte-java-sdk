@@ -30,13 +30,14 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Country use ISO3166-1 alpha-2 two letter, e.g. US.
  *
- * <p>Several case of updating email address * User want to update email address of which have been
- * verified, NewEmailAddress response field will be filled with new email address. * User want to
- * update email address of which have not been verified, {LoginId, OldEmailAddress, EmailAddress}
- * response field will be filled with new email address. * User want to update email address of
- * which have been verified and updated before, {LoginId, OldEmailAddress, EmailAddress} response
- * field will be filled with verified email before. NewEmailAddress response field will be filled
- * with newest email address.
+ * <p>Several case of updating email address
+ *
+ * <p>* User want to update email address of which have been verified, NewEmailAddress response
+ * field will be filled with new email address. * User want to update email address of which have
+ * not been verified, {LoginId, OldEmailAddress, EmailAddress} response field will be filled with
+ * new email address. * User want to update email address of which have been verified and updated
+ * before, {LoginId, OldEmailAddress, EmailAddress} response field will be filled with verified
+ * email before. NewEmailAddress response field will be filled with newest email address.
  */
 @Getter
 @Setter

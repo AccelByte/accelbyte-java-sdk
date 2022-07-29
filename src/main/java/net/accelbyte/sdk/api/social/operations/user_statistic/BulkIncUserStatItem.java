@@ -23,9 +23,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * bulkIncUserStatItem
  *
- * <p>Bulk update multiple user's statitems value. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=4 (UPDATE) * Returns : bulk updated
- * result
+ * <p>Bulk update multiple user's statitems value. Other detail info:
+ *
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=4 (UPDATE) *
+ * Returns : bulk updated result
  */
 @Getter
 @Setter

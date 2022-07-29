@@ -78,6 +78,9 @@ public class ModelsContentDownloadResponse extends Model {
   @JsonProperty("payloadURL")
   private List<ModelsPayloadURL> payloadURL;
 
+  @JsonProperty("previewURL")
+  private List<ModelsPreviewURL> previewURL;
+
   @JsonProperty("screenshots")
   private List<ModelsScreenshotResponse> screenshots;
 
@@ -92,6 +95,9 @@ public class ModelsContentDownloadResponse extends Model {
 
   @JsonProperty("type")
   private String type;
+
+  @JsonProperty("updatedTime")
+  private String updatedTime;
 
   @JsonProperty("userId")
   private String userId;

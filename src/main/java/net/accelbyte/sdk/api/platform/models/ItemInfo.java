@@ -108,8 +108,14 @@ public class ItemInfo extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("optionBoxConfig")
+  private OptionBoxConfig optionBoxConfig;
+
   @JsonProperty("purchasable")
   private Boolean purchasable;
+
+  @JsonProperty("purchaseCondition")
+  private PurchaseCondition purchaseCondition;
 
   @JsonProperty("recurring")
   private Recurring recurring;
@@ -307,6 +313,7 @@ public class ItemInfo extends Model {
     COINS("COINS"),
     INGAMEITEM("INGAMEITEM"),
     MEDIA("MEDIA"),
+    OPTIONBOX("OPTIONBOX"),
     SEASON("SEASON"),
     SUBSCRIPTION("SUBSCRIPTION");
 

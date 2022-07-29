@@ -240,6 +240,7 @@ public class StackableEntitlementInfo extends Model {
     CODE("CODE"),
     ENTITLEMENT("ENTITLEMENT"),
     MEDIA("MEDIA"),
+    OPTIONBOX("OPTIONBOX"),
     SUBSCRIPTION("SUBSCRIPTION");
 
     private String value;
