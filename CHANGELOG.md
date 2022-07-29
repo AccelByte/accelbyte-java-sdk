@@ -1,5 +1,20 @@
+<a name="v0.16.0"></a>
+## [v0.16.0] - 2022-07-29
+### Chore
+- bump to version 0.16 for justice 3.28
+- code warnings cleanup
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for justice 3.28
+- **spec:** update spec for justice 3.28
+
+### Docs
+- update changelog for justice 3.28
+
+### Feat
+- **samples:** oidc login sample app
+
+
 <a name="v0.15.0"></a>
-## [v0.15.0] - 2022-07-18
+## [v0.15.0] - 2022-07-19
 ### Chore
 - bump to version 0.15 for justice 3.27
 - remove checkstyle
@@ -514,6 +529,7 @@
 - replace unnecessary object
 
 
+[v0.16.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.15.0...v0.16.0
 [v0.15.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.14.0...v0.15.0
 [v0.14.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.13.0...v0.14.0
 [v0.13.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.12.0...v0.13.0
