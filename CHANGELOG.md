@@ -1,16 +1,21 @@
 <a name="v0.16.0"></a>
-## [v0.16.0] - 2022-07-29
+## [v0.16.0] - 2022-08-01
 ### Chore
 - bump to version 0.16 for justice 3.28
 - code warnings cleanup
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for justice 3.28 (again)
 - **sdk:** regenerate sdk, cli sample app, cli test, doc index for justice 3.28
 - **spec:** update spec for justice 3.28
 
 ### Docs
+- update changelog for justice 3.28 (again)
 - update changelog for justice 3.28
 
 ### Feat
 - **samples:** oidc login sample app
+
+### Test
+- regenerate ws lobby cli tests
 
 
 <a name="v0.15.0"></a>
