@@ -123,7 +123,7 @@ public class QuerySession extends Operation {
     return true;
   }
 
-  public ModelsSessionQueryResponse parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsSessionQueryResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

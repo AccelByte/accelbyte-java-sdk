@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.api.gdpr.wrappers;
 
-import java.io.*;
 import java.util.*;
 import net.accelbyte.sdk.api.gdpr.models.*;
 import net.accelbyte.sdk.api.gdpr.operations.data_retrieval.*;

@@ -65,7 +65,7 @@ public class AdminGetConfigV1 extends Operation {
     return true;
   }
 
-  public ModelsConfigReq parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsConfigReq parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

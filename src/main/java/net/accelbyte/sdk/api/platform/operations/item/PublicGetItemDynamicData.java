@@ -75,7 +75,7 @@ public class PublicGetItemDynamicData extends Operation {
     return true;
   }
 
-  public ItemDynamicDataInfo parseResponse(int code, String contentTpe, InputStream payload)
+  public ItemDynamicDataInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

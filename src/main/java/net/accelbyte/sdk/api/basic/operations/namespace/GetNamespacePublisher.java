@@ -66,7 +66,7 @@ public class GetNamespacePublisher extends Operation {
     return true;
   }
 
-  public NamespacePublisherInfo parseResponse(int code, String contentTpe, InputStream payload)
+  public NamespacePublisherInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

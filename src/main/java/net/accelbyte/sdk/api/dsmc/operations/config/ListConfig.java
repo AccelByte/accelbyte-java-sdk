@@ -51,7 +51,7 @@ public class ListConfig extends Operation {
     return true;
   }
 
-  public ModelsListConfigResponse parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsListConfigResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

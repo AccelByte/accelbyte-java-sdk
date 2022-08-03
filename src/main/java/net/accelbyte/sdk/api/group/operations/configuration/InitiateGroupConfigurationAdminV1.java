@@ -79,7 +79,7 @@ public class InitiateGroupConfigurationAdminV1 extends Operation {
   }
 
   public ModelsCreateGroupConfigurationResponseV1 parseResponse(
-      int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {
       return new ModelsCreateGroupConfigurationResponseV1().createFromJson(json);

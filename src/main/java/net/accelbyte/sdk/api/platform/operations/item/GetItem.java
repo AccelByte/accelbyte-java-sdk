@@ -92,7 +92,7 @@ public class GetItem extends Operation {
     return true;
   }
 
-  public FullItemInfo parseResponse(int code, String contentTpe, InputStream payload)
+  public FullItemInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

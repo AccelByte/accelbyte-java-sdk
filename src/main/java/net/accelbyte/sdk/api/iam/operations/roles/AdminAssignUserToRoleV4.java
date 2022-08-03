@@ -77,8 +77,8 @@ public class AdminAssignUserToRoleV4 extends Operation {
     return true;
   }
 
-  public ModelAssignedUserV4Response parseResponse(int code, String contentTpe, InputStream payload)
-      throws HttpResponseException, IOException {
+  public ModelAssignedUserV4Response parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {
       return new ModelAssignedUserV4Response().createFromJson(json);

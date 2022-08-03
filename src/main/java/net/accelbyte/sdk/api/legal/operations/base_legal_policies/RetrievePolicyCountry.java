@@ -75,7 +75,7 @@ public class RetrievePolicyCountry extends Operation {
     return true;
   }
 
-  public RetrievePolicyResponse parseResponse(int code, String contentTpe, InputStream payload)
+  public RetrievePolicyResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

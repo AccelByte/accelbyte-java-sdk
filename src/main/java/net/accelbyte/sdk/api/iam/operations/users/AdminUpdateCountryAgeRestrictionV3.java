@@ -83,7 +83,7 @@ public class AdminUpdateCountryAgeRestrictionV3 extends Operation {
     return true;
   }
 
-  public ModelCountryV3Response parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelCountryV3Response parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

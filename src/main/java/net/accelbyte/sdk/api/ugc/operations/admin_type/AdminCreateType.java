@@ -73,7 +73,7 @@ public class AdminCreateType extends Operation {
     return true;
   }
 
-  public ModelsCreateTypeResponse parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsCreateTypeResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {

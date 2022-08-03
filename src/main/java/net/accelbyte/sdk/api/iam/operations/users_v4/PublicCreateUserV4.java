@@ -84,8 +84,8 @@ public class PublicCreateUserV4 extends Operation {
     return true;
   }
 
-  public AccountCreateUserResponseV4 parseResponse(int code, String contentTpe, InputStream payload)
-      throws HttpResponseException, IOException {
+  public AccountCreateUserResponseV4 parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {
       return new AccountCreateUserResponseV4().createFromJson(json);

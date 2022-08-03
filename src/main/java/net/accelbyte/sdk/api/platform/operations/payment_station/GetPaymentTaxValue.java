@@ -91,7 +91,7 @@ public class GetPaymentTaxValue extends Operation {
     return true;
   }
 
-  public TaxResult parseResponse(int code, String contentTpe, InputStream payload)
+  public TaxResult parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

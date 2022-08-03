@@ -77,7 +77,7 @@ public class GetTicketDynamic extends Operation {
     return true;
   }
 
-  public TicketDynamicInfo parseResponse(int code, String contentTpe, InputStream payload)
+  public TicketDynamicInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

@@ -86,7 +86,7 @@ public class CreateMemberRoleAdminV1 extends Operation {
   }
 
   public ModelsCreateMemberRoleResponseV1 parseResponse(
-      int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {
       return new ModelsCreateMemberRoleResponseV1().createFromJson(json);

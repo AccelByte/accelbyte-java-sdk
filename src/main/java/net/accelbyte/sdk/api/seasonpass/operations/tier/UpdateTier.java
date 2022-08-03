@@ -93,7 +93,7 @@ public class UpdateTier extends Operation {
     return true;
   }
 
-  public Tier parseResponse(int code, String contentTpe, InputStream payload)
+  public Tier parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

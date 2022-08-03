@@ -73,7 +73,7 @@ public class PublicGetCreator extends Operation {
     return true;
   }
 
-  public ModelsCreatorResponse parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsCreatorResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

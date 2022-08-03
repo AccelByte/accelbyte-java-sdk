@@ -87,7 +87,7 @@ public class RemovePlayerFromSession extends Operation {
     return true;
   }
 
-  public ModelsAddPlayerResponse parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsAddPlayerResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

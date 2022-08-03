@@ -76,7 +76,7 @@ public class PublicGetUserProfileInfo extends Operation {
     return true;
   }
 
-  public UserProfileInfo parseResponse(int code, String contentTpe, InputStream payload)
+  public UserProfileInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

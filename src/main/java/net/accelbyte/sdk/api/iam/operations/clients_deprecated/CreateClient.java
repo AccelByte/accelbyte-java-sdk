@@ -66,7 +66,7 @@ public class CreateClient extends Operation {
   }
 
   public ClientmodelClientCreationResponse parseResponse(
-      int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {
       return new ClientmodelClientCreationResponse().createFromJson(json);

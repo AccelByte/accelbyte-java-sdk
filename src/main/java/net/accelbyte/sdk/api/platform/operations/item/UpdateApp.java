@@ -184,7 +184,7 @@ public class UpdateApp extends Operation {
     return true;
   }
 
-  public FullAppInfo parseResponse(int code, String contentTpe, InputStream payload)
+  public FullAppInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

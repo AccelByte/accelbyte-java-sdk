@@ -94,7 +94,7 @@ public class PublicIncUserStatItemValue extends Operation {
     return true;
   }
 
-  public StatItemIncResult parseResponse(int code, String contentTpe, InputStream payload)
+  public StatItemIncResult parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

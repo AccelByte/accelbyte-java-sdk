@@ -85,7 +85,7 @@ public class GetAllNotificationTopicsV1Admin extends Operation {
   }
 
   public ModelGetAllNotificationTopicsResponse parseResponse(
-      int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {
       return new ModelGetAllNotificationTopicsResponse().createFromJson(json);

@@ -80,7 +80,7 @@ public class CreateUser extends Operation {
     return true;
   }
 
-  public ModelUserCreateResponse parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelUserCreateResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {

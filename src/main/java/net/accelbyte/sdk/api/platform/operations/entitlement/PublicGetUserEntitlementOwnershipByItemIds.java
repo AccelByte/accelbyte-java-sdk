@@ -91,7 +91,7 @@ public class PublicGetUserEntitlementOwnershipByItemIds extends Operation {
     return true;
   }
 
-  public List<EntitlementOwnership> parseResponse(int code, String contentTpe, InputStream payload)
+  public List<EntitlementOwnership> parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

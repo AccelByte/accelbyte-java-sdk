@@ -73,7 +73,7 @@ public class GetUsersByLoginIds extends Operation {
     return true;
   }
 
-  public ModelPublicUsersResponse parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelPublicUsersResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

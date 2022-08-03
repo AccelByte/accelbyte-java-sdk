@@ -95,7 +95,7 @@ public class PublicConsumeUserEntitlement extends Operation {
     return true;
   }
 
-  public EntitlementInfo parseResponse(int code, String contentTpe, InputStream payload)
+  public EntitlementInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

@@ -58,7 +58,7 @@ public class GetBansType extends Operation {
     return true;
   }
 
-  public AccountcommonBans parseResponse(int code, String contentTpe, InputStream payload)
+  public AccountcommonBans parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

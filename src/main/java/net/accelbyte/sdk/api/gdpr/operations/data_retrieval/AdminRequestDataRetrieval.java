@@ -87,8 +87,8 @@ public class AdminRequestDataRetrieval extends Operation {
     return true;
   }
 
-  public ModelsDataRetrievalResponse parseResponse(int code, String contentTpe, InputStream payload)
-      throws HttpResponseException, IOException {
+  public ModelsDataRetrievalResponse parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {
       return new ModelsDataRetrievalResponse().createFromJson(json);

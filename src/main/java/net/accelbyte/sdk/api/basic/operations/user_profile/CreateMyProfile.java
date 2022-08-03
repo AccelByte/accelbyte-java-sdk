@@ -78,7 +78,7 @@ public class CreateMyProfile extends Operation {
     return true;
   }
 
-  public UserProfilePrivateInfo parseResponse(int code, String contentTpe, InputStream payload)
+  public UserProfilePrivateInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {

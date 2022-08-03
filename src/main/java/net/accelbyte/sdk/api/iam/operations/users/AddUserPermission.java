@@ -156,7 +156,7 @@ public class AddUserPermission extends Operation {
     return true;
   }
 
-  public void handleEmptyResponse(int code, String contentTpe, InputStream payload)
+  public void handleEmptyResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 204) {
       String json = Helper.convertInputStreamToString(payload);

@@ -180,7 +180,7 @@ public class RefundPaymentOrderByDedicated extends Operation {
     return true;
   }
 
-  public PaymentOrderRefundResult parseResponse(int code, String contentTpe, InputStream payload)
+  public PaymentOrderRefundResult parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

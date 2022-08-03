@@ -87,8 +87,8 @@ public class AdminUploadContentDirect extends Operation {
     return true;
   }
 
-  public ModelsCreateContentResponse parseResponse(int code, String contentTpe, InputStream payload)
-      throws HttpResponseException, IOException {
+  public ModelsCreateContentResponse parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {
       return new ModelsCreateContentResponse().createFromJson(json);

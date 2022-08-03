@@ -8,9 +8,6 @@
 
 package net.accelbyte.sdk.api.basic.wrappers;
 
-import java.io.*;
-import java.util.*;
-import net.accelbyte.sdk.api.basic.models.*;
 import net.accelbyte.sdk.api.basic.operations.anonymization.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;

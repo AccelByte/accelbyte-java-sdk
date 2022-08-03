@@ -72,7 +72,7 @@ public class GetClient extends Operation {
     return true;
   }
 
-  public ClientmodelClientResponse parseResponse(int code, String contentTpe, InputStream payload)
+  public ClientmodelClientResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

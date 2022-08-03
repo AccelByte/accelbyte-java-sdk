@@ -93,7 +93,7 @@ public class AcquireUserTicket extends Operation {
     return true;
   }
 
-  public TicketAcquireResult parseResponse(int code, String contentTpe, InputStream payload)
+  public TicketAcquireResult parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

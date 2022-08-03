@@ -73,7 +73,7 @@ public class PublicGetAsyncStatus extends Operation {
     return true;
   }
 
-  public ModelLinkRequest parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelLinkRequest parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

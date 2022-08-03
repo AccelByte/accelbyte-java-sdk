@@ -91,8 +91,8 @@ public class GetAllPodConfig extends Operation {
     return true;
   }
 
-  public ModelsListPodConfigResponse parseResponse(int code, String contentTpe, InputStream payload)
-      throws HttpResponseException, IOException {
+  public ModelsListPodConfigResponse parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {
       return new ModelsListPodConfigResponse().createFromJson(json);

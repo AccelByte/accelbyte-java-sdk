@@ -81,7 +81,7 @@ public class CreateGroup extends Operation {
     return true;
   }
 
-  public ModelsCreateGroupResponse parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsCreateGroupResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {

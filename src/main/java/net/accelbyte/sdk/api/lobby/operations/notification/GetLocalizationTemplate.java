@@ -85,7 +85,7 @@ public class GetLocalizationTemplate extends Operation {
     return true;
   }
 
-  public ModelTemplateLocalization parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelTemplateLocalization parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

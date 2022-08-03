@@ -77,7 +77,7 @@ public class GetServer extends Operation {
     return true;
   }
 
-  public ModelsServer parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsServer parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

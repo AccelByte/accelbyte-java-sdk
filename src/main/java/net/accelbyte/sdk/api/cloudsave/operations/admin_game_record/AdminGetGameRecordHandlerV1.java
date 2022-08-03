@@ -77,7 +77,7 @@ public class AdminGetGameRecordHandlerV1 extends Operation {
     return true;
   }
 
-  public ModelsGameRecordResponse parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsGameRecordResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

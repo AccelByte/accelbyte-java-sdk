@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.dslogmanager.wrappers;
 
-import java.io.*;
-import java.util.*;
 import net.accelbyte.sdk.api.dslogmanager.models.*;
 import net.accelbyte.sdk.api.dslogmanager.operations.all_terminated_servers.*;
 import net.accelbyte.sdk.core.AccelByteSDK;

@@ -56,7 +56,7 @@ public class CreatePolicy extends Operation {
     return true;
   }
 
-  public CreateBasePolicyResponse parseResponse(int code, String contentTpe, InputStream payload)
+  public CreateBasePolicyResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {

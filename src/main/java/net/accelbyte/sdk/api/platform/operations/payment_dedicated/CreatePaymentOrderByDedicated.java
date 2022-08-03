@@ -182,7 +182,7 @@ public class CreatePaymentOrderByDedicated extends Operation {
     return true;
   }
 
-  public PaymentOrderCreateResult parseResponse(int code, String contentTpe, InputStream payload)
+  public PaymentOrderCreateResult parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {

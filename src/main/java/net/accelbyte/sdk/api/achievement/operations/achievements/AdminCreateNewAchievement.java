@@ -82,7 +82,7 @@ public class AdminCreateNewAchievement extends Operation {
     return true;
   }
 
-  public ModelsAchievementResponse parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsAchievementResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {

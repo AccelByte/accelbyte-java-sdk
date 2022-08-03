@@ -83,7 +83,7 @@ public class PublicCreateProfile extends Operation {
     return true;
   }
 
-  public void handleEmptyResponse(int code, String contentTpe, InputStream payload)
+  public void handleEmptyResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 201) {
       String json = Helper.convertInputStreamToString(payload);

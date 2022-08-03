@@ -8,9 +8,6 @@
 
 package net.accelbyte.sdk.api.gametelemetry.wrappers;
 
-import java.io.*;
-import java.util.*;
-import net.accelbyte.sdk.api.gametelemetry.models.*;
 import net.accelbyte.sdk.api.gametelemetry.operations.operations.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;

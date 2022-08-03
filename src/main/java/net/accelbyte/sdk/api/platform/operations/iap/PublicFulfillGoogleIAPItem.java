@@ -85,7 +85,7 @@ public class PublicFulfillGoogleIAPItem extends Operation {
     return true;
   }
 
-  public GoogleReceiptResolveResult parseResponse(int code, String contentTpe, InputStream payload)
+  public GoogleReceiptResolveResult parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

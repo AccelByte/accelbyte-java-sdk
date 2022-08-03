@@ -87,7 +87,7 @@ public class GetPass extends Operation {
     return true;
   }
 
-  public PassInfo parseResponse(int code, String contentTpe, InputStream payload)
+  public PassInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

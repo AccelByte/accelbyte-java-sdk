@@ -109,7 +109,7 @@ public class GetLocaleItemBySku extends Operation {
     return true;
   }
 
-  public PopulatedItemInfo parseResponse(int code, String contentTpe, InputStream payload)
+  public PopulatedItemInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

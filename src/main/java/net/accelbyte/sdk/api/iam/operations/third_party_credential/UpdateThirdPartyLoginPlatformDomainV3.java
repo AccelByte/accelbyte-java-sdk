@@ -85,8 +85,8 @@ public class UpdateThirdPartyLoginPlatformDomainV3 extends Operation {
     return true;
   }
 
-  public ModelPlatformDomainResponse parseResponse(int code, String contentTpe, InputStream payload)
-      throws HttpResponseException, IOException {
+  public ModelPlatformDomainResponse parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {
       return new ModelPlatformDomainResponse().createFromJson(json);

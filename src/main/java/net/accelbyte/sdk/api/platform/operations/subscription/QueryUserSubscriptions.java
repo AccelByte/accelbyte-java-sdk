@@ -116,7 +116,7 @@ public class QueryUserSubscriptions extends Operation {
   }
 
   public SubscriptionPagingSlicedResult parseResponse(
-      int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {
       return new SubscriptionPagingSlicedResult().createFromJson(json);

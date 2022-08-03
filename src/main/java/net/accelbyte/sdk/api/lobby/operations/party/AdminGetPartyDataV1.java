@@ -75,7 +75,7 @@ public class AdminGetPartyDataV1 extends Operation {
     return true;
   }
 
-  public ModelsPartyData parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsPartyData parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

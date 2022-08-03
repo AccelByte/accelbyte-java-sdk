@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.api.seasonpass.wrappers;
 
-import java.io.*;
 import java.util.*;
 import net.accelbyte.sdk.api.seasonpass.models.*;
 import net.accelbyte.sdk.api.seasonpass.operations.tier.*;

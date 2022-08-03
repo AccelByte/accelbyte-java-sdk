@@ -74,7 +74,7 @@ public class UpdateSteamIAPConfig extends Operation {
     return true;
   }
 
-  public SteamIAPConfigInfo parseResponse(int code, String contentTpe, InputStream payload)
+  public SteamIAPConfigInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

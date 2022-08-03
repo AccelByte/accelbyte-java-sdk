@@ -83,7 +83,7 @@ public class IncreaseTicketSale extends Operation {
     return true;
   }
 
-  public TicketSaleIncrementResult parseResponse(int code, String contentTpe, InputStream payload)
+  public TicketSaleIncrementResult parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

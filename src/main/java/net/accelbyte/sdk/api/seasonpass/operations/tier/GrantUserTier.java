@@ -87,7 +87,7 @@ public class GrantUserTier extends Operation {
     return true;
   }
 
-  public UserSeasonSummary parseResponse(int code, String contentTpe, InputStream payload)
+  public UserSeasonSummary parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

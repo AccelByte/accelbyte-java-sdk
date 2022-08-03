@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.api.achievement.wrappers;
 
-import java.io.*;
 import java.util.*;
 import net.accelbyte.sdk.api.achievement.models.*;
 import net.accelbyte.sdk.api.achievement.operations.achievements.*;

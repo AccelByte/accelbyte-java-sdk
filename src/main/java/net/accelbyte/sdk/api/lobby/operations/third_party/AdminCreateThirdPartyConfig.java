@@ -75,7 +75,7 @@ public class AdminCreateThirdPartyConfig extends Operation {
     return true;
   }
 
-  public ModelsCreateConfigResponse parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsCreateConfigResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {

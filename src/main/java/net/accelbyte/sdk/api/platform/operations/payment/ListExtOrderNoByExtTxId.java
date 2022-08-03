@@ -15,7 +15,6 @@ import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
@@ -82,7 +81,7 @@ public class ListExtOrderNoByExtTxId extends Operation {
     return true;
   }
 
-  public List<String> parseResponse(int code, String contentTpe, InputStream payload)
+  public List<String> parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

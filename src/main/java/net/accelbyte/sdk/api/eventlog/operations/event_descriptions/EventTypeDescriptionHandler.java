@@ -48,7 +48,7 @@ public class EventTypeDescriptionHandler extends Operation {
     return true;
   }
 
-  public ModelsMultipleEventType parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsMultipleEventType parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

@@ -96,7 +96,7 @@ public class DebitUserWallet extends Operation {
     return true;
   }
 
-  public WalletInfo parseResponse(int code, String contentTpe, InputStream payload)
+  public WalletInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

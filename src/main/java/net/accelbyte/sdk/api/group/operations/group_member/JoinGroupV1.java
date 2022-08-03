@@ -92,7 +92,7 @@ public class JoinGroupV1 extends Operation {
     return true;
   }
 
-  public ModelsJoinGroupResponseV1 parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsJoinGroupResponseV1 parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {

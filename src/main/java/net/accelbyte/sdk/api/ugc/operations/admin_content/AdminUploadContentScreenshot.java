@@ -90,7 +90,7 @@ public class AdminUploadContentScreenshot extends Operation {
   }
 
   public ModelsCreateScreenshotResponse parseResponse(
-      int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {
       return new ModelsCreateScreenshotResponse().createFromJson(json);

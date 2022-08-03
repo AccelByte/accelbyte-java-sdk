@@ -74,8 +74,8 @@ public class AdminSubmitUserAccountDeletionRequest extends Operation {
     return true;
   }
 
-  public ModelsRequestDeleteResponse parseResponse(int code, String contentTpe, InputStream payload)
-      throws HttpResponseException, IOException {
+  public ModelsRequestDeleteResponse parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {
       return new ModelsRequestDeleteResponse().createFromJson(json);

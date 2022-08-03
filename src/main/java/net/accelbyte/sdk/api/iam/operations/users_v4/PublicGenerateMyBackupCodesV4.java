@@ -66,7 +66,7 @@ public class PublicGenerateMyBackupCodesV4 extends Operation {
     return true;
   }
 
-  public ModelBackupCodesResponseV4 parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelBackupCodesResponseV4 parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

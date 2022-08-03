@@ -92,7 +92,7 @@ public class GetUserMapping extends Operation {
     return true;
   }
 
-  public ModelGetUserMapping parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelGetUserMapping parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

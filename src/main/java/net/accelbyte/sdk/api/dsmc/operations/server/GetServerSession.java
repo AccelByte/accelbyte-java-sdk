@@ -76,8 +76,8 @@ public class GetServerSession extends Operation {
     return true;
   }
 
-  public ModelsServerSessionResponse parseResponse(int code, String contentTpe, InputStream payload)
-      throws HttpResponseException, IOException {
+  public ModelsServerSessionResponse parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {
       return new ModelsServerSessionResponse().createFromJson(json);

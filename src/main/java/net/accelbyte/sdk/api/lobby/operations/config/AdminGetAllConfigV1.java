@@ -49,7 +49,7 @@ public class AdminGetAllConfigV1 extends Operation {
     return true;
   }
 
-  public ModelsConfigList parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsConfigList parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

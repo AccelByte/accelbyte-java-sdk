@@ -88,7 +88,7 @@ public class GetSingleTemplateLocalizationV1Admin extends Operation {
     return true;
   }
 
-  public ModelLocalization parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelLocalization parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

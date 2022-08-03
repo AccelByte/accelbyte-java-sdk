@@ -94,7 +94,7 @@ public class InviteGroupPublicV1 extends Operation {
   }
 
   public ModelsUserInvitationResponseV1 parseResponse(
-      int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {
       return new ModelsUserInvitationResponseV1().createFromJson(json);

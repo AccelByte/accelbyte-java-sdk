@@ -76,7 +76,7 @@ public class GetKeyGroupDynamic extends Operation {
     return true;
   }
 
-  public KeyGroupDynamicInfo parseResponse(int code, String contentTpe, InputStream payload)
+  public KeyGroupDynamicInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

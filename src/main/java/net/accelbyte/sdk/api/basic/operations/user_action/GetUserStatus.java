@@ -81,8 +81,8 @@ public class GetUserStatus extends Operation {
     return true;
   }
 
-  public ADTOObjectForEqu8UserStatus parseResponse(int code, String contentTpe, InputStream payload)
-      throws HttpResponseException, IOException {
+  public ADTOObjectForEqu8UserStatus parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {
       return new ADTOObjectForEqu8UserStatus().createFromJson(json);

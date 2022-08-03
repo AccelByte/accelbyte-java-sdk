@@ -76,7 +76,7 @@ public class AdminGetBulkUserByEmailAddressV3 extends Operation {
     return true;
   }
 
-  public ModelListUserResponseV3 parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelListUserResponseV3 parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

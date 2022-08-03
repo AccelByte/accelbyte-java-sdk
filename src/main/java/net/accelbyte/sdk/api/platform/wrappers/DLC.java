@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.platform.wrappers;
 
-import java.io.*;
-import java.util.*;
 import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.dlc.*;
 import net.accelbyte.sdk.core.AccelByteSDK;

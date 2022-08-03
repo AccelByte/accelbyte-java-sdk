@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.eventlog.wrappers;
 
-import java.io.*;
-import java.util.*;
 import net.accelbyte.sdk.api.eventlog.models.*;
 import net.accelbyte.sdk.api.eventlog.operations.event_descriptions.*;
 import net.accelbyte.sdk.core.AccelByteSDK;

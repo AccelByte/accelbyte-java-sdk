@@ -77,7 +77,7 @@ public class SyncOrders extends Operation {
     return true;
   }
 
-  public OrderSyncResult parseResponse(int code, String contentTpe, InputStream payload)
+  public OrderSyncResult parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

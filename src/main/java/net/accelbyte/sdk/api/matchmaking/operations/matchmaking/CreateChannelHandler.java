@@ -92,8 +92,8 @@ public class CreateChannelHandler extends Operation {
     return true;
   }
 
-  public ModelsCreateChannelResponse parseResponse(int code, String contentTpe, InputStream payload)
-      throws HttpResponseException, IOException {
+  public ModelsCreateChannelResponse parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {
       return new ModelsCreateChannelResponse().createFromJson(json);

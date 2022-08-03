@@ -13,7 +13,6 @@ import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
@@ -72,7 +71,7 @@ public class AdminDeleteRolePermissionsV3 extends Operation {
     return true;
   }
 
-  public void handleEmptyResponse(int code, String contentTpe, InputStream payload)
+  public void handleEmptyResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 204) {
       String json = Helper.convertInputStreamToString(payload);

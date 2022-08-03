@@ -67,7 +67,7 @@ public class CountServer extends Operation {
     return true;
   }
 
-  public ModelsCountServerResponse parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsCountServerResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

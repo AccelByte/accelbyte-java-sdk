@@ -79,7 +79,7 @@ public class AdminInviteUserV3 extends Operation {
     return true;
   }
 
-  public ModelInviteUserResponseV3 parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelInviteUserResponseV3 parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {

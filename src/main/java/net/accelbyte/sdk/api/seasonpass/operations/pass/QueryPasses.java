@@ -80,7 +80,7 @@ public class QueryPasses extends Operation {
     return true;
   }
 
-  public List<PassInfo> parseResponse(int code, String contentTpe, InputStream payload)
+  public List<PassInfo> parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

@@ -15,7 +15,6 @@ import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.basic.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
@@ -88,7 +87,7 @@ public class PublicUpdateCustomAttributesPartially extends Operation {
     return true;
   }
 
-  public Map<String, ?> parseResponse(int code, String contentTpe, InputStream payload)
+  public Map<String, ?> parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

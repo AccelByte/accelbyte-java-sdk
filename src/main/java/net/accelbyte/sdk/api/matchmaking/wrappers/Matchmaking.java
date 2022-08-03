@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.api.matchmaking.wrappers;
 
-import java.io.*;
 import java.util.*;
 import net.accelbyte.sdk.api.matchmaking.models.*;
 import net.accelbyte.sdk.api.matchmaking.operations.matchmaking.*;

@@ -74,7 +74,7 @@ public class UpdateIAPItemConfig extends Operation {
     return true;
   }
 
-  public IAPItemConfigInfo parseResponse(int code, String contentTpe, InputStream payload)
+  public IAPItemConfigInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

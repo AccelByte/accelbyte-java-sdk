@@ -82,7 +82,7 @@ public class ListAdminsV3 extends Operation {
   }
 
   public ModelGetUsersResponseWithPaginationV3 parseResponse(
-      int code, String contentTpe, InputStream payload) throws HttpResponseException, IOException {
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {
       return new ModelGetUsersResponseWithPaginationV3().createFromJson(json);

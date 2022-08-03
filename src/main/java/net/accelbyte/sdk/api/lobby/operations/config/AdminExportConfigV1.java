@@ -68,7 +68,7 @@ public class AdminExportConfigV1 extends Operation {
     return true;
   }
 
-  public ModelsConfigExport parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsConfigExport parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

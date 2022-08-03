@@ -110,7 +110,7 @@ public class PlatformTokenRequestHandler extends Operation {
     return true;
   }
 
-  public OauthmodelTokenResponse parseResponse(int code, String contentTpe, InputStream payload)
+  public OauthmodelTokenResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

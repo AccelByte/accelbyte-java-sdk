@@ -99,7 +99,7 @@ public class QueryWallets extends Operation {
     return true;
   }
 
-  public WalletPagingSlicedResult parseResponse(int code, String contentTpe, InputStream payload)
+  public WalletPagingSlicedResult parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

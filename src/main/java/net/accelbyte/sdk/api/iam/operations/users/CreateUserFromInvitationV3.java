@@ -90,7 +90,7 @@ public class CreateUserFromInvitationV3 extends Operation {
     return true;
   }
 
-  public ModelUserCreateResponseV3 parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelUserCreateResponseV3 parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {

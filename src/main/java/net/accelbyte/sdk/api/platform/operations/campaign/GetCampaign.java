@@ -76,7 +76,7 @@ public class GetCampaign extends Operation {
     return true;
   }
 
-  public CampaignInfo parseResponse(int code, String contentTpe, InputStream payload)
+  public CampaignInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

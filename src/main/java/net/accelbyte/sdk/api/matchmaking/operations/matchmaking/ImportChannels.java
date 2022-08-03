@@ -89,7 +89,7 @@ public class ImportChannels extends Operation {
     return true;
   }
 
-  public ModelsImportConfigResponse parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsImportConfigResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

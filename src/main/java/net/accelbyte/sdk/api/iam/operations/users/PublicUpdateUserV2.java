@@ -88,7 +88,7 @@ public class PublicUpdateUserV2 extends Operation {
     return true;
   }
 
-  public List<ModelUserResponse> parseResponse(int code, String contentTpe, InputStream payload)
+  public List<ModelUserResponse> parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

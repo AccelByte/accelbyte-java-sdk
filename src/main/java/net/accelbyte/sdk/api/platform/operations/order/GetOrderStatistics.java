@@ -66,7 +66,7 @@ public class GetOrderStatistics extends Operation {
     return true;
   }
 
-  public OrderStatistics parseResponse(int code, String contentTpe, InputStream payload)
+  public OrderStatistics parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

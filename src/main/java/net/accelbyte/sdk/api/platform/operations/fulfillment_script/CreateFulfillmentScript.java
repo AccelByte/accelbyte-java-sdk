@@ -77,7 +77,7 @@ public class CreateFulfillmentScript extends Operation {
     return true;
   }
 
-  public FulfillmentScriptInfo parseResponse(int code, String contentTpe, InputStream payload)
+  public FulfillmentScriptInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {

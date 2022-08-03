@@ -85,7 +85,7 @@ public class AddPort extends Operation {
     return true;
   }
 
-  public ModelsDSMConfigRecord parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsDSMConfigRecord parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 201) {

@@ -87,8 +87,8 @@ public class ImportAchievements extends Operation {
     return true;
   }
 
-  public ServiceImportConfigResponse parseResponse(int code, String contentTpe, InputStream payload)
-      throws HttpResponseException, IOException {
+  public ServiceImportConfigResponse parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {
       return new ServiceImportConfigResponse().createFromJson(json);

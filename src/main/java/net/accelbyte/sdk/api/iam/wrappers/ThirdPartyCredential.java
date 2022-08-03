@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.api.iam.wrappers;
 
-import java.io.*;
 import java.util.*;
 import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.api.iam.operations.third_party_credential.*;

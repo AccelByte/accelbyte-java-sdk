@@ -73,7 +73,7 @@ public class PublicGetUserAccountDeletionStatus extends Operation {
     return true;
   }
 
-  public ModelsDeletionStatus parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsDeletionStatus parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

@@ -72,7 +72,7 @@ public class GetRoleMembers extends Operation {
     return true;
   }
 
-  public ModelRoleMembersResponse parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelRoleMembersResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

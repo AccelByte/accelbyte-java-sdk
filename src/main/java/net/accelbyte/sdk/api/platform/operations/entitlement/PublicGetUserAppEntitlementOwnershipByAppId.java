@@ -93,7 +93,7 @@ public class PublicGetUserAppEntitlementOwnershipByAppId extends Operation {
     return true;
   }
 
-  public Ownership parseResponse(int code, String contentTpe, InputStream payload)
+  public Ownership parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

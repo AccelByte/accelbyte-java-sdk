@@ -88,7 +88,7 @@ public class UpdateCountryGroup extends Operation {
     return true;
   }
 
-  public CountryGroupObject parseResponse(int code, String contentTpe, InputStream payload)
+  public CountryGroupObject parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {

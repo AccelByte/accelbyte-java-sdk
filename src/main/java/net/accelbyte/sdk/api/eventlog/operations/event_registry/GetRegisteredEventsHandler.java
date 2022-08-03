@@ -50,7 +50,7 @@ public class GetRegisteredEventsHandler extends Operation {
     return true;
   }
 
-  public ModelsEventRegistry parseResponse(int code, String contentTpe, InputStream payload)
+  public ModelsEventRegistry parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {
