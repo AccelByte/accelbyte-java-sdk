@@ -6,35 +6,10 @@
 
 package net.accelbyte.sdk.core;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
-import okhttp3.FormBody;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.WebSocket;
-import okhttp3.WebSocketListener;
-import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
@@ -50,15 +25,10 @@ import net.accelbyte.sdk.api.qosm.operations.public_.ListServer;
 import net.accelbyte.sdk.api.qosm.operations.server.Heartbeat;
 import net.accelbyte.sdk.api.qosm.wrappers.Public;
 import net.accelbyte.sdk.api.qosm.wrappers.Server;
-import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy;
-import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy.RetryIntervalType;
 import net.accelbyte.sdk.core.client.HttpClient;
 import net.accelbyte.sdk.core.client.OkhttpClient;
-import net.accelbyte.sdk.core.client.OkhttpWebSocketClient;
-import net.accelbyte.sdk.core.client.ReliableHttpClient;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
-import net.accelbyte.sdk.core.repository.DefaultTokenRefreshRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 import net.accelbyte.sdk.core.repository.TokenRepository;
 
@@ -67,9 +37,6 @@ import net.accelbyte.sdk.core.repository.TokenRepository;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class TestIntegrationQosm {
   private AccelByteSDK sdk;
-  private String namespace;
-  private String username;
-  private String password;
 
   @BeforeAll
   public void setup() throws Exception {
@@ -93,9 +60,6 @@ class TestIntegrationQosm {
     assertTrue(namespace != null && !namespace.isEmpty());
 
     this.sdk = new AccelByteSDK(sdkConfig);
-    this.namespace = namespace;
-    this.username = username;
-    this.password = password;
 
     final boolean isLoginUserOk = sdk.loginUser(username, password);
     final String token = tokenRepo.getToken();
