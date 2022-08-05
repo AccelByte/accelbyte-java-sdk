@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.platform.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,6 +25,7 @@ import net.accelbyte.sdk.core.Model;
 public class PaymentOrderNotifySimulation extends Model {
 
   @JsonProperty("amount")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer amount;
 
   @JsonProperty("currencyCode")
@@ -43,9 +38,11 @@ public class PaymentOrderNotifySimulation extends Model {
   private String paymentProvider;
 
   @JsonProperty("salesTax")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer salesTax;
 
   @JsonProperty("vat")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer vat;
 
   @JsonIgnore

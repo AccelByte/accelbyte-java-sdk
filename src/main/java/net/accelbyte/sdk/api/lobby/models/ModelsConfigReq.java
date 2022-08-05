@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.lobby.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,57 +25,75 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsConfigReq extends Model {
 
   @JsonProperty("allowInviteNonConnectedUser")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean allowInviteNonConnectedUser;
 
   @JsonProperty("allowJoinPartyDuringMatchmaking")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean allowJoinPartyDuringMatchmaking;
 
   @JsonProperty("autoKickOnDisconnect")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean autoKickOnDisconnect;
 
   @JsonProperty("autoKickOnDisconnectDelay")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer autoKickOnDisconnectDelay;
 
   @JsonProperty("cancelTicketOnDisconnect")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean cancelTicketOnDisconnect;
 
   @JsonProperty("chatRateLimitBurst")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer chatRateLimitBurst;
 
   @JsonProperty("chatRateLimitDuration")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer chatRateLimitDuration;
 
   @JsonProperty("concurrentUsersLimit")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer concurrentUsersLimit;
 
   @JsonProperty("disableInvitationOnJoinParty")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean disableInvitationOnJoinParty;
 
   @JsonProperty("enableChat")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean enableChat;
 
   @JsonProperty("entitlementCheck")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean entitlementCheck;
 
   @JsonProperty("entitlementItemID")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String entitlementItemID;
 
   @JsonProperty("generalRateLimitBurst")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer generalRateLimitBurst;
 
   @JsonProperty("generalRateLimitDuration")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer generalRateLimitDuration;
 
   @JsonProperty("keepPresenceActivityOnDisconnect")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean keepPresenceActivityOnDisconnect;
 
   @JsonProperty("maxPartyMember")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxPartyMember;
 
   @JsonProperty("profanityFilter")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean profanityFilter;
 
   @JsonProperty("readyConsentTimeout")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer readyConsentTimeout;
 
   @JsonIgnore

@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.legal.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,45 +25,58 @@ import net.accelbyte.sdk.core.Model;
 public class RetrieveUserAcceptedAgreementResponse extends Model {
 
   @JsonProperty("createdAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String createdAt;
 
   @JsonProperty("displayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String displayName;
 
   @JsonProperty("email")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String email;
 
   @JsonProperty("id")
   private String id;
 
   @JsonProperty("isAccepted")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean isAccepted;
 
   @JsonProperty("localizedPolicyVersion")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private LocalizedPolicyVersionObject localizedPolicyVersion;
 
   @JsonProperty("namespace")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;
 
   @JsonProperty("policyName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String policyName;
 
   @JsonProperty("policyType")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String policyType;
 
   @JsonProperty("publisherUserId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String publisherUserId;
 
   @JsonProperty("signingDate")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String signingDate;
 
   @JsonProperty("updatedAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String updatedAt;
 
   @JsonProperty("userId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String userId;
 
   @JsonProperty("username")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String username;
 
   @JsonIgnore

@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.platform.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,39 +25,50 @@ import net.accelbyte.sdk.core.Model;
 public class CampaignUpdate extends Model {
 
   @JsonProperty("description")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
   @JsonProperty("items")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<RedeemableItem> items;
 
   @JsonProperty("maxRedeemCountPerCampaignPerUser")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxRedeemCountPerCampaignPerUser;
 
   @JsonProperty("maxRedeemCountPerCode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxRedeemCountPerCode;
 
   @JsonProperty("maxRedeemCountPerCodePerUser")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxRedeemCountPerCodePerUser;
 
   @JsonProperty("maxSaleCount")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxSaleCount;
 
   @JsonProperty("name")
   private String name;
 
   @JsonProperty("redeemEnd")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String redeemEnd;
 
   @JsonProperty("redeemStart")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String redeemStart;
 
   @JsonProperty("redeemType")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String redeemType;
 
   @JsonProperty("status")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String status;
 
   @JsonProperty("tags")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> tags;
 
   @JsonIgnore

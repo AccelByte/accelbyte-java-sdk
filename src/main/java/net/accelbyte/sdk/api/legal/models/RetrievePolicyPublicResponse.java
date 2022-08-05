@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.legal.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -34,18 +28,22 @@ public class RetrievePolicyPublicResponse extends Model {
   private String basePolicyId;
 
   @JsonProperty("baseUrls")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> baseUrls;
 
   @JsonProperty("countryCode")
   private String countryCode;
 
   @JsonProperty("countryGroupCode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String countryGroupCode;
 
   @JsonProperty("createdAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String createdAt;
 
   @JsonProperty("description")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
   @JsonProperty("id")
@@ -70,18 +68,22 @@ public class RetrievePolicyPublicResponse extends Model {
   private String policyType;
 
   @JsonProperty("policyVersions")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<PolicyVersionWithLocalizedVersionObject> policyVersions;
 
   @JsonProperty("readableId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String readableId;
 
   @JsonProperty("shouldNotifyOnUpdate")
   private Boolean shouldNotifyOnUpdate;
 
   @JsonProperty("tags")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> tags;
 
   @JsonProperty("updatedAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String updatedAt;
 
   @JsonIgnore

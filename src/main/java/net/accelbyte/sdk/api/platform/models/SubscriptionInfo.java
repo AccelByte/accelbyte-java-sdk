@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.platform.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,39 +25,49 @@ import net.accelbyte.sdk.core.Model;
 public class SubscriptionInfo extends Model {
 
   @JsonProperty("billingAccount")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private BillingAccount billingAccount;
 
   @JsonProperty("chargeStatus")
   private String chargeStatus;
 
   @JsonProperty("chargedCycles")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer chargedCycles;
 
   @JsonProperty("createdAt")
   private String createdAt;
 
   @JsonProperty("currency")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private CurrencySummary currency;
 
   @JsonProperty("currentCycle")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer currentCycle;
 
   @JsonProperty("currentPeriodEnd")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String currentPeriodEnd;
 
   @JsonProperty("currentPeriodStart")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String currentPeriodStart;
 
   @JsonProperty("description")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
   @JsonProperty("end")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String end;
 
   @JsonProperty("entitlements")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<EntitlementSummary> entitlements;
 
   @JsonProperty("firstSubscribe")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean firstSubscribe;
 
   @JsonProperty("id")
@@ -79,78 +83,99 @@ public class SubscriptionInfo extends Model {
   private String itemId;
 
   @JsonProperty("itemSnapshot")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ItemSnapshot itemSnapshot;
 
   @JsonProperty("language")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String language;
 
   @JsonProperty("namespace")
   private String namespace;
 
   @JsonProperty("nextBillingDate")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String nextBillingDate;
 
   @JsonProperty("paid")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean paid;
 
   @JsonProperty("paymentFlowRequired")
   private Boolean paymentFlowRequired;
 
   @JsonProperty("paymentOrderNo")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String paymentOrderNo;
 
   @JsonProperty("paymentStationUrl")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String paymentStationUrl;
 
   @JsonProperty("price")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer price;
 
   @JsonProperty("recurring")
   private Recurring recurring;
 
   @JsonProperty("region")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String region;
 
   @JsonProperty("retryAttempted")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer retryAttempted;
 
   @JsonProperty("returnUrl")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String returnUrl;
 
   @JsonProperty("sandbox")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean sandbox;
 
   @JsonProperty("sku")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String sku;
 
   @JsonProperty("source")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String source;
 
   @JsonProperty("start")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String start;
 
   @JsonProperty("status")
   private String status;
 
   @JsonProperty("subscribedAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String subscribedAt;
 
   @JsonProperty("subscribedBy")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String subscribedBy;
 
   @JsonProperty("title")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String title;
 
   @JsonProperty("trialPrice")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer trialPrice;
 
   @JsonProperty("trialedCycles")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer trialedCycles;
 
   @JsonProperty("unsubscribeReason")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String unsubscribeReason;
 
   @JsonProperty("unsubscribedAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String unsubscribedAt;
 
   @JsonProperty("updatedAt")

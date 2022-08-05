@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.matchmaking.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -37,15 +31,19 @@ public class ModelsUpdateRuleset extends Model {
   private List<ModelsAllianceFlexingRule> allianceFlexingRule;
 
   @JsonProperty("flexingRules")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsFlexingRule> flexingRules;
 
   @JsonProperty("match_options")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsMatchOptionRule matchOptions;
 
   @JsonProperty("matchingRules")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsMatchingRule> matchingRules;
 
   @JsonProperty("sub_game_modes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsUpdateRulesetSubGameModes subGameModes;
 
   @JsonIgnore

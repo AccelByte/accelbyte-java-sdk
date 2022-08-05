@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.iam.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -34,6 +28,7 @@ public class ModelUserResponse extends Model {
   private String authType;
 
   @JsonProperty("AvatarUrl")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String avatarUrl;
 
   @JsonProperty("Bans")
@@ -55,6 +50,7 @@ public class ModelUserResponse extends Model {
   private String displayName;
 
   @JsonProperty("EmailAddress")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String emailAddress;
 
   @JsonProperty("EmailVerified")
@@ -79,6 +75,7 @@ public class ModelUserResponse extends Model {
   private List<AccountcommonNamespaceRole> namespaceRoles;
 
   @JsonProperty("NewEmailAddress")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String newEmailAddress;
 
   @JsonProperty("OldEmailAddress")
@@ -88,15 +85,18 @@ public class ModelUserResponse extends Model {
   private List<AccountcommonPermission> permissions;
 
   @JsonProperty("PhoneNumber")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String phoneNumber;
 
   @JsonProperty("PhoneVerified")
   private Boolean phoneVerified;
 
   @JsonProperty("PlatformId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String platformId;
 
   @JsonProperty("PlatformUserId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String platformUserId;
 
   @JsonProperty("Roles")
@@ -106,9 +106,11 @@ public class ModelUserResponse extends Model {
   private String userId;
 
   @JsonProperty("Username")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String username;
 
   @JsonProperty("XUID")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String xuid;
 
   @JsonIgnore

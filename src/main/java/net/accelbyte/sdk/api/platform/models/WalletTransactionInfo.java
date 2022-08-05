@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.platform.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -34,6 +28,7 @@ public class WalletTransactionInfo extends Model {
   private Integer amount;
 
   @JsonProperty("balanceSource")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String balanceSource;
 
   @JsonProperty("createdAt")
@@ -49,9 +44,11 @@ public class WalletTransactionInfo extends Model {
   private String operator;
 
   @JsonProperty("reason")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String reason;
 
   @JsonProperty("transactionAmountDetails")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<TransactionAmountDetails> transactionAmountDetails;
 
   @JsonProperty("updatedAt")

@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.platform.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -37,12 +31,15 @@ public class PaymentUrlCreate extends Model {
   private String paymentProvider;
 
   @JsonProperty("returnUrl")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String returnUrl;
 
   @JsonProperty("ui")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String ui;
 
   @JsonProperty("zipCode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String zipCode;
 
   @JsonIgnore

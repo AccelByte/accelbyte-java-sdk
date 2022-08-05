@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.social.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,15 +25,19 @@ import net.accelbyte.sdk.core.Model;
 public class GameProfilePublicInfo extends Model {
 
   @JsonProperty("avatarUrl")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String avatarUrl;
 
   @JsonProperty("namespace")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;
 
   @JsonProperty("profileId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String profileId;
 
   @JsonProperty("profileName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String profileName;
 
   @JsonIgnore

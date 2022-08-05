@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.platform.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,45 +25,57 @@ import net.accelbyte.sdk.core.Model;
 public class FullAppInfo extends Model {
 
   @JsonProperty("carousel")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<Slide> carousel;
 
   @JsonProperty("developer")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String developer;
 
   @JsonProperty("forumUrl")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String forumUrl;
 
   @JsonProperty("genres")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> genres;
 
   @JsonProperty("itemId")
   private String itemId;
 
   @JsonProperty("localizations")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, AppLocalization> localizations;
 
   @JsonProperty("namespace")
   private String namespace;
 
   @JsonProperty("platformRequirements")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, List<Requirement>> platformRequirements;
 
   @JsonProperty("platforms")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> platforms;
 
   @JsonProperty("players")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> players;
 
   @JsonProperty("primaryGenre")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String primaryGenre;
 
   @JsonProperty("publisher")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String publisher;
 
   @JsonProperty("releaseDate")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String releaseDate;
 
   @JsonProperty("websiteUrl")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String websiteUrl;
 
   @JsonIgnore

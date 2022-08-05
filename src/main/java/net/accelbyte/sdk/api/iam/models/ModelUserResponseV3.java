@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.iam.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -34,6 +28,7 @@ public class ModelUserResponseV3 extends Model {
   private String authType;
 
   @JsonProperty("avatarUrl")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String avatarUrl;
 
   @JsonProperty("bans")
@@ -76,6 +71,7 @@ public class ModelUserResponseV3 extends Model {
   private List<AccountcommonNamespaceRole> namespaceRoles;
 
   @JsonProperty("newEmailAddress")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String newEmailAddress;
 
   @JsonProperty("oldEmailAddress")
@@ -85,21 +81,26 @@ public class ModelUserResponseV3 extends Model {
   private List<ModelUserPermissionsResponseV3> permissions;
 
   @JsonProperty("phoneNumber")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String phoneNumber;
 
   @JsonProperty("phoneVerified")
   private Boolean phoneVerified;
 
   @JsonProperty("platformAvatarUrl")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String platformAvatarUrl;
 
   @JsonProperty("platformDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String platformDisplayName;
 
   @JsonProperty("platformId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String platformId;
 
   @JsonProperty("platformUserId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String platformUserId;
 
   @JsonProperty("roles")
@@ -109,6 +110,7 @@ public class ModelUserResponseV3 extends Model {
   private String userId;
 
   @JsonProperty("userName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String userName;
 
   @JsonIgnore

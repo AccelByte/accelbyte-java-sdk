@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.platform.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,9 +25,11 @@ import net.accelbyte.sdk.core.Model;
 public class CodeInfo extends Model {
 
   @JsonProperty("acquireOrderNo")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String acquireOrderNo;
 
   @JsonProperty("acquireUserId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String acquireUserId;
 
   @JsonProperty("batchNo")
@@ -49,6 +45,7 @@ public class CodeInfo extends Model {
   private String id;
 
   @JsonProperty("items")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<RedeemableItem> items;
 
   @JsonProperty("maxRedeemCountPerCampaignPerUser")
@@ -64,9 +61,11 @@ public class CodeInfo extends Model {
   private String namespace;
 
   @JsonProperty("redeemEnd")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String redeemEnd;
 
   @JsonProperty("redeemStart")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String redeemStart;
 
   @JsonProperty("redeemType")

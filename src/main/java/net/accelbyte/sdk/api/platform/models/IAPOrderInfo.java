@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.platform.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -34,54 +28,68 @@ public class IAPOrderInfo extends Model {
   private String createdAt;
 
   @JsonProperty("credits")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<CreditSummary> credits;
 
   @JsonProperty("currencyCode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String currencyCode;
 
   @JsonProperty("entitlements")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<EntitlementSummary> entitlements;
 
   @JsonProperty("fulfilledTime")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String fulfilledTime;
 
   @JsonProperty("iapOrderNo")
   private String iapOrderNo;
 
   @JsonProperty("language")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String language;
 
   @JsonProperty("namespace")
   private String namespace;
 
   @JsonProperty("price")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Float price;
 
   @JsonProperty("productId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String productId;
 
   @JsonProperty("quantity")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer quantity;
 
   @JsonProperty("receiptData")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String receiptData;
 
   @JsonProperty("region")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String region;
 
   @JsonProperty("retryCount")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer retryCount;
 
   @JsonProperty("sandbox")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean sandbox;
 
   @JsonProperty("status")
   private String status;
 
   @JsonProperty("statusReason")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String statusReason;
 
   @JsonProperty("transactionId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String transactionId;
 
   @JsonProperty("type")

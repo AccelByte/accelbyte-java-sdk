@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.ugc.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -49,6 +43,7 @@ public class ModelsContentDownloadResponse extends Model {
   private String fileExtension;
 
   @JsonProperty("groups")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> groups;
 
   @JsonProperty("id")
@@ -64,6 +59,7 @@ public class ModelsContentDownloadResponse extends Model {
   private Integer likeCount;
 
   @JsonProperty("likeState")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsLikeState likeState;
 
   @JsonProperty("name")
@@ -73,15 +69,19 @@ public class ModelsContentDownloadResponse extends Model {
   private String namespace;
 
   @JsonProperty("payload")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String payload;
 
   @JsonProperty("payloadURL")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsPayloadURL> payloadURL;
 
   @JsonProperty("previewURL")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsPreviewURL> previewURL;
 
   @JsonProperty("screenshots")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsScreenshotResponse> screenshots;
 
   @JsonProperty("shareCode")

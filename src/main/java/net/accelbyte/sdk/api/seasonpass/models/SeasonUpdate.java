@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.seasonpass.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,36 +25,47 @@ import net.accelbyte.sdk.core.Model;
 public class SeasonUpdate extends Model {
 
   @JsonProperty("autoClaim")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean autoClaim;
 
   @JsonProperty("defaultLanguage")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String defaultLanguage;
 
   @JsonProperty("defaultRequiredExp")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer defaultRequiredExp;
 
   @JsonProperty("draftStoreId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String draftStoreId;
 
   @JsonProperty("end")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String end;
 
   @JsonProperty("excessStrategy")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ExcessStrategy excessStrategy;
 
   @JsonProperty("images")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<Image> images;
 
   @JsonProperty("localizations")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, Localization> localizations;
 
   @JsonProperty("name")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String name;
 
   @JsonProperty("start")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String start;
 
   @JsonProperty("tierItemId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String tierItemId;
 
   @JsonIgnore

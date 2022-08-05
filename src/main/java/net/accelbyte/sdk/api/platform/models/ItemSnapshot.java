@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.platform.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,36 +25,45 @@ import net.accelbyte.sdk.core.Model;
 public class ItemSnapshot extends Model {
 
   @JsonProperty("appId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String appId;
 
   @JsonProperty("appType")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String appType;
 
   @JsonProperty("baseAppId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String baseAppId;
 
   @JsonProperty("boothName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String boothName;
 
   @JsonProperty("createdAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String createdAt;
 
   @JsonProperty("description")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
   @JsonProperty("entitlementType")
   private String entitlementType;
 
   @JsonProperty("features")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> features;
 
   @JsonProperty("itemId")
   private String itemId;
 
   @JsonProperty("itemIds")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> itemIds;
 
   @JsonProperty("itemQty")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, Integer> itemQty;
 
   @JsonProperty("itemType")
@@ -70,12 +73,15 @@ public class ItemSnapshot extends Model {
   private String language;
 
   @JsonProperty("listable")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean listable;
 
   @JsonProperty("maxCount")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxCount;
 
   @JsonProperty("maxCountPerUser")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxCountPerUser;
 
   @JsonProperty("name")
@@ -85,48 +91,61 @@ public class ItemSnapshot extends Model {
   private String namespace;
 
   @JsonProperty("optionBoxConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private OptionBoxConfig optionBoxConfig;
 
   @JsonProperty("purchasable")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean purchasable;
 
   @JsonProperty("recurring")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Recurring recurring;
 
   @JsonProperty("region")
   private String region;
 
   @JsonProperty("regionDataItem")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private RegionDataItem regionDataItem;
 
   @JsonProperty("seasonType")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String seasonType;
 
   @JsonProperty("sku")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String sku;
 
   @JsonProperty("stackable")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean stackable;
 
   @JsonProperty("targetCurrencyCode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String targetCurrencyCode;
 
   @JsonProperty("targetItemId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String targetItemId;
 
   @JsonProperty("targetNamespace")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String targetNamespace;
 
   @JsonProperty("thumbnailUrl")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String thumbnailUrl;
 
   @JsonProperty("title")
   private String title;
 
   @JsonProperty("updatedAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String updatedAt;
 
   @JsonProperty("useCount")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer useCount;
 
   @JsonIgnore

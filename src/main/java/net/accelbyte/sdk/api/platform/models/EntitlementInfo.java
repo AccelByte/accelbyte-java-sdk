@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.platform.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,9 +25,11 @@ import net.accelbyte.sdk.core.Model;
 public class EntitlementInfo extends Model {
 
   @JsonProperty("appId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String appId;
 
   @JsonProperty("appType")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String appType;
 
   @JsonProperty("clazz")
@@ -43,15 +39,18 @@ public class EntitlementInfo extends Model {
   private String createdAt;
 
   @JsonProperty("endDate")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String endDate;
 
   @JsonProperty("features")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> features;
 
   @JsonProperty("grantedAt")
   private String grantedAt;
 
   @JsonProperty("grantedCode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String grantedCode;
 
   @JsonProperty("id")
@@ -64,6 +63,7 @@ public class EntitlementInfo extends Model {
   private String itemNamespace;
 
   @JsonProperty("itemSnapshot")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ItemSnapshot itemSnapshot;
 
   @JsonProperty("name")
@@ -73,21 +73,25 @@ public class EntitlementInfo extends Model {
   private String namespace;
 
   @JsonProperty("sku")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String sku;
 
   @JsonProperty("source")
   private String source;
 
   @JsonProperty("stackable")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean stackable;
 
   @JsonProperty("startDate")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String startDate;
 
   @JsonProperty("status")
   private String status;
 
   @JsonProperty("storeId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String storeId;
 
   @JsonProperty("type")
@@ -97,6 +101,7 @@ public class EntitlementInfo extends Model {
   private String updatedAt;
 
   @JsonProperty("useCount")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer useCount;
 
   @JsonProperty("userId")

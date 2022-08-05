@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.platform.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,21 +25,27 @@ import net.accelbyte.sdk.core.Model;
 public class PaymentMerchantConfigInfo extends Model {
 
   @JsonProperty("adyenConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private AdyenConfig adyenConfig;
 
   @JsonProperty("adyenSandboxConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private AdyenConfig adyenSandboxConfig;
 
   @JsonProperty("aliPayConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private AliPayConfig aliPayConfig;
 
   @JsonProperty("aliPaySandboxConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private AliPayConfig aliPaySandboxConfig;
 
   @JsonProperty("checkoutConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private CheckoutConfig checkoutConfig;
 
   @JsonProperty("checkoutSandboxConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private CheckoutConfig checkoutSandboxConfig;
 
   @JsonProperty("createdAt")
@@ -55,27 +55,34 @@ public class PaymentMerchantConfigInfo extends Model {
   private String id;
 
   @JsonProperty("payPalConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private PayPalConfig payPalConfig;
 
   @JsonProperty("payPalSandboxConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private PayPalConfig payPalSandboxConfig;
 
   @JsonProperty("stripeConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private StripeConfig stripeConfig;
 
   @JsonProperty("stripeSandboxConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private StripeConfig stripeSandboxConfig;
 
   @JsonProperty("updatedAt")
   private String updatedAt;
 
   @JsonProperty("wxPayConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private WxPayConfigInfo wxPayConfig;
 
   @JsonProperty("xsollaConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private XsollaConfig xsollaConfig;
 
   @JsonProperty("xsollaPaywallConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private XsollaPaywallConfig xsollaPaywallConfig;
 
   @JsonIgnore

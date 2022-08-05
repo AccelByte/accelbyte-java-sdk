@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.platform.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,60 +25,79 @@ import net.accelbyte.sdk.core.Model;
 public class Transaction extends Model {
 
   @JsonProperty("additionalData")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private AdditionalData additionalData;
 
   @JsonProperty("amount")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer amount;
 
   @JsonProperty("currency")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private CurrencySummary currency;
 
   @JsonProperty("extMessage")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String extMessage;
 
   @JsonProperty("extStatusCode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String extStatusCode;
 
   @JsonProperty("extTxId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String extTxId;
 
   @JsonProperty("merchantId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String merchantId;
 
   @JsonProperty("notified")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean notified;
 
   @JsonProperty("paymentMethod")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String paymentMethod;
 
   @JsonProperty("paymentMethodFee")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer paymentMethodFee;
 
   @JsonProperty("paymentProviderFee")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer paymentProviderFee;
 
   @JsonProperty("provider")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String provider;
 
   @JsonProperty("salesTax")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer salesTax;
 
   @JsonProperty("status")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String status;
 
   @JsonProperty("tax")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer tax;
 
   @JsonProperty("txEndTime")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String txEndTime;
 
   @JsonProperty("txId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String txId;
 
   @JsonProperty("type")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String type;
 
   @JsonProperty("vat")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer vat;
 
   @JsonIgnore

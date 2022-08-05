@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.social.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -34,21 +28,26 @@ public class StatCreate extends Model {
   private Float defaultValue;
 
   @JsonProperty("description")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
   @JsonProperty("incrementOnly")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean incrementOnly;
 
   @JsonProperty("maximum")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Float maximum;
 
   @JsonProperty("minimum")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Float minimum;
 
   @JsonProperty("name")
   private String name;
 
   @JsonProperty("setAsGlobal")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean setAsGlobal;
 
   @JsonProperty("setBy")
@@ -58,6 +57,7 @@ public class StatCreate extends Model {
   private String statCode;
 
   @JsonProperty("tags")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> tags;
 
   @JsonIgnore

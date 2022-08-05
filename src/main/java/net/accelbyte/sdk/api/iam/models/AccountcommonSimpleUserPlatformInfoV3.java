@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.iam.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,6 +25,7 @@ import net.accelbyte.sdk.core.Model;
 public class AccountcommonSimpleUserPlatformInfoV3 extends Model {
 
   @JsonProperty("displayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String displayName;
 
   @JsonProperty("linkedAt")
@@ -43,6 +38,7 @@ public class AccountcommonSimpleUserPlatformInfoV3 extends Model {
   private String originNamespace;
 
   @JsonProperty("platformId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String platformId;
 
   @JsonIgnore

@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.platform.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -34,6 +28,7 @@ public class CatalogChangeInfo extends Model {
   private String action;
 
   @JsonProperty("categoryPath")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String categoryPath;
 
   @JsonProperty("changeId")
@@ -43,24 +38,29 @@ public class CatalogChangeInfo extends Model {
   private String createdAt;
 
   @JsonProperty("description")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
   @JsonProperty("itemId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String itemId;
 
   @JsonProperty("itemType")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String itemType;
 
   @JsonProperty("namespace")
   private String namespace;
 
   @JsonProperty("publishedAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String publishedAt;
 
   @JsonProperty("selected")
   private Boolean selected;
 
   @JsonProperty("sku")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String sku;
 
   @JsonProperty("status")
@@ -70,9 +70,11 @@ public class CatalogChangeInfo extends Model {
   private String storeId;
 
   @JsonProperty("title")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String title;
 
   @JsonProperty("type")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String type;
 
   @JsonProperty("updatedAt")

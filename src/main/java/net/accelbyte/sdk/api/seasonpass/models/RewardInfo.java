@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.seasonpass.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -34,27 +28,34 @@ public class RewardInfo extends Model {
   private String code;
 
   @JsonProperty("currency")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private RewardCurrency currency;
 
   @JsonProperty("image")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Image image;
 
   @JsonProperty("itemId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String itemId;
 
   @JsonProperty("itemName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String itemName;
 
   @JsonProperty("itemSku")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String itemSku;
 
   @JsonProperty("itemType")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String itemType;
 
   @JsonProperty("namespace")
   private String namespace;
 
   @JsonProperty("quantity")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer quantity;
 
   @JsonProperty("seasonId")

@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.platform.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,138 +25,183 @@ import net.accelbyte.sdk.core.Model;
 public class Order extends Model {
 
   @JsonProperty("chargebackReversedTime")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String chargebackReversedTime;
 
   @JsonProperty("chargebackTime")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String chargebackTime;
 
   @JsonProperty("charged")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean charged;
 
   @JsonProperty("chargedTime")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String chargedTime;
 
   @JsonProperty("countItemId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String countItemId;
 
   @JsonProperty("countNamespace")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String countNamespace;
 
   @JsonProperty("countUserId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String countUserId;
 
   @JsonProperty("createdAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String createdAt;
 
   @JsonProperty("createdTime")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String createdTime;
 
   @JsonProperty("creationOptions")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ADTOObjectForOrderCreationOptions creationOptions;
 
   @JsonProperty("currency")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private CurrencySummary currency;
 
   @JsonProperty("discountedPrice")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer discountedPrice;
 
   @JsonProperty("expireTime")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String expireTime;
 
   @JsonProperty("ext")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> ext;
 
   @JsonProperty("free")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean free;
 
   @JsonProperty("fulfilledTime")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String fulfilledTime;
 
   @JsonProperty("itemId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String itemId;
 
   @JsonProperty("itemSnapshot")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ItemSnapshot itemSnapshot;
 
   @JsonProperty("language")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String language;
 
   @JsonProperty("namespace")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;
 
   @JsonProperty("orderNo")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String orderNo;
 
   @JsonProperty("paymentMethod")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String paymentMethod;
 
   @JsonProperty("paymentMethodFee")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer paymentMethodFee;
 
   @JsonProperty("paymentOrderNo")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String paymentOrderNo;
 
   @JsonProperty("paymentProvider")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String paymentProvider;
 
   @JsonProperty("paymentProviderFee")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer paymentProviderFee;
 
   @JsonProperty("paymentRemainSeconds")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer paymentRemainSeconds;
 
   @JsonProperty("paymentStationUrl")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String paymentStationUrl;
 
   @JsonProperty("price")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer price;
 
   @JsonProperty("quantity")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer quantity;
 
   @JsonProperty("refundedTime")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String refundedTime;
 
   @JsonProperty("region")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String region;
 
   @JsonProperty("returnUrl")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String returnUrl;
 
   @JsonProperty("rvn")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer rvn;
 
   @JsonProperty("salesTax")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer salesTax;
 
   @JsonProperty("sandbox")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean sandbox;
 
   @JsonProperty("status")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String status;
 
   @JsonProperty("statusReason")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String statusReason;
 
   @JsonProperty("subtotalPrice")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer subtotalPrice;
 
   @JsonProperty("tax")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer tax;
 
   @JsonProperty("totalPrice")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer totalPrice;
 
   @JsonProperty("totalTax")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer totalTax;
 
   @JsonProperty("updatedAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String updatedAt;
 
   @JsonProperty("userId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String userId;
 
   @JsonProperty("vat")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer vat;
 
   @JsonIgnore

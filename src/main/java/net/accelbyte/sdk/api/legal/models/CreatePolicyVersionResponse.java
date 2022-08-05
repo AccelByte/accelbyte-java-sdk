@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.legal.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,24 +25,30 @@ import net.accelbyte.sdk.core.Model;
 public class CreatePolicyVersionResponse extends Model {
 
   @JsonProperty("basePolicyId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String basePolicyId;
 
   @JsonProperty("createdAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String createdAt;
 
   @JsonProperty("description")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
   @JsonProperty("displayVersion")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String displayVersion;
 
   @JsonProperty("id")
   private String id;
 
   @JsonProperty("isCommitted")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean isCommitted;
 
   @JsonProperty("updatedAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String updatedAt;
 
   @JsonIgnore

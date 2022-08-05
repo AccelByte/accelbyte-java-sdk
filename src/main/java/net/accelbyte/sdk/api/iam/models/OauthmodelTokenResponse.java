@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.iam.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -43,9 +37,11 @@ public class OauthmodelTokenResponse extends Model {
   private Integer expiresIn;
 
   @JsonProperty("is_comply")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean isComply;
 
   @JsonProperty("jflgs")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer jflgs;
 
   @JsonProperty("namespace")
@@ -58,12 +54,15 @@ public class OauthmodelTokenResponse extends Model {
   private List<AccountcommonPermission> permissions;
 
   @JsonProperty("platform_id")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String platformId;
 
   @JsonProperty("platform_user_id")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String platformUserId;
 
   @JsonProperty("refresh_expires_in")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer refreshExpiresIn;
 
   @JsonProperty("refresh_token")

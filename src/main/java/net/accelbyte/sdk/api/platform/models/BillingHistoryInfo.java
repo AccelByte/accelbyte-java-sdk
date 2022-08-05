@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.platform.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -34,9 +28,11 @@ public class BillingHistoryInfo extends Model {
   private Integer amount;
 
   @JsonProperty("billingAccount")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private BillingAccount billingAccount;
 
   @JsonProperty("changeBillingAccount")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean changeBillingAccount;
 
   @JsonProperty("createdAt")
@@ -46,9 +42,11 @@ public class BillingHistoryInfo extends Model {
   private CurrencySummary currency;
 
   @JsonProperty("description")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
   @JsonProperty("extTxId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String extTxId;
 
   @JsonProperty("itemId")
@@ -64,36 +62,43 @@ public class BillingHistoryInfo extends Model {
   private String recurringOrderNo;
 
   @JsonProperty("retryAttempted")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer retryAttempted;
 
   @JsonProperty("sandbox")
   private Boolean sandbox;
 
   @JsonProperty("sku")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String sku;
 
   @JsonProperty("status")
   private String status;
 
   @JsonProperty("statusReason")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String statusReason;
 
   @JsonProperty("subscriptionId")
   private String subscriptionId;
 
   @JsonProperty("subtotalPrice")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer subtotalPrice;
 
   @JsonProperty("title")
   private String title;
 
   @JsonProperty("totalPrice")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer totalPrice;
 
   @JsonProperty("totalTax")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer totalTax;
 
   @JsonProperty("txEndTime")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String txEndTime;
 
   @JsonProperty("updatedAt")

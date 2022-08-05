@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.platform.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,99 +25,124 @@ import net.accelbyte.sdk.core.Model;
 public class ItemCreate extends Model {
 
   @JsonProperty("appId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String appId;
 
   @JsonProperty("appType")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String appType;
 
   @JsonProperty("baseAppId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String baseAppId;
 
   @JsonProperty("boothName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String boothName;
 
   @JsonProperty("categoryPath")
   private String categoryPath;
 
   @JsonProperty("clazz")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String clazz;
 
   @JsonProperty("displayOrder")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer displayOrder;
 
   @JsonProperty("entitlementType")
   private String entitlementType;
 
   @JsonProperty("ext")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> ext;
 
   @JsonProperty("features")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> features;
 
   @JsonProperty("images")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<Image> images;
 
   @JsonProperty("itemIds")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> itemIds;
 
   @JsonProperty("itemQty")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, Integer> itemQty;
 
   @JsonProperty("itemType")
   private String itemType;
 
   @JsonProperty("listable")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean listable;
 
   @JsonProperty("localizations")
   private Map<String, Localization> localizations;
 
   @JsonProperty("maxCount")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxCount;
 
   @JsonProperty("maxCountPerUser")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxCountPerUser;
 
   @JsonProperty("name")
   private String name;
 
   @JsonProperty("optionBoxConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private OptionBoxConfig optionBoxConfig;
 
   @JsonProperty("purchasable")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean purchasable;
 
   @JsonProperty("recurring")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Recurring recurring;
 
   @JsonProperty("regionData")
   private Map<String, List<RegionDataItem>> regionData;
 
   @JsonProperty("seasonType")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String seasonType;
 
   @JsonProperty("sku")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String sku;
 
   @JsonProperty("stackable")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean stackable;
 
   @JsonProperty("status")
   private String status;
 
   @JsonProperty("tags")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> tags;
 
   @JsonProperty("targetCurrencyCode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String targetCurrencyCode;
 
   @JsonProperty("targetNamespace")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String targetNamespace;
 
   @JsonProperty("thumbnailUrl")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String thumbnailUrl;
 
   @JsonProperty("useCount")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer useCount;
 
   @JsonIgnore

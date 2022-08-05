@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.social.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,45 +25,59 @@ import net.accelbyte.sdk.core.Model;
 public class SlotInfo extends Model {
 
   @JsonProperty("checksum")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String checksum;
 
   @JsonProperty("customAttribute")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String customAttribute;
 
   @JsonProperty("dateAccessed")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String dateAccessed;
 
   @JsonProperty("dateCreated")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String dateCreated;
 
   @JsonProperty("dateModified")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String dateModified;
 
   @JsonProperty("label")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String label;
 
   @JsonProperty("mimeType")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String mimeType;
 
   @JsonProperty("namespace")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;
 
   @JsonProperty("originalName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String originalName;
 
   @JsonProperty("size")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer size;
 
   @JsonProperty("slotId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String slotId;
 
   @JsonProperty("storedName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String storedName;
 
   @JsonProperty("tags")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> tags;
 
   @JsonProperty("userId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String userId;
 
   @JsonIgnore

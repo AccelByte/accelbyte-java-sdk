@@ -8,18 +8,12 @@
 
 package net.accelbyte.sdk.api.seasonpass.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,18 +25,23 @@ import net.accelbyte.sdk.core.Model;
 public class PassUpdate extends Model {
 
   @JsonProperty("autoEnroll")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean autoEnroll;
 
   @JsonProperty("displayOrder")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer displayOrder;
 
   @JsonProperty("images")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<Image> images;
 
   @JsonProperty("localizations")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, Localization> localizations;
 
   @JsonProperty("passItemId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String passItemId;
 
   @JsonIgnore
