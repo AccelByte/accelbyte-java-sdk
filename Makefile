@@ -20,10 +20,10 @@ samples:
 	[ ! -f samples.err ] || (rm samples.err && exit 1)
 
 test_core:
-	@test -n "$(CODEGEN_SDK_PATH)" || (echo "CODEGEN_SDK_PATH is not set" ; exit 1)
-	sed -i "s/\r//" "$(CODEGEN_SDK_PATH)/mock-server/mock-server.sh" && \
+	@test -n "$(SDK_MOCK_SERVER_PATH)" || (echo "SDK_MOCK_SERVER_PATH is not set" ; exit 1)
+	sed -i "s/\r//" "$(SDK_MOCK_SERVER_PATH)/mock-server.sh" && \
 			trap "docker stop -t 1 justice-codegen-sdk-mock-server" EXIT && \
-			(bash "$(CODEGEN_SDK_PATH)/mock-server/mock-server.sh" -s /data/spec &) && \
+			(bash "$(SDK_MOCK_SERVER_PATH)/mock-server.sh" -s /data/spec &) && \
 			(for i in $$(seq 1 10); do bash -c "timeout 1 echo > /dev/tcp/127.0.0.1/8080" 2>/dev/null && exit 0 || sleep 10; done; exit 1) && \
 			docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ --network host -e GRADLE_USER_HOME=/data/.gradle gradle:7-jdk8 \
 					gradle -i test
@@ -34,12 +34,12 @@ test_integration:
 			gradle -i testIntegration
 
 test_cli:
-	@test -n "$(CODEGEN_SDK_PATH)" || (echo "CODEGEN_SDK_PATH is not set" ; exit 1)
+	@test -n "$(SDK_MOCK_SERVER_PATH)" || (echo "SDK_MOCK_SERVER_PATH is not set" ; exit 1)
 	rm -f test.err
 	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/samples/cli -e GRADLE_USER_HOME=/data/.gradle gradle:7-jdk8 gradle installDist
-	sed -i "s/\r//" "$(CODEGEN_SDK_PATH)/mock-server/mock-server.sh" && \
+	sed -i "s/\r//" "$(SDK_MOCK_SERVER_PATH)/mock-server.sh" && \
 			trap "docker stop -t 1 justice-codegen-sdk-mock-server" EXIT && \
-			(bash "$(CODEGEN_SDK_PATH)/mock-server/mock-server.sh" -s /data/spec &) && \
+			(bash "$(SDK_MOCK_SERVER_PATH)/mock-server.sh" -s /data/spec &) && \
 			(for i in $$(seq 1 10); do bash -c "timeout 1 echo > /dev/tcp/127.0.0.1/8080" 2>/dev/null && exit 0 || sleep 10; done; exit 1) && \
 			sed -i "s/\r//" samples/cli/tests/* && \
 			rm -f samples/cli/tests/*.tap && \
