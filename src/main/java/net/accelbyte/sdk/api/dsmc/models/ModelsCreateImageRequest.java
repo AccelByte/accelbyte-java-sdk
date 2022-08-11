@@ -33,6 +33,9 @@ public class ModelsCreateImageRequest extends Model {
   @JsonProperty("image")
   private String image;
 
+  @JsonProperty("imageSize")
+  private Integer imageSize;
+
   @JsonProperty("namespace")
   private String namespace;
 

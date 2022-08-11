@@ -40,6 +40,11 @@ public class DeleteItem implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--force"},
+      description = "force")
+  Boolean force;
+
+  @Option(
       names = {"--storeId"},
       description = "storeId")
   String storeId;
@@ -69,6 +74,7 @@ public class DeleteItem implements Callable<Integer> {
           net.accelbyte.sdk.api.platform.operations.item.DeleteItem.builder()
               .itemId(itemId)
               .namespace(namespace)
+              .force(force)
               .storeId(storeId)
               .build();
       wrapper.deleteItem(operation);

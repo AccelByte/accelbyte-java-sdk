@@ -21,8 +21,23 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetUserByPlatformUserID
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint(Public):
+ * /iam/v3/public/namespaces/{namespace}/platforms/{platformId}/users/{platformUserId} [GET]
+ *
+ * <p>* Substitute endpoint(Admin):
+ * /iam/v3/admin/namespaces/{namespace}/platforms/{platformId}/users/{platformUserId} [GET]
+ *
+ * <p>* Note: 1. difference in V3 response, format difference: Pascal case => Camel case
+ *
  * <p>Required permission 'NAMESPACE:{namespace}:USER [READ]'
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetUserByPlatformUserID extends Operation {

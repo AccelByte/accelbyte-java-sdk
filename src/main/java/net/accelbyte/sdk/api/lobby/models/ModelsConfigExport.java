@@ -69,6 +69,9 @@ public class ModelsConfigExport extends Model {
   @JsonProperty("keepPresenceActivityOnDisconnect")
   private Boolean keepPresenceActivityOnDisconnect;
 
+  @JsonProperty("maxDSWaitTime")
+  private Integer maxDSWaitTime;
+
   @JsonProperty("maxPartyMember")
   private Integer maxPartyMember;
 

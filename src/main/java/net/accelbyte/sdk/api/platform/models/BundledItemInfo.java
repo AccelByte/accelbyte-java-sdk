@@ -77,6 +77,10 @@ public class BundledItemInfo extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> features;
 
+  @JsonProperty("fresh")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean fresh;
+
   @JsonProperty("images")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<Image> images;

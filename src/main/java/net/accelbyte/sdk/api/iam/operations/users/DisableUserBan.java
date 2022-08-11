@@ -21,18 +21,29 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DisableUserBan
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:BAN:USER:{userId} [UPDATE]'.
+ * <p>## The endpoint is going to be deprecated
  *
- * <p>Notes for using IAM in publisher - game studio scenarios
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/users/{userId}/bans/{banId}
+ * [PATCH]
+ *
+ * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:BAN:USER:{userId} [UPDATE]'. "+ " Notes for
+ * using IAM in publisher - game studio scenarios "+ "
  *
  * <p>The endpoint allows:
  *
- * <p>* The admin user in publisher namespace disables userâs ban in publisher namespace. * The
- * admin user in game namespace disables userâs ban in game namespace. * The admin user in
- * publisher namespace disables userâs ban in publisher namespace.
+ * <p>"+ " * The admin user in publisher namespace disables userâs ban in publisher namespace. "+
+ * " * The admin user in game namespace disables userâs ban in game namespace. "+ " * The admin
+ * user in publisher namespace disables userâs ban in publisher namespace.
+ *
+ * <p>"+ "
  *
  * <p>Other scenarios are not supported and will return 403: Forbidden.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class DisableUserBan extends Operation {

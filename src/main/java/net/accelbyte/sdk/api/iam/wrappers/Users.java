@@ -24,7 +24,9 @@ public class Users {
 
   /**
    * @see CreateUser
+   * @deprecated
    */
+  @Deprecated
   public ModelUserCreateResponse createUser(CreateUser input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -57,7 +59,9 @@ public class Users {
 
   /**
    * @see GetUserByLoginID
+   * @deprecated
    */
+  @Deprecated
   public ModelPublicUserResponse getUserByLoginID(GetUserByLoginID input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -73,7 +77,9 @@ public class Users {
 
   /**
    * @see GetUserByPlatformUserID
+   * @deprecated
    */
+  @Deprecated
   public ModelPublicUserResponse getUserByPlatformUserID(GetUserByPlatformUserID input)
       throws Exception {
     HttpResponse httpResponse = null;
@@ -90,7 +96,9 @@ public class Users {
 
   /**
    * @see ForgotPassword
+   * @deprecated
    */
+  @Deprecated
   public void forgotPassword(ForgotPassword input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -106,7 +114,9 @@ public class Users {
 
   /**
    * @see GetUsersByLoginIds
+   * @deprecated
    */
+  @Deprecated
   public ModelPublicUsersResponse getUsersByLoginIds(GetUsersByLoginIds input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -122,7 +132,9 @@ public class Users {
 
   /**
    * @see ResetPassword
+   * @deprecated
    */
+  @Deprecated
   public void resetPassword(ResetPassword input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -156,7 +168,9 @@ public class Users {
 
   /**
    * @see GetUserByUserID
+   * @deprecated
    */
+  @Deprecated
   public ModelUserResponse getUserByUserID(GetUserByUserID input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -172,7 +186,9 @@ public class Users {
 
   /**
    * @see UpdateUser
+   * @deprecated
    */
+  @Deprecated
   public ModelUserResponse updateUser(UpdateUser input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -188,7 +204,9 @@ public class Users {
 
   /**
    * @see DeleteUser
+   * @deprecated
    */
+  @Deprecated
   public void deleteUser(DeleteUser input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -204,7 +222,9 @@ public class Users {
 
   /**
    * @see BanUser
+   * @deprecated
    */
+  @Deprecated
   public ModelUserBanResponse banUser(BanUser input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -220,7 +240,9 @@ public class Users {
 
   /**
    * @see GetUserBanHistory
+   * @deprecated
    */
+  @Deprecated
   public List<ModelUserBanResponse> getUserBanHistory(GetUserBanHistory input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -236,7 +258,9 @@ public class Users {
 
   /**
    * @see DisableUserBan
+   * @deprecated
    */
+  @Deprecated
   public ModelUserBanResponse disableUserBan(DisableUserBan input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -252,7 +276,9 @@ public class Users {
 
   /**
    * @see EnableUserBan
+   * @deprecated
    */
+  @Deprecated
   public ModelUserBanResponse enableUserBan(EnableUserBan input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -338,7 +364,9 @@ public class Users {
 
   /**
    * @see DeleteUserInformation
+   * @deprecated
    */
+  @Deprecated
   public void deleteUserInformation(DeleteUserInformation input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -389,7 +417,9 @@ public class Users {
 
   /**
    * @see SaveUserPermission
+   * @deprecated
    */
+  @Deprecated
   public void saveUserPermission(SaveUserPermission input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -405,7 +435,9 @@ public class Users {
 
   /**
    * @see AddUserPermission
+   * @deprecated
    */
+  @Deprecated
   public void addUserPermission(AddUserPermission input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -421,7 +453,9 @@ public class Users {
 
   /**
    * @see DeleteUserPermission
+   * @deprecated
    */
+  @Deprecated
   public void deleteUserPermission(DeleteUserPermission input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -521,7 +555,9 @@ public class Users {
 
   /**
    * @see GetPublisherUser
+   * @deprecated
    */
+  @Deprecated
   public ModelGetPublisherUserResponse getPublisherUser(GetPublisherUser input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -537,7 +573,9 @@ public class Users {
 
   /**
    * @see SaveUserRoles
+   * @deprecated
    */
+  @Deprecated
   public void saveUserRoles(SaveUserRoles input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -553,7 +591,9 @@ public class Users {
 
   /**
    * @see AddUserRole
+   * @deprecated
    */
+  @Deprecated
   public void addUserRole(AddUserRole input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -569,7 +609,9 @@ public class Users {
 
   /**
    * @see DeleteUserRole
+   * @deprecated
    */
+  @Deprecated
   public void deleteUserRole(DeleteUserRole input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -618,7 +660,9 @@ public class Users {
 
   /**
    * @see UserVerification
+   * @deprecated
    */
+  @Deprecated
   public void userVerification(UserVerification input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -634,7 +678,9 @@ public class Users {
 
   /**
    * @see SendVerificationCode
+   * @deprecated
    */
+  @Deprecated
   public void sendVerificationCode(SendVerificationCode input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -1993,9 +2039,10 @@ public class Users {
   }
 
   /**
-   * @see PublicUpdateUserV3
+   * @see PublicPartialUpdateUserV3
    */
-  public List<ModelUserResponseV3> publicUpdateUserV3(PublicUpdateUserV3 input) throws Exception {
+  public List<ModelUserResponseV3> publicPartialUpdateUserV3(PublicPartialUpdateUserV3 input)
+      throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
@@ -2315,6 +2362,23 @@ public class Users {
     try {
       httpResponse = sdk.runRequest(input);
       input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
+   * @see PublicGetPublisherUserV3
+   */
+  public ModelGetPublisherUserV3Response publicGetPublisherUserV3(PublicGetPublisherUserV3 input)
+      throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
     } finally {
       if (httpResponse != null && httpResponse.getPayload() != null) {

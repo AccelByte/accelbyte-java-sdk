@@ -86,12 +86,11 @@ public class DeleteMemberRolePublicV1 extends Operation {
     return true;
   }
 
-  public ModelsUpdateMemberRoleResponseV1 parseResponse(
-      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
-    String json = Helper.convertInputStreamToString(payload);
-    if (code == 200) {
-      return new ModelsUpdateMemberRoleResponseV1().createFromJson(json);
+  public void handleEmptyResponse(int code, String contentType, InputStream payload)
+      throws HttpResponseException, IOException {
+    if (code != 204) {
+      String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
     }
-    throw new HttpResponseException(code, json);
   }
 }

@@ -9,15 +9,12 @@
 package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.iam.bans.*;
-import net.accelbyte.sdk.cli.api.iam.bans_deprecated.*;
 import net.accelbyte.sdk.cli.api.iam.clients.*;
-import net.accelbyte.sdk.cli.api.iam.clients_deprecated.*;
 import net.accelbyte.sdk.cli.api.iam.input_validations.*;
+import net.accelbyte.sdk.cli.api.iam.o_auth.*;
 import net.accelbyte.sdk.cli.api.iam.o_auth2_0.*;
 import net.accelbyte.sdk.cli.api.iam.o_auth2_0_extension.*;
-import net.accelbyte.sdk.cli.api.iam.o_auth_deprecated.*;
 import net.accelbyte.sdk.cli.api.iam.roles.*;
-import net.accelbyte.sdk.cli.api.iam.roles_deprecated.*;
 import net.accelbyte.sdk.cli.api.iam.sso.*;
 import net.accelbyte.sdk.cli.api.iam.sso_credential.*;
 import net.accelbyte.sdk.cli.api.iam.sso_saml_2_0.*;
@@ -260,7 +257,7 @@ import picocli.CommandLine.Command;
       GetAdminInvitationV3.class,
       CreateUserFromInvitationV3.class,
       UpdateUserV3.class,
-      PublicUpdateUserV3.class,
+      PublicPartialUpdateUserV3.class,
       PublicSendVerificationCodeV3.class,
       PublicUserVerificationV3.class,
       PublicUpgradeHeadlessAccountV3.class,
@@ -280,6 +277,7 @@ import picocli.CommandLine.Command;
       PublicGetUserPlatformAccountsV3.class,
       PublicLinkPlatformAccount.class,
       PublicForceLinkPlatformWithProgression.class,
+      PublicGetPublisherUserV3.class,
       PublicValidateUserByUserIDAndPasswordV3.class,
       PublicGetRolesV3.class,
       PublicGetRoleV3.class,
@@ -287,6 +285,7 @@ import picocli.CommandLine.Command;
       PlatformAuthenticateSAMLV3Handler.class,
       LoginSSOClient.class,
       LogoutSSOClient.class,
+      AdminCreateTestUsersV4.class,
       AdminBulkCheckValidUserIDV4.class,
       AdminUpdateUserV4.class,
       AdminUpdateUserEmailAddressV4.class,

@@ -21,8 +21,11 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * SearchUser
  *
- * <p>## The endpoint is deprecated. Please use this instead:
- * iam/v3/admin/namespaces/{namespace}/users/search
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/users/search [GET]
  *
  * <p>Search all users that match the query on these fields: all login IDs (email address, phone
  * number, and platform user id), userID, display name, and on the specified namespace. If the query

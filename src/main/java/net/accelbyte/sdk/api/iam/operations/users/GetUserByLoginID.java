@@ -21,8 +21,17 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetUserByLoginID
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users [GET]
+ *
  * <p>Required permission 'NAMESPACE:{namespace}:USER [READ]'
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetUserByLoginID extends Operation {

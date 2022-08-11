@@ -20,8 +20,11 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * EnableUser
  *
- * <p>## The endpoint is going to be deprecated. Please use this instead:
- * iam/v2/admin/namespaces/{namespace}/users/{userId}/enable
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/users/{userId}/status [PATCH]
  *
  * <p>Required permissions 'ADMIN:NAMESPACE:{namespace}:USERSTATUS:USER:{userId} [UPDATE]'
  *

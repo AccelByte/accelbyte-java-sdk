@@ -46,6 +46,7 @@ public class QueryUserEntitlements extends Operation {
   private String appType;
   private String entitlementClazz;
   private String entitlementName;
+  private List<String> features;
   private List<String> itemId;
   private Integer limit;
   private Integer offset;
@@ -62,6 +63,7 @@ public class QueryUserEntitlements extends Operation {
       String appType,
       String entitlementClazz,
       String entitlementName,
+      List<String> features,
       List<String> itemId,
       Integer limit,
       Integer offset) {
@@ -71,6 +73,7 @@ public class QueryUserEntitlements extends Operation {
     this.appType = appType;
     this.entitlementClazz = entitlementClazz;
     this.entitlementName = entitlementName;
+    this.features = features;
     this.itemId = itemId;
     this.limit = limit;
     this.offset = offset;
@@ -103,6 +106,7 @@ public class QueryUserEntitlements extends Operation {
     queryParams.put(
         "entitlementName",
         this.entitlementName == null ? null : Arrays.asList(this.entitlementName));
+    queryParams.put("features", this.features == null ? null : this.features);
     queryParams.put("itemId", this.itemId == null ? null : this.itemId);
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
@@ -137,6 +141,7 @@ public class QueryUserEntitlements extends Operation {
     result.put("appType", "None");
     result.put("entitlementClazz", "None");
     result.put("entitlementName", "None");
+    result.put("features", "multi");
     result.put("itemId", "multi");
     result.put("limit", "None");
     result.put("offset", "None");

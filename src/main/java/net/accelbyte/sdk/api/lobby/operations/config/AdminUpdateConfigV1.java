@@ -23,7 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:LOBBY:CONFIG [UPDATE]` with scope `social`
  *
- * <p>update lobby config of a namespace.
+ * <p>update lobby config of a namespace. MaxDSWaitTime value is cannot less than 1, if null it will
+ * use default value in 120 (second)
  */
 @Getter
 @Setter

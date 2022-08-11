@@ -22,6 +22,23 @@ public class UsersV4 {
   }
 
   /**
+   * @see AdminCreateTestUsersV4
+   */
+  public AccountCreateTestUsersResponseV4 adminCreateTestUsersV4(AdminCreateTestUsersV4 input)
+      throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
    * @see AdminBulkCheckValidUserIDV4
    */
   public ModelListValidUserIDResponseV4 adminBulkCheckValidUserIDV4(

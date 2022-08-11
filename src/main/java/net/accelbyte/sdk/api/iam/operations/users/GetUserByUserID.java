@@ -21,8 +21,21 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetUserByUserID
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint(Public): /iam/v3/public/namespaces/{namespace}/users/{userId} [GET]
+ *
+ * <p>* Substitute endpoint(Admin): /iam/v3/admin/namespaces/{namespace}/users/{userId} [GET]
+ *
+ * <p>* Note: format difference in response: Pascal case => Camel case
+ *
  * <p>Required permission 'NAMESPACE:{namespace}:USER:{userId} [READ]'
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetUserByUserID extends Operation {

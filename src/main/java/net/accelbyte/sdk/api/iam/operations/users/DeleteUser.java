@@ -20,8 +20,18 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteUser
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/users/{userId}/information
+ * [DELETE]
+ *
  * <p>Required permission 'NAMESPACE:{namespace}:USER:{userId} [DELETE]'
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class DeleteUser extends Operation {

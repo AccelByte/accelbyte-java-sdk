@@ -72,10 +72,8 @@ public class DeleteMemberRolePublicV1 implements Callable<Integer> {
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsRemoveRoleFromMemberRequestV1.class))
               .build();
-      ModelsUpdateMemberRoleResponseV1 response = wrapper.deleteMemberRolePublicV1(operation);
-      String responseString =
-          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful with response below:\n{}", responseString);
+      wrapper.deleteMemberRolePublicV1(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error("HttpResponseException occur with message below:\n{}", e.getMessage());

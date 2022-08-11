@@ -39,6 +39,9 @@ public class ModelsPodCountConfigOverride extends Model {
   @JsonProperty("name")
   private String name;
 
+  @JsonProperty("unlimited")
+  private Boolean unlimited;
+
   @JsonProperty("use_buffer_percent")
   private Boolean useBufferPercent;
 

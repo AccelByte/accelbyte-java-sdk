@@ -56,6 +56,12 @@ public class ListSeasonInfo extends Model {
   @JsonProperty("status")
   private String status;
 
+  @JsonProperty("tierItemId")
+  private String tierItemId;
+
+  @JsonProperty("tierItemName")
+  private String tierItemName;
+
   @JsonProperty("updatedAt")
   private String updatedAt;
 

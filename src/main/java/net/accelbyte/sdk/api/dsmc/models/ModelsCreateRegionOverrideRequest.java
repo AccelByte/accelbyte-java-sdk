@@ -36,6 +36,9 @@ public class ModelsCreateRegionOverrideRequest extends Model {
   @JsonProperty("min_count")
   private Integer minCount;
 
+  @JsonProperty("unlimited")
+  private Boolean unlimited;
+
   @JsonProperty("use_buffer_percent")
   private Boolean useBufferPercent;
 

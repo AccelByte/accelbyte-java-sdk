@@ -84,6 +84,10 @@ public class ModelsConfigReq extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean keepPresenceActivityOnDisconnect;
 
+  @JsonProperty("maxDSWaitTime")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer maxDSWaitTime;
+
   @JsonProperty("maxPartyMember")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxPartyMember;

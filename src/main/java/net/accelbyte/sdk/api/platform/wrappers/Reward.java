@@ -150,6 +150,22 @@ public class Reward {
   }
 
   /**
+   * @see DeleteRewardConditionRecord
+   */
+  public void deleteRewardConditionRecord(DeleteRewardConditionRecord input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
    * @see GetRewardByCode
    */
   public RewardInfo getRewardByCode(GetRewardByCode input) throws Exception {

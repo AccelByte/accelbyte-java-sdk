@@ -21,6 +21,12 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * SendVerificationCode
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/me/code/request [POST]
+ *
  * <p>Required permission 'NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
  *
  * <p>The verification code is sent to either the phone number or email address. It depends on the
@@ -43,7 +49,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>The context is intended to be used whenever the email address wanted to be automatically
  * verified on upgrading a headless account. If this context used, IAM rejects the request if the
  * loginId field's value is already used by others by returning HTTP Status Code 409.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class SendVerificationCode extends Operation {

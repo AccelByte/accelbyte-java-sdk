@@ -26,6 +26,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Required scope: social
  *
  * <p>This endpoint get image patches by version.
+ *
+ * <p>Image Size unit is byte.
  */
 @Getter
 @Setter

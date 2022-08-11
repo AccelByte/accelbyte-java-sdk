@@ -61,6 +61,11 @@ public class QueryUserEntitlements implements Callable<Integer> {
   String entitlementName;
 
   @Option(
+      names = {"--features"},
+      description = "features")
+  List<String> features;
+
+  @Option(
       names = {"--itemId"},
       description = "itemId")
   List<String> itemId;
@@ -104,6 +109,7 @@ public class QueryUserEntitlements implements Callable<Integer> {
               .appType(appType)
               .entitlementClazz(entitlementClazz)
               .entitlementName(entitlementName)
+              .features(features)
               .itemId(itemId)
               .limit(limit)
               .offset(offset)

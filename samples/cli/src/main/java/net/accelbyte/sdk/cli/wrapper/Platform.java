@@ -173,6 +173,7 @@ import picocli.CommandLine.Command;
       UpdateReward.class,
       DeleteReward.class,
       CheckEventCondition.class,
+      DeleteRewardConditionRecord.class,
       ListStores.class,
       CreateStore.class,
       ImportStore.class,

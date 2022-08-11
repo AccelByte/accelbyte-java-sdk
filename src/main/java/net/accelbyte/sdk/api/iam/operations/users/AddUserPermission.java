@@ -21,6 +21,12 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AddUserPermission
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/users/{userId}/permissions [POST]
+ *
  * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:PERMISSION:USER:{userId} [UPDATE]'
  *
  * <p>This endpoint will update existing permission (bitwise OR the action) if found one with same
@@ -73,7 +79,10 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>7. #: must be followed by a number between one and five. It allows you to specify constructs
  * such as "the second Friday" of a given month.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AddUserPermission extends Operation {

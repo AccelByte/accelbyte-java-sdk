@@ -27,6 +27,10 @@ public class AccountcommonPlatformAccount extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("platformId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String platformId;
+
   @JsonProperty("platformUserId")
   private String platformUserId;
 

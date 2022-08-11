@@ -74,10 +74,10 @@ public class PublicContent {
   }
 
   /**
-   * @see DownloadContentByShareCode
+   * @see PublicDownloadContentByShareCode
    */
-  public ModelsContentDownloadResponse downloadContentByShareCode(DownloadContentByShareCode input)
-      throws Exception {
+  public ModelsContentDownloadResponse publicDownloadContentByShareCode(
+      PublicDownloadContentByShareCode input) throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);

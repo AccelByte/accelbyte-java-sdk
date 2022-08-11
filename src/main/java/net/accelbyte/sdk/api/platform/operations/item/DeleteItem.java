@@ -20,10 +20,11 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteItem
  *
- * <p>This API is used to delete an item permanently, usually for test purpose. DO NOT delete
- * already published item.
+ * <p>This API is used to delete an item permanently.
  *
- * <p>Other detail info:
+ * <p>force: the default value should be: false. When the value is: * false: only the items in the
+ * draft store that have never been published yet can be removed. * true: the item in the draft
+ * store(even been published before) can be removed. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=8 (DELETE)
  */
@@ -41,6 +42,7 @@ public class DeleteItem extends Operation {
   private String itemId;
 
   private String namespace;
+  private Boolean force;
   private String storeId;
 
   /**
@@ -48,9 +50,10 @@ public class DeleteItem extends Operation {
    * @param namespace required
    */
   @Builder
-  public DeleteItem(String itemId, String namespace, String storeId) {
+  public DeleteItem(String itemId, String namespace, Boolean force, String storeId) {
     this.itemId = itemId;
     this.namespace = namespace;
+    this.force = force;
     this.storeId = storeId;
 
     securities.add("Bearer");
@@ -71,6 +74,7 @@ public class DeleteItem extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("force", this.force == null ? null : Arrays.asList(String.valueOf(this.force)));
     queryParams.put("storeId", this.storeId == null ? null : Arrays.asList(this.storeId));
     return queryParams;
   }
@@ -97,6 +101,7 @@ public class DeleteItem extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("force", "None");
     result.put("storeId", "None");
     return result;
   }

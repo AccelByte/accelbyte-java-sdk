@@ -159,12 +159,11 @@ public class GroupRoles {
   /**
    * @see DeleteMemberRolePublicV1
    */
-  public ModelsUpdateMemberRoleResponseV1 deleteMemberRolePublicV1(DeleteMemberRolePublicV1 input)
-      throws Exception {
+  public void deleteMemberRolePublicV1(DeleteMemberRolePublicV1 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
+      input.handleEmptyResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
     } finally {
       if (httpResponse != null && httpResponse.getPayload() != null) {

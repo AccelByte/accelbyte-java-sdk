@@ -23,8 +23,17 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetUserBanHistory
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/users/{userId}/bans [GET]
+ *
  * <p>Required permissions 'ADMIN:NAMESPACE:{namespace}:BAN:USER:{userId} [READ]'.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetUserBanHistory extends Operation {

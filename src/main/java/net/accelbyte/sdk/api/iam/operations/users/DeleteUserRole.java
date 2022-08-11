@@ -20,8 +20,18 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteUserRole
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/users/{userId}/roles/{roleId}
+ * [DELETE]
+ *
  * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:ROLE:USER:{userId} [DELETE]'
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class DeleteUserRole extends Operation {

@@ -21,10 +21,11 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DisableUser
  *
- * <p>## The endpoint is going to be deprecated. Please use this instead:
- * iam/v2/admin/namespaces/{namespace}/users/{userId}/disable
+ * <p>## The endpoint is going to be deprecated
  *
- * <p>+
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/users/{userId}/status [PATCH]
  *
  * <p>Required permissions 'ADMIN:NAMESPACE:{namespace}:USERSTATUS:USER:{userId} [UPDATE]'
  *

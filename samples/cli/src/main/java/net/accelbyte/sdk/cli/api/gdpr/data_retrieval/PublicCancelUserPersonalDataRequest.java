@@ -74,6 +74,7 @@ public class PublicCancelUserPersonalDataRequest implements Callable<Integer> {
                   .userId(userId)
                   .build();
       wrapper.publicCancelUserPersonalDataRequest(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error("HttpResponseException occur with message below:\n{}", e.getMessage());
