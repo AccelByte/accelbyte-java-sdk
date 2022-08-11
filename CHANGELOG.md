@@ -1,5 +1,29 @@
+<a name="v0.17.0"></a>
+## [v0.17.0] - 2022-08-11
+### Chore
+- bump to version 0.17 for ab cloud 3.29
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.29
+- **sdk:** remove more warnings
+- **spec:** update spec for ab cloud 3.29
+- **test:** integration - qosm - clean unused warnings
+
+### Ci
+- updated mock server path
+
+### Docs
+- update changelog for ab cloud 3.29
+
+### Fix
+- **ci:** fix mock server path
+- **sdk:** model - exclude property if not required and the value is null
+
+### Test
+- added season pass integration tests
+- added qosm integration test
+
+
 <a name="v0.16.0"></a>
-## [v0.16.0] - 2022-08-01
+## [v0.16.0] - 2022-08-02
 ### Chore
 - bump to version 0.16 for justice 3.28
 - code warnings cleanup
@@ -534,6 +558,7 @@
 - replace unnecessary object
 
 
+[v0.17.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.16.0...v0.17.0
 [v0.16.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.15.0...v0.16.0
 [v0.15.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.14.0...v0.15.0
 [v0.14.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.13.0...v0.14.0
