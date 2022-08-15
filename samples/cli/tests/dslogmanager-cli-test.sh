@@ -56,60 +56,60 @@ touch "tmp.dat"
 #- 2 ListTerminatedServers
 ./ng net.accelbyte.sdk.cli.Main dslogmanager listTerminatedServers \
     --namespace "$AB_NAMESPACE" \
-    --deployment '8pNvuZpM' \
-    --endDate 'lhGk2HXN' \
-    --gameMode 'FZRegXIg' \
-    --limit '73' \
-    --next 'cVRzW51Y' \
-    --partyId 'SAmxOngW' \
-    --podName 'DHOlsX3Q' \
-    --previous 'lr2MmKnQ' \
-    --provider 'q1VES8fd' \
-    --region 'ZT3XNwjF' \
-    --sessionId 'VXEE9YrV' \
-    --startDate '91pmBzAN' \
-    --status '7GFJ7iKf' \
-    --userId 'dPDTOZHn' \
+    --deployment 'PM2tsvNC' \
+    --endDate 'vnzwso9s' \
+    --gameMode 'mDWFHx3V' \
+    --limit '100' \
+    --next 'imb68Q42' \
+    --partyId 'uL0jSgec' \
+    --podName 'MZ6riC1S' \
+    --previous 'DLEy0NBL' \
+    --provider 'UDDNd9f4' \
+    --region 'ThBnEbqv' \
+    --sessionId 'AUG6M2wV' \
+    --startDate 'qAnCwd61' \
+    --status 'WqWmlRSs' \
+    --userId 'wRiA4NN0' \
     > test.out 2>&1
 eval_tap $? 2 'ListTerminatedServers' test.out
 
 #- 3 DownloadServerLogs
 ./ng net.accelbyte.sdk.cli.Main dslogmanager downloadServerLogs \
     --namespace "$AB_NAMESPACE" \
-    --podName 'ebiad2ab' \
+    --podName 'ryF3g00s' \
     > test.out 2>&1
 eval_tap $? 3 'DownloadServerLogs' test.out
 
 #- 4 CheckServerLogs
 ./ng net.accelbyte.sdk.cli.Main dslogmanager checkServerLogs \
     --namespace "$AB_NAMESPACE" \
-    --podName 'p9cKBhYP' \
+    --podName 'IQeVSSbP' \
     > test.out 2>&1
 eval_tap $? 4 'CheckServerLogs' test.out
 
 #- 5 BatchDownloadServerLogs
 ./ng net.accelbyte.sdk.cli.Main dslogmanager batchDownloadServerLogs \
-    --body '{"Downloads": [{"alloc_id": "W21Yr6t6", "namespace": "kdBVolpo", "pod_name": "jpDzVow2"}, {"alloc_id": "Cdn8oWzm", "namespace": "YMJFyOFl", "pod_name": "e9otrgVo"}, {"alloc_id": "C0JfHISP", "namespace": "252OzNRN", "pod_name": "PxbanUXO"}]}' \
+    --body '{"Downloads": [{"alloc_id": "ZcJktHbt", "namespace": "aOFvreHx", "pod_name": "slSyqlay"}, {"alloc_id": "ppYgfdcx", "namespace": "uMfESmGs", "pod_name": "ivmsWGJs"}, {"alloc_id": "uMC9TS8t", "namespace": "SEoThdED", "pod_name": "TcKkSOEu"}]}' \
     > test.out 2>&1
 eval_tap $? 5 'BatchDownloadServerLogs' test.out
 
 #- 6 ListAllTerminatedServers
 ./ng net.accelbyte.sdk.cli.Main dslogmanager listAllTerminatedServers \
-    --deployment '6VKylP6B' \
-    --endDate '41zUAywy' \
-    --gameMode 'OFcRnENJ' \
-    --limit '8' \
+    --deployment 'W0ywA38j' \
+    --endDate 'KhFdy16g' \
+    --gameMode '3TNTEWM7' \
+    --limit '99' \
     --namespace "$AB_NAMESPACE" \
-    --next 'IYfEx8MX' \
-    --partyId 'Gs98ZqZ5' \
-    --podName 'VMcXXTb4' \
-    --previous '6MHuWSup' \
-    --provider 'kTvAUDuK' \
-    --region 'zsvDj5NG' \
-    --sessionId 'cnCtI74V' \
-    --startDate '1lJTQG5V' \
-    --status 'jWAZgtyj' \
-    --userId 'QqacCG9w' \
+    --next 'exRx93Z7' \
+    --partyId 'icLTrv4R' \
+    --podName 'dCGsVB7T' \
+    --previous 'Q6Wt5hJX' \
+    --provider 'PC4N5Pyv' \
+    --region 'LvSypwan' \
+    --sessionId 'AKdUayn6' \
+    --startDate '247hGyBd' \
+    --status 'TwmAts7G' \
+    --userId 'wWc10hn9' \
     > test.out 2>&1
 eval_tap $? 6 'ListAllTerminatedServers' test.out
 

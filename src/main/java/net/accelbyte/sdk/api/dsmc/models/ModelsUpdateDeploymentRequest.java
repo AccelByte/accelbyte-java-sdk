@@ -54,9 +54,6 @@ public class ModelsUpdateDeploymentRequest extends Model {
   @JsonProperty("session_timeout")
   private Integer sessionTimeout;
 
-  @JsonProperty("unlimited")
-  private Boolean unlimited;
-
   @JsonProperty("use_buffer_percent")
   private Boolean useBufferPercent;
 
