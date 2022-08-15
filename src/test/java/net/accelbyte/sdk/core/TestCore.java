@@ -29,8 +29,9 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
-import net.accelbyte.sdk.api.iam.operations.users.GetUserByLoginID;
-import net.accelbyte.sdk.api.iam.wrappers.Users;
+
+import net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.GetCountryLocationV3;
+import net.accelbyte.sdk.api.iam.wrappers.OAuth20Extension;
 import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy;
 import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy.RetryIntervalType;
 import net.accelbyte.sdk.core.client.OkhttpClient;
@@ -610,8 +611,7 @@ class TestCore {
 
     reliableHttpClient.setHttpRetryPolicy(retryPolicy);
 
-    final GetUserByLoginID op =
-        GetUserByLoginID.builder().namespace("test").loginId("test").build();
+    final GetCountryLocationV3 op = GetCountryLocationV3.builder().build();
 
     HttpResponse res = null;
 
@@ -688,8 +688,7 @@ class TestCore {
 
     reliableHttpClient.setHttpRetryPolicy(retryPolicy);
 
-    final GetUserByLoginID op =
-        GetUserByLoginID.builder().namespace("test").loginId("test").build();
+    final GetCountryLocationV3 op = GetCountryLocationV3.builder().build();
 
     HttpResponse res = null;
 
@@ -728,7 +727,7 @@ class TestCore {
         new DefaultTokenRefreshRepository();
     final AccelByteSDK sdk =
         new AccelByteSDK(httpClient, tokenRefreshRepository, mockServerConfigRepository);
-    final Users usersWrapper = new Users(sdk);
+    final OAuth20Extension wrapper = new OAuth20Extension(sdk);
 
     sdk.loginUser("fakeuser", "fakepassword");
 
@@ -742,8 +741,7 @@ class TestCore {
     // hours
     tokenRefreshRepository.setTokenExpiresAt(Date.from(Instant.now().plusSeconds(60)));
 
-    usersWrapper.getUserByLoginID(
-        GetUserByLoginID.builder().namespace("test").loginId("admin").build());
+    wrapper.getCountryLocationV3(GetCountryLocationV3.builder().build());
 
     assertTrue(
         tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
@@ -758,7 +756,7 @@ class TestCore {
         new DefaultTokenRefreshRepository();
     final AccelByteSDK sdk =
         new AccelByteSDK(httpClient, tokenRefreshRepository, mockServerConfigRepository);
-    final Users usersWrapper = new Users(sdk);
+    final OAuth20Extension wrapper = new OAuth20Extension(sdk);
 
     sdk.loginClient();
 
@@ -771,8 +769,7 @@ class TestCore {
     // Simulate token expiry within threshold
     tokenRefreshRepository.setTokenExpiresAt(Date.from(Instant.now().plusSeconds(60)));
 
-    usersWrapper.getUserByLoginID(
-        GetUserByLoginID.builder().namespace("test").loginId("admin").build());
+    wrapper.getCountryLocationV3(GetCountryLocationV3.builder().build());
 
     // Check if access token is set correctly after refresh token
     assertTrue(
