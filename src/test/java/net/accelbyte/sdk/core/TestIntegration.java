@@ -98,15 +98,15 @@ import net.accelbyte.sdk.api.group.wrappers.Group;
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserRequestV4;
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserRequestV4.AuthType;
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserResponseV4;
-import net.accelbyte.sdk.api.iam.models.ModelPublicUserResponse;
-import net.accelbyte.sdk.api.iam.models.ModelUserResponse;
+import net.accelbyte.sdk.api.iam.models.ModelPublicUserResponseV3;
 import net.accelbyte.sdk.api.iam.models.ModelUserResponseV3;
-import net.accelbyte.sdk.api.iam.models.ModelUserUpdateRequest;
+import net.accelbyte.sdk.api.iam.models.ModelUserUpdateRequestV3;
 import net.accelbyte.sdk.api.iam.operations.users.AdminGetMyUserV3;
+import net.accelbyte.sdk.api.iam.operations.users.AdminUpdateUserV3;
 import net.accelbyte.sdk.api.iam.operations.users.DeleteUser;
-import net.accelbyte.sdk.api.iam.operations.users.GetUserByLoginID;
-import net.accelbyte.sdk.api.iam.operations.users.GetUserByUserID;
-import net.accelbyte.sdk.api.iam.operations.users.UpdateUser;
+import net.accelbyte.sdk.api.iam.operations.users.PublicGetUserByUserIdV3;
+import net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.GetCountryLocationV3;
+import net.accelbyte.sdk.api.iam.wrappers.OAuth20Extension;
 import net.accelbyte.sdk.api.iam.operations.users_v4.PublicCreateUserV4;
 import net.accelbyte.sdk.api.iam.wrappers.Users;
 import net.accelbyte.sdk.api.iam.wrappers.UsersV4;
@@ -796,21 +796,21 @@ class TestIntegration {
 
     // Get user
 
-    final ModelUserResponse getUserResult =
-        usersWrapper.getUserByUserID(
-            GetUserByUserID.builder().namespace(this.namespace).userId(userId).build());
+    final ModelPublicUserResponseV3 getUserResult = 
+        usersWrapper.publicGetUserByUserIdV3(
+            PublicGetUserByUserIdV3.builder().namespace(this.namespace).userId(userId).build());
 
     assertNotNull(getUserResult);
     assertEquals(userDisplayName, getUserResult.getDisplayName());
 
     // Update user
 
-    final ModelUserUpdateRequest updateUser =
-        ModelUserUpdateRequest.builder().dateOfBirth(userDateOfBirthUpdate).build();
+    final ModelUserUpdateRequestV3 updateUser =
+            ModelUserUpdateRequestV3.builder().dateOfBirth(userDateOfBirthUpdate).build();
 
-    final ModelUserResponse updateUserResult =
-        usersWrapper.updateUser(
-            UpdateUser.builder().namespace(this.namespace).userId(userId).body(updateUser).build());
+    final ModelUserResponseV3 updateUserResult =    
+            usersWrapper.adminUpdateUserV3(
+                AdminUpdateUserV3.builder().namespace(this.namespace).userId(userId).body(updateUser).build());
 
     assertNotNull(updateUserResult);
     assertNotNull(updateUserResult.getDateOfBirth());
@@ -833,8 +833,8 @@ class TestIntegration {
     assertThrows(
         HttpResponseException.class,
         () -> {
-          usersWrapper.getUserByUserID(
-              GetUserByUserID.builder().namespace(this.namespace).userId(userId).build());
+            usersWrapper.publicGetUserByUserIdV3(
+                PublicGetUserByUserIdV3.builder().namespace(this.namespace).userId(userId).build());
         });
   }
 
@@ -1269,7 +1269,7 @@ class TestIntegration {
             this.sdk.getSdkConfiguration().getHttpClient(),
             tokenRefreshRepository,
             this.sdk.getSdkConfiguration().getConfigRepository());
-    final Users usersWrapper = new Users(sdk);
+    final OAuth20Extension wrapper = new OAuth20Extension(sdk);
 
     sdk.loginUser(this.username, this.password);
 
@@ -1282,8 +1282,7 @@ class TestIntegration {
     // Simulate token expiry within threshold
     tokenRefreshRepository.setTokenExpiresAt(Date.from(Instant.now().plusSeconds(60)));
 
-    usersWrapper.getUserByLoginID(
-        GetUserByLoginID.builder().namespace(this.namespace).loginId(this.username).build());
+    wrapper.getCountryLocationV3(GetCountryLocationV3.builder().build());
 
     assertTrue(
         tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
@@ -1302,7 +1301,7 @@ class TestIntegration {
             this.sdk.getSdkConfiguration().getHttpClient(),
             tokenRefreshRepository,
             this.sdk.getSdkConfiguration().getConfigRepository());
-    final Users usersWrapper = new Users(sdk);
+    final OAuth20Extension wrapper = new OAuth20Extension(sdk);
 
     sdk.loginClient();
 
@@ -1315,8 +1314,7 @@ class TestIntegration {
     // Simulate token expiry within threshold
     tokenRefreshRepository.setTokenExpiresAt(Date.from(Instant.now().plusSeconds(60)));
 
-    usersWrapper.getUserByLoginID(
-        GetUserByLoginID.builder().namespace(this.namespace).loginId(this.username).build());
+    wrapper.getCountryLocationV3(GetCountryLocationV3.builder().build());
 
     assertTrue(
         tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
@@ -1397,9 +1395,8 @@ class TestIntegration {
     final UserStatistic userStatisticWrapper = new UserStatistic(sdk);
     final Users usersWrapper = new Users(sdk);
 
-    final ModelPublicUserResponse getUserResult =
-        usersWrapper.getUserByLoginID(
-            GetUserByLoginID.builder().namespace(this.namespace).loginId(this.username).build());
+    final ModelUserResponseV3 getUserResult = 
+            usersWrapper.adminGetMyUserV3(AdminGetMyUserV3.builder().build());
 
     assertNotNull(getUserResult);
 
