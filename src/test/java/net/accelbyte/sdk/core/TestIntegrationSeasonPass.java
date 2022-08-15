@@ -16,11 +16,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import net.accelbyte.sdk.api.platform.models.CategoryCreate;
-import net.accelbyte.sdk.api.platform.models.FullCategoryInfo;
 import net.accelbyte.sdk.api.platform.models.FullItemInfo;
 import net.accelbyte.sdk.api.platform.models.ItemCreate;
 import net.accelbyte.sdk.api.platform.models.RegionDataItem;
-// import net.accelbyte.sdk.api.platform.models.Localization;
 import net.accelbyte.sdk.api.platform.models.StoreCreate;
 import net.accelbyte.sdk.api.platform.models.StoreInfo;
 import net.accelbyte.sdk.api.platform.operations.category.CreateCategory;
@@ -60,8 +58,8 @@ import org.junit.jupiter.api.TestMethodOrder;
 class TestIntegrationSeasonPass {
   private AccelByteSDK sdk;
   private String namespace;
-  private String username;
-  private String password;
+  //private String username;
+  //private String password;
 
   @BeforeAll
   public void setup() throws Exception {
@@ -80,14 +78,14 @@ class TestIntegrationSeasonPass {
     assertTrue(baseUrl != null && !baseUrl.isEmpty());
     assertTrue(clientId != null && !clientId.isEmpty());
     assertTrue(clientSecret != null && !clientSecret.isEmpty());
-    assertTrue(username != null && !username.isEmpty());
-    assertTrue(password != null && !password.isEmpty());
+    //assertTrue(username != null && !username.isEmpty());
+    //assertTrue(password != null && !password.isEmpty());
     assertTrue(namespace != null && !namespace.isEmpty());
 
     this.sdk = new AccelByteSDK(sdkConfig);
     this.namespace = namespace;
-    this.username = username;
-    this.password = password;
+    //this.username = username;
+    //this.password = password;
 
     final boolean isLoginUserOk = sdk.loginUser(username, password);
     final String token = tokenRepo.getToken();
@@ -143,8 +141,7 @@ class TestIntegrationSeasonPass {
             .localizationDisplayNames(lDisplayNames)
             .build();
 
-    final FullCategoryInfo categoryInfo =
-        platformCategoryWrapper.createCategory(
+    platformCategoryWrapper.createCategory(
             CreateCategory.builder()
                 .namespace(this.namespace)
                 .storeId(selectedStore.getStoreId())
