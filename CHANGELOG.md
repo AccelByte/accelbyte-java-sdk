@@ -1,9 +1,11 @@
 <a name="v0.17.0"></a>
-## [v0.17.0] - 2022-08-11
+## [v0.17.0] - 2022-08-15
 ### Chore
 - bump to version 0.17 for ab cloud 3.29
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.29 (again)
 - **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.29
 - **sdk:** remove more warnings
+- **spec:** update spec for ab cloud 3.29 (again)
 - **spec:** update spec for ab cloud 3.29
 - **test:** integration - qosm - clean unused warnings
 
