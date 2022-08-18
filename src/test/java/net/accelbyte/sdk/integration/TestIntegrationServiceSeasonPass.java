@@ -4,10 +4,9 @@
  * and restrictions contact your company contract manager.
  */
 
-package net.accelbyte.sdk.core;
+package net.accelbyte.sdk.integration;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -37,12 +36,6 @@ import net.accelbyte.sdk.api.seasonpass.operations.season.DeleteSeason;
 import net.accelbyte.sdk.api.seasonpass.operations.season.GetSeason;
 import net.accelbyte.sdk.api.seasonpass.operations.season.UpdateSeason;
 import net.accelbyte.sdk.api.seasonpass.wrappers.Season;
-import net.accelbyte.sdk.core.client.HttpClient;
-import net.accelbyte.sdk.core.client.OkhttpClient;
-import net.accelbyte.sdk.core.repository.ConfigRepository;
-import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
-import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
-import net.accelbyte.sdk.core.repository.TokenRepository;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
@@ -55,61 +48,29 @@ import org.junit.jupiter.api.TestMethodOrder;
 @Tag("test-integration")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class TestIntegrationSeasonPass {
-  private AccelByteSDK sdk;
-  private String namespace;
-  //private String username;
-  //private String password;
-
+class TestIntegrationServiceSeasonPass extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
-    final HttpClient<?> httpClient = new OkhttpClient();
-    final TokenRepository tokenRepo = DefaultTokenRepository.getInstance();
-    final ConfigRepository configRepo = new DefaultConfigRepository();
-    final AccelByteConfig sdkConfig = new AccelByteConfig(httpClient, tokenRepo, configRepo);
-
-    final String baseUrl = configRepo.getBaseURL();
-    final String clientId = configRepo.getClientId();
-    final String clientSecret = configRepo.getClientSecret();
-    final String username = System.getenv("AB_USERNAME");
-    final String password = System.getenv("AB_PASSWORD");
-    final String namespace = System.getenv("AB_NAMESPACE");
-
-    assertTrue(baseUrl != null && !baseUrl.isEmpty());
-    assertTrue(clientId != null && !clientId.isEmpty());
-    assertTrue(clientSecret != null && !clientSecret.isEmpty());
-    //assertTrue(username != null && !username.isEmpty());
-    //assertTrue(password != null && !password.isEmpty());
-    assertTrue(namespace != null && !namespace.isEmpty());
-
-    this.sdk = new AccelByteSDK(sdkConfig);
-    this.namespace = namespace;
-    //this.username = username;
-    //this.password = password;
-
-    final boolean isLoginUserOk = sdk.loginUser(username, password);
-    final String token = tokenRepo.getToken();
-
-    assertTrue(isLoginUserOk);
-    assertTrue(token != null && !token.isEmpty());
+    super.setup();
   }
 
   @Test
   @Order(1)
-  public void testSeasonPass() throws Exception {
+  public void test() throws Exception {
 
     final String storeTitle = "Java Server SDK Season Store";
     final String categoryPath = "/" + java.util.UUID.randomUUID().toString().replaceAll("-", "");
     final String itemName = "Item_SEASON_Tier1";
     final String seasonName = "JavaServerSDKTestSeason";
-    final String seasonNameforUpdate = "JavaServerSDKTestSeasonUpdated";
+    final String seasonNameUpdated = "JavaServerSDKTestSeasonUpdated";
 
     final Store platformStoreWrapper = new Store(sdk);
     final Category platformCategoryWrapper = new Category(sdk);
     final Item platformItemWrapper = new Item(sdk);
     final Season seasonWrapper = new Season(sdk);
 
-    // Get or Create Store
+    // Get or create store
+
     final List<StoreInfo> storeListResp =
         platformStoreWrapper.listStores(ListStores.builder().namespace(this.namespace).build());
     assertNotNull(storeListResp);
@@ -131,24 +92,26 @@ class TestIntegrationSeasonPass {
               CreateStore.builder().body(storeCreate).namespace(this.namespace).build());
     }
 
-    // Create Category
+    // Create category
+
     Map<String, String> lDisplayNames = new HashMap<>();
     lDisplayNames.put("en-US", categoryPath);
 
-    final CategoryCreate createCategoryReq =
+    final CategoryCreate createCategoryBody =
         CategoryCreate.builder()
             .categoryPath(categoryPath)
             .localizationDisplayNames(lDisplayNames)
             .build();
 
     platformCategoryWrapper.createCategory(
-            CreateCategory.builder()
-                .namespace(this.namespace)
-                .storeId(selectedStore.getStoreId())
-                .body(createCategoryReq)
-                .build());
+        CreateCategory.builder()
+            .namespace(this.namespace)
+            .storeId(selectedStore.getStoreId())
+            .body(createCategoryBody)
+            .build());
 
-    // Create Item
+    // Create item
+
     final net.accelbyte.sdk.api.platform.models.Localization usLocalName =
         net.accelbyte.sdk.api.platform.models.Localization.builder().title(itemName).build();
     final Map<String, net.accelbyte.sdk.api.platform.models.Localization> mapLocalizations =
@@ -167,7 +130,7 @@ class TestIntegrationSeasonPass {
     regionsList.add(regionDataItem);
     mapRegions.put("US", regionsList);
 
-    final ItemCreate newItemReq =
+    final ItemCreate createItemBody =
         ItemCreate.builder()
             .categoryPath(categoryPath)
             .entitlementTypeFromEnum(ItemCreate.EntitlementType.DURABLE)
@@ -184,83 +147,108 @@ class TestIntegrationSeasonPass {
             .purchasable(true)
             .build();
 
-    final FullItemInfo itemInfo =
+    final FullItemInfo createItemResult =
         platformItemWrapper.createItem(
             CreateItem.builder()
                 .namespace(this.namespace)
                 .storeId(selectedStore.getStoreId())
-                .body(newItemReq)
+                .body(createItemBody)
                 .build());
-    assertNotNull(itemInfo);
 
-    // Create Season
+    assertNotNull(createItemResult);
+
+    // CASE Create season
+
     final net.accelbyte.sdk.api.seasonpass.models.Localization englishSPLocalName =
         net.accelbyte.sdk.api.seasonpass.models.Localization.builder()
             .title("English")
             .description("English")
             .build();
+
     Map<String, net.accelbyte.sdk.api.seasonpass.models.Localization> mapSeasonLocals =
         new HashMap<>();
+
     mapSeasonLocals.put("en", englishSPLocalName);
 
-    final LocalDateTime cNow = LocalDateTime.now();
-    final LocalDateTime cLater = cNow.plusDays(7);
+    final LocalDateTime now = LocalDateTime.now();
+    final String seasonStart =
+        now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"));
+    final String seasonEnd =
+        now.plusDays(7).format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"));
 
-    final SeasonCreate newSeasonReq =
+    final SeasonCreate createSeasonBody =
         SeasonCreate.builder()
             .name(seasonName)
-            .start(cNow.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")))
-            .end(cLater.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")))
+            .start(seasonStart)
+            .end(seasonEnd)
             .defaultRequiredExp(100)
             .draftStoreId(selectedStore.getStoreId())
-            .tierItemId(itemInfo.getItemId())
+            .tierItemId(createItemResult.getItemId())
             .localizations(mapSeasonLocals)
             .defaultLanguage("en")
             .build();
 
-    final SeasonInfo seasonInfo =
+    final SeasonInfo createSeasonResult =
         seasonWrapper.createSeason(
-            CreateSeason.builder().namespace(this.namespace).body(newSeasonReq).build());
-    assertNotNull(seasonInfo);
+            CreateSeason.builder().namespace(this.namespace).body(createSeasonBody).build());
 
-    // Get Season
-    final SeasonInfo gSessionData =
+    // ESAC
+
+    assertNotNull(createSeasonResult);
+
+    // CASE Get Season
+
+    final SeasonInfo getSeasonResult =
         seasonWrapper.getSeason(
-            GetSeason.builder().namespace(this.namespace).seasonId(seasonInfo.getId()).build());
-    assertNotNull(gSessionData);
+            GetSeason.builder()
+                .namespace(this.namespace)
+                .seasonId(createSeasonResult.getId())
+                .build());
 
-    // Update Season
-    final SeasonUpdate updateReq = SeasonUpdate.builder().name(seasonNameforUpdate).build();
+    // ESAC
 
-    final SeasonInfo uSessionData =
+    assertNotNull(getSeasonResult);
+
+    // CASE Update season
+
+    final SeasonUpdate updateSeasonBody = SeasonUpdate.builder().name(seasonNameUpdated).build();
+
+    final SeasonInfo updateSeasonResult =
         seasonWrapper.updateSeason(
             UpdateSeason.builder()
                 .namespace(this.namespace)
-                .seasonId(seasonInfo.getId())
-                .body(updateReq)
+                .seasonId(createSeasonResult.getId())
+                .body(updateSeasonBody)
                 .build());
-    assertNotNull(uSessionData);
 
-    // Delete Season
+    // ESAC
+
+    assertNotNull(updateSeasonResult);
+
+    // CASE Delete Sseason
+
     seasonWrapper.deleteSeason(
-        DeleteSeason.builder().namespace(this.namespace).seasonId(seasonInfo.getId()).build());
+        DeleteSeason.builder()
+            .namespace(this.namespace)
+            .seasonId(createSeasonResult.getId())
+            .build());
 
-    // CleanUp - Delete Store
+    // ESAC
+
+    // Clean up store
+
     final StoreInfo deleteStoreResult =
         platformStoreWrapper.deleteStore(
             DeleteStore.builder()
                 .namespace(this.namespace)
                 .storeId(selectedStore.getStoreId())
                 .build());
+
     assertNotNull(deleteStoreResult);
   }
 
   @AfterAll
   public void tear() throws Exception {
-    final boolean isLogoutOk = sdk.logout();
-    final String token = sdk.getSdkConfiguration().getTokenRepository().getToken();
-
-    assertTrue(isLogoutOk);
-    assertTrue(token == null || token.isEmpty());
+    super.tear();
   }
 }

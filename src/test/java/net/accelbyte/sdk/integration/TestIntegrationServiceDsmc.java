@@ -1,0 +1,235 @@
+/*
+ * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * This is licensed software from AccelByte Inc, for limitations
+ * and restrictions contact your company contract manager.
+ */
+
+package net.accelbyte.sdk.integration;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import net.accelbyte.sdk.api.dsmc.models.ModelsClaimSessionRequest;
+import net.accelbyte.sdk.api.dsmc.models.ModelsListServerResponse;
+import net.accelbyte.sdk.api.dsmc.models.ModelsRequestMatchMember;
+import net.accelbyte.sdk.api.dsmc.models.ModelsRequestMatchParty;
+import net.accelbyte.sdk.api.dsmc.models.ModelsRequestMatchingAlly;
+import net.accelbyte.sdk.api.dsmc.operations.admin.ListLocalServer;
+import net.accelbyte.sdk.api.dsmc.operations.session.ClaimServer;
+import net.accelbyte.sdk.api.dsmc.wrappers.Admin;
+import net.accelbyte.sdk.api.sessionbrowser.models.ModelsCreateSessionRequest;
+import net.accelbyte.sdk.api.sessionbrowser.models.ModelsGameSessionSetting;
+import net.accelbyte.sdk.api.sessionbrowser.models.ModelsSessionResponse;
+import net.accelbyte.sdk.api.sessionbrowser.operations.session.CreateSession;
+import net.accelbyte.sdk.api.sessionbrowser.operations.session.DeleteSession;
+import net.accelbyte.sdk.api.sessionbrowser.wrappers.Session;
+import net.accelbyte.sdk.core.AccelByteSDK;
+import net.accelbyte.sdk.core.HttpResponse;
+import net.accelbyte.sdk.core.Operation;
+import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy;
+import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy.RetryIntervalType;
+import net.accelbyte.sdk.core.client.ReliableHttpClient;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestMethodOrder;
+
+@Tag("test-integration")
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+class TestIntegrationServiceDsmc extends TestIntegration {
+  @BeforeAll
+  public void setup() throws Exception {
+    super.setup();
+  }
+
+  @Test
+  @Order(1)
+  public void test() throws Exception {
+    final String targetUsername = "dummy@example.com";
+    final String targetNamespace = "armadademotestqa";
+    final String targetDeployment = "deployruli";
+    final String gameMode = "soloyogs";
+    final String partyId = "PARTY_ID";
+    final String version = "0.3.0";
+
+    final net.accelbyte.sdk.api.dsmc.wrappers.Session dsmcSessionWrapper =
+        new net.accelbyte.sdk.api.dsmc.wrappers.Session(sdk);
+    final Admin dsmcAdminWrapper = new Admin(sdk);
+    final Session sessionBrowserWrapper = new Session(sdk);
+
+    // CASE List local servers
+
+    final ModelsListServerResponse listLocalServerResult =
+        dsmcAdminWrapper.listLocalServer(
+            ListLocalServer.builder().namespace(this.namespace).build());
+
+    // ESAC
+
+    assertNotNull(listLocalServerResult);
+
+    // Create a session (SessionBrowser)
+
+    final ModelsCreateSessionRequest createSessionBody =
+        ModelsCreateSessionRequest.builder()
+            .sessionType("p2p")
+            .gameVersion(version)
+            .namespace(targetNamespace)
+            .username(targetUsername)
+            .gameSessionSetting(
+                ModelsGameSessionSetting.builder()
+                    .mode(gameMode)
+                    .allowJoinInProgress(true)
+                    .mapName("Java Server SDK Integration Test")
+                    .maxPlayer(100)
+                    .build())
+            .build();
+
+    final ModelsSessionResponse createSessionResult =
+        sessionBrowserWrapper.createSession(
+            CreateSession.builder().namespace(targetNamespace).body(createSessionBody).build());
+
+    assertNotNull(createSessionResult);
+    assertEquals(targetUsername, createSessionResult.getUsername());
+
+    final String sessionId = createSessionResult.getSessionId();
+
+    // CASE Create a session (DSMC)
+
+    final net.accelbyte.sdk.api.dsmc.models.ModelsCreateSessionRequest createSessionDsmcBody =
+        net.accelbyte.sdk.api.dsmc.models.ModelsCreateSessionRequest.builder()
+            .clientVersion(version)
+            .configuration("")
+            .deployment(targetDeployment)
+            .gameMode(gameMode)
+            .matchingAllies(
+                Arrays.asList(
+                    new ModelsRequestMatchingAlly[] {
+                      ModelsRequestMatchingAlly.builder()
+                          .matchingParties(
+                              Arrays.asList(
+                                  new ModelsRequestMatchParty[] {
+                                    ModelsRequestMatchParty.builder()
+                                        .partyAttributes(new HashMap<String, Object>())
+                                        .partyId(partyId)
+                                        .partyMembers(
+                                            Arrays.asList(
+                                                new ModelsRequestMatchMember[] {
+                                                  ModelsRequestMatchMember.builder()
+                                                      .userId(this.username)
+                                                      .build()
+                                                }))
+                                        .build()
+                                  }))
+                          .build()
+                    }))
+            .region("")
+            .podName("")
+            .sessionId(sessionId)
+            .namespace(targetNamespace)
+            .build();
+
+    final net.accelbyte.sdk.api.dsmc.models.ModelsSessionResponse createSessionDsmcResult =
+        dsmcSessionWrapper.createSession(
+            net.accelbyte.sdk.api.dsmc.operations.session.CreateSession.builder()
+                .namespace(targetNamespace)
+                .body(createSessionDsmcBody)
+                .build());
+
+    // ESAC
+
+    assertNotNull(createSessionDsmcResult);
+
+    // CASE Get session (DSMC)
+
+    final net.accelbyte.sdk.api.dsmc.models.ModelsSessionResponse getSessionDsmcResult =
+        dsmcSessionWrapper.getSession(
+            net.accelbyte.sdk.api.dsmc.operations.session.GetSession.builder()
+                .namespace(targetNamespace)
+                .sessionID(sessionId)
+                .build());
+
+    // ESAC
+
+    assertNotNull(getSessionDsmcResult);
+
+    // CASE Claim server (for example, using HTTP retry)
+
+    final DefaultHttpRetryPolicy retryPolicy =
+        new DefaultHttpRetryPolicy() {
+          @Override
+          public boolean doRetry(
+              int attempt, Operation operation, HttpResponse response, Exception exception) {
+            // Custom logic to handle DSMC claim server 425 server is not ready
+            if (attempt < this.getMaxRetry()) {
+              if (response != null && response.getCode() == 425) {
+                try {
+                  final int multiplier =
+                      this.getRetryIntervalType() == RetryIntervalType.EXPONENTIAL ? attempt : 1;
+                  Thread.sleep(this.getRetryInterval() * multiplier); // Wait
+                  // before
+                  // retry
+                } catch (InterruptedException ie) {
+                  Thread.currentThread().interrupt();
+                }
+
+                return true;
+              }
+            }
+
+            return false;
+          }
+        };
+
+    final AccelByteSDK reliableSdk =
+        new AccelByteSDK(
+            new ReliableHttpClient(retryPolicy),
+            sdk.getSdkConfiguration().getTokenRepository(),
+            sdk.getSdkConfiguration().getConfigRepository());
+
+    retryPolicy.setRetryIntervalType(RetryIntervalType.LINEAR);
+    retryPolicy.setCallTimeout(5000);
+    retryPolicy.setMaxRetry(20);
+    retryPolicy.setRetryInterval(2000);
+
+    final net.accelbyte.sdk.api.dsmc.wrappers.Session dsmcSessionReliableWrapper =
+        new net.accelbyte.sdk.api.dsmc.wrappers.Session(reliableSdk);
+
+    ModelsClaimSessionRequest claimServerBody =
+        ModelsClaimSessionRequest.builder().sessionId(sessionId).build();
+
+    dsmcSessionReliableWrapper.claimServer(
+        ClaimServer.builder().namespace(targetNamespace).body(claimServerBody).build());
+
+    // ESAC
+
+    // CASE Delete session (DSMC)
+
+    dsmcAdminWrapper.deleteSession(
+        net.accelbyte.sdk.api.dsmc.operations.admin.DeleteSession.builder()
+            .namespace(targetNamespace)
+            .sessionID(sessionId)
+            .build());
+
+    // ESAC
+
+    // Delete session (SessionBrowser)
+
+    ModelsSessionResponse deleteSessionResult =
+        sessionBrowserWrapper.deleteSession(
+            DeleteSession.builder().namespace(targetNamespace).sessionID(sessionId).build());
+
+    assertNotNull(deleteSessionResult);
+  }
+
+  @AfterAll
+  public void tear() throws Exception {
+    super.tear();
+  }
+}
