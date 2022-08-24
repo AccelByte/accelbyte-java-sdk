@@ -1,0 +1,7 @@
+{
+    "httpMethod": "POST",
+    "headers": { 
+        "Authorization" : "Bearer XXXXX"
+    },
+    "body": "{}"
+}
