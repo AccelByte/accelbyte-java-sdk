@@ -8,14 +8,14 @@ SHELL := /bin/bash
 
 build:
 	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GRADLE_USER_HOME=/data/.gradle gradle:7-jdk8 \
-			gradle -i build -x test
+			gradle -i build
 
 samples:
 	rm -f samples.err
 	find samples -type f -iname build.gradle -exec dirname {} \; | while read DIRECTORY; do \
 		echo "# $$DIRECTORY"; \
 		docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/$$DIRECTORY -e GRADLE_USER_HOME=/data/.gradle gradle:7-jdk8 \
-				gradle -i build -x test || touch samples.err; \
+				gradle -i build || touch samples.err; \
 	done
 	[ ! -f samples.err ] || (rm samples.err && exit 1)
 
@@ -26,7 +26,7 @@ test_core:
 			(bash "$(SDK_MOCK_SERVER_PATH)/mock-server.sh" -s /data/spec &) && \
 			(for i in $$(seq 1 10); do bash -c "timeout 1 echo > /dev/tcp/127.0.0.1/8080" 2>/dev/null && exit 0 || sleep 10; done; exit 1) && \
 			docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ --network host -e GRADLE_USER_HOME=/data/.gradle gradle:7-jdk8 \
-					gradle -i test
+					gradle -i testCore
 	
 test_integration:
 	@test -n "$(ENV_FILE_PATH)" || (echo "ENV_FILE_PATH is not set" ; exit 1)

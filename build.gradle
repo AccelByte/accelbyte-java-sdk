@@ -30,7 +30,7 @@ dependencies {
     testRuntimeOnly sharedDependencies.junitEngine
 }
 
-test {
+task testCore(type: Test) {
     useJUnitPlatform {
         includeTags('test-core')
     }
