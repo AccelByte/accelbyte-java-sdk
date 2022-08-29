@@ -177,7 +177,7 @@ public class AccelByteSDK {
               .map(NameValuePair::getValue)
               .orElse(null);
       if (code == null) {
-        return false;   // Invalid username or password?
+        return false; // Invalid username or password?
       }
       final Instant utcNow = Instant.now();
       final TokenGrantV3 tokenGrantV3 =
