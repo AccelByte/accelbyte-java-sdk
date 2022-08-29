@@ -53,6 +53,10 @@ public class ResetUserStatItemValue extends Operation {
    * @param userId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public ResetUserStatItemValue(
       String namespace, String statCode, String userId, String additionalKey, StatResetInfo body) {
     this.namespace = namespace;

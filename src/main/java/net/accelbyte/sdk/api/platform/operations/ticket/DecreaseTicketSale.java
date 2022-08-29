@@ -47,6 +47,10 @@ public class DecreaseTicketSale extends Operation {
    * @param namespace required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public DecreaseTicketSale(String boothName, String namespace, TicketSaleDecrementRequest body) {
     this.boothName = boothName;
     this.namespace = namespace;

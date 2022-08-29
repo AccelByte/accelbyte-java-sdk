@@ -55,6 +55,10 @@ public class RetrieveEligibilitiesPublicIndirect extends Operation {
    * @param userId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public RetrieveEligibilitiesPublicIndirect(
       String clientId, String countryCode, String namespace, String userId) {
     this.clientId = clientId;

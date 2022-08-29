@@ -47,6 +47,10 @@ public class UpdatePlatformWalletConfig extends Operation {
    * @param platform required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public UpdatePlatformWalletConfig(
       String namespace, String platform, PlatformWalletConfigUpdate body) {
     this.namespace = namespace;

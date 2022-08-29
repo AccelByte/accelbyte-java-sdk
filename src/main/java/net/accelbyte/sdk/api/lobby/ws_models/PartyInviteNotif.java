@@ -8,7 +8,7 @@
 
 package net.accelbyte.sdk.api.lobby.ws_models;
 
-import static net.accelbyte.sdk.core.util.Helper.*;
+import static net.accelbyte.sdk.core.util.Helper.parseWSM;
 
 import java.util.*;
 import lombok.Builder;
@@ -24,6 +24,10 @@ public class PartyInviteNotif {
   private PartyInviteNotif() {}
 
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public PartyInviteNotif(String inviteeId, String inviterId) {
     this.inviteeId = inviteeId;
     this.inviterId = inviterId;

@@ -51,6 +51,10 @@ public class GetChildCategories extends Operation {
    * @param namespace required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetChildCategories(String categoryPath, String namespace, String storeId) {
     this.categoryPath = categoryPath;
     this.namespace = namespace;

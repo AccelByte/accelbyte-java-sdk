@@ -45,6 +45,10 @@ public class UpdateGoogleP12File extends Operation {
    * @param namespace required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public UpdateGoogleP12File(String namespace, File file) {
     this.namespace = namespace;
     this.file = file;

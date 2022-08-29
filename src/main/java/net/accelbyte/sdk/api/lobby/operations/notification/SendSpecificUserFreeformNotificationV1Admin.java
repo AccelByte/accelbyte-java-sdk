@@ -48,6 +48,10 @@ public class SendSpecificUserFreeformNotificationV1Admin extends Operation {
    * @param body required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public SendSpecificUserFreeformNotificationV1Admin(
       String namespace, String userId, ModelFreeFormNotificationRequestV1 body) {
     this.namespace = namespace;

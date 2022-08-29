@@ -44,6 +44,10 @@ public class UnBanUsers extends Operation {
    * @param namespace required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public UnBanUsers(String namespace, ADTOForUnbanUserAPICall body) {
     this.namespace = namespace;
     this.body = body;

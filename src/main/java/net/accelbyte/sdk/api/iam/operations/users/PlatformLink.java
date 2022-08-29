@@ -76,6 +76,10 @@ public class PlatformLink extends Operation {
    * @param ticket required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public PlatformLink(String namespace, String platformId, String userId, String ticket) {
     this.namespace = namespace;
     this.platformId = platformId;

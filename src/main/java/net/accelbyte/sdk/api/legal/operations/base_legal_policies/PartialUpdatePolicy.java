@@ -44,6 +44,10 @@ public class PartialUpdatePolicy extends Operation {
    * @param basePolicyId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public PartialUpdatePolicy(String basePolicyId, UpdateBasePolicyRequest body) {
     this.basePolicyId = basePolicyId;
     this.body = body;

@@ -50,6 +50,10 @@ public class UpdateScreenshots extends Operation {
    * @param body required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public UpdateScreenshots(
       String contentId, String namespace, String userId, ModelsUpdateScreenshotRequest body) {
     this.contentId = contentId;

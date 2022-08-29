@@ -55,6 +55,10 @@ public class ListAllTerminatedServers extends Operation {
 
   /** */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public ListAllTerminatedServers(
       String deployment,
       String endDate,

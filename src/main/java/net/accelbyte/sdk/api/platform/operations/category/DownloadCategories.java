@@ -51,6 +51,10 @@ public class DownloadCategories extends Operation {
    * @param namespace required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public DownloadCategories(String namespace, String language, String storeId) {
     this.namespace = namespace;
     this.language = language;

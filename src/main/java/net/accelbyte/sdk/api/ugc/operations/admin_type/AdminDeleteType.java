@@ -42,6 +42,10 @@ public class AdminDeleteType extends Operation {
    * @param typeId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public AdminDeleteType(String namespace, String typeId) {
     this.namespace = namespace;
     this.typeId = typeId;

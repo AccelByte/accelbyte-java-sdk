@@ -52,6 +52,10 @@ public class UpdateTemplateLocalizationV1Admin extends Operation {
    * @param body required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public UpdateTemplateLocalizationV1Admin(
       String namespace,
       String templateLanguage,

@@ -49,6 +49,10 @@ public class EnableUserEntitlement extends Operation {
    * @param userId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public EnableUserEntitlement(String entitlementId, String namespace, String userId) {
     this.entitlementId = entitlementId;
     this.namespace = namespace;

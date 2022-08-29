@@ -8,7 +8,7 @@
 
 package net.accelbyte.sdk.api.lobby.ws_models;
 
-import static net.accelbyte.sdk.core.util.Helper.*;
+import static net.accelbyte.sdk.core.util.Helper.parseWSM;
 
 import java.util.*;
 import lombok.Builder;
@@ -24,6 +24,10 @@ public class DisconnectNotif {
   private DisconnectNotif() {}
 
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public DisconnectNotif(String connectionId, String namespace) {
     this.connectionId = connectionId;
     this.namespace = namespace;

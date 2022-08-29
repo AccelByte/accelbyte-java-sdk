@@ -51,6 +51,10 @@ public class QueryRewards extends Operation {
    * @param seasonId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public QueryRewards(String namespace, String seasonId, String q) {
     this.namespace = namespace;
     this.seasonId = seasonId;

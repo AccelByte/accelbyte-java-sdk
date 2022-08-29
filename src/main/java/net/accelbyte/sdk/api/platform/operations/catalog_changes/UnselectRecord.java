@@ -47,6 +47,10 @@ public class UnselectRecord extends Operation {
    * @param storeId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public UnselectRecord(String changeId, String namespace, String storeId) {
     this.changeId = changeId;
     this.namespace = namespace;

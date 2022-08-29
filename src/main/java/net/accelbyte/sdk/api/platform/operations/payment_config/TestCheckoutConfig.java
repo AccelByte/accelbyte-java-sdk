@@ -47,6 +47,10 @@ public class TestCheckoutConfig extends Operation {
 
   /** */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public TestCheckoutConfig(Boolean sandbox, CheckoutConfig body) {
     this.sandbox = sandbox;
     this.body = body;

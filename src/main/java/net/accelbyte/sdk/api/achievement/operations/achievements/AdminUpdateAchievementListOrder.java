@@ -46,6 +46,10 @@ public class AdminUpdateAchievementListOrder extends Operation {
    * @param body required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public AdminUpdateAchievementListOrder(
       String achievementCode, String namespace, ModelsAchievementOrderUpdateRequest body) {
     this.achievementCode = achievementCode;

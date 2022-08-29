@@ -47,6 +47,10 @@ public class ResetPlatformWalletConfig extends Operation {
    * @param platform required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public ResetPlatformWalletConfig(String namespace, String platform) {
     this.namespace = namespace;
     this.platform = platform;

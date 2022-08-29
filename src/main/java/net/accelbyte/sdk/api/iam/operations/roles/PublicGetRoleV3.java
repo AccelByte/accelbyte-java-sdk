@@ -40,6 +40,10 @@ public class PublicGetRoleV3 extends Operation {
    * @param roleId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public PublicGetRoleV3(String roleId) {
     this.roleId = roleId;
 

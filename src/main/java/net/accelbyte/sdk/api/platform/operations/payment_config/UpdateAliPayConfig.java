@@ -47,6 +47,10 @@ public class UpdateAliPayConfig extends Operation {
    * @param id required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public UpdateAliPayConfig(String id, Boolean sandbox, Boolean validate, AliPayConfig body) {
     this.id = id;
     this.sandbox = sandbox;

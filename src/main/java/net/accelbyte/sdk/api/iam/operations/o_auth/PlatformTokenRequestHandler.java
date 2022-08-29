@@ -66,6 +66,10 @@ public class PlatformTokenRequestHandler extends Operation {
    * @param platformId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public PlatformTokenRequestHandler(
       String namespace, String platformId, String deviceId, String platformToken) {
     this.namespace = namespace;

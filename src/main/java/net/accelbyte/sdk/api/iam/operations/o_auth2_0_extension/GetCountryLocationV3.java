@@ -37,6 +37,10 @@ public class GetCountryLocationV3 extends Operation {
 
   /** */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetCountryLocationV3() {
 
     securities.add("Bearer");

@@ -41,6 +41,10 @@ public class AdminGetInputValidations extends Operation {
 
   /** */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public AdminGetInputValidations() {
 
     securities.add("Bearer");

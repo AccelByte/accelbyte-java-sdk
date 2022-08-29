@@ -54,6 +54,10 @@ public class UpdatePassword extends Operation {
    * @param body required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public UpdatePassword(String namespace, String userId, ModelUserPasswordUpdateRequest body) {
     this.namespace = namespace;
     this.userId = userId;

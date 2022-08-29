@@ -43,6 +43,10 @@ public class DebugMatchedPaymentProviderConfig extends Operation {
 
   /** */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public DebugMatchedPaymentProviderConfig(String namespace, String region) {
     this.namespace = namespace;
     this.region = region;

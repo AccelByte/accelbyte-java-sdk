@@ -49,6 +49,10 @@ public class ChargePaymentOrder extends Operation {
    * @param paymentOrderNo required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public ChargePaymentOrder(
       String namespace, String paymentOrderNo, PaymentOrderChargeRequest body) {
     this.namespace = namespace;

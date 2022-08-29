@@ -46,6 +46,10 @@ public class PublicWebLinkPlatformEstablish extends Operation {
    * @param state required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public PublicWebLinkPlatformEstablish(String namespace, String platformId, String state) {
     this.namespace = namespace;
     this.platformId = platformId;

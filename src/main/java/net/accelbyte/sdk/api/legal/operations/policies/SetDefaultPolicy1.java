@@ -41,6 +41,10 @@ public class SetDefaultPolicy1 extends Operation {
    * @param policyId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public SetDefaultPolicy1(String policyId) {
     this.policyId = policyId;
 

@@ -91,6 +91,10 @@ public class Authorization extends Operation {
    * @param responseType required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public Authorization(
       String login,
       String password,

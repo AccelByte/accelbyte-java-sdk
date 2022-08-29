@@ -42,6 +42,10 @@ public class RetrieveSinglePolicy extends Operation {
    * @param basePolicyId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public RetrieveSinglePolicy(String basePolicyId) {
     this.basePolicyId = basePolicyId;
 

@@ -47,6 +47,10 @@ public class GetImageDetail extends Operation {
    * @param version required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetImageDetail(String namespace, String version) {
     this.namespace = namespace;
     this.version = version;

@@ -37,6 +37,10 @@ public class AdminGetMyUserV3 extends Operation {
 
   /** */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public AdminGetMyUserV3() {
 
     securities.add("Bearer");

@@ -51,6 +51,10 @@ public class TestPayPalConfig extends Operation {
 
   /** */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public TestPayPalConfig(Boolean sandbox, PayPalConfig body) {
     this.sandbox = sandbox;
     this.body = body;

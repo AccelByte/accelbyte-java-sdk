@@ -47,6 +47,10 @@ public class AdminBulkCheckValidUserIDV4 extends Operation {
    * @param body required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public AdminBulkCheckValidUserIDV4(String namespace, ModelCheckValidUserIDRequestV4 body) {
     this.namespace = namespace;
     this.body = body;

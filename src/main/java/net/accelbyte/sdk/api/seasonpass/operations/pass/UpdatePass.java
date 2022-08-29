@@ -51,6 +51,10 @@ public class UpdatePass extends Operation {
    * @param seasonId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public UpdatePass(String code, String namespace, String seasonId, PassUpdate body) {
     this.code = code;
     this.namespace = namespace;

@@ -47,6 +47,10 @@ public class DeleteNotificationTemplateSlugV1Admin extends Operation {
    * @param templateSlug required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public DeleteNotificationTemplateSlugV1Admin(String namespace, String templateSlug) {
     this.namespace = namespace;
     this.templateSlug = templateSlug;

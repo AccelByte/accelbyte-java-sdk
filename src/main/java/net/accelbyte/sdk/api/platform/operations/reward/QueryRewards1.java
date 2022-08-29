@@ -50,6 +50,10 @@ public class QueryRewards1 extends Operation {
    * @param namespace required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public QueryRewards1(
       String namespace, String eventTopic, Integer limit, Integer offset, List<String> sortBy) {
     this.namespace = namespace;

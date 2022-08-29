@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.lobby.ws_models;
 
-import static net.accelbyte.sdk.core.util.Helper.*;
-
 import java.util.*;
 import lombok.Getter;
 import lombok.Setter;

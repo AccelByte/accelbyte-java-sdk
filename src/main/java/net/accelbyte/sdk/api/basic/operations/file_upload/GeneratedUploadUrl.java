@@ -48,6 +48,10 @@ public class GeneratedUploadUrl extends Operation {
    * @param fileType required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GeneratedUploadUrl(String folder, String namespace, String fileType) {
     this.folder = folder;
     this.namespace = namespace;

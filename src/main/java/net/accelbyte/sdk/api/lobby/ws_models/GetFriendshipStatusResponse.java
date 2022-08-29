@@ -8,7 +8,8 @@
 
 package net.accelbyte.sdk.api.lobby.ws_models;
 
-import static net.accelbyte.sdk.core.util.Helper.*;
+import static net.accelbyte.sdk.core.util.Helper.generateUUID;
+import static net.accelbyte.sdk.core.util.Helper.parseWSM;
 
 import java.util.*;
 import lombok.Builder;
@@ -25,6 +26,10 @@ public class GetFriendshipStatusResponse {
   private GetFriendshipStatusResponse() {}
 
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetFriendshipStatusResponse(Integer code, String friendshipStatus, String id) {
     this.code = code;
     this.friendshipStatus = friendshipStatus;

@@ -48,6 +48,10 @@ public class RetrieveEligibilitiesPublic extends Operation {
    * @param namespace required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public RetrieveEligibilitiesPublic(String namespace) {
     this.namespace = namespace;
 

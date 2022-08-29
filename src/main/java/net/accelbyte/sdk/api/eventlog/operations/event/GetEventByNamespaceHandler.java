@@ -51,6 +51,10 @@ public class GetEventByNamespaceHandler extends Operation {
    * @param startDate required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetEventByNamespaceHandler(
       String namespace, Integer offset, String endDate, Integer pageSize, String startDate) {
     this.namespace = namespace;

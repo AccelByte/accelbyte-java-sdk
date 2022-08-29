@@ -8,7 +8,7 @@
 
 package net.accelbyte.sdk.api.lobby.ws_models;
 
-import static net.accelbyte.sdk.core.util.Helper.*;
+import static net.accelbyte.sdk.core.util.Helper.parseWSM;
 
 import java.util.*;
 import lombok.Builder;
@@ -24,6 +24,10 @@ public class SignalingP2PNotif {
   private SignalingP2PNotif() {}
 
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public SignalingP2PNotif(String destinationId, String message) {
     this.destinationId = destinationId;
     this.message = message;

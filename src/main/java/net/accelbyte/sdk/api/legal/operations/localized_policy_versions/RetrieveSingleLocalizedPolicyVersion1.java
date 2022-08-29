@@ -41,6 +41,10 @@ public class RetrieveSingleLocalizedPolicyVersion1 extends Operation {
    * @param localizedPolicyVersionId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public RetrieveSingleLocalizedPolicyVersion1(String localizedPolicyVersionId) {
     this.localizedPolicyVersionId = localizedPolicyVersionId;
   }

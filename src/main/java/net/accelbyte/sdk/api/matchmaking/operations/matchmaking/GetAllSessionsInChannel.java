@@ -52,6 +52,10 @@ public class GetAllSessionsInChannel extends Operation {
    * @param namespace required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetAllSessionsInChannel(String channelName, String namespace) {
     this.channelName = channelName;
     this.namespace = namespace;

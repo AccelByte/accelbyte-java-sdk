@@ -47,6 +47,10 @@ public class GetSession extends Operation {
    * @param sessionID required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetSession(String namespace, String sessionID) {
     this.namespace = namespace;
     this.sessionID = sessionID;

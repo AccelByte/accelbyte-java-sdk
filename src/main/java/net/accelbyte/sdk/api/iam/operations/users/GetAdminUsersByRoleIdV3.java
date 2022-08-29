@@ -53,6 +53,10 @@ public class GetAdminUsersByRoleIdV3 extends Operation {
    * @param roleId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetAdminUsersByRoleIdV3(
       String namespace, String roleId, Integer after, Integer before, Integer limit) {
     this.namespace = namespace;

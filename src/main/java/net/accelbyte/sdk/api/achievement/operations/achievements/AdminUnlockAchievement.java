@@ -46,6 +46,10 @@ public class AdminUnlockAchievement extends Operation {
    * @param userId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public AdminUnlockAchievement(String achievementCode, String namespace, String userId) {
     this.achievementCode = achievementCode;
     this.namespace = namespace;

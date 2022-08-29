@@ -45,6 +45,10 @@ public class AdminGetProfanityListFiltersV1 extends Operation {
    * @param namespace required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public AdminGetProfanityListFiltersV1(String list, String namespace) {
     this.list = list;
     this.namespace = namespace;

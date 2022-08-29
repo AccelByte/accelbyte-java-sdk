@@ -48,6 +48,10 @@ public class GetClients extends Operation {
 
   /** */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetClients() {
 
     securities.add("Bearer");

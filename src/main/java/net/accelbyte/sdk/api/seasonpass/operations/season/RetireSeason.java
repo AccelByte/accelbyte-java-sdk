@@ -50,6 +50,10 @@ public class RetireSeason extends Operation {
    * @param seasonId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public RetireSeason(String namespace, String seasonId, Boolean force) {
     this.namespace = namespace;
     this.seasonId = seasonId;

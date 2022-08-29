@@ -45,6 +45,10 @@ public class PublicGetItemDynamicData extends Operation {
    * @param namespace required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public PublicGetItemDynamicData(String itemId, String namespace) {
     this.itemId = itemId;
     this.namespace = namespace;

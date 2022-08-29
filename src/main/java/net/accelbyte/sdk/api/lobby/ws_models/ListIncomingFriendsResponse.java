@@ -8,7 +8,10 @@
 
 package net.accelbyte.sdk.api.lobby.ws_models;
 
-import static net.accelbyte.sdk.core.util.Helper.*;
+import static net.accelbyte.sdk.core.util.Helper.convertWSMListToListString;
+import static net.accelbyte.sdk.core.util.Helper.generateUUID;
+import static net.accelbyte.sdk.core.util.Helper.listToWSMList;
+import static net.accelbyte.sdk.core.util.Helper.parseWSM;
 
 import java.util.*;
 import lombok.Builder;
@@ -25,6 +28,10 @@ public class ListIncomingFriendsResponse {
   private ListIncomingFriendsResponse() {}
 
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public ListIncomingFriendsResponse(Integer code, String id, List<String> userIds) {
     this.code = code;
     this.id = id;

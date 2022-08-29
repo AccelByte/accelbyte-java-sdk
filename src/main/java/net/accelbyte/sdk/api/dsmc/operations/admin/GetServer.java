@@ -47,6 +47,10 @@ public class GetServer extends Operation {
    * @param podName required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetServer(String namespace, String podName) {
     this.namespace = namespace;
     this.podName = podName;

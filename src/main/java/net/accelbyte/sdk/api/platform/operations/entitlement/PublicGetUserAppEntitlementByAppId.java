@@ -51,6 +51,10 @@ public class PublicGetUserAppEntitlementByAppId extends Operation {
    * @param appId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public PublicGetUserAppEntitlementByAppId(String namespace, String userId, String appId) {
     this.namespace = namespace;
     this.userId = userId;

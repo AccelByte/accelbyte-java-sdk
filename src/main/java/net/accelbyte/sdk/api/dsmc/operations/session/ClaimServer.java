@@ -48,6 +48,10 @@ public class ClaimServer extends Operation {
    * @param body required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public ClaimServer(String namespace, ModelsClaimSessionRequest body) {
     this.namespace = namespace;
     this.body = body;

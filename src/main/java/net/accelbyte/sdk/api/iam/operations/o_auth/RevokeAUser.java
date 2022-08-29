@@ -56,6 +56,10 @@ public class RevokeAUser extends Operation {
    * @param userID required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public RevokeAUser(String userID) {
     this.userID = userID;
 

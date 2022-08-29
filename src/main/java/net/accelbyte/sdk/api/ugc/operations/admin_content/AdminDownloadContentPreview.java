@@ -46,6 +46,10 @@ public class AdminDownloadContentPreview extends Operation {
    * @param namespace required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public AdminDownloadContentPreview(String contentId, String namespace) {
     this.contentId = contentId;
     this.namespace = namespace;

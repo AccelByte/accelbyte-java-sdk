@@ -47,6 +47,10 @@ public class GetPaymentOrderChargeStatus extends Operation {
    * @param paymentOrderNo required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetPaymentOrderChargeStatus(String namespace, String paymentOrderNo) {
     this.namespace = namespace;
     this.paymentOrderNo = paymentOrderNo;

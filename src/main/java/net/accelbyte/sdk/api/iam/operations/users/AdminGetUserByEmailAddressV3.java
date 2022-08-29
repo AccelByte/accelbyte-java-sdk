@@ -46,6 +46,10 @@ public class AdminGetUserByEmailAddressV3 extends Operation {
    * @param namespace required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public AdminGetUserByEmailAddressV3(String namespace, String emailAddress) {
     this.namespace = namespace;
     this.emailAddress = emailAddress;

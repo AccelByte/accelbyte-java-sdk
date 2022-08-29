@@ -44,6 +44,10 @@ public class PublicGetQRCode extends Operation {
    * @param code required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public PublicGetQRCode(String namespace, String code) {
     this.namespace = namespace;
     this.code = code;

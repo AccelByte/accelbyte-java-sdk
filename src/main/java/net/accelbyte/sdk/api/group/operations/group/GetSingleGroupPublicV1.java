@@ -47,6 +47,10 @@ public class GetSingleGroupPublicV1 extends Operation {
    * @param namespace required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetSingleGroupPublicV1(String groupId, String namespace) {
     this.groupId = groupId;
     this.namespace = namespace;

@@ -44,6 +44,10 @@ public class AdminPutUserRolesV2 extends Operation {
    * @param body required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public AdminPutUserRolesV2(String namespace, String userId, List<String> body) {
     this.namespace = namespace;
     this.userId = userId;

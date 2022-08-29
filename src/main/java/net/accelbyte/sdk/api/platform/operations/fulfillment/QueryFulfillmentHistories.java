@@ -48,6 +48,10 @@ public class QueryFulfillmentHistories extends Operation {
    * @param namespace required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public QueryFulfillmentHistories(
       String namespace, Integer limit, Integer offset, String status, String userId) {
     this.namespace = namespace;

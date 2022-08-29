@@ -49,6 +49,10 @@ public class PersonalChatHistory extends Operation {
    * @param userId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public PersonalChatHistory(String friendId, String namespace, String userId) {
     this.friendId = friendId;
     this.namespace = namespace;

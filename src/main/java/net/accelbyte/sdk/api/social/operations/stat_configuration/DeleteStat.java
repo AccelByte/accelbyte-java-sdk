@@ -44,6 +44,10 @@ public class DeleteStat extends Operation {
    * @param statCode required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public DeleteStat(String namespace, String statCode) {
     this.namespace = namespace;
     this.statCode = statCode;

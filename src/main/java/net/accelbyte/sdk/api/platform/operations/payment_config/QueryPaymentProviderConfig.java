@@ -45,6 +45,10 @@ public class QueryPaymentProviderConfig extends Operation {
 
   /** */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public QueryPaymentProviderConfig(
       Integer limit, String namespace, Integer offset, String region) {
     this.limit = limit;

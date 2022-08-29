@@ -45,6 +45,10 @@ public class UpdateWxPayConfigCert extends Operation {
    * @param id required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public UpdateWxPayConfigCert(String id, File file) {
     this.id = id;
     this.file = file;

@@ -46,6 +46,10 @@ public class CountSession extends Operation {
    * @param namespace required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public CountSession(String namespace, String region) {
     this.namespace = namespace;
     this.region = region;

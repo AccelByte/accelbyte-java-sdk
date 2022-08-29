@@ -45,6 +45,10 @@ public class UpdateContentLikeStatus extends Operation {
    * @param body required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public UpdateContentLikeStatus(
       String contentId, String namespace, ModelsContentLikeRequest body) {
     this.contentId = contentId;

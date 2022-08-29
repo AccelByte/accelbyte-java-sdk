@@ -44,6 +44,10 @@ public class GetRevocationListV3 extends Operation {
 
   /** */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetRevocationListV3() {
 
     securities.add("Bearer");

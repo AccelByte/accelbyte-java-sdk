@@ -55,6 +55,10 @@ public class GetUserMapping extends Operation {
    * @param userId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetUserMapping(String namespace, String targetNamespace, String userId) {
     this.namespace = namespace;
     this.targetNamespace = targetNamespace;

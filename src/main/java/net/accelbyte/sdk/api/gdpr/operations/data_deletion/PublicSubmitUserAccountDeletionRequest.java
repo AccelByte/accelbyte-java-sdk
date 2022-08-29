@@ -45,6 +45,10 @@ public class PublicSubmitUserAccountDeletionRequest extends Operation {
    * @param password required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public PublicSubmitUserAccountDeletionRequest(String namespace, String userId, String password) {
     this.namespace = namespace;
     this.userId = userId;

@@ -47,6 +47,10 @@ public class SyncOrders extends Operation {
    * @param start required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public SyncOrders(String nextEvaluatedKey, String end, String start) {
     this.nextEvaluatedKey = nextEvaluatedKey;
     this.end = end;

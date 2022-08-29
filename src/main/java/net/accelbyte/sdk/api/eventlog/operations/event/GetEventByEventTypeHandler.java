@@ -53,6 +53,10 @@ public class GetEventByEventTypeHandler extends Operation {
    * @param startDate required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetEventByEventTypeHandler(
       Float eventType,
       String namespace,

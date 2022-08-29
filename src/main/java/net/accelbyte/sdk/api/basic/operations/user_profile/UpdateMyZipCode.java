@@ -46,6 +46,10 @@ public class UpdateMyZipCode extends Operation {
    * @param userZipCodeUpdate required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public UpdateMyZipCode(String namespace, UserZipCodeUpdate userZipCodeUpdate) {
     this.namespace = namespace;
     this.userZipCodeUpdate = userZipCodeUpdate;

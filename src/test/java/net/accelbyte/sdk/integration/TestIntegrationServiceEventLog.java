@@ -41,7 +41,8 @@ public class TestIntegrationServiceEventLog extends TestIntegration {
     final Users usersWrapper = new Users(sdk);
     final EventV2 eventV2Wrapper = new EventV2(sdk);
 
-    final ModelUserResponseV3 getUserResult = usersWrapper.adminGetMyUserV3(new AdminGetMyUserV3());
+    final ModelUserResponseV3 getUserResult =
+        usersWrapper.adminGetMyUserV3(AdminGetMyUserV3.builder().build());
 
     assertNotNull(getUserResult);
 

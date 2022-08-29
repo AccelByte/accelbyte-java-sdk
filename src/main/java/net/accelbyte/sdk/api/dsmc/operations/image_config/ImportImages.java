@@ -51,6 +51,10 @@ public class ImportImages extends Operation {
    * @param file required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public ImportImages(File file) {
     this.file = file;
 

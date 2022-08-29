@@ -51,6 +51,10 @@ public class BulkFetchOrDefaultStatItems1 extends Operation {
    * @param userIds required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public BulkFetchOrDefaultStatItems1(
       String namespace, String additionalKey, String statCode, List<String> userIds) {
     this.namespace = namespace;

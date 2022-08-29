@@ -46,6 +46,10 @@ public class PublicGetAchievement extends Operation {
    * @param language required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public PublicGetAchievement(String achievementCode, String namespace, String language) {
     this.achievementCode = achievementCode;
     this.namespace = namespace;

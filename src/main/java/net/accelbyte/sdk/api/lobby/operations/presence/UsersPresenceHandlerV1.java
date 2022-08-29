@@ -44,6 +44,10 @@ public class UsersPresenceHandlerV1 extends Operation {
    * @param userIds required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public UsersPresenceHandlerV1(String namespace, Boolean countOnly, String userIds) {
     this.namespace = namespace;
     this.countOnly = countOnly;

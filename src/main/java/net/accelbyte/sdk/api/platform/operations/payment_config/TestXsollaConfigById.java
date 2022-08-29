@@ -44,6 +44,10 @@ public class TestXsollaConfigById extends Operation {
    * @param id required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public TestXsollaConfigById(String id) {
     this.id = id;
 

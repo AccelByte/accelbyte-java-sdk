@@ -49,6 +49,10 @@ public class UpdateSession extends Operation {
    * @param body required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public UpdateSession(String namespace, String sessionID, ModelsUpdateSessionRequest body) {
     this.namespace = namespace;
     this.sessionID = sessionID;

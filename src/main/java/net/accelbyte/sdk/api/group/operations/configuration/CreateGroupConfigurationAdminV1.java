@@ -59,6 +59,10 @@ public class CreateGroupConfigurationAdminV1 extends Operation {
    * @param body required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public CreateGroupConfigurationAdminV1(
       String namespace, ModelsCreateGroupConfigurationRequestV1 body) {
     this.namespace = namespace;

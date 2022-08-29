@@ -52,6 +52,10 @@ public class GetUserEntitlementOwnershipByItemId extends Operation {
    * @param itemId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetUserEntitlementOwnershipByItemId(
       String namespace, String userId, String entitlementClazz, String itemId) {
     this.namespace = namespace;

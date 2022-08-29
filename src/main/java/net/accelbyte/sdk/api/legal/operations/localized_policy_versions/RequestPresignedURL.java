@@ -46,6 +46,10 @@ public class RequestPresignedURL extends Operation {
    * @param localizedPolicyVersionId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public RequestPresignedURL(
       String localizedPolicyVersionId, UploadPolicyVersionAttachmentRequest body) {
     this.localizedPolicyVersionId = localizedPolicyVersionId;

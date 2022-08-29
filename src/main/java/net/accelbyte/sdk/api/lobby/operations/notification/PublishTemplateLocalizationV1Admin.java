@@ -49,6 +49,10 @@ public class PublishTemplateLocalizationV1Admin extends Operation {
    * @param templateSlug required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public PublishTemplateLocalizationV1Admin(
       String namespace, String templateLanguage, String templateSlug) {
     this.namespace = namespace;

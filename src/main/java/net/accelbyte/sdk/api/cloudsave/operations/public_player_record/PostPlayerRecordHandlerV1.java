@@ -93,6 +93,10 @@ public class PostPlayerRecordHandlerV1 extends Operation {
    * @param body required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public PostPlayerRecordHandlerV1(
       String key, String namespace, String userId, ModelsPlayerRecordRequest body) {
     this.key = key;

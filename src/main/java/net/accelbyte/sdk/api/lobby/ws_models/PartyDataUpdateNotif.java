@@ -8,7 +8,10 @@
 
 package net.accelbyte.sdk.api.lobby.ws_models;
 
-import static net.accelbyte.sdk.core.util.Helper.*;
+import static net.accelbyte.sdk.core.util.Helper.convertJsonToMap;
+import static net.accelbyte.sdk.core.util.Helper.convertWSMListToListString;
+import static net.accelbyte.sdk.core.util.Helper.listToWSMList;
+import static net.accelbyte.sdk.core.util.Helper.parseWSM;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,6 +34,10 @@ public class PartyDataUpdateNotif {
   private PartyDataUpdateNotif() {}
 
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public PartyDataUpdateNotif(
       Map<String, ?> customAttributes,
       List<String> invitees,

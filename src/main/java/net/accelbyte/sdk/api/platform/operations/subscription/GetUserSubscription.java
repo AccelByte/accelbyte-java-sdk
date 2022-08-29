@@ -49,6 +49,10 @@ public class GetUserSubscription extends Operation {
    * @param userId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetUserSubscription(String namespace, String subscriptionId, String userId) {
     this.namespace = namespace;
     this.subscriptionId = subscriptionId;

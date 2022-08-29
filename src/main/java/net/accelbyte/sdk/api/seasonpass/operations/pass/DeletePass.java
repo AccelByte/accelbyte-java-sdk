@@ -48,6 +48,10 @@ public class DeletePass extends Operation {
    * @param seasonId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public DeletePass(String code, String namespace, String seasonId) {
     this.code = code;
     this.namespace = namespace;

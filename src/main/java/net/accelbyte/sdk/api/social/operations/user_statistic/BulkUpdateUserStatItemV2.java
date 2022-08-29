@@ -51,6 +51,10 @@ public class BulkUpdateUserStatItemV2 extends Operation {
    * @param namespace required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public BulkUpdateUserStatItemV2(String namespace, List<BulkUserStatItemUpdate> body) {
     this.namespace = namespace;
     this.body = body;

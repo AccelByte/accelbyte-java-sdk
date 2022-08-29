@@ -54,6 +54,10 @@ public class DeleteClientPermission extends Operation {
    * @param resource required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public DeleteClientPermission(Integer action, String clientId, String resource) {
     this.action = action;
     this.clientId = clientId;

@@ -48,6 +48,10 @@ public class GetStore extends Operation {
    * @param storeId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetStore(String namespace, String storeId) {
     this.namespace = namespace;
     this.storeId = storeId;

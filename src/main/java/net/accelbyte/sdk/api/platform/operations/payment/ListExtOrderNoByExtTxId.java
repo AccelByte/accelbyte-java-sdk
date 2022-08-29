@@ -47,6 +47,10 @@ public class ListExtOrderNoByExtTxId extends Operation {
    * @param extTxId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public ListExtOrderNoByExtTxId(String namespace, String extTxId) {
     this.namespace = namespace;
     this.extTxId = extTxId;

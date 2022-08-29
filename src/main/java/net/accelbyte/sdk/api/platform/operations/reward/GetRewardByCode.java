@@ -46,6 +46,10 @@ public class GetRewardByCode extends Operation {
    * @param rewardCode required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetRewardByCode(String namespace, String rewardCode) {
     this.namespace = namespace;
     this.rewardCode = rewardCode;

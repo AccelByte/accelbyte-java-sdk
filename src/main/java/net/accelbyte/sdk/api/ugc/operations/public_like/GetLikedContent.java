@@ -72,6 +72,10 @@ public class GetLikedContent extends Operation {
    * @param namespace required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetLikedContent(
       String namespace,
       Boolean isofficial,

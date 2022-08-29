@@ -41,6 +41,10 @@ public class GetPublicFollowing extends Operation {
    * @param userId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetPublicFollowing(String namespace, String userId, Integer limit, Integer offset) {
     this.namespace = namespace;
     this.userId = userId;

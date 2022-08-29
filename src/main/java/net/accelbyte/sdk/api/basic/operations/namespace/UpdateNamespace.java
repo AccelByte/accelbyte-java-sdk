@@ -45,6 +45,10 @@ public class UpdateNamespace extends Operation {
    * @param namespace required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public UpdateNamespace(String namespace, NamespaceUpdate body) {
     this.namespace = namespace;
     this.body = body;

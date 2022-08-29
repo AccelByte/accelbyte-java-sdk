@@ -53,6 +53,10 @@ public class CreateUserFromInvitationV3 extends Operation {
    * @param body required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public CreateUserFromInvitationV3(
       String invitationId, String namespace, ModelUserCreateFromInvitationRequestV3 body) {
     this.invitationId = invitationId;

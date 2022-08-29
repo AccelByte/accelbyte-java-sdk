@@ -50,6 +50,10 @@ public class PublicGetMyAppEntitlementOwnershipByAppId extends Operation {
    * @param appId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public PublicGetMyAppEntitlementOwnershipByAppId(String namespace, String appId) {
     this.namespace = namespace;
     this.appId = appId;

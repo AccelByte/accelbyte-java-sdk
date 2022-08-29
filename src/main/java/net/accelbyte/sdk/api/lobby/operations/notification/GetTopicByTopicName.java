@@ -45,6 +45,10 @@ public class GetTopicByTopicName extends Operation {
    * @param topic required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetTopicByTopicName(String namespace, String topic) {
     this.namespace = namespace;
     this.topic = topic;

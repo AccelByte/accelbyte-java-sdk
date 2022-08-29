@@ -20,7 +20,10 @@ import net.accelbyte.sdk.core.Model;
 @Builder
 @Getter
 @Setter
-@AllArgsConstructor
+/*
+ *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+ */
+@AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
 public class ModelCreateJusticeUserResponse extends Model {
 

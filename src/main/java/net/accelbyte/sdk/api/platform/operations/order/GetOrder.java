@@ -46,6 +46,10 @@ public class GetOrder extends Operation {
    * @param orderNo required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetOrder(String namespace, String orderNo) {
     this.namespace = namespace;
     this.orderNo = orderNo;

@@ -51,6 +51,10 @@ public class RefundUserPaymentOrder extends Operation {
    * @param userId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public RefundUserPaymentOrder(
       String namespace, String paymentOrderNo, String userId, PaymentOrderRefund body) {
     this.namespace = namespace;

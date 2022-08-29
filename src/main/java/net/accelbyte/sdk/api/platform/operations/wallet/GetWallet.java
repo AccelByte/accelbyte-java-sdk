@@ -49,6 +49,10 @@ public class GetWallet extends Operation {
    * @param walletId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public GetWallet(String namespace, String walletId) {
     this.namespace = namespace;
     this.walletId = walletId;

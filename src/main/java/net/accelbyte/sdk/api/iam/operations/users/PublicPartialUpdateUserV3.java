@@ -68,6 +68,10 @@ public class PublicPartialUpdateUserV3 extends Operation {
    * @param body required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public PublicPartialUpdateUserV3(String namespace, ModelUserUpdateRequestV3 body) {
     this.namespace = namespace;
     this.body = body;

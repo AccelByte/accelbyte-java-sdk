@@ -51,6 +51,10 @@ public class CheckSeasonPurchasable extends Operation {
    * @param userId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public CheckSeasonPurchasable(String namespace, String userId, UserPurchasable body) {
     this.namespace = namespace;
     this.userId = userId;

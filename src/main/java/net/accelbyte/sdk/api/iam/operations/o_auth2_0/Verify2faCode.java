@@ -49,6 +49,10 @@ public class Verify2faCode extends Operation {
    * @param rememberDevice required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public Verify2faCode(String code, String factor, String mfaToken, Boolean rememberDevice) {
     this.code = code;
     this.factor = factor;

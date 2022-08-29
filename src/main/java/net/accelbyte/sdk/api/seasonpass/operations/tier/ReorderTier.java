@@ -51,6 +51,10 @@ public class ReorderTier extends Operation {
    * @param seasonId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public ReorderTier(String id, String namespace, String seasonId, TierReorder body) {
     this.id = id;
     this.namespace = namespace;

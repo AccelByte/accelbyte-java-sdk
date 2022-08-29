@@ -49,6 +49,10 @@ public class RecurringChargeSubscription extends Operation {
    * @param subscriptionId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public RecurringChargeSubscription(String namespace, String subscriptionId) {
     this.namespace = namespace;
     this.subscriptionId = subscriptionId;

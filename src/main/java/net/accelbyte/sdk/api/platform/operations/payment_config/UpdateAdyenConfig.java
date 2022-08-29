@@ -47,6 +47,10 @@ public class UpdateAdyenConfig extends Operation {
    * @param id required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public UpdateAdyenConfig(String id, Boolean sandbox, Boolean validate, AdyenConfig body) {
     this.id = id;
     this.sandbox = sandbox;

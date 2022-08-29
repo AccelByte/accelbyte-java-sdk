@@ -48,6 +48,10 @@ public class FreeFormNotificationByUserID extends Operation {
    * @param body required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public FreeFormNotificationByUserID(
       String namespace, String userId, ModelFreeFormNotificationRequest body) {
     this.namespace = namespace;

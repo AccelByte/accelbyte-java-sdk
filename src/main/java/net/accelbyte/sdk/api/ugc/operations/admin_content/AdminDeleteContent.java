@@ -47,6 +47,10 @@ public class AdminDeleteContent extends Operation {
    * @param userId required
    */
   @Builder
+  /*
+   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
+   */
+  @Deprecated
   public AdminDeleteContent(String channelId, String contentId, String namespace, String userId) {
     this.channelId = channelId;
     this.contentId = contentId;
