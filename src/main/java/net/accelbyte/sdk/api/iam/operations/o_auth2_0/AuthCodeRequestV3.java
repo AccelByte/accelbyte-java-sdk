@@ -51,6 +51,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>* snapchat This endpoint redirects to snapchat login page, then redirect back to platform
  * authenticate endpoint after successfully authenticating snapchat user.
  *
+ * <p>* discord This endpoint redirects to discord login page, then redirect back to platform
+ * authenticate endpoint after successfully authenticating discord user.
+ *
  * <p>action code : 10702'
  */
 @Getter

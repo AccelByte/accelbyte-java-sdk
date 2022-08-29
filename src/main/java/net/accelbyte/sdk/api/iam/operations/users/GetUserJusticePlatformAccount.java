@@ -21,10 +21,15 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetUserJusticePlatformAccount
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint:
+ * /iam/v3/admin/namespaces/{namespace}/users/{userId}/platforms/justice/{targetNamespace} [GET]
+ *
  * <p>This endpoint requires the client access token as the bearer token. Required permission
  * 'ADMIN:NAMESPACE:{namespace}:JUSTICE:USER:{userId} [UPDATE]'
- *
- * <p>It is going to be removed on November 26th, 2018
  *
  * <p>The endpoint returns user Justice platform account linked with the given user. If the user
  * Justice platform account doesn't exist in the designated namespace, the endpoint is going toÂ

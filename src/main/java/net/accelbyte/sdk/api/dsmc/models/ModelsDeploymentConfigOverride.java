@@ -61,6 +61,9 @@ public class ModelsDeploymentConfigOverride extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer sessionTimeout;
 
+  @JsonProperty("unlimited")
+  private Boolean unlimited;
+
   @JsonProperty("use_buffer_percent")
   private Boolean useBufferPercent;
 

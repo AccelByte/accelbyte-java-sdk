@@ -24,6 +24,7 @@ import picocli.CommandLine.Command;
       AdminDeleteAchievement.class,
       AdminUpdateAchievementListOrder.class,
       AdminListUserAchievements.class,
+      AdminResetAchievement.class,
       AdminUnlockAchievement.class,
       PublicListAchievements.class,
       PublicGetAchievement.class,

@@ -76,6 +76,9 @@ public class ModelsDeploymentWithOverride extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer sessionTimeout;
 
+  @JsonProperty("unlimited")
+  private Boolean unlimited;
+
   @JsonProperty("updatedAt")
   private String updatedAt;
 

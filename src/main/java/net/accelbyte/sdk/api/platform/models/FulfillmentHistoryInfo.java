@@ -42,6 +42,10 @@ public class FulfillmentHistoryInfo extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<EntitlementSummary> entitlementSummaries;
 
+  @JsonProperty("extensionFulfillmentSummaries")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<ExtensionFulfillmentSummary> extensionFulfillmentSummaries;
+
   @JsonProperty("fulfillItems")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<FulfillmentItem> fulfillItems;

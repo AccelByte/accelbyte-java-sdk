@@ -21,6 +21,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetUserMapping
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint:
+ * /iam/v3/admin/namespaces/{namespace}/users/{userId}/platforms/justice/{targetNamespace} [GET]
+ *
  * <p>This endpoint requires the client access token as the bearer token. Required permission
  * 'ADMIN:NAMESPACE:{namespace}:JUSTICE:USER:{userId} [READ]'
  *
@@ -31,7 +38,10 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>If targetNamespace filled with game namespace then this endpoint will return its publisher
  * user id and publisher namespace
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetUserMapping extends Operation {

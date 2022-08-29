@@ -25,7 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Endpoint migration guide
  *
- * <p>* Substitute endpoint: /iam/v3/oauth/platforms/{platformId}/token [POST]
+ * <p>* Substitute endpoint: /iam/v3/oauth/token [POST]
  *
  * <p>* Note: difference in V3 response: 1. format differenceï¼Pascal case => Camel case):
  * permissions field from Action => action, Resource => resource

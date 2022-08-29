@@ -160,6 +160,7 @@ public class GetStatistic extends Operation {
     BUNDLE("BUNDLE"),
     CODE("CODE"),
     COINS("COINS"),
+    EXTENSION("EXTENSION"),
     INGAMEITEM("INGAMEITEM"),
     MEDIA("MEDIA"),
     OPTIONBOX("OPTIONBOX"),

@@ -23,13 +23,24 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetUserPlatformAccounts
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/{userId}/platforms [GET]
+ *
+ * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/users/{userId}/platforms [GET]
+ *
  * <p>Required permission 'NAMESPACE:{namespace}:USER:{userId} [READ]'.
  *
  * <p>## Justice Platform Account
  *
  * <p>The permission âADMIN:NAMESPACE:{namespace}:JUSTICE:USER:{userId}â [READ] is required in
  * order to read the UserID who linked with the user.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetUserPlatformAccounts extends Operation {

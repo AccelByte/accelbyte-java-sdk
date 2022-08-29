@@ -42,7 +42,9 @@ public class Users {
 
   /**
    * @see GetAdminUsersByRoleID
+   * @deprecated
    */
+  @Deprecated
   public ModelGetAdminUsersResponse getAdminUsersByRoleID(GetAdminUsersByRoleID input)
       throws Exception {
     HttpResponse httpResponse = null;
@@ -348,7 +350,9 @@ public class Users {
 
   /**
    * @see GetUserInformation
+   * @deprecated
    */
+  @Deprecated
   public ModelUserInformation getUserInformation(GetUserInformation input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -382,7 +386,9 @@ public class Users {
 
   /**
    * @see GetUserLoginHistories
+   * @deprecated
    */
+  @Deprecated
   public ModelLoginHistoriesResponse getUserLoginHistories(GetUserLoginHistories input)
       throws Exception {
     HttpResponse httpResponse = null;
@@ -471,7 +477,9 @@ public class Users {
 
   /**
    * @see GetUserPlatformAccounts
+   * @deprecated
    */
+  @Deprecated
   public List<AccountcommonUserLinkedPlatform> getUserPlatformAccounts(
       GetUserPlatformAccounts input) throws Exception {
     HttpResponse httpResponse = null;
@@ -488,7 +496,9 @@ public class Users {
 
   /**
    * @see GetUserMapping
+   * @deprecated
    */
+  @Deprecated
   public ModelGetUserMapping getUserMapping(GetUserMapping input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -523,7 +533,9 @@ public class Users {
 
   /**
    * @see PlatformLink
+   * @deprecated
    */
+  @Deprecated
   public void platformLink(PlatformLink input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -539,7 +551,9 @@ public class Users {
 
   /**
    * @see PlatformUnlink
+   * @deprecated
    */
+  @Deprecated
   public void platformUnlink(PlatformUnlink input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -627,7 +641,9 @@ public class Users {
 
   /**
    * @see UpgradeHeadlessAccount
+   * @deprecated
    */
+  @Deprecated
   public ModelUserResponse upgradeHeadlessAccount(UpgradeHeadlessAccount input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -643,7 +659,9 @@ public class Users {
 
   /**
    * @see UpgradeHeadlessAccountWithVerificationCode
+   * @deprecated
    */
+  @Deprecated
   public ModelUserResponse upgradeHeadlessAccountWithVerificationCode(
       UpgradeHeadlessAccountWithVerificationCode input) throws Exception {
     HttpResponse httpResponse = null;
@@ -1649,6 +1667,22 @@ public class Users {
   }
 
   /**
+   * @see AdminGetUserMapping
+   */
+  public ModelGetUserMappingV3 adminGetUserMapping(AdminGetUserMapping input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
    * @see AdminCreateJusticeUser
    */
   public ModelCreateJusticeUserResponse adminCreateJusticeUser(AdminCreateJusticeUser input)
@@ -2203,6 +2237,22 @@ public class Users {
   }
 
   /**
+   * @see PublicForcePlatformLinkV3
+   */
+  public void publicForcePlatformLinkV3(PublicForcePlatformLinkV3 input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
    * @see PublicWebLinkPlatform
    */
   public ModelWebLinkingResponse publicWebLinkPlatform(PublicWebLinkPlatform input)
@@ -2291,6 +2341,23 @@ public class Users {
    */
   public AccountcommonDistinctPlatformResponseV3 publicListUserAllPlatformAccountsDistinctV3(
       PublicListUserAllPlatformAccountsDistinctV3 input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
+   * @see PublicGetUserInformationV3
+   */
+  public AccountcommonUserInformationV3 publicGetUserInformationV3(PublicGetUserInformationV3 input)
+      throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
@@ -2408,6 +2475,38 @@ public class Users {
    * @see PublicGetMyUserV3
    */
   public ModelUserResponseV3 publicGetMyUserV3(PublicGetMyUserV3 input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
+   * @see PublicSendVerificationLinkV3
+   */
+  public void publicSendVerificationLinkV3(PublicSendVerificationLinkV3 input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
+   * @see PublicVerifyUserByLinkV3
+   */
+  public String publicVerifyUserByLinkV3(PublicVerifyUserByLinkV3 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);

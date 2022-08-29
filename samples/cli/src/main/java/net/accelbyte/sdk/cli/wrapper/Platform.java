@@ -46,6 +46,12 @@ import picocli.CommandLine.Command;
       CreateFulfillmentScript.class,
       DeleteFulfillmentScript.class,
       UpdateFulfillmentScript.class,
+      ListItemTypeConfigs.class,
+      CreateItemTypeConfig.class,
+      SearchItemTypeConfig.class,
+      GetItemTypeConfig.class,
+      UpdateItemTypeConfig.class,
+      DeleteItemTypeConfig.class,
       QueryCampaigns.class,
       CreateCampaign.class,
       GetCampaign.class,
@@ -386,6 +392,7 @@ import picocli.CommandLine.Command;
       PublicGetUserSubscriptionBillingHistories.class,
       PublicGetWallet.class,
       PublicListUserWalletTransactions.class,
+      QueryItems1.class,
     })
 public class Platform implements Runnable {
 

@@ -20,8 +20,12 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * ListCrossNamespaceAccountLink
  *
- * <p>## The endpoint is going to be deprecated at 9 July, 2018. Please use this instead:
- * /users/{userId}/platforms/{platformId}/link
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}
+ * [POST]
  *
  * <p>Required permission 'NAMESPACE:{namespace}:USER:{userId} [UPDATE]'.
  *

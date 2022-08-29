@@ -57,6 +57,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>* snapchat Snapchat login page will redirects to this endpoint after login success as
  * previously defined on authorize request parameter `redirect_uri`
  *
+ * <p>* discord Discord login page will redirects to this endpoint after login success as previously
+ * defined on authorize request parameter `redirect_uri`
+ *
  * <p>action code : 10709
  */
 @Getter

@@ -25,6 +25,7 @@ import picocli.CommandLine.Command;
       DeleteSeason.class,
       UpdateSeason.class,
       CloneSeason.class,
+      GetFullSeason.class,
       QueryPasses.class,
       CreatePass.class,
       GetPass.class,

@@ -27,6 +27,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelsUpdateAllianceRule extends Model {
 
+  @JsonProperty("combination")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelsCombination combination;
+
   @JsonProperty("maxNumber")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxNumber;

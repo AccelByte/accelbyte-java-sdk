@@ -20,6 +20,16 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PlatformUnlink
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}
+ * [DELETE]
+ *
+ * <p>* Substitute endpoint:
+ * /iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/all [DELETE]
+ *
  * <p>Required permission 'NAMESPACE:{namespace}:USER:{userId} [UPDATE]'.
  *
  * <p>## Supported platforms:
@@ -51,7 +61,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * 'justice'.
  *
  * <p>Unlinking justice platform will enable password token grant and password update.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PlatformUnlink extends Operation {

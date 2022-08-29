@@ -27,6 +27,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelsAllianceFlexingRule extends Model {
 
+  @JsonProperty("combination")
+  private ModelsCombination combination;
+
   @JsonProperty("duration")
   private Integer duration;
 

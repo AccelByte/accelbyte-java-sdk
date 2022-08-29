@@ -29,6 +29,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * requested along with device_id parameter against game namespace. Another 3rd party platform token
  * grant should be requested along with platform_token parameter against publisher namespace.
  *
+ * <p>## 2FA remember device
+ *
+ * <p>To remember device for 2FA, should provide cookie: device_token or header: Device-Token
+ *
  * <p>## Supported platforms:
  *
  * <p>* steam : The platform_tokenâs value is the authentication code returned by Steam.

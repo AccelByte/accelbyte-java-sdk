@@ -172,6 +172,22 @@ public class Achievements {
   }
 
   /**
+   * @see AdminResetAchievement
+   */
+  public void adminResetAchievement(AdminResetAchievement input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
    * @see AdminUnlockAchievement
    */
   public void adminUnlockAchievement(AdminUnlockAchievement input) throws Exception {

@@ -59,6 +59,8 @@
 | `models.Channel` | [ModelsChannel](../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsChannel.java) |
 | `models.ChannelRequest` | [ModelsChannelRequest](../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsChannelRequest.java) |
 | `models.ChannelV1` | [ModelsChannelV1](../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsChannelV1.java) |
+| `models.Combination` | [ModelsCombination](../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsCombination.java) |
+| `models.Combination.alliances` | [ModelsCombinationAlliances](../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsCombinationAlliances.java) |
 | `models.CreateChannelResponse` | [ModelsCreateChannelResponse](../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsCreateChannelResponse.java) |
 | `models.DequeueRequest` | [ModelsDequeueRequest](../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsDequeueRequest.java) |
 | `models.FlexingRule` | [ModelsFlexingRule](../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsFlexingRule.java) |

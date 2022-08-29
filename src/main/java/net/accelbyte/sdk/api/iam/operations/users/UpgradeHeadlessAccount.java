@@ -21,8 +21,17 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * upgradeHeadlessAccount
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/me/headless/verify [POST]
+ *
  * <p>Required permission 'NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class UpgradeHeadlessAccount extends Operation {

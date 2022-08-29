@@ -280,6 +280,7 @@ public class ItemSnapshot extends Model {
     BUNDLE("BUNDLE"),
     CODE("CODE"),
     COINS("COINS"),
+    EXTENSION("EXTENSION"),
     INGAMEITEM("INGAMEITEM"),
     MEDIA("MEDIA"),
     OPTIONBOX("OPTIONBOX"),

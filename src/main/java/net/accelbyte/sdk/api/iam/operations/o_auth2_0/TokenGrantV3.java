@@ -120,6 +120,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Align with General Data Protection Regulation in Europe, user login history will be kept
  * within 28 days by default"
  *
+ * <p>## 2FA remember device
+ *
+ * <p>To remember device for 2FA, should provide cookie: device_token or header: Device-Token
+ *
  * <p>action code: 10703
  */
 @Getter

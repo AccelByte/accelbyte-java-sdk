@@ -21,13 +21,24 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetAdminUsersByRoleID
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint(Public): /iam/v3/admin/namespaces/{namespace}/roles/{roleId}/users [GET]
+ *
+ * <p>* Note: difference in V3 response, format difference: Pascal case => Camel case
+ *
  * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:USER [READ]'
  *
  * <p>This endpoint search admin users which have the roleId
  *
  * <p>Notes : this endpoint only accept admin role. Admin Role is role which have admin status and
  * members. Use endpoint [GET] /roles/{roleId}/admin to check the role status
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetAdminUsersByRoleID extends Operation {

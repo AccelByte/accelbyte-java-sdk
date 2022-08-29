@@ -14,6 +14,7 @@
 | `/seasonpass/admin/namespaces/{namespace}/seasons/{seasonId}` | DELETE | DeleteSeason | [DeleteSeason](../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/DeleteSeason.java) | [DeleteSeason](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/DeleteSeason.java) |
 | `/seasonpass/admin/namespaces/{namespace}/seasons/{seasonId}` | PATCH | UpdateSeason | [UpdateSeason](../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/UpdateSeason.java) | [UpdateSeason](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/UpdateSeason.java) |
 | `/seasonpass/admin/namespaces/{namespace}/seasons/{seasonId}/clone` | POST | CloneSeason | [CloneSeason](../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/CloneSeason.java) | [CloneSeason](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/CloneSeason.java) |
+| `/seasonpass/admin/namespaces/{namespace}/seasons/{seasonId}/full` | GET | GetFullSeason | [GetFullSeason](../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/GetFullSeason.java) | [GetFullSeason](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/GetFullSeason.java) |
 | `/seasonpass/admin/namespaces/{namespace}/seasons/{seasonId}/publish` | PUT | PublishSeason | [PublishSeason](../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/PublishSeason.java) | [PublishSeason](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/PublishSeason.java) |
 | `/seasonpass/admin/namespaces/{namespace}/seasons/{seasonId}/retire` | PUT | RetireSeason | [RetireSeason](../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/RetireSeason.java) | [RetireSeason](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/RetireSeason.java) |
 | `/seasonpass/admin/namespaces/{namespace}/seasons/{seasonId}/unpublish` | PUT | UnpublishSeason | [UnpublishSeason](../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/UnpublishSeason.java) | [UnpublishSeason](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/UnpublishSeason.java) |
@@ -75,6 +76,7 @@
 | `ExpGrantHistoryInfo` | [ExpGrantHistoryInfo](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/ExpGrantHistoryInfo.java) |
 | `ExpGrantHistoryPagingSlicedResult` | [ExpGrantHistoryPagingSlicedResult](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/ExpGrantHistoryPagingSlicedResult.java) |
 | `FieldValidationError` | [FieldValidationError](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/FieldValidationError.java) |
+| `FullSeasonInfo` | [FullSeasonInfo](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/FullSeasonInfo.java) |
 | `Image` | [Image](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/Image.java) |
 | `ListSeasonInfo` | [ListSeasonInfo](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/ListSeasonInfo.java) |
 | `ListSeasonInfoPagingSlicedResult` | [ListSeasonInfoPagingSlicedResult](../src/main/java/net/accelbyte/sdk/api/seasonpass/models/ListSeasonInfoPagingSlicedResult.java) |

@@ -48,7 +48,7 @@ public class VerifyTokenV3 extends Operation {
   public VerifyTokenV3(String token) {
     this.token = token;
 
-    securities.add("Bearer");
+    securities.add("Basic");
   }
 
   @Override

@@ -21,16 +21,31 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetUserLoginHistories
  *
- * <p>Required permission 'NAMESPACE:{namespace}:HISTORY:LOGIN:USER:{userId} [READ]'
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/{userId}/logins/histories
+ * [GET]
+ *
+ * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/users/{userId}/logins/histories
+ * [GET]
+ *
+ * <p>Required permission 'NAMESPACE:{namespace}:HISTORY:LOGIN:USER:{userId} [READ]'"+ "
  *
  * <p>Notes for this endpoint:
  *
- * <p>* This endpoint retrieve the first page of the data if `after` and `before` parameters is
- * empty. * The maximum value of the limit is 100 and the minimum value of the limit is 1. * This
- * endpoint retrieve the next page of the data if we provide `after` parameters with valid Unix
- * timestamp. * This endpoint retrieve the previous page of the data if we provide `before`
- * parameter with valid data Unix timestamp.
+ * <p>"+ "
+ *
+ * <p>* This endpoint retrieve the first page of the data if 'after' and 'before' parameters is
+ * empty. "+ " * The maximum value of the limit is 100 and the minimum value of the limit is 1. "+ "
+ * * This endpoint retrieve the next page of the data if we provide 'after' parameters with valid
+ * Unix timestamp. "+ " * This endpoint retrieve the previous page of the data if we provide
+ * 'before' parameter with valid data Unix timestamp.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetUserLoginHistories extends Operation {
