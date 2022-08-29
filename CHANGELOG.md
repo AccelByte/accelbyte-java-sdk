@@ -1,3 +1,36 @@
+<a name="v0.18.0"></a>
+## [v0.18.0] - 2022-08-30
+### Chore
+- bump to version 0.18 for ab cloud 3.30
+- **samples:** title-matchmaking - code formatting
+- **samples:** rename oidc-web to oidc
+- **samples:** rename aws-lambda-example to lambda
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.30
+- **sdk:** operations, models, ws models - deprecate all args constructor
+- **spec:** update spec for ab cloud 3.30
+
+### Ci
+- update junit xml path
+
+### Docs
+- update changelog for ab cloud 3.30
+- add common use cases
+
+### Feat
+- **samples:** title matchmaking sample app
+
+### Fix
+- **gradle:** rename test task to testCore
+- **sdk:** login user invalid username/password
+
+### Test
+- **core:** replace deprecated methods
+- **integration:** dsmc - switch namespace
+- **integration:** split to smaller files + add case marker
+- **integration:** replace deprecated methods
+- **integration:** seasonpass - remove unused variables
+
+
 <a name="v0.17.0"></a>
 ## [v0.17.0] - 2022-08-15
 ### Chore
@@ -13,6 +46,7 @@
 - updated mock server path
 
 ### Docs
+- update changelog for ab cloud 3.29
 - update changelog for ab cloud 3.29
 
 ### Fix
@@ -560,6 +594,7 @@
 - replace unnecessary object
 
 
+[v0.18.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.17.0...v0.18.0
 [v0.17.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.16.0...v0.17.0
 [v0.16.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.15.0...v0.16.0
 [v0.15.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.14.0...v0.15.0
