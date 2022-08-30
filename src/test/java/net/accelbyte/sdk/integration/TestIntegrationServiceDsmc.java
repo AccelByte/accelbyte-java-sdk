@@ -53,9 +53,9 @@ class TestIntegrationServiceDsmc extends TestIntegration {
   @Order(1)
   public void test() throws Exception {
     final String targetUsername = "dummy@example.com";
-    final String targetNamespace = "armadademotestqa";
-    final String targetDeployment = "deployruli";
-    final String gameMode = "soloyogs";
+    final String targetNamespace = this.namespace;
+    final String targetDeployment = "default";
+    final String gameMode = "GAME_MODE";
     final String partyId = "PARTY_ID";
     final String version = "0.3.0";
 
