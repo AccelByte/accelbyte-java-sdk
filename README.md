@@ -15,9 +15,6 @@ without the leading `v` character.
 ```java
 repositories {
    mavenCentral()
-   maven {
-      url 'https://nexus.accelbyte.net/repository/maven-releases/'
-   }
 }
 
 dependencies {

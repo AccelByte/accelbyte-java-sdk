@@ -51,5 +51,7 @@ test_cli:
 	[ ! -f test.err ]
 
 publish:
-	docker run -e AB_NEXUS_USERNAME=${AB_NEXUS_USERNAME} -e AB_NEXUS_PASSWORD=${AB_NEXUS_PASSWORD} -t --rm -u  \
-			$$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GRADLE_USER_HOME=/data/.gradle gradle:7-jdk8 gradle publish
+	docker run -t --rm -u  $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GRADLE_USER_HOME=/data/.gradle \
+	    -e PUBLISH_OSSRH_USERNAME="$$PUBLISH_OSSRH_USERNAME" -e PUBLISH_OSSRH_PASSWORD="$$PUBLISH_OSSRH_PASSWORD" \
+	    -e PUBLISH_SIGNING_KEY="$$PUBLISH_SIGNING_KEY" -e PUBLISH_SIGNING_PASSWORD="$$PUBLISH_SIGNING_PASSWORD" \
+        gradle:7-jdk8 gradle publish

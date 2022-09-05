@@ -20,9 +20,6 @@ pipeline {
   agent {
     label "justice-codegen-sdk"
   }
-  environment {
-    AB_NEXUS = credentials('nexus-accelbyte')
-  }
   stages {
     stage('Prepare') {
       steps {
@@ -55,6 +52,11 @@ pipeline {
           return params.ACTION == 'PUSH+RELEASE'
         }
       }
+      environment {
+        PUBLISH_OSSRH = credentials('maven-central-accelbyte')
+        PUBLISH_SIGNING_KEY = credentials('maven-central-accelbyte-signing-key')
+        PUBLISH_SIGNING_PASSWORD = credentials('maven-central-accelbyte-signing-password')
+      }
       steps {
         script {
           if (params.RELEASE_NOTE ==~ /(?s).*@[A-Za-z0-9_-]+@.*/)
@@ -74,7 +76,7 @@ pipeline {
             sh "git push ${githubUrl} ${params.RELEASE_TAG}"
           }
           github.createRelease(githubPat, githubOwner, githubRepo, params.RELEASE_TAG, params.RELEASE_TAG, params.RELEASE_NOTE)
-          sh "make publish AB_NEXUS_USERNAME=$AB_NEXUS_USR AB_NEXUS_PASSWORD=$AB_NEXUS_PSW"
+          sh "make publish PUBLISH_OSSRH_USERNAME=$PUBLISH_OSSRH_USR PUBLISH_OSSRH_PASSWORD=$PUBLISH_OSSRH_PSW PUBLISH_SIGNING_KEY=$PUBLISH_SIGNING_KEY PUBLISH_SIGNING_PASSWORD=$PUBLISH_SIGNING_PASSWORD"
         }
       }
     }

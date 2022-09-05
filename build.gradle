@@ -1,7 +1,8 @@
 plugins {
     id 'java'
-    id 'io.freefair.lombok' version '6.4.2'
     id 'maven-publish'
+    id 'signing'
+    id 'io.freefair.lombok' version '6.4.2'
 }
 
 apply from: "repositories.gradle"
@@ -30,6 +31,11 @@ dependencies {
     testRuntimeOnly sharedDependencies.junitEngine
 }
 
+java {
+    //withJavadocJar()
+    withSourcesJar()
+}
+
 task testCore(type: Test) {
     useJUnitPlatform {
         includeTags('test-core')
@@ -48,4 +54,9 @@ task testIntegration(type: Test) {
         junitXml.enabled = true
         html.enabled = false
     }
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from 'javadoc'
 }
