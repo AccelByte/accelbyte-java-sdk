@@ -1,0 +1,1 @@
+There is no javadoc for AccelByte Java Server SDK for now

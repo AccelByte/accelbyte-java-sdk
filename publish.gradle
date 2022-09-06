@@ -7,6 +7,10 @@ publishing {
            artifactId = 'sdk'
            //version = '0.1.0'
            from components.java
+           
+           afterEvaluate {
+                artifact javadocJar
+           }
 
            pom {
                name = 'accelbyte-java-sdk'
