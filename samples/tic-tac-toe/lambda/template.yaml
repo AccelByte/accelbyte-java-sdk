@@ -1,0 +1,64 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  title-matchmaking
+
+  SAM Template for title-matchmaking
+
+Globals:
+  Function:
+    Timeout: 60   # Give enough time to complete API calls
+    Environment:
+        Variables:
+          AB_BASE_URL: https://demo.accelbyte.io    # Base URL
+          AB_CLIENT_ID: 'xxxxxxxxxx'                # Cliend ID
+          AB_CLIENT_SECRET: 'xxxxxxxxxx'            # Client Secret
+          AB_NAMESPACE: 'xxxxxxxxxx'                # Namespace
+          REDIS_HOST: 'xxxxxxxxxx'                  # Redis host
+
+Resources:
+  TicTacToeFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: TicTacToeFunction
+      Handler: tictactoe.lambda.App::handleRequest
+      Runtime: java8
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        StartGame:
+          Type: Api
+          Properties:
+            Path: /tictactoe/start
+            Method: post
+        GetState:
+          Type: Api
+          Properties:
+            Path: /tictactoe/state
+            Method: get
+        MakeMove:
+          Type: Api
+          Properties:
+            Path: /tictactoe/move
+            Method: post
+        Reset:
+          Type: Api
+          Properties:
+            Path: /tictactoe/reset
+            Method: post
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  TicTacToeApi:
+    Description: "API Gateway endpoint URL for Prod stage for Title Matchmaking function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/tictactoe/"
+  TicTacToeFunction:
+    Description: "Title Matchmaking Lambda Function ARN"
+    Value: !GetAtt TicTacToeFunction.Arn
+  TicTacToeFunctionIamRole:
+    Description: "Implicit IAM Role created for Title Matchmaking function"
+    Value: !GetAtt TicTacToeFunctionRole.Arn
