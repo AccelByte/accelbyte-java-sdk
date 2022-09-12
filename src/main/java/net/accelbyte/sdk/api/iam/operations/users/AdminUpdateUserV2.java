@@ -21,24 +21,39 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateUserV2
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/users/{userId} [PATCH]
+ *
  * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
+ *
+ * <p>"+ "
  *
  * <p>This Endpoint support update user based on given data. Single request can update single field
  * or multi fields.
  *
+ * <p>"+ "
+ *
  * <p>Supported field {Country, DisplayName, LanguageTag}
+ *
+ * <p>"+ "
  *
  * <p>Country use ISO3166-1 alpha-2 two letter, e.g. US.
  *
- * <p>Several case of updating email address
+ * <p>"+ " Several case of updating email address "+ "
  *
  * <p>* User want to update email address of which have been verified, NewEmailAddress response
- * field will be filled with new email address. * User want to update email address of which have
- * not been verified, {LoginId, OldEmailAddress, EmailAddress} response field will be filled with
- * new email address. * User want to update email address of which have been verified and updated
- * before, {LoginId, OldEmailAddress, EmailAddress} response field will be filled with verified
- * email before. NewEmailAddress response field will be filled with newest email address.
+ * field will be filled with new email address. "+ " * User want to update email address of which
+ * have not been verified, {LoginId, OldEmailAddress, EmailAddress} response field will be filled
+ * with new email address. "+ " * User want to update email address of which have been verified and
+ * updated before, {LoginId, OldEmailAddress, EmailAddress} response field will be filled with
+ * verified email before. NewEmailAddress response field will be filled with newest email address.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminUpdateUserV2 extends Operation {

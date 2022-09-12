@@ -21,8 +21,17 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminBanUserV2
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/users/{userId}/bans [POST]
+ *
  * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:BAN:USER:{userId} [CREATE]'.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminBanUserV2 extends Operation {

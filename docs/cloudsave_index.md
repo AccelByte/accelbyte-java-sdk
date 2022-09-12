@@ -23,6 +23,7 @@
 ### AdminPlayerRecord Wrapper:  [AdminPlayerRecord](../src/main/java/net/accelbyte/sdk/api/cloudsave/wrappers/AdminPlayerRecord.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
+| `/cloudsave/v1/admin/namespaces/{namespace}/users/bulk/records/size` | POST | BulkGetPlayerRecordSizeHandlerV1 | [BulkGetPlayerRecordSizeHandlerV1](../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_player_record/BulkGetPlayerRecordSizeHandlerV1.java) | [BulkGetPlayerRecordSizeHandlerV1](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_player_record/BulkGetPlayerRecordSizeHandlerV1.java) |
 | `/cloudsave/v1/admin/namespaces/{namespace}/users/records` | GET | ListPlayerRecordHandlerV1 | [ListPlayerRecordHandlerV1](../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_player_record/ListPlayerRecordHandlerV1.java) | [ListPlayerRecordHandlerV1](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_player_record/ListPlayerRecordHandlerV1.java) |
 | `/cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/records` | GET | AdminRetrievePlayerRecords | [AdminRetrievePlayerRecords](../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_player_record/AdminRetrievePlayerRecords.java) | [AdminRetrievePlayerRecords](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_player_record/AdminRetrievePlayerRecords.java) |
 | `/cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/records/{key}` | GET | AdminGetPlayerRecordHandlerV1 | [AdminGetPlayerRecordHandlerV1](../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_player_record/AdminGetPlayerRecordHandlerV1.java) | [AdminGetPlayerRecordHandlerV1](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_player_record/AdminGetPlayerRecordHandlerV1.java) |
@@ -33,6 +34,7 @@
 | `/cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/records/{key}/public` | PUT | AdminPutPlayerPublicRecordHandlerV1 | [AdminPutPlayerPublicRecordHandlerV1](../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_player_record/AdminPutPlayerPublicRecordHandlerV1.java) | [AdminPutPlayerPublicRecordHandlerV1](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_player_record/AdminPutPlayerPublicRecordHandlerV1.java) |
 | `/cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/records/{key}/public` | POST | AdminPostPlayerPublicRecordHandlerV1 | [AdminPostPlayerPublicRecordHandlerV1](../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_player_record/AdminPostPlayerPublicRecordHandlerV1.java) | [AdminPostPlayerPublicRecordHandlerV1](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_player_record/AdminPostPlayerPublicRecordHandlerV1.java) |
 | `/cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/records/{key}/public` | DELETE | AdminDeletePlayerPublicRecordHandlerV1 | [AdminDeletePlayerPublicRecordHandlerV1](../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_player_record/AdminDeletePlayerPublicRecordHandlerV1.java) | [AdminDeletePlayerPublicRecordHandlerV1](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_player_record/AdminDeletePlayerPublicRecordHandlerV1.java) |
+| `/cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/records/{key}/size` | GET | AdminGetPlayerRecordSizeHandlerV1 | [AdminGetPlayerRecordSizeHandlerV1](../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_player_record/AdminGetPlayerRecordSizeHandlerV1.java) | [AdminGetPlayerRecordSizeHandlerV1](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_player_record/AdminGetPlayerRecordSizeHandlerV1.java) |
 
 ### ConcurrentRecord Wrapper:  [ConcurrentRecord](../src/main/java/net/accelbyte/sdk/api/cloudsave/wrappers/ConcurrentRecord.java)
 | Endpoint | Method | ID | Class | Example |
@@ -71,7 +73,9 @@
 |---|---|
 | `models.AdminConcurrentRecordRequest` | [ModelsAdminConcurrentRecordRequest](../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsAdminConcurrentRecordRequest.java) |
 | `models.BulkGetPlayerRecordResponse` | [ModelsBulkGetPlayerRecordResponse](../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsBulkGetPlayerRecordResponse.java) |
+| `models.BulkGetPlayerRecordSizeResponse` | [ModelsBulkGetPlayerRecordSizeResponse](../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsBulkGetPlayerRecordSizeResponse.java) |
 | `models.BulkUserIDsRequest` | [ModelsBulkUserIDsRequest](../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsBulkUserIDsRequest.java) |
+| `models.BulkUserKeyRequest` | [ModelsBulkUserKeyRequest](../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsBulkUserKeyRequest.java) |
 | `models.ConcurrentRecordRequest` | [ModelsConcurrentRecordRequest](../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsConcurrentRecordRequest.java) |
 | `models.GameRecordRequest` | [ModelsGameRecordRequest](../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsGameRecordRequest.java) |
 | `models.GameRecordResponse` | [ModelsGameRecordResponse](../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsGameRecordResponse.java) |
@@ -81,4 +85,6 @@
 | `models.PlayerRecordKeyInfo` | [ModelsPlayerRecordKeyInfo](../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsPlayerRecordKeyInfo.java) |
 | `models.PlayerRecordRequest` | [ModelsPlayerRecordRequest](../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsPlayerRecordRequest.java) |
 | `models.PlayerRecordResponse` | [ModelsPlayerRecordResponse](../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsPlayerRecordResponse.java) |
+| `models.PlayerRecordSizeResponse` | [ModelsPlayerRecordSizeResponse](../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsPlayerRecordSizeResponse.java) |
 | `models.ResponseError` | [ModelsResponseError](../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsResponseError.java) |
+| `models.UserKeyRequest` | [ModelsUserKeyRequest](../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsUserKeyRequest.java) |

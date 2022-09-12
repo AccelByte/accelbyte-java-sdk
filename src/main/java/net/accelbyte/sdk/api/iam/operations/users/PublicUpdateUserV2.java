@@ -23,13 +23,30 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicUpdateUserV2
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint([PUT]): /iam/v3/public/namespaces/{namespace}/users/me [PUT]
+ *
+ * <p>* Substitute endpoint([PATCH]): /iam/v3/public/namespaces/{namespace}/users/me [PATCH]
+ *
+ * <p>* Substitute endpoint([PATCH]): /iam/v4/public/namespaces/{namespace}/users/me [PATCH]
+ *
+ * <p>* Note: 1. Prefer [PATCH] if client support PATCH method
+ *
+ * <p>2. Difference in V3/v4 request body, format difference: Pascal case => Camel case
+ *
  * <p>This Endpoint support update user based on given data. Single request can update single field
  * or multi fields.
  *
- * <p>This endpoint require valid user access token to accessed.
+ * <p>"+ "This endpoint require valid user access token to accessed.
  *
  * <p>Supported field {Country, DisplayName, LanguageTag}
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicUpdateUserV2 extends Operation {

@@ -20,6 +20,16 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicDeletePlatformLinkV2
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}
+ * [DELETE]
+ *
+ * <p>* Substitute endpoint:
+ * /iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/all [DELETE]
+ *
  * <p>## Supported platforms:
  *
  * <p>* steam
@@ -47,7 +57,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * 'justice'.
  *
  * <p>Delete link of justice platform will enable password token grant and password update.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicDeletePlatformLinkV2 extends Operation {

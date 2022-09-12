@@ -33,6 +33,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* username
  *
+ * <p>* email
+ *
  * <p>If `isCustomRegex` is set to true, `regex` parameter will be used as input validation and the
  * other parameters will be ignored. Otherwise, `regex` parameter will be ignored and regex for
  * input validation will be generated based on the combination of the other parameters.
@@ -62,6 +64,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>`minCharType` is used to identify how many required criteria in the regex. The supported
  * criteria are number, letter, special character, and letter case. If set to 0 or 1 means all
  * criteria are optional. It can be set as much as the number of criteria enabled.
+ *
+ * <p>If `blockedWord` is set by admin, any input from user which contain kind of blocked word(s)
+ * will be blocked for create/upgrade/update account
  */
 @Getter
 @Setter

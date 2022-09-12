@@ -219,6 +219,12 @@
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/twitch/sync` | PUT | SyncTwitchDropsEntitlement | [SyncTwitchDropsEntitlement](../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/SyncTwitchDropsEntitlement.java) | [SyncTwitchDropsEntitlement](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/SyncTwitchDropsEntitlement.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/xbl/sync` | PUT | SyncXboxInventory | [SyncXboxInventory](../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/SyncXboxInventory.java) | [SyncXboxInventory](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/SyncXboxInventory.java) |
 
+### Invoice Wrapper:  [Invoice](../src/main/java/net/accelbyte/sdk/api/platform/wrappers/Invoice.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/platform/admin/namespaces/{namespace}/invoice/details.csv` | GET | DownloadInvoiceDetails | [DownloadInvoiceDetails](../src/main/java/net/accelbyte/sdk/api/platform/operations/invoice/DownloadInvoiceDetails.java) | [DownloadInvoiceDetails](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/invoice/DownloadInvoiceDetails.java) |
+| `/platform/admin/namespaces/{namespace}/invoice/summary` | GET | GenerateInvoiceSummary | [GenerateInvoiceSummary](../src/main/java/net/accelbyte/sdk/api/platform/operations/invoice/GenerateInvoiceSummary.java) | [GenerateInvoiceSummary](../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/invoice/GenerateInvoiceSummary.java) |
+
 ### KeyGroup Wrapper:  [KeyGroup](../src/main/java/net/accelbyte/sdk/api/platform/wrappers/KeyGroup.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -576,6 +582,8 @@
 | `IAPOrderPagingSlicedResult` | [IAPOrderPagingSlicedResult](../src/main/java/net/accelbyte/sdk/api/platform/models/IAPOrderPagingSlicedResult.java) |
 | `Image` | [Image](../src/main/java/net/accelbyte/sdk/api/platform/models/Image.java) |
 | `InGameItemSync` | [InGameItemSync](../src/main/java/net/accelbyte/sdk/api/platform/models/InGameItemSync.java) |
+| `InvoiceCurrencySummary` | [InvoiceCurrencySummary](../src/main/java/net/accelbyte/sdk/api/platform/models/InvoiceCurrencySummary.java) |
+| `InvoiceSummary` | [InvoiceSummary](../src/main/java/net/accelbyte/sdk/api/platform/models/InvoiceSummary.java) |
 | `ItemAcquireRequest` | [ItemAcquireRequest](../src/main/java/net/accelbyte/sdk/api/platform/models/ItemAcquireRequest.java) |
 | `ItemAcquireResult` | [ItemAcquireResult](../src/main/java/net/accelbyte/sdk/api/platform/models/ItemAcquireResult.java) |
 | `ItemCreate` | [ItemCreate](../src/main/java/net/accelbyte/sdk/api/platform/models/ItemCreate.java) |

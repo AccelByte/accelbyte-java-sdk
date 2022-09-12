@@ -66,7 +66,7 @@ public class PublicPartialUpdateUserV3 implements Callable<Integer> {
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelUserUpdateRequestV3.class))
               .build();
-      List<ModelUserResponseV3> response = wrapper.publicPartialUpdateUserV3(operation);
+      ModelUserResponseV3 response = wrapper.publicPartialUpdateUserV3(operation);
       String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful with response below:\n{}", responseString);

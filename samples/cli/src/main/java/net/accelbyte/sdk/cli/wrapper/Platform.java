@@ -19,6 +19,7 @@ import net.accelbyte.sdk.cli.api.platform.entitlement.*;
 import net.accelbyte.sdk.cli.api.platform.fulfillment.*;
 import net.accelbyte.sdk.cli.api.platform.fulfillment_script.*;
 import net.accelbyte.sdk.cli.api.platform.iap.*;
+import net.accelbyte.sdk.cli.api.platform.invoice.*;
 import net.accelbyte.sdk.cli.api.platform.item.*;
 import net.accelbyte.sdk.cli.api.platform.key_group.*;
 import net.accelbyte.sdk.cli.api.platform.order.*;
@@ -118,6 +119,8 @@ import picocli.CommandLine.Command;
       UpdateXblIAPConfig.class,
       DeleteXblAPConfig.class,
       UpdateXblBPCertFile.class,
+      DownloadInvoiceDetails.class,
+      GenerateInvoiceSummary.class,
       SyncInGameItem.class,
       CreateItem.class,
       GetItemByAppId.class,

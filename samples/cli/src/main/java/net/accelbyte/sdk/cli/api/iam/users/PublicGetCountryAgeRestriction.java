@@ -66,8 +66,7 @@ public class PublicGetCountryAgeRestriction implements Callable<Integer> {
               .countryCode(countryCode)
               .namespace(namespace)
               .build();
-      List<AccountcommonCountryAgeRestriction> response =
-          wrapper.publicGetCountryAgeRestriction(operation);
+      AccountcommonCountry response = wrapper.publicGetCountryAgeRestriction(operation);
       String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful with response below:\n{}", responseString);

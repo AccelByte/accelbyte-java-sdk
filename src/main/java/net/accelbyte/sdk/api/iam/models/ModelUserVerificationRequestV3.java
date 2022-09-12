@@ -34,9 +34,11 @@ public class ModelUserVerificationRequestV3 extends Model {
   private String contactType;
 
   @JsonProperty("languageTag")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String languageTag;
 
   @JsonProperty("validateOnly")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean validateOnly;
 
   @JsonIgnore

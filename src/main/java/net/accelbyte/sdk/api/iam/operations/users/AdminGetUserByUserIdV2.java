@@ -21,8 +21,17 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserByUserIdV2
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/users/{userId} [GET]
+ *
  * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [READ]'
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminGetUserByUserIdV2 extends Operation {

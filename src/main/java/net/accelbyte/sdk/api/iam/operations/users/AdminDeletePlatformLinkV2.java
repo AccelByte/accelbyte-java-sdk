@@ -20,6 +20,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeletePlatformLinkV2
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint:
+ * /iam/v3/admin/namespaces/{namespace}/users/{userId}/platforms/{platformId} [DELETE]
+ *
  * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [DELETE]'.
  *
  * <p>## Supported platforms:
@@ -49,7 +56,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * 'justice'.
  *
  * <p>Delete link of justice platform will enable password token grant and password update.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminDeletePlatformLinkV2 extends Operation {

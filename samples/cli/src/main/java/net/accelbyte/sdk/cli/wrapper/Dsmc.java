@@ -77,6 +77,7 @@ import picocli.CommandLine.Command;
       DeleteSession.class,
       ExportConfigV1.class,
       ImportConfigV1.class,
+      ImageLimitClient.class,
       ImageDetailClient.class,
       DeregisterLocalServer.class,
       RegisterLocalServer.class,

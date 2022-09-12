@@ -57,7 +57,11 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Endpoint migration guide
  *
- * <p>* Substitute endpoint: /iam/v3/oauth/authorize [GET]
+ * <p>* Substitute endpoint (for: basic header style): /iam/v3/oauth/authorize [GET]
+ *
+ * <p>* Substitute endpoint (for: bearer header style): step1:
+ * /iam/v3/namespace/{namespace}/token/request [POST] => get code step2: /iam/v3/token/exchange
+ * [POST] => get token by step1's code
  *
  * <p>* Note: 1. V3 is standard OAuth2 flow and support PKCE 2. Will not support implicit flow in
  * v3.

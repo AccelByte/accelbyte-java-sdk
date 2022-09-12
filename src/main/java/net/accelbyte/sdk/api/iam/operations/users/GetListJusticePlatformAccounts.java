@@ -23,9 +23,19 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetListJusticePlatformAccounts
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/{userId}/platforms/justice
+ * [GET]
+ *
  * <p>This endpoint gets list justice platform account by providing publisher namespace and
  * publisher userID.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetListJusticePlatformAccounts extends Operation {

@@ -35,6 +35,7 @@ public class AccountCreateUserRequestV4 extends Model {
   private String authType;
 
   @JsonProperty("code")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String code;
 
   @JsonProperty("country")
@@ -45,18 +46,22 @@ public class AccountCreateUserRequestV4 extends Model {
   private String dateOfBirth;
 
   @JsonProperty("displayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String displayName;
 
   @JsonProperty("emailAddress")
   private String emailAddress;
 
   @JsonProperty("password")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String password;
 
   @JsonProperty("passwordMD5Sum")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String passwordMD5Sum;
 
   @JsonProperty("reachMinimumAge")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean reachMinimumAge;
 
   @JsonProperty("username")

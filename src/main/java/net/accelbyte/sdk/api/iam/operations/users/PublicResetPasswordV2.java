@@ -18,7 +18,18 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** PublicResetPasswordV2 */
+/**
+ * PublicResetPasswordV2
+ *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/reset [POST]
+ *
+ * @deprecated
+ */
+@Deprecated
 @Getter
 @Setter
 public class PublicResetPasswordV2 extends Operation {

@@ -108,6 +108,40 @@ public class Bans {
   }
 
   /**
+   * @see AdminBanUserBulkV3
+   */
+  public ModelListBulkUserBanResponseV3 adminBanUserBulkV3(AdminBanUserBulkV3 input)
+      throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
+   * @see AdminUnbanUserBulkV3
+   */
+  public ModelListBulkUserBanResponseV3 adminUnbanUserBulkV3(AdminUnbanUserBulkV3 input)
+      throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
    * @see AdminGetBansTypeWithNamespaceV3
    */
   public AccountcommonBansV3 adminGetBansTypeWithNamespaceV3(AdminGetBansTypeWithNamespaceV3 input)

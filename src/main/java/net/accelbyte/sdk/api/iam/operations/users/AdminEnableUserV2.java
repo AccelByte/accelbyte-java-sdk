@@ -20,8 +20,17 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminEnableUserV2
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/users/{userId}/status [PATCH]
+ *
  * <p>Required permissions 'ADMIN:NAMESPACE:{namespace}:USERSTATUS:USER:{userId} [UPDATE]'
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminEnableUserV2 extends Operation {

@@ -49,12 +49,14 @@ public class AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4 extends 
   private String password;
 
   @JsonProperty("reachMinimumAge")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean reachMinimumAge;
 
   @JsonProperty("username")
   private String username;
 
   @JsonProperty("validateOnly")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean validateOnly;
 
   @JsonIgnore

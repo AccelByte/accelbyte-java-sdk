@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.iam.operations.users;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
@@ -20,7 +18,19 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** PublicGetCountryAgeRestriction */
+/**
+ * PublicGetCountryAgeRestriction
+ *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint:
+ * /iam/v3/public/namespaces/{namespace}/agerestrictions/countries/{countryCode} [GET]
+ *
+ * @deprecated
+ */
+@Deprecated
 @Getter
 @Setter
 public class PublicGetCountryAgeRestriction extends Operation {
@@ -76,12 +86,11 @@ public class PublicGetCountryAgeRestriction extends Operation {
     return true;
   }
 
-  public List<AccountcommonCountryAgeRestriction> parseResponse(
-      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
+  public AccountcommonCountry parseResponse(int code, String contentType, InputStream payload)
+      throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {
-      return new ObjectMapper()
-          .readValue(json, new TypeReference<List<AccountcommonCountryAgeRestriction>>() {});
+      return new AccountcommonCountry().createFromJson(json);
     }
     throw new HttpResponseException(code, json);
   }

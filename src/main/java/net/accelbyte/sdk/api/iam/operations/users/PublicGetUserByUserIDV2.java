@@ -18,7 +18,22 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** PublicGetUserByUserIDV2 */
+/**
+ * PublicGetUserByUserIDV2
+ *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint(Public): /iam/v3/public/namespaces/{namespace}/users/{userId} [GET]
+ *
+ * <p>* Substitute endpoint(Admin): /iam/v3/admin/namespaces/{namespace}/users/{userId} [GET]
+ *
+ * <p>* Note: format difference in response: Pascal case => Camel case
+ *
+ * @deprecated
+ */
+@Deprecated
 @Getter
 @Setter
 public class PublicGetUserByUserIDV2 extends Operation {

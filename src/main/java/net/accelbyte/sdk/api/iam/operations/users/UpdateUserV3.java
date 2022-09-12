@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.iam.operations.users;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
@@ -109,11 +107,11 @@ public class UpdateUserV3 extends Operation {
     return true;
   }
 
-  public List<ModelUserResponseV3> parseResponse(int code, String contentType, InputStream payload)
+  public ModelUserResponseV3 parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {
-      return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserResponseV3>>() {});
+      return new ModelUserResponseV3().createFromJson(json);
     }
     throw new HttpResponseException(code, json);
   }

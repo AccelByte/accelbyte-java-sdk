@@ -21,11 +21,22 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicForgotPasswordV2
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/forgot [POST]
+ *
  * <p>Special note for publisher-game scenario: Game Client should provide game namespace path
  * parameter and Publisher Client should provide publisher namespace path parameter.
  *
+ * <p>"+ "
+ *
  * <p>The password reset code will be sent to the publisher account's email address.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicForgotPasswordV2 extends Operation {

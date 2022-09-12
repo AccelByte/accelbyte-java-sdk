@@ -34,6 +34,7 @@ public class OauthmodelTokenResponseV3 extends Model {
   private List<AccountcommonJWTBanV3> bans;
 
   @JsonProperty("display_name")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String displayName;
 
   @JsonProperty("expires_in")
@@ -65,9 +66,11 @@ public class OauthmodelTokenResponseV3 extends Model {
   private String platformUserId;
 
   @JsonProperty("refresh_expires_in")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer refreshExpiresIn;
 
   @JsonProperty("refresh_token")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String refreshToken;
 
   @JsonProperty("roles")
@@ -80,9 +83,11 @@ public class OauthmodelTokenResponseV3 extends Model {
   private String tokenType;
 
   @JsonProperty("user_id")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String userId;
 
   @JsonProperty("xuid")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String xuid;
 
   @JsonIgnore

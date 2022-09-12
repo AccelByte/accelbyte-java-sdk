@@ -22,6 +22,23 @@ public class AdminPlayerRecord {
   }
 
   /**
+   * @see BulkGetPlayerRecordSizeHandlerV1
+   */
+  public ModelsBulkGetPlayerRecordSizeResponse bulkGetPlayerRecordSizeHandlerV1(
+      BulkGetPlayerRecordSizeHandlerV1 input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
    * @see ListPlayerRecordHandlerV1
    * @deprecated
    */
@@ -185,6 +202,23 @@ public class AdminPlayerRecord {
     try {
       httpResponse = sdk.runRequest(input);
       input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
+   * @see AdminGetPlayerRecordSizeHandlerV1
+   */
+  public ModelsPlayerRecordSizeResponse adminGetPlayerRecordSizeHandlerV1(
+      AdminGetPlayerRecordSizeHandlerV1 input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
     } finally {
       if (httpResponse != null && httpResponse.getPayload() != null) {

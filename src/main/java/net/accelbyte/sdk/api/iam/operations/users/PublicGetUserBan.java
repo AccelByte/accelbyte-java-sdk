@@ -20,7 +20,18 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** PublicGetUserBan */
+/**
+ * PublicGetUserBan
+ *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/{userId}/bans [GET]
+ *
+ * @deprecated
+ */
+@Deprecated
 @Getter
 @Setter
 public class PublicGetUserBan extends Operation {

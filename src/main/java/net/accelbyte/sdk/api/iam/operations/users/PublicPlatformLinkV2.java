@@ -20,6 +20,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicPlatformLinkV2
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}
+ * [POST]
+ *
  * <p>Prerequisite: Platform client configuration need to be added to database for specific
  * platformId. Namespace service URL need to be specified (refer to required environment variables).
  *
@@ -47,7 +54,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * The ticket's value is the deviceâs ID.
  *
  * <p>* discord : The ticketâs value is the authorization code returned by Discord OAuth.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicPlatformLinkV2 extends Operation {

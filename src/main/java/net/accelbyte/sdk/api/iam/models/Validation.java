@@ -39,6 +39,9 @@ public class Validation extends Model {
   @JsonProperty("allowUnicode")
   private Boolean allowUnicode;
 
+  @JsonProperty("blockedWord")
+  private List<String> blockedWord;
+
   @JsonProperty("description")
   private List<ValidationDescription> description;
 

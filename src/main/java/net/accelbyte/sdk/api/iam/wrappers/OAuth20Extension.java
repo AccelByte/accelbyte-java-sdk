@@ -105,9 +105,43 @@ public class OAuth20Extension {
   }
 
   /**
+   * @see RequestGameTokenCodeResponseV3
+   */
+  public OauthmodelGameTokenCodeResponse requestGameTokenCodeResponseV3(
+      RequestGameTokenCodeResponseV3 input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
    * @see PlatformAuthenticationV3
    */
   public String platformAuthenticationV3(PlatformAuthenticationV3 input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
+   * @see RequestGameTokenResponseV3
+   */
+  public OauthmodelTokenResponseV3 requestGameTokenResponseV3(RequestGameTokenResponseV3 input)
+      throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);

@@ -21,8 +21,17 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminResetPasswordV2
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/users/{userId}/password [PUT]
+ *
  * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:PASSWORD:USER:{userId} [UPDATE]'
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminResetPasswordV2 extends Operation {

@@ -36,6 +36,9 @@ public class ModelsGetImageLimitResponseData extends Model {
   @JsonProperty("non_persistent_image_number")
   private Integer nonPersistentImageNumber;
 
+  @JsonProperty("non_persistent_image_used_in_deployment_number")
+  private Integer nonPersistentImageUsedInDeploymentNumber;
+
   @JsonIgnore
   public ModelsGetImageLimitResponseData createFromJson(String json)
       throws JsonProcessingException {

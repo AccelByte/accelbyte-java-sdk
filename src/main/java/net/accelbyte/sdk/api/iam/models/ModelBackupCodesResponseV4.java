@@ -31,6 +31,7 @@ public class ModelBackupCodesResponseV4 extends Model {
   private Integer generatedAt;
 
   @JsonProperty("invalidCodes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> invalidCodes;
 
   @JsonProperty("validCodes")

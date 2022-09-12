@@ -714,7 +714,9 @@ public class Users {
 
   /**
    * @see AdminGetAgeRestrictionStatusV2
+   * @deprecated
    */
+  @Deprecated
   public ModelAgeRestrictionResponse adminGetAgeRestrictionStatusV2(
       AdminGetAgeRestrictionStatusV2 input) throws Exception {
     HttpResponse httpResponse = null;
@@ -731,7 +733,9 @@ public class Users {
 
   /**
    * @see AdminUpdateAgeRestrictionConfigV2
+   * @deprecated
    */
+  @Deprecated
   public ModelAgeRestrictionResponse adminUpdateAgeRestrictionConfigV2(
       AdminUpdateAgeRestrictionConfigV2 input) throws Exception {
     HttpResponse httpResponse = null;
@@ -748,7 +752,9 @@ public class Users {
 
   /**
    * @see GetListCountryAgeRestriction
+   * @deprecated
    */
+  @Deprecated
   public List<AccountcommonCountryAgeRestriction> getListCountryAgeRestriction(
       GetListCountryAgeRestriction input) throws Exception {
     HttpResponse httpResponse = null;
@@ -765,7 +771,9 @@ public class Users {
 
   /**
    * @see UpdateCountryAgeRestriction
+   * @deprecated
    */
+  @Deprecated
   public ModelCountry updateCountryAgeRestriction(UpdateCountryAgeRestriction input)
       throws Exception {
     HttpResponse httpResponse = null;
@@ -782,7 +790,9 @@ public class Users {
 
   /**
    * @see AdminSearchUsersV2
+   * @deprecated
    */
+  @Deprecated
   public ModelSearchUsersByPlatformIDResponse adminSearchUsersV2(AdminSearchUsersV2 input)
       throws Exception {
     HttpResponse httpResponse = null;
@@ -799,7 +809,9 @@ public class Users {
 
   /**
    * @see AdminGetUserByUserIdV2
+   * @deprecated
    */
+  @Deprecated
   public ModelUserResponse adminGetUserByUserIdV2(AdminGetUserByUserIdV2 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -815,7 +827,9 @@ public class Users {
 
   /**
    * @see AdminUpdateUserV2
+   * @deprecated
    */
+  @Deprecated
   public ModelUserResponse adminUpdateUserV2(AdminUpdateUserV2 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -831,7 +845,9 @@ public class Users {
 
   /**
    * @see AdminBanUserV2
+   * @deprecated
    */
+  @Deprecated
   public ModelUserBanResponse adminBanUserV2(AdminBanUserV2 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -847,7 +863,9 @@ public class Users {
 
   /**
    * @see AdminGetUserBanV2
+   * @deprecated
    */
+  @Deprecated
   public List<ModelUserBanResponse> adminGetUserBanV2(AdminGetUserBanV2 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -863,7 +881,9 @@ public class Users {
 
   /**
    * @see AdminDisableUserV2
+   * @deprecated
    */
+  @Deprecated
   public void adminDisableUserV2(AdminDisableUserV2 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -879,7 +899,9 @@ public class Users {
 
   /**
    * @see AdminEnableUserV2
+   * @deprecated
    */
+  @Deprecated
   public void adminEnableUserV2(AdminEnableUserV2 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -895,7 +917,9 @@ public class Users {
 
   /**
    * @see AdminResetPasswordV2
+   * @deprecated
    */
+  @Deprecated
   public void adminResetPasswordV2(AdminResetPasswordV2 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -911,7 +935,9 @@ public class Users {
 
   /**
    * @see AdminDeletePlatformLinkV2
+   * @deprecated
    */
+  @Deprecated
   public void adminDeletePlatformLinkV2(AdminDeletePlatformLinkV2 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -927,7 +953,9 @@ public class Users {
 
   /**
    * @see AdminPutUserRolesV2
+   * @deprecated
    */
+  @Deprecated
   public void adminPutUserRolesV2(AdminPutUserRolesV2 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -943,7 +971,9 @@ public class Users {
 
   /**
    * @see AdminCreateUserRolesV2
+   * @deprecated
    */
+  @Deprecated
   public void adminCreateUserRolesV2(AdminCreateUserRolesV2 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -959,9 +989,11 @@ public class Users {
 
   /**
    * @see PublicGetCountryAgeRestriction
+   * @deprecated
    */
-  public List<AccountcommonCountryAgeRestriction> publicGetCountryAgeRestriction(
-      PublicGetCountryAgeRestriction input) throws Exception {
+  @Deprecated
+  public AccountcommonCountry publicGetCountryAgeRestriction(PublicGetCountryAgeRestriction input)
+      throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
@@ -976,7 +1008,9 @@ public class Users {
 
   /**
    * @see PublicCreateUserV2
+   * @deprecated
    */
+  @Deprecated
   public ModelUserCreateResponse publicCreateUserV2(PublicCreateUserV2 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -992,7 +1026,9 @@ public class Users {
 
   /**
    * @see PublicForgotPasswordV2
+   * @deprecated
    */
+  @Deprecated
   public void publicForgotPasswordV2(PublicForgotPasswordV2 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -1008,7 +1044,9 @@ public class Users {
 
   /**
    * @see PublicResetPasswordV2
+   * @deprecated
    */
+  @Deprecated
   public void publicResetPasswordV2(PublicResetPasswordV2 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -1024,7 +1062,9 @@ public class Users {
 
   /**
    * @see PublicGetUserByUserIDV2
+   * @deprecated
    */
+  @Deprecated
   public ModelUserResponse publicGetUserByUserIDV2(PublicGetUserByUserIDV2 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -1040,7 +1080,9 @@ public class Users {
 
   /**
    * @see PublicUpdateUserV2
+   * @deprecated
    */
+  @Deprecated
   public List<ModelUserResponse> publicUpdateUserV2(PublicUpdateUserV2 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -1056,7 +1098,9 @@ public class Users {
 
   /**
    * @see PublicGetUserBan
+   * @deprecated
    */
+  @Deprecated
   public List<ModelUserBanResponse> publicGetUserBan(PublicGetUserBan input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -1072,7 +1116,9 @@ public class Users {
 
   /**
    * @see PublicUpdatePasswordV2
+   * @deprecated
    */
+  @Deprecated
   public void publicUpdatePasswordV2(PublicUpdatePasswordV2 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -1088,7 +1134,9 @@ public class Users {
 
   /**
    * @see GetListJusticePlatformAccounts
+   * @deprecated
    */
+  @Deprecated
   public List<ModelGetUserMapping> getListJusticePlatformAccounts(
       GetListJusticePlatformAccounts input) throws Exception {
     HttpResponse httpResponse = null;
@@ -1105,7 +1153,9 @@ public class Users {
 
   /**
    * @see PublicPlatformLinkV2
+   * @deprecated
    */
+  @Deprecated
   public void publicPlatformLinkV2(PublicPlatformLinkV2 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -1121,7 +1171,9 @@ public class Users {
 
   /**
    * @see PublicDeletePlatformLinkV2
+   * @deprecated
    */
+  @Deprecated
   public void publicDeletePlatformLinkV2(PublicDeletePlatformLinkV2 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -1568,6 +1620,22 @@ public class Users {
   }
 
   /**
+   * @see AdminResetPasswordV3
+   */
+  public void adminResetPasswordV3(AdminResetPasswordV3 input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
    * @see AdminUpdateUserPermissionV3
    */
   public void adminUpdateUserPermissionV3(AdminUpdateUserPermissionV3 input) throws Exception {
@@ -1861,6 +1929,23 @@ public class Users {
   }
 
   /**
+   * @see PublicGetCountryAgeRestrictionV3
+   */
+  public ModelCountryV3Response publicGetCountryAgeRestrictionV3(
+      PublicGetCountryAgeRestrictionV3 input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
    * @see PublicListUserIDByPlatformUserIDsV3
    */
   public AccountcommonUserPlatforms publicListUserIDByPlatformUserIDsV3(
@@ -2059,7 +2144,7 @@ public class Users {
   /**
    * @see UpdateUserV3
    */
-  public List<ModelUserResponseV3> updateUserV3(UpdateUserV3 input) throws Exception {
+  public ModelUserResponseV3 updateUserV3(UpdateUserV3 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
@@ -2075,7 +2160,7 @@ public class Users {
   /**
    * @see PublicPartialUpdateUserV3
    */
-  public List<ModelUserResponseV3> publicPartialUpdateUserV3(PublicPartialUpdateUserV3 input)
+  public ModelUserResponseV3 publicPartialUpdateUserV3(PublicPartialUpdateUserV3 input)
       throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -2392,6 +2477,23 @@ public class Users {
    */
   public AccountcommonUserLinkedPlatformsResponseV3 publicGetUserPlatformAccountsV3(
       PublicGetUserPlatformAccountsV3 input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
+   * @see PublicListJusticePlatformAccountsV3
+   */
+  public List<ModelGetUserMappingV3> publicListJusticePlatformAccountsV3(
+      PublicListJusticePlatformAccountsV3 input) throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
