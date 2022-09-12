@@ -1,3 +1,24 @@
+<a name="v0.19.0"></a>
+## [v0.19.0] - 2022-09-12
+### Chore
+- bump to version 0.19 for ab cloud 3.31
+- update gradle 7.5.1
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.31
+- **spec:** update spec for ab cloud 3.31
+
+### Docs
+- update changelog for ab cloud 3.31
+- **readme:** setup changes
+
+### Feat
+- publish to maven central
+- **samples:** tictactoe
+
+### Fix
+- javadoc publish
+- **samples:** title-matchmaking - directory structure
+
+
 <a name="v0.18.0"></a>
 ## [v0.18.0] - 2022-08-30
 ### Chore
@@ -594,6 +615,7 @@
 - replace unnecessary object
 
 
+[v0.19.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.18.0...v0.19.0
 [v0.18.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.17.0...v0.18.0
 [v0.17.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.16.0...v0.17.0
 [v0.16.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.15.0...v0.16.0
