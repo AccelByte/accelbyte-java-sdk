@@ -3,6 +3,7 @@ plugins {
     id 'io.freefair.lombok' version '6.4.2'
     id 'maven-publish'
     id 'signing'
+    id 'io.github.gradle-nexus.publish-plugin' version '1.1.0'
 }
 
 repositories {
@@ -62,60 +63,60 @@ task javadocJar(type: Jar) {
 }
 
 publishing {
-   publications{
-       mavenJava(MavenPublication){
-           //groupId = 'net.accelbyte.sdk'
-           artifactId = 'sdk'
-           //version = '0.0.0'
-           from components.java
-           
-           afterEvaluate {
+    publications{
+        mavenJava(MavenPublication){
+            //groupId = 'net.accelbyte.sdk'
+            artifactId = 'sdk'
+            //version = '0.0.0'
+            from components.java
+            
+            afterEvaluate {
                 artifact javadocJar
-           }
+            }
 
-           pom {
-               name = 'accelbyte-java-sdk'
-               description = 'AccelByte Cloud Java Server SDK generated from OpenAPI specs'
-               url = 'https://github.com/AccelByte/accelbyte-java-sdk'
-               inceptionYear = '2021'
+            pom {
+                name = 'accelbyte-java-sdk'
+                description = 'AccelByte Cloud Java Server SDK generated from OpenAPI specs'
+                url = 'https://github.com/AccelByte/accelbyte-java-sdk'
+                inceptionYear = '2021'
 
-               licenses {
-                   license {
-                       name = 'MIT License'
-                       url = 'http://www.opensource.org/licenses/mit-license.php'
-                   }
-               }
-               developers {
-                   developer {
-                       id = 'developer'
-                       name = 'AccelByte Developer'
-                       email = 'developer@accelbyte.net'
-                   }
-               }
-               scm {
-                   connection = 'scm:git:git:github.com/AccelByte/accelbyte-java-sdk.git'
-                   developerConnection = 'scm:git:ssh://github.com/AccelByte/accelbyte-java-sdk.git'
-                   url = 'https://github.com/AccelByte/accelbyte-java-sdk/'
-               }
-           }
-       }
-   }
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'http://www.opensource.org/licenses/mit-license.php'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'developer'
+                        name = 'AccelByte Developer'
+                        email = 'developer@accelbyte.net'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git:github.com/AccelByte/accelbyte-java-sdk.git'
+                    developerConnection = 'scm:git:ssh://github.com/AccelByte/accelbyte-java-sdk.git'
+                    url = 'https://github.com/AccelByte/accelbyte-java-sdk/'
+                }
+            }
+        }
+    }
+}
 
-   repositories {
-       maven {
-           name = "OSSRH"
-           url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
-           credentials {
-               username = System.getenv("PUBLISH_OSSRH_USERNAME")
-               password = System.getenv("PUBLISH_OSSRH_PASSWORD")
-           }
-       }
-   }
+nexusPublishing {
+    repositories {
+        sonatype {
+            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
+            snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
+            username = System.getenv("PUBLISH_OSSRH_USERNAME")
+            password = System.getenv("PUBLISH_OSSRH_PASSWORD")
+        }
+    }
 }
 
 signing {
-   def signingKey = System.getenv("PUBLISH_SIGNING_KEY")
-   def signingPassword = System.getenv("PUBLISH_SIGNING_PASSWORD")
-   useInMemoryPgpKeys(signingKey, signingPassword)
-   sign publishing.publications.mavenJava
+    def signingKey = System.getenv("PUBLISH_SIGNING_KEY")
+    def signingPassword = System.getenv("PUBLISH_SIGNING_PASSWORD")
+    useInMemoryPgpKeys(signingKey, signingPassword)
+    sign publishing.publications.mavenJava
 }

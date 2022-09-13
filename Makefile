@@ -54,4 +54,4 @@ publish:
 	docker run -t --rm -u  $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GRADLE_USER_HOME=/data/.gradle \
 			-e PUBLISH_OSSRH_USERNAME="$$PUBLISH_OSSRH_USERNAME" -e PUBLISH_OSSRH_PASSWORD="$$PUBLISH_OSSRH_PASSWORD" \
 			-e PUBLISH_SIGNING_KEY="$$PUBLISH_SIGNING_KEY" -e PUBLISH_SIGNING_PASSWORD="$$PUBLISH_SIGNING_PASSWORD" \
-			gradle:7.5.1-jdk8 gradle --no-daemon publish
+			gradle:7.5.1-jdk8 gradle --no-daemon publishToSonatype closeSonatypeStagingRepository
