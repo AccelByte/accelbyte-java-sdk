@@ -3,7 +3,7 @@ plugins {
     id 'io.freefair.lombok' version '6.4.2'
     id 'maven-publish'
     id 'signing'
-    id 'io.github.gradle-nexus.publish-plugin' version '1.1.0'
+    id 'io.github.gradle-nexus.publish-plugin' version '1.1.0' apply false
 }
 
 repositories {
@@ -103,13 +103,19 @@ publishing {
     }
 }
 
-nexusPublishing {
-    repositories {
-        sonatype {
-            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
-            snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
-            username = System.getenv("PUBLISH_OSSRH_USERNAME")
-            password = System.getenv("PUBLISH_OSSRH_PASSWORD")
+if ('publishToSonatype' in gradle.startParameter.taskNames) {
+    // https://github.com/gradle-nexus/publish-plugin/issues/81
+
+    apply plugin: 'io.github.gradle-nexus.publish-plugin'
+
+    nexusPublishing {
+        repositories {
+            sonatype {
+                nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
+                snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
+                username = System.getenv("PUBLISH_OSSRH_USERNAME")
+                password = System.getenv("PUBLISH_OSSRH_PASSWORD")
+            }
         }
     }
 }
