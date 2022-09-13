@@ -41,8 +41,8 @@ task testCore(type: Test) {
         includeTags('test-core')
     }
     reports {
-        junitXml.enabled = true
-        html.enabled = false
+        junitXml.required = true
+        html.required = false
     }
 }
 
@@ -51,8 +51,8 @@ task testIntegration(type: Test) {
         includeTags('test-integration')
     }
     reports {
-        junitXml.enabled = true
-        html.enabled = false
+        junitXml.required = true
+        html.required = false
     }
 }
 
