@@ -1,13 +1,13 @@
 plugins {
     id 'java'
+    id 'io.freefair.lombok' version '6.4.2'
     id 'maven-publish'
     id 'signing'
-    id 'io.freefair.lombok' version '6.4.2'
 }
 
-apply from: "repositories.gradle"
-apply from: "publish.gradle"
-apply from: "shared-dependencies.gradle"
+repositories {
+    mavenCentral()
+}
 
 import groovy.json.JsonSlurper
 def jsonSlurper = new JsonSlurper()
@@ -21,14 +21,14 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    implementation sharedDependencies.okhttp
-    implementation sharedDependencies.apacheHttpClient
-    implementation sharedDependencies.jackson.databind
-    implementation sharedDependencies.apacheCommonIO
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+    implementation 'commons-io:commons-io:2.11.0'
     
-    testImplementation sharedDependencies.junitApi
-    testImplementation  sharedDependencies.junitParams
-    testRuntimeOnly sharedDependencies.junitEngine
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testImplementation  'org.junit.jupiter:junit-jupiter-params:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
 java {
@@ -59,4 +59,63 @@ task testIntegration(type: Test) {
 task javadocJar(type: Jar) {
     classifier = 'javadoc'
     from 'jd'
+}
+
+publishing {
+   publications{
+       mavenJava(MavenPublication){
+           //groupId = 'net.accelbyte.sdk'
+           artifactId = 'sdk'
+           //version = '0.0.0'
+           from components.java
+           
+           afterEvaluate {
+                artifact javadocJar
+           }
+
+           pom {
+               name = 'accelbyte-java-sdk'
+               description = 'AccelByte Cloud Java Server SDK generated from OpenAPI specs'
+               url = 'https://github.com/AccelByte/accelbyte-java-sdk'
+               inceptionYear = '2021'
+
+               licenses {
+                   license {
+                       name = 'MIT License'
+                       url = 'http://www.opensource.org/licenses/mit-license.php'
+                   }
+               }
+               developers {
+                   developer {
+                       id = 'developer'
+                       name = 'AccelByte Developer'
+                       email = 'developer@accelbyte.net'
+                   }
+               }
+               scm {
+                   connection = 'scm:git:git:github.com/AccelByte/accelbyte-java-sdk.git'
+                   developerConnection = 'scm:git:ssh://github.com/AccelByte/accelbyte-java-sdk.git'
+                   url = 'https://github.com/AccelByte/accelbyte-java-sdk/'
+               }
+           }
+       }
+   }
+
+   repositories {
+       maven {
+           name = "OSSRH"
+           url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+           credentials {
+               username = System.getenv("PUBLISH_OSSRH_USERNAME")
+               password = System.getenv("PUBLISH_OSSRH_PASSWORD")
+           }
+       }
+   }
+}
+
+signing {
+   def signingKey = System.getenv("PUBLISH_SIGNING_KEY")
+   def signingPassword = System.getenv("PUBLISH_SIGNING_PASSWORD")
+   useInMemoryPgpKeys(signingKey, signingPassword)
+   sign publishing.publications.mavenJava
 }
