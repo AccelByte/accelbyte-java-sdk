@@ -19,8 +19,8 @@ import net.accelbyte.sdk.api.iam.models.AccountCreateUserResponseV4;
 import net.accelbyte.sdk.api.iam.models.ModelPublicUserResponseV3;
 import net.accelbyte.sdk.api.iam.models.ModelUserResponseV3;
 import net.accelbyte.sdk.api.iam.models.ModelUserUpdateRequestV3;
+import net.accelbyte.sdk.api.iam.operations.users.AdminDeleteUserInformationV3;
 import net.accelbyte.sdk.api.iam.operations.users.AdminUpdateUserV3;
-import net.accelbyte.sdk.api.iam.operations.users.DeleteUser;
 import net.accelbyte.sdk.api.iam.operations.users.PublicGetUserByUserIdV3;
 import net.accelbyte.sdk.api.iam.operations.users_v4.PublicCreateUserV4;
 import net.accelbyte.sdk.api.iam.wrappers.Users;
@@ -122,7 +122,7 @@ public class TestIntegrationServiceIam extends TestIntegration {
 
     // CASE Delete a user
 
-    usersWrapper.deleteUser(DeleteUser.builder().namespace(this.namespace).userId(userId).build());
+    usersWrapper.adminDeleteUserInformationV3(AdminDeleteUserInformationV3.builder().namespace(this.namespace).userId(userId).build());
 
     // ESAC
 
