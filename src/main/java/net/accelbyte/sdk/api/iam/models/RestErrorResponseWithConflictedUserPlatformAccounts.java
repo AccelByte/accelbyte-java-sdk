@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.matchmaking.models;
+package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -25,30 +25,30 @@ import net.accelbyte.sdk.core.Model;
  */
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ModelsCombination extends Model {
+public class RestErrorResponseWithConflictedUserPlatformAccounts extends Model {
 
-  @JsonProperty("alliances")
-  private List<ModelsCombinationAlliances> alliances;
+  @JsonProperty("errorCode")
+  private Integer errorCode;
 
-  @JsonProperty("has_combination")
-  private Boolean hasCombination;
+  @JsonProperty("errorMessage")
+  private String errorMessage;
 
-  @JsonProperty("role_flexing_enable")
-  private Boolean roleFlexingEnable;
-
-  @JsonProperty("role_flexing_player")
-  private Integer roleFlexingPlayer;
-
-  @JsonProperty("role_flexing_second")
-  private Integer roleFlexingSecond;
+  @JsonProperty("messageVariables")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private AccountcommonConflictedUserPlatformAccounts messageVariables;
 
   @JsonIgnore
-  public ModelsCombination createFromJson(String json) throws JsonProcessingException {
+  public RestErrorResponseWithConflictedUserPlatformAccounts createFromJson(String json)
+      throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ModelsCombination> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCombination>>() {});
+  public List<RestErrorResponseWithConflictedUserPlatformAccounts> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(
+            json,
+            new TypeReference<List<RestErrorResponseWithConflictedUserPlatformAccounts>>() {});
   }
 }

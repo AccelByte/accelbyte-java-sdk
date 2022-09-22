@@ -66,6 +66,11 @@ public class QueryItems implements Callable<Integer> {
   String features;
 
   @Option(
+      names = {"--includeSubCategoryItem"},
+      description = "includeSubCategoryItem")
+  Boolean includeSubCategoryItem;
+
+  @Option(
       names = {"--itemType"},
       description = "itemType")
   String itemType;
@@ -135,6 +140,7 @@ public class QueryItems implements Callable<Integer> {
               .baseAppId(baseAppId)
               .categoryPath(categoryPath)
               .features(features)
+              .includeSubCategoryItem(includeSubCategoryItem)
               .itemType(itemType)
               .limit(limit)
               .offset(offset)

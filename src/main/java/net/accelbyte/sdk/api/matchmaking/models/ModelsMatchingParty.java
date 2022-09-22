@@ -39,6 +39,9 @@ public class ModelsMatchingParty extends Model {
   @JsonProperty("party_members")
   private List<ModelsPartyMember> partyMembers;
 
+  @JsonProperty("ticket_id")
+  private String ticketId;
+
   @JsonIgnore
   public ModelsMatchingParty createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

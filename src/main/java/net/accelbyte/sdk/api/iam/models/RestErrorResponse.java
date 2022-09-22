@@ -35,7 +35,7 @@ public class RestErrorResponse extends Model {
 
   @JsonProperty("messageVariables")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private AccountcommonConflictedUserPlatformAccounts messageVariables;
+  private Map<String, String> messageVariables;
 
   @JsonIgnore
   public RestErrorResponse createFromJson(String json) throws JsonProcessingException {

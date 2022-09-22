@@ -47,12 +47,13 @@ public class QueryItems1 extends Operation {
   private String baseAppId;
   private String categoryPath;
   private String features;
+  private Boolean includeSubCategoryItem;
   private String itemStatus;
   private String itemType;
   private Integer limit;
   private Integer offset;
   private String region;
-  private String sortBy;
+  private List<String> sortBy;
   private String storeId;
   private String tags;
   private String targetNamespace;
@@ -72,12 +73,13 @@ public class QueryItems1 extends Operation {
       String baseAppId,
       String categoryPath,
       String features,
+      Boolean includeSubCategoryItem,
       String itemStatus,
       String itemType,
       Integer limit,
       Integer offset,
       String region,
-      String sortBy,
+      List<String> sortBy,
       String storeId,
       String tags,
       String targetNamespace) {
@@ -87,6 +89,7 @@ public class QueryItems1 extends Operation {
     this.baseAppId = baseAppId;
     this.categoryPath = categoryPath;
     this.features = features;
+    this.includeSubCategoryItem = includeSubCategoryItem;
     this.itemStatus = itemStatus;
     this.itemType = itemType;
     this.limit = limit;
@@ -119,13 +122,18 @@ public class QueryItems1 extends Operation {
     queryParams.put(
         "categoryPath", this.categoryPath == null ? null : Arrays.asList(this.categoryPath));
     queryParams.put("features", this.features == null ? null : Arrays.asList(this.features));
+    queryParams.put(
+        "includeSubCategoryItem",
+        this.includeSubCategoryItem == null
+            ? null
+            : Arrays.asList(String.valueOf(this.includeSubCategoryItem)));
     queryParams.put("itemStatus", this.itemStatus == null ? null : Arrays.asList(this.itemStatus));
     queryParams.put("itemType", this.itemType == null ? null : Arrays.asList(this.itemType));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
-    queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
+    queryParams.put("sortBy", this.sortBy == null ? null : this.sortBy);
     queryParams.put("storeId", this.storeId == null ? null : Arrays.asList(this.storeId));
     queryParams.put("tags", this.tags == null ? null : Arrays.asList(this.tags));
     queryParams.put(
@@ -159,12 +167,13 @@ public class QueryItems1 extends Operation {
     result.put("baseAppId", "None");
     result.put("categoryPath", "None");
     result.put("features", "None");
+    result.put("includeSubCategoryItem", "None");
     result.put("itemStatus", "None");
     result.put("itemType", "None");
     result.put("limit", "None");
     result.put("offset", "None");
     result.put("region", "None");
-    result.put("sortBy", "None");
+    result.put("sortBy", "csv");
     result.put("storeId", "None");
     result.put("tags", "None");
     result.put("targetNamespace", "None");
@@ -229,10 +238,37 @@ public class QueryItems1 extends Operation {
     }
   }
 
+  public enum SortBy {
+    Name("name"),
+    Nameasc("name:asc"),
+    Namedesc("name:desc"),
+    CreatedAt("createdAt"),
+    CreatedAtasc("createdAt:asc"),
+    CreatedAtdesc("createdAt:desc"),
+    UpdatedAt("updatedAt"),
+    UpdatedAtasc("updatedAt:asc"),
+    UpdatedAtdesc("updatedAt:desc"),
+    DisplayOrder("displayOrder"),
+    DisplayOrderasc("displayOrder:asc"),
+    DisplayOrderdesc("displayOrder:desc");
+
+    private String value;
+
+    SortBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public static class QueryItems1Builder {
     private String appType;
     private String itemStatus;
     private String itemType;
+    private List<String> sortBy;
 
     public QueryItems1Builder appType(final String appType) {
       this.appType = appType;
@@ -261,6 +297,18 @@ public class QueryItems1 extends Operation {
 
     public QueryItems1Builder itemTypeFromEnum(final ItemType itemType) {
       this.itemType = itemType.toString();
+      return this;
+    }
+
+    public QueryItems1Builder sortBy(final List<String> sortBy) {
+      this.sortBy = sortBy;
+      return this;
+    }
+
+    public QueryItems1Builder sortByFromEnum(final List<SortBy> sortBy) {
+      ArrayList<String> en = new ArrayList<String>();
+      for (SortBy e : sortBy) en.add(e.toString());
+      this.sortBy = en;
       return this;
     }
   }

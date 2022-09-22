@@ -19,6 +19,8 @@ import picocli.CommandLine.Command;
       GetActiveCustomGameSessions.class,
       GetActiveMatchmakingGameSessions.class,
       AdminGetSession.class,
+      AdminSearchSessionsV2.class,
+      GetSessionHistoryDetailed.class,
       QuerySession.class,
       CreateSession.class,
       GetSessionByUserIDs.class,

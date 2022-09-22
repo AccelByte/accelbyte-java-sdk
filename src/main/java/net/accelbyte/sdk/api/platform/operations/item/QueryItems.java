@@ -47,6 +47,7 @@ public class QueryItems extends Operation {
   private String baseAppId;
   private String categoryPath;
   private String features;
+  private Boolean includeSubCategoryItem;
   private String itemType;
   private Integer limit;
   private Integer offset;
@@ -72,6 +73,7 @@ public class QueryItems extends Operation {
       String baseAppId,
       String categoryPath,
       String features,
+      Boolean includeSubCategoryItem,
       String itemType,
       Integer limit,
       Integer offset,
@@ -87,6 +89,7 @@ public class QueryItems extends Operation {
     this.baseAppId = baseAppId;
     this.categoryPath = categoryPath;
     this.features = features;
+    this.includeSubCategoryItem = includeSubCategoryItem;
     this.itemType = itemType;
     this.limit = limit;
     this.offset = offset;
@@ -121,6 +124,11 @@ public class QueryItems extends Operation {
     queryParams.put(
         "categoryPath", this.categoryPath == null ? null : Arrays.asList(this.categoryPath));
     queryParams.put("features", this.features == null ? null : Arrays.asList(this.features));
+    queryParams.put(
+        "includeSubCategoryItem",
+        this.includeSubCategoryItem == null
+            ? null
+            : Arrays.asList(String.valueOf(this.includeSubCategoryItem)));
     queryParams.put("itemType", this.itemType == null ? null : Arrays.asList(this.itemType));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
@@ -161,6 +169,7 @@ public class QueryItems extends Operation {
     result.put("baseAppId", "None");
     result.put("categoryPath", "None");
     result.put("features", "None");
+    result.put("includeSubCategoryItem", "None");
     result.put("itemType", "None");
     result.put("limit", "None");
     result.put("offset", "None");

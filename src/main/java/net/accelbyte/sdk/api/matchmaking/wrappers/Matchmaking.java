@@ -335,7 +335,9 @@ public class Matchmaking {
 
   /**
    * @see SearchSessions
+   * @deprecated
    */
+  @Deprecated
   public ServiceGetSessionHistorySearchResponse searchSessions(SearchSessions input)
       throws Exception {
     HttpResponse httpResponse = null;
@@ -352,7 +354,9 @@ public class Matchmaking {
 
   /**
    * @see GetSessionHistoryDetailed
+   * @deprecated
    */
+  @Deprecated
   public List<ServiceGetSessionHistoryDetailedResponseItem> getSessionHistoryDetailed(
       GetSessionHistoryDetailed input) throws Exception {
     HttpResponse httpResponse = null;
@@ -403,7 +407,9 @@ public class Matchmaking {
 
   /**
    * @see SearchSessionsV2
+   * @deprecated
    */
+  @Deprecated
   public ServiceGetSessionHistorySearchResponseV2 searchSessionsV2(SearchSessionsV2 input)
       throws Exception {
     HttpResponse httpResponse = null;

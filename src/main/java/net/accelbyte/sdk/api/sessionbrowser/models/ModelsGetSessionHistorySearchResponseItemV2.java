@@ -25,27 +25,42 @@ import net.accelbyte.sdk.core.Model;
  */
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ModelsMatchingParty extends Model {
+public class ModelsGetSessionHistorySearchResponseItemV2 extends Model {
 
-  @JsonProperty("match_attributes")
-  private ModelsMatchAttributes matchAttributes;
+  @JsonProperty("_id")
+  private String id;
 
-  @JsonProperty("party_attributes")
-  private Map<String, ?> partyAttributes;
+  @JsonProperty("created_at")
+  private String createdAt;
 
-  @JsonProperty("party_id")
-  private String partyId;
+  @JsonProperty("game_mode")
+  private String gameMode;
 
-  @JsonProperty("party_members")
-  private List<ModelsPartyMember> partyMembers;
+  @JsonProperty("joinable")
+  private Boolean joinable;
+
+  @JsonProperty("match_id")
+  private String matchId;
+
+  @JsonProperty("namespace")
+  private String namespace;
+
+  @JsonProperty("status")
+  private String status;
+
+  @JsonProperty("sub_game_mode")
+  private List<String> subGameMode;
 
   @JsonIgnore
-  public ModelsMatchingParty createFromJson(String json) throws JsonProcessingException {
+  public ModelsGetSessionHistorySearchResponseItemV2 createFromJson(String json)
+      throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ModelsMatchingParty> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMatchingParty>>() {});
+  public List<ModelsGetSessionHistorySearchResponseItemV2> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsGetSessionHistorySearchResponseItemV2>>() {});
   }
 }

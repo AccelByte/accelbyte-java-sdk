@@ -21,12 +21,22 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * SearchSessions
  *
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Endpoint migration guide
+ *
+ * <p>* Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search
+ * [GET]
+ *
  * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Read]
  *
  * <p>Required Scope: social
  *
  * <p>Search sessions.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class SearchSessions extends Operation {

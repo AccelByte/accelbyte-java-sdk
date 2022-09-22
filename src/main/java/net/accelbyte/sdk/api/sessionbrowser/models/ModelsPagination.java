@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.matchmaking.models;
+package net.accelbyte.sdk.api.sessionbrowser.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -25,30 +25,27 @@ import net.accelbyte.sdk.core.Model;
  */
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ModelsCombination extends Model {
+public class ModelsPagination extends Model {
 
-  @JsonProperty("alliances")
-  private List<ModelsCombinationAlliances> alliances;
+  @JsonProperty("first")
+  private String first;
 
-  @JsonProperty("has_combination")
-  private Boolean hasCombination;
+  @JsonProperty("last")
+  private String last;
 
-  @JsonProperty("role_flexing_enable")
-  private Boolean roleFlexingEnable;
+  @JsonProperty("next")
+  private String next;
 
-  @JsonProperty("role_flexing_player")
-  private Integer roleFlexingPlayer;
-
-  @JsonProperty("role_flexing_second")
-  private Integer roleFlexingSecond;
+  @JsonProperty("previous")
+  private String previous;
 
   @JsonIgnore
-  public ModelsCombination createFromJson(String json) throws JsonProcessingException {
+  public ModelsPagination createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ModelsCombination> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCombination>>() {});
+  public List<ModelsPagination> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPagination>>() {});
   }
 }

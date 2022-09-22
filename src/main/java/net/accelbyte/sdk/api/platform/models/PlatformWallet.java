@@ -43,6 +43,10 @@ public class PlatformWallet extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("status")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String status;
+
   @JsonProperty("userId")
   private String userId;
 
@@ -53,6 +57,26 @@ public class PlatformWallet extends Model {
   @JsonProperty("walletStatus")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String walletStatus;
+
+  @JsonIgnore
+  public String getStatus() {
+    return this.status;
+  }
+
+  @JsonIgnore
+  public Status getStatusAsEnum() {
+    return Status.valueOf(this.status);
+  }
+
+  @JsonIgnore
+  public void setStatus(final String status) {
+    this.status = status;
+  }
+
+  @JsonIgnore
+  public void setStatusFromEnum(final Status status) {
+    this.status = status.toString();
+  }
 
   @JsonIgnore
   public String getWalletStatus() {
@@ -84,6 +108,22 @@ public class PlatformWallet extends Model {
     return new ObjectMapper().readValue(json, new TypeReference<List<PlatformWallet>>() {});
   }
 
+  public enum Status {
+    ACTIVE("ACTIVE"),
+    INACTIVE("INACTIVE");
+
+    private String value;
+
+    Status(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public enum WalletStatus {
     ACTIVE("ACTIVE"),
     INACTIVE("INACTIVE");
@@ -101,7 +141,18 @@ public class PlatformWallet extends Model {
   }
 
   public static class PlatformWalletBuilder {
+    private String status;
     private String walletStatus;
+
+    public PlatformWalletBuilder status(final String status) {
+      this.status = status;
+      return this;
+    }
+
+    public PlatformWalletBuilder statusFromEnum(final Status status) {
+      this.status = status.toString();
+      return this;
+    }
 
     public PlatformWalletBuilder walletStatus(final String walletStatus) {
       this.walletStatus = walletStatus;

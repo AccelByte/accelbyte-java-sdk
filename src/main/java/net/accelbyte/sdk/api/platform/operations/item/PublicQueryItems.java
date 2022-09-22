@@ -47,6 +47,7 @@ public class PublicQueryItems extends Operation {
   private String baseAppId;
   private String categoryPath;
   private String features;
+  private Boolean includeSubCategoryItem;
   private String itemType;
   private String language;
   private Integer limit;
@@ -70,6 +71,7 @@ public class PublicQueryItems extends Operation {
       String baseAppId,
       String categoryPath,
       String features,
+      Boolean includeSubCategoryItem,
       String itemType,
       String language,
       Integer limit,
@@ -83,6 +85,7 @@ public class PublicQueryItems extends Operation {
     this.baseAppId = baseAppId;
     this.categoryPath = categoryPath;
     this.features = features;
+    this.includeSubCategoryItem = includeSubCategoryItem;
     this.itemType = itemType;
     this.language = language;
     this.limit = limit;
@@ -112,6 +115,11 @@ public class PublicQueryItems extends Operation {
     queryParams.put(
         "categoryPath", this.categoryPath == null ? null : Arrays.asList(this.categoryPath));
     queryParams.put("features", this.features == null ? null : Arrays.asList(this.features));
+    queryParams.put(
+        "includeSubCategoryItem",
+        this.includeSubCategoryItem == null
+            ? null
+            : Arrays.asList(String.valueOf(this.includeSubCategoryItem)));
     queryParams.put("itemType", this.itemType == null ? null : Arrays.asList(this.itemType));
     queryParams.put("language", this.language == null ? null : Arrays.asList(this.language));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
@@ -148,6 +156,7 @@ public class PublicQueryItems extends Operation {
     result.put("baseAppId", "None");
     result.put("categoryPath", "None");
     result.put("features", "None");
+    result.put("includeSubCategoryItem", "None");
     result.put("itemType", "None");
     result.put("language", "None");
     result.put("limit", "None");

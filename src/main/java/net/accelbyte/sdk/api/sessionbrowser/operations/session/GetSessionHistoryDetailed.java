@@ -6,63 +6,59 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.iam.operations.users_v4;
+package net.accelbyte.sdk.api.sessionbrowser.operations.session;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.sessionbrowser.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * PublicCreateTestUserV4
+ * GetSessionHistoryDetailed
  *
- * <p>Create a test user and not send verification code email
+ * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [Read]
  *
- * <p>Required attributes: - verified: this new user is verified or not - authType: possible value
- * is EMAILPASSWD - emailAddress: Please refer to the rule from /v3/public/inputValidations API. -
- * username: Please refer to the rule from /v3/public/inputValidations API. - password: Please refer
- * to the rule from /v3/public/inputValidations API. - country: ISO3166-1 alpha-2 two letter, e.g.
- * US. - dateOfBirth: YYYY-MM-DD, e.g. 1990-01-01. valid values are between 1905-01-01 until current
- * date.
+ * <p>Required Scope: social
  *
- * <p>Not required attributes: - displayName: Please refer to the rule from
- * /v3/public/inputValidations API.
+ * <p>Get session history detailed.
  *
- * <p>This endpoint support accepting agreements for the created user. Supply the accepted
- * agreements in acceptedPolicies attribute.
+ * <p>if party_id value empty/null, field will not show in response body.
  */
 @Getter
 @Setter
-public class PublicCreateTestUserV4 extends Operation {
+public class GetSessionHistoryDetailed extends Operation {
   /** generated field's value */
-  private String path = "/iam/v4/public/namespaces/{namespace}/test_users";
+  private String path =
+      "/sessionbrowser/admin/namespaces/{namespace}/sessions/{matchID}/history/detailed";
 
-  private String method = "POST";
+  private String method = "GET";
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
   /** fields as input parameter */
+  private String matchID;
+
   private String namespace;
 
-  private AccountCreateTestUserRequestV4 body;
-
   /**
+   * @param matchID required
    * @param namespace required
-   * @param body required
    */
   @Builder
   /*
    *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
    */
   @Deprecated
-  public PublicCreateTestUserV4(String namespace, AccountCreateTestUserRequestV4 body) {
+  public GetSessionHistoryDetailed(String matchID, String namespace) {
+    this.matchID = matchID;
     this.namespace = namespace;
-    this.body = body;
 
     securities.add("Bearer");
   }
@@ -70,6 +66,9 @@ public class PublicCreateTestUserV4 extends Operation {
   @Override
   public Map<String, String> getPathParams() {
     Map<String, String> pathParams = new HashMap<>();
+    if (this.matchID != null) {
+      pathParams.put("matchID", this.matchID);
+    }
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
     }
@@ -77,23 +76,23 @@ public class PublicCreateTestUserV4 extends Operation {
   }
 
   @Override
-  public AccountCreateTestUserRequestV4 getBodyParams() {
-    return this.body;
-  }
-
-  @Override
   public boolean isValid() {
+    if (this.matchID == null) {
+      return false;
+    }
     if (this.namespace == null) {
       return false;
     }
     return true;
   }
 
-  public AccountCreateUserResponseV4 parseResponse(
+  public List<ModelsGetSessionHistoryDetailedResponseItem> parseResponse(
       int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
-    if (code == 201) {
-      return new AccountCreateUserResponseV4().createFromJson(json);
+    if (code == 200) {
+      return new ObjectMapper()
+          .readValue(
+              json, new TypeReference<List<ModelsGetSessionHistoryDetailedResponseItem>>() {});
     }
     throw new HttpResponseException(code, json);
   }

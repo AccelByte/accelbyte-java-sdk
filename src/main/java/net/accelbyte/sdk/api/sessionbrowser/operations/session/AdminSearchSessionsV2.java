@@ -6,29 +6,22 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.matchmaking.operations.matchmaking;
+package net.accelbyte.sdk.api.sessionbrowser.operations.session;
 
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.matchmaking.models.*;
+import net.accelbyte.sdk.api.sessionbrowser.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * SearchSessionsV2
+ * AdminSearchSessionsV2
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search
- * [GET]
- *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Read]
+ * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:SESSION [Read]
  *
  * <p>Required Scope: social
  *
@@ -36,15 +29,12 @@ import net.accelbyte.sdk.core.util.Helper;
  * filter with namespace & other filter (partyID, userID, matchID). Query with filter namespace only
  * will not group whole session data while query with filter namespace & other filter will include
  * session data.
- *
- * @deprecated
  */
-@Deprecated
 @Getter
 @Setter
-public class SearchSessionsV2 extends Operation {
+public class AdminSearchSessionsV2 extends Operation {
   /** generated field's value */
-  private String path = "/matchmaking/v2/admin/namespaces/{namespace}/sessions/history/search";
+  private String path = "/sessionbrowser/admin/namespaces/{namespace}/sessions/history/search";
 
   private String method = "GET";
   private List<String> consumes = Arrays.asList("application/json");
@@ -71,7 +61,7 @@ public class SearchSessionsV2 extends Operation {
    *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
    */
   @Deprecated
-  public SearchSessionsV2(
+  public AdminSearchSessionsV2(
       String namespace,
       String channel,
       Boolean deleted,
@@ -130,11 +120,11 @@ public class SearchSessionsV2 extends Operation {
     return true;
   }
 
-  public ServiceGetSessionHistorySearchResponseV2 parseResponse(
+  public ModelsGetSessionHistorySearchResponseV2 parseResponse(
       int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {
-      return new ServiceGetSessionHistorySearchResponseV2().createFromJson(json);
+      return new ModelsGetSessionHistorySearchResponseV2().createFromJson(json);
     }
     throw new HttpResponseException(code, json);
   }

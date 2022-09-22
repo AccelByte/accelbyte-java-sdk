@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.platform.item;
+package net.accelbyte.sdk.cli.api.sessionbrowser.session;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.wrappers.Item;
+import net.accelbyte.sdk.api.sessionbrowser.models.*;
+import net.accelbyte.sdk.api.sessionbrowser.wrappers.Session;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "publicQueryItems", mixinStandardHelpOptions = true)
-public class PublicQueryItems implements Callable<Integer> {
+@Command(name = "adminSearchSessionsV2", mixinStandardHelpOptions = true)
+public class AdminSearchSessionsV2 implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(PublicQueryItems.class);
+  private static final Logger log = LogManager.getLogger(AdminSearchSessionsV2.class);
 
   @Option(
       names = {"--namespace"},
@@ -36,39 +36,29 @@ public class PublicQueryItems implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--appType"},
-      description = "appType")
-  String appType;
+      names = {"--channel"},
+      description = "channel")
+  String channel;
 
   @Option(
-      names = {"--baseAppId"},
-      description = "baseAppId")
-  String baseAppId;
+      names = {"--deleted"},
+      description = "deleted")
+  Boolean deleted;
 
   @Option(
-      names = {"--categoryPath"},
-      description = "categoryPath")
-  String categoryPath;
+      names = {"--matchID"},
+      description = "matchID")
+  String matchID;
 
   @Option(
-      names = {"--features"},
-      description = "features")
-  String features;
+      names = {"--partyID"},
+      description = "partyID")
+  String partyID;
 
   @Option(
-      names = {"--includeSubCategoryItem"},
-      description = "includeSubCategoryItem")
-  Boolean includeSubCategoryItem;
-
-  @Option(
-      names = {"--itemType"},
-      description = "itemType")
-  String itemType;
-
-  @Option(
-      names = {"--language"},
-      description = "language")
-  String language;
+      names = {"--userID"},
+      description = "userID")
+  String userID;
 
   @Option(
       names = {"--limit"},
@@ -81,32 +71,12 @@ public class PublicQueryItems implements Callable<Integer> {
   Integer offset;
 
   @Option(
-      names = {"--region"},
-      description = "region")
-  String region;
-
-  @Option(
-      names = {"--sortBy"},
-      description = "sortBy")
-  List<String> sortBy;
-
-  @Option(
-      names = {"--storeId"},
-      description = "storeId")
-  String storeId;
-
-  @Option(
-      names = {"--tags"},
-      description = "tags")
-  String tags;
-
-  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new PublicQueryItems()).execute(args);
+    int exitCode = new CommandLine(new AdminSearchSessionsV2()).execute(args);
     System.exit(exitCode);
   }
 
@@ -120,25 +90,19 @@ public class PublicQueryItems implements Callable<Integer> {
       AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Item wrapper = new Item(sdk);
-      net.accelbyte.sdk.api.platform.operations.item.PublicQueryItems operation =
-          net.accelbyte.sdk.api.platform.operations.item.PublicQueryItems.builder()
+      Session wrapper = new Session(sdk);
+      net.accelbyte.sdk.api.sessionbrowser.operations.session.AdminSearchSessionsV2 operation =
+          net.accelbyte.sdk.api.sessionbrowser.operations.session.AdminSearchSessionsV2.builder()
               .namespace(namespace)
-              .appType(appType)
-              .baseAppId(baseAppId)
-              .categoryPath(categoryPath)
-              .features(features)
-              .includeSubCategoryItem(includeSubCategoryItem)
-              .itemType(itemType)
-              .language(language)
+              .channel(channel)
+              .deleted(deleted)
+              .matchID(matchID)
+              .partyID(partyID)
+              .userID(userID)
               .limit(limit)
               .offset(offset)
-              .region(region)
-              .sortBy(sortBy)
-              .storeId(storeId)
-              .tags(tags)
               .build();
-      ItemPagingSlicedResult response = wrapper.publicQueryItems(operation);
+      ModelsGetSessionHistorySearchResponseV2 response = wrapper.adminSearchSessionsV2(operation);
       String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful with response below:\n{}", responseString);

@@ -61,6 +61,11 @@ public class QueryItems1 implements Callable<Integer> {
   String features;
 
   @Option(
+      names = {"--includeSubCategoryItem"},
+      description = "includeSubCategoryItem")
+  Boolean includeSubCategoryItem;
+
+  @Option(
       names = {"--itemStatus"},
       description = "itemStatus")
   String itemStatus;
@@ -88,7 +93,7 @@ public class QueryItems1 implements Callable<Integer> {
   @Option(
       names = {"--sortBy"},
       description = "sortBy")
-  String sortBy;
+  List<String> sortBy;
 
   @Option(
       names = {"--storeId"},
@@ -134,6 +139,7 @@ public class QueryItems1 implements Callable<Integer> {
               .baseAppId(baseAppId)
               .categoryPath(categoryPath)
               .features(features)
+              .includeSubCategoryItem(includeSubCategoryItem)
               .itemStatus(itemStatus)
               .itemType(itemType)
               .limit(limit)

@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.sessionbrowser.wrappers;
 
+import java.util.*;
 import net.accelbyte.sdk.api.sessionbrowser.models.*;
 import net.accelbyte.sdk.api.sessionbrowser.operations.session.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -76,6 +77,40 @@ public class Session {
    * @see AdminGetSession
    */
   public ModelsAdminSessionResponse adminGetSession(AdminGetSession input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
+   * @see AdminSearchSessionsV2
+   */
+  public ModelsGetSessionHistorySearchResponseV2 adminSearchSessionsV2(AdminSearchSessionsV2 input)
+      throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
+   * @see GetSessionHistoryDetailed
+   */
+  public List<ModelsGetSessionHistoryDetailedResponseItem> getSessionHistoryDetailed(
+      GetSessionHistoryDetailed input) throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);

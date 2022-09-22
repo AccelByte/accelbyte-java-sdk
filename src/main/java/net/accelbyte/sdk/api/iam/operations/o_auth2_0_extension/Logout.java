@@ -20,7 +20,14 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * Logout
  *
- * <p>This endpoint is used to remove access_token cookie and refresh_token cookie.
+ * <p>This endpoint is used to remove access_token , refresh_token from cookie and revoke token from
+ * usage.
+ *
+ * <p>Supported methods:
+ *
+ * <p>* VerifyToken to verify token from header
+ *
+ * <p>* AddTokenToRevocationList to revoke token with TTL
  */
 @Getter
 @Setter

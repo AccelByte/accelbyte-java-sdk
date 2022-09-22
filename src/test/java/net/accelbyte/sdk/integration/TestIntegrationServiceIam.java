@@ -122,7 +122,8 @@ public class TestIntegrationServiceIam extends TestIntegration {
 
     // CASE Delete a user
 
-    usersWrapper.adminDeleteUserInformationV3(AdminDeleteUserInformationV3.builder().namespace(this.namespace).userId(userId).build());
+    usersWrapper.adminDeleteUserInformationV3(
+        AdminDeleteUserInformationV3.builder().namespace(this.namespace).userId(userId).build());
 
     // ESAC
 

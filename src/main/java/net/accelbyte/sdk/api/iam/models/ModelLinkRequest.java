@@ -44,7 +44,7 @@ public class ModelLinkRequest extends Model {
 
   @JsonProperty("error")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private RestErrorResponse error;
+  private RestErrorResponseWithConflictedUserPlatformAccounts error;
 
   @JsonProperty("expiration")
   @JsonInclude(JsonInclude.Include.NON_NULL)

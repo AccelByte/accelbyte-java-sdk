@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.matchmaking.models;
+package net.accelbyte.sdk.api.sessionbrowser.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -25,7 +25,10 @@ import net.accelbyte.sdk.core.Model;
  */
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ModelsMatchmakingResult extends Model {
+public class ModelsGetSessionHistoryDetailedResponseItem extends Model {
+
+  @JsonProperty("_id")
+  private String id;
 
   @JsonProperty("channel")
   private String channel;
@@ -33,14 +36,19 @@ public class ModelsMatchmakingResult extends Model {
   @JsonProperty("client_version")
   private String clientVersion;
 
-  @JsonProperty("deployment")
-  private String deployment;
+  @JsonProperty("created_at")
+  private String createdAt;
+
+  @JsonProperty("event_description")
+  private String eventDescription;
+
+  @JsonProperty("event_name")
+  private String eventName;
 
   @JsonProperty("game_mode")
   private String gameMode;
 
   @JsonProperty("joinable")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean joinable;
 
   @JsonProperty("match_id")
@@ -52,15 +60,9 @@ public class ModelsMatchmakingResult extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
-  @JsonProperty("party_attributes")
-  private Map<String, ?> partyAttributes;
-
   @JsonProperty("party_id")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String partyId;
-
-  @JsonProperty("queued_at")
-  private Integer queuedAt;
 
   @JsonProperty("region")
   private String region;
@@ -71,21 +73,16 @@ public class ModelsMatchmakingResult extends Model {
   @JsonProperty("status")
   private String status;
 
-  @JsonProperty("ticket_id")
-  private String ticketId;
-
-  @JsonProperty("updated_at")
-  private String updatedAt;
-
   @JsonIgnore
-  public ModelsMatchmakingResult createFromJson(String json) throws JsonProcessingException {
+  public ModelsGetSessionHistoryDetailedResponseItem createFromJson(String json)
+      throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ModelsMatchmakingResult> createFromJsonList(String json)
+  public List<ModelsGetSessionHistoryDetailedResponseItem> createFromJsonList(String json)
       throws JsonProcessingException {
     return new ObjectMapper()
-        .readValue(json, new TypeReference<List<ModelsMatchmakingResult>>() {});
+        .readValue(json, new TypeReference<List<ModelsGetSessionHistoryDetailedResponseItem>>() {});
   }
 }

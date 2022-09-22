@@ -27,9 +27,6 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelsUpdateSessionRequest extends Model {
 
-  @JsonProperty("game_current_player")
-  private Integer gameCurrentPlayer;
-
   @JsonProperty("game_max_player")
   private Integer gameMaxPlayer;
 

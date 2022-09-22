@@ -583,7 +583,8 @@ final ModelUserResponseV3 updateUserResult =
 ### Delete a user
 
 ```java
-usersWrapper.deleteUser(DeleteUser.builder().namespace(this.namespace).userId(userId).build());
+usersWrapper.adminDeleteUserInformationV3(
+    AdminDeleteUserInformationV3.builder().namespace(this.namespace).userId(userId).build());
 ```
 
 ## Leaderboard
