@@ -1,3 +1,30 @@
+<a name="v0.20.0"></a>
+## [v0.20.0] - 2022-09-22
+### Chore
+- bump to version 0.20 for ab cloud 3.32
+- fix gradle deprecation warning
+- consolidate build.gradle
+- clean up dependencies
+- improve dummy javadoc content
+- **build.gradle:** enable nexus publish plugin only if necessary
+- **makefile:** make gradle less verbose
+- **makefile:** gradle no daemon
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.32
+- **spec:** update spec for ab cloud 3.32
+
+### Docs
+- update changelog for ab cloud 3.32
+
+### Feat
+- use gradle-nexus.publish-plugin
+
+### Fix
+- **jenkinsfile.github:** publish maven central
+
+### Test
+- **integration:** replace deprecated methods
+
+
 <a name="v0.19.0"></a>
 ## [v0.19.0] - 2022-09-12
 ### Chore
@@ -8,7 +35,7 @@
 
 ### Docs
 - update changelog for ab cloud 3.31
-- **readme:** setup changes
+- **readme:** switch to maven central
 
 ### Feat
 - publish to maven central
@@ -615,6 +642,7 @@
 - replace unnecessary object
 
 
+[v0.20.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.19.0...v0.20.0
 [v0.19.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.18.0...v0.19.0
 [v0.18.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.17.0...v0.18.0
 [v0.17.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.16.0...v0.17.0
