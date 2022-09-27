@@ -54,8 +54,8 @@ pipeline {
       }
       environment {
         PUBLISH_OSSRH = credentials('maven-central-accelbyte')
-        PUBLISH_SIGNING_KEY = credentials('maven-central-accelbyte-signing-key')
-        PUBLISH_SIGNING_PASSWORD = credentials('maven-central-accelbyte-signing-password')
+        PUBLISH_ASC_KEY_FILE_PATH = credentials('maven-central-accelbyte-signing-key')
+        PUBLISH_ASC_KEY_PASSWORD = credentials('maven-central-accelbyte-signing-password')
       }
       steps {
         script {
@@ -76,7 +76,7 @@ pipeline {
             sh "git push ${githubUrl} ${params.RELEASE_TAG}"
           }
           github.createRelease(githubPat, githubOwner, githubRepo, params.RELEASE_TAG, params.RELEASE_TAG, params.RELEASE_NOTE)
-          sh 'make publish PUBLISH_OSSRH_USERNAME="$PUBLISH_OSSRH_USR" PUBLISH_OSSRH_PASSWORD="$PUBLISH_OSSRH_PSW" PUBLISH_SIGNING_KEY="$PUBLISH_SIGNING_KEY" PUBLISH_SIGNING_PASSWORD="$PUBLISH_SIGNING_PASSWORD"'
+          sh 'make publish PUBLISH_OSSRH_USERNAME="$PUBLISH_OSSRH_USR" PUBLISH_OSSRH_PASSWORD="$PUBLISH_OSSRH_PSW" PUBLISH_ASC_KEY="$(cat "$PUBLISH_ASC_KEY_FILE_PATH")" PUBLISH_ASC_KEY_PASSWORD="$PUBLISH_ASC_KEY_PASSWORD"'
         }
       }
     }

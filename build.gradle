@@ -121,8 +121,8 @@ if ('publishToSonatype' in gradle.startParameter.taskNames) {
 }
 
 signing {
-    def signingKey = System.getenv("PUBLISH_SIGNING_KEY")
-    def signingPassword = System.getenv("PUBLISH_SIGNING_PASSWORD")
+    def signingKey = System.getenv("PUBLISH_ASC_KEY")
+    def signingPassword = System.getenv("PUBLISH_ASC_KEY_PASSWORD")
     useInMemoryPgpKeys(signingKey, signingPassword)
     sign publishing.publications.mavenJava
 }
