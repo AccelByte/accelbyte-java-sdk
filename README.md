@@ -196,6 +196,6 @@ Sample apps are available in the [samples](samples) directory.
 
 ## Documentation
 
-Reference about AccelByte service endpoints and their corresponding SDK API is available in [docs](docs) directory.
+Reference about AccelByte service endpoints and their corresponding SDK API is available in [docs/operations](docs/operations) directory.
 
 For more information on how to use AccelByte services and SDKs, see [docs.accelbyte.io](https://docs.accelbyte.io/).
