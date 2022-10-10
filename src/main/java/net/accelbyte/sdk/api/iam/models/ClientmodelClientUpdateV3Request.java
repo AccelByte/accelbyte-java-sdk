@@ -58,6 +58,10 @@ public class ClientmodelClientUpdateV3Request extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String redirectUri;
 
+  @JsonProperty("twoFactorEnabled")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean twoFactorEnabled;
+
   @JsonIgnore
   public ClientmodelClientUpdateV3Request createFromJson(String json)
       throws JsonProcessingException {

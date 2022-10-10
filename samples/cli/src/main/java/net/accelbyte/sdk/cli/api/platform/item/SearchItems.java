@@ -56,6 +56,11 @@ public class SearchItems implements Callable<Integer> {
   Integer offset;
 
   @Option(
+      names = {"--sortBy"},
+      description = "sortBy")
+  String sortBy;
+
+  @Option(
       names = {"--storeId"},
       description = "storeId")
   String storeId;
@@ -98,6 +103,7 @@ public class SearchItems implements Callable<Integer> {
               .itemType(itemType)
               .limit(limit)
               .offset(offset)
+              .sortBy(sortBy)
               .storeId(storeId)
               .keyword(keyword)
               .language(language)

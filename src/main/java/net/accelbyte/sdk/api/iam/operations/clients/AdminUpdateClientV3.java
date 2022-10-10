@@ -63,6 +63,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>* GooglePlay
  *
  * <p>* Nintendo
+ *
+ * <p>* twoFactorEnabled : The flag to indicate whether 2FA validation is enable for this client.
+ * default value: false
  */
 @Getter
 @Setter

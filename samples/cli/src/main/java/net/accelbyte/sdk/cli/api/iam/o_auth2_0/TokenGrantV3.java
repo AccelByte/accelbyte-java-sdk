@@ -108,7 +108,7 @@ public class TokenGrantV3 implements Callable<Integer> {
               .username(username != null ? username : null)
               .grantType(grantType != null ? grantType : null)
               .build();
-      OauthmodelTokenResponseV3 response = wrapper.tokenGrantV3(operation);
+      OauthmodelTokenWithDeviceCookieResponseV3 response = wrapper.tokenGrantV3(operation);
       String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful with response below:\n{}", responseString);

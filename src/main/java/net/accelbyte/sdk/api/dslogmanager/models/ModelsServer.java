@@ -27,6 +27,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelsServer extends Model {
 
+  @JsonProperty("allocation_events")
+  private List<ModelsAllocationEvent> allocationEvents;
+
   @JsonProperty("allocation_id")
   private String allocationId;
 

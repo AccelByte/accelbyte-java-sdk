@@ -230,6 +230,7 @@
 |---|---|---|---|---|
 | `/platform/admin/namespaces/{namespace}/keygroups` | GET | QueryKeyGroups | [QueryKeyGroups](../../src/main/java/net/accelbyte/sdk/api/platform/operations/key_group/QueryKeyGroups.java) | [QueryKeyGroups](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/key_group/QueryKeyGroups.java) |
 | `/platform/admin/namespaces/{namespace}/keygroups` | POST | CreateKeyGroup | [CreateKeyGroup](../../src/main/java/net/accelbyte/sdk/api/platform/operations/key_group/CreateKeyGroup.java) | [CreateKeyGroup](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/key_group/CreateKeyGroup.java) |
+| `/platform/admin/namespaces/{namespace}/keygroups/byBoothName` | GET | GetKeyGroupByBoothName | [GetKeyGroupByBoothName](../../src/main/java/net/accelbyte/sdk/api/platform/operations/key_group/GetKeyGroupByBoothName.java) | [GetKeyGroupByBoothName](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/key_group/GetKeyGroupByBoothName.java) |
 | `/platform/admin/namespaces/{namespace}/keygroups/{keyGroupId}` | GET | GetKeyGroup | [GetKeyGroup](../../src/main/java/net/accelbyte/sdk/api/platform/operations/key_group/GetKeyGroup.java) | [GetKeyGroup](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/key_group/GetKeyGroup.java) |
 | `/platform/admin/namespaces/{namespace}/keygroups/{keyGroupId}` | PUT | UpdateKeyGroup | [UpdateKeyGroup](../../src/main/java/net/accelbyte/sdk/api/platform/operations/key_group/UpdateKeyGroup.java) | [UpdateKeyGroup](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/key_group/UpdateKeyGroup.java) |
 | `/platform/admin/namespaces/{namespace}/keygroups/{keyGroupId}/dynamic` | GET | GetKeyGroupDynamic | [GetKeyGroupDynamic](../../src/main/java/net/accelbyte/sdk/api/platform/operations/key_group/GetKeyGroupDynamic.java) | [GetKeyGroupDynamic](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/key_group/GetKeyGroupDynamic.java) |
@@ -340,6 +341,8 @@
 | `/platform/admin/namespaces/{namespace}/stores/{storeId}/clone` | PUT | CloneStore | [CloneStore](../../src/main/java/net/accelbyte/sdk/api/platform/operations/store/CloneStore.java) | [CloneStore](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/store/CloneStore.java) |
 | `/platform/admin/namespaces/{namespace}/stores/{storeId}/export` | GET | ExportStore | [ExportStore](../../src/main/java/net/accelbyte/sdk/api/platform/operations/store/ExportStore.java) | [ExportStore](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/store/ExportStore.java) |
 | `/platform/public/namespaces/{namespace}/stores` | GET | PublicListStores | [PublicListStores](../../src/main/java/net/accelbyte/sdk/api/platform/operations/store/PublicListStores.java) | [PublicListStores](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/store/PublicListStores.java) |
+| `/platform/v2/admin/namespaces/{namespace}/stores/import` | PUT | ImportStore1 | [ImportStore1](../../src/main/java/net/accelbyte/sdk/api/platform/operations/store/ImportStore1.java) | [ImportStore1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/store/ImportStore1.java) |
+| `/platform/v2/admin/namespaces/{namespace}/stores/{storeId}/export` | POST | ExportStore1 | [ExportStore1](../../src/main/java/net/accelbyte/sdk/api/platform/operations/store/ExportStore1.java) | [ExportStore1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/store/ExportStore1.java) |
 
 ### CatalogChanges Wrapper:  [CatalogChanges](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/CatalogChanges.java)
 | Endpoint | Method | ID | Class | Example |
@@ -549,6 +552,7 @@
 | `EpicGamesReconcileResult` | [EpicGamesReconcileResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EpicGamesReconcileResult.java) |
 | `ErrorEntity` | [ErrorEntity](../../src/main/java/net/accelbyte/sdk/api/platform/models/ErrorEntity.java) |
 | `EventPayload` | [EventPayload](../../src/main/java/net/accelbyte/sdk/api/platform/models/EventPayload.java) |
+| `ExportStoreRequest` | [ExportStoreRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/ExportStoreRequest.java) |
 | `ExtensionFulfillmentSummary` | [ExtensionFulfillmentSummary](../../src/main/java/net/accelbyte/sdk/api/platform/models/ExtensionFulfillmentSummary.java) |
 | `ExternalPaymentOrderCreate` | [ExternalPaymentOrderCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/ExternalPaymentOrderCreate.java) |
 | `FieldValidationError` | [FieldValidationError](../../src/main/java/net/accelbyte/sdk/api/platform/models/FieldValidationError.java) |
@@ -581,6 +585,10 @@
 | `IAPOrderInfo` | [IAPOrderInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/IAPOrderInfo.java) |
 | `IAPOrderPagingSlicedResult` | [IAPOrderPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/IAPOrderPagingSlicedResult.java) |
 | `Image` | [Image](../../src/main/java/net/accelbyte/sdk/api/platform/models/Image.java) |
+| `ImportErrorDetails` | [ImportErrorDetails](../../src/main/java/net/accelbyte/sdk/api/platform/models/ImportErrorDetails.java) |
+| `ImportStoreError` | [ImportStoreError](../../src/main/java/net/accelbyte/sdk/api/platform/models/ImportStoreError.java) |
+| `ImportStoreItemInfo` | [ImportStoreItemInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ImportStoreItemInfo.java) |
+| `ImportStoreResult` | [ImportStoreResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/ImportStoreResult.java) |
 | `InGameItemSync` | [InGameItemSync](../../src/main/java/net/accelbyte/sdk/api/platform/models/InGameItemSync.java) |
 | `InvoiceCurrencySummary` | [InvoiceCurrencySummary](../../src/main/java/net/accelbyte/sdk/api/platform/models/InvoiceCurrencySummary.java) |
 | `InvoiceSummary` | [InvoiceSummary](../../src/main/java/net/accelbyte/sdk/api/platform/models/InvoiceSummary.java) |
@@ -725,6 +733,7 @@
 | `TicketSaleIncrementResult` | [TicketSaleIncrementResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/TicketSaleIncrementResult.java) |
 | `Time-limited balance` | [TimeLimitedBalance](../../src/main/java/net/accelbyte/sdk/api/platform/models/TimeLimitedBalance.java) |
 | `TimedOwnership` | [TimedOwnership](../../src/main/java/net/accelbyte/sdk/api/platform/models/TimedOwnership.java) |
+| `TrackedEntitlementInfo` | [TrackedEntitlementInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/TrackedEntitlementInfo.java) |
 | `TradeNotification` | [TradeNotification](../../src/main/java/net/accelbyte/sdk/api/platform/models/TradeNotification.java) |
 | `Transaction` | [Transaction](../../src/main/java/net/accelbyte/sdk/api/platform/models/Transaction.java) |
 | `TransactionAmountDetails` | [TransactionAmountDetails](../../src/main/java/net/accelbyte/sdk/api/platform/models/TransactionAmountDetails.java) |

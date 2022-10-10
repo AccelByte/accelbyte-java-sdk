@@ -56,7 +56,9 @@ public class Store {
 
   /**
    * @see ImportStore
+   * @deprecated
    */
+  @Deprecated
   public StoreInfo importStore(ImportStore input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -200,7 +202,9 @@ public class Store {
 
   /**
    * @see ExportStore
+   * @deprecated
    */
+  @Deprecated
   public void exportStore(ExportStore input) throws Exception {
     HttpResponse httpResponse = null;
     try {
@@ -222,6 +226,38 @@ public class Store {
     try {
       httpResponse = sdk.runRequest(input);
       return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
+   * @see ImportStore1
+   */
+  public ImportStoreResult importStore1(ImportStore1 input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
+   * @see ExportStore1
+   */
+  public void exportStore1(ExportStore1 input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      input.handleEmptyResponse(
           httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
     } finally {
       if (httpResponse != null && httpResponse.getPayload() != null) {

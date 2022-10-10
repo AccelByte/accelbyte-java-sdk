@@ -69,6 +69,8 @@ import picocli.CommandLine.Command;
       GetMyProfileInfo.class,
       UpdateMyProfile.class,
       CreateMyProfile.class,
+      GetMyPrivateCustomAttributesInfo.class,
+      UpdateMyPrivateCustomAttributesPartially.class,
       GetMyZipCode.class,
       UpdateMyZipCode.class,
       PublicReportUser.class,

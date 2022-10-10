@@ -150,6 +150,22 @@ public class StatConfiguration {
   }
 
   /**
+   * @see DeleteTiedStat
+   */
+  public void deleteTiedStat(DeleteTiedStat input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      input.handleEmptyResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
    * @see CreateStat1
    */
   public StatInfo createStat1(CreateStat1 input) throws Exception {

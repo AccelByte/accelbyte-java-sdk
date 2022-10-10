@@ -151,6 +151,7 @@ import picocli.CommandLine.Command;
       ReturnItem.class,
       QueryKeyGroups.class,
       CreateKeyGroup.class,
+      GetKeyGroupByBoothName.class,
       GetKeyGroup.class,
       UpdateKeyGroup.class,
       GetKeyGroupDynamic.class,
@@ -396,6 +397,8 @@ import picocli.CommandLine.Command;
       PublicGetWallet.class,
       PublicListUserWalletTransactions.class,
       QueryItems1.class,
+      ImportStore1.class,
+      ExportStore1.class,
     })
 public class Platform implements Runnable {
 

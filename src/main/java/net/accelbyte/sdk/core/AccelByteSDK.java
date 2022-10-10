@@ -18,7 +18,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.locks.ReentrantLock;
 import net.accelbyte.sdk.api.iam.models.OauthmodelTokenResponse;
-import net.accelbyte.sdk.api.iam.models.OauthmodelTokenResponseV3;
+import net.accelbyte.sdk.api.iam.models.OauthmodelTokenWithDeviceCookieResponseV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthorizeV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthorizeV3.CodeChallengeMethod;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.PlatformTokenGrantV3;
@@ -187,7 +187,7 @@ public class AccelByteSDK {
               .codeVerifier(codeVerifier)
               .grantTypeFromEnum(TokenGrantV3.GrantType.AuthorizationCode)
               .build();
-      final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
+      final OauthmodelTokenWithDeviceCookieResponseV3  token = oAuth20.tokenGrantV3(tokenGrantV3);
 
       final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
       tokenRepository.storeToken(token.getAccessToken());
@@ -217,7 +217,7 @@ public class AccelByteSDK {
           TokenGrantV3.builder()
               .grantTypeFromEnum(TokenGrantV3.GrantType.ClientCredentials)
               .build();
-      final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
+      final OauthmodelTokenWithDeviceCookieResponseV3  token = oAuth20.tokenGrantV3(tokenGrantV3);
 
       final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
       tokenRepository.storeToken(token.getAccessToken());
@@ -314,7 +314,7 @@ public class AccelByteSDK {
                   .refreshToken(refreshToken)
                   .grantTypeFromEnum(TokenGrantV3.GrantType.RefreshToken)
                   .build();
-          final OauthmodelTokenResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
+          final OauthmodelTokenWithDeviceCookieResponseV3  token = oAuth20.tokenGrantV3(tokenGrantV3);
 
           final long expiresIn = (long) (token.getExpiresIn() * TOKEN_REFRESH_RATIO);
           final long refreshExpiresIn = (long) (token.getRefreshExpiresIn() * TOKEN_REFRESH_RATIO);

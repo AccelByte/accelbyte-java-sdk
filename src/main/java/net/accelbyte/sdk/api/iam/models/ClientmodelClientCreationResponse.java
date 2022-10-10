@@ -42,6 +42,9 @@ public class ClientmodelClientCreationResponse extends Model {
   @JsonProperty("RedirectUri")
   private String redirectUri;
 
+  @JsonProperty("TwoFactorEnabled")
+  private Boolean twoFactorEnabled;
+
   @JsonIgnore
   public ClientmodelClientCreationResponse createFromJson(String json)
       throws JsonProcessingException {

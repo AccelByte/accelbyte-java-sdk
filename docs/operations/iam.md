@@ -333,6 +333,22 @@
 | `/iam/v3/sso/{platformId}` | GET | LoginSSOClient | [LoginSSOClient](../../src/main/java/net/accelbyte/sdk/api/iam/operations/sso/LoginSSOClient.java) | [LoginSSOClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/sso/LoginSSOClient.java) |
 | `/iam/v3/sso/{platformId}/logout` | POST | LogoutSSOClient | [LogoutSSOClient](../../src/main/java/net/accelbyte/sdk/api/iam/operations/sso/LogoutSSOClient.java) | [LogoutSSOClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/sso/LogoutSSOClient.java) |
 
+### Devices V4 Wrapper:  [DevicesV4](../../src/main/java/net/accelbyte/sdk/api/iam/wrappers/DevicesV4.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/iam/v4/admin/namespaces/{namespace}/devices` | GET | AdminGetDevicesByUserV4 | [AdminGetDevicesByUserV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminGetDevicesByUserV4.java) | [AdminGetDevicesByUserV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminGetDevicesByUserV4.java) |
+| `/iam/v4/admin/namespaces/{namespace}/devices/banned` | GET | AdminGetBannedDevicesV4 | [AdminGetBannedDevicesV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminGetBannedDevicesV4.java) | [AdminGetBannedDevicesV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminGetBannedDevicesV4.java) |
+| `/iam/v4/admin/namespaces/{namespace}/devices/bans` | GET | AdminGetUserDeviceBansV4 | [AdminGetUserDeviceBansV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminGetUserDeviceBansV4.java) | [AdminGetUserDeviceBansV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminGetUserDeviceBansV4.java) |
+| `/iam/v4/admin/namespaces/{namespace}/devices/bans` | POST | AdminBanDeviceV4 | [AdminBanDeviceV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminBanDeviceV4.java) | [AdminBanDeviceV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminBanDeviceV4.java) |
+| `/iam/v4/admin/namespaces/{namespace}/devices/bans/{banId}` | GET | AdminGetDeviceBanV4 | [AdminGetDeviceBanV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminGetDeviceBanV4.java) | [AdminGetDeviceBanV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminGetDeviceBanV4.java) |
+| `/iam/v4/admin/namespaces/{namespace}/devices/bans/{banId}` | PUT | AdminUpdateDeviceBanV4 | [AdminUpdateDeviceBanV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminUpdateDeviceBanV4.java) | [AdminUpdateDeviceBanV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminUpdateDeviceBanV4.java) |
+| `/iam/v4/admin/namespaces/{namespace}/devices/report` | GET | AdminGenerateReportV4 | [AdminGenerateReportV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminGenerateReportV4.java) | [AdminGenerateReportV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminGenerateReportV4.java) |
+| `/iam/v4/admin/namespaces/{namespace}/devices/types` | GET | AdminGetDeviceTypesV4 | [AdminGetDeviceTypesV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminGetDeviceTypesV4.java) | [AdminGetDeviceTypesV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminGetDeviceTypesV4.java) |
+| `/iam/v4/admin/namespaces/{namespace}/devices/{deviceId}/bans` | GET | AdminGetDeviceBansV4 | [AdminGetDeviceBansV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminGetDeviceBansV4.java) | [AdminGetDeviceBansV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminGetDeviceBansV4.java) |
+| `/iam/v4/admin/namespaces/{namespace}/devices/{deviceId}/decrypt` | GET | AdminDecryptDeviceV4 | [AdminDecryptDeviceV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminDecryptDeviceV4.java) | [AdminDecryptDeviceV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminDecryptDeviceV4.java) |
+| `/iam/v4/admin/namespaces/{namespace}/devices/{deviceId}/unban` | PUT | AdminUnbanDeviceV4 | [AdminUnbanDeviceV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminUnbanDeviceV4.java) | [AdminUnbanDeviceV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminUnbanDeviceV4.java) |
+| `/iam/v4/admin/namespaces/{namespace}/devices/{deviceId}/users` | GET | AdminGetUsersByDeviceV4 | [AdminGetUsersByDeviceV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminGetUsersByDeviceV4.java) | [AdminGetUsersByDeviceV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminGetUsersByDeviceV4.java) |
+
 ### Users V4 Wrapper:  [UsersV4](../../src/main/java/net/accelbyte/sdk/api/iam/wrappers/UsersV4.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -478,6 +494,18 @@
 | `model.CountryAgeRestrictionV3Request` | [ModelCountryAgeRestrictionV3Request](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelCountryAgeRestrictionV3Request.java) |
 | `model.CountryV3Response` | [ModelCountryV3Response](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelCountryV3Response.java) |
 | `model.CreateJusticeUserResponse` | [ModelCreateJusticeUserResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelCreateJusticeUserResponse.java) |
+| `model.DeviceBanRequestV4` | [ModelDeviceBanRequestV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelDeviceBanRequestV4.java) |
+| `model.DeviceBanResponseV4` | [ModelDeviceBanResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelDeviceBanResponseV4.java) |
+| `model.DeviceBanUpdateRequestV4` | [ModelDeviceBanUpdateRequestV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelDeviceBanUpdateRequestV4.java) |
+| `model.DeviceBannedResponseV4` | [ModelDeviceBannedResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelDeviceBannedResponseV4.java) |
+| `model.DeviceBansResponseV4` | [ModelDeviceBansResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelDeviceBansResponseV4.java) |
+| `model.DeviceIDDecryptResponseV4` | [ModelDeviceIDDecryptResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelDeviceIDDecryptResponseV4.java) |
+| `model.DeviceResponseV4` | [ModelDeviceResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelDeviceResponseV4.java) |
+| `model.DeviceTypeResponseV4` | [ModelDeviceTypeResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelDeviceTypeResponseV4.java) |
+| `model.DeviceTypesResponseV4` | [ModelDeviceTypesResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelDeviceTypesResponseV4.java) |
+| `model.DeviceUserResponseV4` | [ModelDeviceUserResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelDeviceUserResponseV4.java) |
+| `model.DeviceUsersResponseV4` | [ModelDeviceUsersResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelDeviceUsersResponseV4.java) |
+| `model.DevicesResponseV4` | [ModelDevicesResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelDevicesResponseV4.java) |
 | `model.DisableUserRequest` | [ModelDisableUserRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelDisableUserRequest.java) |
 | `model.EmailUpdateRequestV4` | [ModelEmailUpdateRequestV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelEmailUpdateRequestV4.java) |
 | `model.EnabledFactorsResponseV4` | [ModelEnabledFactorsResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelEnabledFactorsResponseV4.java) |
@@ -615,6 +643,7 @@
 | `oauthmodel.TokenResponse` | [OauthmodelTokenResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelTokenResponse.java) |
 | `oauthmodel.TokenResponseV3` | [OauthmodelTokenResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelTokenResponseV3.java) |
 | `oauthmodel.TokenThirdPartyResponse` | [OauthmodelTokenThirdPartyResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelTokenThirdPartyResponse.java) |
+| `oauthmodel.TokenWithDeviceCookieResponseV3` | [OauthmodelTokenWithDeviceCookieResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelTokenWithDeviceCookieResponseV3.java) |
 | `rest.ErrorResponse` | [RestErrorResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/RestErrorResponse.java) |
 | `rest.ErrorResponseWithConflictedUserPlatformAccounts` | [RestErrorResponseWithConflictedUserPlatformAccounts](../../src/main/java/net/accelbyte/sdk/api/iam/models/RestErrorResponseWithConflictedUserPlatformAccounts.java) |
 | `restapi.ErrorResponse` | [RestapiErrorResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/RestapiErrorResponse.java) |

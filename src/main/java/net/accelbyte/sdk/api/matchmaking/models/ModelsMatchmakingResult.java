@@ -36,6 +36,12 @@ public class ModelsMatchmakingResult extends Model {
   @JsonProperty("deployment")
   private String deployment;
 
+  @JsonProperty("error_code")
+  private Integer errorCode;
+
+  @JsonProperty("error_message")
+  private String errorMessage;
+
   @JsonProperty("game_mode")
   private String gameMode;
 

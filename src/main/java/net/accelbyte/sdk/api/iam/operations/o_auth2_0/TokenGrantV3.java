@@ -112,10 +112,21 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>The JWT contains user's active bans with its expiry date. List of ban types can be obtained
  * from /bans.
  *
+ * <p>## Device Cookie Validation
+ *
+ * <p>For grant type "password" only
+ *
+ * <p>Device Cookie is used to protect the user account from brute force login attack, [more detail
+ * from OWASP.
+ *
+ * <p>This endpoint will read device cookie from request header Auth-Trust-Id. If device cookie not
+ * found, it will generate a new one and set it into response body auth_trust_id when successfully
+ * login.
+ *
  * <p>## Track Login History
  *
  * <p>This endpoint will track login history to detect suspicious login activity, please provide
- * "device_id" (alphanumeric) in request header parameter otherwise we will set to "unknown".
+ * Device-Id (alphanumeric) in request header parameter otherwise it will set to "unknown".
  *
  * <p>Align with General Data Protection Regulation in Europe, user login history will be kept
  * within 28 days by default"
@@ -221,11 +232,11 @@ public class TokenGrantV3 extends Operation {
     return true;
   }
 
-  public OauthmodelTokenResponseV3 parseResponse(int code, String contentType, InputStream payload)
-      throws HttpResponseException, IOException {
+  public OauthmodelTokenWithDeviceCookieResponseV3 parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {
-      return new OauthmodelTokenResponseV3().createFromJson(json);
+      return new OauthmodelTokenWithDeviceCookieResponseV3().createFromJson(json);
     }
     throw new HttpResponseException(code, json);
   }

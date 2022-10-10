@@ -116,6 +116,7 @@
 | Model | Class |
 |---|---|
 | `log.AppMessageDeclaration` | [LogAppMessageDeclaration](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/LogAppMessageDeclaration.java) |
+| `models.AllocationEvent` | [ModelsAllocationEvent](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsAllocationEvent.java) |
 | `models.ClaimSessionRequest` | [ModelsClaimSessionRequest](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsClaimSessionRequest.java) |
 | `models.CountServerResponse` | [ModelsCountServerResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsCountServerResponse.java) |
 | `models.CountSessionResponse` | [ModelsCountSessionResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsCountSessionResponse.java) |

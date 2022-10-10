@@ -10,6 +10,7 @@ package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.iam.bans.*;
 import net.accelbyte.sdk.cli.api.iam.clients.*;
+import net.accelbyte.sdk.cli.api.iam.devices_v4.*;
 import net.accelbyte.sdk.cli.api.iam.input_validations.*;
 import net.accelbyte.sdk.cli.api.iam.o_auth.*;
 import net.accelbyte.sdk.cli.api.iam.o_auth2_0.*;
@@ -297,6 +298,18 @@ import picocli.CommandLine.Command;
       LoginSSOClient.class,
       LogoutSSOClient.class,
       RequestGameTokenResponseV3.class,
+      AdminGetDevicesByUserV4.class,
+      AdminGetBannedDevicesV4.class,
+      AdminGetUserDeviceBansV4.class,
+      AdminBanDeviceV4.class,
+      AdminGetDeviceBanV4.class,
+      AdminUpdateDeviceBanV4.class,
+      AdminGenerateReportV4.class,
+      AdminGetDeviceTypesV4.class,
+      AdminGetDeviceBansV4.class,
+      AdminDecryptDeviceV4.class,
+      AdminUnbanDeviceV4.class,
+      AdminGetUsersByDeviceV4.class,
       AdminCreateTestUsersV4.class,
       AdminBulkCheckValidUserIDV4.class,
       AdminUpdateUserV4.class,

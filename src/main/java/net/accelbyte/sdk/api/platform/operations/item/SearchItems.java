@@ -46,6 +46,7 @@ public class SearchItems extends Operation {
   private String itemType;
   private Integer limit;
   private Integer offset;
+  private String sortBy;
   private String storeId;
   private String keyword;
   private String language;
@@ -66,6 +67,7 @@ public class SearchItems extends Operation {
       String itemType,
       Integer limit,
       Integer offset,
+      String sortBy,
       String storeId,
       String keyword,
       String language) {
@@ -74,6 +76,7 @@ public class SearchItems extends Operation {
     this.itemType = itemType;
     this.limit = limit;
     this.offset = offset;
+    this.sortBy = sortBy;
     this.storeId = storeId;
     this.keyword = keyword;
     this.language = language;
@@ -100,6 +103,7 @@ public class SearchItems extends Operation {
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
     queryParams.put("storeId", this.storeId == null ? null : Arrays.asList(this.storeId));
     queryParams.put("keyword", this.keyword == null ? null : Arrays.asList(this.keyword));
     queryParams.put("language", this.language == null ? null : Arrays.asList(this.language));
@@ -136,6 +140,7 @@ public class SearchItems extends Operation {
     result.put("itemType", "None");
     result.put("limit", "None");
     result.put("offset", "None");
+    result.put("sortBy", "None");
     result.put("storeId", "None");
     result.put("keyword", "None");
     result.put("language", "None");

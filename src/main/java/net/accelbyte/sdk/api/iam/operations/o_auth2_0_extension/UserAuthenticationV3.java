@@ -21,11 +21,17 @@ import net.accelbyte.sdk.core.util.Helper;
  * UserAuthenticationV3
  *
  * <p>This endpoint is being used to authenticate a user account. It validates user's email /
- * username and password. Deactivated or login-banned users are unable to login Redirect URI and
+ * username and password. Deactivated or login-banned users are unable to login. Redirect URI and
  * Client ID must be specified as a pair and only used to redirect to the specified redirect URI in
  * case the requestId is no longer valid.
  *
- * <p>action code: 10801
+ * <p>## Device Cookie Validation
+ *
+ * <p>Device Cookie is used to protect the user account from brute force login attack, [more detail
+ * from OWASP. This endpoint will read device cookie from cookie auth-trust-id. If device cookie not
+ * found, it will generate a new one and set it into cookie when successfully authenticate.
+ *
+ * <p>Action code: 10801
  */
 @Getter
 @Setter

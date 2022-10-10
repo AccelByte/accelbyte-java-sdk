@@ -45,6 +45,9 @@ public class ClientmodelClientCreateRequest extends Model {
   @JsonProperty("Secret")
   private String secret;
 
+  @JsonProperty("TwoFactorEnabled")
+  private Boolean twoFactorEnabled;
+
   @JsonIgnore
   public ClientmodelClientCreateRequest createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

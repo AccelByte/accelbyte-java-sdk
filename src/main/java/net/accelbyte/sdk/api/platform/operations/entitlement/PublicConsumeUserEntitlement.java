@@ -99,11 +99,11 @@ public class PublicConsumeUserEntitlement extends Operation {
     return true;
   }
 
-  public EntitlementInfo parseResponse(int code, String contentType, InputStream payload)
+  public TrackedEntitlementInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     String json = Helper.convertInputStreamToString(payload);
     if (code == 200) {
-      return new EntitlementInfo().createFromJson(json);
+      return new TrackedEntitlementInfo().createFromJson(json);
     }
     throw new HttpResponseException(code, json);
   }

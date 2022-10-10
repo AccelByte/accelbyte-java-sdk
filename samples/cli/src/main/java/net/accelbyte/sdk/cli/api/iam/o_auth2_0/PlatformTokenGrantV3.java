@@ -51,6 +51,11 @@ public class PlatformTokenGrantV3 implements Callable<Integer> {
   String deviceId;
 
   @Option(
+      names = {"--macAddress"},
+      description = "macAddress")
+  String macAddress;
+
+  @Option(
       names = {"--platformToken"},
       description = "platformToken")
   String platformToken;
@@ -82,6 +87,7 @@ public class PlatformTokenGrantV3 implements Callable<Integer> {
               .clientId(clientId != null ? clientId : null)
               .createHeadless(createHeadless != null ? createHeadless : null)
               .deviceId(deviceId != null ? deviceId : null)
+              .macAddress(macAddress != null ? macAddress : null)
               .platformToken(platformToken != null ? platformToken : null)
               .build();
       OauthmodelTokenResponse response = wrapper.platformTokenGrantV3(operation);

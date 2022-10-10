@@ -219,7 +219,8 @@ public class OAuth20 {
   /**
    * @see TokenGrantV3
    */
-  public OauthmodelTokenResponseV3 tokenGrantV3(TokenGrantV3 input) throws Exception {
+  public OauthmodelTokenWithDeviceCookieResponseV3 tokenGrantV3(TokenGrantV3 input)
+      throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);

@@ -63,6 +63,9 @@ public class ClientmodelClientV3Response extends Model {
   @JsonProperty("scopes")
   private List<String> scopes;
 
+  @JsonProperty("twoFactorEnabled")
+  private Boolean twoFactorEnabled;
+
   @JsonIgnore
   public ClientmodelClientV3Response createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

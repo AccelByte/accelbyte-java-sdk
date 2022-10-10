@@ -45,6 +45,9 @@ public class ClientmodelClientResponse extends Model {
   @JsonProperty("RedirectUri")
   private String redirectUri;
 
+  @JsonProperty("TwoFactorEnabled")
+  private Boolean twoFactorEnabled;
+
   @JsonIgnore
   public ClientmodelClientResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

@@ -61,6 +61,10 @@ public class ClientmodelClientCreationV3Request extends Model {
   @JsonProperty("secret")
   private String secret;
 
+  @JsonProperty("twoFactorEnabled")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean twoFactorEnabled;
+
   @JsonIgnore
   public ClientmodelClientCreationV3Request createFromJson(String json)
       throws JsonProcessingException {

@@ -99,6 +99,7 @@
 | `/social/v1/admin/namespaces/{namespace}/stats/{statCode}` | GET | GetStat | [GetStat](../../src/main/java/net/accelbyte/sdk/api/social/operations/stat_configuration/GetStat.java) | [GetStat](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/stat_configuration/GetStat.java) |
 | `/social/v1/admin/namespaces/{namespace}/stats/{statCode}` | DELETE | DeleteStat | [DeleteStat](../../src/main/java/net/accelbyte/sdk/api/social/operations/stat_configuration/DeleteStat.java) | [DeleteStat](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/stat_configuration/DeleteStat.java) |
 | `/social/v1/admin/namespaces/{namespace}/stats/{statCode}` | PATCH | UpdateStat | [UpdateStat](../../src/main/java/net/accelbyte/sdk/api/social/operations/stat_configuration/UpdateStat.java) | [UpdateStat](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/stat_configuration/UpdateStat.java) |
+| `/social/v1/admin/namespaces/{namespace}/stats/{statCode}/tied` | DELETE | DeleteTiedStat | [DeleteTiedStat](../../src/main/java/net/accelbyte/sdk/api/social/operations/stat_configuration/DeleteTiedStat.java) | [DeleteTiedStat](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/stat_configuration/DeleteTiedStat.java) |
 | `/social/v1/public/namespaces/{namespace}/stats` | POST | CreateStat1 | [CreateStat1](../../src/main/java/net/accelbyte/sdk/api/social/operations/stat_configuration/CreateStat1.java) | [CreateStat1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/stat_configuration/CreateStat1.java) |
 
 

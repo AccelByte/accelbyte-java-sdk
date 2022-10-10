@@ -46,6 +46,11 @@ public class PlatformTokenRequestHandler implements Callable<Integer> {
   String deviceId;
 
   @Option(
+      names = {"--macAddress"},
+      description = "macAddress")
+  String macAddress;
+
+  @Option(
       names = {"--platformToken"},
       description = "platformToken")
   String platformToken;
@@ -76,6 +81,7 @@ public class PlatformTokenRequestHandler implements Callable<Integer> {
               .namespace(namespace)
               .platformId(platformId)
               .deviceId(deviceId != null ? deviceId : null)
+              .macAddress(macAddress != null ? macAddress : null)
               .platformToken(platformToken != null ? platformToken : null)
               .build();
       OauthmodelTokenResponse response = wrapper.platformTokenRequestHandler(operation);

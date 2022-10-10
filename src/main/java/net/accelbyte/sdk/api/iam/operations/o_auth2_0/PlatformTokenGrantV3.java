@@ -184,6 +184,7 @@ public class PlatformTokenGrantV3 extends Operation {
   private String clientId;
   private Boolean createHeadless;
   private String deviceId;
+  private String macAddress;
   private String platformToken;
 
   /**
@@ -199,11 +200,13 @@ public class PlatformTokenGrantV3 extends Operation {
       String clientId,
       Boolean createHeadless,
       String deviceId,
+      String macAddress,
       String platformToken) {
     this.platformId = platformId;
     this.clientId = clientId;
     this.createHeadless = createHeadless;
     this.deviceId = deviceId;
+    this.macAddress = macAddress;
     this.platformToken = platformToken;
 
     securities.add("Basic");
@@ -231,6 +234,9 @@ public class PlatformTokenGrantV3 extends Operation {
     }
     if (this.deviceId != null) {
       formDataParams.put("device_id", this.deviceId);
+    }
+    if (this.macAddress != null) {
+      formDataParams.put("macAddress", this.macAddress);
     }
     if (this.platformToken != null) {
       formDataParams.put("platform_token", this.platformToken);

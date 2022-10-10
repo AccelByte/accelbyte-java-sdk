@@ -30,6 +30,7 @@
 | Model | Class |
 |---|---|
 | `log.AppMessageDeclaration` | [LogAppMessageDeclaration](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/LogAppMessageDeclaration.java) |
+| `models.AllocationEvent` | [ModelsAllocationEvent](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsAllocationEvent.java) |
 | `models.BatchDownloadLogsRequest` | [ModelsBatchDownloadLogsRequest](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsBatchDownloadLogsRequest.java) |
 | `models.DownloadLogsRequest` | [ModelsDownloadLogsRequest](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsDownloadLogsRequest.java) |
 | `models.ListTerminatedServersResponse` | [ModelsListTerminatedServersResponse](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsListTerminatedServersResponse.java) |

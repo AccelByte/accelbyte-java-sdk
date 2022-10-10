@@ -74,6 +74,10 @@ public class ModelLinkRequest extends Model {
   @JsonProperty("redirect_uri")
   private String redirectUri;
 
+  @JsonProperty("refreshToken")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String refreshToken;
+
   @JsonProperty("request_id")
   private String requestId;
 

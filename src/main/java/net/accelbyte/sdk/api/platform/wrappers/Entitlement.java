@@ -308,7 +308,8 @@ public class Entitlement {
   /**
    * @see ConsumeUserEntitlement
    */
-  public EntitlementInfo consumeUserEntitlement(ConsumeUserEntitlement input) throws Exception {
+  public TrackedEntitlementInfo consumeUserEntitlement(ConsumeUserEntitlement input)
+      throws Exception {
     HttpResponse httpResponse = null;
     try {
       httpResponse = sdk.runRequest(input);
@@ -660,7 +661,7 @@ public class Entitlement {
   /**
    * @see PublicConsumeUserEntitlement
    */
-  public EntitlementInfo publicConsumeUserEntitlement(PublicConsumeUserEntitlement input)
+  public TrackedEntitlementInfo publicConsumeUserEntitlement(PublicConsumeUserEntitlement input)
       throws Exception {
     HttpResponse httpResponse = null;
     try {

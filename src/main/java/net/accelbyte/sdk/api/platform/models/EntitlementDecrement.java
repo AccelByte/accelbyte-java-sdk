@@ -31,6 +31,10 @@ public class EntitlementDecrement extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> options;
 
+  @JsonProperty("requestId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String requestId;
+
   @JsonProperty("useCount")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer useCount;

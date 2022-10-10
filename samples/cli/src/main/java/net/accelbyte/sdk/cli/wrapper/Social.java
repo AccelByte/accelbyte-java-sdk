@@ -58,6 +58,7 @@ import picocli.CommandLine.Command;
       GetStat.class,
       DeleteStat.class,
       UpdateStat.class,
+      DeleteTiedStat.class,
       GetUserStatItems.class,
       BulkCreateUserStatItems.class,
       BulkIncUserStatItem1.class,

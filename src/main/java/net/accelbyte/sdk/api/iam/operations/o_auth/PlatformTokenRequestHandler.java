@@ -59,6 +59,7 @@ public class PlatformTokenRequestHandler extends Operation {
 
   private String platformId;
   private String deviceId;
+  private String macAddress;
   private String platformToken;
 
   /**
@@ -71,10 +72,15 @@ public class PlatformTokenRequestHandler extends Operation {
    */
   @Deprecated
   public PlatformTokenRequestHandler(
-      String namespace, String platformId, String deviceId, String platformToken) {
+      String namespace,
+      String platformId,
+      String deviceId,
+      String macAddress,
+      String platformToken) {
     this.namespace = namespace;
     this.platformId = platformId;
     this.deviceId = deviceId;
+    this.macAddress = macAddress;
     this.platformToken = platformToken;
 
     securities.add("Bearer");
@@ -97,6 +103,9 @@ public class PlatformTokenRequestHandler extends Operation {
     Map<String, Object> formDataParams = new HashMap<>();
     if (this.deviceId != null) {
       formDataParams.put("device_id", this.deviceId);
+    }
+    if (this.macAddress != null) {
+      formDataParams.put("macAddress", this.macAddress);
     }
     if (this.platformToken != null) {
       formDataParams.put("platform_token", this.platformToken);

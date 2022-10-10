@@ -271,6 +271,40 @@ public class UserProfile {
   }
 
   /**
+   * @see GetMyPrivateCustomAttributesInfo
+   */
+  public Map<String, ?> getMyPrivateCustomAttributesInfo(GetMyPrivateCustomAttributesInfo input)
+      throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
+   * @see UpdateMyPrivateCustomAttributesPartially
+   */
+  public Map<String, ?> updateMyPrivateCustomAttributesPartially(
+      UpdateMyPrivateCustomAttributesPartially input) throws Exception {
+    HttpResponse httpResponse = null;
+    try {
+      httpResponse = sdk.runRequest(input);
+      return input.parseResponse(
+          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+    } finally {
+      if (httpResponse != null && httpResponse.getPayload() != null) {
+        httpResponse.getPayload().close();
+      }
+    }
+  }
+
+  /**
    * @see GetMyZipCode
    */
   public UserZipCode getMyZipCode(GetMyZipCode input) throws Exception {
