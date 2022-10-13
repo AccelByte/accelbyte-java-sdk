@@ -184,7 +184,7 @@ public class PlatformAuthenticationV3 extends Operation {
 
   public String parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    String json = Helper.convertInputStreamToString(payload);
+    final String json = Helper.convertInputStreamToString(payload);
     if (code != 302) {
       throw new HttpResponseException(code, json);
     }

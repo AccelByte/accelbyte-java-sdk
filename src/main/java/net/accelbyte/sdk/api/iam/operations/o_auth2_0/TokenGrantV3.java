@@ -234,11 +234,12 @@ public class TokenGrantV3 extends Operation {
 
   public OauthmodelTokenWithDeviceCookieResponseV3 parseResponse(
       int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
-    String json = Helper.convertInputStreamToString(payload);
-    if (code == 200) {
-      return new OauthmodelTokenWithDeviceCookieResponseV3().createFromJson(json);
+    if (code != 200) {
+      final String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
     }
-    throw new HttpResponseException(code, json);
+    final String json = Helper.convertInputStreamToString(payload);
+    return new OauthmodelTokenWithDeviceCookieResponseV3().createFromJson(json);
   }
 
   public enum GrantType {

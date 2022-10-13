@@ -93,11 +93,12 @@ public class QueryFulfillmentHistories extends Operation {
 
   public FulfillmentHistoryPagingSlicedResult parseResponse(
       int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
-    String json = Helper.convertInputStreamToString(payload);
-    if (code == 200) {
-      return new FulfillmentHistoryPagingSlicedResult().createFromJson(json);
+    if (code != 200) {
+      final String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
     }
-    throw new HttpResponseException(code, json);
+    final String json = Helper.convertInputStreamToString(payload);
+    return new FulfillmentHistoryPagingSlicedResult().createFromJson(json);
   }
 
   @Override

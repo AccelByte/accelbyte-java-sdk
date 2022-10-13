@@ -187,7 +187,7 @@ public class AccelByteSDK {
               .codeVerifier(codeVerifier)
               .grantTypeFromEnum(TokenGrantV3.GrantType.AuthorizationCode)
               .build();
-      final OauthmodelTokenWithDeviceCookieResponseV3  token = oAuth20.tokenGrantV3(tokenGrantV3);
+      final OauthmodelTokenWithDeviceCookieResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
 
       final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
       tokenRepository.storeToken(token.getAccessToken());
@@ -217,7 +217,7 @@ public class AccelByteSDK {
           TokenGrantV3.builder()
               .grantTypeFromEnum(TokenGrantV3.GrantType.ClientCredentials)
               .build();
-      final OauthmodelTokenWithDeviceCookieResponseV3  token = oAuth20.tokenGrantV3(tokenGrantV3);
+      final OauthmodelTokenWithDeviceCookieResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
 
       final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
       tokenRepository.storeToken(token.getAccessToken());
@@ -314,7 +314,8 @@ public class AccelByteSDK {
                   .refreshToken(refreshToken)
                   .grantTypeFromEnum(TokenGrantV3.GrantType.RefreshToken)
                   .build();
-          final OauthmodelTokenWithDeviceCookieResponseV3  token = oAuth20.tokenGrantV3(tokenGrantV3);
+          final OauthmodelTokenWithDeviceCookieResponseV3 token =
+              oAuth20.tokenGrantV3(tokenGrantV3);
 
           final long expiresIn = (long) (token.getExpiresIn() * TOKEN_REFRESH_RATIO);
           final long refreshExpiresIn = (long) (token.getRefreshExpiresIn() * TOKEN_REFRESH_RATIO);

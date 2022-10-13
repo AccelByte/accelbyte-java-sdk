@@ -86,11 +86,12 @@ public class GetUserProfileInfoByPublicId extends Operation {
 
   public UserProfileInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    String json = Helper.convertInputStreamToString(payload);
-    if (code == 200) {
-      return new UserProfileInfo().createFromJson(json);
+    if (code != 200) {
+      final String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
     }
-    throw new HttpResponseException(code, json);
+    final String json = Helper.convertInputStreamToString(payload);
+    return new UserProfileInfo().createFromJson(json);
   }
 
   @Override

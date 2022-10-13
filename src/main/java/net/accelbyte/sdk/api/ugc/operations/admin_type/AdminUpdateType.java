@@ -87,10 +87,11 @@ public class AdminUpdateType extends Operation {
 
   public ModelsCreateTypeResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    String json = Helper.convertInputStreamToString(payload);
-    if (code == 200) {
-      return new ModelsCreateTypeResponse().createFromJson(json);
+    if (code != 200) {
+      final String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
     }
-    throw new HttpResponseException(code, json);
+    final String json = Helper.convertInputStreamToString(payload);
+    return new ModelsCreateTypeResponse().createFromJson(json);
   }
 }

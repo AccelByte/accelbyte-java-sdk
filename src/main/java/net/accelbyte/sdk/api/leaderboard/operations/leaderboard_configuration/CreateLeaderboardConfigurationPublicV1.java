@@ -102,10 +102,11 @@ public class CreateLeaderboardConfigurationPublicV1 extends Operation {
 
   public ModelsLeaderboardConfigReq parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    String json = Helper.convertInputStreamToString(payload);
-    if (code == 201) {
-      return new ModelsLeaderboardConfigReq().createFromJson(json);
+    if (code != 201) {
+      final String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
     }
-    throw new HttpResponseException(code, json);
+    final String json = Helper.convertInputStreamToString(payload);
+    return new ModelsLeaderboardConfigReq().createFromJson(json);
   }
 }

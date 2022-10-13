@@ -75,11 +75,12 @@ public class GetAllPartyInAllChannel extends Operation {
 
   public Map<String, List<ModelsMatchingParty>> parseResponse(
       int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
-    String json = Helper.convertInputStreamToString(payload);
-    if (code == 200) {
-      return new ObjectMapper()
-          .readValue(json, new TypeReference<Map<String, List<ModelsMatchingParty>>>() {});
+    if (code != 200) {
+      final String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
     }
-    throw new HttpResponseException(code, json);
+    final String json = Helper.convertInputStreamToString(payload);
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<Map<String, List<ModelsMatchingParty>>>() {});
   }
 }

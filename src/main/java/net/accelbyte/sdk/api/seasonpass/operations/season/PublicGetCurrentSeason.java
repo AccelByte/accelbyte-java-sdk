@@ -82,11 +82,12 @@ public class PublicGetCurrentSeason extends Operation {
 
   public LocalizedSeasonInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    String json = Helper.convertInputStreamToString(payload);
-    if (code == 200) {
-      return new LocalizedSeasonInfo().createFromJson(json);
+    if (code != 200) {
+      final String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
     }
-    throw new HttpResponseException(code, json);
+    final String json = Helper.convertInputStreamToString(payload);
+    return new LocalizedSeasonInfo().createFromJson(json);
   }
 
   @Override

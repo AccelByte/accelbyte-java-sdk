@@ -139,7 +139,7 @@ public class AdminUpdateUserPermissionV3 extends Operation {
   public void handleEmptyResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 204) {
-      String json = Helper.convertInputStreamToString(payload);
+      final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
   }

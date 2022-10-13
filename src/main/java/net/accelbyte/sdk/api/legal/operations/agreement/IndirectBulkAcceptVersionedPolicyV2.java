@@ -116,10 +116,11 @@ public class IndirectBulkAcceptVersionedPolicyV2 extends Operation {
 
   public AcceptAgreementResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    String json = Helper.convertInputStreamToString(payload);
-    if (code == 201) {
-      return new AcceptAgreementResponse().createFromJson(json);
+    if (code != 201) {
+      final String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
     }
-    throw new HttpResponseException(code, json);
+    final String json = Helper.convertInputStreamToString(payload);
+    return new AcceptAgreementResponse().createFromJson(json);
   }
 }

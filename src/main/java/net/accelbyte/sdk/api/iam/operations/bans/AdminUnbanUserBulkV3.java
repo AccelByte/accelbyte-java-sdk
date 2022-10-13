@@ -82,10 +82,11 @@ public class AdminUnbanUserBulkV3 extends Operation {
 
   public ModelListBulkUserBanResponseV3 parseResponse(
       int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
-    String json = Helper.convertInputStreamToString(payload);
-    if (code == 201) {
-      return new ModelListBulkUserBanResponseV3().createFromJson(json);
+    if (code != 201) {
+      final String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
     }
-    throw new HttpResponseException(code, json);
+    final String json = Helper.convertInputStreamToString(payload);
+    return new ModelListBulkUserBanResponseV3().createFromJson(json);
   }
 }

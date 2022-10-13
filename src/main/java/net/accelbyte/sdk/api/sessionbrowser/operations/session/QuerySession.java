@@ -129,11 +129,12 @@ public class QuerySession extends Operation {
 
   public ModelsSessionQueryResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    String json = Helper.convertInputStreamToString(payload);
-    if (code == 200) {
-      return new ModelsSessionQueryResponse().createFromJson(json);
+    if (code != 200) {
+      final String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
     }
-    throw new HttpResponseException(code, json);
+    final String json = Helper.convertInputStreamToString(payload);
+    return new ModelsSessionQueryResponse().createFromJson(json);
   }
 
   @Override
