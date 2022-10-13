@@ -244,7 +244,7 @@ class TestCore {
         op.parseResponse(res.getCode(), res.getContentType(), res.getPayload());
     assertNotNull(result);
     assertNotNull(result.getHeaders().get(HttpHeaders.X_AMZN_TRACE_ID));
-    final String pattern = "Root=.+";
+    final String pattern = (httpbinConfigRepository.getAmazonTraceIdVersion() + "-([0-9a-f]+)-([0-9a-f]+)");
     final Pattern r = Pattern.compile(pattern);
     final Matcher m = r.matcher(result.getHeaders().get(HttpHeaders.X_AMZN_TRACE_ID));
     assertTrue(m.find());
