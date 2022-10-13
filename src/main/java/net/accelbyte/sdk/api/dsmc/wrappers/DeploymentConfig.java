@@ -25,80 +25,45 @@ public class DeploymentConfig {
    * @see GetAllDeployment
    */
   public ModelsListDeploymentResponse getAllDeployment(GetAllDeployment input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see GetDeployment
    */
   public ModelsDeploymentWithOverride getDeployment(GetDeployment input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see CreateDeployment
    */
   public ModelsDeploymentWithOverride createDeployment(CreateDeployment input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see DeleteDeployment
    */
   public void deleteDeployment(DeleteDeployment input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      input.handleEmptyResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see UpdateDeployment
    */
   public ModelsDeploymentWithOverride updateDeployment(UpdateDeployment input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
@@ -106,16 +71,9 @@ public class DeploymentConfig {
    */
   public ModelsDeploymentWithOverride createRootRegionOverride(CreateRootRegionOverride input)
       throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
@@ -123,16 +81,9 @@ public class DeploymentConfig {
    */
   public ModelsDeploymentWithOverride deleteRootRegionOverride(DeleteRootRegionOverride input)
       throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
@@ -140,16 +91,9 @@ public class DeploymentConfig {
    */
   public ModelsDeploymentWithOverride updateRootRegionOverride(UpdateRootRegionOverride input)
       throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
@@ -157,16 +101,9 @@ public class DeploymentConfig {
    */
   public ModelsDeploymentWithOverride createDeploymentOverride(CreateDeploymentOverride input)
       throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
@@ -174,16 +111,9 @@ public class DeploymentConfig {
    */
   public ModelsDeploymentWithOverride deleteDeploymentOverride(DeleteDeploymentOverride input)
       throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
@@ -191,16 +121,9 @@ public class DeploymentConfig {
    */
   public ModelsDeploymentWithOverride updateDeploymentOverride(UpdateDeploymentOverride input)
       throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
@@ -208,16 +131,9 @@ public class DeploymentConfig {
    */
   public ModelsDeploymentWithOverride createOverrideRegionOverride(
       CreateOverrideRegionOverride input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
@@ -225,16 +141,9 @@ public class DeploymentConfig {
    */
   public ModelsDeploymentWithOverride deleteOverrideRegionOverride(
       DeleteOverrideRegionOverride input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
@@ -242,15 +151,8 @@ public class DeploymentConfig {
    */
   public ModelsDeploymentWithOverride updateOverrideRegionOverride(
       UpdateOverrideRegionOverride input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 }

@@ -26,111 +26,62 @@ public class Currency {
    * @see ListCurrencies
    */
   public List<CurrencyInfo> listCurrencies(ListCurrencies input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see CreateCurrency
    */
   public CurrencyInfo createCurrency(CreateCurrency input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see UpdateCurrency
    */
   public CurrencyInfo updateCurrency(UpdateCurrency input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see DeleteCurrency
    */
   public CurrencyInfo deleteCurrency(DeleteCurrency input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see GetCurrencyConfig
    */
   public CurrencyConfig getCurrencyConfig(GetCurrencyConfig input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see GetCurrencySummary
    */
   public CurrencySummary getCurrencySummary(GetCurrencySummary input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see PublicListCurrencies
    */
   public List<CurrencyInfo> publicListCurrencies(PublicListCurrencies input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 }

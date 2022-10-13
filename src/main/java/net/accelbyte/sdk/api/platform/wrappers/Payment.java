@@ -27,16 +27,9 @@ public class Payment {
    */
   public PaymentNotificationPagingSlicedResult queryPaymentNotifications(
       QueryPaymentNotifications input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
@@ -44,64 +37,36 @@ public class Payment {
    */
   public PaymentOrderPagingSlicedResult queryPaymentOrders(QueryPaymentOrders input)
       throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see ListExtOrderNoByExtTxId
    */
   public List<String> listExtOrderNoByExtTxId(ListExtOrderNoByExtTxId input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see GetPaymentOrder
    */
   public PaymentOrderInfo getPaymentOrder(GetPaymentOrder input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see ChargePaymentOrder
    */
   public PaymentOrderInfo chargePaymentOrder(ChargePaymentOrder input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
@@ -109,16 +74,9 @@ public class Payment {
    */
   public NotificationProcessResult simulatePaymentOrderNotification(
       SimulatePaymentOrderNotification input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
@@ -126,47 +84,26 @@ public class Payment {
    */
   public PaymentOrderChargeStatus getPaymentOrderChargeStatus(GetPaymentOrderChargeStatus input)
       throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see CreateUserPaymentOrder
    */
   public PaymentOrderInfo createUserPaymentOrder(CreateUserPaymentOrder input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see RefundUserPaymentOrder
    */
   public PaymentOrderInfo refundUserPaymentOrder(RefundUserPaymentOrder input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 }

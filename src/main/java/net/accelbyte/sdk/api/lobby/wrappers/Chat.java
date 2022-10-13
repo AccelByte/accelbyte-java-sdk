@@ -27,32 +27,18 @@ public class Chat {
    */
   public List<ModelChatMessageResponse> personalChatHistory(PersonalChatHistory input)
       throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see AdminChatHistory
    */
   public List<ModelChatMessageResponse> adminChatHistory(AdminChatHistory input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
@@ -60,15 +46,8 @@ public class Chat {
    */
   public List<ModelChatMessageResponse> getPersonalChatHistoryV1Public(
       GetPersonalChatHistoryV1Public input) throws Exception {
-    HttpResponse httpResponse = null;
-    try {
-      httpResponse = sdk.runRequest(input);
-      return input.parseResponse(
-          httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-    } finally {
-      if (httpResponse != null && httpResponse.getPayload() != null) {
-        httpResponse.getPayload().close();
-      }
-    }
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 }

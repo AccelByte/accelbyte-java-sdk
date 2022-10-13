@@ -22,8 +22,7 @@ class HttpbinConfigRepository implements ConfigRepository {
   @Override
   public String getBaseURL() {
     String binUrl = System.getenv("AB_HTTPBIN_URL");
-    if (binUrl == null)
-      binUrl = "https://httpbin.org";
+    if (binUrl == null) binUrl = "https://httpbin.org";
     return binUrl;
   }
 

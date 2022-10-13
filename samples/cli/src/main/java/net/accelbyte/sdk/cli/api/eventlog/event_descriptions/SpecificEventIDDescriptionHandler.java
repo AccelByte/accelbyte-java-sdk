@@ -48,30 +48,30 @@ public class SpecificEventIDDescriptionHandler implements Callable<Integer> {
   @Override
   public Integer call() {
     try {
-      OkhttpClient httpClient = new OkhttpClient();
+      final OkhttpClient httpClient = new OkhttpClient();
       if (logging) {
         httpClient.setLogger(new OkhttpLogger());
       }
-      AccelByteSDK sdk =
+      final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       EventDescriptions wrapper = new EventDescriptions(sdk);
-      net.accelbyte.sdk.api.eventlog.operations.event_descriptions.SpecificEventIDDescriptionHandler
+      final net.accelbyte.sdk.api.eventlog.operations.event_descriptions
+              .SpecificEventIDDescriptionHandler
           operation =
               net.accelbyte.sdk.api.eventlog.operations.event_descriptions
                   .SpecificEventIDDescriptionHandler.builder()
                   .eventIds(eventIds)
                   .build();
       ModelsMultipleEventID response = wrapper.specificEventIDDescriptionHandler(operation);
-      String responseString =
+      final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful with response below:\n{}", responseString);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
-      log.error("HttpResponseException occur with message below:\n{}", e.getMessage());
-      System.err.print(e.getHttpCode());
+      log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);
     } catch (Exception e) {
-      log.error("Exception occur with message below:\n{}", e.getMessage());
+      log.error("An exception was thrown", e);
     }
     return 1;
   }

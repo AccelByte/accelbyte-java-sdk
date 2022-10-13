@@ -131,7 +131,11 @@ public class Helper {
   }
 
   public static String convertInputStreamToString(InputStream is) throws IOException {
-    return IOUtils.toString(is, StandardCharsets.UTF_8.name());
+    try {
+      return IOUtils.toString(is, StandardCharsets.UTF_8.name());
+    } finally {
+      is.close();
+    }
   }
 
   public static String generateCodeVerifier() {

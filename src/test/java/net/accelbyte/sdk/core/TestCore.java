@@ -244,7 +244,8 @@ class TestCore {
         op.parseResponse(res.getCode(), res.getContentType(), res.getPayload());
     assertNotNull(result);
     assertNotNull(result.getHeaders().get(HttpHeaders.X_AMZN_TRACE_ID));
-    final String pattern = (httpbinConfigRepository.getAmazonTraceIdVersion() + "-([0-9a-f]+)-([0-9a-f]+)");
+    final String pattern =
+        (httpbinConfigRepository.getAmazonTraceIdVersion() + "-([0-9a-f]+)-([0-9a-f]+)");
     final Pattern r = Pattern.compile(pattern);
     final Matcher m = r.matcher(result.getHeaders().get(HttpHeaders.X_AMZN_TRACE_ID));
     assertTrue(m.find());
@@ -471,7 +472,6 @@ class TestCore {
     final HttpResponse res = sdk.runRequest(op);
     assertNotNull(res);
     assertEquals(200, res.getCode());
-    assertNull(res.getPayload());
   }
 
   @Test
@@ -562,7 +562,6 @@ class TestCore {
     HttpResponse res = sdk.runRequest(op);
     assertNotNull(res);
     assertEquals(input, res.getCode());
-    assertNull(res.getPayload());
   }
 
   @Test

@@ -8,6 +8,8 @@
 
 package net.accelbyte.sdk.cli.api.platform.reward;
 
+import java.io.File;
+import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.platform.models.*;
@@ -47,26 +49,29 @@ public class ExportRewards implements Callable<Integer> {
   @Override
   public Integer call() {
     try {
-      OkhttpClient httpClient = new OkhttpClient();
+      final OkhttpClient httpClient = new OkhttpClient();
       if (logging) {
         httpClient.setLogger(new OkhttpLogger());
       }
-      AccelByteSDK sdk =
+      final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       Reward wrapper = new Reward(sdk);
-      net.accelbyte.sdk.api.platform.operations.reward.ExportRewards operation =
+      final net.accelbyte.sdk.api.platform.operations.reward.ExportRewards operation =
           net.accelbyte.sdk.api.platform.operations.reward.ExportRewards.builder()
               .namespace(namespace)
               .build();
-      wrapper.exportRewards(operation);
-      log.info("Operation successful");
+      final InputStream response = wrapper.exportRewards(operation);
+      final File outputFile = new File("response.out");
+      java.nio.file.Files.copy(
+          response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+      org.apache.commons.io.IOUtils.closeQuietly(response);
+      log.info("Operation successful\n{}", "response.out");
       return 0;
     } catch (HttpResponseException e) {
-      log.error("HttpResponseException occur with message below:\n{}", e.getMessage());
-      System.err.print(e.getHttpCode());
+      log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);
     } catch (Exception e) {
-      log.error("Exception occur with message below:\n{}", e.getMessage());
+      log.error("An exception was thrown", e);
     }
     return 1;
   }

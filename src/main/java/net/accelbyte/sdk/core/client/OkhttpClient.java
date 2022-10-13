@@ -113,25 +113,25 @@ public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
   }
 
   private static HttpResponse createResponse(Response response) {
-    String responseContentType = "application/json"; // Default
+    String contentType = "application/json"; // Default
     InputStream payload = null;
 
     if (response.isRedirect()) {
       final String location = response.header("Location");
       if (location == null) {
-        throw new IllegalArgumentException("Redirect response location header cannot be null");
+        throw new IllegalArgumentException("Redirect response location header must not be null");
       }
-      byte[] locationBytes = location.getBytes(StandardCharsets.UTF_8);
+      final byte[] locationBytes = location.getBytes(StandardCharsets.UTF_8);
       payload = new ByteArrayInputStream(locationBytes);
     } else {
       final ResponseBody body = response.body();
-      if (body != null && body.contentLength() != 0) {
-        responseContentType = String.valueOf(body.contentType());
+      if (body != null) {
+        contentType = String.valueOf(body.contentType());
         payload = body.byteStream();
       }
     }
 
-    return new HttpResponse(response.code(), responseContentType, payload);
+    return new HttpResponse(response.code(), contentType, payload);
   }
 
   @Override

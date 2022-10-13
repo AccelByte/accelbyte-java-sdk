@@ -9,6 +9,8 @@
 package net.accelbyte.sdk.cli.api.platform.store;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
+import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.platform.models.*;
@@ -58,28 +60,31 @@ public class ExportStore1 implements Callable<Integer> {
   @Override
   public Integer call() {
     try {
-      OkhttpClient httpClient = new OkhttpClient();
+      final OkhttpClient httpClient = new OkhttpClient();
       if (logging) {
         httpClient.setLogger(new OkhttpLogger());
       }
-      AccelByteSDK sdk =
+      final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       Store wrapper = new Store(sdk);
-      net.accelbyte.sdk.api.platform.operations.store.ExportStore1 operation =
+      final net.accelbyte.sdk.api.platform.operations.store.ExportStore1 operation =
           net.accelbyte.sdk.api.platform.operations.store.ExportStore1.builder()
               .namespace(namespace)
               .storeId(storeId)
               .body(new ObjectMapper().readValue(body, ExportStoreRequest.class))
               .build();
-      wrapper.exportStore1(operation);
-      log.info("Operation successful");
+      final InputStream response = wrapper.exportStore1(operation);
+      final File outputFile = new File("response.out");
+      java.nio.file.Files.copy(
+          response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+      org.apache.commons.io.IOUtils.closeQuietly(response);
+      log.info("Operation successful\n{}", "response.out");
       return 0;
     } catch (HttpResponseException e) {
-      log.error("HttpResponseException occur with message below:\n{}", e.getMessage());
-      System.err.print(e.getHttpCode());
+      log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);
     } catch (Exception e) {
-      log.error("Exception occur with message below:\n{}", e.getMessage());
+      log.error("An exception was thrown", e);
     }
     return 1;
   }

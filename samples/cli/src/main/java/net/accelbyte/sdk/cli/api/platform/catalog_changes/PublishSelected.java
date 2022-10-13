@@ -53,29 +53,28 @@ public class PublishSelected implements Callable<Integer> {
   @Override
   public Integer call() {
     try {
-      OkhttpClient httpClient = new OkhttpClient();
+      final OkhttpClient httpClient = new OkhttpClient();
       if (logging) {
         httpClient.setLogger(new OkhttpLogger());
       }
-      AccelByteSDK sdk =
+      final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       CatalogChanges wrapper = new CatalogChanges(sdk);
-      net.accelbyte.sdk.api.platform.operations.catalog_changes.PublishSelected operation =
+      final net.accelbyte.sdk.api.platform.operations.catalog_changes.PublishSelected operation =
           net.accelbyte.sdk.api.platform.operations.catalog_changes.PublishSelected.builder()
               .namespace(namespace)
               .storeId(storeId)
               .build();
       StoreInfo response = wrapper.publishSelected(operation);
-      String responseString =
+      final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful with response below:\n{}", responseString);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
-      log.error("HttpResponseException occur with message below:\n{}", e.getMessage());
-      System.err.print(e.getHttpCode());
+      log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);
     } catch (Exception e) {
-      log.error("Exception occur with message below:\n{}", e.getMessage());
+      log.error("An exception was thrown", e);
     }
     return 1;
   }

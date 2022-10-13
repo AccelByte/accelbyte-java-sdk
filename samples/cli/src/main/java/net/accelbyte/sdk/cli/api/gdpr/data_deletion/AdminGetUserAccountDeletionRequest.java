@@ -53,15 +53,15 @@ public class AdminGetUserAccountDeletionRequest implements Callable<Integer> {
   @Override
   public Integer call() {
     try {
-      OkhttpClient httpClient = new OkhttpClient();
+      final OkhttpClient httpClient = new OkhttpClient();
       if (logging) {
         httpClient.setLogger(new OkhttpLogger());
       }
-      AccelByteSDK sdk =
+      final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       DataDeletion wrapper = new DataDeletion(sdk);
-      net.accelbyte.sdk.api.gdpr.operations.data_deletion.AdminGetUserAccountDeletionRequest
+      final net.accelbyte.sdk.api.gdpr.operations.data_deletion.AdminGetUserAccountDeletionRequest
           operation =
               net.accelbyte.sdk.api.gdpr.operations.data_deletion.AdminGetUserAccountDeletionRequest
                   .builder()
@@ -69,15 +69,14 @@ public class AdminGetUserAccountDeletionRequest implements Callable<Integer> {
                   .userId(userId)
                   .build();
       ModelsDeletionData response = wrapper.adminGetUserAccountDeletionRequest(operation);
-      String responseString =
+      final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful with response below:\n{}", responseString);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
-      log.error("HttpResponseException occur with message below:\n{}", e.getMessage());
-      System.err.print(e.getHttpCode());
+      log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);
     } catch (Exception e) {
-      log.error("Exception occur with message below:\n{}", e.getMessage());
+      log.error("An exception was thrown", e);
     }
     return 1;
   }

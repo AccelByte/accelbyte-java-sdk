@@ -56,16 +56,16 @@ touch "tmp.dat"
 #- 2 AdminListAchievements
 ./ng net.accelbyte.sdk.cli.Main achievement adminListAchievements \
     --namespace "$AB_NAMESPACE" \
-    --limit '68' \
-    --offset '50' \
-    --sortBy 'listOrder:asc' \
+    --limit '66' \
+    --offset '18' \
+    --sortBy 'createdAt' \
     > test.out 2>&1
 eval_tap $? 2 'AdminListAchievements' test.out
 
 #- 3 AdminCreateNewAchievement
 ./ng net.accelbyte.sdk.cli.Main achievement adminCreateNewAchievement \
     --namespace "$AB_NAMESPACE" \
-    --body '{"achievementCode": "9zitN53J", "defaultLanguage": "RMRVYSyt", "description": {"luoPsj3i": "ggTzJK6T", "3SaGbeP5": "MhHrQA0P", "7ptdJJoC": "bh2X7oJD"}, "goalValue": 0.9126522865837803, "hidden": false, "incremental": false, "lockedIcons": [{"slug": "m1FL2IdX", "url": "XiV2j1qW"}, {"slug": "iRfYcsbb", "url": "xfESWAEp"}, {"slug": "4pS4dUc9", "url": "Et6GRWpf"}], "name": {"bpQHQ5gc": "NMxbPXCp", "x1r2mBId": "Qsajb4Ba", "CGd5oVDO": "hraZu5iT"}, "statCode": "EavJxtMm", "tags": ["1wgLdnxY", "Mmlp0RfQ", "WhooG33n"], "unlockedIcons": [{"slug": "sBJnXA4K", "url": "GRSiYAS2"}, {"slug": "IWz0bFRh", "url": "0ievdc1T"}, {"slug": "ILSphi4I", "url": "YoFKK5t9"}]}' \
+    --body '{"achievementCode": "KQGn6EnR", "defaultLanguage": "lY9XjAM3", "description": {"bQyRyx5W": "aEQVt74R", "apqqTuPl": "EmWGLR7H", "VYmUdQBA": "rJpIOMMW"}, "goalValue": 0.14044791060762596, "hidden": false, "incremental": false, "lockedIcons": [{"slug": "X2vPkpep", "url": "WcxezvEB"}, {"slug": "VAYl60UL", "url": "huLPVFXT"}, {"slug": "c7E5BJuV", "url": "wcaIoWQi"}], "name": {"qh7MN5sq": "saAgOydj", "m85phoef": "cItgItMh", "5VVr2H88": "hnL9fmyZ"}, "statCode": "PX8wI0kU", "tags": ["bs5KAlvI", "5yAwWv4j", "ZSmXbZBZ"], "unlockedIcons": [{"slug": "YyNBT2b5", "url": "xejoAQgd"}, {"slug": "RNNV9HXy", "url": "q8orNWbO"}, {"slug": "sd9UyLk6", "url": "RzVuFYG5"}]}' \
     > test.out 2>&1
 eval_tap $? 3 'AdminCreateNewAchievement' test.out
 
@@ -79,99 +79,99 @@ eval_tap $? 4 'ExportAchievements' test.out
 ./ng net.accelbyte.sdk.cli.Main achievement importAchievements \
     --namespace "$AB_NAMESPACE" \
     --file 'tmp.dat' \
-    --strategy 'b3R4xrkq' \
+    --strategy 'oIhXIR9e' \
     > test.out 2>&1
 eval_tap $? 5 'ImportAchievements' test.out
 
 #- 6 AdminGetAchievement
 ./ng net.accelbyte.sdk.cli.Main achievement adminGetAchievement \
-    --achievementCode 'aPwP7tfK' \
+    --achievementCode 'JOuetEtz' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 6 'AdminGetAchievement' test.out
 
 #- 7 AdminUpdateAchievement
 ./ng net.accelbyte.sdk.cli.Main achievement adminUpdateAchievement \
-    --achievementCode 'l8NXiXpb' \
+    --achievementCode 'fwksXgub' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"defaultLanguage": "zKEw2tqc", "description": {"CFmJN2Zz": "MRKENfSA", "dgoKLS3L": "Qpl6560u", "3o2wqYgr": "gbzeDhjr"}, "goalValue": 0.5281427983881538, "hidden": false, "incremental": true, "lockedIcons": [{"slug": "vjXQzl13", "url": "1q1Yw9jZ"}, {"slug": "iAsstZ1I", "url": "44n3QmBt"}, {"slug": "5XPp7zvX", "url": "SMCzPtAZ"}], "name": {"7gtvQJGl": "do8iJZR9", "H4pW2S27": "XiejmoAj", "QpAKQQAe": "ibP3PjRA"}, "statCode": "MF7rrAY0", "tags": ["muQfnogm", "16eXgA5S", "dfzh87IN"], "unlockedIcons": [{"slug": "CI5XvoT5", "url": "8MCY9Cci"}, {"slug": "5N6CuqAF", "url": "rLnbU52o"}, {"slug": "fpQJmbZX", "url": "Ok6NDSKl"}]}' \
+    --body '{"defaultLanguage": "N5LIxZIM", "description": {"PiK4mtmL": "edNFp6F3", "A7a0LSQr": "e89KrKFE", "5Gwq4VhF": "Gwqrc9Cf"}, "goalValue": 0.9540316818506807, "hidden": false, "incremental": true, "lockedIcons": [{"slug": "XIvi9nnL", "url": "R14wYiMu"}, {"slug": "2gv0flGZ", "url": "Q9rgEc4T"}, {"slug": "AzKayhSp", "url": "mi9GLjUK"}], "name": {"5EJzS6CJ": "aMazSQnb", "8O6h1vYw": "JdxoyWbt", "wLaxhtr2": "RHRUze7Q"}, "statCode": "NRrFGg87", "tags": ["ElP7Lr67", "6F1RwXGA", "mPts8hbh"], "unlockedIcons": [{"slug": "qXTPRLFz", "url": "ZKgFb3rC"}, {"slug": "EP0yBgYU", "url": "lNhIk9NW"}, {"slug": "UUu6xkZ0", "url": "9yQeqJb0"}]}' \
     > test.out 2>&1
 eval_tap $? 7 'AdminUpdateAchievement' test.out
 
 #- 8 AdminDeleteAchievement
 ./ng net.accelbyte.sdk.cli.Main achievement adminDeleteAchievement \
-    --achievementCode 'GXvLBWZg' \
+    --achievementCode '8Rm89SSq' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 8 'AdminDeleteAchievement' test.out
 
 #- 9 AdminUpdateAchievementListOrder
 ./ng net.accelbyte.sdk.cli.Main achievement adminUpdateAchievementListOrder \
-    --achievementCode 'VWHphL1c' \
+    --achievementCode '9ZnLss9C' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"targetOrder": 60}' \
+    --body '{"targetOrder": 25}' \
     > test.out 2>&1
 eval_tap $? 9 'AdminUpdateAchievementListOrder' test.out
 
 #- 10 AdminListUserAchievements
 ./ng net.accelbyte.sdk.cli.Main achievement adminListUserAchievements \
     --namespace "$AB_NAMESPACE" \
-    --userId 'uzNQEDQF' \
-    --limit '70' \
-    --offset '78' \
+    --userId 'zVahsITT' \
+    --limit '34' \
+    --offset '15' \
     --preferUnlocked  \
     > test.out 2>&1
 eval_tap $? 10 'AdminListUserAchievements' test.out
 
 #- 11 AdminResetAchievement
 ./ng net.accelbyte.sdk.cli.Main achievement adminResetAchievement \
-    --achievementCode 'n2vV7tJT' \
+    --achievementCode 'Ht9WA3fS' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'GGVvsW0Z' \
+    --userId 'eEb4Sv76' \
     > test.out 2>&1
 eval_tap $? 11 'AdminResetAchievement' test.out
 
 #- 12 AdminUnlockAchievement
 ./ng net.accelbyte.sdk.cli.Main achievement adminUnlockAchievement \
-    --achievementCode 'bSRnzXIZ' \
+    --achievementCode 'umbummgb' \
     --namespace "$AB_NAMESPACE" \
-    --userId '7dAYyAH2' \
+    --userId 'Wma0fvFF' \
     > test.out 2>&1
 eval_tap $? 12 'AdminUnlockAchievement' test.out
 
 #- 13 PublicListAchievements
 ./ng net.accelbyte.sdk.cli.Main achievement publicListAchievements \
     --namespace "$AB_NAMESPACE" \
-    --limit '88' \
-    --offset '68' \
-    --sortBy 'updatedAt' \
-    --language 'OtCUY0Bs' \
+    --limit '82' \
+    --offset '97' \
+    --sortBy 'createdAt:asc' \
+    --language 'cdmLu7H3' \
     > test.out 2>&1
 eval_tap $? 13 'PublicListAchievements' test.out
 
 #- 14 PublicGetAchievement
 ./ng net.accelbyte.sdk.cli.Main achievement publicGetAchievement \
-    --achievementCode 'dAJjPRGJ' \
+    --achievementCode 'uYJvDBYv' \
     --namespace "$AB_NAMESPACE" \
-    --language '4Pam33um' \
+    --language 'WiPl3zWy' \
     > test.out 2>&1
 eval_tap $? 14 'PublicGetAchievement' test.out
 
 #- 15 PublicListUserAchievements
 ./ng net.accelbyte.sdk.cli.Main achievement publicListUserAchievements \
     --namespace "$AB_NAMESPACE" \
-    --userId 'rIC3u8JN' \
-    --limit '3' \
-    --offset '66' \
+    --userId 'sNjDHp5R' \
+    --limit '40' \
+    --offset '45' \
     --preferUnlocked  \
     > test.out 2>&1
 eval_tap $? 15 'PublicListUserAchievements' test.out
 
 #- 16 PublicUnlockAchievement
 ./ng net.accelbyte.sdk.cli.Main achievement publicUnlockAchievement \
-    --achievementCode 'o0Ml5lrL' \
+    --achievementCode 'MQ6pbp5d' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'PomX7qX7' \
+    --userId 'UWhPVVEM' \
     > test.out 2>&1
 eval_tap $? 16 'PublicUnlockAchievement' test.out
 

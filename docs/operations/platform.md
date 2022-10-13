@@ -209,6 +209,7 @@
 | `/platform/admin/namespaces/{namespace}/iap/config/xbl/cert` | PUT | UpdateXblBPCertFile | [UpdateXblBPCertFile](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/UpdateXblBPCertFile.java) | [UpdateXblBPCertFile](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/UpdateXblBPCertFile.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/iap` | GET | QueryUserIAPOrders | [QueryUserIAPOrders](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/QueryUserIAPOrders.java) | [QueryUserIAPOrders](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/QueryUserIAPOrders.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/iap/all` | GET | QueryAllUserIAPOrders | [QueryAllUserIAPOrders](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/QueryAllUserIAPOrders.java) | [QueryAllUserIAPOrders](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/QueryAllUserIAPOrders.java) |
+| `/platform/admin/namespaces/{namespace}/users/{userId}/iap/consume/history` | GET | QueryUserIAPConsumeHistory | [QueryUserIAPConsumeHistory](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/QueryUserIAPConsumeHistory.java) | [QueryUserIAPConsumeHistory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/QueryUserIAPConsumeHistory.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/iap/mock/receipt` | PUT | MockFulfillIAPItem | [MockFulfillIAPItem](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/MockFulfillIAPItem.java) | [MockFulfillIAPItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/MockFulfillIAPItem.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/apple/receipt` | PUT | PublicFulfillAppleIAPItem | [PublicFulfillAppleIAPItem](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/PublicFulfillAppleIAPItem.java) | [PublicFulfillAppleIAPItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/PublicFulfillAppleIAPItem.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/epicgames/sync` | PUT | SyncEpicGamesInventory | [SyncEpicGamesInventory](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/SyncEpicGamesInventory.java) | [SyncEpicGamesInventory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/SyncEpicGamesInventory.java) |
@@ -514,6 +515,7 @@
 | `CategoryInfo` | [CategoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/CategoryInfo.java) |
 | `CategoryUpdate` | [CategoryUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/CategoryUpdate.java) |
 | `CheckoutConfig` | [CheckoutConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/CheckoutConfig.java) |
+| `ClientRequestParameter` | [ClientRequestParameter](../../src/main/java/net/accelbyte/sdk/api/platform/models/ClientRequestParameter.java) |
 | `CodeCreate` | [CodeCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/CodeCreate.java) |
 | `CodeCreateResult` | [CodeCreateResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/CodeCreateResult.java) |
 | `CodeInfo` | [CodeInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/CodeInfo.java) |
@@ -521,6 +523,7 @@
 | `ConditionGroup` | [ConditionGroup](../../src/main/java/net/accelbyte/sdk/api/platform/models/ConditionGroup.java) |
 | `ConditionGroupValidateResult` | [ConditionGroupValidateResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/ConditionGroupValidateResult.java) |
 | `ConditionMatchResult` | [ConditionMatchResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/ConditionMatchResult.java) |
+| `ConsumeItem` | [ConsumeItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/ConsumeItem.java) |
 | `CreditRequest` | [CreditRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/CreditRequest.java) |
 | `CreditSummary` | [CreditSummary](../../src/main/java/net/accelbyte/sdk/api/platform/models/CreditSummary.java) |
 | `CurrencyConfig` | [CurrencyConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/CurrencyConfig.java) |
@@ -579,6 +582,8 @@
 | `GoogleReceiptResolveResult` | [GoogleReceiptResolveResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/GoogleReceiptResolveResult.java) |
 | `GrantSubscriptionDaysRequest` | [GrantSubscriptionDaysRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/GrantSubscriptionDaysRequest.java) |
 | `HierarchicalCategoryInfo` | [HierarchicalCategoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/HierarchicalCategoryInfo.java) |
+| `IAPConsumeHistoryInfo` | [IAPConsumeHistoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/IAPConsumeHistoryInfo.java) |
+| `IAPConsumeHistoryPagingSlicedResult` | [IAPConsumeHistoryPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/IAPConsumeHistoryPagingSlicedResult.java) |
 | `IAPItemConfigInfo` | [IAPItemConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/IAPItemConfigInfo.java) |
 | `IAPItemConfigUpdate` | [IAPItemConfigUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/IAPItemConfigUpdate.java) |
 | `IAPItemEntry` | [IAPItemEntry](../../src/main/java/net/accelbyte/sdk/api/platform/models/IAPItemEntry.java) |
@@ -693,6 +698,7 @@
 | `RedeemResult` | [RedeemResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/RedeemResult.java) |
 | `RedeemableItem` | [RedeemableItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/RedeemableItem.java) |
 | `RegionDataItem` | [RegionDataItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/RegionDataItem.java) |
+| `RequestHistory` | [RequestHistory](../../src/main/java/net/accelbyte/sdk/api/platform/models/RequestHistory.java) |
 | `Requirement` | [Requirement](../../src/main/java/net/accelbyte/sdk/api/platform/models/Requirement.java) |
 | `RewardCondition` | [RewardCondition](../../src/main/java/net/accelbyte/sdk/api/platform/models/RewardCondition.java) |
 | `RewardCreate` | [RewardCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/RewardCreate.java) |

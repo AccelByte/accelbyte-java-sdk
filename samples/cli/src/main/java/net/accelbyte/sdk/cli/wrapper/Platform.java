@@ -246,6 +246,7 @@ import picocli.CommandLine.Command;
       FulfillRewards.class,
       QueryUserIAPOrders.class,
       QueryAllUserIAPOrders.class,
+      QueryUserIAPConsumeHistory.class,
       MockFulfillIAPItem.class,
       QueryUserOrders.class,
       AdminCreateUserOrder.class,

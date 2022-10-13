@@ -53,15 +53,15 @@ public class ClaimServer implements Callable<Integer> {
   @Override
   public Integer call() {
     try {
-      OkhttpClient httpClient = new OkhttpClient();
+      final OkhttpClient httpClient = new OkhttpClient();
       if (logging) {
         httpClient.setLogger(new OkhttpLogger());
       }
-      AccelByteSDK sdk =
+      final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       Session wrapper = new Session(sdk);
-      net.accelbyte.sdk.api.dsmc.operations.session.ClaimServer operation =
+      final net.accelbyte.sdk.api.dsmc.operations.session.ClaimServer operation =
           net.accelbyte.sdk.api.dsmc.operations.session.ClaimServer.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsClaimSessionRequest.class))
@@ -70,10 +70,9 @@ public class ClaimServer implements Callable<Integer> {
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
-      log.error("HttpResponseException occur with message below:\n{}", e.getMessage());
-      System.err.print(e.getHttpCode());
+      log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);
     } catch (Exception e) {
-      log.error("Exception occur with message below:\n{}", e.getMessage());
+      log.error("An exception was thrown", e);
     }
     return 1;
   }
