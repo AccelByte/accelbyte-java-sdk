@@ -10,6 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.io.File;
+import java.io.InputStream;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
 import net.accelbyte.sdk.api.iam.models.ModelUserResponseV3;
@@ -23,6 +26,7 @@ import net.accelbyte.sdk.api.social.models.StatUpdate;
 import net.accelbyte.sdk.api.social.models.UserStatItemPagingSlicedResult;
 import net.accelbyte.sdk.api.social.operations.stat_configuration.CreateStat;
 import net.accelbyte.sdk.api.social.operations.stat_configuration.DeleteStat;
+import net.accelbyte.sdk.api.social.operations.stat_configuration.ExportStats;
 import net.accelbyte.sdk.api.social.operations.stat_configuration.GetStat;
 import net.accelbyte.sdk.api.social.operations.stat_configuration.UpdateStat;
 import net.accelbyte.sdk.api.social.operations.user_statistic.CreateUserStatItem;
@@ -112,6 +116,29 @@ public class TestIntegrationServiceSocial extends TestIntegration {
 
     assertNotNull(updateStatResult);
     assertEquals(statDescriptionUpdated, updateStatResult.getDescription());
+
+    final File exportStatsFile = new File("export-stats.json");
+
+    if (exportStatsFile.exists()) {
+      exportStatsFile.delete();
+    }
+
+    exportStatsFile.deleteOnExit();
+
+    // CASE Export statistics
+
+    final InputStream exportStatsResult =
+        statConfigWrapper.exportStats(ExportStats.builder().namespace(namespace).build());
+    java.nio.file.Files.copy(
+        exportStatsResult,
+        exportStatsFile.toPath(),
+        java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+    org.apache.commons.io.IOUtils.closeQuietly(exportStatsResult);
+
+    // ESAC
+
+    assertTrue(exportStatsFile.exists());
+    assertTrue(Files.size(exportStatsFile.toPath()) > 0);
 
     // CASE Delete a statistic
 
