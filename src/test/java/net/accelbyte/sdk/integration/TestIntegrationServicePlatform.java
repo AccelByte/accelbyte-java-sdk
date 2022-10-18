@@ -8,15 +8,25 @@ package net.accelbyte.sdk.integration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.io.File;
+import java.io.InputStream;
+import java.nio.file.Files;
 import java.util.Arrays;
+import net.accelbyte.sdk.api.platform.models.ExportStoreRequest;
+import net.accelbyte.sdk.api.platform.models.ImportStoreResult;
 import net.accelbyte.sdk.api.platform.models.StoreCreate;
 import net.accelbyte.sdk.api.platform.models.StoreInfo;
 import net.accelbyte.sdk.api.platform.models.StoreUpdate;
+import net.accelbyte.sdk.api.platform.operations.reward.ExportRewards;
 import net.accelbyte.sdk.api.platform.operations.store.CreateStore;
 import net.accelbyte.sdk.api.platform.operations.store.DeleteStore;
+import net.accelbyte.sdk.api.platform.operations.store.ExportStore1;
 import net.accelbyte.sdk.api.platform.operations.store.GetStore;
+import net.accelbyte.sdk.api.platform.operations.store.ImportStore1;
 import net.accelbyte.sdk.api.platform.operations.store.UpdateStore;
+import net.accelbyte.sdk.api.platform.wrappers.Reward;
 import net.accelbyte.sdk.api.platform.wrappers.Store;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -45,6 +55,7 @@ public class TestIntegrationServicePlatform extends TestIntegration {
     final String storeDescriptionUpdate = "Updated description";
 
     final Store storeWrapper = new Store(sdk);
+    final Reward rewardWrapper = new Reward(sdk);
 
     // CASE Create a store
 
@@ -98,6 +109,50 @@ public class TestIntegrationServicePlatform extends TestIntegration {
     assertNotNull(updateStoreResult);
     assertEquals(storeDescriptionUpdate, updateStoreResult.getDescription());
 
+    final File exportStoreFile = new File("export-store.zip");
+
+    if (exportStoreFile.exists()) {
+      exportStoreFile.delete();
+    }
+
+    exportStoreFile.deleteOnExit();
+
+    // CASE Export a store
+
+    final ExportStoreRequest exportStoreBody = ExportStoreRequest.builder().build();
+
+    final InputStream exportStoreResult =
+        storeWrapper.exportStore1(
+            ExportStore1.builder()
+                .namespace(namespace)
+                .storeId(storeId)
+                .body(exportStoreBody)
+                .build());
+    java.nio.file.Files.copy(
+        exportStoreResult,
+        exportStoreFile.toPath(),
+        java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+    org.apache.commons.io.IOUtils.closeQuietly(exportStoreResult);
+
+    // ESAC
+
+    assertTrue(exportStoreFile.exists());
+    assertTrue(Files.size(exportStoreFile.toPath()) > 0);
+
+    // CASE Import a store
+
+    final ImportStoreResult importStoreResult =
+        storeWrapper.importStore1(
+            ImportStore1.builder()
+                .namespace(namespace)
+                .storeId(storeId)
+                .file(exportStoreFile)
+                .build());
+
+    // ESAC
+
+    assertTrue(importStoreResult.getSuccess());
+
     // CASE Delete a store
 
     final StoreInfo deleteStoreResult =
@@ -107,6 +162,29 @@ public class TestIntegrationServicePlatform extends TestIntegration {
     // ESAC
 
     assertNotNull(deleteStoreResult);
+
+    final File exportRewardFile = new File("export-rewards.json");
+
+    if (exportRewardFile.exists()) {
+      exportRewardFile.delete();
+    }
+
+    exportRewardFile.deleteOnExit();
+
+    // CASE Export rewards
+
+    final InputStream exportRewardsResult =
+        rewardWrapper.exportRewards(ExportRewards.builder().namespace(namespace).build());
+    java.nio.file.Files.copy(
+        exportRewardsResult,
+        exportRewardFile.toPath(),
+        java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+    org.apache.commons.io.IOUtils.closeQuietly(exportRewardsResult);
+
+    // ESAC
+
+    assertTrue(exportRewardFile.exists());
+    assertTrue(Files.size(exportRewardFile.toPath()) > 0);
   }
 
   @AfterAll
