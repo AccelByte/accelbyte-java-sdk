@@ -62,12 +62,11 @@ pipeline {
             sh "[ -s spec/TIMESTAMP ]"  // Make sure TIMESTAMP file is present in spec directory
           }
         }
-        //stage('Lint Code') {
-        //  steps {
-        //    sh "[ -s codegen.txt ]"  // Make sure codegen.txt file is present in spec directory
-        //    sh "make lint"
-        //  }
-        //}
+        stage('Lint Code') {
+          steps {
+            sh "[ -s codegen.txt ]"  // Make sure codegen.txt file is present in spec directory
+          }
+        }
       }
     }
     stage('Build') {
