@@ -1,6 +1,31 @@
-<a name="v0.21.0"></a>
-## [v0.21.0] - 2022-10-10
+<a name="v0.22.0"></a>
+## [v0.22.0] - 2022-10-25
 ### Chore
+- regenerate due to template refactoring
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.34
+- **spec:** update spec for ab cloud 3.34
+
+### Ci
+- enable codegen.txt check
+
+### Docs
+- update changelog for ab cloud 3.34
+
+### Fix
+- removed httpbin dependency
+- **sdk:** handling endpoints which returns file
+- **test:** fixed regex pattern to verify trace id
+
+### Test
+- **integration:** dsmc - pass the test even if we got 425 claim server
+- **integration:** platform - export import store
+- **integration:** social - export stats
+
+
+<a name="v0.21.0"></a>
+## [v0.21.0] - 2022-10-11
+### Chore
+- bump to version 0.21 for ab cloud 3.33
 - **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.33
 - **spec:** update spec for ab cloud 3.33
 
@@ -658,6 +683,7 @@
 - replace unnecessary object
 
 
+[v0.22.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.21.0...v0.22.0
 [v0.21.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.20.0...v0.21.0
 [v0.20.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.19.0...v0.20.0
 [v0.19.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.18.0...v0.19.0
