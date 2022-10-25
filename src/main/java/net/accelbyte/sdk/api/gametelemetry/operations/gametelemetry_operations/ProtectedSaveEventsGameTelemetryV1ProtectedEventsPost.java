@@ -28,7 +28,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Format of the event:
  *
- * <p>- **EventNamespace (required)**: namespace of the relevant game with domain name format.
+ * <p>- **EventNamespace (required)**: Namespace of the relevant game with domain name format.
  *
  * <p>Only accept input with valid characters. Allowed characters: Aa-Zz0-9_.-
  *
@@ -36,7 +36,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Example: io.accelbyte.justice.dev.samplegame
  *
- * <p>- **EventName (required)**: name of the event.
+ * <p>- **EventName (required)**: Name of the event.
  *
  * <p>Only accept input with valid characters. Allowed characters: Aa-Zz0-9_.-
  *
@@ -44,7 +44,9 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Example: player_killed, mission_accomplished
  *
- * <p>- **Payload (required)**: an arbitrary json with the payload of the said event
+ * <p>- **Payload (required)**: An arbitrary json with the payload of the said event.
+ *
+ * <p>Default maximum payload size is 1MB
  */
 @Getter
 @Setter

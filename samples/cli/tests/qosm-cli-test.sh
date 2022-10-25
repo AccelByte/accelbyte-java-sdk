@@ -56,28 +56,28 @@ touch "tmp.dat"
 #- 2 UpdateServerConfig
 ./ng net.accelbyte.sdk.cli.Main qosm updateServerConfig \
     --namespace "$AB_NAMESPACE" \
-    --region 'gychdK4Q' \
-    --body '{"status": "RBjZuV1p"}' \
+    --region 'AGPe6Hkp' \
+    --body '{"status": "OKTvDNzc"}' \
     > test.out 2>&1
 eval_tap $? 2 'UpdateServerConfig' test.out
 
 #- 3 DeleteServer
 ./ng net.accelbyte.sdk.cli.Main qosm deleteServer \
-    --region 'z0f1mZQi' \
+    --region '3tbvQ4YH' \
     > test.out 2>&1
 eval_tap $? 3 'DeleteServer' test.out
 
 #- 4 SetServerAlias
 ./ng net.accelbyte.sdk.cli.Main qosm setServerAlias \
-    --region 'LnBEsHka' \
-    --body '{"alias": "yH60KuBc"}' \
+    --region 'EHUYGO8n' \
+    --body '{"alias": "VGOb7Cog"}' \
     > test.out 2>&1
 eval_tap $? 4 'SetServerAlias' test.out
 
 #- 5 ListServerPerNamespace
 ./ng net.accelbyte.sdk.cli.Main qosm listServerPerNamespace \
     --namespace "$AB_NAMESPACE" \
-    --status 'djTuja80' \
+    --status 'oBpX2ILX' \
     > test.out 2>&1
 eval_tap $? 5 'ListServerPerNamespace' test.out
 
@@ -88,7 +88,7 @@ eval_tap $? 6 'ListServer' test.out
 
 #- 7 Heartbeat
 ./ng net.accelbyte.sdk.cli.Main qosm heartbeat \
-    --body '{"ip": "2AORRU35", "port": 4, "region": "ci4id3sQ"}' \
+    --body '{"ip": "Nj6p01av", "port": 79, "region": "mdjbenmE"}' \
     > test.out 2>&1
 eval_tap $? 7 'Heartbeat' test.out
 

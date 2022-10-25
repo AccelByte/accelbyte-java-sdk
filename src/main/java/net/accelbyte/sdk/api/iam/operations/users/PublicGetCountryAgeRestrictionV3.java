@@ -22,8 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * PublicGetCountryAgeRestrictionV3
  *
  * <p>Get age restriction by country code. It will always get by publisher namespace
- *
- * <p>Requires valid user access token
  */
 @Getter
 @Setter

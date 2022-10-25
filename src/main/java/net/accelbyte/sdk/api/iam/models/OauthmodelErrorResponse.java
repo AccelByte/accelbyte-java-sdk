@@ -54,6 +54,10 @@ public class OauthmodelErrorResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String linkingToken;
 
+  @JsonProperty("messageVariables")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, String> messageVariables;
+
   @JsonProperty("mfa_token")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String mfaToken;

@@ -52,8 +52,16 @@ public class ClientmodelClientCreationV3Request extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("oauthAccessTokenExpiration")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer oauthAccessTokenExpiration;
+
   @JsonProperty("oauthClientType")
   private String oauthClientType;
+
+  @JsonProperty("oauthRefreshTokenExpiration")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer oauthRefreshTokenExpiration;
 
   @JsonProperty("redirectUri")
   private String redirectUri;

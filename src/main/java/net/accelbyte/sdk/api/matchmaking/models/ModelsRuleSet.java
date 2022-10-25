@@ -42,6 +42,9 @@ public class ModelsRuleSet extends Model {
   @JsonProperty("matching_rule")
   private List<ModelsMatchingRule> matchingRule;
 
+  @JsonProperty("rebalance_enable")
+  private Boolean rebalanceEnable;
+
   @JsonProperty("sub_game_modes")
   private Map<String, ModelsSubGameMode> subGameModes;
 

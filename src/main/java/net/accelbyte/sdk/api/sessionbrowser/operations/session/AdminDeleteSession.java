@@ -19,21 +19,21 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * AdminGetSession
+ * AdminDeleteSession
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [READ]
+ * <p>Required permission: ADMIN:NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [DELETE]
  *
  * <p>Required scope: social
  *
- * <p>Get the session by session ID for admin user
+ * <p>Admin delete the session by session ID
  */
 @Getter
 @Setter
-public class AdminGetSession extends Operation {
+public class AdminDeleteSession extends Operation {
   /** generated field's value */
   private String path = "/sessionbrowser/admin/namespaces/{namespace}/gamesession/{sessionID}";
 
-  private String method = "GET";
+  private String method = "DELETE";
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
@@ -51,7 +51,7 @@ public class AdminGetSession extends Operation {
    *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
    */
   @Deprecated
-  public AdminGetSession(String namespace, String sessionID) {
+  public AdminDeleteSession(String namespace, String sessionID) {
     this.namespace = namespace;
     this.sessionID = sessionID;
 

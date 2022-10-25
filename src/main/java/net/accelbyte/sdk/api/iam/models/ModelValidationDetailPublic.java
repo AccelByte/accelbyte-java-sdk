@@ -27,6 +27,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelValidationDetailPublic extends Model {
 
+  @JsonProperty("allowAllSpecialCharacters")
+  private Boolean allowAllSpecialCharacters;
+
   @JsonProperty("allowDigit")
   private Boolean allowDigit;
 

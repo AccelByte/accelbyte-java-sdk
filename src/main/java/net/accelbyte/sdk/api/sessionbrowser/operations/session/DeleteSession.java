@@ -25,7 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Required scope: social
  *
- * <p>Delete the session by session ID
+ * <p>Delete the session (p2p) by session ID
  */
 @Getter
 @Setter

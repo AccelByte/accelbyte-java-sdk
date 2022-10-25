@@ -834,12 +834,55 @@ final StoreInfo updateStoreResult =
             .build());
 ```
 
+### Export a store
+
+```java
+final ExportStoreRequest exportStoreBody = ExportStoreRequest.builder().build();
+
+final InputStream exportStoreResult =
+    storeWrapper.exportStore1(
+        ExportStore1.builder()
+            .namespace(namespace)
+            .storeId(storeId)
+            .body(exportStoreBody)
+            .build());
+java.nio.file.Files.copy(
+    exportStoreResult,
+    exportStoreFile.toPath(),
+    java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+org.apache.commons.io.IOUtils.closeQuietly(exportStoreResult);
+```
+
+### Import a store
+
+```java
+final ImportStoreResult importStoreResult =
+    storeWrapper.importStore1(
+        ImportStore1.builder()
+            .namespace(namespace)
+            .storeId(storeId)
+            .file(exportStoreFile)
+            .build());
+```
+
 ### Delete a store
 
 ```java
 final StoreInfo deleteStoreResult =
     storeWrapper.deleteStore(
         DeleteStore.builder().namespace(this.namespace).storeId(storeId).build());
+```
+
+### Export rewards
+
+```java
+final InputStream exportRewardsResult =
+    rewardWrapper.exportRewards(ExportRewards.builder().namespace(namespace).build());
+java.nio.file.Files.copy(
+    exportRewardsResult,
+    exportRewardFile.toPath(),
+    java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+org.apache.commons.io.IOUtils.closeQuietly(exportRewardsResult);
 ```
 
 ## QOSM
@@ -1049,6 +1092,18 @@ final StatInfo updateStatResult =
             .statCode(statCode)
             .body(updateStat)
             .build());
+```
+
+### Export statistics
+
+```java
+final InputStream exportStatsResult =
+    statConfigWrapper.exportStats(ExportStats.builder().namespace(namespace).build());
+java.nio.file.Files.copy(
+    exportStatsResult,
+    exportStatsFile.toPath(),
+    java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+org.apache.commons.io.IOUtils.closeQuietly(exportStatsResult);
 ```
 
 ### Delete a statistic

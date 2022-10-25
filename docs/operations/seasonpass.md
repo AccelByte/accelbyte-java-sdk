@@ -10,6 +10,7 @@
 | `/seasonpass/admin/namespaces/{namespace}/seasons` | GET | QuerySeasons | [QuerySeasons](../../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/QuerySeasons.java) | [QuerySeasons](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/QuerySeasons.java) |
 | `/seasonpass/admin/namespaces/{namespace}/seasons` | POST | CreateSeason | [CreateSeason](../../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/CreateSeason.java) | [CreateSeason](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/CreateSeason.java) |
 | `/seasonpass/admin/namespaces/{namespace}/seasons/current` | GET | GetCurrentSeason | [GetCurrentSeason](../../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/GetCurrentSeason.java) | [GetCurrentSeason](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/GetCurrentSeason.java) |
+| `/seasonpass/admin/namespaces/{namespace}/seasons/current/users/bulk/progression` | POST | BulkGetUserSeasonProgression | [BulkGetUserSeasonProgression](../../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/BulkGetUserSeasonProgression.java) | [BulkGetUserSeasonProgression](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/BulkGetUserSeasonProgression.java) |
 | `/seasonpass/admin/namespaces/{namespace}/seasons/{seasonId}` | GET | GetSeason | [GetSeason](../../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/GetSeason.java) | [GetSeason](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/GetSeason.java) |
 | `/seasonpass/admin/namespaces/{namespace}/seasons/{seasonId}` | DELETE | DeleteSeason | [DeleteSeason](../../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/DeleteSeason.java) | [DeleteSeason](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/DeleteSeason.java) |
 | `/seasonpass/admin/namespaces/{namespace}/seasons/{seasonId}` | PATCH | UpdateSeason | [UpdateSeason](../../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/season/UpdateSeason.java) | [UpdateSeason](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/season/UpdateSeason.java) |
@@ -69,6 +70,7 @@
 
 | Model | Class |
 |---|---|
+| `BulkUserProgressionRequest` | [BulkUserProgressionRequest](../../src/main/java/net/accelbyte/sdk/api/seasonpass/models/BulkUserProgressionRequest.java) |
 | `ClaimableRewards` | [ClaimableRewards](../../src/main/java/net/accelbyte/sdk/api/seasonpass/models/ClaimableRewards.java) |
 | `ClaimableUserSeasonInfo` | [ClaimableUserSeasonInfo](../../src/main/java/net/accelbyte/sdk/api/seasonpass/models/ClaimableUserSeasonInfo.java) |
 | `ErrorEntity` | [ErrorEntity](../../src/main/java/net/accelbyte/sdk/api/seasonpass/models/ErrorEntity.java) |

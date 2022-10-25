@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.seasonpass.wrappers;
 
+import java.util.*;
 import net.accelbyte.sdk.api.seasonpass.models.*;
 import net.accelbyte.sdk.api.seasonpass.operations.season.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -43,6 +44,16 @@ public class Season {
    * @see GetCurrentSeason
    */
   public SeasonSummary getCurrentSeason(GetCurrentSeason input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see BulkGetUserSeasonProgression
+   */
+  public List<UserSeasonSummary> bulkGetUserSeasonProgression(BulkGetUserSeasonProgression input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

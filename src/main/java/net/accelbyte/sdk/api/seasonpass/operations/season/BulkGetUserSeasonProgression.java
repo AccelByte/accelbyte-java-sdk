@@ -6,54 +6,58 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.sessionbrowser.operations.session;
+package net.accelbyte.sdk.api.seasonpass.operations.season;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.sessionbrowser.models.*;
+import net.accelbyte.sdk.api.seasonpass.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * AdminGetSession
+ * bulkGetUserSeasonProgression
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [READ]
+ * <p>This API is used to bulk get user current season progression, season only located in
+ * non-publisher namespace.
  *
- * <p>Required scope: social
+ * <p>Other detail info:
  *
- * <p>Get the session by session ID for admin user
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS, action=2 (READ) *
+ * Returns : user season progression
  */
 @Getter
 @Setter
-public class AdminGetSession extends Operation {
+public class BulkGetUserSeasonProgression extends Operation {
   /** generated field's value */
-  private String path = "/sessionbrowser/admin/namespaces/{namespace}/gamesession/{sessionID}";
+  private String path =
+      "/seasonpass/admin/namespaces/{namespace}/seasons/current/users/bulk/progression";
 
-  private String method = "GET";
+  private String method = "POST";
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
   /** fields as input parameter */
   private String namespace;
 
-  private String sessionID;
+  private BulkUserProgressionRequest body;
 
   /**
    * @param namespace required
-   * @param sessionID required
    */
   @Builder
   /*
    *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
    */
   @Deprecated
-  public AdminGetSession(String namespace, String sessionID) {
+  public BulkGetUserSeasonProgression(String namespace, BulkUserProgressionRequest body) {
     this.namespace = namespace;
-    this.sessionID = sessionID;
+    this.body = body;
 
     securities.add("Bearer");
   }
@@ -64,10 +68,12 @@ public class AdminGetSession extends Operation {
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
     }
-    if (this.sessionID != null) {
-      pathParams.put("sessionID", this.sessionID);
-    }
     return pathParams;
+  }
+
+  @Override
+  public BulkUserProgressionRequest getBodyParams() {
+    return this.body;
   }
 
   @Override
@@ -75,19 +81,16 @@ public class AdminGetSession extends Operation {
     if (this.namespace == null) {
       return false;
     }
-    if (this.sessionID == null) {
-      return false;
-    }
     return true;
   }
 
-  public ModelsAdminSessionResponse parseResponse(int code, String contentType, InputStream payload)
+  public List<UserSeasonSummary> parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ModelsAdminSessionResponse().createFromJson(json);
+    return new ObjectMapper().readValue(json, new TypeReference<List<UserSeasonSummary>>() {});
   }
 }

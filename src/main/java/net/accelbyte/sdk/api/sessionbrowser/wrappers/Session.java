@@ -62,6 +62,15 @@ public class Session {
   }
 
   /**
+   * @see AdminDeleteSession
+   */
+  public ModelsAdminSessionResponse adminDeleteSession(AdminDeleteSession input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminSearchSessionsV2
    */
   public ModelsGetSessionHistorySearchResponseV2 adminSearchSessionsV2(AdminSearchSessionsV2 input)

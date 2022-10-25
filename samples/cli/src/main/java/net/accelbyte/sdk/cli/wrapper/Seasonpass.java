@@ -21,6 +21,7 @@ import picocli.CommandLine.Command;
       QuerySeasons.class,
       CreateSeason.class,
       GetCurrentSeason.class,
+      BulkGetUserSeasonProgression.class,
       GetSeason.class,
       DeleteSeason.class,
       UpdateSeason.class,

@@ -66,6 +66,12 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* twoFactorEnabled : The flag to indicate whether 2FA validation is enable for this client.
  * default value: false
+ *
+ * <p>* oauthAccessTokenExpiration : a configurable expiration time for access_token , default
+ * value: 0 (mean fetch value from environment variable)
+ *
+ * <p>* oauthRefreshTokenExpiration : a configurable expiration time for refresh_token , default
+ * value: 0 (mean fetch value from environment variable)
  */
 @Getter
 @Setter

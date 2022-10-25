@@ -52,6 +52,10 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* mixed: uppercase and/or lowercase
  *
+ * <p>flexible special character non words with `allowAllSpecialCharacters`
+ *
+ * <p>if `allowAllSpecialCharacters` is set to true `specialCharacters` will forced to empty.
+ *
  * <p>Supported `specialCharacterLocation`:
  *
  * <p>* anywhere
