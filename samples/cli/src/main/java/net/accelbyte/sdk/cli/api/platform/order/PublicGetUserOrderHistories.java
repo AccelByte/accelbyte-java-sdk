@@ -65,14 +65,14 @@ public class PublicGetUserOrderHistories implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Order wrapper = new Order(sdk);
+      final Order wrapper = new Order(sdk);
       final net.accelbyte.sdk.api.platform.operations.order.PublicGetUserOrderHistories operation =
           net.accelbyte.sdk.api.platform.operations.order.PublicGetUserOrderHistories.builder()
               .namespace(namespace)
               .orderNo(orderNo)
               .userId(userId)
               .build();
-      List<OrderHistoryInfo> response = wrapper.publicGetUserOrderHistories(operation);
+      final List<OrderHistoryInfo> response = wrapper.publicGetUserOrderHistories(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

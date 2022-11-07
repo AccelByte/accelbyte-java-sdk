@@ -54,7 +54,7 @@ public class DeleteNamespaceSlotConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      SlotConfig wrapper = new SlotConfig(sdk);
+      final SlotConfig wrapper = new SlotConfig(sdk);
       final net.accelbyte.sdk.api.social.operations.slot_config.DeleteNamespaceSlotConfig
           operation =
               net.accelbyte.sdk.api.social.operations.slot_config.DeleteNamespaceSlotConfig

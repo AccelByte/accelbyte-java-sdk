@@ -60,13 +60,13 @@ public class PublishAll implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      CatalogChanges wrapper = new CatalogChanges(sdk);
+      final CatalogChanges wrapper = new CatalogChanges(sdk);
       final net.accelbyte.sdk.api.platform.operations.catalog_changes.PublishAll operation =
           net.accelbyte.sdk.api.platform.operations.catalog_changes.PublishAll.builder()
               .namespace(namespace)
               .storeId(storeId)
               .build();
-      StoreInfo response = wrapper.publishAll(operation);
+      final StoreInfo response = wrapper.publishAll(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -55,12 +55,12 @@ public class TestWxPayConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PaymentConfig wrapper = new PaymentConfig(sdk);
+      final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config.TestWxPayConfig operation =
           net.accelbyte.sdk.api.platform.operations.payment_config.TestWxPayConfig.builder()
               .body(new ObjectMapper().readValue(body, WxPayConfigRequest.class))
               .build();
-      TestResult response = wrapper.testWxPayConfig(operation);
+      final TestResult response = wrapper.testWxPayConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

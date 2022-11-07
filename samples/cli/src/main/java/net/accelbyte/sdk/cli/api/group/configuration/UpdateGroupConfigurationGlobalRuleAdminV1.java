@@ -71,7 +71,7 @@ public class UpdateGroupConfigurationGlobalRuleAdminV1 implements Callable<Integ
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Configuration wrapper = new Configuration(sdk);
+      final Configuration wrapper = new Configuration(sdk);
       final net.accelbyte.sdk.api.group.operations.configuration
               .UpdateGroupConfigurationGlobalRuleAdminV1
           operation =
@@ -85,7 +85,7 @@ public class UpdateGroupConfigurationGlobalRuleAdminV1 implements Callable<Integ
                           .readValue(
                               body, ModelsUpdateGroupConfigurationGlobalRulesRequestV1.class))
                   .build();
-      ModelsUpdateGroupConfigurationResponseV1 response =
+      final ModelsUpdateGroupConfigurationResponseV1 response =
           wrapper.updateGroupConfigurationGlobalRuleAdminV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

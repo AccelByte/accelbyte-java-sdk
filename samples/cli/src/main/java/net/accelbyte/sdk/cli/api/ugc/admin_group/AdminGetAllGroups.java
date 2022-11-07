@@ -70,7 +70,7 @@ public class AdminGetAllGroups implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AdminGroup wrapper = new AdminGroup(sdk);
+      final AdminGroup wrapper = new AdminGroup(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_group.AdminGetAllGroups operation =
           net.accelbyte.sdk.api.ugc.operations.admin_group.AdminGetAllGroups.builder()
               .namespace(namespace)
@@ -78,7 +78,7 @@ public class AdminGetAllGroups implements Callable<Integer> {
               .limit(limit)
               .offset(offset)
               .build();
-      ModelsPaginatedGroupResponse response = wrapper.adminGetAllGroups(operation);
+      final ModelsPaginatedGroupResponse response = wrapper.adminGetAllGroups(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

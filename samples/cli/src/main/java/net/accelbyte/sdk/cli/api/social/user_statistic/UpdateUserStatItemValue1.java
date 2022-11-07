@@ -75,7 +75,7 @@ public class UpdateUserStatItemValue1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UserStatistic wrapper = new UserStatistic(sdk);
+      final UserStatistic wrapper = new UserStatistic(sdk);
       final net.accelbyte.sdk.api.social.operations.user_statistic.UpdateUserStatItemValue1
           operation =
               net.accelbyte.sdk.api.social.operations.user_statistic.UpdateUserStatItemValue1
@@ -86,7 +86,7 @@ public class UpdateUserStatItemValue1 implements Callable<Integer> {
                   .additionalKey(additionalKey)
                   .body(new ObjectMapper().readValue(body, StatItemUpdate.class))
                   .build();
-      StatItemIncResult response = wrapper.updateUserStatItemValue1(operation);
+      final StatItemIncResult response = wrapper.updateUserStatItemValue1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

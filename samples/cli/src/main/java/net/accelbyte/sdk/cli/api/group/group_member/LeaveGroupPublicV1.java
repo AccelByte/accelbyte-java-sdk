@@ -55,12 +55,12 @@ public class LeaveGroupPublicV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      GroupMember wrapper = new GroupMember(sdk);
+      final GroupMember wrapper = new GroupMember(sdk);
       final net.accelbyte.sdk.api.group.operations.group_member.LeaveGroupPublicV1 operation =
           net.accelbyte.sdk.api.group.operations.group_member.LeaveGroupPublicV1.builder()
               .namespace(namespace)
               .build();
-      ModelsLeaveGroupResponseV1 response = wrapper.leaveGroupPublicV1(operation);
+      final ModelsLeaveGroupResponseV1 response = wrapper.leaveGroupPublicV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

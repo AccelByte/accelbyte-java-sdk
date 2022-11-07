@@ -80,7 +80,7 @@ public class AdminGetListDeletionDataRequest implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      DataDeletion wrapper = new DataDeletion(sdk);
+      final DataDeletion wrapper = new DataDeletion(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_deletion.AdminGetListDeletionDataRequest
           operation =
               net.accelbyte.sdk.api.gdpr.operations.data_deletion.AdminGetListDeletionDataRequest
@@ -92,7 +92,8 @@ public class AdminGetListDeletionDataRequest implements Callable<Integer> {
                   .offset(offset)
                   .requestDate(requestDate)
                   .build();
-      ModelsListDeletionDataResponse response = wrapper.adminGetListDeletionDataRequest(operation);
+      final ModelsListDeletionDataResponse response =
+          wrapper.adminGetListDeletionDataRequest(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

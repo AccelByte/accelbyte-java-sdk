@@ -65,7 +65,7 @@ public class RefundPaymentOrderByDedicated implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PaymentDedicated wrapper = new PaymentDedicated(sdk);
+      final PaymentDedicated wrapper = new PaymentDedicated(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_dedicated
               .RefundPaymentOrderByDedicated
           operation =
@@ -75,7 +75,7 @@ public class RefundPaymentOrderByDedicated implements Callable<Integer> {
                   .paymentOrderNo(paymentOrderNo)
                   .body(new ObjectMapper().readValue(body, PaymentOrderRefund.class))
                   .build();
-      PaymentOrderRefundResult response = wrapper.refundPaymentOrderByDedicated(operation);
+      final PaymentOrderRefundResult response = wrapper.refundPaymentOrderByDedicated(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

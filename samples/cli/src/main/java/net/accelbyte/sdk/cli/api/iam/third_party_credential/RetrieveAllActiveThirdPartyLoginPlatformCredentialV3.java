@@ -59,7 +59,7 @@ public class RetrieveAllActiveThirdPartyLoginPlatformCredentialV3 implements Cal
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
+      final ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
       final net.accelbyte.sdk.api.iam.operations.third_party_credential
               .RetrieveAllActiveThirdPartyLoginPlatformCredentialV3
           operation =
@@ -67,7 +67,7 @@ public class RetrieveAllActiveThirdPartyLoginPlatformCredentialV3 implements Cal
                   .RetrieveAllActiveThirdPartyLoginPlatformCredentialV3.builder()
                   .namespace(namespace)
                   .build();
-      List<ModelThirdPartyLoginPlatformCredentialResponse> response =
+      final List<ModelThirdPartyLoginPlatformCredentialResponse> response =
           wrapper.retrieveAllActiveThirdPartyLoginPlatformCredentialV3(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

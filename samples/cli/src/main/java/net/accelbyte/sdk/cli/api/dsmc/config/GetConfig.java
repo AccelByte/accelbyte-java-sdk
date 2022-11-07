@@ -55,12 +55,12 @@ public class GetConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Config wrapper = new Config(sdk);
+      final Config wrapper = new Config(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.config.GetConfig operation =
           net.accelbyte.sdk.api.dsmc.operations.config.GetConfig.builder()
               .namespace(namespace)
               .build();
-      ModelsDSMConfigRecord response = wrapper.getConfig(operation);
+      final ModelsDSMConfigRecord response = wrapper.getConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

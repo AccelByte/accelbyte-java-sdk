@@ -125,7 +125,7 @@ public class ListTerminatedServers implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      TerminatedServers wrapper = new TerminatedServers(sdk);
+      final TerminatedServers wrapper = new TerminatedServers(sdk);
       final net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers.ListTerminatedServers
           operation =
               net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers.ListTerminatedServers
@@ -146,7 +146,7 @@ public class ListTerminatedServers implements Callable<Integer> {
                   .status(status)
                   .userId(userId)
                   .build();
-      ModelsListTerminatedServersResponse response = wrapper.listTerminatedServers(operation);
+      final ModelsListTerminatedServersResponse response = wrapper.listTerminatedServers(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

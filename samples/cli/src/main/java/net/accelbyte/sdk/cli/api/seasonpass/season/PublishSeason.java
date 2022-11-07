@@ -60,13 +60,13 @@ public class PublishSeason implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Season wrapper = new Season(sdk);
+      final Season wrapper = new Season(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.season.PublishSeason operation =
           net.accelbyte.sdk.api.seasonpass.operations.season.PublishSeason.builder()
               .namespace(namespace)
               .seasonId(seasonId)
               .build();
-      SeasonInfo response = wrapper.publishSeason(operation);
+      final SeasonInfo response = wrapper.publishSeason(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

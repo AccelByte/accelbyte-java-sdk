@@ -60,7 +60,7 @@ public class UpdatePolicy implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Policies wrapper = new Policies(sdk);
+      final Policies wrapper = new Policies(sdk);
       final net.accelbyte.sdk.api.legal.operations.policies.UpdatePolicy operation =
           net.accelbyte.sdk.api.legal.operations.policies.UpdatePolicy.builder()
               .policyId(policyId)

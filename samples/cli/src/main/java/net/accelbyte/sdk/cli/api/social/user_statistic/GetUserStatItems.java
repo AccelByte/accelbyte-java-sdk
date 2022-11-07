@@ -80,7 +80,7 @@ public class GetUserStatItems implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UserStatistic wrapper = new UserStatistic(sdk);
+      final UserStatistic wrapper = new UserStatistic(sdk);
       final net.accelbyte.sdk.api.social.operations.user_statistic.GetUserStatItems operation =
           net.accelbyte.sdk.api.social.operations.user_statistic.GetUserStatItems.builder()
               .namespace(namespace)
@@ -90,7 +90,7 @@ public class GetUserStatItems implements Callable<Integer> {
               .statCodes(statCodes)
               .tags(tags)
               .build();
-      UserStatItemPagingSlicedResult response = wrapper.getUserStatItems(operation);
+      final UserStatItemPagingSlicedResult response = wrapper.getUserStatItems(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

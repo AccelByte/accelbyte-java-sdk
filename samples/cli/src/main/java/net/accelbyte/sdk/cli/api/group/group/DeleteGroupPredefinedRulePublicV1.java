@@ -64,7 +64,7 @@ public class DeleteGroupPredefinedRulePublicV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Group wrapper = new Group(sdk);
+      final Group wrapper = new Group(sdk);
       final net.accelbyte.sdk.api.group.operations.group.DeleteGroupPredefinedRulePublicV1
           operation =
               net.accelbyte.sdk.api.group.operations.group.DeleteGroupPredefinedRulePublicV1

@@ -60,13 +60,13 @@ public class DisableCode implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Campaign wrapper = new Campaign(sdk);
+      final Campaign wrapper = new Campaign(sdk);
       final net.accelbyte.sdk.api.platform.operations.campaign.DisableCode operation =
           net.accelbyte.sdk.api.platform.operations.campaign.DisableCode.builder()
               .code(code)
               .namespace(namespace)
               .build();
-      CodeInfo response = wrapper.disableCode(operation);
+      final CodeInfo response = wrapper.disableCode(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

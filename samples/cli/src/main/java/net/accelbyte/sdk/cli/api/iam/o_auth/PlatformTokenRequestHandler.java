@@ -75,7 +75,7 @@ public class PlatformTokenRequestHandler implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      OAuth wrapper = new OAuth(sdk);
+      final OAuth wrapper = new OAuth(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth.PlatformTokenRequestHandler operation =
           net.accelbyte.sdk.api.iam.operations.o_auth.PlatformTokenRequestHandler.builder()
               .namespace(namespace)
@@ -84,7 +84,7 @@ public class PlatformTokenRequestHandler implements Callable<Integer> {
               .macAddress(macAddress != null ? macAddress : null)
               .platformToken(platformToken != null ? platformToken : null)
               .build();
-      OauthmodelTokenResponse response = wrapper.platformTokenRequestHandler(operation);
+      final OauthmodelTokenResponse response = wrapper.platformTokenRequestHandler(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

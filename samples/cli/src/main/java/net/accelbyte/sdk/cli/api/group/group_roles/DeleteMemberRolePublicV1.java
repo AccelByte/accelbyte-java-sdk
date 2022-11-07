@@ -65,7 +65,7 @@ public class DeleteMemberRolePublicV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      GroupRoles wrapper = new GroupRoles(sdk);
+      final GroupRoles wrapper = new GroupRoles(sdk);
       final net.accelbyte.sdk.api.group.operations.group_roles.DeleteMemberRolePublicV1 operation =
           net.accelbyte.sdk.api.group.operations.group_roles.DeleteMemberRolePublicV1.builder()
               .memberRoleId(memberRoleId)

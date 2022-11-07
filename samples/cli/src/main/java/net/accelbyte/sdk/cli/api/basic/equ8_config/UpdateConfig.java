@@ -60,13 +60,13 @@ public class UpdateConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      EQU8Config wrapper = new EQU8Config(sdk);
+      final EQU8Config wrapper = new EQU8Config(sdk);
       final net.accelbyte.sdk.api.basic.operations.equ8_config.UpdateConfig operation =
           net.accelbyte.sdk.api.basic.operations.equ8_config.UpdateConfig.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ADTOForUpdateEqu8ConfigAPICall.class))
               .build();
-      Equ8Config response = wrapper.updateConfig(operation);
+      final Equ8Config response = wrapper.updateConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

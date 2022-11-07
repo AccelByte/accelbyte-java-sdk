@@ -115,7 +115,7 @@ public class QueryChanges implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      CatalogChanges wrapper = new CatalogChanges(sdk);
+      final CatalogChanges wrapper = new CatalogChanges(sdk);
       final net.accelbyte.sdk.api.platform.operations.catalog_changes.QueryChanges operation =
           net.accelbyte.sdk.api.platform.operations.catalog_changes.QueryChanges.builder()
               .namespace(namespace)
@@ -132,7 +132,7 @@ public class QueryChanges implements Callable<Integer> {
               .updatedAtEnd(updatedAtEnd)
               .updatedAtStart(updatedAtStart)
               .build();
-      List<CatalogChangePagingSlicedResult> response = wrapper.queryChanges(operation);
+      final List<CatalogChangePagingSlicedResult> response = wrapper.queryChanges(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

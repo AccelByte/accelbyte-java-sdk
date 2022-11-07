@@ -71,7 +71,7 @@ public class AdminPutPlayerRecordConcurrentHandlerV1 implements Callable<Integer
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AdminConcurrentRecord wrapper = new AdminConcurrentRecord(sdk);
+      final AdminConcurrentRecord wrapper = new AdminConcurrentRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_concurrent_record
               .AdminPutPlayerRecordConcurrentHandlerV1
           operation =

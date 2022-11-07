@@ -60,7 +60,7 @@ public class UserRequestFriend implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Friends wrapper = new Friends(sdk);
+      final Friends wrapper = new Friends(sdk);
       final net.accelbyte.sdk.api.lobby.operations.friends.UserRequestFriend operation =
           net.accelbyte.sdk.api.lobby.operations.friends.UserRequestFriend.builder()
               .namespace(namespace)

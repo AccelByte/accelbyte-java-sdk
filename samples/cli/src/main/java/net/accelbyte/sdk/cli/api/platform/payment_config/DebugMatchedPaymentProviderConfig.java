@@ -60,7 +60,7 @@ public class DebugMatchedPaymentProviderConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PaymentConfig wrapper = new PaymentConfig(sdk);
+      final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config
               .DebugMatchedPaymentProviderConfig
           operation =
@@ -69,7 +69,8 @@ public class DebugMatchedPaymentProviderConfig implements Callable<Integer> {
                   .namespace(namespace)
                   .region(region)
                   .build();
-      PaymentProviderConfigInfo response = wrapper.debugMatchedPaymentProviderConfig(operation);
+      final PaymentProviderConfigInfo response =
+          wrapper.debugMatchedPaymentProviderConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

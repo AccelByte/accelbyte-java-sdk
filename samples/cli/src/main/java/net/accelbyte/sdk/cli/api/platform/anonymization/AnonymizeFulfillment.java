@@ -59,7 +59,7 @@ public class AnonymizeFulfillment implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Anonymization wrapper = new Anonymization(sdk);
+      final Anonymization wrapper = new Anonymization(sdk);
       final net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeFulfillment operation =
           net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeFulfillment.builder()
               .namespace(namespace)

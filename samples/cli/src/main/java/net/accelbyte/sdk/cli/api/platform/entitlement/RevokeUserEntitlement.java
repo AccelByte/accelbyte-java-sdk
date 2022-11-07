@@ -65,14 +65,14 @@ public class RevokeUserEntitlement implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Entitlement wrapper = new Entitlement(sdk);
+      final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.RevokeUserEntitlement operation =
           net.accelbyte.sdk.api.platform.operations.entitlement.RevokeUserEntitlement.builder()
               .entitlementId(entitlementId)
               .namespace(namespace)
               .userId(userId)
               .build();
-      EntitlementInfo response = wrapper.revokeUserEntitlement(operation);
+      final EntitlementInfo response = wrapper.revokeUserEntitlement(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

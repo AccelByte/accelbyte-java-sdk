@@ -64,7 +64,7 @@ public class DeletePass implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Pass wrapper = new Pass(sdk);
+      final Pass wrapper = new Pass(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.pass.DeletePass operation =
           net.accelbyte.sdk.api.seasonpass.operations.pass.DeletePass.builder()
               .code(code)

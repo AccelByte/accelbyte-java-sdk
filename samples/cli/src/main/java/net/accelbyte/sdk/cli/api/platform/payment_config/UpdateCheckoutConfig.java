@@ -70,7 +70,7 @@ public class UpdateCheckoutConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PaymentConfig wrapper = new PaymentConfig(sdk);
+      final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config.UpdateCheckoutConfig
           operation =
               net.accelbyte.sdk.api.platform.operations.payment_config.UpdateCheckoutConfig
@@ -80,7 +80,7 @@ public class UpdateCheckoutConfig implements Callable<Integer> {
                   .validate(validate)
                   .body(new ObjectMapper().readValue(body, CheckoutConfig.class))
                   .build();
-      PaymentMerchantConfigInfo response = wrapper.updateCheckoutConfig(operation);
+      final PaymentMerchantConfigInfo response = wrapper.updateCheckoutConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

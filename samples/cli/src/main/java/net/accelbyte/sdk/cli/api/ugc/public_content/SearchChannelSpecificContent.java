@@ -115,7 +115,7 @@ public class SearchChannelSpecificContent implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PublicContent wrapper = new PublicContent(sdk);
+      final PublicContent wrapper = new PublicContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content.SearchChannelSpecificContent
           operation =
               net.accelbyte.sdk.api.ugc.operations.public_content.SearchChannelSpecificContent
@@ -134,7 +134,7 @@ public class SearchChannelSpecificContent implements Callable<Integer> {
                   .type(type)
                   .userId(userId)
                   .build();
-      ModelsPaginatedContentDownloadResponse response =
+      final ModelsPaginatedContentDownloadResponse response =
           wrapper.searchChannelSpecificContent(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

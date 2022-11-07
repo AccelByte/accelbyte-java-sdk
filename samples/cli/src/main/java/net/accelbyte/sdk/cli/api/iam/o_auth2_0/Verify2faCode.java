@@ -70,7 +70,7 @@ public class Verify2faCode implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      OAuth20 wrapper = new OAuth20(sdk);
+      final OAuth20 wrapper = new OAuth20(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0.Verify2faCode operation =
           net.accelbyte.sdk.api.iam.operations.o_auth2_0.Verify2faCode.builder()
               .code(code != null ? code : null)
@@ -78,7 +78,7 @@ public class Verify2faCode implements Callable<Integer> {
               .mfaToken(mfaToken != null ? mfaToken : null)
               .rememberDevice(rememberDevice != null ? rememberDevice : null)
               .build();
-      OauthmodelTokenResponseV3 response = wrapper.verify2faCode(operation);
+      final OauthmodelTokenResponseV3 response = wrapper.verify2faCode(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

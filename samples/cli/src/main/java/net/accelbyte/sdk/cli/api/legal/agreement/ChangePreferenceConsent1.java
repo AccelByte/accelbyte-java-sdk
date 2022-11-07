@@ -56,7 +56,7 @@ public class ChangePreferenceConsent1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Agreement wrapper = new Agreement(sdk);
+      final Agreement wrapper = new Agreement(sdk);
       final net.accelbyte.sdk.api.legal.operations.agreement.ChangePreferenceConsent1 operation =
           net.accelbyte.sdk.api.legal.operations.agreement.ChangePreferenceConsent1.builder()
               .body(

@@ -67,7 +67,7 @@ public class PublicUpdateCustomAttributesPartially implements Callable<Integer> 
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UserProfile wrapper = new UserProfile(sdk);
+      final UserProfile wrapper = new UserProfile(sdk);
       final net.accelbyte.sdk.api.basic.operations.user_profile
               .PublicUpdateCustomAttributesPartially
           operation =
@@ -77,7 +77,7 @@ public class PublicUpdateCustomAttributesPartially implements Callable<Integer> 
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, new TypeReference<Map<String, ?>>() {}))
                   .build();
-      Map<String, ?> response = wrapper.publicUpdateCustomAttributesPartially(operation);
+      final Map<String, ?> response = wrapper.publicUpdateCustomAttributesPartially(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

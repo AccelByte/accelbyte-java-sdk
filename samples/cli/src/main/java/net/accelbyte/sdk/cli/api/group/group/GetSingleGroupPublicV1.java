@@ -60,13 +60,13 @@ public class GetSingleGroupPublicV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Group wrapper = new Group(sdk);
+      final Group wrapper = new Group(sdk);
       final net.accelbyte.sdk.api.group.operations.group.GetSingleGroupPublicV1 operation =
           net.accelbyte.sdk.api.group.operations.group.GetSingleGroupPublicV1.builder()
               .groupId(groupId)
               .namespace(namespace)
               .build();
-      ModelsGroupResponseV1 response = wrapper.getSingleGroupPublicV1(operation);
+      final ModelsGroupResponseV1 response = wrapper.getSingleGroupPublicV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

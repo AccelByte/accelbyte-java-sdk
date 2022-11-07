@@ -60,7 +60,7 @@ public class ReportUser implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UserAction wrapper = new UserAction(sdk);
+      final UserAction wrapper = new UserAction(sdk);
       final net.accelbyte.sdk.api.basic.operations.user_action.ReportUser operation =
           net.accelbyte.sdk.api.basic.operations.user_action.ReportUser.builder()
               .namespace(namespace)

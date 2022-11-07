@@ -54,7 +54,7 @@ public class AcceptVersionedPolicy implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Agreement wrapper = new Agreement(sdk);
+      final Agreement wrapper = new Agreement(sdk);
       final net.accelbyte.sdk.api.legal.operations.agreement.AcceptVersionedPolicy operation =
           net.accelbyte.sdk.api.legal.operations.agreement.AcceptVersionedPolicy.builder()
               .localizedPolicyVersionId(localizedPolicyVersionId)

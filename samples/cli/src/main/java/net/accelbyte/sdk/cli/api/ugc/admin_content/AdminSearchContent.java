@@ -110,7 +110,7 @@ public class AdminSearchContent implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AdminContent wrapper = new AdminContent(sdk);
+      final AdminContent wrapper = new AdminContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminSearchContent operation =
           net.accelbyte.sdk.api.ugc.operations.admin_content.AdminSearchContent.builder()
               .namespace(namespace)
@@ -126,7 +126,7 @@ public class AdminSearchContent implements Callable<Integer> {
               .type(type)
               .userId(userId)
               .build();
-      ModelsPaginatedContentDownloadResponse response = wrapper.adminSearchContent(operation);
+      final ModelsPaginatedContentDownloadResponse response = wrapper.adminSearchContent(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -60,7 +60,7 @@ public class GetSessionHistoryDetailed implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Session wrapper = new Session(sdk);
+      final Session wrapper = new Session(sdk);
       final net.accelbyte.sdk.api.sessionbrowser.operations.session.GetSessionHistoryDetailed
           operation =
               net.accelbyte.sdk.api.sessionbrowser.operations.session.GetSessionHistoryDetailed
@@ -68,7 +68,7 @@ public class GetSessionHistoryDetailed implements Callable<Integer> {
                   .matchID(matchID)
                   .namespace(namespace)
                   .build();
-      List<ModelsGetSessionHistoryDetailedResponseItem> response =
+      final List<ModelsGetSessionHistoryDetailedResponseItem> response =
           wrapper.getSessionHistoryDetailed(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

@@ -55,12 +55,12 @@ public class GetUserIncomingFriends implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Friends wrapper = new Friends(sdk);
+      final Friends wrapper = new Friends(sdk);
       final net.accelbyte.sdk.api.lobby.operations.friends.GetUserIncomingFriends operation =
           net.accelbyte.sdk.api.lobby.operations.friends.GetUserIncomingFriends.builder()
               .namespace(namespace)
               .build();
-      List<ModelGetUserIncomingFriendsResponse> response =
+      final List<ModelGetUserIncomingFriendsResponse> response =
           wrapper.getUserIncomingFriends(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

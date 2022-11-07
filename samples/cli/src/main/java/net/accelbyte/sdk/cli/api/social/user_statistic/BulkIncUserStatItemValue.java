@@ -61,7 +61,7 @@ public class BulkIncUserStatItemValue implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UserStatistic wrapper = new UserStatistic(sdk);
+      final UserStatistic wrapper = new UserStatistic(sdk);
       final net.accelbyte.sdk.api.social.operations.user_statistic.BulkIncUserStatItemValue
           operation =
               net.accelbyte.sdk.api.social.operations.user_statistic.BulkIncUserStatItemValue
@@ -71,7 +71,8 @@ public class BulkIncUserStatItemValue implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, new TypeReference<List<BulkUserStatItemInc>>() {}))
                   .build();
-      List<BulkStatItemOperationResult> response = wrapper.bulkIncUserStatItemValue(operation);
+      final List<BulkStatItemOperationResult> response =
+          wrapper.bulkIncUserStatItemValue(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

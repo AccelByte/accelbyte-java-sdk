@@ -65,7 +65,7 @@ public class AdminDeleteProfanityFilter implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Profanity wrapper = new Profanity(sdk);
+      final Profanity wrapper = new Profanity(sdk);
       final net.accelbyte.sdk.api.lobby.operations.profanity.AdminDeleteProfanityFilter operation =
           net.accelbyte.sdk.api.lobby.operations.profanity.AdminDeleteProfanityFilter.builder()
               .list(list)
@@ -73,7 +73,7 @@ public class AdminDeleteProfanityFilter implements Callable<Integer> {
               .body(
                   new ObjectMapper().readValue(body, ModelsAdminDeleteProfanityFilterRequest.class))
               .build();
-      List<ModelsProfanityFilter> response = wrapper.adminDeleteProfanityFilter(operation);
+      final List<ModelsProfanityFilter> response = wrapper.adminDeleteProfanityFilter(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

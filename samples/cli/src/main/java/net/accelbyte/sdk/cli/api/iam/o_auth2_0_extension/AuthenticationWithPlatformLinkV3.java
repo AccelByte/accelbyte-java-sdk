@@ -75,7 +75,7 @@ public class AuthenticationWithPlatformLinkV3 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      OAuth20Extension wrapper = new OAuth20Extension(sdk);
+      final OAuth20Extension wrapper = new OAuth20Extension(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension
               .AuthenticationWithPlatformLinkV3
           operation =
@@ -87,7 +87,8 @@ public class AuthenticationWithPlatformLinkV3 implements Callable<Integer> {
                   .password(password != null ? password : null)
                   .username(username != null ? username : null)
                   .build();
-      OauthmodelTokenResponseV3 response = wrapper.authenticationWithPlatformLinkV3(operation);
+      final OauthmodelTokenResponseV3 response =
+          wrapper.authenticationWithPlatformLinkV3(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

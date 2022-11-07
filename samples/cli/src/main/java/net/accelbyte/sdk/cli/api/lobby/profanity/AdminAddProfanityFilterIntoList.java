@@ -65,7 +65,7 @@ public class AdminAddProfanityFilterIntoList implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Profanity wrapper = new Profanity(sdk);
+      final Profanity wrapper = new Profanity(sdk);
       final net.accelbyte.sdk.api.lobby.operations.profanity.AdminAddProfanityFilterIntoList
           operation =
               net.accelbyte.sdk.api.lobby.operations.profanity.AdminAddProfanityFilterIntoList

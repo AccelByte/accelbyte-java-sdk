@@ -54,7 +54,7 @@ public class DeleteIAPItemConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      IAP wrapper = new IAP(sdk);
+      final IAP wrapper = new IAP(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap.DeleteIAPItemConfig operation =
           net.accelbyte.sdk.api.platform.operations.iap.DeleteIAPItemConfig.builder()
               .namespace(namespace)

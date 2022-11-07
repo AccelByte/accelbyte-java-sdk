@@ -60,7 +60,7 @@ public class RetrieveActiveOIDCClientsPublicV3 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
+      final ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
       final net.accelbyte.sdk.api.iam.operations.third_party_credential
               .RetrieveActiveOIDCClientsPublicV3
           operation =
@@ -69,7 +69,7 @@ public class RetrieveActiveOIDCClientsPublicV3 implements Callable<Integer> {
                   .namespace(namespace)
                   .clientId(clientId)
                   .build();
-      List<ModelPublicThirdPartyPlatformInfo> response =
+      final List<ModelPublicThirdPartyPlatformInfo> response =
           wrapper.retrieveActiveOIDCClientsPublicV3(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

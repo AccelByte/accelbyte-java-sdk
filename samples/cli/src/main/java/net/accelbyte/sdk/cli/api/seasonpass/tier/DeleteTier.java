@@ -64,7 +64,7 @@ public class DeleteTier implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Tier wrapper = new Tier(sdk);
+      final Tier wrapper = new Tier(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.tier.DeleteTier operation =
           net.accelbyte.sdk.api.seasonpass.operations.tier.DeleteTier.builder()
               .id(id)

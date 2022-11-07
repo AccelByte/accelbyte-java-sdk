@@ -70,7 +70,7 @@ public class GetHiddenUsersV2 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UserVisibility wrapper = new UserVisibility(sdk);
+      final UserVisibility wrapper = new UserVisibility(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.user_visibility.GetHiddenUsersV2
           operation =
               net.accelbyte.sdk.api.leaderboard.operations.user_visibility.GetHiddenUsersV2
@@ -80,7 +80,7 @@ public class GetHiddenUsersV2 implements Callable<Integer> {
                   .limit(limit)
                   .offset(offset)
                   .build();
-      ModelsGetHiddenUserResponse response = wrapper.getHiddenUsersV2(operation);
+      final ModelsGetHiddenUserResponse response = wrapper.getHiddenUsersV2(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

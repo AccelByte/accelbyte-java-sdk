@@ -85,7 +85,7 @@ public class PublicCreateUserNamespaceSlot implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Slot wrapper = new Slot(sdk);
+      final Slot wrapper = new Slot(sdk);
       final net.accelbyte.sdk.api.social.operations.slot.PublicCreateUserNamespaceSlot operation =
           net.accelbyte.sdk.api.social.operations.slot.PublicCreateUserNamespaceSlot.builder()
               .namespace(namespace)

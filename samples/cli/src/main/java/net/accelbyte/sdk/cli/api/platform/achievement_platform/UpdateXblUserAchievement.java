@@ -65,7 +65,7 @@ public class UpdateXblUserAchievement implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AchievementPlatform wrapper = new AchievementPlatform(sdk);
+      final AchievementPlatform wrapper = new AchievementPlatform(sdk);
       final net.accelbyte.sdk.api.platform.operations.achievement_platform.UpdateXblUserAchievement
           operation =
               net.accelbyte.sdk.api.platform.operations.achievement_platform

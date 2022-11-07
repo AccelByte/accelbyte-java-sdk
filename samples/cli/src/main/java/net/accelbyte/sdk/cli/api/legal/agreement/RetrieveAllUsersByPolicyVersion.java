@@ -70,7 +70,7 @@ public class RetrieveAllUsersByPolicyVersion implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Agreement wrapper = new Agreement(sdk);
+      final Agreement wrapper = new Agreement(sdk);
       final net.accelbyte.sdk.api.legal.operations.agreement.RetrieveAllUsersByPolicyVersion
           operation =
               net.accelbyte.sdk.api.legal.operations.agreement.RetrieveAllUsersByPolicyVersion
@@ -80,7 +80,7 @@ public class RetrieveAllUsersByPolicyVersion implements Callable<Integer> {
                   .offset(offset)
                   .policyVersionId(policyVersionId)
                   .build();
-      List<PagedRetrieveUserAcceptedAgreementResponse> response =
+      final List<PagedRetrieveUserAcceptedAgreementResponse> response =
           wrapper.retrieveAllUsersByPolicyVersion(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

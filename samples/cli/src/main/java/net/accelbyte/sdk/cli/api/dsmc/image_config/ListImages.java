@@ -80,7 +80,7 @@ public class ListImages implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      ImageConfig wrapper = new ImageConfig(sdk);
+      final ImageConfig wrapper = new ImageConfig(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.image_config.ListImages operation =
           net.accelbyte.sdk.api.dsmc.operations.image_config.ListImages.builder()
               .namespace(namespace)
@@ -90,7 +90,7 @@ public class ListImages implements Callable<Integer> {
               .count(count)
               .offset(offset)
               .build();
-      ModelsListImageResponse response = wrapper.listImages(operation);
+      final ModelsListImageResponse response = wrapper.listImages(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -75,7 +75,7 @@ public class GetUserEntitlementByItemId implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Entitlement wrapper = new Entitlement(sdk);
+      final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementByItemId
           operation =
               net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementByItemId
@@ -86,7 +86,7 @@ public class GetUserEntitlementByItemId implements Callable<Integer> {
                   .entitlementClazz(entitlementClazz)
                   .itemId(itemId)
                   .build();
-      EntitlementInfo response = wrapper.getUserEntitlementByItemId(operation);
+      final EntitlementInfo response = wrapper.getUserEntitlementByItemId(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -80,7 +80,7 @@ public class QueryEventStreamHandler implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      EventV2 wrapper = new EventV2(sdk);
+      final EventV2 wrapper = new EventV2(sdk);
       final net.accelbyte.sdk.api.eventlog.operations.event_v2.QueryEventStreamHandler operation =
           net.accelbyte.sdk.api.eventlog.operations.event_v2.QueryEventStreamHandler.builder()
               .namespace(namespace)
@@ -90,7 +90,7 @@ public class QueryEventStreamHandler implements Callable<Integer> {
               .startDate(startDate)
               .body(new ObjectMapper().readValue(body, ModelsGenericQueryPayload.class))
               .build();
-      ModelsEventResponseV2 response = wrapper.queryEventStreamHandler(operation);
+      final ModelsEventResponseV2 response = wrapper.queryEventStreamHandler(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

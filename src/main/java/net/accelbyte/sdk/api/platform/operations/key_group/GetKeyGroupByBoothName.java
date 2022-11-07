@@ -25,7 +25,10 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=2 (READ) *
  * Returns : key group info
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetKeyGroupByBoothName extends Operation {

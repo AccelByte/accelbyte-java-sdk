@@ -60,7 +60,7 @@ public class PublicBulkClaimUserRewards implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Reward wrapper = new Reward(sdk);
+      final Reward wrapper = new Reward(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.reward.PublicBulkClaimUserRewards
           operation =
               net.accelbyte.sdk.api.seasonpass.operations.reward.PublicBulkClaimUserRewards
@@ -68,7 +68,7 @@ public class PublicBulkClaimUserRewards implements Callable<Integer> {
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      ClaimableRewards response = wrapper.publicBulkClaimUserRewards(operation);
+      final ClaimableRewards response = wrapper.publicBulkClaimUserRewards(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

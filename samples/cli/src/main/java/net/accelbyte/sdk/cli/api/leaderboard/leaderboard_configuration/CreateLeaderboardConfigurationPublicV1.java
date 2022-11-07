@@ -61,7 +61,7 @@ public class CreateLeaderboardConfigurationPublicV1 implements Callable<Integer>
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      LeaderboardConfiguration wrapper = new LeaderboardConfiguration(sdk);
+      final LeaderboardConfiguration wrapper = new LeaderboardConfiguration(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration
               .CreateLeaderboardConfigurationPublicV1
           operation =
@@ -70,7 +70,7 @@ public class CreateLeaderboardConfigurationPublicV1 implements Callable<Integer>
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsLeaderboardConfigReq.class))
                   .build();
-      ModelsLeaderboardConfigReq response =
+      final ModelsLeaderboardConfigReq response =
           wrapper.createLeaderboardConfigurationPublicV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

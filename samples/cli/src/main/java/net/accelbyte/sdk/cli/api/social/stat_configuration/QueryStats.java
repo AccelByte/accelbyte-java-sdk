@@ -70,7 +70,7 @@ public class QueryStats implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      StatConfiguration wrapper = new StatConfiguration(sdk);
+      final StatConfiguration wrapper = new StatConfiguration(sdk);
       final net.accelbyte.sdk.api.social.operations.stat_configuration.QueryStats operation =
           net.accelbyte.sdk.api.social.operations.stat_configuration.QueryStats.builder()
               .namespace(namespace)
@@ -78,7 +78,7 @@ public class QueryStats implements Callable<Integer> {
               .offset(offset)
               .keyword(keyword)
               .build();
-      StatPagingSlicedResult response = wrapper.queryStats(operation);
+      final StatPagingSlicedResult response = wrapper.queryStats(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

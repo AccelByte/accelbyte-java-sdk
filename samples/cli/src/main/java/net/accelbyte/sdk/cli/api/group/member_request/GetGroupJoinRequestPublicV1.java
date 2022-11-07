@@ -70,7 +70,7 @@ public class GetGroupJoinRequestPublicV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      MemberRequest wrapper = new MemberRequest(sdk);
+      final MemberRequest wrapper = new MemberRequest(sdk);
       final net.accelbyte.sdk.api.group.operations.member_request.GetGroupJoinRequestPublicV1
           operation =
               net.accelbyte.sdk.api.group.operations.member_request.GetGroupJoinRequestPublicV1
@@ -80,7 +80,7 @@ public class GetGroupJoinRequestPublicV1 implements Callable<Integer> {
                   .limit(limit)
                   .offset(offset)
                   .build();
-      ModelsGetMemberRequestsListResponseV1 response =
+      final ModelsGetMemberRequestsListResponseV1 response =
           wrapper.getGroupJoinRequestPublicV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

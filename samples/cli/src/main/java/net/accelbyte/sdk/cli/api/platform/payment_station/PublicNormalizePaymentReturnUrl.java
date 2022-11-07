@@ -129,7 +129,7 @@ public class PublicNormalizePaymentReturnUrl implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PaymentStation wrapper = new PaymentStation(sdk);
+      final PaymentStation wrapper = new PaymentStation(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_station
               .PublicNormalizePaymentReturnUrl
           operation =

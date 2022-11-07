@@ -70,7 +70,7 @@ public class RetrieveEligibilitiesPublicIndirect implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Eligibilities wrapper = new Eligibilities(sdk);
+      final Eligibilities wrapper = new Eligibilities(sdk);
       final net.accelbyte.sdk.api.legal.operations.eligibilities.RetrieveEligibilitiesPublicIndirect
           operation =
               net.accelbyte.sdk.api.legal.operations.eligibilities
@@ -80,7 +80,7 @@ public class RetrieveEligibilitiesPublicIndirect implements Callable<Integer> {
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      RetrieveUserEligibilitiesIndirectResponse response =
+      final RetrieveUserEligibilitiesIndirectResponse response =
           wrapper.retrieveEligibilitiesPublicIndirect(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

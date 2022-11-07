@@ -60,13 +60,13 @@ public class GetPaymentOrder implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Payment wrapper = new Payment(sdk);
+      final Payment wrapper = new Payment(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment.GetPaymentOrder operation =
           net.accelbyte.sdk.api.platform.operations.payment.GetPaymentOrder.builder()
               .namespace(namespace)
               .paymentOrderNo(paymentOrderNo)
               .build();
-      PaymentOrderInfo response = wrapper.getPaymentOrder(operation);
+      final PaymentOrderInfo response = wrapper.getPaymentOrder(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

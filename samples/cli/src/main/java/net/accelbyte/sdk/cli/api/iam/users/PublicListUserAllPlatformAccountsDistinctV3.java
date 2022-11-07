@@ -61,7 +61,7 @@ public class PublicListUserAllPlatformAccountsDistinctV3 implements Callable<Int
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Users wrapper = new Users(sdk);
+      final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.PublicListUserAllPlatformAccountsDistinctV3
           operation =
               net.accelbyte.sdk.api.iam.operations.users.PublicListUserAllPlatformAccountsDistinctV3
@@ -69,7 +69,7 @@ public class PublicListUserAllPlatformAccountsDistinctV3 implements Callable<Int
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      AccountcommonDistinctPlatformResponseV3 response =
+      final AccountcommonDistinctPlatformResponseV3 response =
           wrapper.publicListUserAllPlatformAccountsDistinctV3(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

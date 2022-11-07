@@ -67,7 +67,7 @@ public class SendSpecificUserTemplatedNotificationV1Admin implements Callable<In
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Notification wrapper = new Notification(sdk);
+      final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification
               .SendSpecificUserTemplatedNotificationV1Admin
           operation =

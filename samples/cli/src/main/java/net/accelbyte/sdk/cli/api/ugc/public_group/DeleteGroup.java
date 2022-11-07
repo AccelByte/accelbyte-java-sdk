@@ -64,7 +64,7 @@ public class DeleteGroup implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PublicGroup wrapper = new PublicGroup(sdk);
+      final PublicGroup wrapper = new PublicGroup(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_group.DeleteGroup operation =
           net.accelbyte.sdk.api.ugc.operations.public_group.DeleteGroup.builder()
               .groupId(groupId)

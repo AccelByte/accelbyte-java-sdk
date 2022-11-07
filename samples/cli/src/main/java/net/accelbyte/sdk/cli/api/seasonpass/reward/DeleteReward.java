@@ -64,7 +64,7 @@ public class DeleteReward implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Reward wrapper = new Reward(sdk);
+      final Reward wrapper = new Reward(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.reward.DeleteReward operation =
           net.accelbyte.sdk.api.seasonpass.operations.reward.DeleteReward.builder()
               .code(code)

@@ -54,7 +54,7 @@ public class DeletePaymentProviderConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PaymentConfig wrapper = new PaymentConfig(sdk);
+      final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config.DeletePaymentProviderConfig
           operation =
               net.accelbyte.sdk.api.platform.operations.payment_config.DeletePaymentProviderConfig

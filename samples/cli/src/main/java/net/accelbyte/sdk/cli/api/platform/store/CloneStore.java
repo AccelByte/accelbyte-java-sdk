@@ -65,14 +65,14 @@ public class CloneStore implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Store wrapper = new Store(sdk);
+      final Store wrapper = new Store(sdk);
       final net.accelbyte.sdk.api.platform.operations.store.CloneStore operation =
           net.accelbyte.sdk.api.platform.operations.store.CloneStore.builder()
               .namespace(namespace)
               .storeId(storeId)
               .targetStoreId(targetStoreId)
               .build();
-      StoreInfo response = wrapper.cloneStore(operation);
+      final StoreInfo response = wrapper.cloneStore(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

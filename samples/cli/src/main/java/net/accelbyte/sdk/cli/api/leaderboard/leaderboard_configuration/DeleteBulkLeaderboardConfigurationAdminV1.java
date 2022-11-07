@@ -61,7 +61,7 @@ public class DeleteBulkLeaderboardConfigurationAdminV1 implements Callable<Integ
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      LeaderboardConfiguration wrapper = new LeaderboardConfiguration(sdk);
+      final LeaderboardConfiguration wrapper = new LeaderboardConfiguration(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration
               .DeleteBulkLeaderboardConfigurationAdminV1
           operation =
@@ -70,7 +70,7 @@ public class DeleteBulkLeaderboardConfigurationAdminV1 implements Callable<Integ
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsDeleteBulkLeaderboardsReq.class))
                   .build();
-      ModelsDeleteBulkLeaderboardsResp response =
+      final ModelsDeleteBulkLeaderboardsResp response =
           wrapper.deleteBulkLeaderboardConfigurationAdminV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

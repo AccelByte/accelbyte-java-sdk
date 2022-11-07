@@ -65,14 +65,14 @@ public class PublicRedeemCode implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Fulfillment wrapper = new Fulfillment(sdk);
+      final Fulfillment wrapper = new Fulfillment(sdk);
       final net.accelbyte.sdk.api.platform.operations.fulfillment.PublicRedeemCode operation =
           net.accelbyte.sdk.api.platform.operations.fulfillment.PublicRedeemCode.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, FulfillCodeRequest.class))
               .build();
-      FulfillmentResult response = wrapper.publicRedeemCode(operation);
+      final FulfillmentResult response = wrapper.publicRedeemCode(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

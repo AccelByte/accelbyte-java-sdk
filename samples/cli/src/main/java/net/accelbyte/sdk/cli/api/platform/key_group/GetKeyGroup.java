@@ -60,13 +60,13 @@ public class GetKeyGroup implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      KeyGroup wrapper = new KeyGroup(sdk);
+      final KeyGroup wrapper = new KeyGroup(sdk);
       final net.accelbyte.sdk.api.platform.operations.key_group.GetKeyGroup operation =
           net.accelbyte.sdk.api.platform.operations.key_group.GetKeyGroup.builder()
               .keyGroupId(keyGroupId)
               .namespace(namespace)
               .build();
-      KeyGroupInfo response = wrapper.getKeyGroup(operation);
+      final KeyGroupInfo response = wrapper.getKeyGroup(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

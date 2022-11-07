@@ -79,7 +79,7 @@ public class UserAuthenticationV3 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      OAuth20Extension wrapper = new OAuth20Extension(sdk);
+      final OAuth20Extension wrapper = new OAuth20Extension(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.UserAuthenticationV3
           operation =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.UserAuthenticationV3

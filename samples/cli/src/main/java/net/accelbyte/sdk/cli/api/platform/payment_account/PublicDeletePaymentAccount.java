@@ -69,7 +69,7 @@ public class PublicDeletePaymentAccount implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PaymentAccount wrapper = new PaymentAccount(sdk);
+      final PaymentAccount wrapper = new PaymentAccount(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_account.PublicDeletePaymentAccount
           operation =
               net.accelbyte.sdk.api.platform.operations.payment_account.PublicDeletePaymentAccount

@@ -60,7 +60,7 @@ public class BulkGetUserSeasonProgression implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Season wrapper = new Season(sdk);
+      final Season wrapper = new Season(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.season.BulkGetUserSeasonProgression
           operation =
               net.accelbyte.sdk.api.seasonpass.operations.season.BulkGetUserSeasonProgression
@@ -68,7 +68,7 @@ public class BulkGetUserSeasonProgression implements Callable<Integer> {
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, BulkUserProgressionRequest.class))
                   .build();
-      List<UserSeasonSummary> response = wrapper.bulkGetUserSeasonProgression(operation);
+      final List<UserSeasonSummary> response = wrapper.bulkGetUserSeasonProgression(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

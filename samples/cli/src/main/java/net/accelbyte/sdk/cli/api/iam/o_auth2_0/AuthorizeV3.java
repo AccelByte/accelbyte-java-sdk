@@ -65,6 +65,11 @@ public class AuthorizeV3 implements Callable<Integer> {
   String targetAuthPage;
 
   @Option(
+      names = {"--useRedirectUriAsLoginUrlWhenLocked"},
+      description = "useRedirectUriAsLoginUrlWhenLocked")
+  Boolean useRedirectUriAsLoginUrlWhenLocked;
+
+  @Option(
       names = {"--clientId"},
       description = "clientId")
   String clientId;
@@ -94,7 +99,7 @@ public class AuthorizeV3 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      OAuth20 wrapper = new OAuth20(sdk);
+      final OAuth20 wrapper = new OAuth20(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthorizeV3 operation =
           net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthorizeV3.builder()
               .codeChallenge(codeChallenge)
@@ -104,6 +109,7 @@ public class AuthorizeV3 implements Callable<Integer> {
               .scope(scope)
               .state(state)
               .targetAuthPage(targetAuthPage)
+              .useRedirectUriAsLoginUrlWhenLocked(useRedirectUriAsLoginUrlWhenLocked)
               .clientId(clientId)
               .responseType(responseType)
               .build();

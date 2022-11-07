@@ -60,13 +60,13 @@ public class CreateKeyGroup implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      KeyGroup wrapper = new KeyGroup(sdk);
+      final KeyGroup wrapper = new KeyGroup(sdk);
       final net.accelbyte.sdk.api.platform.operations.key_group.CreateKeyGroup operation =
           net.accelbyte.sdk.api.platform.operations.key_group.CreateKeyGroup.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, KeyGroupCreate.class))
               .build();
-      KeyGroupInfo response = wrapper.createKeyGroup(operation);
+      final KeyGroupInfo response = wrapper.createKeyGroup(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

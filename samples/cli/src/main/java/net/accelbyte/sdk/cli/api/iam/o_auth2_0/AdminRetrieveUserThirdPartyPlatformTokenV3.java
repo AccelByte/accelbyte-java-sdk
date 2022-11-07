@@ -66,7 +66,7 @@ public class AdminRetrieveUserThirdPartyPlatformTokenV3 implements Callable<Inte
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      OAuth20 wrapper = new OAuth20(sdk);
+      final OAuth20 wrapper = new OAuth20(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0
               .AdminRetrieveUserThirdPartyPlatformTokenV3
           operation =
@@ -76,7 +76,7 @@ public class AdminRetrieveUserThirdPartyPlatformTokenV3 implements Callable<Inte
                   .platformId(platformId)
                   .userId(userId)
                   .build();
-      OauthmodelTokenThirdPartyResponse response =
+      final OauthmodelTokenThirdPartyResponse response =
           wrapper.adminRetrieveUserThirdPartyPlatformTokenV3(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

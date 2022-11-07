@@ -65,7 +65,7 @@ public class GetPlayerRecordHandlerV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PublicPlayerRecord wrapper = new PublicPlayerRecord(sdk);
+      final PublicPlayerRecord wrapper = new PublicPlayerRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_player_record.GetPlayerRecordHandlerV1
           operation =
               net.accelbyte.sdk.api.cloudsave.operations.public_player_record
@@ -74,7 +74,7 @@ public class GetPlayerRecordHandlerV1 implements Callable<Integer> {
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      ModelsPlayerRecordResponse response = wrapper.getPlayerRecordHandlerV1(operation);
+      final ModelsPlayerRecordResponse response = wrapper.getPlayerRecordHandlerV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

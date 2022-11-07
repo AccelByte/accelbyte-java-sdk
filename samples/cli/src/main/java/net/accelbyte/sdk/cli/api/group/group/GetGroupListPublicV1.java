@@ -75,7 +75,7 @@ public class GetGroupListPublicV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Group wrapper = new Group(sdk);
+      final Group wrapper = new Group(sdk);
       final net.accelbyte.sdk.api.group.operations.group.GetGroupListPublicV1 operation =
           net.accelbyte.sdk.api.group.operations.group.GetGroupListPublicV1.builder()
               .namespace(namespace)
@@ -84,7 +84,7 @@ public class GetGroupListPublicV1 implements Callable<Integer> {
               .limit(limit)
               .offset(offset)
               .build();
-      ModelsGetGroupsListResponseV1 response = wrapper.getGroupListPublicV1(operation);
+      final ModelsGetGroupsListResponseV1 response = wrapper.getGroupListPublicV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

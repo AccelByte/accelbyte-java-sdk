@@ -95,7 +95,7 @@ public class QueryUserExpGrantHistory implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Season wrapper = new Season(sdk);
+      final Season wrapper = new Season(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.season.QueryUserExpGrantHistory operation =
           net.accelbyte.sdk.api.seasonpass.operations.season.QueryUserExpGrantHistory.builder()
               .namespace(namespace)
@@ -108,7 +108,8 @@ public class QueryUserExpGrantHistory implements Callable<Integer> {
               .tags(tags)
               .to(to)
               .build();
-      ExpGrantHistoryPagingSlicedResult response = wrapper.queryUserExpGrantHistory(operation);
+      final ExpGrantHistoryPagingSlicedResult response =
+          wrapper.queryUserExpGrantHistory(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -59,7 +59,7 @@ public class DeleteGroupConfigurationV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Configuration wrapper = new Configuration(sdk);
+      final Configuration wrapper = new Configuration(sdk);
       final net.accelbyte.sdk.api.group.operations.configuration.DeleteGroupConfigurationV1
           operation =
               net.accelbyte.sdk.api.group.operations.configuration.DeleteGroupConfigurationV1

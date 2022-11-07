@@ -70,7 +70,7 @@ public class GetActiveMatchmakingGameSessions implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Session wrapper = new Session(sdk);
+      final Session wrapper = new Session(sdk);
       final net.accelbyte.sdk.api.sessionbrowser.operations.session.GetActiveMatchmakingGameSessions
           operation =
               net.accelbyte.sdk.api.sessionbrowser.operations.session
@@ -80,7 +80,7 @@ public class GetActiveMatchmakingGameSessions implements Callable<Integer> {
                   .serverRegion(serverRegion)
                   .sessionId(sessionId)
                   .build();
-      ModelsActiveMatchmakingGameResponse response =
+      final ModelsActiveMatchmakingGameResponse response =
           wrapper.getActiveMatchmakingGameSessions(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

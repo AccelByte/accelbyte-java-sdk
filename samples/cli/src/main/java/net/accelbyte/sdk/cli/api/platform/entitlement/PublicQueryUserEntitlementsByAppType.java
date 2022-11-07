@@ -76,7 +76,7 @@ public class PublicQueryUserEntitlementsByAppType implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Entitlement wrapper = new Entitlement(sdk);
+      final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement
               .PublicQueryUserEntitlementsByAppType
           operation =
@@ -88,7 +88,7 @@ public class PublicQueryUserEntitlementsByAppType implements Callable<Integer> {
                   .offset(offset)
                   .appType(appType)
                   .build();
-      AppEntitlementPagingSlicedResult response =
+      final AppEntitlementPagingSlicedResult response =
           wrapper.publicQueryUserEntitlementsByAppType(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

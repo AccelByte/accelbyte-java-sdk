@@ -60,13 +60,13 @@ public class GetTicketDynamic implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Ticket wrapper = new Ticket(sdk);
+      final Ticket wrapper = new Ticket(sdk);
       final net.accelbyte.sdk.api.platform.operations.ticket.GetTicketDynamic operation =
           net.accelbyte.sdk.api.platform.operations.ticket.GetTicketDynamic.builder()
               .boothName(boothName)
               .namespace(namespace)
               .build();
-      TicketDynamicInfo response = wrapper.getTicketDynamic(operation);
+      final TicketDynamicInfo response = wrapper.getTicketDynamic(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

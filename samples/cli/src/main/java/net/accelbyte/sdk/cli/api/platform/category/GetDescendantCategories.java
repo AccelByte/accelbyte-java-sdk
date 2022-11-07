@@ -65,14 +65,14 @@ public class GetDescendantCategories implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Category wrapper = new Category(sdk);
+      final Category wrapper = new Category(sdk);
       final net.accelbyte.sdk.api.platform.operations.category.GetDescendantCategories operation =
           net.accelbyte.sdk.api.platform.operations.category.GetDescendantCategories.builder()
               .categoryPath(categoryPath)
               .namespace(namespace)
               .storeId(storeId)
               .build();
-      List<FullCategoryInfo> response = wrapper.getDescendantCategories(operation);
+      final List<FullCategoryInfo> response = wrapper.getDescendantCategories(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -65,14 +65,14 @@ public class GrantUserExp implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Tier wrapper = new Tier(sdk);
+      final Tier wrapper = new Tier(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.tier.GrantUserExp operation =
           net.accelbyte.sdk.api.seasonpass.operations.tier.GrantUserExp.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, UserExpGrant.class))
               .build();
-      UserSeasonSummary response = wrapper.grantUserExp(operation);
+      final UserSeasonSummary response = wrapper.grantUserExp(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

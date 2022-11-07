@@ -60,13 +60,13 @@ public class GetImagePatches implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      ImageConfig wrapper = new ImageConfig(sdk);
+      final ImageConfig wrapper = new ImageConfig(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.image_config.GetImagePatches operation =
           net.accelbyte.sdk.api.dsmc.operations.image_config.GetImagePatches.builder()
               .namespace(namespace)
               .version(version)
               .build();
-      ModelsListImagePatchesResponse response = wrapper.getImagePatches(operation);
+      final ModelsListImagePatchesResponse response = wrapper.getImagePatches(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

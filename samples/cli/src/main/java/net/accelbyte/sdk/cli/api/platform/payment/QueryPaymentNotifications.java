@@ -100,7 +100,7 @@ public class QueryPaymentNotifications implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Payment wrapper = new Payment(sdk);
+      final Payment wrapper = new Payment(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment.QueryPaymentNotifications operation =
           net.accelbyte.sdk.api.platform.operations.payment.QueryPaymentNotifications.builder()
               .namespace(namespace)
@@ -114,7 +114,8 @@ public class QueryPaymentNotifications implements Callable<Integer> {
               .startDate(startDate)
               .status(status)
               .build();
-      PaymentNotificationPagingSlicedResult response = wrapper.queryPaymentNotifications(operation);
+      final PaymentNotificationPagingSlicedResult response =
+          wrapper.queryPaymentNotifications(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

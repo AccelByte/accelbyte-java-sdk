@@ -65,7 +65,7 @@ public class PublicGetUserAppEntitlementByAppId implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Entitlement wrapper = new Entitlement(sdk);
+      final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.PublicGetUserAppEntitlementByAppId
           operation =
               net.accelbyte.sdk.api.platform.operations.entitlement
@@ -74,7 +74,7 @@ public class PublicGetUserAppEntitlementByAppId implements Callable<Integer> {
                   .userId(userId)
                   .appId(appId)
                   .build();
-      AppEntitlementInfo response = wrapper.publicGetUserAppEntitlementByAppId(operation);
+      final AppEntitlementInfo response = wrapper.publicGetUserAppEntitlementByAppId(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

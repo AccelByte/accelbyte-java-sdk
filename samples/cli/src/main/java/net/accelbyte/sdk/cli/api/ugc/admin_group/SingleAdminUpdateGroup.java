@@ -65,14 +65,14 @@ public class SingleAdminUpdateGroup implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AdminGroup wrapper = new AdminGroup(sdk);
+      final AdminGroup wrapper = new AdminGroup(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_group.SingleAdminUpdateGroup operation =
           net.accelbyte.sdk.api.ugc.operations.admin_group.SingleAdminUpdateGroup.builder()
               .groupId(groupId)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsCreateGroupRequest.class))
               .build();
-      ModelsCreateGroupResponse response = wrapper.singleAdminUpdateGroup(operation);
+      final ModelsCreateGroupResponse response = wrapper.singleAdminUpdateGroup(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

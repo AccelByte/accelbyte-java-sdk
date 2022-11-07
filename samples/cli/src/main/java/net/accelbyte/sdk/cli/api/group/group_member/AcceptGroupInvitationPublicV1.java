@@ -60,7 +60,7 @@ public class AcceptGroupInvitationPublicV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      GroupMember wrapper = new GroupMember(sdk);
+      final GroupMember wrapper = new GroupMember(sdk);
       final net.accelbyte.sdk.api.group.operations.group_member.AcceptGroupInvitationPublicV1
           operation =
               net.accelbyte.sdk.api.group.operations.group_member.AcceptGroupInvitationPublicV1
@@ -68,7 +68,7 @@ public class AcceptGroupInvitationPublicV1 implements Callable<Integer> {
                   .groupId(groupId)
                   .namespace(namespace)
                   .build();
-      ModelsMemberRequestGroupResponseV1 response =
+      final ModelsMemberRequestGroupResponseV1 response =
           wrapper.acceptGroupInvitationPublicV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

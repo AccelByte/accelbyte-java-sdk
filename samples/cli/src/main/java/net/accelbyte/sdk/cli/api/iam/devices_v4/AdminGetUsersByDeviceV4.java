@@ -60,13 +60,13 @@ public class AdminGetUsersByDeviceV4 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      DevicesV4 wrapper = new DevicesV4(sdk);
+      final DevicesV4 wrapper = new DevicesV4(sdk);
       final net.accelbyte.sdk.api.iam.operations.devices_v4.AdminGetUsersByDeviceV4 operation =
           net.accelbyte.sdk.api.iam.operations.devices_v4.AdminGetUsersByDeviceV4.builder()
               .deviceId(deviceId)
               .namespace(namespace)
               .build();
-      ModelDeviceUsersResponseV4 response = wrapper.adminGetUsersByDeviceV4(operation);
+      final ModelDeviceUsersResponseV4 response = wrapper.adminGetUsersByDeviceV4(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

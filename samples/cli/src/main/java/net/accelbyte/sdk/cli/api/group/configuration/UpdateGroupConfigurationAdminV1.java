@@ -65,7 +65,7 @@ public class UpdateGroupConfigurationAdminV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Configuration wrapper = new Configuration(sdk);
+      final Configuration wrapper = new Configuration(sdk);
       final net.accelbyte.sdk.api.group.operations.configuration.UpdateGroupConfigurationAdminV1
           operation =
               net.accelbyte.sdk.api.group.operations.configuration.UpdateGroupConfigurationAdminV1
@@ -76,7 +76,7 @@ public class UpdateGroupConfigurationAdminV1 implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ModelsUpdateGroupConfigurationRequestV1.class))
                   .build();
-      ModelsUpdateGroupConfigurationResponseV1 response =
+      final ModelsUpdateGroupConfigurationResponseV1 response =
           wrapper.updateGroupConfigurationAdminV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

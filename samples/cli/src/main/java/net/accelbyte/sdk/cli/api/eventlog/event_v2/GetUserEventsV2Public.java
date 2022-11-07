@@ -85,7 +85,7 @@ public class GetUserEventsV2Public implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      EventV2 wrapper = new EventV2(sdk);
+      final EventV2 wrapper = new EventV2(sdk);
       final net.accelbyte.sdk.api.eventlog.operations.event_v2.GetUserEventsV2Public operation =
           net.accelbyte.sdk.api.eventlog.operations.event_v2.GetUserEventsV2Public.builder()
               .namespace(namespace)
@@ -96,7 +96,7 @@ public class GetUserEventsV2Public implements Callable<Integer> {
               .pageSize(pageSize)
               .startDate(startDate)
               .build();
-      ModelsEventResponseV2 response = wrapper.getUserEventsV2Public(operation);
+      final ModelsEventResponseV2 response = wrapper.getUserEventsV2Public(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

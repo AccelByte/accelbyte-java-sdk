@@ -60,7 +60,7 @@ public class AdminGetUserAccountDeletionRequest implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      DataDeletion wrapper = new DataDeletion(sdk);
+      final DataDeletion wrapper = new DataDeletion(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_deletion.AdminGetUserAccountDeletionRequest
           operation =
               net.accelbyte.sdk.api.gdpr.operations.data_deletion.AdminGetUserAccountDeletionRequest
@@ -68,7 +68,7 @@ public class AdminGetUserAccountDeletionRequest implements Callable<Integer> {
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      ModelsDeletionData response = wrapper.adminGetUserAccountDeletionRequest(operation);
+      final ModelsDeletionData response = wrapper.adminGetUserAccountDeletionRequest(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

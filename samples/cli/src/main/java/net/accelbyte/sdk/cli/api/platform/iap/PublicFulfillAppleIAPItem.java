@@ -65,7 +65,7 @@ public class PublicFulfillAppleIAPItem implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      IAP wrapper = new IAP(sdk);
+      final IAP wrapper = new IAP(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap.PublicFulfillAppleIAPItem operation =
           net.accelbyte.sdk.api.platform.operations.iap.PublicFulfillAppleIAPItem.builder()
               .namespace(namespace)

@@ -65,7 +65,7 @@ public class PutGameRecordHandlerV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PublicGameRecord wrapper = new PublicGameRecord(sdk);
+      final PublicGameRecord wrapper = new PublicGameRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_game_record.PutGameRecordHandlerV1
           operation =
               net.accelbyte.sdk.api.cloudsave.operations.public_game_record.PutGameRecordHandlerV1
@@ -74,7 +74,7 @@ public class PutGameRecordHandlerV1 implements Callable<Integer> {
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsGameRecordRequest.class))
                   .build();
-      ModelsGameRecordResponse response = wrapper.putGameRecordHandlerV1(operation);
+      final ModelsGameRecordResponse response = wrapper.putGameRecordHandlerV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

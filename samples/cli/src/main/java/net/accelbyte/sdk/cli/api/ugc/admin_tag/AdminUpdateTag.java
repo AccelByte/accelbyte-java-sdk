@@ -65,14 +65,14 @@ public class AdminUpdateTag implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AdminTag wrapper = new AdminTag(sdk);
+      final AdminTag wrapper = new AdminTag(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_tag.AdminUpdateTag operation =
           net.accelbyte.sdk.api.ugc.operations.admin_tag.AdminUpdateTag.builder()
               .namespace(namespace)
               .tagId(tagId)
               .body(new ObjectMapper().readValue(body, ModelsCreateTagRequest.class))
               .build();
-      ModelsCreateTagResponse response = wrapper.adminUpdateTag(operation);
+      final ModelsCreateTagResponse response = wrapper.adminUpdateTag(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

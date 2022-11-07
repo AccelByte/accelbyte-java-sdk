@@ -65,7 +65,7 @@ public class PublicSetPartyLimitV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Party wrapper = new Party(sdk);
+      final Party wrapper = new Party(sdk);
       final net.accelbyte.sdk.api.lobby.operations.party.PublicSetPartyLimitV1 operation =
           net.accelbyte.sdk.api.lobby.operations.party.PublicSetPartyLimitV1.builder()
               .namespace(namespace)

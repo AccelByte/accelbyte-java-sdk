@@ -50,7 +50,7 @@ public class GetRevocationListV3 extends Operation {
   @Deprecated
   public GetRevocationListV3() {
 
-    securities.add("Bearer");
+    securities.add("Basic");
   }
 
   @Override

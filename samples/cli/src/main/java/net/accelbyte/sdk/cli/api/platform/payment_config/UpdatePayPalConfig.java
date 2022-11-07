@@ -70,7 +70,7 @@ public class UpdatePayPalConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PaymentConfig wrapper = new PaymentConfig(sdk);
+      final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config.UpdatePayPalConfig operation =
           net.accelbyte.sdk.api.platform.operations.payment_config.UpdatePayPalConfig.builder()
               .id(id)
@@ -78,7 +78,7 @@ public class UpdatePayPalConfig implements Callable<Integer> {
               .validate(validate)
               .body(new ObjectMapper().readValue(body, PayPalConfig.class))
               .build();
-      PaymentMerchantConfigInfo response = wrapper.updatePayPalConfig(operation);
+      final PaymentMerchantConfigInfo response = wrapper.updatePayPalConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

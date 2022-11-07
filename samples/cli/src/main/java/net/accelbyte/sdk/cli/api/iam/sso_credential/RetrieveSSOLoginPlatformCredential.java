@@ -60,7 +60,7 @@ public class RetrieveSSOLoginPlatformCredential implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      SSOCredential wrapper = new SSOCredential(sdk);
+      final SSOCredential wrapper = new SSOCredential(sdk);
       final net.accelbyte.sdk.api.iam.operations.sso_credential.RetrieveSSOLoginPlatformCredential
           operation =
               net.accelbyte.sdk.api.iam.operations.sso_credential.RetrieveSSOLoginPlatformCredential
@@ -68,7 +68,7 @@ public class RetrieveSSOLoginPlatformCredential implements Callable<Integer> {
                   .namespace(namespace)
                   .platformId(platformId)
                   .build();
-      ModelSSOPlatformCredentialResponse response =
+      final ModelSSOPlatformCredentialResponse response =
           wrapper.retrieveSSOLoginPlatformCredential(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

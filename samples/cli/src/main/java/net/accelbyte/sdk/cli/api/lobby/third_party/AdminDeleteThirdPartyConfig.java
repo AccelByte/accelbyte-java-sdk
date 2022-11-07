@@ -54,7 +54,7 @@ public class AdminDeleteThirdPartyConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      ThirdParty wrapper = new ThirdParty(sdk);
+      final ThirdParty wrapper = new ThirdParty(sdk);
       final net.accelbyte.sdk.api.lobby.operations.third_party.AdminDeleteThirdPartyConfig
           operation =
               net.accelbyte.sdk.api.lobby.operations.third_party.AdminDeleteThirdPartyConfig

@@ -70,7 +70,7 @@ public class GetUserParticipatedSeasons implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Season wrapper = new Season(sdk);
+      final Season wrapper = new Season(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.season.GetUserParticipatedSeasons
           operation =
               net.accelbyte.sdk.api.seasonpass.operations.season.GetUserParticipatedSeasons
@@ -80,7 +80,8 @@ public class GetUserParticipatedSeasons implements Callable<Integer> {
                   .limit(limit)
                   .offset(offset)
                   .build();
-      ListUserSeasonInfoPagingSlicedResult response = wrapper.getUserParticipatedSeasons(operation);
+      final ListUserSeasonInfoPagingSlicedResult response =
+          wrapper.getUserParticipatedSeasons(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

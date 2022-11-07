@@ -65,7 +65,7 @@ public class GetActiveCustomGameSessions implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Session wrapper = new Session(sdk);
+      final Session wrapper = new Session(sdk);
       final net.accelbyte.sdk.api.sessionbrowser.operations.session.GetActiveCustomGameSessions
           operation =
               net.accelbyte.sdk.api.sessionbrowser.operations.session.GetActiveCustomGameSessions
@@ -74,7 +74,8 @@ public class GetActiveCustomGameSessions implements Callable<Integer> {
                   .serverRegion(serverRegion)
                   .sessionId(sessionId)
                   .build();
-      ModelsActiveCustomGameResponse response = wrapper.getActiveCustomGameSessions(operation);
+      final ModelsActiveCustomGameResponse response =
+          wrapper.getActiveCustomGameSessions(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

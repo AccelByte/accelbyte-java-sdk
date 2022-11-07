@@ -60,13 +60,13 @@ public class Rebalance implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Matchmaking wrapper = new Matchmaking(sdk);
+      final Matchmaking wrapper = new Matchmaking(sdk);
       final net.accelbyte.sdk.api.matchmaking.operations.matchmaking.Rebalance operation =
           net.accelbyte.sdk.api.matchmaking.operations.matchmaking.Rebalance.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsRebalanceRequest.class))
               .build();
-      ModelsRebalanceResponse response = wrapper.rebalance(operation);
+      final ModelsRebalanceResponse response = wrapper.rebalance(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

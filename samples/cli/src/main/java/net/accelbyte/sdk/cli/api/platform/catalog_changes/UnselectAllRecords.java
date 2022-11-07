@@ -59,7 +59,7 @@ public class UnselectAllRecords implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      CatalogChanges wrapper = new CatalogChanges(sdk);
+      final CatalogChanges wrapper = new CatalogChanges(sdk);
       final net.accelbyte.sdk.api.platform.operations.catalog_changes.UnselectAllRecords operation =
           net.accelbyte.sdk.api.platform.operations.catalog_changes.UnselectAllRecords.builder()
               .namespace(namespace)

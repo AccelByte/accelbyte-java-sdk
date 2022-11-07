@@ -54,7 +54,7 @@ public class DeleteFulfillmentScript implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      FulfillmentScript wrapper = new FulfillmentScript(sdk);
+      final FulfillmentScript wrapper = new FulfillmentScript(sdk);
       final net.accelbyte.sdk.api.platform.operations.fulfillment_script.DeleteFulfillmentScript
           operation =
               net.accelbyte.sdk.api.platform.operations.fulfillment_script.DeleteFulfillmentScript

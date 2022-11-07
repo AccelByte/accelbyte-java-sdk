@@ -67,7 +67,7 @@ public class ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlayt
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      GametelemetryOperations wrapper = new GametelemetryOperations(sdk);
+      final GametelemetryOperations wrapper = new GametelemetryOperations(sdk);
       final net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations
               .ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
           operation =

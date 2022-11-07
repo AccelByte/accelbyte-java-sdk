@@ -60,13 +60,13 @@ public class StoreMatchResults implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Matchmaking wrapper = new Matchmaking(sdk);
+      final Matchmaking wrapper = new Matchmaking(sdk);
       final net.accelbyte.sdk.api.matchmaking.operations.matchmaking.StoreMatchResults operation =
           net.accelbyte.sdk.api.matchmaking.operations.matchmaking.StoreMatchResults.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsMatchResultRequest.class))
               .build();
-      ModelsMatchResultResponse response = wrapper.storeMatchResults(operation);
+      final ModelsMatchResultResponse response = wrapper.storeMatchResults(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -71,7 +71,7 @@ public class GetCurrentMonthLeaderboardRankingPublicV1 implements Callable<Integ
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      LeaderboardData wrapper = new LeaderboardData(sdk);
+      final LeaderboardData wrapper = new LeaderboardData(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data
               .GetCurrentMonthLeaderboardRankingPublicV1
           operation =
@@ -82,7 +82,7 @@ public class GetCurrentMonthLeaderboardRankingPublicV1 implements Callable<Integ
                   .limit(limit)
                   .offset(offset)
                   .build();
-      ModelsGetLeaderboardRankingResp response =
+      final ModelsGetLeaderboardRankingResp response =
           wrapper.getCurrentMonthLeaderboardRankingPublicV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

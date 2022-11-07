@@ -80,7 +80,7 @@ public class QueryPaymentOrders implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Payment wrapper = new Payment(sdk);
+      final Payment wrapper = new Payment(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment.QueryPaymentOrders operation =
           net.accelbyte.sdk.api.platform.operations.payment.QueryPaymentOrders.builder()
               .namespace(namespace)
@@ -90,7 +90,7 @@ public class QueryPaymentOrders implements Callable<Integer> {
               .offset(offset)
               .status(status)
               .build();
-      PaymentOrderPagingSlicedResult response = wrapper.queryPaymentOrders(operation);
+      final PaymentOrderPagingSlicedResult response = wrapper.queryPaymentOrders(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -70,7 +70,7 @@ public class ListServer implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Admin wrapper = new Admin(sdk);
+      final Admin wrapper = new Admin(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.admin.ListServer operation =
           net.accelbyte.sdk.api.dsmc.operations.admin.ListServer.builder()
               .namespace(namespace)
@@ -78,7 +78,7 @@ public class ListServer implements Callable<Integer> {
               .count(count)
               .offset(offset)
               .build();
-      ModelsListServerResponse response = wrapper.listServer(operation);
+      final ModelsListServerResponse response = wrapper.listServer(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

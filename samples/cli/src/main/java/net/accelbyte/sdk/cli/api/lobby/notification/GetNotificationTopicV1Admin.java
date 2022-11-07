@@ -60,7 +60,7 @@ public class GetNotificationTopicV1Admin implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Notification wrapper = new Notification(sdk);
+      final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification.GetNotificationTopicV1Admin
           operation =
               net.accelbyte.sdk.api.lobby.operations.notification.GetNotificationTopicV1Admin
@@ -68,7 +68,8 @@ public class GetNotificationTopicV1Admin implements Callable<Integer> {
                   .namespace(namespace)
                   .topicName(topicName)
                   .build();
-      ModelNotificationTopicResponseV1 response = wrapper.getNotificationTopicV1Admin(operation);
+      final ModelNotificationTopicResponseV1 response =
+          wrapper.getNotificationTopicV1Admin(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

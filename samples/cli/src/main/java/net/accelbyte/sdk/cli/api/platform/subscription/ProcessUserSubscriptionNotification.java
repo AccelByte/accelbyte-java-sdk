@@ -70,7 +70,7 @@ public class ProcessUserSubscriptionNotification implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Subscription wrapper = new Subscription(sdk);
+      final Subscription wrapper = new Subscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.subscription
               .ProcessUserSubscriptionNotification
           operation =

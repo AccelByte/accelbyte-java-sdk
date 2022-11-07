@@ -75,7 +75,7 @@ public class AdminRetrieveEligibilities implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AdminUserEligibilities wrapper = new AdminUserEligibilities(sdk);
+      final AdminUserEligibilities wrapper = new AdminUserEligibilities(sdk);
       final net.accelbyte.sdk.api.legal.operations.admin_user_eligibilities
               .AdminRetrieveEligibilities
           operation =
@@ -87,7 +87,7 @@ public class AdminRetrieveEligibilities implements Callable<Integer> {
                   .clientId(clientId)
                   .countryCode(countryCode)
                   .build();
-      RetrieveUserEligibilitiesIndirectResponse response =
+      final RetrieveUserEligibilitiesIndirectResponse response =
           wrapper.adminRetrieveEligibilities(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

@@ -66,7 +66,7 @@ public class PublicGetSlotData implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Slot wrapper = new Slot(sdk);
+      final Slot wrapper = new Slot(sdk);
       final net.accelbyte.sdk.api.social.operations.slot.PublicGetSlotData operation =
           net.accelbyte.sdk.api.social.operations.slot.PublicGetSlotData.builder()
               .namespace(namespace)

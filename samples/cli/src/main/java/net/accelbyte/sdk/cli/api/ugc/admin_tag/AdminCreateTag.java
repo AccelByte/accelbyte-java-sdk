@@ -60,13 +60,13 @@ public class AdminCreateTag implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AdminTag wrapper = new AdminTag(sdk);
+      final AdminTag wrapper = new AdminTag(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_tag.AdminCreateTag operation =
           net.accelbyte.sdk.api.ugc.operations.admin_tag.AdminCreateTag.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsCreateTagRequest.class))
               .build();
-      ModelsCreateTagResponse response = wrapper.adminCreateTag(operation);
+      final ModelsCreateTagResponse response = wrapper.adminCreateTag(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

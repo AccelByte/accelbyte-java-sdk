@@ -60,13 +60,13 @@ public class AdminGetPlayerBlockedPlayersV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Player wrapper = new Player(sdk);
+      final Player wrapper = new Player(sdk);
       final net.accelbyte.sdk.api.lobby.operations.player.AdminGetPlayerBlockedPlayersV1 operation =
           net.accelbyte.sdk.api.lobby.operations.player.AdminGetPlayerBlockedPlayersV1.builder()
               .namespace(namespace)
               .userId(userId)
               .build();
-      ModelsGetAllPlayerBlockedUsersResponse response =
+      final ModelsGetAllPlayerBlockedUsersResponse response =
           wrapper.adminGetPlayerBlockedPlayersV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

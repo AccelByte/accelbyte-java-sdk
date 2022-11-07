@@ -66,14 +66,14 @@ public class UploadKeys implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      KeyGroup wrapper = new KeyGroup(sdk);
+      final KeyGroup wrapper = new KeyGroup(sdk);
       final net.accelbyte.sdk.api.platform.operations.key_group.UploadKeys operation =
           net.accelbyte.sdk.api.platform.operations.key_group.UploadKeys.builder()
               .keyGroupId(keyGroupId)
               .namespace(namespace)
               .file(file != null ? file : null)
               .build();
-      BulkOperationResult response = wrapper.uploadKeys(operation);
+      final BulkOperationResult response = wrapper.uploadKeys(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

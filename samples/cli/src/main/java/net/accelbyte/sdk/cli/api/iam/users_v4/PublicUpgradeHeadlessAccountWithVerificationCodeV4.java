@@ -64,7 +64,7 @@ public class PublicUpgradeHeadlessAccountWithVerificationCodeV4 implements Calla
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UsersV4 wrapper = new UsersV4(sdk);
+      final UsersV4 wrapper = new UsersV4(sdk);
       final net.accelbyte.sdk.api.iam.operations.users_v4
               .PublicUpgradeHeadlessAccountWithVerificationCodeV4
           operation =
@@ -77,7 +77,7 @@ public class PublicUpgradeHeadlessAccountWithVerificationCodeV4 implements Calla
                               body,
                               AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4.class))
                   .build();
-      AccountUserResponseV4 response =
+      final AccountUserResponseV4 response =
           wrapper.publicUpgradeHeadlessAccountWithVerificationCodeV4(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

@@ -76,7 +76,7 @@ public class GetTemplateSlugLocalizationsTemplateV1Admin implements Callable<Int
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Notification wrapper = new Notification(sdk);
+      final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification
               .GetTemplateSlugLocalizationsTemplateV1Admin
           operation =
@@ -88,7 +88,7 @@ public class GetTemplateSlugLocalizationsTemplateV1Admin implements Callable<Int
                   .before(before)
                   .limit(limit)
                   .build();
-      ModelGetAllNotificationTemplateSlugResp response =
+      final ModelGetAllNotificationTemplateSlugResp response =
           wrapper.getTemplateSlugLocalizationsTemplateV1Admin(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

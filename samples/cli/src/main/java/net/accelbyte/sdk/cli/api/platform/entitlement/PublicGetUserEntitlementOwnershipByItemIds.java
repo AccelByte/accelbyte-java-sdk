@@ -66,7 +66,7 @@ public class PublicGetUserEntitlementOwnershipByItemIds implements Callable<Inte
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Entitlement wrapper = new Entitlement(sdk);
+      final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement
               .PublicGetUserEntitlementOwnershipByItemIds
           operation =
@@ -76,7 +76,7 @@ public class PublicGetUserEntitlementOwnershipByItemIds implements Callable<Inte
                   .userId(userId)
                   .ids(ids)
                   .build();
-      List<EntitlementOwnership> response =
+      final List<EntitlementOwnership> response =
           wrapper.publicGetUserEntitlementOwnershipByItemIds(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

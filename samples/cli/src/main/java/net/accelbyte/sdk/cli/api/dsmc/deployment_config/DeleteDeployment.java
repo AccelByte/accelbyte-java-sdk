@@ -59,7 +59,7 @@ public class DeleteDeployment implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      DeploymentConfig wrapper = new DeploymentConfig(sdk);
+      final DeploymentConfig wrapper = new DeploymentConfig(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.deployment_config.DeleteDeployment operation =
           net.accelbyte.sdk.api.dsmc.operations.deployment_config.DeleteDeployment.builder()
               .deployment(deployment)

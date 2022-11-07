@@ -70,7 +70,7 @@ public class GetItem implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Item wrapper = new Item(sdk);
+      final Item wrapper = new Item(sdk);
       final net.accelbyte.sdk.api.platform.operations.item.GetItem operation =
           net.accelbyte.sdk.api.platform.operations.item.GetItem.builder()
               .itemId(itemId)
@@ -78,7 +78,7 @@ public class GetItem implements Callable<Integer> {
               .activeOnly(activeOnly)
               .storeId(storeId)
               .build();
-      FullItemInfo response = wrapper.getItem(operation);
+      final FullItemInfo response = wrapper.getItem(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

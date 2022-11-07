@@ -50,10 +50,10 @@ public class GetDefaultProvider implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Public wrapper = new Public(sdk);
+      final Public wrapper = new Public(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.public_.GetDefaultProvider operation =
           net.accelbyte.sdk.api.dsmc.operations.public_.GetDefaultProvider.builder().build();
-      ModelsDefaultProvider response = wrapper.getDefaultProvider(operation);
+      final ModelsDefaultProvider response = wrapper.getDefaultProvider(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

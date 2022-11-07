@@ -70,7 +70,7 @@ public class GetTopicByNamespace implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Notification wrapper = new Notification(sdk);
+      final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification.GetTopicByNamespace operation =
           net.accelbyte.sdk.api.lobby.operations.notification.GetTopicByNamespace.builder()
               .namespace(namespace)
@@ -78,7 +78,7 @@ public class GetTopicByNamespace implements Callable<Integer> {
               .before(before)
               .limit(limit)
               .build();
-      ModelTopicByNamespacesResponse response = wrapper.getTopicByNamespace(operation);
+      final ModelTopicByNamespacesResponse response = wrapper.getTopicByNamespace(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

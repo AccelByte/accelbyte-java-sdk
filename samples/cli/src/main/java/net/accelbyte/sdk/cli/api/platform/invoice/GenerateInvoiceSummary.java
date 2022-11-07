@@ -80,7 +80,7 @@ public class GenerateInvoiceSummary implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Invoice wrapper = new Invoice(sdk);
+      final Invoice wrapper = new Invoice(sdk);
       final net.accelbyte.sdk.api.platform.operations.invoice.GenerateInvoiceSummary operation =
           net.accelbyte.sdk.api.platform.operations.invoice.GenerateInvoiceSummary.builder()
               .namespace(namespace)
@@ -90,7 +90,7 @@ public class GenerateInvoiceSummary implements Callable<Integer> {
               .endTime(endTime)
               .startTime(startTime)
               .build();
-      InvoiceSummary response = wrapper.generateInvoiceSummary(operation);
+      final InvoiceSummary response = wrapper.generateInvoiceSummary(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

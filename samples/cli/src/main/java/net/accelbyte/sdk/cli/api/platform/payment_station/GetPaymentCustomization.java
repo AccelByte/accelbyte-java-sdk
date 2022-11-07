@@ -70,7 +70,7 @@ public class GetPaymentCustomization implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PaymentStation wrapper = new PaymentStation(sdk);
+      final PaymentStation wrapper = new PaymentStation(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_station.GetPaymentCustomization
           operation =
               net.accelbyte.sdk.api.platform.operations.payment_station.GetPaymentCustomization
@@ -80,7 +80,7 @@ public class GetPaymentCustomization implements Callable<Integer> {
                   .paymentProvider(paymentProvider)
                   .region(region)
                   .build();
-      Customization response = wrapper.getPaymentCustomization(operation);
+      final Customization response = wrapper.getPaymentCustomization(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

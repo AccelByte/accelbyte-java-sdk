@@ -59,7 +59,7 @@ public class DeleteSeason implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Season wrapper = new Season(sdk);
+      final Season wrapper = new Season(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.season.DeleteSeason operation =
           net.accelbyte.sdk.api.seasonpass.operations.season.DeleteSeason.builder()
               .namespace(namespace)

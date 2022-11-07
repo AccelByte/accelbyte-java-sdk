@@ -56,7 +56,7 @@ public class ExportRewards implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Reward wrapper = new Reward(sdk);
+      final Reward wrapper = new Reward(sdk);
       final net.accelbyte.sdk.api.platform.operations.reward.ExportRewards operation =
           net.accelbyte.sdk.api.platform.operations.reward.ExportRewards.builder()
               .namespace(namespace)

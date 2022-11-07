@@ -8,7 +8,8 @@
 
 package net.accelbyte.sdk.cli.api.achievement.achievements;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
+import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.achievement.models.*;
@@ -55,15 +56,17 @@ public class ExportAchievements implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Achievements wrapper = new Achievements(sdk);
+      final Achievements wrapper = new Achievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.achievements.ExportAchievements operation =
           net.accelbyte.sdk.api.achievement.operations.achievements.ExportAchievements.builder()
               .namespace(namespace)
               .build();
-      List<ModelsAchievement> response = wrapper.exportAchievements(operation);
-      final String responseString =
-          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful\n{}", responseString);
+      final InputStream response = wrapper.exportAchievements(operation);
+      final File outputFile = new File("response.out");
+      java.nio.file.Files.copy(
+          response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+      org.apache.commons.io.IOUtils.closeQuietly(response);
+      log.info("Operation successful\n{}", "response.out");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

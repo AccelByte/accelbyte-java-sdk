@@ -80,7 +80,7 @@ public class QueryUncategorizedItems implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Item wrapper = new Item(sdk);
+      final Item wrapper = new Item(sdk);
       final net.accelbyte.sdk.api.platform.operations.item.QueryUncategorizedItems operation =
           net.accelbyte.sdk.api.platform.operations.item.QueryUncategorizedItems.builder()
               .namespace(namespace)
@@ -90,7 +90,7 @@ public class QueryUncategorizedItems implements Callable<Integer> {
               .sortBy(sortBy)
               .storeId(storeId)
               .build();
-      FullItemPagingSlicedResult response = wrapper.queryUncategorizedItems(operation);
+      final FullItemPagingSlicedResult response = wrapper.queryUncategorizedItems(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

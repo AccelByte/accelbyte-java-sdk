@@ -55,12 +55,12 @@ public class RetrieveAcceptedAgreements implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Agreement wrapper = new Agreement(sdk);
+      final Agreement wrapper = new Agreement(sdk);
       final net.accelbyte.sdk.api.legal.operations.agreement.RetrieveAcceptedAgreements operation =
           net.accelbyte.sdk.api.legal.operations.agreement.RetrieveAcceptedAgreements.builder()
               .userId(userId)
               .build();
-      List<RetrieveAcceptedAgreementResponse> response =
+      final List<RetrieveAcceptedAgreementResponse> response =
           wrapper.retrieveAcceptedAgreements(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

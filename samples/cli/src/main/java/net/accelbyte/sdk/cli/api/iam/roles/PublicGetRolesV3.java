@@ -70,7 +70,7 @@ public class PublicGetRolesV3 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Roles wrapper = new Roles(sdk);
+      final Roles wrapper = new Roles(sdk);
       final net.accelbyte.sdk.api.iam.operations.roles.PublicGetRolesV3 operation =
           net.accelbyte.sdk.api.iam.operations.roles.PublicGetRolesV3.builder()
               .after(after)
@@ -78,7 +78,7 @@ public class PublicGetRolesV3 implements Callable<Integer> {
               .isWildcard(isWildcard)
               .limit(limit)
               .build();
-      ModelRoleNamesResponseV3 response = wrapper.publicGetRolesV3(operation);
+      final ModelRoleNamesResponseV3 response = wrapper.publicGetRolesV3(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

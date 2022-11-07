@@ -78,6 +78,7 @@ public class AuthorizeV3 extends Operation {
   private String scope;
   private String state;
   private String targetAuthPage;
+  private Boolean useRedirectUriAsLoginUrlWhenLocked;
   private String clientId;
   private String responseType;
 
@@ -98,6 +99,7 @@ public class AuthorizeV3 extends Operation {
       String scope,
       String state,
       String targetAuthPage,
+      Boolean useRedirectUriAsLoginUrlWhenLocked,
       String clientId,
       String responseType) {
     this.codeChallenge = codeChallenge;
@@ -107,6 +109,7 @@ public class AuthorizeV3 extends Operation {
     this.scope = scope;
     this.state = state;
     this.targetAuthPage = targetAuthPage;
+    this.useRedirectUriAsLoginUrlWhenLocked = useRedirectUriAsLoginUrlWhenLocked;
     this.clientId = clientId;
     this.responseType = responseType;
 
@@ -131,6 +134,11 @@ public class AuthorizeV3 extends Operation {
     queryParams.put(
         "target_auth_page",
         this.targetAuthPage == null ? null : Arrays.asList(this.targetAuthPage));
+    queryParams.put(
+        "useRedirectUriAsLoginUrlWhenLocked",
+        this.useRedirectUriAsLoginUrlWhenLocked == null
+            ? null
+            : Arrays.asList(String.valueOf(this.useRedirectUriAsLoginUrlWhenLocked)));
     queryParams.put("client_id", this.clientId == null ? null : Arrays.asList(this.clientId));
     queryParams.put(
         "response_type", this.responseType == null ? null : Arrays.asList(this.responseType));
@@ -167,6 +175,7 @@ public class AuthorizeV3 extends Operation {
     result.put("scope", "None");
     result.put("state", "None");
     result.put("target_auth_page", "None");
+    result.put("useRedirectUriAsLoginUrlWhenLocked", "None");
     result.put("client_id", "None");
     result.put("response_type", "None");
     return result;

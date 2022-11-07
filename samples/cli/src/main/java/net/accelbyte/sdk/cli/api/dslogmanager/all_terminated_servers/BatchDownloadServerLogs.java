@@ -55,7 +55,7 @@ public class BatchDownloadServerLogs implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AllTerminatedServers wrapper = new AllTerminatedServers(sdk);
+      final AllTerminatedServers wrapper = new AllTerminatedServers(sdk);
       final net.accelbyte.sdk.api.dslogmanager.operations.all_terminated_servers
               .BatchDownloadServerLogs
           operation =

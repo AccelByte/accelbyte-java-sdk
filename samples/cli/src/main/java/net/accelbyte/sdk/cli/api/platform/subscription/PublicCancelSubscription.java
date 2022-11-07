@@ -70,7 +70,7 @@ public class PublicCancelSubscription implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Subscription wrapper = new Subscription(sdk);
+      final Subscription wrapper = new Subscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.subscription.PublicCancelSubscription
           operation =
               net.accelbyte.sdk.api.platform.operations.subscription.PublicCancelSubscription
@@ -80,7 +80,7 @@ public class PublicCancelSubscription implements Callable<Integer> {
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, CancelRequest.class))
                   .build();
-      SubscriptionInfo response = wrapper.publicCancelSubscription(operation);
+      final SubscriptionInfo response = wrapper.publicCancelSubscription(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

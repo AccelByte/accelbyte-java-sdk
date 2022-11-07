@@ -60,13 +60,13 @@ public class GetUserStatus implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UserAction wrapper = new UserAction(sdk);
+      final UserAction wrapper = new UserAction(sdk);
       final net.accelbyte.sdk.api.basic.operations.user_action.GetUserStatus operation =
           net.accelbyte.sdk.api.basic.operations.user_action.GetUserStatus.builder()
               .namespace(namespace)
               .userId(userId)
               .build();
-      ADTOObjectForEqu8UserStatus response = wrapper.getUserStatus(operation);
+      final ADTOObjectForEqu8UserStatus response = wrapper.getUserStatus(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

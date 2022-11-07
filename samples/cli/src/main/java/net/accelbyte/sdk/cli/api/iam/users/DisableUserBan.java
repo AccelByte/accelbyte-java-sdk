@@ -65,14 +65,14 @@ public class DisableUserBan implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Users wrapper = new Users(sdk);
+      final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.DisableUserBan operation =
           net.accelbyte.sdk.api.iam.operations.users.DisableUserBan.builder()
               .banId(banId)
               .namespace(namespace)
               .userId(userId)
               .build();
-      ModelUserBanResponse response = wrapper.disableUserBan(operation);
+      final ModelUserBanResponse response = wrapper.disableUserBan(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

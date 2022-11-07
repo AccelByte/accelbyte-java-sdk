@@ -79,7 +79,7 @@ public class DownloadInvoiceDetails implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Invoice wrapper = new Invoice(sdk);
+      final Invoice wrapper = new Invoice(sdk);
       final net.accelbyte.sdk.api.platform.operations.invoice.DownloadInvoiceDetails operation =
           net.accelbyte.sdk.api.platform.operations.invoice.DownloadInvoiceDetails.builder()
               .namespace(namespace)

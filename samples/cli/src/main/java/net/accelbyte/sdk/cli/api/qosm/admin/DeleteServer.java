@@ -54,7 +54,7 @@ public class DeleteServer implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Admin wrapper = new Admin(sdk);
+      final Admin wrapper = new Admin(sdk);
       final net.accelbyte.sdk.api.qosm.operations.admin.DeleteServer operation =
           net.accelbyte.sdk.api.qosm.operations.admin.DeleteServer.builder().region(region).build();
       wrapper.deleteServer(operation);

@@ -70,7 +70,7 @@ public class DebitUserWallet implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Wallet wrapper = new Wallet(sdk);
+      final Wallet wrapper = new Wallet(sdk);
       final net.accelbyte.sdk.api.platform.operations.wallet.DebitUserWallet operation =
           net.accelbyte.sdk.api.platform.operations.wallet.DebitUserWallet.builder()
               .namespace(namespace)
@@ -78,7 +78,7 @@ public class DebitUserWallet implements Callable<Integer> {
               .walletId(walletId)
               .body(new ObjectMapper().readValue(body, DebitRequest.class))
               .build();
-      WalletInfo response = wrapper.debitUserWallet(operation);
+      final WalletInfo response = wrapper.debitUserWallet(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

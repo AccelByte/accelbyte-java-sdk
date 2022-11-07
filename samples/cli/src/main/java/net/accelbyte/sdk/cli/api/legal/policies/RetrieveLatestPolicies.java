@@ -70,7 +70,7 @@ public class RetrieveLatestPolicies implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Policies wrapper = new Policies(sdk);
+      final Policies wrapper = new Policies(sdk);
       final net.accelbyte.sdk.api.legal.operations.policies.RetrieveLatestPolicies operation =
           net.accelbyte.sdk.api.legal.operations.policies.RetrieveLatestPolicies.builder()
               .countryCode(countryCode)
@@ -78,7 +78,7 @@ public class RetrieveLatestPolicies implements Callable<Integer> {
               .policyType(policyType)
               .tags(tags)
               .build();
-      List<RetrievePolicyPublicResponse> response = wrapper.retrieveLatestPolicies(operation);
+      final List<RetrievePolicyPublicResponse> response = wrapper.retrieveLatestPolicies(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

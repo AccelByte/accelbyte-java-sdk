@@ -65,7 +65,7 @@ public class GetXblUserAchievements implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AchievementPlatform wrapper = new AchievementPlatform(sdk);
+      final AchievementPlatform wrapper = new AchievementPlatform(sdk);
       final net.accelbyte.sdk.api.platform.operations.achievement_platform.GetXblUserAchievements
           operation =
               net.accelbyte.sdk.api.platform.operations.achievement_platform.GetXblUserAchievements
@@ -74,7 +74,7 @@ public class GetXblUserAchievements implements Callable<Integer> {
                   .userId(userId)
                   .xboxUserId(xboxUserId)
                   .build();
-      ADTOObjectForQueryingXboxUserAchievements response =
+      final ADTOObjectForQueryingXboxUserAchievements response =
           wrapper.getXblUserAchievements(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

@@ -64,7 +64,7 @@ public class DeleteUserRankingPublicV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      LeaderboardData wrapper = new LeaderboardData(sdk);
+      final LeaderboardData wrapper = new LeaderboardData(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.DeleteUserRankingPublicV1
           operation =
               net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data

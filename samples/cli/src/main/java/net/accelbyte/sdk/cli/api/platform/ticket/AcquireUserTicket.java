@@ -70,7 +70,7 @@ public class AcquireUserTicket implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Ticket wrapper = new Ticket(sdk);
+      final Ticket wrapper = new Ticket(sdk);
       final net.accelbyte.sdk.api.platform.operations.ticket.AcquireUserTicket operation =
           net.accelbyte.sdk.api.platform.operations.ticket.AcquireUserTicket.builder()
               .boothName(boothName)
@@ -78,7 +78,7 @@ public class AcquireUserTicket implements Callable<Integer> {
               .userId(userId)
               .body(new ObjectMapper().readValue(body, TicketAcquireRequest.class))
               .build();
-      TicketAcquireResult response = wrapper.acquireUserTicket(operation);
+      final TicketAcquireResult response = wrapper.acquireUserTicket(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -71,7 +71,7 @@ public class SetUserLeaderboardVisibilityStatusV2 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UserVisibility wrapper = new UserVisibility(sdk);
+      final UserVisibility wrapper = new UserVisibility(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.user_visibility
               .SetUserLeaderboardVisibilityStatusV2
           operation =
@@ -82,7 +82,7 @@ public class SetUserLeaderboardVisibilityStatusV2 implements Callable<Integer> {
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, ModelsSetUserVisibilityRequest.class))
                   .build();
-      ModelsGetUserVisibilityResponse response =
+      final ModelsGetUserVisibilityResponse response =
           wrapper.setUserLeaderboardVisibilityStatusV2(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

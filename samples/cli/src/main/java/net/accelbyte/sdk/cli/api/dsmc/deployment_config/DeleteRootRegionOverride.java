@@ -65,7 +65,7 @@ public class DeleteRootRegionOverride implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      DeploymentConfig wrapper = new DeploymentConfig(sdk);
+      final DeploymentConfig wrapper = new DeploymentConfig(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.deployment_config.DeleteRootRegionOverride
           operation =
               net.accelbyte.sdk.api.dsmc.operations.deployment_config.DeleteRootRegionOverride
@@ -74,7 +74,7 @@ public class DeleteRootRegionOverride implements Callable<Integer> {
                   .namespace(namespace)
                   .region(region)
                   .build();
-      ModelsDeploymentWithOverride response = wrapper.deleteRootRegionOverride(operation);
+      final ModelsDeploymentWithOverride response = wrapper.deleteRootRegionOverride(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

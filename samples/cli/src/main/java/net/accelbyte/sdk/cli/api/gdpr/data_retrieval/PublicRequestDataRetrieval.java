@@ -65,7 +65,7 @@ public class PublicRequestDataRetrieval implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      DataRetrieval wrapper = new DataRetrieval(sdk);
+      final DataRetrieval wrapper = new DataRetrieval(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_retrieval.PublicRequestDataRetrieval
           operation =
               net.accelbyte.sdk.api.gdpr.operations.data_retrieval.PublicRequestDataRetrieval
@@ -74,7 +74,7 @@ public class PublicRequestDataRetrieval implements Callable<Integer> {
                   .userId(userId)
                   .password(password != null ? password : null)
                   .build();
-      ModelsDataRetrievalResponse response = wrapper.publicRequestDataRetrieval(operation);
+      final ModelsDataRetrievalResponse response = wrapper.publicRequestDataRetrieval(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

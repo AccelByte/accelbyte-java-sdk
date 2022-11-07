@@ -70,7 +70,7 @@ public class QueryTiers implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Tier wrapper = new Tier(sdk);
+      final Tier wrapper = new Tier(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.tier.QueryTiers operation =
           net.accelbyte.sdk.api.seasonpass.operations.tier.QueryTiers.builder()
               .namespace(namespace)
@@ -78,7 +78,7 @@ public class QueryTiers implements Callable<Integer> {
               .limit(limit)
               .offset(offset)
               .build();
-      TierPagingSlicedResult response = wrapper.queryTiers(operation);
+      final TierPagingSlicedResult response = wrapper.queryTiers(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

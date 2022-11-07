@@ -64,7 +64,7 @@ public class Download implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Campaign wrapper = new Campaign(sdk);
+      final Campaign wrapper = new Campaign(sdk);
       final net.accelbyte.sdk.api.platform.operations.campaign.Download operation =
           net.accelbyte.sdk.api.platform.operations.campaign.Download.builder()
               .campaignId(campaignId)

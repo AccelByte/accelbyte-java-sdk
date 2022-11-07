@@ -59,7 +59,7 @@ public class DeleteCountryGroup implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Misc wrapper = new Misc(sdk);
+      final Misc wrapper = new Misc(sdk);
       final net.accelbyte.sdk.api.basic.operations.misc.DeleteCountryGroup operation =
           net.accelbyte.sdk.api.basic.operations.misc.DeleteCountryGroup.builder()
               .countryGroupCode(countryGroupCode)

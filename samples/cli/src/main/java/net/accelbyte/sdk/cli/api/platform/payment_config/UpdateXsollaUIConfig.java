@@ -60,7 +60,7 @@ public class UpdateXsollaUIConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PaymentConfig wrapper = new PaymentConfig(sdk);
+      final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config.UpdateXsollaUIConfig
           operation =
               net.accelbyte.sdk.api.platform.operations.payment_config.UpdateXsollaUIConfig
@@ -68,7 +68,7 @@ public class UpdateXsollaUIConfig implements Callable<Integer> {
                   .id(id)
                   .body(new ObjectMapper().readValue(body, XsollaPaywallConfigRequest.class))
                   .build();
-      PaymentMerchantConfigInfo response = wrapper.updateXsollaUIConfig(operation);
+      final PaymentMerchantConfigInfo response = wrapper.updateXsollaUIConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

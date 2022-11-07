@@ -60,7 +60,7 @@ public class UpdatePlayTimeWeight implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      SocialMatchmaking wrapper = new SocialMatchmaking(sdk);
+      final SocialMatchmaking wrapper = new SocialMatchmaking(sdk);
       final net.accelbyte.sdk.api.matchmaking.operations.social_matchmaking.UpdatePlayTimeWeight
           operation =
               net.accelbyte.sdk.api.matchmaking.operations.social_matchmaking.UpdatePlayTimeWeight
@@ -68,7 +68,8 @@ public class UpdatePlayTimeWeight implements Callable<Integer> {
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsUpdatePlayTimeWeightRequest.class))
                   .build();
-      ModelsUpdatePlayerPlaytimeWeightResponse response = wrapper.updatePlayTimeWeight(operation);
+      final ModelsUpdatePlayerPlaytimeWeightResponse response =
+          wrapper.updatePlayTimeWeight(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

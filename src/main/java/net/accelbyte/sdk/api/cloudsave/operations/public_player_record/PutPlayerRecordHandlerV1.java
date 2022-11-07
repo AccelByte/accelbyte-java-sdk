@@ -43,6 +43,20 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>{ "data2": "new value" }
  *
+ * <p>## Restriction
+ *
+ * <p>This is the restriction of Key Naming for the record: 1. Cannot use "." as the key name -
+ *
+ * <p>{ "data.2": "value" }
+ *
+ * <p>2. Cannot use "$" as the prefix in key names -
+ *
+ * <p>{ "$data": "value" }
+ *
+ * <p>3. Cannot use empty string in key names -
+ *
+ * <p>{ "": "value" }
+ *
  * <p>## Record Metadata
  *
  * <p>Metadata allows user to define the behaviour of the record. Metadata can be defined in request

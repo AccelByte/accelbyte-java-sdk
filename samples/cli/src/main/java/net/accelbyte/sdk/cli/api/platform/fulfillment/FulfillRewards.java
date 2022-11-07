@@ -65,7 +65,7 @@ public class FulfillRewards implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Fulfillment wrapper = new Fulfillment(sdk);
+      final Fulfillment wrapper = new Fulfillment(sdk);
       final net.accelbyte.sdk.api.platform.operations.fulfillment.FulfillRewards operation =
           net.accelbyte.sdk.api.platform.operations.fulfillment.FulfillRewards.builder()
               .namespace(namespace)

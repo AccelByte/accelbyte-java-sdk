@@ -64,7 +64,7 @@ public class AdminDeleteContentScreenshot implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AdminContent wrapper = new AdminContent(sdk);
+      final AdminContent wrapper = new AdminContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminDeleteContentScreenshot
           operation =
               net.accelbyte.sdk.api.ugc.operations.admin_content.AdminDeleteContentScreenshot

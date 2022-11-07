@@ -55,7 +55,7 @@ public class RegisterEventHandler implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      EventRegistry wrapper = new EventRegistry(sdk);
+      final EventRegistry wrapper = new EventRegistry(sdk);
       final net.accelbyte.sdk.api.eventlog.operations.event_registry.RegisterEventHandler
           operation =
               net.accelbyte.sdk.api.eventlog.operations.event_registry.RegisterEventHandler

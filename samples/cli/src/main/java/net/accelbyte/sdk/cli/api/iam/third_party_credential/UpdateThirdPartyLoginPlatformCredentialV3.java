@@ -66,7 +66,7 @@ public class UpdateThirdPartyLoginPlatformCredentialV3 implements Callable<Integ
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
+      final ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
       final net.accelbyte.sdk.api.iam.operations.third_party_credential
               .UpdateThirdPartyLoginPlatformCredentialV3
           operation =
@@ -78,7 +78,7 @@ public class UpdateThirdPartyLoginPlatformCredentialV3 implements Callable<Integ
                       new ObjectMapper()
                           .readValue(body, ModelThirdPartyLoginPlatformCredentialRequest.class))
                   .build();
-      ModelThirdPartyLoginPlatformCredentialResponse response =
+      final ModelThirdPartyLoginPlatformCredentialResponse response =
           wrapper.updateThirdPartyLoginPlatformCredentialV3(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

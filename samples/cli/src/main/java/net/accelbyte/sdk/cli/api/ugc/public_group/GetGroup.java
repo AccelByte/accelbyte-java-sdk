@@ -65,14 +65,14 @@ public class GetGroup implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PublicGroup wrapper = new PublicGroup(sdk);
+      final PublicGroup wrapper = new PublicGroup(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_group.GetGroup operation =
           net.accelbyte.sdk.api.ugc.operations.public_group.GetGroup.builder()
               .groupId(groupId)
               .namespace(namespace)
               .userId(userId)
               .build();
-      ModelsCreateGroupResponse response = wrapper.getGroup(operation);
+      final ModelsCreateGroupResponse response = wrapper.getGroup(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -65,7 +65,7 @@ public class AdminBulkBlockPlayersV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Player wrapper = new Player(sdk);
+      final Player wrapper = new Player(sdk);
       final net.accelbyte.sdk.api.lobby.operations.player.AdminBulkBlockPlayersV1 operation =
           net.accelbyte.sdk.api.lobby.operations.player.AdminBulkBlockPlayersV1.builder()
               .namespace(namespace)

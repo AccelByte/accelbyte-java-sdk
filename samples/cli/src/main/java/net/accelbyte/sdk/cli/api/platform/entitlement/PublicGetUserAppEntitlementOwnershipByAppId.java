@@ -66,7 +66,7 @@ public class PublicGetUserAppEntitlementOwnershipByAppId implements Callable<Int
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Entitlement wrapper = new Entitlement(sdk);
+      final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement
               .PublicGetUserAppEntitlementOwnershipByAppId
           operation =
@@ -76,7 +76,7 @@ public class PublicGetUserAppEntitlementOwnershipByAppId implements Callable<Int
                   .userId(userId)
                   .appId(appId)
                   .build();
-      Ownership response = wrapper.publicGetUserAppEntitlementOwnershipByAppId(operation);
+      final Ownership response = wrapper.publicGetUserAppEntitlementOwnershipByAppId(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

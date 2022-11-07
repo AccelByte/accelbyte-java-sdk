@@ -49,7 +49,7 @@ public class HandlerV3Healthz implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      MatchmakingOperations wrapper = new MatchmakingOperations(sdk);
+      final MatchmakingOperations wrapper = new MatchmakingOperations(sdk);
       final net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.HandlerV3Healthz
           operation =
               net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.HandlerV3Healthz

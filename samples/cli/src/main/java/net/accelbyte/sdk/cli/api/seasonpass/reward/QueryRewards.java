@@ -65,14 +65,14 @@ public class QueryRewards implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Reward wrapper = new Reward(sdk);
+      final Reward wrapper = new Reward(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.reward.QueryRewards operation =
           net.accelbyte.sdk.api.seasonpass.operations.reward.QueryRewards.builder()
               .namespace(namespace)
               .seasonId(seasonId)
               .q(q)
               .build();
-      List<RewardInfo> response = wrapper.queryRewards(operation);
+      final List<RewardInfo> response = wrapper.queryRewards(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

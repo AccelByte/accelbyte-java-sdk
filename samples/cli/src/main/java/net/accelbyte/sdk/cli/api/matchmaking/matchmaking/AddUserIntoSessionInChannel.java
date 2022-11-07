@@ -70,7 +70,7 @@ public class AddUserIntoSessionInChannel implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Matchmaking wrapper = new Matchmaking(sdk);
+      final Matchmaking wrapper = new Matchmaking(sdk);
       final net.accelbyte.sdk.api.matchmaking.operations.matchmaking.AddUserIntoSessionInChannel
           operation =
               net.accelbyte.sdk.api.matchmaking.operations.matchmaking.AddUserIntoSessionInChannel

@@ -60,13 +60,13 @@ public class GetServerLogs implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Admin wrapper = new Admin(sdk);
+      final Admin wrapper = new Admin(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.admin.GetServerLogs operation =
           net.accelbyte.sdk.api.dsmc.operations.admin.GetServerLogs.builder()
               .namespace(namespace)
               .podName(podName)
               .build();
-      ModelsServerLogs response = wrapper.getServerLogs(operation);
+      final ModelsServerLogs response = wrapper.getServerLogs(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

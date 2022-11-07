@@ -71,7 +71,7 @@ public class GetAllTimeLeaderboardRankingPublicV2 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      LeaderboardData wrapper = new LeaderboardData(sdk);
+      final LeaderboardData wrapper = new LeaderboardData(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data
               .GetAllTimeLeaderboardRankingPublicV2
           operation =
@@ -82,7 +82,7 @@ public class GetAllTimeLeaderboardRankingPublicV2 implements Callable<Integer> {
                   .limit(limit)
                   .offset(offset)
                   .build();
-      V2GetPublicLeaderboardRankingResponse response =
+      final V2GetPublicLeaderboardRankingResponse response =
           wrapper.getAllTimeLeaderboardRankingPublicV2(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

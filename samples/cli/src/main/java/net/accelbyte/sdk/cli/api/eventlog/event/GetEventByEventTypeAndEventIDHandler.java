@@ -86,7 +86,7 @@ public class GetEventByEventTypeAndEventIDHandler implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Event wrapper = new Event(sdk);
+      final Event wrapper = new Event(sdk);
       final net.accelbyte.sdk.api.eventlog.operations.event.GetEventByEventTypeAndEventIDHandler
           operation =
               net.accelbyte.sdk.api.eventlog.operations.event.GetEventByEventTypeAndEventIDHandler
@@ -99,7 +99,7 @@ public class GetEventByEventTypeAndEventIDHandler implements Callable<Integer> {
                   .pageSize(pageSize)
                   .startDate(startDate)
                   .build();
-      ModelsEventResponse response = wrapper.getEventByEventTypeAndEventIDHandler(operation);
+      final ModelsEventResponse response = wrapper.getEventByEventTypeAndEventIDHandler(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

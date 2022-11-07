@@ -28,6 +28,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsUserAchievementResponse extends Model {
 
   @JsonProperty("achievedAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String achievedAt;
 
   @JsonProperty("achievementCode")

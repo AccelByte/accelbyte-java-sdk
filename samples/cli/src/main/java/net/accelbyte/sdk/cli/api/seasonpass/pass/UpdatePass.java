@@ -70,7 +70,7 @@ public class UpdatePass implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Pass wrapper = new Pass(sdk);
+      final Pass wrapper = new Pass(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.pass.UpdatePass operation =
           net.accelbyte.sdk.api.seasonpass.operations.pass.UpdatePass.builder()
               .code(code)
@@ -78,7 +78,7 @@ public class UpdatePass implements Callable<Integer> {
               .seasonId(seasonId)
               .body(new ObjectMapper().readValue(body, PassUpdate.class))
               .build();
-      PassInfo response = wrapper.updatePass(operation);
+      final PassInfo response = wrapper.updatePass(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

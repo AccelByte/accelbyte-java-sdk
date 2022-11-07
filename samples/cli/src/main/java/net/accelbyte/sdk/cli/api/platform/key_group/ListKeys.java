@@ -75,7 +75,7 @@ public class ListKeys implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      KeyGroup wrapper = new KeyGroup(sdk);
+      final KeyGroup wrapper = new KeyGroup(sdk);
       final net.accelbyte.sdk.api.platform.operations.key_group.ListKeys operation =
           net.accelbyte.sdk.api.platform.operations.key_group.ListKeys.builder()
               .keyGroupId(keyGroupId)
@@ -84,7 +84,7 @@ public class ListKeys implements Callable<Integer> {
               .offset(offset)
               .status(status)
               .build();
-      KeyPagingSliceResult response = wrapper.listKeys(operation);
+      final KeyPagingSliceResult response = wrapper.listKeys(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

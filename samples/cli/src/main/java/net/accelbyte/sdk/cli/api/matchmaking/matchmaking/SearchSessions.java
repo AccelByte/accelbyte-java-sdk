@@ -90,7 +90,7 @@ public class SearchSessions implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Matchmaking wrapper = new Matchmaking(sdk);
+      final Matchmaking wrapper = new Matchmaking(sdk);
       final net.accelbyte.sdk.api.matchmaking.operations.matchmaking.SearchSessions operation =
           net.accelbyte.sdk.api.matchmaking.operations.matchmaking.SearchSessions.builder()
               .namespace(namespace)
@@ -102,7 +102,7 @@ public class SearchSessions implements Callable<Integer> {
               .limit(limit)
               .offset(offset)
               .build();
-      ServiceGetSessionHistorySearchResponse response = wrapper.searchSessions(operation);
+      final ServiceGetSessionHistorySearchResponse response = wrapper.searchSessions(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

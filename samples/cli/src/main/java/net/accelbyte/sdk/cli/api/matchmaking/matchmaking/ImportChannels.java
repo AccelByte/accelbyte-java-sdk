@@ -66,14 +66,14 @@ public class ImportChannels implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Matchmaking wrapper = new Matchmaking(sdk);
+      final Matchmaking wrapper = new Matchmaking(sdk);
       final net.accelbyte.sdk.api.matchmaking.operations.matchmaking.ImportChannels operation =
           net.accelbyte.sdk.api.matchmaking.operations.matchmaking.ImportChannels.builder()
               .namespace(namespace)
               .file(file != null ? file : null)
               .strategy(strategy != null ? strategy : null)
               .build();
-      ModelsImportConfigResponse response = wrapper.importChannels(operation);
+      final ModelsImportConfigResponse response = wrapper.importChannels(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

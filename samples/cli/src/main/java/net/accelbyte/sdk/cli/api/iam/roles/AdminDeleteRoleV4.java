@@ -54,7 +54,7 @@ public class AdminDeleteRoleV4 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Roles wrapper = new Roles(sdk);
+      final Roles wrapper = new Roles(sdk);
       final net.accelbyte.sdk.api.iam.operations.roles.AdminDeleteRoleV4 operation =
           net.accelbyte.sdk.api.iam.operations.roles.AdminDeleteRoleV4.builder()
               .roleId(roleId)

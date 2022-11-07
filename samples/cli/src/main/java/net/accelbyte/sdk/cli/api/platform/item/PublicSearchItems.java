@@ -90,7 +90,7 @@ public class PublicSearchItems implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Item wrapper = new Item(sdk);
+      final Item wrapper = new Item(sdk);
       final net.accelbyte.sdk.api.platform.operations.item.PublicSearchItems operation =
           net.accelbyte.sdk.api.platform.operations.item.PublicSearchItems.builder()
               .namespace(namespace)
@@ -102,7 +102,7 @@ public class PublicSearchItems implements Callable<Integer> {
               .keyword(keyword)
               .language(language)
               .build();
-      ItemPagingSlicedResult response = wrapper.publicSearchItems(operation);
+      final ItemPagingSlicedResult response = wrapper.publicSearchItems(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

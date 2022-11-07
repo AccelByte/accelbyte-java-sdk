@@ -60,7 +60,7 @@ public class AdminGetClientsbyNamespacebyIDV3 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Clients wrapper = new Clients(sdk);
+      final Clients wrapper = new Clients(sdk);
       final net.accelbyte.sdk.api.iam.operations.clients.AdminGetClientsbyNamespacebyIDV3
           operation =
               net.accelbyte.sdk.api.iam.operations.clients.AdminGetClientsbyNamespacebyIDV3
@@ -68,7 +68,8 @@ public class AdminGetClientsbyNamespacebyIDV3 implements Callable<Integer> {
                   .clientId(clientId)
                   .namespace(namespace)
                   .build();
-      ClientmodelClientV3Response response = wrapper.adminGetClientsbyNamespacebyIDV3(operation);
+      final ClientmodelClientV3Response response =
+          wrapper.adminGetClientsbyNamespacebyIDV3(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

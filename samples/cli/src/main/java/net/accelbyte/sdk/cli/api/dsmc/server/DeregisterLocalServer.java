@@ -60,7 +60,7 @@ public class DeregisterLocalServer implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Server wrapper = new Server(sdk);
+      final Server wrapper = new Server(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.server.DeregisterLocalServer operation =
           net.accelbyte.sdk.api.dsmc.operations.server.DeregisterLocalServer.builder()
               .namespace(namespace)

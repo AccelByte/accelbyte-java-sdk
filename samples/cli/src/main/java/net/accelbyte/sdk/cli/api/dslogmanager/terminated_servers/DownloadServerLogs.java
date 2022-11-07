@@ -59,7 +59,7 @@ public class DownloadServerLogs implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      TerminatedServers wrapper = new TerminatedServers(sdk);
+      final TerminatedServers wrapper = new TerminatedServers(sdk);
       final net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers.DownloadServerLogs
           operation =
               net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers.DownloadServerLogs

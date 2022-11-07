@@ -56,7 +56,7 @@ public class AdminUpdateInputValidations implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      InputValidations wrapper = new InputValidations(sdk);
+      final InputValidations wrapper = new InputValidations(sdk);
       final net.accelbyte.sdk.api.iam.operations.input_validations.AdminUpdateInputValidations
           operation =
               net.accelbyte.sdk.api.iam.operations.input_validations.AdminUpdateInputValidations

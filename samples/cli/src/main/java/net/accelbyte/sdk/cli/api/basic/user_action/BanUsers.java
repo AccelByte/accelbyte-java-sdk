@@ -60,7 +60,7 @@ public class BanUsers implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UserAction wrapper = new UserAction(sdk);
+      final UserAction wrapper = new UserAction(sdk);
       final net.accelbyte.sdk.api.basic.operations.user_action.BanUsers operation =
           net.accelbyte.sdk.api.basic.operations.user_action.BanUsers.builder()
               .namespace(namespace)

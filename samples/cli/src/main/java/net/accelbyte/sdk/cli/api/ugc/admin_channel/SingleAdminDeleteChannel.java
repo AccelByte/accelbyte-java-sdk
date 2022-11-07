@@ -59,7 +59,7 @@ public class SingleAdminDeleteChannel implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AdminChannel wrapper = new AdminChannel(sdk);
+      final AdminChannel wrapper = new AdminChannel(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_channel.SingleAdminDeleteChannel operation =
           net.accelbyte.sdk.api.ugc.operations.admin_channel.SingleAdminDeleteChannel.builder()
               .channelId(channelId)

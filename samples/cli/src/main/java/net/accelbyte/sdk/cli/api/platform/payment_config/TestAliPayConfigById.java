@@ -60,7 +60,7 @@ public class TestAliPayConfigById implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PaymentConfig wrapper = new PaymentConfig(sdk);
+      final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config.TestAliPayConfigById
           operation =
               net.accelbyte.sdk.api.platform.operations.payment_config.TestAliPayConfigById
@@ -68,7 +68,7 @@ public class TestAliPayConfigById implements Callable<Integer> {
                   .id(id)
                   .sandbox(sandbox)
                   .build();
-      TestResult response = wrapper.testAliPayConfigById(operation);
+      final TestResult response = wrapper.testAliPayConfigById(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

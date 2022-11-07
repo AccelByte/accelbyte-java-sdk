@@ -65,14 +65,14 @@ public class BulkEnableCodes implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Campaign wrapper = new Campaign(sdk);
+      final Campaign wrapper = new Campaign(sdk);
       final net.accelbyte.sdk.api.platform.operations.campaign.BulkEnableCodes operation =
           net.accelbyte.sdk.api.platform.operations.campaign.BulkEnableCodes.builder()
               .campaignId(campaignId)
               .namespace(namespace)
               .batchNo(batchNo)
               .build();
-      BulkOperationResult response = wrapper.bulkEnableCodes(operation);
+      final BulkOperationResult response = wrapper.bulkEnableCodes(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

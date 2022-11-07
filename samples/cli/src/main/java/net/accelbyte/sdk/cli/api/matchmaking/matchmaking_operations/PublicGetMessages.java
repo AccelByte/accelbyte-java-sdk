@@ -50,13 +50,13 @@ public class PublicGetMessages implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      MatchmakingOperations wrapper = new MatchmakingOperations(sdk);
+      final MatchmakingOperations wrapper = new MatchmakingOperations(sdk);
       final net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.PublicGetMessages
           operation =
               net.accelbyte.sdk.api.matchmaking.operations.matchmaking_operations.PublicGetMessages
                   .builder()
                   .build();
-      List<LogAppMessageDeclaration> response = wrapper.publicGetMessages(operation);
+      final List<LogAppMessageDeclaration> response = wrapper.publicGetMessages(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

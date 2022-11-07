@@ -108,6 +108,10 @@ public class ModelThirdPartyLoginPlatformCredentialResponse extends Model {
   @JsonProperty("registeredDomains")
   private List<AccountcommonRegisteredDomain> registeredDomains;
 
+  @JsonProperty("scopes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> scopes;
+
   @JsonIgnore
   public ModelThirdPartyLoginPlatformCredentialResponse createFromJson(String json)
       throws JsonProcessingException {

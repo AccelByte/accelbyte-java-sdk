@@ -69,7 +69,7 @@ public class DeleteContentScreenshot implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PublicContent wrapper = new PublicContent(sdk);
+      final PublicContent wrapper = new PublicContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content.DeleteContentScreenshot operation =
           net.accelbyte.sdk.api.ugc.operations.public_content.DeleteContentScreenshot.builder()
               .contentId(contentId)

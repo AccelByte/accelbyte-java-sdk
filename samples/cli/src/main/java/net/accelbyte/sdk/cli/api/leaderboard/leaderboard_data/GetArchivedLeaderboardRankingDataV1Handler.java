@@ -71,7 +71,7 @@ public class GetArchivedLeaderboardRankingDataV1Handler implements Callable<Inte
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      LeaderboardData wrapper = new LeaderboardData(sdk);
+      final LeaderboardData wrapper = new LeaderboardData(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data
               .GetArchivedLeaderboardRankingDataV1Handler
           operation =
@@ -82,7 +82,7 @@ public class GetArchivedLeaderboardRankingDataV1Handler implements Callable<Inte
                   .slug(slug)
                   .leaderboardCodes(leaderboardCodes)
                   .build();
-      List<ModelsArchiveLeaderboardSignedURLResponse> response =
+      final List<ModelsArchiveLeaderboardSignedURLResponse> response =
           wrapper.getArchivedLeaderboardRankingDataV1Handler(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

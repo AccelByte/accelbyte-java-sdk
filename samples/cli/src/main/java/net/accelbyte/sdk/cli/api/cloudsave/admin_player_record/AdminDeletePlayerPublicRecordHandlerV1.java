@@ -65,7 +65,7 @@ public class AdminDeletePlayerPublicRecordHandlerV1 implements Callable<Integer>
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AdminPlayerRecord wrapper = new AdminPlayerRecord(sdk);
+      final AdminPlayerRecord wrapper = new AdminPlayerRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_player_record
               .AdminDeletePlayerPublicRecordHandlerV1
           operation =

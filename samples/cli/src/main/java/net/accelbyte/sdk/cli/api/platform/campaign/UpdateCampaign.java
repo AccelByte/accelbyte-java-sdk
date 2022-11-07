@@ -65,14 +65,14 @@ public class UpdateCampaign implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Campaign wrapper = new Campaign(sdk);
+      final Campaign wrapper = new Campaign(sdk);
       final net.accelbyte.sdk.api.platform.operations.campaign.UpdateCampaign operation =
           net.accelbyte.sdk.api.platform.operations.campaign.UpdateCampaign.builder()
               .campaignId(campaignId)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, CampaignUpdate.class))
               .build();
-      CampaignInfo response = wrapper.updateCampaign(operation);
+      final CampaignInfo response = wrapper.updateCampaign(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

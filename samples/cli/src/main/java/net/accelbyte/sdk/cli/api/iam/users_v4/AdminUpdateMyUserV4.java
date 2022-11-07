@@ -55,12 +55,12 @@ public class AdminUpdateMyUserV4 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UsersV4 wrapper = new UsersV4(sdk);
+      final UsersV4 wrapper = new UsersV4(sdk);
       final net.accelbyte.sdk.api.iam.operations.users_v4.AdminUpdateMyUserV4 operation =
           net.accelbyte.sdk.api.iam.operations.users_v4.AdminUpdateMyUserV4.builder()
               .body(new ObjectMapper().readValue(body, ModelUserUpdateRequestV3.class))
               .build();
-      ModelUserResponseV3 response = wrapper.adminUpdateMyUserV4(operation);
+      final ModelUserResponseV3 response = wrapper.adminUpdateMyUserV4(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

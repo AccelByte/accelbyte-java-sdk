@@ -59,7 +59,7 @@ public class DeleteAllUserStates implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Anonymization wrapper = new Anonymization(sdk);
+      final Anonymization wrapper = new Anonymization(sdk);
       final net.accelbyte.sdk.api.ugc.operations.anonymization.DeleteAllUserStates operation =
           net.accelbyte.sdk.api.ugc.operations.anonymization.DeleteAllUserStates.builder()
               .namespace(namespace)

@@ -105,7 +105,7 @@ public class QuerySession implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Session wrapper = new Session(sdk);
+      final Session wrapper = new Session(sdk);
       final net.accelbyte.sdk.api.sessionbrowser.operations.session.QuerySession operation =
           net.accelbyte.sdk.api.sessionbrowser.operations.session.QuerySession.builder()
               .namespace(namespace)
@@ -120,7 +120,7 @@ public class QuerySession implements Callable<Integer> {
               .userId(userId)
               .sessionType(sessionType)
               .build();
-      ModelsSessionQueryResponse response = wrapper.querySession(operation);
+      final ModelsSessionQueryResponse response = wrapper.querySession(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

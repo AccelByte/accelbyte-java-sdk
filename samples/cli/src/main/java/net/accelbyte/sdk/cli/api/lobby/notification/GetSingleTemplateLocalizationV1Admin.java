@@ -66,7 +66,7 @@ public class GetSingleTemplateLocalizationV1Admin implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Notification wrapper = new Notification(sdk);
+      final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification.GetSingleTemplateLocalizationV1Admin
           operation =
               net.accelbyte.sdk.api.lobby.operations.notification
@@ -75,7 +75,7 @@ public class GetSingleTemplateLocalizationV1Admin implements Callable<Integer> {
                   .templateLanguage(templateLanguage)
                   .templateSlug(templateSlug)
                   .build();
-      ModelLocalization response = wrapper.getSingleTemplateLocalizationV1Admin(operation);
+      final ModelLocalization response = wrapper.getSingleTemplateLocalizationV1Admin(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

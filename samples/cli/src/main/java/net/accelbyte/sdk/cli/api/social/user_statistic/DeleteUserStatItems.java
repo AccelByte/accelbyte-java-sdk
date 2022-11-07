@@ -64,7 +64,7 @@ public class DeleteUserStatItems implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UserStatistic wrapper = new UserStatistic(sdk);
+      final UserStatistic wrapper = new UserStatistic(sdk);
       final net.accelbyte.sdk.api.social.operations.user_statistic.DeleteUserStatItems operation =
           net.accelbyte.sdk.api.social.operations.user_statistic.DeleteUserStatItems.builder()
               .namespace(namespace)

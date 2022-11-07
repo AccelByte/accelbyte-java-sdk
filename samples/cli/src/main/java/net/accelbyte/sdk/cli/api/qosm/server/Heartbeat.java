@@ -55,7 +55,7 @@ public class Heartbeat implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Server wrapper = new Server(sdk);
+      final Server wrapper = new Server(sdk);
       final net.accelbyte.sdk.api.qosm.operations.server.Heartbeat operation =
           net.accelbyte.sdk.api.qosm.operations.server.Heartbeat.builder()
               .body(new ObjectMapper().readValue(body, ModelsHeartbeatRequest.class))

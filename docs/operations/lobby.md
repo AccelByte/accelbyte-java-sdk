@@ -193,7 +193,6 @@
 | `models.BlockedByPlayerData` | [ModelsBlockedByPlayerData](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsBlockedByPlayerData.java) |
 | `models.BlockedPlayerData` | [ModelsBlockedPlayerData](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsBlockedPlayerData.java) |
 | `models.Config` | [ModelsConfig](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsConfig.java) |
-| `models.ConfigExport` | [ModelsConfigExport](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsConfigExport.java) |
 | `models.ConfigList` | [ModelsConfigList](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsConfigList.java) |
 | `models.ConfigReq` | [ModelsConfigReq](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsConfigReq.java) |
 | `models.CreateConfigRequest` | [ModelsCreateConfigRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsCreateConfigRequest.java) |

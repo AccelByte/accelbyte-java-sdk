@@ -90,7 +90,7 @@ public class AdminSearchSessionsV2 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Session wrapper = new Session(sdk);
+      final Session wrapper = new Session(sdk);
       final net.accelbyte.sdk.api.sessionbrowser.operations.session.AdminSearchSessionsV2
           operation =
               net.accelbyte.sdk.api.sessionbrowser.operations.session.AdminSearchSessionsV2
@@ -104,7 +104,8 @@ public class AdminSearchSessionsV2 implements Callable<Integer> {
                   .limit(limit)
                   .offset(offset)
                   .build();
-      ModelsGetSessionHistorySearchResponseV2 response = wrapper.adminSearchSessionsV2(operation);
+      final ModelsGetSessionHistorySearchResponseV2 response =
+          wrapper.adminSearchSessionsV2(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

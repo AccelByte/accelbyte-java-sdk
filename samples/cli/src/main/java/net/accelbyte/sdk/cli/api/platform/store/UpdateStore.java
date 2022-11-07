@@ -65,14 +65,14 @@ public class UpdateStore implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Store wrapper = new Store(sdk);
+      final Store wrapper = new Store(sdk);
       final net.accelbyte.sdk.api.platform.operations.store.UpdateStore operation =
           net.accelbyte.sdk.api.platform.operations.store.UpdateStore.builder()
               .namespace(namespace)
               .storeId(storeId)
               .body(new ObjectMapper().readValue(body, StoreUpdate.class))
               .build();
-      StoreInfo response = wrapper.updateStore(operation);
+      final StoreInfo response = wrapper.updateStore(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

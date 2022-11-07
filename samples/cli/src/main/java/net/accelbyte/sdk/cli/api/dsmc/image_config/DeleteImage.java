@@ -64,7 +64,7 @@ public class DeleteImage implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      ImageConfig wrapper = new ImageConfig(sdk);
+      final ImageConfig wrapper = new ImageConfig(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.image_config.DeleteImage operation =
           net.accelbyte.sdk.api.dsmc.operations.image_config.DeleteImage.builder()
               .namespace(namespace)

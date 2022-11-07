@@ -70,7 +70,7 @@ public class QueryPaymentProviderConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PaymentConfig wrapper = new PaymentConfig(sdk);
+      final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config.QueryPaymentProviderConfig
           operation =
               net.accelbyte.sdk.api.platform.operations.payment_config.QueryPaymentProviderConfig
@@ -80,7 +80,7 @@ public class QueryPaymentProviderConfig implements Callable<Integer> {
                   .offset(offset)
                   .region(region)
                   .build();
-      PaymentProviderConfigPagingSlicedResult response =
+      final PaymentProviderConfigPagingSlicedResult response =
           wrapper.queryPaymentProviderConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

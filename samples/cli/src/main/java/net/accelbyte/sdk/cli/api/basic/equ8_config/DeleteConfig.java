@@ -54,7 +54,7 @@ public class DeleteConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      EQU8Config wrapper = new EQU8Config(sdk);
+      final EQU8Config wrapper = new EQU8Config(sdk);
       final net.accelbyte.sdk.api.basic.operations.equ8_config.DeleteConfig operation =
           net.accelbyte.sdk.api.basic.operations.equ8_config.DeleteConfig.builder()
               .namespace(namespace)

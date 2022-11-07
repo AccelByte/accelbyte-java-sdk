@@ -60,7 +60,7 @@ public class RequestPresignedURL implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      LocalizedPolicyVersions wrapper = new LocalizedPolicyVersions(sdk);
+      final LocalizedPolicyVersions wrapper = new LocalizedPolicyVersions(sdk);
       final net.accelbyte.sdk.api.legal.operations.localized_policy_versions.RequestPresignedURL
           operation =
               net.accelbyte.sdk.api.legal.operations.localized_policy_versions.RequestPresignedURL
@@ -70,7 +70,7 @@ public class RequestPresignedURL implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, UploadPolicyVersionAttachmentRequest.class))
                   .build();
-      UploadLocalizedPolicyVersionAttachmentResponse response =
+      final UploadLocalizedPolicyVersionAttachmentResponse response =
           wrapper.requestPresignedURL(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

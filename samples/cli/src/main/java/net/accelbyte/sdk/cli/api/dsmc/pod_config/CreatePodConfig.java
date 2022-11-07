@@ -65,14 +65,14 @@ public class CreatePodConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PodConfig wrapper = new PodConfig(sdk);
+      final PodConfig wrapper = new PodConfig(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.pod_config.CreatePodConfig operation =
           net.accelbyte.sdk.api.dsmc.operations.pod_config.CreatePodConfig.builder()
               .name(name)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsCreatePodConfigRequest.class))
               .build();
-      ModelsPodConfigRecord response = wrapper.createPodConfig(operation);
+      final ModelsPodConfigRecord response = wrapper.createPodConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

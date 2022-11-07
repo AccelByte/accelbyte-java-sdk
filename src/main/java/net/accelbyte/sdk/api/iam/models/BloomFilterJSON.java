@@ -28,7 +28,7 @@ import net.accelbyte.sdk.core.Model;
 public class BloomFilterJSON extends Model {
 
   @JsonProperty("bits")
-  private List<Integer> bits;
+  private List<java.math.BigInteger> bits;
 
   @JsonProperty("k")
   private Integer k;

@@ -60,7 +60,7 @@ public class PostEventHandler implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Event wrapper = new Event(sdk);
+      final Event wrapper = new Event(sdk);
       final net.accelbyte.sdk.api.eventlog.operations.event.PostEventHandler operation =
           net.accelbyte.sdk.api.eventlog.operations.event.PostEventHandler.builder()
               .namespace(namespace)

@@ -70,7 +70,7 @@ public class UpdateItemPurchaseCondition implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Item wrapper = new Item(sdk);
+      final Item wrapper = new Item(sdk);
       final net.accelbyte.sdk.api.platform.operations.item.UpdateItemPurchaseCondition operation =
           net.accelbyte.sdk.api.platform.operations.item.UpdateItemPurchaseCondition.builder()
               .itemId(itemId)
@@ -78,7 +78,7 @@ public class UpdateItemPurchaseCondition implements Callable<Integer> {
               .storeId(storeId)
               .body(new ObjectMapper().readValue(body, PurchaseConditionUpdate.class))
               .build();
-      FullItemInfo response = wrapper.updateItemPurchaseCondition(operation);
+      final FullItemInfo response = wrapper.updateItemPurchaseCondition(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

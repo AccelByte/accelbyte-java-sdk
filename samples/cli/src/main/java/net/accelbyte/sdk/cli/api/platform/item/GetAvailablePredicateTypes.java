@@ -55,12 +55,12 @@ public class GetAvailablePredicateTypes implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Item wrapper = new Item(sdk);
+      final Item wrapper = new Item(sdk);
       final net.accelbyte.sdk.api.platform.operations.item.GetAvailablePredicateTypes operation =
           net.accelbyte.sdk.api.platform.operations.item.GetAvailablePredicateTypes.builder()
               .namespace(namespace)
               .build();
-      List<AvailablePredicateObject> response = wrapper.getAvailablePredicateTypes(operation);
+      final List<AvailablePredicateObject> response = wrapper.getAvailablePredicateTypes(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

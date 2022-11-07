@@ -54,7 +54,7 @@ public class DeleteStadiaIAPConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      IAP wrapper = new IAP(sdk);
+      final IAP wrapper = new IAP(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap.DeleteStadiaIAPConfig operation =
           net.accelbyte.sdk.api.platform.operations.iap.DeleteStadiaIAPConfig.builder()
               .namespace(namespace)

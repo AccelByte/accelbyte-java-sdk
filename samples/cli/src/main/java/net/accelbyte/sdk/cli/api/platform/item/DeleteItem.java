@@ -69,7 +69,7 @@ public class DeleteItem implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Item wrapper = new Item(sdk);
+      final Item wrapper = new Item(sdk);
       final net.accelbyte.sdk.api.platform.operations.item.DeleteItem operation =
           net.accelbyte.sdk.api.platform.operations.item.DeleteItem.builder()
               .itemId(itemId)

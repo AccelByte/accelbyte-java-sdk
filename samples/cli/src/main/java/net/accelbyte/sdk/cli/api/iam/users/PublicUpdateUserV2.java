@@ -65,14 +65,14 @@ public class PublicUpdateUserV2 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Users wrapper = new Users(sdk);
+      final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.PublicUpdateUserV2 operation =
           net.accelbyte.sdk.api.iam.operations.users.PublicUpdateUserV2.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ModelUserUpdateRequest.class))
               .build();
-      List<ModelUserResponse> response = wrapper.publicUpdateUserV2(operation);
+      final List<ModelUserResponse> response = wrapper.publicUpdateUserV2(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

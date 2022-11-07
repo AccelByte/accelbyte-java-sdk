@@ -70,7 +70,7 @@ public class AdminUpdateChannel implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AdminChannel wrapper = new AdminChannel(sdk);
+      final AdminChannel wrapper = new AdminChannel(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_channel.AdminUpdateChannel operation =
           net.accelbyte.sdk.api.ugc.operations.admin_channel.AdminUpdateChannel.builder()
               .channelId(channelId)
@@ -78,7 +78,7 @@ public class AdminUpdateChannel implements Callable<Integer> {
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ModelsChannelRequest.class))
               .build();
-      ModelsChannelResponse response = wrapper.adminUpdateChannel(operation);
+      final ModelsChannelResponse response = wrapper.adminUpdateChannel(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -54,7 +54,7 @@ public class PublicVerifyUserByLinkV3 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Users wrapper = new Users(sdk);
+      final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.PublicVerifyUserByLinkV3 operation =
           net.accelbyte.sdk.api.iam.operations.users.PublicVerifyUserByLinkV3.builder()
               .code(code)

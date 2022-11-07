@@ -59,7 +59,7 @@ public class DeleteUserActivitiesHandler implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UserInformation wrapper = new UserInformation(sdk);
+      final UserInformation wrapper = new UserInformation(sdk);
       final net.accelbyte.sdk.api.eventlog.operations.user_information.DeleteUserActivitiesHandler
           operation =
               net.accelbyte.sdk.api.eventlog.operations.user_information.DeleteUserActivitiesHandler

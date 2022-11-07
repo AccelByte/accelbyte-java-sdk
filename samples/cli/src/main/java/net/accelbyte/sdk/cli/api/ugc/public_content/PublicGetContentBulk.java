@@ -60,13 +60,13 @@ public class PublicGetContentBulk implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PublicContent wrapper = new PublicContent(sdk);
+      final PublicContent wrapper = new PublicContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content.PublicGetContentBulk operation =
           net.accelbyte.sdk.api.ugc.operations.public_content.PublicGetContentBulk.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsPublicGetContentBulkRequest.class))
               .build();
-      List<ModelsContentDownloadResponse> response = wrapper.publicGetContentBulk(operation);
+      final List<ModelsContentDownloadResponse> response = wrapper.publicGetContentBulk(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

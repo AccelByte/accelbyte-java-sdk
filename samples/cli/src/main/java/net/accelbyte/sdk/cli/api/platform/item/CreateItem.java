@@ -65,14 +65,14 @@ public class CreateItem implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Item wrapper = new Item(sdk);
+      final Item wrapper = new Item(sdk);
       final net.accelbyte.sdk.api.platform.operations.item.CreateItem operation =
           net.accelbyte.sdk.api.platform.operations.item.CreateItem.builder()
               .namespace(namespace)
               .storeId(storeId)
               .body(new ObjectMapper().readValue(body, ItemCreate.class))
               .build();
-      FullItemInfo response = wrapper.createItem(operation);
+      final FullItemInfo response = wrapper.createItem(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

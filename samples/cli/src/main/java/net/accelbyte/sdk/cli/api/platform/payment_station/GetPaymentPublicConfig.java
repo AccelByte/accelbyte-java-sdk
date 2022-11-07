@@ -70,7 +70,7 @@ public class GetPaymentPublicConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PaymentStation wrapper = new PaymentStation(sdk);
+      final PaymentStation wrapper = new PaymentStation(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_station.GetPaymentPublicConfig
           operation =
               net.accelbyte.sdk.api.platform.operations.payment_station.GetPaymentPublicConfig
@@ -80,7 +80,7 @@ public class GetPaymentPublicConfig implements Callable<Integer> {
                   .paymentProvider(paymentProvider)
                   .region(region)
                   .build();
-      Map<String, ?> response = wrapper.getPaymentPublicConfig(operation);
+      final Map<String, ?> response = wrapper.getPaymentPublicConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

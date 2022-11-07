@@ -64,7 +64,7 @@ public class PublicDeleteUserNamespaceSlot implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Slot wrapper = new Slot(sdk);
+      final Slot wrapper = new Slot(sdk);
       final net.accelbyte.sdk.api.social.operations.slot.PublicDeleteUserNamespaceSlot operation =
           net.accelbyte.sdk.api.social.operations.slot.PublicDeleteUserNamespaceSlot.builder()
               .namespace(namespace)

@@ -59,7 +59,7 @@ public class DeleteUserSlotConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      SlotConfig wrapper = new SlotConfig(sdk);
+      final SlotConfig wrapper = new SlotConfig(sdk);
       final net.accelbyte.sdk.api.social.operations.slot_config.DeleteUserSlotConfig operation =
           net.accelbyte.sdk.api.social.operations.slot_config.DeleteUserSlotConfig.builder()
               .namespace(namespace)

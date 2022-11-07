@@ -70,7 +70,7 @@ public class GetUserActivitiesHandler implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UserInformation wrapper = new UserInformation(sdk);
+      final UserInformation wrapper = new UserInformation(sdk);
       final net.accelbyte.sdk.api.eventlog.operations.user_information.GetUserActivitiesHandler
           operation =
               net.accelbyte.sdk.api.eventlog.operations.user_information.GetUserActivitiesHandler
@@ -80,7 +80,7 @@ public class GetUserActivitiesHandler implements Callable<Integer> {
                   .offset(offset)
                   .pageSize(pageSize)
                   .build();
-      ModelsEventResponse response = wrapper.getUserActivitiesHandler(operation);
+      final ModelsEventResponse response = wrapper.getUserActivitiesHandler(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

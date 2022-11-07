@@ -80,7 +80,7 @@ public class BulkGetLocaleItems implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Item wrapper = new Item(sdk);
+      final Item wrapper = new Item(sdk);
       final net.accelbyte.sdk.api.platform.operations.item.BulkGetLocaleItems operation =
           net.accelbyte.sdk.api.platform.operations.item.BulkGetLocaleItems.builder()
               .namespace(namespace)
@@ -90,7 +90,7 @@ public class BulkGetLocaleItems implements Callable<Integer> {
               .storeId(storeId)
               .itemIds(itemIds)
               .build();
-      List<ItemInfo> response = wrapper.bulkGetLocaleItems(operation);
+      final List<ItemInfo> response = wrapper.bulkGetLocaleItems(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

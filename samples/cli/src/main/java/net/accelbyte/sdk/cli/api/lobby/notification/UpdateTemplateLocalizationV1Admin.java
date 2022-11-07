@@ -70,7 +70,7 @@ public class UpdateTemplateLocalizationV1Admin implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Notification wrapper = new Notification(sdk);
+      final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification.UpdateTemplateLocalizationV1Admin
           operation =
               net.accelbyte.sdk.api.lobby.operations.notification.UpdateTemplateLocalizationV1Admin

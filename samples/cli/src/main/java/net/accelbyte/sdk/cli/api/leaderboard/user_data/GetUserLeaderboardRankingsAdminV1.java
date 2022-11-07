@@ -70,7 +70,7 @@ public class GetUserLeaderboardRankingsAdminV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UserData wrapper = new UserData(sdk);
+      final UserData wrapper = new UserData(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.user_data.GetUserLeaderboardRankingsAdminV1
           operation =
               net.accelbyte.sdk.api.leaderboard.operations.user_data
@@ -80,7 +80,7 @@ public class GetUserLeaderboardRankingsAdminV1 implements Callable<Integer> {
                   .limit(limit)
                   .offset(offset)
                   .build();
-      ModelsGetAllUserLeaderboardsResp response =
+      final ModelsGetAllUserLeaderboardsResp response =
           wrapper.getUserLeaderboardRankingsAdminV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

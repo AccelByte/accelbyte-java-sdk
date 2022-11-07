@@ -55,12 +55,12 @@ public class ListProvidersByRegion implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Public wrapper = new Public(sdk);
+      final Public wrapper = new Public(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.public_.ListProvidersByRegion operation =
           net.accelbyte.sdk.api.dsmc.operations.public_.ListProvidersByRegion.builder()
               .region(region)
               .build();
-      ModelsDefaultProvider response = wrapper.listProvidersByRegion(operation);
+      final ModelsDefaultProvider response = wrapper.listProvidersByRegion(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

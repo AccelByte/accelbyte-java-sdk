@@ -70,7 +70,7 @@ public class GetPublicFollowing implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PublicFollow wrapper = new PublicFollow(sdk);
+      final PublicFollow wrapper = new PublicFollow(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_follow.GetPublicFollowing operation =
           net.accelbyte.sdk.api.ugc.operations.public_follow.GetPublicFollowing.builder()
               .namespace(namespace)
@@ -78,7 +78,7 @@ public class GetPublicFollowing implements Callable<Integer> {
               .limit(limit)
               .offset(offset)
               .build();
-      ModelsPaginatedCreatorOverviewResponse response = wrapper.getPublicFollowing(operation);
+      final ModelsPaginatedCreatorOverviewResponse response = wrapper.getPublicFollowing(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

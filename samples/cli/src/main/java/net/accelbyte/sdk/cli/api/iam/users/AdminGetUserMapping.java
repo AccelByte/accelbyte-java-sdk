@@ -65,14 +65,14 @@ public class AdminGetUserMapping implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Users wrapper = new Users(sdk);
+      final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.AdminGetUserMapping operation =
           net.accelbyte.sdk.api.iam.operations.users.AdminGetUserMapping.builder()
               .namespace(namespace)
               .targetNamespace(targetNamespace)
               .userId(userId)
               .build();
-      ModelGetUserMappingV3 response = wrapper.adminGetUserMapping(operation);
+      final ModelGetUserMappingV3 response = wrapper.adminGetUserMapping(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -65,14 +65,14 @@ public class CreateDeployment implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      DeploymentConfig wrapper = new DeploymentConfig(sdk);
+      final DeploymentConfig wrapper = new DeploymentConfig(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.deployment_config.CreateDeployment operation =
           net.accelbyte.sdk.api.dsmc.operations.deployment_config.CreateDeployment.builder()
               .deployment(deployment)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsCreateDeploymentRequest.class))
               .build();
-      ModelsDeploymentWithOverride response = wrapper.createDeployment(operation);
+      final ModelsDeploymentWithOverride response = wrapper.createDeployment(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -60,7 +60,7 @@ public class PublicDownloadContentByContentID implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PublicContent wrapper = new PublicContent(sdk);
+      final PublicContent wrapper = new PublicContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content.PublicDownloadContentByContentID
           operation =
               net.accelbyte.sdk.api.ugc.operations.public_content.PublicDownloadContentByContentID
@@ -68,7 +68,8 @@ public class PublicDownloadContentByContentID implements Callable<Integer> {
                   .contentId(contentId)
                   .namespace(namespace)
                   .build();
-      ModelsContentDownloadResponse response = wrapper.publicDownloadContentByContentID(operation);
+      final ModelsContentDownloadResponse response =
+          wrapper.publicDownloadContentByContentID(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

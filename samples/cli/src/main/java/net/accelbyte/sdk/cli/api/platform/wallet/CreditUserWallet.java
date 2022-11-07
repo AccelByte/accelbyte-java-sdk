@@ -70,7 +70,7 @@ public class CreditUserWallet implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Wallet wrapper = new Wallet(sdk);
+      final Wallet wrapper = new Wallet(sdk);
       final net.accelbyte.sdk.api.platform.operations.wallet.CreditUserWallet operation =
           net.accelbyte.sdk.api.platform.operations.wallet.CreditUserWallet.builder()
               .currencyCode(currencyCode)
@@ -78,7 +78,7 @@ public class CreditUserWallet implements Callable<Integer> {
               .userId(userId)
               .body(new ObjectMapper().readValue(body, CreditRequest.class))
               .build();
-      WalletInfo response = wrapper.creditUserWallet(operation);
+      final WalletInfo response = wrapper.creditUserWallet(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -60,7 +60,7 @@ public class UpdateNamespaceSlotConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      SlotConfig wrapper = new SlotConfig(sdk);
+      final SlotConfig wrapper = new SlotConfig(sdk);
       final net.accelbyte.sdk.api.social.operations.slot_config.UpdateNamespaceSlotConfig
           operation =
               net.accelbyte.sdk.api.social.operations.slot_config.UpdateNamespaceSlotConfig
@@ -68,7 +68,7 @@ public class UpdateNamespaceSlotConfig implements Callable<Integer> {
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, SlotConfigUpdate.class))
                   .build();
-      NamespaceSlotConfigInfo response = wrapper.updateNamespaceSlotConfig(operation);
+      final NamespaceSlotConfigInfo response = wrapper.updateNamespaceSlotConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

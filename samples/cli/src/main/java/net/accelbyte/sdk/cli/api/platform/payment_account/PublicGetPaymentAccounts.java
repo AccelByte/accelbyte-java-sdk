@@ -60,7 +60,7 @@ public class PublicGetPaymentAccounts implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PaymentAccount wrapper = new PaymentAccount(sdk);
+      final PaymentAccount wrapper = new PaymentAccount(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_account.PublicGetPaymentAccounts
           operation =
               net.accelbyte.sdk.api.platform.operations.payment_account.PublicGetPaymentAccounts
@@ -68,7 +68,7 @@ public class PublicGetPaymentAccounts implements Callable<Integer> {
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      List<net.accelbyte.sdk.api.platform.models.PaymentAccount> response =
+      final List<net.accelbyte.sdk.api.platform.models.PaymentAccount> response =
           wrapper.publicGetPaymentAccounts(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

@@ -69,7 +69,7 @@ public class PlatformAuthenticateSAMLV3Handler implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      SSOSAML20 wrapper = new SSOSAML20(sdk);
+      final SSOSAML20 wrapper = new SSOSAML20(sdk);
       final net.accelbyte.sdk.api.iam.operations.sso_saml_2_0.PlatformAuthenticateSAMLV3Handler
           operation =
               net.accelbyte.sdk.api.iam.operations.sso_saml_2_0.PlatformAuthenticateSAMLV3Handler

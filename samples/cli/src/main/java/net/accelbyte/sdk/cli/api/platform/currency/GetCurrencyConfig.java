@@ -60,13 +60,13 @@ public class GetCurrencyConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Currency wrapper = new Currency(sdk);
+      final Currency wrapper = new Currency(sdk);
       final net.accelbyte.sdk.api.platform.operations.currency.GetCurrencyConfig operation =
           net.accelbyte.sdk.api.platform.operations.currency.GetCurrencyConfig.builder()
               .currencyCode(currencyCode)
               .namespace(namespace)
               .build();
-      CurrencyConfig response = wrapper.getCurrencyConfig(operation);
+      final CurrencyConfig response = wrapper.getCurrencyConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

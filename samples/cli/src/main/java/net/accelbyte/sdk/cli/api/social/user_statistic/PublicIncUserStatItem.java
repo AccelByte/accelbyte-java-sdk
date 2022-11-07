@@ -70,7 +70,7 @@ public class PublicIncUserStatItem implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UserStatistic wrapper = new UserStatistic(sdk);
+      final UserStatistic wrapper = new UserStatistic(sdk);
       final net.accelbyte.sdk.api.social.operations.user_statistic.PublicIncUserStatItem operation =
           net.accelbyte.sdk.api.social.operations.user_statistic.PublicIncUserStatItem.builder()
               .namespace(namespace)
@@ -78,7 +78,7 @@ public class PublicIncUserStatItem implements Callable<Integer> {
               .userId(userId)
               .body(new ObjectMapper().readValue(body, StatItemInc.class))
               .build();
-      StatItemIncResult response = wrapper.publicIncUserStatItem(operation);
+      final StatItemIncResult response = wrapper.publicIncUserStatItem(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

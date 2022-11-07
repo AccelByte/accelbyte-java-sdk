@@ -75,7 +75,7 @@ public class ListSession implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Admin wrapper = new Admin(sdk);
+      final Admin wrapper = new Admin(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.admin.ListSession operation =
           net.accelbyte.sdk.api.dsmc.operations.admin.ListSession.builder()
               .namespace(namespace)
@@ -84,7 +84,7 @@ public class ListSession implements Callable<Integer> {
               .count(count)
               .offset(offset)
               .build();
-      ModelsListSessionResponse response = wrapper.listSession(operation);
+      final ModelsListSessionResponse response = wrapper.listSession(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -65,14 +65,14 @@ public class UnpublishSeason implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Season wrapper = new Season(sdk);
+      final Season wrapper = new Season(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.season.UnpublishSeason operation =
           net.accelbyte.sdk.api.seasonpass.operations.season.UnpublishSeason.builder()
               .namespace(namespace)
               .seasonId(seasonId)
               .force(force)
               .build();
-      SeasonInfo response = wrapper.unpublishSeason(operation);
+      final SeasonInfo response = wrapper.unpublishSeason(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

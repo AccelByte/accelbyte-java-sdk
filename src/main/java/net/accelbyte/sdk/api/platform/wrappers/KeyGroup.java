@@ -41,7 +41,9 @@ public class KeyGroup {
 
   /**
    * @see GetKeyGroupByBoothName
+   * @deprecated
    */
+  @Deprecated
   public KeyGroupInfo getKeyGroupByBoothName(GetKeyGroupByBoothName input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

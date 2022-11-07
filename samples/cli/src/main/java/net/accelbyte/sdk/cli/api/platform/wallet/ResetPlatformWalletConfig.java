@@ -60,13 +60,13 @@ public class ResetPlatformWalletConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Wallet wrapper = new Wallet(sdk);
+      final Wallet wrapper = new Wallet(sdk);
       final net.accelbyte.sdk.api.platform.operations.wallet.ResetPlatformWalletConfig operation =
           net.accelbyte.sdk.api.platform.operations.wallet.ResetPlatformWalletConfig.builder()
               .namespace(namespace)
               .platform(platform)
               .build();
-      PlatformWalletConfigInfo response = wrapper.resetPlatformWalletConfig(operation);
+      final PlatformWalletConfigInfo response = wrapper.resetPlatformWalletConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

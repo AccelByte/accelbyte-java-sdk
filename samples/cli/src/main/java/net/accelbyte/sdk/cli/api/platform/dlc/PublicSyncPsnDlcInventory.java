@@ -65,7 +65,7 @@ public class PublicSyncPsnDlcInventory implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      DLC wrapper = new DLC(sdk);
+      final DLC wrapper = new DLC(sdk);
       final net.accelbyte.sdk.api.platform.operations.dlc.PublicSyncPsnDlcInventory operation =
           net.accelbyte.sdk.api.platform.operations.dlc.PublicSyncPsnDlcInventory.builder()
               .namespace(namespace)

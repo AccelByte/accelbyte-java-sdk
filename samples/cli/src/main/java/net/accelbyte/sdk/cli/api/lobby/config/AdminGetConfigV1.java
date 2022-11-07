@@ -55,12 +55,12 @@ public class AdminGetConfigV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Config wrapper = new Config(sdk);
+      final Config wrapper = new Config(sdk);
       final net.accelbyte.sdk.api.lobby.operations.config.AdminGetConfigV1 operation =
           net.accelbyte.sdk.api.lobby.operations.config.AdminGetConfigV1.builder()
               .namespace(namespace)
               .build();
-      ModelsConfigReq response = wrapper.adminGetConfigV1(operation);
+      final ModelsConfigReq response = wrapper.adminGetConfigV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

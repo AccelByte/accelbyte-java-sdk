@@ -70,7 +70,7 @@ public class PublicGetProfileAttribute implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      GameProfile wrapper = new GameProfile(sdk);
+      final GameProfile wrapper = new GameProfile(sdk);
       final net.accelbyte.sdk.api.social.operations.game_profile.PublicGetProfileAttribute
           operation =
               net.accelbyte.sdk.api.social.operations.game_profile.PublicGetProfileAttribute
@@ -80,7 +80,7 @@ public class PublicGetProfileAttribute implements Callable<Integer> {
                   .profileId(profileId)
                   .userId(userId)
                   .build();
-      Attribute response = wrapper.publicGetProfileAttribute(operation);
+      final Attribute response = wrapper.publicGetProfileAttribute(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

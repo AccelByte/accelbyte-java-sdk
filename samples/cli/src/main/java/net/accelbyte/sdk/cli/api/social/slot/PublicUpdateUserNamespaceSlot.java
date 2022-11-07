@@ -91,7 +91,7 @@ public class PublicUpdateUserNamespaceSlot implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Slot wrapper = new Slot(sdk);
+      final Slot wrapper = new Slot(sdk);
       final net.accelbyte.sdk.api.social.operations.slot.PublicUpdateUserNamespaceSlot operation =
           net.accelbyte.sdk.api.social.operations.slot.PublicUpdateUserNamespaceSlot.builder()
               .namespace(namespace)
@@ -103,7 +103,7 @@ public class PublicUpdateUserNamespaceSlot implements Callable<Integer> {
               .customAttribute(customAttribute != null ? customAttribute : null)
               .file(file != null ? file : null)
               .build();
-      SlotInfo response = wrapper.publicUpdateUserNamespaceSlot(operation);
+      final SlotInfo response = wrapper.publicUpdateUserNamespaceSlot(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

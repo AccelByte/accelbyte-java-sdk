@@ -70,7 +70,7 @@ public class AdminHideUserContent implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AdminContent wrapper = new AdminContent(sdk);
+      final AdminContent wrapper = new AdminContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminHideUserContent operation =
           net.accelbyte.sdk.api.ugc.operations.admin_content.AdminHideUserContent.builder()
               .contentId(contentId)
@@ -78,7 +78,7 @@ public class AdminHideUserContent implements Callable<Integer> {
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ModelsHideContentRequest.class))
               .build();
-      ModelsCreateContentResponse response = wrapper.adminHideUserContent(operation);
+      final ModelsCreateContentResponse response = wrapper.adminHideUserContent(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

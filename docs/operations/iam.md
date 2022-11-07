@@ -646,4 +646,3 @@
 | `oauthmodel.TokenWithDeviceCookieResponseV3` | [OauthmodelTokenWithDeviceCookieResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelTokenWithDeviceCookieResponseV3.java) |
 | `rest.ErrorResponse` | [RestErrorResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/RestErrorResponse.java) |
 | `rest.ErrorResponseWithConflictedUserPlatformAccounts` | [RestErrorResponseWithConflictedUserPlatformAccounts](../../src/main/java/net/accelbyte/sdk/api/iam/models/RestErrorResponseWithConflictedUserPlatformAccounts.java) |
-| `restapi.ErrorResponse` | [RestapiErrorResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/RestapiErrorResponse.java) |

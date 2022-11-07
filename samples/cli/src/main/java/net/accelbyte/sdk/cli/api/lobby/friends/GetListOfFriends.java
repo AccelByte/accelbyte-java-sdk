@@ -70,7 +70,7 @@ public class GetListOfFriends implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Friends wrapper = new Friends(sdk);
+      final Friends wrapper = new Friends(sdk);
       final net.accelbyte.sdk.api.lobby.operations.friends.GetListOfFriends operation =
           net.accelbyte.sdk.api.lobby.operations.friends.GetListOfFriends.builder()
               .namespace(namespace)
@@ -78,7 +78,7 @@ public class GetListOfFriends implements Callable<Integer> {
               .limit(limit)
               .offset(offset)
               .build();
-      ModelGetFriendsResponse response = wrapper.getListOfFriends(operation);
+      final ModelGetFriendsResponse response = wrapper.getListOfFriends(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

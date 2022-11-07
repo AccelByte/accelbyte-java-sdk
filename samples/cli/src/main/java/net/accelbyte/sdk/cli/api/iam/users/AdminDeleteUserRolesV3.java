@@ -66,7 +66,7 @@ public class AdminDeleteUserRolesV3 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Users wrapper = new Users(sdk);
+      final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.AdminDeleteUserRolesV3 operation =
           net.accelbyte.sdk.api.iam.operations.users.AdminDeleteUserRolesV3.builder()
               .namespace(namespace)

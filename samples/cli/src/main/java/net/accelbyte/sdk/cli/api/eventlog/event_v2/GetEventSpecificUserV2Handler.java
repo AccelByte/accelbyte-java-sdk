@@ -85,7 +85,7 @@ public class GetEventSpecificUserV2Handler implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      EventV2 wrapper = new EventV2(sdk);
+      final EventV2 wrapper = new EventV2(sdk);
       final net.accelbyte.sdk.api.eventlog.operations.event_v2.GetEventSpecificUserV2Handler
           operation =
               net.accelbyte.sdk.api.eventlog.operations.event_v2.GetEventSpecificUserV2Handler
@@ -98,7 +98,7 @@ public class GetEventSpecificUserV2Handler implements Callable<Integer> {
                   .pageSize(pageSize)
                   .startDate(startDate)
                   .build();
-      ModelsEventResponseV2 response = wrapper.getEventSpecificUserV2Handler(operation);
+      final ModelsEventResponseV2 response = wrapper.getEventSpecificUserV2Handler(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

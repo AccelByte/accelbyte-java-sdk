@@ -70,7 +70,7 @@ public class GetTodayLeaderboardRankingAdminV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      LeaderboardData wrapper = new LeaderboardData(sdk);
+      final LeaderboardData wrapper = new LeaderboardData(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data
               .GetTodayLeaderboardRankingAdminV1
           operation =
@@ -81,7 +81,7 @@ public class GetTodayLeaderboardRankingAdminV1 implements Callable<Integer> {
                   .limit(limit)
                   .offset(offset)
                   .build();
-      ModelsGetLeaderboardRankingResp response =
+      final ModelsGetLeaderboardRankingResp response =
           wrapper.getTodayLeaderboardRankingAdminV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

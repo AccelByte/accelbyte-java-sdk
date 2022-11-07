@@ -65,7 +65,7 @@ public class QueryUserExpGrantHistoryTag implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Season wrapper = new Season(sdk);
+      final Season wrapper = new Season(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.season.QueryUserExpGrantHistoryTag
           operation =
               net.accelbyte.sdk.api.seasonpass.operations.season.QueryUserExpGrantHistoryTag
@@ -74,7 +74,7 @@ public class QueryUserExpGrantHistoryTag implements Callable<Integer> {
                   .userId(userId)
                   .seasonId(seasonId)
                   .build();
-      ReasonTagsResult response = wrapper.queryUserExpGrantHistoryTag(operation);
+      final ReasonTagsResult response = wrapper.queryUserExpGrantHistoryTag(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -69,7 +69,7 @@ public class DeleteContent implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PublicContent wrapper = new PublicContent(sdk);
+      final PublicContent wrapper = new PublicContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content.DeleteContent operation =
           net.accelbyte.sdk.api.ugc.operations.public_content.DeleteContent.builder()
               .channelId(channelId)

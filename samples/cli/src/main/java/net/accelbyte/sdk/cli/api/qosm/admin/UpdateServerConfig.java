@@ -65,7 +65,7 @@ public class UpdateServerConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Admin wrapper = new Admin(sdk);
+      final Admin wrapper = new Admin(sdk);
       final net.accelbyte.sdk.api.qosm.operations.admin.UpdateServerConfig operation =
           net.accelbyte.sdk.api.qosm.operations.admin.UpdateServerConfig.builder()
               .namespace(namespace)

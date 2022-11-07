@@ -80,7 +80,7 @@ public class GetUserSubscriptionActivities implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Subscription wrapper = new Subscription(sdk);
+      final Subscription wrapper = new Subscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.subscription.GetUserSubscriptionActivities
           operation =
               net.accelbyte.sdk.api.platform.operations.subscription.GetUserSubscriptionActivities
@@ -92,7 +92,7 @@ public class GetUserSubscriptionActivities implements Callable<Integer> {
                   .offset(offset)
                   .subscriptionId(subscriptionId)
                   .build();
-      SubscriptionActivityPagingSlicedResult response =
+      final SubscriptionActivityPagingSlicedResult response =
           wrapper.getUserSubscriptionActivities(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

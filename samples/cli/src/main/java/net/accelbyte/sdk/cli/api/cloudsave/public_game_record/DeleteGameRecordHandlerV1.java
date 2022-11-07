@@ -59,7 +59,7 @@ public class DeleteGameRecordHandlerV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PublicGameRecord wrapper = new PublicGameRecord(sdk);
+      final PublicGameRecord wrapper = new PublicGameRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_game_record.DeleteGameRecordHandlerV1
           operation =
               net.accelbyte.sdk.api.cloudsave.operations.public_game_record

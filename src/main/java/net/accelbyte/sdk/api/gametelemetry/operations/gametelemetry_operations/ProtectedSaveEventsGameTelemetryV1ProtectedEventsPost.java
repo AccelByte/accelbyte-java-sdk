@@ -34,7 +34,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>It is encouraged to use alphanumeric only characters. _.- will be deprecated soon
  *
- * <p>Example: io.accelbyte.justice.dev.samplegame
+ * <p>Example: accelbyte
  *
  * <p>- **EventName (required)**: Name of the event.
  *

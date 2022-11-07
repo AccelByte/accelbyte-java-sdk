@@ -99,6 +99,9 @@ public class ModelThirdPartyLoginPlatformCredentialRequest extends Model {
   @JsonProperty("TokenEndpoint")
   private String tokenEndpoint;
 
+  @JsonProperty("scopes")
+  private List<String> scopes;
+
   @JsonIgnore
   public ModelThirdPartyLoginPlatformCredentialRequest createFromJson(String json)
       throws JsonProcessingException {

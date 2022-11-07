@@ -81,7 +81,7 @@ public class PublicGetUserSubscriptionBillingHistories implements Callable<Integ
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Subscription wrapper = new Subscription(sdk);
+      final Subscription wrapper = new Subscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.subscription
               .PublicGetUserSubscriptionBillingHistories
           operation =
@@ -94,7 +94,7 @@ public class PublicGetUserSubscriptionBillingHistories implements Callable<Integ
                   .limit(limit)
                   .offset(offset)
                   .build();
-      BillingHistoryPagingSlicedResult response =
+      final BillingHistoryPagingSlicedResult response =
           wrapper.publicGetUserSubscriptionBillingHistories(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

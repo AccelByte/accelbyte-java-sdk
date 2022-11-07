@@ -55,12 +55,12 @@ public class GetActions implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UserAction wrapper = new UserAction(sdk);
+      final UserAction wrapper = new UserAction(sdk);
       final net.accelbyte.sdk.api.basic.operations.user_action.GetActions operation =
           net.accelbyte.sdk.api.basic.operations.user_action.GetActions.builder()
               .namespace(namespace)
               .build();
-      List<Action> response = wrapper.getActions(operation);
+      final List<Action> response = wrapper.getActions(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -70,7 +70,7 @@ public class GetPaymentTaxValue implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PaymentStation wrapper = new PaymentStation(sdk);
+      final PaymentStation wrapper = new PaymentStation(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_station.GetPaymentTaxValue operation =
           net.accelbyte.sdk.api.platform.operations.payment_station.GetPaymentTaxValue.builder()
               .namespace(namespace)
@@ -78,7 +78,7 @@ public class GetPaymentTaxValue implements Callable<Integer> {
               .paymentOrderNo(paymentOrderNo)
               .paymentProvider(paymentProvider)
               .build();
-      TaxResult response = wrapper.getPaymentTaxValue(operation);
+      final TaxResult response = wrapper.getPaymentTaxValue(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

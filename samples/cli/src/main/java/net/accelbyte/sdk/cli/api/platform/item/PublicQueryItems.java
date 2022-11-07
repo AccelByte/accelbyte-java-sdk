@@ -120,7 +120,7 @@ public class PublicQueryItems implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Item wrapper = new Item(sdk);
+      final Item wrapper = new Item(sdk);
       final net.accelbyte.sdk.api.platform.operations.item.PublicQueryItems operation =
           net.accelbyte.sdk.api.platform.operations.item.PublicQueryItems.builder()
               .namespace(namespace)
@@ -138,7 +138,7 @@ public class PublicQueryItems implements Callable<Integer> {
               .storeId(storeId)
               .tags(tags)
               .build();
-      ItemPagingSlicedResult response = wrapper.publicQueryItems(operation);
+      final ItemPagingSlicedResult response = wrapper.publicQueryItems(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

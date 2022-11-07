@@ -80,7 +80,7 @@ public class PlatformTokenGrantV3 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      OAuth20 wrapper = new OAuth20(sdk);
+      final OAuth20 wrapper = new OAuth20(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0.PlatformTokenGrantV3 operation =
           net.accelbyte.sdk.api.iam.operations.o_auth2_0.PlatformTokenGrantV3.builder()
               .platformId(platformId)
@@ -90,7 +90,7 @@ public class PlatformTokenGrantV3 implements Callable<Integer> {
               .macAddress(macAddress != null ? macAddress : null)
               .platformToken(platformToken != null ? platformToken : null)
               .build();
-      OauthmodelTokenResponse response = wrapper.platformTokenGrantV3(operation);
+      final OauthmodelTokenResponse response = wrapper.platformTokenGrantV3(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

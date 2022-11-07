@@ -64,7 +64,7 @@ public class AdminResetAchievement implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Achievements wrapper = new Achievements(sdk);
+      final Achievements wrapper = new Achievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.achievements.AdminResetAchievement
           operation =
               net.accelbyte.sdk.api.achievement.operations.achievements.AdminResetAchievement

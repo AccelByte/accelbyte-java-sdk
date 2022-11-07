@@ -61,13 +61,13 @@ public class AdminImportConfigV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Config wrapper = new Config(sdk);
+      final Config wrapper = new Config(sdk);
       final net.accelbyte.sdk.api.lobby.operations.config.AdminImportConfigV1 operation =
           net.accelbyte.sdk.api.lobby.operations.config.AdminImportConfigV1.builder()
               .namespace(namespace)
               .file(file != null ? file : null)
               .build();
-      ModelsImportConfigResponse response = wrapper.adminImportConfigV1(operation);
+      final ModelsImportConfigResponse response = wrapper.adminImportConfigV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -66,7 +66,7 @@ public class UpdateLeaderboardConfigurationAdminV1 implements Callable<Integer> 
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      LeaderboardConfiguration wrapper = new LeaderboardConfiguration(sdk);
+      final LeaderboardConfiguration wrapper = new LeaderboardConfiguration(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration
               .UpdateLeaderboardConfigurationAdminV1
           operation =
@@ -76,7 +76,7 @@ public class UpdateLeaderboardConfigurationAdminV1 implements Callable<Integer> 
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsUpdateLeaderboardConfigReq.class))
                   .build();
-      ModelsGetLeaderboardConfigResp response =
+      final ModelsGetLeaderboardConfigResp response =
           wrapper.updateLeaderboardConfigurationAdminV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

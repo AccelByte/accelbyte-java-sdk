@@ -65,7 +65,7 @@ public class ListGroupConfigurationAdminV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Configuration wrapper = new Configuration(sdk);
+      final Configuration wrapper = new Configuration(sdk);
       final net.accelbyte.sdk.api.group.operations.configuration.ListGroupConfigurationAdminV1
           operation =
               net.accelbyte.sdk.api.group.operations.configuration.ListGroupConfigurationAdminV1
@@ -74,7 +74,8 @@ public class ListGroupConfigurationAdminV1 implements Callable<Integer> {
                   .limit(limit)
                   .offset(offset)
                   .build();
-      ModelsListConfigurationResponseV1 response = wrapper.listGroupConfigurationAdminV1(operation);
+      final ModelsListConfigurationResponseV1 response =
+          wrapper.listGroupConfigurationAdminV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

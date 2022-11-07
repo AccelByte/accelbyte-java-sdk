@@ -59,7 +59,7 @@ public class DeleteSSOLoginPlatformCredentialV3 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      SSOCredential wrapper = new SSOCredential(sdk);
+      final SSOCredential wrapper = new SSOCredential(sdk);
       final net.accelbyte.sdk.api.iam.operations.sso_credential.DeleteSSOLoginPlatformCredentialV3
           operation =
               net.accelbyte.sdk.api.iam.operations.sso_credential.DeleteSSOLoginPlatformCredentialV3

@@ -60,13 +60,13 @@ public class QueryAllUserIAPOrders implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      IAP wrapper = new IAP(sdk);
+      final IAP wrapper = new IAP(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap.QueryAllUserIAPOrders operation =
           net.accelbyte.sdk.api.platform.operations.iap.QueryAllUserIAPOrders.builder()
               .namespace(namespace)
               .userId(userId)
               .build();
-      IAPOrderPagingSlicedResult response = wrapper.queryAllUserIAPOrders(operation);
+      final IAPOrderPagingSlicedResult response = wrapper.queryAllUserIAPOrders(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

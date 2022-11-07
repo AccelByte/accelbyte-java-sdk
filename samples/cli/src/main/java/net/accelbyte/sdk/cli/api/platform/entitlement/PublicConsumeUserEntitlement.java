@@ -70,7 +70,7 @@ public class PublicConsumeUserEntitlement implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Entitlement wrapper = new Entitlement(sdk);
+      final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.PublicConsumeUserEntitlement
           operation =
               net.accelbyte.sdk.api.platform.operations.entitlement.PublicConsumeUserEntitlement
@@ -80,7 +80,7 @@ public class PublicConsumeUserEntitlement implements Callable<Integer> {
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, EntitlementDecrement.class))
                   .build();
-      TrackedEntitlementInfo response = wrapper.publicConsumeUserEntitlement(operation);
+      final TrackedEntitlementInfo response = wrapper.publicConsumeUserEntitlement(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

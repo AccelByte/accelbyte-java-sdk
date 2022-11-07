@@ -59,7 +59,7 @@ public class DeleteAllUserGroup implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Anonymization wrapper = new Anonymization(sdk);
+      final Anonymization wrapper = new Anonymization(sdk);
       final net.accelbyte.sdk.api.ugc.operations.anonymization.DeleteAllUserGroup operation =
           net.accelbyte.sdk.api.ugc.operations.anonymization.DeleteAllUserGroup.builder()
               .namespace(namespace)

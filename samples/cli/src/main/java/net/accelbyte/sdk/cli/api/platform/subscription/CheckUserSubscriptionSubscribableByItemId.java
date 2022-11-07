@@ -66,7 +66,7 @@ public class CheckUserSubscriptionSubscribableByItemId implements Callable<Integ
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Subscription wrapper = new Subscription(sdk);
+      final Subscription wrapper = new Subscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.subscription
               .CheckUserSubscriptionSubscribableByItemId
           operation =
@@ -76,7 +76,7 @@ public class CheckUserSubscriptionSubscribableByItemId implements Callable<Integ
                   .userId(userId)
                   .itemId(itemId)
                   .build();
-      Subscribable response = wrapper.checkUserSubscriptionSubscribableByItemId(operation);
+      final Subscribable response = wrapper.checkUserSubscriptionSubscribableByItemId(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -65,14 +65,14 @@ public class IncreaseTicketSale implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Ticket wrapper = new Ticket(sdk);
+      final Ticket wrapper = new Ticket(sdk);
       final net.accelbyte.sdk.api.platform.operations.ticket.IncreaseTicketSale operation =
           net.accelbyte.sdk.api.platform.operations.ticket.IncreaseTicketSale.builder()
               .boothName(boothName)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, TicketSaleIncrementRequest.class))
               .build();
-      TicketSaleIncrementResult response = wrapper.increaseTicketSale(operation);
+      final TicketSaleIncrementResult response = wrapper.increaseTicketSale(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

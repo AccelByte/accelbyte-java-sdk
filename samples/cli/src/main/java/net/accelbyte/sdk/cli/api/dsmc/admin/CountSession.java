@@ -60,13 +60,13 @@ public class CountSession implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Admin wrapper = new Admin(sdk);
+      final Admin wrapper = new Admin(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.admin.CountSession operation =
           net.accelbyte.sdk.api.dsmc.operations.admin.CountSession.builder()
               .namespace(namespace)
               .region(region)
               .build();
-      ModelsCountSessionResponse response = wrapper.countSession(operation);
+      final ModelsCountSessionResponse response = wrapper.countSession(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -55,12 +55,12 @@ public class PublicGetMyEnabledFactorsV4 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UsersV4 wrapper = new UsersV4(sdk);
+      final UsersV4 wrapper = new UsersV4(sdk);
       final net.accelbyte.sdk.api.iam.operations.users_v4.PublicGetMyEnabledFactorsV4 operation =
           net.accelbyte.sdk.api.iam.operations.users_v4.PublicGetMyEnabledFactorsV4.builder()
               .namespace(namespace)
               .build();
-      ModelEnabledFactorsResponseV4 response = wrapper.publicGetMyEnabledFactorsV4(operation);
+      final ModelEnabledFactorsResponseV4 response = wrapper.publicGetMyEnabledFactorsV4(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

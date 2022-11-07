@@ -70,7 +70,7 @@ public class AdminRetrievePlayerRecords implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AdminPlayerRecord wrapper = new AdminPlayerRecord(sdk);
+      final AdminPlayerRecord wrapper = new AdminPlayerRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_player_record
               .AdminRetrievePlayerRecords
           operation =
@@ -81,7 +81,8 @@ public class AdminRetrievePlayerRecords implements Callable<Integer> {
                   .limit(limit)
                   .offset(offset)
                   .build();
-      ModelsListPlayerRecordKeysResponse response = wrapper.adminRetrievePlayerRecords(operation);
+      final ModelsListPlayerRecordKeysResponse response =
+          wrapper.adminRetrievePlayerRecords(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

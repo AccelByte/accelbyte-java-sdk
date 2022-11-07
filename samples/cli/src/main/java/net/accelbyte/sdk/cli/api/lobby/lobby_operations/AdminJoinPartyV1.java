@@ -64,7 +64,7 @@ public class AdminJoinPartyV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      LobbyOperations wrapper = new LobbyOperations(sdk);
+      final LobbyOperations wrapper = new LobbyOperations(sdk);
       final net.accelbyte.sdk.api.lobby.operations.lobby_operations.AdminJoinPartyV1 operation =
           net.accelbyte.sdk.api.lobby.operations.lobby_operations.AdminJoinPartyV1.builder()
               .namespace(namespace)

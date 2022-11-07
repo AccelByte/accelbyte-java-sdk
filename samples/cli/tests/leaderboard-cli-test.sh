@@ -58,146 +58,146 @@ touch "tmp.dat"
     --namespace "$AB_NAMESPACE" \
     --isArchived  \
     --isDeleted  \
-    --limit '1' \
-    --offset '25' \
+    --limit '0' \
+    --offset '84' \
     > test.out 2>&1
 eval_tap $? 2 'GetLeaderboardConfigurationsAdminV1' test.out
 
 #- 3 CreateLeaderboardConfigurationAdminV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard createLeaderboardConfigurationAdminV1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"daily": {"resetTime": "EXSEaRn5"}, "descending": true, "iconURL": "9sowVts4", "leaderboardCode": "v6feMOoS", "monthly": {"resetDate": 59, "resetTime": "rJ7HcFTa"}, "name": "KhrcPmh3", "seasonPeriod": 89, "startTime": "8xoT2wCt", "statCode": "5lxI0wx5", "weekly": {"resetDay": 71, "resetTime": "XDGMrQFJ"}}' \
+    --body '{"daily": {"resetTime": "aS8Us46f"}, "descending": true, "iconURL": "ixKNJ1fA", "leaderboardCode": "xZ6tgNKp", "monthly": {"resetDate": 9, "resetTime": "qcQ6wZ6F"}, "name": "N1jFAo3b", "seasonPeriod": 25, "startTime": "sGKsgmPm", "statCode": "B4pD68Mb", "weekly": {"resetDay": 68, "resetTime": "6Z2mg93k"}}' \
     > test.out 2>&1
 eval_tap $? 3 'CreateLeaderboardConfigurationAdminV1' test.out
 
 #- 4 AdminGetArchivedLeaderboardRankingDataV1Handler
 ./ng net.accelbyte.sdk.cli.Main leaderboard adminGetArchivedLeaderboardRankingDataV1Handler \
     --namespace "$AB_NAMESPACE" \
-    --slug 'fOW46kEH' \
-    --leaderboardCodes 'K0VyGkK2' \
+    --slug 'GbcZD6Ui' \
+    --leaderboardCodes 'HgRspjCQ' \
     > test.out 2>&1
 eval_tap $? 4 'AdminGetArchivedLeaderboardRankingDataV1Handler' test.out
 
 #- 5 CreateArchivedLeaderboardRankingDataV1Handler
 ./ng net.accelbyte.sdk.cli.Main leaderboard createArchivedLeaderboardRankingDataV1Handler \
     --namespace "$AB_NAMESPACE" \
-    --body '{"leaderboardCodes": ["sPgrwvz9", "vK50LXdm", "2bswb72g"], "limit": 84, "slug": "w6OFAtMd"}' \
+    --body '{"leaderboardCodes": ["6wMBBuVN", "6VhATd4D", "r145fG2Q"], "limit": 6, "slug": "Rq3PTv7M"}' \
     > test.out 2>&1
 eval_tap $? 5 'CreateArchivedLeaderboardRankingDataV1Handler' test.out
 
 #- 6 DeleteBulkLeaderboardConfigurationAdminV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard deleteBulkLeaderboardConfigurationAdminV1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"leaderboardCodes": ["7xzMzmmW", "PBaOt7o0", "ObcxKUKD"]}' \
+    --body '{"leaderboardCodes": ["kTQhstuv", "sKxaJgPZ", "c9UFvl2w"]}' \
     > test.out 2>&1
 eval_tap $? 6 'DeleteBulkLeaderboardConfigurationAdminV1' test.out
 
 #- 7 GetLeaderboardConfigurationAdminV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard getLeaderboardConfigurationAdminV1 \
-    --leaderboardCode 'uFajZTFF' \
+    --leaderboardCode 'Z0s8DalO' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 7 'GetLeaderboardConfigurationAdminV1' test.out
 
 #- 8 UpdateLeaderboardConfigurationAdminV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard updateLeaderboardConfigurationAdminV1 \
-    --leaderboardCode '2T6FnYMU' \
+    --leaderboardCode 'gap0BRoN' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"daily": {"resetTime": "RQTFdfRg"}, "descending": false, "iconURL": "Trdx7V0u", "monthly": {"resetDate": 84, "resetTime": "cBnlsusn"}, "name": "ySWLMf8N", "seasonPeriod": 100, "startTime": "i9vJnTX3", "statCode": "EkFFCnvD", "weekly": {"resetDay": 87, "resetTime": "k8WQhn7A"}}' \
+    --body '{"daily": {"resetTime": "F4f4w8ZD"}, "descending": true, "iconURL": "gkwHdfYR", "monthly": {"resetDate": 92, "resetTime": "jnBs6Zfl"}, "name": "1xNcmaJa", "seasonPeriod": 76, "startTime": "sLajpnVW", "statCode": "dmZiwWqg", "weekly": {"resetDay": 69, "resetTime": "9OWK5MAm"}}' \
     > test.out 2>&1
 eval_tap $? 8 'UpdateLeaderboardConfigurationAdminV1' test.out
 
 #- 9 DeleteLeaderboardConfigurationAdminV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard deleteLeaderboardConfigurationAdminV1 \
-    --leaderboardCode 'pt7FDCGh' \
+    --leaderboardCode 'N8DIOZfK' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 9 'DeleteLeaderboardConfigurationAdminV1' test.out
 
 #- 10 GetAllTimeLeaderboardRankingAdminV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard getAllTimeLeaderboardRankingAdminV1 \
-    --leaderboardCode 'VxStoV4I' \
+    --leaderboardCode 'H0gVuYus' \
     --namespace "$AB_NAMESPACE" \
-    --limit '83' \
-    --offset '11' \
+    --limit '9' \
+    --offset '46' \
     > test.out 2>&1
 eval_tap $? 10 'GetAllTimeLeaderboardRankingAdminV1' test.out
 
 #- 11 GetCurrentMonthLeaderboardRankingAdminV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard getCurrentMonthLeaderboardRankingAdminV1 \
-    --leaderboardCode '6akY8KR5' \
+    --leaderboardCode 'x1j7FH7i' \
     --namespace "$AB_NAMESPACE" \
-    --limit '29' \
+    --limit '55' \
     --offset '47' \
     > test.out 2>&1
 eval_tap $? 11 'GetCurrentMonthLeaderboardRankingAdminV1' test.out
 
 #- 12 GetCurrentSeasonLeaderboardRankingAdminV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard getCurrentSeasonLeaderboardRankingAdminV1 \
-    --leaderboardCode 'hDt9Zp9m' \
+    --leaderboardCode 'EpNcaYGC' \
     --namespace "$AB_NAMESPACE" \
-    --limit '48' \
-    --offset '60' \
+    --limit '10' \
+    --offset '25' \
     > test.out 2>&1
 eval_tap $? 12 'GetCurrentSeasonLeaderboardRankingAdminV1' test.out
 
 #- 13 GetTodayLeaderboardRankingAdminV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard getTodayLeaderboardRankingAdminV1 \
-    --leaderboardCode 'yPMHQJhf' \
+    --leaderboardCode '7oD4fgsw' \
     --namespace "$AB_NAMESPACE" \
-    --limit '1' \
-    --offset '65' \
+    --limit '23' \
+    --offset '45' \
     > test.out 2>&1
 eval_tap $? 13 'GetTodayLeaderboardRankingAdminV1' test.out
 
 #- 14 GetUserRankingAdminV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard getUserRankingAdminV1 \
-    --leaderboardCode 'CVL7FY4K' \
+    --leaderboardCode 'rMjExNVF' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'ACY9CBdL' \
+    --userId 'EjXBJVuh' \
     > test.out 2>&1
 eval_tap $? 14 'GetUserRankingAdminV1' test.out
 
 #- 15 UpdateUserPointAdminV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard updateUserPointAdminV1 \
-    --leaderboardCode 'JH0jjh3T' \
+    --leaderboardCode '3ocCTsmD' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'MvfjeEDH' \
-    --body '{"inc": 0.8546072875063369, "latestValue": 0.47487195336571975}' \
+    --userId 'v9Cr2Cbl' \
+    --body '{"inc": 0.1662954993358179, "latestValue": 0.16760169825315008}' \
     > test.out 2>&1
 eval_tap $? 15 'UpdateUserPointAdminV1' test.out
 
 #- 16 DeleteUserRankingAdminV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard deleteUserRankingAdminV1 \
-    --leaderboardCode 'RNUY2zTo' \
+    --leaderboardCode 'hWuqkowL' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'CqfCE1zB' \
+    --userId 'MSnSW5Yu' \
     > test.out 2>&1
 eval_tap $? 16 'DeleteUserRankingAdminV1' test.out
 
 #- 17 GetCurrentWeekLeaderboardRankingAdminV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard getCurrentWeekLeaderboardRankingAdminV1 \
-    --leaderboardCode 'RqVgLMgg' \
+    --leaderboardCode 'hbQZSJsK' \
     --namespace "$AB_NAMESPACE" \
-    --limit '17' \
-    --offset '74' \
+    --limit '22' \
+    --offset '41' \
     > test.out 2>&1
 eval_tap $? 17 'GetCurrentWeekLeaderboardRankingAdminV1' test.out
 
 #- 18 DeleteUserRankingsAdminV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard deleteUserRankingsAdminV1 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'faZykk0d' \
-    --leaderboardCode 'AZJ2Fk92,0nheriT6,PjUqe29W' \
+    --userId 'e01GFHvv' \
+    --leaderboardCode 'hUodjQ34,mLNgtrjC,JujL6Ie5' \
     > test.out 2>&1
 eval_tap $? 18 'DeleteUserRankingsAdminV1' test.out
 
 #- 19 GetUserLeaderboardRankingsAdminV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard getUserLeaderboardRankingsAdminV1 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'DgQlOGl7' \
-    --limit '92' \
-    --offset '46' \
+    --userId 'UcXMXEGb' \
+    --limit '1' \
+    --offset '56' \
     > test.out 2>&1
 eval_tap $? 19 'GetUserLeaderboardRankingsAdminV1' test.out
 
@@ -207,109 +207,109 @@ eval_tap $? 19 'GetUserLeaderboardRankingsAdminV1' test.out
     --isArchived  \
     --isDeleted  \
     --limit '28' \
-    --offset '6' \
+    --offset '48' \
     > test.out 2>&1
 eval_tap $? 20 'GetLeaderboardConfigurationsPublicV1' test.out
 
 #- 21 CreateLeaderboardConfigurationPublicV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard createLeaderboardConfigurationPublicV1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"daily": {"resetTime": "eJ7fs21V"}, "descending": false, "iconURL": "uEHHlZVv", "leaderboardCode": "38wTrmWd", "monthly": {"resetDate": 5, "resetTime": "mwAXNBHr"}, "name": "DBzwPvXK", "seasonPeriod": 36, "startTime": "1NLUrJwH", "statCode": "5LAxhJeR", "weekly": {"resetDay": 100, "resetTime": "3lLPNSdg"}}' \
+    --body '{"daily": {"resetTime": "ErLQvvrU"}, "descending": false, "iconURL": "BnP9KMgU", "leaderboardCode": "wvpWzHZl", "monthly": {"resetDate": 65, "resetTime": "gbudP61p"}, "name": "jbWZROGP", "seasonPeriod": 17, "startTime": "jbvJ6Hxu", "statCode": "XrUgN24U", "weekly": {"resetDay": 31, "resetTime": "0WC2qsFz"}}' \
     > test.out 2>&1
 eval_tap $? 21 'CreateLeaderboardConfigurationPublicV1' test.out
 
 #- 22 GetAllTimeLeaderboardRankingPublicV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard getAllTimeLeaderboardRankingPublicV1 \
-    --leaderboardCode 'xJNrXufF' \
+    --leaderboardCode 'sU5ouOLM' \
     --namespace "$AB_NAMESPACE" \
-    --limit '76' \
-    --offset '79' \
+    --limit '33' \
+    --offset '76' \
     > test.out 2>&1
 eval_tap $? 22 'GetAllTimeLeaderboardRankingPublicV1' test.out
 
 #- 23 GetArchivedLeaderboardRankingDataV1Handler
 ./ng net.accelbyte.sdk.cli.Main leaderboard getArchivedLeaderboardRankingDataV1Handler \
-    --leaderboardCode '58bNj7mn' \
+    --leaderboardCode 'zDzlKYvX' \
     --namespace "$AB_NAMESPACE" \
-    --slug '2tNtEmBb' \
-    --leaderboardCodes 'j0x9MS0f' \
+    --slug 'Spd9CN17' \
+    --leaderboardCodes '3l4EbiQK' \
     > test.out 2>&1
 eval_tap $? 23 'GetArchivedLeaderboardRankingDataV1Handler' test.out
 
 #- 24 GetCurrentMonthLeaderboardRankingPublicV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard getCurrentMonthLeaderboardRankingPublicV1 \
-    --leaderboardCode 'jgochxFY' \
+    --leaderboardCode 'ihyAYora' \
     --namespace "$AB_NAMESPACE" \
-    --limit '94' \
-    --offset '35' \
+    --limit '66' \
+    --offset '17' \
     > test.out 2>&1
 eval_tap $? 24 'GetCurrentMonthLeaderboardRankingPublicV1' test.out
 
 #- 25 GetCurrentSeasonLeaderboardRankingPublicV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard getCurrentSeasonLeaderboardRankingPublicV1 \
-    --leaderboardCode 'ZTZYIBgv' \
+    --leaderboardCode 'RhlCeSp3' \
     --namespace "$AB_NAMESPACE" \
-    --limit '93' \
-    --offset '90' \
+    --limit '15' \
+    --offset '70' \
     > test.out 2>&1
 eval_tap $? 25 'GetCurrentSeasonLeaderboardRankingPublicV1' test.out
 
 #- 26 GetTodayLeaderboardRankingPublicV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard getTodayLeaderboardRankingPublicV1 \
-    --leaderboardCode '73daEBsr' \
+    --leaderboardCode 'bkHe24uj' \
     --namespace "$AB_NAMESPACE" \
-    --limit '26' \
-    --offset '95' \
+    --limit '3' \
+    --offset '16' \
     > test.out 2>&1
 eval_tap $? 26 'GetTodayLeaderboardRankingPublicV1' test.out
 
 #- 27 GetUserRankingPublicV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard getUserRankingPublicV1 \
-    --leaderboardCode 'kmQeGdOW' \
+    --leaderboardCode 'FYTv950t' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'sCQsPdaH' \
+    --userId 'BJtzrq0R' \
     > test.out 2>&1
 eval_tap $? 27 'GetUserRankingPublicV1' test.out
 
 #- 28 DeleteUserRankingPublicV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard deleteUserRankingPublicV1 \
-    --leaderboardCode 'tvHgqek7' \
+    --leaderboardCode 'MJ4o7zGc' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'LHq0i0G7' \
+    --userId 'lTqlWOMg' \
     > test.out 2>&1
 eval_tap $? 28 'DeleteUserRankingPublicV1' test.out
 
 #- 29 GetCurrentWeekLeaderboardRankingPublicV1
 ./ng net.accelbyte.sdk.cli.Main leaderboard getCurrentWeekLeaderboardRankingPublicV1 \
-    --leaderboardCode 'Gspq3kbq' \
+    --leaderboardCode 'xQax13Hd' \
     --namespace "$AB_NAMESPACE" \
-    --limit '96' \
-    --offset '27' \
+    --limit '10' \
+    --offset '35' \
     > test.out 2>&1
 eval_tap $? 29 'GetCurrentWeekLeaderboardRankingPublicV1' test.out
 
 #- 30 GetHiddenUsersV2
 ./ng net.accelbyte.sdk.cli.Main leaderboard getHiddenUsersV2 \
-    --leaderboardCode 'tkpnG4q7' \
+    --leaderboardCode 'lxkFWiDT' \
     --namespace "$AB_NAMESPACE" \
-    --limit '38' \
-    --offset '3' \
+    --limit '54' \
+    --offset '85' \
     > test.out 2>&1
 eval_tap $? 30 'GetHiddenUsersV2' test.out
 
 #- 31 GetUserVisibilityStatusV2
 ./ng net.accelbyte.sdk.cli.Main leaderboard getUserVisibilityStatusV2 \
-    --leaderboardCode 'wJlDyOx4' \
+    --leaderboardCode 'dP2nddvg' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'OdJGZjpo' \
+    --userId 'qXXeKP9M' \
     > test.out 2>&1
 eval_tap $? 31 'GetUserVisibilityStatusV2' test.out
 
 #- 32 SetUserLeaderboardVisibilityStatusV2
 ./ng net.accelbyte.sdk.cli.Main leaderboard setUserLeaderboardVisibilityStatusV2 \
-    --leaderboardCode 'DL3Dmx7F' \
+    --leaderboardCode 'nr9D7jhI' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'eQR6GXTz' \
+    --userId 'vK2J3VnZ' \
     --body '{"visibility": true}' \
     > test.out 2>&1
 eval_tap $? 32 'SetUserLeaderboardVisibilityStatusV2' test.out
@@ -317,25 +317,25 @@ eval_tap $? 32 'SetUserLeaderboardVisibilityStatusV2' test.out
 #- 33 SetUserVisibilityStatusV2
 ./ng net.accelbyte.sdk.cli.Main leaderboard setUserVisibilityStatusV2 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'lBjtCMJ2' \
-    --body '{"visibility": true}' \
+    --userId 'OBFBqm1H' \
+    --body '{"visibility": false}' \
     > test.out 2>&1
 eval_tap $? 33 'SetUserVisibilityStatusV2' test.out
 
 #- 34 GetLeaderboardConfigurationsPublicV2
 ./ng net.accelbyte.sdk.cli.Main leaderboard getLeaderboardConfigurationsPublicV2 \
     --namespace "$AB_NAMESPACE" \
-    --limit '36' \
-    --offset '47' \
+    --limit '60' \
+    --offset '98' \
     > test.out 2>&1
 eval_tap $? 34 'GetLeaderboardConfigurationsPublicV2' test.out
 
 #- 35 GetAllTimeLeaderboardRankingPublicV2
 ./ng net.accelbyte.sdk.cli.Main leaderboard getAllTimeLeaderboardRankingPublicV2 \
-    --leaderboardCode 'rv0QOFCN' \
+    --leaderboardCode '1C88cFTL' \
     --namespace "$AB_NAMESPACE" \
-    --limit '52' \
-    --offset '35' \
+    --limit '7' \
+    --offset '10' \
     > test.out 2>&1
 eval_tap $? 35 'GetAllTimeLeaderboardRankingPublicV2' test.out
 

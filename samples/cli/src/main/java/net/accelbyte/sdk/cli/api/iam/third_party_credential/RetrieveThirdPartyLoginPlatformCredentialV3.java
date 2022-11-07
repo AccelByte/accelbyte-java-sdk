@@ -61,7 +61,7 @@ public class RetrieveThirdPartyLoginPlatformCredentialV3 implements Callable<Int
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
+      final ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
       final net.accelbyte.sdk.api.iam.operations.third_party_credential
               .RetrieveThirdPartyLoginPlatformCredentialV3
           operation =
@@ -70,7 +70,7 @@ public class RetrieveThirdPartyLoginPlatformCredentialV3 implements Callable<Int
                   .namespace(namespace)
                   .platformId(platformId)
                   .build();
-      ModelThirdPartyLoginPlatformCredentialResponse response =
+      final ModelThirdPartyLoginPlatformCredentialResponse response =
           wrapper.retrieveThirdPartyLoginPlatformCredentialV3(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

@@ -56,7 +56,7 @@ public class RetrieveSingleLocalizedPolicyVersion1 implements Callable<Integer> 
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      LocalizedPolicyVersions wrapper = new LocalizedPolicyVersions(sdk);
+      final LocalizedPolicyVersions wrapper = new LocalizedPolicyVersions(sdk);
       final net.accelbyte.sdk.api.legal.operations.localized_policy_versions
               .RetrieveSingleLocalizedPolicyVersion1
           operation =
@@ -64,7 +64,7 @@ public class RetrieveSingleLocalizedPolicyVersion1 implements Callable<Integer> 
                   .RetrieveSingleLocalizedPolicyVersion1.builder()
                   .localizedPolicyVersionId(localizedPolicyVersionId)
                   .build();
-      RetrieveLocalizedPolicyVersionPublicResponse response =
+      final RetrieveLocalizedPolicyVersionPublicResponse response =
           wrapper.retrieveSingleLocalizedPolicyVersion1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

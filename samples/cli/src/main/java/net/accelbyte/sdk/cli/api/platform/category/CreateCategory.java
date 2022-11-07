@@ -65,14 +65,14 @@ public class CreateCategory implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Category wrapper = new Category(sdk);
+      final Category wrapper = new Category(sdk);
       final net.accelbyte.sdk.api.platform.operations.category.CreateCategory operation =
           net.accelbyte.sdk.api.platform.operations.category.CreateCategory.builder()
               .namespace(namespace)
               .storeId(storeId)
               .body(new ObjectMapper().readValue(body, CategoryCreate.class))
               .build();
-      FullCategoryInfo response = wrapper.createCategory(operation);
+      final FullCategoryInfo response = wrapper.createCategory(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -65,7 +65,7 @@ public class DeleteRewardConditionRecord implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Reward wrapper = new Reward(sdk);
+      final Reward wrapper = new Reward(sdk);
       final net.accelbyte.sdk.api.platform.operations.reward.DeleteRewardConditionRecord operation =
           net.accelbyte.sdk.api.platform.operations.reward.DeleteRewardConditionRecord.builder()
               .namespace(namespace)

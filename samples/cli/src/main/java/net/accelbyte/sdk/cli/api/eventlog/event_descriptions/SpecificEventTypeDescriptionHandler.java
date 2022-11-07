@@ -55,7 +55,7 @@ public class SpecificEventTypeDescriptionHandler implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      EventDescriptions wrapper = new EventDescriptions(sdk);
+      final EventDescriptions wrapper = new EventDescriptions(sdk);
       final net.accelbyte.sdk.api.eventlog.operations.event_descriptions
               .SpecificEventTypeDescriptionHandler
           operation =
@@ -63,7 +63,8 @@ public class SpecificEventTypeDescriptionHandler implements Callable<Integer> {
                   .SpecificEventTypeDescriptionHandler.builder()
                   .eventTypes(eventTypes)
                   .build();
-      ModelsMultipleEventType response = wrapper.specificEventTypeDescriptionHandler(operation);
+      final ModelsMultipleEventType response =
+          wrapper.specificEventTypeDescriptionHandler(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

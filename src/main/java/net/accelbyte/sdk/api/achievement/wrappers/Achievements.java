@@ -8,7 +8,7 @@
 
 package net.accelbyte.sdk.api.achievement.wrappers;
 
-import java.util.*;
+import java.io.*;
 import net.accelbyte.sdk.api.achievement.models.*;
 import net.accelbyte.sdk.api.achievement.operations.achievements.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -45,7 +45,7 @@ public class Achievements {
   /**
    * @see ExportAchievements
    */
-  public List<ModelsAchievement> exportAchievements(ExportAchievements input) throws Exception {
+  public InputStream exportAchievements(ExportAchievements input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

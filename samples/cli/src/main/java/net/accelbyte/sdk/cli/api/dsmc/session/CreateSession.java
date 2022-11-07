@@ -60,13 +60,13 @@ public class CreateSession implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Session wrapper = new Session(sdk);
+      final Session wrapper = new Session(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.session.CreateSession operation =
           net.accelbyte.sdk.api.dsmc.operations.session.CreateSession.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsCreateSessionRequest.class))
               .build();
-      ModelsSessionResponse response = wrapper.createSession(operation);
+      final ModelsSessionResponse response = wrapper.createSession(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

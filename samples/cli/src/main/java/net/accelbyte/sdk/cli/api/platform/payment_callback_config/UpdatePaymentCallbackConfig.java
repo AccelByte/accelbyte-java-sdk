@@ -60,7 +60,7 @@ public class UpdatePaymentCallbackConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PaymentCallbackConfig wrapper = new PaymentCallbackConfig(sdk);
+      final PaymentCallbackConfig wrapper = new PaymentCallbackConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_callback_config
               .UpdatePaymentCallbackConfig
           operation =
@@ -69,7 +69,7 @@ public class UpdatePaymentCallbackConfig implements Callable<Integer> {
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, PaymentCallbackConfigUpdate.class))
                   .build();
-      PaymentCallbackConfigInfo response = wrapper.updatePaymentCallbackConfig(operation);
+      final PaymentCallbackConfigInfo response = wrapper.updatePaymentCallbackConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

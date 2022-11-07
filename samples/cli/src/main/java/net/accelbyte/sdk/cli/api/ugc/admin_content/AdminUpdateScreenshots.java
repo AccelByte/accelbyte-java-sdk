@@ -65,14 +65,14 @@ public class AdminUpdateScreenshots implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AdminContent wrapper = new AdminContent(sdk);
+      final AdminContent wrapper = new AdminContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminUpdateScreenshots operation =
           net.accelbyte.sdk.api.ugc.operations.admin_content.AdminUpdateScreenshots.builder()
               .contentId(contentId)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsUpdateScreenshotRequest.class))
               .build();
-      ModelsUpdateScreenshotResponse response = wrapper.adminUpdateScreenshots(operation);
+      final ModelsUpdateScreenshotResponse response = wrapper.adminUpdateScreenshots(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

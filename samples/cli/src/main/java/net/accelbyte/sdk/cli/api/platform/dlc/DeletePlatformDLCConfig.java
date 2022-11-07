@@ -54,7 +54,7 @@ public class DeletePlatformDLCConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      DLC wrapper = new DLC(sdk);
+      final DLC wrapper = new DLC(sdk);
       final net.accelbyte.sdk.api.platform.operations.dlc.DeletePlatformDLCConfig operation =
           net.accelbyte.sdk.api.platform.operations.dlc.DeletePlatformDLCConfig.builder()
               .namespace(namespace)

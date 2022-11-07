@@ -65,7 +65,7 @@ public class UpdateTopicByTopicName implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Notification wrapper = new Notification(sdk);
+      final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification.UpdateTopicByTopicName operation =
           net.accelbyte.sdk.api.lobby.operations.notification.UpdateTopicByTopicName.builder()
               .namespace(namespace)

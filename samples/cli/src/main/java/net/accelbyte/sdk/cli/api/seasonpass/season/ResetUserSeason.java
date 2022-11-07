@@ -59,7 +59,7 @@ public class ResetUserSeason implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Season wrapper = new Season(sdk);
+      final Season wrapper = new Season(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.season.ResetUserSeason operation =
           net.accelbyte.sdk.api.seasonpass.operations.season.ResetUserSeason.builder()
               .namespace(namespace)

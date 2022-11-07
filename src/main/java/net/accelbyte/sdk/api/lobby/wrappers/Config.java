@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.lobby.wrappers;
 
+import java.io.*;
 import net.accelbyte.sdk.api.lobby.models.*;
 import net.accelbyte.sdk.api.lobby.operations.config.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -51,7 +52,7 @@ public class Config {
   /**
    * @see AdminExportConfigV1
    */
-  public ModelsConfigExport adminExportConfigV1(AdminExportConfigV1 input) throws Exception {
+  public InputStream adminExportConfigV1(AdminExportConfigV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

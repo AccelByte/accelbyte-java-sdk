@@ -64,7 +64,7 @@ public class PublicDeleteProfile implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      GameProfile wrapper = new GameProfile(sdk);
+      final GameProfile wrapper = new GameProfile(sdk);
       final net.accelbyte.sdk.api.social.operations.game_profile.PublicDeleteProfile operation =
           net.accelbyte.sdk.api.social.operations.game_profile.PublicDeleteProfile.builder()
               .namespace(namespace)

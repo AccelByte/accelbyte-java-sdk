@@ -60,7 +60,7 @@ public class TestStripeConfigById implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PaymentConfig wrapper = new PaymentConfig(sdk);
+      final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config.TestStripeConfigById
           operation =
               net.accelbyte.sdk.api.platform.operations.payment_config.TestStripeConfigById
@@ -68,7 +68,7 @@ public class TestStripeConfigById implements Callable<Integer> {
                   .id(id)
                   .sandbox(sandbox)
                   .build();
-      TestResult response = wrapper.testStripeConfigById(operation);
+      final TestResult response = wrapper.testStripeConfigById(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

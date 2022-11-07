@@ -55,12 +55,12 @@ public class ExportConfigV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Config wrapper = new Config(sdk);
+      final Config wrapper = new Config(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.config.ExportConfigV1 operation =
           net.accelbyte.sdk.api.dsmc.operations.config.ExportConfigV1.builder()
               .namespace(namespace)
               .build();
-      ModelsDSMConfigExport response = wrapper.exportConfigV1(operation);
+      final ModelsDSMConfigExport response = wrapper.exportConfigV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

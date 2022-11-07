@@ -65,7 +65,7 @@ public class BulkGetPlayerPublicRecordHandlerV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PublicPlayerRecord wrapper = new PublicPlayerRecord(sdk);
+      final PublicPlayerRecord wrapper = new PublicPlayerRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_player_record
               .BulkGetPlayerPublicRecordHandlerV1
           operation =
@@ -75,7 +75,7 @@ public class BulkGetPlayerPublicRecordHandlerV1 implements Callable<Integer> {
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsBulkUserIDsRequest.class))
                   .build();
-      ModelsBulkGetPlayerRecordResponse response =
+      final ModelsBulkGetPlayerRecordResponse response =
           wrapper.bulkGetPlayerPublicRecordHandlerV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

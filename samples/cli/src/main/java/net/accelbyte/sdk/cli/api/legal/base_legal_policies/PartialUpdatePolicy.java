@@ -60,7 +60,7 @@ public class PartialUpdatePolicy implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      BaseLegalPolicies wrapper = new BaseLegalPolicies(sdk);
+      final BaseLegalPolicies wrapper = new BaseLegalPolicies(sdk);
       final net.accelbyte.sdk.api.legal.operations.base_legal_policies.PartialUpdatePolicy
           operation =
               net.accelbyte.sdk.api.legal.operations.base_legal_policies.PartialUpdatePolicy
@@ -68,7 +68,7 @@ public class PartialUpdatePolicy implements Callable<Integer> {
                   .basePolicyId(basePolicyId)
                   .body(new ObjectMapper().readValue(body, UpdateBasePolicyRequest.class))
                   .build();
-      UpdateBasePolicyResponse response = wrapper.partialUpdatePolicy(operation);
+      final UpdateBasePolicyResponse response = wrapper.partialUpdatePolicy(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

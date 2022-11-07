@@ -55,12 +55,12 @@ public class CreatePolicy implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      BaseLegalPolicies wrapper = new BaseLegalPolicies(sdk);
+      final BaseLegalPolicies wrapper = new BaseLegalPolicies(sdk);
       final net.accelbyte.sdk.api.legal.operations.base_legal_policies.CreatePolicy operation =
           net.accelbyte.sdk.api.legal.operations.base_legal_policies.CreatePolicy.builder()
               .body(new ObjectMapper().readValue(body, CreateBasePolicyRequest.class))
               .build();
-      CreateBasePolicyResponse response = wrapper.createPolicy(operation);
+      final CreateBasePolicyResponse response = wrapper.createPolicy(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

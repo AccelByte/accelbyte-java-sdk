@@ -39,6 +39,10 @@ public class ModelUserBaseInfo extends Model {
   @JsonProperty("userId")
   private String userId;
 
+  @JsonProperty("username")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String username;
+
   @JsonIgnore
   public ModelUserBaseInfo createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

@@ -60,13 +60,13 @@ public class CreatePolicyVersion implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PolicyVersions wrapper = new PolicyVersions(sdk);
+      final PolicyVersions wrapper = new PolicyVersions(sdk);
       final net.accelbyte.sdk.api.legal.operations.policy_versions.CreatePolicyVersion operation =
           net.accelbyte.sdk.api.legal.operations.policy_versions.CreatePolicyVersion.builder()
               .policyId(policyId)
               .body(new ObjectMapper().readValue(body, CreatePolicyVersionRequest.class))
               .build();
-      CreatePolicyVersionResponse response = wrapper.createPolicyVersion(operation);
+      final CreatePolicyVersionResponse response = wrapper.createPolicyVersion(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

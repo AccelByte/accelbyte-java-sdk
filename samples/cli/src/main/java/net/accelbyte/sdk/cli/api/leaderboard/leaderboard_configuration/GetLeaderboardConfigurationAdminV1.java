@@ -60,7 +60,7 @@ public class GetLeaderboardConfigurationAdminV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      LeaderboardConfiguration wrapper = new LeaderboardConfiguration(sdk);
+      final LeaderboardConfiguration wrapper = new LeaderboardConfiguration(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration
               .GetLeaderboardConfigurationAdminV1
           operation =
@@ -69,7 +69,7 @@ public class GetLeaderboardConfigurationAdminV1 implements Callable<Integer> {
                   .leaderboardCode(leaderboardCode)
                   .namespace(namespace)
                   .build();
-      ModelsGetLeaderboardConfigResp response =
+      final ModelsGetLeaderboardConfigResp response =
           wrapper.getLeaderboardConfigurationAdminV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

@@ -65,14 +65,14 @@ public class UpdateContentLikeStatus implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PublicLike wrapper = new PublicLike(sdk);
+      final PublicLike wrapper = new PublicLike(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_like.UpdateContentLikeStatus operation =
           net.accelbyte.sdk.api.ugc.operations.public_like.UpdateContentLikeStatus.builder()
               .contentId(contentId)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsContentLikeRequest.class))
               .build();
-      ModelsContentLikeResponse response = wrapper.updateContentLikeStatus(operation);
+      final ModelsContentLikeResponse response = wrapper.updateContentLikeStatus(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

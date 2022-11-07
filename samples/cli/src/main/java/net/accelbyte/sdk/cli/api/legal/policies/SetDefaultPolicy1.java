@@ -54,7 +54,7 @@ public class SetDefaultPolicy1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Policies wrapper = new Policies(sdk);
+      final Policies wrapper = new Policies(sdk);
       final net.accelbyte.sdk.api.legal.operations.policies.SetDefaultPolicy1 operation =
           net.accelbyte.sdk.api.legal.operations.policies.SetDefaultPolicy1.builder()
               .policyId(policyId)

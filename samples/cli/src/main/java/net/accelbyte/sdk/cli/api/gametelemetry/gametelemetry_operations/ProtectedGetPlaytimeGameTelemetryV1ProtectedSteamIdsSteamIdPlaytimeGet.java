@@ -63,7 +63,7 @@ public class ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytime
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      GametelemetryOperations wrapper = new GametelemetryOperations(sdk);
+      final GametelemetryOperations wrapper = new GametelemetryOperations(sdk);
       final net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations
               .ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet
           operation =
@@ -71,7 +71,7 @@ public class ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytime
                   .ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet.builder()
                   .steamId(steamId)
                   .build();
-      Map<String, ?> response =
+      final Map<String, ?> response =
           wrapper.protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

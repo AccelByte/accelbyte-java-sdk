@@ -55,12 +55,12 @@ public class CreateClient implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Clients wrapper = new Clients(sdk);
+      final Clients wrapper = new Clients(sdk);
       final net.accelbyte.sdk.api.iam.operations.clients.CreateClient operation =
           net.accelbyte.sdk.api.iam.operations.clients.CreateClient.builder()
               .body(new ObjectMapper().readValue(body, ClientmodelClientCreateRequest.class))
               .build();
-      ClientmodelClientCreationResponse response = wrapper.createClient(operation);
+      final ClientmodelClientCreationResponse response = wrapper.createClient(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

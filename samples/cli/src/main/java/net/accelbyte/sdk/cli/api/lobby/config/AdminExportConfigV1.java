@@ -8,7 +8,8 @@
 
 package net.accelbyte.sdk.cli.api.lobby.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
+import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.lobby.models.*;
@@ -55,15 +56,17 @@ public class AdminExportConfigV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Config wrapper = new Config(sdk);
+      final Config wrapper = new Config(sdk);
       final net.accelbyte.sdk.api.lobby.operations.config.AdminExportConfigV1 operation =
           net.accelbyte.sdk.api.lobby.operations.config.AdminExportConfigV1.builder()
               .namespace(namespace)
               .build();
-      ModelsConfigExport response = wrapper.adminExportConfigV1(operation);
-      final String responseString =
-          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful\n{}", responseString);
+      final InputStream response = wrapper.adminExportConfigV1(operation);
+      final File outputFile = new File("response.out");
+      java.nio.file.Files.copy(
+          response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+      org.apache.commons.io.IOUtils.closeQuietly(response);
+      log.info("Operation successful\n{}", "response.out");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

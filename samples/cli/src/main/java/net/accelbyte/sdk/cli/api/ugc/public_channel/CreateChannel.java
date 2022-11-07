@@ -65,14 +65,14 @@ public class CreateChannel implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PublicChannel wrapper = new PublicChannel(sdk);
+      final PublicChannel wrapper = new PublicChannel(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_channel.CreateChannel operation =
           net.accelbyte.sdk.api.ugc.operations.public_channel.CreateChannel.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ModelsChannelRequest.class))
               .build();
-      ModelsChannelResponse response = wrapper.createChannel(operation);
+      final ModelsChannelResponse response = wrapper.createChannel(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

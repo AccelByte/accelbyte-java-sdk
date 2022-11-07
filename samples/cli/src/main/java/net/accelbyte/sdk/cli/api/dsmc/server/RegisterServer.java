@@ -60,13 +60,13 @@ public class RegisterServer implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Server wrapper = new Server(sdk);
+      final Server wrapper = new Server(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.server.RegisterServer operation =
           net.accelbyte.sdk.api.dsmc.operations.server.RegisterServer.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsRegisterServerRequest.class))
               .build();
-      ModelsServer response = wrapper.registerServer(operation);
+      final ModelsServer response = wrapper.registerServer(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

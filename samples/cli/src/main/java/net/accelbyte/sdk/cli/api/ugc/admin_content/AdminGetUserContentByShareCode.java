@@ -60,7 +60,7 @@ public class AdminGetUserContentByShareCode implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AdminContent wrapper = new AdminContent(sdk);
+      final AdminContent wrapper = new AdminContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminGetUserContentByShareCode
           operation =
               net.accelbyte.sdk.api.ugc.operations.admin_content.AdminGetUserContentByShareCode
@@ -68,7 +68,8 @@ public class AdminGetUserContentByShareCode implements Callable<Integer> {
                   .namespace(namespace)
                   .shareCode(shareCode)
                   .build();
-      ModelsContentDownloadResponse response = wrapper.adminGetUserContentByShareCode(operation);
+      final ModelsContentDownloadResponse response =
+          wrapper.adminGetUserContentByShareCode(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

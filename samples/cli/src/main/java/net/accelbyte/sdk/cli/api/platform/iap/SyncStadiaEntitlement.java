@@ -65,7 +65,7 @@ public class SyncStadiaEntitlement implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      IAP wrapper = new IAP(sdk);
+      final IAP wrapper = new IAP(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap.SyncStadiaEntitlement operation =
           net.accelbyte.sdk.api.platform.operations.iap.SyncStadiaEntitlement.builder()
               .namespace(namespace)

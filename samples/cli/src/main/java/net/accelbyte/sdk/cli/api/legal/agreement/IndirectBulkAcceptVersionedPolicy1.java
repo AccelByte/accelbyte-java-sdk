@@ -61,7 +61,7 @@ public class IndirectBulkAcceptVersionedPolicy1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Agreement wrapper = new Agreement(sdk);
+      final Agreement wrapper = new Agreement(sdk);
       final net.accelbyte.sdk.api.legal.operations.agreement.IndirectBulkAcceptVersionedPolicy1
           operation =
               net.accelbyte.sdk.api.legal.operations.agreement.IndirectBulkAcceptVersionedPolicy1
@@ -71,7 +71,8 @@ public class IndirectBulkAcceptVersionedPolicy1 implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, new TypeReference<List<AcceptAgreementRequest>>() {}))
                   .build();
-      AcceptAgreementResponse response = wrapper.indirectBulkAcceptVersionedPolicy1(operation);
+      final AcceptAgreementResponse response =
+          wrapper.indirectBulkAcceptVersionedPolicy1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

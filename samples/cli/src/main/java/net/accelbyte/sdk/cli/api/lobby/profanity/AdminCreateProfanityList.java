@@ -60,7 +60,7 @@ public class AdminCreateProfanityList implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Profanity wrapper = new Profanity(sdk);
+      final Profanity wrapper = new Profanity(sdk);
       final net.accelbyte.sdk.api.lobby.operations.profanity.AdminCreateProfanityList operation =
           net.accelbyte.sdk.api.lobby.operations.profanity.AdminCreateProfanityList.builder()
               .namespace(namespace)

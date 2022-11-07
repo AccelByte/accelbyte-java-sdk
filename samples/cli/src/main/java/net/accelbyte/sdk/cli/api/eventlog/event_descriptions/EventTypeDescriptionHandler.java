@@ -50,13 +50,13 @@ public class EventTypeDescriptionHandler implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      EventDescriptions wrapper = new EventDescriptions(sdk);
+      final EventDescriptions wrapper = new EventDescriptions(sdk);
       final net.accelbyte.sdk.api.eventlog.operations.event_descriptions.EventTypeDescriptionHandler
           operation =
               net.accelbyte.sdk.api.eventlog.operations.event_descriptions
                   .EventTypeDescriptionHandler.builder()
                   .build();
-      ModelsMultipleEventType response = wrapper.eventTypeDescriptionHandler(operation);
+      final ModelsMultipleEventType response = wrapper.eventTypeDescriptionHandler(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

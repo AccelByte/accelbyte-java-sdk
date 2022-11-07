@@ -60,13 +60,13 @@ public class GetUserBanHistory implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Users wrapper = new Users(sdk);
+      final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.GetUserBanHistory operation =
           net.accelbyte.sdk.api.iam.operations.users.GetUserBanHistory.builder()
               .namespace(namespace)
               .userId(userId)
               .build();
-      List<ModelUserBanResponse> response = wrapper.getUserBanHistory(operation);
+      final List<ModelUserBanResponse> response = wrapper.getUserBanHistory(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

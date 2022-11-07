@@ -67,7 +67,7 @@ public class ExportStore1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Store wrapper = new Store(sdk);
+      final Store wrapper = new Store(sdk);
       final net.accelbyte.sdk.api.platform.operations.store.ExportStore1 operation =
           net.accelbyte.sdk.api.platform.operations.store.ExportStore1.builder()
               .namespace(namespace)

@@ -60,13 +60,13 @@ public class ListServerPerNamespace implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Public wrapper = new Public(sdk);
+      final Public wrapper = new Public(sdk);
       final net.accelbyte.sdk.api.qosm.operations.public_.ListServerPerNamespace operation =
           net.accelbyte.sdk.api.qosm.operations.public_.ListServerPerNamespace.builder()
               .namespace(namespace)
               .status(status)
               .build();
-      ModelsListServerResponse response = wrapper.listServerPerNamespace(operation);
+      final ModelsListServerResponse response = wrapper.listServerPerNamespace(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

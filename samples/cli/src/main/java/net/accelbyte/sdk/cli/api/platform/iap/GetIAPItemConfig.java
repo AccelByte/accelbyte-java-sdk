@@ -55,12 +55,12 @@ public class GetIAPItemConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      IAP wrapper = new IAP(sdk);
+      final IAP wrapper = new IAP(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap.GetIAPItemConfig operation =
           net.accelbyte.sdk.api.platform.operations.iap.GetIAPItemConfig.builder()
               .namespace(namespace)
               .build();
-      IAPItemConfigInfo response = wrapper.getIAPItemConfig(operation);
+      final IAPItemConfigInfo response = wrapper.getIAPItemConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

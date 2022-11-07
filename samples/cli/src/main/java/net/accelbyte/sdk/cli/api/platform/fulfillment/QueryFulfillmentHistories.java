@@ -75,7 +75,7 @@ public class QueryFulfillmentHistories implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Fulfillment wrapper = new Fulfillment(sdk);
+      final Fulfillment wrapper = new Fulfillment(sdk);
       final net.accelbyte.sdk.api.platform.operations.fulfillment.QueryFulfillmentHistories
           operation =
               net.accelbyte.sdk.api.platform.operations.fulfillment.QueryFulfillmentHistories
@@ -86,7 +86,8 @@ public class QueryFulfillmentHistories implements Callable<Integer> {
                   .status(status)
                   .userId(userId)
                   .build();
-      FulfillmentHistoryPagingSlicedResult response = wrapper.queryFulfillmentHistories(operation);
+      final FulfillmentHistoryPagingSlicedResult response =
+          wrapper.queryFulfillmentHistories(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

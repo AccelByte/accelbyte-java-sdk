@@ -64,7 +64,7 @@ public class DeletePlayerRecordHandlerV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PublicPlayerRecord wrapper = new PublicPlayerRecord(sdk);
+      final PublicPlayerRecord wrapper = new PublicPlayerRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_player_record
               .DeletePlayerRecordHandlerV1
           operation =

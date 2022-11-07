@@ -60,7 +60,7 @@ public class GetCurrentUserSeasonProgression implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Season wrapper = new Season(sdk);
+      final Season wrapper = new Season(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.season.GetCurrentUserSeasonProgression
           operation =
               net.accelbyte.sdk.api.seasonpass.operations.season.GetCurrentUserSeasonProgression
@@ -68,7 +68,7 @@ public class GetCurrentUserSeasonProgression implements Callable<Integer> {
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      UserSeasonSummary response = wrapper.getCurrentUserSeasonProgression(operation);
+      final UserSeasonSummary response = wrapper.getCurrentUserSeasonProgression(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

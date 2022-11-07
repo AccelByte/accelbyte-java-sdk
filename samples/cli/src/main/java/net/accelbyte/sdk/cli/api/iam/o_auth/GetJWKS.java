@@ -50,10 +50,10 @@ public class GetJWKS implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      OAuth wrapper = new OAuth(sdk);
+      final OAuth wrapper = new OAuth(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth.GetJWKS operation =
           net.accelbyte.sdk.api.iam.operations.o_auth.GetJWKS.builder().build();
-      OauthcommonJWKSet response = wrapper.getJWKS(operation);
+      final OauthcommonJWKSet response = wrapper.getJWKS(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -70,7 +70,7 @@ public class PublicGetChildCategories implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Category wrapper = new Category(sdk);
+      final Category wrapper = new Category(sdk);
       final net.accelbyte.sdk.api.platform.operations.category.PublicGetChildCategories operation =
           net.accelbyte.sdk.api.platform.operations.category.PublicGetChildCategories.builder()
               .categoryPath(categoryPath)
@@ -78,7 +78,7 @@ public class PublicGetChildCategories implements Callable<Integer> {
               .language(language)
               .storeId(storeId)
               .build();
-      List<CategoryInfo> response = wrapper.publicGetChildCategories(operation);
+      final List<CategoryInfo> response = wrapper.publicGetChildCategories(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

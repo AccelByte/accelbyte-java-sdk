@@ -65,14 +65,14 @@ public class AdminChatHistory implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Chat wrapper = new Chat(sdk);
+      final Chat wrapper = new Chat(sdk);
       final net.accelbyte.sdk.api.lobby.operations.chat.AdminChatHistory operation =
           net.accelbyte.sdk.api.lobby.operations.chat.AdminChatHistory.builder()
               .friendId(friendId)
               .namespace(namespace)
               .userId(userId)
               .build();
-      List<ModelChatMessageResponse> response = wrapper.adminChatHistory(operation);
+      final List<ModelChatMessageResponse> response = wrapper.adminChatHistory(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

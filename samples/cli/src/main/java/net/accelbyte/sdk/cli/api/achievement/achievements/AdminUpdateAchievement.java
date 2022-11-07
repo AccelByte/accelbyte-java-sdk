@@ -65,7 +65,7 @@ public class AdminUpdateAchievement implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Achievements wrapper = new Achievements(sdk);
+      final Achievements wrapper = new Achievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.achievements.AdminUpdateAchievement
           operation =
               net.accelbyte.sdk.api.achievement.operations.achievements.AdminUpdateAchievement
@@ -74,7 +74,7 @@ public class AdminUpdateAchievement implements Callable<Integer> {
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsAchievementUpdateRequest.class))
                   .build();
-      ModelsAchievementResponse response = wrapper.adminUpdateAchievement(operation);
+      final ModelsAchievementResponse response = wrapper.adminUpdateAchievement(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

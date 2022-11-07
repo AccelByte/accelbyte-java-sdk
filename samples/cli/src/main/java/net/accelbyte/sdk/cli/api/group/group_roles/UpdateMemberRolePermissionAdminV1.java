@@ -65,7 +65,7 @@ public class UpdateMemberRolePermissionAdminV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      GroupRoles wrapper = new GroupRoles(sdk);
+      final GroupRoles wrapper = new GroupRoles(sdk);
       final net.accelbyte.sdk.api.group.operations.group_roles.UpdateMemberRolePermissionAdminV1
           operation =
               net.accelbyte.sdk.api.group.operations.group_roles.UpdateMemberRolePermissionAdminV1
@@ -76,7 +76,7 @@ public class UpdateMemberRolePermissionAdminV1 implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ModelsUpdateMemberRolePermissionsRequestV1.class))
                   .build();
-      ModelsUpdateMemberRoleResponseV1 response =
+      final ModelsUpdateMemberRoleResponseV1 response =
           wrapper.updateMemberRolePermissionAdminV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

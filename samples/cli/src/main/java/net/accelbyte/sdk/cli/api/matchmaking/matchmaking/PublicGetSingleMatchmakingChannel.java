@@ -60,7 +60,7 @@ public class PublicGetSingleMatchmakingChannel implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Matchmaking wrapper = new Matchmaking(sdk);
+      final Matchmaking wrapper = new Matchmaking(sdk);
       final net.accelbyte.sdk.api.matchmaking.operations.matchmaking
               .PublicGetSingleMatchmakingChannel
           operation =
@@ -69,7 +69,7 @@ public class PublicGetSingleMatchmakingChannel implements Callable<Integer> {
                   .channelName(channelName)
                   .namespace(namespace)
                   .build();
-      ModelsChannelV1 response = wrapper.publicGetSingleMatchmakingChannel(operation);
+      final ModelsChannelV1 response = wrapper.publicGetSingleMatchmakingChannel(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

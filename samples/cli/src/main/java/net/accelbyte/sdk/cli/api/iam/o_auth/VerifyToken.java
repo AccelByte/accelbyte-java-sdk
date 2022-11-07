@@ -55,12 +55,12 @@ public class VerifyToken implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      OAuth wrapper = new OAuth(sdk);
+      final OAuth wrapper = new OAuth(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth.VerifyToken operation =
           net.accelbyte.sdk.api.iam.operations.o_auth.VerifyToken.builder()
               .token(token != null ? token : null)
               .build();
-      OauthmodelTokenResponse response = wrapper.verifyToken(operation);
+      final OauthmodelTokenResponse response = wrapper.verifyToken(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

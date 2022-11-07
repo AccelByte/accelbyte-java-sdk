@@ -85,7 +85,7 @@ public class GetPublicEditHistory implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      EventV2 wrapper = new EventV2(sdk);
+      final EventV2 wrapper = new EventV2(sdk);
       final net.accelbyte.sdk.api.eventlog.operations.event_v2.GetPublicEditHistory operation =
           net.accelbyte.sdk.api.eventlog.operations.event_v2.GetPublicEditHistory.builder()
               .namespace(namespace)
@@ -96,7 +96,7 @@ public class GetPublicEditHistory implements Callable<Integer> {
               .startDate(startDate)
               .type(type)
               .build();
-      ModelsEventResponseV2 response = wrapper.getPublicEditHistory(operation);
+      final ModelsEventResponseV2 response = wrapper.getPublicEditHistory(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

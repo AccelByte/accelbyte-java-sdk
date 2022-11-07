@@ -55,14 +55,14 @@ public class PublicGetPlayerBlockedByPlayersV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Player wrapper = new Player(sdk);
+      final Player wrapper = new Player(sdk);
       final net.accelbyte.sdk.api.lobby.operations.player.PublicGetPlayerBlockedByPlayersV1
           operation =
               net.accelbyte.sdk.api.lobby.operations.player.PublicGetPlayerBlockedByPlayersV1
                   .builder()
                   .namespace(namespace)
                   .build();
-      ModelsGetAllPlayerBlockedByUsersResponse response =
+      final ModelsGetAllPlayerBlockedByUsersResponse response =
           wrapper.publicGetPlayerBlockedByPlayersV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

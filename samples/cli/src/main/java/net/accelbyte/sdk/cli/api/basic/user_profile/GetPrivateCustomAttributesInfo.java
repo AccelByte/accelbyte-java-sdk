@@ -60,7 +60,7 @@ public class GetPrivateCustomAttributesInfo implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UserProfile wrapper = new UserProfile(sdk);
+      final UserProfile wrapper = new UserProfile(sdk);
       final net.accelbyte.sdk.api.basic.operations.user_profile.GetPrivateCustomAttributesInfo
           operation =
               net.accelbyte.sdk.api.basic.operations.user_profile.GetPrivateCustomAttributesInfo
@@ -68,7 +68,7 @@ public class GetPrivateCustomAttributesInfo implements Callable<Integer> {
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      Map<String, ?> response = wrapper.getPrivateCustomAttributesInfo(operation);
+      final Map<String, ?> response = wrapper.getPrivateCustomAttributesInfo(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

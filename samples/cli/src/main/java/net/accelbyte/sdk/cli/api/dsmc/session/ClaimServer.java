@@ -60,7 +60,7 @@ public class ClaimServer implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Session wrapper = new Session(sdk);
+      final Session wrapper = new Session(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.session.ClaimServer operation =
           net.accelbyte.sdk.api.dsmc.operations.session.ClaimServer.builder()
               .namespace(namespace)

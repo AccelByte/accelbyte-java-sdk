@@ -60,7 +60,7 @@ public class CreateGroupConfigurationAdminV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Configuration wrapper = new Configuration(sdk);
+      final Configuration wrapper = new Configuration(sdk);
       final net.accelbyte.sdk.api.group.operations.configuration.CreateGroupConfigurationAdminV1
           operation =
               net.accelbyte.sdk.api.group.operations.configuration.CreateGroupConfigurationAdminV1
@@ -70,7 +70,7 @@ public class CreateGroupConfigurationAdminV1 implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ModelsCreateGroupConfigurationRequestV1.class))
                   .build();
-      ModelsCreateGroupConfigurationResponseV1 response =
+      final ModelsCreateGroupConfigurationResponseV1 response =
           wrapper.createGroupConfigurationAdminV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

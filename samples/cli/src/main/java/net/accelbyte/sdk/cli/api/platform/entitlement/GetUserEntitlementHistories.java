@@ -65,7 +65,7 @@ public class GetUserEntitlementHistories implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Entitlement wrapper = new Entitlement(sdk);
+      final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementHistories
           operation =
               net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementHistories
@@ -74,7 +74,7 @@ public class GetUserEntitlementHistories implements Callable<Integer> {
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      List<EntitlementHistoryInfo> response = wrapper.getUserEntitlementHistories(operation);
+      final List<EntitlementHistoryInfo> response = wrapper.getUserEntitlementHistories(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

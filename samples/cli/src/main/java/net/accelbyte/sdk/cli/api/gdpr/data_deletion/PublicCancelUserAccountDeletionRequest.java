@@ -60,7 +60,7 @@ public class PublicCancelUserAccountDeletionRequest implements Callable<Integer>
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      DataDeletion wrapper = new DataDeletion(sdk);
+      final DataDeletion wrapper = new DataDeletion(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_deletion
               .PublicCancelUserAccountDeletionRequest
           operation =

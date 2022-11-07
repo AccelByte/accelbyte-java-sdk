@@ -60,7 +60,7 @@ public class UnBanUsers implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UserAction wrapper = new UserAction(sdk);
+      final UserAction wrapper = new UserAction(sdk);
       final net.accelbyte.sdk.api.basic.operations.user_action.UnBanUsers operation =
           net.accelbyte.sdk.api.basic.operations.user_action.UnBanUsers.builder()
               .namespace(namespace)

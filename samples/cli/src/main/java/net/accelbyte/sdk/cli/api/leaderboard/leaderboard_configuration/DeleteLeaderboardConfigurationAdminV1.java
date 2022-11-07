@@ -60,7 +60,7 @@ public class DeleteLeaderboardConfigurationAdminV1 implements Callable<Integer> 
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      LeaderboardConfiguration wrapper = new LeaderboardConfiguration(sdk);
+      final LeaderboardConfiguration wrapper = new LeaderboardConfiguration(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration
               .DeleteLeaderboardConfigurationAdminV1
           operation =

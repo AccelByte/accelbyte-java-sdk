@@ -75,7 +75,7 @@ public class GetUserEntitlementBySku implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Entitlement wrapper = new Entitlement(sdk);
+      final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementBySku
           operation =
               net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementBySku
@@ -86,7 +86,7 @@ public class GetUserEntitlementBySku implements Callable<Integer> {
                   .entitlementClazz(entitlementClazz)
                   .sku(sku)
                   .build();
-      EntitlementInfo response = wrapper.getUserEntitlementBySku(operation);
+      final EntitlementInfo response = wrapper.getUserEntitlementBySku(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -55,12 +55,12 @@ public class GetRoleMembers implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Roles wrapper = new Roles(sdk);
+      final Roles wrapper = new Roles(sdk);
       final net.accelbyte.sdk.api.iam.operations.roles.GetRoleMembers operation =
           net.accelbyte.sdk.api.iam.operations.roles.GetRoleMembers.builder()
               .roleId(roleId)
               .build();
-      ModelRoleMembersResponse response = wrapper.getRoleMembers(operation);
+      final ModelRoleMembersResponse response = wrapper.getRoleMembers(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -61,13 +61,13 @@ public class UpdateStadiaJsonConfigFile implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      IAP wrapper = new IAP(sdk);
+      final IAP wrapper = new IAP(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap.UpdateStadiaJsonConfigFile operation =
           net.accelbyte.sdk.api.platform.operations.iap.UpdateStadiaJsonConfigFile.builder()
               .namespace(namespace)
               .file(file != null ? file : null)
               .build();
-      StadiaIAPConfigInfo response = wrapper.updateStadiaJsonConfigFile(operation);
+      final StadiaIAPConfigInfo response = wrapper.updateStadiaJsonConfigFile(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

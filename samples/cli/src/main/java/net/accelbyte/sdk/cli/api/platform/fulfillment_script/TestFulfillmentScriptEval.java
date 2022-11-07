@@ -55,14 +55,14 @@ public class TestFulfillmentScriptEval implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      FulfillmentScript wrapper = new FulfillmentScript(sdk);
+      final FulfillmentScript wrapper = new FulfillmentScript(sdk);
       final net.accelbyte.sdk.api.platform.operations.fulfillment_script.TestFulfillmentScriptEval
           operation =
               net.accelbyte.sdk.api.platform.operations.fulfillment_script.TestFulfillmentScriptEval
                   .builder()
                   .body(new ObjectMapper().readValue(body, FulfillmentScriptEvalTestRequest.class))
                   .build();
-      FulfillmentScriptEvalTestResult response = wrapper.testFulfillmentScriptEval(operation);
+      final FulfillmentScriptEvalTestResult response = wrapper.testFulfillmentScriptEval(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

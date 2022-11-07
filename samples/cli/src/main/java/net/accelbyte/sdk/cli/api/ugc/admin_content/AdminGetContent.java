@@ -70,7 +70,7 @@ public class AdminGetContent implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AdminContent wrapper = new AdminContent(sdk);
+      final AdminContent wrapper = new AdminContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminGetContent operation =
           net.accelbyte.sdk.api.ugc.operations.admin_content.AdminGetContent.builder()
               .namespace(namespace)
@@ -78,7 +78,7 @@ public class AdminGetContent implements Callable<Integer> {
               .limit(limit)
               .offset(offset)
               .build();
-      ModelsPaginatedContentDownloadResponse response = wrapper.adminGetContent(operation);
+      final ModelsPaginatedContentDownloadResponse response = wrapper.adminGetContent(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

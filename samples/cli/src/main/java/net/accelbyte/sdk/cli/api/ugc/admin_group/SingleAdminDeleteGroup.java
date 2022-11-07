@@ -59,7 +59,7 @@ public class SingleAdminDeleteGroup implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AdminGroup wrapper = new AdminGroup(sdk);
+      final AdminGroup wrapper = new AdminGroup(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_group.SingleAdminDeleteGroup operation =
           net.accelbyte.sdk.api.ugc.operations.admin_group.SingleAdminDeleteGroup.builder()
               .groupId(groupId)

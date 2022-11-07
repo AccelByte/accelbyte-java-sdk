@@ -84,7 +84,7 @@ public class RetrieveLatestPoliciesByNamespaceAndCountryPublic implements Callab
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Policies wrapper = new Policies(sdk);
+      final Policies wrapper = new Policies(sdk);
       final net.accelbyte.sdk.api.legal.operations.policies
               .RetrieveLatestPoliciesByNamespaceAndCountryPublic
           operation =
@@ -97,7 +97,7 @@ public class RetrieveLatestPoliciesByNamespaceAndCountryPublic implements Callab
                   .policyType(policyType)
                   .tags(tags)
                   .build();
-      List<RetrievePolicyPublicResponse> response =
+      final List<RetrievePolicyPublicResponse> response =
           wrapper.retrieveLatestPoliciesByNamespaceAndCountryPublic(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

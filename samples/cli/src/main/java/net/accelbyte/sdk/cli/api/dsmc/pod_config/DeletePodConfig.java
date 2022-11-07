@@ -59,7 +59,7 @@ public class DeletePodConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PodConfig wrapper = new PodConfig(sdk);
+      final PodConfig wrapper = new PodConfig(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.pod_config.DeletePodConfig operation =
           net.accelbyte.sdk.api.dsmc.operations.pod_config.DeletePodConfig.builder()
               .name(name)

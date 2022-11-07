@@ -30,7 +30,6 @@
 
 | Model | Class |
 |---|---|
-| `models.Achievement` | [ModelsAchievement](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsAchievement.java) |
 | `models.AchievementOrderUpdateRequest` | [ModelsAchievementOrderUpdateRequest](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsAchievementOrderUpdateRequest.java) |
 | `models.AchievementRequest` | [ModelsAchievementRequest](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsAchievementRequest.java) |
 | `models.AchievementResponse` | [ModelsAchievementResponse](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsAchievementResponse.java) |

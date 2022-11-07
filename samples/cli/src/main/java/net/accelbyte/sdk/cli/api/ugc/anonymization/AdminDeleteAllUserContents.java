@@ -59,7 +59,7 @@ public class AdminDeleteAllUserContents implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Anonymization wrapper = new Anonymization(sdk);
+      final Anonymization wrapper = new Anonymization(sdk);
       final net.accelbyte.sdk.api.ugc.operations.anonymization.AdminDeleteAllUserContents
           operation =
               net.accelbyte.sdk.api.ugc.operations.anonymization.AdminDeleteAllUserContents

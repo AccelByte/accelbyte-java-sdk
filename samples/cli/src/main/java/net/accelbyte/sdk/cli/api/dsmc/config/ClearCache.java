@@ -54,7 +54,7 @@ public class ClearCache implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Config wrapper = new Config(sdk);
+      final Config wrapper = new Config(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.config.ClearCache operation =
           net.accelbyte.sdk.api.dsmc.operations.config.ClearCache.builder()
               .namespace(namespace)

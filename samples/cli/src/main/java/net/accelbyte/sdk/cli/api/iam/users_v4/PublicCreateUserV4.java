@@ -60,13 +60,13 @@ public class PublicCreateUserV4 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UsersV4 wrapper = new UsersV4(sdk);
+      final UsersV4 wrapper = new UsersV4(sdk);
       final net.accelbyte.sdk.api.iam.operations.users_v4.PublicCreateUserV4 operation =
           net.accelbyte.sdk.api.iam.operations.users_v4.PublicCreateUserV4.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, AccountCreateUserRequestV4.class))
               .build();
-      AccountCreateUserResponseV4 response = wrapper.publicCreateUserV4(operation);
+      final AccountCreateUserResponseV4 response = wrapper.publicCreateUserV4(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

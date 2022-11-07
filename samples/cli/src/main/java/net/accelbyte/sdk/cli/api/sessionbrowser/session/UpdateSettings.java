@@ -65,14 +65,14 @@ public class UpdateSettings implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Session wrapper = new Session(sdk);
+      final Session wrapper = new Session(sdk);
       final net.accelbyte.sdk.api.sessionbrowser.operations.session.UpdateSettings operation =
           net.accelbyte.sdk.api.sessionbrowser.operations.session.UpdateSettings.builder()
               .namespace(namespace)
               .sessionID(sessionID)
               .body(new ObjectMapper().readValue(body, ModelsUpdateSettingsRequest.class))
               .build();
-      ModelsSessionResponse response = wrapper.updateSettings(operation);
+      final ModelsSessionResponse response = wrapper.updateSettings(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

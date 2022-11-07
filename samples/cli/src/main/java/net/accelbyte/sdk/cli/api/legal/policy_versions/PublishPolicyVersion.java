@@ -59,7 +59,7 @@ public class PublishPolicyVersion implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      PolicyVersions wrapper = new PolicyVersions(sdk);
+      final PolicyVersions wrapper = new PolicyVersions(sdk);
       final net.accelbyte.sdk.api.legal.operations.policy_versions.PublishPolicyVersion operation =
           net.accelbyte.sdk.api.legal.operations.policy_versions.PublishPolicyVersion.builder()
               .policyVersionId(policyVersionId)

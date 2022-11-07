@@ -65,7 +65,7 @@ public class DecreaseTicketSale implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Ticket wrapper = new Ticket(sdk);
+      final Ticket wrapper = new Ticket(sdk);
       final net.accelbyte.sdk.api.platform.operations.ticket.DecreaseTicketSale operation =
           net.accelbyte.sdk.api.platform.operations.ticket.DecreaseTicketSale.builder()
               .boothName(boothName)

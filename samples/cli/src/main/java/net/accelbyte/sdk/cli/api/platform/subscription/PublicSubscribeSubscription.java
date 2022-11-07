@@ -65,7 +65,7 @@ public class PublicSubscribeSubscription implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Subscription wrapper = new Subscription(sdk);
+      final Subscription wrapper = new Subscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.subscription.PublicSubscribeSubscription
           operation =
               net.accelbyte.sdk.api.platform.operations.subscription.PublicSubscribeSubscription

@@ -65,7 +65,7 @@ public class AdminUpdateDeviceBanV4 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      DevicesV4 wrapper = new DevicesV4(sdk);
+      final DevicesV4 wrapper = new DevicesV4(sdk);
       final net.accelbyte.sdk.api.iam.operations.devices_v4.AdminUpdateDeviceBanV4 operation =
           net.accelbyte.sdk.api.iam.operations.devices_v4.AdminUpdateDeviceBanV4.builder()
               .banId(banId)

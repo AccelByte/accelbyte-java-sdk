@@ -59,7 +59,7 @@ public class SelectAllRecords implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      CatalogChanges wrapper = new CatalogChanges(sdk);
+      final CatalogChanges wrapper = new CatalogChanges(sdk);
       final net.accelbyte.sdk.api.platform.operations.catalog_changes.SelectAllRecords operation =
           net.accelbyte.sdk.api.platform.operations.catalog_changes.SelectAllRecords.builder()
               .namespace(namespace)

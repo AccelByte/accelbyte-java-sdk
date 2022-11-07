@@ -56,23 +56,23 @@ touch "tmp.dat"
 #- 2 ChangePreferenceConsent
 ./ng net.accelbyte.sdk.cli.Main legal changePreferenceConsent \
     --namespace "$AB_NAMESPACE" \
-    --userId 'sHeMcf8E' \
-    --body '[{"isAccepted": true, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "i2wq5yrO", "policyId": "jMKa2Nj5", "policyVersionId": "FsbDAmvW"}, {"isAccepted": false, "isNeedToSendEventMarketing": false, "localizedPolicyVersionId": "76cUVEY2", "policyId": "It9KNEJy", "policyVersionId": "8A5f3fJR"}, {"isAccepted": true, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "O69nSLiR", "policyId": "8JihAwCe", "policyVersionId": "y43YdT6i"}]' \
+    --userId '35DjZc6T' \
+    --body '[{"isAccepted": true, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "2s9RNe8T", "policyId": "gK7U15eA", "policyVersionId": "P9P1mnRp"}, {"isAccepted": false, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "23ojHa8p", "policyId": "OUXZ3Wxm", "policyVersionId": "56RiVPJk"}, {"isAccepted": false, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "MmtBitH0", "policyId": "5XR4VwNR", "policyVersionId": "JNnZdoMm"}]' \
     > test.out 2>&1
 eval_tap $? 2 'ChangePreferenceConsent' test.out
 
 #- 3 RetrieveAcceptedAgreements
 ./ng net.accelbyte.sdk.cli.Main legal retrieveAcceptedAgreements \
-    --userId '6vrGm3rL' \
+    --userId 'uAN3Wes5' \
     > test.out 2>&1
 eval_tap $? 3 'RetrieveAcceptedAgreements' test.out
 
 #- 4 RetrieveAllUsersByPolicyVersion
 ./ng net.accelbyte.sdk.cli.Main legal retrieveAllUsersByPolicyVersion \
-    --keyword 'd9SjMVPj' \
-    --limit '44' \
-    --offset '20' \
-    --policyVersionId 'gRCTJB6E' \
+    --keyword 'DyiNzHa6' \
+    --limit '5' \
+    --offset '0' \
+    --policyVersionId 'p0gLhJ8P' \
     > test.out 2>&1
 eval_tap $? 4 'RetrieveAllUsersByPolicyVersion' test.out
 
@@ -83,147 +83,147 @@ eval_tap $? 5 'RetrieveAllLegalPolicies' test.out
 
 #- 6 CreatePolicy
 ./ng net.accelbyte.sdk.cli.Main legal createPolicy \
-    --body '{"affectedClientIds": ["y6mIUl4G", "J9rFDmFn", "RO4UGTTP"], "affectedCountries": ["7ElZEcsT", "0NZ8Khnf", "9VVMjpuT"], "basePolicyName": "CBf6eEyn", "description": "9GwcKd26", "namespace": "rkl2YtlE", "tags": ["UVGNoC2Q", "q4jaYsQz", "yM6UAwNz"], "typeId": "GRhIOpJl"}' \
+    --body '{"affectedClientIds": ["mAr1GgDE", "UZzerJiN", "aErEyzcp"], "affectedCountries": ["umSm6ztZ", "evThccMh", "XELsjhIf"], "basePolicyName": "b5IalaUP", "description": "w4I7JDAY", "namespace": "W0meibZd", "tags": ["4w61DsSM", "f9dWc7Ua", "pcTgVclm"], "typeId": "IA5uGOHQ"}' \
     > test.out 2>&1
 eval_tap $? 6 'CreatePolicy' test.out
 
 #- 7 RetrieveSinglePolicy
 ./ng net.accelbyte.sdk.cli.Main legal retrieveSinglePolicy \
-    --basePolicyId 'kX60kj6H' \
+    --basePolicyId 'pS9E8LF7' \
     > test.out 2>&1
 eval_tap $? 7 'RetrieveSinglePolicy' test.out
 
 #- 8 PartialUpdatePolicy
 ./ng net.accelbyte.sdk.cli.Main legal partialUpdatePolicy \
-    --basePolicyId '8Ml2qxRc' \
-    --body '{"affectedClientIds": ["W7ARWGIC", "0p5bzLqT", "F0k96d0b"], "affectedCountries": ["b7D4AaTk", "IncjLzQ5", "fjXbg2Ws"], "basePolicyName": "jzGEtrdP", "description": "6bPnAnpp", "namespace": "rQFmiJt0", "tags": ["VxZ6pw6p", "Pd0B47sa", "MZ3ikNf2"]}' \
+    --basePolicyId 'sWyGIMX3' \
+    --body '{"affectedClientIds": ["prczcA3D", "52yK5Cec", "cjzKmWWl"], "affectedCountries": ["QbWk6ih6", "EV1LzHdl", "VZJmOjeZ"], "basePolicyName": "mzXl1oQu", "description": "nxMroGaQ", "namespace": "OuA0ro2n", "tags": ["z6zfFkfK", "fNuOl2zG", "Oc6iBvIN"]}' \
     > test.out 2>&1
 eval_tap $? 8 'PartialUpdatePolicy' test.out
 
 #- 9 RetrievePolicyCountry
 ./ng net.accelbyte.sdk.cli.Main legal retrievePolicyCountry \
-    --basePolicyId 'xB0uXpkU' \
-    --countryCode 'ifIO539C' \
+    --basePolicyId 'woSfpRLx' \
+    --countryCode 'xDrpBFfH' \
     > test.out 2>&1
 eval_tap $? 9 'RetrievePolicyCountry' test.out
 
 #- 10 RetrieveLocalizedPolicyVersions
 ./ng net.accelbyte.sdk.cli.Main legal retrieveLocalizedPolicyVersions \
-    --policyVersionId '9T9a6BLe' \
+    --policyVersionId 'oXj0P74U' \
     > test.out 2>&1
 eval_tap $? 10 'RetrieveLocalizedPolicyVersions' test.out
 
 #- 11 CreateLocalizedPolicyVersion
 ./ng net.accelbyte.sdk.cli.Main legal createLocalizedPolicyVersion \
-    --policyVersionId 'EP2zi0eJ' \
-    --body '{"contentType": "4lZxsebD", "description": "ThFHk7FO", "localeCode": "XyKQvMfL"}' \
+    --policyVersionId '9aIEi2lo' \
+    --body '{"contentType": "yMeNusZ4", "description": "Glcq1vuK", "localeCode": "4Oek7fOL"}' \
     > test.out 2>&1
 eval_tap $? 11 'CreateLocalizedPolicyVersion' test.out
 
 #- 12 RetrieveSingleLocalizedPolicyVersion
 ./ng net.accelbyte.sdk.cli.Main legal retrieveSingleLocalizedPolicyVersion \
-    --localizedPolicyVersionId 'MC706IEz' \
+    --localizedPolicyVersionId 'DWcJgGU7' \
     > test.out 2>&1
 eval_tap $? 12 'RetrieveSingleLocalizedPolicyVersion' test.out
 
 #- 13 UpdateLocalizedPolicyVersion
 ./ng net.accelbyte.sdk.cli.Main legal updateLocalizedPolicyVersion \
-    --localizedPolicyVersionId '1wuit6Mu' \
-    --body '{"attachmentChecksum": "BqjWsL0U", "attachmentLocation": "mtySWtQd", "attachmentVersionIdentifier": "o3deraR9", "contentType": "JKIrMrgb", "description": "Wz2NHg5v"}' \
+    --localizedPolicyVersionId 'c9CkMiyQ' \
+    --body '{"attachmentChecksum": "qsW3qB1V", "attachmentLocation": "jC5o4wjK", "attachmentVersionIdentifier": "GhWjfJSZ", "contentType": "lAYfjHIu", "description": "QyPdtKaf"}' \
     > test.out 2>&1
 eval_tap $? 13 'UpdateLocalizedPolicyVersion' test.out
 
 #- 14 RequestPresignedURL
 ./ng net.accelbyte.sdk.cli.Main legal requestPresignedURL \
-    --localizedPolicyVersionId 'VO5nDk4v' \
-    --body '{"contentMD5": "8uzT1dIH", "contentType": "tZ8ZqNqM"}' \
+    --localizedPolicyVersionId '5z3Z27tq' \
+    --body '{"contentMD5": "cA9tjc0s", "contentType": "LtSGfpjH"}' \
     > test.out 2>&1
 eval_tap $? 14 'RequestPresignedURL' test.out
 
 #- 15 SetDefaultPolicy
 ./ng net.accelbyte.sdk.cli.Main legal setDefaultPolicy \
-    --localizedPolicyVersionId '1Qk0Glj3' \
+    --localizedPolicyVersionId 'Z1FanfMd' \
     > test.out 2>&1
 eval_tap $? 15 'SetDefaultPolicy' test.out
 
 #- 16 IndirectBulkAcceptVersionedPolicy
 ./ng net.accelbyte.sdk.cli.Main legal indirectBulkAcceptVersionedPolicy \
     --namespace "$AB_NAMESPACE" \
-    --userId 'I21Grw6A' \
-    --publisherUserId 'vqouzwcy' \
-    --clientId 'J8KdwCtp' \
-    --countryCode 'xIloBbFG' \
-    --body '[{"isAccepted": true, "isNeedToSendEventMarketing": false, "localizedPolicyVersionId": "RZQKDFyQ", "policyId": "kne4ahhQ", "policyVersionId": "MKkugw7O"}, {"isAccepted": false, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "vJU9uDef", "policyId": "GnF3rURt", "policyVersionId": "2pBoZPbq"}, {"isAccepted": true, "isNeedToSendEventMarketing": false, "localizedPolicyVersionId": "wMxp5ZkO", "policyId": "TAlFeJ61", "policyVersionId": "ypp3Ig5s"}]' \
+    --userId '54Rclkmy' \
+    --publisherUserId 'W2jZ4Dhs' \
+    --clientId 'OcVwVgyS' \
+    --countryCode 'pFpRii36' \
+    --body '[{"isAccepted": true, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "NpClWQKC", "policyId": "UO8pyKHJ", "policyVersionId": "lu2ZwTVV"}, {"isAccepted": false, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "r6P4obgi", "policyId": "1812e0gN", "policyVersionId": "xPKarEGT"}, {"isAccepted": true, "isNeedToSendEventMarketing": false, "localizedPolicyVersionId": "K0aGw1Fr", "policyId": "gFXuTlYA", "policyVersionId": "U565DgQg"}]' \
     > test.out 2>&1
 eval_tap $? 16 'IndirectBulkAcceptVersionedPolicy' test.out
 
 #- 17 AdminRetrieveEligibilities
 ./ng net.accelbyte.sdk.cli.Main legal adminRetrieveEligibilities \
     --namespace "$AB_NAMESPACE" \
-    --userId 'JKX4dpXG' \
-    --publisherUserId 'bTEZlMqt' \
-    --clientId 'UdL0nLMx' \
-    --countryCode '8VzjDmyC' \
+    --userId 'uhilrrOx' \
+    --publisherUserId 'Ukm9rsn8' \
+    --clientId 'ZSvOsGXd' \
+    --countryCode '8DOHjtw9' \
     > test.out 2>&1
 eval_tap $? 17 'AdminRetrieveEligibilities' test.out
 
 #- 18 RetrievePolicies
 ./ng net.accelbyte.sdk.cli.Main legal retrievePolicies \
-    --countryCode 'mCDHBK0n' \
+    --countryCode '5yC0dRxP' \
     > test.out 2>&1
 eval_tap $? 18 'RetrievePolicies' test.out
 
 #- 19 UpdatePolicyVersion
 ./ng net.accelbyte.sdk.cli.Main legal updatePolicyVersion \
-    --policyVersionId 'T91iiDRV' \
-    --body '{"description": "VAP8W0Nf", "displayVersion": "SVXewtMh", "isCommitted": false}' \
+    --policyVersionId 'NaYWN3GU' \
+    --body '{"description": "x5SssmiY", "displayVersion": "JlSrzoin", "isCommitted": false}' \
     > test.out 2>&1
 eval_tap $? 19 'UpdatePolicyVersion' test.out
 
 #- 20 PublishPolicyVersion
 ./ng net.accelbyte.sdk.cli.Main legal publishPolicyVersion \
-    --policyVersionId 'ImP95Lfw' \
+    --policyVersionId 'Iscf09Qc' \
     --shouldNotify  \
     > test.out 2>&1
 eval_tap $? 20 'PublishPolicyVersion' test.out
 
 #- 21 UpdatePolicy
 ./ng net.accelbyte.sdk.cli.Main legal updatePolicy \
-    --policyId '9vvlhjBC' \
-    --body '{"description": "mKQjWEyO", "isDefaultOpted": false, "isMandatory": false, "policyName": "lgjwwgTS", "readableId": "TbOILOIp", "shouldNotifyOnUpdate": true}' \
+    --policyId 'G4kg4e6W' \
+    --body '{"description": "mOvf0LZA", "isDefaultOpted": false, "isMandatory": false, "policyName": "PqJziqEn", "readableId": "XzIxGOGx", "shouldNotifyOnUpdate": true}' \
     > test.out 2>&1
 eval_tap $? 21 'UpdatePolicy' test.out
 
 #- 22 SetDefaultPolicy1
 ./ng net.accelbyte.sdk.cli.Main legal setDefaultPolicy1 \
-    --policyId 'CXGy9FrK' \
+    --policyId 'WrEoyUyi' \
     > test.out 2>&1
 eval_tap $? 22 'SetDefaultPolicy1' test.out
 
 #- 23 RetrieveSinglePolicyVersion
 ./ng net.accelbyte.sdk.cli.Main legal retrieveSinglePolicyVersion \
-    --policyId 'SaqsoPFH' \
-    --versionId 'Hqv5xZ9R' \
+    --policyId 'z5ALY4PV' \
+    --versionId 'cqoficu4' \
     > test.out 2>&1
 eval_tap $? 23 'RetrieveSinglePolicyVersion' test.out
 
 #- 24 CreatePolicyVersion
 ./ng net.accelbyte.sdk.cli.Main legal createPolicyVersion \
-    --policyId 'Fa1agiW0' \
-    --body '{"description": "ix7x82zp", "displayVersion": "Gpn1aHES", "isCommitted": true}' \
+    --policyId '3lXsD9Z5' \
+    --body '{"description": "NXgyjtVX", "displayVersion": "0RrdIY4L", "isCommitted": false}' \
     > test.out 2>&1
 eval_tap $? 24 'CreatePolicyVersion' test.out
 
 #- 25 RetrieveAllPolicyTypes
 ./ng net.accelbyte.sdk.cli.Main legal retrieveAllPolicyTypes \
-    --offset '71' \
-    --limit '28' \
+    --offset '12' \
+    --limit '77' \
     > test.out 2>&1
 eval_tap $? 25 'RetrieveAllPolicyTypes' test.out
 
 #- 26 GetUserInfoStatus
 ./ng net.accelbyte.sdk.cli.Main legal getUserInfoStatus \
-    --namespaces 'BJlcEdXl' \
+    --namespaces '39bKY7pC' \
     > test.out 2>&1
 eval_tap $? 26 'GetUserInfoStatus' test.out
 
@@ -241,19 +241,19 @@ eval_tap $? 28 'InvalidateUserInfoCache' test.out
 
 #- 29 AnonymizeUserAgreement
 ./ng net.accelbyte.sdk.cli.Main legal anonymizeUserAgreement \
-    --userId 'qj58ClCp' \
+    --userId '0rCLYn4S' \
     > test.out 2>&1
 eval_tap $? 29 'AnonymizeUserAgreement' test.out
 
 #- 30 ChangePreferenceConsent1
 ./ng net.accelbyte.sdk.cli.Main legal changePreferenceConsent1 \
-    --body '[{"isAccepted": true, "isNeedToSendEventMarketing": false, "localizedPolicyVersionId": "16YVUT4g", "policyId": "o2YyUO2k", "policyVersionId": "JaX4KB9N"}, {"isAccepted": true, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "DSzf3e54", "policyId": "iKfyLwcz", "policyVersionId": "CyGJmmZ5"}, {"isAccepted": false, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "6XNxa0Vo", "policyId": "9zPPL34x", "policyVersionId": "N34qMzfG"}]' \
+    --body '[{"isAccepted": true, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "gcSdbQJL", "policyId": "vQNutaBM", "policyVersionId": "JWOfL6sp"}, {"isAccepted": true, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "Wu5Gn1bS", "policyId": "pNPbu6CH", "policyVersionId": "gXHyUceN"}, {"isAccepted": true, "isNeedToSendEventMarketing": false, "localizedPolicyVersionId": "cGw888n1", "policyId": "GwKmrSIE", "policyVersionId": "eFphiwyp"}]' \
     > test.out 2>&1
 eval_tap $? 30 'ChangePreferenceConsent1' test.out
 
 #- 31 AcceptVersionedPolicy
 ./ng net.accelbyte.sdk.cli.Main legal acceptVersionedPolicy \
-    --localizedPolicyVersionId '9NrvdKKx' \
+    --localizedPolicyVersionId 'UwwopS2a' \
     > test.out 2>&1
 eval_tap $? 31 'AcceptVersionedPolicy' test.out
 
@@ -264,24 +264,24 @@ eval_tap $? 32 'RetrieveAgreementsPublic' test.out
 
 #- 33 BulkAcceptVersionedPolicy
 ./ng net.accelbyte.sdk.cli.Main legal bulkAcceptVersionedPolicy \
-    --body '[{"isAccepted": false, "isNeedToSendEventMarketing": false, "localizedPolicyVersionId": "v2ixH4LM", "policyId": "ficCwTDp", "policyVersionId": "RdGTk2Su"}, {"isAccepted": false, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "hKrokdu9", "policyId": "GDOHZVSN", "policyVersionId": "TPykUciq"}, {"isAccepted": true, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "lnHgMCcu", "policyId": "m1uxAhcy", "policyVersionId": "g5QYQzEa"}]' \
+    --body '[{"isAccepted": false, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "q1K8MIoV", "policyId": "I33OhQsJ", "policyVersionId": "FabdqCbf"}, {"isAccepted": true, "isNeedToSendEventMarketing": false, "localizedPolicyVersionId": "PVD5v5xK", "policyId": "eBhbvdkr", "policyVersionId": "k5PjiKws"}, {"isAccepted": true, "isNeedToSendEventMarketing": false, "localizedPolicyVersionId": "5xcZXLnY", "policyId": "fJFRuAzx", "policyVersionId": "ISCIzLOV"}]' \
     > test.out 2>&1
 eval_tap $? 33 'BulkAcceptVersionedPolicy' test.out
 
 #- 34 IndirectBulkAcceptVersionedPolicyV2
 ./ng net.accelbyte.sdk.cli.Main legal indirectBulkAcceptVersionedPolicyV2 \
-    --clientId 'FEXUc56f' \
-    --countryCode 'RSEPIlTE' \
+    --clientId 'YPGMuKcF' \
+    --countryCode '5hzCiinz' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'PZ4Ft1dF' \
-    --body '[{"isAccepted": true, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "4FUKcsA6", "policyId": "I3xjxN42", "policyVersionId": "AznG8PWd"}, {"isAccepted": true, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "Qk07g8A7", "policyId": "KHrSh99Y", "policyVersionId": "kB1rUih8"}, {"isAccepted": false, "isNeedToSendEventMarketing": false, "localizedPolicyVersionId": "BVyGdgJ8", "policyId": "f5ixGBCH", "policyVersionId": "KQuro8r8"}]' \
+    --userId 'S29XvV0G' \
+    --body '[{"isAccepted": false, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "j2ZBxaaY", "policyId": "5qEOpUYK", "policyVersionId": "QMDyY2GA"}, {"isAccepted": false, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "9aziUNAC", "policyId": "M9wgP1t9", "policyVersionId": "vIKThjRa"}, {"isAccepted": false, "isNeedToSendEventMarketing": false, "localizedPolicyVersionId": "oINYmWBD", "policyId": "p4VAyxG7", "policyVersionId": "vOAJzz1r"}]' \
     > test.out 2>&1
 eval_tap $? 34 'IndirectBulkAcceptVersionedPolicyV2' test.out
 
 #- 35 IndirectBulkAcceptVersionedPolicy1
 ./ng net.accelbyte.sdk.cli.Main legal indirectBulkAcceptVersionedPolicy1 \
-    --userId 'Iswld6zi' \
-    --body '[{"isAccepted": false, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "LWXIVQrJ", "policyId": "6QHpS0Kl", "policyVersionId": "0xXgssdz"}, {"isAccepted": false, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "dqSiGUCk", "policyId": "heriZ7Jt", "policyVersionId": "OBbvARUT"}, {"isAccepted": true, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "piSUOAcg", "policyId": "XPLXv71g", "policyVersionId": "aEHeN8oY"}]' \
+    --userId 'W4lLTUAk' \
+    --body '[{"isAccepted": true, "isNeedToSendEventMarketing": true, "localizedPolicyVersionId": "TLCGR1RH", "policyId": "gNOOxV3c", "policyVersionId": "3z93AlxR"}, {"isAccepted": false, "isNeedToSendEventMarketing": false, "localizedPolicyVersionId": "CObR6Xbd", "policyId": "LMZaK2g7", "policyVersionId": "DBtn1pul"}, {"isAccepted": false, "isNeedToSendEventMarketing": false, "localizedPolicyVersionId": "EN5gwRkM", "policyId": "ddhwIO7I", "policyVersionId": "KAer2Mbg"}]' \
     > test.out 2>&1
 eval_tap $? 35 'IndirectBulkAcceptVersionedPolicy1' test.out
 
@@ -293,25 +293,25 @@ eval_tap $? 36 'RetrieveEligibilitiesPublic' test.out
 
 #- 37 RetrieveEligibilitiesPublicIndirect
 ./ng net.accelbyte.sdk.cli.Main legal retrieveEligibilitiesPublicIndirect \
-    --clientId '4XzFRNrf' \
-    --countryCode 'x3sBksMf' \
+    --clientId '5q0BVb39' \
+    --countryCode '3lNSJ9Mx' \
     --namespace "$AB_NAMESPACE" \
-    --userId '8lWmNnrF' \
+    --userId '3LqFuiFb' \
     > test.out 2>&1
 eval_tap $? 37 'RetrieveEligibilitiesPublicIndirect' test.out
 
 #- 38 RetrieveSingleLocalizedPolicyVersion1
 ./ng net.accelbyte.sdk.cli.Main legal retrieveSingleLocalizedPolicyVersion1 \
-    --localizedPolicyVersionId 'nf2XNlEi' \
+    --localizedPolicyVersionId 'Knq1ysro' \
     > test.out 2>&1
 eval_tap $? 38 'RetrieveSingleLocalizedPolicyVersion1' test.out
 
 #- 39 RetrieveLatestPolicies
 ./ng net.accelbyte.sdk.cli.Main legal retrieveLatestPolicies \
-    --countryCode 'DGlPBTkV' \
+    --countryCode 'vDuWsH9h' \
     --defaultOnEmpty  \
     --policyType 'LEGAL_DOCUMENT_TYPE' \
-    --tags 'fAmuX66f' \
+    --tags 'PekijmJR' \
     > test.out 2>&1
 eval_tap $? 39 'RetrieveLatestPolicies' test.out
 
@@ -321,18 +321,18 @@ eval_tap $? 39 'RetrieveLatestPolicies' test.out
     --alwaysIncludeDefault  \
     --defaultOnEmpty  \
     --policyType 'LEGAL_DOCUMENT_TYPE' \
-    --tags 'U99KGYs5' \
+    --tags 'y0kgfzLP' \
     > test.out 2>&1
 eval_tap $? 40 'RetrieveLatestPoliciesPublic' test.out
 
 #- 41 RetrieveLatestPoliciesByNamespaceAndCountryPublic
 ./ng net.accelbyte.sdk.cli.Main legal retrieveLatestPoliciesByNamespaceAndCountryPublic \
-    --countryCode 's5kvIfrl' \
+    --countryCode 'lkenStYC' \
     --namespace "$AB_NAMESPACE" \
     --alwaysIncludeDefault  \
     --defaultOnEmpty  \
     --policyType 'LEGAL_DOCUMENT_TYPE' \
-    --tags '2tKXmSe3' \
+    --tags 'jKtSv3Tn' \
     > test.out 2>&1
 eval_tap $? 41 'RetrieveLatestPoliciesByNamespaceAndCountryPublic' test.out
 

@@ -60,7 +60,7 @@ public class CheckServerLogs implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      TerminatedServers wrapper = new TerminatedServers(sdk);
+      final TerminatedServers wrapper = new TerminatedServers(sdk);
       final net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers.CheckServerLogs
           operation =
               net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers.CheckServerLogs
@@ -68,7 +68,7 @@ public class CheckServerLogs implements Callable<Integer> {
                   .namespace(namespace)
                   .podName(podName)
                   .build();
-      ModelsLogFileStatus response = wrapper.checkServerLogs(operation);
+      final ModelsLogFileStatus response = wrapper.checkServerLogs(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

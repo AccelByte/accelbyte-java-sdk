@@ -60,7 +60,7 @@ public class ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost implements Ca
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      GametelemetryOperations wrapper = new GametelemetryOperations(sdk);
+      final GametelemetryOperations wrapper = new GametelemetryOperations(sdk);
       final net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations
               .ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost
           operation =

@@ -70,7 +70,7 @@ public class PutPlayerRecordConcurrentHandlerV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      ConcurrentRecord wrapper = new ConcurrentRecord(sdk);
+      final ConcurrentRecord wrapper = new ConcurrentRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.concurrent_record
               .PutPlayerRecordConcurrentHandlerV1
           operation =

@@ -70,7 +70,7 @@ public class UpdateDeploymentOverride implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      DeploymentConfig wrapper = new DeploymentConfig(sdk);
+      final DeploymentConfig wrapper = new DeploymentConfig(sdk);
       final net.accelbyte.sdk.api.dsmc.operations.deployment_config.UpdateDeploymentOverride
           operation =
               net.accelbyte.sdk.api.dsmc.operations.deployment_config.UpdateDeploymentOverride
@@ -82,7 +82,7 @@ public class UpdateDeploymentOverride implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ModelsUpdateDeploymentOverrideRequest.class))
                   .build();
-      ModelsDeploymentWithOverride response = wrapper.updateDeploymentOverride(operation);
+      final ModelsDeploymentWithOverride response = wrapper.updateDeploymentOverride(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

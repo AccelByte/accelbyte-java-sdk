@@ -54,7 +54,7 @@ public class DeleteSteamIAPConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      IAP wrapper = new IAP(sdk);
+      final IAP wrapper = new IAP(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap.DeleteSteamIAPConfig operation =
           net.accelbyte.sdk.api.platform.operations.iap.DeleteSteamIAPConfig.builder()
               .namespace(namespace)

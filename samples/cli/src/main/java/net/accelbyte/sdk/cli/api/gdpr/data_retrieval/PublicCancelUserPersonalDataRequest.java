@@ -64,7 +64,7 @@ public class PublicCancelUserPersonalDataRequest implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      DataRetrieval wrapper = new DataRetrieval(sdk);
+      final DataRetrieval wrapper = new DataRetrieval(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_retrieval.PublicCancelUserPersonalDataRequest
           operation =
               net.accelbyte.sdk.api.gdpr.operations.data_retrieval

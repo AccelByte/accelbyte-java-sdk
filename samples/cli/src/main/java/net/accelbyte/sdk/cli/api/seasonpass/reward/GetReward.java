@@ -65,14 +65,14 @@ public class GetReward implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Reward wrapper = new Reward(sdk);
+      final Reward wrapper = new Reward(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.reward.GetReward operation =
           net.accelbyte.sdk.api.seasonpass.operations.reward.GetReward.builder()
               .code(code)
               .namespace(namespace)
               .seasonId(seasonId)
               .build();
-      RewardInfo response = wrapper.getReward(operation);
+      final RewardInfo response = wrapper.getReward(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

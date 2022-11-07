@@ -60,13 +60,13 @@ public class UpdatePlaystationIAPConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      IAP wrapper = new IAP(sdk);
+      final IAP wrapper = new IAP(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap.UpdatePlaystationIAPConfig operation =
           net.accelbyte.sdk.api.platform.operations.iap.UpdatePlaystationIAPConfig.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, PlaystationIAPConfigRequest.class))
               .build();
-      PlayStationIAPConfigInfo response = wrapper.updatePlaystationIAPConfig(operation);
+      final PlayStationIAPConfigInfo response = wrapper.updatePlaystationIAPConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

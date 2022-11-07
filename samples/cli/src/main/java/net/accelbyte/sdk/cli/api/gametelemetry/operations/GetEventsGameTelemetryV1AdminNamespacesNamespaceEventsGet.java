@@ -95,7 +95,7 @@ public class GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Operations wrapper = new Operations(sdk);
+      final Operations wrapper = new Operations(sdk);
       final net.accelbyte.sdk.api.gametelemetry.operations.operations
               .GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet
           operation =

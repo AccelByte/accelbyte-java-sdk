@@ -59,7 +59,7 @@ public class DeleteTiedStat implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      StatConfiguration wrapper = new StatConfiguration(sdk);
+      final StatConfiguration wrapper = new StatConfiguration(sdk);
       final net.accelbyte.sdk.api.social.operations.stat_configuration.DeleteTiedStat operation =
           net.accelbyte.sdk.api.social.operations.stat_configuration.DeleteTiedStat.builder()
               .namespace(namespace)

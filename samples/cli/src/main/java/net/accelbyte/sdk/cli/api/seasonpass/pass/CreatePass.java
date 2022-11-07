@@ -65,14 +65,14 @@ public class CreatePass implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Pass wrapper = new Pass(sdk);
+      final Pass wrapper = new Pass(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.pass.CreatePass operation =
           net.accelbyte.sdk.api.seasonpass.operations.pass.CreatePass.builder()
               .namespace(namespace)
               .seasonId(seasonId)
               .body(new ObjectMapper().readValue(body, PassCreate.class))
               .build();
-      PassInfo response = wrapper.createPass(operation);
+      final PassInfo response = wrapper.createPass(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

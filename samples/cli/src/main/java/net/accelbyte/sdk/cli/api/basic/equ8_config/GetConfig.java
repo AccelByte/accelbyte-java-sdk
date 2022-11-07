@@ -55,12 +55,12 @@ public class GetConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      EQU8Config wrapper = new EQU8Config(sdk);
+      final EQU8Config wrapper = new EQU8Config(sdk);
       final net.accelbyte.sdk.api.basic.operations.equ8_config.GetConfig operation =
           net.accelbyte.sdk.api.basic.operations.equ8_config.GetConfig.builder()
               .namespace(namespace)
               .build();
-      Equ8Config response = wrapper.getConfig(operation);
+      final Equ8Config response = wrapper.getConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

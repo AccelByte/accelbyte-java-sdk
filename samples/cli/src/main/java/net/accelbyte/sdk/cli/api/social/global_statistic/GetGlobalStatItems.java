@@ -65,14 +65,14 @@ public class GetGlobalStatItems implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      GlobalStatistic wrapper = new GlobalStatistic(sdk);
+      final GlobalStatistic wrapper = new GlobalStatistic(sdk);
       final net.accelbyte.sdk.api.social.operations.global_statistic.GetGlobalStatItems operation =
           net.accelbyte.sdk.api.social.operations.global_statistic.GetGlobalStatItems.builder()
               .namespace(namespace)
               .limit(limit)
               .offset(offset)
               .build();
-      GlobalStatItemPagingSlicedResult response = wrapper.getGlobalStatItems(operation);
+      final GlobalStatItemPagingSlicedResult response = wrapper.getGlobalStatItems(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

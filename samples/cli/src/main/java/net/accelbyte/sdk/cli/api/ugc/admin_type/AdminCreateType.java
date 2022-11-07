@@ -60,13 +60,13 @@ public class AdminCreateType implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      AdminType wrapper = new AdminType(sdk);
+      final AdminType wrapper = new AdminType(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_type.AdminCreateType operation =
           net.accelbyte.sdk.api.ugc.operations.admin_type.AdminCreateType.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsCreateTypeRequest.class))
               .build();
-      ModelsCreateTypeResponse response = wrapper.adminCreateType(operation);
+      final ModelsCreateTypeResponse response = wrapper.adminCreateType(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

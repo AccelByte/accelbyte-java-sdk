@@ -80,7 +80,7 @@ public class AdminGetBannedDevicesV4 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      DevicesV4 wrapper = new DevicesV4(sdk);
+      final DevicesV4 wrapper = new DevicesV4(sdk);
       final net.accelbyte.sdk.api.iam.operations.devices_v4.AdminGetBannedDevicesV4 operation =
           net.accelbyte.sdk.api.iam.operations.devices_v4.AdminGetBannedDevicesV4.builder()
               .namespace(namespace)
@@ -90,7 +90,7 @@ public class AdminGetBannedDevicesV4 implements Callable<Integer> {
               .offset(offset)
               .startDate(startDate)
               .build();
-      ModelDeviceBannedResponseV4 response = wrapper.adminGetBannedDevicesV4(operation);
+      final ModelDeviceBannedResponseV4 response = wrapper.adminGetBannedDevicesV4(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -75,7 +75,7 @@ public class AdminListUserAchievements implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Achievements wrapper = new Achievements(sdk);
+      final Achievements wrapper = new Achievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.achievements.AdminListUserAchievements
           operation =
               net.accelbyte.sdk.api.achievement.operations.achievements.AdminListUserAchievements
@@ -86,7 +86,7 @@ public class AdminListUserAchievements implements Callable<Integer> {
                   .offset(offset)
                   .preferUnlocked(preferUnlocked)
                   .build();
-      ModelsPaginatedUserAchievementResponse response =
+      final ModelsPaginatedUserAchievementResponse response =
           wrapper.adminListUserAchievements(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

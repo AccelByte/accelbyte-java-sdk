@@ -60,13 +60,13 @@ public class CreateUser implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Users wrapper = new Users(sdk);
+      final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.CreateUser operation =
           net.accelbyte.sdk.api.iam.operations.users.CreateUser.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelUserCreateRequest.class))
               .build();
-      ModelUserCreateResponse response = wrapper.createUser(operation);
+      final ModelUserCreateResponse response = wrapper.createUser(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

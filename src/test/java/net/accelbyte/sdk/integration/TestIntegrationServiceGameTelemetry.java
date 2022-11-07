@@ -40,9 +40,7 @@ public class TestIntegrationServiceGameTelemetry extends TestIntegration {
   public void test() throws Exception {
     final String steamId = "76561199259217491";
     final String playTime = "4";
-    final String eventId = "javaserversdk";
     final String eventName = "javaserversdkevent";
-    final String eventTimestamp = "0001-01-01T00:00:00.000Z";
     final Map<String, ?> eventPayload = Collections.singletonMap("foo", "bar");
 
     final GametelemetryOperations gameTelemetryWrapper = new GametelemetryOperations(sdk);
@@ -51,10 +49,8 @@ public class TestIntegrationServiceGameTelemetry extends TestIntegration {
 
     final TelemetryBody saveTelemetryBody =
         TelemetryBody.builder()
-            .eventId(eventId)
             .eventName(eventName)
             .eventNamespace(eventName)
-            .eventTimestamp(eventTimestamp)
             .payload(eventPayload)
             .build();
 

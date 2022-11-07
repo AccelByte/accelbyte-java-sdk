@@ -65,14 +65,14 @@ public class ExistsAnyPassByPassCodes implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Season wrapper = new Season(sdk);
+      final Season wrapper = new Season(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.season.ExistsAnyPassByPassCodes operation =
           net.accelbyte.sdk.api.seasonpass.operations.season.ExistsAnyPassByPassCodes.builder()
               .namespace(namespace)
               .userId(userId)
               .passCodes(passCodes)
               .build();
-      Ownership response = wrapper.existsAnyPassByPassCodes(operation);
+      final Ownership response = wrapper.existsAnyPassByPassCodes(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

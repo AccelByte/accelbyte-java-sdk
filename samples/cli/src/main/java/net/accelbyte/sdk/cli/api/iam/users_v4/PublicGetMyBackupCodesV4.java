@@ -55,12 +55,12 @@ public class PublicGetMyBackupCodesV4 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      UsersV4 wrapper = new UsersV4(sdk);
+      final UsersV4 wrapper = new UsersV4(sdk);
       final net.accelbyte.sdk.api.iam.operations.users_v4.PublicGetMyBackupCodesV4 operation =
           net.accelbyte.sdk.api.iam.operations.users_v4.PublicGetMyBackupCodesV4.builder()
               .namespace(namespace)
               .build();
-      ModelBackupCodesResponseV4 response = wrapper.publicGetMyBackupCodesV4(operation);
+      final ModelBackupCodesResponseV4 response = wrapper.publicGetMyBackupCodesV4(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

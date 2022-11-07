@@ -55,12 +55,12 @@ public class ListStores implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Store wrapper = new Store(sdk);
+      final Store wrapper = new Store(sdk);
       final net.accelbyte.sdk.api.platform.operations.store.ListStores operation =
           net.accelbyte.sdk.api.platform.operations.store.ListStores.builder()
               .namespace(namespace)
               .build();
-      List<StoreInfo> response = wrapper.listStores(operation);
+      final List<StoreInfo> response = wrapper.listStores(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

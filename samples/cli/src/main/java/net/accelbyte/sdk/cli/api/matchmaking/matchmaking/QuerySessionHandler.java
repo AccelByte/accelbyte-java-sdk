@@ -60,13 +60,13 @@ public class QuerySessionHandler implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      Matchmaking wrapper = new Matchmaking(sdk);
+      final Matchmaking wrapper = new Matchmaking(sdk);
       final net.accelbyte.sdk.api.matchmaking.operations.matchmaking.QuerySessionHandler operation =
           net.accelbyte.sdk.api.matchmaking.operations.matchmaking.QuerySessionHandler.builder()
               .matchID(matchID)
               .namespace(namespace)
               .build();
-      ModelsMatchmakingResult response = wrapper.querySessionHandler(operation);
+      final ModelsMatchmakingResult response = wrapper.querySessionHandler(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);
