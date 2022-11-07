@@ -1,6 +1,22 @@
+<a name="v0.23.0"></a>
+## [v0.23.0] - 2022-11-07
+### Chore
+- bump to version 0.23 for ab cloud 3.35
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.35
+- **spec:** update spec for ab cloud 3.35
+
+### Ci
+- **github:** publish,close, and release in one go
+
+### Docs
+- update changelog for ab cloud 3.35
+- fix create oauth client link in getting started doc
+
+
 <a name="v0.22.0"></a>
 ## [v0.22.0] - 2022-10-25
 ### Chore
+- bump to version 0.22 for ab cloud 3.34
 - regenerate due to template refactoring
 - **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.34
 - **spec:** update spec for ab cloud 3.34
@@ -683,6 +699,7 @@
 - replace unnecessary object
 
 
+[v0.23.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.22.0...v0.23.0
 [v0.22.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.21.0...v0.22.0
 [v0.21.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.20.0...v0.21.0
 [v0.20.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.19.0...v0.20.0
