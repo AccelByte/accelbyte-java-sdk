@@ -27,11 +27,19 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class TelemetryBody extends Model {
 
+  @JsonProperty("EventId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String eventId;
+
   @JsonProperty("EventName")
   private String eventName;
 
   @JsonProperty("EventNamespace")
   private String eventNamespace;
+
+  @JsonProperty("EventTimestamp")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String eventTimestamp;
 
   @JsonProperty("Payload")
   private Map<String, ?> payload;

@@ -212,48 +212,49 @@ Source: [TestIntegrationServiceDsmc.java](../src/test/java/net/accelbyte/sdk/int
 ### List local servers
 
 ```java
-final ModelsListServerResponse listLocalServerResult = dsmcAdminWrapper.listLocalServer(
-    ListLocalServer.builder().namespace(this.namespace).build());
+final ModelsListServerResponse listLocalServerResult =
+    dsmcAdminWrapper.listLocalServer(
+        ListLocalServer.builder().namespace(this.namespace).build());
 ```
 
 ### Create a session (DSMC)
 
 ```java
-final net.accelbyte.sdk.api.dsmc.models.ModelsCreateSessionRequest createSessionDsmcBody = net.accelbyte.sdk.api.dsmc.models.ModelsCreateSessionRequest
-    .builder()
-    .clientVersion(version)
-    .configuration("")
-    .deployment(targetDeployment)
-    .gameMode(gameMode)
-    .matchingAllies(
-        Arrays.asList(
-            new ModelsRequestMatchingAlly[] {
-                ModelsRequestMatchingAlly.builder()
-                    .matchingParties(
-                        Arrays.asList(
-                            new ModelsRequestMatchParty[] {
+final net.accelbyte.sdk.api.dsmc.models.ModelsCreateSessionRequest createSessionDsmcBody =
+    net.accelbyte.sdk.api.dsmc.models.ModelsCreateSessionRequest.builder()
+        .clientVersion(version)
+        .configuration("")
+        .deployment(targetDeployment)
+        .gameMode(gameMode)
+        .matchingAllies(
+            Arrays.asList(
+                new ModelsRequestMatchingAlly[] {
+                  ModelsRequestMatchingAlly.builder()
+                      .matchingParties(
+                          Arrays.asList(
+                              new ModelsRequestMatchParty[] {
                                 ModelsRequestMatchParty.builder()
                                     .partyAttributes(new HashMap<String, Object>())
                                     .partyId(partyId)
                                     .partyMembers(
                                         Arrays.asList(
                                             new ModelsRequestMatchMember[] {
-                                                ModelsRequestMatchMember.builder()
-                                                    .userId(this.username)
-                                                    .build()
+                                              ModelsRequestMatchMember.builder()
+                                                  .userId(this.username)
+                                                  .build()
                                             }))
                                     .build()
-                            }))
-                    .build()
-            }))
-    .region("")
-    .podName("")
-    .sessionId(sessionId)
-    .namespace(targetNamespace)
-    .build();
+                              }))
+                      .build()
+                }))
+        .region("")
+        .podName("")
+        .sessionId(sessionId)
+        .namespace(targetNamespace)
+        .build();
 
-final net.accelbyte.sdk.api.dsmc.models.ModelsSessionResponse createSessionDsmcResult = dsmcSessionWrapper
-    .createSession(
+final net.accelbyte.sdk.api.dsmc.models.ModelsSessionResponse createSessionDsmcResult =
+    dsmcSessionWrapper.createSession(
         net.accelbyte.sdk.api.dsmc.operations.session.CreateSession.builder()
             .namespace(targetNamespace)
             .body(createSessionDsmcBody)
@@ -263,54 +264,58 @@ final net.accelbyte.sdk.api.dsmc.models.ModelsSessionResponse createSessionDsmcR
 ### Get session (DSMC)
 
 ```java
-final net.accelbyte.sdk.api.dsmc.models.ModelsSessionResponse getSessionDsmcResult = dsmcSessionWrapper.getSession(
-    net.accelbyte.sdk.api.dsmc.operations.session.GetSession.builder()
-        .namespace(targetNamespace)
-        .sessionID(sessionId)
-        .build());
+final net.accelbyte.sdk.api.dsmc.models.ModelsSessionResponse getSessionDsmcResult =
+    dsmcSessionWrapper.getSession(
+        net.accelbyte.sdk.api.dsmc.operations.session.GetSession.builder()
+            .namespace(targetNamespace)
+            .sessionID(sessionId)
+            .build());
 ```
 
 ### Claim server (for example, using HTTP retry)
 
 ```java
-final DefaultHttpRetryPolicy retryPolicy = new DefaultHttpRetryPolicy() {
-  @Override
-  public boolean doRetry(
-      int attempt, Operation operation, HttpResponse response, Exception exception) {
-    // Custom logic to handle DSMC claim server 425 server is not ready
-    if (attempt < this.getMaxRetry()) {
-      if (response != null && response.getCode() == 425) {
-        try {
-          final int multiplier = this.getRetryIntervalType() == RetryIntervalType.EXPONENTIAL ? attempt : 1;
-          Thread.sleep(this.getRetryInterval() * multiplier); // Wait
-          // before
-          // retry
-        } catch (InterruptedException ie) {
-          Thread.currentThread().interrupt();
+final DefaultHttpRetryPolicy retryPolicy =
+    new DefaultHttpRetryPolicy() {
+      @Override
+      public boolean doRetry(
+          int attempt, Operation operation, HttpResponse response, Exception exception) {
+        // Custom logic to handle DSMC claim server 425 server is not ready
+        if (attempt < this.getMaxRetry()) {
+          if (response != null && response.getCode() == 425) {
+            try {
+              final int multiplier =
+                  this.getRetryIntervalType() == RetryIntervalType.EXPONENTIAL ? attempt : 1;
+              // Wait before retry
+              Thread.sleep(this.getRetryInterval() * multiplier);
+            } catch (InterruptedException ie) {
+              Thread.currentThread().interrupt();
+            }
+
+            return true;
+          }
         }
 
-        return true;
+        return false;
       }
-    }
+    };
 
-    return false;
-  }
-};
-
-final AccelByteSDK reliableSdk = new AccelByteSDK(
-    new ReliableHttpClient(retryPolicy),
-    sdk.getSdkConfiguration().getTokenRepository(),
-    sdk.getSdkConfiguration().getConfigRepository());
+final AccelByteSDK reliableSdk =
+    new AccelByteSDK(
+        new ReliableHttpClient(retryPolicy),
+        sdk.getSdkConfiguration().getTokenRepository(),
+        sdk.getSdkConfiguration().getConfigRepository());
 
 retryPolicy.setRetryIntervalType(RetryIntervalType.LINEAR);
 retryPolicy.setCallTimeout(5000);
 retryPolicy.setMaxRetry(20);
 retryPolicy.setRetryInterval(2000);
 
-final net.accelbyte.sdk.api.dsmc.wrappers.Session dsmcSessionReliableWrapper = new net.accelbyte.sdk.api.dsmc.wrappers.Session(
-    reliableSdk);
+final net.accelbyte.sdk.api.dsmc.wrappers.Session dsmcSessionReliableWrapper =
+    new net.accelbyte.sdk.api.dsmc.wrappers.Session(reliableSdk);
 
-ModelsClaimSessionRequest claimServerBody = ModelsClaimSessionRequest.builder().sessionId(sessionId).build();
+ModelsClaimSessionRequest claimServerBody =
+    ModelsClaimSessionRequest.builder().sessionId(sessionId).build();
 
 dsmcSessionReliableWrapper.claimServer(
     ClaimServer.builder().namespace(targetNamespace).body(claimServerBody).build());
@@ -370,10 +375,8 @@ Source: [TestIntegrationServiceGameTelemetry.java](../src/test/java/net/accelbyt
 ```java
 final TelemetryBody saveTelemetryBody =
     TelemetryBody.builder()
-        .eventId(eventId)
         .eventName(eventName)
         .eventNamespace(eventName)
-        .eventTimestamp(eventTimestamp)
         .payload(eventPayload)
         .build();
 
