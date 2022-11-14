@@ -24,10 +24,12 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Required permission `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope
  * `social`
  *
- * <p>Note: user achievement status value mean: `status = 1 (in progress)` and `status = 2
- * (unlocked)
+ * <p>Note:
  *
- * <p>`
+ * <p>User Achievement status value mean: `status = 1 (in progress)` and `status = 2 (unlocked)`
+ *
+ * <p>`achievedAt` value will return default value: `0001-01-01T00:00:00Z` for user achievement that
+ * locked or in progress
  */
 @Getter
 @Setter
