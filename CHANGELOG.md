@@ -1,3 +1,14 @@
+<a name="v0.23.2"></a>
+## [v0.23.2] - 2022-11-14
+### Chore
+- bump to version 0.23.2 for ab cloud 3.35 hotfix
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.35 hotfix
+- **spec:** update spec for ab cloud 3.35 hotfix
+
+### Docs
+- update changelog for ab cloud 3.35 hotfix
+
+
 <a name="v0.23.1"></a>
 ## [v0.23.1] - 2022-11-11
 ### Chore
@@ -710,6 +721,7 @@
 - replace unnecessary object
 
 
+[v0.23.2]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.23.1...v0.23.2
 [v0.23.1]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.23.0...v0.23.1
 [v0.23.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.22.0...v0.23.0
 [v0.22.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.21.0...v0.22.0
