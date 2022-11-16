@@ -1,0 +1,90 @@
+# Session Service Index
+
+&nbsp;  
+
+## Operations
+
+### Operations Wrapper:  [Operations](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/Operations.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/healthz` | GET | GetHealthcheckInfo | [GetHealthcheckInfo](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/GetHealthcheckInfo.java) | [GetHealthcheckInfo](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/GetHealthcheckInfo.java) |
+| `/session/healthz` | GET | GetHealthcheckInfoV1 | [GetHealthcheckInfoV1](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/GetHealthcheckInfoV1.java) | [GetHealthcheckInfoV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/GetHealthcheckInfoV1.java) |
+
+### Configuration Template Wrapper:  [ConfigurationTemplate](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/ConfigurationTemplate.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/session/v1/admin/namespaces/{namespace}/configuration` | POST | AdminCreateConfigurationTemplateV1 | [AdminCreateConfigurationTemplateV1](../../src/main/java/net/accelbyte/sdk/api/session/operations/configuration_template/AdminCreateConfigurationTemplateV1.java) | [AdminCreateConfigurationTemplateV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/configuration_template/AdminCreateConfigurationTemplateV1.java) |
+| `/session/v1/admin/namespaces/{namespace}/configurations` | GET | AdminGetAllConfigurationTemplatesV1 | [AdminGetAllConfigurationTemplatesV1](../../src/main/java/net/accelbyte/sdk/api/session/operations/configuration_template/AdminGetAllConfigurationTemplatesV1.java) | [AdminGetAllConfigurationTemplatesV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/configuration_template/AdminGetAllConfigurationTemplatesV1.java) |
+| `/session/v1/admin/namespaces/{namespace}/configurations/{name}` | GET | AdminGetConfigurationTemplateV1 | [AdminGetConfigurationTemplateV1](../../src/main/java/net/accelbyte/sdk/api/session/operations/configuration_template/AdminGetConfigurationTemplateV1.java) | [AdminGetConfigurationTemplateV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/configuration_template/AdminGetConfigurationTemplateV1.java) |
+| `/session/v1/admin/namespaces/{namespace}/configurations/{name}` | PUT | AdminUpdateConfigurationTemplateV1 | [AdminUpdateConfigurationTemplateV1](../../src/main/java/net/accelbyte/sdk/api/session/operations/configuration_template/AdminUpdateConfigurationTemplateV1.java) | [AdminUpdateConfigurationTemplateV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/configuration_template/AdminUpdateConfigurationTemplateV1.java) |
+| `/session/v1/admin/namespaces/{namespace}/configurations/{name}` | DELETE | AdminDeleteConfigurationTemplateV1 | [AdminDeleteConfigurationTemplateV1](../../src/main/java/net/accelbyte/sdk/api/session/operations/configuration_template/AdminDeleteConfigurationTemplateV1.java) | [AdminDeleteConfigurationTemplateV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/configuration_template/AdminDeleteConfigurationTemplateV1.java) |
+
+### Game Session Wrapper:  [GameSession](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/GameSession.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/session/v1/admin/namespaces/{namespace}/gamesessions` | GET | AdminQueryGameSessions | [AdminQueryGameSessions](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/AdminQueryGameSessions.java) | [AdminQueryGameSessions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/AdminQueryGameSessions.java) |
+| `/session/v1/admin/namespaces/{namespace}/gamesessions/{sessionId}/members/{memberId}/status/{statusType}` | PUT | AdminUpdateGameSessionMember | [AdminUpdateGameSessionMember](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/AdminUpdateGameSessionMember.java) | [AdminUpdateGameSessionMember](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/AdminUpdateGameSessionMember.java) |
+| `/session/v1/public/namespaces/{namespace}/gamesession` | POST | CreateGameSession | [CreateGameSession](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/CreateGameSession.java) | [CreateGameSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/CreateGameSession.java) |
+| `/session/v1/public/namespaces/{namespace}/gamesessions` | POST | PublicQueryGameSessions | [PublicQueryGameSessions](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/PublicQueryGameSessions.java) | [PublicQueryGameSessions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/PublicQueryGameSessions.java) |
+| `/session/v1/public/namespaces/{namespace}/gamesessions/servers/{podName}` | GET | GetGameSessionByPodName | [GetGameSessionByPodName](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/GetGameSessionByPodName.java) | [GetGameSessionByPodName](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/GetGameSessionByPodName.java) |
+| `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}` | GET | GetGameSession | [GetGameSession](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/GetGameSession.java) | [GetGameSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/GetGameSession.java) |
+| `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}` | PUT | UpdateGameSession | [UpdateGameSession](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/UpdateGameSession.java) | [UpdateGameSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/UpdateGameSession.java) |
+| `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}` | DELETE | DeleteGameSession | [DeleteGameSession](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/DeleteGameSession.java) | [DeleteGameSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/DeleteGameSession.java) |
+| `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}` | PATCH | PatchUpdateGameSession | [PatchUpdateGameSession](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/PatchUpdateGameSession.java) | [PatchUpdateGameSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/PatchUpdateGameSession.java) |
+| `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/invite` | POST | PublicGameSessionInvite | [PublicGameSessionInvite](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/PublicGameSessionInvite.java) | [PublicGameSessionInvite](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/PublicGameSessionInvite.java) |
+| `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/join` | POST | JoinGameSession | [JoinGameSession](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/JoinGameSession.java) | [JoinGameSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/JoinGameSession.java) |
+| `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/leave` | DELETE | LeaveGameSession | [LeaveGameSession](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/LeaveGameSession.java) | [LeaveGameSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/LeaveGameSession.java) |
+| `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/reject` | DELETE | PublicGameSessionReject | [PublicGameSessionReject](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/PublicGameSessionReject.java) | [PublicGameSessionReject](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/PublicGameSessionReject.java) |
+| `/session/v1/public/namespaces/{namespace}/users/me/gamesessions` | GET | PublicQueryMyGameSessions | [PublicQueryMyGameSessions](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/PublicQueryMyGameSessions.java) | [PublicQueryMyGameSessions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/PublicQueryMyGameSessions.java) |
+
+### Party Wrapper:  [Party](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/Party.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/session/v1/admin/namespaces/{namespace}/parties` | GET | AdminQueryParties | [AdminQueryParties](../../src/main/java/net/accelbyte/sdk/api/session/operations/party/AdminQueryParties.java) | [AdminQueryParties](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/party/AdminQueryParties.java) |
+| `/session/v1/public/namespaces/{namespace}/parties/users/me/join/code` | POST | PublicPartyJoinCode | [PublicPartyJoinCode](../../src/main/java/net/accelbyte/sdk/api/session/operations/party/PublicPartyJoinCode.java) | [PublicPartyJoinCode](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/party/PublicPartyJoinCode.java) |
+| `/session/v1/public/namespaces/{namespace}/parties/{partyId}` | GET | PublicGetParty | [PublicGetParty](../../src/main/java/net/accelbyte/sdk/api/session/operations/party/PublicGetParty.java) | [PublicGetParty](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/party/PublicGetParty.java) |
+| `/session/v1/public/namespaces/{namespace}/parties/{partyId}` | PUT | PublicUpdateParty | [PublicUpdateParty](../../src/main/java/net/accelbyte/sdk/api/session/operations/party/PublicUpdateParty.java) | [PublicUpdateParty](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/party/PublicUpdateParty.java) |
+| `/session/v1/public/namespaces/{namespace}/parties/{partyId}` | PATCH | PublicPatchUpdateParty | [PublicPatchUpdateParty](../../src/main/java/net/accelbyte/sdk/api/session/operations/party/PublicPatchUpdateParty.java) | [PublicPatchUpdateParty](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/party/PublicPatchUpdateParty.java) |
+| `/session/v1/public/namespaces/{namespace}/parties/{partyId}/code` | POST | PublicGeneratePartyCode | [PublicGeneratePartyCode](../../src/main/java/net/accelbyte/sdk/api/session/operations/party/PublicGeneratePartyCode.java) | [PublicGeneratePartyCode](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/party/PublicGeneratePartyCode.java) |
+| `/session/v1/public/namespaces/{namespace}/parties/{partyId}/code` | DELETE | PublicRevokePartyCode | [PublicRevokePartyCode](../../src/main/java/net/accelbyte/sdk/api/session/operations/party/PublicRevokePartyCode.java) | [PublicRevokePartyCode](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/party/PublicRevokePartyCode.java) |
+| `/session/v1/public/namespaces/{namespace}/parties/{partyId}/invite` | POST | PublicPartyInvite | [PublicPartyInvite](../../src/main/java/net/accelbyte/sdk/api/session/operations/party/PublicPartyInvite.java) | [PublicPartyInvite](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/party/PublicPartyInvite.java) |
+| `/session/v1/public/namespaces/{namespace}/parties/{partyId}/leader` | POST | PublicPromotePartyLeader | [PublicPromotePartyLeader](../../src/main/java/net/accelbyte/sdk/api/session/operations/party/PublicPromotePartyLeader.java) | [PublicPromotePartyLeader](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/party/PublicPromotePartyLeader.java) |
+| `/session/v1/public/namespaces/{namespace}/parties/{partyId}/users/me/join` | POST | PublicPartyJoin | [PublicPartyJoin](../../src/main/java/net/accelbyte/sdk/api/session/operations/party/PublicPartyJoin.java) | [PublicPartyJoin](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/party/PublicPartyJoin.java) |
+| `/session/v1/public/namespaces/{namespace}/parties/{partyId}/users/me/leave` | DELETE | PublicPartyLeave | [PublicPartyLeave](../../src/main/java/net/accelbyte/sdk/api/session/operations/party/PublicPartyLeave.java) | [PublicPartyLeave](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/party/PublicPartyLeave.java) |
+| `/session/v1/public/namespaces/{namespace}/parties/{partyId}/users/me/reject` | DELETE | PublicPartyReject | [PublicPartyReject](../../src/main/java/net/accelbyte/sdk/api/session/operations/party/PublicPartyReject.java) | [PublicPartyReject](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/party/PublicPartyReject.java) |
+| `/session/v1/public/namespaces/{namespace}/parties/{partyId}/users/{userId}/kick` | DELETE | PublicPartyKick | [PublicPartyKick](../../src/main/java/net/accelbyte/sdk/api/session/operations/party/PublicPartyKick.java) | [PublicPartyKick](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/party/PublicPartyKick.java) |
+| `/session/v1/public/namespaces/{namespace}/party` | POST | PublicCreateParty | [PublicCreateParty](../../src/main/java/net/accelbyte/sdk/api/session/operations/party/PublicCreateParty.java) | [PublicCreateParty](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/party/PublicCreateParty.java) |
+| `/session/v1/public/namespaces/{namespace}/users/me/parties` | GET | PublicQueryMyParties | [PublicQueryMyParties](../../src/main/java/net/accelbyte/sdk/api/session/operations/party/PublicQueryMyParties.java) | [PublicQueryMyParties](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/party/PublicQueryMyParties.java) |
+
+
+&nbsp;  
+
+## Models
+
+| Model | Class |
+|---|---|
+| `apimodels.ConfigurationTemplateResponse` | [ApimodelsConfigurationTemplateResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsConfigurationTemplateResponse.java) |
+| `apimodels.ConfigurationTemplatesResponse` | [ApimodelsConfigurationTemplatesResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsConfigurationTemplatesResponse.java) |
+| `apimodels.CreateConfigurationTemplateRequest` | [ApimodelsCreateConfigurationTemplateRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsCreateConfigurationTemplateRequest.java) |
+| `apimodels.CreateGameSessionRequest` | [ApimodelsCreateGameSessionRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsCreateGameSessionRequest.java) |
+| `apimodels.CreatePartyRequest` | [ApimodelsCreatePartyRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsCreatePartyRequest.java) |
+| `apimodels.DSInformationResponse` | [ApimodelsDSInformationResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsDSInformationResponse.java) |
+| `apimodels.GameSessionQueryResponse` | [ApimodelsGameSessionQueryResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsGameSessionQueryResponse.java) |
+| `apimodels.GameSessionResponse` | [ApimodelsGameSessionResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsGameSessionResponse.java) |
+| `apimodels.JoinByCodeRequest` | [ApimodelsJoinByCodeRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsJoinByCodeRequest.java) |
+| `apimodels.KickResponse` | [ApimodelsKickResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsKickResponse.java) |
+| `apimodels.Pagination` | [ApimodelsPagination](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPagination.java) |
+| `apimodels.PartyQueryResponse` | [ApimodelsPartyQueryResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPartyQueryResponse.java) |
+| `apimodels.PartySessionResponse` | [ApimodelsPartySessionResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPartySessionResponse.java) |
+| `apimodels.PromoteLeaderRequest` | [ApimodelsPromoteLeaderRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPromoteLeaderRequest.java) |
+| `apimodels.PublicConfiguration` | [ApimodelsPublicConfiguration](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPublicConfiguration.java) |
+| `apimodels.RequestMember` | [ApimodelsRequestMember](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsRequestMember.java) |
+| `apimodels.SessionInviteRequest` | [ApimodelsSessionInviteRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsSessionInviteRequest.java) |
+| `apimodels.UpdateConfigurationTemplateRequest` | [ApimodelsUpdateConfigurationTemplateRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsUpdateConfigurationTemplateRequest.java) |
+| `apimodels.UpdateGameSessionMemberStatusResponse` | [ApimodelsUpdateGameSessionMemberStatusResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsUpdateGameSessionMemberStatusResponse.java) |
+| `apimodels.UpdateGameSessionRequest` | [ApimodelsUpdateGameSessionRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsUpdateGameSessionRequest.java) |
+| `apimodels.UpdatePartyRequest` | [ApimodelsUpdatePartyRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsUpdatePartyRequest.java) |
+| `apimodels.UserResponse` | [ApimodelsUserResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsUserResponse.java) |
+| `models.GameServer` | [ModelsGameServer](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsGameServer.java) |
+| `models.Team` | [ModelsTeam](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsTeam.java) |
+| `response.Error` | [ResponseError](../../src/main/java/net/accelbyte/sdk/api/session/models/ResponseError.java) |
