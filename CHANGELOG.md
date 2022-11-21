@@ -1,3 +1,27 @@
+<a name="v0.24.0"></a>
+## [v0.24.0] - 2022-11-21
+### Chore
+- bump to version 0.24 for ab cloud 3.36
+- bump to version 0.23.1 for ab cloud 3.35 hotfix
+- generate new match2 and session service sdk
+- bump to version 0.23.2 for ab cloud 3.35 hotfix
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.35 hotfix
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.35 hotfix
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.36
+- **spec:** update spec for ab cloud 3.35 hotfix
+- **spec:** update spec for ab cloud 3.36
+- **spec:** update spec for ab cloud 3.35 hotfix
+
+### Docs
+- add migration guide v0.23 -> v0.24
+- update changelog for ab cloud 3.36
+- update changelog for ab cloud 3.35 hotfix
+- update changelog for ab cloud 3.35 hotfix
+
+### Test
+- **integration:** added initial tests for match2 and session
+
+
 <a name="v0.23.2"></a>
 ## [v0.23.2] - 2022-11-14
 ### Chore
@@ -721,6 +745,7 @@
 - replace unnecessary object
 
 
+[v0.24.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.23.0...v0.24.0
 [v0.23.2]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.23.1...v0.23.2
 [v0.23.1]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.23.0...v0.23.1
 [v0.23.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.22.0...v0.23.0
