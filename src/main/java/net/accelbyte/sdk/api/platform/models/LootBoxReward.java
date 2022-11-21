@@ -25,68 +25,66 @@ import net.accelbyte.sdk.core.Model;
  */
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class PlayStationReconcileResult extends Model {
+public class LootBoxReward extends Model {
 
-  @JsonProperty("itemId")
+  @JsonProperty("lootBoxItems")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String itemId;
+  private List<BoxItem> lootBoxItems;
 
-  @JsonProperty("psnItemId")
+  @JsonProperty("name")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String psnItemId;
+  private String name;
 
-  @JsonProperty("sku")
+  @JsonProperty("odds")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String sku;
+  private Float odds;
 
-  @JsonProperty("status")
+  @JsonProperty("type")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String status;
+  private String type;
 
-  @JsonProperty("transactionId")
+  @JsonProperty("weight")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String transactionId;
+  private Integer weight;
 
   @JsonIgnore
-  public String getStatus() {
-    return this.status;
+  public String getType() {
+    return this.type;
   }
 
   @JsonIgnore
-  public Status getStatusAsEnum() {
-    return Status.valueOf(this.status);
+  public Type getTypeAsEnum() {
+    return Type.valueOf(this.type);
   }
 
   @JsonIgnore
-  public void setStatus(final String status) {
-    this.status = status;
+  public void setType(final String type) {
+    this.type = type;
   }
 
   @JsonIgnore
-  public void setStatusFromEnum(final Status status) {
-    this.status = status.toString();
+  public void setTypeFromEnum(final Type type) {
+    this.type = type.toString();
   }
 
   @JsonIgnore
-  public PlayStationReconcileResult createFromJson(String json) throws JsonProcessingException {
+  public LootBoxReward createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<PlayStationReconcileResult> createFromJsonList(String json)
-      throws JsonProcessingException {
-    return new ObjectMapper()
-        .readValue(json, new TypeReference<List<PlayStationReconcileResult>>() {});
+  public List<LootBoxReward> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<LootBoxReward>>() {});
   }
 
-  public enum Status {
-    FAILED("FAILED"),
-    FULFILLED("FULFILLED"),
-    VERIFIED("VERIFIED");
+  public enum Type {
+    PROBABILITYGROUP("PROBABILITY_GROUP"),
+    REWARD("REWARD"),
+    REWARDGROUP("REWARD_GROUP");
 
     private String value;
 
-    Status(String value) {
+    Type(String value) {
       this.value = value;
     }
 
@@ -96,16 +94,16 @@ public class PlayStationReconcileResult extends Model {
     }
   }
 
-  public static class PlayStationReconcileResultBuilder {
-    private String status;
+  public static class LootBoxRewardBuilder {
+    private String type;
 
-    public PlayStationReconcileResultBuilder status(final String status) {
-      this.status = status;
+    public LootBoxRewardBuilder type(final String type) {
+      this.type = type;
       return this;
     }
 
-    public PlayStationReconcileResultBuilder statusFromEnum(final Status status) {
-      this.status = status.toString();
+    public LootBoxRewardBuilder typeFromEnum(final Type type) {
+      this.type = type.toString();
       return this;
     }
   }

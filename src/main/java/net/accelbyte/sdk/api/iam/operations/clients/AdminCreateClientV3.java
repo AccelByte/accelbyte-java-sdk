@@ -86,6 +86,12 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* oauthRefreshTokenExpiration : a configurable expiration time for refresh_token , default
  * value: 0 (mean fetch value from environment variable)
+ *
+ * <p>* oauthAccessTokenExpirationTimeUnit : a configurable expiration time unit for access_token ,
+ * default value: SECONDS
+ *
+ * <p>* oauthRefreshTokenExpirationTimeUnit : a configurable expiration time unit for refresh_token
+ * , default value: SECONDS
  */
 @Getter
 @Setter

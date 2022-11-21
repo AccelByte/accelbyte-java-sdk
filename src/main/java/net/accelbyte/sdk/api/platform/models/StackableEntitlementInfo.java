@@ -248,6 +248,7 @@ public class StackableEntitlementInfo extends Model {
     APP("APP"),
     CODE("CODE"),
     ENTITLEMENT("ENTITLEMENT"),
+    LOOTBOX("LOOTBOX"),
     MEDIA("MEDIA"),
     OPTIONBOX("OPTIONBOX"),
     SUBSCRIPTION("SUBSCRIPTION");

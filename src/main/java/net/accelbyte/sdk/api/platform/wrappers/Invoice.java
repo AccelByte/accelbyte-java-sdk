@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.platform.wrappers;
 
+import java.io.*;
 import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.invoice.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -24,9 +25,9 @@ public class Invoice {
   /**
    * @see DownloadInvoiceDetails
    */
-  public void downloadInvoiceDetails(DownloadInvoiceDetails input) throws Exception {
+  public InputStream downloadInvoiceDetails(DownloadInvoiceDetails input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

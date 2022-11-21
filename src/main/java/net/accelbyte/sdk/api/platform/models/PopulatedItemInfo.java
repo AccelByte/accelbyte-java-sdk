@@ -117,6 +117,10 @@ public class PopulatedItemInfo extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String longDescription;
 
+  @JsonProperty("lootBoxConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private LootBoxConfig lootBoxConfig;
+
   @JsonProperty("maxCount")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxCount;
@@ -350,6 +354,7 @@ public class PopulatedItemInfo extends Model {
     COINS("COINS"),
     EXTENSION("EXTENSION"),
     INGAMEITEM("INGAMEITEM"),
+    LOOTBOX("LOOTBOX"),
     MEDIA("MEDIA"),
     OPTIONBOX("OPTIONBOX"),
     SEASON("SEASON"),

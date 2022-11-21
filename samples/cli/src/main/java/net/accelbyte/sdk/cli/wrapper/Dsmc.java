@@ -29,6 +29,7 @@ import picocli.CommandLine.Command;
       CreateImage.class,
       ImportImages.class,
       CreateImagePatch.class,
+      GetLowestInstanceSpec.class,
       GetConfig.class,
       CreateConfig.class,
       DeleteConfig.class,

@@ -69,6 +69,15 @@ public class OAuth20 {
   }
 
   /**
+   * @see SendMFAAuthenticationCode
+   */
+  public void sendMFAAuthenticationCode(SendMFAAuthenticationCode input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see Change2faMethod
    */
   public void change2faMethod(Change2faMethod input) throws Exception {

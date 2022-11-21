@@ -95,6 +95,16 @@ public class DLC {
   }
 
   /**
+   * @see PublicSyncPsnDlcInventoryWithMultipleServiceLabels
+   */
+  public void publicSyncPsnDlcInventoryWithMultipleServiceLabels(
+      PublicSyncPsnDlcInventoryWithMultipleServiceLabels input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see SyncSteamDLC
    */
   public void syncSteamDLC(SyncSteamDLC input) throws Exception {

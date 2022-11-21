@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.dslogmanager.wrappers;
 
+import java.io.*;
 import net.accelbyte.sdk.api.dslogmanager.models.*;
 import net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -34,9 +35,9 @@ public class TerminatedServers {
   /**
    * @see DownloadServerLogs
    */
-  public void downloadServerLogs(DownloadServerLogs input) throws Exception {
+  public InputStream downloadServerLogs(DownloadServerLogs input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

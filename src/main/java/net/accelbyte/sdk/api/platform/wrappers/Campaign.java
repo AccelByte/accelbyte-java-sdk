@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.platform.wrappers;
 
+import java.io.*;
 import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.campaign.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -87,9 +88,9 @@ public class Campaign {
   /**
    * @see Download
    */
-  public void download(Download input) throws Exception {
+  public InputStream download(Download input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

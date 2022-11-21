@@ -38,6 +38,16 @@
 | `/dsmcontroller/namespaces/{namespace}/images/limit` | GET | ImageLimitClient | [ImageLimitClient](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/image_config/ImageLimitClient.java) | [ImageLimitClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/image_config/ImageLimitClient.java) |
 | `/dsmcontroller/namespaces/{namespace}/images/versions/{version}` | GET | ImageDetailClient | [ImageDetailClient](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/image_config/ImageDetailClient.java) | [ImageDetailClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/image_config/ImageDetailClient.java) |
 
+### Pod Config Wrapper:  [PodConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/wrappers/PodConfig.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/dsmcontroller/admin/instances/spec/lowest` | GET | GetLowestInstanceSpec | [GetLowestInstanceSpec](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/pod_config/GetLowestInstanceSpec.java) | [GetLowestInstanceSpec](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/pod_config/GetLowestInstanceSpec.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/configs/pods` | GET | GetAllPodConfig | [GetAllPodConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/pod_config/GetAllPodConfig.java) | [GetAllPodConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/pod_config/GetAllPodConfig.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/configs/pods/{name}` | GET | GetPodConfig | [GetPodConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/pod_config/GetPodConfig.java) | [GetPodConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/pod_config/GetPodConfig.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/configs/pods/{name}` | POST | CreatePodConfig | [CreatePodConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/pod_config/CreatePodConfig.java) | [CreatePodConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/pod_config/CreatePodConfig.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/configs/pods/{name}` | DELETE | DeletePodConfig | [DeletePodConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/pod_config/DeletePodConfig.java) | [DeletePodConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/pod_config/DeletePodConfig.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/configs/pods/{name}` | PATCH | UpdatePodConfig | [UpdatePodConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/pod_config/UpdatePodConfig.java) | [UpdatePodConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/pod_config/UpdatePodConfig.java) |
+
 ### Deployment Config Wrapper:  [DeploymentConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/wrappers/DeploymentConfig.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -55,15 +65,6 @@
 | `/dsmcontroller/admin/namespaces/{namespace}/configs/deployments/{deployment}/overrides/versions/{version}/regions/{region}` | POST | CreateOverrideRegionOverride | [CreateOverrideRegionOverride](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/deployment_config/CreateOverrideRegionOverride.java) | [CreateOverrideRegionOverride](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/deployment_config/CreateOverrideRegionOverride.java) |
 | `/dsmcontroller/admin/namespaces/{namespace}/configs/deployments/{deployment}/overrides/versions/{version}/regions/{region}` | DELETE | DeleteOverrideRegionOverride | [DeleteOverrideRegionOverride](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/deployment_config/DeleteOverrideRegionOverride.java) | [DeleteOverrideRegionOverride](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/deployment_config/DeleteOverrideRegionOverride.java) |
 | `/dsmcontroller/admin/namespaces/{namespace}/configs/deployments/{deployment}/overrides/versions/{version}/regions/{region}` | PATCH | UpdateOverrideRegionOverride | [UpdateOverrideRegionOverride](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/deployment_config/UpdateOverrideRegionOverride.java) | [UpdateOverrideRegionOverride](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/deployment_config/UpdateOverrideRegionOverride.java) |
-
-### Pod Config Wrapper:  [PodConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/wrappers/PodConfig.java)
-| Endpoint | Method | ID | Class | Example |
-|---|---|---|---|---|
-| `/dsmcontroller/admin/namespaces/{namespace}/configs/pods` | GET | GetAllPodConfig | [GetAllPodConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/pod_config/GetAllPodConfig.java) | [GetAllPodConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/pod_config/GetAllPodConfig.java) |
-| `/dsmcontroller/admin/namespaces/{namespace}/configs/pods/{name}` | GET | GetPodConfig | [GetPodConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/pod_config/GetPodConfig.java) | [GetPodConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/pod_config/GetPodConfig.java) |
-| `/dsmcontroller/admin/namespaces/{namespace}/configs/pods/{name}` | POST | CreatePodConfig | [CreatePodConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/pod_config/CreatePodConfig.java) | [CreatePodConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/pod_config/CreatePodConfig.java) |
-| `/dsmcontroller/admin/namespaces/{namespace}/configs/pods/{name}` | DELETE | DeletePodConfig | [DeletePodConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/pod_config/DeletePodConfig.java) | [DeletePodConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/pod_config/DeletePodConfig.java) |
-| `/dsmcontroller/admin/namespaces/{namespace}/configs/pods/{name}` | PATCH | UpdatePodConfig | [UpdatePodConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/pod_config/UpdatePodConfig.java) | [UpdatePodConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/pod_config/UpdatePodConfig.java) |
 
 ### Admin Wrapper:  [Admin](../../src/main/java/net/accelbyte/sdk/api/dsmc/wrappers/Admin.java)
 | Endpoint | Method | ID | Class | Example |
@@ -129,7 +130,6 @@
 | `models.CreatePortRequest` | [ModelsCreatePortRequest](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsCreatePortRequest.java) |
 | `models.CreateRegionOverrideRequest` | [ModelsCreateRegionOverrideRequest](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsCreateRegionOverrideRequest.java) |
 | `models.CreateSessionRequest` | [ModelsCreateSessionRequest](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsCreateSessionRequest.java) |
-| `models.DSMConfigExport` | [ModelsDSMConfigExport](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsDSMConfigExport.java) |
 | `models.DSMConfigRecord` | [ModelsDSMConfigRecord](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsDSMConfigRecord.java) |
 | `models.DefaultProvider` | [ModelsDefaultProvider](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsDefaultProvider.java) |
 | `models.DeploymentConfigOverride` | [ModelsDeploymentConfigOverride](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsDeploymentConfigOverride.java) |
@@ -143,6 +143,7 @@
 | `models.ImageRecord` | [ModelsImageRecord](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsImageRecord.java) |
 | `models.ImageRecordUpdate` | [ModelsImageRecordUpdate](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsImageRecordUpdate.java) |
 | `models.ImportResponse` | [ModelsImportResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsImportResponse.java) |
+| `models.InstanceSpec` | [ModelsInstanceSpec](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsInstanceSpec.java) |
 | `models.ListConfigResponse` | [ModelsListConfigResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsListConfigResponse.java) |
 | `models.ListDeploymentResponse` | [ModelsListDeploymentResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsListDeploymentResponse.java) |
 | `models.ListImagePatchesResponse` | [ModelsListImagePatchesResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsListImagePatchesResponse.java) |

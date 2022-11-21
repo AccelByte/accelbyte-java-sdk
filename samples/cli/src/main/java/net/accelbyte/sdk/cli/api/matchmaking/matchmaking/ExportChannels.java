@@ -8,7 +8,8 @@
 
 package net.accelbyte.sdk.cli.api.matchmaking.matchmaking;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
+import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.matchmaking.models.*;
@@ -60,10 +61,12 @@ public class ExportChannels implements Callable<Integer> {
           net.accelbyte.sdk.api.matchmaking.operations.matchmaking.ExportChannels.builder()
               .namespace(namespace)
               .build();
-      final List<ModelsChannelV1> response = wrapper.exportChannels(operation);
-      final String responseString =
-          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful\n{}", responseString);
+      final InputStream response = wrapper.exportChannels(operation);
+      final File outputFile = new File("response.out");
+      java.nio.file.Files.copy(
+          response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+      org.apache.commons.io.IOUtils.closeQuietly(response);
+      log.info("Operation successful\n{}", "response.out");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

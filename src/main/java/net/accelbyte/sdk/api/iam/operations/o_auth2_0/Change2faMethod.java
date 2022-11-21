@@ -28,7 +28,9 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* authenticator
  *
- * <p>* backupCodes
+ * <p>* backupCode
+ *
+ * <p>* email
  */
 @Getter
 @Setter

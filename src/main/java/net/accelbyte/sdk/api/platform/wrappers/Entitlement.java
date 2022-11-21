@@ -189,7 +189,7 @@ public class Entitlement {
   /**
    * @see ConsumeUserEntitlement
    */
-  public TrackedEntitlementInfo consumeUserEntitlement(ConsumeUserEntitlement input)
+  public EntitlementDecrementResult consumeUserEntitlement(ConsumeUserEntitlement input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -395,7 +395,7 @@ public class Entitlement {
   /**
    * @see PublicConsumeUserEntitlement
    */
-  public TrackedEntitlementInfo publicConsumeUserEntitlement(PublicConsumeUserEntitlement input)
+  public EntitlementDecrementResult publicConsumeUserEntitlement(PublicConsumeUserEntitlement input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

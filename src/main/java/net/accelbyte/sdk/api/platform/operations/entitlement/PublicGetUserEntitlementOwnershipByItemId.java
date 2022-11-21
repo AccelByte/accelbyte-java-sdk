@@ -124,6 +124,7 @@ public class PublicGetUserEntitlementOwnershipByItemId extends Operation {
     APP("APP"),
     CODE("CODE"),
     ENTITLEMENT("ENTITLEMENT"),
+    LOOTBOX("LOOTBOX"),
     MEDIA("MEDIA"),
     OPTIONBOX("OPTIONBOX"),
     SUBSCRIPTION("SUBSCRIPTION");

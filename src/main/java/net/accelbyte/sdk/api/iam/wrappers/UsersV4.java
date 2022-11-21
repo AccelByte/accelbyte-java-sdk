@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.iam.wrappers;
 
+import java.io.*;
 import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.api.iam.operations.users_v4.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -176,9 +177,10 @@ public class UsersV4 {
   /**
    * @see AdminDownloadMyBackupCodesV4
    */
-  public void adminDownloadMyBackupCodesV4(AdminDownloadMyBackupCodesV4 input) throws Exception {
+  public InputStream adminDownloadMyBackupCodesV4(AdminDownloadMyBackupCodesV4 input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
@@ -189,6 +191,33 @@ public class UsersV4 {
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminSendMyMFAEmailCodeV4
+   */
+  public void adminSendMyMFAEmailCodeV4(AdminSendMyMFAEmailCodeV4 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminDisableMyEmailV4
+   */
+  public void adminDisableMyEmailV4(AdminDisableMyEmailV4 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminEnableMyEmailV4
+   */
+  public void adminEnableMyEmailV4(AdminEnableMyEmailV4 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
@@ -349,9 +378,10 @@ public class UsersV4 {
   /**
    * @see PublicDownloadMyBackupCodesV4
    */
-  public void publicDownloadMyBackupCodesV4(PublicDownloadMyBackupCodesV4 input) throws Exception {
+  public InputStream publicDownloadMyBackupCodesV4(PublicDownloadMyBackupCodesV4 input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
@@ -369,6 +399,33 @@ public class UsersV4 {
    * @see PublicRemoveTrustedDeviceV4
    */
   public void publicRemoveTrustedDeviceV4(PublicRemoveTrustedDeviceV4 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicSendMyMFAEmailCodeV4
+   */
+  public void publicSendMyMFAEmailCodeV4(PublicSendMyMFAEmailCodeV4 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicDisableMyEmailV4
+   */
+  public void publicDisableMyEmailV4(PublicDisableMyEmailV4 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicEnableMyEmailV4
+   */
+  public void publicEnableMyEmailV4(PublicEnableMyEmailV4 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

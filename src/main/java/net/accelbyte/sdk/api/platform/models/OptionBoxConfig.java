@@ -29,7 +29,7 @@ public class OptionBoxConfig extends Model {
 
   @JsonProperty("boxItems")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private List<OptionBoxItem> boxItems;
+  private List<BoxItem> boxItems;
 
   @JsonIgnore
   public OptionBoxConfig createFromJson(String json) throws JsonProcessingException {

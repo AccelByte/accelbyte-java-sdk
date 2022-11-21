@@ -48,6 +48,9 @@ public class ClientmodelClientV3Response extends Model {
   @JsonProperty("createdAt")
   private String createdAt;
 
+  @JsonProperty("description")
+  private String description;
+
   @JsonProperty("modifiedAt")
   private String modifiedAt;
 
@@ -58,12 +61,20 @@ public class ClientmodelClientV3Response extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer oauthAccessTokenExpiration;
 
+  @JsonProperty("oauthAccessTokenExpirationTimeUnit")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String oauthAccessTokenExpirationTimeUnit;
+
   @JsonProperty("oauthClientType")
   private String oauthClientType;
 
   @JsonProperty("oauthRefreshTokenExpiration")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer oauthRefreshTokenExpiration;
+
+  @JsonProperty("oauthRefreshTokenExpirationTimeUnit")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String oauthRefreshTokenExpirationTimeUnit;
 
   @JsonProperty("redirectUri")
   private String redirectUri;

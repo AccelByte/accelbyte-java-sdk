@@ -74,11 +74,8 @@ public class PublicReconcilePlayStationStore implements Callable<Integer> {
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, PlayStationReconcileRequest.class))
                   .build();
-      final List<PlayStationReconcileResult> response =
-          wrapper.publicReconcilePlayStationStore(operation);
-      final String responseString =
-          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful\n{}", responseString);
+      wrapper.publicReconcilePlayStationStore(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

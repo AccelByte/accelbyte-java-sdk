@@ -79,6 +79,10 @@ public class ItemSnapshot extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean listable;
 
+  @JsonProperty("lootBoxConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private LootBoxConfig lootBoxConfig;
+
   @JsonProperty("maxCount")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxCount;
@@ -282,6 +286,7 @@ public class ItemSnapshot extends Model {
     COINS("COINS"),
     EXTENSION("EXTENSION"),
     INGAMEITEM("INGAMEITEM"),
+    LOOTBOX("LOOTBOX"),
     MEDIA("MEDIA"),
     OPTIONBOX("OPTIONBOX"),
     SEASON("SEASON"),

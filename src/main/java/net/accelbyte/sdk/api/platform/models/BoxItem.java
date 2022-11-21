@@ -25,7 +25,7 @@ import net.accelbyte.sdk.core.Model;
  */
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class OptionBoxItem extends Model {
+public class BoxItem extends Model {
 
   @JsonProperty("count")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -39,13 +39,17 @@ public class OptionBoxItem extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String itemSku;
 
+  @JsonProperty("itemType")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String itemType;
+
   @JsonIgnore
-  public OptionBoxItem createFromJson(String json) throws JsonProcessingException {
+  public BoxItem createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<OptionBoxItem> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<OptionBoxItem>>() {});
+  public List<BoxItem> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<BoxItem>>() {});
   }
 }

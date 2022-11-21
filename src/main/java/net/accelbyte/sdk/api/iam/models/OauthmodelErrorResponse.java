@@ -35,6 +35,10 @@ public class OauthmodelErrorResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String defaultFactor;
 
+  @JsonProperty("email")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String email;
+
   @JsonProperty("error")
   private String error;
 

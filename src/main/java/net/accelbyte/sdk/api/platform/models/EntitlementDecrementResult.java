@@ -25,7 +25,7 @@ import net.accelbyte.sdk.core.Model;
  */
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class TrackedEntitlementInfo extends Model {
+public class EntitlementDecrementResult extends Model {
 
   @JsonProperty("appId")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -82,6 +82,10 @@ public class TrackedEntitlementInfo extends Model {
   @JsonProperty("requestId")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String requestId;
+
+  @JsonProperty("rewards")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<EntitlementLootBoxReward> rewards;
 
   @JsonProperty("sku")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -219,14 +223,15 @@ public class TrackedEntitlementInfo extends Model {
   }
 
   @JsonIgnore
-  public TrackedEntitlementInfo createFromJson(String json) throws JsonProcessingException {
+  public EntitlementDecrementResult createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<TrackedEntitlementInfo> createFromJsonList(String json)
+  public List<EntitlementDecrementResult> createFromJsonList(String json)
       throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<TrackedEntitlementInfo>>() {});
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<EntitlementDecrementResult>>() {});
   }
 
   public enum AppType {
@@ -251,6 +256,7 @@ public class TrackedEntitlementInfo extends Model {
     APP("APP"),
     CODE("CODE"),
     ENTITLEMENT("ENTITLEMENT"),
+    LOOTBOX("LOOTBOX"),
     MEDIA("MEDIA"),
     OPTIONBOX("OPTIONBOX"),
     SUBSCRIPTION("SUBSCRIPTION");
@@ -324,59 +330,59 @@ public class TrackedEntitlementInfo extends Model {
     }
   }
 
-  public static class TrackedEntitlementInfoBuilder {
+  public static class EntitlementDecrementResultBuilder {
     private String appType;
     private String clazz;
     private String source;
     private String status;
     private String type;
 
-    public TrackedEntitlementInfoBuilder appType(final String appType) {
+    public EntitlementDecrementResultBuilder appType(final String appType) {
       this.appType = appType;
       return this;
     }
 
-    public TrackedEntitlementInfoBuilder appTypeFromEnum(final AppType appType) {
+    public EntitlementDecrementResultBuilder appTypeFromEnum(final AppType appType) {
       this.appType = appType.toString();
       return this;
     }
 
-    public TrackedEntitlementInfoBuilder clazz(final String clazz) {
+    public EntitlementDecrementResultBuilder clazz(final String clazz) {
       this.clazz = clazz;
       return this;
     }
 
-    public TrackedEntitlementInfoBuilder clazzFromEnum(final Clazz clazz) {
+    public EntitlementDecrementResultBuilder clazzFromEnum(final Clazz clazz) {
       this.clazz = clazz.toString();
       return this;
     }
 
-    public TrackedEntitlementInfoBuilder source(final String source) {
+    public EntitlementDecrementResultBuilder source(final String source) {
       this.source = source;
       return this;
     }
 
-    public TrackedEntitlementInfoBuilder sourceFromEnum(final Source source) {
+    public EntitlementDecrementResultBuilder sourceFromEnum(final Source source) {
       this.source = source.toString();
       return this;
     }
 
-    public TrackedEntitlementInfoBuilder status(final String status) {
+    public EntitlementDecrementResultBuilder status(final String status) {
       this.status = status;
       return this;
     }
 
-    public TrackedEntitlementInfoBuilder statusFromEnum(final Status status) {
+    public EntitlementDecrementResultBuilder statusFromEnum(final Status status) {
       this.status = status.toString();
       return this;
     }
 
-    public TrackedEntitlementInfoBuilder type(final String type) {
+    public EntitlementDecrementResultBuilder type(final String type) {
       this.type = type;
       return this;
     }
 
-    public TrackedEntitlementInfoBuilder typeFromEnum(final Type type) {
+    public EntitlementDecrementResultBuilder typeFromEnum(final Type type) {
       this.type = type.toString();
       return this;
     }

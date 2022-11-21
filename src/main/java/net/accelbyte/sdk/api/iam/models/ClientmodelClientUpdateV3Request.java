@@ -50,6 +50,9 @@ public class ClientmodelClientUpdateV3Request extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean deletable;
 
+  @JsonProperty("description")
+  private String description;
+
   @JsonProperty("namespace")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;
@@ -58,13 +61,25 @@ public class ClientmodelClientUpdateV3Request extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer oauthAccessTokenExpiration;
 
+  @JsonProperty("oauthAccessTokenExpirationTimeUnit")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String oauthAccessTokenExpirationTimeUnit;
+
   @JsonProperty("oauthRefreshTokenExpiration")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer oauthRefreshTokenExpiration;
 
+  @JsonProperty("oauthRefreshTokenExpirationTimeUnit")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String oauthRefreshTokenExpirationTimeUnit;
+
   @JsonProperty("redirectUri")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String redirectUri;
+
+  @JsonProperty("scopes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> scopes;
 
   @JsonProperty("twoFactorEnabled")
   @JsonInclude(JsonInclude.Include.NON_NULL)

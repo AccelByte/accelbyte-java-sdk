@@ -22,6 +22,15 @@ public class PodConfig {
   }
 
   /**
+   * @see GetLowestInstanceSpec
+   */
+  public ModelsInstanceSpec getLowestInstanceSpec(GetLowestInstanceSpec input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetAllPodConfig
    */
   public ModelsListPodConfigResponse getAllPodConfig(GetAllPodConfig input) throws Exception {

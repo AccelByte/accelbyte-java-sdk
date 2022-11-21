@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.dsmc.wrappers;
 
+import java.io.*;
 import net.accelbyte.sdk.api.dsmc.models.*;
 import net.accelbyte.sdk.api.dsmc.operations.config.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -116,7 +117,7 @@ public class Config {
   /**
    * @see ExportConfigV1
    */
-  public ModelsDSMConfigExport exportConfigV1(ExportConfigV1 input) throws Exception {
+  public InputStream exportConfigV1(ExportConfigV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

@@ -36,6 +36,21 @@ public class AdminGetClientsByNamespaceV3 implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--clientId"},
+      description = "clientId")
+  String clientId;
+
+  @Option(
+      names = {"--clientName"},
+      description = "clientName")
+  String clientName;
+
+  @Option(
+      names = {"--clientType"},
+      description = "clientType")
+  String clientType;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -69,6 +84,9 @@ public class AdminGetClientsByNamespaceV3 implements Callable<Integer> {
       final net.accelbyte.sdk.api.iam.operations.clients.AdminGetClientsByNamespaceV3 operation =
           net.accelbyte.sdk.api.iam.operations.clients.AdminGetClientsByNamespaceV3.builder()
               .namespace(namespace)
+              .clientId(clientId)
+              .clientName(clientName)
+              .clientType(clientType)
               .limit(limit)
               .offset(offset)
               .build();

@@ -48,6 +48,7 @@ public class QueryItems1 extends Operation {
   private String categoryPath;
   private String features;
   private Boolean includeSubCategoryItem;
+  private String itemName;
   private String itemStatus;
   private String itemType;
   private Integer limit;
@@ -74,6 +75,7 @@ public class QueryItems1 extends Operation {
       String categoryPath,
       String features,
       Boolean includeSubCategoryItem,
+      String itemName,
       String itemStatus,
       String itemType,
       Integer limit,
@@ -90,6 +92,7 @@ public class QueryItems1 extends Operation {
     this.categoryPath = categoryPath;
     this.features = features;
     this.includeSubCategoryItem = includeSubCategoryItem;
+    this.itemName = itemName;
     this.itemStatus = itemStatus;
     this.itemType = itemType;
     this.limit = limit;
@@ -127,6 +130,7 @@ public class QueryItems1 extends Operation {
         this.includeSubCategoryItem == null
             ? null
             : Arrays.asList(String.valueOf(this.includeSubCategoryItem)));
+    queryParams.put("itemName", this.itemName == null ? null : Arrays.asList(this.itemName));
     queryParams.put("itemStatus", this.itemStatus == null ? null : Arrays.asList(this.itemStatus));
     queryParams.put("itemType", this.itemType == null ? null : Arrays.asList(this.itemType));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
@@ -169,6 +173,7 @@ public class QueryItems1 extends Operation {
     result.put("categoryPath", "None");
     result.put("features", "None");
     result.put("includeSubCategoryItem", "None");
+    result.put("itemName", "None");
     result.put("itemStatus", "None");
     result.put("itemType", "None");
     result.put("limit", "None");
@@ -222,6 +227,7 @@ public class QueryItems1 extends Operation {
     COINS("COINS"),
     EXTENSION("EXTENSION"),
     INGAMEITEM("INGAMEITEM"),
+    LOOTBOX("LOOTBOX"),
     MEDIA("MEDIA"),
     OPTIONBOX("OPTIONBOX"),
     SEASON("SEASON"),

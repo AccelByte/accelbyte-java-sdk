@@ -89,6 +89,10 @@ public class ItemUpdate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, Localization> localizations;
 
+  @JsonProperty("lootBoxConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private LootBoxConfig lootBoxConfig;
+
   @JsonProperty("maxCount")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxCount;
@@ -304,6 +308,7 @@ public class ItemUpdate extends Model {
     COINS("COINS"),
     EXTENSION("EXTENSION"),
     INGAMEITEM("INGAMEITEM"),
+    LOOTBOX("LOOTBOX"),
     MEDIA("MEDIA"),
     OPTIONBOX("OPTIONBOX"),
     SEASON("SEASON"),

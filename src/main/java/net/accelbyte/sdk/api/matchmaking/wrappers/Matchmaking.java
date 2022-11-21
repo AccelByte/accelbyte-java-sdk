@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.matchmaking.wrappers;
 
+import java.io.*;
 import java.util.*;
 import net.accelbyte.sdk.api.matchmaking.models.*;
 import net.accelbyte.sdk.api.matchmaking.operations.matchmaking.*;
@@ -118,7 +119,7 @@ public class Matchmaking {
   /**
    * @see ExportChannels
    */
-  public List<ModelsChannelV1> exportChannels(ExportChannels input) throws Exception {
+  public InputStream exportChannels(ExportChannels input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

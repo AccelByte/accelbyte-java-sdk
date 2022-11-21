@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.platform.operations.iap;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
@@ -92,14 +90,11 @@ public class PublicReconcilePlayStationStore extends Operation {
     return true;
   }
 
-  public List<PlayStationReconcileResult> parseResponse(
-      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
+  public void handleEmptyResponse(int code, String contentType, InputStream payload)
+      throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
-    final String json = Helper.convertInputStreamToString(payload);
-    return new ObjectMapper()
-        .readValue(json, new TypeReference<List<PlayStationReconcileResult>>() {});
   }
 }

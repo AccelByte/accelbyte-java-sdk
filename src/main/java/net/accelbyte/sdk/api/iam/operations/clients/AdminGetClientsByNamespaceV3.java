@@ -38,6 +38,9 @@ public class AdminGetClientsByNamespaceV3 extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private String clientId;
+  private String clientName;
+  private String clientType;
   private Integer limit;
   private Integer offset;
 
@@ -49,8 +52,17 @@ public class AdminGetClientsByNamespaceV3 extends Operation {
    *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
    */
   @Deprecated
-  public AdminGetClientsByNamespaceV3(String namespace, Integer limit, Integer offset) {
+  public AdminGetClientsByNamespaceV3(
+      String namespace,
+      String clientId,
+      String clientName,
+      String clientType,
+      Integer limit,
+      Integer offset) {
     this.namespace = namespace;
+    this.clientId = clientId;
+    this.clientName = clientName;
+    this.clientType = clientType;
     this.limit = limit;
     this.offset = offset;
 
@@ -69,6 +81,9 @@ public class AdminGetClientsByNamespaceV3 extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("clientId", this.clientId == null ? null : Arrays.asList(this.clientId));
+    queryParams.put("clientName", this.clientName == null ? null : Arrays.asList(this.clientName));
+    queryParams.put("clientType", this.clientType == null ? null : Arrays.asList(this.clientType));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
@@ -96,6 +111,9 @@ public class AdminGetClientsByNamespaceV3 extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("clientId", "None");
+    result.put("clientName", "None");
+    result.put("clientType", "None");
     result.put("limit", "None");
     result.put("offset", "None");
     return result;

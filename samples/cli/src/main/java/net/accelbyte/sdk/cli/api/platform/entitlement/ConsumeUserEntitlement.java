@@ -78,7 +78,7 @@ public class ConsumeUserEntitlement implements Callable<Integer> {
               .userId(userId)
               .body(new ObjectMapper().readValue(body, EntitlementDecrement.class))
               .build();
-      final TrackedEntitlementInfo response = wrapper.consumeUserEntitlement(operation);
+      final EntitlementDecrementResult response = wrapper.consumeUserEntitlement(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

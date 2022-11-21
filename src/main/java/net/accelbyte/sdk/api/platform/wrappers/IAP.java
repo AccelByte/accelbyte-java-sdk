@@ -358,10 +358,20 @@ public class IAP {
   /**
    * @see PublicReconcilePlayStationStore
    */
-  public List<PlayStationReconcileResult> publicReconcilePlayStationStore(
-      PublicReconcilePlayStationStore input) throws Exception {
+  public void publicReconcilePlayStationStore(PublicReconcilePlayStationStore input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    return input.parseResponse(
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicReconcilePlayStationStoreWithMultipleServiceLabels
+   */
+  public void publicReconcilePlayStationStoreWithMultipleServiceLabels(
+      PublicReconcilePlayStationStoreWithMultipleServiceLabels input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

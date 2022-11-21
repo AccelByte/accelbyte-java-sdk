@@ -8,6 +8,8 @@
 
 package net.accelbyte.sdk.cli.api.platform.campaign;
 
+import java.io.File;
+import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.platform.models.*;
@@ -71,8 +73,12 @@ public class Download implements Callable<Integer> {
               .namespace(namespace)
               .batchNo(batchNo)
               .build();
-      wrapper.download(operation);
-      log.info("Operation successful");
+      final InputStream response = wrapper.download(operation);
+      final File outputFile = new File("response.out");
+      java.nio.file.Files.copy(
+          response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+      org.apache.commons.io.IOUtils.closeQuietly(response);
+      log.info("Operation successful\n{}", "response.out");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

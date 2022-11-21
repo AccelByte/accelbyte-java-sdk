@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..360"
+echo "1..362"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -60,33 +60,33 @@ eval_tap $? 2 'ListFulfillmentScripts' test.out
 
 #- 3 TestFulfillmentScriptEval
 ./ng net.accelbyte.sdk.cli.Main platform testFulfillmentScriptEval \
-    --body '{"context": {"item": {"appId": "h30bLVz9", "appType": "GAME", "baseAppId": "zYsNPEOB", "boothName": "YfOqciWs", "boundItemIds": ["s3HKZ73s", "hj7lWRXG", "Bc9P9YCk"], "categoryPath": "rSuyYsgT", "clazz": "J1nhjmOR", "createdAt": "1989-09-01T00:00:00Z", "description": "aBuwavjc", "displayOrder": 56, "entitlementType": "DURABLE", "ext": {"AlHOqTiB": {}, "MqypQISC": {}, "nbSW98wH": {}}, "features": ["WibJGT9f", "3NudzNNX", "B4hWdf4h"], "fresh": false, "images": [{"as": "xaci9fWd", "caption": "aG2y4oQM", "height": 83, "imageUrl": "9stinTLb", "smallImageUrl": "zzAEB7a0", "width": 57}, {"as": "FNqTtook", "caption": "AFOmCEtz", "height": 55, "imageUrl": "FNjrkFNp", "smallImageUrl": "YrWbLuT9", "width": 69}, {"as": "zBX4RbWV", "caption": "dqeD28rF", "height": 32, "imageUrl": "IqedROmy", "smallImageUrl": "yl9ITsJP", "width": 44}], "itemId": "1ILIplFv", "itemIds": ["aJCSp6Kl", "RL7RUAgb", "wXNBlTVT"], "itemQty": {"Q0rsbj1P": 56, "BUqBt5hw": 89, "AU8nvAm3": 43}, "itemType": "BUNDLE", "language": "uXEHXl28", "listable": true, "localExt": {"FeDVavoF": {}, "kkNgfwJf": {}, "CKMj7qH6": {}}, "longDescription": "LyqP0ER7", "maxCount": 70, "maxCountPerUser": 9, "name": "HO1OCXfK", "namespace": "BHfQnJ0o", "optionBoxConfig": {"boxItems": [{"count": 60, "itemId": "Q1PZUel3", "itemSku": "0lvlyMsu"}, {"count": 13, "itemId": "2oSGZMEu", "itemSku": "vlcq0vHD"}, {"count": 20, "itemId": "qmZZMvOL", "itemSku": "PYyx8Tw1"}]}, "purchasable": true, "purchaseCondition": {"conditionGroups": [{"operator": "and", "predicates": [{"anyOf": 73, "comparison": "isGreaterThanOrEqual", "name": "4vmaR0rF", "predicateType": "SeasonTierPredicate", "value": "HWeEGimM", "values": ["mXbSgRAv", "xdAgsqbn", "rTsmnnIO"]}, {"anyOf": 11, "comparison": "includes", "name": "0GBQShcs", "predicateType": "SeasonPassPredicate", "value": "TPNj06yf", "values": ["WFw6SKDz", "icNYFe2b", "ZvNp0QNf"]}, {"anyOf": 5, "comparison": "isGreaterThan", "name": "Ka2tfbRR", "predicateType": "EntitlementPredicate", "value": "Eq2Ya0sz", "values": ["UYpHHOcP", "ptD0KB4b", "mttwdK25"]}]}, {"operator": "and", "predicates": [{"anyOf": 76, "comparison": "isLessThan", "name": "p8TP8ypg", "predicateType": "SeasonTierPredicate", "value": "S9xW9NJJ", "values": ["TqcM1h6H", "efIxb3gp", "mgY4axmm"]}, {"anyOf": 4, "comparison": "isGreaterThanOrEqual", "name": "IvSjFVTk", "predicateType": "SeasonPassPredicate", "value": "TVz3dxgR", "values": ["TuxOewM6", "ipdR3Ltc", "h7Z6o2c2"]}, {"anyOf": 5, "comparison": "isLessThanOrEqual", "name": "zm6Vd9DY", "predicateType": "EntitlementPredicate", "value": "VYjXqyCq", "values": ["UJVTZhmo", "hwYrCtwb", "Wu5ML1nm"]}]}, {"operator": "or", "predicates": [{"anyOf": 41, "comparison": "isNot", "name": "RSAYNiZg", "predicateType": "SeasonTierPredicate", "value": "Ld2C6HcG", "values": ["mFM9YZUO", "P1XNkTpj", "oSiLZUfP"]}, {"anyOf": 79, "comparison": "isLessThanOrEqual", "name": "afSFMimA", "predicateType": "SeasonPassPredicate", "value": "gcbnk1Sq", "values": ["GcGqzLud", "UZgqht0I", "0RXj6DtK"]}, {"anyOf": 61, "comparison": "includes", "name": "iD8goVa6", "predicateType": "SeasonTierPredicate", "value": "YnxVE8d9", "values": ["ojEe3s2q", "kvrDHvXs", "6Nzrrm6r"]}]}]}, "recurring": {"cycle": "YEARLY", "fixedFreeDays": 98, "fixedTrialCycles": 77, "graceDays": 95}, "region": "JxrigItK", "regionData": [{"currencyCode": "X3Kh4y4Q", "currencyNamespace": "zd1R4E2o", "currencyType": "REAL", "discountAmount": 76, "discountExpireAt": "1986-03-05T00:00:00Z", "discountPercentage": 8, "discountPurchaseAt": "1984-05-29T00:00:00Z", "discountedPrice": 5, "expireAt": "1974-02-28T00:00:00Z", "price": 49, "purchaseAt": "1985-09-12T00:00:00Z", "trialPrice": 86}, {"currencyCode": "lID1itws", "currencyNamespace": "ZJtvOxVI", "currencyType": "REAL", "discountAmount": 54, "discountExpireAt": "1984-05-27T00:00:00Z", "discountPercentage": 72, "discountPurchaseAt": "1976-05-08T00:00:00Z", "discountedPrice": 95, "expireAt": "1994-02-19T00:00:00Z", "price": 66, "purchaseAt": "1974-11-30T00:00:00Z", "trialPrice": 74}, {"currencyCode": "zbjLVfua", "currencyNamespace": "jBwCjk7P", "currencyType": "REAL", "discountAmount": 57, "discountExpireAt": "1981-08-22T00:00:00Z", "discountPercentage": 62, "discountPurchaseAt": "1977-03-29T00:00:00Z", "discountedPrice": 18, "expireAt": "1989-11-06T00:00:00Z", "price": 66, "purchaseAt": "1995-11-16T00:00:00Z", "trialPrice": 61}], "seasonType": "TIER", "sku": "vcAGlCxj", "stackable": true, "status": "ACTIVE", "tags": ["lFlBgMOk", "jXnpBMRK", "0rlmGivH"], "targetCurrencyCode": "WsxOcr38", "targetItemId": "AErv8sJ6", "targetNamespace": "Z9wfuawR", "thumbnailUrl": "Q6dVW3zS", "title": "uswV6LBk", "updatedAt": "1974-07-14T00:00:00Z", "useCount": 2}, "namespace": "ctTn6XAf", "order": {"currency": {"currencyCode": "Re0GCmxe", "currencySymbol": "va83EYSl", "currencyType": "VIRTUAL", "decimals": 89, "namespace": "mYaHhVkX"}, "ext": {"I07Pt4II": {}, "8wvtZRQh": {}, "SgxAN9ou": {}}, "free": false}, "source": "IAP"}, "script": "ohCRHd3r", "type": "grantDays"}' \
+    --body '{"context": {"item": {"appId": "kA8wD5jd", "appType": "GAME", "baseAppId": "oTrWrIE1", "boothName": "uXUgbJsa", "boundItemIds": ["PlLJtTNA", "o0AxWk0J", "2WJ62uZo"], "categoryPath": "f0vIJQGq", "clazz": "QanMWm8n", "createdAt": "1997-11-25T00:00:00Z", "description": "d1TarUFm", "displayOrder": 0, "entitlementType": "DURABLE", "ext": {"fgKS5dZQ": {}, "W1lQ0LUz": {}, "syo3S3Y5": {}}, "features": ["6bG1PXTF", "z42qRybH", "w4JhFiAO"], "fresh": false, "images": [{"as": "dI8D3ryV", "caption": "hsqJ8iLs", "height": 94, "imageUrl": "S91DWivW", "smallImageUrl": "RJKcILSo", "width": 80}, {"as": "7oiB4oxS", "caption": "VEwxJQtO", "height": 20, "imageUrl": "TgRiYUID", "smallImageUrl": "o260AvHy", "width": 80}, {"as": "qYHuMtbx", "caption": "LKhCGuXm", "height": 34, "imageUrl": "HnovNIEH", "smallImageUrl": "B0qVt1Ux", "width": 69}], "itemId": "D9joVlnr", "itemIds": ["rHT8v8RD", "7jK6B59l", "IsX9hfMJ"], "itemQty": {"R5mrMxvZ": 55, "GD0ibQcd": 75, "hFx9qFTj": 7}, "itemType": "BUNDLE", "language": "vf8lnfWJ", "listable": true, "localExt": {"9LRgR4Sa": {}, "0VvqIWAE": {}, "GwEqy3Oq": {}}, "longDescription": "x9vN6jxS", "lootBoxConfig": {"rewardCount": 32, "rewards": [{"lootBoxItems": [{"count": 97, "itemId": "LFVl24dv", "itemSku": "g5uVyMZu", "itemType": "6vc8G6kn"}, {"count": 70, "itemId": "Tol3V5Ke", "itemSku": "bvQ0dvJZ", "itemType": "Oe0aCaFZ"}, {"count": 88, "itemId": "tOKcuWSH", "itemSku": "7mxS1wWB", "itemType": "Y2lhn3RG"}], "name": "raDrNtVo", "odds": 0.8659137909726623, "type": "PROBABILITY_GROUP", "weight": 27}, {"lootBoxItems": [{"count": 36, "itemId": "AOGINOWt", "itemSku": "qxwjT2HF", "itemType": "niLSffyL"}, {"count": 5, "itemId": "LjiLuCrv", "itemSku": "QaNkSaPG", "itemType": "vq6DchmH"}, {"count": 61, "itemId": "rLqFjExs", "itemSku": "E0RB2mHo", "itemType": "QQcB4TI3"}], "name": "KqdjU0sW", "odds": 0.902937504678494, "type": "REWARD_GROUP", "weight": 97}, {"lootBoxItems": [{"count": 85, "itemId": "QLtUKxx5", "itemSku": "CriVdrlZ", "itemType": "KGdwWezd"}, {"count": 82, "itemId": "6NOnE1MU", "itemSku": "zt6vxApp", "itemType": "FRaI3IvU"}, {"count": 3, "itemId": "UBcWp9wG", "itemSku": "SI3CVCGc", "itemType": "hngQHRYk"}], "name": "UycAL9Rm", "odds": 0.04270008299983985, "type": "REWARD", "weight": 14}]}, "maxCount": 63, "maxCountPerUser": 6, "name": "xDrCbyqk", "namespace": "SVPnYLrP", "optionBoxConfig": {"boxItems": [{"count": 23, "itemId": "65v7ZiM8", "itemSku": "zjGjRVKd", "itemType": "NdapNhHq"}, {"count": 64, "itemId": "OlFtxlnd", "itemSku": "pfcMcntw", "itemType": "kYQal7IE"}, {"count": 16, "itemId": "OALBiMnw", "itemSku": "Pc4N6ONN", "itemType": "mnYSCBbI"}]}, "purchasable": true, "purchaseCondition": {"conditionGroups": [{"operator": "and", "predicates": [{"anyOf": 35, "comparison": "isNot", "name": "epL6NrGG", "predicateType": "SeasonTierPredicate", "value": "Fibiw7do", "values": ["X6yyHghy", "fz5dVyRO", "LK6n3VUR"]}, {"anyOf": 94, "comparison": "isLessThan", "name": "ofJgDhWi", "predicateType": "EntitlementPredicate", "value": "RQwI1j2D", "values": ["bh8y1z7F", "xdewl5XQ", "CinZbDIr"]}, {"anyOf": 7, "comparison": "isLessThan", "name": "1LuLkeWp", "predicateType": "SeasonTierPredicate", "value": "lJmYBbxE", "values": ["IaSrFyFG", "AcmtwV3a", "M6HqhdOT"]}]}, {"operator": "or", "predicates": [{"anyOf": 48, "comparison": "includes", "name": "YeVV3l8x", "predicateType": "SeasonTierPredicate", "value": "pPZ3Nu5b", "values": ["ROquGV9A", "I6FKfUbE", "pMOQSGfk"]}, {"anyOf": 62, "comparison": "excludes", "name": "BmmA0rbG", "predicateType": "SeasonPassPredicate", "value": "zkO0BVYK", "values": ["ReQC2QZJ", "Sgu6gVNf", "hP3NFvuY"]}, {"anyOf": 66, "comparison": "includes", "name": "t5iT0irq", "predicateType": "SeasonPassPredicate", "value": "o3FOrf4v", "values": ["kC6fl7TE", "SHtmo1ZU", "yp9Ij5rC"]}]}, {"operator": "or", "predicates": [{"anyOf": 88, "comparison": "includes", "name": "kLwmyWC2", "predicateType": "SeasonPassPredicate", "value": "nKBYUtZZ", "values": ["vdN09ZaD", "kW8TGM7b", "brvxp9oP"]}, {"anyOf": 83, "comparison": "isLessThan", "name": "npxkAYsT", "predicateType": "EntitlementPredicate", "value": "F21hKV9n", "values": ["YXppar4p", "Yl4NmEeS", "2ImNSebS"]}, {"anyOf": 68, "comparison": "includes", "name": "2qAOh2Ke", "predicateType": "EntitlementPredicate", "value": "tHWquO9j", "values": ["NyWmf0N8", "r325uEBk", "TltkFj0d"]}]}]}, "recurring": {"cycle": "QUARTERLY", "fixedFreeDays": 56, "fixedTrialCycles": 54, "graceDays": 19}, "region": "yNMOvQMF", "regionData": [{"currencyCode": "7fOQVub1", "currencyNamespace": "PtfbFcoe", "currencyType": "REAL", "discountAmount": 68, "discountExpireAt": "1978-04-13T00:00:00Z", "discountPercentage": 62, "discountPurchaseAt": "1984-08-12T00:00:00Z", "discountedPrice": 100, "expireAt": "1988-09-10T00:00:00Z", "price": 56, "purchaseAt": "1990-08-20T00:00:00Z", "trialPrice": 45}, {"currencyCode": "9IwbCnca", "currencyNamespace": "p7AZfsDP", "currencyType": "REAL", "discountAmount": 50, "discountExpireAt": "1976-10-09T00:00:00Z", "discountPercentage": 4, "discountPurchaseAt": "1984-11-30T00:00:00Z", "discountedPrice": 68, "expireAt": "1996-07-30T00:00:00Z", "price": 55, "purchaseAt": "1995-10-09T00:00:00Z", "trialPrice": 46}, {"currencyCode": "GKUSwbLh", "currencyNamespace": "m98OTqHC", "currencyType": "REAL", "discountAmount": 25, "discountExpireAt": "1985-07-27T00:00:00Z", "discountPercentage": 75, "discountPurchaseAt": "1977-09-16T00:00:00Z", "discountedPrice": 64, "expireAt": "1993-11-16T00:00:00Z", "price": 20, "purchaseAt": "1983-03-06T00:00:00Z", "trialPrice": 43}], "seasonType": "TIER", "sku": "FPj0wDM4", "stackable": false, "status": "INACTIVE", "tags": ["7Ou6kCZB", "S3p9pA5g", "vpZ6DvjH"], "targetCurrencyCode": "R9AAf9b2", "targetItemId": "H86k3Khn", "targetNamespace": "dX84Bo1B", "thumbnailUrl": "EY0qaoDl", "title": "bEzOeef5", "updatedAt": "1987-02-22T00:00:00Z", "useCount": 86}, "namespace": "BBnj7rq4", "order": {"currency": {"currencyCode": "j4eQyK9p", "currencySymbol": "oXMAHRgf", "currencyType": "REAL", "decimals": 15, "namespace": "14MYkvCo"}, "ext": {"EEywg4jY": {}, "0sZUFoiS": {}, "sAgDBm4j": {}}, "free": true}, "source": "DLC"}, "script": "fJqXGDGm", "type": "grantDays"}' \
     > test.out 2>&1
 eval_tap $? 3 'TestFulfillmentScriptEval' test.out
 
 #- 4 GetFulfillmentScript
 ./ng net.accelbyte.sdk.cli.Main platform getFulfillmentScript \
-    --id 'o1Rx4x1f' \
+    --id 'FjvcW4aC' \
     > test.out 2>&1
 eval_tap $? 4 'GetFulfillmentScript' test.out
 
 #- 5 CreateFulfillmentScript
 ./ng net.accelbyte.sdk.cli.Main platform createFulfillmentScript \
-    --id '3ljW3utt' \
-    --body '{"grantDays": "iU9LatR3"}' \
+    --id 't8BP06Ay' \
+    --body '{"grantDays": "J2VB3VGf"}' \
     > test.out 2>&1
 eval_tap $? 5 'CreateFulfillmentScript' test.out
 
 #- 6 DeleteFulfillmentScript
 ./ng net.accelbyte.sdk.cli.Main platform deleteFulfillmentScript \
-    --id 'sN1bHQWF' \
+    --id 'Yye8OZjz' \
     > test.out 2>&1
 eval_tap $? 6 'DeleteFulfillmentScript' test.out
 
 #- 7 UpdateFulfillmentScript
 ./ng net.accelbyte.sdk.cli.Main platform updateFulfillmentScript \
-    --id 'hF7YKEVt' \
-    --body '{"grantDays": "kq6EYRde"}' \
+    --id 'TTMTFpN6' \
+    --body '{"grantDays": "8KMbSzTX"}' \
     > test.out 2>&1
 eval_tap $? 7 'UpdateFulfillmentScript' test.out
 
@@ -97,71 +97,71 @@ eval_tap $? 8 'ListItemTypeConfigs' test.out
 
 #- 9 CreateItemTypeConfig
 ./ng net.accelbyte.sdk.cli.Main platform createItemTypeConfig \
-    --body '{"clazz": "BTOdJtUa", "dryRun": false, "fulfillmentUrl": "3JuRiOjJ", "itemType": "SUBSCRIPTION", "purchaseConditionUrl": "s8An7F9J"}' \
+    --body '{"clazz": "Pg0dFNDI", "dryRun": false, "fulfillmentUrl": "SfQBn5TW", "itemType": "COINS", "purchaseConditionUrl": "AKyyrC8J"}' \
     > test.out 2>&1
 eval_tap $? 9 'CreateItemTypeConfig' test.out
 
 #- 10 SearchItemTypeConfig
 ./ng net.accelbyte.sdk.cli.Main platform searchItemTypeConfig \
-    --clazz 'oGpJSYkY' \
-    --itemType 'MEDIA' \
+    --clazz 'vYuDbQ3X' \
+    --itemType 'EXTENSION' \
     > test.out 2>&1
 eval_tap $? 10 'SearchItemTypeConfig' test.out
 
 #- 11 GetItemTypeConfig
 ./ng net.accelbyte.sdk.cli.Main platform getItemTypeConfig \
-    --id 'LQIxukWn' \
+    --id 'RDgpqy4h' \
     > test.out 2>&1
 eval_tap $? 11 'GetItemTypeConfig' test.out
 
 #- 12 UpdateItemTypeConfig
 ./ng net.accelbyte.sdk.cli.Main platform updateItemTypeConfig \
-    --id 'oDvkhcOW' \
-    --body '{"clazz": "L7GFtVzL", "dryRun": false, "fulfillmentUrl": "FkYrqRYr", "purchaseConditionUrl": "z1ed7oKy"}' \
+    --id 'LCrwiYep' \
+    --body '{"clazz": "chQodu6D", "dryRun": true, "fulfillmentUrl": "YzQDrw26", "purchaseConditionUrl": "8RzVcYKd"}' \
     > test.out 2>&1
 eval_tap $? 12 'UpdateItemTypeConfig' test.out
 
 #- 13 DeleteItemTypeConfig
 ./ng net.accelbyte.sdk.cli.Main platform deleteItemTypeConfig \
-    --id '9H3we0ky' \
+    --id 'Gc1UpSOp' \
     > test.out 2>&1
 eval_tap $? 13 'DeleteItemTypeConfig' test.out
 
 #- 14 QueryCampaigns
 ./ng net.accelbyte.sdk.cli.Main platform queryCampaigns \
     --namespace "$AB_NAMESPACE" \
-    --limit '48' \
-    --name 'dWA6i39L' \
-    --offset '11' \
-    --tag '6S1gYI4h' \
+    --limit '73' \
+    --name 'DWQqT3ib' \
+    --offset '4' \
+    --tag 'CPJtrUFr' \
     > test.out 2>&1
 eval_tap $? 14 'QueryCampaigns' test.out
 
 #- 15 CreateCampaign
 ./ng net.accelbyte.sdk.cli.Main platform createCampaign \
     --namespace "$AB_NAMESPACE" \
-    --body '{"description": "sCTzCZzy", "items": [{"extraSubscriptionDays": 30, "itemId": "N0mcemJl", "itemName": "tllskZwN", "quantity": 37}, {"extraSubscriptionDays": 1, "itemId": "EErlNTCk", "itemName": "uXU31KOq", "quantity": 53}, {"extraSubscriptionDays": 46, "itemId": "iqTgBxR6", "itemName": "HIHyBpzp", "quantity": 45}], "maxRedeemCountPerCampaignPerUser": 14, "maxRedeemCountPerCode": 69, "maxRedeemCountPerCodePerUser": 91, "maxSaleCount": 72, "name": "DwsnRdD9", "redeemEnd": "1985-04-03T00:00:00Z", "redeemStart": "1999-07-04T00:00:00Z", "redeemType": "ITEM", "status": "ACTIVE", "tags": ["QGTqMgBQ", "V8L7siEu", "jabiQJHr"], "type": "REDEMPTION"}' \
+    --body '{"description": "Ra0qcFhB", "items": [{"extraSubscriptionDays": 22, "itemId": "sfUxCgEQ", "itemName": "A64MR3nM", "quantity": 62}, {"extraSubscriptionDays": 20, "itemId": "FE5XXCMN", "itemName": "gDX8LWf3", "quantity": 45}, {"extraSubscriptionDays": 2, "itemId": "OpDNym3i", "itemName": "FM4tWCoz", "quantity": 100}], "maxRedeemCountPerCampaignPerUser": 92, "maxRedeemCountPerCode": 58, "maxRedeemCountPerCodePerUser": 32, "maxSaleCount": 99, "name": "L19gzpky", "redeemEnd": "1973-03-30T00:00:00Z", "redeemStart": "1990-02-11T00:00:00Z", "redeemType": "ITEM", "status": "ACTIVE", "tags": ["1xUliDyq", "4OxZTKRJ", "IDrVfEK2"], "type": "REDEMPTION"}' \
     > test.out 2>&1
 eval_tap $? 15 'CreateCampaign' test.out
 
 #- 16 GetCampaign
 ./ng net.accelbyte.sdk.cli.Main platform getCampaign \
-    --campaignId '6a9hktYg' \
+    --campaignId 'LniWqKh1' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 16 'GetCampaign' test.out
 
 #- 17 UpdateCampaign
 ./ng net.accelbyte.sdk.cli.Main platform updateCampaign \
-    --campaignId 'LlIOgdpc' \
+    --campaignId 'WM0n8Kjv' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"description": "IDMcu9B5", "items": [{"extraSubscriptionDays": 13, "itemId": "6rXsn2Uw", "itemName": "ATzewpie", "quantity": 64}, {"extraSubscriptionDays": 84, "itemId": "jNksTlP0", "itemName": "mWfSC5hP", "quantity": 42}, {"extraSubscriptionDays": 39, "itemId": "2t1BzqkD", "itemName": "Fw3i9Xoz", "quantity": 52}], "maxRedeemCountPerCampaignPerUser": 57, "maxRedeemCountPerCode": 53, "maxRedeemCountPerCodePerUser": 17, "maxSaleCount": 92, "name": "zmENsM8f", "redeemEnd": "1977-07-28T00:00:00Z", "redeemStart": "1977-11-20T00:00:00Z", "redeemType": "ITEM", "status": "ACTIVE", "tags": ["mcjPsrEf", "l5ky1utS", "DerDmXxY"]}' \
+    --body '{"description": "OIpOOu4d", "items": [{"extraSubscriptionDays": 9, "itemId": "xIaDgTWM", "itemName": "7fw1EKCx", "quantity": 69}, {"extraSubscriptionDays": 90, "itemId": "rEP9aOKC", "itemName": "Uch9OJ5k", "quantity": 37}, {"extraSubscriptionDays": 94, "itemId": "ZRRp8jzl", "itemName": "JlWh6urH", "quantity": 6}], "maxRedeemCountPerCampaignPerUser": 9, "maxRedeemCountPerCode": 23, "maxRedeemCountPerCodePerUser": 60, "maxSaleCount": 9, "name": "sC2NLUya", "redeemEnd": "1971-02-03T00:00:00Z", "redeemStart": "1993-08-26T00:00:00Z", "redeemType": "ITEM", "status": "ACTIVE", "tags": ["1jZNdJa1", "tYKqWYq7", "pi0e3onz"]}' \
     > test.out 2>&1
 eval_tap $? 17 'UpdateCampaign' test.out
 
 #- 18 GetCampaignDynamic
 ./ng net.accelbyte.sdk.cli.Main platform getCampaignDynamic \
-    --campaignId 'xhByB7og' \
+    --campaignId 'PHg8Qp7T' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 18 'GetCampaignDynamic' test.out
@@ -169,124 +169,124 @@ eval_tap $? 18 'GetCampaignDynamic' test.out
 #- 19 GetRootCategories
 ./ng net.accelbyte.sdk.cli.Main platform getRootCategories \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'HPbHuLXN' \
+    --storeId 'tLlej6JI' \
     > test.out 2>&1
 eval_tap $? 19 'GetRootCategories' test.out
 
 #- 20 CreateCategory
 ./ng net.accelbyte.sdk.cli.Main platform createCategory \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'nzfjatDO' \
-    --body '{"categoryPath": "qL8WAYQw", "localizationDisplayNames": {"5DDjhfxx": "v7Ze0VNH", "gn3sclFV": "UFvVRDzc", "ir4E7oxU": "cAVGN2C9"}}' \
+    --storeId 'Ylrm8xDr' \
+    --body '{"categoryPath": "p3VAHZ24", "localizationDisplayNames": {"n931Sdzr": "hPSHfjwE", "1wEY6UOB": "k0TeZMib", "oHiq6iaM": "PtaWNvDe"}}' \
     > test.out 2>&1
 eval_tap $? 20 'CreateCategory' test.out
 
 #- 21 ListCategoriesBasic
 ./ng net.accelbyte.sdk.cli.Main platform listCategoriesBasic \
     --namespace "$AB_NAMESPACE" \
-    --storeId '8DZzO93t' \
+    --storeId 'XqtbJq7s' \
     > test.out 2>&1
 eval_tap $? 21 'ListCategoriesBasic' test.out
 
 #- 22 GetCategory
 ./ng net.accelbyte.sdk.cli.Main platform getCategory \
-    --categoryPath 'pM1n91mq' \
+    --categoryPath 'sAZEoZ4v' \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'YvRDMg1c' \
+    --storeId 'kuMjmEKO' \
     > test.out 2>&1
 eval_tap $? 22 'GetCategory' test.out
 
 #- 23 UpdateCategory
 ./ng net.accelbyte.sdk.cli.Main platform updateCategory \
-    --categoryPath '0CDQ5l4N' \
+    --categoryPath '7vnrXcyr' \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'XDLQRso6' \
-    --body '{"localizationDisplayNames": {"iZWV7uZa": "KHSXfDwl", "L9H9Itxe": "F2S2C5gR", "WMDsLpAg": "r3C3J5e6"}}' \
+    --storeId 'prmNXDQN' \
+    --body '{"localizationDisplayNames": {"uTiXs4IW": "IZVQvFtf", "uD9vIA1A": "vq1Hqzrq", "IHVIybIR": "N5bOL9iP"}}' \
     > test.out 2>&1
 eval_tap $? 23 'UpdateCategory' test.out
 
 #- 24 DeleteCategory
 ./ng net.accelbyte.sdk.cli.Main platform deleteCategory \
-    --categoryPath 'LcNnxFmd' \
+    --categoryPath 'AEhoiFO2' \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'JKFybSuq' \
+    --storeId 'I0qU91RC' \
     > test.out 2>&1
 eval_tap $? 24 'DeleteCategory' test.out
 
 #- 25 GetChildCategories
 ./ng net.accelbyte.sdk.cli.Main platform getChildCategories \
-    --categoryPath 'YB9ivp3Z' \
+    --categoryPath 'KJXTDUP9' \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'OrJjhNkW' \
+    --storeId 'OH0sLiLY' \
     > test.out 2>&1
 eval_tap $? 25 'GetChildCategories' test.out
 
 #- 26 GetDescendantCategories
 ./ng net.accelbyte.sdk.cli.Main platform getDescendantCategories \
-    --categoryPath 'eYr9bsfZ' \
+    --categoryPath '6RNknIAZ' \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'Q9PM0xJ5' \
+    --storeId 'O658KCiK' \
     > test.out 2>&1
 eval_tap $? 26 'GetDescendantCategories' test.out
 
 #- 27 QueryCodes
 ./ng net.accelbyte.sdk.cli.Main platform queryCodes \
-    --campaignId 'lYQLSy9W' \
+    --campaignId '67rKZqWk' \
     --namespace "$AB_NAMESPACE" \
     --activeOnly  \
-    --batchNo '5' \
-    --code 'FRb1qRSi' \
-    --limit '14' \
-    --offset '77' \
+    --batchNo '76' \
+    --code 'fRM7EQPM' \
+    --limit '41' \
+    --offset '28' \
     > test.out 2>&1
 eval_tap $? 27 'QueryCodes' test.out
 
 #- 28 CreateCodes
 ./ng net.accelbyte.sdk.cli.Main platform createCodes \
-    --campaignId 'SgntxcYx' \
+    --campaignId 'pGcIzo7F' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"quantity": 69}' \
+    --body '{"quantity": 21}' \
     > test.out 2>&1
 eval_tap $? 28 'CreateCodes' test.out
 
 #- 29 Download
 ./ng net.accelbyte.sdk.cli.Main platform download \
-    --campaignId 'XMFyAFrx' \
+    --campaignId 'ObNB7LM2' \
     --namespace "$AB_NAMESPACE" \
-    --batchNo '89' \
+    --batchNo '49' \
     > test.out 2>&1
 eval_tap $? 29 'Download' test.out
 
 #- 30 BulkDisableCodes
 ./ng net.accelbyte.sdk.cli.Main platform bulkDisableCodes \
-    --campaignId 'pwIt7b3P' \
+    --campaignId 'xHKX1ovH' \
     --namespace "$AB_NAMESPACE" \
-    --batchNo '56' \
+    --batchNo '35' \
     > test.out 2>&1
 eval_tap $? 30 'BulkDisableCodes' test.out
 
 #- 31 BulkEnableCodes
 ./ng net.accelbyte.sdk.cli.Main platform bulkEnableCodes \
-    --campaignId 'YKz56D6t' \
+    --campaignId 'PiTariQX' \
     --namespace "$AB_NAMESPACE" \
-    --batchNo '69' \
+    --batchNo '51' \
     > test.out 2>&1
 eval_tap $? 31 'BulkEnableCodes' test.out
 
 #- 32 QueryRedeemHistory
 ./ng net.accelbyte.sdk.cli.Main platform queryRedeemHistory \
-    --campaignId 'm451OIm8' \
+    --campaignId 'o7GPHh3I' \
     --namespace "$AB_NAMESPACE" \
-    --code 'ZbQdCi6c' \
-    --limit '24' \
-    --offset '3' \
-    --userId 'XmXeUVa4' \
+    --code 'HlBAbMyQ' \
+    --limit '12' \
+    --offset '30' \
+    --userId 'hq3x6CIb' \
     > test.out 2>&1
 eval_tap $? 32 'QueryRedeemHistory' test.out
 
 #- 33 GetCode
 ./ng net.accelbyte.sdk.cli.Main platform getCode \
-    --code 'kx7N6b32' \
+    --code 'YB65Uvpa' \
     --namespace "$AB_NAMESPACE" \
     --redeemable  \
     > test.out 2>&1
@@ -294,14 +294,14 @@ eval_tap $? 33 'GetCode' test.out
 
 #- 34 DisableCode
 ./ng net.accelbyte.sdk.cli.Main platform disableCode \
-    --code 'GdvW1IoS' \
+    --code '5weM5bAU' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 34 'DisableCode' test.out
 
 #- 35 EnableCode
 ./ng net.accelbyte.sdk.cli.Main platform enableCode \
-    --code 'OiygdBA3' \
+    --code 'IbNMlCty' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 35 'EnableCode' test.out
@@ -316,35 +316,35 @@ eval_tap $? 36 'ListCurrencies' test.out
 #- 37 CreateCurrency
 ./ng net.accelbyte.sdk.cli.Main platform createCurrency \
     --namespace "$AB_NAMESPACE" \
-    --body '{"currencyCode": "Vh6kAgmj", "currencySymbol": "8F5zTVtK", "currencyType": "REAL", "decimals": 1, "localizationDescriptions": {"QiPQSUSe": "tUkurYNK", "ZNB2y5wi": "iEkJ52eU", "pwf0ElUr": "qiUsVdnB"}}' \
+    --body '{"currencyCode": "mQECbCEX", "currencySymbol": "RkZgfoNT", "currencyType": "REAL", "decimals": 88, "localizationDescriptions": {"gSemWjM0": "4qXZQh7c", "X5D4JENr": "Rg77GTay", "a6Osr8AJ": "uPieelZi"}}' \
     > test.out 2>&1
 eval_tap $? 37 'CreateCurrency' test.out
 
 #- 38 UpdateCurrency
 ./ng net.accelbyte.sdk.cli.Main platform updateCurrency \
-    --currencyCode '6Jg5ODi6' \
+    --currencyCode 'xKcKNSLi' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"localizationDescriptions": {"yGMZGrdi": "sZGUdGXK", "Qd20kmRR": "D78oM38D", "SVpqQ1OL": "8xvs0oY2"}}' \
+    --body '{"localizationDescriptions": {"ydZCMobG": "iDiHoQyC", "gn3hGDBZ": "hJHBKdCw", "yMC1ji3M": "7uVwJ7yc"}}' \
     > test.out 2>&1
 eval_tap $? 38 'UpdateCurrency' test.out
 
 #- 39 DeleteCurrency
 ./ng net.accelbyte.sdk.cli.Main platform deleteCurrency \
-    --currencyCode 'UHtlFO8A' \
+    --currencyCode 'IlfJRQFn' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 39 'DeleteCurrency' test.out
 
 #- 40 GetCurrencyConfig
 ./ng net.accelbyte.sdk.cli.Main platform getCurrencyConfig \
-    --currencyCode 'nLHEjiPT' \
+    --currencyCode 'MTEy4y03' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 40 'GetCurrencyConfig' test.out
 
 #- 41 GetCurrencySummary
 ./ng net.accelbyte.sdk.cli.Main platform getCurrencySummary \
-    --currencyCode 'nTvRfzOg' \
+    --currencyCode 'Fq5JcMUu' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 41 'GetCurrencySummary' test.out
@@ -358,7 +358,7 @@ eval_tap $? 42 'GetDLCItemConfig' test.out
 #- 43 UpdateDLCItemConfig
 ./ng net.accelbyte.sdk.cli.Main platform updateDLCItemConfig \
     --namespace "$AB_NAMESPACE" \
-    --body '{"data": [{"id": "sLvmrjvd", "rewards": [{"currency": {"currencyCode": "VhP13VoD", "namespace": "X0j87HW5"}, "item": {"itemId": "ne75Q8kA", "itemSku": "SSmXENzD", "itemType": "G0gPu7d0"}, "quantity": 3, "type": "ITEM"}, {"currency": {"currencyCode": "x4IrcoIy", "namespace": "cN9eS7FM"}, "item": {"itemId": "R4VUnBU3", "itemSku": "HGx61wqX", "itemType": "BYxSSYMh"}, "quantity": 8, "type": "ITEM"}, {"currency": {"currencyCode": "IQQ331tA", "namespace": "yO6Vp67p"}, "item": {"itemId": "jF9jYiYZ", "itemSku": "msjirpmi", "itemType": "31qGPflz"}, "quantity": 22, "type": "CURRENCY"}]}, {"id": "vozxqHk0", "rewards": [{"currency": {"currencyCode": "YbTTT9pl", "namespace": "SrMc1MOo"}, "item": {"itemId": "W8yCoUTG", "itemSku": "U624TLIP", "itemType": "YjPI0ZwE"}, "quantity": 38, "type": "ITEM"}, {"currency": {"currencyCode": "FejCtOqD", "namespace": "ilhi4Xwa"}, "item": {"itemId": "DbqUDsN1", "itemSku": "CIn6MyO6", "itemType": "1Xkh89ng"}, "quantity": 51, "type": "ITEM"}, {"currency": {"currencyCode": "QrV6AQUU", "namespace": "YLmxz32n"}, "item": {"itemId": "WnpVz06F", "itemSku": "sHfCUQr4", "itemType": "OvRwgSBc"}, "quantity": 81, "type": "ITEM"}]}, {"id": "XF6pSJLo", "rewards": [{"currency": {"currencyCode": "oPbsVdHX", "namespace": "GXqiQE51"}, "item": {"itemId": "2HXInrRX", "itemSku": "Eu7uOzeW", "itemType": "LYhXKYtE"}, "quantity": 91, "type": "ITEM"}, {"currency": {"currencyCode": "9mBOSq6u", "namespace": "kVNU1oua"}, "item": {"itemId": "GDpzdqXd", "itemSku": "YRaO1jzU", "itemType": "U6IKpzqs"}, "quantity": 68, "type": "ITEM"}, {"currency": {"currencyCode": "HKsF3iyf", "namespace": "RCVP9zy6"}, "item": {"itemId": "epyYoLim", "itemSku": "Whr0coMs", "itemType": "BJ1pDFXv"}, "quantity": 70, "type": "CURRENCY"}]}]}' \
+    --body '{"data": [{"id": "96P3FOaR", "rewards": [{"currency": {"currencyCode": "ijwCsU3n", "namespace": "4VSF6fly"}, "item": {"itemId": "e2VDPXeP", "itemSku": "FrHYG8l3", "itemType": "H6wm6dfp"}, "quantity": 84, "type": "ITEM"}, {"currency": {"currencyCode": "m4ynxkMj", "namespace": "teGNObPK"}, "item": {"itemId": "CckzgwXT", "itemSku": "WYdworTX", "itemType": "UIwNo2ph"}, "quantity": 73, "type": "CURRENCY"}, {"currency": {"currencyCode": "9N8vnj0m", "namespace": "zwfv9o2G"}, "item": {"itemId": "JAQBkMOw", "itemSku": "cyEDUIHS", "itemType": "FI9l1Frf"}, "quantity": 84, "type": "ITEM"}]}, {"id": "ZXx4eZJR", "rewards": [{"currency": {"currencyCode": "JxG9ZYTk", "namespace": "eAT5RuEV"}, "item": {"itemId": "ty043xYU", "itemSku": "el2Jwhlh", "itemType": "2n4jq0Bi"}, "quantity": 0, "type": "ITEM"}, {"currency": {"currencyCode": "dTQCz7Vl", "namespace": "sbiDrqfV"}, "item": {"itemId": "kfmnhliJ", "itemSku": "llppCPBJ", "itemType": "IjpDnnj3"}, "quantity": 24, "type": "ITEM"}, {"currency": {"currencyCode": "L2n5GDyG", "namespace": "gODbrv5c"}, "item": {"itemId": "0vG6OMtN", "itemSku": "nlhJ2T6j", "itemType": "OEIVKDcA"}, "quantity": 27, "type": "ITEM"}]}, {"id": "v4Qqrqz7", "rewards": [{"currency": {"currencyCode": "7rloSNLt", "namespace": "RncrZQMi"}, "item": {"itemId": "97Bs2BoC", "itemSku": "8Hwvi0zF", "itemType": "ItOX109H"}, "quantity": 89, "type": "CURRENCY"}, {"currency": {"currencyCode": "PVZCJpOw", "namespace": "WhhS1mjU"}, "item": {"itemId": "oVXDHQmF", "itemSku": "qzTTYl4w", "itemType": "caT0MdQb"}, "quantity": 67, "type": "CURRENCY"}, {"currency": {"currencyCode": "axHzMDPk", "namespace": "nFrEScdL"}, "item": {"itemId": "dQxmEw0i", "itemSku": "mnaBSK0H", "itemType": "IacqOKjw"}, "quantity": 60, "type": "CURRENCY"}]}]}' \
     > test.out 2>&1
 eval_tap $? 43 'UpdateDLCItemConfig' test.out
 
@@ -377,7 +377,7 @@ eval_tap $? 45 'GetPlatformDLCConfig' test.out
 #- 46 UpdatePlatformDLCConfig
 ./ng net.accelbyte.sdk.cli.Main platform updatePlatformDLCConfig \
     --namespace "$AB_NAMESPACE" \
-    --body '{"data": [{"platform": "PSN", "platformDlcIdMap": {"LZTmM8AY": "abGOdxAb", "UvYfD4YD": "jYCZUYWI", "yPHtLLCt": "KWkfYhss"}}, {"platform": "XBOX", "platformDlcIdMap": {"VdyegAFV": "GjYg9B0z", "jIlZBNMy": "Zl6zzLOH", "hBNGjXer": "Mk26hQmN"}}, {"platform": "XBOX", "platformDlcIdMap": {"Kl32QhVw": "mZThoE8R", "AmU1BMXs": "YhfmmBfw", "8IELMMAz": "Gjs6kWNT"}}]}' \
+    --body '{"data": [{"platform": "XBOX", "platformDlcIdMap": {"j147S02n": "0FbWzH4p", "vsdkkP0R": "mkEW4w1Q", "jRIH2g95": "vICFmuFv"}}, {"platform": "PSN", "platformDlcIdMap": {"0NZZUX2U": "QFtuy5J4", "69A2YxtE": "S9jvEyFQ", "ciLu5d07": "8jJCtdCW"}}, {"platform": "XBOX", "platformDlcIdMap": {"f2V7vm96": "A7H1IZBt", "NLFvUUcE": "rlIbsrth", "IijIFe2z": "2ORRw1Wr"}}]}' \
     > test.out 2>&1
 eval_tap $? 46 'UpdatePlatformDLCConfig' test.out
 
@@ -391,19 +391,19 @@ eval_tap $? 47 'DeletePlatformDLCConfig' test.out
 ./ng net.accelbyte.sdk.cli.Main platform queryEntitlements \
     --namespace "$AB_NAMESPACE" \
     --activeOnly  \
-    --appType 'SOFTWARE' \
-    --entitlementClazz 'SUBSCRIPTION' \
-    --entitlementName 'DE0mmUsH' \
-    --itemId 'xcRiAU0j,LHYmUfMM,lJo1jj1v' \
-    --limit '12' \
-    --offset '43' \
-    --userId 'F2bVPVs4' \
+    --appType 'DLC' \
+    --entitlementClazz 'LOOTBOX' \
+    --entitlementName 'fkMrwgVZ' \
+    --itemId 'WIgrAIv4,PIjWi7sg,CS4Gf8Xq' \
+    --limit '16' \
+    --offset '99' \
+    --userId 'ti1NCgNW' \
     > test.out 2>&1
 eval_tap $? 48 'QueryEntitlements' test.out
 
 #- 49 GetEntitlement
 ./ng net.accelbyte.sdk.cli.Main platform getEntitlement \
-    --entitlementId 'Ims5bYFr' \
+    --entitlementId 'tyq5dqdO' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 49 'GetEntitlement' test.out
@@ -411,10 +411,10 @@ eval_tap $? 49 'GetEntitlement' test.out
 #- 50 QueryFulfillmentHistories
 ./ng net.accelbyte.sdk.cli.Main platform queryFulfillmentHistories \
     --namespace "$AB_NAMESPACE" \
-    --limit '17' \
-    --offset '77' \
+    --limit '9' \
+    --offset '54' \
     --status 'FAIL' \
-    --userId 'gAsUE1x6' \
+    --userId '4E17qgMW' \
     > test.out 2>&1
 eval_tap $? 50 'QueryFulfillmentHistories' test.out
 
@@ -427,7 +427,7 @@ eval_tap $? 51 'GetAppleIAPConfig' test.out
 #- 52 UpdateAppleIAPConfig
 ./ng net.accelbyte.sdk.cli.Main platform updateAppleIAPConfig \
     --namespace "$AB_NAMESPACE" \
-    --body '{"bundleId": "qyMAmVal", "password": "5BP4r59w"}' \
+    --body '{"bundleId": "2zlRAdwM", "password": "EUnuofq5"}' \
     > test.out 2>&1
 eval_tap $? 52 'UpdateAppleIAPConfig' test.out
 
@@ -446,7 +446,7 @@ eval_tap $? 54 'GetEpicGamesIAPConfig' test.out
 #- 55 UpdateEpicGamesIAPConfig
 ./ng net.accelbyte.sdk.cli.Main platform updateEpicGamesIAPConfig \
     --namespace "$AB_NAMESPACE" \
-    --body '{"sandboxId": "aawQUECo"}' \
+    --body '{"sandboxId": "bHJvYmax"}' \
     > test.out 2>&1
 eval_tap $? 55 'UpdateEpicGamesIAPConfig' test.out
 
@@ -465,7 +465,7 @@ eval_tap $? 57 'GetGoogleIAPConfig' test.out
 #- 58 UpdateGoogleIAPConfig
 ./ng net.accelbyte.sdk.cli.Main platform updateGoogleIAPConfig \
     --namespace "$AB_NAMESPACE" \
-    --body '{"applicationName": "hwd906p8", "serviceAccountId": "zYQsCjlW"}' \
+    --body '{"applicationName": "hMFass9L", "serviceAccountId": "uOBLWqKI"}' \
     > test.out 2>&1
 eval_tap $? 58 'UpdateGoogleIAPConfig' test.out
 
@@ -491,7 +491,7 @@ eval_tap $? 61 'GetIAPItemConfig' test.out
 #- 62 UpdateIAPItemConfig
 ./ng net.accelbyte.sdk.cli.Main platform updateIAPItemConfig \
     --namespace "$AB_NAMESPACE" \
-    --body '{"data": [{"itemIdentity": "9ludSY1e", "itemIdentityType": "ITEM_SKU", "platformProductIdMap": {"y8UE5uwA": "T99m1ccc", "xgJaJZ2t": "Lcp0dbDB", "hJJndo2t": "Iy1tA5CS"}}, {"itemIdentity": "pKA6RUmk", "itemIdentityType": "ITEM_SKU", "platformProductIdMap": {"Qo4CzT0c": "tv42Wwwb", "aKGvlGBF": "S3tLNvOe", "tdlNjy4C": "0jXni4tE"}}, {"itemIdentity": "M9Joxq5z", "itemIdentityType": "ITEM_ID", "platformProductIdMap": {"L7Y2FbHG": "s2pZPhih", "1NQWmxw9": "0fwO3Rt5", "JQMGFXUy": "RISjjvsw"}}]}' \
+    --body '{"data": [{"itemIdentity": "7TbeTHhw", "itemIdentityType": "ITEM_ID", "platformProductIdMap": {"7ZnejDyG": "ObeYEUSn", "DRu8bL0c": "8MvFR2nX", "HdmnC9l2": "MVGpgUE3"}}, {"itemIdentity": "sNcO9OZt", "itemIdentityType": "ITEM_ID", "platformProductIdMap": {"mYfTYUwb": "PvvPVsuX", "47C6dfZK": "zNApomNm", "jGRTnZjd": "pV8B14Rv"}}, {"itemIdentity": "UAkOKBN9", "itemIdentityType": "ITEM_SKU", "platformProductIdMap": {"CYBogJM1": "GE78pnzy", "72gibGBT": "K9J3ISCI", "opNM9Zfw": "uXzXzRZ9"}}]}' \
     > test.out 2>&1
 eval_tap $? 62 'UpdateIAPItemConfig' test.out
 
@@ -510,7 +510,7 @@ eval_tap $? 64 'GetPlayStationIAPConfig' test.out
 #- 65 UpdatePlaystationIAPConfig
 ./ng net.accelbyte.sdk.cli.Main platform updatePlaystationIAPConfig \
     --namespace "$AB_NAMESPACE" \
-    --body '{"environment": "LVXXyWe5"}' \
+    --body '{"environment": "yUDKqtfH"}' \
     > test.out 2>&1
 eval_tap $? 65 'UpdatePlaystationIAPConfig' test.out
 
@@ -548,7 +548,7 @@ eval_tap $? 70 'GetSteamIAPConfig' test.out
 #- 71 UpdateSteamIAPConfig
 ./ng net.accelbyte.sdk.cli.Main platform updateSteamIAPConfig \
     --namespace "$AB_NAMESPACE" \
-    --body '{"appId": "SqlDvkQO", "publisherAuthenticationKey": "PjQtIi4f"}' \
+    --body '{"appId": "7e5Wtwgi", "publisherAuthenticationKey": "M8zKC4Jp"}' \
     > test.out 2>&1
 eval_tap $? 71 'UpdateSteamIAPConfig' test.out
 
@@ -567,7 +567,7 @@ eval_tap $? 73 'GetTwitchIAPConfig' test.out
 #- 74 UpdateTwitchIAPConfig
 ./ng net.accelbyte.sdk.cli.Main platform updateTwitchIAPConfig \
     --namespace "$AB_NAMESPACE" \
-    --body '{"clientId": "vp9cs0dQ", "clientSecret": "XrbnXdOw", "organizationId": "gfubasws"}' \
+    --body '{"clientId": "GGFI3Bca", "clientSecret": "10io88Vt", "organizationId": "yDmTg4hy"}' \
     > test.out 2>&1
 eval_tap $? 74 'UpdateTwitchIAPConfig' test.out
 
@@ -586,7 +586,7 @@ eval_tap $? 76 'GetXblIAPConfig' test.out
 #- 77 UpdateXblIAPConfig
 ./ng net.accelbyte.sdk.cli.Main platform updateXblIAPConfig \
     --namespace "$AB_NAMESPACE" \
-    --body '{"relyingPartyCert": "QmG6hqGk"}' \
+    --body '{"relyingPartyCert": "7pZFFtFe"}' \
     > test.out 2>&1
 eval_tap $? 77 'UpdateXblIAPConfig' test.out
 
@@ -600,45 +600,45 @@ eval_tap $? 78 'DeleteXblAPConfig' test.out
 ./ng net.accelbyte.sdk.cli.Main platform updateXblBPCertFile \
     --namespace "$AB_NAMESPACE" \
     --file 'tmp.dat' \
-    --password 'EcpA7Z03' \
+    --password 'OzaoMOQu' \
     > test.out 2>&1
 eval_tap $? 79 'UpdateXblBPCertFile' test.out
 
 #- 80 DownloadInvoiceDetails
 ./ng net.accelbyte.sdk.cli.Main platform downloadInvoiceDetails \
     --namespace "$AB_NAMESPACE" \
-    --feature 'BmKjGE4d' \
-    --itemId 'qIRdVdDI' \
-    --itemType 'EXTENSION' \
-    --endTime 'ksmD2AQP' \
-    --startTime 't5X7Yerx' \
+    --feature '9KgDAS51' \
+    --itemId 'hpkvbZB3' \
+    --itemType 'SEASON' \
+    --endTime 'nGUytqOQ' \
+    --startTime '0zyao9fn' \
     > test.out 2>&1
 eval_tap $? 80 'DownloadInvoiceDetails' test.out
 
 #- 81 GenerateInvoiceSummary
 ./ng net.accelbyte.sdk.cli.Main platform generateInvoiceSummary \
     --namespace "$AB_NAMESPACE" \
-    --feature '8unxFh3n' \
-    --itemId 'kczqnija' \
-    --itemType 'INGAMEITEM' \
-    --endTime 'CNKkS0CX' \
-    --startTime 'w3zSo9UG' \
+    --feature '6d8MEs9B' \
+    --itemId 'gsw1LXTU' \
+    --itemType 'COINS' \
+    --endTime 'e2qPujv8' \
+    --startTime 'NcWWLTtV' \
     > test.out 2>&1
 eval_tap $? 81 'GenerateInvoiceSummary' test.out
 
 #- 82 SyncInGameItem
 ./ng net.accelbyte.sdk.cli.Main platform syncInGameItem \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'jvjUWu8x' \
-    --body '{"categoryPath": "xWuzPOWA", "targetItemId": "5UiYNhVX", "targetNamespace": "UlHmf1HV"}' \
+    --storeId 'h4UNbLjr' \
+    --body '{"categoryPath": "IKm6TI8U", "targetItemId": "NVup4xwS", "targetNamespace": "7xYykevW"}' \
     > test.out 2>&1
 eval_tap $? 82 'SyncInGameItem' test.out
 
 #- 83 CreateItem
 ./ng net.accelbyte.sdk.cli.Main platform createItem \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'HC4KNmmZ' \
-    --body '{"appId": "K2TP30YI", "appType": "GAME", "baseAppId": "qd2fjA85", "boothName": "8tzTwGhl", "categoryPath": "OiUIzGVN", "clazz": "7ybLhQPt", "displayOrder": 93, "entitlementType": "DURABLE", "ext": {"qGr5RZwv": {}, "VQJM1T6v": {}, "0jX4Ezwd": {}}, "features": ["Kr02APLo", "cyDuNysc", "Y0mrlvtr"], "images": [{"as": "IHUk3V7S", "caption": "L4lVpyZw", "height": 48, "imageUrl": "mnclCr6r", "smallImageUrl": "ow3wZ0VY", "width": 99}, {"as": "rC8mhJJD", "caption": "Xj2NeX9J", "height": 95, "imageUrl": "lxkQMXDX", "smallImageUrl": "H1k208xt", "width": 82}, {"as": "Z6qVQS5H", "caption": "4TIEWfev", "height": 33, "imageUrl": "vPnUPOtk", "smallImageUrl": "ckbGrig1", "width": 14}], "itemIds": ["WtjNfFxZ", "2pmi5xc8", "8n6z0QDL"], "itemQty": {"y74Ncmzd": 58, "McdPjLdU": 52, "92257zkG": 95}, "itemType": "SEASON", "listable": true, "localizations": {"FeBIrwCS": {"description": "41Lhijwp", "localExt": {"yBuHp0VY": {}, "HPPgmksN": {}, "HqhqUgNC": {}}, "longDescription": "bo9eqYwE", "title": "rwatqKsA"}, "PoDmrX5h": {"description": "q9eRwpLD", "localExt": {"aLNobKeE": {}, "VrGFG3mM": {}, "cQLHiMMM": {}}, "longDescription": "DNGVoqOB", "title": "eXW8UYDi"}, "SI0o4stG": {"description": "hcmcFf8D", "localExt": {"jeNNiMaR": {}, "e3xaPvXk": {}, "Aregqe76": {}}, "longDescription": "MPWbUE8Q", "title": "NuDxdmdn"}}, "maxCount": 14, "maxCountPerUser": 78, "name": "OvQQt8Ut", "optionBoxConfig": {"boxItems": [{"count": 82, "itemId": "zy9gOBZp", "itemSku": "JtUWllVV"}, {"count": 84, "itemId": "olVuwaaB", "itemSku": "LobcvpXc"}, {"count": 81, "itemId": "qBmXZau2", "itemSku": "zIyMtd6E"}]}, "purchasable": false, "recurring": {"cycle": "YEARLY", "fixedFreeDays": 88, "fixedTrialCycles": 63, "graceDays": 51}, "regionData": {"GRJrIsCu": [{"currencyCode": "2gbyNkB6", "currencyNamespace": "H8SF1doj", "currencyType": "REAL", "discountAmount": 17, "discountExpireAt": "1990-08-03T00:00:00Z", "discountPercentage": 1, "discountPurchaseAt": "1980-01-03T00:00:00Z", "discountedPrice": 34, "expireAt": "1979-08-08T00:00:00Z", "price": 58, "purchaseAt": "1991-01-31T00:00:00Z", "trialPrice": 17}, {"currencyCode": "lbaItjOk", "currencyNamespace": "mQqx05TR", "currencyType": "REAL", "discountAmount": 88, "discountExpireAt": "1985-01-29T00:00:00Z", "discountPercentage": 47, "discountPurchaseAt": "1986-04-12T00:00:00Z", "discountedPrice": 84, "expireAt": "1992-12-01T00:00:00Z", "price": 98, "purchaseAt": "1973-12-03T00:00:00Z", "trialPrice": 26}, {"currencyCode": "HHIWR1XU", "currencyNamespace": "JoPdxQD4", "currencyType": "REAL", "discountAmount": 71, "discountExpireAt": "1974-02-06T00:00:00Z", "discountPercentage": 36, "discountPurchaseAt": "1974-07-30T00:00:00Z", "discountedPrice": 77, "expireAt": "1982-08-27T00:00:00Z", "price": 99, "purchaseAt": "1982-11-17T00:00:00Z", "trialPrice": 43}], "Dbzolqxj": [{"currencyCode": "6UpJLhBz", "currencyNamespace": "aLp7rgF0", "currencyType": "REAL", "discountAmount": 19, "discountExpireAt": "1997-04-12T00:00:00Z", "discountPercentage": 30, "discountPurchaseAt": "1994-12-27T00:00:00Z", "discountedPrice": 93, "expireAt": "1993-11-24T00:00:00Z", "price": 93, "purchaseAt": "1988-04-04T00:00:00Z", "trialPrice": 79}, {"currencyCode": "hMPEKb5S", "currencyNamespace": "ERZekyh7", "currencyType": "VIRTUAL", "discountAmount": 4, "discountExpireAt": "1973-02-10T00:00:00Z", "discountPercentage": 90, "discountPurchaseAt": "1982-01-26T00:00:00Z", "discountedPrice": 57, "expireAt": "1998-06-12T00:00:00Z", "price": 67, "purchaseAt": "1996-02-01T00:00:00Z", "trialPrice": 56}, {"currencyCode": "hG7P0Tfs", "currencyNamespace": "3mmMtTwS", "currencyType": "REAL", "discountAmount": 67, "discountExpireAt": "1974-04-24T00:00:00Z", "discountPercentage": 89, "discountPurchaseAt": "1993-03-22T00:00:00Z", "discountedPrice": 78, "expireAt": "1984-05-06T00:00:00Z", "price": 70, "purchaseAt": "1977-12-17T00:00:00Z", "trialPrice": 38}], "rDfTFO7k": [{"currencyCode": "zAPLo4jO", "currencyNamespace": "6wVQ5jMT", "currencyType": "VIRTUAL", "discountAmount": 14, "discountExpireAt": "1997-04-28T00:00:00Z", "discountPercentage": 54, "discountPurchaseAt": "1977-08-03T00:00:00Z", "discountedPrice": 21, "expireAt": "1973-06-15T00:00:00Z", "price": 97, "purchaseAt": "1991-02-20T00:00:00Z", "trialPrice": 77}, {"currencyCode": "VUzfUPDB", "currencyNamespace": "w3G4NHVV", "currencyType": "VIRTUAL", "discountAmount": 77, "discountExpireAt": "1996-01-27T00:00:00Z", "discountPercentage": 78, "discountPurchaseAt": "1988-08-06T00:00:00Z", "discountedPrice": 58, "expireAt": "1980-05-29T00:00:00Z", "price": 24, "purchaseAt": "1992-07-18T00:00:00Z", "trialPrice": 7}, {"currencyCode": "g0IQSV35", "currencyNamespace": "aj5oj7pL", "currencyType": "REAL", "discountAmount": 85, "discountExpireAt": "1979-05-08T00:00:00Z", "discountPercentage": 76, "discountPurchaseAt": "1983-01-17T00:00:00Z", "discountedPrice": 23, "expireAt": "1982-11-19T00:00:00Z", "price": 11, "purchaseAt": "1992-07-25T00:00:00Z", "trialPrice": 73}]}, "seasonType": "TIER", "sku": "T92TSpWj", "stackable": true, "status": "ACTIVE", "tags": ["RPnqVpQU", "cFkpWkT0", "mJtpEu20"], "targetCurrencyCode": "PkNRP7Mp", "targetNamespace": "RMU0W0zz", "thumbnailUrl": "Htk6eCN2", "useCount": 1}' \
+    --storeId 'Kd8LKuws' \
+    --body '{"appId": "SCiQm1Yr", "appType": "DEMO", "baseAppId": "EAzhNsm2", "boothName": "kYxEzikn", "categoryPath": "vl3xAPm5", "clazz": "tB0qIJvx", "displayOrder": 26, "entitlementType": "CONSUMABLE", "ext": {"NNMpdHSn": {}, "CHV2zU6u": {}, "UtSY01ku": {}}, "features": ["GA7SZ8SZ", "CdBZ4NP8", "xThc4YfQ"], "images": [{"as": "md2Bild4", "caption": "fxUjhuAg", "height": 86, "imageUrl": "ImEz2zbc", "smallImageUrl": "zYBxKMuP", "width": 43}, {"as": "e7eK3jUs", "caption": "hCv1f4qU", "height": 48, "imageUrl": "qqiCoRlU", "smallImageUrl": "Ghlmyrqk", "width": 46}, {"as": "vu2ab6fj", "caption": "Bb19fQWI", "height": 31, "imageUrl": "DtOarbrT", "smallImageUrl": "AxyUBfxl", "width": 68}], "itemIds": ["QBFmxRZf", "IXTu2BFP", "rJW0Dt4W"], "itemQty": {"H5I1UiMv": 98, "qmoJeWX7": 18, "HxxCLnB0": 0}, "itemType": "INGAMEITEM", "listable": false, "localizations": {"AzkxBi1w": {"description": "frHMEm0m", "localExt": {"qwwusXEW": {}, "6FgBVjlA": {}, "XVLZHFBn": {}}, "longDescription": "ZeITt03w", "title": "liqcGJM4"}, "UopjWtBd": {"description": "jGdgnjjb", "localExt": {"xYyNwzL0": {}, "3S2sqjsw": {}, "zxfSPsGl": {}}, "longDescription": "r1EgK4az", "title": "XNnrqfHH"}, "5I3Tr5ox": {"description": "QS2EaxUo", "localExt": {"NAXW5V0w": {}, "vYxXcYkd": {}, "XDW37EvR": {}}, "longDescription": "wtQSX6yv", "title": "MrIiSlqU"}}, "lootBoxConfig": {"rewardCount": 96, "rewards": [{"lootBoxItems": [{"count": 6, "itemId": "HNyMQAmZ", "itemSku": "yxdhnssO", "itemType": "Rv7bkNke"}, {"count": 36, "itemId": "pwIgf697", "itemSku": "OKJ4rgal", "itemType": "b0KGTPGZ"}, {"count": 34, "itemId": "yZQisKks", "itemSku": "07Xg8r7z", "itemType": "6Pa5ydy9"}], "name": "PUralZZh", "odds": 0.8081165173806634, "type": "REWARD", "weight": 46}, {"lootBoxItems": [{"count": 45, "itemId": "czXXKyFT", "itemSku": "kdVQ1Qkw", "itemType": "LERAoGmd"}, {"count": 20, "itemId": "wwB7QNNN", "itemSku": "5Fd64KCx", "itemType": "5GsQwACu"}, {"count": 8, "itemId": "0zCpJKpZ", "itemSku": "T2KsCMPt", "itemType": "85KggNRp"}], "name": "F9obHozA", "odds": 0.5850384519734348, "type": "PROBABILITY_GROUP", "weight": 94}, {"lootBoxItems": [{"count": 59, "itemId": "PRPeufPK", "itemSku": "PpycbWRO", "itemType": "ZQkMXRNL"}, {"count": 68, "itemId": "K8fIVrCM", "itemSku": "MVDIMSx1", "itemType": "PLLJfXv4"}, {"count": 97, "itemId": "y71hJMbY", "itemSku": "QEdxP2Ul", "itemType": "9lbQRGH4"}], "name": "Ds9BQXqL", "odds": 0.6765543694409076, "type": "PROBABILITY_GROUP", "weight": 9}]}, "maxCount": 97, "maxCountPerUser": 59, "name": "W637DM8X", "optionBoxConfig": {"boxItems": [{"count": 30, "itemId": "LjtPpWAr", "itemSku": "XGnCmWWv", "itemType": "0u8IxzLQ"}, {"count": 90, "itemId": "wPEkZLQR", "itemSku": "AEJ0HDxh", "itemType": "R6mS86Ti"}, {"count": 20, "itemId": "FW7xk0jJ", "itemSku": "IfIklXdk", "itemType": "FHZt04rK"}]}, "purchasable": true, "recurring": {"cycle": "MONTHLY", "fixedFreeDays": 66, "fixedTrialCycles": 8, "graceDays": 7}, "regionData": {"svgxjdd0": [{"currencyCode": "4oOzURJy", "currencyNamespace": "22oSB1wz", "currencyType": "REAL", "discountAmount": 20, "discountExpireAt": "1996-04-03T00:00:00Z", "discountPercentage": 72, "discountPurchaseAt": "1997-07-20T00:00:00Z", "discountedPrice": 35, "expireAt": "1993-03-01T00:00:00Z", "price": 67, "purchaseAt": "1987-01-18T00:00:00Z", "trialPrice": 37}, {"currencyCode": "lwZSqTgC", "currencyNamespace": "CnydmJyp", "currencyType": "REAL", "discountAmount": 57, "discountExpireAt": "1999-11-15T00:00:00Z", "discountPercentage": 52, "discountPurchaseAt": "1988-08-14T00:00:00Z", "discountedPrice": 24, "expireAt": "1986-11-24T00:00:00Z", "price": 47, "purchaseAt": "1971-10-24T00:00:00Z", "trialPrice": 4}, {"currencyCode": "BYRXeP9X", "currencyNamespace": "mU8AMpWV", "currencyType": "VIRTUAL", "discountAmount": 59, "discountExpireAt": "1971-12-16T00:00:00Z", "discountPercentage": 73, "discountPurchaseAt": "1981-02-20T00:00:00Z", "discountedPrice": 9, "expireAt": "1991-10-29T00:00:00Z", "price": 66, "purchaseAt": "1980-01-31T00:00:00Z", "trialPrice": 42}], "L3bSKs3U": [{"currencyCode": "2KsluHaC", "currencyNamespace": "LvYxnNRj", "currencyType": "REAL", "discountAmount": 69, "discountExpireAt": "1992-04-18T00:00:00Z", "discountPercentage": 18, "discountPurchaseAt": "1994-06-12T00:00:00Z", "discountedPrice": 9, "expireAt": "1975-12-07T00:00:00Z", "price": 39, "purchaseAt": "1998-02-14T00:00:00Z", "trialPrice": 9}, {"currencyCode": "MI0MKT68", "currencyNamespace": "gGmlGlqH", "currencyType": "REAL", "discountAmount": 96, "discountExpireAt": "1984-03-31T00:00:00Z", "discountPercentage": 56, "discountPurchaseAt": "1988-07-08T00:00:00Z", "discountedPrice": 81, "expireAt": "1999-08-31T00:00:00Z", "price": 67, "purchaseAt": "1997-02-15T00:00:00Z", "trialPrice": 87}, {"currencyCode": "VYGkfeVn", "currencyNamespace": "4MRdU1R1", "currencyType": "VIRTUAL", "discountAmount": 66, "discountExpireAt": "1996-06-07T00:00:00Z", "discountPercentage": 83, "discountPurchaseAt": "1977-10-30T00:00:00Z", "discountedPrice": 10, "expireAt": "1997-05-10T00:00:00Z", "price": 85, "purchaseAt": "1991-05-17T00:00:00Z", "trialPrice": 82}], "V7VLXnKa": [{"currencyCode": "h7zSS6GR", "currencyNamespace": "baoGyLL8", "currencyType": "REAL", "discountAmount": 56, "discountExpireAt": "1982-08-11T00:00:00Z", "discountPercentage": 47, "discountPurchaseAt": "1980-12-18T00:00:00Z", "discountedPrice": 67, "expireAt": "1979-02-17T00:00:00Z", "price": 93, "purchaseAt": "1991-01-19T00:00:00Z", "trialPrice": 69}, {"currencyCode": "9vHxzHjH", "currencyNamespace": "xBg1KU0q", "currencyType": "VIRTUAL", "discountAmount": 47, "discountExpireAt": "1998-06-30T00:00:00Z", "discountPercentage": 91, "discountPurchaseAt": "1976-03-09T00:00:00Z", "discountedPrice": 19, "expireAt": "1995-12-17T00:00:00Z", "price": 55, "purchaseAt": "1980-11-11T00:00:00Z", "trialPrice": 78}, {"currencyCode": "8qusbhLs", "currencyNamespace": "Uz3RKM5p", "currencyType": "REAL", "discountAmount": 58, "discountExpireAt": "1972-09-01T00:00:00Z", "discountPercentage": 17, "discountPurchaseAt": "1977-02-26T00:00:00Z", "discountedPrice": 64, "expireAt": "1971-07-28T00:00:00Z", "price": 11, "purchaseAt": "1971-07-01T00:00:00Z", "trialPrice": 0}]}, "seasonType": "PASS", "sku": "Rc8Aq68F", "stackable": true, "status": "INACTIVE", "tags": ["N9HOBQNt", "8lMlt875", "aAnwUN5q"], "targetCurrencyCode": "IFykObdE", "targetNamespace": "4bdZ2qwT", "thumbnailUrl": "0OPZo4AS", "useCount": 3}' \
     > test.out 2>&1
 eval_tap $? 83 'CreateItem' test.out
 
@@ -646,8 +646,8 @@ eval_tap $? 83 'CreateItem' test.out
 ./ng net.accelbyte.sdk.cli.Main platform getItemByAppId \
     --namespace "$AB_NAMESPACE" \
     --activeOnly  \
-    --storeId 'Euf7OEVb' \
-    --appId 'vAsLcbVx' \
+    --storeId '9R8HNl9a' \
+    --appId '92tbWxP3' \
     > test.out 2>&1
 eval_tap $? 84 'GetItemByAppId' test.out
 
@@ -655,20 +655,20 @@ eval_tap $? 84 'GetItemByAppId' test.out
 ./ng net.accelbyte.sdk.cli.Main platform queryItems \
     --namespace "$AB_NAMESPACE" \
     --activeOnly  \
-    --appType 'DEMO' \
-    --availableDate 'VuMLg3so' \
-    --baseAppId '27aPtB77' \
-    --categoryPath '5rWEXkXR' \
-    --features 'FIYTVy43' \
+    --appType 'DLC' \
+    --availableDate '6CTTyztC' \
+    --baseAppId 'hKiwNNEx' \
+    --categoryPath 'DBqtUMP2' \
+    --features '4hEbwSRZ' \
     --includeSubCategoryItem  \
-    --itemType 'EXTENSION' \
-    --limit '3' \
-    --offset '41' \
-    --region 'cdKMHQbh' \
-    --sortBy 'displayOrder,displayOrder:asc,createdAt:asc' \
-    --storeId '2Z05cb2O' \
-    --tags 'Xs2Bjtdx' \
-    --targetNamespace 'NCm2wXVJ' \
+    --itemType 'LOOTBOX' \
+    --limit '6' \
+    --offset '90' \
+    --region '3Jnviy7n' \
+    --sortBy 'name:desc,createdAt:asc,updatedAt' \
+    --storeId 's03tJ67G' \
+    --tags 'pJAz6GBs' \
+    --targetNamespace 'jcEIjz3d' \
     > test.out 2>&1
 eval_tap $? 85 'QueryItems' test.out
 
@@ -676,7 +676,7 @@ eval_tap $? 85 'QueryItems' test.out
 ./ng net.accelbyte.sdk.cli.Main platform listBasicItemsByFeatures \
     --namespace "$AB_NAMESPACE" \
     --activeOnly  \
-    --features 'BjO4JjWF,ffxibzkT,m8K1h14S' \
+    --features '6Hohmd2k,4LiIAvSc,2Qs1rcCF' \
     > test.out 2>&1
 eval_tap $? 86 'ListBasicItemsByFeatures' test.out
 
@@ -684,8 +684,8 @@ eval_tap $? 86 'ListBasicItemsByFeatures' test.out
 ./ng net.accelbyte.sdk.cli.Main platform getItemBySku \
     --namespace "$AB_NAMESPACE" \
     --activeOnly  \
-    --storeId '2SwKK3Gd' \
-    --sku '8eLfPZcU' \
+    --storeId '2c9luaoK' \
+    --sku 'Mn3iP8Zb' \
     > test.out 2>&1
 eval_tap $? 87 'GetItemBySku' test.out
 
@@ -693,11 +693,11 @@ eval_tap $? 87 'GetItemBySku' test.out
 ./ng net.accelbyte.sdk.cli.Main platform getLocaleItemBySku \
     --namespace "$AB_NAMESPACE" \
     --activeOnly  \
-    --language 'xAQECT1O' \
+    --language 'NzNkJN8E' \
     --populateBundle  \
-    --region 'v69zTLKx' \
-    --storeId '5aKn60sp' \
-    --sku 'RBrCpgJe' \
+    --region 'MyEC9Cj5' \
+    --storeId '0CiAvBFp' \
+    --sku 'G77Uyalo' \
     > test.out 2>&1
 eval_tap $? 88 'GetLocaleItemBySku' test.out
 
@@ -705,16 +705,16 @@ eval_tap $? 88 'GetLocaleItemBySku' test.out
 ./ng net.accelbyte.sdk.cli.Main platform getItemIdBySku \
     --namespace "$AB_NAMESPACE" \
     --activeOnly  \
-    --storeId 'XBq8p4yp' \
-    --sku '8uKgmah0' \
+    --storeId 'LWPa3V4K' \
+    --sku 'm1BIFcT5' \
     > test.out 2>&1
 eval_tap $? 89 'GetItemIdBySku' test.out
 
 #- 90 GetBulkItemIdBySkus
 ./ng net.accelbyte.sdk.cli.Main platform getBulkItemIdBySkus \
     --namespace "$AB_NAMESPACE" \
-    --sku 'fTiyZY5w,5YOWqJbz,oHX8dVpg' \
-    --storeId 'JtUP1Zor' \
+    --sku 'KQGneU5N,bc62PLIA,qflOjBow' \
+    --storeId 'u8z58THf' \
     > test.out 2>&1
 eval_tap $? 90 'GetBulkItemIdBySkus' test.out
 
@@ -722,10 +722,10 @@ eval_tap $? 90 'GetBulkItemIdBySkus' test.out
 ./ng net.accelbyte.sdk.cli.Main platform bulkGetLocaleItems \
     --namespace "$AB_NAMESPACE" \
     --activeOnly  \
-    --language 'xFr8AlhP' \
-    --region '7RFGa1UN' \
-    --storeId 'fDx8Qodh' \
-    --itemIds 'myHxyPCZ' \
+    --language 'T5qacCqF' \
+    --region 'rDuEgWrx' \
+    --storeId 'juDbnTgl' \
+    --itemIds 'DPCzb9hv' \
     > test.out 2>&1
 eval_tap $? 91 'BulkGetLocaleItems' test.out
 
@@ -738,8 +738,8 @@ eval_tap $? 92 'GetAvailablePredicateTypes' test.out
 #- 93 ValidateItemPurchaseCondition
 ./ng net.accelbyte.sdk.cli.Main platform validateItemPurchaseCondition \
     --namespace "$AB_NAMESPACE" \
-    --userId '3Kw6xqdd' \
-    --body '{"itemIds": ["2zmbD5kz", "V5dbHzvq", "7wPbuuNR"]}' \
+    --userId 'UZQnRtGC' \
+    --body '{"itemIds": ["yVXvhyp7", "ZTiAMZJs", "TKrxN6q9"]}' \
     > test.out 2>&1
 eval_tap $? 93 'ValidateItemPurchaseCondition' test.out
 
@@ -747,13 +747,13 @@ eval_tap $? 93 'ValidateItemPurchaseCondition' test.out
 ./ng net.accelbyte.sdk.cli.Main platform searchItems \
     --namespace "$AB_NAMESPACE" \
     --activeOnly  \
-    --itemType 'CODE' \
-    --limit '32' \
-    --offset '3' \
-    --sortBy '08xknDXd' \
-    --storeId '9G4TOnun' \
-    --keyword 'xBKPTawR' \
-    --language 'jN35CBNc' \
+    --itemType 'OPTIONBOX' \
+    --limit '62' \
+    --offset '19' \
+    --sortBy 'GRHcbrnF' \
+    --storeId 'CiBL7sfF' \
+    --keyword 'K6BwiTOc' \
+    --language 'ZQBbpcLY' \
     > test.out 2>&1
 eval_tap $? 94 'SearchItems' test.out
 
@@ -761,150 +761,150 @@ eval_tap $? 94 'SearchItems' test.out
 ./ng net.accelbyte.sdk.cli.Main platform queryUncategorizedItems \
     --namespace "$AB_NAMESPACE" \
     --activeOnly  \
-    --limit '52' \
-    --offset '55' \
-    --sortBy 'name:asc,name:desc,updatedAt' \
-    --storeId 'o2ufpyEO' \
+    --limit '88' \
+    --offset '35' \
+    --sortBy 'displayOrder:asc,name:desc,createdAt' \
+    --storeId 'TEz7BrOd' \
     > test.out 2>&1
 eval_tap $? 95 'QueryUncategorizedItems' test.out
 
 #- 96 GetItem
 ./ng net.accelbyte.sdk.cli.Main platform getItem \
-    --itemId '6hgqHNIE' \
+    --itemId 'EeHsvHN3' \
     --namespace "$AB_NAMESPACE" \
     --activeOnly  \
-    --storeId 'lcvaO0bP' \
+    --storeId 'ojrsAm1O' \
     > test.out 2>&1
 eval_tap $? 96 'GetItem' test.out
 
 #- 97 UpdateItem
 ./ng net.accelbyte.sdk.cli.Main platform updateItem \
-    --itemId 'N4yL6aBN' \
+    --itemId 'wbIYG6rU' \
     --namespace "$AB_NAMESPACE" \
-    --storeId '7e0qhnSC' \
-    --body '{"appId": "sFXyE4vN", "appType": "SOFTWARE", "baseAppId": "vGLb9LKE", "boothName": "XvhicJFv", "categoryPath": "qIMmbVf1", "clazz": "6HBgB0MG", "displayOrder": 100, "entitlementType": "DURABLE", "ext": {"9BqUcwKF": {}, "aG0PmtEz": {}, "9jbV7YCz": {}}, "features": ["xBChxVcP", "G7eOzZjL", "XRCpA9G0"], "images": [{"as": "LvwZaDnQ", "caption": "iIzPQdkF", "height": 19, "imageUrl": "5jO0xITP", "smallImageUrl": "ZEJ8H9Iw", "width": 86}, {"as": "vsEGXdyB", "caption": "eeQcUzUu", "height": 43, "imageUrl": "sbRQH3FU", "smallImageUrl": "ee2O0W2k", "width": 10}, {"as": "Bx2kgcyM", "caption": "EHJioF1x", "height": 100, "imageUrl": "ghfeBWza", "smallImageUrl": "wTk1fdDx", "width": 80}], "itemIds": ["l3CrBkZu", "Spf99d0q", "JpO1eUP6"], "itemQty": {"nz00UgNL": 99, "cBsD6BDp": 10, "goDH8qpT": 82}, "itemType": "EXTENSION", "listable": true, "localizations": {"DqlZ27Ux": {"description": "hBRcYn3x", "localExt": {"NhteuH1T": {}, "3GuOlbsO": {}, "0aBbp62z": {}}, "longDescription": "IcWVQA42", "title": "bjjJy5yy"}, "WzRMGzvT": {"description": "wDMDarAg", "localExt": {"N9sv7GRt": {}, "pZSxOsdv": {}, "syTa1I3W": {}}, "longDescription": "5cdoF3mC", "title": "45psDPmM"}, "oH05IyD2": {"description": "mbwlA59H", "localExt": {"7P155NzR": {}, "sipFqbgH": {}, "NBJOEVHU": {}}, "longDescription": "9AnzwZzY", "title": "FU19oTUJ"}}, "maxCount": 18, "maxCountPerUser": 5, "name": "6zzQi5cn", "optionBoxConfig": {"boxItems": [{"count": 25, "itemId": "y0DxzVRj", "itemSku": "xafOpBiQ"}, {"count": 81, "itemId": "4zpJJHVY", "itemSku": "tJXCaCIY"}, {"count": 42, "itemId": "R2SWRN4I", "itemSku": "rSTwnxc9"}]}, "purchasable": true, "recurring": {"cycle": "QUARTERLY", "fixedFreeDays": 86, "fixedTrialCycles": 30, "graceDays": 35}, "regionData": {"9qIM0Ofh": [{"currencyCode": "4OQ9cYsW", "currencyNamespace": "hyDsNWbi", "currencyType": "VIRTUAL", "discountAmount": 32, "discountExpireAt": "1978-04-08T00:00:00Z", "discountPercentage": 76, "discountPurchaseAt": "1992-10-18T00:00:00Z", "discountedPrice": 93, "expireAt": "1971-08-17T00:00:00Z", "price": 9, "purchaseAt": "1982-04-17T00:00:00Z", "trialPrice": 49}, {"currencyCode": "Rwd3Yhjb", "currencyNamespace": "fqx7NZ2Y", "currencyType": "REAL", "discountAmount": 90, "discountExpireAt": "1977-11-22T00:00:00Z", "discountPercentage": 48, "discountPurchaseAt": "1995-10-11T00:00:00Z", "discountedPrice": 89, "expireAt": "1982-02-01T00:00:00Z", "price": 45, "purchaseAt": "1989-03-04T00:00:00Z", "trialPrice": 66}, {"currencyCode": "vXXTP4F5", "currencyNamespace": "RXP7mWjg", "currencyType": "REAL", "discountAmount": 33, "discountExpireAt": "1971-03-09T00:00:00Z", "discountPercentage": 0, "discountPurchaseAt": "1996-01-18T00:00:00Z", "discountedPrice": 36, "expireAt": "1976-07-07T00:00:00Z", "price": 73, "purchaseAt": "1983-12-05T00:00:00Z", "trialPrice": 75}], "Be7mB3kW": [{"currencyCode": "JVEbwCSp", "currencyNamespace": "y8UhZOFS", "currencyType": "REAL", "discountAmount": 43, "discountExpireAt": "1982-09-10T00:00:00Z", "discountPercentage": 81, "discountPurchaseAt": "1986-11-24T00:00:00Z", "discountedPrice": 9, "expireAt": "1989-05-25T00:00:00Z", "price": 42, "purchaseAt": "1996-07-14T00:00:00Z", "trialPrice": 8}, {"currencyCode": "Qbx4HgkY", "currencyNamespace": "7y07ROkI", "currencyType": "VIRTUAL", "discountAmount": 98, "discountExpireAt": "1986-10-19T00:00:00Z", "discountPercentage": 80, "discountPurchaseAt": "1990-06-02T00:00:00Z", "discountedPrice": 60, "expireAt": "1990-11-19T00:00:00Z", "price": 22, "purchaseAt": "1995-08-11T00:00:00Z", "trialPrice": 21}, {"currencyCode": "SgDwVASC", "currencyNamespace": "kl4okcUQ", "currencyType": "VIRTUAL", "discountAmount": 53, "discountExpireAt": "1993-12-13T00:00:00Z", "discountPercentage": 38, "discountPurchaseAt": "1979-08-21T00:00:00Z", "discountedPrice": 17, "expireAt": "1997-10-12T00:00:00Z", "price": 95, "purchaseAt": "1974-10-25T00:00:00Z", "trialPrice": 73}], "KWhqjbpd": [{"currencyCode": "Hv9Y354V", "currencyNamespace": "mmzK4HWA", "currencyType": "VIRTUAL", "discountAmount": 8, "discountExpireAt": "1971-04-04T00:00:00Z", "discountPercentage": 47, "discountPurchaseAt": "1982-08-18T00:00:00Z", "discountedPrice": 61, "expireAt": "1981-04-29T00:00:00Z", "price": 15, "purchaseAt": "1981-09-05T00:00:00Z", "trialPrice": 77}, {"currencyCode": "Zt9RwJ9R", "currencyNamespace": "gE4zJrCk", "currencyType": "VIRTUAL", "discountAmount": 79, "discountExpireAt": "1985-10-22T00:00:00Z", "discountPercentage": 33, "discountPurchaseAt": "1981-03-19T00:00:00Z", "discountedPrice": 36, "expireAt": "1981-07-12T00:00:00Z", "price": 62, "purchaseAt": "1977-03-28T00:00:00Z", "trialPrice": 52}, {"currencyCode": "EYRTwvuR", "currencyNamespace": "w6nwl87d", "currencyType": "VIRTUAL", "discountAmount": 27, "discountExpireAt": "1991-10-13T00:00:00Z", "discountPercentage": 54, "discountPurchaseAt": "1993-09-22T00:00:00Z", "discountedPrice": 74, "expireAt": "1975-06-01T00:00:00Z", "price": 62, "purchaseAt": "1994-04-13T00:00:00Z", "trialPrice": 82}]}, "seasonType": "TIER", "sku": "tVRuLjHw", "stackable": false, "status": "ACTIVE", "tags": ["y9ydpweM", "ncEHqHmM", "BZ7NxScs"], "targetCurrencyCode": "SOEGJAr7", "targetNamespace": "GXWhXXnP", "thumbnailUrl": "t1J3nbHk", "useCount": 38}' \
+    --storeId '36cXwNis' \
+    --body '{"appId": "NXfdioxp", "appType": "DLC", "baseAppId": "CKXAhLZz", "boothName": "CPHWRK2q", "categoryPath": "KPmFbnWt", "clazz": "FPF7XoO9", "displayOrder": 1, "entitlementType": "DURABLE", "ext": {"d7aKtucL": {}, "rp3v12b1": {}, "F3g1vBiP": {}}, "features": ["nINifAyo", "9ljf0FyP", "qn6BvsoE"], "images": [{"as": "0wjw2OzC", "caption": "aZX0Mfjt", "height": 79, "imageUrl": "SBSov0pt", "smallImageUrl": "LSU0ZbDr", "width": 35}, {"as": "XNJXloeT", "caption": "1Mx0Bi64", "height": 67, "imageUrl": "oRjIPaN3", "smallImageUrl": "Xls0xHbg", "width": 50}, {"as": "NeDHZYIB", "caption": "iIWo6kYQ", "height": 81, "imageUrl": "RK89znS3", "smallImageUrl": "cCtiEAPs", "width": 11}], "itemIds": ["mXchaoX7", "ZakOqdh1", "otFZYLft"], "itemQty": {"aUkL8lk0": 30, "vv7nBcSo": 87, "X02vMCWK": 66}, "itemType": "MEDIA", "listable": false, "localizations": {"828eNmwN": {"description": "uwDfkdbL", "localExt": {"o40o2PmT": {}, "eJwj3moZ": {}, "JnIl0INC": {}}, "longDescription": "08xwVGEO", "title": "NyvuhWye"}, "Zu4u8EV1": {"description": "GvqICl9d", "localExt": {"voYHYUi2": {}, "f48sMd1a": {}, "MvBzh0tM": {}}, "longDescription": "q1ekaWL2", "title": "UwU8lhaq"}, "yhfKq9sA": {"description": "ElMIykxV", "localExt": {"spShQd6n": {}, "LtoM8Mwi": {}, "syOwVHmm": {}}, "longDescription": "QOZPz47H", "title": "CHdYoyWu"}}, "lootBoxConfig": {"rewardCount": 19, "rewards": [{"lootBoxItems": [{"count": 51, "itemId": "TgjbxQL3", "itemSku": "IVQ0LGt8", "itemType": "g9vFWUuS"}, {"count": 96, "itemId": "HNF8UYD8", "itemSku": "Q7WMlOUj", "itemType": "mSlNVatt"}, {"count": 92, "itemId": "CGSPMvDT", "itemSku": "b6eveRLI", "itemType": "9Ocqt5iY"}], "name": "RWwsAu60", "odds": 0.5081050372987436, "type": "REWARD_GROUP", "weight": 16}, {"lootBoxItems": [{"count": 100, "itemId": "KR5IvyRB", "itemSku": "ww6bdqpw", "itemType": "NNUnjHEQ"}, {"count": 28, "itemId": "SelT0zIH", "itemSku": "4tenSR8v", "itemType": "ML8wROCu"}, {"count": 3, "itemId": "LIqKRJxi", "itemSku": "xO2DXGnO", "itemType": "6nj0hEWa"}], "name": "t4nucaNZ", "odds": 0.7653893897617567, "type": "REWARD_GROUP", "weight": 9}, {"lootBoxItems": [{"count": 58, "itemId": "PytRAl0k", "itemSku": "JC4YDuAx", "itemType": "QqxeokMy"}, {"count": 43, "itemId": "T3jdIY1I", "itemSku": "rj3rZwPW", "itemType": "sugiBhZl"}, {"count": 53, "itemId": "V3Je2zfT", "itemSku": "L27SJC3t", "itemType": "kFE6YBma"}], "name": "tCfZonRs", "odds": 0.6385265975442015, "type": "REWARD_GROUP", "weight": 36}]}, "maxCount": 35, "maxCountPerUser": 43, "name": "z5iMADYL", "optionBoxConfig": {"boxItems": [{"count": 85, "itemId": "YEKAfo9i", "itemSku": "EH3Org6v", "itemType": "gp8wYmfg"}, {"count": 99, "itemId": "kzyHHQjS", "itemSku": "cfZswLQS", "itemType": "WJYg49ku"}, {"count": 10, "itemId": "FsFhk8F5", "itemSku": "gjZ8y0Bu", "itemType": "lhD6Yvae"}]}, "purchasable": false, "recurring": {"cycle": "QUARTERLY", "fixedFreeDays": 55, "fixedTrialCycles": 92, "graceDays": 16}, "regionData": {"WJEeE4TC": [{"currencyCode": "MWFuxuVZ", "currencyNamespace": "Ys49X3He", "currencyType": "VIRTUAL", "discountAmount": 6, "discountExpireAt": "1976-06-19T00:00:00Z", "discountPercentage": 95, "discountPurchaseAt": "1989-01-13T00:00:00Z", "discountedPrice": 55, "expireAt": "1972-11-21T00:00:00Z", "price": 6, "purchaseAt": "1991-08-01T00:00:00Z", "trialPrice": 58}, {"currencyCode": "gKBYMiVL", "currencyNamespace": "IHDpQUOe", "currencyType": "VIRTUAL", "discountAmount": 32, "discountExpireAt": "1989-06-04T00:00:00Z", "discountPercentage": 44, "discountPurchaseAt": "1997-04-05T00:00:00Z", "discountedPrice": 6, "expireAt": "1992-04-29T00:00:00Z", "price": 57, "purchaseAt": "1994-08-08T00:00:00Z", "trialPrice": 48}, {"currencyCode": "3KqIF8L8", "currencyNamespace": "x4DpLmaO", "currencyType": "VIRTUAL", "discountAmount": 82, "discountExpireAt": "1973-06-17T00:00:00Z", "discountPercentage": 76, "discountPurchaseAt": "1977-03-27T00:00:00Z", "discountedPrice": 78, "expireAt": "1997-06-21T00:00:00Z", "price": 54, "purchaseAt": "1985-02-13T00:00:00Z", "trialPrice": 36}], "OQvGTgwz": [{"currencyCode": "wOIDP9DZ", "currencyNamespace": "yyg4Ugf5", "currencyType": "REAL", "discountAmount": 2, "discountExpireAt": "1979-10-15T00:00:00Z", "discountPercentage": 64, "discountPurchaseAt": "1974-03-24T00:00:00Z", "discountedPrice": 75, "expireAt": "1987-04-12T00:00:00Z", "price": 57, "purchaseAt": "1987-06-15T00:00:00Z", "trialPrice": 49}, {"currencyCode": "mJXA6jwA", "currencyNamespace": "D1TtulMi", "currencyType": "REAL", "discountAmount": 78, "discountExpireAt": "1998-05-24T00:00:00Z", "discountPercentage": 97, "discountPurchaseAt": "1997-06-15T00:00:00Z", "discountedPrice": 45, "expireAt": "1995-05-06T00:00:00Z", "price": 48, "purchaseAt": "1976-06-27T00:00:00Z", "trialPrice": 18}, {"currencyCode": "Fljd2fOv", "currencyNamespace": "U5e5sp18", "currencyType": "REAL", "discountAmount": 26, "discountExpireAt": "1994-05-12T00:00:00Z", "discountPercentage": 45, "discountPurchaseAt": "1983-10-18T00:00:00Z", "discountedPrice": 75, "expireAt": "1990-01-25T00:00:00Z", "price": 66, "purchaseAt": "1977-10-27T00:00:00Z", "trialPrice": 59}], "nstJA5Ij": [{"currencyCode": "Subw61sj", "currencyNamespace": "iFhjP4fd", "currencyType": "REAL", "discountAmount": 29, "discountExpireAt": "1996-01-29T00:00:00Z", "discountPercentage": 12, "discountPurchaseAt": "1992-08-30T00:00:00Z", "discountedPrice": 37, "expireAt": "1976-07-20T00:00:00Z", "price": 4, "purchaseAt": "1979-04-18T00:00:00Z", "trialPrice": 28}, {"currencyCode": "giAmJkuf", "currencyNamespace": "T0qx2r0H", "currencyType": "VIRTUAL", "discountAmount": 83, "discountExpireAt": "1989-03-19T00:00:00Z", "discountPercentage": 28, "discountPurchaseAt": "1993-03-13T00:00:00Z", "discountedPrice": 3, "expireAt": "1972-12-04T00:00:00Z", "price": 79, "purchaseAt": "1993-08-02T00:00:00Z", "trialPrice": 44}, {"currencyCode": "7ZA74yRb", "currencyNamespace": "JzxxTqwz", "currencyType": "VIRTUAL", "discountAmount": 73, "discountExpireAt": "1993-02-06T00:00:00Z", "discountPercentage": 16, "discountPurchaseAt": "1987-10-16T00:00:00Z", "discountedPrice": 8, "expireAt": "1992-08-07T00:00:00Z", "price": 1, "purchaseAt": "1992-01-24T00:00:00Z", "trialPrice": 26}]}, "seasonType": "PASS", "sku": "9yJuiuxZ", "stackable": true, "status": "INACTIVE", "tags": ["91DMqars", "Tr7Px0uo", "ckTlmHsp"], "targetCurrencyCode": "CZA7Bk4g", "targetNamespace": "mL4N0A8I", "thumbnailUrl": "r31LYh2T", "useCount": 61}' \
     > test.out 2>&1
 eval_tap $? 97 'UpdateItem' test.out
 
 #- 98 DeleteItem
 ./ng net.accelbyte.sdk.cli.Main platform deleteItem \
-    --itemId 'PLXNDg9w' \
+    --itemId 'VPc26H0i' \
     --namespace "$AB_NAMESPACE" \
     --force  \
-    --storeId 'f1nxCBwg' \
+    --storeId 's4tox7FG' \
     > test.out 2>&1
 eval_tap $? 98 'DeleteItem' test.out
 
 #- 99 AcquireItem
 ./ng net.accelbyte.sdk.cli.Main platform acquireItem \
-    --itemId 'XzqkXOwF' \
+    --itemId 'WyBEqIT3' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"count": 65, "orderNo": "q46TFpJj"}' \
+    --body '{"count": 35, "orderNo": "uLo5wJ5b"}' \
     > test.out 2>&1
 eval_tap $? 99 'AcquireItem' test.out
 
 #- 100 GetApp
 ./ng net.accelbyte.sdk.cli.Main platform getApp \
-    --itemId 'dTmTpTsd' \
+    --itemId 'HvCxPv9F' \
     --namespace "$AB_NAMESPACE" \
     --activeOnly  \
-    --storeId 'QvSF3haP' \
+    --storeId 'cwQ1am2W' \
     > test.out 2>&1
 eval_tap $? 100 'GetApp' test.out
 
 #- 101 UpdateApp
 ./ng net.accelbyte.sdk.cli.Main platform updateApp \
-    --itemId 'C1BLEM7I' \
+    --itemId 'qSjx7yQY' \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'mfMIucpe' \
-    --body '{"carousel": [{"alt": "el3aQuGe", "previewUrl": "yFFxDJo9", "thumbnailUrl": "JO38wK1E", "type": "video", "url": "fA8AE1Ii", "videoSource": "generic"}, {"alt": "O80lEmPd", "previewUrl": "LjhMZXsU", "thumbnailUrl": "PioEObAt", "type": "video", "url": "xYsfKfcE", "videoSource": "youtube"}, {"alt": "9Bz8NGJd", "previewUrl": "qsoMcMFm", "thumbnailUrl": "UCwy5Zq9", "type": "video", "url": "Sd2nPWBP", "videoSource": "youtube"}], "developer": "y4c1IQem", "forumUrl": "lROdK2W3", "genres": ["Strategy", "Racing", "Simulation"], "localizations": {"gIfm9jB9": {"announcement": "xD1Sr8Bc", "slogan": "EkgZuwEV"}, "1qARdhxI": {"announcement": "RnpG6Uwp", "slogan": "XglD8AmW"}, "BHHGZd1Z": {"announcement": "4YeEuYXs", "slogan": "o8bRX2t5"}}, "platformRequirements": {"GRrjKB0Q": [{"additionals": "4z7u6stO", "directXVersion": "TJBepk0E", "diskSpace": "wyDzb6VV", "graphics": "1dlJ1iT9", "label": "G5DrUamK", "osVersion": "WQaa6V4t", "processor": "CFakfc8A", "ram": "JqKBB128", "soundCard": "wVs8D6GL"}, {"additionals": "4TcYwray", "directXVersion": "pdaAaV6w", "diskSpace": "tR7dQXKQ", "graphics": "AGAqmtKF", "label": "12Evr0X4", "osVersion": "gAyWiFz0", "processor": "9jyJPc9D", "ram": "ZlQlJpkd", "soundCard": "e6tXFnth"}, {"additionals": "aLh8Ozw0", "directXVersion": "roujREBw", "diskSpace": "L0KFOU9J", "graphics": "vIiGSErB", "label": "FQVcYmIa", "osVersion": "n657LnMB", "processor": "hWAb3Ojv", "ram": "7G8V0l8e", "soundCard": "VhisBWGN"}], "k3gyQmtc": [{"additionals": "Ndx2id2m", "directXVersion": "qXrbEhtA", "diskSpace": "ESNJys5b", "graphics": "xZu2W4ja", "label": "vltJaY7e", "osVersion": "G1WNrGtb", "processor": "v6zj9ZEV", "ram": "of7tqDu6", "soundCard": "kFW2tfIe"}, {"additionals": "aHiAtVAg", "directXVersion": "RjCPBlOi", "diskSpace": "V8yiPeVy", "graphics": "xlxZXVty", "label": "jB0fxj5N", "osVersion": "xvQBVObE", "processor": "SgOsGrSQ", "ram": "l8AZQT81", "soundCard": "c0fApIbs"}, {"additionals": "IZaBytX4", "directXVersion": "nRiewmIS", "diskSpace": "s3KgjH0w", "graphics": "8Kj6VIPO", "label": "jvLUEDlx", "osVersion": "ZB4hYWcC", "processor": "SB5Hygh8", "ram": "aPVEOIzW", "soundCard": "UjPfpzbW"}], "4wXnS15O": [{"additionals": "Y9C51zHn", "directXVersion": "gxebEP6b", "diskSpace": "foH3UshY", "graphics": "Dl0BTuHC", "label": "a4nlDWl0", "osVersion": "DezNycrI", "processor": "a5wR9JJl", "ram": "hWBoAZ4v", "soundCard": "vw0Hn3Ni"}, {"additionals": "M19svbFx", "directXVersion": "YhUhQvoh", "diskSpace": "P0uQHx4F", "graphics": "i3pKVtf1", "label": "XsoEAxkv", "osVersion": "VkFhbIAn", "processor": "E1XyVbEr", "ram": "vCkW3tgr", "soundCard": "y1Irr9y8"}, {"additionals": "yULHyMO8", "directXVersion": "1uSOyj6n", "diskSpace": "BDjA3rZ1", "graphics": "fJBVR3Xk", "label": "pKGOnlVZ", "osVersion": "32sCLyhW", "processor": "xK6E4j25", "ram": "41wEkN8E", "soundCard": "58WlUIZm"}]}, "platforms": ["Linux", "Linux", "IOS"], "players": ["MMO", "LocalCoop", "Single"], "primaryGenre": "Indie", "publisher": "nksWNNxf", "releaseDate": "1983-08-17T00:00:00Z", "websiteUrl": "oVUJCB6W"}' \
+    --storeId '4f9T0SPm' \
+    --body '{"carousel": [{"alt": "xHpS73ZR", "previewUrl": "kBfkf5bG", "thumbnailUrl": "HGcaQSuf", "type": "video", "url": "2uH121f8", "videoSource": "vimeo"}, {"alt": "5zc4g9xo", "previewUrl": "NpJoDYeQ", "thumbnailUrl": "FqCbczHY", "type": "video", "url": "QXWGQUjn", "videoSource": "youtube"}, {"alt": "ViVPEM4t", "previewUrl": "hFymzM7X", "thumbnailUrl": "ApwYPGRH", "type": "image", "url": "MPbEMD2m", "videoSource": "youtube"}], "developer": "61lOsIRV", "forumUrl": "hlQmTJNG", "genres": ["Sports", "Racing", "Strategy"], "localizations": {"d66xXozP": {"announcement": "YzJcyUNj", "slogan": "w7G2xtDc"}, "PRGL0uAf": {"announcement": "qjFriuJJ", "slogan": "gThQmmwc"}, "W3nDOlQF": {"announcement": "EIRDTiH4", "slogan": "cpjToZSU"}}, "platformRequirements": {"rlYOXlOC": [{"additionals": "mvSpdAKI", "directXVersion": "XiC366SP", "diskSpace": "EYpbn2s7", "graphics": "9cEHCEwI", "label": "3jRTTqhV", "osVersion": "PPa3fgzt", "processor": "lBN1rH0c", "ram": "vZ0TEv4O", "soundCard": "opDb5KlV"}, {"additionals": "bBgRxLRz", "directXVersion": "uxbrqLsj", "diskSpace": "r7DvymMD", "graphics": "qifjzmuk", "label": "wk697W2P", "osVersion": "H6Xs5tf9", "processor": "s27FdCVH", "ram": "BbFMLaWQ", "soundCard": "EdOJuIlq"}, {"additionals": "pwjX1Zr1", "directXVersion": "gOdlZdHq", "diskSpace": "FgzLntKW", "graphics": "pPMBNHej", "label": "jVTRJvsa", "osVersion": "GMsk75Du", "processor": "Sa4nwFmu", "ram": "nNMqv6mp", "soundCard": "SPcWGJbm"}], "FsgloiRn": [{"additionals": "Mu52HBPv", "directXVersion": "93GDq45e", "diskSpace": "SExr8fdp", "graphics": "rZ94gnwC", "label": "TxwmEpZf", "osVersion": "HTa7kkcX", "processor": "MEUun15I", "ram": "PmSvNzQn", "soundCard": "XFFMJddM"}, {"additionals": "2rMKtVvC", "directXVersion": "LRviIFkp", "diskSpace": "Gl49Jtfb", "graphics": "rxrP2Hna", "label": "g70p3HpI", "osVersion": "9KUFOKVQ", "processor": "5WzqKyqC", "ram": "tawter0G", "soundCard": "n8v212Xu"}, {"additionals": "8SzHcKUj", "directXVersion": "eaVhk81O", "diskSpace": "Rppo6gYU", "graphics": "ZiHIGAOc", "label": "MwcXyope", "osVersion": "Xm8Vt4tS", "processor": "tWXENq1O", "ram": "NTlUSV13", "soundCard": "kKVvpllE"}], "H9mf1bYy": [{"additionals": "d1ujts72", "directXVersion": "0GHtQJgs", "diskSpace": "w01UQPE6", "graphics": "5sdZ2P50", "label": "49JuP1tD", "osVersion": "oBSC7Xkw", "processor": "Dm7rbL9l", "ram": "SbaOvRXZ", "soundCard": "m52TwStJ"}, {"additionals": "hGnVrJeN", "directXVersion": "SUCqsu8A", "diskSpace": "fVZgfbJA", "graphics": "UMEelW7M", "label": "aR4W55kO", "osVersion": "rfowF0UE", "processor": "ntIa0lPc", "ram": "UIKeK2ek", "soundCard": "0MTWxviC"}, {"additionals": "zOPAQVly", "directXVersion": "V2XjurHD", "diskSpace": "bfl9CZG7", "graphics": "yspdd3Hy", "label": "XYMXVad0", "osVersion": "ZKIvGNgy", "processor": "d96o1UZU", "ram": "5Y8fijmu", "soundCard": "TphUZVKw"}]}, "platforms": ["IOS", "IOS", "Android"], "players": ["Single", "LocalCoop", "Coop"], "primaryGenre": "Strategy", "publisher": "GOD6jGRu", "releaseDate": "1997-11-08T00:00:00Z", "websiteUrl": "u7ZNNQxX"}' \
     > test.out 2>&1
 eval_tap $? 101 'UpdateApp' test.out
 
 #- 102 DisableItem
 ./ng net.accelbyte.sdk.cli.Main platform disableItem \
-    --itemId 'eNK4sgW4' \
+    --itemId 'nMcQVcz1' \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'Y4047Ifm' \
+    --storeId 'K0pbggTj' \
     > test.out 2>&1
 eval_tap $? 102 'DisableItem' test.out
 
 #- 103 GetItemDynamicData
 ./ng net.accelbyte.sdk.cli.Main platform getItemDynamicData \
-    --itemId 'vZhNXMq7' \
+    --itemId 'JTsYcQlp' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 103 'GetItemDynamicData' test.out
 
 #- 104 EnableItem
 ./ng net.accelbyte.sdk.cli.Main platform enableItem \
-    --itemId 'rjVPwxdJ' \
+    --itemId 'A0cpzViX' \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'jCwb1iXF' \
+    --storeId '1CpakxF2' \
     > test.out 2>&1
 eval_tap $? 104 'EnableItem' test.out
 
 #- 105 FeatureItem
 ./ng net.accelbyte.sdk.cli.Main platform featureItem \
-    --feature 'QbotELBj' \
-    --itemId 'AJF4Uu7A' \
+    --feature 'a7OEUNKQ' \
+    --itemId '27XHglR5' \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'UtrTPf2h' \
+    --storeId 'tFXpZd11' \
     > test.out 2>&1
 eval_tap $? 105 'FeatureItem' test.out
 
 #- 106 DefeatureItem
 ./ng net.accelbyte.sdk.cli.Main platform defeatureItem \
-    --feature 'GlAUUIYD' \
-    --itemId '0uYe1cuF' \
+    --feature '97NpTmpj' \
+    --itemId '3Csj6Nqa' \
     --namespace "$AB_NAMESPACE" \
-    --storeId '5KGFJzCG' \
+    --storeId 'w7toef0b' \
     > test.out 2>&1
 eval_tap $? 106 'DefeatureItem' test.out
 
 #- 107 GetLocaleItem
 ./ng net.accelbyte.sdk.cli.Main platform getLocaleItem \
-    --itemId 'mDArZk3c' \
+    --itemId '1cHjUv68' \
     --namespace "$AB_NAMESPACE" \
     --activeOnly  \
-    --language 'WhWnsWxp' \
+    --language '317vtuaq' \
     --populateBundle  \
-    --region 'NV3SUNBc' \
-    --storeId '8tfnXNKc' \
+    --region 'ACMjwa4p' \
+    --storeId 'StogxXam' \
     > test.out 2>&1
 eval_tap $? 107 'GetLocaleItem' test.out
 
 #- 108 UpdateItemPurchaseCondition
 ./ng net.accelbyte.sdk.cli.Main platform updateItemPurchaseCondition \
-    --itemId 'OmtfpulW' \
+    --itemId 'LUlQIkwZ' \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'mGQKiEgz' \
-    --body '{"purchaseCondition": {"conditionGroups": [{"operator": "or", "predicates": [{"anyOf": 32, "comparison": "excludes", "name": "8abXbcHf", "predicateType": "SeasonTierPredicate", "value": "a7QMNf61", "values": ["5QQ4Hw4l", "PL59ddOQ", "SKSphsl8"]}, {"anyOf": 77, "comparison": "excludes", "name": "y3waQ8vH", "predicateType": "SeasonPassPredicate", "value": "Z1BLsEgQ", "values": ["aKXSJ2wv", "uSzHFRSQ", "3UeQD51P"]}, {"anyOf": 10, "comparison": "is", "name": "h8MN8Fur", "predicateType": "SeasonTierPredicate", "value": "Im5zDsHJ", "values": ["SE6Mp0QG", "xCZzzvW9", "OIJZeTH4"]}]}, {"operator": "and", "predicates": [{"anyOf": 78, "comparison": "isGreaterThanOrEqual", "name": "FiwSm5xy", "predicateType": "SeasonTierPredicate", "value": "sUHekgRD", "values": ["Zs3zUpkz", "amNMf9GP", "zUZjf6na"]}, {"anyOf": 21, "comparison": "isGreaterThanOrEqual", "name": "PthuZuC7", "predicateType": "SeasonPassPredicate", "value": "TYvvxSld", "values": ["hrFJerUM", "NEBKqSpd", "ylmMbdTA"]}, {"anyOf": 11, "comparison": "isGreaterThan", "name": "0SUzbFIu", "predicateType": "EntitlementPredicate", "value": "zjvDj5mF", "values": ["L8u85IP6", "ah4cnSwj", "FugJI5h1"]}]}, {"operator": "or", "predicates": [{"anyOf": 35, "comparison": "isGreaterThan", "name": "kszk0EV4", "predicateType": "SeasonTierPredicate", "value": "jG9nMM5F", "values": ["NNr59gMO", "FEMTYH1L", "vgaqtEks"]}, {"anyOf": 46, "comparison": "isNot", "name": "xCpcHEvI", "predicateType": "SeasonTierPredicate", "value": "ekQNQM8Z", "values": ["6QuJ8isH", "SsqeH5B7", "woaQJdtT"]}, {"anyOf": 76, "comparison": "isNot", "name": "qtUcheeI", "predicateType": "SeasonPassPredicate", "value": "J3So9SiQ", "values": ["FCtxbnGb", "Ur6o1Yem", "FNhSSLKY"]}]}]}}' \
+    --storeId '85R1t9Dm' \
+    --body '{"purchaseCondition": {"conditionGroups": [{"operator": "and", "predicates": [{"anyOf": 30, "comparison": "isGreaterThan", "name": "aFcSCDG2", "predicateType": "EntitlementPredicate", "value": "GB15O8RW", "values": ["bsXOMYlD", "Z0qHZpCD", "9gqtcAAn"]}, {"anyOf": 94, "comparison": "is", "name": "z7szk37A", "predicateType": "EntitlementPredicate", "value": "yKog0VMR", "values": ["C7lOVkrM", "VXxBqLhN", "7M4busDu"]}, {"anyOf": 67, "comparison": "includes", "name": "DyEEFBS5", "predicateType": "SeasonTierPredicate", "value": "BI1pbpmy", "values": ["QmI3IDij", "7nnqlN4i", "u9GJZiy7"]}]}, {"operator": "and", "predicates": [{"anyOf": 98, "comparison": "isGreaterThanOrEqual", "name": "Fzmtet64", "predicateType": "EntitlementPredicate", "value": "J8GSiPew", "values": ["5zyGBPql", "JFRJSOND", "nbbuuEav"]}, {"anyOf": 71, "comparison": "isGreaterThan", "name": "94SYEM31", "predicateType": "SeasonPassPredicate", "value": "mW9r4bww", "values": ["AiD0vOy1", "XCIjp73J", "8mEK1C5R"]}, {"anyOf": 57, "comparison": "is", "name": "b9MP9hTe", "predicateType": "SeasonPassPredicate", "value": "pplmfHZU", "values": ["KRFC2sFz", "obzesyfZ", "08h9DrEs"]}]}, {"operator": "or", "predicates": [{"anyOf": 17, "comparison": "isGreaterThanOrEqual", "name": "NGnEyRdQ", "predicateType": "SeasonTierPredicate", "value": "YstRBNmV", "values": ["3pvCwUqM", "ewDSBgQJ", "MmQ1wqbx"]}, {"anyOf": 82, "comparison": "isNot", "name": "2c0XWQ4u", "predicateType": "SeasonPassPredicate", "value": "RY9DM8mQ", "values": ["Jxu5xMR0", "vepMb84B", "p0DDF7Dp"]}, {"anyOf": 59, "comparison": "isGreaterThan", "name": "xbyWwbGG", "predicateType": "SeasonTierPredicate", "value": "DbrBd68Y", "values": ["vAubdRTp", "V7UPdW8c", "G7LwbaoV"]}]}]}}' \
     > test.out 2>&1
 eval_tap $? 108 'UpdateItemPurchaseCondition' test.out
 
 #- 109 ReturnItem
 ./ng net.accelbyte.sdk.cli.Main platform returnItem \
-    --itemId 'AA6U07WF' \
+    --itemId 'mf1pb5Rl' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"orderNo": "pVBplRC4"}' \
+    --body '{"orderNo": "0flgJwdU"}' \
     > test.out 2>&1
 eval_tap $? 109 'ReturnItem' test.out
 
 #- 110 QueryKeyGroups
 ./ng net.accelbyte.sdk.cli.Main platform queryKeyGroups \
     --namespace "$AB_NAMESPACE" \
-    --limit '61' \
-    --name '5dlj0ZoN' \
-    --offset '42' \
-    --tag 'Kv3WERBF' \
+    --limit '83' \
+    --name 'QK9HyO7R' \
+    --offset '81' \
+    --tag '3s8hJY5k' \
     > test.out 2>&1
 eval_tap $? 110 'QueryKeyGroups' test.out
 
 #- 111 CreateKeyGroup
 ./ng net.accelbyte.sdk.cli.Main platform createKeyGroup \
     --namespace "$AB_NAMESPACE" \
-    --body '{"description": "TQZosbEz", "name": "suv2GJg6", "status": "INACTIVE", "tags": ["ah1kCTQO", "k9utSNpu", "YG4CQkiK"]}' \
+    --body '{"description": "zHeKCzYy", "name": "vJ8yrJlJ", "status": "ACTIVE", "tags": ["ZuHEXaAs", "9xzxGZvO", "vY6vt6Uh"]}' \
     > test.out 2>&1
 eval_tap $? 111 'CreateKeyGroup' test.out
 
@@ -913,39 +913,39 @@ eval_tap 0 112 'GetKeyGroupByBoothName # SKIP deprecated' test.out
 
 #- 113 GetKeyGroup
 ./ng net.accelbyte.sdk.cli.Main platform getKeyGroup \
-    --keyGroupId 'A1uigfpV' \
+    --keyGroupId 'Qz7bVrbS' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 113 'GetKeyGroup' test.out
 
 #- 114 UpdateKeyGroup
 ./ng net.accelbyte.sdk.cli.Main platform updateKeyGroup \
-    --keyGroupId 'hgTKI4LY' \
+    --keyGroupId 'rNXFxggR' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"description": "32qvcpse", "name": "nGBRXHkC", "status": "INACTIVE", "tags": ["c2saeNJF", "CCKqnz4s", "3MdZMV1K"]}' \
+    --body '{"description": "1iW5sZrn", "name": "U4n8k1DM", "status": "INACTIVE", "tags": ["TIlE4Q2V", "634tKr2G", "LGKH0eUc"]}' \
     > test.out 2>&1
 eval_tap $? 114 'UpdateKeyGroup' test.out
 
 #- 115 GetKeyGroupDynamic
 ./ng net.accelbyte.sdk.cli.Main platform getKeyGroupDynamic \
-    --keyGroupId 'bE6Hzd3L' \
+    --keyGroupId 'U5egCnEM' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 115 'GetKeyGroupDynamic' test.out
 
 #- 116 ListKeys
 ./ng net.accelbyte.sdk.cli.Main platform listKeys \
-    --keyGroupId '4Q6dcgmC' \
+    --keyGroupId 'gzqvxxJL' \
     --namespace "$AB_NAMESPACE" \
-    --limit '17' \
-    --offset '14' \
-    --status 'ACQUIRED' \
+    --limit '94' \
+    --offset '48' \
+    --status 'ACTIVE' \
     > test.out 2>&1
 eval_tap $? 116 'ListKeys' test.out
 
 #- 117 UploadKeys
 ./ng net.accelbyte.sdk.cli.Main platform uploadKeys \
-    --keyGroupId 'PJxiKH3H' \
+    --keyGroupId 'tNv4zzWw' \
     --namespace "$AB_NAMESPACE" \
     --file 'tmp.dat' \
     > test.out 2>&1
@@ -954,13 +954,13 @@ eval_tap $? 117 'UploadKeys' test.out
 #- 118 QueryOrders
 ./ng net.accelbyte.sdk.cli.Main platform queryOrders \
     --namespace "$AB_NAMESPACE" \
-    --endTime 'oS8ntU5N' \
-    --limit '52' \
-    --offset '1' \
-    --orderNos 'bwkZ97cV,T7Nq8EGK,lFR8HaqP' \
-    --sortBy '8S5Legde' \
-    --startTime 'HPcVvFVS' \
-    --status 'CLOSED' \
+    --endTime 'sJJQxq7I' \
+    --limit '15' \
+    --offset '42' \
+    --orderNos 'ZEutZn8M,XwRArsEV,K6vMdqwN' \
+    --sortBy '9wD7PlHv' \
+    --startTime '7wsZ76Kw' \
+    --status 'REFUND_FAILED' \
     --withTotal  \
     > test.out 2>&1
 eval_tap $? 118 'QueryOrders' test.out
@@ -974,15 +974,15 @@ eval_tap $? 119 'GetOrderStatistics' test.out
 #- 120 GetOrder
 ./ng net.accelbyte.sdk.cli.Main platform getOrder \
     --namespace "$AB_NAMESPACE" \
-    --orderNo 'AkhWPGiy' \
+    --orderNo 'R8vsBvHV' \
     > test.out 2>&1
 eval_tap $? 120 'GetOrder' test.out
 
 #- 121 RefundOrder
 ./ng net.accelbyte.sdk.cli.Main platform refundOrder \
     --namespace "$AB_NAMESPACE" \
-    --orderNo '9LV2A1t1' \
-    --body '{"description": "1CpwrytM"}' \
+    --orderNo 'OOLXR3Pm' \
+    --body '{"description": "7cnSqrzn"}' \
     > test.out 2>&1
 eval_tap $? 121 'RefundOrder' test.out
 
@@ -995,22 +995,22 @@ eval_tap $? 122 'GetPaymentCallbackConfig' test.out
 #- 123 UpdatePaymentCallbackConfig
 ./ng net.accelbyte.sdk.cli.Main platform updatePaymentCallbackConfig \
     --namespace "$AB_NAMESPACE" \
-    --body '{"dryRun": false, "notifyUrl": "F7CrZwkF", "privateKey": "hm2LtElQ"}' \
+    --body '{"dryRun": false, "notifyUrl": "dnYjLr0O", "privateKey": "ST4bJu0G"}' \
     > test.out 2>&1
 eval_tap $? 123 'UpdatePaymentCallbackConfig' test.out
 
 #- 124 QueryPaymentNotifications
 ./ng net.accelbyte.sdk.cli.Main platform queryPaymentNotifications \
     --namespace "$AB_NAMESPACE" \
-    --endDate '2D4CdeWD' \
-    --externalId 'MwiMrCEO' \
-    --limit '73' \
-    --notificationSource 'PAYPAL' \
-    --notificationType 'IDeCPL1X' \
-    --offset '85' \
-    --paymentOrderNo '4mJMvnqc' \
-    --startDate 'zK0kjVId' \
-    --status 'IGNORED' \
+    --endDate 'X5arggsS' \
+    --externalId '8ayOlec9' \
+    --limit '94' \
+    --notificationSource 'ALIPAY' \
+    --notificationType 'QRMhRUse' \
+    --offset '51' \
+    --paymentOrderNo 'fiyhAbAU' \
+    --startDate 'PqYD37F1' \
+    --status 'PROCESSED' \
     > test.out 2>&1
 eval_tap $? 124 'QueryPaymentNotifications' test.out
 
@@ -1018,101 +1018,101 @@ eval_tap $? 124 'QueryPaymentNotifications' test.out
 ./ng net.accelbyte.sdk.cli.Main platform queryPaymentOrders \
     --namespace "$AB_NAMESPACE" \
     --channel 'INTERNAL' \
-    --extTxId 'IV4h9pVB' \
-    --limit '69' \
-    --offset '67' \
-    --status 'DELETED' \
+    --extTxId 'nD4GGJcO' \
+    --limit '14' \
+    --offset '75' \
+    --status 'REFUND_FAILED' \
     > test.out 2>&1
 eval_tap $? 125 'QueryPaymentOrders' test.out
 
 #- 126 CreatePaymentOrderByDedicated
 ./ng net.accelbyte.sdk.cli.Main platform createPaymentOrderByDedicated \
     --namespace "$AB_NAMESPACE" \
-    --body '{"currencyCode": "AT1OUV1h", "currencyNamespace": "BnbWTPk4", "customParameters": {"VuhPEqpN": {}, "cccg0I00": {}, "fNa6wgWf": {}}, "description": "JsOowtLx", "extOrderNo": "VvfSCRON", "extUserId": "2v3YsZnF", "itemType": "MEDIA", "language": "fzuz_IltI_LK", "metadata": {"OHZggiOm": "LBAjIBVU", "NizhmPHi": "FOZdCg85", "7KxCFJv9": "4biyUnP0"}, "notifyUrl": "vZEG8JH3", "omitNotification": true, "platform": "Cxcpqq7x", "price": 86, "recurringPaymentOrderNo": "GEywTKUf", "region": "LwZpnxhc", "returnUrl": "yvZMjG8U", "sandbox": true, "sku": "yz6InTxd", "subscriptionId": "Aq0wjgQJ", "targetNamespace": "3EvaICYn", "targetUserId": "WQyyBVbT", "title": "ReB3PDxp"}' \
+    --body '{"currencyCode": "P9WsVu4S", "currencyNamespace": "d5sN1elq", "customParameters": {"v4bD1Xtw": {}, "Gn72uegv": {}, "o0ktdmr8": {}}, "description": "aMJGRtA7", "extOrderNo": "U6Vu4wnn", "extUserId": "jmjwrmCG", "itemType": "APP", "language": "rgv-463", "metadata": {"qCvUUIt1": "zue57Crg", "GjjNc6ib": "EqjaSpu8", "uymhcjf8": "zDLZvmOG"}, "notifyUrl": "l3i0x2Xu", "omitNotification": false, "platform": "iBgw7msa", "price": 89, "recurringPaymentOrderNo": "DnGV1gmd", "region": "RtMRiVYw", "returnUrl": "dWtMMSY6", "sandbox": false, "sku": "hUv1m1rJ", "subscriptionId": "nGyoHj9j", "targetNamespace": "r0QKQjik", "targetUserId": "w3qPdfUB", "title": "tPJkfp3r"}' \
     > test.out 2>&1
 eval_tap $? 126 'CreatePaymentOrderByDedicated' test.out
 
 #- 127 ListExtOrderNoByExtTxId
 ./ng net.accelbyte.sdk.cli.Main platform listExtOrderNoByExtTxId \
     --namespace "$AB_NAMESPACE" \
-    --extTxId '11F9DKwe' \
+    --extTxId 'owdqKxca' \
     > test.out 2>&1
 eval_tap $? 127 'ListExtOrderNoByExtTxId' test.out
 
 #- 128 GetPaymentOrder
 ./ng net.accelbyte.sdk.cli.Main platform getPaymentOrder \
     --namespace "$AB_NAMESPACE" \
-    --paymentOrderNo 'EqfUyLoY' \
+    --paymentOrderNo '8NtHza7d' \
     > test.out 2>&1
 eval_tap $? 128 'GetPaymentOrder' test.out
 
 #- 129 ChargePaymentOrder
 ./ng net.accelbyte.sdk.cli.Main platform chargePaymentOrder \
     --namespace "$AB_NAMESPACE" \
-    --paymentOrderNo 'hhM1E2r1' \
-    --body '{"extTxId": "tTJ778Wt", "paymentMethod": "wgfBRFML", "paymentProvider": "STRIPE"}' \
+    --paymentOrderNo 'k5InydLu' \
+    --body '{"extTxId": "41BTrJns", "paymentMethod": "ufrluukB", "paymentProvider": "WALLET"}' \
     > test.out 2>&1
 eval_tap $? 129 'ChargePaymentOrder' test.out
 
 #- 130 RefundPaymentOrderByDedicated
 ./ng net.accelbyte.sdk.cli.Main platform refundPaymentOrderByDedicated \
     --namespace "$AB_NAMESPACE" \
-    --paymentOrderNo 'KbJTm7NQ' \
-    --body '{"description": "rq4geDsP"}' \
+    --paymentOrderNo 'f63usW00' \
+    --body '{"description": "JUdI10zp"}' \
     > test.out 2>&1
 eval_tap $? 130 'RefundPaymentOrderByDedicated' test.out
 
 #- 131 SimulatePaymentOrderNotification
 ./ng net.accelbyte.sdk.cli.Main platform simulatePaymentOrderNotification \
     --namespace "$AB_NAMESPACE" \
-    --paymentOrderNo 'dwBX1DnC' \
-    --body '{"amount": 80, "currencyCode": "8uRitbQA", "notifyType": "REFUND", "paymentProvider": "WALLET", "salesTax": 45, "vat": 18}' \
+    --paymentOrderNo 'gWLqteqa' \
+    --body '{"amount": 67, "currencyCode": "ZHwQtkLE", "notifyType": "REFUND", "paymentProvider": "XSOLLA", "salesTax": 43, "vat": 1}' \
     > test.out 2>&1
 eval_tap $? 131 'SimulatePaymentOrderNotification' test.out
 
 #- 132 GetPaymentOrderChargeStatus
 ./ng net.accelbyte.sdk.cli.Main platform getPaymentOrderChargeStatus \
     --namespace "$AB_NAMESPACE" \
-    --paymentOrderNo 'mZOahhBy' \
+    --paymentOrderNo 'TE7dk49j' \
     > test.out 2>&1
 eval_tap $? 132 'GetPaymentOrderChargeStatus' test.out
 
 #- 133 GetPlatformWalletConfig
 ./ng net.accelbyte.sdk.cli.Main platform getPlatformWalletConfig \
     --namespace "$AB_NAMESPACE" \
-    --platform 'Nintendo' \
+    --platform 'Playstation' \
     > test.out 2>&1
 eval_tap $? 133 'GetPlatformWalletConfig' test.out
 
 #- 134 UpdatePlatformWalletConfig
 ./ng net.accelbyte.sdk.cli.Main platform updatePlatformWalletConfig \
     --namespace "$AB_NAMESPACE" \
-    --platform 'Steam' \
-    --body '{"allowedBalanceOrigins": ["GooglePlay", "IOS", "Steam"]}' \
+    --platform 'Xbox' \
+    --body '{"allowedBalanceOrigins": ["System", "Other", "Steam"]}' \
     > test.out 2>&1
 eval_tap $? 134 'UpdatePlatformWalletConfig' test.out
 
 #- 135 ResetPlatformWalletConfig
 ./ng net.accelbyte.sdk.cli.Main platform resetPlatformWalletConfig \
     --namespace "$AB_NAMESPACE" \
-    --platform 'Playstation' \
+    --platform 'Nintendo' \
     > test.out 2>&1
 eval_tap $? 135 'ResetPlatformWalletConfig' test.out
 
 #- 136 CreateReward
 ./ng net.accelbyte.sdk.cli.Main platform createReward \
     --namespace "$AB_NAMESPACE" \
-    --body '{"description": "TJkjhn4z", "eventTopic": "ebFPq3Xm", "maxAwarded": 33, "maxAwardedPerUser": 69, "namespaceExpression": "cdCWDHQ4", "rewardCode": "VWYyZ2kx", "rewardConditions": [{"condition": "9PwR7RJt", "conditionName": "MezQNdsn", "eventName": "l64Yb7HR", "rewardItems": [{"duration": 57, "itemId": "3Z0MVyVW", "quantity": 28}, {"duration": 67, "itemId": "nX6n7yCN", "quantity": 48}, {"duration": 59, "itemId": "ubS843bq", "quantity": 59}]}, {"condition": "KBEVzykK", "conditionName": "AVWwqSbP", "eventName": "scoBb4Az", "rewardItems": [{"duration": 98, "itemId": "AYYIOKq3", "quantity": 27}, {"duration": 5, "itemId": "FpUB6TWX", "quantity": 82}, {"duration": 23, "itemId": "jsz7jMj8", "quantity": 49}]}, {"condition": "XLLKtuG2", "conditionName": "7qKrq6pz", "eventName": "wuNURN3Y", "rewardItems": [{"duration": 71, "itemId": "97t9WxcC", "quantity": 78}, {"duration": 99, "itemId": "yQPx8t2L", "quantity": 48}, {"duration": 76, "itemId": "2x8QFZCk", "quantity": 84}]}], "userIdExpression": "qSBLF8OD"}' \
+    --body '{"description": "B7UtYqjp", "eventTopic": "fl2M8GKO", "maxAwarded": 2, "maxAwardedPerUser": 97, "namespaceExpression": "mfOtyZLS", "rewardCode": "BJE58N6d", "rewardConditions": [{"condition": "i06gcYMu", "conditionName": "otRneNJv", "eventName": "FLK2zBMH", "rewardItems": [{"duration": 26, "itemId": "4KWU2Brv", "quantity": 71}, {"duration": 11, "itemId": "NuNE75sq", "quantity": 33}, {"duration": 93, "itemId": "iDgD6tJy", "quantity": 87}]}, {"condition": "pEaObqbn", "conditionName": "mCpIA2hs", "eventName": "Dv44DBtu", "rewardItems": [{"duration": 56, "itemId": "lWULWFdN", "quantity": 73}, {"duration": 59, "itemId": "hiEJ191K", "quantity": 79}, {"duration": 43, "itemId": "fQw3NLbl", "quantity": 40}]}, {"condition": "aKYjM8H0", "conditionName": "fHyOgwTn", "eventName": "P9MPiZv0", "rewardItems": [{"duration": 6, "itemId": "K6bBY5ee", "quantity": 23}, {"duration": 12, "itemId": "tF6ReRNk", "quantity": 74}, {"duration": 74, "itemId": "jK8O6roj", "quantity": 69}]}], "userIdExpression": "O27IJXwC"}' \
     > test.out 2>&1
 eval_tap $? 136 'CreateReward' test.out
 
 #- 137 QueryRewards
 ./ng net.accelbyte.sdk.cli.Main platform queryRewards \
     --namespace "$AB_NAMESPACE" \
-    --eventTopic 'jPZq4kh0' \
-    --limit '4' \
-    --offset '62' \
-    --sortBy 'namespace:asc,rewardCode:asc,rewardCode' \
+    --eventTopic 'DjzvG8R4' \
+    --limit '78' \
+    --offset '68' \
+    --sortBy 'rewardCode,rewardCode:asc' \
     > test.out 2>&1
 eval_tap $? 137 'QueryRewards' test.out
 
@@ -1133,38 +1133,38 @@ eval_tap $? 139 'ImportRewards' test.out
 #- 140 GetReward
 ./ng net.accelbyte.sdk.cli.Main platform getReward \
     --namespace "$AB_NAMESPACE" \
-    --rewardId 'cUXsH4Jv' \
+    --rewardId 'oJXOoDdG' \
     > test.out 2>&1
 eval_tap $? 140 'GetReward' test.out
 
 #- 141 UpdateReward
 ./ng net.accelbyte.sdk.cli.Main platform updateReward \
     --namespace "$AB_NAMESPACE" \
-    --rewardId 'tfSbiRvY' \
-    --body '{"description": "YyJECNI6", "eventTopic": "CksYVlcR", "maxAwarded": 60, "maxAwardedPerUser": 18, "namespaceExpression": "Ad9IySvz", "rewardCode": "LBUF2bCX", "rewardConditions": [{"condition": "jCJBcyku", "conditionName": "cUUKvgWu", "eventName": "DtNb5fgt", "rewardItems": [{"duration": 50, "itemId": "LV3UD6Rt", "quantity": 16}, {"duration": 88, "itemId": "OXUlJaKt", "quantity": 3}, {"duration": 63, "itemId": "xJHD2L0P", "quantity": 63}]}, {"condition": "0lGSZxx2", "conditionName": "8UL2Rte6", "eventName": "jveRSAqe", "rewardItems": [{"duration": 76, "itemId": "dbCCrxS9", "quantity": 29}, {"duration": 92, "itemId": "BTQKZfQ7", "quantity": 54}, {"duration": 83, "itemId": "X2azzIze", "quantity": 85}]}, {"condition": "ysoOJnX4", "conditionName": "0KulaI1J", "eventName": "ZjNiHpbH", "rewardItems": [{"duration": 94, "itemId": "TRGGCj6D", "quantity": 31}, {"duration": 43, "itemId": "auTzvrvu", "quantity": 88}, {"duration": 85, "itemId": "iQ5qlH6J", "quantity": 95}]}], "userIdExpression": "eAeCgav2"}' \
+    --rewardId 'S4d8WHCt' \
+    --body '{"description": "BZ2EC9KZ", "eventTopic": "DuAmXBmA", "maxAwarded": 23, "maxAwardedPerUser": 41, "namespaceExpression": "5vJlpnQU", "rewardCode": "O1UFwwSz", "rewardConditions": [{"condition": "1JiZFnSH", "conditionName": "ETsweblf", "eventName": "iCrL3KKg", "rewardItems": [{"duration": 93, "itemId": "F8UZJd1x", "quantity": 43}, {"duration": 18, "itemId": "LBbwXzGd", "quantity": 1}, {"duration": 16, "itemId": "N2WkErZw", "quantity": 93}]}, {"condition": "YkVzAp3Y", "conditionName": "J6FF6JXH", "eventName": "JyjGcNkP", "rewardItems": [{"duration": 65, "itemId": "3GExiACn", "quantity": 78}, {"duration": 97, "itemId": "pTAszP1A", "quantity": 90}, {"duration": 52, "itemId": "hvBkyIEQ", "quantity": 14}]}, {"condition": "wQDA9pvb", "conditionName": "8Eyqq26j", "eventName": "bJLEOTR7", "rewardItems": [{"duration": 32, "itemId": "ZqyVYNzE", "quantity": 46}, {"duration": 77, "itemId": "qmO4HNaC", "quantity": 46}, {"duration": 9, "itemId": "haHiwmjo", "quantity": 39}]}], "userIdExpression": "H9xMlDOs"}' \
     > test.out 2>&1
 eval_tap $? 141 'UpdateReward' test.out
 
 #- 142 DeleteReward
 ./ng net.accelbyte.sdk.cli.Main platform deleteReward \
     --namespace "$AB_NAMESPACE" \
-    --rewardId 'LEfw8ely' \
+    --rewardId 'KcAJz1D4' \
     > test.out 2>&1
 eval_tap $? 142 'DeleteReward' test.out
 
 #- 143 CheckEventCondition
 ./ng net.accelbyte.sdk.cli.Main platform checkEventCondition \
     --namespace "$AB_NAMESPACE" \
-    --rewardId 'HzxASxKl' \
-    --body '{"payload": {"EQQd18qB": {}, "4XUPyfOn": {}, "yU9loYCW": {}}}' \
+    --rewardId 'O1EL2kDW' \
+    --body '{"payload": {"eSyorEhr": {}, "nPrfTgLu": {}, "FhGFTGXA": {}}}' \
     > test.out 2>&1
 eval_tap $? 143 'CheckEventCondition' test.out
 
 #- 144 DeleteRewardConditionRecord
 ./ng net.accelbyte.sdk.cli.Main platform deleteRewardConditionRecord \
     --namespace "$AB_NAMESPACE" \
-    --rewardId 'hTNz1ARJ' \
-    --body '{"conditionName": "8Etsjlhd", "userId": "BIzwOpL3"}' \
+    --rewardId 'lEaQJ5d3' \
+    --body '{"conditionName": "7YoHx85M", "userId": "4LAPwGtp"}' \
     > test.out 2>&1
 eval_tap $? 144 'DeleteRewardConditionRecord' test.out
 
@@ -1177,7 +1177,7 @@ eval_tap $? 145 'ListStores' test.out
 #- 146 CreateStore
 ./ng net.accelbyte.sdk.cli.Main platform createStore \
     --namespace "$AB_NAMESPACE" \
-    --body '{"defaultLanguage": "HanbnPn7", "defaultRegion": "4jjad0f4", "description": "0CzdEv9t", "supportedLanguages": ["058tgvYr", "VPJClzQH", "KLU0WgVV"], "supportedRegions": ["2wyGuJs5", "8S7AYSmo", "yQrvIIlO"], "title": "8nJWjPNa"}' \
+    --body '{"defaultLanguage": "WDTl3SoU", "defaultRegion": "B6AonKnq", "description": "hZalbWq4", "supportedLanguages": ["i6MlKZjO", "rD4AI5yj", "kMgpWT15"], "supportedRegions": ["HOci2W9g", "cY941EmX", "sTtsKo4z"], "title": "L6bgY7bV"}' \
     > test.out 2>&1
 eval_tap $? 146 'CreateStore' test.out
 
@@ -1211,105 +1211,105 @@ eval_tap $? 151 'RollbackPublishedStore' test.out
 #- 152 GetStore
 ./ng net.accelbyte.sdk.cli.Main platform getStore \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'f28Xvftl' \
+    --storeId 'F6octDSd' \
     > test.out 2>&1
 eval_tap $? 152 'GetStore' test.out
 
 #- 153 UpdateStore
 ./ng net.accelbyte.sdk.cli.Main platform updateStore \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'EDcbW6cS' \
-    --body '{"defaultLanguage": "jLuGvnSo", "defaultRegion": "945sJV0C", "description": "aE0pcJTf", "supportedLanguages": ["EYsRTSuk", "jzRYCXJF", "rdWn92tW"], "supportedRegions": ["lh6mK7K7", "JvfglWf1", "5s4pmvFI"], "title": "rgF8fsxk"}' \
+    --storeId 'dZqRYHch' \
+    --body '{"defaultLanguage": "cNwrWFy1", "defaultRegion": "bzuxRwIE", "description": "gSGvO94d", "supportedLanguages": ["jeNXCOqK", "zvSbieOa", "CMdS83rb"], "supportedRegions": ["rmB3tvr9", "ZzM2cMJX", "zPUpeK9Q"], "title": "3N8dYhnF"}' \
     > test.out 2>&1
 eval_tap $? 153 'UpdateStore' test.out
 
 #- 154 DeleteStore
 ./ng net.accelbyte.sdk.cli.Main platform deleteStore \
     --namespace "$AB_NAMESPACE" \
-    --storeId '4ziROrze' \
+    --storeId 'z0J1exxu' \
     > test.out 2>&1
 eval_tap $? 154 'DeleteStore' test.out
 
 #- 155 QueryChanges
 ./ng net.accelbyte.sdk.cli.Main platform queryChanges \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'UPAUODrU' \
-    --action 'DELETE' \
-    --itemSku '9rrBQHEr' \
+    --storeId 'TSXX9ltG' \
+    --action 'CREATE' \
+    --itemSku 'uO88Z8cD' \
     --itemType 'SEASON' \
-    --limit '6' \
-    --offset '40' \
+    --limit '31' \
+    --offset '12' \
     --selected  \
-    --sortBy 'updatedAt:asc,createdAt,updatedAt:desc' \
+    --sortBy 'createdAt:desc,createdAt:asc,updatedAt:asc' \
     --status 'PUBLISHED' \
     --type 'STORE' \
-    --updatedAtEnd 'eZ2AFofM' \
-    --updatedAtStart 'PhHhSUD6' \
+    --updatedAtEnd 'bgJwIUbV' \
+    --updatedAtStart 'iRI8Zvir' \
     > test.out 2>&1
 eval_tap $? 155 'QueryChanges' test.out
 
 #- 156 PublishAll
 ./ng net.accelbyte.sdk.cli.Main platform publishAll \
     --namespace "$AB_NAMESPACE" \
-    --storeId '2f1T5KVg' \
+    --storeId 'yUls1nQ4' \
     > test.out 2>&1
 eval_tap $? 156 'PublishAll' test.out
 
 #- 157 PublishSelected
 ./ng net.accelbyte.sdk.cli.Main platform publishSelected \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'KWI58YAj' \
+    --storeId 'bZkmwzYo' \
     > test.out 2>&1
 eval_tap $? 157 'PublishSelected' test.out
 
 #- 158 SelectAllRecords
 ./ng net.accelbyte.sdk.cli.Main platform selectAllRecords \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'U20ne0l0' \
+    --storeId 'M9SGK9R9' \
     > test.out 2>&1
 eval_tap $? 158 'SelectAllRecords' test.out
 
 #- 159 GetStatistic
 ./ng net.accelbyte.sdk.cli.Main platform getStatistic \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'IreBPv75' \
-    --action 'DELETE' \
-    --itemSku 'w6z2KgDe' \
-    --itemType 'COINS' \
-    --type 'ITEM' \
-    --updatedAtEnd 'r3kUGBTa' \
-    --updatedAtStart '77ZIxRMA' \
+    --storeId '4RbWYP8H' \
+    --action 'CREATE' \
+    --itemSku '93leNdqf' \
+    --itemType 'BUNDLE' \
+    --type 'STORE' \
+    --updatedAtEnd 'FYaFzG2C' \
+    --updatedAtStart 'VJzVNVfd' \
     > test.out 2>&1
 eval_tap $? 159 'GetStatistic' test.out
 
 #- 160 UnselectAllRecords
 ./ng net.accelbyte.sdk.cli.Main platform unselectAllRecords \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'J8CRk3fz' \
+    --storeId 'GrvK4l4n' \
     > test.out 2>&1
 eval_tap $? 160 'UnselectAllRecords' test.out
 
 #- 161 SelectRecord
 ./ng net.accelbyte.sdk.cli.Main platform selectRecord \
-    --changeId 'qil8UdvK' \
+    --changeId 'ZX0qLAHT' \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'ZrCmOB0o' \
+    --storeId 'aAgq7mvj' \
     > test.out 2>&1
 eval_tap $? 161 'SelectRecord' test.out
 
 #- 162 UnselectRecord
 ./ng net.accelbyte.sdk.cli.Main platform unselectRecord \
-    --changeId 'aqyE5yp0' \
+    --changeId 'ec0EuSlp' \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'ozd4MZEu' \
+    --storeId 'J6YreTQx' \
     > test.out 2>&1
 eval_tap $? 162 'UnselectRecord' test.out
 
 #- 163 CloneStore
 ./ng net.accelbyte.sdk.cli.Main platform cloneStore \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'm1XpofGZ' \
-    --targetStoreId 'nFFpHD1P' \
+    --storeId 'ppsQTx45' \
+    --targetStoreId '648oAOJx' \
     > test.out 2>&1
 eval_tap $? 163 'CloneStore' test.out
 
@@ -1319,369 +1319,369 @@ eval_tap 0 164 'ExportStore # SKIP deprecated' test.out
 #- 165 QuerySubscriptions
 ./ng net.accelbyte.sdk.cli.Main platform querySubscriptions \
     --namespace "$AB_NAMESPACE" \
-    --chargeStatus 'NEVER' \
-    --itemId 'jLXhYwxZ' \
-    --limit '33' \
-    --offset '77' \
-    --sku 'uimT4cCy' \
+    --chargeStatus 'RECURRING_CHARGING' \
+    --itemId 'YgQhMdzA' \
+    --limit '56' \
+    --offset '16' \
+    --sku 'WGvaiZNE' \
     --status 'EXPIRED' \
     --subscribedBy 'USER' \
-    --userId 'V6EwVFNs' \
+    --userId 'H7UvL3H6' \
     > test.out 2>&1
 eval_tap $? 165 'QuerySubscriptions' test.out
 
 #- 166 RecurringChargeSubscription
 ./ng net.accelbyte.sdk.cli.Main platform recurringChargeSubscription \
     --namespace "$AB_NAMESPACE" \
-    --subscriptionId 'qFpcSdLp' \
+    --subscriptionId 'EHSJXuD2' \
     > test.out 2>&1
 eval_tap $? 166 'RecurringChargeSubscription' test.out
 
 #- 167 GetTicketDynamic
 ./ng net.accelbyte.sdk.cli.Main platform getTicketDynamic \
-    --boothName 'PvAuaXPt' \
+    --boothName 'ye4TBxFo' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 167 'GetTicketDynamic' test.out
 
 #- 168 DecreaseTicketSale
 ./ng net.accelbyte.sdk.cli.Main platform decreaseTicketSale \
-    --boothName 'u31JAh0Z' \
+    --boothName 'W98roi8E' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"orderNo": "1YS4rX3c"}' \
+    --body '{"orderNo": "r9RR1lmP"}' \
     > test.out 2>&1
 eval_tap $? 168 'DecreaseTicketSale' test.out
 
 #- 169 GetTicketBoothID
 ./ng net.accelbyte.sdk.cli.Main platform getTicketBoothID \
-    --boothName 'mXFaU030' \
+    --boothName 'nV8KUA8V' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 169 'GetTicketBoothID' test.out
 
 #- 170 IncreaseTicketSale
 ./ng net.accelbyte.sdk.cli.Main platform increaseTicketSale \
-    --boothName 'fYPFBdVW' \
+    --boothName 'fd0vfyWp' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"count": 70, "orderNo": "QJDfLuyg"}' \
+    --body '{"count": 85, "orderNo": "RzSNwt5M"}' \
     > test.out 2>&1
 eval_tap $? 170 'IncreaseTicketSale' test.out
 
 #- 171 UnlockSteamUserAchievement
 ./ng net.accelbyte.sdk.cli.Main platform unlockSteamUserAchievement \
     --namespace "$AB_NAMESPACE" \
-    --userId 'rQSAPfEE' \
-    --body '{"achievements": [{"id": "Q2fVN0AW", "value": 11}, {"id": "PFwti4z0", "value": 34}, {"id": "w0x2i020", "value": 82}], "steamUserId": "svMb1VGL"}' \
+    --userId 'T6RJYYya' \
+    --body '{"achievements": [{"id": "yJX1Sd4N", "value": 68}, {"id": "xH96OqIz", "value": 60}, {"id": "nKlKTNxd", "value": 41}], "steamUserId": "eagt8Y1U"}' \
     > test.out 2>&1
 eval_tap $? 171 'UnlockSteamUserAchievement' test.out
 
 #- 172 GetXblUserAchievements
 ./ng net.accelbyte.sdk.cli.Main platform getXblUserAchievements \
     --namespace "$AB_NAMESPACE" \
-    --userId 'FG8mSJ16' \
-    --xboxUserId 'mF097GDN' \
+    --userId '1j4pyvdX' \
+    --xboxUserId 'v52bnAdl' \
     > test.out 2>&1
 eval_tap $? 172 'GetXblUserAchievements' test.out
 
 #- 173 UpdateXblUserAchievement
 ./ng net.accelbyte.sdk.cli.Main platform updateXblUserAchievement \
     --namespace "$AB_NAMESPACE" \
-    --userId 'mKqCXqfs' \
-    --body '{"achievements": [{"id": "uzXpCCP4", "percentComplete": 31}, {"id": "5Ney2OWE", "percentComplete": 64}, {"id": "rhFWBNbD", "percentComplete": 77}], "serviceConfigId": "BjFPdAie", "titleId": "Gtqa5Znr", "xboxUserId": "FaQU7JAq"}' \
+    --userId 'oxCC5Cg8' \
+    --body '{"achievements": [{"id": "qVyEsIRF", "percentComplete": 34}, {"id": "VLMPC7qU", "percentComplete": 54}, {"id": "4R9KN5KQ", "percentComplete": 98}], "serviceConfigId": "11YqMXKT", "titleId": "XAbA5u0h", "xboxUserId": "k1rVlyPF"}' \
     > test.out 2>&1
 eval_tap $? 173 'UpdateXblUserAchievement' test.out
 
 #- 174 AnonymizeCampaign
 ./ng net.accelbyte.sdk.cli.Main platform anonymizeCampaign \
     --namespace "$AB_NAMESPACE" \
-    --userId 'OTY7H89f' \
+    --userId 'OSvtz5QV' \
     > test.out 2>&1
 eval_tap $? 174 'AnonymizeCampaign' test.out
 
 #- 175 AnonymizeEntitlement
 ./ng net.accelbyte.sdk.cli.Main platform anonymizeEntitlement \
     --namespace "$AB_NAMESPACE" \
-    --userId 'QF4meWVu' \
+    --userId 'NJjSQWuR' \
     > test.out 2>&1
 eval_tap $? 175 'AnonymizeEntitlement' test.out
 
 #- 176 AnonymizeFulfillment
 ./ng net.accelbyte.sdk.cli.Main platform anonymizeFulfillment \
     --namespace "$AB_NAMESPACE" \
-    --userId '3IWNeImu' \
+    --userId 'nfG28d1p' \
     > test.out 2>&1
 eval_tap $? 176 'AnonymizeFulfillment' test.out
 
 #- 177 AnonymizeIntegration
 ./ng net.accelbyte.sdk.cli.Main platform anonymizeIntegration \
     --namespace "$AB_NAMESPACE" \
-    --userId 'x4hd5aEf' \
+    --userId 'WHofcP2c' \
     > test.out 2>&1
 eval_tap $? 177 'AnonymizeIntegration' test.out
 
 #- 178 AnonymizeOrder
 ./ng net.accelbyte.sdk.cli.Main platform anonymizeOrder \
     --namespace "$AB_NAMESPACE" \
-    --userId 'N0GiAhTE' \
+    --userId 'QrQGt4RC' \
     > test.out 2>&1
 eval_tap $? 178 'AnonymizeOrder' test.out
 
 #- 179 AnonymizePayment
 ./ng net.accelbyte.sdk.cli.Main platform anonymizePayment \
     --namespace "$AB_NAMESPACE" \
-    --userId 'nF5slxXC' \
+    --userId 'F2VHbDxf' \
     > test.out 2>&1
 eval_tap $? 179 'AnonymizePayment' test.out
 
 #- 180 AnonymizeSubscription
 ./ng net.accelbyte.sdk.cli.Main platform anonymizeSubscription \
     --namespace "$AB_NAMESPACE" \
-    --userId 'qwmgptjc' \
+    --userId 'NxbuqtDV' \
     > test.out 2>&1
 eval_tap $? 180 'AnonymizeSubscription' test.out
 
 #- 181 AnonymizeWallet
 ./ng net.accelbyte.sdk.cli.Main platform anonymizeWallet \
     --namespace "$AB_NAMESPACE" \
-    --userId 'kd6rnHec' \
+    --userId 'AxwHkANV' \
     > test.out 2>&1
 eval_tap $? 181 'AnonymizeWallet' test.out
 
 #- 182 QueryUserEntitlements
 ./ng net.accelbyte.sdk.cli.Main platform queryUserEntitlements \
     --namespace "$AB_NAMESPACE" \
-    --userId 'GoQSqac0' \
+    --userId 'mLTXQSBt' \
     --activeOnly  \
-    --appType 'GAME' \
-    --entitlementClazz 'ENTITLEMENT' \
-    --entitlementName 'uGbDZiXL' \
-    --features 'qZLKG1LQ,JPw0gX3X,wyTyWUGE' \
-    --itemId 'nmY0Qk0E,roXJhJIv,ls2mdjke' \
-    --limit '35' \
-    --offset '86' \
+    --appType 'SOFTWARE' \
+    --entitlementClazz 'MEDIA' \
+    --entitlementName 'WDgOX06N' \
+    --features 'hkETPX5b,gNz3iIxO,ZRxIE3BQ' \
+    --itemId '9fpeqHHX,TyhN1Wj7,LICvgBuw' \
+    --limit '26' \
+    --offset '1' \
     > test.out 2>&1
 eval_tap $? 182 'QueryUserEntitlements' test.out
 
 #- 183 GrantUserEntitlement
 ./ng net.accelbyte.sdk.cli.Main platform grantUserEntitlement \
     --namespace "$AB_NAMESPACE" \
-    --userId '6w4e1Col' \
-    --body '[{"endDate": "1989-08-01T00:00:00Z", "grantedCode": "1VrHI1h8", "itemId": "rdBAEczI", "itemNamespace": "3Gd9ZnwG", "language": "io-yCZO-994", "quantity": 28, "region": "7wwGmUp5", "source": "IAP", "startDate": "1990-05-24T00:00:00Z", "storeId": "ScxF6zsZ"}, {"endDate": "1999-12-19T00:00:00Z", "grantedCode": "g38OwPsQ", "itemId": "VdOMM83B", "itemNamespace": "5brHBfmp", "language": "jn-pr", "quantity": 12, "region": "JguWNz0T", "source": "GIFT", "startDate": "1974-02-21T00:00:00Z", "storeId": "KGFmCjHE"}, {"endDate": "1980-06-23T00:00:00Z", "grantedCode": "2i4MAPnT", "itemId": "8WBEptx2", "itemNamespace": "vrxgQQ6f", "language": "fB_Uuwh", "quantity": 52, "region": "ESSGlZU5", "source": "GIFT", "startDate": "1983-10-06T00:00:00Z", "storeId": "oBOs2ii2"}]' \
+    --userId 'anbgvLhK' \
+    --body '[{"endDate": "1977-08-10T00:00:00Z", "grantedCode": "YJfnGJF2", "itemId": "V7mDTph4", "itemNamespace": "bmvp4yTy", "language": "JZk_Hj", "quantity": 62, "region": "uqPYRDiz", "source": "ACHIEVEMENT", "startDate": "1985-08-27T00:00:00Z", "storeId": "mK1WnsDQ"}, {"endDate": "1983-05-12T00:00:00Z", "grantedCode": "vlPZ1ye4", "itemId": "hVvXjKFF", "itemNamespace": "njXVCK43", "language": "oN-jMVS_gX", "quantity": 34, "region": "2XSx8mFD", "source": "GIFT", "startDate": "1991-08-03T00:00:00Z", "storeId": "9uimP0N6"}, {"endDate": "1999-01-24T00:00:00Z", "grantedCode": "VtYs0R1s", "itemId": "adjyQ0Hw", "itemNamespace": "pn3Rh4S5", "language": "DPI-XFTx", "quantity": 62, "region": "yHHadRgK", "source": "GIFT", "startDate": "1975-06-08T00:00:00Z", "storeId": "BiaBg45T"}]' \
     > test.out 2>&1
 eval_tap $? 183 'GrantUserEntitlement' test.out
 
 #- 184 GetUserAppEntitlementByAppId
 ./ng net.accelbyte.sdk.cli.Main platform getUserAppEntitlementByAppId \
     --namespace "$AB_NAMESPACE" \
-    --userId 'JxwgbRZq' \
+    --userId 'qA2virjs' \
     --activeOnly  \
-    --appId 'eKiTanPS' \
+    --appId 'Dv2r12nG' \
     > test.out 2>&1
 eval_tap $? 184 'GetUserAppEntitlementByAppId' test.out
 
 #- 185 QueryUserEntitlementsByAppType
 ./ng net.accelbyte.sdk.cli.Main platform queryUserEntitlementsByAppType \
     --namespace "$AB_NAMESPACE" \
-    --userId 'QdrsEz4F' \
+    --userId '1gt7EZmc' \
     --activeOnly  \
-    --limit '98' \
-    --offset '9' \
-    --appType 'GAME' \
+    --limit '49' \
+    --offset '68' \
+    --appType 'SOFTWARE' \
     > test.out 2>&1
 eval_tap $? 185 'QueryUserEntitlementsByAppType' test.out
 
 #- 186 GetUserEntitlementByItemId
 ./ng net.accelbyte.sdk.cli.Main platform getUserEntitlementByItemId \
     --namespace "$AB_NAMESPACE" \
-    --userId 'pNOt3D10' \
+    --userId '2GD4V5tW' \
     --activeOnly  \
-    --entitlementClazz 'ENTITLEMENT' \
-    --itemId 'tiNv9C5W' \
+    --entitlementClazz 'APP' \
+    --itemId 'jQGXrQx8' \
     > test.out 2>&1
 eval_tap $? 186 'GetUserEntitlementByItemId' test.out
 
 #- 187 GetUserEntitlementBySku
 ./ng net.accelbyte.sdk.cli.Main platform getUserEntitlementBySku \
     --namespace "$AB_NAMESPACE" \
-    --userId 'orvC33OO' \
+    --userId 'FfLOdAWB' \
     --activeOnly  \
-    --entitlementClazz 'APP' \
-    --sku 'Rh8ZIAkH' \
+    --entitlementClazz 'CODE' \
+    --sku 'KuDWp8gm' \
     > test.out 2>&1
 eval_tap $? 187 'GetUserEntitlementBySku' test.out
 
 #- 188 ExistsAnyUserActiveEntitlement
 ./ng net.accelbyte.sdk.cli.Main platform existsAnyUserActiveEntitlement \
     --namespace "$AB_NAMESPACE" \
-    --userId 'B6Oeb1UR' \
-    --appIds 'uux21eJi,evaKWUDh,p0PELIvp' \
-    --itemIds '5BcURFPl,Syusiume,45btbTFr' \
-    --skus 'IeMzwuXn,7TSxitht,qqvp6rFg' \
+    --userId 'uIj0I8lC' \
+    --appIds 'U6go3BtO,Ql8KvSud,XYnQwSt2' \
+    --itemIds 'bfz58pkK,GQpVHzE8,M6nw3vUK' \
+    --skus 'PYxlH5nT,vD7NSTT8,4Sza60Xf' \
     > test.out 2>&1
 eval_tap $? 188 'ExistsAnyUserActiveEntitlement' test.out
 
 #- 189 ExistsAnyUserActiveEntitlementByItemIds
 ./ng net.accelbyte.sdk.cli.Main platform existsAnyUserActiveEntitlementByItemIds \
     --namespace "$AB_NAMESPACE" \
-    --userId 'vRbsqVnw' \
-    --itemIds 'jmu6RBii,GNaYKFH1,GEqGtCGH' \
+    --userId 'LLfkCTQl' \
+    --itemIds 'dY65mP25,9DfEXBac,PvcEcJmP' \
     > test.out 2>&1
 eval_tap $? 189 'ExistsAnyUserActiveEntitlementByItemIds' test.out
 
 #- 190 GetUserAppEntitlementOwnershipByAppId
 ./ng net.accelbyte.sdk.cli.Main platform getUserAppEntitlementOwnershipByAppId \
     --namespace "$AB_NAMESPACE" \
-    --userId 'k9RRFG85' \
-    --appId 'MfL0J90o' \
+    --userId 'W1AXKhMq' \
+    --appId 'DlMsW1f0' \
     > test.out 2>&1
 eval_tap $? 190 'GetUserAppEntitlementOwnershipByAppId' test.out
 
 #- 191 GetUserEntitlementOwnershipByItemId
 ./ng net.accelbyte.sdk.cli.Main platform getUserEntitlementOwnershipByItemId \
     --namespace "$AB_NAMESPACE" \
-    --userId 'aWzQfcII' \
-    --entitlementClazz 'ENTITLEMENT' \
-    --itemId 'NXb2Jr4d' \
+    --userId 'y2CV5DyE' \
+    --entitlementClazz 'LOOTBOX' \
+    --itemId 'Bod6Igjg' \
     > test.out 2>&1
 eval_tap $? 191 'GetUserEntitlementOwnershipByItemId' test.out
 
 #- 192 GetUserEntitlementOwnershipByItemIds
 ./ng net.accelbyte.sdk.cli.Main platform getUserEntitlementOwnershipByItemIds \
     --namespace "$AB_NAMESPACE" \
-    --userId 'DFSweMAV' \
-    --ids 'jB35qneL,E2HYxKgz,YsvvkSFE' \
+    --userId 'oePZeXAx' \
+    --ids 'gTU8a9P1,j3nqAeNt,NpkivJJU' \
     > test.out 2>&1
 eval_tap $? 192 'GetUserEntitlementOwnershipByItemIds' test.out
 
 #- 193 GetUserEntitlementOwnershipBySku
 ./ng net.accelbyte.sdk.cli.Main platform getUserEntitlementOwnershipBySku \
     --namespace "$AB_NAMESPACE" \
-    --userId 'ZzY2xYcM' \
-    --entitlementClazz 'SUBSCRIPTION' \
-    --sku 'sHk8tZ3k' \
+    --userId 'kkvjgs0l' \
+    --entitlementClazz 'LOOTBOX' \
+    --sku 'uHBsX8wr' \
     > test.out 2>&1
 eval_tap $? 193 'GetUserEntitlementOwnershipBySku' test.out
 
 #- 194 RevokeUserEntitlements
 ./ng net.accelbyte.sdk.cli.Main platform revokeUserEntitlements \
     --namespace "$AB_NAMESPACE" \
-    --userId 'HDiwQNP2' \
-    --entitlementIds 'jCgsBHY7' \
+    --userId 'LtU7j8tv' \
+    --entitlementIds 'pgFLrxRg' \
     > test.out 2>&1
 eval_tap $? 194 'RevokeUserEntitlements' test.out
 
 #- 195 GetUserEntitlement
 ./ng net.accelbyte.sdk.cli.Main platform getUserEntitlement \
-    --entitlementId 'TdZIwb8r' \
+    --entitlementId 'BTyRAuYq' \
     --namespace "$AB_NAMESPACE" \
-    --userId '7iVe1U6w' \
+    --userId 'FzgGr4LC' \
     > test.out 2>&1
 eval_tap $? 195 'GetUserEntitlement' test.out
 
 #- 196 UpdateUserEntitlement
 ./ng net.accelbyte.sdk.cli.Main platform updateUserEntitlement \
-    --entitlementId 'LSH6KHG4' \
+    --entitlementId 'E0hFWDkc' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'VmauPp9a' \
-    --body '{"endDate": "1980-02-12T00:00:00Z", "nullFieldList": ["GSvty9vI", "PNpjpQH4", "o8ko8uQb"], "startDate": "1971-06-18T00:00:00Z", "status": "CONSUMED", "useCount": 52}' \
+    --userId 'wQMatzy9' \
+    --body '{"endDate": "1975-10-06T00:00:00Z", "nullFieldList": ["0EubToKF", "HLQd5xEm", "MmYqdDp4"], "startDate": "1984-12-05T00:00:00Z", "status": "REVOKED", "useCount": 18}' \
     > test.out 2>&1
 eval_tap $? 196 'UpdateUserEntitlement' test.out
 
 #- 197 ConsumeUserEntitlement
 ./ng net.accelbyte.sdk.cli.Main platform consumeUserEntitlement \
-    --entitlementId 'rAg3Ub9O' \
+    --entitlementId 'gxDjoea4' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'nUJM5eZa' \
-    --body '{"options": ["kmlT8C6h", "AWIyTOjd", "siqQxKkl"], "requestId": "huPIXtNW", "useCount": 32}' \
+    --userId 'MUffPbhz' \
+    --body '{"options": ["5fSldu5C", "7MgHfN6B", "rxEUVhSC"], "requestId": "v6JS1mxJ", "useCount": 21}' \
     > test.out 2>&1
 eval_tap $? 197 'ConsumeUserEntitlement' test.out
 
 #- 198 DisableUserEntitlement
 ./ng net.accelbyte.sdk.cli.Main platform disableUserEntitlement \
-    --entitlementId '4xCNcjQq' \
+    --entitlementId 'D73YFAwR' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'Fv8atr1M' \
+    --userId 'KTqCgpKq' \
     > test.out 2>&1
 eval_tap $? 198 'DisableUserEntitlement' test.out
 
 #- 199 EnableUserEntitlement
 ./ng net.accelbyte.sdk.cli.Main platform enableUserEntitlement \
-    --entitlementId '9OkeaLuK' \
+    --entitlementId 'qBdpJzwv' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'IMfOegv3' \
+    --userId 'gGiZa5xM' \
     > test.out 2>&1
 eval_tap $? 199 'EnableUserEntitlement' test.out
 
 #- 200 GetUserEntitlementHistories
 ./ng net.accelbyte.sdk.cli.Main platform getUserEntitlementHistories \
-    --entitlementId 'LSIfkmZJ' \
+    --entitlementId 'UsMWPf7s' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'bn7tTJxn' \
+    --userId 'r4pACtml' \
     > test.out 2>&1
 eval_tap $? 200 'GetUserEntitlementHistories' test.out
 
 #- 201 RevokeUserEntitlement
 ./ng net.accelbyte.sdk.cli.Main platform revokeUserEntitlement \
-    --entitlementId 'cuhjPwxX' \
+    --entitlementId 'guxDxMBO' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'qcaaeeoD' \
+    --userId 'DX4Vpu8j' \
     > test.out 2>&1
 eval_tap $? 201 'RevokeUserEntitlement' test.out
 
 #- 202 FulfillItem
 ./ng net.accelbyte.sdk.cli.Main platform fulfillItem \
     --namespace "$AB_NAMESPACE" \
-    --userId 'AYiIIuK2' \
-    --body '{"duration": 33, "endDate": "1983-09-11T00:00:00Z", "itemId": "qDamZwLB", "itemSku": "lbrMBV2I", "language": "fqa7b3GZ", "order": {"currency": {"currencyCode": "gK7FSytR", "currencySymbol": "vzJeFG9h", "currencyType": "REAL", "decimals": 98, "namespace": "125jYvNh"}, "ext": {"nzYFX8Kj": {}, "9O33gtqm": {}, "hRr28atg": {}}, "free": false}, "orderNo": "hQ4WhNn6", "origin": "Other", "quantity": 93, "region": "9yDOB3vb", "source": "DLC", "startDate": "1990-10-04T00:00:00Z", "storeId": "8sOOf5TO"}' \
+    --userId 'P8C1yhlc' \
+    --body '{"duration": 8, "endDate": "1987-11-01T00:00:00Z", "itemId": "1nv807sN", "itemSku": "VQ6pCrmL", "language": "8uZFzwtG", "order": {"currency": {"currencyCode": "Z3qvLtrz", "currencySymbol": "GqEZurlw", "currencyType": "VIRTUAL", "decimals": 82, "namespace": "zU5ifsCM"}, "ext": {"j8U50RpM": {}, "9QSlGZUW": {}, "J7evvBWj": {}}, "free": false}, "orderNo": "uGrFMt49", "origin": "Stadia", "quantity": 86, "region": "CRFwZEw1", "source": "IAP", "startDate": "1997-06-15T00:00:00Z", "storeId": "GXA3Eefb"}' \
     > test.out 2>&1
 eval_tap $? 202 'FulfillItem' test.out
 
 #- 203 RedeemCode
 ./ng net.accelbyte.sdk.cli.Main platform redeemCode \
     --namespace "$AB_NAMESPACE" \
-    --userId 'Eee3G0ZG' \
-    --body '{"code": "P4wYWm0P", "language": "jz_PpuC-fL", "region": "tuBoFxZ8"}' \
+    --userId 'maAVJAMu' \
+    --body '{"code": "9ZLlEBvv", "language": "iyOQ_CIec", "region": "s9uUfPn4"}' \
     > test.out 2>&1
 eval_tap $? 203 'RedeemCode' test.out
 
 #- 204 FulfillRewards
 ./ng net.accelbyte.sdk.cli.Main platform fulfillRewards \
     --namespace "$AB_NAMESPACE" \
-    --userId '0vIAjpay' \
-    --body '{"origin": "System", "rewards": [{"currency": {"currencyCode": "d76NbCWC", "namespace": "XnpcJtAx"}, "item": {"itemId": "TLLVY8Bs", "itemSku": "WFiSbUO3", "itemType": "2L9Ybpu1"}, "quantity": 25, "type": "CURRENCY"}, {"currency": {"currencyCode": "TXSa1lUb", "namespace": "78qX993L"}, "item": {"itemId": "Hsdyigw5", "itemSku": "CrUqtQN0", "itemType": "YqRVfiCO"}, "quantity": 60, "type": "ITEM"}, {"currency": {"currencyCode": "gVXHYAd7", "namespace": "kBpDdMbF"}, "item": {"itemId": "jFvpHi28", "itemSku": "9XxPyHBW", "itemType": "DLIhBWPh"}, "quantity": 23, "type": "CURRENCY"}], "source": "PURCHASE"}' \
+    --userId '1HOQwDGA' \
+    --body '{"origin": "Other", "rewards": [{"currency": {"currencyCode": "HXVFTVGo", "namespace": "bivq8R8G"}, "item": {"itemId": "SXhnGhhZ", "itemSku": "moczM2P2", "itemType": "lxuPKZ46"}, "quantity": 18, "type": "ITEM"}, {"currency": {"currencyCode": "iyM8GTvz", "namespace": "sU80d7A0"}, "item": {"itemId": "63Ch69Qz", "itemSku": "nwT8q2Of", "itemType": "BbEW4ahP"}, "quantity": 62, "type": "ITEM"}, {"currency": {"currencyCode": "7yd3Kigr", "namespace": "XeBlOeG6"}, "item": {"itemId": "Hjbf208p", "itemSku": "HK67c9Oy", "itemType": "zVdXb1ab"}, "quantity": 37, "type": "ITEM"}], "source": "PURCHASE"}' \
     > test.out 2>&1
 eval_tap $? 204 'FulfillRewards' test.out
 
 #- 205 QueryUserIAPOrders
 ./ng net.accelbyte.sdk.cli.Main platform queryUserIAPOrders \
     --namespace "$AB_NAMESPACE" \
-    --userId '7PRqUAcg' \
-    --endTime '4c6Kqg5J' \
-    --limit '9' \
-    --offset '49' \
-    --productId 'lAHJCI8H' \
-    --startTime 'r899Le3j' \
-    --status 'FULFILLED' \
-    --type 'XBOX' \
+    --userId 'rp9WWjZb' \
+    --endTime 'z5G3Rx0w' \
+    --limit '33' \
+    --offset '83' \
+    --productId 'PRWw6Q5S' \
+    --startTime 'gEaHUFh0' \
+    --status 'FAILED' \
+    --type 'STEAM' \
     > test.out 2>&1
 eval_tap $? 205 'QueryUserIAPOrders' test.out
 
 #- 206 QueryAllUserIAPOrders
 ./ng net.accelbyte.sdk.cli.Main platform queryAllUserIAPOrders \
     --namespace "$AB_NAMESPACE" \
-    --userId 'LLzvzEdF' \
+    --userId 'wewseJpo' \
     > test.out 2>&1
 eval_tap $? 206 'QueryAllUserIAPOrders' test.out
 
 #- 207 QueryUserIAPConsumeHistory
 ./ng net.accelbyte.sdk.cli.Main platform queryUserIAPConsumeHistory \
     --namespace "$AB_NAMESPACE" \
-    --userId 'pt8WGuGe' \
-    --endTime 'kVEG7oMJ' \
-    --limit '60' \
-    --offset '74' \
-    --startTime 'jSvCMLX3' \
-    --status 'FAIL' \
+    --userId 'KJtEEdbc' \
+    --endTime '9if9BAMy' \
+    --limit '71' \
+    --offset '24' \
+    --startTime 'oTGRxpsO' \
+    --status 'PENDING' \
     --type 'STEAM' \
     > test.out 2>&1
 eval_tap $? 207 'QueryUserIAPConsumeHistory' test.out
@@ -1689,240 +1689,240 @@ eval_tap $? 207 'QueryUserIAPConsumeHistory' test.out
 #- 208 MockFulfillIAPItem
 ./ng net.accelbyte.sdk.cli.Main platform mockFulfillIAPItem \
     --namespace "$AB_NAMESPACE" \
-    --userId 'SF5fJW3S' \
-    --body '{"itemIdentityType": "ITEM_ID", "language": "FjSw_RPFC", "productId": "1ZWxAYNP", "region": "8SzaM4vr", "type": "GOOGLE"}' \
+    --userId 'iNImuuAk' \
+    --body '{"itemIdentityType": "ITEM_SKU", "language": "Vum", "productId": "jGw9Ss5Q", "region": "YEH0Fkmq", "type": "APPLE"}' \
     > test.out 2>&1
 eval_tap $? 208 'MockFulfillIAPItem' test.out
 
 #- 209 QueryUserOrders
 ./ng net.accelbyte.sdk.cli.Main platform queryUserOrders \
     --namespace "$AB_NAMESPACE" \
-    --userId '0TqRccwX' \
-    --itemId 'aFqmzhYJ' \
-    --limit '25' \
-    --offset '35' \
-    --status 'CLOSED' \
+    --userId 'JfkkvITm' \
+    --itemId 'rqtQkAxL' \
+    --limit '60' \
+    --offset '45' \
+    --status 'REFUNDED' \
     > test.out 2>&1
 eval_tap $? 209 'QueryUserOrders' test.out
 
 #- 210 AdminCreateUserOrder
 ./ng net.accelbyte.sdk.cli.Main platform adminCreateUserOrder \
     --namespace "$AB_NAMESPACE" \
-    --userId 'Z49K5Diy' \
-    --body '{"currencyCode": "AxlELYvD", "currencyNamespace": "DTOkLvWc", "discountedPrice": 31, "ext": {"LUmrMPeu": {}, "Hi4rZ2xC": {}, "NI9loiRv": {}}, "itemId": "Y2RWQbrk", "language": "DjIQ6CLb", "options": {"skipPriceValidation": true}, "platform": "Epic", "price": 66, "quantity": 37, "region": "Wn3yK43K", "returnUrl": "Vx50NB0p", "sandbox": true}' \
+    --userId 'c45Jtr4Z' \
+    --body '{"currencyCode": "n5jUnMIu", "currencyNamespace": "wUbnWXjd", "discountedPrice": 83, "ext": {"Fcmfz7jq": {}, "l8Psv9Lk": {}, "wKwrseui": {}}, "itemId": "hCUpvWyl", "language": "Syw1GIuD", "options": {"skipPriceValidation": false}, "platform": "Nintendo", "price": 30, "quantity": 45, "region": "WKY0dRDf", "returnUrl": "ry7WqiM2", "sandbox": true}' \
     > test.out 2>&1
 eval_tap $? 210 'AdminCreateUserOrder' test.out
 
 #- 211 CountOfPurchasedItem
 ./ng net.accelbyte.sdk.cli.Main platform countOfPurchasedItem \
     --namespace "$AB_NAMESPACE" \
-    --userId 'BoN22e36' \
-    --itemId 'DVK6c9bW' \
+    --userId '9kES2TD9' \
+    --itemId 'rYzsPQuo' \
     > test.out 2>&1
 eval_tap $? 211 'CountOfPurchasedItem' test.out
 
 #- 212 GetUserOrder
 ./ng net.accelbyte.sdk.cli.Main platform getUserOrder \
     --namespace "$AB_NAMESPACE" \
-    --orderNo 'VreIKtA3' \
-    --userId 'k0eIhXNz' \
+    --orderNo 'NG89g8kD' \
+    --userId 'i2Pwc435' \
     > test.out 2>&1
 eval_tap $? 212 'GetUserOrder' test.out
 
 #- 213 UpdateUserOrderStatus
 ./ng net.accelbyte.sdk.cli.Main platform updateUserOrderStatus \
     --namespace "$AB_NAMESPACE" \
-    --orderNo 'GWPZN2f6' \
-    --userId 'tghzDIYp' \
-    --body '{"status": "REFUNDED", "statusReason": "3QLUvlcF"}' \
+    --orderNo '7iA5syyi' \
+    --userId 'aECUjMP0' \
+    --body '{"status": "FULFILL_FAILED", "statusReason": "xlBTPtkt"}' \
     > test.out 2>&1
 eval_tap $? 213 'UpdateUserOrderStatus' test.out
 
 #- 214 FulfillUserOrder
 ./ng net.accelbyte.sdk.cli.Main platform fulfillUserOrder \
     --namespace "$AB_NAMESPACE" \
-    --orderNo '3tmLBIPY' \
-    --userId 'nReFGN1V' \
+    --orderNo 'F6ph2P2W' \
+    --userId 'RrRbDPAK' \
     > test.out 2>&1
 eval_tap $? 214 'FulfillUserOrder' test.out
 
 #- 215 GetUserOrderGrant
 ./ng net.accelbyte.sdk.cli.Main platform getUserOrderGrant \
     --namespace "$AB_NAMESPACE" \
-    --orderNo 'RmKTnKRg' \
-    --userId 'YY8kfeH5' \
+    --orderNo 'MbPuqAa7' \
+    --userId 'ZEtkysmd' \
     > test.out 2>&1
 eval_tap $? 215 'GetUserOrderGrant' test.out
 
 #- 216 GetUserOrderHistories
 ./ng net.accelbyte.sdk.cli.Main platform getUserOrderHistories \
     --namespace "$AB_NAMESPACE" \
-    --orderNo 'ahRGomCQ' \
-    --userId '9jWbQVc0' \
+    --orderNo 'qPCUQML4' \
+    --userId 'hnAJ8rug' \
     > test.out 2>&1
 eval_tap $? 216 'GetUserOrderHistories' test.out
 
 #- 217 ProcessUserOrderNotification
 ./ng net.accelbyte.sdk.cli.Main platform processUserOrderNotification \
     --namespace "$AB_NAMESPACE" \
-    --orderNo 'nbkEpPPK' \
-    --userId 'YJUDuvEx' \
-    --body '{"additionalData": {"cardSummary": "ZkaFhSEJ"}, "authorisedTime": "1997-11-17T00:00:00Z", "chargebackReversedTime": "1979-07-27T00:00:00Z", "chargebackTime": "1973-06-27T00:00:00Z", "chargedTime": "1985-03-14T00:00:00Z", "createdTime": "1993-10-23T00:00:00Z", "currency": {"currencyCode": "zLiJcuNV", "currencySymbol": "MS3oqS4u", "currencyType": "REAL", "decimals": 66, "namespace": "JmFDAI5W"}, "customParameters": {"NyCLFcjR": {}, "JkriNtLX": {}, "ddtAoKao": {}}, "extOrderNo": "EiIbtwd9", "extTxId": "uPYstHzt", "extUserId": "pYC7zzji", "issuedAt": "1986-06-15T00:00:00Z", "metadata": {"yy9jnMGU": "tbQ5MwNb", "A1gjzLwo": "SWTkTjMd", "zLMdvo7v": "f1OC05lw"}, "namespace": "skhdBKMj", "nonceStr": "IB6GQnMQ", "paymentMethod": "8YStmO8Z", "paymentMethodFee": 84, "paymentOrderNo": "jySdKZnK", "paymentProvider": "ALIPAY", "paymentProviderFee": 62, "paymentStationUrl": "WT9Mr6bS", "price": 13, "refundedTime": "1988-02-10T00:00:00Z", "salesTax": 40, "sandbox": true, "sku": "KqdRnzqn", "status": "REFUND_FAILED", "statusReason": "8JhlPId9", "subscriptionId": "erDUG7GL", "subtotalPrice": 59, "targetNamespace": "VyuKVOIw", "targetUserId": "oVCqJaSM", "tax": 7, "totalPrice": 64, "totalTax": 82, "txEndTime": "1979-07-28T00:00:00Z", "type": "g6HJHLCY", "userId": "rfy6CVjf", "vat": 11}' \
+    --orderNo 'enXL9pXH' \
+    --userId 'WeEUm7H6' \
+    --body '{"additionalData": {"cardSummary": "NwhPqOtv"}, "authorisedTime": "1991-10-03T00:00:00Z", "chargebackReversedTime": "1989-03-24T00:00:00Z", "chargebackTime": "1981-08-23T00:00:00Z", "chargedTime": "1978-09-03T00:00:00Z", "createdTime": "1984-07-02T00:00:00Z", "currency": {"currencyCode": "8A4114iR", "currencySymbol": "EsJudbCN", "currencyType": "REAL", "decimals": 29, "namespace": "kYobULO2"}, "customParameters": {"9lpvZ2Jb": {}, "VU4JPqYf": {}, "jCfXVEnL": {}}, "extOrderNo": "69WqEsDp", "extTxId": "KFpEoGWb", "extUserId": "sexpCUVh", "issuedAt": "1996-03-09T00:00:00Z", "metadata": {"lvTNEsLh": "zw3rTLGD", "q4Kcg5qv": "MdSvnlCp", "FFa86LgI": "5kpjd4zz"}, "namespace": "5EaNJTF6", "nonceStr": "EV5gdB5Z", "paymentMethod": "lU5nBNxf", "paymentMethodFee": 79, "paymentOrderNo": "NIXEVE7D", "paymentProvider": "WALLET", "paymentProviderFee": 6, "paymentStationUrl": "rywETCig", "price": 47, "refundedTime": "1981-03-23T00:00:00Z", "salesTax": 82, "sandbox": true, "sku": "VxeLiEOt", "status": "REQUEST_FOR_INFORMATION", "statusReason": "nAsgVues", "subscriptionId": "m99TPD5X", "subtotalPrice": 19, "targetNamespace": "QfEKgwk2", "targetUserId": "Qawn4aDR", "tax": 28, "totalPrice": 24, "totalTax": 86, "txEndTime": "1994-11-04T00:00:00Z", "type": "OMBuElRg", "userId": "wcVEMWy8", "vat": 39}' \
     > test.out 2>&1
 eval_tap $? 217 'ProcessUserOrderNotification' test.out
 
 #- 218 DownloadUserOrderReceipt
 ./ng net.accelbyte.sdk.cli.Main platform downloadUserOrderReceipt \
     --namespace "$AB_NAMESPACE" \
-    --orderNo 'HjghH1a4' \
-    --userId 'ZvUgtoxx' \
+    --orderNo '9P9E9z4N' \
+    --userId 'zJpHfke8' \
     > test.out 2>&1
 eval_tap $? 218 'DownloadUserOrderReceipt' test.out
 
 #- 219 CreateUserPaymentOrder
 ./ng net.accelbyte.sdk.cli.Main platform createUserPaymentOrder \
     --namespace "$AB_NAMESPACE" \
-    --userId 'emm9UPdg' \
-    --body '{"currencyCode": "IQhm17OK", "currencyNamespace": "PAmiHf3R", "customParameters": {"2Pzj32VO": {}, "zp7GL6rF": {}, "2uz0iDkm": {}}, "description": "bL4vXXdq", "extOrderNo": "IzMaljUU", "extUserId": "LxeesFF4", "itemType": "APP", "language": "OgHn_ACeM", "metadata": {"X4No1Ju9": "8a3LHNpm", "b19qOhVV": "OSfHzxix", "LFOLAND6": "434LICW4"}, "notifyUrl": "tZKLkMXH", "omitNotification": true, "platform": "grx653sp", "price": 45, "recurringPaymentOrderNo": "kKNKysuo", "region": "YCoY6ALV", "returnUrl": "XjyKaF6m", "sandbox": false, "sku": "cQeJ7K0C", "subscriptionId": "j6Vip1G7", "title": "jAQ7bybw"}' \
+    --userId 'KrJuGMbi' \
+    --body '{"currencyCode": "C6yrOxgN", "currencyNamespace": "mCHlyj8o", "customParameters": {"n8qtNrky": {}, "vjUerJjt": {}, "iKIH3xOI": {}}, "description": "TzXF37PV", "extOrderNo": "aX9EMFs3", "extUserId": "BmytsU0c", "itemType": "BUNDLE", "language": "pEdS_179", "metadata": {"KJYa4TB8": "PklPCW24", "gb6P8Aht": "bIYLMVVL", "BY3Qo9rQ": "iNOvlBL5"}, "notifyUrl": "qOU0fb2f", "omitNotification": false, "platform": "2IfQcTJe", "price": 22, "recurringPaymentOrderNo": "meWEfYxz", "region": "AeTtFFTe", "returnUrl": "xofTt9jt", "sandbox": true, "sku": "W3U4CGmK", "subscriptionId": "V0G3daDR", "title": "YlZ76iHz"}' \
     > test.out 2>&1
 eval_tap $? 219 'CreateUserPaymentOrder' test.out
 
 #- 220 RefundUserPaymentOrder
 ./ng net.accelbyte.sdk.cli.Main platform refundUserPaymentOrder \
     --namespace "$AB_NAMESPACE" \
-    --paymentOrderNo 'WfU4pANF' \
-    --userId 'xkF6TyUx' \
-    --body '{"description": "Ym3ydfjN"}' \
+    --paymentOrderNo 'sQJWVqKW' \
+    --userId 'dvgbM5Fa' \
+    --body '{"description": "AAq4Y3Uv"}' \
     > test.out 2>&1
 eval_tap $? 220 'RefundUserPaymentOrder' test.out
 
 #- 221 ApplyUserRedemption
 ./ng net.accelbyte.sdk.cli.Main platform applyUserRedemption \
     --namespace "$AB_NAMESPACE" \
-    --userId 'r7rH6cYW' \
-    --body '{"code": "YQgi83Zj", "orderNo": "ZnoSHnRx"}' \
+    --userId 'XRz7UYeB' \
+    --body '{"code": "BgajXh9W", "orderNo": "vvNnXoOd"}' \
     > test.out 2>&1
 eval_tap $? 221 'ApplyUserRedemption' test.out
 
 #- 222 QueryUserSubscriptions
 ./ng net.accelbyte.sdk.cli.Main platform queryUserSubscriptions \
     --namespace "$AB_NAMESPACE" \
-    --userId 'thpXQQ4i' \
-    --chargeStatus 'RECURRING_CHARGING' \
-    --itemId '0D2k7TDV' \
-    --limit '49' \
-    --offset '18' \
-    --sku 'vC0oQr9I' \
+    --userId 'U0PP8H3G' \
+    --chargeStatus 'CHARGE_FAILED' \
+    --itemId 'kIVtWYjp' \
+    --limit '69' \
+    --offset '82' \
+    --sku 'xgR3Kq0b' \
     --status 'INIT' \
-    --subscribedBy 'USER' \
+    --subscribedBy 'PLATFORM' \
     > test.out 2>&1
 eval_tap $? 222 'QueryUserSubscriptions' test.out
 
 #- 223 GetUserSubscriptionActivities
 ./ng net.accelbyte.sdk.cli.Main platform getUserSubscriptionActivities \
     --namespace "$AB_NAMESPACE" \
-    --userId '2J2Vc1hj' \
+    --userId 'tZjbr459' \
     --excludeSystem  \
-    --limit '21' \
-    --offset '62' \
-    --subscriptionId '09bE6pNh' \
+    --limit '34' \
+    --offset '17' \
+    --subscriptionId '68K0cEcy' \
     > test.out 2>&1
 eval_tap $? 223 'GetUserSubscriptionActivities' test.out
 
 #- 224 PlatformSubscribeSubscription
 ./ng net.accelbyte.sdk.cli.Main platform platformSubscribeSubscription \
     --namespace "$AB_NAMESPACE" \
-    --userId 'oPyUJvSz' \
-    --body '{"grantDays": 75, "itemId": "VUYDNofP", "language": "vEVYxZwh", "reason": "9VyuFLxJ", "region": "99pWOW5A", "source": "YwElOYXs"}' \
+    --userId '3xi1Rb2f' \
+    --body '{"grantDays": 51, "itemId": "mlvxVjOu", "language": "JT9wkqIJ", "reason": "W7pCGnmX", "region": "Zcc5X8Ja", "source": "UQoPZEpo"}' \
     > test.out 2>&1
 eval_tap $? 224 'PlatformSubscribeSubscription' test.out
 
 #- 225 CheckUserSubscriptionSubscribableByItemId
 ./ng net.accelbyte.sdk.cli.Main platform checkUserSubscriptionSubscribableByItemId \
     --namespace "$AB_NAMESPACE" \
-    --userId 'twKOOxNM' \
-    --itemId 'JwtKtdD1' \
+    --userId '8l1viXzW' \
+    --itemId 'svAElPJm' \
     > test.out 2>&1
 eval_tap $? 225 'CheckUserSubscriptionSubscribableByItemId' test.out
 
 #- 226 GetUserSubscription
 ./ng net.accelbyte.sdk.cli.Main platform getUserSubscription \
     --namespace "$AB_NAMESPACE" \
-    --subscriptionId 'CzggwKiv' \
-    --userId 'SgUM3A2O' \
+    --subscriptionId 'jP2bGKby' \
+    --userId 'Y90XBtGt' \
     > test.out 2>&1
 eval_tap $? 226 'GetUserSubscription' test.out
 
 #- 227 DeleteUserSubscription
 ./ng net.accelbyte.sdk.cli.Main platform deleteUserSubscription \
     --namespace "$AB_NAMESPACE" \
-    --subscriptionId 'uC9pJXBd' \
-    --userId '9xTWBCTr' \
+    --subscriptionId 'Is7xN5UW' \
+    --userId 'bmB17phL' \
     > test.out 2>&1
 eval_tap $? 227 'DeleteUserSubscription' test.out
 
 #- 228 CancelSubscription
 ./ng net.accelbyte.sdk.cli.Main platform cancelSubscription \
     --namespace "$AB_NAMESPACE" \
-    --subscriptionId 'U2HGZgFj' \
-    --userId 'oBN4zGqP' \
+    --subscriptionId 'mXDNRaSA' \
+    --userId '1e9Ee1qE' \
     --force  \
-    --body '{"immediate": true, "reason": "1dBeKVBZ"}' \
+    --body '{"immediate": true, "reason": "DVSD5lUy"}' \
     > test.out 2>&1
 eval_tap $? 228 'CancelSubscription' test.out
 
 #- 229 GrantDaysToSubscription
 ./ng net.accelbyte.sdk.cli.Main platform grantDaysToSubscription \
     --namespace "$AB_NAMESPACE" \
-    --subscriptionId 'ycZqwha8' \
-    --userId 'AXNooVTi' \
-    --body '{"grantDays": 12, "reason": "WUXssAaU"}' \
+    --subscriptionId 'xSeiYLE8' \
+    --userId 'lMWTqyAR' \
+    --body '{"grantDays": 23, "reason": "tMSuBwS9"}' \
     > test.out 2>&1
 eval_tap $? 229 'GrantDaysToSubscription' test.out
 
 #- 230 GetUserSubscriptionBillingHistories
 ./ng net.accelbyte.sdk.cli.Main platform getUserSubscriptionBillingHistories \
     --namespace "$AB_NAMESPACE" \
-    --subscriptionId '6b2ASweq' \
-    --userId 'qiD2bNZR' \
+    --subscriptionId 'Rra7gxXk' \
+    --userId 'EYZBBRWa' \
     --excludeFree  \
-    --limit '98' \
-    --offset '90' \
+    --limit '6' \
+    --offset '76' \
     > test.out 2>&1
 eval_tap $? 230 'GetUserSubscriptionBillingHistories' test.out
 
 #- 231 ProcessUserSubscriptionNotification
 ./ng net.accelbyte.sdk.cli.Main platform processUserSubscriptionNotification \
     --namespace "$AB_NAMESPACE" \
-    --subscriptionId 'OVHQwRuD' \
-    --userId 'ew7XFdm9' \
-    --body '{"additionalData": {"cardSummary": "fWi8Fb65"}, "authorisedTime": "1977-03-11T00:00:00Z", "chargebackReversedTime": "1980-02-15T00:00:00Z", "chargebackTime": "1985-01-19T00:00:00Z", "chargedTime": "1998-07-14T00:00:00Z", "createdTime": "1988-01-14T00:00:00Z", "currency": {"currencyCode": "5QuSBqXr", "currencySymbol": "Pf4qEngX", "currencyType": "VIRTUAL", "decimals": 60, "namespace": "aoKHWpJn"}, "customParameters": {"TJc9zsYm": {}, "23PnQMxO": {}, "xRNU4xaq": {}}, "extOrderNo": "nSM01o4f", "extTxId": "Re4e3zkd", "extUserId": "b59WG7rd", "issuedAt": "1998-06-25T00:00:00Z", "metadata": {"WmPv0SXZ": "PX4b73nb", "pbu6I4yO": "sFSnNEQF", "9QvgwCtx": "EKknXtRM"}, "namespace": "eF81aGVN", "nonceStr": "6q2fRzzh", "paymentMethod": "FaMgO9Gs", "paymentMethodFee": 47, "paymentOrderNo": "U13OYUYe", "paymentProvider": "PAYPAL", "paymentProviderFee": 59, "paymentStationUrl": "eKPua5Zf", "price": 49, "refundedTime": "1976-10-10T00:00:00Z", "salesTax": 8, "sandbox": false, "sku": "WQBc1WLq", "status": "CHARGEBACK_REVERSED", "statusReason": "MmkczHv5", "subscriptionId": "Suw3YXi9", "subtotalPrice": 42, "targetNamespace": "Smvrhy0K", "targetUserId": "iMKW9Ef2", "tax": 15, "totalPrice": 13, "totalTax": 60, "txEndTime": "1975-09-28T00:00:00Z", "type": "YG1NVTsl", "userId": "UIntNnyR", "vat": 94}' \
+    --subscriptionId 'RY7OBCvp' \
+    --userId 'FFZO4mU9' \
+    --body '{"additionalData": {"cardSummary": "alDL7UlW"}, "authorisedTime": "1990-08-11T00:00:00Z", "chargebackReversedTime": "1989-08-25T00:00:00Z", "chargebackTime": "1996-05-13T00:00:00Z", "chargedTime": "1982-12-19T00:00:00Z", "createdTime": "1991-09-16T00:00:00Z", "currency": {"currencyCode": "fuRXvUcM", "currencySymbol": "n6OfhHib", "currencyType": "REAL", "decimals": 15, "namespace": "oEi2elZY"}, "customParameters": {"SOzFYSYU": {}, "hdpITqAE": {}, "fqS23NCO": {}}, "extOrderNo": "WU46dCUk", "extTxId": "2d6iEYqH", "extUserId": "DFCMX14A", "issuedAt": "1999-04-30T00:00:00Z", "metadata": {"0IOrXe1z": "fLEMJwoq", "JoqtQVIl": "q67jWJWk", "hDe7nu3h": "hjayvBLj"}, "namespace": "nMH6vp5A", "nonceStr": "tlYHlEbA", "paymentMethod": "UochsJpk", "paymentMethodFee": 50, "paymentOrderNo": "J0sjHrpG", "paymentProvider": "PAYPAL", "paymentProviderFee": 98, "paymentStationUrl": "PpDd4TOu", "price": 6, "refundedTime": "1977-03-31T00:00:00Z", "salesTax": 98, "sandbox": true, "sku": "ozDug93D", "status": "CHARGEBACK_REVERSED", "statusReason": "4ikdUraM", "subscriptionId": "aoef7c5z", "subtotalPrice": 9, "targetNamespace": "nwQicNMc", "targetUserId": "tr3PVSFa", "tax": 27, "totalPrice": 90, "totalTax": 75, "txEndTime": "1996-05-16T00:00:00Z", "type": "FjcwJtSH", "userId": "2VIUSzbz", "vat": 17}' \
     > test.out 2>&1
 eval_tap $? 231 'ProcessUserSubscriptionNotification' test.out
 
 #- 232 AcquireUserTicket
 ./ng net.accelbyte.sdk.cli.Main platform acquireUserTicket \
-    --boothName 'HTGWfjH0' \
+    --boothName 'MH87IJkh' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'OcGmfuig' \
-    --body '{"count": 48, "orderNo": "zKt4Ytpq"}' \
+    --userId 'GZgy13xy' \
+    --body '{"count": 90, "orderNo": "KoRhJt02"}' \
     > test.out 2>&1
 eval_tap $? 232 'AcquireUserTicket' test.out
 
 #- 233 QueryUserCurrencyWallets
 ./ng net.accelbyte.sdk.cli.Main platform queryUserCurrencyWallets \
     --namespace "$AB_NAMESPACE" \
-    --userId 'oxLyQSpM' \
+    --userId 'LJlr9L8z' \
     > test.out 2>&1
 eval_tap $? 233 'QueryUserCurrencyWallets' test.out
 
 #- 234 ListUserCurrencyTransactions
 ./ng net.accelbyte.sdk.cli.Main platform listUserCurrencyTransactions \
-    --currencyCode 's5KGata2' \
+    --currencyCode '8oQThs2n' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'RCyTHMT6' \
-    --limit '11' \
-    --offset '89' \
+    --userId 'fFAhTPl3' \
+    --limit '75' \
+    --offset '17' \
     > test.out 2>&1
 eval_tap $? 234 'ListUserCurrencyTransactions' test.out
 
@@ -1931,19 +1931,19 @@ eval_tap 0 235 'CheckWallet # SKIP deprecated' test.out
 
 #- 236 CreditUserWallet
 ./ng net.accelbyte.sdk.cli.Main platform creditUserWallet \
-    --currencyCode 'r4UAtqA9' \
+    --currencyCode 'MjXySmcL' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'fhjT4H7R' \
-    --body '{"amount": 3, "expireAt": "1993-08-02T00:00:00Z", "origin": "Nintendo", "reason": "s7i7W0Wd", "source": "REFERRAL_BONUS"}' \
+    --userId 'pNZeVyT0' \
+    --body '{"amount": 30, "expireAt": "1976-11-27T00:00:00Z", "origin": "Xbox", "reason": "pXwVO3IQ", "source": "ACHIEVEMENT"}' \
     > test.out 2>&1
 eval_tap $? 236 'CreditUserWallet' test.out
 
 #- 237 PayWithUserWallet
 ./ng net.accelbyte.sdk.cli.Main platform payWithUserWallet \
-    --currencyCode 'B8ynjJOl' \
+    --currencyCode 'CSWcgOHM' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'RMbL8Vih' \
-    --body '{"amount": 50, "walletPlatform": "Playstation"}' \
+    --userId 'yjNNNxy7' \
+    --body '{"amount": 0, "walletPlatform": "Steam"}' \
     > test.out 2>&1
 eval_tap $? 237 'PayWithUserWallet' test.out
 
@@ -1970,206 +1970,206 @@ eval_tap 0 244 'GetWallet # SKIP deprecated' test.out
 
 #- 245 SyncOrders
 ./ng net.accelbyte.sdk.cli.Main platform syncOrders \
-    --nextEvaluatedKey 'NNalRw9u' \
-    --end 'YliIomR2' \
-    --start 'bFfi3Gxi' \
+    --nextEvaluatedKey '4LYuOZyA' \
+    --end 'FnNz8ss6' \
+    --start 'wBguUS9m' \
     > test.out 2>&1
 eval_tap $? 245 'SyncOrders' test.out
 
 #- 246 TestAdyenConfig
 ./ng net.accelbyte.sdk.cli.Main platform testAdyenConfig \
     --sandbox  \
-    --body '{"allowedPaymentMethods": ["8tbGIQYO", "43Ynw1M9", "oFcvne97"], "apiKey": "ntaWz5D9", "authoriseAsCapture": true, "blockedPaymentMethods": ["c01NQEHf", "OUyueSUo", "gkqdyGCt"], "clientKey": "5ZuJ4Msw", "dropInSettings": "ScX4PnoR", "liveEndpointUrlPrefix": "GM1WvC7E", "merchantAccount": "qeE3Yggd", "notificationHmacKey": "k0Uhviqy", "notificationPassword": "2Ssw9R3Y", "notificationUsername": "H8Pk52q9", "returnUrl": "7tgJ34Nu", "settings": "Mv7ecBk7"}' \
+    --body '{"allowedPaymentMethods": ["7WAFc3et", "8jIYT7MU", "Gw6QNwLf"], "apiKey": "L4My6FY8", "authoriseAsCapture": false, "blockedPaymentMethods": ["B42Kq9rx", "35agPy5N", "WU6FIHeU"], "clientKey": "lkiFWhwR", "dropInSettings": "lUatnvwj", "liveEndpointUrlPrefix": "eGOaqmo4", "merchantAccount": "I4tqcDpD", "notificationHmacKey": "2yWM5wEj", "notificationPassword": "t6HVDVES", "notificationUsername": "gsLXxZwJ", "returnUrl": "Sh6Fzwp1", "settings": "nsOaKSOT"}' \
     > test.out 2>&1
 eval_tap $? 246 'TestAdyenConfig' test.out
 
 #- 247 TestAliPayConfig
 ./ng net.accelbyte.sdk.cli.Main platform testAliPayConfig \
     --sandbox  \
-    --body '{"appId": "NFqgxJGT", "privateKey": "rKK4Ovpf", "publicKey": "rVrgfmZC", "returnUrl": "D7i79YVE"}' \
+    --body '{"appId": "aPLt4ESs", "privateKey": "2mfeyTEH", "publicKey": "EI0NJqAO", "returnUrl": "BaT1RTyy"}' \
     > test.out 2>&1
 eval_tap $? 247 'TestAliPayConfig' test.out
 
 #- 248 TestCheckoutConfig
 ./ng net.accelbyte.sdk.cli.Main platform testCheckoutConfig \
     --sandbox  \
-    --body '{"publicKey": "L6ITwvzU", "secretKey": "NfxGcyKD"}' \
+    --body '{"publicKey": "vax3RImt", "secretKey": "yLod2zXH"}' \
     > test.out 2>&1
 eval_tap $? 248 'TestCheckoutConfig' test.out
 
 #- 249 DebugMatchedPaymentMerchantConfig
 ./ng net.accelbyte.sdk.cli.Main platform debugMatchedPaymentMerchantConfig \
     --namespace "$AB_NAMESPACE" \
-    --region 'OGMK9TJJ' \
+    --region 'oljsUVN1' \
     > test.out 2>&1
 eval_tap $? 249 'DebugMatchedPaymentMerchantConfig' test.out
 
 #- 250 TestPayPalConfig
 ./ng net.accelbyte.sdk.cli.Main platform testPayPalConfig \
     --sandbox  \
-    --body '{"clientID": "ZRxdM1m8", "clientSecret": "byDGS9MD", "returnUrl": "S662DZx8", "webHookId": "K57dR1kx"}' \
+    --body '{"clientID": "30JQclkz", "clientSecret": "v2Peudqj", "returnUrl": "hXaMagQl", "webHookId": "tH1csKV5"}' \
     > test.out 2>&1
 eval_tap $? 250 'TestPayPalConfig' test.out
 
 #- 251 TestStripeConfig
 ./ng net.accelbyte.sdk.cli.Main platform testStripeConfig \
     --sandbox  \
-    --body '{"allowedPaymentMethodTypes": ["1NE3vgdY", "vIoNt8M8", "nmUHS4Yt"], "publishableKey": "irG7zc28", "secretKey": "xv9S81FY", "webhookSecret": "b43nFJ1g"}' \
+    --body '{"allowedPaymentMethodTypes": ["9Z7ZW5XU", "1xjlskp7", "ncjIe6fS"], "publishableKey": "6lLXzcPp", "secretKey": "8EXXZEaM", "webhookSecret": "90Sy2cmG"}' \
     > test.out 2>&1
 eval_tap $? 251 'TestStripeConfig' test.out
 
 #- 252 TestWxPayConfig
 ./ng net.accelbyte.sdk.cli.Main platform testWxPayConfig \
-    --body '{"appId": "daG9ghK2", "key": "DWMacKvs", "mchid": "e460W8VW", "returnUrl": "hV6kiiJW"}' \
+    --body '{"appId": "c1po4DnR", "key": "3vkTmFVm", "mchid": "3lchCaTS", "returnUrl": "1vfbAqSk"}' \
     > test.out 2>&1
 eval_tap $? 252 'TestWxPayConfig' test.out
 
 #- 253 TestXsollaConfig
 ./ng net.accelbyte.sdk.cli.Main platform testXsollaConfig \
-    --body '{"apiKey": "8GUqnHC4", "flowCompletionUrl": "n1uLB1HF", "merchantId": 21, "projectId": 45, "projectSecretKey": "Yep4qL9w"}' \
+    --body '{"apiKey": "oq5YHcre", "flowCompletionUrl": "xPxliXFJ", "merchantId": 100, "projectId": 83, "projectSecretKey": "G2A5MV6i"}' \
     > test.out 2>&1
 eval_tap $? 253 'TestXsollaConfig' test.out
 
 #- 254 GetPaymentMerchantConfig
 ./ng net.accelbyte.sdk.cli.Main platform getPaymentMerchantConfig \
-    --id 'Co6eWTDA' \
+    --id 'O7HOHR8N' \
     > test.out 2>&1
 eval_tap $? 254 'GetPaymentMerchantConfig' test.out
 
 #- 255 UpdateAdyenConfig
 ./ng net.accelbyte.sdk.cli.Main platform updateAdyenConfig \
-    --id 'f9J8PCjc' \
+    --id 'WSlpxV5a' \
     --sandbox  \
     --validate  \
-    --body '{"allowedPaymentMethods": ["F2mR1yIU", "t3SKh0A5", "mNqL3dAM"], "apiKey": "POKuxJiM", "authoriseAsCapture": true, "blockedPaymentMethods": ["h4SDg2Ir", "AEvQQcul", "N4Bw1Dr4"], "clientKey": "wubYax2c", "dropInSettings": "2AyEaPDY", "liveEndpointUrlPrefix": "ymjjxs1Q", "merchantAccount": "jgb4bmU3", "notificationHmacKey": "qyQSxWvE", "notificationPassword": "pxWW0F4i", "notificationUsername": "xmd5GcpQ", "returnUrl": "imBaOLsk", "settings": "WNyTsgA8"}' \
+    --body '{"allowedPaymentMethods": ["QszUKVvR", "lZBcLpTn", "rS5Q35h0"], "apiKey": "UXZDdsgb", "authoriseAsCapture": true, "blockedPaymentMethods": ["MTuBhmEl", "J3pPyv96", "OLgJByQL"], "clientKey": "U5mDqZ8I", "dropInSettings": "xRUJU1wz", "liveEndpointUrlPrefix": "gsAVe1Ax", "merchantAccount": "cACDZzKy", "notificationHmacKey": "Pr1MNsiZ", "notificationPassword": "nFGxAMG0", "notificationUsername": "yYunE6my", "returnUrl": "FnXmvkZk", "settings": "bnGhsQ5K"}' \
     > test.out 2>&1
 eval_tap $? 255 'UpdateAdyenConfig' test.out
 
 #- 256 TestAdyenConfigById
 ./ng net.accelbyte.sdk.cli.Main platform testAdyenConfigById \
-    --id '2dyT3SjD' \
+    --id 'NMnTwt2y' \
     --sandbox  \
     > test.out 2>&1
 eval_tap $? 256 'TestAdyenConfigById' test.out
 
 #- 257 UpdateAliPayConfig
 ./ng net.accelbyte.sdk.cli.Main platform updateAliPayConfig \
-    --id 'V1PyHTKv' \
+    --id '9ONZ2Wxo' \
     --sandbox  \
     --validate  \
-    --body '{"appId": "97q57KO9", "privateKey": "At3XAtxw", "publicKey": "96faxUlD", "returnUrl": "3MJy7mHg"}' \
+    --body '{"appId": "TYRHdLcO", "privateKey": "so5DJhqp", "publicKey": "thZiDqLM", "returnUrl": "ZUyfI5Er"}' \
     > test.out 2>&1
 eval_tap $? 257 'UpdateAliPayConfig' test.out
 
 #- 258 TestAliPayConfigById
 ./ng net.accelbyte.sdk.cli.Main platform testAliPayConfigById \
-    --id 'Gu7Rfcdu' \
+    --id '7sPbN9jH' \
     --sandbox  \
     > test.out 2>&1
 eval_tap $? 258 'TestAliPayConfigById' test.out
 
 #- 259 UpdateCheckoutConfig
 ./ng net.accelbyte.sdk.cli.Main platform updateCheckoutConfig \
-    --id 'LQzkHWH2' \
+    --id 'RjKAL55V' \
     --sandbox  \
     --validate  \
-    --body '{"publicKey": "B9MpEMNE", "secretKey": "VcZQ5IXu"}' \
+    --body '{"publicKey": "q2VRmrXO", "secretKey": "hxRGgrop"}' \
     > test.out 2>&1
 eval_tap $? 259 'UpdateCheckoutConfig' test.out
 
 #- 260 TestCheckoutConfigById
 ./ng net.accelbyte.sdk.cli.Main platform testCheckoutConfigById \
-    --id 'fYie2I3f' \
+    --id 'ijlZKTGf' \
     --sandbox  \
     > test.out 2>&1
 eval_tap $? 260 'TestCheckoutConfigById' test.out
 
 #- 261 UpdatePayPalConfig
 ./ng net.accelbyte.sdk.cli.Main platform updatePayPalConfig \
-    --id 'TcHEUDxC' \
+    --id 'wYqVbpPU' \
     --sandbox  \
     --validate  \
-    --body '{"clientID": "I7oDMIwD", "clientSecret": "KgJAe1q5", "returnUrl": "OOIZPFI3", "webHookId": "klerH6jW"}' \
+    --body '{"clientID": "AeDTzcsK", "clientSecret": "oYJAPWiu", "returnUrl": "ColMvwFk", "webHookId": "kmzIqCg5"}' \
     > test.out 2>&1
 eval_tap $? 261 'UpdatePayPalConfig' test.out
 
 #- 262 TestPayPalConfigById
 ./ng net.accelbyte.sdk.cli.Main platform testPayPalConfigById \
-    --id 'c0MDEvu1' \
+    --id '1S2Jrkcf' \
     --sandbox  \
     > test.out 2>&1
 eval_tap $? 262 'TestPayPalConfigById' test.out
 
 #- 263 UpdateStripeConfig
 ./ng net.accelbyte.sdk.cli.Main platform updateStripeConfig \
-    --id '5DZi27DH' \
+    --id 'vcIHUHOF' \
     --sandbox  \
     --validate  \
-    --body '{"allowedPaymentMethodTypes": ["DSIvqo1O", "VIKmoxfX", "YJ7A6evY"], "publishableKey": "SLLYw9QB", "secretKey": "mBAWylxn", "webhookSecret": "Ij8iKbpk"}' \
+    --body '{"allowedPaymentMethodTypes": ["YdEAkKyU", "9oDLX37Z", "uGUDm72H"], "publishableKey": "whoMQ7Hi", "secretKey": "YpEUmphj", "webhookSecret": "hMR6UrHj"}' \
     > test.out 2>&1
 eval_tap $? 263 'UpdateStripeConfig' test.out
 
 #- 264 TestStripeConfigById
 ./ng net.accelbyte.sdk.cli.Main platform testStripeConfigById \
-    --id 'Se0Im7qB' \
+    --id '4GxpDBsD' \
     --sandbox  \
     > test.out 2>&1
 eval_tap $? 264 'TestStripeConfigById' test.out
 
 #- 265 UpdateWxPayConfig
 ./ng net.accelbyte.sdk.cli.Main platform updateWxPayConfig \
-    --id 'K9owcXyo' \
+    --id 'wq4CyhlM' \
     --validate  \
-    --body '{"appId": "w1aAxRaZ", "key": "HQ41lojY", "mchid": "9CDV1bFl", "returnUrl": "9vi7Jju3"}' \
+    --body '{"appId": "FEC5wXLg", "key": "heuQgEkb", "mchid": "tc7ad2nr", "returnUrl": "F4MmGzoz"}' \
     > test.out 2>&1
 eval_tap $? 265 'UpdateWxPayConfig' test.out
 
 #- 266 UpdateWxPayConfigCert
 ./ng net.accelbyte.sdk.cli.Main platform updateWxPayConfigCert \
-    --id 'fr919nrX' \
+    --id 'CwzqZY8m' \
     --file 'tmp.dat' \
     > test.out 2>&1
 eval_tap $? 266 'UpdateWxPayConfigCert' test.out
 
 #- 267 TestWxPayConfigById
 ./ng net.accelbyte.sdk.cli.Main platform testWxPayConfigById \
-    --id 'QXqZ1YMK' \
+    --id 'o0wd1ZOA' \
     > test.out 2>&1
 eval_tap $? 267 'TestWxPayConfigById' test.out
 
 #- 268 UpdateXsollaConfig
 ./ng net.accelbyte.sdk.cli.Main platform updateXsollaConfig \
-    --id 'UvkhKiyE' \
+    --id 'u7gP1cd5' \
     --validate  \
-    --body '{"apiKey": "YpKmPEz3", "flowCompletionUrl": "27AqaLuM", "merchantId": 11, "projectId": 53, "projectSecretKey": "FgbeGJbr"}' \
+    --body '{"apiKey": "l0Vf0bTO", "flowCompletionUrl": "ViTvKNGc", "merchantId": 61, "projectId": 91, "projectSecretKey": "pjmbjFPw"}' \
     > test.out 2>&1
 eval_tap $? 268 'UpdateXsollaConfig' test.out
 
 #- 269 TestXsollaConfigById
 ./ng net.accelbyte.sdk.cli.Main platform testXsollaConfigById \
-    --id 'eEGLX8H8' \
+    --id 'NlIX1lkW' \
     > test.out 2>&1
 eval_tap $? 269 'TestXsollaConfigById' test.out
 
 #- 270 UpdateXsollaUIConfig
 ./ng net.accelbyte.sdk.cli.Main platform updateXsollaUIConfig \
-    --id 'Mmm67BWa' \
-    --body '{"device": "DESKTOP", "showCloseButton": false, "size": "LARGE", "theme": "DEFAULT"}' \
+    --id 'bNvjz9nn' \
+    --body '{"device": "DESKTOP", "showCloseButton": true, "size": "SMALL", "theme": "DEFAULT_DARK"}' \
     > test.out 2>&1
 eval_tap $? 270 'UpdateXsollaUIConfig' test.out
 
 #- 271 QueryPaymentProviderConfig
 ./ng net.accelbyte.sdk.cli.Main platform queryPaymentProviderConfig \
-    --limit '2' \
+    --limit '61' \
     --namespace "$AB_NAMESPACE" \
-    --offset '26' \
-    --region 'JkNEytpT' \
+    --offset '14' \
+    --region 'ycJoZkWk' \
     > test.out 2>&1
 eval_tap $? 271 'QueryPaymentProviderConfig' test.out
 
 #- 272 CreatePaymentProviderConfig
 ./ng net.accelbyte.sdk.cli.Main platform createPaymentProviderConfig \
-    --body '{"aggregate": "XSOLLA", "namespace": "IdzLcsJO", "region": "R0BFA6eu", "sandboxTaxJarApiToken": "A563tXq3", "specials": ["WXPAY", "XSOLLA", "PAYPAL"], "taxJarApiToken": "n2wmBjde", "taxJarEnabled": false, "useGlobalTaxJarApiToken": false}' \
+    --body '{"aggregate": "ADYEN", "namespace": "mMdR274v", "region": "3ufgxnQl", "sandboxTaxJarApiToken": "9OyAaLOk", "specials": ["CHECKOUT", "ADYEN", "STRIPE"], "taxJarApiToken": "rn1st6po", "taxJarEnabled": true, "useGlobalTaxJarApiToken": true}' \
     > test.out 2>&1
 eval_tap $? 272 'CreatePaymentProviderConfig' test.out
 
@@ -2181,7 +2181,7 @@ eval_tap $? 273 'GetAggregatePaymentProviders' test.out
 #- 274 DebugMatchedPaymentProviderConfig
 ./ng net.accelbyte.sdk.cli.Main platform debugMatchedPaymentProviderConfig \
     --namespace "$AB_NAMESPACE" \
-    --region 'bUaR4aTi' \
+    --region 'AziFmw2X' \
     > test.out 2>&1
 eval_tap $? 274 'DebugMatchedPaymentProviderConfig' test.out
 
@@ -2192,14 +2192,14 @@ eval_tap $? 275 'GetSpecialPaymentProviders' test.out
 
 #- 276 UpdatePaymentProviderConfig
 ./ng net.accelbyte.sdk.cli.Main platform updatePaymentProviderConfig \
-    --id 'mEokfyMU' \
-    --body '{"aggregate": "XSOLLA", "namespace": "CfbHE20D", "region": "gHfWEnAp", "sandboxTaxJarApiToken": "kLZcF1CS", "specials": ["CHECKOUT", "CHECKOUT", "WXPAY"], "taxJarApiToken": "nIGm2oAz", "taxJarEnabled": false, "useGlobalTaxJarApiToken": false}' \
+    --id 'ovu5x3im' \
+    --body '{"aggregate": "ADYEN", "namespace": "zbyLyidK", "region": "yB1tYclY", "sandboxTaxJarApiToken": "TXXDPYav", "specials": ["XSOLLA", "STRIPE", "ADYEN"], "taxJarApiToken": "sg2IK82w", "taxJarEnabled": true, "useGlobalTaxJarApiToken": true}' \
     > test.out 2>&1
 eval_tap $? 276 'UpdatePaymentProviderConfig' test.out
 
 #- 277 DeletePaymentProviderConfig
 ./ng net.accelbyte.sdk.cli.Main platform deletePaymentProviderConfig \
-    --id '1OmsFFBK' \
+    --id 'c0b6QRFj' \
     > test.out 2>&1
 eval_tap $? 277 'DeletePaymentProviderConfig' test.out
 
@@ -2210,58 +2210,58 @@ eval_tap $? 278 'GetPaymentTaxConfig' test.out
 
 #- 279 UpdatePaymentTaxConfig
 ./ng net.accelbyte.sdk.cli.Main platform updatePaymentTaxConfig \
-    --body '{"sandboxTaxJarApiToken": "VcENe4Bt", "taxJarApiToken": "dlcxk6uZ", "taxJarEnabled": false, "taxJarProductCodesMapping": {"o3mlVCIg": "7TuycHhC", "YIHbHaFf": "ZR0WJ4kP", "3zzlCqI7": "4JrMICzA"}}' \
+    --body '{"sandboxTaxJarApiToken": "LO8biWdZ", "taxJarApiToken": "aPIWsBl7", "taxJarEnabled": true, "taxJarProductCodesMapping": {"wF5QC1kW": "9tfFAGXx", "slImJo0A": "RQrukJyF", "zOwOjLZa": "DGqrqg9p"}}' \
     > test.out 2>&1
 eval_tap $? 279 'UpdatePaymentTaxConfig' test.out
 
 #- 280 SyncPaymentOrders
 ./ng net.accelbyte.sdk.cli.Main platform syncPaymentOrders \
-    --nextEvaluatedKey 'wRyvSA5M' \
-    --end 'GrIkCoIu' \
-    --start 'o4yM8YLv' \
+    --nextEvaluatedKey '918fEIQs' \
+    --end 'HyHAnab0' \
+    --start 'UF9nRPl0' \
     > test.out 2>&1
 eval_tap $? 280 'SyncPaymentOrders' test.out
 
 #- 281 PublicGetRootCategories
 ./ng net.accelbyte.sdk.cli.Main platform publicGetRootCategories \
     --namespace "$AB_NAMESPACE" \
-    --language 'CZNP2FON' \
-    --storeId 'JKrRnaED' \
+    --language '1Gwjecr1' \
+    --storeId 'FZvEGIpa' \
     > test.out 2>&1
 eval_tap $? 281 'PublicGetRootCategories' test.out
 
 #- 282 DownloadCategories
 ./ng net.accelbyte.sdk.cli.Main platform downloadCategories \
     --namespace "$AB_NAMESPACE" \
-    --language 'mweHbEep' \
-    --storeId '4e0QEEzD' \
+    --language 'pE2hDM09' \
+    --storeId 'UFOOouzI' \
     > test.out 2>&1
 eval_tap $? 282 'DownloadCategories' test.out
 
 #- 283 PublicGetCategory
 ./ng net.accelbyte.sdk.cli.Main platform publicGetCategory \
-    --categoryPath 'CEmnWqtT' \
+    --categoryPath '1mVwv37U' \
     --namespace "$AB_NAMESPACE" \
-    --language 'gFeDMEGg' \
-    --storeId 'LHY3P5Ee' \
+    --language 'daXkGQZ4' \
+    --storeId 'zPVSZHYb' \
     > test.out 2>&1
 eval_tap $? 283 'PublicGetCategory' test.out
 
 #- 284 PublicGetChildCategories
 ./ng net.accelbyte.sdk.cli.Main platform publicGetChildCategories \
-    --categoryPath 'oi6kO4Rv' \
+    --categoryPath 'Xs1KQbM2' \
     --namespace "$AB_NAMESPACE" \
-    --language '9yGrmLdq' \
-    --storeId 'QRnlsWAj' \
+    --language '51K05BQp' \
+    --storeId 'IS8PSS7D' \
     > test.out 2>&1
 eval_tap $? 284 'PublicGetChildCategories' test.out
 
 #- 285 PublicGetDescendantCategories
 ./ng net.accelbyte.sdk.cli.Main platform publicGetDescendantCategories \
-    --categoryPath 'VKB8JH8Y' \
+    --categoryPath '735YiUYU' \
     --namespace "$AB_NAMESPACE" \
-    --language 'WvhwV0pz' \
-    --storeId 'ZJi6kYRa' \
+    --language '467tasWB' \
+    --storeId 'vqZr2zUs' \
     > test.out 2>&1
 eval_tap $? 285 'PublicGetDescendantCategories' test.out
 
@@ -2275,97 +2275,97 @@ eval_tap $? 286 'PublicListCurrencies' test.out
 #- 287 PublicGetItemByAppId
 ./ng net.accelbyte.sdk.cli.Main platform publicGetItemByAppId \
     --namespace "$AB_NAMESPACE" \
-    --language 'CVuEyjqQ' \
-    --region 'vvHoed1w' \
-    --storeId 'jqZ7U7wj' \
-    --appId 'iQ1A2vTu' \
+    --language 'fWkDGcvf' \
+    --region 'qwUcR0TZ' \
+    --storeId 'OGqmesOM' \
+    --appId 'ISWJc9Jt' \
     > test.out 2>&1
 eval_tap $? 287 'PublicGetItemByAppId' test.out
 
 #- 288 PublicQueryItems
 ./ng net.accelbyte.sdk.cli.Main platform publicQueryItems \
     --namespace "$AB_NAMESPACE" \
-    --appType 'DLC' \
-    --baseAppId 'IYweXyXb' \
-    --categoryPath 'a6Im0Bmq' \
-    --features 'nBGegW4f' \
+    --appType 'GAME' \
+    --baseAppId 'wmwtKes2' \
+    --categoryPath 'YEZxLMKJ' \
+    --features 'sBi8D6aZ' \
     --includeSubCategoryItem  \
     --itemType 'COINS' \
-    --language 'JfVieyCN' \
-    --limit '34' \
-    --offset '37' \
-    --region 'D41TlJTb' \
-    --sortBy 'name:asc,displayOrder:desc' \
-    --storeId 'QY1LVqdK' \
-    --tags 'vmLqXlNn' \
+    --language 'eY61icji' \
+    --limit '48' \
+    --offset '64' \
+    --region 'XmpeCWde' \
+    --sortBy 'name:desc,createdAt,name' \
+    --storeId 'QQ2J03A4' \
+    --tags 'REqR5E7M' \
     > test.out 2>&1
 eval_tap $? 288 'PublicQueryItems' test.out
 
 #- 289 PublicGetItemBySku
 ./ng net.accelbyte.sdk.cli.Main platform publicGetItemBySku \
     --namespace "$AB_NAMESPACE" \
-    --language 'jkD2zyvM' \
-    --region 'QW3Bxb4R' \
-    --storeId 'ba0ddVy9' \
-    --sku 'KI937CSV' \
+    --language '1b3LrXzV' \
+    --region 'kUVCnCbw' \
+    --storeId '9tjD4qqQ' \
+    --sku 'CBlJ0GnF' \
     > test.out 2>&1
 eval_tap $? 289 'PublicGetItemBySku' test.out
 
 #- 290 PublicBulkGetItems
 ./ng net.accelbyte.sdk.cli.Main platform publicBulkGetItems \
     --namespace "$AB_NAMESPACE" \
-    --language '1gb4CpBl' \
-    --region '53RqkHeo' \
-    --storeId 'KwJlKocs' \
-    --itemIds 'dgADxlT1' \
+    --language '4JGBuNeh' \
+    --region 'tlqBpgOk' \
+    --storeId 'YFDClKPZ' \
+    --itemIds 'geL2xW52' \
     > test.out 2>&1
 eval_tap $? 290 'PublicBulkGetItems' test.out
 
 #- 291 PublicValidateItemPurchaseCondition
 ./ng net.accelbyte.sdk.cli.Main platform publicValidateItemPurchaseCondition \
     --namespace "$AB_NAMESPACE" \
-    --body '{"itemIds": ["RKn8lMi1", "rbDrfo3X", "sAp8iOzq"]}' \
+    --body '{"itemIds": ["TZiuEhG8", "LKTgOPhq", "exGHgGTy"]}' \
     > test.out 2>&1
 eval_tap $? 291 'PublicValidateItemPurchaseCondition' test.out
 
 #- 292 PublicSearchItems
 ./ng net.accelbyte.sdk.cli.Main platform publicSearchItems \
     --namespace "$AB_NAMESPACE" \
-    --itemType 'EXTENSION' \
-    --limit '2' \
-    --offset '9' \
-    --region 'CLPBmE0T' \
-    --storeId 'p3U6aiUG' \
-    --keyword 'dRNO148T' \
-    --language 'dlD0idxA' \
+    --itemType 'INGAMEITEM' \
+    --limit '87' \
+    --offset '61' \
+    --region '1Ug9S7pq' \
+    --storeId 'hJSyTOfn' \
+    --keyword 'S8ABNbAI' \
+    --language '8Ard9bCB' \
     > test.out 2>&1
 eval_tap $? 292 'PublicSearchItems' test.out
 
 #- 293 PublicGetApp
 ./ng net.accelbyte.sdk.cli.Main platform publicGetApp \
-    --itemId 'ZfZVbomn' \
+    --itemId 'mr5tZmZK' \
     --namespace "$AB_NAMESPACE" \
-    --language '1ifWHhyu' \
-    --region 'p7qoLGap' \
-    --storeId 'lNYRQ4MZ' \
+    --language 'KTGRZ5Q7' \
+    --region 'qvEoKiwB' \
+    --storeId 'PKowI5PX' \
     > test.out 2>&1
 eval_tap $? 293 'PublicGetApp' test.out
 
 #- 294 PublicGetItemDynamicData
 ./ng net.accelbyte.sdk.cli.Main platform publicGetItemDynamicData \
-    --itemId 'wyI8vHow' \
+    --itemId 'sD8IDeNa' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 294 'PublicGetItemDynamicData' test.out
 
 #- 295 PublicGetItem
 ./ng net.accelbyte.sdk.cli.Main platform publicGetItem \
-    --itemId 'u0T0AaT4' \
+    --itemId '3EKFsQvg' \
     --namespace "$AB_NAMESPACE" \
-    --language 'Qy4EkcSL' \
+    --language 'sg33zlch' \
     --populateBundle  \
-    --region 'ElaSv7vk' \
-    --storeId 'TJ75EH0N' \
+    --region 'HJnMMvSY' \
+    --storeId 'QXFGXUmD' \
     > test.out 2>&1
 eval_tap $? 295 'PublicGetItem' test.out
 
@@ -2375,38 +2375,38 @@ eval_tap 0 296 'GetPaymentCustomization # SKIP deprecated' test.out
 #- 297 PublicGetPaymentUrl
 ./ng net.accelbyte.sdk.cli.Main platform publicGetPaymentUrl \
     --namespace "$AB_NAMESPACE" \
-    --body '{"paymentOrderNo": "z5nhOuI4", "paymentProvider": "WXPAY", "returnUrl": "7bkWNFL5", "ui": "8wNve0Wu", "zipCode": "5EtjLdln"}' \
+    --body '{"paymentOrderNo": "AjlfWQFj", "paymentProvider": "PAYPAL", "returnUrl": "tWIgyRPx", "ui": "VsFokIxK", "zipCode": "JlwoI5es"}' \
     > test.out 2>&1
 eval_tap $? 297 'PublicGetPaymentUrl' test.out
 
 #- 298 PublicGetPaymentMethods
 ./ng net.accelbyte.sdk.cli.Main platform publicGetPaymentMethods \
     --namespace "$AB_NAMESPACE" \
-    --paymentOrderNo 'Hh9jicTK' \
+    --paymentOrderNo 'W5QMOdJI' \
     > test.out 2>&1
 eval_tap $? 298 'PublicGetPaymentMethods' test.out
 
 #- 299 PublicGetUnpaidPaymentOrder
 ./ng net.accelbyte.sdk.cli.Main platform publicGetUnpaidPaymentOrder \
     --namespace "$AB_NAMESPACE" \
-    --paymentOrderNo 'q5FTi5Ag' \
+    --paymentOrderNo 'ZpQXbrDq' \
     > test.out 2>&1
 eval_tap $? 299 'PublicGetUnpaidPaymentOrder' test.out
 
 #- 300 Pay
 ./ng net.accelbyte.sdk.cli.Main platform pay \
     --namespace "$AB_NAMESPACE" \
-    --paymentOrderNo 'aAgqaRAz' \
-    --paymentProvider 'ADYEN' \
-    --zipCode 'WifP59vR' \
-    --body '{"token": "4OVEYX5h"}' \
+    --paymentOrderNo 'jvxQm9nB' \
+    --paymentProvider 'STRIPE' \
+    --zipCode 'dLgxBIk3' \
+    --body '{"token": "cE9h94c9"}' \
     > test.out 2>&1
 eval_tap $? 300 'Pay' test.out
 
 #- 301 PublicCheckPaymentOrderPaidStatus
 ./ng net.accelbyte.sdk.cli.Main platform publicCheckPaymentOrderPaidStatus \
     --namespace "$AB_NAMESPACE" \
-    --paymentOrderNo 'wE7O8VAq' \
+    --paymentOrderNo 'Q1cVUFXr' \
     > test.out 2>&1
 eval_tap $? 301 'PublicCheckPaymentOrderPaidStatus' test.out
 
@@ -2414,69 +2414,69 @@ eval_tap $? 301 'PublicCheckPaymentOrderPaidStatus' test.out
 ./ng net.accelbyte.sdk.cli.Main platform getPaymentPublicConfig \
     --namespace "$AB_NAMESPACE" \
     --sandbox  \
-    --paymentProvider 'CHECKOUT' \
-    --region 'H9dOXsFR' \
+    --paymentProvider 'STRIPE' \
+    --region 'OLSDzHro' \
     > test.out 2>&1
 eval_tap $? 302 'GetPaymentPublicConfig' test.out
 
 #- 303 PublicGetQRCode
 ./ng net.accelbyte.sdk.cli.Main platform publicGetQRCode \
     --namespace "$AB_NAMESPACE" \
-    --code 'SLTRcuaC' \
+    --code '3YmJVlPA' \
     > test.out 2>&1
 eval_tap $? 303 'PublicGetQRCode' test.out
 
 #- 304 PublicNormalizePaymentReturnUrl
 ./ng net.accelbyte.sdk.cli.Main platform publicNormalizePaymentReturnUrl \
     --namespace "$AB_NAMESPACE" \
-    --payerID 'BhkeyJDu' \
-    --foreinginvoice 'zqKHKvVz' \
-    --invoiceId 'mo2jxqx6' \
-    --payload 'yiKmbI1H' \
-    --redirectResult '1UwoREEW' \
-    --resultCode 'DdKFRw1z' \
-    --sessionId 'eyJn0mib' \
-    --status 'eV7poRq2' \
-    --token '1380VyIZ' \
-    --type '69deTw4O' \
-    --userId 'NqPim3NU' \
-    --orderNo '2PFxJiqP' \
-    --paymentOrderNo 'W1YWhkkr' \
-    --paymentProvider 'ADYEN' \
-    --returnUrl '4Mi3ELmn' \
+    --payerID '0EBdX5yP' \
+    --foreinginvoice '3FMhr95i' \
+    --invoiceId 'qCBv2g6b' \
+    --payload 'TuHnu1Pi' \
+    --redirectResult 'qXe3R2PD' \
+    --resultCode '4d5hPOU7' \
+    --sessionId 'k9xSm1tE' \
+    --status 'oCFeS9fq' \
+    --token '7Tc7j1d5' \
+    --type 'hWOTP0nt' \
+    --userId 'u5OfjW8T' \
+    --orderNo 'lU26IK9l' \
+    --paymentOrderNo 'TXzUq3iM' \
+    --paymentProvider 'CHECKOUT' \
+    --returnUrl 'stGWaBip' \
     > test.out 2>&1
 eval_tap $? 304 'PublicNormalizePaymentReturnUrl' test.out
 
 #- 305 GetPaymentTaxValue
 ./ng net.accelbyte.sdk.cli.Main platform getPaymentTaxValue \
     --namespace "$AB_NAMESPACE" \
-    --zipCode 'wLVw4L3H' \
-    --paymentOrderNo 'AzCuaolL' \
-    --paymentProvider 'PAYPAL' \
+    --zipCode '8GwOufdE' \
+    --paymentOrderNo 'kqeLj5gv' \
+    --paymentProvider 'XSOLLA' \
     > test.out 2>&1
 eval_tap $? 305 'GetPaymentTaxValue' test.out
 
 #- 306 GetRewardByCode
 ./ng net.accelbyte.sdk.cli.Main platform getRewardByCode \
     --namespace "$AB_NAMESPACE" \
-    --rewardCode 'wh4aWFBI' \
+    --rewardCode 'S5S5qwfj' \
     > test.out 2>&1
 eval_tap $? 306 'GetRewardByCode' test.out
 
 #- 307 QueryRewards1
 ./ng net.accelbyte.sdk.cli.Main platform queryRewards1 \
     --namespace "$AB_NAMESPACE" \
-    --eventTopic 'Czks3e8E' \
-    --limit '51' \
-    --offset '70' \
-    --sortBy 'namespace:desc,namespace' \
+    --eventTopic 'WWheWtJn' \
+    --limit '48' \
+    --offset '17' \
+    --sortBy 'namespace:asc,namespace:desc,rewardCode:asc' \
     > test.out 2>&1
 eval_tap $? 307 'QueryRewards1' test.out
 
 #- 308 GetReward1
 ./ng net.accelbyte.sdk.cli.Main platform getReward1 \
     --namespace "$AB_NAMESPACE" \
-    --rewardId 'b0H4MPPF' \
+    --rewardId 'TvyFfpd7' \
     > test.out 2>&1
 eval_tap $? 308 'GetReward1' test.out
 
@@ -2489,47 +2489,47 @@ eval_tap $? 309 'PublicListStores' test.out
 #- 310 PublicExistsAnyMyActiveEntitlement
 ./ng net.accelbyte.sdk.cli.Main platform publicExistsAnyMyActiveEntitlement \
     --namespace "$AB_NAMESPACE" \
-    --appIds '3nuyHcqe,EjYRkUUu,mwDoC87C' \
-    --itemIds 'N4R4t8qE,opTJrOQr,439K5VEo' \
-    --skus 'QnvVSj7k,u7fE2OA5,nm0aTGiT' \
+    --appIds 'jIgxt1EB,u1yZLInC,JrMObPvr' \
+    --itemIds 'Ce0i1FoW,dkGITb8q,5UQE7D5Z' \
+    --skus 'YlcNjtrH,JU7jxKOp,Pqv57TbP' \
     > test.out 2>&1
 eval_tap $? 310 'PublicExistsAnyMyActiveEntitlement' test.out
 
 #- 311 PublicGetMyAppEntitlementOwnershipByAppId
 ./ng net.accelbyte.sdk.cli.Main platform publicGetMyAppEntitlementOwnershipByAppId \
     --namespace "$AB_NAMESPACE" \
-    --appId 'utlKVMeS' \
+    --appId 'kUyW7YMw' \
     > test.out 2>&1
 eval_tap $? 311 'PublicGetMyAppEntitlementOwnershipByAppId' test.out
 
 #- 312 PublicGetMyEntitlementOwnershipByItemId
 ./ng net.accelbyte.sdk.cli.Main platform publicGetMyEntitlementOwnershipByItemId \
     --namespace "$AB_NAMESPACE" \
-    --entitlementClazz 'OPTIONBOX' \
-    --itemId 'AY4kfGV5' \
+    --entitlementClazz 'CODE' \
+    --itemId 'FYpz5zsP' \
     > test.out 2>&1
 eval_tap $? 312 'PublicGetMyEntitlementOwnershipByItemId' test.out
 
 #- 313 PublicGetMyEntitlementOwnershipBySku
 ./ng net.accelbyte.sdk.cli.Main platform publicGetMyEntitlementOwnershipBySku \
     --namespace "$AB_NAMESPACE" \
-    --entitlementClazz 'MEDIA' \
-    --sku 'CFQU2YIO' \
+    --entitlementClazz 'SUBSCRIPTION' \
+    --sku 'qiwEIqUY' \
     > test.out 2>&1
 eval_tap $? 313 'PublicGetMyEntitlementOwnershipBySku' test.out
 
 #- 314 PublicGetEntitlementOwnershipToken
 ./ng net.accelbyte.sdk.cli.Main platform publicGetEntitlementOwnershipToken \
     --namespace "$AB_NAMESPACE" \
-    --appIds 'ao49wze4,jV7SEgkJ,3J6hgUeL' \
-    --itemIds 'OZHQt2cs,UWY1uvSp,GltXLB26' \
-    --skus 'tOQlTg7I,JxdJu5LU,IciSCXgj' \
+    --appIds 'x3b5pLwP,2tMH2JON,u0CDF9yp' \
+    --itemIds 'zgl8Ffgw,cXT0G1Yw,PIicdJul' \
+    --skus 'YNwZhWYU,n2guPxha,fbSJgfH3' \
     > test.out 2>&1
 eval_tap $? 314 'PublicGetEntitlementOwnershipToken' test.out
 
 #- 315 PublicGetMyWallet
 ./ng net.accelbyte.sdk.cli.Main platform publicGetMyWallet \
-    --currencyCode 'L8a4ZCLo' \
+    --currencyCode 'WeuWeuAC' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 315 'PublicGetMyWallet' test.out
@@ -2537,405 +2537,422 @@ eval_tap $? 315 'PublicGetMyWallet' test.out
 #- 316 SyncEpicGameDLC
 ./ng net.accelbyte.sdk.cli.Main platform syncEpicGameDLC \
     --namespace "$AB_NAMESPACE" \
-    --userId 'o1hCis0n' \
-    --body '{"epicGamesJwtToken": "YYRKNca6"}' \
+    --userId 'SyZTVmo0' \
+    --body '{"epicGamesJwtToken": "FPxQLSPv"}' \
     > test.out 2>&1
 eval_tap $? 316 'SyncEpicGameDLC' test.out
 
 #- 317 PublicSyncPsnDlcInventory
 ./ng net.accelbyte.sdk.cli.Main platform publicSyncPsnDlcInventory \
     --namespace "$AB_NAMESPACE" \
-    --userId '7vU4fFm0' \
-    --body '{"serviceLabel": 81}' \
+    --userId 'L7rrXpvn' \
+    --body '{"serviceLabel": 87}' \
     > test.out 2>&1
 eval_tap $? 317 'PublicSyncPsnDlcInventory' test.out
 
-#- 318 SyncSteamDLC
+#- 318 PublicSyncPsnDlcInventoryWithMultipleServiceLabels
+./ng net.accelbyte.sdk.cli.Main platform publicSyncPsnDlcInventoryWithMultipleServiceLabels \
+    --namespace "$AB_NAMESPACE" \
+    --userId 'VtamftEy' \
+    --body '{"serviceLabels": [81, 98, 67]}' \
+    > test.out 2>&1
+eval_tap $? 318 'PublicSyncPsnDlcInventoryWithMultipleServiceLabels' test.out
+
+#- 319 SyncSteamDLC
 ./ng net.accelbyte.sdk.cli.Main platform syncSteamDLC \
     --namespace "$AB_NAMESPACE" \
-    --userId 'rYR9yhXZ' \
-    --body '{"appId": "NAcB74Od", "steamId": "nEJq3Faq"}' \
+    --userId 'FxBs5gvx' \
+    --body '{"appId": "b6DbfvKZ", "steamId": "X549chMR"}' \
     > test.out 2>&1
-eval_tap $? 318 'SyncSteamDLC' test.out
+eval_tap $? 319 'SyncSteamDLC' test.out
 
-#- 319 SyncXboxDLC
+#- 320 SyncXboxDLC
 ./ng net.accelbyte.sdk.cli.Main platform syncXboxDLC \
     --namespace "$AB_NAMESPACE" \
-    --userId '7nvR2Cv5' \
-    --body '{"xstsToken": "LceqAR9H"}' \
+    --userId 'F43FcncM' \
+    --body '{"xstsToken": "zLEDrBqz"}' \
     > test.out 2>&1
-eval_tap $? 319 'SyncXboxDLC' test.out
+eval_tap $? 320 'SyncXboxDLC' test.out
 
-#- 320 PublicQueryUserEntitlements
+#- 321 PublicQueryUserEntitlements
 ./ng net.accelbyte.sdk.cli.Main platform publicQueryUserEntitlements \
     --namespace "$AB_NAMESPACE" \
-    --userId 'UP9xhQux' \
-    --appType 'GAME' \
-    --entitlementClazz 'CODE' \
-    --entitlementName '11Cxo7Ib' \
-    --features 'nZXtyhdK,z3TDzGU7,bCqPhEwU' \
-    --itemId '56iwT1gM,OZud5Y8K,9deYOmUd' \
-    --limit '17' \
-    --offset '52' \
+    --userId 'koYQ97cK' \
+    --appType 'DEMO' \
+    --entitlementClazz 'SUBSCRIPTION' \
+    --entitlementName 'NPqCe3lL' \
+    --features 'cDYJ3jtU,YDK47CpW,P1aqk3pJ' \
+    --itemId 'GE4hm65Q,xOZA1wBu,4uvR75DM' \
+    --limit '96' \
+    --offset '13' \
     > test.out 2>&1
-eval_tap $? 320 'PublicQueryUserEntitlements' test.out
+eval_tap $? 321 'PublicQueryUserEntitlements' test.out
 
-#- 321 PublicGetUserAppEntitlementByAppId
+#- 322 PublicGetUserAppEntitlementByAppId
 ./ng net.accelbyte.sdk.cli.Main platform publicGetUserAppEntitlementByAppId \
     --namespace "$AB_NAMESPACE" \
-    --userId 'Z312iGOA' \
-    --appId 'tna9ubv6' \
+    --userId 'KMeuDmKf' \
+    --appId 'R6v3QtMj' \
     > test.out 2>&1
-eval_tap $? 321 'PublicGetUserAppEntitlementByAppId' test.out
+eval_tap $? 322 'PublicGetUserAppEntitlementByAppId' test.out
 
-#- 322 PublicQueryUserEntitlementsByAppType
+#- 323 PublicQueryUserEntitlementsByAppType
 ./ng net.accelbyte.sdk.cli.Main platform publicQueryUserEntitlementsByAppType \
     --namespace "$AB_NAMESPACE" \
-    --userId 'V7WhIoCJ' \
-    --limit '3' \
-    --offset '9' \
-    --appType 'DLC' \
+    --userId 'm1b8LJSl' \
+    --limit '58' \
+    --offset '47' \
+    --appType 'SOFTWARE' \
     > test.out 2>&1
-eval_tap $? 322 'PublicQueryUserEntitlementsByAppType' test.out
+eval_tap $? 323 'PublicQueryUserEntitlementsByAppType' test.out
 
-#- 323 PublicGetUserEntitlementByItemId
+#- 324 PublicGetUserEntitlementByItemId
 ./ng net.accelbyte.sdk.cli.Main platform publicGetUserEntitlementByItemId \
     --namespace "$AB_NAMESPACE" \
-    --userId 'QHbvWVAO' \
-    --entitlementClazz 'APP' \
-    --itemId 'C7Ugfsko' \
+    --userId 'LAUWIfBd' \
+    --entitlementClazz 'SUBSCRIPTION' \
+    --itemId 'kLOtUg4f' \
     > test.out 2>&1
-eval_tap $? 323 'PublicGetUserEntitlementByItemId' test.out
+eval_tap $? 324 'PublicGetUserEntitlementByItemId' test.out
 
-#- 324 PublicGetUserEntitlementBySku
+#- 325 PublicGetUserEntitlementBySku
 ./ng net.accelbyte.sdk.cli.Main platform publicGetUserEntitlementBySku \
     --namespace "$AB_NAMESPACE" \
-    --userId 'j4YfpoCN' \
-    --entitlementClazz 'OPTIONBOX' \
-    --sku 'sNQVuNDP' \
+    --userId 'TEyvUuck' \
+    --entitlementClazz 'MEDIA' \
+    --sku 'oeNjCfjC' \
     > test.out 2>&1
-eval_tap $? 324 'PublicGetUserEntitlementBySku' test.out
+eval_tap $? 325 'PublicGetUserEntitlementBySku' test.out
 
-#- 325 PublicExistsAnyUserActiveEntitlement
+#- 326 PublicExistsAnyUserActiveEntitlement
 ./ng net.accelbyte.sdk.cli.Main platform publicExistsAnyUserActiveEntitlement \
     --namespace "$AB_NAMESPACE" \
-    --userId 'cbAyBzda' \
-    --appIds 'TuTGIaXB,NJD4tUTz,cZKGSKGe' \
-    --itemIds 'GUyT92AQ,fFJMlVQB,bXOwhBWm' \
-    --skus 'uPx4yy7O,9E0IwlBg,8LsvpglJ' \
+    --userId 'xNH8KZgY' \
+    --appIds 'boHs4Bqb,4DROM9eW,cdPePR1m' \
+    --itemIds '90ErJgRQ,dBsNQgRB,cdGNonVs' \
+    --skus '7PCLCafF,olnD6c4x,KQoNyuHx' \
     > test.out 2>&1
-eval_tap $? 325 'PublicExistsAnyUserActiveEntitlement' test.out
+eval_tap $? 326 'PublicExistsAnyUserActiveEntitlement' test.out
 
-#- 326 PublicGetUserAppEntitlementOwnershipByAppId
+#- 327 PublicGetUserAppEntitlementOwnershipByAppId
 ./ng net.accelbyte.sdk.cli.Main platform publicGetUserAppEntitlementOwnershipByAppId \
     --namespace "$AB_NAMESPACE" \
-    --userId 'BjP6AUFI' \
-    --appId 'IWKanxtR' \
+    --userId 'EEvNu7YI' \
+    --appId 'R3ke5uav' \
     > test.out 2>&1
-eval_tap $? 326 'PublicGetUserAppEntitlementOwnershipByAppId' test.out
+eval_tap $? 327 'PublicGetUserAppEntitlementOwnershipByAppId' test.out
 
-#- 327 PublicGetUserEntitlementOwnershipByItemId
+#- 328 PublicGetUserEntitlementOwnershipByItemId
 ./ng net.accelbyte.sdk.cli.Main platform publicGetUserEntitlementOwnershipByItemId \
     --namespace "$AB_NAMESPACE" \
-    --userId 'fvNis2ck' \
-    --entitlementClazz 'MEDIA' \
-    --itemId '6EfsOsh8' \
+    --userId 'cI1YPBIn' \
+    --entitlementClazz 'LOOTBOX' \
+    --itemId 'XPU7GyNE' \
     > test.out 2>&1
-eval_tap $? 327 'PublicGetUserEntitlementOwnershipByItemId' test.out
+eval_tap $? 328 'PublicGetUserEntitlementOwnershipByItemId' test.out
 
-#- 328 PublicGetUserEntitlementOwnershipByItemIds
+#- 329 PublicGetUserEntitlementOwnershipByItemIds
 ./ng net.accelbyte.sdk.cli.Main platform publicGetUserEntitlementOwnershipByItemIds \
     --namespace "$AB_NAMESPACE" \
-    --userId 'DzwOmhH2' \
-    --ids '5G19QFI8,EbinYFCP,tKdvrrr4' \
+    --userId 'Uc96UjQp' \
+    --ids 'lu4Wmw4O,YVwEZfv8,Rxv4JAqj' \
     > test.out 2>&1
-eval_tap $? 328 'PublicGetUserEntitlementOwnershipByItemIds' test.out
+eval_tap $? 329 'PublicGetUserEntitlementOwnershipByItemIds' test.out
 
-#- 329 PublicGetUserEntitlementOwnershipBySku
+#- 330 PublicGetUserEntitlementOwnershipBySku
 ./ng net.accelbyte.sdk.cli.Main platform publicGetUserEntitlementOwnershipBySku \
     --namespace "$AB_NAMESPACE" \
-    --userId 'LhfUoj63' \
+    --userId '9joWHROe' \
     --entitlementClazz 'CODE' \
-    --sku 'A1WcisGZ' \
+    --sku 'XmM7tb0N' \
     > test.out 2>&1
-eval_tap $? 329 'PublicGetUserEntitlementOwnershipBySku' test.out
+eval_tap $? 330 'PublicGetUserEntitlementOwnershipBySku' test.out
 
-#- 330 PublicGetUserEntitlement
+#- 331 PublicGetUserEntitlement
 ./ng net.accelbyte.sdk.cli.Main platform publicGetUserEntitlement \
-    --entitlementId 'sFy5Fg6L' \
+    --entitlementId 'bhUidxNh' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'EN25tQ7W' \
+    --userId 'U5wOkcvv' \
     > test.out 2>&1
-eval_tap $? 330 'PublicGetUserEntitlement' test.out
+eval_tap $? 331 'PublicGetUserEntitlement' test.out
 
-#- 331 PublicConsumeUserEntitlement
+#- 332 PublicConsumeUserEntitlement
 ./ng net.accelbyte.sdk.cli.Main platform publicConsumeUserEntitlement \
-    --entitlementId 'dzoJkiVZ' \
+    --entitlementId 'v3CaFvN9' \
     --namespace "$AB_NAMESPACE" \
-    --userId '4kZ621qU' \
-    --body '{"options": ["85GZ3oFk", "5tpfbcs3", "9RvHdFic"], "requestId": "50SjVkAY", "useCount": 37}' \
+    --userId 'Xo6fmiaa' \
+    --body '{"options": ["9aPfdA9i", "aoErW7WB", "4a3KMb8H"], "requestId": "qpq7jPvI", "useCount": 94}' \
     > test.out 2>&1
-eval_tap $? 331 'PublicConsumeUserEntitlement' test.out
+eval_tap $? 332 'PublicConsumeUserEntitlement' test.out
 
-#- 332 PublicRedeemCode
+#- 333 PublicRedeemCode
 ./ng net.accelbyte.sdk.cli.Main platform publicRedeemCode \
     --namespace "$AB_NAMESPACE" \
-    --userId 'omF3cIPl' \
-    --body '{"code": "XpRDCjIC", "language": "mNd_otYF", "region": "c1hWfUkR"}' \
+    --userId 'roepDrfi' \
+    --body '{"code": "awhzxJjT", "language": "gpz", "region": "7F86lzEz"}' \
     > test.out 2>&1
-eval_tap $? 332 'PublicRedeemCode' test.out
+eval_tap $? 333 'PublicRedeemCode' test.out
 
-#- 333 PublicFulfillAppleIAPItem
+#- 334 PublicFulfillAppleIAPItem
 ./ng net.accelbyte.sdk.cli.Main platform publicFulfillAppleIAPItem \
     --namespace "$AB_NAMESPACE" \
-    --userId 'EsbH3muv' \
-    --body '{"excludeOldTransactions": false, "language": "IZ_Ma", "productId": "2jHEHKr0", "receiptData": "VbAVmJR8", "region": "vQlYhTwA", "transactionId": "jd6ZljEF"}' \
+    --userId 'kGFHuXmD' \
+    --body '{"excludeOldTransactions": true, "language": "Glib_nciz-118", "productId": "RDIaBygM", "receiptData": "6LX5kxEz", "region": "h3Itvm5F", "transactionId": "cOGILXGJ"}' \
     > test.out 2>&1
-eval_tap $? 333 'PublicFulfillAppleIAPItem' test.out
+eval_tap $? 334 'PublicFulfillAppleIAPItem' test.out
 
-#- 334 SyncEpicGamesInventory
+#- 335 SyncEpicGamesInventory
 ./ng net.accelbyte.sdk.cli.Main platform syncEpicGamesInventory \
     --namespace "$AB_NAMESPACE" \
-    --userId 'p8ChM78D' \
-    --body '{"epicGamesJwtToken": "sXXeR2mw"}' \
+    --userId 'tLXo17Q6' \
+    --body '{"epicGamesJwtToken": "lFPJpbeh"}' \
     > test.out 2>&1
-eval_tap $? 334 'SyncEpicGamesInventory' test.out
+eval_tap $? 335 'SyncEpicGamesInventory' test.out
 
-#- 335 PublicFulfillGoogleIAPItem
+#- 336 PublicFulfillGoogleIAPItem
 ./ng net.accelbyte.sdk.cli.Main platform publicFulfillGoogleIAPItem \
     --namespace "$AB_NAMESPACE" \
-    --userId 'o5jvtNuB' \
-    --body '{"autoAck": false, "language": "UcL_124", "orderId": "b0K4gxK4", "packageName": "hwKnQeyn", "productId": "eULWoRbU", "purchaseTime": 12, "purchaseToken": "gBgJQEnw", "region": "AY1Sz6Bb"}' \
+    --userId 'kIIKZzRf' \
+    --body '{"autoAck": false, "language": "DMhT", "orderId": "lorjpze8", "packageName": "ZkiOlcHG", "productId": "Sqt0IbrL", "purchaseTime": 69, "purchaseToken": "mjnGrUMj", "region": "7kyDnmDL"}' \
     > test.out 2>&1
-eval_tap $? 335 'PublicFulfillGoogleIAPItem' test.out
+eval_tap $? 336 'PublicFulfillGoogleIAPItem' test.out
 
-#- 336 PublicReconcilePlayStationStore
+#- 337 PublicReconcilePlayStationStore
 ./ng net.accelbyte.sdk.cli.Main platform publicReconcilePlayStationStore \
     --namespace "$AB_NAMESPACE" \
-    --userId 'YPRSOBJ9' \
-    --body '{"currencyCode": "s5xgTqcT", "price": 0.4673128021887988, "productId": "iw4uWJm6", "serviceLabel": 33}' \
+    --userId 'ai96EoBY' \
+    --body '{"currencyCode": "C0NHSsyw", "price": 0.054204539043954725, "productId": "EQT2WDVE", "serviceLabel": 77}' \
     > test.out 2>&1
-eval_tap $? 336 'PublicReconcilePlayStationStore' test.out
+eval_tap $? 337 'PublicReconcilePlayStationStore' test.out
 
-#- 337 SyncStadiaEntitlement
+#- 338 PublicReconcilePlayStationStoreWithMultipleServiceLabels
+./ng net.accelbyte.sdk.cli.Main platform publicReconcilePlayStationStoreWithMultipleServiceLabels \
+    --namespace "$AB_NAMESPACE" \
+    --userId '4cG1XmU4' \
+    --body '{"currencyCode": "vp4jao9n", "price": 0.1193813031653842, "productId": "bqGJZSfC", "serviceLabels": [73, 91, 68]}' \
+    > test.out 2>&1
+eval_tap $? 338 'PublicReconcilePlayStationStoreWithMultipleServiceLabels' test.out
+
+#- 339 SyncStadiaEntitlement
 ./ng net.accelbyte.sdk.cli.Main platform syncStadiaEntitlement \
     --namespace "$AB_NAMESPACE" \
-    --userId 'vLgSQxWv' \
-    --body '{"appId": "9mKu6hj2", "language": "htAo_Zmrs", "region": "LxYDZe8k", "stadiaPlayerId": "pixYd1xu"}' \
+    --userId 'B7kTZksh' \
+    --body '{"appId": "mHi7TV1x", "language": "Tb_od", "region": "fTPlRcIM", "stadiaPlayerId": "wQlfrTa6"}' \
     > test.out 2>&1
-eval_tap $? 337 'SyncStadiaEntitlement' test.out
+eval_tap $? 339 'SyncStadiaEntitlement' test.out
 
-#- 338 SyncSteamInventory
+#- 340 SyncSteamInventory
 ./ng net.accelbyte.sdk.cli.Main platform syncSteamInventory \
     --namespace "$AB_NAMESPACE" \
-    --userId '6h238AAh' \
-    --body '{"appId": "3noU9OiD", "currencyCode": "U6IIdRtw", "language": "zRXM", "price": 0.1647871196782581, "productId": "I4LhtLIs", "region": "1qi99HCQ", "steamId": "SxgZ6KnM"}' \
+    --userId 'uEctC6Ur' \
+    --body '{"appId": "h1JtncT8", "currencyCode": "WvbFZ2IR", "language": "hBB", "price": 0.38430998364510915, "productId": "OlOYyhyK", "region": "HiegGcQh", "steamId": "s5i8WLJZ"}' \
     > test.out 2>&1
-eval_tap $? 338 'SyncSteamInventory' test.out
+eval_tap $? 340 'SyncSteamInventory' test.out
 
-#- 339 SyncTwitchDropsEntitlement
+#- 341 SyncTwitchDropsEntitlement
 ./ng net.accelbyte.sdk.cli.Main platform syncTwitchDropsEntitlement \
     --namespace "$AB_NAMESPACE" \
-    --userId 'bJcG8WRp' \
-    --body '{"gameId": "AJiPNnmx", "language": "bYid_Ghuu", "region": "jIGbsaVn"}' \
+    --userId 'bkJT0eNS' \
+    --body '{"gameId": "g0PrUac6", "language": "kQY_us", "region": "rEWk6S5O"}' \
     > test.out 2>&1
-eval_tap $? 339 'SyncTwitchDropsEntitlement' test.out
+eval_tap $? 341 'SyncTwitchDropsEntitlement' test.out
 
-#- 340 SyncXboxInventory
+#- 342 SyncXboxInventory
 ./ng net.accelbyte.sdk.cli.Main platform syncXboxInventory \
     --namespace "$AB_NAMESPACE" \
-    --userId 'Xnhfz98i' \
-    --body '{"currencyCode": "vCf5E3Ll", "price": 0.25662938088384757, "productId": "xdKtypXr", "xstsToken": "2WHdsD4j"}' \
+    --userId 'dTLXKDCH' \
+    --body '{"currencyCode": "nK9alII3", "price": 0.3421514924894533, "productId": "366sKBIe", "xstsToken": "DHWVazqq"}' \
     > test.out 2>&1
-eval_tap $? 340 'SyncXboxInventory' test.out
+eval_tap $? 342 'SyncXboxInventory' test.out
 
-#- 341 PublicQueryUserOrders
+#- 343 PublicQueryUserOrders
 ./ng net.accelbyte.sdk.cli.Main platform publicQueryUserOrders \
     --namespace "$AB_NAMESPACE" \
-    --userId '8x0ocBFm' \
-    --itemId 'P8g6HOim' \
-    --limit '2' \
-    --offset '29' \
-    --status 'CHARGED' \
+    --userId '9xFTa1pn' \
+    --itemId '6I8WdQJy' \
+    --limit '28' \
+    --offset '17' \
+    --status 'FULFILL_FAILED' \
     > test.out 2>&1
-eval_tap $? 341 'PublicQueryUserOrders' test.out
+eval_tap $? 343 'PublicQueryUserOrders' test.out
 
-#- 342 PublicCreateUserOrder
+#- 344 PublicCreateUserOrder
 ./ng net.accelbyte.sdk.cli.Main platform publicCreateUserOrder \
     --namespace "$AB_NAMESPACE" \
-    --userId 'PQ2X5Mqb' \
-    --body '{"currencyCode": "2LP3mHTj", "discountedPrice": 36, "ext": {"fqjuipHg": {}, "WeRgZEmy": {}, "v0hTZjC1": {}}, "itemId": "cwuc47L0", "language": "Ve-qIdo_Kk", "price": 0, "quantity": 42, "region": "6OVGjtsH", "returnUrl": "AyvKGTeL"}' \
+    --userId 'Ad9CaAAw' \
+    --body '{"currencyCode": "vQx7I8vd", "discountedPrice": 25, "ext": {"I9qEtnWx": {}, "FuTPuUBP": {}, "IeLmaqvd": {}}, "itemId": "51FpKkpN", "language": "Zx_Aw", "price": 44, "quantity": 82, "region": "wYMHv82S", "returnUrl": "b41kMA2e"}' \
     > test.out 2>&1
-eval_tap $? 342 'PublicCreateUserOrder' test.out
+eval_tap $? 344 'PublicCreateUserOrder' test.out
 
-#- 343 PublicGetUserOrder
+#- 345 PublicGetUserOrder
 ./ng net.accelbyte.sdk.cli.Main platform publicGetUserOrder \
     --namespace "$AB_NAMESPACE" \
-    --orderNo 'rWyW0xvL' \
-    --userId 'Uzxxe47e' \
+    --orderNo 'HBnd1VEu' \
+    --userId 'hngasUt5' \
     > test.out 2>&1
-eval_tap $? 343 'PublicGetUserOrder' test.out
+eval_tap $? 345 'PublicGetUserOrder' test.out
 
-#- 344 PublicCancelUserOrder
+#- 346 PublicCancelUserOrder
 ./ng net.accelbyte.sdk.cli.Main platform publicCancelUserOrder \
     --namespace "$AB_NAMESPACE" \
-    --orderNo 'BJH4nHjF' \
-    --userId 'cCS7Dssj' \
+    --orderNo 'TZjmOAav' \
+    --userId 'YnmXF5Z6' \
     > test.out 2>&1
-eval_tap $? 344 'PublicCancelUserOrder' test.out
+eval_tap $? 346 'PublicCancelUserOrder' test.out
 
-#- 345 PublicGetUserOrderHistories
+#- 347 PublicGetUserOrderHistories
 ./ng net.accelbyte.sdk.cli.Main platform publicGetUserOrderHistories \
     --namespace "$AB_NAMESPACE" \
-    --orderNo 'P4FQAdx3' \
-    --userId '68q3z2vQ' \
+    --orderNo 'MywjDEpV' \
+    --userId 'OMcUrAwk' \
     > test.out 2>&1
-eval_tap $? 345 'PublicGetUserOrderHistories' test.out
+eval_tap $? 347 'PublicGetUserOrderHistories' test.out
 
-#- 346 PublicDownloadUserOrderReceipt
+#- 348 PublicDownloadUserOrderReceipt
 ./ng net.accelbyte.sdk.cli.Main platform publicDownloadUserOrderReceipt \
     --namespace "$AB_NAMESPACE" \
-    --orderNo 'iod3phX6' \
-    --userId '1BNKo5Yq' \
+    --orderNo 'TpRnrVsb' \
+    --userId 'AMssuUkT' \
     > test.out 2>&1
-eval_tap $? 346 'PublicDownloadUserOrderReceipt' test.out
+eval_tap $? 348 'PublicDownloadUserOrderReceipt' test.out
 
-#- 347 PublicGetPaymentAccounts
+#- 349 PublicGetPaymentAccounts
 ./ng net.accelbyte.sdk.cli.Main platform publicGetPaymentAccounts \
     --namespace "$AB_NAMESPACE" \
-    --userId 'TOliMCMS' \
+    --userId 'WaH1p0jj' \
     > test.out 2>&1
-eval_tap $? 347 'PublicGetPaymentAccounts' test.out
+eval_tap $? 349 'PublicGetPaymentAccounts' test.out
 
-#- 348 PublicDeletePaymentAccount
+#- 350 PublicDeletePaymentAccount
 ./ng net.accelbyte.sdk.cli.Main platform publicDeletePaymentAccount \
-    --id 'YBAJzdxL' \
+    --id 'W1lkN9NP' \
     --namespace "$AB_NAMESPACE" \
-    --type 'paypal' \
-    --userId 'sIONwle2' \
+    --type 'card' \
+    --userId 'gSYLh9mA' \
     > test.out 2>&1
-eval_tap $? 348 'PublicDeletePaymentAccount' test.out
+eval_tap $? 350 'PublicDeletePaymentAccount' test.out
 
-#- 349 PublicQueryUserSubscriptions
+#- 351 PublicQueryUserSubscriptions
 ./ng net.accelbyte.sdk.cli.Main platform publicQueryUserSubscriptions \
     --namespace "$AB_NAMESPACE" \
-    --userId 'PMgTxVip' \
-    --chargeStatus 'SETUP' \
-    --itemId '95gF0VVR' \
-    --limit '88' \
-    --offset '40' \
-    --sku 'WnPaTYmO' \
-    --status 'ACTIVE' \
-    --subscribedBy 'PLATFORM' \
+    --userId '340gzBF1' \
+    --chargeStatus 'CHARGED' \
+    --itemId 'yl0ckvPD' \
+    --limit '56' \
+    --offset '67' \
+    --sku 'NkXzeATZ' \
+    --status 'INIT' \
+    --subscribedBy 'USER' \
     > test.out 2>&1
-eval_tap $? 349 'PublicQueryUserSubscriptions' test.out
+eval_tap $? 351 'PublicQueryUserSubscriptions' test.out
 
-#- 350 PublicSubscribeSubscription
+#- 352 PublicSubscribeSubscription
 ./ng net.accelbyte.sdk.cli.Main platform publicSubscribeSubscription \
     --namespace "$AB_NAMESPACE" \
-    --userId 'OHXKyjBP' \
-    --body '{"currencyCode": "sWeHJEy8", "itemId": "jkEX3pxe", "language": "TNZ_JlKQ", "region": "wm1Unn0L", "returnUrl": "ftZ3E4zr", "source": "q9OjSBy9"}' \
+    --userId 'JNP0Gg2p' \
+    --body '{"currencyCode": "qkWkBO9l", "itemId": "ZEjeVTFu", "language": "yji_PW", "region": "DOVmChmB", "returnUrl": "isY24zQQ", "source": "WYwv2qbA"}' \
     > test.out 2>&1
-eval_tap $? 350 'PublicSubscribeSubscription' test.out
+eval_tap $? 352 'PublicSubscribeSubscription' test.out
 
-#- 351 PublicCheckUserSubscriptionSubscribableByItemId
+#- 353 PublicCheckUserSubscriptionSubscribableByItemId
 ./ng net.accelbyte.sdk.cli.Main platform publicCheckUserSubscriptionSubscribableByItemId \
     --namespace "$AB_NAMESPACE" \
-    --userId 'FtV1vBPy' \
-    --itemId 'Epw9inw4' \
+    --userId '1mEYQC31' \
+    --itemId 'Q327J7m4' \
     > test.out 2>&1
-eval_tap $? 351 'PublicCheckUserSubscriptionSubscribableByItemId' test.out
+eval_tap $? 353 'PublicCheckUserSubscriptionSubscribableByItemId' test.out
 
-#- 352 PublicGetUserSubscription
+#- 354 PublicGetUserSubscription
 ./ng net.accelbyte.sdk.cli.Main platform publicGetUserSubscription \
     --namespace "$AB_NAMESPACE" \
-    --subscriptionId 'VdA3TgmE' \
-    --userId 'oLHB3zqf' \
+    --subscriptionId 'v6dcAHLJ' \
+    --userId 'OmsRYATM' \
     > test.out 2>&1
-eval_tap $? 352 'PublicGetUserSubscription' test.out
+eval_tap $? 354 'PublicGetUserSubscription' test.out
 
-#- 353 PublicChangeSubscriptionBillingAccount
+#- 355 PublicChangeSubscriptionBillingAccount
 ./ng net.accelbyte.sdk.cli.Main platform publicChangeSubscriptionBillingAccount \
     --namespace "$AB_NAMESPACE" \
-    --subscriptionId 'dNzV9Zg9' \
-    --userId 'f0l6HqjA' \
+    --subscriptionId 'PeGeabVx' \
+    --userId 'KHxrvPdm' \
     > test.out 2>&1
-eval_tap $? 353 'PublicChangeSubscriptionBillingAccount' test.out
+eval_tap $? 355 'PublicChangeSubscriptionBillingAccount' test.out
 
-#- 354 PublicCancelSubscription
+#- 356 PublicCancelSubscription
 ./ng net.accelbyte.sdk.cli.Main platform publicCancelSubscription \
     --namespace "$AB_NAMESPACE" \
-    --subscriptionId 'AOL8JjAx' \
-    --userId 'RXUQYPiV' \
-    --body '{"immediate": true, "reason": "MmeZeeEz"}' \
+    --subscriptionId '29W1WT8z' \
+    --userId '7l3bkVjY' \
+    --body '{"immediate": false, "reason": "ipTQtwPf"}' \
     > test.out 2>&1
-eval_tap $? 354 'PublicCancelSubscription' test.out
+eval_tap $? 356 'PublicCancelSubscription' test.out
 
-#- 355 PublicGetUserSubscriptionBillingHistories
+#- 357 PublicGetUserSubscriptionBillingHistories
 ./ng net.accelbyte.sdk.cli.Main platform publicGetUserSubscriptionBillingHistories \
     --namespace "$AB_NAMESPACE" \
-    --subscriptionId 'bysjd1TN' \
-    --userId 'glyRysLu' \
+    --subscriptionId 'Xa15beVx' \
+    --userId 'Cg7rPSUH' \
     --excludeFree  \
-    --limit '77' \
-    --offset '18' \
+    --limit '39' \
+    --offset '96' \
     > test.out 2>&1
-eval_tap $? 355 'PublicGetUserSubscriptionBillingHistories' test.out
+eval_tap $? 357 'PublicGetUserSubscriptionBillingHistories' test.out
 
-#- 356 PublicGetWallet
+#- 358 PublicGetWallet
 ./ng net.accelbyte.sdk.cli.Main platform publicGetWallet \
-    --currencyCode 'lVWgHuvU' \
+    --currencyCode '0iRiROs7' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'uxiMlCbG' \
+    --userId 'wgmN86H7' \
     > test.out 2>&1
-eval_tap $? 356 'PublicGetWallet' test.out
+eval_tap $? 358 'PublicGetWallet' test.out
 
-#- 357 PublicListUserWalletTransactions
+#- 359 PublicListUserWalletTransactions
 ./ng net.accelbyte.sdk.cli.Main platform publicListUserWalletTransactions \
-    --currencyCode 'OiYZeGWz' \
+    --currencyCode 'zLrXulSt' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'GhA1eCWs' \
-    --limit '7' \
-    --offset '89' \
+    --userId 'boFS2FR7' \
+    --limit '77' \
+    --offset '61' \
     > test.out 2>&1
-eval_tap $? 357 'PublicListUserWalletTransactions' test.out
+eval_tap $? 359 'PublicListUserWalletTransactions' test.out
 
-#- 358 QueryItems1
+#- 360 QueryItems1
 ./ng net.accelbyte.sdk.cli.Main platform queryItems1 \
     --namespace "$AB_NAMESPACE" \
-    --appType 'DEMO' \
-    --availableDate 'rNlMzLb5' \
-    --baseAppId '8bp0eR0E' \
-    --categoryPath '71UYsctY' \
-    --features 'Iq1qXieS' \
+    --appType 'SOFTWARE' \
+    --availableDate '5LC1Im1s' \
+    --baseAppId 'AhJZTIQK' \
+    --categoryPath 'QkVRuuil' \
+    --features 'hXyHDxZV' \
     --includeSubCategoryItem  \
+    --itemName 'SEj37ddM' \
     --itemStatus 'INACTIVE' \
-    --itemType 'INGAMEITEM' \
-    --limit '100' \
-    --offset '4' \
-    --region 'i3uoe59s' \
-    --sortBy 'displayOrder,createdAt,createdAt:asc' \
-    --storeId 'cI8BZwOx' \
-    --tags 'FN2EB5jR' \
-    --targetNamespace 'QH4bElra' \
+    --itemType 'LOOTBOX' \
+    --limit '65' \
+    --offset '47' \
+    --region 'cxKSv3Se' \
+    --sortBy 'createdAt:desc,createdAt:asc,updatedAt:desc' \
+    --storeId '4mbEfuE4' \
+    --tags '7timqgRe' \
+    --targetNamespace 'OUAnVfvD' \
     > test.out 2>&1
-eval_tap $? 358 'QueryItems1' test.out
+eval_tap $? 360 'QueryItems1' test.out
 
-#- 359 ImportStore1
+#- 361 ImportStore1
 ./ng net.accelbyte.sdk.cli.Main platform importStore1 \
     --namespace "$AB_NAMESPACE" \
-    --storeId 'Jaen59UA' \
+    --storeId 'fTtCHxDD' \
     --file 'tmp.dat' \
     > test.out 2>&1
-eval_tap $? 359 'ImportStore1' test.out
+eval_tap $? 361 'ImportStore1' test.out
 
-#- 360 ExportStore1
+#- 362 ExportStore1
 ./ng net.accelbyte.sdk.cli.Main platform exportStore1 \
     --namespace "$AB_NAMESPACE" \
-    --storeId 's6aYTWsO' \
-    --body '{"itemIds": ["VO9RHEV5", "hKRnO21Y", "XXkdU1XH"]}' \
+    --storeId '4Vg2omZT' \
+    --body '{"itemIds": ["NApBkIG6", "j6Vvcup5", "KzTF2PNl"]}' \
     > test.out 2>&1
-eval_tap $? 360 'ExportStore1' test.out
+eval_tap $? 362 'ExportStore1' test.out
 
 
 rm -f "tmp.dat"

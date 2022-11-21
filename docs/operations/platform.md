@@ -120,6 +120,7 @@
 | `/platform/admin/namespaces/{namespace}/dlc/config/platformMap` | DELETE | DeletePlatformDLCConfig | [DeletePlatformDLCConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/DeletePlatformDLCConfig.java) | [DeletePlatformDLCConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/DeletePlatformDLCConfig.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/dlc/epicgames/sync` | PUT | SyncEpicGameDLC | [SyncEpicGameDLC](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/SyncEpicGameDLC.java) | [SyncEpicGameDLC](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/SyncEpicGameDLC.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/dlc/psn/sync` | PUT | PublicSyncPsnDlcInventory | [PublicSyncPsnDlcInventory](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/PublicSyncPsnDlcInventory.java) | [PublicSyncPsnDlcInventory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/PublicSyncPsnDlcInventory.java) |
+| `/platform/public/namespaces/{namespace}/users/{userId}/dlc/psn/sync/multiServiceLabels` | PUT | PublicSyncPsnDlcInventoryWithMultipleServiceLabels | [PublicSyncPsnDlcInventoryWithMultipleServiceLabels](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/PublicSyncPsnDlcInventoryWithMultipleServiceLabels.java) | [PublicSyncPsnDlcInventoryWithMultipleServiceLabels](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/PublicSyncPsnDlcInventoryWithMultipleServiceLabels.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/dlc/steam/sync` | PUT | SyncSteamDLC | [SyncSteamDLC](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/SyncSteamDLC.java) | [SyncSteamDLC](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/SyncSteamDLC.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/dlc/xbl/sync` | PUT | SyncXboxDLC | [SyncXboxDLC](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/SyncXboxDLC.java) | [SyncXboxDLC](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/SyncXboxDLC.java) |
 
@@ -215,6 +216,7 @@
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/epicgames/sync` | PUT | SyncEpicGamesInventory | [SyncEpicGamesInventory](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/SyncEpicGamesInventory.java) | [SyncEpicGamesInventory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/SyncEpicGamesInventory.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/google/receipt` | PUT | PublicFulfillGoogleIAPItem | [PublicFulfillGoogleIAPItem](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/PublicFulfillGoogleIAPItem.java) | [PublicFulfillGoogleIAPItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/PublicFulfillGoogleIAPItem.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/psn/sync` | PUT | PublicReconcilePlayStationStore | [PublicReconcilePlayStationStore](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/PublicReconcilePlayStationStore.java) | [PublicReconcilePlayStationStore](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/PublicReconcilePlayStationStore.java) |
+| `/platform/public/namespaces/{namespace}/users/{userId}/iap/psn/sync/multiServiceLabels` | PUT | PublicReconcilePlayStationStoreWithMultipleServiceLabels | [PublicReconcilePlayStationStoreWithMultipleServiceLabels](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/PublicReconcilePlayStationStoreWithMultipleServiceLabels.java) | [PublicReconcilePlayStationStoreWithMultipleServiceLabels](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/PublicReconcilePlayStationStoreWithMultipleServiceLabels.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/stadia/sync` | PUT | SyncStadiaEntitlement | [SyncStadiaEntitlement](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/SyncStadiaEntitlement.java) | [SyncStadiaEntitlement](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/SyncStadiaEntitlement.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/steam/sync` | PUT | SyncSteamInventory | [SyncSteamInventory](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/SyncSteamInventory.java) | [SyncSteamInventory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/SyncSteamInventory.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/twitch/sync` | PUT | SyncTwitchDropsEntitlement | [SyncTwitchDropsEntitlement](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/SyncTwitchDropsEntitlement.java) | [SyncTwitchDropsEntitlement](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/SyncTwitchDropsEntitlement.java) |
@@ -500,6 +502,7 @@
 | `BillingAccount` | [BillingAccount](../../src/main/java/net/accelbyte/sdk/api/platform/models/BillingAccount.java) |
 | `BillingHistoryInfo` | [BillingHistoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/BillingHistoryInfo.java) |
 | `BillingHistoryPagingSlicedResult` | [BillingHistoryPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/BillingHistoryPagingSlicedResult.java) |
+| `BoxItem` | [BoxItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/BoxItem.java) |
 | `BulkOperationResult` | [BulkOperationResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/BulkOperationResult.java) |
 | `BundledItemInfo` | [BundledItemInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/BundledItemInfo.java) |
 | `CampaignCreate` | [CampaignCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/CampaignCreate.java) |
@@ -541,9 +544,11 @@
 | `DetailedWalletTransactionInfo` | [DetailedWalletTransactionInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/DetailedWalletTransactionInfo.java) |
 | `DetailedWalletTransactionPagingSlicedResult` | [DetailedWalletTransactionPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/DetailedWalletTransactionPagingSlicedResult.java) |
 | `EntitlementDecrement` | [EntitlementDecrement](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementDecrement.java) |
+| `EntitlementDecrementResult` | [EntitlementDecrementResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementDecrementResult.java) |
 | `EntitlementGrant` | [EntitlementGrant](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementGrant.java) |
 | `EntitlementHistoryInfo` | [EntitlementHistoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementHistoryInfo.java) |
 | `EntitlementInfo` | [EntitlementInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementInfo.java) |
+| `EntitlementLootBoxReward` | [EntitlementLootBoxReward](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementLootBoxReward.java) |
 | `EntitlementOwnership` | [EntitlementOwnership](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementOwnership.java) |
 | `EntitlementPagingSlicedResult` | [EntitlementPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementPagingSlicedResult.java) |
 | `EntitlementSummary` | [EntitlementSummary](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementSummary.java) |
@@ -620,10 +625,11 @@
 | `KeyInfo` | [KeyInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/KeyInfo.java) |
 | `KeyPagingSliceResult` | [KeyPagingSliceResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/KeyPagingSliceResult.java) |
 | `Localization` | [Localization](../../src/main/java/net/accelbyte/sdk/api/platform/models/Localization.java) |
+| `LootBoxConfig` | [LootBoxConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/LootBoxConfig.java) |
+| `LootBoxReward` | [LootBoxReward](../../src/main/java/net/accelbyte/sdk/api/platform/models/LootBoxReward.java) |
 | `MockIAPReceipt` | [MockIAPReceipt](../../src/main/java/net/accelbyte/sdk/api/platform/models/MockIAPReceipt.java) |
 | `NotificationProcessResult` | [NotificationProcessResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/NotificationProcessResult.java) |
 | `OptionBoxConfig` | [OptionBoxConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/OptionBoxConfig.java) |
-| `OptionBoxItem` | [OptionBoxItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/OptionBoxItem.java) |
 | `Order` | [Order](../../src/main/java/net/accelbyte/sdk/api/platform/models/Order.java) |
 | `OrderCreate` | [OrderCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/OrderCreate.java) |
 | `OrderGrantInfo` | [OrderGrantInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/OrderGrantInfo.java) |
@@ -680,10 +686,11 @@
 | `PlatformWallet` | [PlatformWallet](../../src/main/java/net/accelbyte/sdk/api/platform/models/PlatformWallet.java) |
 | `PlatformWalletConfigInfo` | [PlatformWalletConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/PlatformWalletConfigInfo.java) |
 | `PlatformWalletConfigUpdate` | [PlatformWalletConfigUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/PlatformWalletConfigUpdate.java) |
+| `PlayStationDLCSyncMultiServiceLabelsRequest` | [PlayStationDLCSyncMultiServiceLabelsRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/PlayStationDLCSyncMultiServiceLabelsRequest.java) |
 | `PlayStationDLCSyncRequest` | [PlayStationDLCSyncRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/PlayStationDLCSyncRequest.java) |
 | `PlayStationIAPConfigInfo` | [PlayStationIAPConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/PlayStationIAPConfigInfo.java) |
+| `PlayStationMultiServiceLabelsReconcileRequest` | [PlayStationMultiServiceLabelsReconcileRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/PlayStationMultiServiceLabelsReconcileRequest.java) |
 | `PlayStationReconcileRequest` | [PlayStationReconcileRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/PlayStationReconcileRequest.java) |
-| `PlayStationReconcileResult` | [PlayStationReconcileResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/PlayStationReconcileResult.java) |
 | `PlaystationIAPConfigRequest` | [PlaystationIAPConfigRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/PlaystationIAPConfigRequest.java) |
 | `PopulatedItemInfo` | [PopulatedItemInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/PopulatedItemInfo.java) |
 | `PredicateValidateResult` | [PredicateValidateResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/PredicateValidateResult.java) |
@@ -739,7 +746,6 @@
 | `TicketSaleIncrementResult` | [TicketSaleIncrementResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/TicketSaleIncrementResult.java) |
 | `Time-limited balance` | [TimeLimitedBalance](../../src/main/java/net/accelbyte/sdk/api/platform/models/TimeLimitedBalance.java) |
 | `TimedOwnership` | [TimedOwnership](../../src/main/java/net/accelbyte/sdk/api/platform/models/TimedOwnership.java) |
-| `TrackedEntitlementInfo` | [TrackedEntitlementInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/TrackedEntitlementInfo.java) |
 | `TradeNotification` | [TradeNotification](../../src/main/java/net/accelbyte/sdk/api/platform/models/TradeNotification.java) |
 | `Transaction` | [Transaction](../../src/main/java/net/accelbyte/sdk/api/platform/models/Transaction.java) |
 | `TransactionAmountDetails` | [TransactionAmountDetails](../../src/main/java/net/accelbyte/sdk/api/platform/models/TransactionAmountDetails.java) |

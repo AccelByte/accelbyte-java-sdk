@@ -83,6 +83,7 @@ public class ImportStoreItemInfo extends Model {
     COINS("COINS"),
     EXTENSION("EXTENSION"),
     INGAMEITEM("INGAMEITEM"),
+    LOOTBOX("LOOTBOX"),
     MEDIA("MEDIA"),
     OPTIONBOX("OPTIONBOX"),
     SEASON("SEASON"),

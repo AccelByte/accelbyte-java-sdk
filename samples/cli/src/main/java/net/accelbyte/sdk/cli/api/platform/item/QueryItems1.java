@@ -66,6 +66,11 @@ public class QueryItems1 implements Callable<Integer> {
   Boolean includeSubCategoryItem;
 
   @Option(
+      names = {"--itemName"},
+      description = "itemName")
+  String itemName;
+
+  @Option(
       names = {"--itemStatus"},
       description = "itemStatus")
   String itemStatus;
@@ -140,6 +145,7 @@ public class QueryItems1 implements Callable<Integer> {
               .categoryPath(categoryPath)
               .features(features)
               .includeSubCategoryItem(includeSubCategoryItem)
+              .itemName(itemName)
               .itemStatus(itemStatus)
               .itemType(itemType)
               .limit(limit)

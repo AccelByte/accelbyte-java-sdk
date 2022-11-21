@@ -8,7 +8,8 @@
 
 package net.accelbyte.sdk.cli.api.dsmc.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
+import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.dsmc.models.*;
@@ -60,10 +61,12 @@ public class ExportConfigV1 implements Callable<Integer> {
           net.accelbyte.sdk.api.dsmc.operations.config.ExportConfigV1.builder()
               .namespace(namespace)
               .build();
-      final ModelsDSMConfigExport response = wrapper.exportConfigV1(operation);
-      final String responseString =
-          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful\n{}", responseString);
+      final InputStream response = wrapper.exportConfigV1(operation);
+      final File outputFile = new File("response.out");
+      java.nio.file.Files.copy(
+          response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+      org.apache.commons.io.IOUtils.closeQuietly(response);
+      log.info("Operation successful\n{}", "response.out");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);
