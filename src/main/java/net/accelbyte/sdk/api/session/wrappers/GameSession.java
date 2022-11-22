@@ -129,9 +129,9 @@ public class GameSession {
   /**
    * @see LeaveGameSession
    */
-  public ApimodelsGameSessionResponse leaveGameSession(LeaveGameSession input) throws Exception {
+  public void leaveGameSession(LeaveGameSession input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    return input.parseResponse(
+    input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
