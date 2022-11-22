@@ -59,12 +59,13 @@ pipeline {
         }
         stage('Lint Spec') {
           steps {
-            sh "[ -s spec/TIMESTAMP ]"  // Make sure TIMESTAMP file is present in spec directory
+            sh "[ -s spec/openapi-2.0-vendor-extensions.md ]"  // Make sure spec/openapi-2.0-vendor-extensions.md file is present
+            sh "[ -s spec/TIMESTAMP ]"  // Make sure TIMESTAMP file is present
           }
         }
         stage('Lint Code') {
           steps {
-            sh "[ -s codegen.txt ]"  // Make sure codegen.txt file is present in spec directory
+            sh "[ -s codegen.txt ]"  // Make sure codegen.txt file is present
           }
         }
       }
