@@ -42,7 +42,7 @@ public class AccelByteSDK {
 
   private AccelByteConfig sdkConfiguration;
 
-  private final Timer refreshTokenTimer = new Timer("RefreshTokenTimer");
+  private final Timer refreshTokenTimer = new Timer("RefreshTokenTimer", true);
   private final Object refreshTokenTaskLock = new Object();
   private TimerTask refreshTokenTask = null;
 
