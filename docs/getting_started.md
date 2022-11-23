@@ -20,8 +20,8 @@ This guide will show you how to create a project which uses Java Server SDK from
 Create a folder and use `gradle init` to create a Java project.
 
 ```bash
-$ mkdir myproject
-$ cd myproject/
+$ mkdir getting-started
+$ cd getting-started/
 $ gradle init --type java-application --dsl groovy --test-framework junit-jupiter
 
 Welcome to Gradle 7.4.2!
@@ -37,8 +37,8 @@ Starting a Gradle Daemon (subsequent builds will be faster)
 
 Generate build using new APIs and behavior (some features may change in the next minor release)? (default: no) [yes, no]
 
-Project name (default: myproject):
-Source package (default: myproject):
+Project name (default: getting-started):
+Source package (default: getting.started):
 
 > Task :init
 Get more help with your project: https://docs.gradle.org/7.4.2/samples/sample_building_java_applications.html
@@ -78,7 +78,7 @@ The `DefaultConfigRepository` gets its values from `AB_BASE_URL`, `AB_CLIENT_ID`
 ```java
 // App.java
 
-package myproject;
+package getting.started;
 
 import net.accelbyte.sdk.api.iam.models.OauthmodelCountryLocationResponse;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.GetCountryLocationV3;
