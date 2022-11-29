@@ -786,6 +786,74 @@ matchmakingWrapper.deleteChannelHandler(
     DeleteChannelHandler.builder().namespace(this.namespace).channel(channelName).build());
 ```
 
+## MatchmakingV2
+
+Source: [TestIntegrationServiceMatch2.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceMatch2.java)
+
+### Create a match rule set
+
+```java
+ruleSetsWrapper.createRuleSet(CreateRuleSet
+        .builder()
+        .namespace(namespace)
+        .body(ApiMatchRuleSet.builder().name(rulesetName).data(
+                "{\"alliance\":{\"minNumber\":\"2\",\"maxNumber\":\"10\",\"playerMinNumber\":\"2\",\"playerMaxNumber\":\"4\"},\"matchingRules\":[{\"attribute\":\"\",\"criteria\":\"distance\",\"reference\":\"\"}],\"flexingRules\":[{\"duration\":\"600\",\"attribute\":\"\",\"criteria\":\"distance\",\"reference\":\"\"}],\"match_options\":{\"options\":[{\"name\":\"\",\"type\":\"any\"}]},\"alliance_flexing_rule\":[{\"duration\":\"600\",\"min_number\":\"\",\"max_number\":\"\",\"player_min_number\":\"\",\"player_max_number\":\"\"}]}")
+                .build())
+        .build());
+```
+
+### Create a match pool
+
+```java
+matchPoolsWrapper.createMatchPool(CreateMatchPool.builder()
+        .namespace(namespace)
+        .body(ApiMatchPool.builder()
+                .name(poolName)
+                .matchFunction("basic")
+                .sessionTemplate(cfgTemplateName)
+                .backfillTicketExpirationSeconds(600)
+                .ruleSet(rulesetName)
+                .ticketExpirationSeconds(600)
+                .build())
+        .build());
+```
+
+### List match pools
+
+```java
+final ApiListMatchPoolsResponse matchPoolListResult = matchPoolsWrapper
+        .matchPoolList(MatchPoolList.builder().namespace(namespace).build());
+```
+
+### Player create a match ticket
+
+```java
+final ApiMatchTicketResponse createMatchTicketResult = player1MatchTicketWrapper
+        .createMatchTicket(CreateMatchTicket.builder()
+                .namespace(namespace)
+                .body(ApiMatchTicketRequest.builder().matchPool(poolName).sessionID(gameSessionId).build())
+                .build());
+```
+
+### Player delete a match ticket
+
+```java
+player1MatchTicketWrapper
+        .deleteMatchTicket(DeleteMatchTicket.builder().namespace(namespace).ticketid(ticketId).build());
+```
+
+### Delete a match pool
+
+```java
+matchPoolsWrapper.deleteMatchPool(DeleteMatchPool.builder().namespace(namespace).pool(poolName).build());
+```
+
+### Delete a match rule set
+
+```java
+ruleSetsWrapper.deleteRuleSet(DeleteRuleSet.builder().namespace(namespace).ruleset(rulesetName).build());
+```
+
 ## Platform
 
 Source: [TestIntegrationServicePlatform.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServicePlatform.java)
@@ -980,6 +1048,151 @@ seasonWrapper.deleteSeason(
         .namespace(this.namespace)
         .seasonId(createSeasonResult.getId())
         .build());
+```
+
+## Session
+
+Source: [TestIntegrationServiceSession.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceSession.java)
+
+### Create session configuration template
+
+```java
+configurationTemplateWrapper.adminCreateConfigurationTemplateV1(AdminCreateConfigurationTemplateV1.builder()
+    .namespace(namespace)
+    .body(ApimodelsCreateConfigurationTemplateRequest.builder()
+        .name(cfgTemplateName)
+        .type("P2P")
+        .minPlayers(2)
+        .maxPlayers(2)
+        .inviteTimeout(60)
+        .inactiveTimeout(60)
+        .joinability("OPEN")
+        .clientVersion("1.0.0")
+        .requestedRegions(Collections.singletonList("us-west-2"))
+        .build())
+    .build());
+```
+
+### Get session configuration template
+
+```java
+final ApimodelsConfigurationTemplateResponse adminGetConfigurationTemplateResult = configurationTemplateWrapper
+    .adminGetConfigurationTemplateV1(AdminGetConfigurationTemplateV1.builder()
+        .name(cfgTemplateName)
+        .namespace(namespace)
+        .build());
+```
+
+### Update session configuration template
+
+```java
+final ApimodelsConfigurationTemplateResponse adminUpdateConfigurationTemplateResult = configurationTemplateWrapper
+    .adminUpdateConfigurationTemplateV1(AdminUpdateConfigurationTemplateV1.builder()
+        .name(cfgTemplateName)
+        .namespace(namespace)
+        .body(
+            ApimodelsUpdateConfigurationTemplateRequest.builder().name(cfgTemplateName).type("P2P")
+                .joinability("OPEN")
+                .maxPlayers(4).build())
+        .build());
+```
+
+### Delete session configuration template
+
+```java
+configurationTemplateWrapper.adminDeleteConfigurationTemplateV1(
+    AdminDeleteConfigurationTemplateV1.builder().namespace(namespace).name(cfgTemplateName).build());
+```
+
+### Create a game session
+
+```java
+final ApimodelsGameSessionResponse createGameSessionResult = player1GameSessionWrapper
+    .createGameSession(CreateGameSession.builder()
+        .namespace(namespace)
+        .body(ApimodelsCreateGameSessionRequest.builder().configurationName(cfgTemplateName).build())
+        .build());
+```
+
+### Join a game session
+
+```java
+final ApimodelsGameSessionResponse joinGameSessionResult = player2GameSessionWrapper
+    .joinGameSession(JoinGameSession
+        .builder()
+        .namespace(namespace)
+        .sessionId(gameSessionId)
+        .build());
+
+assertNotNull(joinGameSessionResult);
+```
+
+### Get game session
+
+```java
+final ApimodelsGameSessionResponse getGameSessionResult = gameSessionWrapper
+    .getGameSession(net.accelbyte.sdk.api.session.operations.game_session.GetGameSession.builder()
+        .namespace(namespace)
+        .sessionId(gameSessionId)
+        .build());
+```
+
+### Leave game session
+
+```java
+player2GameSessionWrapper
+    .leaveGameSession(LeaveGameSession.builder()
+        .namespace(namespace)
+        .sessionId(gameSessionId)
+        .build());
+```
+
+### Delete game session
+
+```java
+player1GameSessionWrapper
+    .deleteGameSession(
+        DeleteGameSession.builder().namespace(namespace).sessionId(gameSessionId).build());
+```
+
+### User create a party
+
+```java
+final ApimodelsPartySessionResponse publicCreatePartyResult = player1PartyWrapper
+    .publicCreateParty(net.accelbyte.sdk.api.session.operations.party.PublicCreateParty.builder()
+        .namespace(namespace)
+        .body(ApimodelsCreatePartyRequest.builder().configurationName(cfgTemplateName)
+            .members(Collections.singletonList(ApimodelsRequestMember.builder().id(player1UserId).build()))
+            .build())
+        .build());
+```
+
+### User join a party with code
+
+```java
+final ApimodelsPartySessionResponse publicPartyJoinCodeResult = player2PartyWrapper
+    .publicPartyJoinCode(PublicPartyJoinCode.builder()
+        .namespace(namespace)
+        .body(ApimodelsJoinByCodeRequest.builder().code(joinCode).build())
+        .build());
+```
+
+### Get party detail
+
+```java
+final ApimodelsPartySessionResponse publicGetPartyResult1 = partyWrapper.publicGetParty(PublicGetParty.builder()
+    .namespace(namespace)
+    .partyId(partyId)
+    .build());
+```
+
+### User leave a party
+
+```java
+player2PartyWrapper.publicPartyLeave(net.accelbyte.sdk.api.session.operations.party.PublicPartyLeave.builder()
+    .namespace(namespace)
+    .partyId(partyId)
+    .build());
 ```
 
 ## SessionBrowser
