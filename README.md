@@ -9,7 +9,7 @@ This SDK was generated from OpenAPI spec included in the [spec](spec) directory.
 ### Gradle
 
 Add the required configuration in `gradle.build`. Replace `{VERSION}` with 
-a specific release version tag from [releases]("https://github.com/AccelByte/accelbyte-java-sdk/releases") 
+a specific release version tag from [releases](https://github.com/AccelByte/accelbyte-java-sdk/releases) 
 without the leading `v` character.
 
 #### For v0.18.0 and later
