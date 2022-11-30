@@ -57,3 +57,13 @@ publish:
 			-e PUBLISH_OSSRH_USERNAME="$$PUBLISH_OSSRH_USERNAME" -e PUBLISH_OSSRH_PASSWORD="$$PUBLISH_OSSRH_PASSWORD" \
 			-e PUBLISH_ASC_KEY="$$(cat "$$PUBLISH_ASC_KEY_FILE_PATH")" -e PUBLISH_ASC_KEY_PASSWORD="$$PUBLISH_ASC_KEY_PASSWORD" \
 			gradle:7.5.1-jdk8 gradle --console=plain -i --no-daemon publishToSonatype closeAndReleaseSonatypeStagingRepository
+
+test_broken_link:
+	@test -n "$(SDK_MD_CRAWLER_PATH)" || (echo "SDK_MD_CRAWLER_PATH is not set" ; exit 1)
+	rm -f test.err
+	bash "$(SDK_MD_CRAWLER_PATH)/md-crawler.sh" -i README.md
+	DOCKER_SKIP_BUILD=1 bash "$(SDK_MD_CRAWLER_PATH)/md-crawler.sh" -i CHANGELOG.md
+	(for FILE in $$(find docs -type f); do \
+			(set -o pipefail; DOCKER_SKIP_BUILD=1 bash "$(SDK_MD_CRAWLER_PATH)/md-crawler.sh" -i $$FILE) || touch test.err; \
+	done)
+	[ ! -f test.err ]
