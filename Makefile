@@ -32,7 +32,7 @@ test_core:
 	
 test_integration:
 	@test -n "$(ENV_FILE_PATH)" || (echo "ENV_FILE_PATH is not set" ; exit 1)
-	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ --env-file $(ENV_FILE_PATH) -e GRADLE_USER_HOME=/data/.gradle gradle:7.5.1-jdk8 \
+	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e AB_PHANTAUTH_URL="https://phantauth.rbs1518.net" --env-file $(ENV_FILE_PATH) -e GRADLE_USER_HOME=/data/.gradle gradle:7.5.1-jdk8 \
 			gradle --console=plain -i --no-daemon testIntegration
 
 test_cli:

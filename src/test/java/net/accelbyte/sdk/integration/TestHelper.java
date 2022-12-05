@@ -31,4 +31,9 @@ public class TestHelper {
     }
     return new String(result);
   }
+
+  public static String getPhantauthBaseUrl() {
+    final String baseUrl = System.getenv("AB_PHANTAUTH_URL");
+    return baseUrl != null ? baseUrl : "https://phantauth.net";
+  }
 }
