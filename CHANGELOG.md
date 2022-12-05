@@ -1,20 +1,55 @@
-<a name="v0.24.0"></a>
-## [v0.24.0] - 2022-11-21
+<a name="v0.25.0"></a>
+## [v0.25.0] - 2022-12-05
 ### Chore
+- bump to version 0.25 for ab cloud 3.37
+- **makefile:** test core httpbin
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.37
+- **spec:** update spec for ab cloud 3.37
+
+### Ci
+- add check for openapi-2.0-vendor-extensions.md
+- **brokenlink:** added check for getting started documentation
+- **nightly:** include initial version of broken link check
+
+### Docs
+- update changelog for ab cloud 3.37
+- remove link quotes in readme
+- common use cases - add session & match2
+- update getting-started
+- add openapi-2.0-vendor-extensions.md
+
+### Feat
+- **samples:** getting started project
+
+### Fix
+- **sdk:** token refresh timer should not prolong lifetime of app
+
+### Test
+- **integration:** rename test helper methods
+- **integration:** use alternate phantauth instance
+- **integration:** session
+- **integration:** match2
+
+
+<a name="v0.24.0"></a>
+## [v0.24.0] - 2022-11-22
+### Chore
+- bump to version 0.23.2 for ab cloud 3.35 hotfix
 - bump to version 0.24 for ab cloud 3.36
 - bump to version 0.23.1 for ab cloud 3.35 hotfix
 - generate new match2 and session service sdk
-- bump to version 0.23.2 for ab cloud 3.35 hotfix
 - **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.35 hotfix
 - **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.35 hotfix
 - **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.36
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.36
+- **spec:** update spec for ab cloud 3.36
 - **spec:** update spec for ab cloud 3.35 hotfix
 - **spec:** update spec for ab cloud 3.36
 - **spec:** update spec for ab cloud 3.35 hotfix
 
 ### Docs
-- add migration guide v0.23 -> v0.24
 - update changelog for ab cloud 3.36
+- add migration guide v0.23 -> v0.24
 - update changelog for ab cloud 3.35 hotfix
 - update changelog for ab cloud 3.35 hotfix
 
@@ -745,7 +780,8 @@
 - replace unnecessary object
 
 
-[v0.24.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.23.0...v0.24.0
+[v0.25.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.24.0...v0.25.0
+[v0.24.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.23.2...v0.24.0
 [v0.23.2]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.23.1...v0.23.2
 [v0.23.1]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.23.0...v0.23.1
 [v0.23.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.22.0...v0.23.0
