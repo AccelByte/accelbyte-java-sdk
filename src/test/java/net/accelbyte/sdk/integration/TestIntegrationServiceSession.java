@@ -81,7 +81,7 @@ public class TestIntegrationServiceSession extends TestIntegration {
   @Test
   @Order(1)
   public void testConfigurationTemplate() throws Exception {
-    final String cfgTemplateName = "csharp_sdk_template_" + TestHelper.GenerateRandomId(4);
+    final String cfgTemplateName = "csharp_sdk_template_" + TestHelper.generateRandomId(4);
 
     final ConfigurationTemplate configurationTemplateWrapper = new ConfigurationTemplate(sdk);
 
@@ -157,7 +157,7 @@ public class TestIntegrationServiceSession extends TestIntegration {
   @Test
   @Order(1)
   public void testGameSession() throws Exception {
-    final String cfgTemplateName = "csharp_sdk_template_" + TestHelper.GenerateRandomId(4);
+    final String cfgTemplateName = "csharp_sdk_template_" + TestHelper.generateRandomId(4);
 
     final ConfigurationTemplate configurationTemplateWrapper = new ConfigurationTemplate(sdk);
     final GameSession gameSessionWrapper = new GameSession(sdk);
@@ -196,10 +196,10 @@ public class TestIntegrationServiceSession extends TestIntegration {
     String player2UserId = null;
 
     try {
-      final String player1Username = ("javasdk_" + TestHelper.GenerateRandomId(8));
-      final String player1Password = TestHelper.GenerateRandomPassword(10);
-      final String player2Username = ("javasdk_" + TestHelper.GenerateRandomId(8));
-      final String player2Password = TestHelper.GenerateRandomPassword(10);
+      final String player1Username = ("javasdk_" + TestHelper.generateRandomId(8));
+      final String player1Password = TestHelper.generateRandomPassword(10);
+      final String player2Username = ("javasdk_" + TestHelper.generateRandomId(8));
+      final String player2Password = TestHelper.generateRandomPassword(10);
 
       final AccountCreateUserResponseV4 createUserResult1 =
           usersV4Wrapper.publicCreateUserV4(
@@ -351,7 +351,7 @@ public class TestIntegrationServiceSession extends TestIntegration {
   @Test
   @Order(1)
   public void testParty() throws Exception {
-    final String cfgTemplateName = "csharp_sdk_template_" + TestHelper.GenerateRandomId(4);
+    final String cfgTemplateName = "csharp_sdk_template_" + TestHelper.generateRandomId(4);
 
     final ConfigurationTemplate configurationTemplateWrapper = new ConfigurationTemplate(sdk);
     final UsersV4 usersV4Wrapper = new UsersV4(sdk);
@@ -390,10 +390,10 @@ public class TestIntegrationServiceSession extends TestIntegration {
     String player2UserId = null;
 
     try {
-      final String player1Username = ("javasdk_" + TestHelper.GenerateRandomId(8));
-      final String player1Password = TestHelper.GenerateRandomPassword(10);
-      final String player2Username = ("javasdk_" + TestHelper.GenerateRandomId(8));
-      final String player2Password = TestHelper.GenerateRandomPassword(10);
+      final String player1Username = ("javasdk_" + TestHelper.generateRandomId(8));
+      final String player1Password = TestHelper.generateRandomPassword(10);
+      final String player2Username = ("javasdk_" + TestHelper.generateRandomId(8));
+      final String player2Password = TestHelper.generateRandomPassword(10);
 
       final AccountCreateUserResponseV4 createUserResult1 =
           usersV4Wrapper.publicCreateUserV4(

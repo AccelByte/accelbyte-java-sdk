@@ -58,7 +58,7 @@ class TestIntegrationServiceLobby extends TestIntegration {
   @Test
   @Order(2)
   public void testLobbyWebsocket() throws Exception {
-    final String request_id = TestHelper.GenerateRandomId(64);
+    final String request_id = TestHelper.generateRandomId(64);
     final CountDownLatch response = new CountDownLatch(1);
     final StringBuilder responseMessage = new StringBuilder();
 

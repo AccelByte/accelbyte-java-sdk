@@ -47,8 +47,8 @@ public class TestIntegrationServiceIam extends TestIntegration {
   @Test
   @Order(1)
   public void test() throws Exception {
-    final String userName = ("javasdk_" + TestHelper.GenerateRandomId(8));
-    final String userPassword = TestHelper.GenerateRandomPassword(10);
+    final String userName = ("javasdk_" + TestHelper.generateRandomId(8));
+    final String userPassword = TestHelper.generateRandomPassword(10);
     final String userEmail = (userName + "@test.com");
     final String userDisplayName = "Java Server SDK Test";
     final String userDateOfBirth = "1995-01-10";

@@ -54,7 +54,7 @@ class TestIntegrationServiceMatchmaking extends TestIntegration {
   @Test
   @Order(1)
   public void test() throws Exception {
-    final String channelName = "csharp_sdk_gm_" + TestHelper.GenerateRandomId(8);
+    final String channelName = "csharp_sdk_gm_" + TestHelper.generateRandomId(8);
     final String channelDescription = "This is a Java Server SDK test";
     final String channelDescriptionUpdate = "This is a Java Server SDK test update";
 

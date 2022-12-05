@@ -78,7 +78,7 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
   @Test
   @Order(1)
   public void testMatchPool() throws Exception {
-    final String nameSuffix = TestHelper.GenerateRandomId(4);
+    final String nameSuffix = TestHelper.generateRandomId(4);
 
     final String cfgTemplateName = "java_sdk_template_" + nameSuffix;
     final String rulesetName = "java_sdk_ruleset_" + nameSuffix;
@@ -160,8 +160,8 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
     String player1UserId = null;
 
     try {
-      final String player1Username = ("javasdk_" + TestHelper.GenerateRandomId(8));
-      final String player1Password = TestHelper.GenerateRandomPassword(10);
+      final String player1Username = ("javasdk_" + TestHelper.generateRandomId(8));
+      final String player1Password = TestHelper.generateRandomPassword(10);
 
       final AccountCreateUserResponseV4 createUserResult =
           usersV4Wrapper.publicCreateUserV4(
