@@ -25,10 +25,10 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Required Scope: social
  *
- * <p>Import channels configuration from file. It will merge with existing channels. Available
- * import strategy: - leaveOut: if channel with same key exist, the existing will be used and
- * imported one will be ignored (default) - replace: if channel with same key exist, the imported
- * channel will be used and existing one will be removed
+ * <p>Import achievement configuration from file. It will merge with existing achievement. Available
+ * import strategy: - leaveOut: if achievement with same key exist, the existing will be used and
+ * imported one will be ignored (default) - replace: if achievement with same key exist, the
+ * imported achievement will be used and existing one will be removed
  */
 @Getter
 @Setter

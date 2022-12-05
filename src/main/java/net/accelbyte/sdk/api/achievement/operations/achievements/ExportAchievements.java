@@ -20,9 +20,12 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * ExportAchievements
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]
+ * <p>Required permission `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]`
  *
- * <p>Required Scope: social
+ * <p>Required Scope: `social`
+ *
+ * <p>Successful response header will contain: `content-disposition: attachment;
+ * filename=achievement__config.json`
  */
 @Getter
 @Setter

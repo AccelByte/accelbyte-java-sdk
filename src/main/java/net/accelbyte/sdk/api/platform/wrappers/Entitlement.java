@@ -91,6 +91,16 @@ public class Entitlement {
   }
 
   /**
+   * @see GetUserActiveEntitlementsByItemIds
+   */
+  public List<EntitlementInfo> getUserActiveEntitlementsByItemIds(
+      GetUserActiveEntitlementsByItemIds input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetUserEntitlementBySku
    */
   public EntitlementInfo getUserEntitlementBySku(GetUserEntitlementBySku input) throws Exception {

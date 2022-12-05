@@ -77,6 +77,15 @@ public class DLC {
   }
 
   /**
+   * @see GetUserDLC
+   */
+  public UserDLC getUserDLC(GetUserDLC input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see SyncEpicGameDLC
    */
   public void syncEpicGameDLC(SyncEpicGameDLC input) throws Exception {

@@ -6,10 +6,8 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.platform.operations.iap;
+package net.accelbyte.sdk.api.platform.operations.dlc;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
@@ -21,45 +19,43 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * publicReconcilePlayStationStore
+ * getUserDLC
  *
- * <p>Synchronize with entitlements in PSN Store.
+ * <p>Get user dlc by platform. Other detail info:
  *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
- * * Returns : result of synchronization
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2
+ * (READ) * Returns : user dlc
  */
 @Getter
 @Setter
-public class PublicReconcilePlayStationStore extends Operation {
+public class GetUserDLC extends Operation {
   /** generated field's value */
-  private String path = "/platform/public/namespaces/{namespace}/users/{userId}/iap/psn/sync";
+  private String path = "/platform/admin/namespaces/{namespace}/users/{userId}/dlc";
 
-  private String method = "PUT";
-  private List<String> consumes = Arrays.asList("application/json");
+  private String method = "GET";
+  private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
   /** fields as input parameter */
   private String namespace;
 
   private String userId;
-  private PlayStationReconcileRequest body;
+  private String type;
 
   /**
    * @param namespace required
    * @param userId required
+   * @param type required
    */
   @Builder
   /*
    *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
    */
   @Deprecated
-  public PublicReconcilePlayStationStore(
-      String namespace, String userId, PlayStationReconcileRequest body) {
+  public GetUserDLC(String namespace, String userId, String type) {
     this.namespace = namespace;
     this.userId = userId;
-    this.body = body;
+    this.type = type;
 
     securities.add("Bearer");
   }
@@ -77,8 +73,10 @@ public class PublicReconcilePlayStationStore extends Operation {
   }
 
   @Override
-  public PlayStationReconcileRequest getBodyParams() {
-    return this.body;
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("type", this.type == null ? null : Arrays.asList(this.type));
+    return queryParams;
   }
 
   @Override
@@ -89,17 +87,58 @@ public class PublicReconcilePlayStationStore extends Operation {
     if (this.userId == null) {
       return false;
     }
+    if (this.type == null) {
+      return false;
+    }
     return true;
   }
 
-  public List<PlayStationReconcileResult> parseResponse(
-      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
+  public UserDLC parseResponse(int code, String contentType, InputStream payload)
+      throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ObjectMapper()
-        .readValue(json, new TypeReference<List<PlayStationReconcileResult>>() {});
+    return new UserDLC().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("type", "None");
+    return result;
+  }
+
+  public enum Type {
+    EPICGAMES("EPICGAMES"),
+    PSN("PSN"),
+    STEAM("STEAM"),
+    XBOX("XBOX");
+
+    private String value;
+
+    Type(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class GetUserDLCBuilder {
+    private String type;
+
+    public GetUserDLCBuilder type(final String type) {
+      this.type = type;
+      return this;
+    }
+
+    public GetUserDLCBuilder typeFromEnum(final Type type) {
+      this.type = type.toString();
+      return this;
+    }
   }
 }

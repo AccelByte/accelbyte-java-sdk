@@ -9,35 +9,31 @@ import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 
 public class App {
-    public static void main(String[] args) throws Exception {
-        // Create default HTTP client, token repository, and config repository instance
+  public static void main(String[] args) throws Exception {
+    // Create default HTTP client, token repository, and config repository instance
 
-        OkhttpClient httpClient = new OkhttpClient();
-        DefaultTokenRepository tokenRepository = new DefaultTokenRepository();
-        DefaultConfigRepository configRepository = new DefaultConfigRepository();
+    OkhttpClient httpClient = new OkhttpClient();
+    DefaultTokenRepository tokenRepository = new DefaultTokenRepository();
+    DefaultConfigRepository configRepository = new DefaultConfigRepository();
 
-        // Create SDK instance
+    // Create SDK instance
 
-        AccelByteSDK sdk = new AccelByteSDK(
-                httpClient,
-                tokenRepository,
-                configRepository);
+    AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, configRepository);
 
-        // Login using client credentials
+    // Login using client credentials
 
-        boolean isLoginOk = sdk.loginClient();
+    boolean isLoginOk = sdk.loginClient();
 
-        if (!isLoginOk) {
-            System.exit(1); // Login failed
-        }
-
-        // Call an AccelByte Cloud endpoint e.g. GetCountryLocationV3
-
-        OAuth20Extension wrapper = new OAuth20Extension(sdk);
-        GetCountryLocationV3 operation = GetCountryLocationV3.builder()
-                .build();
-        OauthmodelCountryLocationResponse response = wrapper.getCountryLocationV3(operation);
-
-        System.out.println(response.getCountryName());
+    if (!isLoginOk) {
+      System.exit(1); // Login failed
     }
+
+    // Call an AccelByte Cloud endpoint e.g. GetCountryLocationV3
+
+    OAuth20Extension wrapper = new OAuth20Extension(sdk);
+    GetCountryLocationV3 operation = GetCountryLocationV3.builder().build();
+    OauthmodelCountryLocationResponse response = wrapper.getCountryLocationV3(operation);
+
+    System.out.println(response.getCountryName());
+  }
 }

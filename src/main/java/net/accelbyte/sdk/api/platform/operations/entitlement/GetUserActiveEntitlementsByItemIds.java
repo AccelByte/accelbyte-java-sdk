@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.platform.operations.iap;
+package net.accelbyte.sdk.api.platform.operations.entitlement;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,30 +21,31 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * publicReconcilePlayStationStore
+ * getUserActiveEntitlementsByItemIds
  *
- * <p>Synchronize with entitlements in PSN Store.
+ * <p>Get user entitlements by itemIds.
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
- * * Returns : result of synchronization
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT",
+ * action=2 (READ)
  */
 @Getter
 @Setter
-public class PublicReconcilePlayStationStore extends Operation {
+public class GetUserActiveEntitlementsByItemIds extends Operation {
   /** generated field's value */
-  private String path = "/platform/public/namespaces/{namespace}/users/{userId}/iap/psn/sync";
+  private String path =
+      "/platform/admin/namespaces/{namespace}/users/{userId}/entitlements/byItemIds";
 
-  private String method = "PUT";
-  private List<String> consumes = Arrays.asList("application/json");
+  private String method = "GET";
+  private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
   /** fields as input parameter */
   private String namespace;
 
   private String userId;
-  private PlayStationReconcileRequest body;
+  private List<String> ids;
 
   /**
    * @param namespace required
@@ -55,11 +56,10 @@ public class PublicReconcilePlayStationStore extends Operation {
    *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
    */
   @Deprecated
-  public PublicReconcilePlayStationStore(
-      String namespace, String userId, PlayStationReconcileRequest body) {
+  public GetUserActiveEntitlementsByItemIds(String namespace, String userId, List<String> ids) {
     this.namespace = namespace;
     this.userId = userId;
-    this.body = body;
+    this.ids = ids;
 
     securities.add("Bearer");
   }
@@ -77,8 +77,10 @@ public class PublicReconcilePlayStationStore extends Operation {
   }
 
   @Override
-  public PlayStationReconcileRequest getBodyParams() {
-    return this.body;
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("ids", this.ids == null ? null : this.ids);
+    return queryParams;
   }
 
   @Override
@@ -92,14 +94,20 @@ public class PublicReconcilePlayStationStore extends Operation {
     return true;
   }
 
-  public List<PlayStationReconcileResult> parseResponse(
-      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
+  public List<EntitlementInfo> parseResponse(int code, String contentType, InputStream payload)
+      throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ObjectMapper()
-        .readValue(json, new TypeReference<List<PlayStationReconcileResult>>() {});
+    return new ObjectMapper().readValue(json, new TypeReference<List<EntitlementInfo>>() {});
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("ids", "multi");
+    return result;
   }
 }

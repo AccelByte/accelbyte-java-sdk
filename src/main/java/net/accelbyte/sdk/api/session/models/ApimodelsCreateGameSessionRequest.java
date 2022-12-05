@@ -69,6 +69,9 @@ public class ApimodelsCreateGameSessionRequest extends Model {
   @JsonProperty("teams")
   private List<ModelsTeam> teams;
 
+  @JsonProperty("textChat")
+  private Boolean textChat;
+
   @JsonProperty("ticketIDs")
   private List<String> ticketIDs;
 

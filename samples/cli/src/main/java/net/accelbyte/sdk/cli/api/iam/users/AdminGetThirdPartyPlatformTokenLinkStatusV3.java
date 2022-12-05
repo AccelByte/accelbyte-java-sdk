@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.platform.iap;
+package net.accelbyte.sdk.cli.api.iam.users;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.wrappers.IAP;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.iam.wrappers.Users;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,13 +25,11 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(
-    name = "publicReconcilePlayStationStoreWithMultipleServiceLabels",
-    mixinStandardHelpOptions = true)
-public class PublicReconcilePlayStationStoreWithMultipleServiceLabels implements Callable<Integer> {
+@Command(name = "adminGetThirdPartyPlatformTokenLinkStatusV3", mixinStandardHelpOptions = true)
+public class AdminGetThirdPartyPlatformTokenLinkStatusV3 implements Callable<Integer> {
 
   private static final Logger log =
-      LogManager.getLogger(PublicReconcilePlayStationStoreWithMultipleServiceLabels.class);
+      LogManager.getLogger(AdminGetThirdPartyPlatformTokenLinkStatusV3.class);
 
   @Option(
       names = {"--namespace"},
@@ -39,14 +37,19 @@ public class PublicReconcilePlayStationStoreWithMultipleServiceLabels implements
   String namespace;
 
   @Option(
+      names = {"--platformId"},
+      description = "platformId")
+  String platformId;
+
+  @Option(
       names = {"--userId"},
       description = "userId")
   String userId;
 
   @Option(
-      names = {"--body"},
-      description = "body")
-  String body;
+      names = {"--platformToken"},
+      description = "platformToken")
+  String platformToken;
 
   @Option(
       names = {"--logging"},
@@ -54,9 +57,7 @@ public class PublicReconcilePlayStationStoreWithMultipleServiceLabels implements
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode =
-        new CommandLine(new PublicReconcilePlayStationStoreWithMultipleServiceLabels())
-            .execute(args);
+    int exitCode = new CommandLine(new AdminGetThirdPartyPlatformTokenLinkStatusV3()).execute(args);
     System.exit(exitCode);
   }
 
@@ -70,20 +71,18 @@ public class PublicReconcilePlayStationStoreWithMultipleServiceLabels implements
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap
-              .PublicReconcilePlayStationStoreWithMultipleServiceLabels
+      final Users wrapper = new Users(sdk);
+      final net.accelbyte.sdk.api.iam.operations.users.AdminGetThirdPartyPlatformTokenLinkStatusV3
           operation =
-              net.accelbyte.sdk.api.platform.operations.iap
-                  .PublicReconcilePlayStationStoreWithMultipleServiceLabels.builder()
+              net.accelbyte.sdk.api.iam.operations.users.AdminGetThirdPartyPlatformTokenLinkStatusV3
+                  .builder()
                   .namespace(namespace)
+                  .platformId(platformId)
                   .userId(userId)
-                  .body(
-                      new ObjectMapper()
-                          .readValue(body, PlayStationMultiServiceLabelsReconcileRequest.class))
+                  .platformToken(platformToken != null ? platformToken : null)
                   .build();
-      final List<PlayStationReconcileResult> response =
-          wrapper.publicReconcilePlayStationStoreWithMultipleServiceLabels(operation);
+      final ModelTokenThirdPartyLinkStatusResponse response =
+          wrapper.adminGetThirdPartyPlatformTokenLinkStatusV3(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

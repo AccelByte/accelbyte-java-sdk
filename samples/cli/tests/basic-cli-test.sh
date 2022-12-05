@@ -61,7 +61,7 @@ eval_tap $? 2 'GetNamespaces' test.out
 
 #- 3 CreateNamespace
 ./ng net.accelbyte.sdk.cli.Main basic createNamespace \
-    --body '{"displayName": "AjYnYbCD", "namespace": "ppIR9onC"}' \
+    --body '{"displayName": "6L4T1slC", "namespace": "tDgpAMPe"}' \
     > test.out 2>&1
 eval_tap $? 3 'CreateNamespace' test.out
 
@@ -87,42 +87,42 @@ eval_tap $? 6 'GetActions' test.out
 #- 7 BanUsers
 ./ng net.accelbyte.sdk.cli.Main basic banUsers \
     --namespace "$AB_NAMESPACE" \
-    --body '{"actionId": 54, "comment": "2Z23jzgD", "userIds": ["jfrU34pk", "g7LJCqH8", "3boDbacy"]}' \
+    --body '{"actionId": 68, "comment": "eEvYoAs0", "userIds": ["fz08OtEL", "qrVMm0Yi", "7P40KEIg"]}' \
     > test.out 2>&1
 eval_tap $? 7 'BanUsers' test.out
 
 #- 8 GetBannedUsers
 ./ng net.accelbyte.sdk.cli.Main basic getBannedUsers \
     --namespace "$AB_NAMESPACE" \
-    --userIds 'VJj1awjZ,QCCkjOB7,g88LwE3g' \
+    --userIds 'Ir1Rcn2i,700dwg9m,QvxteSCQ' \
     > test.out 2>&1
 eval_tap $? 8 'GetBannedUsers' test.out
 
 #- 9 ReportUser
 ./ng net.accelbyte.sdk.cli.Main basic reportUser \
     --namespace "$AB_NAMESPACE" \
-    --body '{"category": "0WsHBL5z", "description": "HpYm9Ah7", "gameSessionId": "zQef2EeC", "subcategory": "Q3Rb3FZz", "userId": "miXver1B"}' \
+    --body '{"category": "ZuIs7G5C", "description": "mpn06pUr", "gameSessionId": "LxYYlbAz", "subcategory": "KY1aAcWL", "userId": "G2x7biJG"}' \
     > test.out 2>&1
 eval_tap $? 9 'ReportUser' test.out
 
 #- 10 GetUserStatus
 ./ng net.accelbyte.sdk.cli.Main basic getUserStatus \
     --namespace "$AB_NAMESPACE" \
-    --userId 'FdDquzQq' \
+    --userId 'AKqeTJlD' \
     > test.out 2>&1
 eval_tap $? 10 'GetUserStatus' test.out
 
 #- 11 UnBanUsers
 ./ng net.accelbyte.sdk.cli.Main basic unBanUsers \
     --namespace "$AB_NAMESPACE" \
-    --body '{"comment": "jXmziXvQ", "userIds": ["n2eM6kE7", "eOnCEqBO", "4WH0dBTQ"]}' \
+    --body '{"comment": "WdYdUZzv", "userIds": ["xG0hAqpB", "MIsKhFqP", "5LOZELkX"]}' \
     > test.out 2>&1
 eval_tap $? 11 'UnBanUsers' test.out
 
 #- 12 UpdateNamespace
 ./ng net.accelbyte.sdk.cli.Main basic updateNamespace \
     --namespace "$AB_NAMESPACE" \
-    --body '{"displayName": "vR9pPmZn"}' \
+    --body '{"displayName": "v3QFzHAI"}' \
     > test.out 2>&1
 eval_tap $? 12 'UpdateNamespace' test.out
 
@@ -141,50 +141,50 @@ eval_tap $? 14 'DeleteConfig' test.out
 #- 15 UpdateConfig
 ./ng net.accelbyte.sdk.cli.Main basic updateConfig \
     --namespace "$AB_NAMESPACE" \
-    --body '{"apiKey": "yltBGDXR"}' \
+    --body '{"apiKey": "bqPCHuUR"}' \
     > test.out 2>&1
 eval_tap $? 15 'UpdateConfig' test.out
 
 #- 16 GeneratedUploadUrl
 ./ng net.accelbyte.sdk.cli.Main basic generatedUploadUrl \
-    --folder 'Wi1U7uYV' \
+    --folder 'knjie1NM' \
     --namespace "$AB_NAMESPACE" \
-    --fileType '6Xvx3AUq' \
+    --fileType 'J52aZNeK' \
     > test.out 2>&1
 eval_tap $? 16 'GeneratedUploadUrl' test.out
 
 #- 17 GetCountries
 ./ng net.accelbyte.sdk.cli.Main basic getCountries \
     --namespace "$AB_NAMESPACE" \
-    --lang '0MIvl0XS' \
+    --lang 'mTCnbnt1' \
     > test.out 2>&1
 eval_tap $? 17 'GetCountries' test.out
 
 #- 18 GetCountryGroups
 ./ng net.accelbyte.sdk.cli.Main basic getCountryGroups \
     --namespace "$AB_NAMESPACE" \
-    --groupCode 'jbc24rBi' \
+    --groupCode 'thEP4gb7' \
     > test.out 2>&1
 eval_tap $? 18 'GetCountryGroups' test.out
 
 #- 19 AddCountryGroup
 ./ng net.accelbyte.sdk.cli.Main basic addCountryGroup \
     --namespace "$AB_NAMESPACE" \
-    --body '{"countries": [{"code": "DxXZG12P", "name": "TFsUHVAT"}, {"code": "w9SaPuDq", "name": "I4ysnQtA"}, {"code": "1PGFsg6z", "name": "mEhAnYg6"}], "countryGroupCode": "IcZ5vxUV", "countryGroupName": "nSPlARuq"}' \
+    --body '{"countries": [{"code": "mlgF7Pkk", "name": "quHbQLfp"}, {"code": "sKrc7yal", "name": "Clgxwlz2"}, {"code": "wOfVu1tP", "name": "3DOrTPCU"}], "countryGroupCode": "lRGGCHap", "countryGroupName": "lQhIXRUA"}' \
     > test.out 2>&1
 eval_tap $? 19 'AddCountryGroup' test.out
 
 #- 20 UpdateCountryGroup
 ./ng net.accelbyte.sdk.cli.Main basic updateCountryGroup \
-    --countryGroupCode 'VILrDSYQ' \
+    --countryGroupCode 'k92tx33M' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"countries": [{"code": "XLB7zCBJ", "name": "UbnHkWep"}, {"code": "RT0SMVaX", "name": "XZ7TKzw1"}, {"code": "YnVK1hHZ", "name": "yKI7DnWk"}], "countryGroupName": "G3C0d9dE"}' \
+    --body '{"countries": [{"code": "xu15uLhX", "name": "SfmVQGEt"}, {"code": "2JoZegkU", "name": "kXIlqU1j"}, {"code": "RgIfvSuX", "name": "Itsv4qyk"}], "countryGroupName": "uRmtdysa"}' \
     > test.out 2>&1
 eval_tap $? 20 'UpdateCountryGroup' test.out
 
 #- 21 DeleteCountryGroup
 ./ng net.accelbyte.sdk.cli.Main basic deleteCountryGroup \
-    --countryGroupCode 'XMBcLctH' \
+    --countryGroupCode '0j1NWE0j' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 21 'DeleteCountryGroup' test.out
@@ -204,14 +204,14 @@ eval_tap $? 23 'GetTimeZones' test.out
 #- 24 GetUserProfileInfoByPublicId
 ./ng net.accelbyte.sdk.cli.Main basic getUserProfileInfoByPublicId \
     --namespace "$AB_NAMESPACE" \
-    --publicId 'psYJW3Lc' \
+    --publicId 'VUemjGqY' \
     > test.out 2>&1
 eval_tap $? 24 'GetUserProfileInfoByPublicId' test.out
 
 #- 25 AdminGetUserProfilePublicInfoByIds
 ./ng net.accelbyte.sdk.cli.Main basic adminGetUserProfilePublicInfoByIds \
     --namespace "$AB_NAMESPACE" \
-    --body '{"userIds": ["hxJXftkS", "VL5phfNq", "8KexG4XF"]}' \
+    --body '{"userIds": ["4oNBN3Ig", "yWpLJpMB", "lZUHLoQG"]}' \
     > test.out 2>&1
 eval_tap $? 25 'AdminGetUserProfilePublicInfoByIds' test.out
 
@@ -231,75 +231,75 @@ eval_tap $? 27 'ChangeNamespaceStatus' test.out
 #- 28 AnonymizeUserProfile
 ./ng net.accelbyte.sdk.cli.Main basic anonymizeUserProfile \
     --namespace "$AB_NAMESPACE" \
-    --userId 'OPSrorux' \
+    --userId 'z2cDseB2' \
     > test.out 2>&1
 eval_tap $? 28 'AnonymizeUserProfile' test.out
 
 #- 29 GeneratedUserUploadContentUrl
 ./ng net.accelbyte.sdk.cli.Main basic generatedUserUploadContentUrl \
     --namespace "$AB_NAMESPACE" \
-    --userId '2pORWVrT' \
-    --category 'cnsXJPqB' \
-    --fileType '6XqixpSo' \
+    --userId 'jL9NTJzt' \
+    --category 'RuaYKIj1' \
+    --fileType '1PHKgazr' \
     > test.out 2>&1
 eval_tap $? 29 'GeneratedUserUploadContentUrl' test.out
 
 #- 30 GetUserProfileInfo
 ./ng net.accelbyte.sdk.cli.Main basic getUserProfileInfo \
     --namespace "$AB_NAMESPACE" \
-    --userId 'oS5Om9HS' \
+    --userId 'P589SO6M' \
     > test.out 2>&1
 eval_tap $? 30 'GetUserProfileInfo' test.out
 
 #- 31 UpdateUserProfile
 ./ng net.accelbyte.sdk.cli.Main basic updateUserProfile \
     --namespace "$AB_NAMESPACE" \
-    --userId 'k1Z9BBSc' \
-    --body '{"avatarLargeUrl": "saQqIWWq", "avatarSmallUrl": "SMxLH1Sf", "avatarUrl": "RLyaelTl", "customAttributes": {"9UkDErgS": {}, "UqoWqEQy": {}, "GGt6ttgj": {}}, "dateOfBirth": "1999-06-11", "firstName": "XSRIdNvW", "language": "Od", "lastName": "r1aoyZFv", "status": "ACTIVE", "timeZone": "zKXZya2R", "zipCode": "0bPoTb2o"}' \
+    --userId 'bPlHsIPV' \
+    --body '{"avatarLargeUrl": "NBPIC4Iz", "avatarSmallUrl": "jXigU0rt", "avatarUrl": "8W9ZJVBt", "customAttributes": {"lNnHDDZ8": {}, "nBTqeI9B": {}, "qb4oxODo": {}}, "dateOfBirth": "1985-10-08", "firstName": "RGvHRA65", "language": "IW-251", "lastName": "cfBqaUfu", "status": "INACTIVE", "timeZone": "jadjhVCN", "zipCode": "8c6C2DJS"}' \
     > test.out 2>&1
 eval_tap $? 31 'UpdateUserProfile' test.out
 
 #- 32 DeleteUserProfile
 ./ng net.accelbyte.sdk.cli.Main basic deleteUserProfile \
     --namespace "$AB_NAMESPACE" \
-    --userId 'nvMJeoaT' \
+    --userId 'TWhn6bZK' \
     > test.out 2>&1
 eval_tap $? 32 'DeleteUserProfile' test.out
 
 #- 33 GetCustomAttributesInfo
 ./ng net.accelbyte.sdk.cli.Main basic getCustomAttributesInfo \
     --namespace "$AB_NAMESPACE" \
-    --userId 'OSwIIJ8c' \
+    --userId '3RmkNCk1' \
     > test.out 2>&1
 eval_tap $? 33 'GetCustomAttributesInfo' test.out
 
 #- 34 UpdateCustomAttributesPartially
 ./ng net.accelbyte.sdk.cli.Main basic updateCustomAttributesPartially \
     --namespace "$AB_NAMESPACE" \
-    --userId 'Luk6a3Or' \
-    --body '{"ykqRgUp4": {}, "YQtDHRut": {}, "jqv4IGtu": {}}' \
+    --userId '608dAMtq' \
+    --body '{"8C7AuSHV": {}, "8cuwsBxd": {}, "j0jr8RK7": {}}' \
     > test.out 2>&1
 eval_tap $? 34 'UpdateCustomAttributesPartially' test.out
 
 #- 35 GetPrivateCustomAttributesInfo
 ./ng net.accelbyte.sdk.cli.Main basic getPrivateCustomAttributesInfo \
     --namespace "$AB_NAMESPACE" \
-    --userId 'UCOm2zvR' \
+    --userId 'X2kmslx2' \
     > test.out 2>&1
 eval_tap $? 35 'GetPrivateCustomAttributesInfo' test.out
 
 #- 36 UpdatePrivateCustomAttributesPartially
 ./ng net.accelbyte.sdk.cli.Main basic updatePrivateCustomAttributesPartially \
     --namespace "$AB_NAMESPACE" \
-    --userId '0B2VnDpI' \
-    --body '{"5DJNp8kC": {}, "OXraEq2J": {}, "ozFYzVbX": {}}' \
+    --userId 'QQ6g3fzR' \
+    --body '{"9a4Ek2Rx": {}, "UxRSkaf8": {}, "sY2iijdY": {}}' \
     > test.out 2>&1
 eval_tap $? 36 'UpdatePrivateCustomAttributesPartially' test.out
 
 #- 37 UpdateUserProfileStatus
 ./ng net.accelbyte.sdk.cli.Main basic updateUserProfileStatus \
     --namespace "$AB_NAMESPACE" \
-    --userId 'GRvy6Yf3' \
+    --userId 'thZGNEwI' \
     --body '{"status": "INACTIVE"}' \
     > test.out 2>&1
 eval_tap $? 37 'UpdateUserProfileStatus' test.out
@@ -317,16 +317,16 @@ eval_tap $? 39 'PublicGetNamespaces' test.out
 
 #- 40 PublicGeneratedUploadUrl
 ./ng net.accelbyte.sdk.cli.Main basic publicGeneratedUploadUrl \
-    --folder 'sjFxQQWM' \
+    --folder 'N3tPy5gD' \
     --namespace "$AB_NAMESPACE" \
-    --fileType 'viPQ4ZS8' \
+    --fileType 'Ek0Rec9h' \
     > test.out 2>&1
 eval_tap $? 40 'PublicGeneratedUploadUrl' test.out
 
 #- 41 PublicGetCountries
 ./ng net.accelbyte.sdk.cli.Main basic publicGetCountries \
     --namespace "$AB_NAMESPACE" \
-    --lang 'lN4v7UoO' \
+    --lang '0VhHJMiF' \
     > test.out 2>&1
 eval_tap $? 41 'PublicGetCountries' test.out
 
@@ -345,14 +345,14 @@ eval_tap $? 43 'PublicGetTimeZones' test.out
 #- 44 PublicGetUserProfilePublicInfoByIds
 ./ng net.accelbyte.sdk.cli.Main basic publicGetUserProfilePublicInfoByIds \
     --namespace "$AB_NAMESPACE" \
-    --userIds 'OZt3oHNa' \
+    --userIds 'Osx0sNd8' \
     > test.out 2>&1
 eval_tap $? 44 'PublicGetUserProfilePublicInfoByIds' test.out
 
 #- 45 PublicGetUserProfileInfoByPublicId
 ./ng net.accelbyte.sdk.cli.Main basic publicGetUserProfileInfoByPublicId \
     --namespace "$AB_NAMESPACE" \
-    --publicId 'c2i0WBuq' \
+    --publicId 'fDRo5dvO' \
     > test.out 2>&1
 eval_tap $? 45 'PublicGetUserProfileInfoByPublicId' test.out
 
@@ -371,14 +371,14 @@ eval_tap $? 47 'GetMyProfileInfo' test.out
 #- 48 UpdateMyProfile
 ./ng net.accelbyte.sdk.cli.Main basic updateMyProfile \
     --namespace "$AB_NAMESPACE" \
-    --body '{"avatarLargeUrl": "ae6eBqqr", "avatarSmallUrl": "1QK7OknT", "avatarUrl": "0GKkSGwL", "customAttributes": {"fHHXHckK": {}, "LrAFaIOy": {}, "XFopN5Nm": {}}, "dateOfBirth": "1998-06-27", "firstName": "nPjbA49p", "language": "dS-755", "lastName": "jpcn2pdk", "privateCustomAttributes": {"wKCspWXf": {}, "T5uQB77e": {}, "eCo4IrDM": {}}, "timeZone": "UolidtvX", "zipCode": "VwQeEZmU"}' \
+    --body '{"avatarLargeUrl": "BzfHTHa2", "avatarSmallUrl": "rKBXavsz", "avatarUrl": "NU09yne0", "customAttributes": {"2CYywIuF": {}, "SYDDLY37": {}, "AxoFJtHA": {}}, "dateOfBirth": "1974-01-14", "firstName": "BPeXZYqh", "language": "ftp", "lastName": "NrKeAdVx", "privateCustomAttributes": {"t6pVZCsQ": {}, "3KIr3JWc": {}, "QfS6ZS35": {}}, "timeZone": "MPPRaPSt", "zipCode": "Tm7JiKwZ"}' \
     > test.out 2>&1
 eval_tap $? 48 'UpdateMyProfile' test.out
 
 #- 49 CreateMyProfile
 ./ng net.accelbyte.sdk.cli.Main basic createMyProfile \
     --namespace "$AB_NAMESPACE" \
-    --body '{"avatarLargeUrl": "FPB0F5yO", "avatarSmallUrl": "wnXnuIwl", "avatarUrl": "D7Yx27v2", "customAttributes": {"3MoQQdhG": {}, "r4LyRyPm": {}, "c1Au7Qp8": {}}, "dateOfBirth": "1978-06-26", "firstName": "WO6pyMW6", "language": "ef", "lastName": "xwCD8jbv", "privateCustomAttributes": {"I8ZeJq99": {}, "oGN7z5H7": {}, "TvbuYVNo": {}}, "timeZone": "AlagaHZg"}' \
+    --body '{"avatarLargeUrl": "bc8dKI1a", "avatarSmallUrl": "mFBEeHeD", "avatarUrl": "Rj4Wn2Sm", "customAttributes": {"1B6ZbMM4": {}, "X8DeN5df": {}, "fvrbHzi0": {}}, "dateOfBirth": "1976-02-21", "firstName": "dWSvrhja", "language": "QIVn", "lastName": "uufzOt7P", "privateCustomAttributes": {"jUGJM8wU": {}, "xDayFuGx": {}, "leaiP1N4": {}}, "timeZone": "UTKkFW75"}' \
     > test.out 2>&1
 eval_tap $? 49 'CreateMyProfile' test.out
 
@@ -391,7 +391,7 @@ eval_tap $? 50 'GetMyPrivateCustomAttributesInfo' test.out
 #- 51 UpdateMyPrivateCustomAttributesPartially
 ./ng net.accelbyte.sdk.cli.Main basic updateMyPrivateCustomAttributesPartially \
     --namespace "$AB_NAMESPACE" \
-    --body '{"SK7fMo7Q": {}, "Tq16viKr": {}, "8vcA8xV0": {}}' \
+    --body '{"oFTlyCh1": {}, "cICAOWPU": {}, "yyHDMcMZ": {}}' \
     > test.out 2>&1
 eval_tap $? 51 'UpdateMyPrivateCustomAttributesPartially' test.out
 
@@ -404,77 +404,77 @@ eval_tap $? 52 'GetMyZipCode' test.out
 #- 53 UpdateMyZipCode
 ./ng net.accelbyte.sdk.cli.Main basic updateMyZipCode \
     --namespace "$AB_NAMESPACE" \
-    --userZipCodeUpdate '{"zipCode": "9VlDyCWU"}' \
+    --userZipCodeUpdate '{"zipCode": "mLxqPSjJ"}' \
     > test.out 2>&1
 eval_tap $? 53 'UpdateMyZipCode' test.out
 
 #- 54 PublicReportUser
 ./ng net.accelbyte.sdk.cli.Main basic publicReportUser \
     --namespace "$AB_NAMESPACE" \
-    --userId '0jJMcugW' \
-    --body '{"category": "L9V6EQaH", "description": "66HdmcnJ", "gameSessionId": "gm23NGVB", "subcategory": "b43sEpBk", "userId": "uICKv0hq"}' \
+    --userId '0OGbzjmN' \
+    --body '{"category": "CB1FmmZa", "description": "FjpQxf9z", "gameSessionId": "NNywSH8M", "subcategory": "nee6Knrz", "userId": "P26ZwNlB"}' \
     > test.out 2>&1
 eval_tap $? 54 'PublicReportUser' test.out
 
 #- 55 PublicGeneratedUserUploadContentUrl
 ./ng net.accelbyte.sdk.cli.Main basic publicGeneratedUserUploadContentUrl \
     --namespace "$AB_NAMESPACE" \
-    --userId '34Dy8z79' \
-    --category 'DeXoUU40' \
-    --fileType 'uKcvKK54' \
+    --userId 'b62kn0An' \
+    --category 'RTdcHcjH' \
+    --fileType 'nHhWtYgf' \
     > test.out 2>&1
 eval_tap $? 55 'PublicGeneratedUserUploadContentUrl' test.out
 
 #- 56 PublicGetUserProfileInfo
 ./ng net.accelbyte.sdk.cli.Main basic publicGetUserProfileInfo \
     --namespace "$AB_NAMESPACE" \
-    --userId 'jPgJkofM' \
+    --userId 'xNKNurm8' \
     > test.out 2>&1
 eval_tap $? 56 'PublicGetUserProfileInfo' test.out
 
 #- 57 PublicUpdateUserProfile
 ./ng net.accelbyte.sdk.cli.Main basic publicUpdateUserProfile \
     --namespace "$AB_NAMESPACE" \
-    --userId '9DboFSAo' \
-    --body '{"avatarLargeUrl": "h2S4K6DL", "avatarSmallUrl": "4o1p8zkL", "avatarUrl": "sy5UDwNa", "customAttributes": {"OCkiSJCf": {}, "ydJ6dNHK": {}, "Zt0TnYrt": {}}, "dateOfBirth": "1976-09-25", "firstName": "SbMzJSI6", "language": "ar_GeHy", "lastName": "15crltDO", "timeZone": "feXnMNyr", "zipCode": "XWiX9DyM"}' \
+    --userId '4skVwpFX' \
+    --body '{"avatarLargeUrl": "hfyGjpMl", "avatarSmallUrl": "5VqoZDmr", "avatarUrl": "Kcjs0O4W", "customAttributes": {"17LSVaiw": {}, "iCG6YQsH": {}, "ykFaqZyu": {}}, "dateOfBirth": "1990-02-18", "firstName": "ffaTzpRx", "language": "qh_514", "lastName": "pWIzUMSE", "timeZone": "yJXUxprY", "zipCode": "FdZ8Ze3g"}' \
     > test.out 2>&1
 eval_tap $? 57 'PublicUpdateUserProfile' test.out
 
 #- 58 PublicCreateUserProfile
 ./ng net.accelbyte.sdk.cli.Main basic publicCreateUserProfile \
     --namespace "$AB_NAMESPACE" \
-    --userId 'WK45QgAn' \
-    --body '{"avatarLargeUrl": "1TWBCdVK", "avatarSmallUrl": "JLTJNRoj", "avatarUrl": "1N1yO1Vs", "customAttributes": {"e9sI92tQ": {}, "3Vo0AmnZ": {}, "Az8ORX8s": {}}, "dateOfBirth": "1997-08-02", "firstName": "UkdLMZ6x", "language": "BDW-toHE-555", "lastName": "MPYQ1Fjn", "timeZone": "DcVqYqWP"}' \
+    --userId 'BjFrII56' \
+    --body '{"avatarLargeUrl": "xbTfWKUo", "avatarSmallUrl": "yn0zm0CY", "avatarUrl": "n97jl715", "customAttributes": {"89Ky2Qv9": {}, "rhbst5G0": {}, "KitFynBC": {}}, "dateOfBirth": "1986-05-18", "firstName": "UvqFF5pr", "language": "WiML_PhEZ_Wf", "lastName": "HrFlRvDT", "timeZone": "fWCnjg0R"}' \
     > test.out 2>&1
 eval_tap $? 58 'PublicCreateUserProfile' test.out
 
 #- 59 PublicGetCustomAttributesInfo
 ./ng net.accelbyte.sdk.cli.Main basic publicGetCustomAttributesInfo \
     --namespace "$AB_NAMESPACE" \
-    --userId 'ite8e5bP' \
+    --userId 'vCT7OQX6' \
     > test.out 2>&1
 eval_tap $? 59 'PublicGetCustomAttributesInfo' test.out
 
 #- 60 PublicUpdateCustomAttributesPartially
 ./ng net.accelbyte.sdk.cli.Main basic publicUpdateCustomAttributesPartially \
     --namespace "$AB_NAMESPACE" \
-    --userId 'gnXbqosu' \
-    --body '{"UqB2mXzm": {}, "dpqYWYwS": {}, "kRES804w": {}}' \
+    --userId 'Ion50CYu' \
+    --body '{"YHeYR8yQ": {}, "def5Gt5n": {}, "Cz5dTrE6": {}}' \
     > test.out 2>&1
 eval_tap $? 60 'PublicUpdateCustomAttributesPartially' test.out
 
 #- 61 PublicGetUserProfilePublicInfo
 ./ng net.accelbyte.sdk.cli.Main basic publicGetUserProfilePublicInfo \
     --namespace "$AB_NAMESPACE" \
-    --userId 'iVkUKUm0' \
+    --userId 'x7UbY6kN' \
     > test.out 2>&1
 eval_tap $? 61 'PublicGetUserProfilePublicInfo' test.out
 
 #- 62 PublicUpdateUserProfileStatus
 ./ng net.accelbyte.sdk.cli.Main basic publicUpdateUserProfileStatus \
     --namespace "$AB_NAMESPACE" \
-    --userId 'b1w08oE4' \
-    --body '{"status": "INACTIVE"}' \
+    --userId 'hmido0Mx' \
+    --body '{"status": "ACTIVE"}' \
     > test.out 2>&1
 eval_tap $? 62 'PublicUpdateUserProfileStatus' test.out
 

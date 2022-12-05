@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.platform.iap;
+package net.accelbyte.sdk.cli.api.platform.dlc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.wrappers.IAP;
+import net.accelbyte.sdk.api.platform.wrappers.DLC;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,13 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(
-    name = "publicReconcilePlayStationStoreWithMultipleServiceLabels",
-    mixinStandardHelpOptions = true)
-public class PublicReconcilePlayStationStoreWithMultipleServiceLabels implements Callable<Integer> {
+@Command(name = "getUserDLC", mixinStandardHelpOptions = true)
+public class GetUserDLC implements Callable<Integer> {
 
-  private static final Logger log =
-      LogManager.getLogger(PublicReconcilePlayStationStoreWithMultipleServiceLabels.class);
+  private static final Logger log = LogManager.getLogger(GetUserDLC.class);
 
   @Option(
       names = {"--namespace"},
@@ -44,9 +41,9 @@ public class PublicReconcilePlayStationStoreWithMultipleServiceLabels implements
   String userId;
 
   @Option(
-      names = {"--body"},
-      description = "body")
-  String body;
+      names = {"--type"},
+      description = "type")
+  String type;
 
   @Option(
       names = {"--logging"},
@@ -54,9 +51,7 @@ public class PublicReconcilePlayStationStoreWithMultipleServiceLabels implements
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode =
-        new CommandLine(new PublicReconcilePlayStationStoreWithMultipleServiceLabels())
-            .execute(args);
+    int exitCode = new CommandLine(new GetUserDLC()).execute(args);
     System.exit(exitCode);
   }
 
@@ -70,20 +65,14 @@ public class PublicReconcilePlayStationStoreWithMultipleServiceLabels implements
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap
-              .PublicReconcilePlayStationStoreWithMultipleServiceLabels
-          operation =
-              net.accelbyte.sdk.api.platform.operations.iap
-                  .PublicReconcilePlayStationStoreWithMultipleServiceLabels.builder()
-                  .namespace(namespace)
-                  .userId(userId)
-                  .body(
-                      new ObjectMapper()
-                          .readValue(body, PlayStationMultiServiceLabelsReconcileRequest.class))
-                  .build();
-      final List<PlayStationReconcileResult> response =
-          wrapper.publicReconcilePlayStationStoreWithMultipleServiceLabels(operation);
+      final DLC wrapper = new DLC(sdk);
+      final net.accelbyte.sdk.api.platform.operations.dlc.GetUserDLC operation =
+          net.accelbyte.sdk.api.platform.operations.dlc.GetUserDLC.builder()
+              .namespace(namespace)
+              .userId(userId)
+              .type(type)
+              .build();
+      final UserDLC response = wrapper.getUserDLC(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

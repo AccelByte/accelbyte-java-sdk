@@ -51,6 +51,9 @@ public class ApimodelsCreatePartyRequest extends Model {
   @JsonProperty("minPlayers")
   private Integer minPlayers;
 
+  @JsonProperty("textChat")
+  private Boolean textChat;
+
   @JsonProperty("type")
   private String type;
 

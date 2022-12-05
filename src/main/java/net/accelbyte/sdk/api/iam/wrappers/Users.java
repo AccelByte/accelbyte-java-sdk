@@ -1102,6 +1102,16 @@ public class Users {
   }
 
   /**
+   * @see AdminGetThirdPartyPlatformTokenLinkStatusV3
+   */
+  public ModelTokenThirdPartyLinkStatusResponse adminGetThirdPartyPlatformTokenLinkStatusV3(
+      AdminGetThirdPartyPlatformTokenLinkStatusV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminDeleteUserRolesV3
    */
   public void adminDeleteUserRolesV3(AdminDeleteUserRolesV3 input) throws Exception {

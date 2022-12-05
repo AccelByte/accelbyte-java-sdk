@@ -54,6 +54,9 @@ public class ApimodelsUpdateConfigurationTemplateRequest extends Model {
   @JsonProperty("requestedRegions")
   private List<String> requestedRegions;
 
+  @JsonProperty("textChat")
+  private Boolean textChat;
+
   @JsonProperty("type")
   private String type;
 
