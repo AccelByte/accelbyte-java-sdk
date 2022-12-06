@@ -1,6 +1,7 @@
 <a name="v0.25.0"></a>
-## [v0.25.0] - 2022-12-05
+## [v0.25.0] - 2022-12-06
 ### Chore
+- disable changelog broken link test for now
 - bump to version 0.25 for ab cloud 3.37
 - **makefile:** test core httpbin
 - **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.37
