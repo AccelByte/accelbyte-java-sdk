@@ -17,10 +17,13 @@ import net.accelbyte.sdk.api.iam.models.AccountCreateUserRequestV4;
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserRequestV4.AuthType;
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserResponseV4;
 import net.accelbyte.sdk.api.iam.models.ModelPublicUserResponseV3;
+import net.accelbyte.sdk.api.iam.models.ModelUserCreateRequestV3;
+import net.accelbyte.sdk.api.iam.models.ModelUserCreateResponseV3;
 import net.accelbyte.sdk.api.iam.models.ModelUserResponseV3;
 import net.accelbyte.sdk.api.iam.models.ModelUserUpdateRequestV3;
 import net.accelbyte.sdk.api.iam.operations.users.AdminDeleteUserInformationV3;
 import net.accelbyte.sdk.api.iam.operations.users.AdminUpdateUserV3;
+import net.accelbyte.sdk.api.iam.operations.users.PublicCreateUserV3;
 import net.accelbyte.sdk.api.iam.operations.users.PublicGetUserByUserIdV3;
 import net.accelbyte.sdk.api.iam.operations.users_v4.PublicCreateUserV4;
 import net.accelbyte.sdk.api.iam.wrappers.Users;
@@ -46,7 +49,55 @@ public class TestIntegrationServiceIam extends TestIntegration {
 
   @Test
   @Order(1)
-  public void test() throws Exception {
+  public void testV3() throws Exception {
+    final String userName = ("javasdk_" + TestHelper.generateRandomId(8));
+    final String userPassword = TestHelper.generateRandomPassword(10);
+    final String userEmail = (userName + "@test.com");
+    final String userDisplayName = "Java Server SDK Test";
+    final String userDateOfBirth = "1995-01-10";
+    final String userCountry = "ID";
+
+    final Users usersWrapper = new Users(sdk);
+
+    // CASE Create a user (v3)
+
+    final ModelUserCreateRequestV3 createUserV3 =
+        ModelUserCreateRequestV3.builder()
+            .authType("EMAILPASSWD")
+            .emailAddress(userEmail)
+            .password(userPassword)
+            .displayName(userDisplayName)
+            .country(userCountry)
+            .dateOfBirth(userDateOfBirth)
+            .build();
+
+    final ModelUserCreateResponseV3 createUserV3Result =
+        usersWrapper.publicCreateUserV3(
+            PublicCreateUserV3.builder().namespace(namespace).body(createUserV3).build());
+
+    // ESAC
+
+    assertNotNull(createUserV3Result);
+    assertEquals(userEmail, createUserV3Result.getEmailAddress());
+
+    final String userId = createUserV3Result.getUserId();
+
+    // Clean up
+
+    usersWrapper.adminDeleteUserInformationV3(
+        AdminDeleteUserInformationV3.builder().namespace(this.namespace).userId(userId).build());
+
+    assertThrows(
+        HttpResponseException.class,
+        () -> {
+          usersWrapper.publicGetUserByUserIdV3(
+              PublicGetUserByUserIdV3.builder().namespace(this.namespace).userId(userId).build());
+        });
+  }
+
+  @Test
+  @Order(2)
+  public void testV4() throws Exception {
     final String userName = ("javasdk_" + TestHelper.generateRandomId(8));
     final String userPassword = TestHelper.generateRandomPassword(10);
     final String userEmail = (userName + "@test.com");
