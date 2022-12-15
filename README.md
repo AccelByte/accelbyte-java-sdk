@@ -6,6 +6,8 @@ This SDK was generated from OpenAPI spec included in the [spec](spec) directory.
 
 ## Setup
 
+This SDK is developed using JDK 8 and Gradle 7.5.
+
 ### Gradle
 
 Add the required configuration in `gradle.build`. Replace `{VERSION}` with 
