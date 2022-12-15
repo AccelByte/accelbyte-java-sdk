@@ -42,9 +42,10 @@ public class TestIntegrationLoginPlatform extends TestIntegration {
     final OkHttpClient phClient = new OkHttpClient();
     final String phantAuthBaseUrl = TestHelper.getPhantauthBaseUrl();
 
-    final Request tokenRequest = new Request.Builder()
-        .url(phantAuthBaseUrl + "/user/test.serversdk1/token/authorization")
-        .build();
+    final Request tokenRequest =
+        new Request.Builder()
+            .url(phantAuthBaseUrl + "/user/test.serversdk1/token/authorization")
+            .build();
 
     String phToken = null;
 
@@ -54,24 +55,25 @@ public class TestIntegrationLoginPlatform extends TestIntegration {
 
     assertTrue(phToken != null && !phToken.isEmpty());
 
-    final Request authRequest = new Request.Builder()
-        .url(phantAuthBaseUrl + "/auth/token")
-        .post(
-            new FormBody.Builder()
-                .add("grant_type", "authorization_code")
-                .add("client_id", "test.client")
-                .add("client_secret", "UTBcWwt5")
-                .add("redirect_uri", "http://localhost")
-                .add("code", phToken)
-                .build())
-        .build();
+    final Request authRequest =
+        new Request.Builder()
+            .url(phantAuthBaseUrl + "/auth/token")
+            .post(
+                new FormBody.Builder()
+                    .add("grant_type", "authorization_code")
+                    .add("client_id", "test.client")
+                    .add("client_secret", "UTBcWwt5")
+                    .add("redirect_uri", "http://localhost")
+                    .add("code", phToken)
+                    .build())
+            .build();
 
     PhantauthTokens phAuth = null;
 
     try (Response authResponse = phClient.newCall(authRequest).execute()) {
-      phAuth = new ObjectMapper()
-          .readValue(authResponse.body().string(), new TypeReference<PhantauthTokens>() {
-          });
+      phAuth =
+          new ObjectMapper()
+              .readValue(authResponse.body().string(), new TypeReference<PhantauthTokens>() {});
     }
 
     assertTrue(phAuth != null);
