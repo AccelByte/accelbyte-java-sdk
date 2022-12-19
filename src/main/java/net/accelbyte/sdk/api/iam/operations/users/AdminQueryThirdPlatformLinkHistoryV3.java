@@ -6,36 +6,30 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.achievement.operations.achievements;
+package net.accelbyte.sdk.api.iam.operations.users;
 
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.achievement.models.*;
+import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * PublicListUserAchievements
+ * AdminQueryThirdPlatformLinkHistoryV3
  *
- * <p>Required permission `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope
- * `social`
+ * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER [READ]
  *
- * <p>Note:
- *
- * <p>User Achievement status value mean: `status = 1 (in progress)` and `status = 2 (unlocked)`
- *
- * <p>`achievedAt` value will return default value: `0001-01-01T00:00:00Z` for user achievement that
- * locked or in progress
+ * <p>* if limit is not defined, The default limit is 100
  */
 @Getter
 @Setter
-public class PublicListUserAchievements extends Operation {
+public class AdminQueryThirdPlatformLinkHistoryV3 extends Operation {
   /** generated field's value */
-  private String path = "/achievement/v1/public/namespaces/{namespace}/users/{userId}/achievements";
+  private String path = "/iam/v3/admin/namespaces/{namespace}/users/linkhistories";
 
   private String method = "GET";
   private List<String> consumes = Arrays.asList("application/json");
@@ -44,27 +38,27 @@ public class PublicListUserAchievements extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private String userId;
   private Integer limit;
   private Integer offset;
-  private Boolean preferUnlocked;
+  private String platformUserId;
+  private String platformId;
 
   /**
    * @param namespace required
-   * @param userId required
+   * @param platformId required
    */
   @Builder
   /*
    *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
    */
   @Deprecated
-  public PublicListUserAchievements(
-      String namespace, String userId, Integer limit, Integer offset, Boolean preferUnlocked) {
+  public AdminQueryThirdPlatformLinkHistoryV3(
+      String namespace, Integer limit, Integer offset, String platformUserId, String platformId) {
     this.namespace = namespace;
-    this.userId = userId;
     this.limit = limit;
     this.offset = offset;
-    this.preferUnlocked = preferUnlocked;
+    this.platformUserId = platformUserId;
+    this.platformId = platformId;
 
     securities.add("Bearer");
   }
@@ -74,9 +68,6 @@ public class PublicListUserAchievements extends Operation {
     Map<String, String> pathParams = new HashMap<>();
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
-    }
-    if (this.userId != null) {
-      pathParams.put("userId", this.userId);
     }
     return pathParams;
   }
@@ -88,8 +79,8 @@ public class PublicListUserAchievements extends Operation {
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put(
-        "preferUnlocked",
-        this.preferUnlocked == null ? null : Arrays.asList(String.valueOf(this.preferUnlocked)));
+        "platformUserId", this.platformUserId == null ? null : Arrays.asList(this.platformUserId));
+    queryParams.put("platformId", this.platformId == null ? null : Arrays.asList(this.platformId));
     return queryParams;
   }
 
@@ -98,20 +89,20 @@ public class PublicListUserAchievements extends Operation {
     if (this.namespace == null) {
       return false;
     }
-    if (this.userId == null) {
+    if (this.platformId == null) {
       return false;
     }
     return true;
   }
 
-  public ModelsPaginatedUserAchievementResponse parseResponse(
+  public ModelLinkingHistoryResponseWithPaginationV3 parseResponse(
       int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ModelsPaginatedUserAchievementResponse().createFromJson(json);
+    return new ModelLinkingHistoryResponseWithPaginationV3().createFromJson(json);
   }
 
   @Override
@@ -119,7 +110,8 @@ public class PublicListUserAchievements extends Operation {
     Map<String, String> result = new HashMap<>();
     result.put("limit", "None");
     result.put("offset", "None");
-    result.put("preferUnlocked", "None");
+    result.put("platformUserId", "None");
+    result.put("platformId", "None");
     return result;
   }
 }

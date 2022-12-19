@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.achievement.operations.achievements;
+package net.accelbyte.sdk.api.achievement.operations.user_achievements;
 
 import java.io.*;
 import java.util.*;
@@ -18,19 +18,21 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * AdminUnlockAchievement
+ * AdminResetAchievement
  *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [UPDATE]` and scope
+ * <p>[TEST FACILITY ONLY]
+ *
+ * <p>Required permission `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [DELETE]` and scope
  * `social`
  */
 @Getter
 @Setter
-public class AdminUnlockAchievement extends Operation {
+public class AdminResetAchievement extends Operation {
   /** generated field's value */
   private String path =
-      "/achievement/v1/admin/namespaces/{namespace}/users/{userId}/achievements/{achievementCode}/unlock";
+      "/achievement/v1/admin/namespaces/{namespace}/users/{userId}/achievements/{achievementCode}/reset";
 
-  private String method = "PUT";
+  private String method = "DELETE";
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
@@ -50,7 +52,7 @@ public class AdminUnlockAchievement extends Operation {
    *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
    */
   @Deprecated
-  public AdminUnlockAchievement(String achievementCode, String namespace, String userId) {
+  public AdminResetAchievement(String achievementCode, String namespace, String userId) {
     this.achievementCode = achievementCode;
     this.namespace = namespace;
     this.userId = userId;

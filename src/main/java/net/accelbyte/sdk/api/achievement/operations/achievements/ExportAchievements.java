@@ -40,6 +40,8 @@ public class ExportAchievements extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private List<String> tags;
+
   /**
    * @param namespace required
    */
@@ -48,8 +50,9 @@ public class ExportAchievements extends Operation {
    *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
    */
   @Deprecated
-  public ExportAchievements(String namespace) {
+  public ExportAchievements(String namespace, List<String> tags) {
     this.namespace = namespace;
+    this.tags = tags;
 
     securities.add("Bearer");
   }
@@ -61,6 +64,13 @@ public class ExportAchievements extends Operation {
       pathParams.put("namespace", this.namespace);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("tags", this.tags == null ? null : this.tags);
+    return queryParams;
   }
 
   @Override
@@ -78,5 +88,12 @@ public class ExportAchievements extends Operation {
       throw new HttpResponseException(code, json);
     }
     return payload;
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("tags", "csv");
+    return result;
   }
 }

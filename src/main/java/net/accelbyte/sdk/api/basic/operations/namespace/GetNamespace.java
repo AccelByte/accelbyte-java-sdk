@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getNamespace
  *
- * <p>Get a namespace. Other detail info:
+ * <p>Get a namespace. In multi tenant mode, parentNamespace will be returned. Other detail info:
  *
  * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:NAMESPACE" , action=2 (READ) *
  * Action code : 11304 * Returns : namespace

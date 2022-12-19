@@ -74,6 +74,7 @@ public class AuthorizeV3 extends Operation {
 
   private String codeChallengeMethod;
   private Boolean createHeadless;
+  private String oneTimeLinkCode;
   private String redirectUri;
   private String scope;
   private String state;
@@ -95,6 +96,7 @@ public class AuthorizeV3 extends Operation {
       String codeChallenge,
       String codeChallengeMethod,
       Boolean createHeadless,
+      String oneTimeLinkCode,
       String redirectUri,
       String scope,
       String state,
@@ -105,6 +107,7 @@ public class AuthorizeV3 extends Operation {
     this.codeChallenge = codeChallenge;
     this.codeChallengeMethod = codeChallengeMethod;
     this.createHeadless = createHeadless;
+    this.oneTimeLinkCode = oneTimeLinkCode;
     this.redirectUri = redirectUri;
     this.scope = scope;
     this.state = state;
@@ -127,6 +130,9 @@ public class AuthorizeV3 extends Operation {
     queryParams.put(
         "createHeadless",
         this.createHeadless == null ? null : Arrays.asList(String.valueOf(this.createHeadless)));
+    queryParams.put(
+        "oneTimeLinkCode",
+        this.oneTimeLinkCode == null ? null : Arrays.asList(this.oneTimeLinkCode));
     queryParams.put(
         "redirect_uri", this.redirectUri == null ? null : Arrays.asList(this.redirectUri));
     queryParams.put("scope", this.scope == null ? null : Arrays.asList(this.scope));
@@ -171,6 +177,7 @@ public class AuthorizeV3 extends Operation {
     result.put("code_challenge", "None");
     result.put("code_challenge_method", "None");
     result.put("createHeadless", "None");
+    result.put("oneTimeLinkCode", "None");
     result.put("redirect_uri", "None");
     result.put("scope", "None");
     result.put("state", "None");

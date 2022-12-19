@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.dsmc.models;
+package net.accelbyte.sdk.api.dslogmanager.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -27,8 +27,11 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelsServerLogs extends Model {
 
-  @JsonProperty("logs")
-  private String logs;
+  @JsonProperty("std_err_logs")
+  private String stdErrLogs;
+
+  @JsonProperty("std_out_logs")
+  private String stdOutLogs;
 
   @JsonIgnore
   public ModelsServerLogs createFromJson(String json) throws JsonProcessingException {

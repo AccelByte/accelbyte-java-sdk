@@ -6,32 +6,28 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.dsmc.operations.admin;
+package net.accelbyte.sdk.api.achievement.operations.tags;
 
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.dsmc.models.*;
+import net.accelbyte.sdk.api.achievement.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * getServerLogs
+ * AdminListTags
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:DSM:SERVER [READ]
- *
- * <p>Required scope: social
- *
- * <p>This endpoint queries a specified dedicated server's logs.
+ * <p>Required permission `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
  */
 @Getter
 @Setter
-public class GetServerLogs extends Operation {
+public class AdminListTags extends Operation {
   /** generated field's value */
-  private String path = "/dsmcontroller/admin/namespaces/{namespace}/servers/{podName}/logs";
+  private String path = "/achievement/v1/admin/namespaces/{namespace}/tags";
 
   private String method = "GET";
   private List<String> consumes = Arrays.asList("application/json");
@@ -40,20 +36,26 @@ public class GetServerLogs extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private String podName;
+  private Integer limit;
+  private String name;
+  private Integer offset;
+  private String sortBy;
 
   /**
    * @param namespace required
-   * @param podName required
    */
   @Builder
   /*
    *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
    */
   @Deprecated
-  public GetServerLogs(String namespace, String podName) {
+  public AdminListTags(
+      String namespace, Integer limit, String name, Integer offset, String sortBy) {
     this.namespace = namespace;
-    this.podName = podName;
+    this.limit = limit;
+    this.name = name;
+    this.offset = offset;
+    this.sortBy = sortBy;
 
     securities.add("Bearer");
   }
@@ -64,10 +66,18 @@ public class GetServerLogs extends Operation {
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
     }
-    if (this.podName != null) {
-      pathParams.put("podName", this.podName);
-    }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+    queryParams.put("name", this.name == null ? null : Arrays.asList(this.name));
+    queryParams.put(
+        "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
+    return queryParams;
   }
 
   @Override
@@ -75,19 +85,26 @@ public class GetServerLogs extends Operation {
     if (this.namespace == null) {
       return false;
     }
-    if (this.podName == null) {
-      return false;
-    }
     return true;
   }
 
-  public ModelsServerLogs parseResponse(int code, String contentType, InputStream payload)
+  public ModelsPaginatedTagResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ModelsServerLogs().createFromJson(json);
+    return new ModelsPaginatedTagResponse().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("limit", "None");
+    result.put("name", "None");
+    result.put("offset", "None");
+    result.put("sortBy", "None");
+    return result;
   }
 }

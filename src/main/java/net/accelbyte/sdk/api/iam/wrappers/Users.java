@@ -838,6 +838,16 @@ public class Users {
   }
 
   /**
+   * @see AdminQueryThirdPlatformLinkHistoryV3
+   */
+  public ModelLinkingHistoryResponseWithPaginationV3 adminQueryThirdPlatformLinkHistoryV3(
+      AdminQueryThirdPlatformLinkHistoryV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminListUsersV3
    */
   public AccountcommonListUsersWithPlatformAccountsResponse adminListUsersV3(AdminListUsersV3 input)
@@ -1553,6 +1563,27 @@ public class Users {
   public ModelUserResponseV3 publicGetMyUserV3(PublicGetMyUserV3 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicGetLinkHeadlessAccountToMyAccountConflictV3
+   */
+  public ModelGetLinkHeadlessAccountConflictResponse
+      publicGetLinkHeadlessAccountToMyAccountConflictV3(
+          PublicGetLinkHeadlessAccountToMyAccountConflictV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see LinkHeadlessAccountToMyAccountV3
+   */
+  public void linkHeadlessAccountToMyAccountV3(LinkHeadlessAccountToMyAccountV3 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

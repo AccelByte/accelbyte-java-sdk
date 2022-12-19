@@ -66,44 +66,44 @@ eval_tap $? 3 'GetHealthcheckInfoV1' test.out
 #- 4 CreateBackfill
 ./ng net.accelbyte.sdk.cli.Main match2 createBackfill \
     --namespace "$AB_NAMESPACE" \
-    --body '{"matchPool": "bwyIu2cX", "sessionId": "FJ30zPSr"}' \
+    --body '{"matchPool": "4WufzPio", "sessionId": "ekY80zp8"}' \
     > test.out 2>&1
 eval_tap $? 4 'CreateBackfill' test.out
 
 #- 5 AcceptBackfill
 ./ng net.accelbyte.sdk.cli.Main match2 acceptBackfill \
-    --backfillID 'EbwZhzNx' \
+    --backfillID 'yCT7SJAc' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"proposalId": "01UwKEp6", "stop": false}' \
+    --body '{"proposalId": "nGv1uH8F", "stop": false}' \
     > test.out 2>&1
 eval_tap $? 5 'AcceptBackfill' test.out
 
 #- 6 RejectBackfill
 ./ng net.accelbyte.sdk.cli.Main match2 rejectBackfill \
-    --backfillID 'XBnLFJ3s' \
+    --backfillID 'I5uaEkS9' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"proposalId": "eIShJGYb", "stop": false}' \
+    --body '{"proposalId": "Vpcbggbb", "stop": true}' \
     > test.out 2>&1
 eval_tap $? 6 'RejectBackfill' test.out
 
 #- 7 MatchFunctionList
 ./ng net.accelbyte.sdk.cli.Main match2 matchFunctionList \
     --namespace "$AB_NAMESPACE" \
-    --limit '47' \
-    --offset '74' \
+    --limit '24' \
+    --offset '6' \
     > test.out 2>&1
 eval_tap $? 7 'MatchFunctionList' test.out
 
 #- 8 CreateMatchFunction
 ./ng net.accelbyte.sdk.cli.Main match2 createMatchFunction \
     --namespace "$AB_NAMESPACE" \
-    --body '{"match_function": "EtqXtFB0", "url": "laPSpOI7"}' \
+    --body '{"match_function": "hsOgOJ6P", "url": "N9Z1nlRJ"}' \
     > test.out 2>&1
 eval_tap $? 8 'CreateMatchFunction' test.out
 
 #- 9 DeleteMatchFunction
 ./ng net.accelbyte.sdk.cli.Main match2 deleteMatchFunction \
-    --name '0oQCr8Q9' \
+    --name '45GAVfru' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 9 'DeleteMatchFunction' test.out
@@ -111,95 +111,95 @@ eval_tap $? 9 'DeleteMatchFunction' test.out
 #- 10 MatchPoolList
 ./ng net.accelbyte.sdk.cli.Main match2 matchPoolList \
     --namespace "$AB_NAMESPACE" \
-    --limit '63' \
-    --offset '48' \
+    --limit '70' \
+    --offset '40' \
     > test.out 2>&1
 eval_tap $? 10 'MatchPoolList' test.out
 
 #- 11 CreateMatchPool
 ./ng net.accelbyte.sdk.cli.Main match2 createMatchPool \
     --namespace "$AB_NAMESPACE" \
-    --body '{"backfill_ticket_expiration_seconds": 81, "match_function": "jQDjeXY0", "name": "dPI2ZZrF", "rule_set": "sLkWdlm4", "session_template": "kTzhjDte", "ticket_expiration_seconds": 42}' \
+    --body '{"backfill_ticket_expiration_seconds": 22, "match_function": "T937I3bp", "name": "AXOVJKMl", "rule_set": "AznSWVae", "session_template": "eNGxxZjQ", "ticket_expiration_seconds": 32}' \
     > test.out 2>&1
 eval_tap $? 11 'CreateMatchPool' test.out
 
 #- 12 MatchPoolDetails
 ./ng net.accelbyte.sdk.cli.Main match2 matchPoolDetails \
     --namespace "$AB_NAMESPACE" \
-    --pool 'JqR7tFe4' \
+    --pool 'AOPgzrBx' \
     > test.out 2>&1
 eval_tap $? 12 'MatchPoolDetails' test.out
 
 #- 13 UpdateMatchPool
 ./ng net.accelbyte.sdk.cli.Main match2 updateMatchPool \
     --namespace "$AB_NAMESPACE" \
-    --pool 'JrTBNXm8' \
-    --body '{"backfill_ticket_expiration_seconds": 83, "match_function": "8WzZkhXc", "rule_set": "hln864w9", "session_template": "U0DD8YLY", "ticket_expiration_seconds": 37}' \
+    --pool 'H9JOqePN' \
+    --body '{"backfill_ticket_expiration_seconds": 41, "match_function": "5IMJ9WQU", "rule_set": "RfF8FMDi", "session_template": "NNfzN8ef", "ticket_expiration_seconds": 13}' \
     > test.out 2>&1
 eval_tap $? 13 'UpdateMatchPool' test.out
 
 #- 14 DeleteMatchPool
 ./ng net.accelbyte.sdk.cli.Main match2 deleteMatchPool \
     --namespace "$AB_NAMESPACE" \
-    --pool 'HXFzxKnX' \
+    --pool 'I5D0J2QK' \
     > test.out 2>&1
 eval_tap $? 14 'DeleteMatchPool' test.out
 
 #- 15 CreateMatchTicket
 ./ng net.accelbyte.sdk.cli.Main match2 createMatchTicket \
     --namespace "$AB_NAMESPACE" \
-    --body '{"attributes": {"Nn0HcgES": {}, "XfprckeK": {}, "BLzYf3ls": {}}, "latencies": {"82DQU7oi": 56, "Fbb0cIJ3": 66, "cpJ31faM": 36}, "matchPool": "3JeEKfQa", "sessionID": "OonTQUBc"}' \
+    --body '{"attributes": {"YL14CeSk": {}, "mR7fW3Sk": {}, "5YFDPX4V": {}}, "latencies": {"V2ojhxQc": 50, "aBcQcTuj": 28, "eWPlAJba": 48}, "matchPool": "xdmCzwAP", "sessionID": "yUYIffhK"}' \
     > test.out 2>&1
 eval_tap $? 15 'CreateMatchTicket' test.out
 
 #- 16 MatchTicketDetails
 ./ng net.accelbyte.sdk.cli.Main match2 matchTicketDetails \
     --namespace "$AB_NAMESPACE" \
-    --ticketid '2jxsPRPX' \
+    --ticketid '3D4q33Ly' \
     > test.out 2>&1
 eval_tap $? 16 'MatchTicketDetails' test.out
 
 #- 17 DeleteMatchTicket
 ./ng net.accelbyte.sdk.cli.Main match2 deleteMatchTicket \
     --namespace "$AB_NAMESPACE" \
-    --ticketid 'jMLVWIBX' \
+    --ticketid '4iEF8LzY' \
     > test.out 2>&1
 eval_tap $? 17 'DeleteMatchTicket' test.out
 
 #- 18 RuleSetList
 ./ng net.accelbyte.sdk.cli.Main match2 ruleSetList \
     --namespace "$AB_NAMESPACE" \
-    --limit '46' \
-    --offset '58' \
+    --limit '29' \
+    --offset '76' \
     > test.out 2>&1
 eval_tap $? 18 'RuleSetList' test.out
 
 #- 19 CreateRuleSet
 ./ng net.accelbyte.sdk.cli.Main match2 createRuleSet \
     --namespace "$AB_NAMESPACE" \
-    --body '{"data": "dI89e0VO", "name": "RyBA3cG9"}' \
+    --body '{"data": "hXV9yrGy", "name": "D8dqoVyZ"}' \
     > test.out 2>&1
 eval_tap $? 19 'CreateRuleSet' test.out
 
 #- 20 RuleSetDetails
 ./ng net.accelbyte.sdk.cli.Main match2 ruleSetDetails \
     --namespace "$AB_NAMESPACE" \
-    --ruleset 'yuDgBavM' \
+    --ruleset 'QwV4GkFy' \
     > test.out 2>&1
 eval_tap $? 20 'RuleSetDetails' test.out
 
 #- 21 UpdateRuleSet
 ./ng net.accelbyte.sdk.cli.Main match2 updateRuleSet \
     --namespace "$AB_NAMESPACE" \
-    --ruleset 'PWfySPVX' \
-    --body '{"data": "IwCGezKt"}' \
+    --ruleset 'FFLMBqlu' \
+    --body '{"data": "t1wTDrJq"}' \
     > test.out 2>&1
 eval_tap $? 21 'UpdateRuleSet' test.out
 
 #- 22 DeleteRuleSet
 ./ng net.accelbyte.sdk.cli.Main match2 deleteRuleSet \
     --namespace "$AB_NAMESPACE" \
-    --ruleset '7UEMpO7t' \
+    --ruleset '1fisaz5z' \
     > test.out 2>&1
 eval_tap $? 22 'DeleteRuleSet' test.out
 

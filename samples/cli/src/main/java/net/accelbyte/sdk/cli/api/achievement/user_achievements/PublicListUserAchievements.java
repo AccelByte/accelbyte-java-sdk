@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.dsmc.admin;
+package net.accelbyte.sdk.cli.api.achievement.user_achievements;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.dsmc.models.*;
-import net.accelbyte.sdk.api.dsmc.wrappers.Admin;
+import net.accelbyte.sdk.api.achievement.models.*;
+import net.accelbyte.sdk.api.achievement.wrappers.UserAchievements;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "getServerLogs", mixinStandardHelpOptions = true)
-public class GetServerLogs implements Callable<Integer> {
+@Command(name = "publicListUserAchievements", mixinStandardHelpOptions = true)
+public class PublicListUserAchievements implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(GetServerLogs.class);
+  private static final Logger log = LogManager.getLogger(PublicListUserAchievements.class);
 
   @Option(
       names = {"--namespace"},
@@ -36,9 +36,29 @@ public class GetServerLogs implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--podName"},
-      description = "podName")
-  String podName;
+      names = {"--userId"},
+      description = "userId")
+  String userId;
+
+  @Option(
+      names = {"--limit"},
+      description = "limit")
+  Integer limit;
+
+  @Option(
+      names = {"--offset"},
+      description = "offset")
+  Integer offset;
+
+  @Option(
+      names = {"--preferUnlocked"},
+      description = "preferUnlocked")
+  Boolean preferUnlocked;
+
+  @Option(
+      names = {"--tags"},
+      description = "tags")
+  List<String> tags;
 
   @Option(
       names = {"--logging"},
@@ -46,7 +66,7 @@ public class GetServerLogs implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new GetServerLogs()).execute(args);
+    int exitCode = new CommandLine(new PublicListUserAchievements()).execute(args);
     System.exit(exitCode);
   }
 
@@ -60,13 +80,21 @@ public class GetServerLogs implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Admin wrapper = new Admin(sdk);
-      final net.accelbyte.sdk.api.dsmc.operations.admin.GetServerLogs operation =
-          net.accelbyte.sdk.api.dsmc.operations.admin.GetServerLogs.builder()
-              .namespace(namespace)
-              .podName(podName)
-              .build();
-      final ModelsServerLogs response = wrapper.getServerLogs(operation);
+      final UserAchievements wrapper = new UserAchievements(sdk);
+      final net.accelbyte.sdk.api.achievement.operations.user_achievements
+              .PublicListUserAchievements
+          operation =
+              net.accelbyte.sdk.api.achievement.operations.user_achievements
+                  .PublicListUserAchievements.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .limit(limit)
+                  .offset(offset)
+                  .preferUnlocked(preferUnlocked)
+                  .tags(tags)
+                  .build();
+      final ModelsPaginatedUserAchievementResponse response =
+          wrapper.publicListUserAchievements(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

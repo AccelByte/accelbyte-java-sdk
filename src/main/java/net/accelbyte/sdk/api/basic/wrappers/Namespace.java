@@ -68,6 +68,15 @@ public class Namespace {
   }
 
   /**
+   * @see GetGameNamespaces
+   */
+  public List<NamespaceInfo> getGameNamespaces(GetGameNamespaces input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetNamespacePublisher
    */
   public NamespacePublisherInfo getNamespacePublisher(GetNamespacePublisher input)

@@ -4,6 +4,11 @@
 
 ## Operations
 
+### Admin Wrapper:  [Admin](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/wrappers/Admin.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/dslogmanager/admin/namespaces/{namespace}/servers/{podName}/logs` | GET | GetServerLogs | [GetServerLogs](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/admin/GetServerLogs.java) | [GetServerLogs](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dslogmanager/admin/GetServerLogs.java) |
+
 ### Terminated Servers Wrapper:  [TerminatedServers](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/wrappers/TerminatedServers.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -42,5 +47,6 @@
 | `models.RequestMatchParty` | [ModelsRequestMatchParty](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsRequestMatchParty.java) |
 | `models.RequestMatchingAlly` | [ModelsRequestMatchingAlly](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsRequestMatchingAlly.java) |
 | `models.Server` | [ModelsServer](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsServer.java) |
+| `models.ServerLogs` | [ModelsServerLogs](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsServerLogs.java) |
 | `models.StatusHistory` | [ModelsStatusHistory](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsStatusHistory.java) |
 | `response.Error` | [ResponseError](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ResponseError.java) |

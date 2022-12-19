@@ -39,6 +39,7 @@ public class PublicListAchievements extends Operation {
   private Integer limit;
   private Integer offset;
   private String sortBy;
+  private List<String> tags;
   private String language;
 
   /**
@@ -51,11 +52,17 @@ public class PublicListAchievements extends Operation {
    */
   @Deprecated
   public PublicListAchievements(
-      String namespace, Integer limit, Integer offset, String sortBy, String language) {
+      String namespace,
+      Integer limit,
+      Integer offset,
+      String sortBy,
+      List<String> tags,
+      String language) {
     this.namespace = namespace;
     this.limit = limit;
     this.offset = offset;
     this.sortBy = sortBy;
+    this.tags = tags;
     this.language = language;
 
     securities.add("Bearer");
@@ -77,6 +84,7 @@ public class PublicListAchievements extends Operation {
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
+    queryParams.put("tags", this.tags == null ? null : this.tags);
     queryParams.put("language", this.language == null ? null : Arrays.asList(this.language));
     return queryParams;
   }
@@ -108,6 +116,7 @@ public class PublicListAchievements extends Operation {
     result.put("limit", "None");
     result.put("offset", "None");
     result.put("sortBy", "None");
+    result.put("tags", "csv");
     result.put("language", "None");
     return result;
   }

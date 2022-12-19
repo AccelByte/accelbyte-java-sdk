@@ -76,7 +76,6 @@
 | `/dsmcontroller/admin/namespaces/{namespace}/servers/local/{name}` | DELETE | DeleteLocalServer | [DeleteLocalServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/DeleteLocalServer.java) | [DeleteLocalServer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/DeleteLocalServer.java) |
 | `/dsmcontroller/admin/namespaces/{namespace}/servers/{podName}` | GET | GetServer | [GetServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/GetServer.java) | [GetServer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/GetServer.java) |
 | `/dsmcontroller/admin/namespaces/{namespace}/servers/{podName}` | DELETE | DeleteServer | [DeleteServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/DeleteServer.java) | [DeleteServer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/DeleteServer.java) |
-| `/dsmcontroller/admin/namespaces/{namespace}/servers/{podName}/logs` | GET | GetServerLogs | [GetServerLogs](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/GetServerLogs.java) | [GetServerLogs](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/GetServerLogs.java) |
 | `/dsmcontroller/admin/namespaces/{namespace}/sessions` | GET | ListSession | [ListSession](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/ListSession.java) | [ListSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/ListSession.java) |
 | `/dsmcontroller/admin/namespaces/{namespace}/sessions/count` | GET | CountSession | [CountSession](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/CountSession.java) | [CountSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/CountSession.java) |
 | `/dsmcontroller/admin/namespaces/{namespace}/sessions/{sessionID}` | DELETE | DeleteSession | [DeleteSession](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/DeleteSession.java) | [DeleteSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/DeleteSession.java) |
@@ -162,7 +161,6 @@
 | `models.RequestMatchParty` | [ModelsRequestMatchParty](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsRequestMatchParty.java) |
 | `models.RequestMatchingAlly` | [ModelsRequestMatchingAlly](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsRequestMatchingAlly.java) |
 | `models.Server` | [ModelsServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsServer.java) |
-| `models.ServerLogs` | [ModelsServerLogs](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsServerLogs.java) |
 | `models.ServerSessionResponse` | [ModelsServerSessionResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsServerSessionResponse.java) |
 | `models.Session` | [ModelsSession](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsSession.java) |
 | `models.SessionResponse` | [ModelsSessionResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsSessionResponse.java) |

@@ -51,6 +51,11 @@ public class PublicListAchievements implements Callable<Integer> {
   String sortBy;
 
   @Option(
+      names = {"--tags"},
+      description = "tags")
+  List<String> tags;
+
+  @Option(
       names = {"--language"},
       description = "language")
   String language;
@@ -84,6 +89,7 @@ public class PublicListAchievements implements Callable<Integer> {
                   .limit(limit)
                   .offset(offset)
                   .sortBy(sortBy)
+                  .tags(tags)
                   .language(language)
                   .build();
       final ModelsPublicAchievementsResponse response = wrapper.publicListAchievements(operation);

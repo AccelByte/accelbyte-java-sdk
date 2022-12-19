@@ -36,6 +36,7 @@ import picocli.CommandLine.Command;
       DeleteConfig.class,
       UpdateConfig.class,
       GeneratedUploadUrl.class,
+      GetGameNamespaces.class,
       GetCountries.class,
       GetCountryGroups.class,
       AddCountryGroup.class,

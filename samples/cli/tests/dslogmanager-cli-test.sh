@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..7"
+echo "1..8"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -53,70 +53,80 @@ fi
 
 touch "tmp.dat"
 
-#- 2 ListTerminatedServers
+#- 2 GetServerLogs
+./ng net.accelbyte.sdk.cli.Main dslogmanager getServerLogs \
+    --namespace "$AB_NAMESPACE" \
+    --podName 'gjoT3JKw' \
+    --logType '1P4TyBnL' \
+    --offset '70' \
+    --origin 'IMbk4YwJ' \
+    > test.out 2>&1
+eval_tap $? 2 'GetServerLogs' test.out
+
+#- 3 ListTerminatedServers
 ./ng net.accelbyte.sdk.cli.Main dslogmanager listTerminatedServers \
     --namespace "$AB_NAMESPACE" \
-    --deployment 'X521mT6L' \
-    --endDate 'fLaeMdUP' \
-    --gameMode '1ISwgcFu' \
-    --limit '85' \
-    --next 'poxtV6t4' \
-    --partyId 's9S94JXt' \
-    --podName 'nXSOlXyJ' \
-    --previous 'p3aT78Wv' \
-    --provider 'xe7yCycY' \
-    --region 'Dealldu6' \
-    --sessionId 'Gq549A8J' \
-    --startDate '2eXHTw8N' \
-    --status 'bIZUVbeh' \
-    --userId 'N2hNPa5q' \
+    --deployment '2whwJQS0' \
+    --endDate 'jTpuKCQi' \
+    --gameMode 'oh2OxTdh' \
+    --limit '74' \
+    --next 'NiyRDMtn' \
+    --partyId 'oLZLTY0K' \
+    --podName 'ZC1oPSqx' \
+    --previous 'Rv4zxCnl' \
+    --provider 'gvKebErs' \
+    --region 'LT4W39Ft' \
+    --sessionId 'H4RBwNtu' \
+    --startDate 'LTPSi9ti' \
+    --status 'wL0OaAqj' \
+    --userId 'g7pVeRAj' \
     > test.out 2>&1
-eval_tap $? 2 'ListTerminatedServers' test.out
+eval_tap $? 3 'ListTerminatedServers' test.out
 
-#- 3 DownloadServerLogs
+#- 4 DownloadServerLogs
 ./ng net.accelbyte.sdk.cli.Main dslogmanager downloadServerLogs \
     --namespace "$AB_NAMESPACE" \
-    --podName 'S0HJ6lPl' \
+    --podName 'NLD0tJd1' \
     > test.out 2>&1
-eval_tap $? 3 'DownloadServerLogs' test.out
+eval_tap $? 4 'DownloadServerLogs' test.out
 
-#- 4 CheckServerLogs
+#- 5 CheckServerLogs
 ./ng net.accelbyte.sdk.cli.Main dslogmanager checkServerLogs \
     --namespace "$AB_NAMESPACE" \
-    --podName '8omhXJyx' \
+    --podName 'bY2GDYKx' \
     > test.out 2>&1
-eval_tap $? 4 'CheckServerLogs' test.out
+eval_tap $? 5 'CheckServerLogs' test.out
 
-#- 5 BatchDownloadServerLogs
+#- 6 BatchDownloadServerLogs
 ./ng net.accelbyte.sdk.cli.Main dslogmanager batchDownloadServerLogs \
-    --body '{"Downloads": [{"alloc_id": "WBNcw2K4", "namespace": "WtJQImDC", "pod_name": "HyHrWqCa"}, {"alloc_id": "8nUqW5VU", "namespace": "yCz2qXyh", "pod_name": "KLVYdhjh"}, {"alloc_id": "KkRlkd8j", "namespace": "YWtonLu7", "pod_name": "2XwVmNtE"}]}' \
+    --body '{"Downloads": [{"alloc_id": "FNr8Nh0E", "namespace": "wqnYThRY", "pod_name": "34A2CrSf"}, {"alloc_id": "emKoZ44E", "namespace": "NfnK35rj", "pod_name": "uSGulWLG"}, {"alloc_id": "hQWHJmKe", "namespace": "EHoamwwL", "pod_name": "pw8tNrCa"}]}' \
     > test.out 2>&1
-eval_tap $? 5 'BatchDownloadServerLogs' test.out
+eval_tap $? 6 'BatchDownloadServerLogs' test.out
 
-#- 6 ListAllTerminatedServers
+#- 7 ListAllTerminatedServers
 ./ng net.accelbyte.sdk.cli.Main dslogmanager listAllTerminatedServers \
-    --deployment '9BXUc3MZ' \
-    --endDate 'ZNspxX7B' \
-    --gameMode 'a7OH8AeQ' \
-    --limit '30' \
+    --deployment '1TR9ARrW' \
+    --endDate 'pBBPzB06' \
+    --gameMode 'OY58kxOj' \
+    --limit '4' \
     --namespace "$AB_NAMESPACE" \
-    --next 'XlERdq9j' \
-    --partyId 'p9HDYtMj' \
-    --podName 'OQCCHDNS' \
-    --previous 'Kr7GoH5g' \
-    --provider 'UjAGl3Ml' \
-    --region 'iIsb1Let' \
-    --sessionId 'uow0Npgy' \
-    --startDate 'q3BXRXQg' \
-    --status 'gB3R3iQc' \
-    --userId 'AMTQkj8z' \
+    --next 'oAdLe0Lm' \
+    --partyId 'LpyX90vE' \
+    --podName 'ZchHK1Uw' \
+    --previous 'qICgp47w' \
+    --provider 'Z6QQJTBa' \
+    --region '8nrRf2jl' \
+    --sessionId 'pYDWxFSe' \
+    --startDate 'xGOqqWNV' \
+    --status 'jQUtICJD' \
+    --userId 'oWI2Uq9E' \
     > test.out 2>&1
-eval_tap $? 6 'ListAllTerminatedServers' test.out
+eval_tap $? 7 'ListAllTerminatedServers' test.out
 
-#- 7 PublicGetMessages
+#- 8 PublicGetMessages
 ./ng net.accelbyte.sdk.cli.Main dslogmanager publicGetMessages \
     > test.out 2>&1
-eval_tap $? 7 'PublicGetMessages' test.out
+eval_tap $? 8 'PublicGetMessages' test.out
 
 
 rm -f "tmp.dat"

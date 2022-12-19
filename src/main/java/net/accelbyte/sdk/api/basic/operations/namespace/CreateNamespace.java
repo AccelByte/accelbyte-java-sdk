@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createNamespace
  *
- * <p>Create a namespace. By default the namespace is enabled. Other detail info:
+ * <p>Create a namespace. By default the namespace is enabled. In multi tenant mode, parentNamespace
+ * will be automatically filled with requester namespace. Other detail info:
  *
  * <p>* Required permission : resource= "ADMIN:NAMESPACE" , action=1 (CREATE) * Action code : 11301
  * * Returns : created namespace

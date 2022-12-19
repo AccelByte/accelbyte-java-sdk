@@ -6,12 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.achievement.achievements;
+package net.accelbyte.sdk.cli.api.iam.users;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.achievement.models.*;
-import net.accelbyte.sdk.api.achievement.wrappers.Achievements;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.iam.wrappers.Users;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -24,25 +25,15 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "adminResetAchievement", mixinStandardHelpOptions = true)
-public class AdminResetAchievement implements Callable<Integer> {
+@Command(name = "linkHeadlessAccountToMyAccountV3", mixinStandardHelpOptions = true)
+public class LinkHeadlessAccountToMyAccountV3 implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(AdminResetAchievement.class);
-
-  @Option(
-      names = {"--achievementCode"},
-      description = "achievementCode")
-  String achievementCode;
+  private static final Logger log = LogManager.getLogger(LinkHeadlessAccountToMyAccountV3.class);
 
   @Option(
-      names = {"--namespace"},
-      description = "namespace")
-  String namespace;
-
-  @Option(
-      names = {"--userId"},
-      description = "userId")
-  String userId;
+      names = {"--body"},
+      description = "body")
+  String body;
 
   @Option(
       names = {"--logging"},
@@ -50,7 +41,7 @@ public class AdminResetAchievement implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new AdminResetAchievement()).execute(args);
+    int exitCode = new CommandLine(new LinkHeadlessAccountToMyAccountV3()).execute(args);
     System.exit(exitCode);
   }
 
@@ -64,16 +55,12 @@ public class AdminResetAchievement implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Achievements wrapper = new Achievements(sdk);
-      final net.accelbyte.sdk.api.achievement.operations.achievements.AdminResetAchievement
-          operation =
-              net.accelbyte.sdk.api.achievement.operations.achievements.AdminResetAchievement
-                  .builder()
-                  .achievementCode(achievementCode)
-                  .namespace(namespace)
-                  .userId(userId)
-                  .build();
-      wrapper.adminResetAchievement(operation);
+      final Users wrapper = new Users(sdk);
+      final net.accelbyte.sdk.api.iam.operations.users.LinkHeadlessAccountToMyAccountV3 operation =
+          net.accelbyte.sdk.api.iam.operations.users.LinkHeadlessAccountToMyAccountV3.builder()
+              .body(new ObjectMapper().readValue(body, ModelLinkHeadlessAccountRequest.class))
+              .build();
+      wrapper.linkHeadlessAccountToMyAccountV3(operation);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -86,15 +86,6 @@ public class Admin {
   }
 
   /**
-   * @see GetServerLogs
-   */
-  public ModelsServerLogs getServerLogs(GetServerLogs input) throws Exception {
-    final HttpResponse httpResponse = sdk.runRequest(input);
-    return input.parseResponse(
-        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-  }
-
-  /**
    * @see ListSession
    */
   public ModelsListSessionResponse listSession(ListSession input) throws Exception {

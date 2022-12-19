@@ -9,6 +9,9 @@
 package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.achievement.achievements.*;
+import net.accelbyte.sdk.cli.api.achievement.anonymization.*;
+import net.accelbyte.sdk.cli.api.achievement.tags.*;
+import net.accelbyte.sdk.cli.api.achievement.user_achievements.*;
 import picocli.CommandLine.Command;
 
 @Command(
@@ -23,11 +26,14 @@ import picocli.CommandLine.Command;
       AdminUpdateAchievement.class,
       AdminDeleteAchievement.class,
       AdminUpdateAchievementListOrder.class,
+      AdminListTags.class,
       AdminListUserAchievements.class,
       AdminResetAchievement.class,
       AdminUnlockAchievement.class,
+      AdminAnonymizeUserAchievement.class,
       PublicListAchievements.class,
       PublicGetAchievement.class,
+      PublicListTags.class,
       PublicListUserAchievements.class,
       PublicUnlockAchievement.class,
     })

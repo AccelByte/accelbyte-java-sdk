@@ -6,12 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.achievement.achievements;
+package net.accelbyte.sdk.cli.api.achievement.tags;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.achievement.models.*;
-import net.accelbyte.sdk.api.achievement.wrappers.Achievements;
+import net.accelbyte.sdk.api.achievement.wrappers.Tags;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -24,15 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "adminUnlockAchievement", mixinStandardHelpOptions = true)
-public class AdminUnlockAchievement implements Callable<Integer> {
+@Command(name = "publicListTags", mixinStandardHelpOptions = true)
+public class PublicListTags implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(AdminUnlockAchievement.class);
-
-  @Option(
-      names = {"--achievementCode"},
-      description = "achievementCode")
-  String achievementCode;
+  private static final Logger log = LogManager.getLogger(PublicListTags.class);
 
   @Option(
       names = {"--namespace"},
@@ -40,9 +36,24 @@ public class AdminUnlockAchievement implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--userId"},
-      description = "userId")
-  String userId;
+      names = {"--limit"},
+      description = "limit")
+  Integer limit;
+
+  @Option(
+      names = {"--name"},
+      description = "name")
+  String name;
+
+  @Option(
+      names = {"--offset"},
+      description = "offset")
+  Integer offset;
+
+  @Option(
+      names = {"--sortBy"},
+      description = "sortBy")
+  String sortBy;
 
   @Option(
       names = {"--logging"},
@@ -50,7 +61,7 @@ public class AdminUnlockAchievement implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new AdminUnlockAchievement()).execute(args);
+    int exitCode = new CommandLine(new PublicListTags()).execute(args);
     System.exit(exitCode);
   }
 
@@ -64,17 +75,19 @@ public class AdminUnlockAchievement implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Achievements wrapper = new Achievements(sdk);
-      final net.accelbyte.sdk.api.achievement.operations.achievements.AdminUnlockAchievement
-          operation =
-              net.accelbyte.sdk.api.achievement.operations.achievements.AdminUnlockAchievement
-                  .builder()
-                  .achievementCode(achievementCode)
-                  .namespace(namespace)
-                  .userId(userId)
-                  .build();
-      wrapper.adminUnlockAchievement(operation);
-      log.info("Operation successful");
+      final Tags wrapper = new Tags(sdk);
+      final net.accelbyte.sdk.api.achievement.operations.tags.PublicListTags operation =
+          net.accelbyte.sdk.api.achievement.operations.tags.PublicListTags.builder()
+              .namespace(namespace)
+              .limit(limit)
+              .name(name)
+              .offset(offset)
+              .sortBy(sortBy)
+              .build();
+      final ModelsPaginatedTagResponse response = wrapper.publicListTags(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

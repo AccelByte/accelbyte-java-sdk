@@ -39,6 +39,7 @@ public class AdminListAchievements extends Operation {
   private Integer limit;
   private Integer offset;
   private String sortBy;
+  private List<String> tags;
 
   /**
    * @param namespace required
@@ -48,11 +49,13 @@ public class AdminListAchievements extends Operation {
    *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
    */
   @Deprecated
-  public AdminListAchievements(String namespace, Integer limit, Integer offset, String sortBy) {
+  public AdminListAchievements(
+      String namespace, Integer limit, Integer offset, String sortBy, List<String> tags) {
     this.namespace = namespace;
     this.limit = limit;
     this.offset = offset;
     this.sortBy = sortBy;
+    this.tags = tags;
 
     securities.add("Bearer");
   }
@@ -73,6 +76,7 @@ public class AdminListAchievements extends Operation {
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
+    queryParams.put("tags", this.tags == null ? null : this.tags);
     return queryParams;
   }
 
@@ -100,6 +104,7 @@ public class AdminListAchievements extends Operation {
     result.put("limit", "None");
     result.put("offset", "None");
     result.put("sortBy", "None");
+    result.put("tags", "csv");
     return result;
   }
 

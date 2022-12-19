@@ -72,7 +72,6 @@ import picocli.CommandLine.Command;
       DeleteLocalServer.class,
       GetServer.class,
       DeleteServer.class,
-      GetServerLogs.class,
       ListSession.class,
       CountSession.class,
       DeleteSession.class,

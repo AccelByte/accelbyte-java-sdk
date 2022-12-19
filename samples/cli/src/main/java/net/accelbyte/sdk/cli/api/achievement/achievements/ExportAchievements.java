@@ -37,6 +37,11 @@ public class ExportAchievements implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--tags"},
+      description = "tags")
+  List<String> tags;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -60,6 +65,7 @@ public class ExportAchievements implements Callable<Integer> {
       final net.accelbyte.sdk.api.achievement.operations.achievements.ExportAchievements operation =
           net.accelbyte.sdk.api.achievement.operations.achievements.ExportAchievements.builder()
               .namespace(namespace)
+              .tags(tags)
               .build();
       final InputStream response = wrapper.exportAchievements(operation);
       final File outputFile = new File("response.out");

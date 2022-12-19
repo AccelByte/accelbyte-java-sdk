@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.achievement.operations.achievements;
+package net.accelbyte.sdk.api.achievement.operations.user_achievements;
 
 import java.io.*;
 import java.util.*;

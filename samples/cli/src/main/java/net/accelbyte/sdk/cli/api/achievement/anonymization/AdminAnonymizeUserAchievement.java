@@ -6,13 +6,12 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.achievement.achievements;
+package net.accelbyte.sdk.cli.api.achievement.anonymization;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.achievement.models.*;
-import net.accelbyte.sdk.api.achievement.wrappers.Achievements;
+import net.accelbyte.sdk.api.achievement.wrappers.Anonymization;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +24,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "adminListUserAchievements", mixinStandardHelpOptions = true)
-public class AdminListUserAchievements implements Callable<Integer> {
+@Command(name = "adminAnonymizeUserAchievement", mixinStandardHelpOptions = true)
+public class AdminAnonymizeUserAchievement implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(AdminListUserAchievements.class);
+  private static final Logger log = LogManager.getLogger(AdminAnonymizeUserAchievement.class);
 
   @Option(
       names = {"--namespace"},
@@ -41,27 +40,12 @@ public class AdminListUserAchievements implements Callable<Integer> {
   String userId;
 
   @Option(
-      names = {"--limit"},
-      description = "limit")
-  Integer limit;
-
-  @Option(
-      names = {"--offset"},
-      description = "offset")
-  Integer offset;
-
-  @Option(
-      names = {"--preferUnlocked"},
-      description = "preferUnlocked")
-  Boolean preferUnlocked;
-
-  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new AdminListUserAchievements()).execute(args);
+    int exitCode = new CommandLine(new AdminAnonymizeUserAchievement()).execute(args);
     System.exit(exitCode);
   }
 
@@ -75,22 +59,16 @@ public class AdminListUserAchievements implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Achievements wrapper = new Achievements(sdk);
-      final net.accelbyte.sdk.api.achievement.operations.achievements.AdminListUserAchievements
+      final Anonymization wrapper = new Anonymization(sdk);
+      final net.accelbyte.sdk.api.achievement.operations.anonymization.AdminAnonymizeUserAchievement
           operation =
-              net.accelbyte.sdk.api.achievement.operations.achievements.AdminListUserAchievements
-                  .builder()
+              net.accelbyte.sdk.api.achievement.operations.anonymization
+                  .AdminAnonymizeUserAchievement.builder()
                   .namespace(namespace)
                   .userId(userId)
-                  .limit(limit)
-                  .offset(offset)
-                  .preferUnlocked(preferUnlocked)
                   .build();
-      final ModelsPaginatedUserAchievementResponse response =
-          wrapper.adminListUserAchievements(operation);
-      final String responseString =
-          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful\n{}", responseString);
+      wrapper.adminAnonymizeUserAchievement(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

@@ -45,6 +45,11 @@ public class AuthorizeV3 implements Callable<Integer> {
   Boolean createHeadless;
 
   @Option(
+      names = {"--oneTimeLinkCode"},
+      description = "oneTimeLinkCode")
+  String oneTimeLinkCode;
+
+  @Option(
       names = {"--redirectUri"},
       description = "redirectUri")
   String redirectUri;
@@ -105,6 +110,7 @@ public class AuthorizeV3 implements Callable<Integer> {
               .codeChallenge(codeChallenge)
               .codeChallengeMethod(codeChallengeMethod)
               .createHeadless(createHeadless)
+              .oneTimeLinkCode(oneTimeLinkCode)
               .redirectUri(redirectUri)
               .scope(scope)
               .state(state)

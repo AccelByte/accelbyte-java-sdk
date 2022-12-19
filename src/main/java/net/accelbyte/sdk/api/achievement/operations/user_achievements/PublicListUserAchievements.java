@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.achievement.operations.achievements;
+package net.accelbyte.sdk.api.achievement.operations.user_achievements;
 
 import java.io.*;
 import java.util.*;
@@ -19,9 +19,9 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * AdminListUserAchievements
+ * PublicListUserAchievements
  *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope
+ * <p>Required permission `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope
  * `social`
  *
  * <p>Note:
@@ -33,9 +33,9 @@ import net.accelbyte.sdk.core.util.Helper;
  */
 @Getter
 @Setter
-public class AdminListUserAchievements extends Operation {
+public class PublicListUserAchievements extends Operation {
   /** generated field's value */
-  private String path = "/achievement/v1/admin/namespaces/{namespace}/users/{userId}/achievements";
+  private String path = "/achievement/v1/public/namespaces/{namespace}/users/{userId}/achievements";
 
   private String method = "GET";
   private List<String> consumes = Arrays.asList("application/json");
@@ -48,6 +48,7 @@ public class AdminListUserAchievements extends Operation {
   private Integer limit;
   private Integer offset;
   private Boolean preferUnlocked;
+  private List<String> tags;
 
   /**
    * @param namespace required
@@ -58,13 +59,19 @@ public class AdminListUserAchievements extends Operation {
    *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
    */
   @Deprecated
-  public AdminListUserAchievements(
-      String namespace, String userId, Integer limit, Integer offset, Boolean preferUnlocked) {
+  public PublicListUserAchievements(
+      String namespace,
+      String userId,
+      Integer limit,
+      Integer offset,
+      Boolean preferUnlocked,
+      List<String> tags) {
     this.namespace = namespace;
     this.userId = userId;
     this.limit = limit;
     this.offset = offset;
     this.preferUnlocked = preferUnlocked;
+    this.tags = tags;
 
     securities.add("Bearer");
   }
@@ -90,6 +97,7 @@ public class AdminListUserAchievements extends Operation {
     queryParams.put(
         "preferUnlocked",
         this.preferUnlocked == null ? null : Arrays.asList(String.valueOf(this.preferUnlocked)));
+    queryParams.put("tags", this.tags == null ? null : this.tags);
     return queryParams;
   }
 
@@ -120,6 +128,7 @@ public class AdminListUserAchievements extends Operation {
     result.put("limit", "None");
     result.put("offset", "None");
     result.put("preferUnlocked", "None");
+    result.put("tags", "csv");
     return result;
   }
 }

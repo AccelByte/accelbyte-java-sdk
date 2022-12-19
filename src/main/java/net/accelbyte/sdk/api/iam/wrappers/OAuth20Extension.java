@@ -51,6 +51,36 @@ public class OAuth20Extension {
   }
 
   /**
+   * @see RequestOneTimeLinkingCodeV3
+   */
+  public OauthmodelOneTimeLinkingCodeResponse requestOneTimeLinkingCodeV3(
+      RequestOneTimeLinkingCodeV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see ValidateOneTimeLinkingCodeV3
+   */
+  public OauthmodelOneTimeLinkingCodeValidationResponse validateOneTimeLinkingCodeV3(
+      ValidateOneTimeLinkingCodeV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see RequestTokenByOneTimeLinkCodeResponseV3
+   */
+  public OauthmodelTokenResponseV3 requestTokenByOneTimeLinkCodeResponseV3(
+      RequestTokenByOneTimeLinkCodeResponseV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetCountryLocationV3
    */
   public OauthmodelCountryLocationResponse getCountryLocationV3(GetCountryLocationV3 input)

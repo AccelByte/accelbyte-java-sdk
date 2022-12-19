@@ -18,7 +18,13 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** changePreferenceConsent */
+/**
+ * changePreferenceConsent
+ *
+ * <p>This API will Update Preference Consent. Other detail info:
+ *
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=4 (UPDATE)
+ */
 @Getter
 @Setter
 public class ChangePreferenceConsent extends Operation {
