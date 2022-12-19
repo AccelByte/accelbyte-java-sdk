@@ -1,3 +1,21 @@
+<a name="v0.26.0"></a>
+## [v0.26.0] - 2022-12-19
+### Chore
+- bump to version 0.26 for ab cloud 3.38
+- code formatting
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.38
+- **spec:** update spec for ab cloud 3.38
+
+### Docs
+- migration guide 0.26
+- update changelog for ab cloud 3.38
+- update common use cases
+- **readme:** add jdk and gradle info
+
+### Test
+- **integration:** iam - add create user v3
+
+
 <a name="v0.25.0"></a>
 ## [v0.25.0] - 2022-12-06
 ### Chore
@@ -13,6 +31,7 @@
 - **nightly:** include initial version of broken link check
 
 ### Docs
+- update changelog for ab cloud 3.37
 - update changelog for ab cloud 3.37
 - remove link quotes in readme
 - common use cases - add session & match2
@@ -781,6 +800,7 @@
 - replace unnecessary object
 
 
+[v0.26.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.25.0...v0.26.0
 [v0.25.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.24.0...v0.25.0
 [v0.24.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.23.2...v0.24.0
 [v0.23.2]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.23.1...v0.23.2
