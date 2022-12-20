@@ -1,5 +1,5 @@
 <a name="v0.26.0"></a>
-## [v0.26.0] - 2022-12-19
+## [v0.26.0] - 2022-12-20
 ### Chore
 - bump to version 0.26 for ab cloud 3.38
 - code formatting
@@ -7,12 +7,15 @@
 - **spec:** update spec for ab cloud 3.38
 
 ### Docs
-- migration guide 0.26
 - update changelog for ab cloud 3.38
+- update changelog for ab cloud 3.38
+- migration guide 0.26
 - update common use cases
+- **common use case:** update related to update achievement
 - **readme:** add jdk and gradle info
 
 ### Test
+- **integration:** achievement - update achievement now requires name and desc
 - **integration:** iam - add create user v3
 
 
