@@ -42,7 +42,11 @@ final ModelsAchievementResponse createAchievementResult =
 
 ```java
 final ModelsAchievementUpdateRequest updateAchievementBody =
-    ModelsAchievementUpdateRequest.builder().goalValue(2000f).build();
+    ModelsAchievementUpdateRequest.builder()
+        .name(Collections.singletonMap(achievementLanguage, achievementName))
+        .description(Collections.singletonMap(achievementLanguage, achievementDescription))
+        .goalValue(2000f)
+        .build();
 
 final ModelsAchievementResponse updateAchievementResult =
     achievementsWrapper.adminUpdateAchievement(
@@ -545,6 +549,7 @@ final ModelUserCreateRequestV3 createUserV3 =
         .password(userPassword)
         .displayName(userDisplayName)
         .country(userCountry)
+        .dateOfBirth(userDateOfBirth)
         .build();
 
 final ModelUserCreateResponseV3 createUserV3Result =
