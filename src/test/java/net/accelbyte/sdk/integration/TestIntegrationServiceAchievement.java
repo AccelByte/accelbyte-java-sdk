@@ -97,7 +97,11 @@ public class TestIntegrationServiceAchievement extends TestIntegration {
     // CASE Update an achievement
 
     final ModelsAchievementUpdateRequest updateAchievementBody =
-        ModelsAchievementUpdateRequest.builder().goalValue(2000f).build();
+        ModelsAchievementUpdateRequest.builder()
+            .name(Collections.singletonMap(achievementLanguage, achievementName))
+            .description(Collections.singletonMap(achievementLanguage, achievementDescription))
+            .goalValue(2000f)
+            .build();
 
     final ModelsAchievementResponse updateAchievementResult =
         achievementsWrapper.adminUpdateAchievement(
