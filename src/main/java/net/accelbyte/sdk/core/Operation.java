@@ -22,7 +22,6 @@ public abstract class Operation {
   protected String method = "";
   protected List<String> consumes = new ArrayList<>();
   protected List<String> produces = new ArrayList<>();
-  @Deprecated protected String security = "";
   protected String preferredSecurityMethod = "";
   protected List<String> securities = new ArrayList<>();
   protected String locationQuery = "";
