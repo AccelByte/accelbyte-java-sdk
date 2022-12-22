@@ -45,9 +45,7 @@ public class AdminListAchievements extends Operation {
    * @param namespace required
    */
   @Builder
-  /*
-   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
-   */
+  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminListAchievements(
       String namespace, Integer limit, Integer offset, String sortBy, List<String> tags) {

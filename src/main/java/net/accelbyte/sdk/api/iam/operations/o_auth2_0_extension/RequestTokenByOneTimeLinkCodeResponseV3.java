@@ -47,9 +47,7 @@ public class RequestTokenByOneTimeLinkCodeResponseV3 extends Operation {
    * @param oneTimeLinkCode required
    */
   @Builder
-  /*
-   *  @deprecated 2022-08-29 All args constructor may cause problems. Use builder instead.
-   */
+  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
   public RequestTokenByOneTimeLinkCodeResponseV3(String clientId, String oneTimeLinkCode) {
     this.clientId = clientId;
