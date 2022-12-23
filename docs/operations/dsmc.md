@@ -8,7 +8,7 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/dsmcontroller/admin/configs` | GET | ListConfig | [ListConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/config/ListConfig.java) | [ListConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/config/ListConfig.java) |
-| `/dsmcontroller/admin/configs` | POST | SaveConfig | [SaveConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/config/SaveConfig.java) | [SaveConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/config/SaveConfig.java) |
+| [DEPRECATED] `/dsmcontroller/admin/configs` | POST | SaveConfig | [SaveConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/config/SaveConfig.java) | [SaveConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/config/SaveConfig.java) |
 | `/dsmcontroller/admin/namespaces/{namespace}/configs` | GET | GetConfig | [GetConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/config/GetConfig.java) | [GetConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/config/GetConfig.java) |
 | `/dsmcontroller/admin/namespaces/{namespace}/configs` | POST | CreateConfig | [CreateConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/config/CreateConfig.java) | [CreateConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/config/CreateConfig.java) |
 | `/dsmcontroller/admin/namespaces/{namespace}/configs` | DELETE | DeleteConfig | [DeleteConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/config/DeleteConfig.java) | [DeleteConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/config/DeleteConfig.java) |
