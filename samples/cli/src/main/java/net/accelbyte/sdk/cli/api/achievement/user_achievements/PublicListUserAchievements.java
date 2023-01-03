@@ -56,6 +56,11 @@ public class PublicListUserAchievements implements Callable<Integer> {
   Boolean preferUnlocked;
 
   @Option(
+      names = {"--sortBy"},
+      description = "sortBy")
+  String sortBy;
+
+  @Option(
       names = {"--tags"},
       description = "tags")
   List<String> tags;
@@ -91,6 +96,7 @@ public class PublicListUserAchievements implements Callable<Integer> {
                   .limit(limit)
                   .offset(offset)
                   .preferUnlocked(preferUnlocked)
+                  .sortBy(sortBy)
                   .tags(tags)
                   .build();
       final ModelsPaginatedUserAchievementResponse response =

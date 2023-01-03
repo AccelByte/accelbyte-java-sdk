@@ -57,6 +57,10 @@ public class CatalogChangeInfo extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String publishedAt;
 
+  @JsonProperty("sectionId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String sectionId;
+
   @JsonProperty("selected")
   private Boolean selected;
 
@@ -80,6 +84,10 @@ public class CatalogChangeInfo extends Model {
 
   @JsonProperty("updatedAt")
   private String updatedAt;
+
+  @JsonProperty("viewId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String viewId;
 
   @JsonIgnore
   public String getAction() {
@@ -232,7 +240,9 @@ public class CatalogChangeInfo extends Model {
   public enum Type {
     CATEGORY("CATEGORY"),
     ITEM("ITEM"),
-    STORE("STORE");
+    SECTION("SECTION"),
+    STORE("STORE"),
+    VIEW("VIEW");
 
     private String value;
 

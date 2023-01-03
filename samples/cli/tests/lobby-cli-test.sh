@@ -57,7 +57,7 @@ touch "tmp.dat"
 ./ng net.accelbyte.sdk.cli.Main lobby getUserFriendsUpdated \
     --namespace "$AB_NAMESPACE" \
     --limit '86' \
-    --offset '32' \
+    --offset '7' \
     > test.out 2>&1
 eval_tap $? 2 'GetUserFriendsUpdated' test.out
 
@@ -76,34 +76,34 @@ eval_tap $? 4 'GetUserOutgoingFriends' test.out
 #- 5 UserRequestFriend
 ./ng net.accelbyte.sdk.cli.Main lobby userRequestFriend \
     --namespace "$AB_NAMESPACE" \
-    --body '{"friendId": "Ek2ybpqJ", "friendPublicId": "EcnwGTaZ"}' \
+    --body '{"friendId": "42GbgCfa", "friendPublicId": "hrQb9Jt5"}' \
     > test.out 2>&1
 eval_tap $? 5 'UserRequestFriend' test.out
 
 #- 6 UserAcceptFriendRequest
 ./ng net.accelbyte.sdk.cli.Main lobby userAcceptFriendRequest \
     --namespace "$AB_NAMESPACE" \
-    --body '{"friendId": "DadrsNmR"}' \
+    --body '{"friendId": "5a031Wrg"}' \
     > test.out 2>&1
 eval_tap $? 6 'UserAcceptFriendRequest' test.out
 
 #- 7 UserCancelFriendRequest
 ./ng net.accelbyte.sdk.cli.Main lobby userCancelFriendRequest \
     --namespace "$AB_NAMESPACE" \
-    --body '{"friendId": "r6NFg4Zy"}' \
+    --body '{"friendId": "XL7JBu7s"}' \
     > test.out 2>&1
 eval_tap $? 7 'UserCancelFriendRequest' test.out
 
 #- 8 UserRejectFriendRequest
 ./ng net.accelbyte.sdk.cli.Main lobby userRejectFriendRequest \
     --namespace "$AB_NAMESPACE" \
-    --body '{"friendId": "RqKQwSvh"}' \
+    --body '{"friendId": "eGKqi6rP"}' \
     > test.out 2>&1
 eval_tap $? 8 'UserRejectFriendRequest' test.out
 
 #- 9 UserGetFriendshipStatus
 ./ng net.accelbyte.sdk.cli.Main lobby userGetFriendshipStatus \
-    --friendId '9CebrwJ6' \
+    --friendId 'dloMX7Cy' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 9 'UserGetFriendshipStatus' test.out
@@ -111,31 +111,31 @@ eval_tap $? 9 'UserGetFriendshipStatus' test.out
 #- 10 UserUnfriendRequest
 ./ng net.accelbyte.sdk.cli.Main lobby userUnfriendRequest \
     --namespace "$AB_NAMESPACE" \
-    --body '{"friendId": "iZJG2r94"}' \
+    --body '{"friendId": "nMB1tnCI"}' \
     > test.out 2>&1
 eval_tap $? 10 'UserUnfriendRequest' test.out
 
 #- 11 AddFriendsWithoutConfirmation
 ./ng net.accelbyte.sdk.cli.Main lobby addFriendsWithoutConfirmation \
     --namespace "$AB_NAMESPACE" \
-    --userId 'pJbK36jy' \
-    --body '{"friendIds": ["NIWrVFND", "oPwyucVG", "jjVDBygw"]}' \
+    --userId 'EtrU7VNP' \
+    --body '{"friendIds": ["XwJ14f32", "quUlwXkc", "NTMhyApC"]}' \
     > test.out 2>&1
 eval_tap $? 11 'AddFriendsWithoutConfirmation' test.out
 
 #- 12 PersonalChatHistory
 ./ng net.accelbyte.sdk.cli.Main lobby personalChatHistory \
-    --friendId 'rJ00nI2u' \
+    --friendId 'D0wzLmCx' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'GCKTku84' \
+    --userId 'EMAs8C1q' \
     > test.out 2>&1
 eval_tap $? 12 'PersonalChatHistory' test.out
 
 #- 13 AdminChatHistory
 ./ng net.accelbyte.sdk.cli.Main lobby adminChatHistory \
-    --friendId 'N40Jj3L6' \
+    --friendId 'aBVV9iwO' \
     --namespace "$AB_NAMESPACE" \
-    --userId '0n8JcG62' \
+    --userId '18z4WqjP' \
     > test.out 2>&1
 eval_tap $? 13 'AdminChatHistory' test.out
 
@@ -153,7 +153,7 @@ eval_tap $? 15 'AdminGetConfigV1' test.out
 #- 16 AdminUpdateConfigV1
 ./ng net.accelbyte.sdk.cli.Main lobby adminUpdateConfigV1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"allowInviteNonConnectedUser": true, "allowJoinPartyDuringMatchmaking": false, "autoKickOnDisconnect": true, "autoKickOnDisconnectDelay": 65, "cancelTicketOnDisconnect": false, "chatRateLimitBurst": 37, "chatRateLimitDuration": 11, "concurrentUsersLimit": 40, "disableInvitationOnJoinParty": false, "enableChat": true, "entitlementCheck": false, "entitlementItemID": "CLkxUk2h", "generalRateLimitBurst": 59, "generalRateLimitDuration": 18, "keepPresenceActivityOnDisconnect": false, "maxDSWaitTime": 44, "maxPartyMember": 51, "profanityFilter": false, "readyConsentTimeout": 95}' \
+    --body '{"allowInviteNonConnectedUser": true, "allowJoinPartyDuringMatchmaking": true, "autoKickOnDisconnect": true, "autoKickOnDisconnectDelay": 90, "cancelTicketOnDisconnect": false, "chatRateLimitBurst": 64, "chatRateLimitDuration": 25, "concurrentUsersLimit": 19, "disableInvitationOnJoinParty": false, "enableChat": true, "entitlementCheck": false, "entitlementItemID": "q3Y8hkxD", "generalRateLimitBurst": 28, "generalRateLimitDuration": 37, "keepPresenceActivityOnDisconnect": true, "maxDSWaitTime": 8, "maxPartyMember": 66, "profanityFilter": true, "readyConsentTimeout": 63}' \
     > test.out 2>&1
 eval_tap $? 16 'AdminUpdateConfigV1' test.out
 
@@ -173,39 +173,39 @@ eval_tap $? 18 'AdminImportConfigV1' test.out
 #- 19 GetListOfFriends
 ./ng net.accelbyte.sdk.cli.Main lobby getListOfFriends \
     --namespace "$AB_NAMESPACE" \
-    --userId 'unIMG6IE' \
-    --limit '82' \
-    --offset '95' \
+    --userId 'RPsj8rjG' \
+    --limit '95' \
+    --offset '15' \
     > test.out 2>&1
 eval_tap $? 19 'GetListOfFriends' test.out
 
 #- 20 SendMultipleUsersFreeformNotificationV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby sendMultipleUsersFreeformNotificationV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --body '{"message": "uhqSS4hR", "topicName": "UMaYxg61", "userIds": ["csBwqg20", "3zEdFh0O", "FjzJbzGw"]}' \
+    --body '{"message": "oVhDxbb4", "topicName": "XBEzP0EA", "userIds": ["vf4vsRs2", "9A7wg9Mm", "MaOX5D6w"]}' \
     > test.out 2>&1
 eval_tap $? 20 'SendMultipleUsersFreeformNotificationV1Admin' test.out
 
 #- 21 SendUsersFreeformNotificationV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby sendUsersFreeformNotificationV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --body '{"message": "AfyN1Ub4", "topicName": "mih2LH2B"}' \
+    --body '{"message": "CTX7i1uh", "topicName": "MUQXXmRn"}' \
     > test.out 2>&1
 eval_tap $? 21 'SendUsersFreeformNotificationV1Admin' test.out
 
 #- 22 SendPartyFreeformNotificationV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby sendPartyFreeformNotificationV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --partyId 'FjYVNePu' \
-    --body '{"message": "vwRTAc1e", "topicName": "PU15ss1O"}' \
+    --partyId 'hAi9KeFa' \
+    --body '{"message": "pJLJEaCe", "topicName": "T2Z1qZy7"}' \
     > test.out 2>&1
 eval_tap $? 22 'SendPartyFreeformNotificationV1Admin' test.out
 
 #- 23 SendPartyTemplatedNotificationV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby sendPartyTemplatedNotificationV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --partyId 'nd4YROLX' \
-    --body '{"templateContext": {"sbiSVyTL": "iUC58zr3", "CiamrCBy": "gguOB4AU", "Vk8jygx8": "OMVJabB4"}, "templateLanguage": "vErjM5wi", "templateSlug": "oagYIkOu", "topicName": "Zp9Ji3Vp"}' \
+    --partyId '30z64H2m' \
+    --body '{"templateContext": {"4oeYR83U": "BWitOGvN", "hjHFhlVD": "RLyTeHBh", "HR8nlCTI": "t5ugddG0"}, "templateLanguage": "5bKNwBlV", "templateSlug": "AVDqyLyQ", "topicName": "e31YgNxE"}' \
     > test.out 2>&1
 eval_tap $? 23 'SendPartyTemplatedNotificationV1Admin' test.out
 
@@ -218,148 +218,148 @@ eval_tap $? 24 'GetAllNotificationTemplatesV1Admin' test.out
 #- 25 CreateNotificationTemplateV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby createNotificationTemplateV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --body '{"templateContent": "mzf5Mi65", "templateLanguage": "4uei4xi1", "templateSlug": "AIQL2nvJ"}' \
+    --body '{"templateContent": "jhI2LzOd", "templateLanguage": "czf0RBTm", "templateSlug": "jJ6QtwOO"}' \
     > test.out 2>&1
 eval_tap $? 25 'CreateNotificationTemplateV1Admin' test.out
 
 #- 26 SendUsersTemplatedNotificationV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby sendUsersTemplatedNotificationV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --body '{"templateContext": {"GaRth0vc": "bimL8NXq", "WR9Jx8CS": "DpusyoMM", "sQXEyUSv": "HG7ZFeVX"}, "templateLanguage": "dxuLZ4ea", "templateSlug": "PST0kPpY", "topicName": "zjNrEgyR"}' \
+    --body '{"templateContext": {"FbwnMgnG": "hW5NMo1G", "QJJ09b5I": "syY2488u", "duz3nWga": "7rJqZkfh"}, "templateLanguage": "jbwn3ct5", "templateSlug": "4vfJTwhB", "topicName": "8cbyXQHx"}' \
     > test.out 2>&1
 eval_tap $? 26 'SendUsersTemplatedNotificationV1Admin' test.out
 
 #- 27 GetTemplateSlugLocalizationsTemplateV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby getTemplateSlugLocalizationsTemplateV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --templateSlug 'EnknDEv4' \
-    --after '4qua7scb' \
-    --before 'InCb9ksy' \
-    --limit '63' \
+    --templateSlug 'ZP58K1sN' \
+    --after 'uDWrKg5r' \
+    --before 'smmVj8rk' \
+    --limit '70' \
     > test.out 2>&1
 eval_tap $? 27 'GetTemplateSlugLocalizationsTemplateV1Admin' test.out
 
 #- 28 DeleteNotificationTemplateSlugV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby deleteNotificationTemplateSlugV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --templateSlug '7RB4Jseu' \
+    --templateSlug 'RHRVoy5M' \
     > test.out 2>&1
 eval_tap $? 28 'DeleteNotificationTemplateSlugV1Admin' test.out
 
 #- 29 GetSingleTemplateLocalizationV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby getSingleTemplateLocalizationV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --templateLanguage 'jxsqEZYL' \
-    --templateSlug 'oXXhMlRf' \
+    --templateLanguage 'N5EjqPgN' \
+    --templateSlug '09mHui9z' \
     > test.out 2>&1
 eval_tap $? 29 'GetSingleTemplateLocalizationV1Admin' test.out
 
 #- 30 UpdateTemplateLocalizationV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby updateTemplateLocalizationV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --templateLanguage 'ucvxEbid' \
-    --templateSlug 'okMSiiKo' \
-    --body '{"templateContent": "BaAu0Elp"}' \
+    --templateLanguage 'B3JihOkC' \
+    --templateSlug 'eij8SMDq' \
+    --body '{"templateContent": "1ao6s35i"}' \
     > test.out 2>&1
 eval_tap $? 30 'UpdateTemplateLocalizationV1Admin' test.out
 
 #- 31 DeleteTemplateLocalizationV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby deleteTemplateLocalizationV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --templateLanguage 'LtdkVNdL' \
-    --templateSlug 'lSTqhQAW' \
+    --templateLanguage 'iWGMPTig' \
+    --templateSlug 'Vov2vTxM' \
     > test.out 2>&1
 eval_tap $? 31 'DeleteTemplateLocalizationV1Admin' test.out
 
 #- 32 PublishTemplateLocalizationV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby publishTemplateLocalizationV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --templateLanguage '2EQx6wXn' \
-    --templateSlug 'JK7bji2I' \
+    --templateLanguage 'IeYpgGtB' \
+    --templateSlug 'lW92Pj8w' \
     > test.out 2>&1
 eval_tap $? 32 'PublishTemplateLocalizationV1Admin' test.out
 
 #- 33 GetAllNotificationTopicsV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby getAllNotificationTopicsV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --after '64hQdSAK' \
-    --before 'tu3fcacg' \
-    --limit '85' \
+    --after 'wEU80j7j' \
+    --before 'jVPo8FU0' \
+    --limit '58' \
     > test.out 2>&1
 eval_tap $? 33 'GetAllNotificationTopicsV1Admin' test.out
 
 #- 34 CreateNotificationTopicV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby createNotificationTopicV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --body '{"description": "tMKqjOHD", "topicName": "0X3vBqTr"}' \
+    --body '{"description": "IZVOSRXm", "topicName": "reko8pvi"}' \
     > test.out 2>&1
 eval_tap $? 34 'CreateNotificationTopicV1Admin' test.out
 
 #- 35 GetNotificationTopicV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby getNotificationTopicV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --topicName 'w6wB0s3d' \
+    --topicName 'NXpughX2' \
     > test.out 2>&1
 eval_tap $? 35 'GetNotificationTopicV1Admin' test.out
 
 #- 36 UpdateNotificationTopicV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby updateNotificationTopicV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --topicName 'MrIYDYYW' \
-    --body '{"description": "iD4a2GRM"}' \
+    --topicName 'V4TsLEvs' \
+    --body '{"description": "g8xDCQUH"}' \
     > test.out 2>&1
 eval_tap $? 36 'UpdateNotificationTopicV1Admin' test.out
 
 #- 37 DeleteNotificationTopicV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby deleteNotificationTopicV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --topicName 'OLTKuSay' \
+    --topicName 'l1zlZ318' \
     > test.out 2>&1
 eval_tap $? 37 'DeleteNotificationTopicV1Admin' test.out
 
 #- 38 SendSpecificUserFreeformNotificationV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby sendSpecificUserFreeformNotificationV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --userId 'XB3xEChf' \
-    --body '{"message": "QMfwf0qV", "topicName": "I2uEhgGr"}' \
+    --userId '4NseJ5pV' \
+    --body '{"message": "HFVt8zey", "topicName": "u1oFYQHL"}' \
     > test.out 2>&1
 eval_tap $? 38 'SendSpecificUserFreeformNotificationV1Admin' test.out
 
 #- 39 SendSpecificUserTemplatedNotificationV1Admin
 ./ng net.accelbyte.sdk.cli.Main lobby sendSpecificUserTemplatedNotificationV1Admin \
     --namespace "$AB_NAMESPACE" \
-    --userId 'BkMrhzfy' \
-    --body '{"templateContext": {"XGZtckMK": "ByyPACeH", "tJXvEGgz": "mDMRnRuL", "47H8jwba": "meOg7Ov4"}, "templateLanguage": "b7MCxZYt", "templateSlug": "KVADm87q", "topicName": "fglGelaW"}' \
+    --userId 'Eh3dj8CM' \
+    --body '{"templateContext": {"efLH5KZ5": "hKTely3y", "jWq9n5kz": "KqYCkAMn", "vZyAA5iE": "8Kg82tip"}, "templateLanguage": "IetWBHaU", "templateSlug": "ehsSBA0w", "topicName": "H5hp1tkT"}' \
     > test.out 2>&1
 eval_tap $? 39 'SendSpecificUserTemplatedNotificationV1Admin' test.out
 
 #- 40 AdminGetPartyDataV1
 ./ng net.accelbyte.sdk.cli.Main lobby adminGetPartyDataV1 \
     --namespace "$AB_NAMESPACE" \
-    --partyId 'fGnuXKZe' \
+    --partyId 'gp8U7rOH' \
     > test.out 2>&1
 eval_tap $? 40 'AdminGetPartyDataV1' test.out
 
 #- 41 AdminUpdatePartyAttributesV1
 ./ng net.accelbyte.sdk.cli.Main lobby adminUpdatePartyAttributesV1 \
     --namespace "$AB_NAMESPACE" \
-    --partyId 'XOKlGzlL' \
-    --body '{"custom_attribute": {"5OuqJDmY": {}, "qkiduRL0": {}, "2s9NiiXB": {}}, "updatedAt": 9}' \
+    --partyId '2cWebTW4' \
+    --body '{"custom_attribute": {"67kw9MR1": {}, "PGHeAxx6": {}, "K7DXY3f2": {}}, "updatedAt": 55}' \
     > test.out 2>&1
 eval_tap $? 41 'AdminUpdatePartyAttributesV1' test.out
 
 #- 42 AdminJoinPartyV1
 ./ng net.accelbyte.sdk.cli.Main lobby adminJoinPartyV1 \
     --namespace "$AB_NAMESPACE" \
-    --partyId 'RPhh9Ubv' \
-    --userId 'vXYYf6qe' \
+    --partyId 'm7vf2Va6' \
+    --userId '97HNKSSy' \
     > test.out 2>&1
 eval_tap $? 42 'AdminJoinPartyV1' test.out
 
 #- 43 AdminGetUserPartyV1
 ./ng net.accelbyte.sdk.cli.Main lobby adminGetUserPartyV1 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'QqNhCBiV' \
+    --userId 'QBvJ37Ft' \
     > test.out 2>&1
 eval_tap $? 43 'AdminGetUserPartyV1' test.out
 
@@ -372,91 +372,91 @@ eval_tap $? 44 'AdminGetLobbyCCU' test.out
 #- 45 AdminGetAllPlayerSessionAttribute
 ./ng net.accelbyte.sdk.cli.Main lobby adminGetAllPlayerSessionAttribute \
     --namespace "$AB_NAMESPACE" \
-    --userId 'T4HKT2Ai' \
+    --userId 'zk53YhYb' \
     > test.out 2>&1
 eval_tap $? 45 'AdminGetAllPlayerSessionAttribute' test.out
 
 #- 46 AdminSetPlayerSessionAttribute
 ./ng net.accelbyte.sdk.cli.Main lobby adminSetPlayerSessionAttribute \
     --namespace "$AB_NAMESPACE" \
-    --userId 'pgL59c4n' \
-    --body '{"attributes": {"G42AwpN0": "6lRYWWxg", "1JaRKkdk": "bURXrpSN", "A1Xqc72v": "xK8i3lqZ"}}' \
+    --userId 'lHUWhiqG' \
+    --body '{"attributes": {"mPMaY35u": "qgYNFhjt", "GUok8ky5": "c4lv4w5R", "CENf9BFv": "TBTVoy0l"}}' \
     > test.out 2>&1
 eval_tap $? 46 'AdminSetPlayerSessionAttribute' test.out
 
 #- 47 AdminGetPlayerSessionAttribute
 ./ng net.accelbyte.sdk.cli.Main lobby adminGetPlayerSessionAttribute \
-    --attribute 'RScHmPEr' \
+    --attribute 'jzlGnfrg' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'CMRcnin4' \
+    --userId 'luPqaUtJ' \
     > test.out 2>&1
 eval_tap $? 47 'AdminGetPlayerSessionAttribute' test.out
 
 #- 48 AdminGetPlayerBlockedPlayersV1
 ./ng net.accelbyte.sdk.cli.Main lobby adminGetPlayerBlockedPlayersV1 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'X0ABGJ2W' \
+    --userId 'eJvM4EBj' \
     > test.out 2>&1
 eval_tap $? 48 'AdminGetPlayerBlockedPlayersV1' test.out
 
 #- 49 AdminGetPlayerBlockedByPlayersV1
 ./ng net.accelbyte.sdk.cli.Main lobby adminGetPlayerBlockedByPlayersV1 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'H1DQvw5R' \
+    --userId 'TVciwLlY' \
     > test.out 2>&1
 eval_tap $? 49 'AdminGetPlayerBlockedByPlayersV1' test.out
 
 #- 50 AdminBulkBlockPlayersV1
 ./ng net.accelbyte.sdk.cli.Main lobby adminBulkBlockPlayersV1 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'H5fn82bD' \
-    --body '{"listBlockedUserId": ["R3Thx26P", "Nmd1B0Y0", "UK0kyiem"]}' \
+    --userId 'nVEpqMwU' \
+    --body '{"listBlockedUserId": ["DA9HJqBV", "Wxh25zTm", "xjIsCmPo"]}' \
     > test.out 2>&1
 eval_tap $? 50 'AdminBulkBlockPlayersV1' test.out
 
 #- 51 AdminDebugProfanityFilters
 ./ng net.accelbyte.sdk.cli.Main lobby adminDebugProfanityFilters \
     --namespace "$AB_NAMESPACE" \
-    --body '{"text": "UujEyjNJ"}' \
+    --body '{"text": "A8JaOeVE"}' \
     > test.out 2>&1
 eval_tap $? 51 'AdminDebugProfanityFilters' test.out
 
 #- 52 AdminGetProfanityListFiltersV1
 ./ng net.accelbyte.sdk.cli.Main lobby adminGetProfanityListFiltersV1 \
-    --list '1wlDS9Yb' \
+    --list '5bhyX4Ov' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 52 'AdminGetProfanityListFiltersV1' test.out
 
 #- 53 AdminAddProfanityFilterIntoList
 ./ng net.accelbyte.sdk.cli.Main lobby adminAddProfanityFilterIntoList \
-    --list '3orMiaQ5' \
+    --list 'LEpi72if' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"filter": "FooiIOOc", "note": "smbbnFSr"}' \
+    --body '{"filter": "IAiAbZyU", "note": "Csd3xr1Y"}' \
     > test.out 2>&1
 eval_tap $? 53 'AdminAddProfanityFilterIntoList' test.out
 
 #- 54 AdminAddProfanityFilters
 ./ng net.accelbyte.sdk.cli.Main lobby adminAddProfanityFilters \
-    --list 'AZiXGbAs' \
+    --list 'dMMx5vIR' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"filters": [{"filter": "DypxXFOY", "note": "4Zys3KWZ"}, {"filter": "OGLyph14", "note": "mdaA4Oz0"}, {"filter": "yb7xKq1u", "note": "K4fqqyzk"}]}' \
+    --body '{"filters": [{"filter": "yentoSnF", "note": "fYiDkeS0"}, {"filter": "uhqupWmG", "note": "Zg1OOB73"}, {"filter": "C08UtcUG", "note": "piGgbwNR"}]}' \
     > test.out 2>&1
 eval_tap $? 54 'AdminAddProfanityFilters' test.out
 
 #- 55 AdminImportProfanityFiltersFromFile
 ./ng net.accelbyte.sdk.cli.Main lobby adminImportProfanityFiltersFromFile \
-    --list 'b4dhHPL8' \
+    --list 'A9u89S3u' \
     --namespace "$AB_NAMESPACE" \
-    --body '[68, 90, 62]' \
+    --body '[89, 15, 51]' \
     > test.out 2>&1
 eval_tap $? 55 'AdminImportProfanityFiltersFromFile' test.out
 
 #- 56 AdminDeleteProfanityFilter
 ./ng net.accelbyte.sdk.cli.Main lobby adminDeleteProfanityFilter \
-    --list 'O35Lpasu' \
+    --list 'I8VvCHmx' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"filter": "uQOsYRAg"}' \
+    --body '{"filter": "zKbfdAFL"}' \
     > test.out 2>&1
 eval_tap $? 56 'AdminDeleteProfanityFilter' test.out
 
@@ -469,21 +469,21 @@ eval_tap $? 57 'AdminGetProfanityLists' test.out
 #- 58 AdminCreateProfanityList
 ./ng net.accelbyte.sdk.cli.Main lobby adminCreateProfanityList \
     --namespace "$AB_NAMESPACE" \
-    --body '{"isEnabled": true, "isMandatory": true, "name": "aFKoKpTk"}' \
+    --body '{"isEnabled": false, "isMandatory": true, "name": "MNDDU0Nv"}' \
     > test.out 2>&1
 eval_tap $? 58 'AdminCreateProfanityList' test.out
 
 #- 59 AdminUpdateProfanityList
 ./ng net.accelbyte.sdk.cli.Main lobby adminUpdateProfanityList \
-    --list 'dvNpT93v' \
+    --list 'LM2mRKC7' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"isEnabled": true, "isMandatory": true, "newName": "fSAJCV33"}' \
+    --body '{"isEnabled": false, "isMandatory": true, "newName": "KmwmfM0W"}' \
     > test.out 2>&1
 eval_tap $? 59 'AdminUpdateProfanityList' test.out
 
 #- 60 AdminDeleteProfanityList
 ./ng net.accelbyte.sdk.cli.Main lobby adminDeleteProfanityList \
-    --list 'NYRRlDFe' \
+    --list 'S2fN2F8A' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 60 'AdminDeleteProfanityList' test.out
@@ -497,14 +497,14 @@ eval_tap $? 61 'AdminGetProfanityRule' test.out
 #- 62 AdminSetProfanityRuleForNamespace
 ./ng net.accelbyte.sdk.cli.Main lobby adminSetProfanityRuleForNamespace \
     --namespace "$AB_NAMESPACE" \
-    --body '{"rule": "qKPnzWlz"}' \
+    --body '{"rule": "kXGFQe3n"}' \
     > test.out 2>&1
 eval_tap $? 62 'AdminSetProfanityRuleForNamespace' test.out
 
 #- 63 AdminVerifyMessageProfanityResponse
 ./ng net.accelbyte.sdk.cli.Main lobby adminVerifyMessageProfanityResponse \
     --namespace "$AB_NAMESPACE" \
-    --body '{"message": "0st3lm2b", "profanityLevel": "o457pm0O"}' \
+    --body '{"message": "NcT5kZYJ", "profanityLevel": "2X2wNz0z"}' \
     > test.out 2>&1
 eval_tap $? 63 'AdminVerifyMessageProfanityResponse' test.out
 
@@ -517,14 +517,14 @@ eval_tap $? 64 'AdminGetThirdPartyConfig' test.out
 #- 65 AdminUpdateThirdPartyConfig
 ./ng net.accelbyte.sdk.cli.Main lobby adminUpdateThirdPartyConfig \
     --namespace "$AB_NAMESPACE" \
-    --body '{"apiKey": "KYIfYo5b"}' \
+    --body '{"apiKey": "tBdzCzlu"}' \
     > test.out 2>&1
 eval_tap $? 65 'AdminUpdateThirdPartyConfig' test.out
 
 #- 66 AdminCreateThirdPartyConfig
 ./ng net.accelbyte.sdk.cli.Main lobby adminCreateThirdPartyConfig \
     --namespace "$AB_NAMESPACE" \
-    --body '{"apiKey": "LRoHFjW6"}' \
+    --body '{"apiKey": "DMg8d3xS"}' \
     > test.out 2>&1
 eval_tap $? 66 'AdminCreateThirdPartyConfig' test.out
 
@@ -541,7 +541,7 @@ eval_tap $? 68 'PublicGetMessages' test.out
 
 #- 69 GetPersonalChatHistoryV1Public
 ./ng net.accelbyte.sdk.cli.Main lobby getPersonalChatHistoryV1Public \
-    --friendId 'iD4jLtl3' \
+    --friendId '9bc0hLWR' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 69 'GetPersonalChatHistoryV1Public' test.out
@@ -549,23 +549,23 @@ eval_tap $? 69 'GetPersonalChatHistoryV1Public' test.out
 #- 70 PublicGetPartyDataV1
 ./ng net.accelbyte.sdk.cli.Main lobby publicGetPartyDataV1 \
     --namespace "$AB_NAMESPACE" \
-    --partyId 'SNs8YFtv' \
+    --partyId 'QAdnX1CP' \
     > test.out 2>&1
 eval_tap $? 70 'PublicGetPartyDataV1' test.out
 
 #- 71 PublicUpdatePartyAttributesV1
 ./ng net.accelbyte.sdk.cli.Main lobby publicUpdatePartyAttributesV1 \
     --namespace "$AB_NAMESPACE" \
-    --partyId '10HmeU1l' \
-    --body '{"custom_attribute": {"5fwOIc85": {}, "vbvIxxsW": {}, "abwbzldS": {}}, "updatedAt": 5}' \
+    --partyId 'bpaJRfzK' \
+    --body '{"custom_attribute": {"eouo6O0D": {}, "qd4w7wEY": {}, "zWM1QJe9": {}}, "updatedAt": 46}' \
     > test.out 2>&1
 eval_tap $? 71 'PublicUpdatePartyAttributesV1' test.out
 
 #- 72 PublicSetPartyLimitV1
 ./ng net.accelbyte.sdk.cli.Main lobby publicSetPartyLimitV1 \
     --namespace "$AB_NAMESPACE" \
-    --partyId 'AQsv74jT' \
-    --body '{"limit": 100}' \
+    --partyId 'gU6X3hFR' \
+    --body '{"limit": 17}' \
     > test.out 2>&1
 eval_tap $? 72 'PublicSetPartyLimitV1' test.out
 
@@ -585,21 +585,21 @@ eval_tap $? 74 'PublicGetPlayerBlockedByPlayersV1' test.out
 ./ng net.accelbyte.sdk.cli.Main lobby usersPresenceHandlerV1 \
     --namespace "$AB_NAMESPACE" \
     --countOnly  \
-    --userIds 'jRYwmbfL' \
+    --userIds '61xTSfh0' \
     > test.out 2>&1
 eval_tap $? 75 'UsersPresenceHandlerV1' test.out
 
 #- 76 FreeFormNotification
 ./ng net.accelbyte.sdk.cli.Main lobby freeFormNotification \
     --namespace "$AB_NAMESPACE" \
-    --body '{"message": "b8u6NdqO", "topic": "cTjk04qM"}' \
+    --body '{"message": "SiDxcghy", "topic": "5WQLSMRR"}' \
     > test.out 2>&1
 eval_tap $? 76 'FreeFormNotification' test.out
 
 #- 77 NotificationWithTemplate
 ./ng net.accelbyte.sdk.cli.Main lobby notificationWithTemplate \
     --namespace "$AB_NAMESPACE" \
-    --body '{"templateContext": {"xKFcyIz8": "lyJFOrC3", "ctFNPbry": "zO8bUEmq", "fOBaAZGZ": "CBJrEKVl"}, "templateLanguage": "RAor6Yx4", "templateSlug": "1cZXKLwA", "topic": "tmQowL5O"}' \
+    --body '{"templateContext": {"LQygPkKt": "BbBQhapt", "d19CGkDZ": "WIQfhFw7", "iRNq1CCl": "H8H23tIg"}, "templateLanguage": "YPD8auJX", "templateSlug": "X5LL8fCb", "topic": "fj0DPCUT"}' \
     > test.out 2>&1
 eval_tap $? 77 'NotificationWithTemplate' test.out
 
@@ -612,111 +612,111 @@ eval_tap $? 78 'GetGameTemplate' test.out
 #- 79 CreateTemplate
 ./ng net.accelbyte.sdk.cli.Main lobby createTemplate \
     --namespace "$AB_NAMESPACE" \
-    --body '{"templateContent": "5ZdTxDj6", "templateLanguage": "xbtNsjQ0", "templateSlug": "SeL3ML31"}' \
+    --body '{"templateContent": "tBod43C2", "templateLanguage": "WLGYisNo", "templateSlug": "aS22cgj5"}' \
     > test.out 2>&1
 eval_tap $? 79 'CreateTemplate' test.out
 
 #- 80 GetSlugTemplate
 ./ng net.accelbyte.sdk.cli.Main lobby getSlugTemplate \
     --namespace "$AB_NAMESPACE" \
-    --templateSlug 'ugH351qs' \
-    --after 'htKzPjUC' \
-    --before 'Gv0YPbHZ' \
-    --limit '83' \
+    --templateSlug 'o3d3hPvV' \
+    --after '3BAgyYrK' \
+    --before 'KZDX4Ns4' \
+    --limit '42' \
     > test.out 2>&1
 eval_tap $? 80 'GetSlugTemplate' test.out
 
 #- 81 DeleteTemplateSlug
 ./ng net.accelbyte.sdk.cli.Main lobby deleteTemplateSlug \
     --namespace "$AB_NAMESPACE" \
-    --templateSlug 'oRLj6E5J' \
+    --templateSlug 'ozfpV50U' \
     > test.out 2>&1
 eval_tap $? 81 'DeleteTemplateSlug' test.out
 
 #- 82 GetLocalizationTemplate
 ./ng net.accelbyte.sdk.cli.Main lobby getLocalizationTemplate \
     --namespace "$AB_NAMESPACE" \
-    --templateLanguage 'qvDw1qrr' \
-    --templateSlug '9B0Yj0Fn' \
+    --templateLanguage 'eaSp3DGb' \
+    --templateSlug 'h61EBuFE' \
     > test.out 2>&1
 eval_tap $? 82 'GetLocalizationTemplate' test.out
 
 #- 83 UpdateLocalizationTemplate
 ./ng net.accelbyte.sdk.cli.Main lobby updateLocalizationTemplate \
     --namespace "$AB_NAMESPACE" \
-    --templateLanguage '0ZcooVJc' \
-    --templateSlug 'Coqpj2V5' \
-    --body '{"templateContent": "OfG0TQii"}' \
+    --templateLanguage 'f6sls9Xt' \
+    --templateSlug '6L8Zldtp' \
+    --body '{"templateContent": "uUoCBJzk"}' \
     > test.out 2>&1
 eval_tap $? 83 'UpdateLocalizationTemplate' test.out
 
 #- 84 DeleteTemplateLocalization
 ./ng net.accelbyte.sdk.cli.Main lobby deleteTemplateLocalization \
     --namespace "$AB_NAMESPACE" \
-    --templateLanguage 'zN77OVYP' \
-    --templateSlug 'ujXC61S0' \
+    --templateLanguage 'VhVYW381' \
+    --templateSlug 'vcxEeWEd' \
     > test.out 2>&1
 eval_tap $? 84 'DeleteTemplateLocalization' test.out
 
 #- 85 PublishTemplate
 ./ng net.accelbyte.sdk.cli.Main lobby publishTemplate \
     --namespace "$AB_NAMESPACE" \
-    --templateLanguage '0jGdMKPM' \
-    --templateSlug 'LoDzORKf' \
+    --templateLanguage 'ukmsABi8' \
+    --templateSlug 'QCJJsQij' \
     > test.out 2>&1
 eval_tap $? 85 'PublishTemplate' test.out
 
 #- 86 GetTopicByNamespace
 ./ng net.accelbyte.sdk.cli.Main lobby getTopicByNamespace \
     --namespace "$AB_NAMESPACE" \
-    --after '4DaKTZK1' \
-    --before 'ijWnxtaa' \
-    --limit '44' \
+    --after 'QWr7NWQ7' \
+    --before 'LB5vmnXh' \
+    --limit '79' \
     > test.out 2>&1
 eval_tap $? 86 'GetTopicByNamespace' test.out
 
 #- 87 CreateTopic
 ./ng net.accelbyte.sdk.cli.Main lobby createTopic \
     --namespace "$AB_NAMESPACE" \
-    --body '{"description": "FKhv3WdS", "topic": "0m2qNlBN"}' \
+    --body '{"description": "cJfgazgq", "topic": "w19mF4yn"}' \
     > test.out 2>&1
 eval_tap $? 87 'CreateTopic' test.out
 
 #- 88 GetTopicByTopicName
 ./ng net.accelbyte.sdk.cli.Main lobby getTopicByTopicName \
     --namespace "$AB_NAMESPACE" \
-    --topic 'AIx0pdvF' \
+    --topic 'WbTcyXiS' \
     > test.out 2>&1
 eval_tap $? 88 'GetTopicByTopicName' test.out
 
 #- 89 UpdateTopicByTopicName
 ./ng net.accelbyte.sdk.cli.Main lobby updateTopicByTopicName \
     --namespace "$AB_NAMESPACE" \
-    --topic 'kdL2aym3' \
-    --body '{"description": "Pjv7FbcR"}' \
+    --topic 'aoR4P7QE' \
+    --body '{"description": "Evr9pUtZ"}' \
     > test.out 2>&1
 eval_tap $? 89 'UpdateTopicByTopicName' test.out
 
 #- 90 DeleteTopicByTopicName
 ./ng net.accelbyte.sdk.cli.Main lobby deleteTopicByTopicName \
     --namespace "$AB_NAMESPACE" \
-    --topic 'zeYkZpkb' \
+    --topic 'OKUWwWrQ' \
     > test.out 2>&1
 eval_tap $? 90 'DeleteTopicByTopicName' test.out
 
 #- 91 FreeFormNotificationByUserID
 ./ng net.accelbyte.sdk.cli.Main lobby freeFormNotificationByUserID \
     --namespace "$AB_NAMESPACE" \
-    --userId 'VzQUqtOz' \
-    --body '{"message": "2fcqOum8", "topic": "b7xu73wy"}' \
+    --userId 'E2dQwmgp' \
+    --body '{"message": "jCWrVl1I", "topic": "V6NKHzUP"}' \
     > test.out 2>&1
 eval_tap $? 91 'FreeFormNotificationByUserID' test.out
 
 #- 92 NotificationWithTemplateByUserID
 ./ng net.accelbyte.sdk.cli.Main lobby notificationWithTemplateByUserID \
     --namespace "$AB_NAMESPACE" \
-    --userId '8noHUywH' \
-    --body '{"templateContext": {"bORPyLut": "70IvBczY", "psZFmGkM": "3MTAQIGx", "t18f2mKU": "IoVmGQX4"}, "templateLanguage": "C3W4Hyvj", "templateSlug": "NH23TvYG", "topic": "RRxCjs7L"}' \
+    --userId 'vQiFy5dQ' \
+    --body '{"templateContext": {"kuFLxYPI": "M05yEzgu", "OVZau1Jw": "wEwdMm3G", "7fklF7sM": "IL63I1zO"}, "templateLanguage": "kTkjbOVt", "templateSlug": "FK4znS0N", "topic": "T2vck0nW"}' \
     > test.out 2>&1
 eval_tap $? 92 'NotificationWithTemplateByUserID' test.out
 

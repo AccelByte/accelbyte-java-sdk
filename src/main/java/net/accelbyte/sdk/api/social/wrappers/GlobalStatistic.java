@@ -30,4 +30,34 @@ public class GlobalStatistic {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see GetGlobalStatItemByStatCode
+   */
+  public GlobalStatItemInfo getGlobalStatItemByStatCode(GetGlobalStatItemByStatCode input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GetGlobalStatItems1
+   */
+  public GlobalStatItemPagingSlicedResult getGlobalStatItems1(GetGlobalStatItems1 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GetGlobalStatItemByStatCode1
+   */
+  public GlobalStatItemInfo getGlobalStatItemByStatCode1(GetGlobalStatItemByStatCode1 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

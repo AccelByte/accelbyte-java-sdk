@@ -48,6 +48,7 @@ public class PublicListUserAchievements extends Operation {
   private Integer limit;
   private Integer offset;
   private Boolean preferUnlocked;
+  private String sortBy;
   private List<String> tags;
 
   /**
@@ -63,12 +64,14 @@ public class PublicListUserAchievements extends Operation {
       Integer limit,
       Integer offset,
       Boolean preferUnlocked,
+      String sortBy,
       List<String> tags) {
     this.namespace = namespace;
     this.userId = userId;
     this.limit = limit;
     this.offset = offset;
     this.preferUnlocked = preferUnlocked;
+    this.sortBy = sortBy;
     this.tags = tags;
 
     securities.add("Bearer");
@@ -95,6 +98,7 @@ public class PublicListUserAchievements extends Operation {
     queryParams.put(
         "preferUnlocked",
         this.preferUnlocked == null ? null : Arrays.asList(String.valueOf(this.preferUnlocked)));
+    queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
     queryParams.put("tags", this.tags == null ? null : this.tags);
     return queryParams;
   }
@@ -126,6 +130,7 @@ public class PublicListUserAchievements extends Operation {
     result.put("limit", "None");
     result.put("offset", "None");
     result.put("preferUnlocked", "None");
+    result.put("sortBy", "None");
     result.put("tags", "csv");
     return result;
   }

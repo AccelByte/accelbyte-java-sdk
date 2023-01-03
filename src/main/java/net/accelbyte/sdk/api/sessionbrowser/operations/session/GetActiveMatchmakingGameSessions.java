@@ -39,7 +39,9 @@ public class GetActiveMatchmakingGameSessions extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private Integer limit;
   private String matchId;
+  private Integer offset;
   private String serverRegion;
   private String sessionId;
 
@@ -50,9 +52,16 @@ public class GetActiveMatchmakingGameSessions extends Operation {
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GetActiveMatchmakingGameSessions(
-      String namespace, String matchId, String serverRegion, String sessionId) {
+      String namespace,
+      Integer limit,
+      String matchId,
+      Integer offset,
+      String serverRegion,
+      String sessionId) {
     this.namespace = namespace;
+    this.limit = limit;
     this.matchId = matchId;
+    this.offset = offset;
     this.serverRegion = serverRegion;
     this.sessionId = sessionId;
 
@@ -71,7 +80,10 @@ public class GetActiveMatchmakingGameSessions extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put("match_id", this.matchId == null ? null : Arrays.asList(this.matchId));
+    queryParams.put(
+        "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put(
         "server_region", this.serverRegion == null ? null : Arrays.asList(this.serverRegion));
     queryParams.put("session_id", this.sessionId == null ? null : Arrays.asList(this.sessionId));
@@ -99,7 +111,9 @@ public class GetActiveMatchmakingGameSessions extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("limit", "None");
     result.put("match_id", "None");
+    result.put("offset", "None");
     result.put("server_region", "None");
     result.put("session_id", "None");
     return result;

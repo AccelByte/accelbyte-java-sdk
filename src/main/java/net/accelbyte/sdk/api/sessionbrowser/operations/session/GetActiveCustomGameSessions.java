@@ -39,6 +39,8 @@ public class GetActiveCustomGameSessions extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private Integer limit;
+  private Integer offset;
   private String serverRegion;
   private String sessionId;
 
@@ -48,8 +50,11 @@ public class GetActiveCustomGameSessions extends Operation {
   @Builder
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetActiveCustomGameSessions(String namespace, String serverRegion, String sessionId) {
+  public GetActiveCustomGameSessions(
+      String namespace, Integer limit, Integer offset, String serverRegion, String sessionId) {
     this.namespace = namespace;
+    this.limit = limit;
+    this.offset = offset;
     this.serverRegion = serverRegion;
     this.sessionId = sessionId;
 
@@ -68,6 +73,9 @@ public class GetActiveCustomGameSessions extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+    queryParams.put(
+        "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put(
         "server_region", this.serverRegion == null ? null : Arrays.asList(this.serverRegion));
     queryParams.put("session_id", this.sessionId == null ? null : Arrays.asList(this.sessionId));
@@ -95,6 +103,8 @@ public class GetActiveCustomGameSessions extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("limit", "None");
+    result.put("offset", "None");
     result.put("server_region", "None");
     result.put("session_id", "None");
     return result;

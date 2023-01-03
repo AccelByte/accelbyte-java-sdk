@@ -46,6 +46,11 @@ public class GetGlobalStatItems implements Callable<Integer> {
   Integer offset;
 
   @Option(
+      names = {"--statCodes"},
+      description = "statCodes")
+  String statCodes;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -71,6 +76,7 @@ public class GetGlobalStatItems implements Callable<Integer> {
               .namespace(namespace)
               .limit(limit)
               .offset(offset)
+              .statCodes(statCodes)
               .build();
       final GlobalStatItemPagingSlicedResult response = wrapper.getGlobalStatItems(operation);
       final String responseString =

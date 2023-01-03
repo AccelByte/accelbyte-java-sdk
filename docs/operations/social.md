@@ -44,6 +44,9 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/social/v1/admin/namespaces/{namespace}/globalstatitems` | GET | GetGlobalStatItems | [GetGlobalStatItems](../../src/main/java/net/accelbyte/sdk/api/social/operations/global_statistic/GetGlobalStatItems.java) | [GetGlobalStatItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/global_statistic/GetGlobalStatItems.java) |
+| `/social/v1/admin/namespaces/{namespace}/globalstatitems/{statCode}` | GET | GetGlobalStatItemByStatCode | [GetGlobalStatItemByStatCode](../../src/main/java/net/accelbyte/sdk/api/social/operations/global_statistic/GetGlobalStatItemByStatCode.java) | [GetGlobalStatItemByStatCode](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/global_statistic/GetGlobalStatItemByStatCode.java) |
+| `/social/v1/public/namespaces/{namespace}/globalstatitems` | GET | GetGlobalStatItems1 | [GetGlobalStatItems1](../../src/main/java/net/accelbyte/sdk/api/social/operations/global_statistic/GetGlobalStatItems1.java) | [GetGlobalStatItems1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/global_statistic/GetGlobalStatItems1.java) |
+| `/social/v1/public/namespaces/{namespace}/globalstatitems/{statCode}` | GET | GetGlobalStatItemByStatCode1 | [GetGlobalStatItemByStatCode1](../../src/main/java/net/accelbyte/sdk/api/social/operations/global_statistic/GetGlobalStatItemByStatCode1.java) | [GetGlobalStatItemByStatCode1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/global_statistic/GetGlobalStatItemByStatCode1.java) |
 
 ### UserStatistic Wrapper:  [UserStatistic](../../src/main/java/net/accelbyte/sdk/api/social/wrappers/UserStatistic.java)
 | Endpoint | Method | ID | Class | Example |

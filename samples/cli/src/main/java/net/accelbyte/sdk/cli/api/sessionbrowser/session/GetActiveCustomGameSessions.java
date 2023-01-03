@@ -36,6 +36,16 @@ public class GetActiveCustomGameSessions implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--limit"},
+      description = "limit")
+  Integer limit;
+
+  @Option(
+      names = {"--offset"},
+      description = "offset")
+  Integer offset;
+
+  @Option(
       names = {"--serverRegion"},
       description = "serverRegion")
   String serverRegion;
@@ -71,6 +81,8 @@ public class GetActiveCustomGameSessions implements Callable<Integer> {
               net.accelbyte.sdk.api.sessionbrowser.operations.session.GetActiveCustomGameSessions
                   .builder()
                   .namespace(namespace)
+                  .limit(limit)
+                  .offset(offset)
                   .serverRegion(serverRegion)
                   .sessionId(sessionId)
                   .build();

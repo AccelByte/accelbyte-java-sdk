@@ -36,9 +36,19 @@ public class GetActiveMatchmakingGameSessions implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--limit"},
+      description = "limit")
+  Integer limit;
+
+  @Option(
       names = {"--matchId"},
       description = "matchId")
   String matchId;
+
+  @Option(
+      names = {"--offset"},
+      description = "offset")
+  Integer offset;
 
   @Option(
       names = {"--serverRegion"},
@@ -76,7 +86,9 @@ public class GetActiveMatchmakingGameSessions implements Callable<Integer> {
               net.accelbyte.sdk.api.sessionbrowser.operations.session
                   .GetActiveMatchmakingGameSessions.builder()
                   .namespace(namespace)
+                  .limit(limit)
                   .matchId(matchId)
+                  .offset(offset)
                   .serverRegion(serverRegion)
                   .sessionId(sessionId)
                   .build();

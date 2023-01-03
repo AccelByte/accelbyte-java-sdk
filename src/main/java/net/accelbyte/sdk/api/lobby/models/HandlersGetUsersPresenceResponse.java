@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class HandlersGetUsersPresenceResponse extends Model {
 
+  @JsonProperty("away")
+  private Integer away;
+
   @JsonProperty("busy")
   private Integer busy;
 

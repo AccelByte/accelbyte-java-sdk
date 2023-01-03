@@ -182,7 +182,9 @@ public class GetStatistic extends Operation {
   public enum Type {
     CATEGORY("CATEGORY"),
     ITEM("ITEM"),
-    STORE("STORE");
+    SECTION("SECTION"),
+    STORE("STORE"),
+    VIEW("VIEW");
 
     private String value;
 

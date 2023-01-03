@@ -24,7 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>List global statItems by pagination. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=2 (READ) *
- * Returns : stat items ul
+ * Returns : stat items
  */
 @Getter
 @Setter
@@ -41,6 +41,7 @@ public class GetGlobalStatItems extends Operation {
 
   private Integer limit;
   private Integer offset;
+  private String statCodes;
 
   /**
    * @param namespace required
@@ -48,10 +49,11 @@ public class GetGlobalStatItems extends Operation {
   @Builder
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetGlobalStatItems(String namespace, Integer limit, Integer offset) {
+  public GetGlobalStatItems(String namespace, Integer limit, Integer offset, String statCodes) {
     this.namespace = namespace;
     this.limit = limit;
     this.offset = offset;
+    this.statCodes = statCodes;
 
     securities.add("Bearer");
   }
@@ -71,6 +73,7 @@ public class GetGlobalStatItems extends Operation {
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put("statCodes", this.statCodes == null ? null : Arrays.asList(this.statCodes));
     return queryParams;
   }
 
@@ -97,6 +100,7 @@ public class GetGlobalStatItems extends Operation {
     Map<String, String> result = new HashMap<>();
     result.put("limit", "None");
     result.put("offset", "None");
+    result.put("statCodes", "None");
     return result;
   }
 }

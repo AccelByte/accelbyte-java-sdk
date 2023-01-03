@@ -330,6 +330,17 @@
 | `/platform/public/namespaces/{namespace}/rewards/byCriteria` | GET | QueryRewards1 | [QueryRewards1](../../src/main/java/net/accelbyte/sdk/api/platform/operations/reward/QueryRewards1.java) | [QueryRewards1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/reward/QueryRewards1.java) |
 | `/platform/public/namespaces/{namespace}/rewards/{rewardId}` | GET | GetReward1 | [GetReward1](../../src/main/java/net/accelbyte/sdk/api/platform/operations/reward/GetReward1.java) | [GetReward1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/reward/GetReward1.java) |
 
+### Section Wrapper:  [Section](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/Section.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/platform/admin/namespaces/{namespace}/sections` | GET | QuerySections | [QuerySections](../../src/main/java/net/accelbyte/sdk/api/platform/operations/section/QuerySections.java) | [QuerySections](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/section/QuerySections.java) |
+| `/platform/admin/namespaces/{namespace}/sections` | POST | CreateSection | [CreateSection](../../src/main/java/net/accelbyte/sdk/api/platform/operations/section/CreateSection.java) | [CreateSection](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/section/CreateSection.java) |
+| `/platform/admin/namespaces/{namespace}/sections/purge/expired` | DELETE | PurgeExpiredSection | [PurgeExpiredSection](../../src/main/java/net/accelbyte/sdk/api/platform/operations/section/PurgeExpiredSection.java) | [PurgeExpiredSection](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/section/PurgeExpiredSection.java) |
+| `/platform/admin/namespaces/{namespace}/sections/{sectionId}` | GET | GetSection | [GetSection](../../src/main/java/net/accelbyte/sdk/api/platform/operations/section/GetSection.java) | [GetSection](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/section/GetSection.java) |
+| `/platform/admin/namespaces/{namespace}/sections/{sectionId}` | PUT | UpdateSection | [UpdateSection](../../src/main/java/net/accelbyte/sdk/api/platform/operations/section/UpdateSection.java) | [UpdateSection](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/section/UpdateSection.java) |
+| `/platform/admin/namespaces/{namespace}/sections/{sectionId}` | DELETE | DeleteSection | [DeleteSection](../../src/main/java/net/accelbyte/sdk/api/platform/operations/section/DeleteSection.java) | [DeleteSection](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/section/DeleteSection.java) |
+| `/platform/public/namespaces/{namespace}/users/{userId}/sections` | GET | PublicListActiveSections | [PublicListActiveSections](../../src/main/java/net/accelbyte/sdk/api/platform/operations/section/PublicListActiveSections.java) | [PublicListActiveSections](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/section/PublicListActiveSections.java) |
+
 ### Store Wrapper:  [Store](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/Store.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -411,6 +422,16 @@
 | `/platform/admin/namespaces/{namespace}/users/{userId}/anonymization/payment` | DELETE | AnonymizePayment | [AnonymizePayment](../../src/main/java/net/accelbyte/sdk/api/platform/operations/anonymization/AnonymizePayment.java) | [AnonymizePayment](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/anonymization/AnonymizePayment.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/anonymization/subscriptions` | DELETE | AnonymizeSubscription | [AnonymizeSubscription](../../src/main/java/net/accelbyte/sdk/api/platform/operations/anonymization/AnonymizeSubscription.java) | [AnonymizeSubscription](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/anonymization/AnonymizeSubscription.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/anonymization/wallets` | DELETE | AnonymizeWallet | [AnonymizeWallet](../../src/main/java/net/accelbyte/sdk/api/platform/operations/anonymization/AnonymizeWallet.java) | [AnonymizeWallet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/anonymization/AnonymizeWallet.java) |
+
+### View Wrapper:  [View](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/View.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/platform/admin/namespaces/{namespace}/views` | GET | ListViews | [ListViews](../../src/main/java/net/accelbyte/sdk/api/platform/operations/view/ListViews.java) | [ListViews](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/view/ListViews.java) |
+| `/platform/admin/namespaces/{namespace}/views` | POST | CreateView | [CreateView](../../src/main/java/net/accelbyte/sdk/api/platform/operations/view/CreateView.java) | [CreateView](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/view/CreateView.java) |
+| `/platform/admin/namespaces/{namespace}/views/{viewId}` | GET | GetView | [GetView](../../src/main/java/net/accelbyte/sdk/api/platform/operations/view/GetView.java) | [GetView](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/view/GetView.java) |
+| `/platform/admin/namespaces/{namespace}/views/{viewId}` | PUT | UpdateView | [UpdateView](../../src/main/java/net/accelbyte/sdk/api/platform/operations/view/UpdateView.java) | [UpdateView](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/view/UpdateView.java) |
+| `/platform/admin/namespaces/{namespace}/views/{viewId}` | DELETE | DeleteView | [DeleteView](../../src/main/java/net/accelbyte/sdk/api/platform/operations/view/DeleteView.java) | [DeleteView](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/view/DeleteView.java) |
+| `/platform/public/namespaces/{namespace}/users/{userId}/views` | GET | PublicListViews | [PublicListViews](../../src/main/java/net/accelbyte/sdk/api/platform/operations/view/PublicListViews.java) | [PublicListViews](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/view/PublicListViews.java) |
 
 ### Order(Dedicated) Wrapper:  [OrderDedicated](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/OrderDedicated.java)
 | Endpoint | Method | ID | Class | Example |
@@ -567,6 +588,7 @@
 | `ExtensionFulfillmentSummary` | [ExtensionFulfillmentSummary](../../src/main/java/net/accelbyte/sdk/api/platform/models/ExtensionFulfillmentSummary.java) |
 | `ExternalPaymentOrderCreate` | [ExternalPaymentOrderCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/ExternalPaymentOrderCreate.java) |
 | `FieldValidationError` | [FieldValidationError](../../src/main/java/net/accelbyte/sdk/api/platform/models/FieldValidationError.java) |
+| `FixedPeriodRotationConfig` | [FixedPeriodRotationConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/FixedPeriodRotationConfig.java) |
 | `FulfillCodeRequest` | [FulfillCodeRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillCodeRequest.java) |
 | `FulfillmentError` | [FulfillmentError](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentError.java) |
 | `FulfillmentHistoryInfo` | [FulfillmentHistoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentHistoryInfo.java) |
@@ -584,6 +606,8 @@
 | `FullCategoryInfo` | [FullCategoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FullCategoryInfo.java) |
 | `FullItemInfo` | [FullItemInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FullItemInfo.java) |
 | `FullItemPagingSlicedResult` | [FullItemPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/FullItemPagingSlicedResult.java) |
+| `FullSectionInfo` | [FullSectionInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FullSectionInfo.java) |
+| `FullViewInfo` | [FullViewInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FullViewInfo.java) |
 | `GoogleIAPConfigInfo` | [GoogleIAPConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/GoogleIAPConfigInfo.java) |
 | `GoogleIAPConfigRequest` | [GoogleIAPConfigRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/GoogleIAPConfigRequest.java) |
 | `GoogleIAPReceipt` | [GoogleIAPReceipt](../../src/main/java/net/accelbyte/sdk/api/platform/models/GoogleIAPReceipt.java) |
@@ -611,6 +635,7 @@
 | `ItemDynamicDataInfo` | [ItemDynamicDataInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemDynamicDataInfo.java) |
 | `ItemId` | [ItemId](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemId.java) |
 | `ItemInfo` | [ItemInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemInfo.java) |
+| `ItemNaming` | [ItemNaming](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemNaming.java) |
 | `ItemPagingSlicedResult` | [ItemPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemPagingSlicedResult.java) |
 | `ItemPurchaseConditionValidateRequest` | [ItemPurchaseConditionValidateRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemPurchaseConditionValidateRequest.java) |
 | `ItemPurchaseConditionValidateResult` | [ItemPurchaseConditionValidateResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemPurchaseConditionValidateResult.java) |
@@ -627,6 +652,7 @@
 | `KeyGroupUpdate` | [KeyGroupUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/KeyGroupUpdate.java) |
 | `KeyInfo` | [KeyInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/KeyInfo.java) |
 | `KeyPagingSliceResult` | [KeyPagingSliceResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/KeyPagingSliceResult.java) |
+| `ListViewInfo` | [ListViewInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ListViewInfo.java) |
 | `Localization` | [Localization](../../src/main/java/net/accelbyte/sdk/api/platform/models/Localization.java) |
 | `LootBoxConfig` | [LootBoxConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/LootBoxConfig.java) |
 | `LootBoxReward` | [LootBoxReward](../../src/main/java/net/accelbyte/sdk/api/platform/models/LootBoxReward.java) |
@@ -720,6 +746,11 @@
 | `RewardPagingSlicedResult` | [RewardPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/RewardPagingSlicedResult.java) |
 | `RewardUpdate` | [RewardUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/RewardUpdate.java) |
 | `RewardsRequest` | [RewardsRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/RewardsRequest.java) |
+| `SectionCreate` | [SectionCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/SectionCreate.java) |
+| `SectionInfo` | [SectionInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/SectionInfo.java) |
+| `SectionItem` | [SectionItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/SectionItem.java) |
+| `SectionPagingSlicedResult` | [SectionPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/SectionPagingSlicedResult.java) |
+| `SectionUpdate` | [SectionUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/SectionUpdate.java) |
 | `Slide` | [Slide](../../src/main/java/net/accelbyte/sdk/api/platform/models/Slide.java) |
 | `StackableEntitlementInfo` | [StackableEntitlementInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/StackableEntitlementInfo.java) |
 | `StadiaIAPConfigInfo` | [StadiaIAPConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/StadiaIAPConfigInfo.java) |
@@ -760,6 +791,9 @@
 | `TwitchSyncRequest` | [TwitchSyncRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/TwitchSyncRequest.java) |
 | `UserDLC` | [UserDLC](../../src/main/java/net/accelbyte/sdk/api/platform/models/UserDLC.java) |
 | `ValidationErrorEntity` | [ValidationErrorEntity](../../src/main/java/net/accelbyte/sdk/api/platform/models/ValidationErrorEntity.java) |
+| `ViewCreate` | [ViewCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/ViewCreate.java) |
+| `ViewInfo` | [ViewInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ViewInfo.java) |
+| `ViewUpdate` | [ViewUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/ViewUpdate.java) |
 | `WalletInfo` | [WalletInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/WalletInfo.java) |
 | `WalletPagingSlicedResult` | [WalletPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/WalletPagingSlicedResult.java) |
 | `WalletTransactionInfo` | [WalletTransactionInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/WalletTransactionInfo.java) |

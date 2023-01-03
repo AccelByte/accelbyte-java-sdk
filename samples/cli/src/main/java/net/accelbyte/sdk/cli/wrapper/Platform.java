@@ -31,9 +31,11 @@ import net.accelbyte.sdk.cli.api.platform.payment_config.*;
 import net.accelbyte.sdk.cli.api.platform.payment_dedicated.*;
 import net.accelbyte.sdk.cli.api.platform.payment_station.*;
 import net.accelbyte.sdk.cli.api.platform.reward.*;
+import net.accelbyte.sdk.cli.api.platform.section.*;
 import net.accelbyte.sdk.cli.api.platform.store.*;
 import net.accelbyte.sdk.cli.api.platform.subscription.*;
 import net.accelbyte.sdk.cli.api.platform.ticket.*;
+import net.accelbyte.sdk.cli.api.platform.view.*;
 import net.accelbyte.sdk.cli.api.platform.wallet.*;
 import picocli.CommandLine.Command;
 
@@ -184,6 +186,12 @@ import picocli.CommandLine.Command;
       DeleteReward.class,
       CheckEventCondition.class,
       DeleteRewardConditionRecord.class,
+      QuerySections.class,
+      CreateSection.class,
+      PurgeExpiredSection.class,
+      GetSection.class,
+      UpdateSection.class,
+      DeleteSection.class,
       ListStores.class,
       CreateStore.class,
       ImportStore.class,
@@ -284,6 +292,11 @@ import picocli.CommandLine.Command;
       DisableUserWallet.class,
       EnableUserWallet.class,
       ListUserWalletTransactions.class,
+      ListViews.class,
+      CreateView.class,
+      GetView.class,
+      UpdateView.class,
+      DeleteView.class,
       QueryWallets.class,
       GetWallet.class,
       SyncOrders.class,
@@ -392,6 +405,7 @@ import picocli.CommandLine.Command;
       PublicDownloadUserOrderReceipt.class,
       PublicGetPaymentAccounts.class,
       PublicDeletePaymentAccount.class,
+      PublicListActiveSections.class,
       PublicQueryUserSubscriptions.class,
       PublicSubscribeSubscription.class,
       PublicCheckUserSubscriptionSubscribableByItemId.class,
@@ -399,6 +413,7 @@ import picocli.CommandLine.Command;
       PublicChangeSubscriptionBillingAccount.class,
       PublicCancelSubscription.class,
       PublicGetUserSubscriptionBillingHistories.class,
+      PublicListViews.class,
       PublicGetWallet.class,
       PublicListUserWalletTransactions.class,
       QueryItems1.class,
