@@ -1,3 +1,18 @@
+<a name="v0.27.0"></a>
+## [v0.27.0] - 2023-01-03
+### Chore
+- bump to version 0.27 for ab cloud 3.39
+- regenerate op index due to deprecation marker
+- implement deprecation marker
+- **operation:** remove unused variable security
+- **samples:** getting started - bump sdk version
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.39
+- **spec:** update spec for ab cloud 3.39
+
+### Docs
+- update changelog for ab cloud 3.39
+
+
 <a name="v0.26.0"></a>
 ## [v0.26.0] - 2022-12-20
 ### Chore
@@ -803,6 +818,7 @@
 - replace unnecessary object
 
 
+[v0.27.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.26.0...v0.27.0
 [v0.26.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.25.0...v0.26.0
 [v0.25.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.24.0...v0.25.0
 [v0.24.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.23.2...v0.24.0
