@@ -69,3 +69,12 @@ test_broken_link:
 	done)
 	DOCKER_SKIP_BUILD=1 bash "$(SDK_MD_CRAWLER_PATH)/md-crawler.sh" -i "https://docs.accelbyte.io/guides/customization/java-sdk-guide.html"
 	[ ! -f test.err ]
+
+version:
+	if [ -n "$$MAJOR" ]; then VERSION_PART=1; elif [ -n "$$PATCH" ]; then VERSION_PART=3; else VERSION_PART=2; fi &&	# Bump minor version if MAJOR or MINOR is not set \
+			VERSION_OLD=$$(cat version.txt | tr -d '\n') && \
+			VERSION_NEW=$$(awk -v part=$$VERSION_PART -F. "{OFS=\".\"; \$$part+=1; print \$$0}" version.txt) && \
+			echo $${VERSION_NEW} > version.txt &&	# Bump version.txt \
+			sed -i "s/version = '[0-9]\+\.[0-9]\+\.[0-9]'\+/version = '$$VERSION_NEW'/" build.gradle &&		# Bump build.gradle \
+			sed -i "s/private String sdkVersion = \"[0-9]\+\.[0-9]\+\.[0-9]\";\+/private String sdkVersion = \"$$VERSION_NEW\";/" src/main/java/net/accelbyte/sdk/core/SDKInfo.java &&		# Bump SDK \
+			sed -i "s/implementation 'net.accelbyte.sdk:sdk:[0-9]\+\.[0-9]\+\.[0-9]'\+/implementation 'net.accelbyte.sdk:sdk:$$VERSION_OLD'/" samples/getting-started/app/build.gradle		# Bump getting-started sample app
