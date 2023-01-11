@@ -38,14 +38,13 @@ import net.accelbyte.sdk.api.match2.wrappers.MatchTickets;
 import net.accelbyte.sdk.api.match2.wrappers.Operations;
 import net.accelbyte.sdk.api.match2.wrappers.RuleSets;
 import net.accelbyte.sdk.api.session.models.ApimodelsCreateConfigurationTemplateRequest;
-import net.accelbyte.sdk.api.session.models.ApimodelsCreateGameSessionRequest;
-import net.accelbyte.sdk.api.session.models.ApimodelsGameSessionResponse;
+import net.accelbyte.sdk.api.session.models.ApimodelsCreatePartyRequest;
+import net.accelbyte.sdk.api.session.models.ApimodelsPartySessionResponse;
+import net.accelbyte.sdk.api.session.models.ApimodelsRequestMember;
 import net.accelbyte.sdk.api.session.operations.configuration_template.AdminCreateConfigurationTemplateV1;
 import net.accelbyte.sdk.api.session.operations.configuration_template.AdminDeleteConfigurationTemplateV1;
-import net.accelbyte.sdk.api.session.operations.game_session.CreateGameSession;
-import net.accelbyte.sdk.api.session.operations.game_session.DeleteGameSession;
 import net.accelbyte.sdk.api.session.wrappers.ConfigurationTemplate;
-import net.accelbyte.sdk.api.session.wrappers.GameSession;
+import net.accelbyte.sdk.api.session.wrappers.Party;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 import org.junit.jupiter.api.AfterAll;
@@ -183,20 +182,23 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
 
       player1Sdk.loginUser(player1Username, player1Password);
 
-      final GameSession player1GameSessionWrapper = new GameSession(player1Sdk);
+      final Party player1PartyWrapper = new Party(player1Sdk);
       final MatchTickets player1MatchTicketWrapper = new MatchTickets(player1Sdk);
 
-      final ApimodelsGameSessionResponse createGameSessionResult =
-          player1GameSessionWrapper.createGameSession(
-              CreateGameSession.builder()
+      final ApimodelsPartySessionResponse publicCreatePartyResult =
+          player1PartyWrapper.publicCreateParty(
+              net.accelbyte.sdk.api.session.operations.party.PublicCreateParty.builder()
                   .namespace(namespace)
                   .body(
-                      ApimodelsCreateGameSessionRequest.builder()
+                      ApimodelsCreatePartyRequest.builder()
                           .configurationName(cfgTemplateName)
+                          .members(
+                              Collections.singletonList(
+                                  ApimodelsRequestMember.builder().id(player1UserId).build()))
                           .build())
                   .build());
 
-      final String gameSessionId = createGameSessionResult.getId();
+      final String partySessionId = publicCreatePartyResult.getId();
 
       // CASE Player create a match ticket
 
@@ -207,7 +209,7 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
                   .body(
                       ApiMatchTicketRequest.builder()
                           .matchPool(poolName)
-                          .sessionID(gameSessionId)
+                          .sessionID(partySessionId)
                           .build())
                   .build());
 
@@ -221,9 +223,6 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
           DeleteMatchTicket.builder().namespace(namespace).ticketid(ticketId).build());
 
       // ESAC
-
-      player1GameSessionWrapper.deleteGameSession(
-          DeleteGameSession.builder().namespace(namespace).sessionId(gameSessionId).build());
     } finally {
       player1Sdk.logout();
 
