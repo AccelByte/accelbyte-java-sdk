@@ -27,7 +27,12 @@ public class TestHelper {
     final Random random = new Random();
     final char[] result = new char[length];
     for (int i = 0; i < result.length; i++) {
-      result[i] = characters.charAt(random.nextInt(characters.length()));
+      while (true) {
+        result[i] = characters.charAt(random.nextInt(characters.length()));
+        if (i > 0 && result[i - 1] == result[i])
+          continue; // Do not allow repeating characters following password validation rules
+        else break;
+      }
     }
     return new String(result);
   }
