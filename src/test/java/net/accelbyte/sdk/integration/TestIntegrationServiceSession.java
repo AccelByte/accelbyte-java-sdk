@@ -81,7 +81,7 @@ public class TestIntegrationServiceSession extends TestIntegration {
   @Test
   @Order(1)
   public void testConfigurationTemplate() throws Exception {
-    final String cfgTemplateName = "csharp_sdk_template_" + TestHelper.generateRandomId(4);
+    final String cfgTemplateName = "java_sdk_template_" + TestHelper.generateRandomId(4);
 
     final ConfigurationTemplate configurationTemplateWrapper = new ConfigurationTemplate(sdk);
 
@@ -157,7 +157,7 @@ public class TestIntegrationServiceSession extends TestIntegration {
   @Test
   @Order(1)
   public void testGameSession() throws Exception {
-    final String cfgTemplateName = "csharp_sdk_template_" + TestHelper.generateRandomId(4);
+    final String cfgTemplateName = "java_sdk_template_" + TestHelper.generateRandomId(4);
 
     final ConfigurationTemplate configurationTemplateWrapper = new ConfigurationTemplate(sdk);
     final GameSession gameSessionWrapper = new GameSession(sdk);
@@ -351,7 +351,7 @@ public class TestIntegrationServiceSession extends TestIntegration {
   @Test
   @Order(1)
   public void testParty() throws Exception {
-    final String cfgTemplateName = "csharp_sdk_template_" + TestHelper.generateRandomId(4);
+    final String cfgTemplateName = "java_sdk_template_" + TestHelper.generateRandomId(4);
 
     final ConfigurationTemplate configurationTemplateWrapper = new ConfigurationTemplate(sdk);
     final UsersV4 usersV4Wrapper = new UsersV4(sdk);
