@@ -6,21 +6,44 @@
 
 package net.accelbyte.sdk.core;
 
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
+import com.nimbusds.jose.JWSVerifier;
+import com.nimbusds.jose.crypto.RSASSAVerifier;
+import com.nimbusds.jwt.JWTClaimsSet;
+import com.nimbusds.jwt.SignedJWT;
+import java.math.BigInteger;
 import java.net.URI;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.security.KeyFactory;
+import java.security.interfaces.RSAPublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.RSAPublicKeySpec;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Base64;
+import java.util.Base64.Decoder;
+import java.util.BitSet;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.stream.Collectors;
+import net.accelbyte.sdk.api.iam.models.BloomFilterJSON;
+import net.accelbyte.sdk.api.iam.models.OauthapiRevocationList;
+import net.accelbyte.sdk.api.iam.models.OauthcommonJWKKey;
+import net.accelbyte.sdk.api.iam.models.OauthcommonJWKSet;
 import net.accelbyte.sdk.api.iam.models.OauthmodelTokenResponse;
 import net.accelbyte.sdk.api.iam.models.OauthmodelTokenWithDeviceCookieResponseV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthorizeV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthorizeV3.CodeChallengeMethod;
+import net.accelbyte.sdk.api.iam.operations.o_auth2_0.GetJWKSV3;
+import net.accelbyte.sdk.api.iam.operations.o_auth2_0.GetRevocationListV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.PlatformTokenGrantV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenGrantV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.UserAuthenticationV3;
@@ -30,6 +53,7 @@ import net.accelbyte.sdk.core.client.HttpClient;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
 import net.accelbyte.sdk.core.repository.TokenRefresh;
 import net.accelbyte.sdk.core.repository.TokenRepository;
+import net.accelbyte.sdk.core.util.BloomFilter;
 import net.accelbyte.sdk.core.util.Helper;
 import okhttp3.Credentials;
 import org.apache.http.NameValuePair;
@@ -40,6 +64,12 @@ public class AccelByteSDK {
   private static final String LOGIN_USER_SCOPE = "commerce account social publishing analytics";
   private static final float TOKEN_REFRESH_RATIO = 0.8f;
 
+  private static final String DEFAULT_CACHE_KEY = "default";
+  private static final String CLAIM_PERMISSIONS = "permissions";
+  private static final String CLAIM_USER_ID = "user_id";
+  private static final String PERMISSION_RESOURCE = "Resource";
+  private static final String PERMISSION_ACTION = "Action";
+
   private AccelByteConfig sdkConfiguration;
 
   private final Timer refreshTokenTimer = new Timer("RefreshTokenTimer", true);
@@ -48,8 +78,15 @@ public class AccelByteSDK {
 
   private final ReentrantLock refreshTokenMethodLock = new ReentrantLock();
 
+  private LoadingCache<String, Map<String, RSAPublicKey>> jwksCache;
+  private LoadingCache<String, OauthapiRevocationList> revocationListCache;
+  private static final BloomFilter bloomFilter = new BloomFilter();
+
   public AccelByteSDK(AccelByteConfig sdkConfiguration) {
     this.sdkConfiguration = sdkConfiguration;
+
+    this.jwksCache = buildJWKSLoadingCache(this);
+    this.revocationListCache = buildRevocationListLoadingCache(this);
   }
 
   public AccelByteSDK(
@@ -345,6 +382,73 @@ public class AccelByteSDK {
     return false;
   }
 
+  public boolean validateToken(String token) {
+    return validateToken(token, null, 0);
+  }
+
+  public boolean validateToken(String token, String resource, int action) {
+    try {
+      final SignedJWT signedJWT = SignedJWT.parse(token); // Client token only
+      final String kid = signedJWT.getHeader().getKeyID();
+      final RSAPublicKey pubKey = jwksCache.get(DEFAULT_CACHE_KEY).get(kid);
+
+      if (pubKey == null) {
+        return false; // Matching JWK key not found
+      }
+
+      final JWSVerifier verifier = new RSASSAVerifier(pubKey);
+
+      if (!signedJWT.verify(verifier)) {
+        return false; // JWT signature verification failed
+      }
+
+      final JWTClaimsSet jwtClaimsSet = signedJWT.getJWTClaimsSet();
+
+      if (jwtClaimsSet.getExpirationTime() == null
+          || jwtClaimsSet.getExpirationTime().before(new Date())) {
+        return false; // JWT expired
+      }
+
+      final OauthapiRevocationList getRevocationListV3Result =
+          revocationListCache.get(DEFAULT_CACHE_KEY);
+      final BloomFilterJSON revokedTokens = getRevocationListV3Result.getRevokedTokens();
+      final long[] bits =
+          revokedTokens.getBits().stream()
+              .mapToLong(value -> Long.parseUnsignedLong(value.toString()))
+              .toArray();
+      final int k = revokedTokens.getK();
+      final int m = revokedTokens.getM();
+
+      if (bloomFilter.mightContain(token, k, BitSet.valueOf(bits), m)) {
+        // Revocation list is cached so there may be delay realizing token is revoked
+        return false; // Token revoked
+      }
+
+      if (resource == null) {
+        return true; // Check token only without checking resource
+      }
+
+      final List<Map<String, Object>> tokenPermissions =
+          (List<Map<String, Object>>) jwtClaimsSet.getClaim(CLAIM_PERMISSIONS);
+
+      for (Map<String, Object> p : tokenPermissions) {
+        final String tokenPermissionResource = p.get(PERMISSION_RESOURCE).toString();
+        final int tokenPermissionAction = ((Long) p.get(PERMISSION_ACTION)).intValue();
+        if (IsResourceAllowed(tokenPermissionResource, resource)) {
+          if (IsActionAllowed(tokenPermissionAction, action)) {
+            return true;
+          }
+        }
+      }
+
+      return false;
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
+    return false;
+  }
+
   public boolean logout() {
     try {
       final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
@@ -401,5 +505,130 @@ public class AccelByteSDK {
     final boolean isExpired = (tokenExpiresAtEpoch - utcNowEpoch) <= 0;
 
     return isExpired;
+  }
+
+  private LoadingCache<String, Map<String, RSAPublicKey>> buildJWKSLoadingCache(AccelByteSDK sdk) {
+    final CacheLoader<String, Map<String, RSAPublicKey>> jwksLoader =
+        new CacheLoader<String, Map<String, RSAPublicKey>>() {
+          @Override
+          public Map<String, RSAPublicKey> load(String key) {
+            try {
+              final OAuth20 oauthWrapper = new OAuth20(sdk);
+              final OauthcommonJWKSet getJwksV3Result =
+                  oauthWrapper.getJWKSV3(GetJWKSV3.builder().build());
+
+              final Decoder urlDecoder = Base64.getUrlDecoder();
+              final KeyFactory rsaKeyFactory = KeyFactory.getInstance("RSA");
+
+              Map<String, RSAPublicKey> result =
+                  getJwksV3Result.getKeys().stream()
+                      .collect(
+                          Collectors.toMap(
+                              OauthcommonJWKKey::getKid,
+                              jwkKey -> {
+                                try {
+                                  final BigInteger modulus =
+                                      new BigInteger(1, urlDecoder.decode(jwkKey.getN()));
+                                  final BigInteger exponent =
+                                      new BigInteger(1, urlDecoder.decode(jwkKey.getE()));
+                                  final RSAPublicKeySpec rsaPubKeySpec =
+                                      new RSAPublicKeySpec(modulus, exponent);
+                                  final RSAPublicKey pubKey =
+                                      (RSAPublicKey) rsaKeyFactory.generatePublic(rsaPubKeySpec);
+                                  return pubKey;
+                                } catch (InvalidKeySpecException e) {
+                                  e.printStackTrace();
+
+                                  return null;
+                                }
+                              }));
+
+              return result;
+            } catch (Exception e) {
+              e.printStackTrace();
+            }
+
+            return null;
+          }
+        };
+
+    return CacheBuilder.newBuilder().refreshAfterWrite(300, TimeUnit.SECONDS).build(jwksLoader);
+  }
+
+  private LoadingCache<String, OauthapiRevocationList> buildRevocationListLoadingCache(
+      AccelByteSDK sdk) {
+    final CacheLoader<String, OauthapiRevocationList> revocationLoader =
+        new CacheLoader<String, OauthapiRevocationList>() {
+          @Override
+          public OauthapiRevocationList load(String key) {
+            try {
+              final OAuth20 oauthWrapper = new OAuth20(sdk);
+              final OauthapiRevocationList getRevocationListV3Result =
+                  oauthWrapper.getRevocationListV3(GetRevocationListV3.builder().build());
+
+              return getRevocationListV3Result;
+            } catch (Exception e) {
+              e.printStackTrace();
+            }
+
+            return OauthapiRevocationList.builder().build();
+          }
+        };
+
+    return CacheBuilder.newBuilder()
+        .refreshAfterWrite(300, TimeUnit.SECONDS)
+        .build(revocationLoader);
+  }
+
+  private boolean IsResourceAllowed(String permissionResource, String requiredResource) {
+    final String[] tokenResourceParts = permissionResource.split(":");
+    final String[] requiredResourceParts = requiredResource.toString().split(":");
+
+    final int minResourcePartsLength =
+        tokenResourceParts.length < requiredResourceParts.length
+            ? tokenResourceParts.length
+            : requiredResourceParts.length;
+
+    for (int i = 0; i < minResourcePartsLength; i++) {
+      if (!tokenResourceParts[i].equals(requiredResourceParts[i])
+          && !tokenResourceParts[i].equals("*")) {
+        return false;
+      }
+    }
+
+    if (tokenResourceParts.length == requiredResourceParts.length) {
+      return true;
+    }
+
+    if (tokenResourceParts.length < requiredResourceParts.length) {
+      final String lastTokenResourcePart = tokenResourceParts[tokenResourceParts.length - 1];
+      if (lastTokenResourcePart.equals("*")) {
+        if (tokenResourceParts.length < 2) {
+          return true;
+        }
+        final String secondLastTokenResourcePart =
+            tokenResourceParts[tokenResourceParts.length - 2];
+        if (secondLastTokenResourcePart.equals("NAMESPACE")) {
+          return false;
+        }
+        if (secondLastTokenResourcePart.equals("USER")) {
+          return false;
+        }
+        return true;
+      }
+      return false;
+    }
+
+    for (int i = requiredResourceParts.length; i < tokenResourceParts.length; i++) {
+      if (tokenResourceParts[i] != "*") {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  private boolean IsActionAllowed(int permissionAction, int requiredAction) {
+    return (permissionAction & requiredAction) == requiredAction;
   }
 }
