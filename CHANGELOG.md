@@ -1,5 +1,28 @@
+<a name="v0.28.0"></a>
+## [v0.28.0] - 2023-01-16
+### Chore
+- bump to version 0.28 for ab cloud 3.40
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.40
+- **spec:** update spec for ab cloud 3.40
+
+### Ci
+- add make version (again)
+- add make version
+
+### Docs
+- update changelog for ab cloud 3.40
+
+### Feat
+- **core:** validate token
+
+### Test
+- **integration:** fix test identifier naming
+- **integration:** fix password validation errors
+- **integration:** match2 - fix create party
+
+
 <a name="v0.27.0"></a>
-## [v0.27.0] - 2023-01-03
+## [v0.27.0] - 2023-01-04
 ### Chore
 - bump to version 0.27 for ab cloud 3.39
 - regenerate op index due to deprecation marker
@@ -818,6 +841,7 @@
 - replace unnecessary object
 
 
+[v0.28.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.27.0...v0.28.0
 [v0.27.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.26.0...v0.27.0
 [v0.26.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.25.0...v0.26.0
 [v0.25.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.24.0...v0.25.0
