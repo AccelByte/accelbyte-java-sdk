@@ -32,6 +32,26 @@ public class PublicPlayerRecord {
   }
 
   /**
+   * @see RetrievePlayerRecords
+   */
+  public ModelsListPlayerRecordKeysResponse retrievePlayerRecords(RetrievePlayerRecords input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GetPlayerRecordsBulkHandlerV1
+   */
+  public ModelsBulkGetPlayerRecordResponse getPlayerRecordsBulkHandlerV1(
+      GetPlayerRecordsBulkHandlerV1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicDeletePlayerPublicRecordHandlerV1
    */
   public void publicDeletePlayerPublicRecordHandlerV1(PublicDeletePlayerPublicRecordHandlerV1 input)

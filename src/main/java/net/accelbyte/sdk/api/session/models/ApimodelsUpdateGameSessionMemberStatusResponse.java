@@ -28,6 +28,9 @@ public class ApimodelsUpdateGameSessionMemberStatusResponse extends Model {
   @JsonProperty("status")
   private String status;
 
+  @JsonProperty("statusV2")
+  private String statusV2;
+
   @JsonIgnore
   public ApimodelsUpdateGameSessionMemberStatusResponse createFromJson(String json)
       throws JsonProcessingException {

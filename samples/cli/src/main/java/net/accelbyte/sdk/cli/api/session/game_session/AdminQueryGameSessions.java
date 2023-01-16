@@ -101,6 +101,11 @@ public class AdminQueryGameSessions implements Callable<Integer> {
   String status;
 
   @Option(
+      names = {"--statusV2"},
+      description = "statusV2")
+  String statusV2;
+
+  @Option(
       names = {"--toTime"},
       description = "toTime")
   String toTime;
@@ -142,6 +147,7 @@ public class AdminQueryGameSessions implements Callable<Integer> {
               .orderBy(orderBy)
               .sessionID(sessionID)
               .status(status)
+              .statusV2(statusV2)
               .toTime(toTime)
               .build();
       final ApimodelsGameSessionQueryResponse response = wrapper.adminQueryGameSessions(operation);

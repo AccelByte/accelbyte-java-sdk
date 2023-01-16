@@ -38,6 +38,9 @@ public class ModelsCreateContentResponse extends Model {
   @JsonProperty("creatorName")
   private String creatorName;
 
+  @JsonProperty("customAttributes")
+  private Map<String, ?> customAttributes;
+
   @JsonProperty("fileExtension")
   private String fileExtension;
 

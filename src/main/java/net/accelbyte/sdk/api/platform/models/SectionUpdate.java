@@ -96,6 +96,7 @@ public class SectionUpdate extends Model {
   }
 
   public enum RotationType {
+    CUSTOM("CUSTOM"),
     FIXEDPERIOD("FIXED_PERIOD"),
     NONE("NONE");
 

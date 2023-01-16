@@ -28,6 +28,10 @@ public class SectionItem extends Model {
   @JsonProperty("id")
   private String id;
 
+  @JsonProperty("sku")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String sku;
+
   @JsonIgnore
   public SectionItem createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

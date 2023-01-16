@@ -100,6 +100,9 @@ public class ModelsServer extends Model {
   @JsonProperty("status_history")
   private List<ModelsStatusHistory> statusHistory;
 
+  @JsonProperty("termination_reason")
+  private String terminationReason;
+
   @JsonIgnore
   public ModelsServer createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelsCreateContentRequest extends Model {
 
+  @JsonProperty("customAttributes")
+  private Map<String, ?> customAttributes;
+
   @JsonProperty("name")
   private String name;
 

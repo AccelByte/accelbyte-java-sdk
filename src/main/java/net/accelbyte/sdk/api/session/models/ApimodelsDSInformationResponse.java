@@ -34,6 +34,9 @@ public class ApimodelsDSInformationResponse extends Model {
   @JsonProperty("Status")
   private String status;
 
+  @JsonProperty("StatusV2")
+  private String statusV2;
+
   @JsonIgnore
   public ApimodelsDSInformationResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

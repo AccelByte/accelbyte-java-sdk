@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class FixedPeriodRotationConfig extends Model {
 
+  @JsonProperty("backfillType")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String backfillType;
+
   @JsonProperty("duration")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer duration;
@@ -36,6 +40,26 @@ public class FixedPeriodRotationConfig extends Model {
   @JsonProperty("rule")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String rule;
+
+  @JsonIgnore
+  public String getBackfillType() {
+    return this.backfillType;
+  }
+
+  @JsonIgnore
+  public BackfillType getBackfillTypeAsEnum() {
+    return BackfillType.valueOf(this.backfillType);
+  }
+
+  @JsonIgnore
+  public void setBackfillType(final String backfillType) {
+    this.backfillType = backfillType;
+  }
+
+  @JsonIgnore
+  public void setBackfillTypeFromEnum(final BackfillType backfillType) {
+    this.backfillType = backfillType.toString();
+  }
 
   @JsonIgnore
   public String getRule() {
@@ -69,6 +93,22 @@ public class FixedPeriodRotationConfig extends Model {
         .readValue(json, new TypeReference<List<FixedPeriodRotationConfig>>() {});
   }
 
+  public enum BackfillType {
+    CUSTOM("CUSTOM"),
+    NONE("NONE");
+
+    private String value;
+
+    BackfillType(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public enum Rule {
     SEQUENCE("SEQUENCE");
 
@@ -85,7 +125,18 @@ public class FixedPeriodRotationConfig extends Model {
   }
 
   public static class FixedPeriodRotationConfigBuilder {
+    private String backfillType;
     private String rule;
+
+    public FixedPeriodRotationConfigBuilder backfillType(final String backfillType) {
+      this.backfillType = backfillType;
+      return this;
+    }
+
+    public FixedPeriodRotationConfigBuilder backfillTypeFromEnum(final BackfillType backfillType) {
+      this.backfillType = backfillType.toString();
+      return this;
+    }
 
     public FixedPeriodRotationConfigBuilder rule(final String rule) {
       this.rule = rule;

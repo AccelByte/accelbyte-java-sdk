@@ -50,6 +50,10 @@ public class SectionInfo extends Model {
   @JsonProperty("endDate")
   private String endDate;
 
+  @JsonProperty("ext")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> ext;
+
   @JsonProperty("localExt")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> localExt;

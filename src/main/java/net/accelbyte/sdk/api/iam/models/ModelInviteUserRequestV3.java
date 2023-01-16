@@ -31,6 +31,9 @@ public class ModelInviteUserRequestV3 extends Model {
   @JsonProperty("isAdmin")
   private Boolean isAdmin;
 
+  @JsonProperty("namespace")
+  private String namespace;
+
   @JsonProperty("roles")
   private List<String> roles;
 

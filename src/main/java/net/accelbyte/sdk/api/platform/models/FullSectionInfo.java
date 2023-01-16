@@ -79,6 +79,9 @@ public class FullSectionInfo extends Model {
   @JsonProperty("viewId")
   private String viewId;
 
+  @JsonProperty("viewName")
+  private String viewName;
+
   @JsonIgnore
   public String getRotationType() {
     return this.rotationType;
@@ -110,6 +113,7 @@ public class FullSectionInfo extends Model {
   }
 
   public enum RotationType {
+    CUSTOM("CUSTOM"),
     FIXEDPERIOD("FIXED_PERIOD"),
     NONE("NONE");
 

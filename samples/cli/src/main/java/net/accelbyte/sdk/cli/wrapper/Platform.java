@@ -32,6 +32,7 @@ import net.accelbyte.sdk.cli.api.platform.payment_dedicated.*;
 import net.accelbyte.sdk.cli.api.platform.payment_station.*;
 import net.accelbyte.sdk.cli.api.platform.reward.*;
 import net.accelbyte.sdk.cli.api.platform.section.*;
+import net.accelbyte.sdk.cli.api.platform.service_plugin_config.*;
 import net.accelbyte.sdk.cli.api.platform.store.*;
 import net.accelbyte.sdk.cli.api.platform.subscription.*;
 import net.accelbyte.sdk.cli.api.platform.ticket.*;
@@ -77,6 +78,9 @@ import picocli.CommandLine.Command;
       GetCode.class,
       DisableCode.class,
       EnableCode.class,
+      GetServicePluginConfig.class,
+      UpdateServicePluginConfig.class,
+      DeleteServicePluginConfig.class,
       ListCurrencies.class,
       CreateCurrency.class,
       UpdateCurrency.class,

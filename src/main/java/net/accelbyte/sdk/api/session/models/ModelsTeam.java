@@ -28,6 +28,9 @@ public class ModelsTeam extends Model {
   @JsonProperty("UserIDs")
   private List<String> userIDs;
 
+  @JsonProperty("parties")
+  private List<ModelsPartyMembers> parties;
+
   @JsonIgnore
   public ModelsTeam createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

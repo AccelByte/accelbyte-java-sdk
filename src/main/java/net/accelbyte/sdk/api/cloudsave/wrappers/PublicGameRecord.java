@@ -22,6 +22,16 @@ public class PublicGameRecord {
   }
 
   /**
+   * @see GetGameRecordsBulk
+   */
+  public ModelsBulkGetGameRecordResponse getGameRecordsBulk(GetGameRecordsBulk input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetGameRecordHandlerV1
    */
   public ModelsGameRecordResponse getGameRecordHandlerV1(GetGameRecordHandlerV1 input)

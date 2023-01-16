@@ -63,6 +63,7 @@
 | `api.ListMatchPoolsResponse` | [ApiListMatchPoolsResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiListMatchPoolsResponse.java) |
 | `api.ListRuleSetsResponse` | [ApiListRuleSetsResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiListRuleSetsResponse.java) |
 | `api.MatchFunctionConfig` | [ApiMatchFunctionConfig](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchFunctionConfig.java) |
+| `api.MatchFunctionOverride` | [ApiMatchFunctionOverride](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchFunctionOverride.java) |
 | `api.MatchFunctionRequest` | [ApiMatchFunctionRequest](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchFunctionRequest.java) |
 | `api.MatchPool` | [ApiMatchPool](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchPool.java) |
 | `api.MatchPoolConfig` | [ApiMatchPoolConfig](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchPoolConfig.java) |

@@ -98,6 +98,13 @@
 | `/platform/public/namespaces/{namespace}/categories/{categoryPath}/children` | GET | PublicGetChildCategories | [PublicGetChildCategories](../../src/main/java/net/accelbyte/sdk/api/platform/operations/category/PublicGetChildCategories.java) | [PublicGetChildCategories](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/category/PublicGetChildCategories.java) |
 | `/platform/public/namespaces/{namespace}/categories/{categoryPath}/descendants` | GET | PublicGetDescendantCategories | [PublicGetDescendantCategories](../../src/main/java/net/accelbyte/sdk/api/platform/operations/category/PublicGetDescendantCategories.java) | [PublicGetDescendantCategories](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/category/PublicGetDescendantCategories.java) |
 
+### ServicePluginConfig Wrapper:  [ServicePluginConfig](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/ServicePluginConfig.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/platform/admin/namespaces/{namespace}/configs/servicePlugin` | GET | GetServicePluginConfig | [GetServicePluginConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/service_plugin_config/GetServicePluginConfig.java) | [GetServicePluginConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/service_plugin_config/GetServicePluginConfig.java) |
+| `/platform/admin/namespaces/{namespace}/configs/servicePlugin` | PUT | UpdateServicePluginConfig | [UpdateServicePluginConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/service_plugin_config/UpdateServicePluginConfig.java) | [UpdateServicePluginConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/service_plugin_config/UpdateServicePluginConfig.java) |
+| `/platform/admin/namespaces/{namespace}/configs/servicePlugin` | DELETE | DeleteServicePluginConfig | [DeleteServicePluginConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/service_plugin_config/DeleteServicePluginConfig.java) | [DeleteServicePluginConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/service_plugin_config/DeleteServicePluginConfig.java) |
+
 ### Currency Wrapper:  [Currency](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/Currency.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -751,6 +758,8 @@
 | `SectionItem` | [SectionItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/SectionItem.java) |
 | `SectionPagingSlicedResult` | [SectionPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/SectionPagingSlicedResult.java) |
 | `SectionUpdate` | [SectionUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/SectionUpdate.java) |
+| `ServicePluginConfigInfo` | [ServicePluginConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ServicePluginConfigInfo.java) |
+| `ServicePluginConfigUpdate` | [ServicePluginConfigUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/ServicePluginConfigUpdate.java) |
 | `Slide` | [Slide](../../src/main/java/net/accelbyte/sdk/api/platform/models/Slide.java) |
 | `StackableEntitlementInfo` | [StackableEntitlementInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/StackableEntitlementInfo.java) |
 | `StadiaIAPConfigInfo` | [StadiaIAPConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/StadiaIAPConfigInfo.java) |

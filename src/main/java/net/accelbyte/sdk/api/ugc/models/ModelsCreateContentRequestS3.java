@@ -28,6 +28,9 @@ public class ModelsCreateContentRequestS3 extends Model {
   @JsonProperty("contentType")
   private String contentType;
 
+  @JsonProperty("customAttributes")
+  private Map<String, ?> customAttributes;
+
   @JsonProperty("fileExtension")
   private String fileExtension;
 

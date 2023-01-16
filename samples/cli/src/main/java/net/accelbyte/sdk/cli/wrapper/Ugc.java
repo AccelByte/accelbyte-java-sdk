@@ -40,6 +40,7 @@ import picocli.CommandLine.Command;
       SingleAdminUpdateContentDirect.class,
       SingleAdminDeleteContent.class,
       SingleAdminGetContent.class,
+      AdminGetContentBulk.class,
       AdminSearchContent.class,
       AdminGetUserContentByShareCode.class,
       AdminGetSpecificContent.class,

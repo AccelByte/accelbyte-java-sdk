@@ -31,6 +31,9 @@ public class ApiMatchPool extends Model {
   @JsonProperty("match_function")
   private String matchFunction;
 
+  @JsonProperty("match_function_override")
+  private ApiMatchFunctionOverride matchFunctionOverride;
+
   @JsonProperty("name")
   private String name;
 

@@ -24,6 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>This endpoint requires ADMIN:NAMESPACE:{namespace}:USER [READ] permission.
  *
  * <p>List all users that has admin role (role that has admin_role attribute set to true).
+ *
+ * <p>The endpoint will return all admin from all namespace when called from publisher namespace.
+ * When not called from publisher namespace, the endpoint will return all admin from the path
+ * namespace.
  */
 @Getter
 @Setter

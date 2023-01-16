@@ -86,5 +86,6 @@
 | `apimodels.UpdatePartyRequest` | [ApimodelsUpdatePartyRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsUpdatePartyRequest.java) |
 | `apimodels.UserResponse` | [ApimodelsUserResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsUserResponse.java) |
 | `models.GameServer` | [ModelsGameServer](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsGameServer.java) |
+| `models.PartyMembers` | [ModelsPartyMembers](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsPartyMembers.java) |
 | `models.Team` | [ModelsTeam](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsTeam.java) |
 | `response.Error` | [ResponseError](../../src/main/java/net/accelbyte/sdk/api/session/models/ResponseError.java) |

@@ -37,6 +37,9 @@ public class ApimodelsUserResponse extends Model {
   @JsonProperty("status")
   private String status;
 
+  @JsonProperty("statusV2")
+  private String statusV2;
+
   @JsonProperty("updatedAt")
   private String updatedAt;
 

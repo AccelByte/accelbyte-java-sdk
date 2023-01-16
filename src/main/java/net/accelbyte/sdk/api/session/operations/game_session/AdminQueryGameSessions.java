@@ -49,6 +49,7 @@ public class AdminQueryGameSessions extends Operation {
   private String orderBy;
   private String sessionID;
   private String status;
+  private String statusV2;
   private String toTime;
 
   /**
@@ -72,6 +73,7 @@ public class AdminQueryGameSessions extends Operation {
       String orderBy,
       String sessionID,
       String status,
+      String statusV2,
       String toTime) {
     this.namespace = namespace;
     this.configurationName = configurationName;
@@ -87,6 +89,7 @@ public class AdminQueryGameSessions extends Operation {
     this.orderBy = orderBy;
     this.sessionID = sessionID;
     this.status = status;
+    this.statusV2 = statusV2;
     this.toTime = toTime;
 
     securities.add("Bearer");
@@ -121,6 +124,7 @@ public class AdminQueryGameSessions extends Operation {
     queryParams.put("orderBy", this.orderBy == null ? null : Arrays.asList(this.orderBy));
     queryParams.put("sessionID", this.sessionID == null ? null : Arrays.asList(this.sessionID));
     queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));
+    queryParams.put("statusV2", this.statusV2 == null ? null : Arrays.asList(this.statusV2));
     queryParams.put("toTime", this.toTime == null ? null : Arrays.asList(this.toTime));
     return queryParams;
   }
@@ -159,6 +163,7 @@ public class AdminQueryGameSessions extends Operation {
     result.put("orderBy", "None");
     result.put("sessionID", "None");
     result.put("status", "None");
+    result.put("statusV2", "None");
     result.put("toTime", "None");
     return result;
   }

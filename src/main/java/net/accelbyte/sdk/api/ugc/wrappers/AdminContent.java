@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.ugc.wrappers;
 
+import java.util.*;
 import net.accelbyte.sdk.api.ugc.models.*;
 import net.accelbyte.sdk.api.ugc.operations.admin_content.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -88,6 +89,16 @@ public class AdminContent {
    * @see SingleAdminGetContent
    */
   public ModelsPaginatedContentDownloadResponse singleAdminGetContent(SingleAdminGetContent input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminGetContentBulk
+   */
+  public List<ModelsContentDownloadResponse> adminGetContentBulk(AdminGetContentBulk input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

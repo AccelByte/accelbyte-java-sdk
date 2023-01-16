@@ -23,6 +23,15 @@ public class Session {
   }
 
   /**
+   * @see AdminQuerySession
+   */
+  public ModelsSessionQueryResponse adminQuerySession(AdminQuerySession input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetTotalActiveSession
    */
   public ModelsCountActiveSessionResponse getTotalActiveSession(GetTotalActiveSession input)

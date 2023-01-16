@@ -15,6 +15,7 @@ import picocli.CommandLine.Command;
     name = "sessionbrowser",
     mixinStandardHelpOptions = true,
     subcommands = {
+      AdminQuerySession.class,
       GetTotalActiveSession.class,
       GetActiveCustomGameSessions.class,
       GetActiveMatchmakingGameSessions.class,
