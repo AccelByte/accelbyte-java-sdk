@@ -104,6 +104,13 @@ public class App
       throw new IllegalArgumentException("Missing path parameter statCode");
     }
 
+    if (!sdk.loginClient()) {
+      throw new IllegalAccessException(
+          String.format(
+              "Login client failed %s",
+              sdk.getSdkConfiguration().getConfigRepository().getClientId()));
+    }
+
     final UserStatistic wrapper = new UserStatistic(sdk);
 
     final CreateUserStatItem operation =

@@ -1,9 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  aws-lambda-example
-
-  Sample SAM Template for aws-lambda-example
+  An AWS Lambda Sample App built using AccelByte Java SDK for adding statistic to a user, getting a list of statistics of a user, and deleting a statistic from a user
 
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
@@ -11,9 +9,9 @@ Globals:
     Timeout: 20
     Environment:
       Variables:
-        AB_BASE_URL: https://demo.accelbyte.io
-        AB_CLIENT_ID: <Put your AccelByte Client ID here>
-        AB_CLIENT_SECRET: <Put your AccelByte Client Secret here>
+        AB_BASE_URL: 'https://demo.accelbyte.io'
+        AB_CLIENT_ID: 'xxxxxxxxxx'
+        AB_CLIENT_SECRET: 'xxxxxxxxxx'
 
 Resources:
   UserStatsFunction:
