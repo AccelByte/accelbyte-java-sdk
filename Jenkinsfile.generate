@@ -94,36 +94,40 @@ pipeline {
         }
       }
     }
-    stage("CLI/Integration Tests") {
-      parallel {
-        stage('CLI Tests') {
-          steps {
+
+    stage('CLI Tests') {
+      steps {
+        dir(sdkRepoName) {
+          sh "make test_cli SDK_MOCK_SERVER_PATH=${sdkGenPath}/mock-server"
+        }
+      }
+      post {
+        always {
+          script {
             dir(sdkRepoName) {
-              sh "make test_cli SDK_MOCK_SERVER_PATH=${sdkGenPath}/mock-server"
-            }
-          }
-          post {
-            always {
-              script {
-                dir(sdkRepoName) {
-                  archiveArtifacts artifacts: 'samples/cli/tests/*.tap'
-                  step([$class: "TapPublisher", testResults: "samples/cli/tests/*.tap"])
-                }
-              }
+              archiveArtifacts artifacts: 'samples/cli/tests/*.tap'
+              step([$class: "TapPublisher", testResults: "samples/cli/tests/*.tap"])
             }
           }
         }
-
-        stage('Integration Tests') {
-          options {
-            lock("justice-demo-serversdktest")
+      }
+    }
+    
+    stage('Integration Tests') {
+      options {
+        lock("justice-demo-serversdktest")
+      }
+      steps {
+        dir(sdkRepoName) {
+          withCredentials([file(credentialsId: 'justice-codegen-sdk-integration-test-env', variable: 'ENV_FILE_PATH')]) {
+            sh 'make test_integration ENV_FILE_PATH=$ENV_FILE_PATH'
           }
-          steps {
-            dir(sdkRepoName) {
-              withCredentials([file(credentialsId: 'justice-codegen-sdk-integration-test-env', variable: 'ENV_FILE_PATH')]) {
-                sh 'make test_integration ENV_FILE_PATH=$ENV_FILE_PATH'
-              }
-            }
+        }
+      }
+      post {
+        always {
+          dir(sdkRepoName) {
+            junit 'build/test-results/testIntegration/*.xml'
           }
         }
       }
