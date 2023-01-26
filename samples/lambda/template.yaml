@@ -10,8 +10,8 @@ Globals:
     Environment:
       Variables:
         AB_BASE_URL: 'https://demo.accelbyte.io'
-        AB_CLIENT_ID: 'xxxxxxxxxx'
-        AB_CLIENT_SECRET: 'xxxxxxxxxx'
+        AB_CLIENT_ID: 'xxxxxxxxxxxxxxxxxx'
+        AB_CLIENT_SECRET: 'xxxxxxxxxxxxxxxxxxxx'
 
 Resources:
   UserStatsFunction:
@@ -21,6 +21,15 @@ Resources:
       Handler: awslambdaexample.App::handleRequest
       Runtime: java8
       MemorySize: 512
+      FunctionUrlConfig: # https://docs.aws.amazon.com/lambda/latest/dg/urls-tutorial.html
+        AuthType: NONE # Change to "AWS_IAM" based on your needs https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
+        Cors:
+          AllowOrigins:
+            - "*"
+          AllowHeaders:
+            - "*"
+          AllowMethods:
+            - "*"
       Events:
         CreateUserStats:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
@@ -51,3 +60,7 @@ Outputs:
   UserStatsFunctionIamRole:
     Description: "Implicit IAM Role created for Hello World function"
     Value: !GetAtt UserStatsFunctionRole.Arn
+  MyFunctionUrlEndpoint:
+    Description: "Java Simple App Lambda Function URL Endpoint"
+    Value:
+      Fn::GetAtt: UserStatsFunctionUrl.FunctionUrl # {Function Name}Url.FunctionUrl

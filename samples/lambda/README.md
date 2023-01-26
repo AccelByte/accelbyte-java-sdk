@@ -63,10 +63,13 @@ Start the lambda, in this case, locally for testing purpose.
     curl -X DELETE http://127.0.0.1:3000/user-stats/{NAMESPACE}/{USER_ID}/{STAT_CODE}
     ```
 
-## Deploy to AWS
+## Deploy to AWS and Testing
 
 Follow AWS SAM CLI instruction to deploy Lambda to AWS. Make sure the AWS account you use has all the required permissions. Adjust environment variables required by the lambda and the client app accordingly.
 
 ```
 sam deploy --guided
 ```
+
+Obtain the `FunctionURL` from command line output.
+Try it out. Use the your `FunctionURL`, `Namespace ID`, `User ID`, and `Stat Code` following the [payload format](https://docs.aws.amazon.com/lambda/latest/dg/urls-invocation.html)
