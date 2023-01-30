@@ -111,6 +111,25 @@ AccelByteConfig config = new AccelByteConfig(
 AccelByteSDK sdk = new AccelByteSDK(config);
 ```
 
+#### Local Token Validation
+
+To enable local token validation, use the following when instantiating the SDK. When enabled, the SDK instance will cache JWKS and revocation list for performing token validation so that it does not have to call AccelByte cloud endpoint each time. See [Validate Token](#validate-token) section on how to validate token using SDK.
+
+```java
+final DefaultConfigRepository defaultConfigRepository = new DefaultConfigRepository();    // Using DefaultConfigRepository, make sure the required environment variables are set
+
+defaultConfigRepository.setLocalTokenValidationEnabled(true);     // Enable local token validation
+defaultConfigRepository.setJwksRefreshInterval(300);    // Refresh JWKS for local token validation every 5 minutes
+defaultConfigRepository.setRevocationListRefreshInterval(300);    // Refresh revocation list for local token validation every 5 minutes
+
+AccelByteConfig config = new AccelByteConfig(
+      new OkhttpClient(),
+      DefaultTokenRepository.getInstance(),
+      defaultConfigRepository);
+
+AccelByteSDK sdk = new AccelByteSDK(config);
+```
+
 ### Login
 
 #### Login Using Username and Password
@@ -132,6 +151,20 @@ boolean login = sdk.loginClient();
 if (!login) {
     // Login failed   
 }
+```
+
+### Validate Token
+
+To validate if an access token is valid and has the required permission, use the `ValidateToken` method of `AccelByteSDK` instance. To validate an access token without validating the required permission, omit the optional `permission` and `action` parameters of `ValidateToken` method. By default, remote token validation is performed. However, if higher throughput is required, you may enable local token validation as mentioned in [Local Token Validation](#local-token-validation) section. With local token validation, token validation will be quicker at the expense of delayed revocation list update (a revoked token may still be regarded as valid until local cache of the revocation list is updated).
+
+```java
+boolean isOk = sdk.validateToken("token", "ADMIN:NAMESPACE:serversdk:INFORMATION:USER:abdedef", 2);  // Validate token
+
+if (isOk) {
+    // Token is valid and has the required permission
+}
+else {
+   // Token is not valid or expired or does not have the required permission
 ```
 
 ### Interacting with a Service Endpoint
@@ -172,6 +205,7 @@ try {
 ```
 
 ### Refresh Token
+
 ```java
 boolean isOk = sdk.refreshToken();  // Trigger token refresh manually when not using automatic token refresh functionality
 
@@ -184,6 +218,7 @@ else {
 ```
 
 ### Logout
+
 ```java
 boolean logout = sdk.logout();
 

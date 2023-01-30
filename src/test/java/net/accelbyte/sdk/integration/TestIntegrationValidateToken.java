@@ -9,11 +9,14 @@ package net.accelbyte.sdk.integration;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenRevocationV3;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.client.HttpClient;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
+import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
@@ -22,6 +25,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 @Tag("test-integration")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -32,74 +37,103 @@ public class TestIntegrationValidateToken extends TestIntegration {
     super.setup(false);
   }
 
-  @Test
+  @ParameterizedTest
+  @ValueSource(booleans = { true, false })
   @Order(1)
-  public void testToken() throws Exception {
+  public void testClientToken(boolean localTokenValidationEnabled) throws Exception {
     final HttpClient<?> httpClient = super.sdk.getSdkConfiguration().getHttpClient();
-    final DefaultTokenRepository tokenRepository = new DefaultTokenRepository();
-    final ConfigRepository configRepository = super.sdk.getSdkConfiguration().getConfigRepository();
+    final DefaultConfigRepository defaultConfigRepository = new DefaultConfigRepository();
 
-    final AccelByteSDK sdk1 = new AccelByteSDK(httpClient, tokenRepository, configRepository);
+    defaultConfigRepository.setLocalTokenValidationEnabled(localTokenValidationEnabled);
+    defaultConfigRepository.setJwksRefreshInterval(300);    // 5 minutes
+    defaultConfigRepository.setRevocationListRefreshInterval(300);    // 5 minutes
+
+    final DefaultTokenRepository tokenRepository1 = new DefaultTokenRepository();
+    final AccelByteSDK sdk1 = new AccelByteSDK(httpClient, tokenRepository1, defaultConfigRepository);
     final OAuth20 oauth20Wrapper = new OAuth20(sdk1);
 
-    // sdk1.loginClient();
+    sdk1.loginClient();
+
+    // Validate token after login
+
+    assertTrue(sdk1.validateToken(tokenRepository1.getToken()));
+
+    // Revoke token
+
+    oauth20Wrapper.tokenRevocationV3(TokenRevocationV3.builder()
+        .token(tokenRepository1.getToken())
+        .build());
+
+    Thread.sleep(3000);
+
+    // Validate token after revoke
+
+    final DefaultTokenRepository tokenRepository2 = new DefaultTokenRepository();
+    final AccelByteSDK sdk2 = new AccelByteSDK(httpClient, tokenRepository2, defaultConfigRepository);
+
+    assertFalse(sdk2.validateToken(tokenRepository2.getToken()));
+  }
+
+  @ParameterizedTest
+  @ValueSource(booleans = { true, false })
+  @Order(1)
+  public void testUserToken(boolean localTokenValidationEnabled) throws Exception {
+    final HttpClient<?> httpClient = super.sdk.getSdkConfiguration().getHttpClient();
+    final DefaultConfigRepository defaultConfigRepository = new DefaultConfigRepository();
+
+    defaultConfigRepository.setLocalTokenValidationEnabled(localTokenValidationEnabled);
+    defaultConfigRepository.setJwksRefreshInterval(300);    // 5 minutes
+    defaultConfigRepository.setRevocationListRefreshInterval(300);    // 5 minutes
+
+    final DefaultTokenRepository tokenRepository1 = new DefaultTokenRepository();
+    final AccelByteSDK sdk1 = new AccelByteSDK(httpClient, tokenRepository1, defaultConfigRepository);
+    final OAuth20 oauth20Wrapper = new OAuth20(sdk1);
+
     sdk1.loginUser(this.username, this.password);
 
     // Validate token after login
 
-    final boolean isValidateTokenOk1 = sdk1.validateToken(tokenRepository.getToken());
-
-    assertTrue(isValidateTokenOk1);
-
-    final net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenRevocationV3 operation =
-        net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenRevocationV3.builder()
-            .token(tokenRepository.getToken())
-            .build();
+    assertTrue(sdk1.validateToken(tokenRepository1.getToken()));
 
     // Revoke token
 
-    oauth20Wrapper.tokenRevocationV3(operation);
+    oauth20Wrapper.tokenRevocationV3(TokenRevocationV3.builder()
+        .token(tokenRepository1.getToken())
+        .build());
 
     Thread.sleep(3000);
 
-    // Validate token after revoke (new sdk instance will request new revocation
-    // list immediately)
+    // Validate token after revoke
 
-    final AccelByteSDK sdk2 = new AccelByteSDK(httpClient, tokenRepository, configRepository);
+    final DefaultTokenRepository tokenRepository2 = new DefaultTokenRepository();
+    final AccelByteSDK sdk2 = new AccelByteSDK(httpClient, tokenRepository2, defaultConfigRepository);
 
-    final boolean isValidateTokenOk2 = sdk2.validateToken(tokenRepository.getToken());
-
-    assertFalse(isValidateTokenOk2);
+    assertFalse(sdk2.validateToken(tokenRepository2.getToken()));
   }
 
   @Test
   @Order(1)
   public void testPermission() throws Exception {
     final HttpClient<?> httpClient = super.sdk.getSdkConfiguration().getHttpClient();
-    final DefaultTokenRepository tokenRepository = new DefaultTokenRepository();
     final ConfigRepository configRepository = super.sdk.getSdkConfiguration().getConfigRepository();
 
-    final AccelByteSDK sdk1 = new AccelByteSDK(httpClient, tokenRepository, configRepository);
+    final DefaultTokenRepository tokenRepository1 = new DefaultTokenRepository();
+    final AccelByteSDK sdk1 = new AccelByteSDK(httpClient, tokenRepository1, configRepository);
+
     sdk1.loginClient();
 
     // Validate token with permission (test credential must have
     // ADMIN:NAMESPACE:{NAMESPACE}:INFORMATION:USER:* [CREATE,READ,UPDATE,DELETE]
     // permission)
 
-    final String goodPermission1 =
-        "ADMIN:NAMESPACE:" + this.namespace + ":INFORMATION:USER:0000000";
-    final String badPermission1 =
-        "ADMIN:NAMESPACE:" + this.namespace + ":INFORMATION:PLAYER:0000000";
-    final String badPermission2 =
-        "ADMIN:NAMESPACE:" + this.namespace + ":INFORMATION:USER:0000000:DATA";
+    final String goodPermission1 = "ADMIN:NAMESPACE:" + this.namespace + ":INFORMATION:USER:0000000";
+    final String badPermission1 = "ADMIN:NAMESPACE:" + this.namespace + ":INFORMATION:PLAYER:0000000";
+    final String badPermission2 = "ADMIN:NAMESPACE:" + this.namespace + ":INFORMATION:USER:0000000:DATA";
     final int goodAction = 2; // Read only action
 
-    final boolean isGoodPermissionOk1 =
-        sdk1.validateToken(tokenRepository.getToken(), goodPermission1, goodAction);
-    final boolean isBadPermissionOk1 =
-        sdk1.validateToken(tokenRepository.getToken(), badPermission1, goodAction);
-    final boolean isBadPermissionOk2 =
-        sdk1.validateToken(tokenRepository.getToken(), badPermission2, goodAction);
+    final boolean isGoodPermissionOk1 = sdk1.validateToken(tokenRepository1.getToken(), goodPermission1, goodAction);
+    final boolean isBadPermissionOk1 = sdk1.validateToken(tokenRepository1.getToken(), badPermission1, goodAction);
+    final boolean isBadPermissionOk2 = sdk1.validateToken(tokenRepository1.getToken(), badPermission2, goodAction);
 
     assertTrue(isGoodPermissionOk1);
     assertFalse(isBadPermissionOk1);
