@@ -1,5 +1,27 @@
+<a name="v0.29.0"></a>
+## [v0.29.0] - 2023-01-30
+### Chore
+- sequentially run test stages
+- separate jenkins job for broken link check
+- **sdk:** generate java server sdk (230129.0041)
+
+### Docs
+- update changelog for ab cloud 3.41
+- **migrations:** add migration-guide-v0.28-to-v0.29.md
+- **samples:** lambda - readme
+- **spec:** restore openapi-2.0-vendor-extensions.md
+
+### Feat
+- add sdk generate jenkins pipeline
+- **core:** add local token validation config
+
+### Test
+- **integration:** fix wrong phantauth url
+- **integration:** remove hardcoded AB_PHANTAUTH_URL
+
+
 <a name="v0.28.0"></a>
-## [v0.28.0] - 2023-01-16
+## [v0.28.0] - 2023-01-17
 ### Chore
 - bump to version 0.28 for ab cloud 3.40
 - **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.40
@@ -95,17 +117,17 @@
 <a name="v0.24.0"></a>
 ## [v0.24.0] - 2022-11-22
 ### Chore
-- bump to version 0.23.2 for ab cloud 3.35 hotfix
 - bump to version 0.24 for ab cloud 3.36
-- bump to version 0.23.1 for ab cloud 3.35 hotfix
 - generate new match2 and session service sdk
-- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.35 hotfix
-- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.35 hotfix
+- bump to version 0.23.2 for ab cloud 3.35 hotfix
+- bump to version 0.23.1 for ab cloud 3.35 hotfix
 - **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.36
 - **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.36
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.35 hotfix
+- **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.35 hotfix
+- **spec:** update spec for ab cloud 3.36
 - **spec:** update spec for ab cloud 3.36
 - **spec:** update spec for ab cloud 3.35 hotfix
-- **spec:** update spec for ab cloud 3.36
 - **spec:** update spec for ab cloud 3.35 hotfix
 
 ### Docs
@@ -199,13 +221,13 @@
 ## [v0.20.0] - 2022-09-28
 ### Chore
 - bump to version 0.20 for ab cloud 3.32
-- fix gradle deprecation warning
-- consolidate build.gradle
 - clean up dependencies
 - improve dummy javadoc content
+- fix gradle deprecation warning
+- consolidate build.gradle
 - **build.gradle:** enable nexus publish plugin only if necessary
-- **makefile:** gradle no daemon
 - **makefile:** make output more readable in jenkins
+- **makefile:** gradle no daemon
 - **makefile:** make gradle less verbose
 - **sdk:** regenerate sdk, cli sample app, cli test, doc index for ab cloud 3.32
 - **spec:** update spec for ab cloud 3.32
@@ -430,9 +452,9 @@
 - fix coverity issues
 - **doc:** regenerate doc index for justice 3.23
 - **samples:** regenerate cli sample app for justice 3.23
-- **sdk:** use more enums
 - **sdk:** regenerate sdk for justice 3.23
 - **sdk:** okhttpclient - refactor create request and response
+- **sdk:** use more enums
 - **spec:** update spec for justice 3.23
 - **test:** regenerate cli sample app test for justice 3.23
 
@@ -461,23 +483,23 @@
 ### Chore
 - gitignore tap test results
 - bump version
-- **core:** helper - minor clean up
+- **core:** refactor sdkinfo class
 - **core:** operation - remove unused toJson and createFromJson methods
 - **core:** model - make abstract
+- **core:** improve base64 encoding in okhttplogger
 - **core:** operation - isValid method is abstract now
 - **core:** operation - use parent GetFullUrl method
-- **core:** improve base64 encoding in okhttplogger
-- **core:** refactor sdkinfo class
+- **core:** helper - minor clean up
 - **doc:** regenerate doc index for justice 3.22
 - **model:** remove unused getFieldInfo method
-- **samples:** cli - use builder pattern
 - **samples:** regenerate cli sample app for justice 3.22
+- **samples:** cli - use builder pattern
 - **sdk:** regenerate sdk for justice 3.22
 - **spec:** update spec for justice 3.22
 - **test:** move cli test shell scripts
+- **test:** rename test core and test integration
 - **test:** revise HttpbinOperation for testing
 - **test:** regenerate cli sample app test for justice 3.22
-- **test:** rename test core and test integration
 
 ### Ci
 - **jenkinsfile:** rename core tests
@@ -508,32 +530,32 @@
 ## [v0.9.0] - 2022-04-26
 ### Chore
 - bump version
-- **core:** refactor okhttpclient send request logic
-- **core:** operation - make getCollectionFormatMap protected
-- **core:** operation - remove unused method getAllParams
 - **core:** operation - remove unused method getHeaderParams
+- **core:** refactor okhttpclient send request logic
+- **core:** revise core Header to HttpHeaders
+- **core:** operation - remove unnecessary jsonignore
 - **core:** operation - remove parseResponse, handleEmptyResponse methods
 - **core:** operation - make abstract
 - **core:** operation - make createFullUrl protected
 - **core:** operation - move createFullUrl logic to helper
-- **core:** revise core Header to HttpHeaders
-- **core:** operation - remove unnecessary jsonignore
+- **core:** operation - remove unused method getAllParams
+- **core:** operation - make getCollectionFormatMap protected
 - **doc:** regenerate doc index for justice 3.21
 - **gradle:** use gradle lombok plugin
 - **makefile:** pin gradle docker image to version 7-jdk8
 - **samples:** cli - regenerate cli (cookie support)
-- **sdk:** regenerate sdk (add enum)
-- **sdk:** regenerate sdk (cookie support)
 - **sdk:** operation - rename getFormParams
-- **sdk:** refactor accelbytesdk
-- **sdk:** regenerate sdk (prepare to add enum)
 - **sdk:** regenerate sdk for justice 3.21
-- **spec:** update spec
+- **sdk:** regenerate sdk (add enum)
+- **sdk:** regenerate sdk (prepare to add enum)
+- **sdk:** regenerate sdk (cookie support)
+- **sdk:** refactor accelbytesdk
 - **spec:** update spec for justice 3.21
-- **spec:** update spec for cookie support
 - **spec:** update spec for more cookie support
-- **test:** regenerate cli test for justice 3.21
+- **spec:** update spec
+- **spec:** update spec for cookie support
 - **test:** remove run-java-cli-all-unit-test.sh
+- **test:** regenerate cli test for justice 3.21
 
 ### Ci
 - publish unit test core junit xml
@@ -602,10 +624,10 @@
 ## [v0.7.0] - 2022-03-29
 ### Chore
 - bump version
-- add gradle check (checkstyle)
 - clean up build
 - clean up test
 - clean up checkstyle
+- add gradle check (checkstyle)
 - **cli-test:** regenerate cli test for justice 3.19.0
 - **makefile:** improve speed
 - **samples:** remove redundant samples
@@ -676,13 +698,13 @@
 - **github:** run github jenkins job in codegen build machine
 
 ### Feat
-- **api:** add documentation and deprecated annotation
 - **api:** add builder pattern to the model classes
 - **api:** add builder feature to the operation class constructor
+- **api:** add documentation and deprecated annotation
 - **core:** inject 'User-Agent' automatically in each request
 - **core:** add optional 'X-Amzn-Trace-Id' header in each request
-- **samples:** add cli app for lobby websocket
 - **samples:** add unit test mode to websocket cli app
+- **samples:** add cli app for lobby websocket
 
 ### Fix
 - add missing shebang
@@ -715,14 +737,14 @@
 ### Fix
 - **api:** incorrect form data params value assignment
 - **api:** response message handling
-- **core:** adjust login method to the new sdk version
-- **core:** invalid request method and body
-- **core:** invalid get form data params checking
-- **core:** change function for converting inputstream to string
 - **core:** set default content type if not declared
+- **core:** invalid request method and body
+- **core:** change function for converting inputstream to string
+- **core:** adjust login method to the new sdk version
+- **core:** invalid get form data params checking
 - **makefile:** test_cli not tty error in jenkins
-- **sample:** change input stream to file for cli input
 - **sample:** invalid exit code on cli apps
+- **sample:** change input stream to file for cli input
 - **samples:** set null on unfilled parameter in form data
 - **samples:** response handling and log
 - **tests:** change unit test parameters
@@ -750,12 +772,12 @@
 - **samples:** fix readme cli
 
 ### Feat
-- websocket core class
 - add junit
-- **api:** add websocket message models
+- websocket core class
 - **api:** add function to get collection format and array query string
-- **core:** add helper functions for websocket implementation
+- **api:** add websocket message models
 - **core:** add logic to handle array within query string
+- **core:** add helper functions for websocket implementation
 - **sample:** add java sdk cli
 - **samples:** update dependency
 - **samples:** java-sdk-poc - get dependency from nexus
@@ -841,6 +863,7 @@
 - replace unnecessary object
 
 
+[v0.29.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.28.0...v0.29.0
 [v0.28.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.27.0...v0.28.0
 [v0.27.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.26.0...v0.27.0
 [v0.26.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.25.0...v0.26.0
