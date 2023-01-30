@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsGetMemberRolesListResponseV1 extends Model {
 
   @JsonProperty("data")
-  private List<ModelsGetMemberRoleResponseV1> data;
+  private List<ModelsMemberRoleResponseV1> data;
 
   @JsonProperty("paging")
   private ModelsPagination paging;

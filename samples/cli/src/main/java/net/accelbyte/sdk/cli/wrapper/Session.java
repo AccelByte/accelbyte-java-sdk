@@ -12,6 +12,7 @@ import net.accelbyte.sdk.cli.api.session.configuration_template.*;
 import net.accelbyte.sdk.cli.api.session.game_session.*;
 import net.accelbyte.sdk.cli.api.session.operations.*;
 import net.accelbyte.sdk.cli.api.session.party.*;
+import net.accelbyte.sdk.cli.api.session.player.*;
 import picocli.CommandLine.Command;
 
 @Command(
@@ -28,6 +29,8 @@ import picocli.CommandLine.Command;
       AdminQueryGameSessions.class,
       AdminUpdateGameSessionMember.class,
       AdminQueryParties.class,
+      AdminQueryPlayerAttributes.class,
+      AdminGetPlayerAttributes.class,
       CreateGameSession.class,
       PublicQueryGameSessions.class,
       GetGameSessionByPodName.class,
@@ -52,6 +55,9 @@ import picocli.CommandLine.Command;
       PublicPartyReject.class,
       PublicPartyKick.class,
       PublicCreateParty.class,
+      PublicGetPlayerAttributes.class,
+      PublicStorePlayerAttributes.class,
+      PublicDeletePlayerAttributes.class,
       PublicQueryMyGameSessions.class,
       PublicQueryMyParties.class,
     })

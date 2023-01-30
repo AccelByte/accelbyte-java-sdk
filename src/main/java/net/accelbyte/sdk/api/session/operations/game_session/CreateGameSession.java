@@ -22,33 +22,19 @@ import net.accelbyte.sdk.core.util.Helper;
  * createGameSession
  *
  * <p>Create a game session. Session configuration name is mandatory, this API will refer following
- * values from the session template if they're not provided in the request:
- *
- * <p>* type
- *
- * <p>* joinability
- *
- * <p>* minPlayers
- *
- * <p>* maxPlayers
- *
- * <p>* inviteTimeout
- *
- * <p>* inactiveTimeout
+ * values from the session template if they're not provided in the request: - type - joinability -
+ * minPlayers - maxPlayers - inviteTimeout - inactiveTimeout
  *
  * <p>When the session type is a DS, a DS creation request will be sent to DSMC if number of active
- * players reaches session's minPlayers. Active user is a user who present within the session, has
- * status CONNECTED/JOINED. Session service has several DSInformation status to track DS request to
- * DSMC:
+ * players reaches session's minPlayers.
  *
- * <p>* NEED_TO_REQUEST : number of active players hasn't reached session's minPlayers therefore DS
- * has not yet requested.
+ * <p>Active user is a user who present within the session, has status CONNECTED/JOINED.
  *
- * <p>* REQUESTED : DS is being requested to DSMC.
- *
- * <p>* AVAILABLE : DS is ready to use. The DSMC status for this DS is either READY/BUSY.
- *
- * <p>* FAILED_TO_REQUEST : DSMC fails to create the DS.
+ * <p>Session service has several DSInformation status to track DS request to DSMC: -
+ * NEED_TO_REQUEST: number of active players hasn't reached session's minPlayers therefore DS has
+ * not yet requested. - REQUESTED: DS is being requested to DSMC. - AVAILABLE: DS is ready to use.
+ * The DSMC status for this DS is either READY/BUSY. - FAILED_TO_REQUEST: DSMC fails to create the
+ * DS.
  */
 @Getter
 @Setter

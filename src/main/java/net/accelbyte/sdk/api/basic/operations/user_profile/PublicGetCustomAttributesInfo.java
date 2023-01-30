@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get custom attributes info. Other detail info:
  *
- * <p>* Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2
- * (READ) * Action code : 11404 * Returns : user custom attributes
+ * <p>* Action code : 11404 * Returns : user custom attributes
  */
 @Getter
 @Setter
@@ -53,8 +52,6 @@ public class PublicGetCustomAttributesInfo extends Operation {
   public PublicGetCustomAttributesInfo(String namespace, String userId) {
     this.namespace = namespace;
     this.userId = userId;
-
-    securities.add("Bearer");
   }
 
   @Override

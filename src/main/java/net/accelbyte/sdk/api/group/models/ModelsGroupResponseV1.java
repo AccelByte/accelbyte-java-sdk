@@ -53,7 +53,7 @@ public class ModelsGroupResponseV1 extends Model {
   private String groupRegion;
 
   @JsonProperty("groupRules")
-  private ModelsGroupRule groupRules;
+  private ModelsGroupRuleResponseV1 groupRules;
 
   @JsonProperty("groupType")
   private String groupType;

@@ -15,6 +15,9 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/match2/v1/namespaces/{namespace}/backfill` | POST | CreateBackfill | [CreateBackfill](../../src/main/java/net/accelbyte/sdk/api/match2/operations/backfill/CreateBackfill.java) | [CreateBackfill](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/backfill/CreateBackfill.java) |
+| `/match2/v1/namespaces/{namespace}/backfill/proposal` | GET | GetBackfillProposal | [GetBackfillProposal](../../src/main/java/net/accelbyte/sdk/api/match2/operations/backfill/GetBackfillProposal.java) | [GetBackfillProposal](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/backfill/GetBackfillProposal.java) |
+| `/match2/v1/namespaces/{namespace}/backfill/{backfillID}` | GET | GetBackfill | [GetBackfill](../../src/main/java/net/accelbyte/sdk/api/match2/operations/backfill/GetBackfill.java) | [GetBackfill](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/backfill/GetBackfill.java) |
+| `/match2/v1/namespaces/{namespace}/backfill/{backfillID}` | DELETE | DeleteBackfill | [DeleteBackfill](../../src/main/java/net/accelbyte/sdk/api/match2/operations/backfill/DeleteBackfill.java) | [DeleteBackfill](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/backfill/DeleteBackfill.java) |
 | `/match2/v1/namespaces/{namespace}/backfill/{backfillID}/proposal/accept` | PUT | AcceptBackfill | [AcceptBackfill](../../src/main/java/net/accelbyte/sdk/api/match2/operations/backfill/AcceptBackfill.java) | [AcceptBackfill](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/backfill/AcceptBackfill.java) |
 | `/match2/v1/namespaces/{namespace}/backfill/{backfillID}/proposal/reject` | PUT | RejectBackfill | [RejectBackfill](../../src/main/java/net/accelbyte/sdk/api/match2/operations/backfill/RejectBackfill.java) | [RejectBackfill](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/backfill/RejectBackfill.java) |
 
@@ -59,9 +62,12 @@
 |---|---|
 | `api.BackFillAcceptRequest` | [ApiBackFillAcceptRequest](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiBackFillAcceptRequest.java) |
 | `api.BackFillCreateRequest` | [ApiBackFillCreateRequest](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiBackFillCreateRequest.java) |
+| `api.BackfillGetResponse` | [ApiBackfillGetResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiBackfillGetResponse.java) |
+| `api.BackfillProposalResponse` | [ApiBackfillProposalResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiBackfillProposalResponse.java) |
 | `api.ListMatchFunctionsResponse` | [ApiListMatchFunctionsResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiListMatchFunctionsResponse.java) |
 | `api.ListMatchPoolsResponse` | [ApiListMatchPoolsResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiListMatchPoolsResponse.java) |
 | `api.ListRuleSetsResponse` | [ApiListRuleSetsResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiListRuleSetsResponse.java) |
+| `api.Match` | [ApiMatch](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatch.java) |
 | `api.MatchFunctionConfig` | [ApiMatchFunctionConfig](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchFunctionConfig.java) |
 | `api.MatchFunctionOverride` | [ApiMatchFunctionOverride](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchFunctionOverride.java) |
 | `api.MatchFunctionRequest` | [ApiMatchFunctionRequest](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchFunctionRequest.java) |
@@ -73,6 +79,11 @@
 | `api.MatchTicketRequest` | [ApiMatchTicketRequest](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchTicketRequest.java) |
 | `api.MatchTicketResponse` | [ApiMatchTicketResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchTicketResponse.java) |
 | `api.MatchTicketStatus` | [ApiMatchTicketStatus](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchTicketStatus.java) |
+| `api.Party` | [ApiParty](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiParty.java) |
+| `api.PlayerData` | [ApiPlayerData](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiPlayerData.java) |
+| `api.ProposedProposal` | [ApiProposedProposal](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiProposedProposal.java) |
+| `api.Team` | [ApiTeam](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiTeam.java) |
+| `api.Ticket` | [ApiTicket](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiTicket.java) |
 | `api.backFillRejectRequest` | [ApiBackFillRejectRequest](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiBackFillRejectRequest.java) |
 | `models.Pagination` | [ModelsPagination](../../src/main/java/net/accelbyte/sdk/api/match2/models/ModelsPagination.java) |
 | `response.Error` | [ResponseError](../../src/main/java/net/accelbyte/sdk/api/match2/models/ResponseError.java) |

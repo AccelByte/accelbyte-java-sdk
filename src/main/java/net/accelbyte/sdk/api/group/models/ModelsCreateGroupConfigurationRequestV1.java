@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelsCreateGroupConfigurationRequestV1 extends Model {
 
+  @JsonProperty("allowMultiple")
+  private Boolean allowMultiple;
+
   @JsonProperty("configurationCode")
   private String configurationCode;
 

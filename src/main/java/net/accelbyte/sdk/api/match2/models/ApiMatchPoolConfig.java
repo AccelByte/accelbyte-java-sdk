@@ -25,6 +25,12 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApiMatchPoolConfig extends Model {
 
+  @JsonProperty("auto_accept_backfill_proposal")
+  private Boolean autoAcceptBackfillProposal;
+
+  @JsonProperty("backfill_proposal_expiration_seconds")
+  private Integer backfillProposalExpirationSeconds;
+
   @JsonProperty("backfill_ticket_expiration_seconds")
   private Integer backfillTicketExpirationSeconds;
 

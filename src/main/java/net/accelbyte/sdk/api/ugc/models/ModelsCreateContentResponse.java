@@ -39,6 +39,7 @@ public class ModelsCreateContentResponse extends Model {
   private String creatorName;
 
   @JsonProperty("customAttributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> customAttributes;
 
   @JsonProperty("fileExtension")
@@ -58,6 +59,9 @@ public class ModelsCreateContentResponse extends Model {
 
   @JsonProperty("namespace")
   private String namespace;
+
+  @JsonProperty("parentNamespace")
+  private String parentNamespace;
 
   @JsonProperty("payloadURL")
   @JsonInclude(JsonInclude.Include.NON_NULL)

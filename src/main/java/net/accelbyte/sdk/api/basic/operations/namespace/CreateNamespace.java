@@ -22,7 +22,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * createNamespace
  *
  * <p>Create a namespace. By default the namespace is enabled. In multi tenant mode, parentNamespace
- * will be automatically filled with requester namespace. Other detail info:
+ * will be automatically filled with requester namespace if the requester is using studio or
+ * publisher token, and it will be filled with studio namespace if the requester uses game token. An
+ * oauth client will also be created and the id will be returned. Other detail info:
  *
  * <p>* Required permission : resource= "ADMIN:NAMESPACE" , action=1 (CREATE) * Action code : 11301
  * * Returns : created namespace

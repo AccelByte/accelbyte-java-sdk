@@ -38,6 +38,7 @@ public class ModelsContentDownloadResponse extends Model {
   private String creatorName;
 
   @JsonProperty("customAttributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> customAttributes;
 
   @JsonProperty("downloadCount")

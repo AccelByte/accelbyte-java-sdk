@@ -72,7 +72,7 @@ public class UpdateMemberRoleAdminV1 implements Callable<Integer> {
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsUpdateMemberRoleRequestV1.class))
               .build();
-      final ModelsUpdateMemberRoleResponseV1 response = wrapper.updateMemberRoleAdminV1(operation);
+      final ModelsMemberRoleResponseV1 response = wrapper.updateMemberRoleAdminV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -27,6 +27,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>A new client automatically granted with these scopes: commerce, account, analytics,
  * publishing, social.
  *
+ * <p>In multi tenant mode, new confidential client will have default client role assigned to it.
+ * The role will have all permissions to access all APIs that's supported by game server SDK and DS
+ * uploader.
+ *
  * <p>action code: 10301
  *
  * <p>Fields Description:

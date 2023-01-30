@@ -21,18 +21,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicQueryGameSessions
  *
- * <p>Query game sessions. By default, API will return a list of available game sessions
- * (joinability: open). Session service has several DSInformation status to track DS request to
- * DSMC:
+ * <p>Query game sessions.
  *
- * <p>* NEED_TO_REQUEST : number of active players hasn't reached session's minPlayers therefore DS
- * has not yet requested.
- *
- * <p>* REQUESTED : DS is being requested to DSMC.
- *
- * <p>* AVAILABLE : DS is ready to use. The DSMC status for this DS is either READY/BUSY.
- *
- * <p>* FAILED_TO_REQUEST : DSMC fails to create the DS.
+ * <p>By default, API will return a list of available game sessions (joinability: open). Session
+ * service has several DSInformation status to track DS request to DSMC: - NEED_TO_REQUEST: number
+ * of active players hasn't reached session's minPlayers therefore DS has not yet requested. -
+ * REQUESTED: DS is being requested to DSMC. - AVAILABLE: DS is ready to use. The DSMC status for
+ * this DS is either READY/BUSY. - FAILED_TO_REQUEST: DSMC fails to create the DS.
  */
 @Getter
 @Setter

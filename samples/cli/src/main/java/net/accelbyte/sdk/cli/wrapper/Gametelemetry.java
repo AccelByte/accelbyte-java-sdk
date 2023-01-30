@@ -9,7 +9,7 @@
 package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.gametelemetry.gametelemetry_operations.*;
-import net.accelbyte.sdk.cli.api.gametelemetry.operations.*;
+import net.accelbyte.sdk.cli.api.gametelemetry.telemetry.*;
 import picocli.CommandLine.Command;
 
 @Command(

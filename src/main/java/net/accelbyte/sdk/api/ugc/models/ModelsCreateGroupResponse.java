@@ -40,6 +40,9 @@ public class ModelsCreateGroupResponse extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("parentNamespace")
+  private String parentNamespace;
+
   @JsonProperty("userId")
   private String userId;
 

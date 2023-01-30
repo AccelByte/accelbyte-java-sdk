@@ -40,6 +40,7 @@ public class AdminQueryGameSessions extends Operation {
   private String dsPodName;
   private String fromTime;
   private String gameMode;
+  private String isSoftDeleted;
   private String joinability;
   private Integer limit;
   private String matchPool;
@@ -64,6 +65,7 @@ public class AdminQueryGameSessions extends Operation {
       String dsPodName,
       String fromTime,
       String gameMode,
+      String isSoftDeleted,
       String joinability,
       Integer limit,
       String matchPool,
@@ -80,6 +82,7 @@ public class AdminQueryGameSessions extends Operation {
     this.dsPodName = dsPodName;
     this.fromTime = fromTime;
     this.gameMode = gameMode;
+    this.isSoftDeleted = isSoftDeleted;
     this.joinability = joinability;
     this.limit = limit;
     this.matchPool = matchPool;
@@ -113,6 +116,8 @@ public class AdminQueryGameSessions extends Operation {
     queryParams.put("dsPodName", this.dsPodName == null ? null : Arrays.asList(this.dsPodName));
     queryParams.put("fromTime", this.fromTime == null ? null : Arrays.asList(this.fromTime));
     queryParams.put("gameMode", this.gameMode == null ? null : Arrays.asList(this.gameMode));
+    queryParams.put(
+        "isSoftDeleted", this.isSoftDeleted == null ? null : Arrays.asList(this.isSoftDeleted));
     queryParams.put(
         "joinability", this.joinability == null ? null : Arrays.asList(this.joinability));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
@@ -154,6 +159,7 @@ public class AdminQueryGameSessions extends Operation {
     result.put("dsPodName", "None");
     result.put("fromTime", "None");
     result.put("gameMode", "None");
+    result.put("isSoftDeleted", "None");
     result.put("joinability", "None");
     result.put("limit", "None");
     result.put("matchPool", "None");

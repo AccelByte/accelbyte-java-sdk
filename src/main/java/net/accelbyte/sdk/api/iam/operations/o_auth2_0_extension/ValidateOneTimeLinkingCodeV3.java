@@ -50,8 +50,6 @@ public class ValidateOneTimeLinkingCodeV3 extends Operation {
   @Deprecated
   public ValidateOneTimeLinkingCodeV3(String oneTimeLinkCode) {
     this.oneTimeLinkCode = oneTimeLinkCode;
-
-    securities.add("Bearer");
   }
 
   @Override

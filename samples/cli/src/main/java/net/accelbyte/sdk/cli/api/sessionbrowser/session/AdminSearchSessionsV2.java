@@ -56,6 +56,16 @@ public class AdminSearchSessionsV2 implements Callable<Integer> {
   String partyID;
 
   @Option(
+      names = {"--sessionType"},
+      description = "sessionType")
+  String sessionType;
+
+  @Option(
+      names = {"--status"},
+      description = "status")
+  String status;
+
+  @Option(
       names = {"--userID"},
       description = "userID")
   String userID;
@@ -100,6 +110,8 @@ public class AdminSearchSessionsV2 implements Callable<Integer> {
                   .deleted(deleted)
                   .matchID(matchID)
                   .partyID(partyID)
+                  .sessionType(sessionType)
+                  .status(status)
                   .userID(userID)
                   .limit(limit)
                   .offset(offset)

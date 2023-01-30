@@ -40,6 +40,9 @@ public class ModelsCreatorResponse extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("parentNamespace")
+  private String parentNamespace;
+
   @JsonProperty("totalLikedContent")
   private Integer totalLikedContent;
 

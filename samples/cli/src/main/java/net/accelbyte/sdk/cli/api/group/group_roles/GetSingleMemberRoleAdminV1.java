@@ -68,7 +68,7 @@ public class GetSingleMemberRoleAdminV1 implements Callable<Integer> {
                   .memberRoleId(memberRoleId)
                   .namespace(namespace)
                   .build();
-      final ModelsGetMemberRoleResponseV1 response = wrapper.getSingleMemberRoleAdminV1(operation);
+      final ModelsMemberRoleResponseV1 response = wrapper.getSingleMemberRoleAdminV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

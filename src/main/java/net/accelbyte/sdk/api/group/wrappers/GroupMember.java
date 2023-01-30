@@ -138,4 +138,112 @@ public class GroupMember {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see GetUserJoinedGroupInformationPublicV2
+   */
+  public ModelsGetGroupMemberListResponseV1 getUserJoinedGroupInformationPublicV2(
+      GetUserJoinedGroupInformationPublicV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AcceptGroupInvitationPublicV2
+   */
+  public ModelsMemberRequestGroupResponseV1 acceptGroupInvitationPublicV2(
+      AcceptGroupInvitationPublicV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see RejectGroupInvitationPublicV2
+   */
+  public ModelsMemberRequestGroupResponseV1 rejectGroupInvitationPublicV2(
+      RejectGroupInvitationPublicV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see JoinGroupV2
+   */
+  public ModelsJoinGroupResponseV1 joinGroupV2(JoinGroupV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see LeaveGroupPublicV2
+   */
+  public ModelsLeaveGroupResponseV1 leaveGroupPublicV2(LeaveGroupPublicV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GetUserGroupInformationPublicV2
+   */
+  public ModelsGetGroupMemberListResponseV1 getUserGroupInformationPublicV2(
+      GetUserGroupInformationPublicV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see InviteGroupPublicV2
+   */
+  public ModelsUserInvitationResponseV1 inviteGroupPublicV2(InviteGroupPublicV2 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AcceptGroupJoinRequestPublicV2
+   */
+  public ModelsMemberRequestGroupResponseV1 acceptGroupJoinRequestPublicV2(
+      AcceptGroupJoinRequestPublicV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see RejectGroupJoinRequestPublicV2
+   */
+  public ModelsMemberRequestGroupResponseV1 rejectGroupJoinRequestPublicV2(
+      RejectGroupJoinRequestPublicV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see KickGroupMemberPublicV2
+   */
+  public ModelsKickGroupMemberResponseV1 kickGroupMemberPublicV2(KickGroupMemberPublicV2 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GetUserGroupStatusInformationV2
+   */
+  public ModelsGetUserGroupInformationResponseV1 getUserGroupStatusInformationV2(
+      GetUserGroupStatusInformationV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

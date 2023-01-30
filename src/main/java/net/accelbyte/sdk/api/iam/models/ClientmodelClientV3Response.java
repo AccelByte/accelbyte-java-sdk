@@ -81,6 +81,10 @@ public class ClientmodelClientV3Response extends Model {
   @JsonProperty("redirectUri")
   private String redirectUri;
 
+  @JsonProperty("roles")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> roles;
+
   @JsonProperty("scopes")
   private List<String> scopes;
 

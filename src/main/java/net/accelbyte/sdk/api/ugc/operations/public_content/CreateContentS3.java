@@ -23,9 +23,9 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [CREATE].
  *
- * <p>All request body are required except payload, preview, tags, and contentType. contentType
- * values is used to enforce the Content-Type header needed by the client to upload the content
- * using the S3 presigned URL. If not specified, it will use fileExtension value.
+ * <p>All request body are required except payload, preview, tags, contentType and customAttributes.
+ * contentType values is used to enforce the Content-Type header needed by the client to upload the
+ * content using the S3 presigned URL. If not specified, it will use fileExtension value.
  *
  * <p>NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of
  * a content

@@ -100,9 +100,9 @@ public class Session {
   }
 
   /**
-   * @see QuerySession
+   * @see UserQuerySession
    */
-  public ModelsSessionQueryResponse querySession(QuerySession input) throws Exception {
+  public ModelsSessionQueryResponse userQuerySession(UserQuerySession input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

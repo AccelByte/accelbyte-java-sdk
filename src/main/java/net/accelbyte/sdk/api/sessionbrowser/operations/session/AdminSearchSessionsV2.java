@@ -47,6 +47,8 @@ public class AdminSearchSessionsV2 extends Operation {
   private Boolean deleted;
   private String matchID;
   private String partyID;
+  private String sessionType;
+  private String status;
   private String userID;
   private Integer limit;
   private Integer offset;
@@ -65,6 +67,8 @@ public class AdminSearchSessionsV2 extends Operation {
       Boolean deleted,
       String matchID,
       String partyID,
+      String sessionType,
+      String status,
       String userID,
       Integer limit,
       Integer offset) {
@@ -73,6 +77,8 @@ public class AdminSearchSessionsV2 extends Operation {
     this.deleted = deleted;
     this.matchID = matchID;
     this.partyID = partyID;
+    this.sessionType = sessionType;
+    this.status = status;
     this.userID = userID;
     this.limit = limit;
     this.offset = offset;
@@ -97,6 +103,9 @@ public class AdminSearchSessionsV2 extends Operation {
         "deleted", this.deleted == null ? null : Arrays.asList(String.valueOf(this.deleted)));
     queryParams.put("matchID", this.matchID == null ? null : Arrays.asList(this.matchID));
     queryParams.put("partyID", this.partyID == null ? null : Arrays.asList(this.partyID));
+    queryParams.put(
+        "sessionType", this.sessionType == null ? null : Arrays.asList(this.sessionType));
+    queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));
     queryParams.put("userID", this.userID == null ? null : Arrays.asList(this.userID));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
@@ -135,6 +144,8 @@ public class AdminSearchSessionsV2 extends Operation {
     result.put("deleted", "None");
     result.put("matchID", "None");
     result.put("partyID", "None");
+    result.put("sessionType", "None");
+    result.put("status", "None");
     result.put("userID", "None");
     result.put("limit", "None");
     result.put("offset", "None");

@@ -56,6 +56,15 @@
 | `/session/v1/public/namespaces/{namespace}/party` | POST | PublicCreateParty | [PublicCreateParty](../../src/main/java/net/accelbyte/sdk/api/session/operations/party/PublicCreateParty.java) | [PublicCreateParty](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/party/PublicCreateParty.java) |
 | `/session/v1/public/namespaces/{namespace}/users/me/parties` | GET | PublicQueryMyParties | [PublicQueryMyParties](../../src/main/java/net/accelbyte/sdk/api/session/operations/party/PublicQueryMyParties.java) | [PublicQueryMyParties](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/party/PublicQueryMyParties.java) |
 
+### Player Wrapper:  [Player](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/Player.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/session/v1/admin/namespaces/{namespace}/users/attributes` | GET | AdminQueryPlayerAttributes | [AdminQueryPlayerAttributes](../../src/main/java/net/accelbyte/sdk/api/session/operations/player/AdminQueryPlayerAttributes.java) | [AdminQueryPlayerAttributes](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/player/AdminQueryPlayerAttributes.java) |
+| `/session/v1/admin/namespaces/{namespace}/users/{userId}/attributes` | GET | AdminGetPlayerAttributes | [AdminGetPlayerAttributes](../../src/main/java/net/accelbyte/sdk/api/session/operations/player/AdminGetPlayerAttributes.java) | [AdminGetPlayerAttributes](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/player/AdminGetPlayerAttributes.java) |
+| `/session/v1/public/namespaces/{namespace}/users/me/attributes` | GET | PublicGetPlayerAttributes | [PublicGetPlayerAttributes](../../src/main/java/net/accelbyte/sdk/api/session/operations/player/PublicGetPlayerAttributes.java) | [PublicGetPlayerAttributes](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/player/PublicGetPlayerAttributes.java) |
+| `/session/v1/public/namespaces/{namespace}/users/me/attributes` | POST | PublicStorePlayerAttributes | [PublicStorePlayerAttributes](../../src/main/java/net/accelbyte/sdk/api/session/operations/player/PublicStorePlayerAttributes.java) | [PublicStorePlayerAttributes](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/player/PublicStorePlayerAttributes.java) |
+| `/session/v1/public/namespaces/{namespace}/users/me/attributes` | DELETE | PublicDeletePlayerAttributes | [PublicDeletePlayerAttributes](../../src/main/java/net/accelbyte/sdk/api/session/operations/player/PublicDeletePlayerAttributes.java) | [PublicDeletePlayerAttributes](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/player/PublicDeletePlayerAttributes.java) |
+
 
 &nbsp;  
 
@@ -76,6 +85,8 @@
 | `apimodels.Pagination` | [ApimodelsPagination](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPagination.java) |
 | `apimodels.PartyQueryResponse` | [ApimodelsPartyQueryResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPartyQueryResponse.java) |
 | `apimodels.PartySessionResponse` | [ApimodelsPartySessionResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPartySessionResponse.java) |
+| `apimodels.PlayerAttributesRequestBody` | [ApimodelsPlayerAttributesRequestBody](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPlayerAttributesRequestBody.java) |
+| `apimodels.PlayerAttributesResponseBody` | [ApimodelsPlayerAttributesResponseBody](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPlayerAttributesResponseBody.java) |
 | `apimodels.PromoteLeaderRequest` | [ApimodelsPromoteLeaderRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPromoteLeaderRequest.java) |
 | `apimodels.PublicConfiguration` | [ApimodelsPublicConfiguration](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPublicConfiguration.java) |
 | `apimodels.RequestMember` | [ApimodelsRequestMember](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsRequestMember.java) |
@@ -88,4 +99,5 @@
 | `models.GameServer` | [ModelsGameServer](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsGameServer.java) |
 | `models.PartyMembers` | [ModelsPartyMembers](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsPartyMembers.java) |
 | `models.Team` | [ModelsTeam](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsTeam.java) |
+| `models.UserPlatformInfo` | [ModelsUserPlatformInfo](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsUserPlatformInfo.java) |
 | `response.Error` | [ResponseError](../../src/main/java/net/accelbyte/sdk/api/session/models/ResponseError.java) |

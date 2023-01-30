@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelsUpdateGroupConfigurationResponseV1 extends Model {
 
+  @JsonProperty("allowMultiple")
+  private Boolean allowMultiple;
+
   @JsonProperty("configurationCode")
   private String configurationCode;
 
@@ -32,7 +35,7 @@ public class ModelsUpdateGroupConfigurationResponseV1 extends Model {
   private String description;
 
   @JsonProperty("globalRules")
-  private List<ModelsRule> globalRules;
+  private List<ModelsRuleResponseV1> globalRules;
 
   @JsonProperty("groupAdminRoleId")
   private String groupAdminRoleId;

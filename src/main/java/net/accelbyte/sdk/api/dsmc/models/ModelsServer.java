@@ -46,6 +46,9 @@ public class ModelsServer extends Model {
   @JsonProperty("deployment")
   private String deployment;
 
+  @JsonProperty("deployment_override")
+  private String deploymentOverride;
+
   @JsonProperty("game_version")
   private String gameVersion;
 

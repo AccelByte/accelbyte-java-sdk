@@ -33,6 +33,30 @@ public class LootBoxConfig extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<LootBoxReward> rewards;
 
+  @JsonProperty("rollFunction")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String rollFunction;
+
+  @JsonIgnore
+  public String getRollFunction() {
+    return this.rollFunction;
+  }
+
+  @JsonIgnore
+  public RollFunction getRollFunctionAsEnum() {
+    return RollFunction.valueOf(this.rollFunction);
+  }
+
+  @JsonIgnore
+  public void setRollFunction(final String rollFunction) {
+    this.rollFunction = rollFunction;
+  }
+
+  @JsonIgnore
+  public void setRollFunctionFromEnum(final RollFunction rollFunction) {
+    this.rollFunction = rollFunction.toString();
+  }
+
   @JsonIgnore
   public LootBoxConfig createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
@@ -41,5 +65,35 @@ public class LootBoxConfig extends Model {
   @JsonIgnore
   public List<LootBoxConfig> createFromJsonList(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, new TypeReference<List<LootBoxConfig>>() {});
+  }
+
+  public enum RollFunction {
+    CUSTOM("CUSTOM"),
+    DEFAULT("DEFAULT");
+
+    private String value;
+
+    RollFunction(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class LootBoxConfigBuilder {
+    private String rollFunction;
+
+    public LootBoxConfigBuilder rollFunction(final String rollFunction) {
+      this.rollFunction = rollFunction;
+      return this;
+    }
+
+    public LootBoxConfigBuilder rollFunctionFromEnum(final RollFunction rollFunction) {
+      this.rollFunction = rollFunction.toString();
+      return this;
+    }
   }
 }

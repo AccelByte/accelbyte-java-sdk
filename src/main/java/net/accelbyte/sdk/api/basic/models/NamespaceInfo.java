@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class NamespaceInfo extends Model {
 
+  @JsonProperty("clientId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String clientId;
+
   @JsonProperty("createdAt")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String createdAt;

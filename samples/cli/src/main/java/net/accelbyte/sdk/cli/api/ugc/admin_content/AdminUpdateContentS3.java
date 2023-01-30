@@ -82,7 +82,7 @@ public class AdminUpdateContentS3 implements Callable<Integer> {
               .contentId(contentId)
               .namespace(namespace)
               .userId(userId)
-              .body(new ObjectMapper().readValue(body, ModelsCreateContentRequestS3.class))
+              .body(new ObjectMapper().readValue(body, ModelsContentRequest.class))
               .build();
       final ModelsCreateContentResponse response = wrapper.adminUpdateContentS3(operation);
       final String responseString =

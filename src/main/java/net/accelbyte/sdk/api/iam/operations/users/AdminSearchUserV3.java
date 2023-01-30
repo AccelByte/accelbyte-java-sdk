@@ -51,6 +51,22 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* if limit is not defined, The default limit is 100
  *
+ * <p>In multi tenant mode :
+ *
+ * <p>* if super admin search in super admin namespace, the result will be all game admin user
+ *
+ * <p>* if super admin search in game studio namespace, the result will be all game admin user and
+ * players under the game studio namespace
+ *
+ * <p>* if super admin search in game namespace, the result will be all game admin users and players
+ * under the game namespace
+ *
+ * <p>* if game admin search in their game studio namespace, the result will be all game admin user
+ * in the studio namespace
+ *
+ * <p>* if game admin search in their game namespace, the result will be all player in the game
+ * namespace
+ *
  * <p>action code : 10133
  */
 @Getter

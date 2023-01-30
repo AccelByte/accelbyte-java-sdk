@@ -56,6 +56,11 @@ public class AdminQueryGameSessions implements Callable<Integer> {
   String gameMode;
 
   @Option(
+      names = {"--isSoftDeleted"},
+      description = "isSoftDeleted")
+  String isSoftDeleted;
+
+  @Option(
       names = {"--joinability"},
       description = "joinability")
   String joinability;
@@ -138,6 +143,7 @@ public class AdminQueryGameSessions implements Callable<Integer> {
               .dsPodName(dsPodName)
               .fromTime(fromTime)
               .gameMode(gameMode)
+              .isSoftDeleted(isSoftDeleted)
               .joinability(joinability)
               .limit(limit)
               .matchPool(matchPool)

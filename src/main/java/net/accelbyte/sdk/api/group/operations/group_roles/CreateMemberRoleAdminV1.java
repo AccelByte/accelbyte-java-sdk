@@ -87,13 +87,13 @@ public class CreateMemberRoleAdminV1 extends Operation {
     return true;
   }
 
-  public ModelsCreateMemberRoleResponseV1 parseResponse(
-      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
+  public ModelsMemberRoleResponseV1 parseResponse(int code, String contentType, InputStream payload)
+      throws HttpResponseException, IOException {
     if (code != 201) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ModelsCreateMemberRoleResponseV1().createFromJson(json);
+    return new ModelsMemberRoleResponseV1().createFromJson(json);
   }
 }

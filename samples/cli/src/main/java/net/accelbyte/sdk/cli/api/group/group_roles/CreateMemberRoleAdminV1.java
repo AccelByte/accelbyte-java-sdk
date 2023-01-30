@@ -66,7 +66,7 @@ public class CreateMemberRoleAdminV1 implements Callable<Integer> {
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsCreateMemberRoleRequestV1.class))
               .build();
-      final ModelsCreateMemberRoleResponseV1 response = wrapper.createMemberRoleAdminV1(operation);
+      final ModelsMemberRoleResponseV1 response = wrapper.createMemberRoleAdminV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

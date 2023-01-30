@@ -34,7 +34,7 @@ public class GroupRoles {
   /**
    * @see CreateMemberRoleAdminV1
    */
-  public ModelsCreateMemberRoleResponseV1 createMemberRoleAdminV1(CreateMemberRoleAdminV1 input)
+  public ModelsMemberRoleResponseV1 createMemberRoleAdminV1(CreateMemberRoleAdminV1 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -44,7 +44,7 @@ public class GroupRoles {
   /**
    * @see GetSingleMemberRoleAdminV1
    */
-  public ModelsGetMemberRoleResponseV1 getSingleMemberRoleAdminV1(GetSingleMemberRoleAdminV1 input)
+  public ModelsMemberRoleResponseV1 getSingleMemberRoleAdminV1(GetSingleMemberRoleAdminV1 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -63,7 +63,7 @@ public class GroupRoles {
   /**
    * @see UpdateMemberRoleAdminV1
    */
-  public ModelsUpdateMemberRoleResponseV1 updateMemberRoleAdminV1(UpdateMemberRoleAdminV1 input)
+  public ModelsMemberRoleResponseV1 updateMemberRoleAdminV1(UpdateMemberRoleAdminV1 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -73,7 +73,7 @@ public class GroupRoles {
   /**
    * @see UpdateMemberRolePermissionAdminV1
    */
-  public ModelsUpdateMemberRoleResponseV1 updateMemberRolePermissionAdminV1(
+  public ModelsMemberRoleResponseV1 updateMemberRolePermissionAdminV1(
       UpdateMemberRolePermissionAdminV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -104,6 +104,35 @@ public class GroupRoles {
    * @see DeleteMemberRolePublicV1
    */
   public void deleteMemberRolePublicV1(DeleteMemberRolePublicV1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GetMemberRolesListPublicV2
+   */
+  public ModelsGetMemberRolesListResponseV1 getMemberRolesListPublicV2(
+      GetMemberRolesListPublicV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see UpdateMemberRolePublicV2
+   */
+  public ModelsGetUserGroupInformationResponseV1 updateMemberRolePublicV2(
+      UpdateMemberRolePublicV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see DeleteMemberRolePublicV2
+   */
+  public void deleteMemberRolePublicV2(DeleteMemberRolePublicV2 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

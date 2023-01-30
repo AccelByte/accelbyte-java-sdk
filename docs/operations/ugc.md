@@ -169,6 +169,7 @@
 | `models.ContentDownloadResponse` | [ModelsContentDownloadResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsContentDownloadResponse.java) |
 | `models.ContentLikeRequest` | [ModelsContentLikeRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsContentLikeRequest.java) |
 | `models.ContentLikeResponse` | [ModelsContentLikeResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsContentLikeResponse.java) |
+| `models.ContentRequest` | [ModelsContentRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsContentRequest.java) |
 | `models.CreateContentRequest` | [ModelsCreateContentRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsCreateContentRequest.java) |
 | `models.CreateContentRequestS3` | [ModelsCreateContentRequestS3](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsCreateContentRequestS3.java) |
 | `models.CreateContentResponse` | [ModelsCreateContentResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsCreateContentResponse.java) |

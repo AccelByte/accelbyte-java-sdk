@@ -76,7 +76,7 @@ public class UpdateMemberRolePermissionAdminV1 implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ModelsUpdateMemberRolePermissionsRequestV1.class))
                   .build();
-      final ModelsUpdateMemberRoleResponseV1 response =
+      final ModelsMemberRoleResponseV1 response =
           wrapper.updateMemberRolePermissionAdminV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

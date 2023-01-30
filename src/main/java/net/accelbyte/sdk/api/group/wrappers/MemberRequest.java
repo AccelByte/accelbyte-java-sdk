@@ -40,4 +40,44 @@ public class MemberRequest {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see GetGroupInviteRequestPublicV2
+   */
+  public ModelsGetMemberRequestsListResponseV1 getGroupInviteRequestPublicV2(
+      GetGroupInviteRequestPublicV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GetGroupJoinRequestPublicV2
+   */
+  public ModelsGetMemberRequestsListResponseV1 getGroupJoinRequestPublicV2(
+      GetGroupJoinRequestPublicV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GetMyGroupJoinRequestV2
+   */
+  public ModelsGetMemberRequestsListResponseV1 getMyGroupJoinRequestV2(
+      GetMyGroupJoinRequestV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see CancelInvitationGroupMemberV2
+   */
+  public ModelsCancelInvitationGroupResponseV2 cancelInvitationGroupMemberV2(
+      CancelInvitationGroupMemberV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

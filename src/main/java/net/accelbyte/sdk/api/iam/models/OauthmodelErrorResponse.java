@@ -68,6 +68,10 @@ public class OauthmodelErrorResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String platformId;
 
+  @JsonProperty("userBan")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private OauthmodelUserBan userBan;
+
   @JsonIgnore
   public OauthmodelErrorResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

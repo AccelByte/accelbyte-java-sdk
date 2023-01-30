@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE].
  *
- * <p>All request body are required except preview and tags.
+ * <p>All request body are required except preview, tags and customAttributes.
  *
  * @deprecated
  */

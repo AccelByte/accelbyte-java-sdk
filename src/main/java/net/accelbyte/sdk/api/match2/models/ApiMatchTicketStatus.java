@@ -28,6 +28,10 @@ public class ApiMatchTicketStatus extends Model {
   @JsonProperty("matchFound")
   private Boolean matchFound;
 
+  @JsonProperty("proposedProposal")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ApiProposedProposal proposedProposal;
+
   @JsonProperty("sessionID")
   private String sessionID;
 

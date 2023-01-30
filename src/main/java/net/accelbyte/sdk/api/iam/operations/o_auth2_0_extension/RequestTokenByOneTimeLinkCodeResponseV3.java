@@ -52,8 +52,6 @@ public class RequestTokenByOneTimeLinkCodeResponseV3 extends Operation {
   public RequestTokenByOneTimeLinkCodeResponseV3(String clientId, String oneTimeLinkCode) {
     this.clientId = clientId;
     this.oneTimeLinkCode = oneTimeLinkCode;
-
-    securities.add("Bearer");
   }
 
   @Override

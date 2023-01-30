@@ -88,13 +88,13 @@ public class UpdateMemberRoleAdminV1 extends Operation {
     return true;
   }
 
-  public ModelsUpdateMemberRoleResponseV1 parseResponse(
-      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
+  public ModelsMemberRoleResponseV1 parseResponse(int code, String contentType, InputStream payload)
+      throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ModelsUpdateMemberRoleResponseV1().createFromJson(json);
+    return new ModelsMemberRoleResponseV1().createFromJson(json);
   }
 }

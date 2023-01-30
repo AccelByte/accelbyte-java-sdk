@@ -23,7 +23,7 @@ import picocli.CommandLine.Command;
       AdminDeleteSession.class,
       AdminSearchSessionsV2.class,
       GetSessionHistoryDetailed.class,
-      QuerySession.class,
+      UserQuerySession.class,
       CreateSession.class,
       GetSessionByUserIDs.class,
       GetSession.class,

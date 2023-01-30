@@ -31,6 +31,9 @@ public class ModelsCreateTypeResponse extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("parentNamespace")
+  private String parentNamespace;
+
   @JsonProperty("subtype")
   private List<String> subtype;
 

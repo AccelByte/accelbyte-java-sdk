@@ -146,4 +146,92 @@ public class Group {
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see CreateNewGroupPublicV2
+   */
+  public ModelsGroupResponseV1 createNewGroupPublicV2(CreateNewGroupPublicV2 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GetListGroupByIDsV2
+   */
+  public ModelsGetGroupsResponseV1 getListGroupByIDsV2(GetListGroupByIDsV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see UpdatePutSingleGroupPublicV2
+   */
+  public ModelsGroupResponseV1 updatePutSingleGroupPublicV2(UpdatePutSingleGroupPublicV2 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see DeleteGroupPublicV2
+   */
+  public void deleteGroupPublicV2(DeleteGroupPublicV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see UpdatePatchSingleGroupPublicV2
+   */
+  public ModelsGroupResponseV1 updatePatchSingleGroupPublicV2(UpdatePatchSingleGroupPublicV2 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see UpdateGroupCustomAttributesPublicV2
+   */
+  public ModelsGroupResponseV1 updateGroupCustomAttributesPublicV2(
+      UpdateGroupCustomAttributesPublicV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see UpdateGroupCustomRulePublicV2
+   */
+  public ModelsGroupResponseV1 updateGroupCustomRulePublicV2(UpdateGroupCustomRulePublicV2 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see UpdateGroupPredefinedRulePublicV2
+   */
+  public ModelsGroupResponseV1 updateGroupPredefinedRulePublicV2(
+      UpdateGroupPredefinedRulePublicV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see DeleteGroupPredefinedRulePublicV2
+   */
+  public void deleteGroupPredefinedRulePublicV2(DeleteGroupPredefinedRulePublicV2 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }
