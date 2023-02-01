@@ -11,8 +11,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenRevocationV3;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20;
+import net.accelbyte.sdk.core.AccelByteConfig;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.client.HttpClient;
+import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
@@ -41,74 +43,94 @@ public class TestIntegrationValidateToken extends TestIntegration {
   @ValueSource(booleans = { true, false })
   @Order(1)
   public void testClientToken(boolean localTokenValidationEnabled) throws Exception {
-    final HttpClient<?> httpClient = super.sdk.getSdkConfiguration().getHttpClient();
-    final DefaultConfigRepository defaultConfigRepository = new DefaultConfigRepository();
+    // Setup
 
-    defaultConfigRepository.setLocalTokenValidationEnabled(localTokenValidationEnabled);
-    defaultConfigRepository.setJwksRefreshInterval(300);    // 5 minutes
-    defaultConfigRepository.setRevocationListRefreshInterval(300);    // 5 minutes
+    final DefaultConfigRepository configRepo1 = new DefaultConfigRepository();
 
-    final DefaultTokenRepository tokenRepository1 = new DefaultTokenRepository();
-    final AccelByteSDK sdk1 = new AccelByteSDK(httpClient, tokenRepository1, defaultConfigRepository);
-    final OAuth20 oauth20Wrapper = new OAuth20(sdk1);
+    configRepo1.setLocalTokenValidationEnabled(localTokenValidationEnabled);
+    configRepo1.setJwksRefreshInterval(3); // 3 seconds for testing purpose only
+    configRepo1.setRevocationListRefreshInterval(3); // 3 seconds for testing purpose only
+
+    final AccelByteSDK sdk1 = new AccelByteSDK(
+        new AccelByteConfig(new OkhttpClient(), new DefaultTokenRepository(), configRepo1));
+
+    final AccelByteSDK sdk2 = new AccelByteSDK(
+        new AccelByteConfig(new OkhttpClient(), new DefaultTokenRepository(), new DefaultConfigRepository()));
 
     sdk1.loginClient();
 
+    // Login client
+
+    sdk2.loginClient();
+
     // Validate token after login
 
-    assertTrue(sdk1.validateToken(tokenRepository1.getToken()));
+    final String token = sdk2.getSdkConfiguration().getTokenRepository().getToken();
+
+    assertTrue(sdk1.validateToken(token));
 
     // Revoke token
 
+    final OAuth20 oauth20Wrapper = new OAuth20(sdk1);
+
     oauth20Wrapper.tokenRevocationV3(TokenRevocationV3.builder()
-        .token(tokenRepository1.getToken())
+        .token(token)
         .build());
 
-    Thread.sleep(3000);
+    // Wait 12 seconds for testing purpose only
+
+    Thread.sleep(12000);
 
     // Validate token after revoke
 
-    final DefaultTokenRepository tokenRepository2 = new DefaultTokenRepository();
-    final AccelByteSDK sdk2 = new AccelByteSDK(httpClient, tokenRepository2, defaultConfigRepository);
-
-    assertFalse(sdk2.validateToken(tokenRepository2.getToken()));
+    assertFalse(sdk1.validateToken(token));
   }
 
   @ParameterizedTest
   @ValueSource(booleans = { true, false })
   @Order(1)
   public void testUserToken(boolean localTokenValidationEnabled) throws Exception {
-    final HttpClient<?> httpClient = super.sdk.getSdkConfiguration().getHttpClient();
-    final DefaultConfigRepository defaultConfigRepository = new DefaultConfigRepository();
+    // Setup
 
-    defaultConfigRepository.setLocalTokenValidationEnabled(localTokenValidationEnabled);
-    defaultConfigRepository.setJwksRefreshInterval(300);    // 5 minutes
-    defaultConfigRepository.setRevocationListRefreshInterval(300);    // 5 minutes
+    final DefaultConfigRepository configRepo1 = new DefaultConfigRepository();
 
-    final DefaultTokenRepository tokenRepository1 = new DefaultTokenRepository();
-    final AccelByteSDK sdk1 = new AccelByteSDK(httpClient, tokenRepository1, defaultConfigRepository);
-    final OAuth20 oauth20Wrapper = new OAuth20(sdk1);
+    configRepo1.setLocalTokenValidationEnabled(localTokenValidationEnabled);
+    configRepo1.setJwksRefreshInterval(3); // 3 seconds for testing purpose only
+    configRepo1.setRevocationListRefreshInterval(3); // 3 seconds for testing purpose only
 
-    sdk1.loginUser(this.username, this.password);
+    final AccelByteSDK sdk1 = new AccelByteSDK(
+        new AccelByteConfig(new OkhttpClient(), new DefaultTokenRepository(), configRepo1));
+
+    final AccelByteSDK sdk2 = new AccelByteSDK(
+        new AccelByteConfig(new OkhttpClient(), new DefaultTokenRepository(), new DefaultConfigRepository()));
+
+    sdk1.loginClient();
+
+    // Login user
+
+    sdk2.loginUser(this.username, this.password);
 
     // Validate token after login
 
-    assertTrue(sdk1.validateToken(tokenRepository1.getToken()));
+    final String token = sdk2.getSdkConfiguration().getTokenRepository().getToken();
+
+    assertTrue(sdk1.validateToken(token));
 
     // Revoke token
 
+    final OAuth20 oauth20Wrapper = new OAuth20(sdk1);
+
     oauth20Wrapper.tokenRevocationV3(TokenRevocationV3.builder()
-        .token(tokenRepository1.getToken())
+        .token(token)
         .build());
 
-    Thread.sleep(3000);
+    // Wait 12 seconds for testing purpose only
+
+    Thread.sleep(12000);
 
     // Validate token after revoke
 
-    final DefaultTokenRepository tokenRepository2 = new DefaultTokenRepository();
-    final AccelByteSDK sdk2 = new AccelByteSDK(httpClient, tokenRepository2, defaultConfigRepository);
-
-    assertFalse(sdk2.validateToken(tokenRepository2.getToken()));
+    assertFalse(sdk1.validateToken(token));
   }
 
   @Test
