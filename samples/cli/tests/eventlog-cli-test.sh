@@ -140,47 +140,47 @@ eval_tap 0 29 'GetRegisteredEventsByEventTypeHandler # SKIP deprecated' test.out
 #- 30 QueryEventStreamHandler
 ./ng net.accelbyte.sdk.cli.Main eventlog queryEventStreamHandler \
     --namespace "$AB_NAMESPACE" \
-    --endDate 'AjF85zLN' \
-    --offset '59' \
-    --pageSize '52' \
-    --startDate 'HFX6AIur' \
-    --body '{"clientId": "MgRnXirt", "eventName": "qEOC6fRY", "payloadQuery": {"3YRy4drM": {}, "Dx9r0ZDm": {}, "opOc0e1L": {}}, "sessionId": "Vcc0mroc", "traceId": "8bnPXWXR", "userId": "2njB6bL5", "version": 10}' \
+    --endDate 'd9Y4NAfC' \
+    --offset '13' \
+    --pageSize '98' \
+    --startDate 'mSf85jk4' \
+    --body '{"clientId": "D1qUZlVj", "eventName": "0HIZLVtW", "payloadQuery": {"x585ywi2": {}, "u58mHj2x": {}, "4Ya7lqGo": {}}, "sessionId": "vHM1GeOB", "traceId": "AOQoZ6zH", "userId": "5rOCWQ3D", "version": 98}' \
     > test.out 2>&1
 eval_tap $? 30 'QueryEventStreamHandler' test.out
 
 #- 31 GetEventSpecificUserV2Handler
 ./ng net.accelbyte.sdk.cli.Main eventlog getEventSpecificUserV2Handler \
     --namespace "$AB_NAMESPACE" \
-    --userId 'jtk34Wj2' \
-    --endDate 'I5D7KWMt' \
-    --eventName 'URw3oZ0s' \
-    --offset '48' \
-    --pageSize '67' \
-    --startDate 'Pn3a6SUF' \
+    --userId 'ZIttPC1z' \
+    --endDate 'jiEzHgqk' \
+    --eventName '1MjSROoY' \
+    --offset '9' \
+    --pageSize '61' \
+    --startDate 'rKo1BTBm' \
     > test.out 2>&1
 eval_tap $? 31 'GetEventSpecificUserV2Handler' test.out
 
 #- 32 GetPublicEditHistory
 ./ng net.accelbyte.sdk.cli.Main eventlog getPublicEditHistory \
     --namespace "$AB_NAMESPACE" \
-    --userId 'PXfci5wg' \
-    --endDate 'p7df9G6N' \
-    --offset '30' \
-    --pageSize '98' \
-    --startDate '4uj9S3HB' \
-    --type 'h7a14WkI' \
+    --userId 'rBhhsHiZ' \
+    --endDate 'dfYsMBpS' \
+    --offset '46' \
+    --pageSize '87' \
+    --startDate 'hBOmH6V7' \
+    --type 'JEznprf1' \
     > test.out 2>&1
 eval_tap $? 32 'GetPublicEditHistory' test.out
 
 #- 33 GetUserEventsV2Public
 ./ng net.accelbyte.sdk.cli.Main eventlog getUserEventsV2Public \
     --namespace "$AB_NAMESPACE" \
-    --userId '0a2dvkc3' \
-    --endDate 'JEPmapiv' \
-    --eventName '3mMN3VTb' \
-    --offset '72' \
-    --pageSize '43' \
-    --startDate 'xV8oQ5GG' \
+    --userId 'Mqo3iUQV' \
+    --endDate 'cwndoQhp' \
+    --eventName 'fbWofGDi' \
+    --offset '10' \
+    --pageSize '38' \
+    --startDate 'oDjngC3X' \
     > test.out 2>&1
 eval_tap $? 33 'GetUserEventsV2Public' test.out
 

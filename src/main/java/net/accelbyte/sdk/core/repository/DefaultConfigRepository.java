@@ -18,7 +18,7 @@ public class DefaultConfigRepository implements ConfigRepository, TokenValidatio
   private boolean amazonTraceId = true;
   private String amazonTraceIdVersion = "1";
   private boolean clientInfoHeader = true;
-  
+
   private boolean localTokenValidationEnabled = false;
   private int jwksRefreshIntervalSeconds = 300;
   private int revocationListRefreshIntervalSeconds = 300;
@@ -92,7 +92,6 @@ public class DefaultConfigRepository implements ConfigRepository, TokenValidatio
   @Override
   public void setLocalTokenValidationEnabled(boolean enabled) {
     this.localTokenValidationEnabled = enabled;
-
   }
 
   @Override

@@ -38,6 +38,7 @@ import picocli.CommandLine;
       Match2.class,
       Platform.class,
       Qosm.class,
+      Reporting.class,
       Seasonpass.class,
       Session.class,
       Sessionbrowser.class,

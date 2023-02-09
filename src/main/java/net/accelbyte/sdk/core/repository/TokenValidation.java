@@ -2,15 +2,15 @@ package net.accelbyte.sdk.core.repository;
 
 public interface TokenValidation {
 
-    public void setLocalTokenValidationEnabled(boolean enabled);
+  public void setLocalTokenValidationEnabled(boolean enabled);
 
-    public boolean getLocalTokenValidationEnabled();
+  public boolean getLocalTokenValidationEnabled();
 
-    public void setJwksRefreshInterval(int seconds);
+  public void setJwksRefreshInterval(int seconds);
 
-    public int getJwksRefreshInterval();
+  public int getJwksRefreshInterval();
 
-    public void setRevocationListRefreshInterval(int seconds);
+  public void setRevocationListRefreshInterval(int seconds);
 
-    public int getRevocationListRefreshInterval();
+  public int getRevocationListRefreshInterval();
 }
