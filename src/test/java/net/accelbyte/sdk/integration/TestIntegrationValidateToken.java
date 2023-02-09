@@ -18,7 +18,6 @@ import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
@@ -40,7 +39,7 @@ public class TestIntegrationValidateToken extends TestIntegration {
   }
 
   @ParameterizedTest
-  @ValueSource(booleans = { true, false })
+  @ValueSource(booleans = {true, false})
   @Order(1)
   public void testClientToken(boolean localTokenValidationEnabled) throws Exception {
     // Setup
@@ -51,11 +50,14 @@ public class TestIntegrationValidateToken extends TestIntegration {
     configRepo1.setJwksRefreshInterval(3); // 3 seconds for testing purpose only
     configRepo1.setRevocationListRefreshInterval(3); // 3 seconds for testing purpose only
 
-    final AccelByteSDK sdk1 = new AccelByteSDK(
-        new AccelByteConfig(new OkhttpClient(), new DefaultTokenRepository(), configRepo1));
+    final AccelByteSDK sdk1 =
+        new AccelByteSDK(
+            new AccelByteConfig(new OkhttpClient(), new DefaultTokenRepository(), configRepo1));
 
-    final AccelByteSDK sdk2 = new AccelByteSDK(
-        new AccelByteConfig(new OkhttpClient(), new DefaultTokenRepository(), new DefaultConfigRepository()));
+    final AccelByteSDK sdk2 =
+        new AccelByteSDK(
+            new AccelByteConfig(
+                new OkhttpClient(), new DefaultTokenRepository(), new DefaultConfigRepository()));
 
     sdk1.loginClient();
 
@@ -73,9 +75,7 @@ public class TestIntegrationValidateToken extends TestIntegration {
 
     final OAuth20 oauth20Wrapper = new OAuth20(sdk1);
 
-    oauth20Wrapper.tokenRevocationV3(TokenRevocationV3.builder()
-        .token(token)
-        .build());
+    oauth20Wrapper.tokenRevocationV3(TokenRevocationV3.builder().token(token).build());
 
     // Wait 12 seconds for testing purpose only
 
@@ -87,7 +87,7 @@ public class TestIntegrationValidateToken extends TestIntegration {
   }
 
   @ParameterizedTest
-  @ValueSource(booleans = { true, false })
+  @ValueSource(booleans = {true, false})
   @Order(1)
   public void testUserToken(boolean localTokenValidationEnabled) throws Exception {
     // Setup
@@ -98,11 +98,14 @@ public class TestIntegrationValidateToken extends TestIntegration {
     configRepo1.setJwksRefreshInterval(3); // 3 seconds for testing purpose only
     configRepo1.setRevocationListRefreshInterval(3); // 3 seconds for testing purpose only
 
-    final AccelByteSDK sdk1 = new AccelByteSDK(
-        new AccelByteConfig(new OkhttpClient(), new DefaultTokenRepository(), configRepo1));
+    final AccelByteSDK sdk1 =
+        new AccelByteSDK(
+            new AccelByteConfig(new OkhttpClient(), new DefaultTokenRepository(), configRepo1));
 
-    final AccelByteSDK sdk2 = new AccelByteSDK(
-        new AccelByteConfig(new OkhttpClient(), new DefaultTokenRepository(), new DefaultConfigRepository()));
+    final AccelByteSDK sdk2 =
+        new AccelByteSDK(
+            new AccelByteConfig(
+                new OkhttpClient(), new DefaultTokenRepository(), new DefaultConfigRepository()));
 
     sdk1.loginClient();
 
@@ -120,9 +123,7 @@ public class TestIntegrationValidateToken extends TestIntegration {
 
     final OAuth20 oauth20Wrapper = new OAuth20(sdk1);
 
-    oauth20Wrapper.tokenRevocationV3(TokenRevocationV3.builder()
-        .token(token)
-        .build());
+    oauth20Wrapper.tokenRevocationV3(TokenRevocationV3.builder().token(token).build());
 
     // Wait 12 seconds for testing purpose only
 
@@ -148,14 +149,20 @@ public class TestIntegrationValidateToken extends TestIntegration {
     // ADMIN:NAMESPACE:{NAMESPACE}:INFORMATION:USER:* [CREATE,READ,UPDATE,DELETE]
     // permission)
 
-    final String goodPermission1 = "ADMIN:NAMESPACE:" + this.namespace + ":INFORMATION:USER:0000000";
-    final String badPermission1 = "ADMIN:NAMESPACE:" + this.namespace + ":INFORMATION:PLAYER:0000000";
-    final String badPermission2 = "ADMIN:NAMESPACE:" + this.namespace + ":INFORMATION:USER:0000000:DATA";
+    final String goodPermission1 =
+        "ADMIN:NAMESPACE:" + this.namespace + ":INFORMATION:USER:0000000";
+    final String badPermission1 =
+        "ADMIN:NAMESPACE:" + this.namespace + ":INFORMATION:PLAYER:0000000";
+    final String badPermission2 =
+        "ADMIN:NAMESPACE:" + this.namespace + ":INFORMATION:USER:0000000:DATA";
     final int goodAction = 2; // Read only action
 
-    final boolean isGoodPermissionOk1 = sdk1.validateToken(tokenRepository1.getToken(), goodPermission1, goodAction);
-    final boolean isBadPermissionOk1 = sdk1.validateToken(tokenRepository1.getToken(), badPermission1, goodAction);
-    final boolean isBadPermissionOk2 = sdk1.validateToken(tokenRepository1.getToken(), badPermission2, goodAction);
+    final boolean isGoodPermissionOk1 =
+        sdk1.validateToken(tokenRepository1.getToken(), goodPermission1, goodAction);
+    final boolean isBadPermissionOk1 =
+        sdk1.validateToken(tokenRepository1.getToken(), badPermission1, goodAction);
+    final boolean isBadPermissionOk2 =
+        sdk1.validateToken(tokenRepository1.getToken(), badPermission2, goodAction);
 
     assertTrue(isGoodPermissionOk1);
     assertFalse(isBadPermissionOk1);
