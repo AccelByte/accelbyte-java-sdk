@@ -73,8 +73,6 @@
 | `api.MatchFunctionRequest` | [ApiMatchFunctionRequest](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchFunctionRequest.java) |
 | `api.MatchPool` | [ApiMatchPool](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchPool.java) |
 | `api.MatchPoolConfig` | [ApiMatchPoolConfig](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchPoolConfig.java) |
-| `api.MatchRuleSet` | [ApiMatchRuleSet](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchRuleSet.java) |
-| `api.MatchRuleSetData` | [ApiMatchRuleSetData](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchRuleSetData.java) |
 | `api.MatchRuleSetNameData` | [ApiMatchRuleSetNameData](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchRuleSetNameData.java) |
 | `api.MatchTicketRequest` | [ApiMatchTicketRequest](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchTicketRequest.java) |
 | `api.MatchTicketResponse` | [ApiMatchTicketResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchTicketResponse.java) |
@@ -82,6 +80,7 @@
 | `api.Party` | [ApiParty](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiParty.java) |
 | `api.PlayerData` | [ApiPlayerData](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiPlayerData.java) |
 | `api.ProposedProposal` | [ApiProposedProposal](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiProposedProposal.java) |
+| `api.RuleSetPayload` | [ApiRuleSetPayload](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiRuleSetPayload.java) |
 | `api.Team` | [ApiTeam](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiTeam.java) |
 | `api.Ticket` | [ApiTicket](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiTicket.java) |
 | `api.backFillRejectRequest` | [ApiBackFillRejectRequest](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiBackFillRejectRequest.java) |

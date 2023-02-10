@@ -70,9 +70,9 @@ public class UpdateRuleSet implements Callable<Integer> {
           net.accelbyte.sdk.api.match2.operations.rule_sets.UpdateRuleSet.builder()
               .namespace(namespace)
               .ruleset(ruleset)
-              .body(new ObjectMapper().readValue(body, ApiMatchRuleSetData.class))
+              .body(new ObjectMapper().readValue(body, ApiRuleSetPayload.class))
               .build();
-      final ApiMatchRuleSet response = wrapper.updateRuleSet(operation);
+      final ApiRuleSetPayload response = wrapper.updateRuleSet(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

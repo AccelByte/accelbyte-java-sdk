@@ -23,21 +23,24 @@ import net.accelbyte.sdk.core.Model;
 // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ApiMatchRuleSet extends Model {
+public class ApiRuleSetPayload extends Model {
 
   @JsonProperty("data")
-  private String data;
+  private Map<String, ?> data;
+
+  @JsonProperty("enable_custom_match_function")
+  private Boolean enableCustomMatchFunction;
 
   @JsonProperty("name")
   private String name;
 
   @JsonIgnore
-  public ApiMatchRuleSet createFromJson(String json) throws JsonProcessingException {
+  public ApiRuleSetPayload createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ApiMatchRuleSet> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<ApiMatchRuleSet>>() {});
+  public List<ApiRuleSetPayload> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ApiRuleSetPayload>>() {});
   }
 }

@@ -64,7 +64,7 @@ public class CreateRuleSet implements Callable<Integer> {
       final net.accelbyte.sdk.api.match2.operations.rule_sets.CreateRuleSet operation =
           net.accelbyte.sdk.api.match2.operations.rule_sets.CreateRuleSet.builder()
               .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ApiMatchRuleSet.class))
+              .body(new ObjectMapper().readValue(body, ApiRuleSetPayload.class))
               .build();
       wrapper.createRuleSet(operation);
       log.info("Operation successful");

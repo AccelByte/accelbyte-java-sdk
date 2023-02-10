@@ -42,7 +42,7 @@ public class RuleSets {
   /**
    * @see RuleSetDetails
    */
-  public ApiMatchRuleSet ruleSetDetails(RuleSetDetails input) throws Exception {
+  public ApiRuleSetPayload ruleSetDetails(RuleSetDetails input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -51,7 +51,7 @@ public class RuleSets {
   /**
    * @see UpdateRuleSet
    */
-  public ApiMatchRuleSet updateRuleSet(UpdateRuleSet input) throws Exception {
+  public ApiRuleSetPayload updateRuleSet(UpdateRuleSet input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

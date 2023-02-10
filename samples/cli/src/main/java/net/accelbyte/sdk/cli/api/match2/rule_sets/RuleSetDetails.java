@@ -66,7 +66,7 @@ public class RuleSetDetails implements Callable<Integer> {
               .namespace(namespace)
               .ruleset(ruleset)
               .build();
-      final ApiMatchRuleSet response = wrapper.ruleSetDetails(operation);
+      final ApiRuleSetPayload response = wrapper.ruleSetDetails(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

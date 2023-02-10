@@ -30,6 +30,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>A rule set has a name and contains arbitrary data which is meaningful to some particular match
  * function(s) The name is used for a match pool to select the ruleset data that should be sent to
  * the match function when matchmaking in that pool.
+ *
+ * <p>To use custom rules set please set enable_custom_match_function=true. Default (false).
  */
 @Getter
 @Setter
@@ -44,7 +46,7 @@ public class CreateRuleSet extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private ApiMatchRuleSet body;
+  private ApiRuleSetPayload body;
 
   /**
    * @param namespace required
@@ -53,7 +55,7 @@ public class CreateRuleSet extends Operation {
   @Builder
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public CreateRuleSet(String namespace, ApiMatchRuleSet body) {
+  public CreateRuleSet(String namespace, ApiRuleSetPayload body) {
     this.namespace = namespace;
     this.body = body;
 
@@ -70,7 +72,7 @@ public class CreateRuleSet extends Operation {
   }
 
   @Override
-  public ApiMatchRuleSet getBodyParams() {
+  public ApiRuleSetPayload getBodyParams() {
     return this.body;
   }
 

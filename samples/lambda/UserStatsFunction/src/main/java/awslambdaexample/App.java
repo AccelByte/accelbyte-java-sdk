@@ -22,7 +22,7 @@ import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 import net.accelbyte.sdk.core.repository.TokenRepository;
 
 /** Handler for requests to Lambda function. */
-public class App 
+public class App
     implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
   final OkhttpClient httpClient = new OkhttpClient();
   final TokenRepository tokenRepo = DefaultTokenRepository.getInstance();

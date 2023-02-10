@@ -26,6 +26,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Required Scope: social
  *
  * <p>Updates an existing matchmaking rule set.
+ *
+ * <p>To use custom rules set please set enable_custom_match_function=true. Default (false).
  */
 @Getter
 @Setter
@@ -41,7 +43,7 @@ public class UpdateRuleSet extends Operation {
   private String namespace;
 
   private String ruleset;
-  private ApiMatchRuleSetData body;
+  private ApiRuleSetPayload body;
 
   /**
    * @param namespace required
@@ -51,7 +53,7 @@ public class UpdateRuleSet extends Operation {
   @Builder
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public UpdateRuleSet(String namespace, String ruleset, ApiMatchRuleSetData body) {
+  public UpdateRuleSet(String namespace, String ruleset, ApiRuleSetPayload body) {
     this.namespace = namespace;
     this.ruleset = ruleset;
     this.body = body;
@@ -72,7 +74,7 @@ public class UpdateRuleSet extends Operation {
   }
 
   @Override
-  public ApiMatchRuleSetData getBodyParams() {
+  public ApiRuleSetPayload getBodyParams() {
     return this.body;
   }
 
@@ -87,13 +89,13 @@ public class UpdateRuleSet extends Operation {
     return true;
   }
 
-  public ApiMatchRuleSet parseResponse(int code, String contentType, InputStream payload)
+  public ApiRuleSetPayload parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ApiMatchRuleSet().createFromJson(json);
+    return new ApiRuleSetPayload().createFromJson(json);
   }
 }
