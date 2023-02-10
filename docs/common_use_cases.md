@@ -818,13 +818,16 @@ Source: [TestIntegrationServiceMatch2.java](../src/test/java/net/accelbyte/sdk/i
 ruleSetsWrapper.createRuleSet(
     CreateRuleSet.builder()
         .namespace(namespace)
-        .body(
-            ApiMatchRuleSet.builder()
-                .name(rulesetName)
-                .data(
-                    "{\"alliance\":{\"minNumber\":\"2\",\"maxNumber\":\"10\",\"playerMinNumber\":\"2\",\"playerMaxNumber\":\"4\"},\"matchingRules\":[{\"attribute\":\"\",\"criteria\":\"distance\",\"reference\":\"\"}],\"flexingRules\":[{\"duration\":\"600\",\"attribute\":\"\",\"criteria\":\"distance\",\"reference\":\"\"}],\"match_options\":{\"options\":[{\"name\":\"\",\"type\":\"any\"}]},\"alliance_flexing_rule\":[{\"duration\":\"600\",\"min_number\":\"\",\"max_number\":\"\",\"player_min_number\":\"\",\"player_max_number\":\"\"}]}")
-                .build())
+        .body(ApiRuleSetPayload.builder().name(rulesetName).data(rulesetData).build())
         .build());
+```
+
+### Get a match rule set
+
+```java
+final ApiRuleSetPayload ruleSetDetailsResult =
+    ruleSetsWrapper.ruleSetDetails(
+        RuleSetDetails.builder().namespace(namespace).ruleset(rulesetName).build());
 ```
 
 ### Create a match pool
@@ -862,7 +865,7 @@ final ApiMatchTicketResponse createMatchTicketResult =
             .body(
                 ApiMatchTicketRequest.builder()
                     .matchPool(poolName)
-                    .sessionID(gameSessionId)
+                    .sessionID(partySessionId)
                     .build())
             .build());
 ```
