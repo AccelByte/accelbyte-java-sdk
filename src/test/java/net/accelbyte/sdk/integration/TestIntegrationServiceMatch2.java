@@ -6,10 +6,13 @@
 
 package net.accelbyte.sdk.integration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Collections;
+import java.util.Map;
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserRequestV4;
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserRequestV4.AuthType;
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserResponseV4;
@@ -20,9 +23,9 @@ import net.accelbyte.sdk.api.iam.wrappers.UsersV4;
 import net.accelbyte.sdk.api.match2.models.ApiListMatchFunctionsResponse;
 import net.accelbyte.sdk.api.match2.models.ApiListMatchPoolsResponse;
 import net.accelbyte.sdk.api.match2.models.ApiMatchPool;
-import net.accelbyte.sdk.api.match2.models.ApiMatchRuleSet;
 import net.accelbyte.sdk.api.match2.models.ApiMatchTicketRequest;
 import net.accelbyte.sdk.api.match2.models.ApiMatchTicketResponse;
+import net.accelbyte.sdk.api.match2.models.ApiRuleSetPayload;
 import net.accelbyte.sdk.api.match2.operations.match_functions.MatchFunctionList;
 import net.accelbyte.sdk.api.match2.operations.match_pools.CreateMatchPool;
 import net.accelbyte.sdk.api.match2.operations.match_pools.DeleteMatchPool;
@@ -32,6 +35,7 @@ import net.accelbyte.sdk.api.match2.operations.match_tickets.DeleteMatchTicket;
 import net.accelbyte.sdk.api.match2.operations.operations.GetHealthcheckInfoV1;
 import net.accelbyte.sdk.api.match2.operations.rule_sets.CreateRuleSet;
 import net.accelbyte.sdk.api.match2.operations.rule_sets.DeleteRuleSet;
+import net.accelbyte.sdk.api.match2.operations.rule_sets.RuleSetDetails;
 import net.accelbyte.sdk.api.match2.wrappers.MatchFunctions;
 import net.accelbyte.sdk.api.match2.wrappers.MatchPools;
 import net.accelbyte.sdk.api.match2.wrappers.MatchTickets;
@@ -106,20 +110,37 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
                     .build())
             .build());
 
+    final Map<String, Object> rulesetData =
+        new ObjectMapper()
+            .readValue(
+                "{\"alliance\":{\"minNumber\":\"2\",\"maxNumber\":\"10\",\"playerMinNumber\":\"2\",\"playerMaxNumber\":\"4\"},\"matchingRules\":[{\"attribute\":\"\",\"criteria\":\"distance\",\"reference\":\"\"}],\"flexingRules\":[{\"duration\":\"600\",\"attribute\":\"\",\"criteria\":\"distance\",\"reference\":\"\"}],\"match_options\":{\"options\":[{\"name\":\"\",\"type\":\"any\"}]},\"alliance_flexing_rule\":[{\"duration\":\"600\",\"min_number\":\"\",\"max_number\":\"\",\"player_min_number\":\"\",\"player_max_number\":\"\"}]}",
+                Map.class);
+
     // CASE Create a match rule set
 
     ruleSetsWrapper.createRuleSet(
         CreateRuleSet.builder()
             .namespace(namespace)
-            .body(
-                ApiMatchRuleSet.builder()
-                    .name(rulesetName)
-                    .data(
-                        "{\"alliance\":{\"minNumber\":\"2\",\"maxNumber\":\"10\",\"playerMinNumber\":\"2\",\"playerMaxNumber\":\"4\"},\"matchingRules\":[{\"attribute\":\"\",\"criteria\":\"distance\",\"reference\":\"\"}],\"flexingRules\":[{\"duration\":\"600\",\"attribute\":\"\",\"criteria\":\"distance\",\"reference\":\"\"}],\"match_options\":{\"options\":[{\"name\":\"\",\"type\":\"any\"}]},\"alliance_flexing_rule\":[{\"duration\":\"600\",\"min_number\":\"\",\"max_number\":\"\",\"player_min_number\":\"\",\"player_max_number\":\"\"}]}")
-                    .build())
+            .body(ApiRuleSetPayload.builder().name(rulesetName).data(rulesetData).build())
             .build());
 
     // ESAC
+
+    // CASE Get a match rule set
+
+    final ApiRuleSetPayload ruleSetDetailsResult =
+        ruleSetsWrapper.ruleSetDetails(
+            RuleSetDetails.builder().namespace(namespace).ruleset(rulesetName).build());
+
+    // ESAC
+
+    final Map<String, ?> matchRuleSetData = ruleSetDetailsResult.getData();
+    final Map<String, ?> matchRuleSetDataAlliance =
+        (Map<String, ?>) matchRuleSetData.get("alliance");
+    final String matchRuleSetDataAllianceMinNumber =
+        (String) matchRuleSetDataAlliance.get("minNumber");
+
+    assertEquals("2", matchRuleSetDataAllianceMinNumber);
 
     // CASE Create a match pool
 
