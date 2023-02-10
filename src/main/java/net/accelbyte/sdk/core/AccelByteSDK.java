@@ -250,7 +250,7 @@ public class AccelByteSDK {
 
       return true;
     } catch (Exception e) {
-      e.printStackTrace();
+      log.warning(e.getMessage());
     }
     return false;
   }
@@ -278,7 +278,7 @@ public class AccelByteSDK {
 
       return true;
     } catch (Exception e) {
-      e.printStackTrace();
+      log.warning(e.getMessage());
     }
     return false;
   }
@@ -308,7 +308,7 @@ public class AccelByteSDK {
 
       return true;
     } catch (Exception e) {
-      e.printStackTrace();
+      log.warning(e.getMessage());
     }
     return false;
   }
@@ -369,7 +369,7 @@ public class AccelByteSDK {
 
           return true; // Token refresh successful
         } catch (Exception e) {
-          e.printStackTrace();
+          log.warning(e.getMessage());
         }
 
         return false; // Token refresh failed
@@ -379,7 +379,7 @@ public class AccelByteSDK {
         return isLoginClientOk; // Token refresh successful or failed
       }
     } catch (Exception e) {
-      e.printStackTrace();
+      log.warning(e.getMessage());
     } finally {
       refreshTokenMethodLock.unlock();
     }
@@ -466,7 +466,7 @@ public class AccelByteSDK {
 
       return false;
     } catch (Exception e) {
-      e.printStackTrace();
+      log.warning(e.getMessage());
     }
 
     return false;
@@ -486,7 +486,7 @@ public class AccelByteSDK {
 
       return true;
     } catch (Exception e) {
-      e.printStackTrace();
+      log.warning(e.getMessage());
     }
 
     return false;
@@ -600,7 +600,7 @@ public class AccelByteSDK {
 
           return getRevocationListV3Result;
         } catch (Exception e) {
-          e.printStackTrace();
+          log.warning(e.getMessage());
         }
 
         return OauthapiRevocationList.builder().build();
