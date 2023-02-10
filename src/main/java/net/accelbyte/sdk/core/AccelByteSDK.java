@@ -15,9 +15,6 @@ import com.nimbusds.jose.JWSVerifier;
 import com.nimbusds.jose.crypto.RSASSAVerifier;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
-
-import lombok.extern.java.Log;
-
 import java.math.BigInteger;
 import java.net.URI;
 import java.net.URLEncoder;
@@ -42,6 +39,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
+import lombok.extern.java.Log;
 import net.accelbyte.sdk.api.iam.models.BloomFilterJSON;
 import net.accelbyte.sdk.api.iam.models.OauthapiRevocationList;
 import net.accelbyte.sdk.api.iam.models.OauthcommonJWKKey;
@@ -104,11 +102,13 @@ public class AccelByteSDK {
     this.sdkConfiguration = sdkConfiguration;
 
     if (this.sdkConfiguration.getConfigRepository() instanceof TokenValidation) {
-      final TokenValidation tokenValidation = (TokenValidation) this.sdkConfiguration.getConfigRepository();
+      final TokenValidation tokenValidation =
+          (TokenValidation) this.sdkConfiguration.getConfigRepository();
       if (tokenValidation.getLocalTokenValidationEnabled()) {
         this.jwksCache = buildJWKSLoadingCache(this, tokenValidation.getJwksRefreshInterval());
-        this.revocationListCache = buildRevocationListLoadingCache(
-            this, tokenValidation.getRevocationListRefreshInterval());
+        this.revocationListCache =
+            buildRevocationListLoadingCache(
+                this, tokenValidation.getRevocationListRefreshInterval());
       }
     }
   }
@@ -158,7 +158,8 @@ public class AccelByteSDK {
       final AppInfo appInfo = configRepository.getAppInfo();
       final String appName = appInfo.getAppName();
       final String appVersion = appInfo.getAppVersion();
-      final String userAgent = String.format("%s/%s (%s/%s)", sdkName, sdkVersion, appName, appVersion);
+      final String userAgent =
+          String.format("%s/%s (%s/%s)", sdkName, sdkVersion, appName, appVersion);
       headers.put(HttpHeaders.USER_AGENT, userAgent);
     }
 
@@ -187,53 +188,59 @@ public class AccelByteSDK {
       final OAuth20 oAuth20 = new OAuth20(this);
       final OAuth20Extension oAuth20Extension = new OAuth20Extension(this);
 
-      final AuthorizeV3 authorizeV3 = AuthorizeV3.builder()
-          .codeChallenge(codeChallenge)
-          .codeChallengeMethodFromEnum(CodeChallengeMethod.S256)
-          .scope(LOGIN_USER_SCOPE)
-          .clientId(clientId)
-          .responseTypeFromEnum(AuthorizeV3.ResponseType.Code)
-          .build();
+      final AuthorizeV3 authorizeV3 =
+          AuthorizeV3.builder()
+              .codeChallenge(codeChallenge)
+              .codeChallengeMethodFromEnum(CodeChallengeMethod.S256)
+              .scope(LOGIN_USER_SCOPE)
+              .clientId(clientId)
+              .responseTypeFromEnum(AuthorizeV3.ResponseType.Code)
+              .build();
       final String authorizeResponse = oAuth20.authorizeV3(authorizeV3);
 
-      final List<NameValuePair> authorizeParams = URLEncodedUtils.parse(new URI(authorizeResponse),
-          StandardCharsets.UTF_8);
-      final String requestId = authorizeParams.stream()
-          .filter(
-              (q) -> {
-                return q.getName().equals(authorizeV3.getLocationQuery());
-              })
-          .findFirst()
-          .map(NameValuePair::getValue)
-          .orElse(null);
-      final UserAuthenticationV3 userAuthenticationV3 = UserAuthenticationV3.builder()
-          .clientId(clientId)
-          .userName(username)
-          .password(password)
-          .requestId(requestId)
-          .build();
-      final String authenticationResponse = oAuth20Extension.userAuthenticationV3(userAuthenticationV3);
+      final List<NameValuePair> authorizeParams =
+          URLEncodedUtils.parse(new URI(authorizeResponse), StandardCharsets.UTF_8);
+      final String requestId =
+          authorizeParams.stream()
+              .filter(
+                  (q) -> {
+                    return q.getName().equals(authorizeV3.getLocationQuery());
+                  })
+              .findFirst()
+              .map(NameValuePair::getValue)
+              .orElse(null);
+      final UserAuthenticationV3 userAuthenticationV3 =
+          UserAuthenticationV3.builder()
+              .clientId(clientId)
+              .userName(username)
+              .password(password)
+              .requestId(requestId)
+              .build();
+      final String authenticationResponse =
+          oAuth20Extension.userAuthenticationV3(userAuthenticationV3);
 
-      final List<NameValuePair> authenticationParams = URLEncodedUtils.parse(new URI(authenticationResponse),
-          StandardCharsets.UTF_8);
-      final String code = authenticationParams.stream()
-          .filter(
-              (q) -> {
-                return q.getName().equals(userAuthenticationV3.getLocationQuery());
-              })
-          .findFirst()
-          .map(NameValuePair::getValue)
-          .orElse(null);
+      final List<NameValuePair> authenticationParams =
+          URLEncodedUtils.parse(new URI(authenticationResponse), StandardCharsets.UTF_8);
+      final String code =
+          authenticationParams.stream()
+              .filter(
+                  (q) -> {
+                    return q.getName().equals(userAuthenticationV3.getLocationQuery());
+                  })
+              .findFirst()
+              .map(NameValuePair::getValue)
+              .orElse(null);
       if (code == null) {
         return false; // Invalid username or password?
       }
       final Instant utcNow = Instant.now();
-      final TokenGrantV3 tokenGrantV3 = TokenGrantV3.builder()
-          .clientId(clientId)
-          .code(code)
-          .codeVerifier(codeVerifier)
-          .grantTypeFromEnum(TokenGrantV3.GrantType.AuthorizationCode)
-          .build();
+      final TokenGrantV3 tokenGrantV3 =
+          TokenGrantV3.builder()
+              .clientId(clientId)
+              .code(code)
+              .codeVerifier(codeVerifier)
+              .grantTypeFromEnum(TokenGrantV3.GrantType.AuthorizationCode)
+              .build();
       final OauthmodelTokenWithDeviceCookieResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
 
       final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
@@ -260,9 +267,10 @@ public class AccelByteSDK {
       final OAuth20 oAuth20 = new OAuth20(this);
 
       final Instant utcNow = Instant.now();
-      final TokenGrantV3 tokenGrantV3 = TokenGrantV3.builder()
-          .grantTypeFromEnum(TokenGrantV3.GrantType.ClientCredentials)
-          .build();
+      final TokenGrantV3 tokenGrantV3 =
+          TokenGrantV3.builder()
+              .grantTypeFromEnum(TokenGrantV3.GrantType.ClientCredentials)
+              .build();
       final OauthmodelTokenWithDeviceCookieResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
 
       final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
@@ -288,10 +296,11 @@ public class AccelByteSDK {
       final OAuth20 oAuth20 = new OAuth20(this);
 
       final Instant utcNow = Instant.now();
-      final PlatformTokenGrantV3 tokenGrantV3 = PlatformTokenGrantV3.builder()
-          .platformId(platformId)
-          .platformToken(platformToken)
-          .build();
+      final PlatformTokenGrantV3 tokenGrantV3 =
+          PlatformTokenGrantV3.builder()
+              .platformId(platformId)
+              .platformToken(platformToken)
+              .build();
       final OauthmodelTokenResponse token = oAuth20.platformTokenGrantV3(tokenGrantV3);
 
       final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
@@ -337,7 +346,8 @@ public class AccelByteSDK {
 
       final boolean isLoginUserOrLoginPlatform = refreshToken != null && !refreshToken.isEmpty();
 
-      final Date refreshTokenExpiresAt = isLoginUserOrLoginPlatform ? tokenRefresh.getRefreshTokenExpiresAt() : null;
+      final Date refreshTokenExpiresAt =
+          isLoginUserOrLoginPlatform ? tokenRefresh.getRefreshTokenExpiresAt() : null;
 
       if (accessTokenExpiresAt == null) {
         return false; // Cannot perform token refresh
@@ -353,11 +363,13 @@ public class AccelByteSDK {
         try {
           final Instant utcNow = Instant.now();
           final OAuth20 oAuth20 = new OAuth20(this);
-          final TokenGrantV3 tokenGrantV3 = TokenGrantV3.builder()
-              .refreshToken(refreshToken)
-              .grantTypeFromEnum(TokenGrantV3.GrantType.RefreshToken)
-              .build();
-          final OauthmodelTokenWithDeviceCookieResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
+          final TokenGrantV3 tokenGrantV3 =
+              TokenGrantV3.builder()
+                  .refreshToken(refreshToken)
+                  .grantTypeFromEnum(TokenGrantV3.GrantType.RefreshToken)
+                  .build();
+          final OauthmodelTokenWithDeviceCookieResponseV3 token =
+              oAuth20.tokenGrantV3(tokenGrantV3);
 
           final long expiresIn = (long) (token.getExpiresIn() * TOKEN_REFRESH_RATIO);
           final long refreshExpiresIn = (long) (token.getRefreshExpiresIn() * TOKEN_REFRESH_RATIO);
@@ -396,7 +408,8 @@ public class AccelByteSDK {
       final SignedJWT signedJWT = SignedJWT.parse(token);
       final JWTClaimsSet jwtClaimsSet = signedJWT.getJWTClaimsSet();
 
-      final boolean isLocalTokenValidationEnabled = jwksCache != null && revocationListCache != null;
+      final boolean isLocalTokenValidationEnabled =
+          jwksCache != null && revocationListCache != null;
 
       if (isLocalTokenValidationEnabled) {
         final String kid = signedJWT.getHeader().getKeyID();
@@ -420,9 +433,10 @@ public class AccelByteSDK {
         final OauthapiRevocationList revocationList = revocationListCache.get(DEFAULT_CACHE_KEY);
 
         final BloomFilterJSON revokedTokens = revocationList.getRevokedTokens();
-        final long[] bits = revokedTokens.getBits().stream()
-            .mapToLong(value -> Long.parseUnsignedLong(value.toString()))
-            .toArray();
+        final long[] bits =
+            revokedTokens.getBits().stream()
+                .mapToLong(value -> Long.parseUnsignedLong(value.toString()))
+                .toArray();
         final int k = revokedTokens.getK();
         final int m = revokedTokens.getM();
 
@@ -435,8 +449,9 @@ public class AccelByteSDK {
         final String tokenUserId = (String) jwtClaimsSet.getClaim(CLAIM_SUB);
 
         if (tokenUserId != null && !tokenUserId.equals("")) {
-          final boolean isUserRevoked = revocationList.getRevokedUsers().stream()
-              .anyMatch(ruid -> tokenUserId.equals(ruid.getId()));
+          final boolean isUserRevoked =
+              revocationList.getRevokedUsers().stream()
+                  .anyMatch(ruid -> tokenUserId.equals(ruid.getId()));
           if (isUserRevoked) {
             return false;
           }
@@ -451,8 +466,8 @@ public class AccelByteSDK {
         return true; // Check token only without checking resource
       }
 
-      final List<Map<String, Object>> tokenPermissions = (List<Map<String, Object>>) jwtClaimsSet
-          .getClaim(CLAIM_PERMISSIONS);
+      final List<Map<String, Object>> tokenPermissions =
+          (List<Map<String, Object>>) jwtClaimsSet.getClaim(CLAIM_PERMISSIONS);
 
       for (Map<String, Object> p : tokenPermissions) {
         final String tokenPermissionResource = p.get(PERMISSION_RESOURCE).toString();
@@ -498,15 +513,16 @@ public class AccelByteSDK {
         refreshTokenTask.cancel();
       }
 
-      refreshTokenTask = new TimerTask() {
-        public void run() {
-          final boolean isRefreshTokenOk = refreshToken();
+      refreshTokenTask =
+          new TimerTask() {
+            public void run() {
+              final boolean isRefreshTokenOk = refreshToken();
 
-          if (!isRefreshTokenOk) {
-            scheduleRefreshTokenTask(10);
-          }
-        }
-      };
+              if (!isRefreshTokenOk) {
+                scheduleRefreshTokenTask(10);
+              }
+            }
+          };
 
       refreshTokenTimer.schedule(refreshTokenTask, delaySeconds * 1000);
     }
@@ -531,57 +547,42 @@ public class AccelByteSDK {
 
   private LoadingCache<String, Map<String, RSAPublicKey>> buildJWKSLoadingCache(
       AccelByteSDK sdk, int refreshIntervalSeconds) {
-    final CacheLoader<String, Map<String, RSAPublicKey>> jwksLoader = new CacheLoader<String, Map<String, RSAPublicKey>>() {
-      private final ExecutorService service = Executors.newSingleThreadScheduledExecutor();
+    final CacheLoader<String, Map<String, RSAPublicKey>> jwksLoader =
+        new CacheLoader<String, Map<String, RSAPublicKey>>() {
+          @Override
+          public Map<String, RSAPublicKey> load(String key) throws Exception {
+            final OAuth20 oauthWrapper = new OAuth20(sdk);
+            final OauthcommonJWKSet getJwksV3Result =
+                oauthWrapper.getJWKSV3(GetJWKSV3.builder().build());
 
-      @Override
-      public Map<String, RSAPublicKey> load(String key) throws Exception {
-        final OAuth20 oauthWrapper = new OAuth20(sdk);
-        final OauthcommonJWKSet getJwksV3Result = oauthWrapper.getJWKSV3(GetJWKSV3.builder().build());
+            final Decoder urlDecoder = Base64.getUrlDecoder();
+            final KeyFactory rsaKeyFactory = KeyFactory.getInstance("RSA");
 
-        final Decoder urlDecoder = Base64.getUrlDecoder();
-        final KeyFactory rsaKeyFactory = KeyFactory.getInstance("RSA");
+            final Map<String, RSAPublicKey> result =
+                getJwksV3Result.getKeys().stream()
+                    .collect(
+                        Collectors.toMap(
+                            OauthcommonJWKKey::getKid,
+                            jwkKey -> {
+                              try {
+                                final BigInteger modulus =
+                                    new BigInteger(1, urlDecoder.decode(jwkKey.getN()));
+                                final BigInteger exponent =
+                                    new BigInteger(1, urlDecoder.decode(jwkKey.getE()));
+                                final RSAPublicKeySpec rsaPubKeySpec =
+                                    new RSAPublicKeySpec(modulus, exponent);
+                                final RSAPublicKey pubKey =
+                                    (RSAPublicKey) rsaKeyFactory.generatePublic(rsaPubKeySpec);
+                                return pubKey;
+                              } catch (InvalidKeySpecException e) {
+                                log.warning(e.getMessage());
+                                return null;
+                              }
+                            }));
 
-        final Map<String, RSAPublicKey> result = getJwksV3Result.getKeys().stream()
-            .collect(
-                Collectors.toMap(
-                    OauthcommonJWKKey::getKid,
-                    jwkKey -> {
-                      try {
-                        final BigInteger modulus = new BigInteger(1, urlDecoder.decode(jwkKey.getN()));
-                        final BigInteger exponent = new BigInteger(1, urlDecoder.decode(jwkKey.getE()));
-                        final RSAPublicKeySpec rsaPubKeySpec = new RSAPublicKeySpec(modulus, exponent);
-                        final RSAPublicKey pubKey = (RSAPublicKey) rsaKeyFactory.generatePublic(rsaPubKeySpec);
-                        return pubKey;
-                      } catch (InvalidKeySpecException e) {
-                        log.warning(e.getMessage());
-                        return null;
-                      }
-                    }));
-
-        return result;
-      }
-
-      @Override
-      public ListenableFuture<Map<String, RSAPublicKey>> reload(final String key,
-          final Map<String, RSAPublicKey> oldValue) throws Exception {
-        ListenableFutureTask<Map<String, RSAPublicKey>> task = ListenableFutureTask
-            .create(new Callable<Map<String, RSAPublicKey>>() {
-              @Override
-              public Map<String, RSAPublicKey> call() throws Exception {
-                try {
-                  return load(key);
-                } catch (Throwable e) {
-                  // Return old value if cannot refresh cache
-                  // Based on https://gist.github.com/kdrakon/10396036
-                  return oldValue;
-                }
-              }
-            });
-        service.execute(task);
-        return task;
-      }
-    };
+            return result;
+          }
+        };
 
     return CacheBuilder.newBuilder()
         .refreshAfterWrite(refreshIntervalSeconds, TimeUnit.SECONDS)
@@ -590,22 +591,17 @@ public class AccelByteSDK {
 
   private LoadingCache<String, OauthapiRevocationList> buildRevocationListLoadingCache(
       AccelByteSDK sdk, int refreshIntervalSeconds) {
-    final CacheLoader<String, OauthapiRevocationList> revocationLoader = new CacheLoader<String, OauthapiRevocationList>() {
-      @Override
-      public OauthapiRevocationList load(String key) {
-        try {
-          final OAuth20 oauthWrapper = new OAuth20(sdk);
-          final OauthapiRevocationList getRevocationListV3Result = oauthWrapper
-              .getRevocationListV3(GetRevocationListV3.builder().build());
+    final CacheLoader<String, OauthapiRevocationList> revocationLoader =
+        new CacheLoader<String, OauthapiRevocationList>() {
+          @Override
+          public OauthapiRevocationList load(String key) throws Exception {
+            final OAuth20 oauthWrapper = new OAuth20(sdk);
+            final OauthapiRevocationList getRevocationListV3Result =
+                oauthWrapper.getRevocationListV3(GetRevocationListV3.builder().build());
 
-          return getRevocationListV3Result;
-        } catch (Exception e) {
-          log.warning(e.getMessage());
-        }
-
-        return OauthapiRevocationList.builder().build();
-      }
-    };
+            return getRevocationListV3Result;
+          }
+        };
 
     return CacheBuilder.newBuilder()
         .refreshAfterWrite(refreshIntervalSeconds, TimeUnit.SECONDS)
@@ -616,9 +612,10 @@ public class AccelByteSDK {
     final String[] tokenResourceParts = permissionResource.split(":");
     final String[] requiredResourceParts = requiredResource.toString().split(":");
 
-    final int minResourcePartsLength = tokenResourceParts.length < requiredResourceParts.length
-        ? tokenResourceParts.length
-        : requiredResourceParts.length;
+    final int minResourcePartsLength =
+        tokenResourceParts.length < requiredResourceParts.length
+            ? tokenResourceParts.length
+            : requiredResourceParts.length;
 
     for (int i = 0; i < minResourcePartsLength; i++) {
       if (!tokenResourceParts[i].equals(requiredResourceParts[i])
@@ -637,7 +634,8 @@ public class AccelByteSDK {
         if (tokenResourceParts.length < 2) {
           return true;
         }
-        final String secondLastTokenResourcePart = tokenResourceParts[tokenResourceParts.length - 2];
+        final String secondLastTokenResourcePart =
+            tokenResourceParts[tokenResourceParts.length - 2];
         if (secondLastTokenResourcePart.equals("NAMESPACE")) {
           return false;
         }
