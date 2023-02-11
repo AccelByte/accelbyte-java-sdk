@@ -23,6 +23,7 @@ sdkGenPath = null
 sdkPath = null
 
 bypassCodeBreakingChangeCheck = params.BYPASS_BREAKING_CHANGES_CHECK || false
+isBreakingChangeCheckPass = false
 
 def timeStamp() {
   now = new Date()
@@ -73,13 +74,13 @@ pipeline {
           make -f Makefile.sdk-java sdk_all beautify SDK_PATH=${sdkPath};
         """, label: "Generate Server SDK"
 
-        if (!bypassCodeBreakingChangeCheck) {
-          catchError(buildResult: 'SUCCESS') {
-            sh script: """
-              cd ${sdkPath};
-              make samples;
-            """, label: "Checking Breaking Changes on Samples"
-            script {
+        script {
+          if (!bypassCodeBreakingChangeCheck) {
+            catchError(buildResult: 'SUCCESS') {
+              sh script: """
+                cd ${sdkPath};
+                make samples;
+              """, label: "Checking Breaking Changes on Samples"
               isBreakingChangeCheckPass = true
             }
           }
