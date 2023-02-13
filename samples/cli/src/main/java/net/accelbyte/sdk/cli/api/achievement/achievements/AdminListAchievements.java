@@ -36,6 +36,11 @@ public class AdminListAchievements implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--global"},
+      description = "global")
+  Boolean global;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -81,6 +86,7 @@ public class AdminListAchievements implements Callable<Integer> {
               net.accelbyte.sdk.api.achievement.operations.achievements.AdminListAchievements
                   .builder()
                   .namespace(namespace)
+                  .global(global)
                   .limit(limit)
                   .offset(offset)
                   .sortBy(sortBy)

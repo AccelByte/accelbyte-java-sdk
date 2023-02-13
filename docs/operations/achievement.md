@@ -38,6 +38,12 @@
 |---|---|---|---|---|
 | `/achievement/v1/admin/namespaces/{namespace}/users/{userId}/anonymization/achievements` | DELETE | AdminAnonymizeUserAchievement | [AdminAnonymizeUserAchievement](../../src/main/java/net/accelbyte/sdk/api/achievement/operations/anonymization/AdminAnonymizeUserAchievement.java) | [AdminAnonymizeUserAchievement](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/achievement/anonymization/AdminAnonymizeUserAchievement.java) |
 
+### Global Achievements Wrapper:  [GlobalAchievements](../../src/main/java/net/accelbyte/sdk/api/achievement/wrappers/GlobalAchievements.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/achievement/v1/public/namespaces/{namespace}/global/achievements` | GET | PublicListGlobalAchievements | [PublicListGlobalAchievements](../../src/main/java/net/accelbyte/sdk/api/achievement/operations/global_achievements/PublicListGlobalAchievements.java) | [PublicListGlobalAchievements](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/achievement/global_achievements/PublicListGlobalAchievements.java) |
+| `/achievement/v1/public/namespaces/{namespace}/users/{userId}/global/achievements/{achievementCode}/claim` | POST | ClaimGlobalAchievementReward | [ClaimGlobalAchievementReward](../../src/main/java/net/accelbyte/sdk/api/achievement/operations/global_achievements/ClaimGlobalAchievementReward.java) | [ClaimGlobalAchievementReward](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/achievement/global_achievements/ClaimGlobalAchievementReward.java) |
+
 
 &nbsp;  
 
@@ -50,8 +56,10 @@
 | `models.AchievementResponse` | [ModelsAchievementResponse](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsAchievementResponse.java) |
 | `models.AchievementUpdateRequest` | [ModelsAchievementUpdateRequest](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsAchievementUpdateRequest.java) |
 | `models.AdditionalInfo` | [ModelsAdditionalInfo](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsAdditionalInfo.java) |
+| `models.GlobalAchievementResponse` | [ModelsGlobalAchievementResponse](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsGlobalAchievementResponse.java) |
 | `models.Icon` | [ModelsIcon](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsIcon.java) |
 | `models.PaginatedAchievementResponse` | [ModelsPaginatedAchievementResponse](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsPaginatedAchievementResponse.java) |
+| `models.PaginatedGlobalAchievementResponse` | [ModelsPaginatedGlobalAchievementResponse](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsPaginatedGlobalAchievementResponse.java) |
 | `models.PaginatedTagResponse` | [ModelsPaginatedTagResponse](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsPaginatedTagResponse.java) |
 | `models.PaginatedUserAchievementResponse` | [ModelsPaginatedUserAchievementResponse](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsPaginatedUserAchievementResponse.java) |
 | `models.Pagination` | [ModelsPagination](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsPagination.java) |

@@ -51,6 +51,11 @@ public class GetUserStatItems implements Callable<Integer> {
   Integer offset;
 
   @Option(
+      names = {"--sortBy"},
+      description = "sortBy")
+  String sortBy;
+
+  @Option(
       names = {"--statCodes"},
       description = "statCodes")
   String statCodes;
@@ -87,6 +92,7 @@ public class GetUserStatItems implements Callable<Integer> {
               .userId(userId)
               .limit(limit)
               .offset(offset)
+              .sortBy(sortBy)
               .statCodes(statCodes)
               .tags(tags)
               .build();

@@ -171,34 +171,6 @@ public class IAP {
   }
 
   /**
-   * @see GetStadiaIAPConfig
-   */
-  public StadiaIAPConfigInfo getStadiaIAPConfig(GetStadiaIAPConfig input) throws Exception {
-    final HttpResponse httpResponse = sdk.runRequest(input);
-    return input.parseResponse(
-        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-  }
-
-  /**
-   * @see DeleteStadiaIAPConfig
-   */
-  public void deleteStadiaIAPConfig(DeleteStadiaIAPConfig input) throws Exception {
-    final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
-        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-  }
-
-  /**
-   * @see UpdateStadiaJsonConfigFile
-   */
-  public StadiaIAPConfigInfo updateStadiaJsonConfigFile(UpdateStadiaJsonConfigFile input)
-      throws Exception {
-    final HttpResponse httpResponse = sdk.runRequest(input);
-    return input.parseResponse(
-        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-  }
-
-  /**
    * @see GetSteamIAPConfig
    */
   public SteamIAPConfig getSteamIAPConfig(GetSteamIAPConfig input) throws Exception {
@@ -372,15 +344,6 @@ public class IAP {
       PublicReconcilePlayStationStoreWithMultipleServiceLabels input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
-        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-  }
-
-  /**
-   * @see SyncStadiaEntitlement
-   */
-  public void syncStadiaEntitlement(SyncStadiaEntitlement input) throws Exception {
-    final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

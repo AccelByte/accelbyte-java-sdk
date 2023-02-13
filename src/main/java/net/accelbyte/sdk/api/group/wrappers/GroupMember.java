@@ -208,6 +208,16 @@ public class GroupMember {
   }
 
   /**
+   * @see CancelInvitationGroupMemberV2
+   */
+  public ModelsCancelInvitationGroupResponseV2 cancelInvitationGroupMemberV2(
+      CancelInvitationGroupMemberV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AcceptGroupJoinRequestPublicV2
    */
   public ModelsMemberRequestGroupResponseV1 acceptGroupJoinRequestPublicV2(

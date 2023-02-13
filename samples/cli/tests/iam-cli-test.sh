@@ -382,22 +382,22 @@ eval_tap $? 108 'AdminGetInputValidations' test.out
 
 #- 109 AdminUpdateInputValidations
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateInputValidations \
-    --body '[{"field": "l00fSeJq", "validation": {"allowAllSpecialCharacters": false, "allowDigit": true, "allowLetter": true, "allowSpace": true, "allowUnicode": false, "blockedWord": ["xintHYuI", "GLWMS5W6", "mL6Vsyiw"], "description": [{"language": "v67AA5Jy", "message": ["jEwJMF4B", "UJuyOVQk", "ZWq5rhkJ"]}, {"language": "Hop4GvKm", "message": ["RxRb720D", "309pqjBv", "KKIwv7Dq"]}, {"language": "TGjGmndr", "message": ["mdURvUq9", "OXfT83Hu", "yobC87kG"]}], "isCustomRegex": false, "letterCase": "3HjFZCrW", "maxLength": 48, "maxRepeatingAlphaNum": 89, "maxRepeatingSpecialCharacter": 52, "minCharType": 85, "minLength": 51, "regex": "OWQYovZV", "specialCharacterLocation": "2wo7m7eO", "specialCharacters": ["yCZIKw2t", "ktbfZtlY", "HPXIbt89"]}}, {"field": "smFs6fmq", "validation": {"allowAllSpecialCharacters": true, "allowDigit": false, "allowLetter": true, "allowSpace": true, "allowUnicode": false, "blockedWord": ["sMnczzy3", "hkg0P7Hk", "F95mSdf9"], "description": [{"language": "8tzbEKen", "message": ["SPrf4Rvc", "YLZ2Dc1n", "XanAensu"]}, {"language": "EF76kvgY", "message": ["pvxdIt2p", "lZcBNTbs", "vSPTXKlH"]}, {"language": "CWFLSMho", "message": ["Jqxl0ohy", "G9euqBbj", "zFWncsRG"]}], "isCustomRegex": true, "letterCase": "gQPH5Hui", "maxLength": 26, "maxRepeatingAlphaNum": 69, "maxRepeatingSpecialCharacter": 9, "minCharType": 20, "minLength": 42, "regex": "7H4dno15", "specialCharacterLocation": "xDLLG6I8", "specialCharacters": ["8N0jOZnm", "ktmByKOQ", "kZRqJgXY"]}}, {"field": "9PBPi1Fb", "validation": {"allowAllSpecialCharacters": true, "allowDigit": false, "allowLetter": true, "allowSpace": false, "allowUnicode": false, "blockedWord": ["iVmstZhk", "7wDjrygf", "1cr7XBVr"], "description": [{"language": "37bqfEeQ", "message": ["SlLbPCPS", "S4ccXhZZ", "2SuRbRui"]}, {"language": "A1mi0nH8", "message": ["hIyrXEv1", "NKUHorBp", "UqxdMxhf"]}, {"language": "ubDh3wZY", "message": ["ynteQaPj", "bnUzRw68", "KRXsULxC"]}], "isCustomRegex": true, "letterCase": "OS8Dhv0K", "maxLength": 73, "maxRepeatingAlphaNum": 39, "maxRepeatingSpecialCharacter": 78, "minCharType": 45, "minLength": 26, "regex": "G5k2iD4T", "specialCharacterLocation": "9bMrYOFK", "specialCharacters": ["miELrMgq", "V96fctcn", "nVBJkYCj"]}}]' \
+    --body '[{"field": "B2Zd98c0", "validation": {"allowAllSpecialCharacters": true, "allowDigit": false, "allowLetter": true, "allowSpace": false, "allowUnicode": false, "blockedWord": ["u10lC2T1", "5GuvmIQA", "lQoRs4jQ"], "description": [{"language": "wApEqe39", "message": ["u5gyK4MQ", "fMZ5RNxH", "ei6Vmulk"]}, {"language": "Z8WlWV05", "message": ["UGXJXrOK", "WveHGhlY", "B9uxf3Pu"]}, {"language": "OL064MNZ", "message": ["1mlADc6T", "sUswbIpx", "Npxloaul"]}], "isCustomRegex": false, "letterCase": "ntGGxPLR", "maxLength": 44, "maxRepeatingAlphaNum": 20, "maxRepeatingSpecialCharacter": 72, "minCharType": 85, "minLength": 43, "regex": "Hj1dQA5B", "specialCharacterLocation": "7KnDel6H", "specialCharacters": ["Ej7naORw", "1wFFLKM9", "M7Nxy671"]}}, {"field": "ucAJiuHZ", "validation": {"allowAllSpecialCharacters": true, "allowDigit": false, "allowLetter": true, "allowSpace": true, "allowUnicode": true, "blockedWord": ["dspeCbvs", "GuOMIkXm", "syx5yVsH"], "description": [{"language": "BRNT1dTb", "message": ["lUOm3wXK", "kCkIZVbZ", "k2SZcLH0"]}, {"language": "8EfzinHK", "message": ["Nt2juKc0", "iniRa3fR", "EJyOlOwK"]}, {"language": "feSuWDrZ", "message": ["t2jQGNUP", "twy8cSXQ", "IJcIpfpG"]}], "isCustomRegex": false, "letterCase": "2QOw8SNU", "maxLength": 98, "maxRepeatingAlphaNum": 93, "maxRepeatingSpecialCharacter": 44, "minCharType": 0, "minLength": 6, "regex": "D7AnvwtJ", "specialCharacterLocation": "PKWYGRUV", "specialCharacters": ["xzd4MDCH", "YtdLM5s9", "WkGpHSWE"]}}, {"field": "4ThZAT9D", "validation": {"allowAllSpecialCharacters": false, "allowDigit": true, "allowLetter": true, "allowSpace": false, "allowUnicode": true, "blockedWord": ["r3v8ABnM", "tg58x8jE", "l6I05Bpb"], "description": [{"language": "HmNLNx4j", "message": ["CUSDc4iG", "JGmJfErj", "IUpIiTHJ"]}, {"language": "ObSMNsJj", "message": ["FNyAws8x", "FJuJ0LWI", "efulpwyM"]}, {"language": "KC5ab7E4", "message": ["xypjA1hp", "2jke09CU", "z24ZzE7Z"]}], "isCustomRegex": false, "letterCase": "dwoW1l7Z", "maxLength": 76, "maxRepeatingAlphaNum": 7, "maxRepeatingSpecialCharacter": 90, "minCharType": 58, "minLength": 99, "regex": "2vEHgCxx", "specialCharacterLocation": "2q2d3754", "specialCharacters": ["VfdLvqhA", "Cgz0WCgH", "sh5B5sGv"]}}]' \
     > test.out 2>&1
 eval_tap $? 109 'AdminUpdateInputValidations' test.out
 
 #- 110 AdminResetInputValidations
 ./ng net.accelbyte.sdk.cli.Main iam adminResetInputValidations \
-    --field 'HXcjkCR0' \
+    --field 'c9wpB9d5' \
     > test.out 2>&1
 eval_tap $? 110 'AdminResetInputValidations' test.out
 
 #- 111 ListAdminsV3
 ./ng net.accelbyte.sdk.cli.Main iam listAdminsV3 \
     --namespace "$AB_NAMESPACE" \
-    --after 'Wwvrlbdk' \
-    --before 'qfdWCPUj' \
-    --limit '58' \
+    --after 'BKDox1gZ' \
+    --before '5eEcwXTY' \
+    --limit '50' \
     > test.out 2>&1
 eval_tap $? 111 'ListAdminsV3' test.out
 
@@ -410,7 +410,7 @@ eval_tap $? 112 'AdminGetAgeRestrictionStatusV3' test.out
 #- 113 AdminUpdateAgeRestrictionConfigV3
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateAgeRestrictionConfigV3 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"ageRestriction": 14, "enable": true}' \
+    --body '{"ageRestriction": 84, "enable": false}' \
     > test.out 2>&1
 eval_tap $? 113 'AdminUpdateAgeRestrictionConfigV3' test.out
 
@@ -422,9 +422,9 @@ eval_tap $? 114 'AdminGetListCountryAgeRestrictionV3' test.out
 
 #- 115 AdminUpdateCountryAgeRestrictionV3
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateCountryAgeRestrictionV3 \
-    --countryCode '7k1Orop3' \
+    --countryCode '2oGZySeZ' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"ageRestriction": 74}' \
+    --body '{"ageRestriction": 22}' \
     > test.out 2>&1
 eval_tap $? 115 'AdminUpdateCountryAgeRestrictionV3' test.out
 
@@ -432,23 +432,23 @@ eval_tap $? 115 'AdminUpdateCountryAgeRestrictionV3' test.out
 ./ng net.accelbyte.sdk.cli.Main iam adminGetBannedUsersV3 \
     --namespace "$AB_NAMESPACE" \
     --activeOnly  \
-    --banType 'gebXARjK' \
-    --limit '55' \
-    --offset '50' \
+    --banType 't491tLUJ' \
+    --limit '45' \
+    --offset '94' \
     > test.out 2>&1
 eval_tap $? 116 'AdminGetBannedUsersV3' test.out
 
 #- 117 AdminBanUserBulkV3
 ./ng net.accelbyte.sdk.cli.Main iam adminBanUserBulkV3 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"ban": "Un9brGPm", "comment": "GT0n2gWY", "endDate": "k98COO2g", "reason": "Mqp7CZS3", "skipNotif": false, "userIds": ["ZN4b4eBf", "gxdEdjZR", "0lF5b1UO"]}' \
+    --body '{"ban": "nZecJvQh", "comment": "pNT4LOni", "endDate": "mY2IXpBV", "reason": "SRwe68rQ", "skipNotif": true, "userIds": ["BO0Bs4aT", "aU8fbahr", "EggmIj64"]}' \
     > test.out 2>&1
 eval_tap $? 117 'AdminBanUserBulkV3' test.out
 
 #- 118 AdminUnbanUserBulkV3
 ./ng net.accelbyte.sdk.cli.Main iam adminUnbanUserBulkV3 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"bans": [{"banId": "NJgSaqaB", "userId": "UUGXaM5d"}, {"banId": "7P7DhvWd", "userId": "63Fdt6gO"}, {"banId": "OVfSy4Aq", "userId": "vIro1DK7"}]}' \
+    --body '{"bans": [{"banId": "S60O0KM8", "userId": "0UdXlB58"}, {"banId": "rs87o019", "userId": "v9aexta7"}, {"banId": "X61GwV46", "userId": "YowqDLJr"}]}' \
     > test.out 2>&1
 eval_tap $? 118 'AdminUnbanUserBulkV3' test.out
 
@@ -461,65 +461,65 @@ eval_tap $? 119 'AdminGetBansTypeWithNamespaceV3' test.out
 #- 120 AdminGetClientsByNamespaceV3
 ./ng net.accelbyte.sdk.cli.Main iam adminGetClientsByNamespaceV3 \
     --namespace "$AB_NAMESPACE" \
-    --clientId '5JzMOuDd' \
-    --clientName 'toVqIOdu' \
-    --clientType 'iPDt0EPa' \
-    --limit '40' \
-    --offset '76' \
+    --clientId 'DGW6k7wi' \
+    --clientName 'FPbin5ed' \
+    --clientType 'OB1taDGK' \
+    --limit '7' \
+    --offset '86' \
     > test.out 2>&1
 eval_tap $? 120 'AdminGetClientsByNamespaceV3' test.out
 
 #- 121 AdminCreateClientV3
 ./ng net.accelbyte.sdk.cli.Main iam adminCreateClientV3 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"audiences": ["bYkgrBcB", "cgJRvYq7", "trsFJFCj"], "baseUri": "zHEhHxeS", "clientId": "dxxiZ252", "clientName": "Jw9BbArJ", "clientPermissions": [{"action": 42, "resource": "mUxvjbFG", "schedAction": 7, "schedCron": "1lLvaWOy", "schedRange": ["z8UDnpzc", "z4pnwPNM", "F7tqHPCp"]}, {"action": 88, "resource": "8iaecSjY", "schedAction": 22, "schedCron": "gFqmZxXz", "schedRange": ["fqf9Rgxe", "vkiGfwRr", "WLq1rIpY"]}, {"action": 93, "resource": "L7INkzDO", "schedAction": 13, "schedCron": "ZW2jnisB", "schedRange": ["yPFKtccj", "7wZjxdmm", "wqzQw9fT"]}], "clientPlatform": "URk33Dvk", "deletable": true, "description": "ctxv7QSL", "namespace": "EbkL82TT", "oauthAccessTokenExpiration": 88, "oauthAccessTokenExpirationTimeUnit": "8MBQWOEi", "oauthClientType": "ta6o9TSH", "oauthRefreshTokenExpiration": 69, "oauthRefreshTokenExpirationTimeUnit": "QQRKkCrf", "parentNamespace": "nEoljdoM", "redirectUri": "s4lRtsLZ", "scopes": ["7VJotJsW", "qLnmMHYJ", "H5FVcRoM"], "secret": "Wnn0P9Fw", "twoFactorEnabled": true}' \
+    --body '{"audiences": ["qbRAFK1Z", "ZNjQfuRj", "K2cC9cI5"], "baseUri": "pBuwMViw", "clientId": "1TLqCU8n", "clientName": "nc3XZ0y7", "clientPermissions": [{"action": 14, "resource": "id5WyHwt", "schedAction": 96, "schedCron": "GSFEY5mn", "schedRange": ["NGzwojNW", "9n9oQ7j7", "wWHoFLHr"]}, {"action": 11, "resource": "WzKQVCrT", "schedAction": 97, "schedCron": "PPtqyTO0", "schedRange": ["76Z5xOIE", "6r9VZFLW", "K4WUG0B4"]}, {"action": 66, "resource": "j3X5AZaw", "schedAction": 75, "schedCron": "kFL98DzM", "schedRange": ["GZmnaDsn", "AzY5bclK", "2oS3U1OG"]}], "clientPlatform": "U57A95Je", "deletable": true, "description": "sD9QzeyK", "namespace": "4cJ3HaT2", "oauthAccessTokenExpiration": 59, "oauthAccessTokenExpirationTimeUnit": "6seCchFQ", "oauthClientType": "WajSvpfn", "oauthRefreshTokenExpiration": 62, "oauthRefreshTokenExpirationTimeUnit": "sExDKBNn", "parentNamespace": "nseo5w75", "redirectUri": "9ZqBJRWa", "scopes": ["7gGYpRQ5", "M51YfGaE", "0ab3F8o4"], "secret": "6IaZCvzM", "twoFactorEnabled": false}' \
     > test.out 2>&1
 eval_tap $? 121 'AdminCreateClientV3' test.out
 
 #- 122 AdminGetClientsbyNamespacebyIDV3
 ./ng net.accelbyte.sdk.cli.Main iam adminGetClientsbyNamespacebyIDV3 \
-    --clientId 'sMS9RHjL' \
+    --clientId '0WFzIaHG' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 122 'AdminGetClientsbyNamespacebyIDV3' test.out
 
 #- 123 AdminDeleteClientV3
 ./ng net.accelbyte.sdk.cli.Main iam adminDeleteClientV3 \
-    --clientId 'Egxb7Ysk' \
+    --clientId '0MoRu9og' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 123 'AdminDeleteClientV3' test.out
 
 #- 124 AdminUpdateClientV3
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateClientV3 \
-    --clientId 'XLwFQ5c5' \
+    --clientId 'EoaKLI2l' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"audiences": ["FMlZS5em", "2TVSrDb2", "RnGrpeU8"], "baseUri": "xzjCB59a", "clientName": "71MiA7RK", "clientPermissions": [{"action": 97, "resource": "dY1lC84t", "schedAction": 13, "schedCron": "1KZWecKF", "schedRange": ["zHOlxlEF", "zyLycKTr", "qsEi5osj"]}, {"action": 10, "resource": "NujNngPB", "schedAction": 70, "schedCron": "iqw6dGQi", "schedRange": ["aQ0VKC2s", "uAbwn15l", "vlrqv95t"]}, {"action": 41, "resource": "2ekpMlZU", "schedAction": 3, "schedCron": "HkDXXDnA", "schedRange": ["UY8chi66", "SD0rcw6F", "r1XUtjsm"]}], "clientPlatform": "qAn9tLdO", "deletable": true, "description": "OGhMEMIF", "namespace": "qy4GGIqJ", "oauthAccessTokenExpiration": 48, "oauthAccessTokenExpirationTimeUnit": "uarnHaYn", "oauthRefreshTokenExpiration": 23, "oauthRefreshTokenExpirationTimeUnit": "FqrR7GDP", "redirectUri": "agr6A2tS", "scopes": ["nLhCUzkR", "Z04HR3uV", "KUjdWOHL"], "twoFactorEnabled": false}' \
+    --body '{"audiences": ["7x3h1BF2", "K5vHwwrN", "GMvvFLGK"], "baseUri": "xtqymY99", "clientName": "mPkAuFr9", "clientPermissions": [{"action": 0, "resource": "o1UKxd4C", "schedAction": 36, "schedCron": "nKUPKogn", "schedRange": ["xMGBFp6v", "i9rXhayh", "MwUy9hzG"]}, {"action": 30, "resource": "qKzKor18", "schedAction": 94, "schedCron": "r3h56OTJ", "schedRange": ["kx8zvQUi", "sVtZQrpM", "MudZO48e"]}, {"action": 52, "resource": "rVviCGFL", "schedAction": 92, "schedCron": "kzHz1BYd", "schedRange": ["g5Vr997o", "gHHZOBha", "xQ20Ez4r"]}], "clientPlatform": "pLigOBRA", "deletable": false, "description": "ZDhZrcjU", "namespace": "kVpuzX78", "oauthAccessTokenExpiration": 54, "oauthAccessTokenExpirationTimeUnit": "3JAnfq5j", "oauthRefreshTokenExpiration": 82, "oauthRefreshTokenExpirationTimeUnit": "4CUov1vi", "redirectUri": "oqT3Rkp5", "scopes": ["EWas83tb", "15GOdlxf", "R9oWLR6o"], "twoFactorEnabled": false}' \
     > test.out 2>&1
 eval_tap $? 124 'AdminUpdateClientV3' test.out
 
 #- 125 AdminUpdateClientPermissionV3
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateClientPermissionV3 \
-    --clientId 'IcWuKCcs' \
+    --clientId 'ez7bmNzx' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"permissions": [{"action": 31, "resource": "NjdPwEgi"}, {"action": 96, "resource": "VFFr6pd5"}, {"action": 11, "resource": "TTb4ke65"}]}' \
+    --body '{"permissions": [{"action": 44, "resource": "lvcBDHTm"}, {"action": 0, "resource": "jj1GYb1W"}, {"action": 30, "resource": "gCTKOr8B"}]}' \
     > test.out 2>&1
 eval_tap $? 125 'AdminUpdateClientPermissionV3' test.out
 
 #- 126 AdminAddClientPermissionsV3
 ./ng net.accelbyte.sdk.cli.Main iam adminAddClientPermissionsV3 \
-    --clientId 'YvcilFXL' \
+    --clientId 'MticiSIF' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"permissions": [{"action": 52, "resource": "PFvpUO2f"}, {"action": 54, "resource": "yqbjks3F"}, {"action": 95, "resource": "RxqUzRnp"}]}' \
+    --body '{"permissions": [{"action": 45, "resource": "364lGUud"}, {"action": 26, "resource": "RNRtSyUP"}, {"action": 28, "resource": "Vr1GzAHE"}]}' \
     > test.out 2>&1
 eval_tap $? 126 'AdminAddClientPermissionsV3' test.out
 
 #- 127 AdminDeleteClientPermissionV3
 ./ng net.accelbyte.sdk.cli.Main iam adminDeleteClientPermissionV3 \
-    --action '2' \
-    --clientId 'bYh9EWBq' \
+    --action '5' \
+    --clientId '0mk1dfom' \
     --namespace "$AB_NAMESPACE" \
-    --resource 'nJq0XUtv' \
+    --resource '7s8Zf9nW' \
     > test.out 2>&1
 eval_tap $? 127 'AdminDeleteClientPermissionV3' test.out
 
@@ -538,559 +538,559 @@ eval_tap $? 129 'RetrieveAllActiveThirdPartyLoginPlatformCredentialV3' test.out
 #- 130 RetrieveAllSSOLoginPlatformCredentialV3
 ./ng net.accelbyte.sdk.cli.Main iam retrieveAllSSOLoginPlatformCredentialV3 \
     --namespace "$AB_NAMESPACE" \
-    --limit '47' \
-    --offset '88' \
+    --limit '31' \
+    --offset '73' \
     > test.out 2>&1
 eval_tap $? 130 'RetrieveAllSSOLoginPlatformCredentialV3' test.out
 
 #- 131 RetrieveThirdPartyLoginPlatformCredentialV3
 ./ng net.accelbyte.sdk.cli.Main iam retrieveThirdPartyLoginPlatformCredentialV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId '2YHglvcp' \
+    --platformId 'CE69EH5r' \
     > test.out 2>&1
 eval_tap $? 131 'RetrieveThirdPartyLoginPlatformCredentialV3' test.out
 
 #- 132 AddThirdPartyLoginPlatformCredentialV3
 ./ng net.accelbyte.sdk.cli.Main iam addThirdPartyLoginPlatformCredentialV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId '3gzpMGpG' \
-    --body '{"ACSURL": "Lsj4xMdb", "AWSCognitoRegion": "XzPvB5f8", "AWSCognitoUserPool": "ifHsxQ79", "AllowedClients": ["CVJUcMkc", "GkpvYF0e", "R0We5KSz"], "AppId": "BHqGOLU3", "AuthorizationEndpoint": "AvfpKMik", "ClientId": "WsqCyBgw", "Environment": "6qgXtuIH", "FederationMetadataURL": "aCJfFFg1", "GenericOauthFlow": true, "IsActive": true, "Issuer": "eJZRZUaJ", "JWKSEndpoint": "OotcQrME", "KeyID": "jI3AWRbA", "NetflixCertificates": {"encryptedPrivateKey": "Ixx2gXc0", "encryptedPrivateKeyName": "crSMZgDq", "publicCertificate": "PXgiCDm3", "publicCertificateName": "psIzGjp9", "rootCertificate": "a118WNWw", "rootCertificateName": "zumk8rPZ"}, "OrganizationId": "BJnxbLHB", "PlatformName": "RMHHsJWP", "RedirectUri": "ht4LyJxB", "RegisteredDomains": [{"affectedClientIDs": ["iJnU1jux", "3zfl2teG", "w2PkWy0w"], "domain": "8u8h5OQQ", "namespaces": ["70iwnvek", "BMOhu4OC", "X2CsBQgr"], "roleId": "Fs9kMZcu"}, {"affectedClientIDs": ["pAsgwVnb", "hQil4Xqo", "0Bo6QxDW"], "domain": "7liBYBMZ", "namespaces": ["QtyC3YOL", "p5WHsLf1", "ooiCw1H2"], "roleId": "yJF2Bt82"}, {"affectedClientIDs": ["heNrvRFz", "TCVYSwFP", "xwnbVsgK"], "domain": "PyrDxZ5Y", "namespaces": ["117MFEtE", "3N7yP3HD", "FPjVWrIT"], "roleId": "DmT6bSXi"}], "Secret": "BOsaKfyX", "TeamID": "ES0t8acd", "TokenAuthenticationType": "1OTo5GRO", "TokenClaimsMapping": {"5ZeBiAYY": "yYhxU9li", "YKshPaCs": "NeqR2qOk", "weoXOJL5": "5URgmUcN"}, "TokenEndpoint": "5AdtpJ51", "scopes": ["Vb1QI0Lh", "xLNo4Frr", "60oCuHC8"]}' \
+    --platformId '0iXlIEDb' \
+    --body '{"ACSURL": "6ouaDZ3e", "AWSCognitoRegion": "A2wxTbnV", "AWSCognitoUserPool": "BhYMBIi3", "AllowedClients": ["QPc9sjYi", "4bLb26SZ", "dpvaHwja"], "AppId": "2P10tFpe", "AuthorizationEndpoint": "KYOaoWzQ", "ClientId": "Y14BucQT", "Environment": "eSxxn1FL", "FederationMetadataURL": "RqcIDjuQ", "GenericOauthFlow": false, "IsActive": false, "Issuer": "VxFAQUmk", "JWKSEndpoint": "3PYHDCxp", "KeyID": "yNJr2q4B", "NetflixCertificates": {"encryptedPrivateKey": "1hKYxTvS", "encryptedPrivateKeyName": "YeknCVzb", "publicCertificate": "70iUHOR4", "publicCertificateName": "QeSBCmnl", "rootCertificate": "DwyIdBDZ", "rootCertificateName": "seEzOYGE"}, "OrganizationId": "JjJ2Rxez", "PlatformName": "bDtsVZnL", "RedirectUri": "aCmWt0Xe", "RegisteredDomains": [{"affectedClientIDs": ["0dK9r4Z4", "riiVCFIP", "ZO5IkvxV"], "domain": "1azzYnFt", "namespaces": ["Clg4F30w", "cv4Scy2H", "2ywFgHEH"], "roleId": "mcb07eR8"}, {"affectedClientIDs": ["kmB4c3Mw", "hwAZKGz3", "hrz8POvE"], "domain": "x4iLz8Ps", "namespaces": ["iMVC8SHY", "QJMsslOv", "dyneAHFD"], "roleId": "r2WWsNxV"}, {"affectedClientIDs": ["NODhUypr", "LhjvSl7H", "DOGYjDP6"], "domain": "ZLgblphj", "namespaces": ["toDEHEkt", "tdMm5TZ5", "CluUF7hl"], "roleId": "flGJpnyv"}], "Secret": "SE5QRCOJ", "TeamID": "U6diUFcp", "TokenAuthenticationType": "Gi3QhPCu", "TokenClaimsMapping": {"REOPsTQr": "TyWYFm0V", "qRaph4kr": "4GNUVekJ", "Nc3ajJgI": "gw8JeDCr"}, "TokenEndpoint": "4yJGXLzn", "scopes": ["BG8bhbjq", "UCZEEWUe", "jveoqcZW"]}' \
     > test.out 2>&1
 eval_tap $? 132 'AddThirdPartyLoginPlatformCredentialV3' test.out
 
 #- 133 DeleteThirdPartyLoginPlatformCredentialV3
 ./ng net.accelbyte.sdk.cli.Main iam deleteThirdPartyLoginPlatformCredentialV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId '85Hq44pk' \
+    --platformId 'yPyv6VlD' \
     > test.out 2>&1
 eval_tap $? 133 'DeleteThirdPartyLoginPlatformCredentialV3' test.out
 
 #- 134 UpdateThirdPartyLoginPlatformCredentialV3
 ./ng net.accelbyte.sdk.cli.Main iam updateThirdPartyLoginPlatformCredentialV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'rciTHB8k' \
-    --body '{"ACSURL": "n3P4dq9s", "AWSCognitoRegion": "b0RfCdJR", "AWSCognitoUserPool": "UdAIK68l", "AllowedClients": ["Q3Ew5MgW", "JLXh7HOc", "IQaYKMrZ"], "AppId": "rGB83wWu", "AuthorizationEndpoint": "SON3COhe", "ClientId": "LTVuTGnF", "Environment": "cxbn5Ebz", "FederationMetadataURL": "FYyCEmbx", "GenericOauthFlow": false, "IsActive": true, "Issuer": "TpUtYff5", "JWKSEndpoint": "udI26nIb", "KeyID": "1ONeYTjy", "NetflixCertificates": {"encryptedPrivateKey": "CxVjrgtW", "encryptedPrivateKeyName": "YUlEtvCH", "publicCertificate": "MdeqJJUw", "publicCertificateName": "vFWIHQo9", "rootCertificate": "s4w8tNQW", "rootCertificateName": "Uun5WTIm"}, "OrganizationId": "P1HzrV7G", "PlatformName": "ZH8MO3Ny", "RedirectUri": "iSW2Hcss", "RegisteredDomains": [{"affectedClientIDs": ["KGH2ZFXa", "0L2bt6Et", "9qhJhyGb"], "domain": "K4uAH43w", "namespaces": ["MjMpEtXc", "wICSqThH", "koXSBqPu"], "roleId": "BirjbJD0"}, {"affectedClientIDs": ["vBu5Q8OB", "7fyGTybV", "BUD2HL2S"], "domain": "KablP6MF", "namespaces": ["JlAi46u7", "H24eiN5l", "jCleKhPX"], "roleId": "sKlGaq87"}, {"affectedClientIDs": ["ffK82v84", "AnP2sLV1", "CHUbvFRU"], "domain": "qiTM70f6", "namespaces": ["7mg4sb1O", "huSyH4vo", "c4uwsodX"], "roleId": "UtnsRYS1"}], "Secret": "ZpjbiN88", "TeamID": "X26JocZv", "TokenAuthenticationType": "0YpNre26", "TokenClaimsMapping": {"FOaA6Ugz": "ET1z91vv", "2UPtWtST": "4UkrYAhw", "NjDthX6u": "gwVLusvZ"}, "TokenEndpoint": "e9l7u5Gf", "scopes": ["qeYgUltO", "wZlJpAbA", "UIlEr16A"]}' \
+    --platformId 'yqlZOapL' \
+    --body '{"ACSURL": "XG393Js3", "AWSCognitoRegion": "GHi5VZlD", "AWSCognitoUserPool": "YMCSC2QJ", "AllowedClients": ["ObVutZEA", "8FF44jJb", "UkfpHE63"], "AppId": "FcUBfbNS", "AuthorizationEndpoint": "jJZJ9BA6", "ClientId": "uDRpfBbC", "Environment": "xVTrCI0t", "FederationMetadataURL": "ZEr8Bzoa", "GenericOauthFlow": false, "IsActive": true, "Issuer": "jDN9O2G7", "JWKSEndpoint": "PFUiEsYw", "KeyID": "5HrjQxZt", "NetflixCertificates": {"encryptedPrivateKey": "WBZbGMP8", "encryptedPrivateKeyName": "kv2kZQLj", "publicCertificate": "iUUVROBx", "publicCertificateName": "vb7zTmDv", "rootCertificate": "vtUs7u14", "rootCertificateName": "07Yh9vNk"}, "OrganizationId": "5PmJCVkc", "PlatformName": "b5K7ZkAC", "RedirectUri": "TJGR8c0V", "RegisteredDomains": [{"affectedClientIDs": ["LfW3xwjY", "iJpHF8XQ", "b7J7RlZX"], "domain": "pZZoXnwz", "namespaces": ["bM91OQ5i", "8wtFmi3S", "b9AyF6em"], "roleId": "d7OSFI8Z"}, {"affectedClientIDs": ["fFU86nO3", "WCt9DV1I", "Q0Ip1JtA"], "domain": "meFuxd9N", "namespaces": ["KubCVEir", "QpnkZDwy", "cNKZUUdS"], "roleId": "t1ZALQwD"}, {"affectedClientIDs": ["w9z6kerI", "OyUeGgOQ", "6RXBAGTA"], "domain": "Lxd09RvG", "namespaces": ["vKaPpbDq", "VFfO9lmb", "s14IF5ye"], "roleId": "RlxeepkN"}], "Secret": "3WkN3RSP", "TeamID": "IhgfzluE", "TokenAuthenticationType": "y61HTG8d", "TokenClaimsMapping": {"tnN4lbMs": "X2Gb487j", "zb59AA7H": "u7NnWgE3", "MFBT7B43": "HocNVBgO"}, "TokenEndpoint": "KB5rCc0I", "scopes": ["W28JJen2", "eRRYFT2T", "WSJu1S7z"]}' \
     > test.out 2>&1
 eval_tap $? 134 'UpdateThirdPartyLoginPlatformCredentialV3' test.out
 
 #- 135 UpdateThirdPartyLoginPlatformDomainV3
 ./ng net.accelbyte.sdk.cli.Main iam updateThirdPartyLoginPlatformDomainV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'WC0cfl6F' \
-    --body '{"affectedClientIDs": ["c9Ht3W7e", "LKihXhfG", "lelCrU6E"], "assignedNamespaces": ["2Fw74MD2", "o9oKrarx", "sxB5u9S3"], "domain": "naO3U55u", "roleId": "By3ql3eQ"}' \
+    --platformId 'roddH8GQ' \
+    --body '{"affectedClientIDs": ["LaS9TxnK", "KFIOwQqx", "n2IJHyhm"], "assignedNamespaces": ["TCDEcE6Z", "bCNbCAlv", "uJKNnTix"], "domain": "ASzRL14j", "roleId": "VoZCqPil"}' \
     > test.out 2>&1
 eval_tap $? 135 'UpdateThirdPartyLoginPlatformDomainV3' test.out
 
 #- 136 DeleteThirdPartyLoginPlatformDomainV3
 ./ng net.accelbyte.sdk.cli.Main iam deleteThirdPartyLoginPlatformDomainV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'yBsFJ2Up' \
-    --body '{"domain": "V09dfvjU"}' \
+    --platformId 'XBlm9u32' \
+    --body '{"domain": "cTmKGPLa"}' \
     > test.out 2>&1
 eval_tap $? 136 'DeleteThirdPartyLoginPlatformDomainV3' test.out
 
 #- 137 RetrieveSSOLoginPlatformCredential
 ./ng net.accelbyte.sdk.cli.Main iam retrieveSSOLoginPlatformCredential \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'FFNV9tRp' \
+    --platformId 'EvItCK8s' \
     > test.out 2>&1
 eval_tap $? 137 'RetrieveSSOLoginPlatformCredential' test.out
 
 #- 138 AddSSOLoginPlatformCredential
 ./ng net.accelbyte.sdk.cli.Main iam addSSOLoginPlatformCredential \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'VJkhnkLK' \
-    --body '{"acsUrl": "loy1HlOp", "apiKey": "5yhLK3A9", "appId": "Pcx6NYjX", "federationMetadataUrl": "y9atHlYP", "isActive": false, "redirectUri": "OT4SgxjO", "secret": "cFvHJvr6", "ssoUrl": "sDXf05pd"}' \
+    --platformId '9UbDi248' \
+    --body '{"acsUrl": "F1HN4Dvn", "apiKey": "7tCgB3qh", "appId": "FNg4AeJS", "federationMetadataUrl": "NJKqXWfg", "isActive": false, "redirectUri": "ENtyRkis", "secret": "YUbvdrnk", "ssoUrl": "U9b7iHvl"}' \
     > test.out 2>&1
 eval_tap $? 138 'AddSSOLoginPlatformCredential' test.out
 
 #- 139 DeleteSSOLoginPlatformCredentialV3
 ./ng net.accelbyte.sdk.cli.Main iam deleteSSOLoginPlatformCredentialV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'yMXLEAgA' \
+    --platformId 'xL2ZxjIv' \
     > test.out 2>&1
 eval_tap $? 139 'DeleteSSOLoginPlatformCredentialV3' test.out
 
 #- 140 UpdateSSOPlatformCredential
 ./ng net.accelbyte.sdk.cli.Main iam updateSSOPlatformCredential \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'FSgKSyyQ' \
-    --body '{"acsUrl": "PB87QCDp", "apiKey": "FUa3ZMCl", "appId": "jSiQLi8W", "federationMetadataUrl": "TkRh6EgC", "isActive": false, "redirectUri": "KKsmM5mj", "secret": "UK2FVBxO", "ssoUrl": "AklURj17"}' \
+    --platformId '3kIV5oLq' \
+    --body '{"acsUrl": "CLmc4asd", "apiKey": "5gTXxRzs", "appId": "voAtXmHG", "federationMetadataUrl": "zUNAofQz", "isActive": true, "redirectUri": "9zi2y3G7", "secret": "4VvXdg8f", "ssoUrl": "uvyBycdZ"}' \
     > test.out 2>&1
 eval_tap $? 140 'UpdateSSOPlatformCredential' test.out
 
 #- 141 AdminGetUserByPlatformUserIDV3
 ./ng net.accelbyte.sdk.cli.Main iam adminGetUserByPlatformUserIDV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'HOLY4oPK' \
-    --platformUserId 'CQW5vbE1' \
+    --platformId 'NY2Zaj1F' \
+    --platformUserId 'lhyApqQG' \
     > test.out 2>&1
 eval_tap $? 141 'AdminGetUserByPlatformUserIDV3' test.out
 
 #- 142 GetAdminUsersByRoleIdV3
 ./ng net.accelbyte.sdk.cli.Main iam getAdminUsersByRoleIdV3 \
     --namespace "$AB_NAMESPACE" \
-    --roleId 'VQGHVxh3' \
-    --after '6' \
-    --before '98' \
-    --limit '24' \
+    --roleId 'PiwvIekf' \
+    --after '68' \
+    --before '0' \
+    --limit '21' \
     > test.out 2>&1
 eval_tap $? 142 'GetAdminUsersByRoleIdV3' test.out
 
 #- 143 AdminGetUserByEmailAddressV3
 ./ng net.accelbyte.sdk.cli.Main iam adminGetUserByEmailAddressV3 \
     --namespace "$AB_NAMESPACE" \
-    --emailAddress 'SeXpDAhf' \
+    --emailAddress 'shUun7mW' \
     > test.out 2>&1
 eval_tap $? 143 'AdminGetUserByEmailAddressV3' test.out
 
 #- 144 AdminListUserIDByUserIDsV3
 ./ng net.accelbyte.sdk.cli.Main iam adminListUserIDByUserIDsV3 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"userIds": ["aA9GsWZ2", "AzGDxIr6", "rBdVR4cm"]}' \
+    --body '{"userIds": ["gSLJ60Wp", "lTf50Zoi", "nGpiD5jv"]}' \
     > test.out 2>&1
 eval_tap $? 144 'AdminListUserIDByUserIDsV3' test.out
 
 #- 145 AdminInviteUserV3
 ./ng net.accelbyte.sdk.cli.Main iam adminInviteUserV3 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"emailAddresses": ["rH6S2NHZ", "HuStlKYW", "EfHUZKZ8"], "isAdmin": false, "namespace": "Sj1Sta4J", "roles": ["FxsyGyQ4", "NeHey5od", "KCQMCavT"]}' \
+    --body '{"emailAddresses": ["KWy7RC4v", "0sfvAWR9", "kZz5xaXV"], "isAdmin": true, "namespace": "oGY3VPsw", "roles": ["kYocOdjG", "PmNAg7zz", "uZv4rzvJ"]}' \
     > test.out 2>&1
 eval_tap $? 145 'AdminInviteUserV3' test.out
 
 #- 146 AdminQueryThirdPlatformLinkHistoryV3
 ./ng net.accelbyte.sdk.cli.Main iam adminQueryThirdPlatformLinkHistoryV3 \
     --namespace "$AB_NAMESPACE" \
-    --limit '58' \
-    --offset '95' \
-    --platformUserId 'iBq751sG' \
-    --platformId 'h8wrcPsN' \
+    --limit '99' \
+    --offset '10' \
+    --platformUserId 'pUVDtsUd' \
+    --platformId 'DrPqmuVt' \
     > test.out 2>&1
 eval_tap $? 146 'AdminQueryThirdPlatformLinkHistoryV3' test.out
 
 #- 147 AdminListUsersV3
 ./ng net.accelbyte.sdk.cli.Main iam adminListUsersV3 \
     --namespace "$AB_NAMESPACE" \
-    --limit '11' \
-    --offset '5' \
+    --limit '17' \
+    --offset '26' \
     > test.out 2>&1
 eval_tap $? 147 'AdminListUsersV3' test.out
 
 #- 148 AdminSearchUserV3
 ./ng net.accelbyte.sdk.cli.Main iam adminSearchUserV3 \
     --namespace "$AB_NAMESPACE" \
-    --by 'o978ouz7' \
-    --endDate 'eUDysW2W' \
-    --limit '94' \
-    --offset '91' \
-    --platformBy 'e9cp91PM' \
-    --platformId 'oxCclH8l' \
-    --query 'BUJdn4k4' \
-    --startDate 'SOb3YIqD' \
+    --by 'pma6CiC1' \
+    --endDate 'Dya2Bqn6' \
+    --limit '42' \
+    --offset '56' \
+    --platformBy '09fZOZ10' \
+    --platformId 'Dolnxh7g' \
+    --query 'NBBAF7Hf' \
+    --startDate 'ZyREIXdj' \
     > test.out 2>&1
 eval_tap $? 148 'AdminSearchUserV3' test.out
 
 #- 149 AdminGetBulkUserByEmailAddressV3
 ./ng net.accelbyte.sdk.cli.Main iam adminGetBulkUserByEmailAddressV3 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"listEmailAddressRequest": ["YBEIwcCk", "VXDfg9mT", "1jAiXWFe"]}' \
+    --body '{"listEmailAddressRequest": ["oW5X8rGk", "sXR1bRFb", "w9EgQuhW"]}' \
     > test.out 2>&1
 eval_tap $? 149 'AdminGetBulkUserByEmailAddressV3' test.out
 
 #- 150 AdminGetUserByUserIdV3
 ./ng net.accelbyte.sdk.cli.Main iam adminGetUserByUserIdV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'SiWnzUJn' \
+    --userId 'vN4DlW9p' \
     > test.out 2>&1
 eval_tap $? 150 'AdminGetUserByUserIdV3' test.out
 
 #- 151 AdminUpdateUserV3
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateUserV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'HTKMwwvq' \
-    --body '{"avatarUrl": "SipIgEAb", "country": "nZmEIltW", "dateOfBirth": "yoVAXcvQ", "displayName": "USMuGU6q", "languageTag": "zAUA0AUM", "userName": "ozjgXrlK"}' \
+    --userId '2fhUL8SZ' \
+    --body '{"avatarUrl": "f7j7JMWK", "country": "xeHm4SSu", "dateOfBirth": "WYXjohMM", "displayName": "CBvw8NM3", "languageTag": "8zEZIGgf", "userName": "5MGQEpif"}' \
     > test.out 2>&1
 eval_tap $? 151 'AdminUpdateUserV3' test.out
 
 #- 152 AdminGetUserBanV3
 ./ng net.accelbyte.sdk.cli.Main iam adminGetUserBanV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'q7AmVVga' \
+    --userId 'ixpACN6w' \
     --activeOnly  \
-    --after 'mq6GZu5P' \
-    --before 'oqBPKyJn' \
-    --limit '63' \
+    --after 'UDIAV0LQ' \
+    --before '8cYpyhFa' \
+    --limit '64' \
     > test.out 2>&1
 eval_tap $? 152 'AdminGetUserBanV3' test.out
 
 #- 153 AdminBanUserV3
 ./ng net.accelbyte.sdk.cli.Main iam adminBanUserV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'SDGbym2O' \
-    --body '{"ban": "8zl7d7eE", "comment": "JUEHRnwY", "endDate": "HGbz31H8", "reason": "ZwkRD3uO", "skipNotif": true}' \
+    --userId 'CHhcCS64' \
+    --body '{"ban": "wj65irIo", "comment": "Q5oUAi0D", "endDate": "A4TDpl2d", "reason": "TRxpb01g", "skipNotif": false}' \
     > test.out 2>&1
 eval_tap $? 153 'AdminBanUserV3' test.out
 
 #- 154 AdminUpdateUserBanV3
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateUserBanV3 \
-    --banId 'clzbSPkd' \
+    --banId 'wPnqaLRm' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'irtaJaY9' \
-    --body '{"enabled": false, "skipNotif": false}' \
+    --userId 'cMyQxBOE' \
+    --body '{"enabled": true, "skipNotif": true}' \
     > test.out 2>&1
 eval_tap $? 154 'AdminUpdateUserBanV3' test.out
 
 #- 155 AdminSendVerificationCodeV3
 ./ng net.accelbyte.sdk.cli.Main iam adminSendVerificationCodeV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'iqVQ5ack' \
-    --body '{"context": "7M8i24VI", "emailAddress": "ArROiGY0", "languageTag": "POvhCNWe"}' \
+    --userId '5RLeH9Yg' \
+    --body '{"context": "zQFufcSZ", "emailAddress": "VeDiSAqV", "languageTag": "UvbGvQ2r"}' \
     > test.out 2>&1
 eval_tap $? 155 'AdminSendVerificationCodeV3' test.out
 
 #- 156 AdminVerifyAccountV3
 ./ng net.accelbyte.sdk.cli.Main iam adminVerifyAccountV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'Gao8a0xb' \
-    --body '{"Code": "jIECIein", "ContactType": "u5mwRLvN", "LanguageTag": "1a4QhGD5", "validateOnly": true}' \
+    --userId 'kNXejiUG' \
+    --body '{"Code": "5mNuhnsJ", "ContactType": "MLFC6Z35", "LanguageTag": "YxGfNRfA", "validateOnly": true}' \
     > test.out 2>&1
 eval_tap $? 156 'AdminVerifyAccountV3' test.out
 
 #- 157 GetUserVerificationCode
 ./ng net.accelbyte.sdk.cli.Main iam getUserVerificationCode \
     --namespace "$AB_NAMESPACE" \
-    --userId 'S3OKuiMq' \
+    --userId 'KJL5hUXf' \
     > test.out 2>&1
 eval_tap $? 157 'GetUserVerificationCode' test.out
 
 #- 158 AdminGetUserDeletionStatusV3
 ./ng net.accelbyte.sdk.cli.Main iam adminGetUserDeletionStatusV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'bExumOdU' \
+    --userId 'gyksdNFx' \
     > test.out 2>&1
 eval_tap $? 158 'AdminGetUserDeletionStatusV3' test.out
 
 #- 159 AdminUpdateUserDeletionStatusV3
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateUserDeletionStatusV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'XWfCnWfb' \
-    --body '{"enabled": true}' \
+    --userId 'bRUbjn0J' \
+    --body '{"enabled": false}' \
     > test.out 2>&1
 eval_tap $? 159 'AdminUpdateUserDeletionStatusV3' test.out
 
 #- 160 AdminUpgradeHeadlessAccountV3
 ./ng net.accelbyte.sdk.cli.Main iam adminUpgradeHeadlessAccountV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'hliYKxcv' \
-    --body '{"code": "ME6zZnBs", "country": "QVd8Sdni", "dateOfBirth": "yG2EdYbD", "displayName": "azkSpfDA", "emailAddress": "FgQIT0m9", "password": "3r0OvebV", "validateOnly": true}' \
+    --userId 'MWG2FPUs' \
+    --body '{"code": "FTOz6DFM", "country": "xejVTILp", "dateOfBirth": "WJyudpp9", "displayName": "ZEUj7Z4n", "emailAddress": "XjnONI6F", "password": "UZFisYos", "validateOnly": false}' \
     > test.out 2>&1
 eval_tap $? 160 'AdminUpgradeHeadlessAccountV3' test.out
 
 #- 161 AdminDeleteUserInformationV3
 ./ng net.accelbyte.sdk.cli.Main iam adminDeleteUserInformationV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'vpd31V0t' \
+    --userId 'w9YcM5yB' \
     > test.out 2>&1
 eval_tap $? 161 'AdminDeleteUserInformationV3' test.out
 
 #- 162 AdminGetUserLoginHistoriesV3
 ./ng net.accelbyte.sdk.cli.Main iam adminGetUserLoginHistoriesV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'wyUTKrfV' \
-    --after '0.04033493877858496' \
-    --before '0.8381394988082687' \
-    --limit '46' \
+    --userId 'Q04UXZOt' \
+    --after '0.4905516784747971' \
+    --before '0.13770108827508432' \
+    --limit '85' \
     > test.out 2>&1
 eval_tap $? 162 'AdminGetUserLoginHistoriesV3' test.out
 
 #- 163 AdminResetPasswordV3
 ./ng net.accelbyte.sdk.cli.Main iam adminResetPasswordV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'RqMmGppf' \
-    --body '{"languageTag": "WZuj0pqn", "newPassword": "fUXy2dtR", "oldPassword": "El0RRWjf"}' \
+    --userId 'VScurLV9' \
+    --body '{"languageTag": "dvFCcP9V", "newPassword": "qsqLmV5o", "oldPassword": "Nj3Re9zR"}' \
     > test.out 2>&1
 eval_tap $? 163 'AdminResetPasswordV3' test.out
 
 #- 164 AdminUpdateUserPermissionV3
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateUserPermissionV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'FT4cbt0V' \
-    --body '{"Permissions": [{"Action": 28, "Resource": "Mt34Aa08", "SchedAction": 82, "SchedCron": "4SyWkPVo", "SchedRange": ["TNJFjagA", "WKLLjQ39", "sSc91RY0"]}, {"Action": 66, "Resource": "FrcI62sQ", "SchedAction": 85, "SchedCron": "ja7RMUKh", "SchedRange": ["U3OQ7WWG", "dpjNCbWK", "8WuWZFJt"]}, {"Action": 93, "Resource": "KSvKyWjq", "SchedAction": 81, "SchedCron": "1Aikl2H3", "SchedRange": ["MqF9iBdT", "tGjf4Epl", "lMrnrwCl"]}]}' \
+    --userId 't3dByfOC' \
+    --body '{"Permissions": [{"Action": 13, "Resource": "NwA6s1l1", "SchedAction": 76, "SchedCron": "W7Z13AYK", "SchedRange": ["H2Tydqnq", "nk9e76FZ", "a30tC57M"]}, {"Action": 83, "Resource": "CJFwLKqR", "SchedAction": 82, "SchedCron": "0ucmYytc", "SchedRange": ["6iHcFzUK", "M4LOQBtx", "nEDtbzzm"]}, {"Action": 30, "Resource": "CFJOTs0D", "SchedAction": 45, "SchedCron": "HrWDjRE5", "SchedRange": ["S0xhcqPW", "lNn9MJHA", "kDWMNQ2N"]}]}' \
     > test.out 2>&1
 eval_tap $? 164 'AdminUpdateUserPermissionV3' test.out
 
 #- 165 AdminAddUserPermissionsV3
 ./ng net.accelbyte.sdk.cli.Main iam adminAddUserPermissionsV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'U9AxELO7' \
-    --body '{"Permissions": [{"Action": 13, "Resource": "zCk2q3ua", "SchedAction": 58, "SchedCron": "3M8K1p8s", "SchedRange": ["zLNvXkKQ", "Wr2wSkeo", "MJP1HYHj"]}, {"Action": 81, "Resource": "MLJ8Ik8g", "SchedAction": 56, "SchedCron": "M7UubVA5", "SchedRange": ["hxRJ8h7c", "NhYl8r07", "i5rnqO9w"]}, {"Action": 84, "Resource": "S7RHAEDh", "SchedAction": 82, "SchedCron": "HCsWk5r3", "SchedRange": ["TrZ9Uwrk", "22C8angn", "ys8vrzna"]}]}' \
+    --userId 'wsSZYxm8' \
+    --body '{"Permissions": [{"Action": 23, "Resource": "KYugBze4", "SchedAction": 79, "SchedCron": "airaiOUo", "SchedRange": ["bqzQZipy", "uayBMDep", "mpWXXZ9p"]}, {"Action": 78, "Resource": "XdxoHwsI", "SchedAction": 55, "SchedCron": "90lU0UhY", "SchedRange": ["A4yLUYFF", "Jm1FSoVK", "uTAySnfP"]}, {"Action": 78, "Resource": "ZY2uC4Ai", "SchedAction": 99, "SchedCron": "s4hFK933", "SchedRange": ["3vxn6UmM", "adytFEDO", "jK330bIj"]}]}' \
     > test.out 2>&1
 eval_tap $? 165 'AdminAddUserPermissionsV3' test.out
 
 #- 166 AdminDeleteUserPermissionBulkV3
 ./ng net.accelbyte.sdk.cli.Main iam adminDeleteUserPermissionBulkV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'eVUGLOp7' \
-    --body '[{"Action": 62, "Resource": "kDw3nqRM"}, {"Action": 77, "Resource": "mpX7RcTY"}, {"Action": 47, "Resource": "JMR1MQKI"}]' \
+    --userId 'CrNxL1tP' \
+    --body '[{"Action": 14, "Resource": "tRgvhZ0o"}, {"Action": 22, "Resource": "1Peo5FJY"}, {"Action": 67, "Resource": "0Ixn6z3J"}]' \
     > test.out 2>&1
 eval_tap $? 166 'AdminDeleteUserPermissionBulkV3' test.out
 
 #- 167 AdminDeleteUserPermissionV3
 ./ng net.accelbyte.sdk.cli.Main iam adminDeleteUserPermissionV3 \
-    --action '67' \
+    --action '57' \
     --namespace "$AB_NAMESPACE" \
-    --resource 'PSlrZvNO' \
-    --userId 'N8Ut3s4I' \
+    --resource 'WWT80Bcs' \
+    --userId '7hzrDp3o' \
     > test.out 2>&1
 eval_tap $? 167 'AdminDeleteUserPermissionV3' test.out
 
 #- 168 AdminGetUserPlatformAccountsV3
 ./ng net.accelbyte.sdk.cli.Main iam adminGetUserPlatformAccountsV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'IcRDAc6t' \
-    --after 'u5VBOWRK' \
-    --before '9v55RBMX' \
-    --limit '88' \
+    --userId 'TrTaL5jF' \
+    --after 'QbgwCDW6' \
+    --before 'aeCTIzOt' \
+    --limit '85' \
     > test.out 2>&1
 eval_tap $? 168 'AdminGetUserPlatformAccountsV3' test.out
 
 #- 169 AdminGetListJusticePlatformAccounts
 ./ng net.accelbyte.sdk.cli.Main iam adminGetListJusticePlatformAccounts \
     --namespace "$AB_NAMESPACE" \
-    --userId 'v2zKDOTf' \
+    --userId 'AOcWlmdV' \
     > test.out 2>&1
 eval_tap $? 169 'AdminGetListJusticePlatformAccounts' test.out
 
 #- 170 AdminGetUserMapping
 ./ng net.accelbyte.sdk.cli.Main iam adminGetUserMapping \
     --namespace "$AB_NAMESPACE" \
-    --targetNamespace '0CsZNBy2' \
-    --userId 'Y8OgFgIU' \
+    --targetNamespace 'sCiqWa3m' \
+    --userId 'M9AzWKc3' \
     > test.out 2>&1
 eval_tap $? 170 'AdminGetUserMapping' test.out
 
 #- 171 AdminCreateJusticeUser
 ./ng net.accelbyte.sdk.cli.Main iam adminCreateJusticeUser \
     --namespace "$AB_NAMESPACE" \
-    --targetNamespace 'HJD2XxVA' \
-    --userId 'GEUcxTPG' \
+    --targetNamespace '23DFYipS' \
+    --userId 'i842di85' \
     > test.out 2>&1
 eval_tap $? 171 'AdminCreateJusticeUser' test.out
 
 #- 172 AdminLinkPlatformAccount
 ./ng net.accelbyte.sdk.cli.Main iam adminLinkPlatformAccount \
     --namespace "$AB_NAMESPACE" \
-    --userId 'ch8b0Pex' \
-    --body '{"platformId": "QolODcYw", "platformUserId": "U8yG0A2Y"}' \
+    --userId 'uyNG4IJp' \
+    --body '{"platformId": "LNZgSpue", "platformUserId": "s90sWroJ"}' \
     > test.out 2>&1
 eval_tap $? 172 'AdminLinkPlatformAccount' test.out
 
 #- 173 AdminPlatformUnlinkV3
 ./ng net.accelbyte.sdk.cli.Main iam adminPlatformUnlinkV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'tcP7iH3k' \
-    --userId 'ECX7kPgE' \
-    --body '{"platformNamespace": "A6IdQpkA"}' \
+    --platformId '22tOQnVi' \
+    --userId '2zqN2eVY' \
+    --body '{"platformNamespace": "m4Qmv2SU"}' \
     > test.out 2>&1
 eval_tap $? 173 'AdminPlatformUnlinkV3' test.out
 
 #- 174 AdminPlatformLinkV3
 ./ng net.accelbyte.sdk.cli.Main iam adminPlatformLinkV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'lEFgBsPz' \
-    --userId 'cI0vF4qt' \
-    --ticket 'nN3yh5YL' \
+    --platformId 'K97CcWDE' \
+    --userId 'v8Jr8Wz1' \
+    --ticket 'KJ9f5MKg' \
     > test.out 2>&1
 eval_tap $? 174 'AdminPlatformLinkV3' test.out
 
 #- 175 AdminGetThirdPartyPlatformTokenLinkStatusV3
 ./ng net.accelbyte.sdk.cli.Main iam adminGetThirdPartyPlatformTokenLinkStatusV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId '2xy9kQZw' \
-    --userId 'CR44oXJQ' \
-    --platformToken 'zEttE9rs' \
+    --platformId 'GF58sFCg' \
+    --userId 't7gkGLPy' \
+    --platformToken 'VIvUrwpx' \
     > test.out 2>&1
 eval_tap $? 175 'AdminGetThirdPartyPlatformTokenLinkStatusV3' test.out
 
 #- 176 AdminDeleteUserRolesV3
 ./ng net.accelbyte.sdk.cli.Main iam adminDeleteUserRolesV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'nEaJPbno' \
-    --body '["ROm9pWmG", "fk43HVLH", "hhttbWP1"]' \
+    --userId 'BTm7a5EH' \
+    --body '["09y4bRRP", "PbP8X5I8", "WRF2IUKC"]' \
     > test.out 2>&1
 eval_tap $? 176 'AdminDeleteUserRolesV3' test.out
 
 #- 177 AdminSaveUserRoleV3
 ./ng net.accelbyte.sdk.cli.Main iam adminSaveUserRoleV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'o5BtpTFd' \
-    --body '[{"namespace": "D8wbl2uG", "roleId": "j8KGKFqf"}, {"namespace": "7q1IH462", "roleId": "6duqqw78"}, {"namespace": "jeAivG6l", "roleId": "7oxV78eS"}]' \
+    --userId 'KbRMssDP' \
+    --body '[{"namespace": "8TMKjdWA", "roleId": "hPWApzDe"}, {"namespace": "tDAMypW3", "roleId": "EqKF2Cle"}, {"namespace": "TOXoRHi4", "roleId": "k0eGJIQr"}]' \
     > test.out 2>&1
 eval_tap $? 177 'AdminSaveUserRoleV3' test.out
 
 #- 178 AdminAddUserRoleV3
 ./ng net.accelbyte.sdk.cli.Main iam adminAddUserRoleV3 \
     --namespace "$AB_NAMESPACE" \
-    --roleId 'ZNH6bWCe' \
-    --userId 'B0JeMelc' \
+    --roleId 'x2HbuHgN' \
+    --userId 'bvYAtWNY' \
     > test.out 2>&1
 eval_tap $? 178 'AdminAddUserRoleV3' test.out
 
 #- 179 AdminDeleteUserRoleV3
 ./ng net.accelbyte.sdk.cli.Main iam adminDeleteUserRoleV3 \
     --namespace "$AB_NAMESPACE" \
-    --roleId 'xBevnkJf' \
-    --userId '1P8aAdjN' \
+    --roleId 'yfmC9ASc' \
+    --userId 'sjb4khy4' \
     > test.out 2>&1
 eval_tap $? 179 'AdminDeleteUserRoleV3' test.out
 
 #- 180 AdminUpdateUserStatusV3
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateUserStatusV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'eUvXflAA' \
-    --body '{"enabled": true, "reason": "qukeSPsJ"}' \
+    --userId '0ZmVCrcZ' \
+    --body '{"enabled": false, "reason": "cP67NWjo"}' \
     > test.out 2>&1
 eval_tap $? 180 'AdminUpdateUserStatusV3' test.out
 
 #- 181 AdminVerifyUserWithoutVerificationCodeV3
 ./ng net.accelbyte.sdk.cli.Main iam adminVerifyUserWithoutVerificationCodeV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId '7bNpzgIc' \
+    --userId 'drfvZObC' \
     > test.out 2>&1
 eval_tap $? 181 'AdminVerifyUserWithoutVerificationCodeV3' test.out
 
 #- 182 AdminUpdateClientSecretV3
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateClientSecretV3 \
-    --clientId 'e7HF2on5' \
+    --clientId 'bm6fCmxs' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"newSecret": "lSuvEvqK"}' \
+    --body '{"newSecret": "keJPZd7D"}' \
     > test.out 2>&1
 eval_tap $? 182 'AdminUpdateClientSecretV3' test.out
 
 #- 183 AdminGetRolesV3
 ./ng net.accelbyte.sdk.cli.Main iam adminGetRolesV3 \
-    --after '158O4Fse' \
-    --before 'aP79QGXf' \
+    --after '5uMXj9PQ' \
+    --before 'lSjDlwoc' \
     --isWildcard  \
-    --limit '18' \
+    --limit '33' \
     > test.out 2>&1
 eval_tap $? 183 'AdminGetRolesV3' test.out
 
 #- 184 AdminCreateRoleV3
 ./ng net.accelbyte.sdk.cli.Main iam adminCreateRoleV3 \
-    --body '{"adminRole": false, "deletable": true, "isWildcard": false, "managers": [{"displayName": "s3mN7ghh", "namespace": "KJc177XJ", "userId": "CpT1o0zD"}, {"displayName": "5np2hNZa", "namespace": "ctjdmmio", "userId": "Ms3AvY9x"}, {"displayName": "bLhwSOxl", "namespace": "GJqBnYbL", "userId": "dq5Y02ms"}], "members": [{"displayName": "XLdbgYtd", "namespace": "xq5W3jnz", "userId": "wTCcDMGT"}, {"displayName": "57Uz2nan", "namespace": "eJmsbZdn", "userId": "u9E6J2CT"}, {"displayName": "BReFUtXq", "namespace": "zTGrc5dn", "userId": "UFCn0Sod"}], "permissions": [{"action": 47, "resource": "sRxHH6Sr", "schedAction": 48, "schedCron": "BHXSLSJk", "schedRange": ["QYHNX2V9", "bMaSfUiy", "pf9ftYIQ"]}, {"action": 31, "resource": "IGcPXoUz", "schedAction": 50, "schedCron": "mCEgPs2b", "schedRange": ["gn9vKUCB", "nbHrd3tb", "QbblPhCX"]}, {"action": 25, "resource": "RnyuX2HY", "schedAction": 39, "schedCron": "wXh2KkVD", "schedRange": ["N57WZV6J", "lfYoq9uq", "rng3PWiS"]}], "roleName": "mURssnMR"}' \
+    --body '{"adminRole": true, "deletable": false, "isWildcard": true, "managers": [{"displayName": "tTFJJzE4", "namespace": "opKGJ5lR", "userId": "hIdNRtEJ"}, {"displayName": "qGLbcBep", "namespace": "apqbPk9E", "userId": "SCarpxmS"}, {"displayName": "IhRrFccd", "namespace": "2Dz9H61i", "userId": "PQWe8qok"}], "members": [{"displayName": "Pz466Ued", "namespace": "K7z0sD8K", "userId": "lJ4zYE5W"}, {"displayName": "tXqsDJMm", "namespace": "12zYYVZ9", "userId": "gG2UBTaL"}, {"displayName": "nkuC8woz", "namespace": "yDLBOXVA", "userId": "bBoaPqhg"}], "permissions": [{"action": 17, "resource": "gMKnMuwa", "schedAction": 70, "schedCron": "VG0dDTh8", "schedRange": ["jaXmaruJ", "im1ePMtu", "c8KX9fbM"]}, {"action": 49, "resource": "w6jMRSt5", "schedAction": 84, "schedCron": "vpaiAk5s", "schedRange": ["tn6tMvUd", "i3U2xVVC", "U9PFaEV0"]}, {"action": 64, "resource": "NlLJ5yk3", "schedAction": 29, "schedCron": "pW7XVB3M", "schedRange": ["PkhvJAcm", "fvxN24os", "ADOlf1dc"]}], "roleName": "hVhfPCgb"}' \
     > test.out 2>&1
 eval_tap $? 184 'AdminCreateRoleV3' test.out
 
 #- 185 AdminGetRoleV3
 ./ng net.accelbyte.sdk.cli.Main iam adminGetRoleV3 \
-    --roleId 'Qvh9xlhZ' \
+    --roleId 'P6evB1QA' \
     > test.out 2>&1
 eval_tap $? 185 'AdminGetRoleV3' test.out
 
 #- 186 AdminDeleteRoleV3
 ./ng net.accelbyte.sdk.cli.Main iam adminDeleteRoleV3 \
-    --roleId 'xmmloLHa' \
+    --roleId 'vufTjcsj' \
     > test.out 2>&1
 eval_tap $? 186 'AdminDeleteRoleV3' test.out
 
 #- 187 AdminUpdateRoleV3
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateRoleV3 \
-    --roleId 'nrblZvHx' \
-    --body '{"deletable": false, "isWildcard": true, "roleName": "k7C63B0x"}' \
+    --roleId 'CFf7iS8R' \
+    --body '{"deletable": true, "isWildcard": false, "roleName": "qAIxFddW"}' \
     > test.out 2>&1
 eval_tap $? 187 'AdminUpdateRoleV3' test.out
 
 #- 188 AdminGetRoleAdminStatusV3
 ./ng net.accelbyte.sdk.cli.Main iam adminGetRoleAdminStatusV3 \
-    --roleId 'sIc8An0K' \
+    --roleId 'vrNw1mkp' \
     > test.out 2>&1
 eval_tap $? 188 'AdminGetRoleAdminStatusV3' test.out
 
 #- 189 AdminUpdateAdminRoleStatusV3
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateAdminRoleStatusV3 \
-    --roleId 'futjPaxJ' \
+    --roleId 'VfnmCnpo' \
     > test.out 2>&1
 eval_tap $? 189 'AdminUpdateAdminRoleStatusV3' test.out
 
 #- 190 AdminRemoveRoleAdminV3
 ./ng net.accelbyte.sdk.cli.Main iam adminRemoveRoleAdminV3 \
-    --roleId 'LJOsI48e' \
+    --roleId 'OLgytmrU' \
     > test.out 2>&1
 eval_tap $? 190 'AdminRemoveRoleAdminV3' test.out
 
 #- 191 AdminGetRoleManagersV3
 ./ng net.accelbyte.sdk.cli.Main iam adminGetRoleManagersV3 \
-    --roleId 'Rk2VErwO' \
-    --after 'IR804Ms4' \
-    --before '07FG7juG' \
-    --limit '70' \
+    --roleId 'H7N4f89v' \
+    --after 'VjsmZmvN' \
+    --before 'u98ny16G' \
+    --limit '31' \
     > test.out 2>&1
 eval_tap $? 191 'AdminGetRoleManagersV3' test.out
 
 #- 192 AdminAddRoleManagersV3
 ./ng net.accelbyte.sdk.cli.Main iam adminAddRoleManagersV3 \
-    --roleId 'gA3Sn9VC' \
-    --body '{"managers": [{"displayName": "kcKc06tF", "namespace": "6VDEXKUc", "userId": "4BXawdbQ"}, {"displayName": "wksIIglm", "namespace": "ocX5rMX3", "userId": "9wrBouya"}, {"displayName": "voLyjmMI", "namespace": "06Dr7Y6h", "userId": "3omjce2E"}]}' \
+    --roleId 'x8Kn7bES' \
+    --body '{"managers": [{"displayName": "gKI5Hv7F", "namespace": "J4tEPknz", "userId": "DxSqhe7I"}, {"displayName": "Y9eF0aX6", "namespace": "HRkSMUct", "userId": "Slw9Wg0v"}, {"displayName": "WHnBTdwd", "namespace": "lFrx0MuX", "userId": "KPMzkHDd"}]}' \
     > test.out 2>&1
 eval_tap $? 192 'AdminAddRoleManagersV3' test.out
 
 #- 193 AdminRemoveRoleManagersV3
 ./ng net.accelbyte.sdk.cli.Main iam adminRemoveRoleManagersV3 \
-    --roleId 'hdN0PMq9' \
-    --body '{"managers": [{"displayName": "lLH1vafl", "namespace": "6TwyBF4k", "userId": "y8MTXXtm"}, {"displayName": "DpjB98Dd", "namespace": "PWviYnSz", "userId": "RDTnrWhd"}, {"displayName": "YevV88jZ", "namespace": "ygE8RDf2", "userId": "WXfH9Jog"}]}' \
+    --roleId 'IL0QQiwk' \
+    --body '{"managers": [{"displayName": "xtAoxnxZ", "namespace": "BCjzG5p7", "userId": "FIi6IWv1"}, {"displayName": "YhEPlgM4", "namespace": "UN2EQVt5", "userId": "z6yVJv8H"}, {"displayName": "8qbqNmNY", "namespace": "OAbG1bwi", "userId": "H098OqzX"}]}' \
     > test.out 2>&1
 eval_tap $? 193 'AdminRemoveRoleManagersV3' test.out
 
 #- 194 AdminGetRoleMembersV3
 ./ng net.accelbyte.sdk.cli.Main iam adminGetRoleMembersV3 \
-    --roleId 'u96LD9Ir' \
-    --after 'eiipD8Un' \
-    --before 'v5dUElvG' \
-    --limit '13' \
+    --roleId 'NDyTDPtQ' \
+    --after 'cjwutP21' \
+    --before 'He9pqloF' \
+    --limit '26' \
     > test.out 2>&1
 eval_tap $? 194 'AdminGetRoleMembersV3' test.out
 
 #- 195 AdminAddRoleMembersV3
 ./ng net.accelbyte.sdk.cli.Main iam adminAddRoleMembersV3 \
-    --roleId '9NdDaz6j' \
-    --body '{"members": [{"displayName": "fBWfUZrY", "namespace": "UGK6EGr8", "userId": "GlEDeHIp"}, {"displayName": "kguwDWLr", "namespace": "mtbauI0t", "userId": "bzNVaJ38"}, {"displayName": "Z71NVlwP", "namespace": "f8VKbzGU", "userId": "OzYUgawi"}]}' \
+    --roleId 'Khceiwyq' \
+    --body '{"members": [{"displayName": "TGtpWMLu", "namespace": "rZwEBp48", "userId": "apmIzaLk"}, {"displayName": "SVn3plY0", "namespace": "lA7sGyJ2", "userId": "XmM7iH4q"}, {"displayName": "oUL3RuP7", "namespace": "3uoApmIX", "userId": "xKJe3tSh"}]}' \
     > test.out 2>&1
 eval_tap $? 195 'AdminAddRoleMembersV3' test.out
 
 #- 196 AdminRemoveRoleMembersV3
 ./ng net.accelbyte.sdk.cli.Main iam adminRemoveRoleMembersV3 \
-    --roleId 'rHzPUvpQ' \
-    --body '{"members": [{"displayName": "ZWiSbOOq", "namespace": "qu4Igztn", "userId": "btAGOADq"}, {"displayName": "uDhTshsR", "namespace": "sseDmKsH", "userId": "4RdcGbz0"}, {"displayName": "QSPwtP2u", "namespace": "jqPTPTZx", "userId": "sKurv9Js"}]}' \
+    --roleId 'l1oZd8jW' \
+    --body '{"members": [{"displayName": "dvWt9spc", "namespace": "mz9GiG1F", "userId": "QhDla9rV"}, {"displayName": "Ojf9aTq4", "namespace": "s5I9vzlf", "userId": "BfWDGcDf"}, {"displayName": "zVnHbSCM", "namespace": "Ccpu8YEV", "userId": "H5xRUKN6"}]}' \
     > test.out 2>&1
 eval_tap $? 196 'AdminRemoveRoleMembersV3' test.out
 
 #- 197 AdminUpdateRolePermissionsV3
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateRolePermissionsV3 \
-    --roleId 'bSZjoMeQ' \
-    --body '{"permissions": [{"action": 70, "resource": "wXcLkLQK", "schedAction": 53, "schedCron": "4zayysLx", "schedRange": ["ADYk4rrl", "cMf7lx25", "Cd9HI5ej"]}, {"action": 97, "resource": "uHVCGAv4", "schedAction": 9, "schedCron": "zuVQr1ic", "schedRange": ["GBg8rD6Z", "HAjHQORA", "ntRVAPBu"]}, {"action": 72, "resource": "KrK1zipn", "schedAction": 24, "schedCron": "H3jysx2m", "schedRange": ["aImBJBB9", "eXa22y8c", "e5SC6Pru"]}]}' \
+    --roleId 'OJaFKETA' \
+    --body '{"permissions": [{"action": 47, "resource": "ipAQLOIK", "schedAction": 100, "schedCron": "ycx5qp3T", "schedRange": ["imEMHKOI", "R9Etcs6W", "4CVj5UHW"]}, {"action": 4, "resource": "gMSZnBES", "schedAction": 70, "schedCron": "jTMcFAxi", "schedRange": ["3aoxicof", "W2tV3Jqn", "cFdKh7WI"]}, {"action": 99, "resource": "PPJCUsxm", "schedAction": 54, "schedCron": "uHYV3UZ4", "schedRange": ["EBbfrGh0", "otUZbtYH", "MuCcqyTf"]}]}' \
     > test.out 2>&1
 eval_tap $? 197 'AdminUpdateRolePermissionsV3' test.out
 
 #- 198 AdminAddRolePermissionsV3
 ./ng net.accelbyte.sdk.cli.Main iam adminAddRolePermissionsV3 \
-    --roleId 'Vyf77bMV' \
-    --body '{"permissions": [{"action": 35, "resource": "dIqFIkNI", "schedAction": 92, "schedCron": "dv6lRUWO", "schedRange": ["a5zlHkpW", "NkoobGX2", "z5IFmHcB"]}, {"action": 40, "resource": "VqJ3dPJI", "schedAction": 15, "schedCron": "gXcXwuBO", "schedRange": ["5nNovsdh", "nFxxSaSU", "E2CxloGo"]}, {"action": 9, "resource": "SkdIb6LZ", "schedAction": 89, "schedCron": "Oam3T5l6", "schedRange": ["0iGGdnjw", "VkfLIr4s", "XdVa2mW6"]}]}' \
+    --roleId 'u46ALvZz' \
+    --body '{"permissions": [{"action": 68, "resource": "C49YU3hx", "schedAction": 79, "schedCron": "fg7x9Y15", "schedRange": ["RQFapokv", "ras7rCa1", "7Zp0oIJ5"]}, {"action": 75, "resource": "J0eqL3K9", "schedAction": 99, "schedCron": "AI2DaHtv", "schedRange": ["Y5JgOyJA", "EC7FTOpT", "srRlpQ1K"]}, {"action": 81, "resource": "eBlpMJ79", "schedAction": 93, "schedCron": "aXj6tO8W", "schedRange": ["z4QoNRYs", "EIdFiiel", "QfRbOc9N"]}]}' \
     > test.out 2>&1
 eval_tap $? 198 'AdminAddRolePermissionsV3' test.out
 
 #- 199 AdminDeleteRolePermissionsV3
 ./ng net.accelbyte.sdk.cli.Main iam adminDeleteRolePermissionsV3 \
-    --roleId 'TocBPGmL' \
-    --body '["dR5QNLz6", "U9XyPRJz", "mYnWGkcu"]' \
+    --roleId 'H1Xe5H3l' \
+    --body '["nTz5Jt2W", "8fpLKBR7", "yUPKux28"]' \
     > test.out 2>&1
 eval_tap $? 199 'AdminDeleteRolePermissionsV3' test.out
 
 #- 200 AdminDeleteRolePermissionV3
 ./ng net.accelbyte.sdk.cli.Main iam adminDeleteRolePermissionV3 \
-    --action '82' \
-    --resource 'iabQM8hj' \
-    --roleId 'VOeI92vd' \
+    --action '84' \
+    --resource 'mB5oEVLo' \
+    --roleId '0PqSzVj6' \
     > test.out 2>&1
 eval_tap $? 200 'AdminDeleteRolePermissionV3' test.out
 
@@ -1101,48 +1101,48 @@ eval_tap $? 201 'AdminGetMyUserV3' test.out
 
 #- 202 UserAuthenticationV3
 ./ng net.accelbyte.sdk.cli.Main iam userAuthenticationV3 \
-    --clientId '6Xndfqcf' \
+    --clientId 'cwE8BpHY' \
     --extendExp  \
-    --redirectUri 'i7EGhkVg' \
-    --password 'OELeIn1T' \
-    --requestId 'jotqxJPY' \
-    --userName '1QKeWkk1' \
+    --redirectUri 'sSGzx7gU' \
+    --password 'syv6I9sd' \
+    --requestId 'gFM4Pb2E' \
+    --userName '415vNYOm' \
     > test.out 2>&1
 eval_tap $? 202 'UserAuthenticationV3' test.out
 
 #- 203 AuthenticationWithPlatformLinkV3
 ./ng net.accelbyte.sdk.cli.Main iam authenticationWithPlatformLinkV3 \
     --extendExp  \
-    --clientId 'ygKP1JkD' \
-    --linkingToken 'MPQC6sjn' \
-    --password '3FTAjH96' \
-    --username 'lGV35Dcv' \
+    --clientId '04q7I6SG' \
+    --linkingToken 'FjmREigL' \
+    --password 'Cp4F9AMb' \
+    --username 'tUanUhdl' \
     > test.out 2>&1
 eval_tap $? 203 'AuthenticationWithPlatformLinkV3' test.out
 
 #- 204 GenerateTokenByNewHeadlessAccountV3
 ./ng net.accelbyte.sdk.cli.Main iam generateTokenByNewHeadlessAccountV3 \
     --extendExp  \
-    --linkingToken 'rsP5scoQ' \
+    --linkingToken '8VvZ9YvA' \
     > test.out 2>&1
 eval_tap $? 204 'GenerateTokenByNewHeadlessAccountV3' test.out
 
 #- 205 RequestOneTimeLinkingCodeV3
 ./ng net.accelbyte.sdk.cli.Main iam requestOneTimeLinkingCodeV3 \
-    --platformId 'XluNKx5a' \
+    --platformId 'wObxZ0Zc' \
     > test.out 2>&1
 eval_tap $? 205 'RequestOneTimeLinkingCodeV3' test.out
 
 #- 206 ValidateOneTimeLinkingCodeV3
 ./ng net.accelbyte.sdk.cli.Main iam validateOneTimeLinkingCodeV3 \
-    --oneTimeLinkCode 'm3e0b7Wp' \
+    --oneTimeLinkCode 'hKwK6NUc' \
     > test.out 2>&1
 eval_tap $? 206 'ValidateOneTimeLinkingCodeV3' test.out
 
 #- 207 RequestTokenByOneTimeLinkCodeResponseV3
 ./ng net.accelbyte.sdk.cli.Main iam requestTokenByOneTimeLinkCodeResponseV3 \
-    --clientId 'vaeQvKKb' \
-    --oneTimeLinkCode 'vgPwMGzz' \
+    --clientId 'FzWJoMgj' \
+    --oneTimeLinkCode 'C0gNftJh' \
     > test.out 2>&1
 eval_tap $? 207 'RequestTokenByOneTimeLinkCodeResponseV3' test.out
 
@@ -1159,44 +1159,44 @@ eval_tap $? 209 'Logout' test.out
 #- 210 RequestGameTokenCodeResponseV3
 ./ng net.accelbyte.sdk.cli.Main iam requestGameTokenCodeResponseV3 \
     --namespace "$AB_NAMESPACE" \
-    --clientId 'JOKVnGuY' \
+    --clientId 'vxgutcNx' \
     > test.out 2>&1
 eval_tap $? 210 'RequestGameTokenCodeResponseV3' test.out
 
 #- 211 AdminRetrieveUserThirdPartyPlatformTokenV3
 ./ng net.accelbyte.sdk.cli.Main iam adminRetrieveUserThirdPartyPlatformTokenV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'Wpbi6B4E' \
-    --userId 'CZ53FyZo' \
+    --platformId 'okTH0bMS' \
+    --userId 'nrFIWpmb' \
     > test.out 2>&1
 eval_tap $? 211 'AdminRetrieveUserThirdPartyPlatformTokenV3' test.out
 
 #- 212 RevokeUserV3
 ./ng net.accelbyte.sdk.cli.Main iam revokeUserV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'E4n5Wd69' \
+    --userId 'hy8cDJeP' \
     > test.out 2>&1
 eval_tap $? 212 'RevokeUserV3' test.out
 
 #- 213 AuthorizeV3
 ./ng net.accelbyte.sdk.cli.Main iam authorizeV3 \
-    --codeChallenge 'E1jJ9cmF' \
+    --codeChallenge 'BjttlNIo' \
     --codeChallengeMethod 'S256' \
     --createHeadless  \
-    --oneTimeLinkCode 'QrmxF9HL' \
-    --redirectUri 'ceMca5RY' \
-    --scope 'SmeN2XYO' \
-    --state 'cFSStejO' \
-    --targetAuthPage 'sP4kfil9' \
+    --oneTimeLinkCode 'K7KJJX57' \
+    --redirectUri '41HYHoDM' \
+    --scope '3L5kZiTW' \
+    --state 'NUQN4tlu' \
+    --targetAuthPage 'zYY2D1Ih' \
     --useRedirectUriAsLoginUrlWhenLocked  \
-    --clientId '29zLX6PJ' \
+    --clientId 'O9Y71O0K' \
     --responseType 'code' \
     > test.out 2>&1
 eval_tap $? 213 'AuthorizeV3' test.out
 
 #- 214 TokenIntrospectionV3
 ./ng net.accelbyte.sdk.cli.Main iam tokenIntrospectionV3 \
-    --token 'k8y0Tr9p' \
+    --token 'KtqWgtwy' \
     > test.out 2>&1
 eval_tap $? 214 'TokenIntrospectionV3' test.out
 
@@ -1207,24 +1207,24 @@ eval_tap $? 215 'GetJWKSV3' test.out
 
 #- 216 SendMFAAuthenticationCode
 ./ng net.accelbyte.sdk.cli.Main iam sendMFAAuthenticationCode \
-    --clientId 'tDU7husM' \
-    --factor 'e59abPEe' \
-    --mfaToken 'COglErNP' \
+    --clientId 'XLzKNMDx' \
+    --factor 'VTTnMfoY' \
+    --mfaToken 'TcP7vJcz' \
     > test.out 2>&1
 eval_tap $? 216 'SendMFAAuthenticationCode' test.out
 
 #- 217 Change2faMethod
 ./ng net.accelbyte.sdk.cli.Main iam change2faMethod \
-    --factor '4AGJW1wG' \
-    --mfaToken 'PPgYVsJb' \
+    --factor 'lWId6HYN' \
+    --mfaToken 'unIldcQA' \
     > test.out 2>&1
 eval_tap $? 217 'Change2faMethod' test.out
 
 #- 218 Verify2faCode
 ./ng net.accelbyte.sdk.cli.Main iam verify2faCode \
-    --code 'GRv7SN1l' \
-    --factor 'tUXJflZw' \
-    --mfaToken 'UaA1eSJ0' \
+    --code 'kSUWUemq' \
+    --factor 'yexB2jtr' \
+    --mfaToken 'rShq5iDd' \
     --rememberDevice  \
     > test.out 2>&1
 eval_tap $? 218 'Verify2faCode' test.out
@@ -1232,28 +1232,28 @@ eval_tap $? 218 'Verify2faCode' test.out
 #- 219 RetrieveUserThirdPartyPlatformTokenV3
 ./ng net.accelbyte.sdk.cli.Main iam retrieveUserThirdPartyPlatformTokenV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'KeGbaiIr' \
-    --userId 'pycW2OU2' \
+    --platformId 'kYE0xQLx' \
+    --userId 'fRVF9nhL' \
     > test.out 2>&1
 eval_tap $? 219 'RetrieveUserThirdPartyPlatformTokenV3' test.out
 
 #- 220 AuthCodeRequestV3
 ./ng net.accelbyte.sdk.cli.Main iam authCodeRequestV3 \
-    --platformId 'QkbR9gHu' \
-    --clientId 'cXT4cTCZ' \
-    --redirectUri 'JOgz8tAO' \
-    --requestId 'KAUsAYxO' \
+    --platformId 'lljebeO7' \
+    --clientId 'OFDI8jYy' \
+    --redirectUri 'ocv4hcAh' \
+    --requestId 'xkhfdsCR' \
     > test.out 2>&1
 eval_tap $? 220 'AuthCodeRequestV3' test.out
 
 #- 221 PlatformTokenGrantV3
 ./ng net.accelbyte.sdk.cli.Main iam platformTokenGrantV3 \
-    --platformId 'hZxyO1di' \
-    --clientId 'sX3npXeY' \
+    --platformId 'Up4VmuaU' \
+    --clientId 'ZM2T1nUf' \
     --createHeadless  \
-    --deviceId '7gDkj4PR' \
-    --macAddress 'Q7Z8zbMi' \
-    --platformToken 'aO5nhh91' \
+    --deviceId 'UVRsfjje' \
+    --macAddress 'Ocdqfp1m' \
+    --platformToken 'gLIzxIHu' \
     > test.out 2>&1
 eval_tap $? 221 'PlatformTokenGrantV3' test.out
 
@@ -1264,59 +1264,59 @@ eval_tap $? 222 'GetRevocationListV3' test.out
 
 #- 223 TokenRevocationV3
 ./ng net.accelbyte.sdk.cli.Main iam tokenRevocationV3 \
-    --token '4scWUmrz' \
+    --token '9VdOYBoR' \
     > test.out 2>&1
 eval_tap $? 223 'TokenRevocationV3' test.out
 
 #- 224 TokenGrantV3
 ./ng net.accelbyte.sdk.cli.Main iam tokenGrantV3 \
-    --clientId 'P7RL9Zex' \
-    --code 'RhSXPUSS' \
-    --codeVerifier '8L75nadJ' \
+    --clientId '8B5cxINf' \
+    --code 'CH6goiZ9' \
+    --codeVerifier 'aULWyjus' \
     --extendExp  \
-    --password 'ISh5UYgM' \
-    --redirectUri 'jb1LnkYu' \
-    --refreshToken 'WusOJfJM' \
-    --username 'EA8OKdT0' \
-    --grantType 'password' \
+    --password 'eI9UrnDO' \
+    --redirectUri 'PqMWLBWp' \
+    --refreshToken 'fbKgnVLr' \
+    --username 'aUJoAZCy' \
+    --grantType 'client_credentials' \
     > test.out 2>&1
 eval_tap $? 224 'TokenGrantV3' test.out
 
 #- 225 VerifyTokenV3
 ./ng net.accelbyte.sdk.cli.Main iam verifyTokenV3 \
-    --token 'zYvXqJLE' \
+    --token 'hDpwN3Cw' \
     > test.out 2>&1
 eval_tap $? 225 'VerifyTokenV3' test.out
 
 #- 226 PlatformAuthenticationV3
 ./ng net.accelbyte.sdk.cli.Main iam platformAuthenticationV3 \
-    --platformId 'I46wAgey' \
-    --code 'gHLYbrDy' \
-    --error 'LRn0GVcI' \
-    --openidAssocHandle 'O7r6VBVP' \
-    --openidClaimedId 'qZVFe4mb' \
-    --openidIdentity 'SlC8kLQ2' \
-    --openidMode 'NycJHaAB' \
-    --openidNs 'Lnw8QCBy' \
-    --openidOpEndpoint 'C3bwaCGK' \
-    --openidResponseNonce 'PYxFynBi' \
-    --openidReturnTo 'WO0yXzsV' \
-    --openidSig '21vM0fxE' \
-    --openidSigned '6ym9ZDk2' \
-    --state 'hVSEvvGv' \
+    --platformId 'WJ9zwSXH' \
+    --code 'iVHBDkJe' \
+    --error 'vjKJ9lbd' \
+    --openidAssocHandle '8O3UoOxe' \
+    --openidClaimedId 'wGxRXAtk' \
+    --openidIdentity 'klYXabzw' \
+    --openidMode 'itEt4iYs' \
+    --openidNs 'UIUAVWiI' \
+    --openidOpEndpoint 'bA7aexez' \
+    --openidResponseNonce 'VxBIiYvp' \
+    --openidReturnTo 'C3UbgxKV' \
+    --openidSig '0tY2gSSR' \
+    --openidSigned 'OztRhZBw' \
+    --state '47UBxEND' \
     > test.out 2>&1
 eval_tap $? 226 'PlatformAuthenticationV3' test.out
 
 #- 227 PublicGetInputValidations
 ./ng net.accelbyte.sdk.cli.Main iam publicGetInputValidations \
     --defaultOnEmpty  \
-    --languageCode '9e8hvDIt' \
+    --languageCode 'EMqWc3oL' \
     > test.out 2>&1
 eval_tap $? 227 'PublicGetInputValidations' test.out
 
 #- 228 PublicGetCountryAgeRestrictionV3
 ./ng net.accelbyte.sdk.cli.Main iam publicGetCountryAgeRestrictionV3 \
-    --countryCode '48yTyGX5' \
+    --countryCode 'ydTi4hvw' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 228 'PublicGetCountryAgeRestrictionV3' test.out
@@ -1330,315 +1330,315 @@ eval_tap $? 229 'RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3' tes
 #- 230 RetrieveActiveOIDCClientsPublicV3
 ./ng net.accelbyte.sdk.cli.Main iam retrieveActiveOIDCClientsPublicV3 \
     --namespace "$AB_NAMESPACE" \
-    --clientId 'bCIEGSaB' \
+    --clientId 'upcOVhR8' \
     > test.out 2>&1
 eval_tap $? 230 'RetrieveActiveOIDCClientsPublicV3' test.out
 
 #- 231 PublicListUserIDByPlatformUserIDsV3
 ./ng net.accelbyte.sdk.cli.Main iam publicListUserIDByPlatformUserIDsV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'XWLfw2w5' \
-    --body '{"platformUserIds": ["OTBVsQZd", "N8MAaNDI", "nbQgWo2s"]}' \
+    --platformId 'oH0VyvB4' \
+    --body '{"platformUserIds": ["ljHdUC7j", "eo4yaCR6", "6LYpRbIV"]}' \
     > test.out 2>&1
 eval_tap $? 231 'PublicListUserIDByPlatformUserIDsV3' test.out
 
 #- 232 PublicGetUserByPlatformUserIDV3
 ./ng net.accelbyte.sdk.cli.Main iam publicGetUserByPlatformUserIDV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'kqy4iEKL' \
-    --platformUserId 'ou2Xd6dK' \
+    --platformId 'DYJ3bo5K' \
+    --platformUserId '5q3B776c' \
     > test.out 2>&1
 eval_tap $? 232 'PublicGetUserByPlatformUserIDV3' test.out
 
 #- 233 PublicGetAsyncStatus
 ./ng net.accelbyte.sdk.cli.Main iam publicGetAsyncStatus \
     --namespace "$AB_NAMESPACE" \
-    --requestId 'RcKq9EdP' \
+    --requestId 'Uw8Heyo1' \
     > test.out 2>&1
 eval_tap $? 233 'PublicGetAsyncStatus' test.out
 
 #- 234 PublicSearchUserV3
 ./ng net.accelbyte.sdk.cli.Main iam publicSearchUserV3 \
     --namespace "$AB_NAMESPACE" \
-    --by 'CXoGl6VN' \
-    --limit '57' \
-    --offset '80' \
-    --query 'GqxNCIDS' \
+    --by 'VBgfM1sz' \
+    --limit '12' \
+    --offset '37' \
+    --query 'UnkYOsy5' \
     > test.out 2>&1
 eval_tap $? 234 'PublicSearchUserV3' test.out
 
 #- 235 PublicCreateUserV3
 ./ng net.accelbyte.sdk.cli.Main iam publicCreateUserV3 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"PasswordMD5Sum": "AkVDY0zT", "acceptedPolicies": [{"isAccepted": false, "localizedPolicyVersionId": "qYRu3rfm", "policyId": "Kd8ShkaB", "policyVersionId": "rTIcfj1s"}, {"isAccepted": false, "localizedPolicyVersionId": "KXFzxyJH", "policyId": "BFVdDucN", "policyVersionId": "0uoWbSU7"}, {"isAccepted": false, "localizedPolicyVersionId": "3j0639ta", "policyId": "3B19Y7V7", "policyVersionId": "lseknEC1"}], "authType": "FWKu9HmQ", "code": "dYufb2QX", "country": "tXLybyxH", "dateOfBirth": "FiGX8f66", "displayName": "USFzfGpb", "emailAddress": "srndjilH", "password": "1SIaW2n2", "reachMinimumAge": false}' \
+    --body '{"PasswordMD5Sum": "SkSMZNtq", "acceptedPolicies": [{"isAccepted": false, "localizedPolicyVersionId": "SH5C2H6L", "policyId": "HkjANL2c", "policyVersionId": "eGmRMMUM"}, {"isAccepted": false, "localizedPolicyVersionId": "B8kSIW8O", "policyId": "2gOAEpvf", "policyVersionId": "xUTl3xgB"}, {"isAccepted": true, "localizedPolicyVersionId": "O0X2c2N2", "policyId": "uaNvBSsn", "policyVersionId": "2Ih4jfU8"}], "authType": "IFwtLf7U", "code": "ngYIxx6l", "country": "yLeEzb0K", "dateOfBirth": "VDllUxEL", "displayName": "WBqMFvRH", "emailAddress": "scYnRS7j", "password": "RjsyDbqz", "reachMinimumAge": false}' \
     > test.out 2>&1
 eval_tap $? 235 'PublicCreateUserV3' test.out
 
 #- 236 CheckUserAvailability
 ./ng net.accelbyte.sdk.cli.Main iam checkUserAvailability \
     --namespace "$AB_NAMESPACE" \
-    --field 'ZIWeZMeG' \
-    --query 'sFW6eNrj' \
+    --field 'pUgmwUm8' \
+    --query 'JizwE4n0' \
     > test.out 2>&1
 eval_tap $? 236 'CheckUserAvailability' test.out
 
 #- 237 PublicBulkGetUsers
 ./ng net.accelbyte.sdk.cli.Main iam publicBulkGetUsers \
     --namespace "$AB_NAMESPACE" \
-    --body '{"userIds": ["KRNCeOjC", "pngavfg2", "tyO3OmkH"]}' \
+    --body '{"userIds": ["Hm4xh25q", "iamPSMbe", "rzwsQuEI"]}' \
     > test.out 2>&1
 eval_tap $? 237 'PublicBulkGetUsers' test.out
 
 #- 238 PublicSendRegistrationCode
 ./ng net.accelbyte.sdk.cli.Main iam publicSendRegistrationCode \
     --namespace "$AB_NAMESPACE" \
-    --body '{"emailAddress": "8tOwMOtb", "languageTag": "4hTPVckc"}' \
+    --body '{"emailAddress": "Z95RpAbU", "languageTag": "0LiylZ6p"}' \
     > test.out 2>&1
 eval_tap $? 238 'PublicSendRegistrationCode' test.out
 
 #- 239 PublicVerifyRegistrationCode
 ./ng net.accelbyte.sdk.cli.Main iam publicVerifyRegistrationCode \
     --namespace "$AB_NAMESPACE" \
-    --body '{"code": "bkTxYQSd", "emailAddress": "KRPfUcJk"}' \
+    --body '{"code": "UnV6glLG", "emailAddress": "j3UdtXOJ"}' \
     > test.out 2>&1
 eval_tap $? 239 'PublicVerifyRegistrationCode' test.out
 
 #- 240 PublicForgotPasswordV3
 ./ng net.accelbyte.sdk.cli.Main iam publicForgotPasswordV3 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"emailAddress": "BlOCF95c", "languageTag": "2HX8gkpe"}' \
+    --body '{"emailAddress": "f1RMUBzL", "languageTag": "gLMNvD9A"}' \
     > test.out 2>&1
 eval_tap $? 240 'PublicForgotPasswordV3' test.out
 
 #- 241 GetAdminInvitationV3
 ./ng net.accelbyte.sdk.cli.Main iam getAdminInvitationV3 \
-    --invitationId 'C3NcqAAW' \
+    --invitationId 'hDvDjeg3' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 241 'GetAdminInvitationV3' test.out
 
 #- 242 CreateUserFromInvitationV3
 ./ng net.accelbyte.sdk.cli.Main iam createUserFromInvitationV3 \
-    --invitationId 'iJSlRNfI' \
+    --invitationId 'EtlsusCo' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"acceptedPolicies": [{"isAccepted": false, "localizedPolicyVersionId": "5Dqz1HrH", "policyId": "v4JvVZoq", "policyVersionId": "gK3h4YQq"}, {"isAccepted": false, "localizedPolicyVersionId": "gwYcxTMJ", "policyId": "J6Lwey4L", "policyVersionId": "VBRt3Dew"}, {"isAccepted": true, "localizedPolicyVersionId": "JzV9spLY", "policyId": "4vnG9pCW", "policyVersionId": "SaesTpzq"}], "authType": "EMAILPASSWD", "country": "lPHq86ox", "dateOfBirth": "by8K8rrO", "displayName": "YHHsgslv", "password": "BBcTI7av", "reachMinimumAge": false}' \
+    --body '{"acceptedPolicies": [{"isAccepted": false, "localizedPolicyVersionId": "9eNNe8f2", "policyId": "QdWsA40S", "policyVersionId": "DatIgJ47"}, {"isAccepted": false, "localizedPolicyVersionId": "UscblbhY", "policyId": "aaiehiLK", "policyVersionId": "XPNcL8uL"}, {"isAccepted": true, "localizedPolicyVersionId": "DhCbnK3f", "policyId": "irAc45tM", "policyVersionId": "hlajvJjE"}], "authType": "EMAILPASSWD", "country": "nkcfik8w", "dateOfBirth": "Ppdt6EHK", "displayName": "vmFsUgSR", "password": "xK0xqyng", "reachMinimumAge": true}' \
     > test.out 2>&1
 eval_tap $? 242 'CreateUserFromInvitationV3' test.out
 
 #- 243 UpdateUserV3
 ./ng net.accelbyte.sdk.cli.Main iam updateUserV3 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"avatarUrl": "M2mruIMN", "country": "6geX4W8X", "dateOfBirth": "yG9X37Y8", "displayName": "Vx4miNNL", "languageTag": "NKNgLcaC", "userName": "RZVoZTjp"}' \
+    --body '{"avatarUrl": "OEfOwAq2", "country": "Sc6BgmNU", "dateOfBirth": "fy1ZUMOb", "displayName": "jx9EbPo5", "languageTag": "LJIYk3Jb", "userName": "ZFORbxBj"}' \
     > test.out 2>&1
 eval_tap $? 243 'UpdateUserV3' test.out
 
 #- 244 PublicPartialUpdateUserV3
 ./ng net.accelbyte.sdk.cli.Main iam publicPartialUpdateUserV3 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"avatarUrl": "K6jvFEbn", "country": "kOjdv3Vn", "dateOfBirth": "IcTuqy21", "displayName": "Lu2TI6lj", "languageTag": "VKTnjBhx", "userName": "7JePIFD3"}' \
+    --body '{"avatarUrl": "eD9F718h", "country": "oUf0RoI0", "dateOfBirth": "iUHd2LP9", "displayName": "BvJFCJBw", "languageTag": "EOhXMMio", "userName": "44edVEBg"}' \
     > test.out 2>&1
 eval_tap $? 244 'PublicPartialUpdateUserV3' test.out
 
 #- 245 PublicSendVerificationCodeV3
 ./ng net.accelbyte.sdk.cli.Main iam publicSendVerificationCodeV3 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"context": "yrL7rfHC", "emailAddress": "0mWTUT6X", "languageTag": "SVjjzjQ5"}' \
+    --body '{"context": "c737BeOu", "emailAddress": "5pONSWWQ", "languageTag": "YModfOpt"}' \
     > test.out 2>&1
 eval_tap $? 245 'PublicSendVerificationCodeV3' test.out
 
 #- 246 PublicUserVerificationV3
 ./ng net.accelbyte.sdk.cli.Main iam publicUserVerificationV3 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"code": "x9oxsPeg", "contactType": "zlskxqWP", "languageTag": "J1SwHll2", "validateOnly": false}' \
+    --body '{"code": "9B74Ra7L", "contactType": "4fWls4KD", "languageTag": "OkG8j80e", "validateOnly": true}' \
     > test.out 2>&1
 eval_tap $? 246 'PublicUserVerificationV3' test.out
 
 #- 247 PublicUpgradeHeadlessAccountV3
 ./ng net.accelbyte.sdk.cli.Main iam publicUpgradeHeadlessAccountV3 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"code": "UjPwMkKN", "country": "xXvqKKUj", "dateOfBirth": "D7JDiuis", "displayName": "v7O5QeKe", "emailAddress": "c4bsuKoD", "password": "cFc25314", "validateOnly": false}' \
+    --body '{"code": "mOyzScud", "country": "jGrm3PiG", "dateOfBirth": "ZVTcC0L1", "displayName": "zttxnl3z", "emailAddress": "Znji9chF", "password": "TDVKJxqc", "validateOnly": false}' \
     > test.out 2>&1
 eval_tap $? 247 'PublicUpgradeHeadlessAccountV3' test.out
 
 #- 248 PublicVerifyHeadlessAccountV3
 ./ng net.accelbyte.sdk.cli.Main iam publicVerifyHeadlessAccountV3 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"emailAddress": "XYUFWEpg", "password": "47SYL8uu"}' \
+    --body '{"emailAddress": "5aVOFIIe", "password": "tcLUvjXy"}' \
     > test.out 2>&1
 eval_tap $? 248 'PublicVerifyHeadlessAccountV3' test.out
 
 #- 249 PublicUpdatePasswordV3
 ./ng net.accelbyte.sdk.cli.Main iam publicUpdatePasswordV3 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"languageTag": "FXrfmeda", "newPassword": "SA16djrT", "oldPassword": "tDiSuUsr"}' \
+    --body '{"languageTag": "xHXX1AS9", "newPassword": "OsYqg33B", "oldPassword": "vzkqNZVK"}' \
     > test.out 2>&1
 eval_tap $? 249 'PublicUpdatePasswordV3' test.out
 
 #- 250 PublicCreateJusticeUser
 ./ng net.accelbyte.sdk.cli.Main iam publicCreateJusticeUser \
     --namespace "$AB_NAMESPACE" \
-    --targetNamespace 'UkUv2MFT' \
+    --targetNamespace 'mV79XPGd' \
     > test.out 2>&1
 eval_tap $? 250 'PublicCreateJusticeUser' test.out
 
 #- 251 PublicPlatformLinkV3
 ./ng net.accelbyte.sdk.cli.Main iam publicPlatformLinkV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'NkO8aivo' \
-    --redirectUri 'HMFn6I6i' \
-    --ticket '6ReRClKO' \
+    --platformId 'RHFANU6V' \
+    --redirectUri 'gfMbwsPy' \
+    --ticket '0UWXfWZT' \
     > test.out 2>&1
 eval_tap $? 251 'PublicPlatformLinkV3' test.out
 
 #- 252 PublicPlatformUnlinkV3
 ./ng net.accelbyte.sdk.cli.Main iam publicPlatformUnlinkV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'bPRTjf3b' \
-    --body '{"platformNamespace": "j6EtY8zR"}' \
+    --platformId 'QaDHJRME' \
+    --body '{"platformNamespace": "KXvLlHOM"}' \
     > test.out 2>&1
 eval_tap $? 252 'PublicPlatformUnlinkV3' test.out
 
 #- 253 PublicPlatformUnlinkAllV3
 ./ng net.accelbyte.sdk.cli.Main iam publicPlatformUnlinkAllV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'D2xtZJ0A' \
+    --platformId 'rKQ8niVt' \
     > test.out 2>&1
 eval_tap $? 253 'PublicPlatformUnlinkAllV3' test.out
 
 #- 254 PublicForcePlatformLinkV3
 ./ng net.accelbyte.sdk.cli.Main iam publicForcePlatformLinkV3 \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'WIrr5SFu' \
-    --ticket 'SdbSauXd' \
+    --platformId 'vgPjMLm4' \
+    --ticket 'SUdqNmfM' \
     > test.out 2>&1
 eval_tap $? 254 'PublicForcePlatformLinkV3' test.out
 
 #- 255 PublicWebLinkPlatform
 ./ng net.accelbyte.sdk.cli.Main iam publicWebLinkPlatform \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'AwqXnykP' \
-    --clientId 'xaN6EsOr' \
-    --redirectUri 'sUTfkUKN' \
+    --platformId 'ZRCn1J76' \
+    --clientId 'CFM0jQil' \
+    --redirectUri '9AzboCjm' \
     > test.out 2>&1
 eval_tap $? 255 'PublicWebLinkPlatform' test.out
 
 #- 256 PublicWebLinkPlatformEstablish
 ./ng net.accelbyte.sdk.cli.Main iam publicWebLinkPlatformEstablish \
     --namespace "$AB_NAMESPACE" \
-    --platformId 'NmUGu0qi' \
-    --state 'cpFlomBt' \
+    --platformId 'dXBVvbLJ' \
+    --state 'FX5Ay9LU' \
     > test.out 2>&1
 eval_tap $? 256 'PublicWebLinkPlatformEstablish' test.out
 
 #- 257 ResetPasswordV3
 ./ng net.accelbyte.sdk.cli.Main iam resetPasswordV3 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"code": "6iTTPqrz", "emailAddress": "TBjDGV6Y", "newPassword": "gKXkayDf"}' \
+    --body '{"code": "iyCH1394", "emailAddress": "rRcPz81k", "newPassword": "EQvBD9hi"}' \
     > test.out 2>&1
 eval_tap $? 257 'ResetPasswordV3' test.out
 
 #- 258 PublicGetUserByUserIdV3
 ./ng net.accelbyte.sdk.cli.Main iam publicGetUserByUserIdV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'BJcn98GC' \
+    --userId 'VWPkrXqb' \
     > test.out 2>&1
 eval_tap $? 258 'PublicGetUserByUserIdV3' test.out
 
 #- 259 PublicGetUserBanHistoryV3
 ./ng net.accelbyte.sdk.cli.Main iam publicGetUserBanHistoryV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId '3EFIxCUl' \
+    --userId 'TlDxAAxm' \
     --activeOnly  \
-    --after 'BqFdlbRD' \
-    --before 'LRTiMB5p' \
-    --limit '3' \
+    --after 'rf6gfHsO' \
+    --before 'Gxez2u2e' \
+    --limit '30' \
     > test.out 2>&1
 eval_tap $? 259 'PublicGetUserBanHistoryV3' test.out
 
 #- 260 PublicListUserAllPlatformAccountsDistinctV3
 ./ng net.accelbyte.sdk.cli.Main iam publicListUserAllPlatformAccountsDistinctV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'nNWqt5y6' \
+    --userId 'dCd4nETX' \
     > test.out 2>&1
 eval_tap $? 260 'PublicListUserAllPlatformAccountsDistinctV3' test.out
 
 #- 261 PublicGetUserInformationV3
 ./ng net.accelbyte.sdk.cli.Main iam publicGetUserInformationV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'I8X0u0Oz' \
+    --userId 'XvJQLzH3' \
     > test.out 2>&1
 eval_tap $? 261 'PublicGetUserInformationV3' test.out
 
 #- 262 PublicGetUserLoginHistoriesV3
 ./ng net.accelbyte.sdk.cli.Main iam publicGetUserLoginHistoriesV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'IMA7icNk' \
-    --after '0.3280106025519717' \
-    --before '0.05783841503288223' \
-    --limit '82' \
+    --userId 'Xnk2Mdk2' \
+    --after '0.6931172617362332' \
+    --before '0.9862122195018063' \
+    --limit '84' \
     > test.out 2>&1
 eval_tap $? 262 'PublicGetUserLoginHistoriesV3' test.out
 
 #- 263 PublicGetUserPlatformAccountsV3
 ./ng net.accelbyte.sdk.cli.Main iam publicGetUserPlatformAccountsV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'PA6c0Wuo' \
-    --after 'Nl9M6eb2' \
-    --before 'mBb2s6Zc' \
-    --limit '71' \
+    --userId '9qwgeXmf' \
+    --after 'bftrt9hI' \
+    --before 'F9zAoVwV' \
+    --limit '63' \
     > test.out 2>&1
 eval_tap $? 263 'PublicGetUserPlatformAccountsV3' test.out
 
 #- 264 PublicListJusticePlatformAccountsV3
 ./ng net.accelbyte.sdk.cli.Main iam publicListJusticePlatformAccountsV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'VKU3LaLS' \
+    --userId 'qpqpmYmr' \
     > test.out 2>&1
 eval_tap $? 264 'PublicListJusticePlatformAccountsV3' test.out
 
 #- 265 PublicLinkPlatformAccount
 ./ng net.accelbyte.sdk.cli.Main iam publicLinkPlatformAccount \
     --namespace "$AB_NAMESPACE" \
-    --userId 'd9aEZm1V' \
-    --body '{"platformId": "4fs1ecRb", "platformUserId": "euFYqZRb"}' \
+    --userId '9J2a3alD' \
+    --body '{"platformId": "fnPftvyY", "platformUserId": "fsMHjr8t"}' \
     > test.out 2>&1
 eval_tap $? 265 'PublicLinkPlatformAccount' test.out
 
 #- 266 PublicForceLinkPlatformWithProgression
 ./ng net.accelbyte.sdk.cli.Main iam publicForceLinkPlatformWithProgression \
     --namespace "$AB_NAMESPACE" \
-    --userId 'LQn1c1Md' \
-    --body '{"chosenNamespaces": ["yfAsUCFM", "WLH9F7eb", "KqLCZJsS"], "requestId": "PusO6L4x"}' \
+    --userId 'TvdwTRO7' \
+    --body '{"chosenNamespaces": ["oVfiLfxW", "WftzkIEv", "6aBt7hLi"], "requestId": "zn4nuxVz"}' \
     > test.out 2>&1
 eval_tap $? 266 'PublicForceLinkPlatformWithProgression' test.out
 
 #- 267 PublicGetPublisherUserV3
 ./ng net.accelbyte.sdk.cli.Main iam publicGetPublisherUserV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'hmT10oTu' \
+    --userId 'GnewzIqj' \
     > test.out 2>&1
 eval_tap $? 267 'PublicGetPublisherUserV3' test.out
 
 #- 268 PublicValidateUserByUserIDAndPasswordV3
 ./ng net.accelbyte.sdk.cli.Main iam publicValidateUserByUserIDAndPasswordV3 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'Mz1svf5M' \
-    --password 'SObNe5Uq' \
+    --userId 'S44naHhb' \
+    --password 'RsMe9ot1' \
     > test.out 2>&1
 eval_tap $? 268 'PublicValidateUserByUserIDAndPasswordV3' test.out
 
 #- 269 PublicGetRolesV3
 ./ng net.accelbyte.sdk.cli.Main iam publicGetRolesV3 \
-    --after '3AmbO7BH' \
-    --before 'OAG8r4IQ' \
+    --after 'Uj25Pl66' \
+    --before 'vroVjqfk' \
     --isWildcard  \
-    --limit '13' \
+    --limit '93' \
     > test.out 2>&1
 eval_tap $? 269 'PublicGetRolesV3' test.out
 
 #- 270 PublicGetRoleV3
 ./ng net.accelbyte.sdk.cli.Main iam publicGetRoleV3 \
-    --roleId 'vZm3n8jQ' \
+    --roleId 'AKDqRj2i' \
     > test.out 2>&1
 eval_tap $? 270 'PublicGetRoleV3' test.out
 
@@ -1649,98 +1649,98 @@ eval_tap $? 271 'PublicGetMyUserV3' test.out
 
 #- 272 PublicGetLinkHeadlessAccountToMyAccountConflictV3
 ./ng net.accelbyte.sdk.cli.Main iam publicGetLinkHeadlessAccountToMyAccountConflictV3 \
-    --oneTimeLinkCode 'wXCqvEXc' \
+    --oneTimeLinkCode 'nwrV5bJM' \
     > test.out 2>&1
 eval_tap $? 272 'PublicGetLinkHeadlessAccountToMyAccountConflictV3' test.out
 
 #- 273 LinkHeadlessAccountToMyAccountV3
 ./ng net.accelbyte.sdk.cli.Main iam linkHeadlessAccountToMyAccountV3 \
-    --body '{"chosenNamespaces": ["uOz1sz25", "1AgbR3wL", "Y1hHTMQi"], "oneTimeLinkCode": "PvCZKVlm"}' \
+    --body '{"chosenNamespaces": ["lweoEGPq", "CutLixdP", "V47XqfTm"], "oneTimeLinkCode": "Sfmusx8O"}' \
     > test.out 2>&1
 eval_tap $? 273 'LinkHeadlessAccountToMyAccountV3' test.out
 
 #- 274 PublicSendVerificationLinkV3
 ./ng net.accelbyte.sdk.cli.Main iam publicSendVerificationLinkV3 \
-    --body '{"languageTag": "u3fKlSsh"}' \
+    --body '{"languageTag": "2yUA9LEB"}' \
     > test.out 2>&1
 eval_tap $? 274 'PublicSendVerificationLinkV3' test.out
 
 #- 275 PublicVerifyUserByLinkV3
 ./ng net.accelbyte.sdk.cli.Main iam publicVerifyUserByLinkV3 \
-    --code 'Pv3ZdNm2' \
+    --code 'AGbiCRkP' \
     > test.out 2>&1
 eval_tap $? 275 'PublicVerifyUserByLinkV3' test.out
 
 #- 276 PlatformAuthenticateSAMLV3Handler
 ./ng net.accelbyte.sdk.cli.Main iam platformAuthenticateSAMLV3Handler \
-    --platformId 'sTq118Bp' \
-    --code 'KUOjqDWl' \
-    --error 'wJzbSt9O' \
-    --state 'DqHnSSJx' \
+    --platformId 'TDr0xt56' \
+    --code 'w9N0RSfs' \
+    --error 'dqWzqJHd' \
+    --state '4AJj4PjY' \
     > test.out 2>&1
 eval_tap $? 276 'PlatformAuthenticateSAMLV3Handler' test.out
 
 #- 277 LoginSSOClient
 ./ng net.accelbyte.sdk.cli.Main iam loginSSOClient \
-    --platformId 'FSkfC2kC' \
-    --payload 'TE4yuV8I' \
+    --platformId 'Qdjr6Adz' \
+    --payload 'NuJ3YUk6' \
     > test.out 2>&1
 eval_tap $? 277 'LoginSSOClient' test.out
 
 #- 278 LogoutSSOClient
 ./ng net.accelbyte.sdk.cli.Main iam logoutSSOClient \
-    --platformId 'DcT4vWEx' \
+    --platformId 'hUEnEPi4' \
     > test.out 2>&1
 eval_tap $? 278 'LogoutSSOClient' test.out
 
 #- 279 RequestGameTokenResponseV3
 ./ng net.accelbyte.sdk.cli.Main iam requestGameTokenResponseV3 \
-    --code 'TwzjFtVl' \
+    --code 'Sp3MI8W3' \
     > test.out 2>&1
 eval_tap $? 279 'RequestGameTokenResponseV3' test.out
 
 #- 280 AdminGetDevicesByUserV4
 ./ng net.accelbyte.sdk.cli.Main iam adminGetDevicesByUserV4 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'MxOYgTpH' \
+    --userId 'Ev74V9pB' \
     > test.out 2>&1
 eval_tap $? 280 'AdminGetDevicesByUserV4' test.out
 
 #- 281 AdminGetBannedDevicesV4
 ./ng net.accelbyte.sdk.cli.Main iam adminGetBannedDevicesV4 \
     --namespace "$AB_NAMESPACE" \
-    --deviceType 'ywvlSsH6' \
-    --endDate 'Ah7UspeI' \
-    --limit '41' \
-    --offset '78' \
-    --startDate 'jTHqJSvp' \
+    --deviceType 'K6V8RI8M' \
+    --endDate '6D9uINyY' \
+    --limit '100' \
+    --offset '25' \
+    --startDate 'Q35wO8JG' \
     > test.out 2>&1
 eval_tap $? 281 'AdminGetBannedDevicesV4' test.out
 
 #- 282 AdminGetUserDeviceBansV4
 ./ng net.accelbyte.sdk.cli.Main iam adminGetUserDeviceBansV4 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'tYmrZGx2' \
+    --userId 'K7KU6uHu' \
     > test.out 2>&1
 eval_tap $? 282 'AdminGetUserDeviceBansV4' test.out
 
 #- 283 AdminBanDeviceV4
 ./ng net.accelbyte.sdk.cli.Main iam adminBanDeviceV4 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"comment": "5kuQ8YtU", "deviceId": "noAgFeTE", "deviceType": "SDdCCg84", "enabled": true, "endDate": "i3zDtz5F", "ext": {"Fgl3sbpC": {}, "qKNq8TDe": {}, "trgHrpzW": {}}, "reason": "8gzn7OXa"}' \
+    --body '{"comment": "51Z8Sh5E", "deviceId": "NzZn5HYB", "deviceType": "TCX5teYK", "enabled": false, "endDate": "C6HhH2PI", "ext": {"hkcRqCWf": {}, "3R4rpsWd": {}, "P4Lbt8hl": {}}, "reason": "7ygSmpGI"}' \
     > test.out 2>&1
 eval_tap $? 283 'AdminBanDeviceV4' test.out
 
 #- 284 AdminGetDeviceBanV4
 ./ng net.accelbyte.sdk.cli.Main iam adminGetDeviceBanV4 \
-    --banId 'H6UuKmsO' \
+    --banId 'bmRFy9yx' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 284 'AdminGetDeviceBanV4' test.out
 
 #- 285 AdminUpdateDeviceBanV4
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateDeviceBanV4 \
-    --banId 'dKXMW5VX' \
+    --banId 'g8P4FDoV' \
     --namespace "$AB_NAMESPACE" \
     --body '{"enabled": true}' \
     > test.out 2>&1
@@ -1749,9 +1749,9 @@ eval_tap $? 285 'AdminUpdateDeviceBanV4' test.out
 #- 286 AdminGenerateReportV4
 ./ng net.accelbyte.sdk.cli.Main iam adminGenerateReportV4 \
     --namespace "$AB_NAMESPACE" \
-    --endDate 'q3Y2V82I' \
-    --startDate 'vvGLtiqr' \
-    --deviceType 'QGJcxMw2' \
+    --endDate 'Fm5c9XC8' \
+    --startDate 'TF0mPEu8' \
+    --deviceType 'nabOh3y6' \
     > test.out 2>&1
 eval_tap $? 286 'AdminGenerateReportV4' test.out
 
@@ -1763,28 +1763,28 @@ eval_tap $? 287 'AdminGetDeviceTypesV4' test.out
 
 #- 288 AdminGetDeviceBansV4
 ./ng net.accelbyte.sdk.cli.Main iam adminGetDeviceBansV4 \
-    --deviceId '6Sn5WNr0' \
+    --deviceId 'siUXotxG' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 288 'AdminGetDeviceBansV4' test.out
 
 #- 289 AdminDecryptDeviceV4
 ./ng net.accelbyte.sdk.cli.Main iam adminDecryptDeviceV4 \
-    --deviceId 'pyWl0rhi' \
+    --deviceId '3kNXaQRz' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 289 'AdminDecryptDeviceV4' test.out
 
 #- 290 AdminUnbanDeviceV4
 ./ng net.accelbyte.sdk.cli.Main iam adminUnbanDeviceV4 \
-    --deviceId 'A3AfADUy' \
+    --deviceId 'h1u1u5NT' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 290 'AdminUnbanDeviceV4' test.out
 
 #- 291 AdminGetUsersByDeviceV4
 ./ng net.accelbyte.sdk.cli.Main iam adminGetUsersByDeviceV4 \
-    --deviceId 'NgoW8stc' \
+    --deviceId 'uC05eSMR' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 291 'AdminGetUsersByDeviceV4' test.out
@@ -1792,68 +1792,68 @@ eval_tap $? 291 'AdminGetUsersByDeviceV4' test.out
 #- 292 AdminCreateTestUsersV4
 ./ng net.accelbyte.sdk.cli.Main iam adminCreateTestUsersV4 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"count": 83}' \
+    --body '{"count": 73}' \
     > test.out 2>&1
 eval_tap $? 292 'AdminCreateTestUsersV4' test.out
 
 #- 293 AdminBulkCheckValidUserIDV4
 ./ng net.accelbyte.sdk.cli.Main iam adminBulkCheckValidUserIDV4 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"userIds": ["d0CrZZHG", "2XAEInJs", "5rv4GUF4"]}' \
+    --body '{"userIds": ["NlEeFwCy", "ovfD9nkP", "YJ1UZle5"]}' \
     > test.out 2>&1
 eval_tap $? 293 'AdminBulkCheckValidUserIDV4' test.out
 
 #- 294 AdminUpdateUserV4
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateUserV4 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'TTW3BxVF' \
-    --body '{"avatarUrl": "l63FQwsR", "country": "we0B0ZW6", "dateOfBirth": "2r1dY4XO", "displayName": "mYOW7z2G", "languageTag": "vykQmWKo", "userName": "pegXlu1t"}' \
+    --userId 'YzEmwAe6' \
+    --body '{"avatarUrl": "ibjo1fYm", "country": "n2PKOvHj", "dateOfBirth": "7i9OILKJ", "displayName": "An3vVKBl", "languageTag": "8ERjVBZj", "userName": "xxFQRm1v"}' \
     > test.out 2>&1
 eval_tap $? 294 'AdminUpdateUserV4' test.out
 
 #- 295 AdminUpdateUserEmailAddressV4
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateUserEmailAddressV4 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'lSt6jUiY' \
-    --body '{"code": "DkTG8f9x", "emailAddress": "jT8x9U6j"}' \
+    --userId 'nDCNsUfk' \
+    --body '{"code": "kL1P8IQA", "emailAddress": "cyHcKTUe"}' \
     > test.out 2>&1
 eval_tap $? 295 'AdminUpdateUserEmailAddressV4' test.out
 
 #- 296 AdminDisableUserMFAV4
 ./ng net.accelbyte.sdk.cli.Main iam adminDisableUserMFAV4 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'w5YaP4o4' \
+    --userId 'BDReA3ZN' \
     > test.out 2>&1
 eval_tap $? 296 'AdminDisableUserMFAV4' test.out
 
 #- 297 AdminListUserRolesV4
 ./ng net.accelbyte.sdk.cli.Main iam adminListUserRolesV4 \
     --namespace "$AB_NAMESPACE" \
-    --userId '8f93Xhmp' \
+    --userId 'usMTI3QS' \
     > test.out 2>&1
 eval_tap $? 297 'AdminListUserRolesV4' test.out
 
 #- 298 AdminUpdateUserRoleV4
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateUserRoleV4 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'fjZ8rXHd' \
-    --body '{"assignedNamespaces": ["fv9ymxRu", "IyIzpPAw", "fFuvfieU"], "roleId": "P8CMCKse"}' \
+    --userId '9fIbuBnw' \
+    --body '{"assignedNamespaces": ["DK2ZRLU3", "qL9dcTsX", "TJXky372"], "roleId": "vvhZcpRr"}' \
     > test.out 2>&1
 eval_tap $? 298 'AdminUpdateUserRoleV4' test.out
 
 #- 299 AdminAddUserRoleV4
 ./ng net.accelbyte.sdk.cli.Main iam adminAddUserRoleV4 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'Cu1i5z5y' \
-    --body '{"assignedNamespaces": ["2uq8REda", "Dipjrkog", "IudtXZDx"], "roleId": "9BxSf8Qu"}' \
+    --userId '5uyNnJJ5' \
+    --body '{"assignedNamespaces": ["NnO2c6pC", "Iedv7Ard", "KawqqxuC"], "roleId": "DAn0mX4S"}' \
     > test.out 2>&1
 eval_tap $? 299 'AdminAddUserRoleV4' test.out
 
 #- 300 AdminRemoveUserRoleV4
 ./ng net.accelbyte.sdk.cli.Main iam adminRemoveUserRoleV4 \
     --namespace "$AB_NAMESPACE" \
-    --userId 'VhTa4oi2' \
-    --body '{"assignedNamespaces": ["AJA2LH12", "090pb3LA", "QtQdBr94"], "roleId": "OncxNHms"}' \
+    --userId 'eFlF3Qgq' \
+    --body '{"assignedNamespaces": ["RDB1PkLN", "XI5q80VY", "f1BvYoEN"], "roleId": "qmWPig1a"}' \
     > test.out 2>&1
 eval_tap $? 300 'AdminRemoveUserRoleV4' test.out
 
@@ -1861,83 +1861,83 @@ eval_tap $? 300 'AdminRemoveUserRoleV4' test.out
 ./ng net.accelbyte.sdk.cli.Main iam adminGetRolesV4 \
     --adminRole  \
     --isWildcard  \
-    --limit '11' \
-    --offset '89' \
+    --limit '32' \
+    --offset '9' \
     > test.out 2>&1
 eval_tap $? 301 'AdminGetRolesV4' test.out
 
 #- 302 AdminCreateRoleV4
 ./ng net.accelbyte.sdk.cli.Main iam adminCreateRoleV4 \
-    --body '{"adminRole": true, "deletable": false, "isWildcard": false, "roleName": "jdCagF7v"}' \
+    --body '{"adminRole": true, "deletable": false, "isWildcard": true, "roleName": "cL8R5Xag"}' \
     > test.out 2>&1
 eval_tap $? 302 'AdminCreateRoleV4' test.out
 
 #- 303 AdminGetRoleV4
 ./ng net.accelbyte.sdk.cli.Main iam adminGetRoleV4 \
-    --roleId 'kbNMEX9v' \
+    --roleId 'MyMRn3rK' \
     > test.out 2>&1
 eval_tap $? 303 'AdminGetRoleV4' test.out
 
 #- 304 AdminDeleteRoleV4
 ./ng net.accelbyte.sdk.cli.Main iam adminDeleteRoleV4 \
-    --roleId 'YuJdMMBJ' \
+    --roleId '86YNUD8A' \
     > test.out 2>&1
 eval_tap $? 304 'AdminDeleteRoleV4' test.out
 
 #- 305 AdminUpdateRoleV4
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateRoleV4 \
-    --roleId 'Vug2DPr1' \
-    --body '{"adminRole": true, "deletable": true, "isWildcard": false, "roleName": "qxRaRZeN"}' \
+    --roleId 'sqRzrgHX' \
+    --body '{"adminRole": true, "deletable": true, "isWildcard": false, "roleName": "7HA2DE2I"}' \
     > test.out 2>&1
 eval_tap $? 305 'AdminUpdateRoleV4' test.out
 
 #- 306 AdminUpdateRolePermissionsV4
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateRolePermissionsV4 \
-    --roleId 'd1y7JMcv' \
-    --body '{"permissions": [{"action": 43, "resource": "Ynr4YDv4", "schedAction": 83, "schedCron": "XsPKC2BQ", "schedRange": ["RUdbXxvG", "nJd7EnGR", "GatIdAqw"]}, {"action": 72, "resource": "42B9DB61", "schedAction": 3, "schedCron": "cBEfihWb", "schedRange": ["hvBXPzqj", "QhViVMpk", "93PD75fh"]}, {"action": 13, "resource": "Zeh6fODd", "schedAction": 40, "schedCron": "T51wotxN", "schedRange": ["L7eLK5LA", "LIUXLa0H", "7AWXWw1C"]}]}' \
+    --roleId 'JsNwH1r1' \
+    --body '{"permissions": [{"action": 89, "resource": "SelYw4Yr", "schedAction": 7, "schedCron": "3zQUKgOI", "schedRange": ["mNmsL44f", "05hck0Mb", "LtK9O0ug"]}, {"action": 32, "resource": "vRANudU6", "schedAction": 86, "schedCron": "khlNz76T", "schedRange": ["2xuzWmyx", "i60Xfucm", "VNSZXSYa"]}, {"action": 71, "resource": "0CTrWkrx", "schedAction": 7, "schedCron": "HNCPkpWQ", "schedRange": ["FC1bfqph", "YsOJMxZ7", "ykTErVHl"]}]}' \
     > test.out 2>&1
 eval_tap $? 306 'AdminUpdateRolePermissionsV4' test.out
 
 #- 307 AdminAddRolePermissionsV4
 ./ng net.accelbyte.sdk.cli.Main iam adminAddRolePermissionsV4 \
-    --roleId '6UfnzmkF' \
-    --body '{"permissions": [{"action": 64, "resource": "vBOKEtHS", "schedAction": 84, "schedCron": "thkr1QPB", "schedRange": ["pNgiW3Qy", "6ATbeHTy", "75Zogm2z"]}, {"action": 63, "resource": "GhP3z65m", "schedAction": 3, "schedCron": "iHRBaAkt", "schedRange": ["ynjhjdyK", "mZh5FBtx", "cFs7VBPT"]}, {"action": 18, "resource": "So45WUBm", "schedAction": 7, "schedCron": "fS4FDUz2", "schedRange": ["qNSOcYnj", "v8qdsGRu", "IYdnUSh2"]}]}' \
+    --roleId 'tXHAVkJq' \
+    --body '{"permissions": [{"action": 92, "resource": "8MXQky0J", "schedAction": 22, "schedCron": "xyxp5j7A", "schedRange": ["NxQAOd6A", "kboh1j1X", "ZN0ApvKD"]}, {"action": 37, "resource": "fZvRazk1", "schedAction": 28, "schedCron": "Ws6yImm5", "schedRange": ["1Y8ol4D0", "b0v1at2Z", "0PrWD4zu"]}, {"action": 14, "resource": "QXzvg17v", "schedAction": 54, "schedCron": "3DKrV8Ss", "schedRange": ["jpvJwroP", "f5m4O51S", "QRf2iCLX"]}]}' \
     > test.out 2>&1
 eval_tap $? 307 'AdminAddRolePermissionsV4' test.out
 
 #- 308 AdminDeleteRolePermissionsV4
 ./ng net.accelbyte.sdk.cli.Main iam adminDeleteRolePermissionsV4 \
-    --roleId '1HM429BL' \
-    --body '["eDFbH7aP", "0gcI1HGS", "sjF7TEKK"]' \
+    --roleId 'EMHOACwG' \
+    --body '["k8SMKnCj", "tUl5Du6J", "B8wI7SuM"]' \
     > test.out 2>&1
 eval_tap $? 308 'AdminDeleteRolePermissionsV4' test.out
 
 #- 309 AdminListAssignedUsersV4
 ./ng net.accelbyte.sdk.cli.Main iam adminListAssignedUsersV4 \
-    --roleId 'gezIIFYw' \
-    --after 'YZw0hQci' \
-    --before 'oyzswrT1' \
-    --limit '33' \
+    --roleId 'fFvthsgJ' \
+    --after 'zURvE6Hm' \
+    --before '4Drrmz8o' \
+    --limit '42' \
     > test.out 2>&1
 eval_tap $? 309 'AdminListAssignedUsersV4' test.out
 
 #- 310 AdminAssignUserToRoleV4
 ./ng net.accelbyte.sdk.cli.Main iam adminAssignUserToRoleV4 \
-    --roleId '2fctbuiN' \
-    --body '{"assignedNamespaces": ["fBf8A0jX", "1ZepQKVa", "exTEO4rb"], "namespace": "GyJDlbqI", "userId": "fgdrHugU"}' \
+    --roleId 'm21mlsru' \
+    --body '{"assignedNamespaces": ["CgKF2Od1", "PTYl92M8", "AAfdCOh3"], "namespace": "69NB7gAM", "userId": "5ThIyR8O"}' \
     > test.out 2>&1
 eval_tap $? 310 'AdminAssignUserToRoleV4' test.out
 
 #- 311 AdminRevokeUserFromRoleV4
 ./ng net.accelbyte.sdk.cli.Main iam adminRevokeUserFromRoleV4 \
-    --roleId 'JCcIODf9' \
-    --body '{"namespace": "HvDQCFC0", "userId": "bG8KIjl6"}' \
+    --roleId 'dS95PfxZ' \
+    --body '{"namespace": "TOB5yVVy", "userId": "ty9jkY1u"}' \
     > test.out 2>&1
 eval_tap $? 311 'AdminRevokeUserFromRoleV4' test.out
 
 #- 312 AdminUpdateMyUserV4
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateMyUserV4 \
-    --body '{"avatarUrl": "5TCD7h9w", "country": "UQstL5KM", "dateOfBirth": "3uCbs5Nw", "displayName": "4lqM7HdS", "languageTag": "SF4Cz5pp", "userName": "EfAoOcIC"}' \
+    --body '{"avatarUrl": "nzpdiN6A", "country": "gOcrkZUQ", "dateOfBirth": "cawr7RFO", "displayName": "ZhbxcVfm", "languageTag": "Xd0lwLGW", "userName": "nnHU4ouG"}' \
     > test.out 2>&1
 eval_tap $? 312 'AdminUpdateMyUserV4' test.out
 
@@ -1948,7 +1948,7 @@ eval_tap $? 313 'AdminDisableMyAuthenticatorV4' test.out
 
 #- 314 AdminEnableMyAuthenticatorV4
 ./ng net.accelbyte.sdk.cli.Main iam adminEnableMyAuthenticatorV4 \
-    --code 'zzmjRqyU' \
+    --code 'r1LnPIk1' \
     > test.out 2>&1
 eval_tap $? 314 'AdminEnableMyAuthenticatorV4' test.out
 
@@ -1994,7 +1994,7 @@ eval_tap $? 322 'AdminDisableMyEmailV4' test.out
 
 #- 323 AdminEnableMyEmailV4
 ./ng net.accelbyte.sdk.cli.Main iam adminEnableMyEmailV4 \
-    --code 'jqDlT7e7' \
+    --code 'v0ZlDqYN' \
     > test.out 2>&1
 eval_tap $? 323 'AdminEnableMyEmailV4' test.out
 
@@ -2005,63 +2005,63 @@ eval_tap $? 324 'AdminGetMyEnabledFactorsV4' test.out
 
 #- 325 AdminMakeFactorMyDefaultV4
 ./ng net.accelbyte.sdk.cli.Main iam adminMakeFactorMyDefaultV4 \
-    --factor 'wnMOhNq6' \
+    --factor 'vDXgQahr' \
     > test.out 2>&1
 eval_tap $? 325 'AdminMakeFactorMyDefaultV4' test.out
 
 #- 326 AdminInviteUserV4
 ./ng net.accelbyte.sdk.cli.Main iam adminInviteUserV4 \
-    --body '{"assignedNamespaces": ["79db8TkF", "i3mp0HhP", "7S07epXG"], "emailAddresses": ["wglObWcl", "9PUsmdZR", "iDptxdW8"], "isAdmin": false, "namespace": "eQyFwWen", "roleId": "qfuOhAue"}' \
+    --body '{"assignedNamespaces": ["FLWLyiox", "9K4wFQDc", "mbyBaYOV"], "emailAddresses": ["9AXwl7Wg", "cCzB3iHU", "lKbePVHS"], "isAdmin": false, "namespace": "pT6mQUk9", "roleId": "wYmbRgtA"}' \
     > test.out 2>&1
 eval_tap $? 326 'AdminInviteUserV4' test.out
 
 #- 327 PublicCreateTestUserV4
 ./ng net.accelbyte.sdk.cli.Main iam publicCreateTestUserV4 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"acceptedPolicies": [{"isAccepted": false, "localizedPolicyVersionId": "JPZAcZKo", "policyId": "RyZ6MuCG", "policyVersionId": "vOyR7FsU"}, {"isAccepted": false, "localizedPolicyVersionId": "j1mrFZu8", "policyId": "NAnmNvuO", "policyVersionId": "xtImZUbc"}, {"isAccepted": true, "localizedPolicyVersionId": "xQ03A0ma", "policyId": "VYwybn1A", "policyVersionId": "IvRbaEQA"}], "authType": "EMAILPASSWD", "country": "eGQOn5k6", "dateOfBirth": "RjuMi4DQ", "displayName": "csdr8ftt", "emailAddress": "BSxcLz77", "password": "Cq9Bcs7L", "passwordMD5Sum": "gdt4nMwv", "username": "NK3C6Rgj", "verified": true}' \
+    --body '{"acceptedPolicies": [{"isAccepted": true, "localizedPolicyVersionId": "vbQO4NNf", "policyId": "Lalt55UF", "policyVersionId": "mRd19NR5"}, {"isAccepted": true, "localizedPolicyVersionId": "y9aui2RT", "policyId": "fpVLpTmy", "policyVersionId": "OYkPdXkV"}, {"isAccepted": true, "localizedPolicyVersionId": "OcvMtdlc", "policyId": "iNC5LxfS", "policyVersionId": "7hZxo3lY"}], "authType": "EMAILPASSWD", "country": "AolrxbEJ", "dateOfBirth": "OBmFgRHf", "displayName": "CGiq8UQ9", "emailAddress": "hffU4JY8", "password": "ShVwti7H", "passwordMD5Sum": "MWViN7sZ", "username": "yAJstBp6", "verified": false}' \
     > test.out 2>&1
 eval_tap $? 327 'PublicCreateTestUserV4' test.out
 
 #- 328 PublicCreateUserV4
 ./ng net.accelbyte.sdk.cli.Main iam publicCreateUserV4 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"acceptedPolicies": [{"isAccepted": false, "localizedPolicyVersionId": "ZLuEBkmf", "policyId": "As76Q2Ie", "policyVersionId": "1bfeX3Bu"}, {"isAccepted": true, "localizedPolicyVersionId": "GMIF7Hlg", "policyId": "RrtJWVXn", "policyVersionId": "X4N2Ubmw"}, {"isAccepted": true, "localizedPolicyVersionId": "9m5EuFpb", "policyId": "8MQWUhe4", "policyVersionId": "u1OVNnrG"}], "authType": "EMAILPASSWD", "code": "BKHjwaDM", "country": "AtrwcFfH", "dateOfBirth": "ddEhPvmI", "displayName": "6tHBhMg7", "emailAddress": "bfJidaL2", "password": "ZBKcCPrf", "passwordMD5Sum": "SrCvinjJ", "reachMinimumAge": true, "username": "TClQrRbL"}' \
+    --body '{"acceptedPolicies": [{"isAccepted": false, "localizedPolicyVersionId": "z5vD2bXX", "policyId": "pZexooO1", "policyVersionId": "uinDdY78"}, {"isAccepted": false, "localizedPolicyVersionId": "spI2VYNZ", "policyId": "LaCSyYAd", "policyVersionId": "AJdvUtVO"}, {"isAccepted": false, "localizedPolicyVersionId": "MMZBDA5b", "policyId": "fuFG61fj", "policyVersionId": "NwBnM4jv"}], "authType": "EMAILPASSWD", "code": "JFcx3279", "country": "g839YTcT", "dateOfBirth": "YNFkJ2E7", "displayName": "qa1WRGC5", "emailAddress": "AY1sH87Q", "password": "Patghy88", "passwordMD5Sum": "vs0GbQFt", "reachMinimumAge": true, "username": "X1VsM81i"}' \
     > test.out 2>&1
 eval_tap $? 328 'PublicCreateUserV4' test.out
 
 #- 329 CreateUserFromInvitationV4
 ./ng net.accelbyte.sdk.cli.Main iam createUserFromInvitationV4 \
-    --invitationId 'RSkJ0reR' \
+    --invitationId 'hNObWjK7' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"acceptedPolicies": [{"isAccepted": false, "localizedPolicyVersionId": "JjqkNGe5", "policyId": "YJn1yJOb", "policyVersionId": "YcS2lDZ2"}, {"isAccepted": false, "localizedPolicyVersionId": "SaN6qjes", "policyId": "GpbCcWla", "policyVersionId": "VoTxqENQ"}, {"isAccepted": false, "localizedPolicyVersionId": "RclRx2BE", "policyId": "KD7NjHM7", "policyVersionId": "rG8lmXEW"}], "authType": "EMAILPASSWD", "country": "NDgaQ5ZX", "dateOfBirth": "0knTtGk5", "displayName": "ybsek9Xn", "password": "2q5kDp1g", "reachMinimumAge": true, "username": "LRxAAvEC"}' \
+    --body '{"acceptedPolicies": [{"isAccepted": true, "localizedPolicyVersionId": "X64drUj2", "policyId": "5OrcfLaX", "policyVersionId": "6zKcwFeo"}, {"isAccepted": true, "localizedPolicyVersionId": "jfzhBiPD", "policyId": "YgusrJcv", "policyVersionId": "W8oqhP8M"}, {"isAccepted": true, "localizedPolicyVersionId": "Z8TQJIfH", "policyId": "C6TWELsI", "policyVersionId": "X06OMzvI"}], "authType": "EMAILPASSWD", "country": "i5rS4TIA", "dateOfBirth": "dAeiVFvO", "displayName": "PHNwk2kQ", "password": "WPnBwA7r", "reachMinimumAge": false, "username": "Yoreax6q"}' \
     > test.out 2>&1
 eval_tap $? 329 'CreateUserFromInvitationV4' test.out
 
 #- 330 PublicUpdateUserV4
 ./ng net.accelbyte.sdk.cli.Main iam publicUpdateUserV4 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"avatarUrl": "qOQo09yx", "country": "PtvfeQuy", "dateOfBirth": "hDdb3qZb", "displayName": "hEJJHzjU", "languageTag": "RJlyzdal", "userName": "ZDrXOKO5"}' \
+    --body '{"avatarUrl": "OXFXrEeh", "country": "kkAAdo3i", "dateOfBirth": "5q3Vqfnk", "displayName": "F1SiVPgf", "languageTag": "r3TRFrXc", "userName": "Ml4I2vLI"}' \
     > test.out 2>&1
 eval_tap $? 330 'PublicUpdateUserV4' test.out
 
 #- 331 PublicUpdateUserEmailAddressV4
 ./ng net.accelbyte.sdk.cli.Main iam publicUpdateUserEmailAddressV4 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"code": "G0WeoDMx", "emailAddress": "I591di3w"}' \
+    --body '{"code": "Ti8CjOAO", "emailAddress": "1QPPXxW4"}' \
     > test.out 2>&1
 eval_tap $? 331 'PublicUpdateUserEmailAddressV4' test.out
 
 #- 332 PublicUpgradeHeadlessAccountWithVerificationCodeV4
 ./ng net.accelbyte.sdk.cli.Main iam publicUpgradeHeadlessAccountWithVerificationCodeV4 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"code": "vcWcviKj", "country": "2vOTql6A", "dateOfBirth": "LWNR5I3k", "displayName": "aKDAPyMp", "emailAddress": "4SXWmwwE", "password": "JDf0T4OK", "reachMinimumAge": false, "username": "zmG3mDMe", "validateOnly": true}' \
+    --body '{"code": "EI9IjM9u", "country": "6GaAwXn0", "dateOfBirth": "GmydEmzz", "displayName": "lHQvkdzx", "emailAddress": "hU8TJugz", "password": "97QluPkK", "reachMinimumAge": false, "username": "HMLvMV2h", "validateOnly": true}' \
     > test.out 2>&1
 eval_tap $? 332 'PublicUpgradeHeadlessAccountWithVerificationCodeV4' test.out
 
 #- 333 PublicUpgradeHeadlessAccountV4
 ./ng net.accelbyte.sdk.cli.Main iam publicUpgradeHeadlessAccountV4 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"emailAddress": "OEA52HlR", "password": "I56rsZeS", "username": "Y2gujjsA"}' \
+    --body '{"emailAddress": "UU0DN4UV", "password": "G8Ljkig9", "username": "7gI0TCki"}' \
     > test.out 2>&1
 eval_tap $? 333 'PublicUpgradeHeadlessAccountV4' test.out
 
@@ -2074,7 +2074,7 @@ eval_tap $? 334 'PublicDisableMyAuthenticatorV4' test.out
 #- 335 PublicEnableMyAuthenticatorV4
 ./ng net.accelbyte.sdk.cli.Main iam publicEnableMyAuthenticatorV4 \
     --namespace "$AB_NAMESPACE" \
-    --code '0cH6lA4q' \
+    --code 'p0NrbxM3' \
     > test.out 2>&1
 eval_tap $? 335 'PublicEnableMyAuthenticatorV4' test.out
 
@@ -2117,7 +2117,7 @@ eval_tap $? 341 'PublicEnableMyBackupCodesV4' test.out
 #- 342 PublicRemoveTrustedDeviceV4
 ./ng net.accelbyte.sdk.cli.Main iam publicRemoveTrustedDeviceV4 \
     --namespace "$AB_NAMESPACE" \
-    --deviceToken 'p1kFvLmU' \
+    --deviceToken 'vUufhiPv' \
     > test.out 2>&1
 eval_tap $? 342 'PublicRemoveTrustedDeviceV4' test.out
 
@@ -2136,7 +2136,7 @@ eval_tap $? 344 'PublicDisableMyEmailV4' test.out
 #- 345 PublicEnableMyEmailV4
 ./ng net.accelbyte.sdk.cli.Main iam publicEnableMyEmailV4 \
     --namespace "$AB_NAMESPACE" \
-    --code 'EPbt6LC3' \
+    --code 'PrgsXnKd' \
     > test.out 2>&1
 eval_tap $? 345 'PublicEnableMyEmailV4' test.out
 
@@ -2149,7 +2149,7 @@ eval_tap $? 346 'PublicGetMyEnabledFactorsV4' test.out
 #- 347 PublicMakeFactorMyDefaultV4
 ./ng net.accelbyte.sdk.cli.Main iam publicMakeFactorMyDefaultV4 \
     --namespace "$AB_NAMESPACE" \
-    --factor '3Bs1QVz1' \
+    --factor 'yVcmzhVl' \
     > test.out 2>&1
 eval_tap $? 347 'PublicMakeFactorMyDefaultV4' test.out
 

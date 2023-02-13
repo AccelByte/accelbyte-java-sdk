@@ -75,6 +75,15 @@ public class Anonymization {
   }
 
   /**
+   * @see AnonymizeRevocation
+   */
+  public void anonymizeRevocation(AnonymizeRevocation input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AnonymizeSubscription
    */
   public void anonymizeSubscription(AnonymizeSubscription input) throws Exception {

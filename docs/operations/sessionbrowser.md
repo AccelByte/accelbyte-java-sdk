@@ -60,6 +60,8 @@
 | `models.RecentPlayerQueryResponse` | [ModelsRecentPlayerQueryResponse](../../src/main/java/net/accelbyte/sdk/api/sessionbrowser/models/ModelsRecentPlayerQueryResponse.java) |
 | `models.Server` | [ModelsServer](../../src/main/java/net/accelbyte/sdk/api/sessionbrowser/models/ModelsServer.java) |
 | `models.SessionByUserIDsResponse` | [ModelsSessionByUserIDsResponse](../../src/main/java/net/accelbyte/sdk/api/sessionbrowser/models/ModelsSessionByUserIDsResponse.java) |
+| `models.SessionPlayerHistory` | [ModelsSessionPlayerHistory](../../src/main/java/net/accelbyte/sdk/api/sessionbrowser/models/ModelsSessionPlayerHistory.java) |
+| `models.SessionPlayerJoining` | [ModelsSessionPlayerJoining](../../src/main/java/net/accelbyte/sdk/api/sessionbrowser/models/ModelsSessionPlayerJoining.java) |
 | `models.SessionQueryResponse` | [ModelsSessionQueryResponse](../../src/main/java/net/accelbyte/sdk/api/sessionbrowser/models/ModelsSessionQueryResponse.java) |
 | `models.SessionResponse` | [ModelsSessionResponse](../../src/main/java/net/accelbyte/sdk/api/sessionbrowser/models/ModelsSessionResponse.java) |
 | `models.StatusHistory` | [ModelsStatusHistory](../../src/main/java/net/accelbyte/sdk/api/sessionbrowser/models/ModelsStatusHistory.java) |

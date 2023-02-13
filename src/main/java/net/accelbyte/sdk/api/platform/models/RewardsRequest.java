@@ -93,7 +93,6 @@ public class RewardsRequest extends Model {
     Nintendo("Nintendo"),
     Other("Other"),
     Playstation("Playstation"),
-    Stadia("Stadia"),
     Steam("Steam"),
     System("System"),
     Twitch("Twitch"),

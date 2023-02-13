@@ -63,6 +63,16 @@ public class Wallet {
   }
 
   /**
+   * @see DebitUserWalletByCurrencyCode
+   */
+  public WalletInfo debitUserWalletByCurrencyCode(DebitUserWalletByCurrencyCode input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see ListUserCurrencyTransactions
    */
   public WalletTransactionPagingSlicedResult listUserCurrencyTransactions(
