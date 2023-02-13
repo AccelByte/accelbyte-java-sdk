@@ -22,7 +22,6 @@ sdkSpecPath = null
 sdkGenPath = null
 sdkPath = null
 
-bypassCodeBreakingChangeCheck = params.BYPASS_BREAKING_CHANGES_CHECK || false
 isBreakingChangeCheckPass = false
 
 def timeStamp() {
@@ -74,15 +73,13 @@ pipeline {
           make -f Makefile.sdk-java sdk_all beautify SDK_PATH=${sdkPath};
         """, label: "Generate Server SDK"
 
-        script {
-          if (!bypassCodeBreakingChangeCheck) {
-            catchError(buildResult: 'SUCCESS') {
-              sh script: """
-                cd ${sdkPath};
-                make samples;
-              """, label: "Checking Breaking Changes on Samples"
-              isBreakingChangeCheckPass = true
-            }
+        catchError(buildResult: 'SUCCESS') {
+          sh script: """
+            cd ${sdkPath};
+            make samples;
+          """, label: "Checking Breaking Changes on Samples"
+          script {
+            isBreakingChangeCheckPass = true
           }
         }
 
@@ -168,7 +165,7 @@ pipeline {
         if (!isBreakingChangeCheckPass) {
           breakingChangeInfo = """
           |
-          | :warning: Possbible Breaking Changes Detected: <${env.BUILD_URL}/flowGraphTable/|${env.JOB_NAME}-${env.BUILD_NUMBER}/flowGraphTable>
+          | :warning: Possible Breaking Changes Detected: <${env.BUILD_URL}/flowGraphTable/|${env.JOB_NAME}-${env.BUILD_NUMBER}/flowGraphTable>
           """
         }
         specLink = "https://bitbucket.org/accelbyte/justice-codegen-sdk-spec/commits/${sdkSpecCommitHash}"
