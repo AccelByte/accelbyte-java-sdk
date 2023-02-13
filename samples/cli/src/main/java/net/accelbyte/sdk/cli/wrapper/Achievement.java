@@ -10,6 +10,7 @@ package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.achievement.achievements.*;
 import net.accelbyte.sdk.cli.api.achievement.anonymization.*;
+import net.accelbyte.sdk.cli.api.achievement.global_achievements.*;
 import net.accelbyte.sdk.cli.api.achievement.tags.*;
 import net.accelbyte.sdk.cli.api.achievement.user_achievements.*;
 import picocli.CommandLine.Command;
@@ -33,9 +34,11 @@ import picocli.CommandLine.Command;
       AdminAnonymizeUserAchievement.class,
       PublicListAchievements.class,
       PublicGetAchievement.class,
+      PublicListGlobalAchievements.class,
       PublicListTags.class,
       PublicListUserAchievements.class,
       PublicUnlockAchievement.class,
+      ClaimGlobalAchievementReward.class,
     })
 public class Achievement implements Runnable {
 

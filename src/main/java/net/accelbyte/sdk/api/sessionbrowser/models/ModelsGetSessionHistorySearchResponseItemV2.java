@@ -37,11 +37,23 @@ public class ModelsGetSessionHistorySearchResponseItemV2 extends Model {
   @JsonProperty("joinable")
   private Boolean joinable;
 
+  @JsonProperty("joining")
+  private List<ModelsSessionPlayerJoining> joining;
+
   @JsonProperty("match_id")
   private String matchId;
 
   @JsonProperty("namespace")
   private String namespace;
+
+  @JsonProperty("players")
+  private List<ModelsSessionPlayerHistory> players;
+
+  @JsonProperty("removed_reason")
+  private String removedReason;
+
+  @JsonProperty("session_type")
+  private String sessionType;
 
   @JsonProperty("status")
   private String status;

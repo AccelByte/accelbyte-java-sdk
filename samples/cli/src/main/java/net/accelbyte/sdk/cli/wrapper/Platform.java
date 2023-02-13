@@ -30,6 +30,7 @@ import net.accelbyte.sdk.cli.api.platform.payment_callback_config.*;
 import net.accelbyte.sdk.cli.api.platform.payment_config.*;
 import net.accelbyte.sdk.cli.api.platform.payment_dedicated.*;
 import net.accelbyte.sdk.cli.api.platform.payment_station.*;
+import net.accelbyte.sdk.cli.api.platform.revocation.*;
 import net.accelbyte.sdk.cli.api.platform.reward.*;
 import net.accelbyte.sdk.cli.api.platform.section.*;
 import net.accelbyte.sdk.cli.api.platform.service_plugin_config.*;
@@ -112,9 +113,6 @@ import picocli.CommandLine.Command;
       GetPlayStationIAPConfig.class,
       UpdatePlaystationIAPConfig.class,
       DeletePlaystationIAPConfig.class,
-      GetStadiaIAPConfig.class,
-      DeleteStadiaIAPConfig.class,
-      UpdateStadiaJsonConfigFile.class,
       GetSteamIAPConfig.class,
       UpdateSteamIAPConfig.class,
       DeleteSteamIAPConfig.class,
@@ -181,6 +179,10 @@ import picocli.CommandLine.Command;
       GetPlatformWalletConfig.class,
       UpdatePlatformWalletConfig.class,
       ResetPlatformWalletConfig.class,
+      GetPaymentCallbackConfig1.class,
+      UpdateRevocationConfig.class,
+      DeleteRevocationConfig.class,
+      QueryRevocationHistories.class,
       CreateReward.class,
       QueryRewards.class,
       ExportRewards.class,
@@ -231,6 +233,7 @@ import picocli.CommandLine.Command;
       AnonymizeIntegration.class,
       AnonymizeOrder.class,
       AnonymizePayment.class,
+      AnonymizeRevocation.class,
       AnonymizeSubscription.class,
       AnonymizeWallet.class,
       GetUserDLC.class,
@@ -275,6 +278,7 @@ import picocli.CommandLine.Command;
       CreateUserPaymentOrder.class,
       RefundUserPaymentOrder.class,
       ApplyUserRedemption.class,
+      DoRevocation.class,
       QueryUserSubscriptions.class,
       GetUserSubscriptionActivities.class,
       PlatformSubscribeSubscription.class,
@@ -287,6 +291,7 @@ import picocli.CommandLine.Command;
       ProcessUserSubscriptionNotification.class,
       AcquireUserTicket.class,
       QueryUserCurrencyWallets.class,
+      DebitUserWalletByCurrencyCode.class,
       ListUserCurrencyTransactions.class,
       CheckWallet.class,
       CreditUserWallet.class,
@@ -397,7 +402,6 @@ import picocli.CommandLine.Command;
       PublicFulfillGoogleIAPItem.class,
       PublicReconcilePlayStationStore.class,
       PublicReconcilePlayStationStoreWithMultipleServiceLabels.class,
-      SyncStadiaEntitlement.class,
       SyncSteamInventory.class,
       SyncTwitchDropsEntitlement.class,
       SyncXboxInventory.class,

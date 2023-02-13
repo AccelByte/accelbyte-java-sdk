@@ -11,12 +11,17 @@ package net.accelbyte.sdk.cli.wrapper;
 import net.accelbyte.sdk.cli.api.legal.admin_user_agreement.*;
 import net.accelbyte.sdk.cli.api.legal.admin_user_eligibilities.*;
 import net.accelbyte.sdk.cli.api.legal.agreement.*;
+import net.accelbyte.sdk.cli.api.legal.agreement_with_namespace.*;
 import net.accelbyte.sdk.cli.api.legal.anonymization.*;
 import net.accelbyte.sdk.cli.api.legal.base_legal_policies.*;
+import net.accelbyte.sdk.cli.api.legal.base_legal_policies_with_namespace.*;
 import net.accelbyte.sdk.cli.api.legal.eligibilities.*;
 import net.accelbyte.sdk.cli.api.legal.localized_policy_versions.*;
+import net.accelbyte.sdk.cli.api.legal.localized_policy_versions_with_namespace.*;
 import net.accelbyte.sdk.cli.api.legal.policies.*;
+import net.accelbyte.sdk.cli.api.legal.policies_with_namespace.*;
 import net.accelbyte.sdk.cli.api.legal.policy_versions.*;
+import net.accelbyte.sdk.cli.api.legal.policy_versions_with_namespace.*;
 import net.accelbyte.sdk.cli.api.legal.user_info.*;
 import net.accelbyte.sdk.cli.api.legal.utility.*;
 import picocli.CommandLine.Command;
@@ -39,13 +44,33 @@ import picocli.CommandLine.Command;
       UpdateLocalizedPolicyVersion.class,
       RequestPresignedURL.class,
       SetDefaultPolicy.class,
+      RetrieveAcceptedAgreements1.class,
+      RetrieveAllUsersByPolicyVersion1.class,
+      RetrieveAllLegalPoliciesByNamespace.class,
+      CreatePolicy1.class,
+      RetrieveSinglePolicy1.class,
+      PartialUpdatePolicy1.class,
+      RetrievePolicyCountry1.class,
+      RetrieveLocalizedPolicyVersions1.class,
+      CreateLocalizedPolicyVersion1.class,
+      RetrieveSingleLocalizedPolicyVersion1.class,
+      UpdateLocalizedPolicyVersion1.class,
+      RequestPresignedURL1.class,
+      SetDefaultPolicy1.class,
+      UpdatePolicyVersion1.class,
+      PublishPolicyVersion1.class,
+      UpdatePolicy1.class,
+      SetDefaultPolicy3.class,
+      RetrieveSinglePolicyVersion1.class,
+      CreatePolicyVersion1.class,
+      RetrieveAllPolicyTypes1.class,
       IndirectBulkAcceptVersionedPolicy.class,
       AdminRetrieveEligibilities.class,
       RetrievePolicies.class,
       UpdatePolicyVersion.class,
       PublishPolicyVersion.class,
       UpdatePolicy.class,
-      SetDefaultPolicy1.class,
+      SetDefaultPolicy2.class,
       RetrieveSinglePolicyVersion.class,
       CreatePolicyVersion.class,
       RetrieveAllPolicyTypes.class,
@@ -61,7 +86,8 @@ import picocli.CommandLine.Command;
       IndirectBulkAcceptVersionedPolicy1.class,
       RetrieveEligibilitiesPublic.class,
       RetrieveEligibilitiesPublicIndirect.class,
-      RetrieveSingleLocalizedPolicyVersion1.class,
+      RetrieveSingleLocalizedPolicyVersion2.class,
+      RetrieveSingleLocalizedPolicyVersion3.class,
       RetrieveLatestPolicies.class,
       RetrieveLatestPoliciesPublic.class,
       RetrieveLatestPoliciesByNamespaceAndCountryPublic.class,

@@ -46,10 +46,6 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>The secret for ps4, ps5, and ps4web is client secret of the psn web server.
  *
- * <p>The secret for stadia is the google cloud service account in base64 encode JSON format.
- *
- * <p>The secret for stadiaweb is client secret of the google OAuth client.
- *
  * <p>The secret for steam is the Steam Web API Key.
  *
  * <p>The secret for steamopenid is the Steam Web API Key.

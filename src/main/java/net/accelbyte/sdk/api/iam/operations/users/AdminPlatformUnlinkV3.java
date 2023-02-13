@@ -53,8 +53,6 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* nintendo
  *
- * <p>* stadia
- *
  * <p>* snapchat
  *
  * <p>Unlink user's account from a specific platform. 'justice' platform might have multiple

@@ -58,8 +58,6 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* epicgames
  *
- * <p>* stadia
- *
  * <p>* ps4
  *
  * <p>* ps5

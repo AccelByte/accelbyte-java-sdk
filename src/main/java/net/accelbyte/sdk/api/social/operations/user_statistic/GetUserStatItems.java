@@ -42,6 +42,7 @@ public class GetUserStatItems extends Operation {
   private String userId;
   private Integer limit;
   private Integer offset;
+  private String sortBy;
   private String statCodes;
   private String tags;
 
@@ -57,12 +58,14 @@ public class GetUserStatItems extends Operation {
       String userId,
       Integer limit,
       Integer offset,
+      String sortBy,
       String statCodes,
       String tags) {
     this.namespace = namespace;
     this.userId = userId;
     this.limit = limit;
     this.offset = offset;
+    this.sortBy = sortBy;
     this.statCodes = statCodes;
     this.tags = tags;
 
@@ -87,6 +90,7 @@ public class GetUserStatItems extends Operation {
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
     queryParams.put("statCodes", this.statCodes == null ? null : Arrays.asList(this.statCodes));
     queryParams.put("tags", this.tags == null ? null : Arrays.asList(this.tags));
     return queryParams;
@@ -118,6 +122,7 @@ public class GetUserStatItems extends Operation {
     Map<String, String> result = new HashMap<>();
     result.put("limit", "None");
     result.put("offset", "None");
+    result.put("sortBy", "None");
     result.put("statCodes", "None");
     result.put("tags", "None");
     return result;

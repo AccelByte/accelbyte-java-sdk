@@ -37,6 +37,9 @@ public class ModelsMatchingParty extends Model {
   @JsonProperty("party_members")
   private List<ModelsPartyMember> partyMembers;
 
+  @JsonProperty("ticket_created_at")
+  private Integer ticketCreatedAt;
+
   @JsonProperty("ticket_id")
   private String ticketId;
 

@@ -62,9 +62,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>* epicgames : The platform_tokenâs value is an access-token obtained from Epicgames EOS
  * Account Service.
  *
- * <p>* stadia : The platform_token's value is a JWT Token, which can be obtained after calling the
- * Stadia SDK's function.
- *
  * <p>* ps4 : The platform_tokenâs value is the authorization code returned by Sony OAuth.
  *
  * <p>* ps5 : The platform_tokenâs value is the authorization code returned by Sony OAuth.

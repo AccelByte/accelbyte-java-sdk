@@ -36,6 +36,11 @@ public class QueryStats implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--isGlobal"},
+      description = "isGlobal")
+  Boolean isGlobal;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -74,6 +79,7 @@ public class QueryStats implements Callable<Integer> {
       final net.accelbyte.sdk.api.social.operations.stat_configuration.QueryStats operation =
           net.accelbyte.sdk.api.social.operations.stat_configuration.QueryStats.builder()
               .namespace(namespace)
+              .isGlobal(isGlobal)
               .limit(limit)
               .offset(offset)
               .keyword(keyword)

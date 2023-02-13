@@ -41,9 +41,9 @@ public class Policies {
   }
 
   /**
-   * @see SetDefaultPolicy1
+   * @see SetDefaultPolicy2
    */
-  public void setDefaultPolicy1(SetDefaultPolicy1 input) throws Exception {
+  public void setDefaultPolicy2(SetDefaultPolicy2 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

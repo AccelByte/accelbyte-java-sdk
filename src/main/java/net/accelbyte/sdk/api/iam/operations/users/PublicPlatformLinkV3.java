@@ -64,9 +64,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>* nintendo : The ticketâs value is the authorization code(id_token) returned by Nintendo
  * OAuth.
  *
- * <p>* stadia : The ticketâs value is a JWT Token, which can be obtained after calling the Stadia
- * SDK's function.
- *
  * <p>action code : 10144
  */
 @Getter

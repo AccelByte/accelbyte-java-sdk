@@ -82,10 +82,10 @@ public class LocalizedPolicyVersions {
   }
 
   /**
-   * @see RetrieveSingleLocalizedPolicyVersion1
+   * @see RetrieveSingleLocalizedPolicyVersion2
    */
-  public RetrieveLocalizedPolicyVersionPublicResponse retrieveSingleLocalizedPolicyVersion1(
-      RetrieveSingleLocalizedPolicyVersion1 input) throws Exception {
+  public RetrieveLocalizedPolicyVersionPublicResponse retrieveSingleLocalizedPolicyVersion2(
+      RetrieveSingleLocalizedPolicyVersion2 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

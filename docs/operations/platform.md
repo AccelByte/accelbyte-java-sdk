@@ -204,9 +204,6 @@
 | `/platform/admin/namespaces/{namespace}/iap/config/playstation` | GET | GetPlayStationIAPConfig | [GetPlayStationIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/GetPlayStationIAPConfig.java) | [GetPlayStationIAPConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/GetPlayStationIAPConfig.java) |
 | `/platform/admin/namespaces/{namespace}/iap/config/playstation` | PUT | UpdatePlaystationIAPConfig | [UpdatePlaystationIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/UpdatePlaystationIAPConfig.java) | [UpdatePlaystationIAPConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/UpdatePlaystationIAPConfig.java) |
 | `/platform/admin/namespaces/{namespace}/iap/config/playstation` | DELETE | DeletePlaystationIAPConfig | [DeletePlaystationIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/DeletePlaystationIAPConfig.java) | [DeletePlaystationIAPConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/DeletePlaystationIAPConfig.java) |
-| `/platform/admin/namespaces/{namespace}/iap/config/stadia` | GET | GetStadiaIAPConfig | [GetStadiaIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/GetStadiaIAPConfig.java) | [GetStadiaIAPConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/GetStadiaIAPConfig.java) |
-| `/platform/admin/namespaces/{namespace}/iap/config/stadia` | DELETE | DeleteStadiaIAPConfig | [DeleteStadiaIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/DeleteStadiaIAPConfig.java) | [DeleteStadiaIAPConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/DeleteStadiaIAPConfig.java) |
-| `/platform/admin/namespaces/{namespace}/iap/config/stadia/cert` | PUT | UpdateStadiaJsonConfigFile | [UpdateStadiaJsonConfigFile](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/UpdateStadiaJsonConfigFile.java) | [UpdateStadiaJsonConfigFile](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/UpdateStadiaJsonConfigFile.java) |
 | `/platform/admin/namespaces/{namespace}/iap/config/steam` | GET | GetSteamIAPConfig | [GetSteamIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/GetSteamIAPConfig.java) | [GetSteamIAPConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/GetSteamIAPConfig.java) |
 | `/platform/admin/namespaces/{namespace}/iap/config/steam` | PUT | UpdateSteamIAPConfig | [UpdateSteamIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/UpdateSteamIAPConfig.java) | [UpdateSteamIAPConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/UpdateSteamIAPConfig.java) |
 | `/platform/admin/namespaces/{namespace}/iap/config/steam` | DELETE | DeleteSteamIAPConfig | [DeleteSteamIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/DeleteSteamIAPConfig.java) | [DeleteSteamIAPConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/DeleteSteamIAPConfig.java) |
@@ -226,7 +223,6 @@
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/google/receipt` | PUT | PublicFulfillGoogleIAPItem | [PublicFulfillGoogleIAPItem](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/PublicFulfillGoogleIAPItem.java) | [PublicFulfillGoogleIAPItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/PublicFulfillGoogleIAPItem.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/psn/sync` | PUT | PublicReconcilePlayStationStore | [PublicReconcilePlayStationStore](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/PublicReconcilePlayStationStore.java) | [PublicReconcilePlayStationStore](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/PublicReconcilePlayStationStore.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/psn/sync/multiServiceLabels` | PUT | PublicReconcilePlayStationStoreWithMultipleServiceLabels | [PublicReconcilePlayStationStoreWithMultipleServiceLabels](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/PublicReconcilePlayStationStoreWithMultipleServiceLabels.java) | [PublicReconcilePlayStationStoreWithMultipleServiceLabels](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/PublicReconcilePlayStationStoreWithMultipleServiceLabels.java) |
-| `/platform/public/namespaces/{namespace}/users/{userId}/iap/stadia/sync` | PUT | SyncStadiaEntitlement | [SyncStadiaEntitlement](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/SyncStadiaEntitlement.java) | [SyncStadiaEntitlement](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/SyncStadiaEntitlement.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/steam/sync` | PUT | SyncSteamInventory | [SyncSteamInventory](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/SyncSteamInventory.java) | [SyncSteamInventory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/SyncSteamInventory.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/twitch/sync` | PUT | SyncTwitchDropsEntitlement | [SyncTwitchDropsEntitlement](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/SyncTwitchDropsEntitlement.java) | [SyncTwitchDropsEntitlement](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/SyncTwitchDropsEntitlement.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/xbl/sync` | PUT | SyncXboxInventory | [SyncXboxInventory](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/SyncXboxInventory.java) | [SyncXboxInventory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/SyncXboxInventory.java) |
@@ -306,6 +302,7 @@
 | `/platform/admin/namespaces/{namespace}/platforms/{platform}/wallet/config` | PUT | UpdatePlatformWalletConfig | [UpdatePlatformWalletConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/UpdatePlatformWalletConfig.java) | [UpdatePlatformWalletConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/UpdatePlatformWalletConfig.java) |
 | `/platform/admin/namespaces/{namespace}/platforms/{platform}/wallet/config/reset` | PUT | ResetPlatformWalletConfig | [ResetPlatformWalletConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/ResetPlatformWalletConfig.java) | [ResetPlatformWalletConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/ResetPlatformWalletConfig.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/wallets/currencies/summary` | GET | QueryUserCurrencyWallets | [QueryUserCurrencyWallets](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/QueryUserCurrencyWallets.java) | [QueryUserCurrencyWallets](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/QueryUserCurrencyWallets.java) |
+| `/platform/admin/namespaces/{namespace}/users/{userId}/wallets/currencies/{currencyCode}/debit` | PUT | DebitUserWalletByCurrencyCode | [DebitUserWalletByCurrencyCode](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/DebitUserWalletByCurrencyCode.java) | [DebitUserWalletByCurrencyCode](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/DebitUserWalletByCurrencyCode.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/wallets/currencies/{currencyCode}/transactions` | GET | ListUserCurrencyTransactions | [ListUserCurrencyTransactions](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/ListUserCurrencyTransactions.java) | [ListUserCurrencyTransactions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/ListUserCurrencyTransactions.java) |
 | [DEPRECATED] `/platform/admin/namespaces/{namespace}/users/{userId}/wallets/{currencyCode}/check` | GET | CheckWallet | [CheckWallet](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/CheckWallet.java) | [CheckWallet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/CheckWallet.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/wallets/{currencyCode}/credit` | PUT | CreditUserWallet | [CreditUserWallet](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/CreditUserWallet.java) | [CreditUserWallet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/CreditUserWallet.java) |
@@ -320,6 +317,15 @@
 | `/platform/public/namespaces/{namespace}/users/me/wallets/{currencyCode}` | GET | PublicGetMyWallet | [PublicGetMyWallet](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/PublicGetMyWallet.java) | [PublicGetMyWallet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/PublicGetMyWallet.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/wallets/{currencyCode}` | GET | PublicGetWallet | [PublicGetWallet](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/PublicGetWallet.java) | [PublicGetWallet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/PublicGetWallet.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/wallets/{currencyCode}/transactions` | GET | PublicListUserWalletTransactions | [PublicListUserWalletTransactions](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/PublicListUserWalletTransactions.java) | [PublicListUserWalletTransactions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/PublicListUserWalletTransactions.java) |
+
+### Revocation Wrapper:  [Revocation](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/Revocation.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/platform/admin/namespaces/{namespace}/revocation/config` | GET | GetPaymentCallbackConfig1 | [GetPaymentCallbackConfig1](../../src/main/java/net/accelbyte/sdk/api/platform/operations/revocation/GetPaymentCallbackConfig1.java) | [GetPaymentCallbackConfig1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/revocation/GetPaymentCallbackConfig1.java) |
+| `/platform/admin/namespaces/{namespace}/revocation/config` | PUT | UpdateRevocationConfig | [UpdateRevocationConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/revocation/UpdateRevocationConfig.java) | [UpdateRevocationConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/revocation/UpdateRevocationConfig.java) |
+| `/platform/admin/namespaces/{namespace}/revocation/config` | DELETE | DeleteRevocationConfig | [DeleteRevocationConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/revocation/DeleteRevocationConfig.java) | [DeleteRevocationConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/revocation/DeleteRevocationConfig.java) |
+| `/platform/admin/namespaces/{namespace}/revocation/history` | GET | QueryRevocationHistories | [QueryRevocationHistories](../../src/main/java/net/accelbyte/sdk/api/platform/operations/revocation/QueryRevocationHistories.java) | [QueryRevocationHistories](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/revocation/QueryRevocationHistories.java) |
+| `/platform/admin/namespaces/{namespace}/users/{userId}/revocation` | PUT | DoRevocation | [DoRevocation](../../src/main/java/net/accelbyte/sdk/api/platform/operations/revocation/DoRevocation.java) | [DoRevocation](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/revocation/DoRevocation.java) |
 
 ### Reward Wrapper:  [Reward](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/Reward.java)
 | Endpoint | Method | ID | Class | Example |
@@ -427,6 +433,7 @@
 | `/platform/admin/namespaces/{namespace}/users/{userId}/anonymization/integrations` | DELETE | AnonymizeIntegration | [AnonymizeIntegration](../../src/main/java/net/accelbyte/sdk/api/platform/operations/anonymization/AnonymizeIntegration.java) | [AnonymizeIntegration](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/anonymization/AnonymizeIntegration.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/anonymization/orders` | DELETE | AnonymizeOrder | [AnonymizeOrder](../../src/main/java/net/accelbyte/sdk/api/platform/operations/anonymization/AnonymizeOrder.java) | [AnonymizeOrder](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/anonymization/AnonymizeOrder.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/anonymization/payment` | DELETE | AnonymizePayment | [AnonymizePayment](../../src/main/java/net/accelbyte/sdk/api/platform/operations/anonymization/AnonymizePayment.java) | [AnonymizePayment](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/anonymization/AnonymizePayment.java) |
+| `/platform/admin/namespaces/{namespace}/users/{userId}/anonymization/revocation` | DELETE | AnonymizeRevocation | [AnonymizeRevocation](../../src/main/java/net/accelbyte/sdk/api/platform/operations/anonymization/AnonymizeRevocation.java) | [AnonymizeRevocation](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/anonymization/AnonymizeRevocation.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/anonymization/subscriptions` | DELETE | AnonymizeSubscription | [AnonymizeSubscription](../../src/main/java/net/accelbyte/sdk/api/platform/operations/anonymization/AnonymizeSubscription.java) | [AnonymizeSubscription](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/anonymization/AnonymizeSubscription.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/anonymization/wallets` | DELETE | AnonymizeWallet | [AnonymizeWallet](../../src/main/java/net/accelbyte/sdk/api/platform/operations/anonymization/AnonymizeWallet.java) | [AnonymizeWallet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/anonymization/AnonymizeWallet.java) |
 
@@ -558,6 +565,7 @@
 | `ConditionMatchResult` | [ConditionMatchResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/ConditionMatchResult.java) |
 | `ConsumeItem` | [ConsumeItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/ConsumeItem.java) |
 | `CreditRequest` | [CreditRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/CreditRequest.java) |
+| `CreditRevocation` | [CreditRevocation](../../src/main/java/net/accelbyte/sdk/api/platform/models/CreditRevocation.java) |
 | `CreditSummary` | [CreditSummary](../../src/main/java/net/accelbyte/sdk/api/platform/models/CreditSummary.java) |
 | `CurrencyConfig` | [CurrencyConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/CurrencyConfig.java) |
 | `CurrencyCreate` | [CurrencyCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/CurrencyCreate.java) |
@@ -570,10 +578,12 @@
 | `DLCItemConfigInfo` | [DLCItemConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/DLCItemConfigInfo.java) |
 | `DLCItemConfigUpdate` | [DLCItemConfigUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/DLCItemConfigUpdate.java) |
 | `DLCRecord` | [DLCRecord](../../src/main/java/net/accelbyte/sdk/api/platform/models/DLCRecord.java) |
+| `DebitByCurrencyCodeRequest` | [DebitByCurrencyCodeRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/DebitByCurrencyCodeRequest.java) |
 | `DebitRequest` | [DebitRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/DebitRequest.java) |
 | `DeleteRewardConditionRequest` | [DeleteRewardConditionRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/DeleteRewardConditionRequest.java) |
 | `DetailedWalletTransactionInfo` | [DetailedWalletTransactionInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/DetailedWalletTransactionInfo.java) |
 | `DetailedWalletTransactionPagingSlicedResult` | [DetailedWalletTransactionPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/DetailedWalletTransactionPagingSlicedResult.java) |
+| `DurableEntitlementRevocationConfig` | [DurableEntitlementRevocationConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/DurableEntitlementRevocationConfig.java) |
 | `EntitlementDecrement` | [EntitlementDecrement](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementDecrement.java) |
 | `EntitlementDecrementResult` | [EntitlementDecrementResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementDecrementResult.java) |
 | `EntitlementGrant` | [EntitlementGrant](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementGrant.java) |
@@ -582,6 +592,8 @@
 | `EntitlementLootBoxReward` | [EntitlementLootBoxReward](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementLootBoxReward.java) |
 | `EntitlementOwnership` | [EntitlementOwnership](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementOwnership.java) |
 | `EntitlementPagingSlicedResult` | [EntitlementPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementPagingSlicedResult.java) |
+| `EntitlementRevocation` | [EntitlementRevocation](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementRevocation.java) |
+| `EntitlementRevocationConfig` | [EntitlementRevocationConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementRevocationConfig.java) |
 | `EntitlementSummary` | [EntitlementSummary](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementSummary.java) |
 | `EntitlementUpdate` | [EntitlementUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementUpdate.java) |
 | `EpicGamesDLCSyncRequest` | [EpicGamesDLCSyncRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/EpicGamesDLCSyncRequest.java) |
@@ -647,6 +659,7 @@
 | `ItemPurchaseConditionValidateRequest` | [ItemPurchaseConditionValidateRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemPurchaseConditionValidateRequest.java) |
 | `ItemPurchaseConditionValidateResult` | [ItemPurchaseConditionValidateResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemPurchaseConditionValidateResult.java) |
 | `ItemReturnRequest` | [ItemReturnRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemReturnRequest.java) |
+| `ItemRevocation` | [ItemRevocation](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemRevocation.java) |
 | `ItemSnapshot` | [ItemSnapshot](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemSnapshot.java) |
 | `ItemTypeConfigCreate` | [ItemTypeConfigCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemTypeConfigCreate.java) |
 | `ItemTypeConfigInfo` | [ItemTypeConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemTypeConfigInfo.java) |
@@ -744,6 +757,16 @@
 | `RegionDataItem` | [RegionDataItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/RegionDataItem.java) |
 | `RequestHistory` | [RequestHistory](../../src/main/java/net/accelbyte/sdk/api/platform/models/RequestHistory.java) |
 | `Requirement` | [Requirement](../../src/main/java/net/accelbyte/sdk/api/platform/models/Requirement.java) |
+| `RevocationConfigInfo` | [RevocationConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevocationConfigInfo.java) |
+| `RevocationConfigUpdate` | [RevocationConfigUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevocationConfigUpdate.java) |
+| `RevocationHistoryInfo` | [RevocationHistoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevocationHistoryInfo.java) |
+| `RevocationHistoryPagingSlicedResult` | [RevocationHistoryPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevocationHistoryPagingSlicedResult.java) |
+| `RevocationRequest` | [RevocationRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevocationRequest.java) |
+| `RevocationResult` | [RevocationResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevocationResult.java) |
+| `RevokeCurrency` | [RevokeCurrency](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeCurrency.java) |
+| `RevokeEntitlement` | [RevokeEntitlement](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeEntitlement.java) |
+| `RevokeEntry` | [RevokeEntry](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeEntry.java) |
+| `RevokeItem` | [RevokeItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeItem.java) |
 | `RevokeItemSummary` | [RevokeItemSummary](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeItemSummary.java) |
 | `RevokeResult` | [RevokeResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeResult.java) |
 | `RewardCondition` | [RewardCondition](../../src/main/java/net/accelbyte/sdk/api/platform/models/RewardCondition.java) |
@@ -762,8 +785,6 @@
 | `ServicePluginConfigUpdate` | [ServicePluginConfigUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/ServicePluginConfigUpdate.java) |
 | `Slide` | [Slide](../../src/main/java/net/accelbyte/sdk/api/platform/models/Slide.java) |
 | `StackableEntitlementInfo` | [StackableEntitlementInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/StackableEntitlementInfo.java) |
-| `StadiaIAPConfigInfo` | [StadiaIAPConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/StadiaIAPConfigInfo.java) |
-| `StadiaSyncRequest` | [StadiaSyncRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/StadiaSyncRequest.java) |
 | `SteamDLCSyncRequest` | [SteamDLCSyncRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamDLCSyncRequest.java) |
 | `SteamIAPConfig` | [SteamIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamIAPConfig.java) |
 | `SteamIAPConfigInfo` | [SteamIAPConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamIAPConfigInfo.java) |
@@ -805,6 +826,7 @@
 | `ViewUpdate` | [ViewUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/ViewUpdate.java) |
 | `WalletInfo` | [WalletInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/WalletInfo.java) |
 | `WalletPagingSlicedResult` | [WalletPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/WalletPagingSlicedResult.java) |
+| `WalletRevocationConfig` | [WalletRevocationConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/WalletRevocationConfig.java) |
 | `WalletTransactionInfo` | [WalletTransactionInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/WalletTransactionInfo.java) |
 | `WalletTransactionPagingSlicedResult` | [WalletTransactionPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/WalletTransactionPagingSlicedResult.java) |
 | `WxPayConfigInfo` | [WxPayConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/WxPayConfigInfo.java) |

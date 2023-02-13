@@ -33,6 +33,10 @@ public class DLCRecord extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String obtainedAt;
 
+  @JsonProperty("revocationResult")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private RevocationResult revocationResult;
+
   @JsonProperty("revokeResults")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<RevokeResult> revokeResults;
@@ -52,6 +56,14 @@ public class DLCRecord extends Model {
   @JsonProperty("status")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String status;
+
+  @JsonProperty("transactionId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String transactionId;
+
+  @JsonProperty("version")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer version;
 
   @JsonIgnore
   public String getStatus() {
@@ -85,7 +97,8 @@ public class DLCRecord extends Model {
 
   public enum Status {
     FULFILLED("FULFILLED"),
-    REVOKED("REVOKED");
+    REVOKED("REVOKED"),
+    REVOKEFAILED("REVOKE_FAILED");
 
     private String value;
 

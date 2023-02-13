@@ -36,6 +36,7 @@ public class AdminListAchievements extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private Boolean global;
   private Integer limit;
   private Integer offset;
   private String sortBy;
@@ -48,8 +49,14 @@ public class AdminListAchievements extends Operation {
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminListAchievements(
-      String namespace, Integer limit, Integer offset, String sortBy, List<String> tags) {
+      String namespace,
+      Boolean global,
+      Integer limit,
+      Integer offset,
+      String sortBy,
+      List<String> tags) {
     this.namespace = namespace;
+    this.global = global;
     this.limit = limit;
     this.offset = offset;
     this.sortBy = sortBy;
@@ -70,6 +77,8 @@ public class AdminListAchievements extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "global", this.global == null ? null : Arrays.asList(String.valueOf(this.global)));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
@@ -99,6 +108,7 @@ public class AdminListAchievements extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("global", "None");
     result.put("limit", "None");
     result.put("offset", "None");
     result.put("sortBy", "None");

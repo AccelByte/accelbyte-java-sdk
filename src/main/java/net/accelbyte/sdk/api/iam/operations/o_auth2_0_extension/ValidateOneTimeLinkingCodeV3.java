@@ -22,12 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * ValidateOneTimeLinkingCodeV3
  *
  * <p>This endpoint is being used to validate one time link code.
- *
- * <p>It require a valid user token.
- *
- * <p>Should specify the target platform id and current user should already linked to this platform.
- *
- * <p>Current user should be a headless account.
  */
 @Getter
 @Setter
