@@ -1,6 +1,34 @@
-<a name="v0.29.0"></a>
-## [v0.29.0] - 2023-01-30
+<a name="v0.30.0"></a>
+## [v0.30.0] - 2023-02-13
 ### Chore
+- tidy source code
+- adjust pipeline credentials
+- **sdk:** generate java server sdk (230213.0150)
+- **sdk:** consolidate logging
+- **sdk:** match2 - partial regenerate due to model breaking change
+
+### Docs
+- update changelog for ab cloud 3.42
+- **common-use-case:** match2 - update
+- **migration-guide:** v0.29 to v0.30
+
+### Feat
+- **api:** add initial reporting service support
+- **aws-lambda-example:** integrated to generate FunctionURL
+
+### Fix
+- **sdk:** review local token validation logic
+- **sdk:** coverity defects
+
+### Test
+- **integration:** match2 - fix breaking due to model renaming
+- **integration:** simplify validate token test
+
+
+<a name="v0.29.0"></a>
+## [v0.29.0] - 2023-01-31
+### Chore
+- copy openapi vendor ext docs
 - sequentially run test stages
 - separate jenkins job for broken link check
 - **sdk:** generate java server sdk (230129.0041)
@@ -863,6 +891,7 @@
 - replace unnecessary object
 
 
+[v0.30.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.29.0...v0.30.0
 [v0.29.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.28.0...v0.29.0
 [v0.28.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.27.0...v0.28.0
 [v0.27.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.26.0...v0.27.0
