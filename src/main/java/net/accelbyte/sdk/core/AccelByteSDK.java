@@ -9,6 +9,8 @@ package net.accelbyte.sdk.core;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import com.google.common.util.concurrent.ListenableFuture;
+import com.google.common.util.concurrent.ListenableFutureTask;
 import com.nimbusds.jose.JWSVerifier;
 import com.nimbusds.jose.crypto.RSASSAVerifier;
 import com.nimbusds.jwt.JWTClaimsSet;
@@ -31,9 +33,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
+import lombok.extern.java.Log;
 import net.accelbyte.sdk.api.iam.models.BloomFilterJSON;
 import net.accelbyte.sdk.api.iam.models.OauthapiRevocationList;
 import net.accelbyte.sdk.api.iam.models.OauthcommonJWKKey;
@@ -61,6 +67,7 @@ import okhttp3.Credentials;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 
+@Log
 public class AccelByteSDK {
   private static final String COOKIE_KEY_ACCESS_TOKEN = "access_token";
   private static final String LOGIN_USER_SCOPE = "commerce account social publishing analytics";
@@ -250,7 +257,7 @@ public class AccelByteSDK {
 
       return true;
     } catch (Exception e) {
-      e.printStackTrace();
+      log.warning(e.getMessage());
     }
     return false;
   }
@@ -279,7 +286,7 @@ public class AccelByteSDK {
 
       return true;
     } catch (Exception e) {
-      e.printStackTrace();
+      log.warning(e.getMessage());
     }
     return false;
   }
@@ -310,7 +317,7 @@ public class AccelByteSDK {
 
       return true;
     } catch (Exception e) {
-      e.printStackTrace();
+      log.warning(e.getMessage());
     }
     return false;
   }
@@ -374,7 +381,7 @@ public class AccelByteSDK {
 
           return true; // Token refresh successful
         } catch (Exception e) {
-          e.printStackTrace();
+          log.warning(e.getMessage());
         }
 
         return false; // Token refresh failed
@@ -384,7 +391,7 @@ public class AccelByteSDK {
         return isLoginClientOk; // Token refresh successful or failed
       }
     } catch (Exception e) {
-      e.printStackTrace();
+      log.warning(e.getMessage());
     } finally {
       refreshTokenMethodLock.unlock();
     }
@@ -474,7 +481,7 @@ public class AccelByteSDK {
 
       return false;
     } catch (Exception e) {
-      e.printStackTrace();
+      log.warning(e.getMessage());
     }
 
     return false;
@@ -494,7 +501,7 @@ public class AccelByteSDK {
 
       return true;
     } catch (Exception e) {
-      e.printStackTrace();
+      log.warning(e.getMessage());
     }
 
     return false;
@@ -543,44 +550,37 @@ public class AccelByteSDK {
     final CacheLoader<String, Map<String, RSAPublicKey>> jwksLoader =
         new CacheLoader<String, Map<String, RSAPublicKey>>() {
           @Override
-          public Map<String, RSAPublicKey> load(String key) {
-            try {
-              final OAuth20 oauthWrapper = new OAuth20(sdk);
-              final OauthcommonJWKSet getJwksV3Result =
-                  oauthWrapper.getJWKSV3(GetJWKSV3.builder().build());
+          public Map<String, RSAPublicKey> load(String key) throws Exception {
+            final OAuth20 oauthWrapper = new OAuth20(sdk);
+            final OauthcommonJWKSet getJwksV3Result =
+                oauthWrapper.getJWKSV3(GetJWKSV3.builder().build());
 
-              final Decoder urlDecoder = Base64.getUrlDecoder();
-              final KeyFactory rsaKeyFactory = KeyFactory.getInstance("RSA");
+            final Decoder urlDecoder = Base64.getUrlDecoder();
+            final KeyFactory rsaKeyFactory = KeyFactory.getInstance("RSA");
 
-              Map<String, RSAPublicKey> result =
-                  getJwksV3Result.getKeys().stream()
-                      .collect(
-                          Collectors.toMap(
-                              OauthcommonJWKKey::getKid,
-                              jwkKey -> {
-                                try {
-                                  final BigInteger modulus =
-                                      new BigInteger(1, urlDecoder.decode(jwkKey.getN()));
-                                  final BigInteger exponent =
-                                      new BigInteger(1, urlDecoder.decode(jwkKey.getE()));
-                                  final RSAPublicKeySpec rsaPubKeySpec =
-                                      new RSAPublicKeySpec(modulus, exponent);
-                                  final RSAPublicKey pubKey =
-                                      (RSAPublicKey) rsaKeyFactory.generatePublic(rsaPubKeySpec);
-                                  return pubKey;
-                                } catch (InvalidKeySpecException e) {
-                                  e.printStackTrace();
+            final Map<String, RSAPublicKey> result =
+                getJwksV3Result.getKeys().stream()
+                    .collect(
+                        Collectors.toMap(
+                            OauthcommonJWKKey::getKid,
+                            jwkKey -> {
+                              try {
+                                final BigInteger modulus =
+                                    new BigInteger(1, urlDecoder.decode(jwkKey.getN()));
+                                final BigInteger exponent =
+                                    new BigInteger(1, urlDecoder.decode(jwkKey.getE()));
+                                final RSAPublicKeySpec rsaPubKeySpec =
+                                    new RSAPublicKeySpec(modulus, exponent);
+                                final RSAPublicKey pubKey =
+                                    (RSAPublicKey) rsaKeyFactory.generatePublic(rsaPubKeySpec);
+                                return pubKey;
+                              } catch (InvalidKeySpecException e) {
+                                log.warning(e.getMessage());
+                                return null;
+                              }
+                            }));
 
-                                  return null;
-                                }
-                              }));
-
-              return result;
-            } catch (Exception e) {
-              e.printStackTrace();
-            }
-
-            return null;
+            return result;
           }
         };
 
@@ -594,18 +594,12 @@ public class AccelByteSDK {
     final CacheLoader<String, OauthapiRevocationList> revocationLoader =
         new CacheLoader<String, OauthapiRevocationList>() {
           @Override
-          public OauthapiRevocationList load(String key) {
-            try {
-              final OAuth20 oauthWrapper = new OAuth20(sdk);
-              final OauthapiRevocationList getRevocationListV3Result =
-                  oauthWrapper.getRevocationListV3(GetRevocationListV3.builder().build());
+          public OauthapiRevocationList load(String key) throws Exception {
+            final OAuth20 oauthWrapper = new OAuth20(sdk);
+            final OauthapiRevocationList getRevocationListV3Result =
+                oauthWrapper.getRevocationListV3(GetRevocationListV3.builder().build());
 
-              return getRevocationListV3Result;
-            } catch (Exception e) {
-              e.printStackTrace();
-            }
-
-            return OauthapiRevocationList.builder().build();
+            return getRevocationListV3Result;
           }
         };
 
