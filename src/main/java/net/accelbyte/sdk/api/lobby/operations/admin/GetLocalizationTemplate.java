@@ -6,32 +6,33 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.lobby.operations.notification;
+package net.accelbyte.sdk.api.lobby.operations.admin;
 
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import net.accelbyte.sdk.api.lobby.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * deleteTemplateLocalization
+ * getLocalizationTemplate
  *
- * <p>Required permission : `NAMESPACE:{namespace}:TEMPLATE [DELETE]` with scope `social`
+ * <p>Required permission : `NAMESPACE:{namespace}:TEMPLATE [READ]` with scope `social`
  *
- * <p>Delete all template in a slug
+ * <p>Get a template localization
  */
 @Getter
 @Setter
-public class DeleteTemplateLocalization extends Operation {
+public class GetLocalizationTemplate extends Operation {
   /** generated field's value */
   private String path =
       "/notification/namespaces/{namespace}/templates/{templateSlug}/languages/{templateLanguage}";
 
-  private String method = "DELETE";
+  private String method = "GET";
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
@@ -49,8 +50,7 @@ public class DeleteTemplateLocalization extends Operation {
   @Builder
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public DeleteTemplateLocalization(
-      String namespace, String templateLanguage, String templateSlug) {
+  public GetLocalizationTemplate(String namespace, String templateLanguage, String templateSlug) {
     this.namespace = namespace;
     this.templateLanguage = templateLanguage;
     this.templateSlug = templateSlug;
@@ -87,11 +87,13 @@ public class DeleteTemplateLocalization extends Operation {
     return true;
   }
 
-  public void handleEmptyResponse(int code, String contentType, InputStream payload)
+  public ModelTemplateLocalization parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    if (code != 204) {
+    if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
+    final String json = Helper.convertInputStreamToString(payload);
+    return new ModelTemplateLocalization().createFromJson(json);
   }
 }

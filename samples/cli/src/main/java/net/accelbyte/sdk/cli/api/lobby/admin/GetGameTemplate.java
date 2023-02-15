@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.lobby.notification;
+package net.accelbyte.sdk.cli.api.lobby.admin;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.lobby.models.*;
-import net.accelbyte.sdk.api.lobby.wrappers.Notification;
+import net.accelbyte.sdk.api.lobby.wrappers.Admin;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "freeFormNotification", mixinStandardHelpOptions = true)
-public class FreeFormNotification implements Callable<Integer> {
+@Command(name = "getGameTemplate", mixinStandardHelpOptions = true)
+public class GetGameTemplate implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(FreeFormNotification.class);
+  private static final Logger log = LogManager.getLogger(GetGameTemplate.class);
 
   @Option(
       names = {"--namespace"},
@@ -36,17 +36,12 @@ public class FreeFormNotification implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--body"},
-      description = "body")
-  String body;
-
-  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new FreeFormNotification()).execute(args);
+    int exitCode = new CommandLine(new GetGameTemplate()).execute(args);
     System.exit(exitCode);
   }
 
@@ -60,14 +55,15 @@ public class FreeFormNotification implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Notification wrapper = new Notification(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.notification.FreeFormNotification operation =
-          net.accelbyte.sdk.api.lobby.operations.notification.FreeFormNotification.builder()
+      final Admin wrapper = new Admin(sdk);
+      final net.accelbyte.sdk.api.lobby.operations.admin.GetGameTemplate operation =
+          net.accelbyte.sdk.api.lobby.operations.admin.GetGameTemplate.builder()
               .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelFreeFormNotificationRequest.class))
               .build();
-      wrapper.freeFormNotification(operation);
-      log.info("Operation successful");
+      final List<ModelTemplateResponse> response = wrapper.getGameTemplate(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

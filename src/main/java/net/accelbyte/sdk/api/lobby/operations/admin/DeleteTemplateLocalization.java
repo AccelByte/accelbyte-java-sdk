@@ -6,54 +6,54 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.lobby.operations.notification;
+package net.accelbyte.sdk.api.lobby.operations.admin;
 
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.lobby.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * createTemplate
+ * deleteTemplateLocalization
  *
- * <p>Required permission : `NAMESPACE:{namespace}:TEMPLATE [CREATE]` with scope `social`
+ * <p>Required permission : `NAMESPACE:{namespace}:TEMPLATE [DELETE]` with scope `social`
  *
- * <p>Create new notification template. Include handlebars {{key}} for replaceable contexts. The the
- * key inside handlebars will be the key to be replaced when sending notification. Already existing
- * template with the same slug and language can not be created.
- *
- * <p>Check model description for detailed input restrictions.
+ * <p>Delete all template in a slug
  */
 @Getter
 @Setter
-public class CreateTemplate extends Operation {
+public class DeleteTemplateLocalization extends Operation {
   /** generated field's value */
-  private String path = "/notification/namespaces/{namespace}/templates";
+  private String path =
+      "/notification/namespaces/{namespace}/templates/{templateSlug}/languages/{templateLanguage}";
 
-  private String method = "POST";
+  private String method = "DELETE";
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
   /** fields as input parameter */
   private String namespace;
 
-  private ModelCreateTemplateRequest body;
+  private String templateLanguage;
+  private String templateSlug;
 
   /**
    * @param namespace required
-   * @param body required
+   * @param templateLanguage required
+   * @param templateSlug required
    */
   @Builder
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public CreateTemplate(String namespace, ModelCreateTemplateRequest body) {
+  public DeleteTemplateLocalization(
+      String namespace, String templateLanguage, String templateSlug) {
     this.namespace = namespace;
-    this.body = body;
+    this.templateLanguage = templateLanguage;
+    this.templateSlug = templateSlug;
 
     securities.add("Bearer");
   }
@@ -64,17 +64,24 @@ public class CreateTemplate extends Operation {
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
     }
+    if (this.templateLanguage != null) {
+      pathParams.put("templateLanguage", this.templateLanguage);
+    }
+    if (this.templateSlug != null) {
+      pathParams.put("templateSlug", this.templateSlug);
+    }
     return pathParams;
-  }
-
-  @Override
-  public ModelCreateTemplateRequest getBodyParams() {
-    return this.body;
   }
 
   @Override
   public boolean isValid() {
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.templateLanguage == null) {
+      return false;
+    }
+    if (this.templateSlug == null) {
       return false;
     }
     return true;

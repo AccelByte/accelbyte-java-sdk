@@ -6,49 +6,61 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.lobby.operations.notification;
+package net.accelbyte.sdk.api.lobby.operations.admin;
 
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import net.accelbyte.sdk.api.lobby.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * deleteTemplateSlug
+ * updateLocalizationTemplate
  *
- * <p>Required permission : `NAMESPACE:{namespace}:TEMPLATE [DELETE]` with scope `social`
+ * <p>Required permission : `NAMESPACE:{namespace}:TEMPLATE [UPDATE]` with scope `social`
  *
- * <p>Delete localization template
+ * <p>Modify draft template
  */
 @Getter
 @Setter
-public class DeleteTemplateSlug extends Operation {
+public class UpdateLocalizationTemplate extends Operation {
   /** generated field's value */
-  private String path = "/notification/namespaces/{namespace}/templates/{templateSlug}";
+  private String path =
+      "/notification/namespaces/{namespace}/templates/{templateSlug}/languages/{templateLanguage}";
 
-  private String method = "DELETE";
+  private String method = "PUT";
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
   /** fields as input parameter */
   private String namespace;
 
+  private String templateLanguage;
   private String templateSlug;
+  private ModelUpdateTemplateRequest body;
 
   /**
    * @param namespace required
+   * @param templateLanguage required
    * @param templateSlug required
+   * @param body required
    */
   @Builder
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public DeleteTemplateSlug(String namespace, String templateSlug) {
+  public UpdateLocalizationTemplate(
+      String namespace,
+      String templateLanguage,
+      String templateSlug,
+      ModelUpdateTemplateRequest body) {
     this.namespace = namespace;
+    this.templateLanguage = templateLanguage;
     this.templateSlug = templateSlug;
+    this.body = body;
 
     securities.add("Bearer");
   }
@@ -59,6 +71,9 @@ public class DeleteTemplateSlug extends Operation {
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
     }
+    if (this.templateLanguage != null) {
+      pathParams.put("templateLanguage", this.templateLanguage);
+    }
     if (this.templateSlug != null) {
       pathParams.put("templateSlug", this.templateSlug);
     }
@@ -66,8 +81,16 @@ public class DeleteTemplateSlug extends Operation {
   }
 
   @Override
+  public ModelUpdateTemplateRequest getBodyParams() {
+    return this.body;
+  }
+
+  @Override
   public boolean isValid() {
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.templateLanguage == null) {
       return false;
     }
     if (this.templateSlug == null) {

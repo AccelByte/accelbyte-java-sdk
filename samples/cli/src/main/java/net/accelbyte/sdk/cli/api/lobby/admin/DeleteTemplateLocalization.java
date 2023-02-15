@@ -6,13 +6,12 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.lobby.notification;
+package net.accelbyte.sdk.cli.api.lobby.admin;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.lobby.models.*;
-import net.accelbyte.sdk.api.lobby.wrappers.Notification;
+import net.accelbyte.sdk.api.lobby.wrappers.Admin;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +24,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "updateLocalizationTemplate", mixinStandardHelpOptions = true)
-public class UpdateLocalizationTemplate implements Callable<Integer> {
+@Command(name = "deleteTemplateLocalization", mixinStandardHelpOptions = true)
+public class DeleteTemplateLocalization implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(UpdateLocalizationTemplate.class);
+  private static final Logger log = LogManager.getLogger(DeleteTemplateLocalization.class);
 
   @Option(
       names = {"--namespace"},
@@ -46,17 +45,12 @@ public class UpdateLocalizationTemplate implements Callable<Integer> {
   String templateSlug;
 
   @Option(
-      names = {"--body"},
-      description = "body")
-  String body;
-
-  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new UpdateLocalizationTemplate()).execute(args);
+    int exitCode = new CommandLine(new DeleteTemplateLocalization()).execute(args);
     System.exit(exitCode);
   }
 
@@ -70,17 +64,14 @@ public class UpdateLocalizationTemplate implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Notification wrapper = new Notification(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.notification.UpdateLocalizationTemplate
-          operation =
-              net.accelbyte.sdk.api.lobby.operations.notification.UpdateLocalizationTemplate
-                  .builder()
-                  .namespace(namespace)
-                  .templateLanguage(templateLanguage)
-                  .templateSlug(templateSlug)
-                  .body(new ObjectMapper().readValue(body, ModelUpdateTemplateRequest.class))
-                  .build();
-      wrapper.updateLocalizationTemplate(operation);
+      final Admin wrapper = new Admin(sdk);
+      final net.accelbyte.sdk.api.lobby.operations.admin.DeleteTemplateLocalization operation =
+          net.accelbyte.sdk.api.lobby.operations.admin.DeleteTemplateLocalization.builder()
+              .namespace(namespace)
+              .templateLanguage(templateLanguage)
+              .templateSlug(templateSlug)
+              .build();
+      wrapper.deleteTemplateLocalization(operation);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

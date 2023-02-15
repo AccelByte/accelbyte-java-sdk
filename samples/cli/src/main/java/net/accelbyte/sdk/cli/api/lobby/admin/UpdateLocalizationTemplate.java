@@ -6,12 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.lobby.notification;
+package net.accelbyte.sdk.cli.api.lobby.admin;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.lobby.models.*;
-import net.accelbyte.sdk.api.lobby.wrappers.Notification;
+import net.accelbyte.sdk.api.lobby.wrappers.Admin;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -24,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "deleteTemplateSlug", mixinStandardHelpOptions = true)
-public class DeleteTemplateSlug implements Callable<Integer> {
+@Command(name = "updateLocalizationTemplate", mixinStandardHelpOptions = true)
+public class UpdateLocalizationTemplate implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(DeleteTemplateSlug.class);
+  private static final Logger log = LogManager.getLogger(UpdateLocalizationTemplate.class);
 
   @Option(
       names = {"--namespace"},
@@ -35,9 +36,19 @@ public class DeleteTemplateSlug implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--templateLanguage"},
+      description = "templateLanguage")
+  String templateLanguage;
+
+  @Option(
       names = {"--templateSlug"},
       description = "templateSlug")
   String templateSlug;
+
+  @Option(
+      names = {"--body"},
+      description = "body")
+  String body;
 
   @Option(
       names = {"--logging"},
@@ -45,7 +56,7 @@ public class DeleteTemplateSlug implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new DeleteTemplateSlug()).execute(args);
+    int exitCode = new CommandLine(new UpdateLocalizationTemplate()).execute(args);
     System.exit(exitCode);
   }
 
@@ -59,13 +70,15 @@ public class DeleteTemplateSlug implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Notification wrapper = new Notification(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.notification.DeleteTemplateSlug operation =
-          net.accelbyte.sdk.api.lobby.operations.notification.DeleteTemplateSlug.builder()
+      final Admin wrapper = new Admin(sdk);
+      final net.accelbyte.sdk.api.lobby.operations.admin.UpdateLocalizationTemplate operation =
+          net.accelbyte.sdk.api.lobby.operations.admin.UpdateLocalizationTemplate.builder()
               .namespace(namespace)
+              .templateLanguage(templateLanguage)
               .templateSlug(templateSlug)
+              .body(new ObjectMapper().readValue(body, ModelUpdateTemplateRequest.class))
               .build();
-      wrapper.deleteTemplateSlug(operation);
+      wrapper.updateLocalizationTemplate(operation);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

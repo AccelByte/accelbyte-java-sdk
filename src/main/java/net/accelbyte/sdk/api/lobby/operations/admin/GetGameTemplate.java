@@ -6,8 +6,10 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.lobby.operations.notification;
+package net.accelbyte.sdk.api.lobby.operations.admin;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
@@ -19,18 +21,17 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * getLocalizationTemplate
+ * getGameTemplate
  *
  * <p>Required permission : `NAMESPACE:{namespace}:TEMPLATE [READ]` with scope `social`
  *
- * <p>Get a template localization
+ * <p>Get all templates in a namespace
  */
 @Getter
 @Setter
-public class GetLocalizationTemplate extends Operation {
+public class GetGameTemplate extends Operation {
   /** generated field's value */
-  private String path =
-      "/notification/namespaces/{namespace}/templates/{templateSlug}/languages/{templateLanguage}";
+  private String path = "/notification/namespaces/{namespace}/templates";
 
   private String method = "GET";
   private List<String> consumes = Arrays.asList("application/json");
@@ -39,21 +40,14 @@ public class GetLocalizationTemplate extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private String templateLanguage;
-  private String templateSlug;
-
   /**
    * @param namespace required
-   * @param templateLanguage required
-   * @param templateSlug required
    */
   @Builder
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetLocalizationTemplate(String namespace, String templateLanguage, String templateSlug) {
+  public GetGameTemplate(String namespace) {
     this.namespace = namespace;
-    this.templateLanguage = templateLanguage;
-    this.templateSlug = templateSlug;
 
     securities.add("Bearer");
   }
@@ -64,12 +58,6 @@ public class GetLocalizationTemplate extends Operation {
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
     }
-    if (this.templateLanguage != null) {
-      pathParams.put("templateLanguage", this.templateLanguage);
-    }
-    if (this.templateSlug != null) {
-      pathParams.put("templateSlug", this.templateSlug);
-    }
     return pathParams;
   }
 
@@ -78,22 +66,16 @@ public class GetLocalizationTemplate extends Operation {
     if (this.namespace == null) {
       return false;
     }
-    if (this.templateLanguage == null) {
-      return false;
-    }
-    if (this.templateSlug == null) {
-      return false;
-    }
     return true;
   }
 
-  public ModelTemplateLocalization parseResponse(int code, String contentType, InputStream payload)
-      throws HttpResponseException, IOException {
+  public List<ModelTemplateResponse> parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ModelTemplateLocalization().createFromJson(json);
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelTemplateResponse>>() {});
   }
 }

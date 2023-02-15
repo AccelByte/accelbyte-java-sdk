@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.lobby.notification;
+package net.accelbyte.sdk.cli.api.lobby.admin;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.lobby.models.*;
-import net.accelbyte.sdk.api.lobby.wrappers.Notification;
+import net.accelbyte.sdk.api.lobby.wrappers.Admin;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "createTemplate", mixinStandardHelpOptions = true)
-public class CreateTemplate implements Callable<Integer> {
+@Command(name = "getLocalizationTemplate", mixinStandardHelpOptions = true)
+public class GetLocalizationTemplate implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(CreateTemplate.class);
+  private static final Logger log = LogManager.getLogger(GetLocalizationTemplate.class);
 
   @Option(
       names = {"--namespace"},
@@ -36,9 +36,14 @@ public class CreateTemplate implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--body"},
-      description = "body")
-  String body;
+      names = {"--templateLanguage"},
+      description = "templateLanguage")
+  String templateLanguage;
+
+  @Option(
+      names = {"--templateSlug"},
+      description = "templateSlug")
+  String templateSlug;
 
   @Option(
       names = {"--logging"},
@@ -46,7 +51,7 @@ public class CreateTemplate implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new CreateTemplate()).execute(args);
+    int exitCode = new CommandLine(new GetLocalizationTemplate()).execute(args);
     System.exit(exitCode);
   }
 
@@ -60,14 +65,17 @@ public class CreateTemplate implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Notification wrapper = new Notification(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.notification.CreateTemplate operation =
-          net.accelbyte.sdk.api.lobby.operations.notification.CreateTemplate.builder()
+      final Admin wrapper = new Admin(sdk);
+      final net.accelbyte.sdk.api.lobby.operations.admin.GetLocalizationTemplate operation =
+          net.accelbyte.sdk.api.lobby.operations.admin.GetLocalizationTemplate.builder()
               .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelCreateTemplateRequest.class))
+              .templateLanguage(templateLanguage)
+              .templateSlug(templateSlug)
               .build();
-      wrapper.createTemplate(operation);
-      log.info("Operation successful");
+      final ModelTemplateLocalization response = wrapper.getLocalizationTemplate(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

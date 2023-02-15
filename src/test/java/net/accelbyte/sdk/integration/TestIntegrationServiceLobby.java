@@ -9,8 +9,8 @@ package net.accelbyte.sdk.integration;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import net.accelbyte.sdk.api.lobby.models.ModelFreeFormNotificationRequest;
-import net.accelbyte.sdk.api.lobby.operations.notification.FreeFormNotification;
-import net.accelbyte.sdk.api.lobby.wrappers.Notification;
+import net.accelbyte.sdk.api.lobby.operations.admin.FreeFormNotification;
+import net.accelbyte.sdk.api.lobby.wrappers.Admin;
 import net.accelbyte.sdk.api.lobby.ws_models.PartyCreateRequest;
 import net.accelbyte.sdk.core.client.OkhttpWebSocketClient;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
@@ -42,14 +42,14 @@ class TestIntegrationServiceLobby extends TestIntegration {
     final String topic = "java_server_sdk_integration_test";
     final String message = "This is a Java Server SDK integration test";
 
-    final Notification notifWrapper = new Notification(sdk);
+    final Admin adminWrapper = new Admin(sdk);
 
     // CASE Sending a free from notification to users
 
     final ModelFreeFormNotificationRequest notifBody =
         ModelFreeFormNotificationRequest.builder().topic(topic).message(message).build();
 
-    notifWrapper.freeFormNotification(
+    adminWrapper.freeFormNotification(
         FreeFormNotification.builder().namespace(this.namespace).body(notifBody).build());
 
     // ESAC

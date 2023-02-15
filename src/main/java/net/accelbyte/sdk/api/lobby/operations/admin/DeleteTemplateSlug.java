@@ -6,32 +6,31 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.lobby.operations.notification;
+package net.accelbyte.sdk.api.lobby.operations.admin;
 
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.lobby.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * getSlugTemplate
+ * deleteTemplateSlug
  *
- * <p>Required permission : `NAMESPACE:{namespace}:TEMPLATE [READ]` with scope `social`
+ * <p>Required permission : `NAMESPACE:{namespace}:TEMPLATE [DELETE]` with scope `social`
  *
- * <p>Get all templates in a namespace
+ * <p>Delete localization template
  */
 @Getter
 @Setter
-public class GetSlugTemplate extends Operation {
+public class DeleteTemplateSlug extends Operation {
   /** generated field's value */
   private String path = "/notification/namespaces/{namespace}/templates/{templateSlug}";
 
-  private String method = "GET";
+  private String method = "DELETE";
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
@@ -39,9 +38,6 @@ public class GetSlugTemplate extends Operation {
   private String namespace;
 
   private String templateSlug;
-  private String after;
-  private String before;
-  private Integer limit;
 
   /**
    * @param namespace required
@@ -50,13 +46,9 @@ public class GetSlugTemplate extends Operation {
   @Builder
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetSlugTemplate(
-      String namespace, String templateSlug, String after, String before, Integer limit) {
+  public DeleteTemplateSlug(String namespace, String templateSlug) {
     this.namespace = namespace;
     this.templateSlug = templateSlug;
-    this.after = after;
-    this.before = before;
-    this.limit = limit;
 
     securities.add("Bearer");
   }
@@ -74,15 +66,6 @@ public class GetSlugTemplate extends Operation {
   }
 
   @Override
-  public Map<String, List<String>> getQueryParams() {
-    Map<String, List<String>> queryParams = new HashMap<>();
-    queryParams.put("after", this.after == null ? null : Arrays.asList(this.after));
-    queryParams.put("before", this.before == null ? null : Arrays.asList(this.before));
-    queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
-    return queryParams;
-  }
-
-  @Override
   public boolean isValid() {
     if (this.namespace == null) {
       return false;
@@ -93,22 +76,11 @@ public class GetSlugTemplate extends Operation {
     return true;
   }
 
-  public ModelTemplateLocalizationResponse parseResponse(
-      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
-    if (code != 200) {
+  public void handleEmptyResponse(int code, String contentType, InputStream payload)
+      throws HttpResponseException, IOException {
+    if (code != 204) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
-    final String json = Helper.convertInputStreamToString(payload);
-    return new ModelTemplateLocalizationResponse().createFromJson(json);
-  }
-
-  @Override
-  protected Map<String, String> getCollectionFormatMap() {
-    Map<String, String> result = new HashMap<>();
-    result.put("after", "None");
-    result.put("before", "None");
-    result.put("limit", "None");
-    return result;
   }
 }

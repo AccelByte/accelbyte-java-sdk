@@ -6,13 +6,12 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.lobby.notification;
+package net.accelbyte.sdk.cli.api.lobby.admin;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.lobby.models.*;
-import net.accelbyte.sdk.api.lobby.wrappers.Notification;
+import net.accelbyte.sdk.api.lobby.wrappers.Admin;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +24,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "getLocalizationTemplate", mixinStandardHelpOptions = true)
-public class GetLocalizationTemplate implements Callable<Integer> {
+@Command(name = "publishTemplate", mixinStandardHelpOptions = true)
+public class PublishTemplate implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(GetLocalizationTemplate.class);
+  private static final Logger log = LogManager.getLogger(PublishTemplate.class);
 
   @Option(
       names = {"--namespace"},
@@ -51,7 +50,7 @@ public class GetLocalizationTemplate implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new GetLocalizationTemplate()).execute(args);
+    int exitCode = new CommandLine(new PublishTemplate()).execute(args);
     System.exit(exitCode);
   }
 
@@ -65,17 +64,15 @@ public class GetLocalizationTemplate implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Notification wrapper = new Notification(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.notification.GetLocalizationTemplate operation =
-          net.accelbyte.sdk.api.lobby.operations.notification.GetLocalizationTemplate.builder()
+      final Admin wrapper = new Admin(sdk);
+      final net.accelbyte.sdk.api.lobby.operations.admin.PublishTemplate operation =
+          net.accelbyte.sdk.api.lobby.operations.admin.PublishTemplate.builder()
               .namespace(namespace)
               .templateLanguage(templateLanguage)
               .templateSlug(templateSlug)
               .build();
-      final ModelTemplateLocalization response = wrapper.getLocalizationTemplate(operation);
-      final String responseString =
-          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful\n{}", responseString);
+      wrapper.publishTemplate(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

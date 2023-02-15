@@ -715,7 +715,7 @@ Source: [TestIntegrationServiceLobby.java](../src/test/java/net/accelbyte/sdk/in
 final ModelFreeFormNotificationRequest notifBody =
     ModelFreeFormNotificationRequest.builder().topic(topic).message(message).build();
 
-notifWrapper.freeFormNotification(
+adminWrapper.freeFormNotification(
     FreeFormNotification.builder().namespace(this.namespace).body(notifBody).build());
 ```
 

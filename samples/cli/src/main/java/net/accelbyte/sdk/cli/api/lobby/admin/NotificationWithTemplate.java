@@ -6,12 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.lobby.notification;
+package net.accelbyte.sdk.cli.api.lobby.admin;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.lobby.models.*;
-import net.accelbyte.sdk.api.lobby.wrappers.Notification;
+import net.accelbyte.sdk.api.lobby.wrappers.Admin;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -24,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "deleteTemplateLocalization", mixinStandardHelpOptions = true)
-public class DeleteTemplateLocalization implements Callable<Integer> {
+@Command(name = "notificationWithTemplate", mixinStandardHelpOptions = true)
+public class NotificationWithTemplate implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(DeleteTemplateLocalization.class);
+  private static final Logger log = LogManager.getLogger(NotificationWithTemplate.class);
 
   @Option(
       names = {"--namespace"},
@@ -35,14 +36,9 @@ public class DeleteTemplateLocalization implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--templateLanguage"},
-      description = "templateLanguage")
-  String templateLanguage;
-
-  @Option(
-      names = {"--templateSlug"},
-      description = "templateSlug")
-  String templateSlug;
+      names = {"--body"},
+      description = "body")
+  String body;
 
   @Option(
       names = {"--logging"},
@@ -50,7 +46,7 @@ public class DeleteTemplateLocalization implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new DeleteTemplateLocalization()).execute(args);
+    int exitCode = new CommandLine(new NotificationWithTemplate()).execute(args);
     System.exit(exitCode);
   }
 
@@ -64,16 +60,13 @@ public class DeleteTemplateLocalization implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Notification wrapper = new Notification(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.notification.DeleteTemplateLocalization
-          operation =
-              net.accelbyte.sdk.api.lobby.operations.notification.DeleteTemplateLocalization
-                  .builder()
-                  .namespace(namespace)
-                  .templateLanguage(templateLanguage)
-                  .templateSlug(templateSlug)
-                  .build();
-      wrapper.deleteTemplateLocalization(operation);
+      final Admin wrapper = new Admin(sdk);
+      final net.accelbyte.sdk.api.lobby.operations.admin.NotificationWithTemplate operation =
+          net.accelbyte.sdk.api.lobby.operations.admin.NotificationWithTemplate.builder()
+              .namespace(namespace)
+              .body(new ObjectMapper().readValue(body, ModelNotificationWithTemplateRequest.class))
+              .build();
+      wrapper.notificationWithTemplate(operation);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -6,10 +6,8 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.lobby.operations.notification;
+package net.accelbyte.sdk.api.lobby.operations.admin;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
@@ -21,33 +19,44 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * getGameTemplate
+ * notificationWithTemplate
  *
- * <p>Required permission : `NAMESPACE:{namespace}:TEMPLATE [READ]` with scope `social`
+ * <p>Required permission : `NAMESPACE:{namespace}:NOTIFICATION [CREATE]` with scope `social`
  *
- * <p>Get all templates in a namespace
+ * <p>Sends notification to all connected users in a namespace with predefined template.
+ *
+ * <p>In the request body, specify which template slug (template identifier) to use and the template
+ * language.
+ *
+ * <p>NotificationTemplate context is the key-value pair defining the value of each handlebar
+ * specified in the template content. Template need to be published before it can be use to send
+ * notifications
  */
 @Getter
 @Setter
-public class GetGameTemplate extends Operation {
+public class NotificationWithTemplate extends Operation {
   /** generated field's value */
-  private String path = "/notification/namespaces/{namespace}/templates";
+  private String path = "/notification/namespaces/{namespace}/templated";
 
-  private String method = "GET";
+  private String method = "POST";
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
   /** fields as input parameter */
   private String namespace;
 
+  private ModelNotificationWithTemplateRequest body;
+
   /**
    * @param namespace required
+   * @param body required
    */
   @Builder
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetGameTemplate(String namespace) {
+  public NotificationWithTemplate(String namespace, ModelNotificationWithTemplateRequest body) {
     this.namespace = namespace;
+    this.body = body;
 
     securities.add("Bearer");
   }
@@ -62,6 +71,11 @@ public class GetGameTemplate extends Operation {
   }
 
   @Override
+  public ModelNotificationWithTemplateRequest getBodyParams() {
+    return this.body;
+  }
+
+  @Override
   public boolean isValid() {
     if (this.namespace == null) {
       return false;
@@ -69,13 +83,11 @@ public class GetGameTemplate extends Operation {
     return true;
   }
 
-  public List<ModelTemplateResponse> parseResponse(
-      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
-    if (code != 200) {
+  public void handleEmptyResponse(int code, String contentType, InputStream payload)
+      throws HttpResponseException, IOException {
+    if (code != 202) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
-    final String json = Helper.convertInputStreamToString(payload);
-    return new ObjectMapper().readValue(json, new TypeReference<List<ModelTemplateResponse>>() {});
   }
 }

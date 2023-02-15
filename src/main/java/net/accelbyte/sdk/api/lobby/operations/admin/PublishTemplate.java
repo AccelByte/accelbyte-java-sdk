@@ -6,37 +6,30 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.lobby.operations.notification;
+package net.accelbyte.sdk.api.lobby.operations.admin;
 
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.lobby.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * notificationWithTemplate
+ * publishTemplate
  *
- * <p>Required permission : `NAMESPACE:{namespace}:NOTIFICATION [CREATE]` with scope `social`
+ * <p>Required permission : `NAMESPACE:{namespace}:TEMPLATE [CREATE]` with scope `social`
  *
- * <p>Sends notification to all connected users in a namespace with predefined template.
- *
- * <p>In the request body, specify which template slug (template identifier) to use and the template
- * language.
- *
- * <p>NotificationTemplate context is the key-value pair defining the value of each handlebar
- * specified in the template content. Template need to be published before it can be use to send
- * notifications
+ * <p>Publish notification template draft. Empty draft can not be published.
  */
 @Getter
 @Setter
-public class NotificationWithTemplate extends Operation {
+public class PublishTemplate extends Operation {
   /** generated field's value */
-  private String path = "/notification/namespaces/{namespace}/templated";
+  private String path =
+      "/notification/namespaces/{namespace}/templates/{templateSlug}/languages/{templateLanguage}/publish";
 
   private String method = "POST";
   private List<String> consumes = Arrays.asList("application/json");
@@ -45,18 +38,21 @@ public class NotificationWithTemplate extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private ModelNotificationWithTemplateRequest body;
+  private String templateLanguage;
+  private String templateSlug;
 
   /**
    * @param namespace required
-   * @param body required
+   * @param templateLanguage required
+   * @param templateSlug required
    */
   @Builder
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public NotificationWithTemplate(String namespace, ModelNotificationWithTemplateRequest body) {
+  public PublishTemplate(String namespace, String templateLanguage, String templateSlug) {
     this.namespace = namespace;
-    this.body = body;
+    this.templateLanguage = templateLanguage;
+    this.templateSlug = templateSlug;
 
     securities.add("Bearer");
   }
@@ -67,12 +63,13 @@ public class NotificationWithTemplate extends Operation {
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
     }
+    if (this.templateLanguage != null) {
+      pathParams.put("templateLanguage", this.templateLanguage);
+    }
+    if (this.templateSlug != null) {
+      pathParams.put("templateSlug", this.templateSlug);
+    }
     return pathParams;
-  }
-
-  @Override
-  public ModelNotificationWithTemplateRequest getBodyParams() {
-    return this.body;
   }
 
   @Override
@@ -80,12 +77,18 @@ public class NotificationWithTemplate extends Operation {
     if (this.namespace == null) {
       return false;
     }
+    if (this.templateLanguage == null) {
+      return false;
+    }
+    if (this.templateSlug == null) {
+      return false;
+    }
     return true;
   }
 
   public void handleEmptyResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    if (code != 202) {
+    if (code != 204) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }

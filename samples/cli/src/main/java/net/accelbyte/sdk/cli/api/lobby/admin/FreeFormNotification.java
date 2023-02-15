@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.lobby.notification;
+package net.accelbyte.sdk.cli.api.lobby.admin;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.lobby.models.*;
-import net.accelbyte.sdk.api.lobby.wrappers.Notification;
+import net.accelbyte.sdk.api.lobby.wrappers.Admin;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "notificationWithTemplate", mixinStandardHelpOptions = true)
-public class NotificationWithTemplate implements Callable<Integer> {
+@Command(name = "freeFormNotification", mixinStandardHelpOptions = true)
+public class FreeFormNotification implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(NotificationWithTemplate.class);
+  private static final Logger log = LogManager.getLogger(FreeFormNotification.class);
 
   @Option(
       names = {"--namespace"},
@@ -46,7 +46,7 @@ public class NotificationWithTemplate implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new NotificationWithTemplate()).execute(args);
+    int exitCode = new CommandLine(new FreeFormNotification()).execute(args);
     System.exit(exitCode);
   }
 
@@ -60,13 +60,13 @@ public class NotificationWithTemplate implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Notification wrapper = new Notification(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.notification.NotificationWithTemplate operation =
-          net.accelbyte.sdk.api.lobby.operations.notification.NotificationWithTemplate.builder()
+      final Admin wrapper = new Admin(sdk);
+      final net.accelbyte.sdk.api.lobby.operations.admin.FreeFormNotification operation =
+          net.accelbyte.sdk.api.lobby.operations.admin.FreeFormNotification.builder()
               .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelNotificationWithTemplateRequest.class))
+              .body(new ObjectMapper().readValue(body, ModelFreeFormNotificationRequest.class))
               .build();
-      wrapper.notificationWithTemplate(operation);
+      wrapper.freeFormNotification(operation);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.cli.wrapper;
 
+import net.accelbyte.sdk.cli.api.lobby.admin.*;
 import net.accelbyte.sdk.cli.api.lobby.chat.*;
 import net.accelbyte.sdk.cli.api.lobby.config.*;
 import net.accelbyte.sdk.cli.api.lobby.friends.*;
