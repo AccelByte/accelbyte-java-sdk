@@ -35,41 +35,49 @@ Globals:
 
 Start the lambda, in this case, locally for testing purpose.
 
-1. Build lambda.
+1. Input credentials in `POST.json`, `GET.json`, `DELETE.json` files.
+    
+    ```json
+    "queryStringParameters": {
+        "namespace": "xxxxxxxxxx",
+        "userId": "xxxxxxxxxx"
+    },
+    "body": "{\"statCode\": \"xxxxxxxxxx\"}"
+    ```
+2. Build lambda.
 
     ```bash
     sam build
     ```
 
-2. Run lambda. 
+3. Run the following command and replace `httpMethod` with POST/GET/DELETE. 
 
     ```bash
-    sam local start-api
-    ```
-
-3. Try it out. Use the your `Namespace ID`, `User ID`, and `Stat Code` accordingly.
-
-    ```bash
-    # Add a statistic to a user
-
-    curl -X POST http://127.0.0.1:3000/user-stats/{NAMESPACE}/{USER_ID} -H "Content-Type: application/json" -d '{"statCode":"STAT_CODE"}'
-
-    # Get a list of statistics of a user
-
-    curl http://127.0.0.1:3000/user-stats/{NAMESPACE}/{USER_ID}
-
-    # Delete a statistic from a user
-
-    curl -X DELETE http://127.0.0.1:3000/user-stats/{NAMESPACE}/{USER_ID}/{STAT_CODE}
+    sam local invoke UserStatsFunction --event ./{httpMethod}.json
     ```
 
 ## Deploy to AWS and Testing
 
-Follow AWS SAM CLI instruction to deploy Lambda to AWS. Make sure the AWS account you use has all the required permissions. Adjust environment variables required by the lambda and the client app accordingly.
+1. Build lambda.
 
-```
-sam deploy --guided
-```
+    ```bash
+    sam build
+    ```
+2. Follow AWS SAM CLI instruction to deploy Lambda to AWS. Make sure the AWS account you use has all the required permissions. Adjust environment variables required by the lambda and the client app accordingly.
+    ```bash
+    sam deploy --guided
+    ```
 
-Obtain the `FunctionURL` from command line output.
-Try it out. Use the your `FunctionURL`, `Namespace ID`, `User ID`, and `Stat Code` following the [payload format](https://docs.aws.amazon.com/lambda/latest/dg/urls-invocation.html)
+3. Obtain the `FunctionURL` from command line output.
+Try it out. Use the your `FunctionURL`, `Namespace`, `User ID`, and `Stat Code`
+
+    ```bash
+    # Add a statistic to a user
+    curl 'https://7ta5veys2xjzvxo6rqjifqfy5a0vvnwi.lambda-url.us-east-1.on.aws/?namespace=javaAWSlambdafunctionURL&userId=0de592b9d52842d390ddec14599dfd3a' -H "Content-Type: application/json" -d '{"statCode":"functionurl"}'
+    
+    # Get a list of statistics of a user
+    curl 'https://7ta5veys2xjzvxo6rqjifqfy5a0vvnwi.lambda-url.us-east-1.on.aws/?namespace=javaAWSlambdafunctionURL&userId=0de592b9d52842d390ddec14599dfd3a'
+    
+    # Delete a statistic from a user
+    curl -X DELETE 'https://7ta5veys2xjzvxo6rqjifqfy5a0vvnwi.lambda-url.us-east-1.on.aws/?userId=0de592b9d52842d390ddec14599dfd3a&namespace=javaAWSlambdafunctionURL&statCode=functionurl'
+    ```

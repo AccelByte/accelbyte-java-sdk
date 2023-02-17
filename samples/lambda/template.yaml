@@ -10,8 +10,8 @@ Globals:
     Environment:
       Variables:
         AB_BASE_URL: 'https://demo.accelbyte.io'
-        AB_CLIENT_ID: 'xxxxxxxxxxxxxxxxxx'
-        AB_CLIENT_SECRET: 'xxxxxxxxxxxxxxxxxxxx'
+        AB_CLIENT_ID: 'xxxxxxxxxxx'
+        AB_CLIENT_SECRET: 'xxxxxxxxxxx'
 
 Resources:
   UserStatsFunction:
@@ -30,37 +30,15 @@ Resources:
             - "*"
           AllowMethods:
             - "*"
-      Events:
-        CreateUserStats:
-          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
-          Properties:
-            Path: /user-stats/{namespace}/{userId}
-            Method: post
-        GetUserStats:
-          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
-          Properties:
-            Path: /user-stats/{namespace}/{userId}
-            Method: get
-        DeleteUserStats:
-          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
-          Properties:
-            Path: /user-stats/{namespace}/{userId}/{statCode}
-            Method: delete
 
 Outputs:
-  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
-  # Find out more about other implicit resources you can reference within SAM
-  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
-  UserStatsApi:
-    Description: "API Gateway endpoint URL for Prod stage for Hello World function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
   UserStatsFunction:
     Description: "Hello World Lambda Function ARN"
     Value: !GetAtt UserStatsFunction.Arn
   UserStatsFunctionIamRole:
     Description: "Implicit IAM Role created for Hello World function"
     Value: !GetAtt UserStatsFunctionRole.Arn
-  MyFunctionUrlEndpoint:
+  UserStatsFunctionUrlEndpoint:
     Description: "Java Simple App Lambda Function URL Endpoint"
     Value:
       Fn::GetAtt: UserStatsFunctionUrl.FunctionUrl # {Function Name}Url.FunctionUrl

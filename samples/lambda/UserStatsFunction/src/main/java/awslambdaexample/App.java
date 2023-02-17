@@ -2,8 +2,8 @@ package awslambdaexample;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
-import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
+import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPEvent;
+import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPResponse;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.HashMap;
@@ -23,18 +23,15 @@ import net.accelbyte.sdk.core.repository.TokenRepository;
 
 /** Handler for requests to Lambda function. */
 public class App
-    implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
+    implements RequestHandler<APIGatewayV2HTTPEvent, APIGatewayV2HTTPResponse> {
   final OkhttpClient httpClient = new OkhttpClient();
   final TokenRepository tokenRepo = DefaultTokenRepository.getInstance();
   final ConfigRepository configRepo = new DefaultConfigRepository();
 
-  public APIGatewayProxyResponseEvent handleRequest(
-      final APIGatewayProxyRequestEvent request, final Context context) {
+  public APIGatewayV2HTTPResponse handleRequest(
+      final APIGatewayV2HTTPEvent request, final Context context) {
     final Map<String, String> headers = new HashMap<>();
     headers.put("Content-Type", "application/json");
-
-    final APIGatewayProxyResponseEvent response =
-        new APIGatewayProxyResponseEvent().withHeaders(headers);
 
     try {
       final String baseUrl = configRepo.getBaseURL();
@@ -54,36 +51,43 @@ public class App
       }
 
       final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepo, configRepo);
-
-      switch (request.getHttpMethod()) {
+      
+      switch (request.getRequestContext().getHttp().getMethod()) {
         case "POST":
-          return handlePostRequest(sdk, request, response);
+          return handlePostRequest(sdk, request, headers);
         case "GET":
-          return handleGetRequest(sdk, request, response);
+          return handleGetRequest(sdk, request, headers);
         case "DELETE":
-          return handleDeleteRequest(sdk, request, response);
+          return handleDeleteRequest(sdk, request, headers);
         default:
           throw new IllegalArgumentException(
-              String.format("Unhandled HTTP method %s", request.getHttpMethod()));
+              String.format("Unhandled HTTP method %s", request.getRequestContext().getHttp().getMethod()));
       }
     } catch (HttpResponseException rex) {
-      return response.withStatusCode(rex.getHttpCode()).withBody(rex.getErrorMessage());
+      return APIGatewayV2HTTPResponse.builder()
+          .withHeaders(headers)
+          .withStatusCode(rex.getHttpCode())
+          .withBody(rex.getErrorMessage())
+          .build();
 
     } catch (Exception ex) {
-      return response
+      ex.printStackTrace(); // View error on clouldWatch or during local testing
+      return APIGatewayV2HTTPResponse.builder()
+          .withHeaders(headers)
           .withStatusCode(500)
-          .withBody(String.format("{\"code\":0,\"message\":\"%s\"}", ex.getMessage()));
+          .withBody(String.format("{\"code\":500,\"message\":\"%s\"}", ex.getMessage()))
+          .build();
     }
   }
 
-  public APIGatewayProxyResponseEvent handlePostRequest(
+  public APIGatewayV2HTTPResponse handlePostRequest(
       final AccelByteSDK sdk,
-      final APIGatewayProxyRequestEvent request,
-      final APIGatewayProxyResponseEvent response)
+      final APIGatewayV2HTTPEvent request,
+      Map<String, String> headers)
       throws Exception {
 
-    final String namespace = request.getPathParameters().get("namespace");
-    final String userId = request.getPathParameters().get("userId");
+    final String namespace = request.getQueryStringParameters().get("namespace");
+    final String userId = request.getQueryStringParameters().get("userId");
 
     final ObjectMapper mapper = new ObjectMapper();
 
@@ -118,18 +122,23 @@ public class App
 
     wrapper.createUserStatItem(operation);
 
-    return response.withStatusCode(200).withBody("{}");
+    return APIGatewayV2HTTPResponse.builder()
+            .withHeaders(headers)
+            .withStatusCode(200)
+            .withBody("{\"Status\": \"successful\"}")
+            .build();
   }
 
-  public APIGatewayProxyResponseEvent handleGetRequest(
+  public APIGatewayV2HTTPResponse handleGetRequest(
       final AccelByteSDK sdk,
-      final APIGatewayProxyRequestEvent request,
-      final APIGatewayProxyResponseEvent response)
+      final APIGatewayV2HTTPEvent request,
+      Map<String, String> headers)
       throws Exception {
-    final String namespace = request.getPathParameters().get("namespace");
-    final String userId = request.getPathParameters().get("userId");
+
+    final String namespace = request.getQueryStringParameters().get("namespace");
+    final String userId = request.getQueryStringParameters().get("userId");
     final String statCodes =
-        request.getQueryStringParameters() != null
+        request.getQueryStringParameters().get("statCodes") != null
             ? request.getQueryStringParameters().get("statCodes")
             : null;
 
@@ -155,17 +164,22 @@ public class App
 
     final UserStatItemPagingSlicedResult result = wrapper.getUserStatItems(operation);
 
-    return response.withStatusCode(200).withBody(result.toJson());
+    return APIGatewayV2HTTPResponse.builder()
+            .withHeaders(headers)
+            .withStatusCode(200)
+            .withBody(result.toJson())
+            .build();
   }
 
-  public APIGatewayProxyResponseEvent handleDeleteRequest(
+  public APIGatewayV2HTTPResponse handleDeleteRequest(
       final AccelByteSDK sdk,
-      final APIGatewayProxyRequestEvent request,
-      final APIGatewayProxyResponseEvent response)
+      final APIGatewayV2HTTPEvent request,
+      Map<String, String> headers)
       throws Exception {
-    final String namespace = request.getPathParameters().get("namespace");
-    final String userId = request.getPathParameters().get("userId");
-    final String statCode = request.getPathParameters().get("statCode");
+
+    final String namespace = request.getQueryStringParameters().get("namespace");
+    final String userId = request.getQueryStringParameters().get("userId");
+    final String statCode = request.getQueryStringParameters().get("statCode");
 
     if (namespace == null || namespace.equals("")) {
       throw new IllegalArgumentException("Missing path parameter namespace");
@@ -197,6 +211,10 @@ public class App
 
     wrapper.deleteUserStatItems(operation);
 
-    return response.withStatusCode(200).withBody("{}");
+    return APIGatewayV2HTTPResponse.builder()
+            .withHeaders(headers)
+            .withStatusCode(200)
+            .withBody("{\"Status\": \"successful\"}")
+            .build();
   }
 }
