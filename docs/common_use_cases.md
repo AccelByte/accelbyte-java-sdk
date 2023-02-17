@@ -1011,6 +1011,58 @@ final ModelsHeartbeatRequest heartbeatRequestBody =
 qosmServerWrapper.heartbeat(Heartbeat.builder().body(heartbeatRequestBody).build());
 ```
 
+## Reporting
+
+Source: [TestIntegrationServiceReporting.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceReporting.java)
+
+### Create a reason
+
+```java
+final RestapiAdminReasonResponse createReasonResponse =
+    adminReasonsWrapper.createReason(
+        CreateReason.builder()
+            .namespace(namespace)
+            .body(
+                RestapiCreateReasonRequest.builder()
+                    .title(reasonTitle)
+                    .description(reasonDescription)
+                    .build())
+            .build());
+```
+
+### Get a list of reasons
+
+```java
+final RestapiPublicReasonListResponse publicGetReasonResponse =
+    wrapper.publicGetReasons(
+        PublicGetReasons.builder().namespace(namespace).title(reasonTitle).build());
+```
+
+### Submit a report
+
+```java
+final RestapiSubmitReportResponse submitReportResponse =
+    publicReportsWrapper.submitReport(
+        SubmitReport.builder()
+            .namespace(namespace)
+            .body(
+                RestapiSubmitReportRequest.builder()
+                    .categoryFromEnum(Category.UGC)
+                    .reason(reasonTitle)
+                    .userId(player2UserId)
+                    .objectId(UUID.randomUUID().toString().replace("-", ""))
+                    .objectType(UUID.randomUUID().toString().replace("-", ""))
+                    .build())
+            .build());
+```
+
+### Delete a reason
+
+```java
+adminReasonsWrapper.deleteReason(
+    DeleteReason.builder().namespace(namespace).reasonId(reasonId).build());
+```
+
 ## SeasonPass
 
 Source: [TestIntegrationServiceSeasonPass.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceSeasonPass.java)
