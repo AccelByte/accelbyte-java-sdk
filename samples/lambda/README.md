@@ -73,11 +73,11 @@ Try it out. Use the your `FunctionURL`, `Namespace`, `User ID`, and `Stat Code`
 
     ```bash
     # Add a statistic to a user
-    curl 'https://7ta5veys2xjzvxo6rqjifqfy5a0vvnwi.lambda-url.us-east-1.on.aws/?namespace=javaAWSlambdafunctionURL&userId=0de592b9d52842d390ddec14599dfd3a' -H "Content-Type: application/json" -d '{"statCode":"functionurl"}'
+    curl -X POST '{functionURL}?namespace={Namespace}&userId={user_id}' -H "Content-Type: application/json" -d '{"statCode":"{stat_code}"}'
     
     # Get a list of statistics of a user
-    curl 'https://7ta5veys2xjzvxo6rqjifqfy5a0vvnwi.lambda-url.us-east-1.on.aws/?namespace=javaAWSlambdafunctionURL&userId=0de592b9d52842d390ddec14599dfd3a'
+    curl '{functionURL}?namespace={Namespace}&userId={user_id}'
     
     # Delete a statistic from a user
-    curl -X DELETE 'https://7ta5veys2xjzvxo6rqjifqfy5a0vvnwi.lambda-url.us-east-1.on.aws/?userId=0de592b9d52842d390ddec14599dfd3a&namespace=javaAWSlambdafunctionURL&statCode=functionurl'
+    curl -X DELETE '{functionURL}?userId={user_id}&namespace={Namespace}&statCode={stat_code}'
     ```
