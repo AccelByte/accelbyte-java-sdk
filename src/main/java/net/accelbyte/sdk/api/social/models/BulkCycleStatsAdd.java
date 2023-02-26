@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.platform.models;
+package net.accelbyte.sdk.api.social.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,22 +23,18 @@ import net.accelbyte.sdk.core.Model;
 // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ADTOObjectForOrderCreationOptions extends Model {
+public class BulkCycleStatsAdd extends Model {
 
-  @JsonProperty("skipPriceValidation")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Boolean skipPriceValidation;
+  @JsonProperty("statCodes")
+  private List<String> statCodes;
 
   @JsonIgnore
-  public ADTOObjectForOrderCreationOptions createFromJson(String json)
-      throws JsonProcessingException {
+  public BulkCycleStatsAdd createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ADTOObjectForOrderCreationOptions> createFromJsonList(String json)
-      throws JsonProcessingException {
-    return new ObjectMapper()
-        .readValue(json, new TypeReference<List<ADTOObjectForOrderCreationOptions>>() {});
+  public List<BulkCycleStatsAdd> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<BulkCycleStatsAdd>>() {});
   }
 }

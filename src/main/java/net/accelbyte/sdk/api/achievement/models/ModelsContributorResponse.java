@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.platform.models;
+package net.accelbyte.sdk.api.achievement.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,24 +23,39 @@ import net.accelbyte.sdk.core.Model;
 // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class XboxAchievementRequest extends Model {
+public class ModelsContributorResponse extends Model {
+
+  @JsonProperty("achievementCode")
+  private String achievementCode;
+
+  @JsonProperty("contributedValue")
+  private Float contributedValue;
+
+  @JsonProperty("createdAt")
+  private String createdAt;
 
   @JsonProperty("id")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String id;
 
-  @JsonProperty("percentComplete")
+  @JsonProperty("namespace")
+  private String namespace;
+
+  @JsonProperty("updatedAt")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer percentComplete;
+  private String updatedAt;
+
+  @JsonProperty("userId")
+  private String userId;
 
   @JsonIgnore
-  public XboxAchievementRequest createFromJson(String json) throws JsonProcessingException {
+  public ModelsContributorResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<XboxAchievementRequest> createFromJsonList(String json)
+  public List<ModelsContributorResponse> createFromJsonList(String json)
       throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<XboxAchievementRequest>>() {});
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsContributorResponse>>() {});
   }
 }

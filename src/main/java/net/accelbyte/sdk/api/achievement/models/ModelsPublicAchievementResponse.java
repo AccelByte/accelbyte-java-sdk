@@ -63,6 +63,10 @@ public class ModelsPublicAchievementResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String statCode;
 
+  @JsonProperty("status")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String status;
+
   @JsonProperty("tags")
   private List<String> tags;
 

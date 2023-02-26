@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.Model;
 // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class AvailableComparisonObject extends Model {
+public class AvailableComparison extends Model {
 
   @JsonProperty("comparison")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -54,15 +54,13 @@ public class AvailableComparisonObject extends Model {
   }
 
   @JsonIgnore
-  public AvailableComparisonObject createFromJson(String json) throws JsonProcessingException {
+  public AvailableComparison createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<AvailableComparisonObject> createFromJsonList(String json)
-      throws JsonProcessingException {
-    return new ObjectMapper()
-        .readValue(json, new TypeReference<List<AvailableComparisonObject>>() {});
+  public List<AvailableComparison> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<AvailableComparison>>() {});
   }
 
   public enum Comparison {
@@ -87,15 +85,15 @@ public class AvailableComparisonObject extends Model {
     }
   }
 
-  public static class AvailableComparisonObjectBuilder {
+  public static class AvailableComparisonBuilder {
     private String comparison;
 
-    public AvailableComparisonObjectBuilder comparison(final String comparison) {
+    public AvailableComparisonBuilder comparison(final String comparison) {
       this.comparison = comparison;
       return this;
     }
 
-    public AvailableComparisonObjectBuilder comparisonFromEnum(final Comparison comparison) {
+    public AvailableComparisonBuilder comparisonFromEnum(final Comparison comparison) {
       this.comparison = comparison.toString();
       return this;
     }

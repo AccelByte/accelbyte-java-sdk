@@ -13,6 +13,7 @@ import net.accelbyte.sdk.cli.api.social.global_statistic.*;
 import net.accelbyte.sdk.cli.api.social.slot.*;
 import net.accelbyte.sdk.cli.api.social.slot_config.*;
 import net.accelbyte.sdk.cli.api.social.stat_configuration.*;
+import net.accelbyte.sdk.cli.api.social.stat_cycle_configuration.*;
 import net.accelbyte.sdk.cli.api.social.user_statistic.*;
 import picocli.CommandLine.Command;
 
@@ -46,6 +47,12 @@ import picocli.CommandLine.Command;
       PublicUpdateUserNamespaceSlotMetadata.class,
       GetGlobalStatItems.class,
       GetGlobalStatItemByStatCode.class,
+      GetStatCycles.class,
+      CreateStatCycle.class,
+      GetStatCycle.class,
+      UpdateStatCycle.class,
+      DeleteStatCycle.class,
+      BulkAddStats.class,
       BulkFetchStatItems.class,
       BulkIncUserStatItem.class,
       BulkIncUserStatItemValue.class,
@@ -71,6 +78,8 @@ import picocli.CommandLine.Command;
       ResetUserStatItemValue.class,
       GetGlobalStatItems1.class,
       GetGlobalStatItemByStatCode1.class,
+      GetStatCycles1.class,
+      GetStatCycle1.class,
       BulkFetchStatItems1.class,
       PublicBulkIncUserStatItem.class,
       PublicBulkIncUserStatItemValue.class,

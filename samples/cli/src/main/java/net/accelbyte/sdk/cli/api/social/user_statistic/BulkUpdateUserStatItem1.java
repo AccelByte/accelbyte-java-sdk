@@ -71,7 +71,7 @@ public class BulkUpdateUserStatItem1 implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, new TypeReference<List<BulkUserStatItemUpdate>>() {}))
                   .build();
-      final List<BulkStatItemOperationResult> response = wrapper.bulkUpdateUserStatItem1(operation);
+      final List<BulkStatOperationResult> response = wrapper.bulkUpdateUserStatItem1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -42,7 +42,7 @@ public class UpdateXblUserAchievement extends Operation {
   private String namespace;
 
   private String userId;
-  private ADTOObjectForUpdateXboxAchievementCompletePercentageAPI body;
+  private XblAchievementUpdateRequest body;
 
   /**
    * @param namespace required
@@ -52,9 +52,7 @@ public class UpdateXblUserAchievement extends Operation {
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
   public UpdateXblUserAchievement(
-      String namespace,
-      String userId,
-      ADTOObjectForUpdateXboxAchievementCompletePercentageAPI body) {
+      String namespace, String userId, XblAchievementUpdateRequest body) {
     this.namespace = namespace;
     this.userId = userId;
     this.body = body;
@@ -75,7 +73,7 @@ public class UpdateXblUserAchievement extends Operation {
   }
 
   @Override
-  public ADTOObjectForUpdateXboxAchievementCompletePercentageAPI getBodyParams() {
+  public XblAchievementUpdateRequest getBodyParams() {
     return this.body;
   }
 

@@ -34,7 +34,7 @@ public class UserStatistic {
   /**
    * @see BulkIncUserStatItem
    */
-  public List<BulkStatItemOperationResult> bulkIncUserStatItem(BulkIncUserStatItem input)
+  public List<BulkStatOperationResult> bulkIncUserStatItem(BulkIncUserStatItem input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -44,7 +44,7 @@ public class UserStatistic {
   /**
    * @see BulkIncUserStatItemValue
    */
-  public List<BulkStatItemOperationResult> bulkIncUserStatItemValue(BulkIncUserStatItemValue input)
+  public List<BulkStatOperationResult> bulkIncUserStatItemValue(BulkIncUserStatItemValue input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -64,7 +64,7 @@ public class UserStatistic {
   /**
    * @see BulkResetUserStatItem
    */
-  public List<BulkStatItemOperationResult> bulkResetUserStatItem(BulkResetUserStatItem input)
+  public List<BulkStatOperationResult> bulkResetUserStatItem(BulkResetUserStatItem input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -83,7 +83,7 @@ public class UserStatistic {
   /**
    * @see BulkCreateUserStatItems
    */
-  public List<BulkStatItemOperationResult> bulkCreateUserStatItems(BulkCreateUserStatItems input)
+  public List<BulkStatOperationResult> bulkCreateUserStatItems(BulkCreateUserStatItems input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -93,7 +93,7 @@ public class UserStatistic {
   /**
    * @see BulkIncUserStatItem1
    */
-  public List<BulkStatItemOperationResult> bulkIncUserStatItem1(BulkIncUserStatItem1 input)
+  public List<BulkStatOperationResult> bulkIncUserStatItem1(BulkIncUserStatItem1 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -103,8 +103,8 @@ public class UserStatistic {
   /**
    * @see BulkIncUserStatItemValue1
    */
-  public List<BulkStatItemOperationResult> bulkIncUserStatItemValue1(
-      BulkIncUserStatItemValue1 input) throws Exception {
+  public List<BulkStatOperationResult> bulkIncUserStatItemValue1(BulkIncUserStatItemValue1 input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -113,7 +113,7 @@ public class UserStatistic {
   /**
    * @see BulkResetUserStatItem1
    */
-  public List<BulkStatItemOperationResult> bulkResetUserStatItem1(BulkResetUserStatItem1 input)
+  public List<BulkStatOperationResult> bulkResetUserStatItem1(BulkResetUserStatItem1 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -168,8 +168,8 @@ public class UserStatistic {
   /**
    * @see PublicBulkIncUserStatItem
    */
-  public List<BulkStatItemOperationResult> publicBulkIncUserStatItem(
-      PublicBulkIncUserStatItem input) throws Exception {
+  public List<BulkStatOperationResult> publicBulkIncUserStatItem(PublicBulkIncUserStatItem input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -178,7 +178,7 @@ public class UserStatistic {
   /**
    * @see PublicBulkIncUserStatItemValue
    */
-  public List<BulkStatItemOperationResult> publicBulkIncUserStatItemValue(
+  public List<BulkStatOperationResult> publicBulkIncUserStatItemValue(
       PublicBulkIncUserStatItemValue input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -188,7 +188,7 @@ public class UserStatistic {
   /**
    * @see BulkResetUserStatItem2
    */
-  public List<BulkStatItemOperationResult> bulkResetUserStatItem2(BulkResetUserStatItem2 input)
+  public List<BulkStatOperationResult> bulkResetUserStatItem2(BulkResetUserStatItem2 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -208,7 +208,7 @@ public class UserStatistic {
   /**
    * @see PublicBulkCreateUserStatItems
    */
-  public List<BulkStatItemOperationResult> publicBulkCreateUserStatItems(
+  public List<BulkStatOperationResult> publicBulkCreateUserStatItems(
       PublicBulkCreateUserStatItems input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -228,8 +228,8 @@ public class UserStatistic {
   /**
    * @see PublicBulkIncUserStatItem1
    */
-  public List<BulkStatItemOperationResult> publicBulkIncUserStatItem1(
-      PublicBulkIncUserStatItem1 input) throws Exception {
+  public List<BulkStatOperationResult> publicBulkIncUserStatItem1(PublicBulkIncUserStatItem1 input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -238,8 +238,8 @@ public class UserStatistic {
   /**
    * @see BulkIncUserStatItemValue2
    */
-  public List<BulkStatItemOperationResult> bulkIncUserStatItemValue2(
-      BulkIncUserStatItemValue2 input) throws Exception {
+  public List<BulkStatOperationResult> bulkIncUserStatItemValue2(BulkIncUserStatItemValue2 input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -248,7 +248,7 @@ public class UserStatistic {
   /**
    * @see BulkResetUserStatItem3
    */
-  public List<BulkStatItemOperationResult> bulkResetUserStatItem3(BulkResetUserStatItem3 input)
+  public List<BulkStatOperationResult> bulkResetUserStatItem3(BulkResetUserStatItem3 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -304,7 +304,7 @@ public class UserStatistic {
   /**
    * @see BulkUpdateUserStatItemV2
    */
-  public List<BulkStatItemOperationResult> bulkUpdateUserStatItemV2(BulkUpdateUserStatItemV2 input)
+  public List<BulkStatOperationResult> bulkUpdateUserStatItemV2(BulkUpdateUserStatItemV2 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -324,7 +324,7 @@ public class UserStatistic {
   /**
    * @see BulkUpdateUserStatItem
    */
-  public List<BulkStatItemOperationResult> bulkUpdateUserStatItem(BulkUpdateUserStatItem input)
+  public List<BulkStatOperationResult> bulkUpdateUserStatItem(BulkUpdateUserStatItem input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -334,7 +334,7 @@ public class UserStatistic {
   /**
    * @see BulkResetUserStatItemValues
    */
-  public List<BulkStatItemOperationResult> bulkResetUserStatItemValues(
+  public List<BulkStatOperationResult> bulkResetUserStatItemValues(
       BulkResetUserStatItemValues input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -362,7 +362,7 @@ public class UserStatistic {
   /**
    * @see BulkUpdateUserStatItem1
    */
-  public List<BulkStatItemOperationResult> bulkUpdateUserStatItem1(BulkUpdateUserStatItem1 input)
+  public List<BulkStatOperationResult> bulkUpdateUserStatItem1(BulkUpdateUserStatItem1 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -382,7 +382,7 @@ public class UserStatistic {
   /**
    * @see BulkUpdateUserStatItem2
    */
-  public List<BulkStatItemOperationResult> bulkUpdateUserStatItem2(BulkUpdateUserStatItem2 input)
+  public List<BulkStatOperationResult> bulkUpdateUserStatItem2(BulkUpdateUserStatItem2 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

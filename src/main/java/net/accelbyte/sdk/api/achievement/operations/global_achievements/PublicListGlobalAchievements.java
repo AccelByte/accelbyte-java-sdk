@@ -40,11 +40,12 @@ public class PublicListGlobalAchievements extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private String achievementCode;
+  private String achievementCodes;
   private Integer limit;
   private Integer offset;
   private String sortBy;
   private String status;
+  private List<String> tags;
 
   /**
    * @param namespace required
@@ -54,17 +55,19 @@ public class PublicListGlobalAchievements extends Operation {
   @Deprecated
   public PublicListGlobalAchievements(
       String namespace,
-      String achievementCode,
+      String achievementCodes,
       Integer limit,
       Integer offset,
       String sortBy,
-      String status) {
+      String status,
+      List<String> tags) {
     this.namespace = namespace;
-    this.achievementCode = achievementCode;
+    this.achievementCodes = achievementCodes;
     this.limit = limit;
     this.offset = offset;
     this.sortBy = sortBy;
     this.status = status;
+    this.tags = tags;
 
     securities.add("Bearer");
   }
@@ -82,13 +85,14 @@ public class PublicListGlobalAchievements extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put(
-        "achievementCode",
-        this.achievementCode == null ? null : Arrays.asList(this.achievementCode));
+        "achievementCodes",
+        this.achievementCodes == null ? null : Arrays.asList(this.achievementCodes));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
     queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));
+    queryParams.put("tags", this.tags == null ? null : this.tags);
     return queryParams;
   }
 
@@ -113,11 +117,12 @@ public class PublicListGlobalAchievements extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
-    result.put("achievementCode", "None");
+    result.put("achievementCodes", "None");
     result.put("limit", "None");
     result.put("offset", "None");
     result.put("sortBy", "None");
     result.put("status", "None");
+    result.put("tags", "csv");
     return result;
   }
 }

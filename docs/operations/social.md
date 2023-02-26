@@ -48,6 +48,18 @@
 | `/social/v1/public/namespaces/{namespace}/globalstatitems` | GET | GetGlobalStatItems1 | [GetGlobalStatItems1](../../src/main/java/net/accelbyte/sdk/api/social/operations/global_statistic/GetGlobalStatItems1.java) | [GetGlobalStatItems1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/global_statistic/GetGlobalStatItems1.java) |
 | `/social/v1/public/namespaces/{namespace}/globalstatitems/{statCode}` | GET | GetGlobalStatItemByStatCode1 | [GetGlobalStatItemByStatCode1](../../src/main/java/net/accelbyte/sdk/api/social/operations/global_statistic/GetGlobalStatItemByStatCode1.java) | [GetGlobalStatItemByStatCode1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/global_statistic/GetGlobalStatItemByStatCode1.java) |
 
+### StatCycleConfiguration Wrapper:  [StatCycleConfiguration](../../src/main/java/net/accelbyte/sdk/api/social/wrappers/StatCycleConfiguration.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/social/v1/admin/namespaces/{namespace}/statCycles` | GET | GetStatCycles | [GetStatCycles](../../src/main/java/net/accelbyte/sdk/api/social/operations/stat_cycle_configuration/GetStatCycles.java) | [GetStatCycles](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/stat_cycle_configuration/GetStatCycles.java) |
+| `/social/v1/admin/namespaces/{namespace}/statCycles` | POST | CreateStatCycle | [CreateStatCycle](../../src/main/java/net/accelbyte/sdk/api/social/operations/stat_cycle_configuration/CreateStatCycle.java) | [CreateStatCycle](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/stat_cycle_configuration/CreateStatCycle.java) |
+| `/social/v1/admin/namespaces/{namespace}/statCycles/{cycleId}` | GET | GetStatCycle | [GetStatCycle](../../src/main/java/net/accelbyte/sdk/api/social/operations/stat_cycle_configuration/GetStatCycle.java) | [GetStatCycle](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/stat_cycle_configuration/GetStatCycle.java) |
+| `/social/v1/admin/namespaces/{namespace}/statCycles/{cycleId}` | PUT | UpdateStatCycle | [UpdateStatCycle](../../src/main/java/net/accelbyte/sdk/api/social/operations/stat_cycle_configuration/UpdateStatCycle.java) | [UpdateStatCycle](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/stat_cycle_configuration/UpdateStatCycle.java) |
+| `/social/v1/admin/namespaces/{namespace}/statCycles/{cycleId}` | DELETE | DeleteStatCycle | [DeleteStatCycle](../../src/main/java/net/accelbyte/sdk/api/social/operations/stat_cycle_configuration/DeleteStatCycle.java) | [DeleteStatCycle](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/stat_cycle_configuration/DeleteStatCycle.java) |
+| `/social/v1/admin/namespaces/{namespace}/statCycles/{cycleId}/stats/add/bulk` | POST | BulkAddStats | [BulkAddStats](../../src/main/java/net/accelbyte/sdk/api/social/operations/stat_cycle_configuration/BulkAddStats.java) | [BulkAddStats](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/stat_cycle_configuration/BulkAddStats.java) |
+| `/social/v1/public/namespaces/{namespace}/statCycles` | GET | GetStatCycles1 | [GetStatCycles1](../../src/main/java/net/accelbyte/sdk/api/social/operations/stat_cycle_configuration/GetStatCycles1.java) | [GetStatCycles1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/stat_cycle_configuration/GetStatCycles1.java) |
+| `/social/v1/public/namespaces/{namespace}/statCycles/{cycleId}` | GET | GetStatCycle1 | [GetStatCycle1](../../src/main/java/net/accelbyte/sdk/api/social/operations/stat_cycle_configuration/GetStatCycle1.java) | [GetStatCycle1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/stat_cycle_configuration/GetStatCycle1.java) |
+
 ### UserStatistic Wrapper:  [UserStatistic](../../src/main/java/net/accelbyte/sdk/api/social/wrappers/UserStatistic.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -115,11 +127,12 @@
 | `A DTO object for resetting user stat items` | [ADTOObjectForResettingUserStatItems](../../src/main/java/net/accelbyte/sdk/api/social/models/ADTOObjectForResettingUserStatItems.java) |
 | `A DTO object for user stat item value` | [ADTOObjectForUserStatItemValue](../../src/main/java/net/accelbyte/sdk/api/social/models/ADTOObjectForUserStatItemValue.java) |
 | `Attribute` | [Attribute](../../src/main/java/net/accelbyte/sdk/api/social/models/Attribute.java) |
+| `BulkCycleStatsAdd` | [BulkCycleStatsAdd](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkCycleStatsAdd.java) |
 | `BulkStatItemCreate` | [BulkStatItemCreate](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkStatItemCreate.java) |
 | `BulkStatItemInc` | [BulkStatItemInc](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkStatItemInc.java) |
-| `BulkStatItemOperationResult` | [BulkStatItemOperationResult](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkStatItemOperationResult.java) |
 | `BulkStatItemReset` | [BulkStatItemReset](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkStatItemReset.java) |
 | `BulkStatItemUpdate` | [BulkStatItemUpdate](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkStatItemUpdate.java) |
+| `BulkStatOperationResult` | [BulkStatOperationResult](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkStatOperationResult.java) |
 | `BulkUserStatItemInc` | [BulkUserStatItemInc](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkUserStatItemInc.java) |
 | `BulkUserStatItemReset` | [BulkUserStatItemReset](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkUserStatItemReset.java) |
 | `BulkUserStatItemUpdate` | [BulkUserStatItemUpdate](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkUserStatItemUpdate.java) |
@@ -137,6 +150,10 @@
 | `SlotInfo` | [SlotInfo](../../src/main/java/net/accelbyte/sdk/api/social/models/SlotInfo.java) |
 | `SlotMetadataUpdate` | [SlotMetadataUpdate](../../src/main/java/net/accelbyte/sdk/api/social/models/SlotMetadataUpdate.java) |
 | `StatCreate` | [StatCreate](../../src/main/java/net/accelbyte/sdk/api/social/models/StatCreate.java) |
+| `StatCycleCreate` | [StatCycleCreate](../../src/main/java/net/accelbyte/sdk/api/social/models/StatCycleCreate.java) |
+| `StatCycleInfo` | [StatCycleInfo](../../src/main/java/net/accelbyte/sdk/api/social/models/StatCycleInfo.java) |
+| `StatCyclePagingSlicedResult` | [StatCyclePagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/social/models/StatCyclePagingSlicedResult.java) |
+| `StatCycleUpdate` | [StatCycleUpdate](../../src/main/java/net/accelbyte/sdk/api/social/models/StatCycleUpdate.java) |
 | `StatImportInfo` | [StatImportInfo](../../src/main/java/net/accelbyte/sdk/api/social/models/StatImportInfo.java) |
 | `StatInfo` | [StatInfo](../../src/main/java/net/accelbyte/sdk/api/social/models/StatInfo.java) |
 | `StatItemInc` | [StatItemInc](../../src/main/java/net/accelbyte/sdk/api/social/models/StatItemInc.java) |

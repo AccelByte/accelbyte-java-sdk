@@ -77,7 +77,7 @@ public class BulkResetUserStatItem3 implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, new TypeReference<List<BulkStatItemReset>>() {}))
                   .build();
-      final List<BulkStatItemOperationResult> response = wrapper.bulkResetUserStatItem3(operation);
+      final List<BulkStatOperationResult> response = wrapper.bulkResetUserStatItem3(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

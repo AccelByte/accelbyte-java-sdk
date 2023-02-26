@@ -148,6 +148,16 @@ public class Group {
   }
 
   /**
+   * @see GetListGroupByIDsAdminV2
+   */
+  public ModelsGetGroupsResponseV1 getListGroupByIDsAdminV2(GetListGroupByIDsAdminV2 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see CreateNewGroupPublicV2
    */
   public ModelsGroupResponseV1 createNewGroupPublicV2(CreateNewGroupPublicV2 input)

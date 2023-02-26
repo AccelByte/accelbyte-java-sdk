@@ -77,7 +77,7 @@ public class PublicBulkCreateUserStatItems implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, new TypeReference<List<BulkStatItemCreate>>() {}))
                   .build();
-      final List<BulkStatItemOperationResult> response =
+      final List<BulkStatOperationResult> response =
           wrapper.publicBulkCreateUserStatItems(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

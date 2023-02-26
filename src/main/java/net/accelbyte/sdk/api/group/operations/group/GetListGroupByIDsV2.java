@@ -40,7 +40,7 @@ public class GetListGroupByIDsV2 extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private ModelsPublicGetGroupListRequestV2 body;
+  private ModelsGetGroupListRequestV2 body;
 
   /**
    * @param namespace required
@@ -49,7 +49,7 @@ public class GetListGroupByIDsV2 extends Operation {
   @Builder
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetListGroupByIDsV2(String namespace, ModelsPublicGetGroupListRequestV2 body) {
+  public GetListGroupByIDsV2(String namespace, ModelsGetGroupListRequestV2 body) {
     this.namespace = namespace;
     this.body = body;
 
@@ -66,7 +66,7 @@ public class GetListGroupByIDsV2 extends Operation {
   }
 
   @Override
-  public ModelsPublicGetGroupListRequestV2 getBodyParams() {
+  public ModelsGetGroupListRequestV2 getBodyParams() {
     return this.body;
   }
 

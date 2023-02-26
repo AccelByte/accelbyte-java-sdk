@@ -28,6 +28,9 @@ public class ModelsGetUserGroupInformationResponseV1 extends Model {
   @JsonProperty("groupId")
   private String groupId;
 
+  @JsonProperty("joinedAt")
+  private String joinedAt;
+
   @JsonProperty("memberRoleId")
   private List<String> memberRoleId;
 

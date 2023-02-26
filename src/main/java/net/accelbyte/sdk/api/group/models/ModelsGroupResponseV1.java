@@ -28,6 +28,9 @@ public class ModelsGroupResponseV1 extends Model {
   @JsonProperty("configurationCode")
   private String configurationCode;
 
+  @JsonProperty("createdAt")
+  private String createdAt;
+
   @JsonProperty("customAttributes")
   private Map<String, ?> customAttributes;
 

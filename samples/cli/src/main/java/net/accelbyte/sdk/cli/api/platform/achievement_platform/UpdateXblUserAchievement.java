@@ -72,10 +72,7 @@ public class UpdateXblUserAchievement implements Callable<Integer> {
                   .UpdateXblUserAchievement.builder()
                   .namespace(namespace)
                   .userId(userId)
-                  .body(
-                      new ObjectMapper()
-                          .readValue(
-                              body, ADTOObjectForUpdateXboxAchievementCompletePercentageAPI.class))
+                  .body(new ObjectMapper().readValue(body, XblAchievementUpdateRequest.class))
                   .build();
       wrapper.updateXblUserAchievement(operation);
       log.info("Operation successful");

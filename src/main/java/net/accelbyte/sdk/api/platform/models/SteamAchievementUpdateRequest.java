@@ -23,36 +23,25 @@ import net.accelbyte.sdk.core.Model;
 // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ADTOObjectForUpdateXboxAchievementCompletePercentageAPI extends Model {
+public class SteamAchievementUpdateRequest extends Model {
 
   @JsonProperty("achievements")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private List<XboxAchievementRequest> achievements;
+  private List<Achievement> achievements;
 
-  @JsonProperty("serviceConfigId")
+  @JsonProperty("steamUserId")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String serviceConfigId;
-
-  @JsonProperty("titleId")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String titleId;
-
-  @JsonProperty("xboxUserId")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String xboxUserId;
+  private String steamUserId;
 
   @JsonIgnore
-  public ADTOObjectForUpdateXboxAchievementCompletePercentageAPI createFromJson(String json)
-      throws JsonProcessingException {
+  public SteamAchievementUpdateRequest createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ADTOObjectForUpdateXboxAchievementCompletePercentageAPI> createFromJsonList(
-      String json) throws JsonProcessingException {
+  public List<SteamAchievementUpdateRequest> createFromJsonList(String json)
+      throws JsonProcessingException {
     return new ObjectMapper()
-        .readValue(
-            json,
-            new TypeReference<List<ADTOObjectForUpdateXboxAchievementCompletePercentageAPI>>() {});
+        .readValue(json, new TypeReference<List<SteamAchievementUpdateRequest>>() {});
   }
 }

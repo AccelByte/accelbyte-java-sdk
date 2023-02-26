@@ -61,6 +61,9 @@ public class ModelsGetSessionHistorySearchResponseItemV2 extends Model {
   @JsonProperty("sub_game_mode")
   private List<String> subGameMode;
 
+  @JsonProperty("user_id")
+  private String userId;
+
   @JsonIgnore
   public ModelsGetSessionHistorySearchResponseItemV2 createFromJson(String json)
       throws JsonProcessingException {

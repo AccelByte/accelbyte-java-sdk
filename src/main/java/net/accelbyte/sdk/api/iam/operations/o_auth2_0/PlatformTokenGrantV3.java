@@ -85,6 +85,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>* snapchat : The platform_tokenâs value is the authorization code returned by Snapchat
  * OAuth.
  *
+ * <p>* for specific generic oauth (OIDC) : The platform_tokenâs value should be the same type as
+ * created OIDC auth type whether it is auth code, idToken or bearerToken.
+ *
  * <p>## Account Group
  *
  * <p>Several platforms are grouped under account groups. The accounts on these platforms have the

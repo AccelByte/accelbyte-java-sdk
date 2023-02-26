@@ -23,11 +23,11 @@ import net.accelbyte.sdk.core.Model;
 // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class AvailablePredicateObject extends Model {
+public class AvailablePredicate extends Model {
 
   @JsonProperty("availableComparisons")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private List<AvailableComparisonObject> availableComparisons;
+  private List<AvailableComparison> availableComparisons;
 
   @JsonProperty("predicateType")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -82,15 +82,13 @@ public class AvailablePredicateObject extends Model {
   }
 
   @JsonIgnore
-  public AvailablePredicateObject createFromJson(String json) throws JsonProcessingException {
+  public AvailablePredicate createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<AvailablePredicateObject> createFromJsonList(String json)
-      throws JsonProcessingException {
-    return new ObjectMapper()
-        .readValue(json, new TypeReference<List<AvailablePredicateObject>>() {});
+  public List<AvailablePredicate> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<AvailablePredicate>>() {});
   }
 
   public enum PredicateType {
@@ -127,27 +125,26 @@ public class AvailablePredicateObject extends Model {
     }
   }
 
-  public static class AvailablePredicateObjectBuilder {
+  public static class AvailablePredicateBuilder {
     private String predicateType;
     private String valueType;
 
-    public AvailablePredicateObjectBuilder predicateType(final String predicateType) {
+    public AvailablePredicateBuilder predicateType(final String predicateType) {
       this.predicateType = predicateType;
       return this;
     }
 
-    public AvailablePredicateObjectBuilder predicateTypeFromEnum(
-        final PredicateType predicateType) {
+    public AvailablePredicateBuilder predicateTypeFromEnum(final PredicateType predicateType) {
       this.predicateType = predicateType.toString();
       return this;
     }
 
-    public AvailablePredicateObjectBuilder valueType(final String valueType) {
+    public AvailablePredicateBuilder valueType(final String valueType) {
       this.valueType = valueType;
       return this;
     }
 
-    public AvailablePredicateObjectBuilder valueTypeFromEnum(final ValueType valueType) {
+    public AvailablePredicateBuilder valueTypeFromEnum(final ValueType valueType) {
       this.valueType = valueType.toString();
       return this;
     }

@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.Model;
 // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class SteamAchievementRequest extends Model {
+public class Achievement extends Model {
 
   @JsonProperty("id")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -34,14 +34,12 @@ public class SteamAchievementRequest extends Model {
   private Integer value;
 
   @JsonIgnore
-  public SteamAchievementRequest createFromJson(String json) throws JsonProcessingException {
+  public Achievement createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<SteamAchievementRequest> createFromJsonList(String json)
-      throws JsonProcessingException {
-    return new ObjectMapper()
-        .readValue(json, new TypeReference<List<SteamAchievementRequest>>() {});
+  public List<Achievement> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<Achievement>>() {});
   }
 }

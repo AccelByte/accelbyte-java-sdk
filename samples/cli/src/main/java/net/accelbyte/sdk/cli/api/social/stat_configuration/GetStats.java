@@ -36,6 +36,11 @@ public class GetStats implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--cycleIds"},
+      description = "cycleIds")
+  String cycleIds;
+
+  @Option(
       names = {"--isGlobal"},
       description = "isGlobal")
   Boolean isGlobal;
@@ -74,6 +79,7 @@ public class GetStats implements Callable<Integer> {
       final net.accelbyte.sdk.api.social.operations.stat_configuration.GetStats operation =
           net.accelbyte.sdk.api.social.operations.stat_configuration.GetStats.builder()
               .namespace(namespace)
+              .cycleIds(cycleIds)
               .isGlobal(isGlobal)
               .limit(limit)
               .offset(offset)

@@ -36,9 +36,9 @@ public class PublicListGlobalAchievements implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--achievementCode"},
-      description = "achievementCode")
-  String achievementCode;
+      names = {"--achievementCodes"},
+      description = "achievementCodes")
+  String achievementCodes;
 
   @Option(
       names = {"--limit"},
@@ -59,6 +59,11 @@ public class PublicListGlobalAchievements implements Callable<Integer> {
       names = {"--status"},
       description = "status")
   String status;
+
+  @Option(
+      names = {"--tags"},
+      description = "tags")
+  List<String> tags;
 
   @Option(
       names = {"--logging"},
@@ -87,11 +92,12 @@ public class PublicListGlobalAchievements implements Callable<Integer> {
               net.accelbyte.sdk.api.achievement.operations.global_achievements
                   .PublicListGlobalAchievements.builder()
                   .namespace(namespace)
-                  .achievementCode(achievementCode)
+                  .achievementCodes(achievementCodes)
                   .limit(limit)
                   .offset(offset)
                   .sortBy(sortBy)
                   .status(status)
+                  .tags(tags)
                   .build();
       final ModelsPaginatedGlobalAchievementResponse response =
           wrapper.publicListGlobalAchievements(operation);

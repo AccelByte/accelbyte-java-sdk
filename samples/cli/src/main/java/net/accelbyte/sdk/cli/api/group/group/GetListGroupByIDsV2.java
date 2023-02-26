@@ -64,7 +64,7 @@ public class GetListGroupByIDsV2 implements Callable<Integer> {
       final net.accelbyte.sdk.api.group.operations.group.GetListGroupByIDsV2 operation =
           net.accelbyte.sdk.api.group.operations.group.GetListGroupByIDsV2.builder()
               .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelsPublicGetGroupListRequestV2.class))
+              .body(new ObjectMapper().readValue(body, ModelsGetGroupListRequestV2.class))
               .build();
       final ModelsGetGroupsResponseV1 response = wrapper.getListGroupByIDsV2(operation);
       final String responseString =

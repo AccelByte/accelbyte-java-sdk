@@ -97,6 +97,12 @@ public class ModelThirdPartyLoginPlatformCredentialRequest extends Model {
   @JsonProperty("TokenEndpoint")
   private String tokenEndpoint;
 
+  @JsonProperty("UserInfoEndpoint")
+  private String userInfoEndpoint;
+
+  @JsonProperty("UserInfoHTTPMethod")
+  private String userInfoHTTPMethod;
+
   @JsonProperty("scopes")
   private List<String> scopes;
 

@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.social.models;
+package net.accelbyte.sdk.api.group.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,29 +23,20 @@ import net.accelbyte.sdk.core.Model;
 // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class BulkStatItemOperationResult extends Model {
+public class ModelsGetGroupListRequestV2 extends Model {
 
-  @JsonProperty("details")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Map<String, ?> details;
-
-  @JsonProperty("statCode")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String statCode;
-
-  @JsonProperty("success")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Boolean success;
+  @JsonProperty("groupIDs")
+  private List<String> groupIDs;
 
   @JsonIgnore
-  public BulkStatItemOperationResult createFromJson(String json) throws JsonProcessingException {
+  public ModelsGetGroupListRequestV2 createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<BulkStatItemOperationResult> createFromJsonList(String json)
+  public List<ModelsGetGroupListRequestV2> createFromJsonList(String json)
       throws JsonProcessingException {
     return new ObjectMapper()
-        .readValue(json, new TypeReference<List<BulkStatItemOperationResult>>() {});
+        .readValue(json, new TypeReference<List<ModelsGetGroupListRequestV2>>() {});
   }
 }

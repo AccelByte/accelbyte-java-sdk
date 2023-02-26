@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsCreateContentRequest extends Model {
 
   @JsonProperty("customAttributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> customAttributes;
 
   @JsonProperty("name")
@@ -38,6 +39,7 @@ public class ModelsCreateContentRequest extends Model {
   private String preview;
 
   @JsonProperty("previewMetadata")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsPreviewMetadata previewMetadata;
 
   @JsonProperty("subType")

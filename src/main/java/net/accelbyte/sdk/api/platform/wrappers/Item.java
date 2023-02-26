@@ -169,7 +169,7 @@ public class Item {
   /**
    * @see GetAvailablePredicateTypes
    */
-  public List<AvailablePredicateObject> getAvailablePredicateTypes(GetAvailablePredicateTypes input)
+  public List<AvailablePredicate> getAvailablePredicateTypes(GetAvailablePredicateTypes input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

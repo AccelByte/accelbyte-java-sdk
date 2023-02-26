@@ -31,6 +31,10 @@ public class ModelsAchievementUpdateRequest extends Model {
   @JsonProperty("description")
   private Map<String, String> description;
 
+  @JsonProperty("global")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean global;
+
   @JsonProperty("goalValue")
   private Float goalValue;
 

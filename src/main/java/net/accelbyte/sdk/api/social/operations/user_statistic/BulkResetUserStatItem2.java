@@ -79,7 +79,7 @@ public class BulkResetUserStatItem2 extends Operation {
     return true;
   }
 
-  public List<BulkStatItemOperationResult> parseResponse(
+  public List<BulkStatOperationResult> parseResponse(
       int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
@@ -87,6 +87,6 @@ public class BulkResetUserStatItem2 extends Operation {
     }
     final String json = Helper.convertInputStreamToString(payload);
     return new ObjectMapper()
-        .readValue(json, new TypeReference<List<BulkStatItemOperationResult>>() {});
+        .readValue(json, new TypeReference<List<BulkStatOperationResult>>() {});
   }
 }

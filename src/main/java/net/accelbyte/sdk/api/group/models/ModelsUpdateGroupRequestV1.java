@@ -44,6 +44,26 @@ public class ModelsUpdateGroupRequestV1 extends Model {
   private String groupType;
 
   @JsonIgnore
+  public String getGroupType() {
+    return this.groupType;
+  }
+
+  @JsonIgnore
+  public GroupType getGroupTypeAsEnum() {
+    return GroupType.valueOf(this.groupType);
+  }
+
+  @JsonIgnore
+  public void setGroupType(final String groupType) {
+    this.groupType = groupType;
+  }
+
+  @JsonIgnore
+  public void setGroupTypeFromEnum(final GroupType groupType) {
+    this.groupType = groupType.toString();
+  }
+
+  @JsonIgnore
   public ModelsUpdateGroupRequestV1 createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -53,5 +73,36 @@ public class ModelsUpdateGroupRequestV1 extends Model {
       throws JsonProcessingException {
     return new ObjectMapper()
         .readValue(json, new TypeReference<List<ModelsUpdateGroupRequestV1>>() {});
+  }
+
+  public enum GroupType {
+    OPEN("OPEN"),
+    PRIVATE("PRIVATE"),
+    PUBLIC("PUBLIC");
+
+    private String value;
+
+    GroupType(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ModelsUpdateGroupRequestV1Builder {
+    private String groupType;
+
+    public ModelsUpdateGroupRequestV1Builder groupType(final String groupType) {
+      this.groupType = groupType;
+      return this;
+    }
+
+    public ModelsUpdateGroupRequestV1Builder groupTypeFromEnum(final GroupType groupType) {
+      this.groupType = groupType.toString();
+      return this;
+    }
   }
 }

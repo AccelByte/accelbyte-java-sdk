@@ -22,8 +22,7 @@ import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 import net.accelbyte.sdk.core.repository.TokenRepository;
 
 /** Handler for requests to Lambda function. */
-public class App
-    implements RequestHandler<APIGatewayV2HTTPEvent, APIGatewayV2HTTPResponse> {
+public class App implements RequestHandler<APIGatewayV2HTTPEvent, APIGatewayV2HTTPResponse> {
   final OkhttpClient httpClient = new OkhttpClient();
   final TokenRepository tokenRepo = DefaultTokenRepository.getInstance();
   final ConfigRepository configRepo = new DefaultConfigRepository();
@@ -51,7 +50,7 @@ public class App
       }
 
       final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepo, configRepo);
-      
+
       switch (request.getRequestContext().getHttp().getMethod()) {
         case "POST":
           return handlePostRequest(sdk, request, headers);
@@ -61,7 +60,8 @@ public class App
           return handleDeleteRequest(sdk, request, headers);
         default:
           throw new IllegalArgumentException(
-              String.format("Unhandled HTTP method %s", request.getRequestContext().getHttp().getMethod()));
+              String.format(
+                  "Unhandled HTTP method %s", request.getRequestContext().getHttp().getMethod()));
       }
     } catch (HttpResponseException rex) {
       return APIGatewayV2HTTPResponse.builder()
@@ -81,9 +81,7 @@ public class App
   }
 
   public APIGatewayV2HTTPResponse handlePostRequest(
-      final AccelByteSDK sdk,
-      final APIGatewayV2HTTPEvent request,
-      Map<String, String> headers)
+      final AccelByteSDK sdk, final APIGatewayV2HTTPEvent request, Map<String, String> headers)
       throws Exception {
 
     final String namespace = request.getQueryStringParameters().get("namespace");
@@ -123,16 +121,14 @@ public class App
     wrapper.createUserStatItem(operation);
 
     return APIGatewayV2HTTPResponse.builder()
-            .withHeaders(headers)
-            .withStatusCode(200)
-            .withBody("{\"Status\": \"successful\"}")
-            .build();
+        .withHeaders(headers)
+        .withStatusCode(200)
+        .withBody("{\"Status\": \"successful\"}")
+        .build();
   }
 
   public APIGatewayV2HTTPResponse handleGetRequest(
-      final AccelByteSDK sdk,
-      final APIGatewayV2HTTPEvent request,
-      Map<String, String> headers)
+      final AccelByteSDK sdk, final APIGatewayV2HTTPEvent request, Map<String, String> headers)
       throws Exception {
 
     final String namespace = request.getQueryStringParameters().get("namespace");
@@ -165,16 +161,14 @@ public class App
     final UserStatItemPagingSlicedResult result = wrapper.getUserStatItems(operation);
 
     return APIGatewayV2HTTPResponse.builder()
-            .withHeaders(headers)
-            .withStatusCode(200)
-            .withBody(result.toJson())
-            .build();
+        .withHeaders(headers)
+        .withStatusCode(200)
+        .withBody(result.toJson())
+        .build();
   }
 
   public APIGatewayV2HTTPResponse handleDeleteRequest(
-      final AccelByteSDK sdk,
-      final APIGatewayV2HTTPEvent request,
-      Map<String, String> headers)
+      final AccelByteSDK sdk, final APIGatewayV2HTTPEvent request, Map<String, String> headers)
       throws Exception {
 
     final String namespace = request.getQueryStringParameters().get("namespace");
@@ -212,9 +206,9 @@ public class App
     wrapper.deleteUserStatItems(operation);
 
     return APIGatewayV2HTTPResponse.builder()
-            .withHeaders(headers)
-            .withStatusCode(200)
-            .withBody("{\"Status\": \"successful\"}")
-            .build();
+        .withHeaders(headers)
+        .withStatusCode(200)
+        .withBody("{\"Status\": \"successful\"}")
+        .build();
   }
 }

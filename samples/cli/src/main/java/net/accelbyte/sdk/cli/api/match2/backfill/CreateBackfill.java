@@ -66,8 +66,10 @@ public class CreateBackfill implements Callable<Integer> {
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApiBackFillCreateRequest.class))
               .build();
-      wrapper.createBackfill(operation);
-      log.info("Operation successful");
+      final ApiBackfillCreateResponse response = wrapper.createBackfill(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

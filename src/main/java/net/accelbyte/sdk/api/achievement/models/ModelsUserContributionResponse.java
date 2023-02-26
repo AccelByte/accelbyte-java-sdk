@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.platform.models;
+package net.accelbyte.sdk.api.achievement.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,26 +23,38 @@ import net.accelbyte.sdk.core.Model;
 // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ADTOObjectForUnlockSteamAchievementAPI extends Model {
+public class ModelsUserContributionResponse extends Model {
 
-  @JsonProperty("achievements")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private List<SteamAchievementRequest> achievements;
+  @JsonProperty("achievementCode")
+  private String achievementCode;
 
-  @JsonProperty("steamUserId")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String steamUserId;
+  @JsonProperty("canClaimReward")
+  private Boolean canClaimReward;
+
+  @JsonProperty("contributedValue")
+  private Float contributedValue;
+
+  @JsonProperty("id")
+  private String id;
+
+  @JsonProperty("name")
+  private Map<String, String> name;
+
+  @JsonProperty("namespace")
+  private String namespace;
+
+  @JsonProperty("userId")
+  private String userId;
 
   @JsonIgnore
-  public ADTOObjectForUnlockSteamAchievementAPI createFromJson(String json)
-      throws JsonProcessingException {
+  public ModelsUserContributionResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ADTOObjectForUnlockSteamAchievementAPI> createFromJsonList(String json)
+  public List<ModelsUserContributionResponse> createFromJsonList(String json)
       throws JsonProcessingException {
     return new ObjectMapper()
-        .readValue(json, new TypeReference<List<ADTOObjectForUnlockSteamAchievementAPI>>() {});
+        .readValue(json, new TypeReference<List<ModelsUserContributionResponse>>() {});
   }
 }

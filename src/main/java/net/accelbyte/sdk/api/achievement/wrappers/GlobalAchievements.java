@@ -22,10 +22,69 @@ public class GlobalAchievements {
   }
 
   /**
+   * @see AdminListGlobalAchievements
+   */
+  public ModelsPaginatedGlobalAchievementResponse adminListGlobalAchievements(
+      AdminListGlobalAchievements input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminListGlobalAchievementContributors
+   */
+  public ModelsPaginatedContributorResponse adminListGlobalAchievementContributors(
+      AdminListGlobalAchievementContributors input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see ResetGlobalAchievement
+   */
+  public void resetGlobalAchievement(ResetGlobalAchievement input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminListUserContributions
+   */
+  public ModelsPaginatedUserContributionResponse adminListUserContributions(
+      AdminListUserContributions input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicListGlobalAchievements
    */
   public ModelsPaginatedGlobalAchievementResponse publicListGlobalAchievements(
       PublicListGlobalAchievements input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see ListGlobalAchievementContributors
+   */
+  public ModelsPaginatedContributorResponse listGlobalAchievementContributors(
+      ListGlobalAchievementContributors input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see ListUserContributions
+   */
+  public ModelsPaginatedUserContributionResponse listUserContributions(ListUserContributions input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

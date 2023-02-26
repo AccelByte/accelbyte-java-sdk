@@ -36,6 +36,7 @@
 | `/match2/v1/namespaces/{namespace}/match-pools/{pool}` | GET | MatchPoolDetails | [MatchPoolDetails](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_pools/MatchPoolDetails.java) | [MatchPoolDetails](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_pools/MatchPoolDetails.java) |
 | `/match2/v1/namespaces/{namespace}/match-pools/{pool}` | PUT | UpdateMatchPool | [UpdateMatchPool](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_pools/UpdateMatchPool.java) | [UpdateMatchPool](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_pools/UpdateMatchPool.java) |
 | `/match2/v1/namespaces/{namespace}/match-pools/{pool}` | DELETE | DeleteMatchPool | [DeleteMatchPool](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_pools/DeleteMatchPool.java) | [DeleteMatchPool](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_pools/DeleteMatchPool.java) |
+| `/match2/v1/namespaces/{namespace}/match-pools/{pool}/metrics` | GET | MatchPoolMetric | [MatchPoolMetric](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_pools/MatchPoolMetric.java) | [MatchPoolMetric](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_pools/MatchPoolMetric.java) |
 
 ### Match-Tickets Wrapper:  [MatchTickets](../../src/main/java/net/accelbyte/sdk/api/match2/wrappers/MatchTickets.java)
 | Endpoint | Method | ID | Class | Example |
@@ -62,6 +63,7 @@
 |---|---|
 | `api.BackFillAcceptRequest` | [ApiBackFillAcceptRequest](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiBackFillAcceptRequest.java) |
 | `api.BackFillCreateRequest` | [ApiBackFillCreateRequest](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiBackFillCreateRequest.java) |
+| `api.BackfillCreateResponse` | [ApiBackfillCreateResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiBackfillCreateResponse.java) |
 | `api.BackfillGetResponse` | [ApiBackfillGetResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiBackfillGetResponse.java) |
 | `api.BackfillProposalResponse` | [ApiBackfillProposalResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiBackfillProposalResponse.java) |
 | `api.ListMatchFunctionsResponse` | [ApiListMatchFunctionsResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiListMatchFunctionsResponse.java) |
@@ -83,6 +85,7 @@
 | `api.RuleSetPayload` | [ApiRuleSetPayload](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiRuleSetPayload.java) |
 | `api.Team` | [ApiTeam](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiTeam.java) |
 | `api.Ticket` | [ApiTicket](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiTicket.java) |
+| `api.TicketMetricResultRecord` | [ApiTicketMetricResultRecord](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiTicketMetricResultRecord.java) |
 | `api.backFillRejectRequest` | [ApiBackFillRejectRequest](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiBackFillRejectRequest.java) |
 | `models.Pagination` | [ModelsPagination](../../src/main/java/net/accelbyte/sdk/api/match2/models/ModelsPagination.java) |
 | `response.Error` | [ResponseError](../../src/main/java/net/accelbyte/sdk/api/match2/models/ResponseError.java) |

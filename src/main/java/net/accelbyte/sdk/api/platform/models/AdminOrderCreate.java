@@ -48,7 +48,7 @@ public class AdminOrderCreate extends Model {
 
   @JsonProperty("options")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private ADTOObjectForOrderCreationOptions options;
+  private OrderCreationOptions options;
 
   @JsonProperty("platform")
   @JsonInclude(JsonInclude.Include.NON_NULL)

@@ -42,7 +42,7 @@ public class UnlockSteamUserAchievement extends Operation {
   private String namespace;
 
   private String userId;
-  private ADTOObjectForUnlockSteamAchievementAPI body;
+  private SteamAchievementUpdateRequest body;
 
   /**
    * @param namespace required
@@ -52,7 +52,7 @@ public class UnlockSteamUserAchievement extends Operation {
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
   public UnlockSteamUserAchievement(
-      String namespace, String userId, ADTOObjectForUnlockSteamAchievementAPI body) {
+      String namespace, String userId, SteamAchievementUpdateRequest body) {
     this.namespace = namespace;
     this.userId = userId;
     this.body = body;
@@ -73,7 +73,7 @@ public class UnlockSteamUserAchievement extends Operation {
   }
 
   @Override
-  public ADTOObjectForUnlockSteamAchievementAPI getBodyParams() {
+  public SteamAchievementUpdateRequest getBodyParams() {
     return this.body;
   }
 

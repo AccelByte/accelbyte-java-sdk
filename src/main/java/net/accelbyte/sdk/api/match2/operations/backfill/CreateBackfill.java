@@ -78,11 +78,13 @@ public class CreateBackfill extends Operation {
     return true;
   }
 
-  public void handleEmptyResponse(int code, String contentType, InputStream payload)
+  public ApiBackfillCreateResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 201) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
+    final String json = Helper.convertInputStreamToString(payload);
+    return new ApiBackfillCreateResponse().createFromJson(json);
   }
 }

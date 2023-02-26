@@ -93,14 +93,14 @@ public class GetXblUserAchievements extends Operation {
     return true;
   }
 
-  public ADTOObjectForQueryingXboxUserAchievements parseResponse(
-      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
+  public XblUserAchievements parseResponse(int code, String contentType, InputStream payload)
+      throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ADTOObjectForQueryingXboxUserAchievements().createFromJson(json);
+    return new XblUserAchievements().createFromJson(json);
   }
 
   @Override

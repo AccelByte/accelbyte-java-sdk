@@ -33,8 +33,7 @@ public class AchievementPlatform {
   /**
    * @see GetXblUserAchievements
    */
-  public ADTOObjectForQueryingXboxUserAchievements getXblUserAchievements(
-      GetXblUserAchievements input) throws Exception {
+  public XblUserAchievements getXblUserAchievements(GetXblUserAchievements input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

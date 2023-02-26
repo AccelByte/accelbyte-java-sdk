@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class StatUpdate extends Model {
 
+  @JsonProperty("cycleIds")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> cycleIds;
+
   @JsonProperty("defaultValue")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Float defaultValue;

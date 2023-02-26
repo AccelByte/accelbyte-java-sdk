@@ -58,11 +58,12 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>If generic oauth flow is set to true:
  *
- * <p>* Current supported value for TokenAuthenticationType is idToken
+ * <p>* Current supported value for TokenAuthenticationType is code, idToken and bearerToken
  *
- * <p>* `TokenClaimsMapping` is used to extract user info from idToken claims. Its a JSON format
- * with key should be `name`, `email` and `avatarUrl` since IAM will look up for these key when
- * extracting user info.
+ * <p>* `TokenClaimsMapping` is used to extract user info from idToken claims or user info endpoint
+ * response accessed using bearerToken. Its a JSON format with key should be `name`, `email` and
+ * `avatarUrl` since IAM will look up for these key when extracting user info. default claims keys :
+ * userIdentity/sub, name, email and avatarUrl/picture
  */
 @Getter
 @Setter

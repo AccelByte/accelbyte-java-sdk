@@ -517,10 +517,7 @@
 
 | Model | Class |
 |---|---|
-| `A DTO object for order creation options` | [ADTOObjectForOrderCreationOptions](../../src/main/java/net/accelbyte/sdk/api/platform/models/ADTOObjectForOrderCreationOptions.java) |
-| `A DTO object for querying xbox user achievements` | [ADTOObjectForQueryingXboxUserAchievements](../../src/main/java/net/accelbyte/sdk/api/platform/models/ADTOObjectForQueryingXboxUserAchievements.java) |
-| `A DTO object for unlock steam achievement API` | [ADTOObjectForUnlockSteamAchievementAPI](../../src/main/java/net/accelbyte/sdk/api/platform/models/ADTOObjectForUnlockSteamAchievementAPI.java) |
-| `A DTO object for update xbox achievement complete percentage API` | [ADTOObjectForUpdateXboxAchievementCompletePercentageAPI](../../src/main/java/net/accelbyte/sdk/api/platform/models/ADTOObjectForUpdateXboxAchievementCompletePercentageAPI.java) |
+| `Achievement` | [Achievement](../../src/main/java/net/accelbyte/sdk/api/platform/models/Achievement.java) |
 | `AchievementInfo` | [AchievementInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/AchievementInfo.java) |
 | `AdditionalData` | [AdditionalData](../../src/main/java/net/accelbyte/sdk/api/platform/models/AdditionalData.java) |
 | `AdminOrderCreate` | [AdminOrderCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/AdminOrderCreate.java) |
@@ -534,6 +531,8 @@
 | `AppleIAPConfigInfo` | [AppleIAPConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/AppleIAPConfigInfo.java) |
 | `AppleIAPConfigRequest` | [AppleIAPConfigRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/AppleIAPConfigRequest.java) |
 | `AppleIAPReceipt` | [AppleIAPReceipt](../../src/main/java/net/accelbyte/sdk/api/platform/models/AppleIAPReceipt.java) |
+| `AvailableComparison` | [AvailableComparison](../../src/main/java/net/accelbyte/sdk/api/platform/models/AvailableComparison.java) |
+| `AvailablePredicate` | [AvailablePredicate](../../src/main/java/net/accelbyte/sdk/api/platform/models/AvailablePredicate.java) |
 | `BasicCategoryInfo` | [BasicCategoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/BasicCategoryInfo.java) |
 | `BasicItem` | [BasicItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/BasicItem.java) |
 | `BillingAccount` | [BillingAccount](../../src/main/java/net/accelbyte/sdk/api/platform/models/BillingAccount.java) |
@@ -681,6 +680,7 @@
 | `OptionBoxConfig` | [OptionBoxConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/OptionBoxConfig.java) |
 | `Order` | [Order](../../src/main/java/net/accelbyte/sdk/api/platform/models/Order.java) |
 | `OrderCreate` | [OrderCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/OrderCreate.java) |
+| `OrderCreationOptions` | [OrderCreationOptions](../../src/main/java/net/accelbyte/sdk/api/platform/models/OrderCreationOptions.java) |
 | `OrderGrantInfo` | [OrderGrantInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/OrderGrantInfo.java) |
 | `OrderHistoryInfo` | [OrderHistoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/OrderHistoryInfo.java) |
 | `OrderInfo` | [OrderInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/OrderInfo.java) |
@@ -743,6 +743,7 @@
 | `PlayStationReconcileResult` | [PlayStationReconcileResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/PlayStationReconcileResult.java) |
 | `PlaystationIAPConfigRequest` | [PlaystationIAPConfigRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/PlaystationIAPConfigRequest.java) |
 | `PopulatedItemInfo` | [PopulatedItemInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/PopulatedItemInfo.java) |
+| `Predicate` | [Predicate](../../src/main/java/net/accelbyte/sdk/api/platform/models/Predicate.java) |
 | `PredicateValidateResult` | [PredicateValidateResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/PredicateValidateResult.java) |
 | `PurchaseCondition` | [PurchaseCondition](../../src/main/java/net/accelbyte/sdk/api/platform/models/PurchaseCondition.java) |
 | `PurchaseConditionUpdate` | [PurchaseConditionUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/PurchaseConditionUpdate.java) |
@@ -785,6 +786,7 @@
 | `ServicePluginConfigUpdate` | [ServicePluginConfigUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/ServicePluginConfigUpdate.java) |
 | `Slide` | [Slide](../../src/main/java/net/accelbyte/sdk/api/platform/models/Slide.java) |
 | `StackableEntitlementInfo` | [StackableEntitlementInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/StackableEntitlementInfo.java) |
+| `SteamAchievementUpdateRequest` | [SteamAchievementUpdateRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamAchievementUpdateRequest.java) |
 | `SteamDLCSyncRequest` | [SteamDLCSyncRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamDLCSyncRequest.java) |
 | `SteamIAPConfig` | [SteamIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamIAPConfig.java) |
 | `SteamIAPConfigInfo` | [SteamIAPConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamIAPConfigInfo.java) |
@@ -831,16 +833,13 @@
 | `WalletTransactionPagingSlicedResult` | [WalletTransactionPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/WalletTransactionPagingSlicedResult.java) |
 | `WxPayConfigInfo` | [WxPayConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/WxPayConfigInfo.java) |
 | `WxPayConfigRequest` | [WxPayConfigRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/WxPayConfigRequest.java) |
+| `XblAchievementUpdateRequest` | [XblAchievementUpdateRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/XblAchievementUpdateRequest.java) |
 | `XblDLCSyncRequest` | [XblDLCSyncRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/XblDLCSyncRequest.java) |
 | `XblIAPConfigInfo` | [XblIAPConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/XblIAPConfigInfo.java) |
 | `XblIAPConfigRequest` | [XblIAPConfigRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/XblIAPConfigRequest.java) |
 | `XblReconcileRequest` | [XblReconcileRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/XblReconcileRequest.java) |
 | `XblReconcileResult` | [XblReconcileResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/XblReconcileResult.java) |
+| `XblUserAchievements` | [XblUserAchievements](../../src/main/java/net/accelbyte/sdk/api/platform/models/XblUserAchievements.java) |
 | `XsollaConfig` | [XsollaConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/XsollaConfig.java) |
 | `XsollaPaywallConfig` | [XsollaPaywallConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/XsollaPaywallConfig.java) |
 | `XsollaPaywallConfigRequest` | [XsollaPaywallConfigRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/XsollaPaywallConfigRequest.java) |
-| `available comparison object` | [AvailableComparisonObject](../../src/main/java/net/accelbyte/sdk/api/platform/models/AvailableComparisonObject.java) |
-| `available predicate object` | [AvailablePredicateObject](../../src/main/java/net/accelbyte/sdk/api/platform/models/AvailablePredicateObject.java) |
-| `predicate object` | [PredicateObject](../../src/main/java/net/accelbyte/sdk/api/platform/models/PredicateObject.java) |
-| `steam achievement request` | [SteamAchievementRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamAchievementRequest.java) |
-| `xbox achievement request` | [XboxAchievementRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/XboxAchievementRequest.java) |

@@ -63,7 +63,7 @@ public class Order extends Model {
 
   @JsonProperty("creationOptions")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private ADTOObjectForOrderCreationOptions creationOptions;
+  private OrderCreationOptions creationOptions;
 
   @JsonProperty("currency")
   @JsonInclude(JsonInclude.Include.NON_NULL)

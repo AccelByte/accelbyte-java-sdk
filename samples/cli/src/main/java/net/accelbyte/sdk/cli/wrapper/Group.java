@@ -63,6 +63,7 @@ import picocli.CommandLine.Command;
       AcceptGroupJoinRequestPublicV1.class,
       RejectGroupJoinRequestPublicV1.class,
       KickGroupMemberPublicV1.class,
+      GetListGroupByIDsAdminV2.class,
       GetUserJoinedGroupInformationPublicV2.class,
       CreateNewGroupPublicV2.class,
       GetListGroupByIDsV2.class,

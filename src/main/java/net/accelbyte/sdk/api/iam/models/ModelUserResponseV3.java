@@ -42,6 +42,7 @@ public class ModelUserResponseV3 extends Model {
   private String createdAt;
 
   @JsonProperty("dateOfBirth")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String dateOfBirth;
 
   @JsonProperty("deletionStatus")

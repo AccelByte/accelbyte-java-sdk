@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.Model;
 // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class PredicateObject extends Model {
+public class Predicate extends Model {
 
   @JsonProperty("anyOf")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -90,13 +90,13 @@ public class PredicateObject extends Model {
   }
 
   @JsonIgnore
-  public PredicateObject createFromJson(String json) throws JsonProcessingException {
+  public Predicate createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<PredicateObject> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<PredicateObject>>() {});
+  public List<Predicate> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<Predicate>>() {});
   }
 
   public enum Comparison {
@@ -138,26 +138,26 @@ public class PredicateObject extends Model {
     }
   }
 
-  public static class PredicateObjectBuilder {
+  public static class PredicateBuilder {
     private String comparison;
     private String predicateType;
 
-    public PredicateObjectBuilder comparison(final String comparison) {
+    public PredicateBuilder comparison(final String comparison) {
       this.comparison = comparison;
       return this;
     }
 
-    public PredicateObjectBuilder comparisonFromEnum(final Comparison comparison) {
+    public PredicateBuilder comparisonFromEnum(final Comparison comparison) {
       this.comparison = comparison.toString();
       return this;
     }
 
-    public PredicateObjectBuilder predicateType(final String predicateType) {
+    public PredicateBuilder predicateType(final String predicateType) {
       this.predicateType = predicateType;
       return this;
     }
 
-    public PredicateObjectBuilder predicateTypeFromEnum(final PredicateType predicateType) {
+    public PredicateBuilder predicateTypeFromEnum(final PredicateType predicateType) {
       this.predicateType = predicateType.toString();
       return this;
     }

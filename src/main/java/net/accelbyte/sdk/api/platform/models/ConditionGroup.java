@@ -31,7 +31,7 @@ public class ConditionGroup extends Model {
 
   @JsonProperty("predicates")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private List<PredicateObject> predicates;
+  private List<Predicate> predicates;
 
   @JsonIgnore
   public String getOperator() {

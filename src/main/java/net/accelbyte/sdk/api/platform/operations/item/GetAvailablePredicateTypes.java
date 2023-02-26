@@ -70,14 +70,13 @@ public class GetAvailablePredicateTypes extends Operation {
     return true;
   }
 
-  public List<AvailablePredicateObject> parseResponse(
-      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
+  public List<AvailablePredicate> parseResponse(int code, String contentType, InputStream payload)
+      throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ObjectMapper()
-        .readValue(json, new TypeReference<List<AvailablePredicateObject>>() {});
+    return new ObjectMapper().readValue(json, new TypeReference<List<AvailablePredicate>>() {});
   }
 }

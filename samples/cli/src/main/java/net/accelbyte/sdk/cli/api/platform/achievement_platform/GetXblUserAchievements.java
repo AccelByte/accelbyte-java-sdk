@@ -74,8 +74,7 @@ public class GetXblUserAchievements implements Callable<Integer> {
                   .userId(userId)
                   .xboxUserId(xboxUserId)
                   .build();
-      final ADTOObjectForQueryingXboxUserAchievements response =
-          wrapper.getXblUserAchievements(operation);
+      final XblUserAchievements response = wrapper.getXblUserAchievements(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

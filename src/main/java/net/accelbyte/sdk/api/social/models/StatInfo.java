@@ -28,6 +28,10 @@ public class StatInfo extends Model {
   @JsonProperty("createdAt")
   private String createdAt;
 
+  @JsonProperty("cycleIds")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> cycleIds;
+
   @JsonProperty("defaultValue")
   private Float defaultValue;
 

@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.platform.models;
+package net.accelbyte.sdk.api.match2.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,22 +23,20 @@ import net.accelbyte.sdk.core.Model;
 // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ADTOObjectForQueryingXboxUserAchievements extends Model {
+public class ApiBackfillCreateResponse extends Model {
 
-  @JsonProperty("achievements")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private List<AchievementInfo> achievements;
+  @JsonProperty("id")
+  private String id;
 
   @JsonIgnore
-  public ADTOObjectForQueryingXboxUserAchievements createFromJson(String json)
-      throws JsonProcessingException {
+  public ApiBackfillCreateResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ADTOObjectForQueryingXboxUserAchievements> createFromJsonList(String json)
+  public List<ApiBackfillCreateResponse> createFromJsonList(String json)
       throws JsonProcessingException {
     return new ObjectMapper()
-        .readValue(json, new TypeReference<List<ADTOObjectForQueryingXboxUserAchievements>>() {});
+        .readValue(json, new TypeReference<List<ApiBackfillCreateResponse>>() {});
   }
 }

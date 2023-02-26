@@ -103,6 +103,14 @@ public class ModelThirdPartyLoginPlatformCredentialResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String tokenEndpoint;
 
+  @JsonProperty("UserInfoEndpoint")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String userInfoEndpoint;
+
+  @JsonProperty("UserInfoHTTPMethod")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String userInfoHTTPMethod;
+
   @JsonProperty("registeredDomains")
   private List<AccountcommonRegisteredDomain> registeredDomains;
 

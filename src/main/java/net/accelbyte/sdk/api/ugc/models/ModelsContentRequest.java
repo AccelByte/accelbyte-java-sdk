@@ -29,6 +29,7 @@ public class ModelsContentRequest extends Model {
   private String contentType;
 
   @JsonProperty("customAttributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> customAttributes;
 
   @JsonProperty("fileExtension")
@@ -44,6 +45,7 @@ public class ModelsContentRequest extends Model {
   private String preview;
 
   @JsonProperty("previewMetadata")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsPreviewMetadata previewMetadata;
 
   @JsonProperty("subType")

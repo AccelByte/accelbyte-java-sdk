@@ -85,8 +85,7 @@ public class BulkResetUserStatItemValues implements Callable<Integer> {
                               body,
                               new TypeReference<List<ADTOObjectForResettingUserStatItems>>() {}))
                   .build();
-      final List<BulkStatItemOperationResult> response =
-          wrapper.bulkResetUserStatItemValues(operation);
+      final List<BulkStatOperationResult> response = wrapper.bulkResetUserStatItemValues(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

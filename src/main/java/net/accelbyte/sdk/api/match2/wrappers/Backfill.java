@@ -24,9 +24,9 @@ public class Backfill {
   /**
    * @see CreateBackfill
    */
-  public void createBackfill(CreateBackfill input) throws Exception {
+  public ApiBackfillCreateResponse createBackfill(CreateBackfill input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

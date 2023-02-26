@@ -65,4 +65,13 @@ public class MatchPools {
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see MatchPoolMetric
+   */
+  public ApiTicketMetricResultRecord matchPoolMetric(MatchPoolMetric input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

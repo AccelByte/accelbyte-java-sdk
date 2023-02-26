@@ -73,9 +73,7 @@ public class UnlockSteamUserAchievement implements Callable<Integer> {
                   .UnlockSteamUserAchievement.builder()
                   .namespace(namespace)
                   .userId(userId)
-                  .body(
-                      new ObjectMapper()
-                          .readValue(body, ADTOObjectForUnlockSteamAchievementAPI.class))
+                  .body(new ObjectMapper().readValue(body, SteamAchievementUpdateRequest.class))
                   .build();
       wrapper.unlockSteamUserAchievement(operation);
       log.info("Operation successful");

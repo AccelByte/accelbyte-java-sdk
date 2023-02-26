@@ -60,7 +60,7 @@ public class GetAvailablePredicateTypes implements Callable<Integer> {
           net.accelbyte.sdk.api.platform.operations.item.GetAvailablePredicateTypes.builder()
               .namespace(namespace)
               .build();
-      final List<AvailablePredicateObject> response = wrapper.getAvailablePredicateTypes(operation);
+      final List<AvailablePredicate> response = wrapper.getAvailablePredicateTypes(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);
