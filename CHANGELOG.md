@@ -1,6 +1,30 @@
-<a name="v0.30.0"></a>
-## [v0.30.0] - 2023-02-13
+<a name="v0.31.0"></a>
+## [v0.31.0] - 2023-02-27
 ### Chore
+- **lambda-sample-app:** remove credential information
+- **sdk:** generate java server sdk (230226.2157)
+
+### Ci
+- updated coverity image
+
+### Docs
+- update changelog for ab cloud 3.43
+- **common use case:** add reporting service
+- **migration-guide:** v0.30.0 to v0.31.0 update
+- **migration-guide:** v0.30.0 to v0.31.0
+
+### Feat
+- **aws-lambda-example:** allow both local test and functionurl invokation
+
+### Test
+- **integration:** reporting service
+- **integration:** lobby - update due to openapi tags renaming
+
+
+<a name="v0.30.0"></a>
+## [v0.30.0] - 2023-02-14
+### Chore
+- remove bypass build parameter
 - tidy source code
 - adjust pipeline credentials
 - **sdk:** generate java server sdk (230213.0150)
@@ -15,8 +39,10 @@
 ### Feat
 - **api:** add initial reporting service support
 - **aws-lambda-example:** integrated to generate FunctionURL
+- **pipeline:** add breaking changes check in generate job
 
 ### Fix
+- define variables and script
 - **sdk:** review local token validation logic
 - **sdk:** coverity defects
 
@@ -891,6 +917,7 @@
 - replace unnecessary object
 
 
+[v0.31.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.30.0...v0.31.0
 [v0.30.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.29.0...v0.30.0
 [v0.29.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.28.0...v0.29.0
 [v0.28.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.27.0...v0.28.0
