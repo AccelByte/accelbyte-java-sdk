@@ -5,17 +5,42 @@
 
 Following changes in OpenAPI spec:
 
-1. In lobby service, due to fixing an issue in backend, the following model has been renamed and some of the field type has been changed.
+1. Achievement
 
-   - net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.CreateTemplate
-   - net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.DeleteTemplateLocalization
-   - net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.DeleteTemplateSlug
-   - net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.FreeFormNotification
-   - net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.GetGameTemplate
-   - net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.GetLocalizationTemplate
-   - net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.etSlugTemplate
-   - net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.NotificationWithTemplate
-   - net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.PublishTemplate
-   - net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.UpdateLocalizationTemplate
+   - In `net.accelbyte.sdk.api.achievement.operations.global_achievements.PublicListGlobalAchievements`
+     - The property `achievementCode` has been renamed to `achievementCodes`
 
-   The corresponding wrapper methods for the above operations are also moved from `notification` to `admin`.
+2. Group
+
+   - The following models are renamed     
+     - `net.accelbyte.sdk.api.group.models.{ModelsPublicGetGroupListRequestV2 -> ModelsGetGroupListRequestV2}`
+
+3. Lobby
+
+   - The following operations are moved to a different package and the corresponding wrapper methods follows.
+     - `net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.CreateTemplate`
+     - `net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.DeleteTemplateLocalization`
+     - `net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.DeleteTemplateSlug`
+     - `net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.FreeFormNotification`
+     - `net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.GetGameTemplate`
+     - `net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.GetLocalizationTemplate`
+     - `net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.etSlugTemplate`
+     - `net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.NotificationWithTemplate`
+     - `net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.PublishTemplate`
+     - `net.accelbyte.sdk.api.lobby.operations.{notification -> admin}.UpdateLocalizationTemplate`
+
+4. Platform
+
+   - The following models are renamed
+     - `net.accelbyte.sdk.api.platform.models.{AvailablePredicateObject -> AvailablePredicate}`
+     - `net.accelbyte.sdk.api.platform.models.{ADTOObjectForUnlockSteamAchievementAPI -> SteamAchievementUpdateRequest}`
+     - `net.accelbyte.sdk.api.platform.models.{ADTOObjectForUpdateXboxAchievementCompletePercentageAPI -> XblAchievementUpdateRequest}`
+     - `net.accelbyte.sdk.api.platform.models.{ADTOObjectForQueryingXboxUserAchievements -> XblUserAchievements}`
+
+5. Social
+
+   - The following models are renamed
+     - `net.accelbyte.sdk.api.social.models.{BulkStatItemOperationResult -> BulkStatOperationResult}`
+
+
+     
