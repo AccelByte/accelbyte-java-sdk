@@ -20,10 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicDeleteUserNamespaceSlot
  *
- * <p>Deletes the slot. Other detail info:
- *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=8
- * (DELETE)
+ * <p>Deletes the slot. Other detail info: * Required permission :
+ * resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=8 (DELETE)
  */
 @Getter
 @Setter

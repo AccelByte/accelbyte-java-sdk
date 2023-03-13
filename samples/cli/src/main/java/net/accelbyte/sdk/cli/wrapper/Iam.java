@@ -374,6 +374,7 @@ import picocli.CommandLine.Command;
       PublicEnableMyEmailV4.class,
       PublicGetMyEnabledFactorsV4.class,
       PublicMakeFactorMyDefaultV4.class,
+      PublicInviteUserV4.class,
     })
 public class Iam implements Runnable {
 

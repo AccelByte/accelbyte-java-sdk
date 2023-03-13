@@ -55,9 +55,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * authenticate endpoint after successfully authenticating discord user.
  *
  * <p>* amazon This endpoint redirects to amazon login page, then redirect back to platform
- * authenticate endpoint after successfully authenticating amazon user.
- *
- * <p>action code : 10702'
+ * authenticate endpoint after successfully authenticating amazon user. action code : 10702'
  */
 @Getter
 @Setter

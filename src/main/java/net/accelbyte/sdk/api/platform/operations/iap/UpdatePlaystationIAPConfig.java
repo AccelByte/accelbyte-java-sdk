@@ -21,10 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updatePlaystationIAPConfig
  *
- * <p>Update playstation iap config. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE) *
- * Returns : updated playstation iap config
+ * <p>Update playstation iap config. Other detail info: * Required permission :
+ * resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE) * Returns : updated
+ * playstation iap config
  */
 @Getter
 @Setter

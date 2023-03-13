@@ -24,6 +24,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Updates a game session, this endpoint will override stored gamesession data. To update only
  * specified fields, please use following endpoint: method : PATCH API :
  * /session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}
+ *
+ * <p>To update DS attributes (clientVersion, deployment, requestedRegions) it will only be applied
+ * only as long as no DS has been requested, otherwise ignored.
  */
 @Getter
 @Setter

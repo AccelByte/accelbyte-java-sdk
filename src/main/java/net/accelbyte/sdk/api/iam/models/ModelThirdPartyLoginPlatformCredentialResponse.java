@@ -35,6 +35,7 @@ public class ModelThirdPartyLoginPlatformCredentialResponse extends Model {
   private String awsCognitoUserPool;
 
   @JsonProperty("AllowedClients")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> allowedClients;
 
   @JsonProperty("AppId")
@@ -97,6 +98,7 @@ public class ModelThirdPartyLoginPlatformCredentialResponse extends Model {
   private String tokenAuthenticationType;
 
   @JsonProperty("TokenClaimsMapping")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, String> tokenClaimsMapping;
 
   @JsonProperty("TokenEndpoint")
@@ -112,6 +114,7 @@ public class ModelThirdPartyLoginPlatformCredentialResponse extends Model {
   private String userInfoHTTPMethod;
 
   @JsonProperty("registeredDomains")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<AccountcommonRegisteredDomain> registeredDomains;
 
   @JsonProperty("scopes")

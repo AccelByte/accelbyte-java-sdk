@@ -56,6 +56,11 @@ public class GetStatCycles implements Callable<Integer> {
   Integer offset;
 
   @Option(
+      names = {"--sortBy"},
+      description = "sortBy")
+  String sortBy;
+
+  @Option(
       names = {"--status"},
       description = "status")
   String status;
@@ -90,6 +95,7 @@ public class GetStatCycles implements Callable<Integer> {
                   .limit(limit)
                   .name(name)
                   .offset(offset)
+                  .sortBy(sortBy)
                   .status(status)
                   .build();
       final StatCyclePagingSlicedResult response = wrapper.getStatCycles(operation);

@@ -38,6 +38,7 @@ import picocli.CommandLine.Command;
       UpdateGameSession.class,
       DeleteGameSession.class,
       PatchUpdateGameSession.class,
+      UpdateGameSessionBackfillTicketID.class,
       PublicGameSessionInvite.class,
       JoinGameSession.class,
       LeaveGameSession.class,

@@ -21,10 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicUpdateProfile
  *
- * <p>Updates user game profile, returns updated profile. Other detail info:
- *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:GAMEPROFILE", action=4
- * (UPDATE) * Returns : updated game profile
+ * <p>Updates user game profile, returns updated profile. Other detail info: * Required permission :
+ * resource="NAMESPACE:{namespace}:USER:{userId}:GAMEPROFILE", action=4 (UPDATE) * Returns : updated
+ * game profile
  */
 @Getter
 @Setter

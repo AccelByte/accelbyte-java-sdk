@@ -20,10 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetSlotData
  *
- * <p>Get slot data. Other detail info:
- *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2
- * (READ) * Returns : slot data
+ * <p>Get slot data. Other detail info: * Required permission :
+ * resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ) * Returns : slot data
  */
 @Getter
 @Setter

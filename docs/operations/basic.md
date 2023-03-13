@@ -29,6 +29,14 @@
 | `/basic/v1/admin/namespaces/{namespace}/actions/unban` | POST | UnBanUsers | [UnBanUsers](../../src/main/java/net/accelbyte/sdk/api/basic/operations/user_action/UnBanUsers.java) | [UnBanUsers](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/user_action/UnBanUsers.java) |
 | `/basic/v1/public/namespaces/{namespace}/users/{userId}/actions/report` | POST | PublicReportUser | [PublicReportUser](../../src/main/java/net/accelbyte/sdk/api/basic/operations/user_action/PublicReportUser.java) | [PublicReportUser](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/user_action/PublicReportUser.java) |
 
+### Config Wrapper:  [Config](../../src/main/java/net/accelbyte/sdk/api/basic/wrappers/Config.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/basic/v1/admin/namespaces/{namespace}/configs` | POST | CreateConfig | [CreateConfig](../../src/main/java/net/accelbyte/sdk/api/basic/operations/config/CreateConfig.java) | [CreateConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/config/CreateConfig.java) |
+| `/basic/v1/admin/namespaces/{namespace}/configs/{configKey}` | GET | GetConfig1 | [GetConfig1](../../src/main/java/net/accelbyte/sdk/api/basic/operations/config/GetConfig1.java) | [GetConfig1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/config/GetConfig1.java) |
+| `/basic/v1/admin/namespaces/{namespace}/configs/{configKey}` | DELETE | DeleteConfig1 | [DeleteConfig1](../../src/main/java/net/accelbyte/sdk/api/basic/operations/config/DeleteConfig1.java) | [DeleteConfig1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/config/DeleteConfig1.java) |
+| `/basic/v1/admin/namespaces/{namespace}/configs/{configKey}` | PATCH | UpdateConfig1 | [UpdateConfig1](../../src/main/java/net/accelbyte/sdk/api/basic/operations/config/UpdateConfig1.java) | [UpdateConfig1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/config/UpdateConfig1.java) |
+
 ### EQU8Config Wrapper:  [EQU8Config](../../src/main/java/net/accelbyte/sdk/api/basic/wrappers/EQU8Config.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -108,6 +116,9 @@
 | `Action` | [Action](../../src/main/java/net/accelbyte/sdk/api/basic/models/Action.java) |
 | `AddCountryGroupRequest` | [AddCountryGroupRequest](../../src/main/java/net/accelbyte/sdk/api/basic/models/AddCountryGroupRequest.java) |
 | `AddCountryGroupResponse` | [AddCountryGroupResponse](../../src/main/java/net/accelbyte/sdk/api/basic/models/AddCountryGroupResponse.java) |
+| `ConfigCreate` | [ConfigCreate](../../src/main/java/net/accelbyte/sdk/api/basic/models/ConfigCreate.java) |
+| `ConfigInfo` | [ConfigInfo](../../src/main/java/net/accelbyte/sdk/api/basic/models/ConfigInfo.java) |
+| `ConfigUpdate` | [ConfigUpdate](../../src/main/java/net/accelbyte/sdk/api/basic/models/ConfigUpdate.java) |
 | `CountryGroupObject` | [CountryGroupObject](../../src/main/java/net/accelbyte/sdk/api/basic/models/CountryGroupObject.java) |
 | `CountryObject` | [CountryObject](../../src/main/java/net/accelbyte/sdk/api/basic/models/CountryObject.java) |
 | `Equ8Config` | [Equ8Config](../../src/main/java/net/accelbyte/sdk/api/basic/models/Equ8Config.java) |

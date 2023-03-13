@@ -58,6 +58,9 @@ public class ApimodelsConfigurationTemplateResponse extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("persistent")
+  private Boolean persistent;
+
   @JsonProperty("requestedRegions")
   private List<String> requestedRegions;
 

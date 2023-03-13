@@ -36,11 +36,6 @@ public class SyncTwitchDropsEntitlement implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--userId"},
-      description = "userId")
-  String userId;
-
-  @Option(
       names = {"--body"},
       description = "body")
   String body;
@@ -69,11 +64,12 @@ public class SyncTwitchDropsEntitlement implements Callable<Integer> {
       final net.accelbyte.sdk.api.platform.operations.iap.SyncTwitchDropsEntitlement operation =
           net.accelbyte.sdk.api.platform.operations.iap.SyncTwitchDropsEntitlement.builder()
               .namespace(namespace)
-              .userId(userId)
               .body(new ObjectMapper().readValue(body, TwitchSyncRequest.class))
               .build();
-      wrapper.syncTwitchDropsEntitlement(operation);
-      log.info("Operation successful");
+      final List<TwitchSyncResult> response = wrapper.syncTwitchDropsEntitlement(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

@@ -54,6 +54,7 @@ public class RetrievePolicyVersionResponse extends Model {
   private List<LocalizedPolicyVersionObject> localizedPolicyVersions;
 
   @JsonProperty("policyId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String policyId;
 
   @JsonProperty("publishedDate")

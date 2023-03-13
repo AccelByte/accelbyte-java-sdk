@@ -63,6 +63,9 @@ public class ApimodelsPartySessionResponse extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("persistent")
+  private Boolean persistent;
+
   @JsonProperty("updatedAt")
   private String updatedAt;
 

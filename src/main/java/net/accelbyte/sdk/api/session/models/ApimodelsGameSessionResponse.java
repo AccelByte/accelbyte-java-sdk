@@ -68,6 +68,9 @@ public class ApimodelsGameSessionResponse extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("persistent")
+  private Boolean persistent;
+
   @JsonProperty("teams")
   private List<ModelsTeam> teams;
 

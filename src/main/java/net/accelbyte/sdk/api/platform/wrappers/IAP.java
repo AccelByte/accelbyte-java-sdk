@@ -299,6 +299,25 @@ public class IAP {
   }
 
   /**
+   * @see GetIAPItemMapping
+   */
+  public IAPItemMappingInfo getIAPItemMapping(GetIAPItemMapping input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see SyncTwitchDropsEntitlement
+   */
+  public List<TwitchSyncResult> syncTwitchDropsEntitlement(SyncTwitchDropsEntitlement input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicFulfillAppleIAPItem
    */
   public void publicFulfillAppleIAPItem(PublicFulfillAppleIAPItem input) throws Exception {
@@ -357,9 +376,9 @@ public class IAP {
   }
 
   /**
-   * @see SyncTwitchDropsEntitlement
+   * @see SyncTwitchDropsEntitlement1
    */
-  public void syncTwitchDropsEntitlement(SyncTwitchDropsEntitlement input) throws Exception {
+  public void syncTwitchDropsEntitlement1(SyncTwitchDropsEntitlement1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

@@ -27,7 +27,9 @@ import picocli.CommandLine.Command;
     subcommands = {
       GetUserFriendsUpdated.class,
       GetUserIncomingFriends.class,
+      GetUserIncomingFriendsWithTime.class,
       GetUserOutgoingFriends.class,
+      GetUserOutgoingFriendsWithTime.class,
       UserRequestFriend.class,
       UserAcceptFriendRequest.class,
       UserCancelFriendRequest.class,

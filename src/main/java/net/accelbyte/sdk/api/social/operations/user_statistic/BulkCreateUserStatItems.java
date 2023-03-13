@@ -23,10 +23,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * bulkCreateUserStatItems
  *
- * <p>Bulk create user's statItems. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM",
- * action=1 (CREATE) * Returns : bulk created result
+ * <p>Bulk create user's statItems. Other detail info: * Required permission :
+ * resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE) * Returns : bulk
+ * created result
  */
 @Getter
 @Setter

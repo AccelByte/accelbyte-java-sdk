@@ -20,9 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * anonymizeUserAgreement
  *
- * <p>This API will anonymize agreement record for specified user. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=8 (DELETE)
+ * <p>This API will anonymize agreement record for specified user. Other detail info: * Required
+ * permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=8 (DELETE)
  */
 @Getter
 @Setter

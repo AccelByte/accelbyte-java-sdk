@@ -21,10 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateServicePluginConfig
  *
- * <p>Update catalog config. Other detail info:
- *
- * <p>* Required permission : resource=ADMIN:NAMESPACE:{namespace}:CONFIG:SERVICEPLUGIN, action=4
- * (UPDATE) * Returns : updated service plugin config
+ * <p>Update catalog config. Other detail info: * Required permission :
+ * resource=ADMIN:NAMESPACE:{namespace}:CONFIG:SERVICEPLUGIN, action=4 (UPDATE) * Returns : updated
+ * service plugin config
  */
 @Getter
 @Setter

@@ -36,7 +36,12 @@ public class ModelUserInvitationV3 extends Model {
   private String id;
 
   @JsonProperty("namespace")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;
+
+  @JsonProperty("namespaceDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String namespaceDisplayName;
 
   @JsonProperty("roles")
   private List<AccountcommonNamespaceRole> roles;

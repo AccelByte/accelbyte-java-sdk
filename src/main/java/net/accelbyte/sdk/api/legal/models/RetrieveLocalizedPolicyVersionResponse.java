@@ -60,6 +60,7 @@ public class RetrieveLocalizedPolicyVersionResponse extends Model {
   private String localeCode;
 
   @JsonProperty("policy")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private PolicyObject policy;
 
   @JsonProperty("policyVersion")

@@ -41,6 +41,7 @@
 ### Agreement With Namespace Wrapper:  [AgreementWithNamespace](../../src/main/java/net/accelbyte/sdk/api/legal/wrappers/AgreementWithNamespace.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
+| `/agreement/admin/namespaces/{namespace}/agreements` | POST | RetrieveAcceptedAgreementsForMultiUsers | [RetrieveAcceptedAgreementsForMultiUsers](../../src/main/java/net/accelbyte/sdk/api/legal/operations/agreement_with_namespace/RetrieveAcceptedAgreementsForMultiUsers.java) | [RetrieveAcceptedAgreementsForMultiUsers](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/legal/agreement_with_namespace/RetrieveAcceptedAgreementsForMultiUsers.java) |
 | `/agreement/admin/namespaces/{namespace}/agreements/policies/users/{userId}` | GET | RetrieveAcceptedAgreements1 | [RetrieveAcceptedAgreements1](../../src/main/java/net/accelbyte/sdk/api/legal/operations/agreement_with_namespace/RetrieveAcceptedAgreements1.java) | [RetrieveAcceptedAgreements1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/legal/agreement_with_namespace/RetrieveAcceptedAgreements1.java) |
 | `/agreement/admin/namespaces/{namespace}/agreements/policy-versions/users` | GET | RetrieveAllUsersByPolicyVersion1 | [RetrieveAllUsersByPolicyVersion1](../../src/main/java/net/accelbyte/sdk/api/legal/operations/agreement_with_namespace/RetrieveAllUsersByPolicyVersion1.java) | [RetrieveAllUsersByPolicyVersion1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/legal/agreement_with_namespace/RetrieveAllUsersByPolicyVersion1.java) |
 
@@ -177,4 +178,6 @@
 | `UpdatePolicyVersionResponse` | [UpdatePolicyVersionResponse](../../src/main/java/net/accelbyte/sdk/api/legal/models/UpdatePolicyVersionResponse.java) |
 | `UploadLocalizedPolicyVersionAttachmentResponse` | [UploadLocalizedPolicyVersionAttachmentResponse](../../src/main/java/net/accelbyte/sdk/api/legal/models/UploadLocalizedPolicyVersionAttachmentResponse.java) |
 | `UploadPolicyVersionAttachmentRequest` | [UploadPolicyVersionAttachmentRequest](../../src/main/java/net/accelbyte/sdk/api/legal/models/UploadPolicyVersionAttachmentRequest.java) |
+| `UserAgreementsResponse` | [UserAgreementsResponse](../../src/main/java/net/accelbyte/sdk/api/legal/models/UserAgreementsResponse.java) |
+| `UsersAgreementsRequest` | [UsersAgreementsRequest](../../src/main/java/net/accelbyte/sdk/api/legal/models/UsersAgreementsRequest.java) |
 | `ValidationErrorEntity` | [ValidationErrorEntity](../../src/main/java/net/accelbyte/sdk/api/legal/models/ValidationErrorEntity.java) |

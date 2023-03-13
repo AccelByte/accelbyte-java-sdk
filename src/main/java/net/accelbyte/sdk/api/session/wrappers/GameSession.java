@@ -109,6 +109,16 @@ public class GameSession {
   }
 
   /**
+   * @see UpdateGameSessionBackfillTicketID
+   */
+  public ApimodelsGameSessionResponse updateGameSessionBackfillTicketID(
+      UpdateGameSessionBackfillTicketID input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicGameSessionInvite
    */
   public void publicGameSessionInvite(PublicGameSessionInvite input) throws Exception {

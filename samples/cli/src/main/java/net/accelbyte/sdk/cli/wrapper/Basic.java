@@ -9,6 +9,7 @@
 package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.basic.anonymization.*;
+import net.accelbyte.sdk.cli.api.basic.config.*;
 import net.accelbyte.sdk.cli.api.basic.equ8_config.*;
 import net.accelbyte.sdk.cli.api.basic.file_upload.*;
 import net.accelbyte.sdk.cli.api.basic.misc.*;
@@ -32,6 +33,10 @@ import picocli.CommandLine.Command;
       GetUserStatus.class,
       UnBanUsers.class,
       UpdateNamespace.class,
+      CreateConfig.class,
+      GetConfig1.class,
+      DeleteConfig1.class,
+      UpdateConfig1.class,
       GetConfig.class,
       DeleteConfig.class,
       UpdateConfig.class,

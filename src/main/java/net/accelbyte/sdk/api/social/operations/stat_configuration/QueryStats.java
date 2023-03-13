@@ -21,10 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * queryStats
  *
- * <p>Query stats stats by keyword. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STAT", action=2 (READ) * Returns
- * : stats
+ * <p>Query stats by keyword. Other detail info: * Required permission :
+ * resource="ADMIN:NAMESPACE:{namespace}:STAT", action=2 (READ) * Returns : stats
  */
 @Getter
 @Setter

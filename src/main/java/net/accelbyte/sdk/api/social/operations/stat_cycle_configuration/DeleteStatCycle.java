@@ -20,9 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteStatCycle
  *
- * <p>Deletes stat cycle. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STAT", action=8 (DELETE)
+ * <p>Deletes stat cycle. Other detail info: * Required permission :
+ * resource="ADMIN:NAMESPACE:{namespace}:STAT", action=8 (DELETE)
  */
 @Getter
 @Setter

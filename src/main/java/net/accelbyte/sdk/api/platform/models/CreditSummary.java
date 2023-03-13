@@ -28,6 +28,10 @@ public class CreditSummary extends Model {
   @JsonProperty("amount")
   private Integer amount;
 
+  @JsonProperty("currencyCode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String currencyCode;
+
   @JsonProperty("namespace")
   private String namespace;
 

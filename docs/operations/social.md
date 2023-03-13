@@ -117,6 +117,12 @@
 | `/social/v1/admin/namespaces/{namespace}/stats/{statCode}/tied` | DELETE | DeleteTiedStat | [DeleteTiedStat](../../src/main/java/net/accelbyte/sdk/api/social/operations/stat_configuration/DeleteTiedStat.java) | [DeleteTiedStat](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/stat_configuration/DeleteTiedStat.java) |
 | `/social/v1/public/namespaces/{namespace}/stats` | POST | CreateStat1 | [CreateStat1](../../src/main/java/net/accelbyte/sdk/api/social/operations/stat_configuration/CreateStat1.java) | [CreateStat1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/stat_configuration/CreateStat1.java) |
 
+### UserStatisticCycle Wrapper:  [UserStatisticCycle](../../src/main/java/net/accelbyte/sdk/api/social/wrappers/UserStatisticCycle.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/social/v1/admin/namespaces/{namespace}/users/{userId}/statCycles/{cycleId}/statCycleitems` | GET | GetUserStatCycleItems | [GetUserStatCycleItems](../../src/main/java/net/accelbyte/sdk/api/social/operations/user_statistic_cycle/GetUserStatCycleItems.java) | [GetUserStatCycleItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/user_statistic_cycle/GetUserStatCycleItems.java) |
+| `/social/v1/public/namespaces/{namespace}/users/{userId}/statCycles/{cycleId}/statCycleitems` | GET | GetUserStatCycleItems1 | [GetUserStatCycleItems1](../../src/main/java/net/accelbyte/sdk/api/social/operations/user_statistic_cycle/GetUserStatCycleItems1.java) | [GetUserStatCycleItems1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/user_statistic_cycle/GetUserStatCycleItems1.java) |
+
 
 &nbsp;  
 
@@ -164,6 +170,8 @@
 | `StatUpdate` | [StatUpdate](../../src/main/java/net/accelbyte/sdk/api/social/models/StatUpdate.java) |
 | `UserGameProfiles` | [UserGameProfiles](../../src/main/java/net/accelbyte/sdk/api/social/models/UserGameProfiles.java) |
 | `UserSlotConfigInfo` | [UserSlotConfigInfo](../../src/main/java/net/accelbyte/sdk/api/social/models/UserSlotConfigInfo.java) |
+| `UserStatCycleItemInfo` | [UserStatCycleItemInfo](../../src/main/java/net/accelbyte/sdk/api/social/models/UserStatCycleItemInfo.java) |
+| `UserStatCycleItemPagingSlicedResult` | [UserStatCycleItemPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/social/models/UserStatCycleItemPagingSlicedResult.java) |
 | `UserStatItemInfo` | [UserStatItemInfo](../../src/main/java/net/accelbyte/sdk/api/social/models/UserStatItemInfo.java) |
 | `UserStatItemPagingSlicedResult` | [UserStatItemPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/social/models/UserStatItemPagingSlicedResult.java) |
 | `ValidationErrorEntity` | [ValidationErrorEntity](../../src/main/java/net/accelbyte/sdk/api/social/models/ValidationErrorEntity.java) |

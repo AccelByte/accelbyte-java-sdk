@@ -449,4 +449,13 @@ public class UsersV4 {
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see PublicInviteUserV4
+   */
+  public ModelInviteUserResponseV3 publicInviteUserV4(PublicInviteUserV4 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

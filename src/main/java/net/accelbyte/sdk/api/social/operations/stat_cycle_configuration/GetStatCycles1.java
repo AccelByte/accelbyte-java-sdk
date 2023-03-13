@@ -21,10 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getStatCycles_1
  *
- * <p>List stat cycles by pagination. Other detail info:
- *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:STAT", action=2 (READ) * Returns :
- * stat cycles
+ * <p>List stat cycles by pagination. Other detail info: * Required permission :
+ * resource="NAMESPACE:{namespace}:STAT", action=2 (READ) * Returns : stat cycles
  */
 @Getter
 @Setter
@@ -43,6 +41,7 @@ public class GetStatCycles1 extends Operation {
   private Integer limit;
   private String name;
   private Integer offset;
+  private String sortBy;
   private String status;
 
   /**
@@ -57,12 +56,14 @@ public class GetStatCycles1 extends Operation {
       Integer limit,
       String name,
       Integer offset,
+      String sortBy,
       String status) {
     this.namespace = namespace;
     this.cycleType = cycleType;
     this.limit = limit;
     this.name = name;
     this.offset = offset;
+    this.sortBy = sortBy;
     this.status = status;
 
     securities.add("Bearer");
@@ -85,6 +86,7 @@ public class GetStatCycles1 extends Operation {
     queryParams.put("name", this.name == null ? null : Arrays.asList(this.name));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
     queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));
     return queryParams;
   }
@@ -114,6 +116,7 @@ public class GetStatCycles1 extends Operation {
     result.put("limit", "None");
     result.put("name", "None");
     result.put("offset", "None");
+    result.put("sortBy", "None");
     result.put("status", "None");
     return result;
   }

@@ -21,10 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateEpicGamesIAPConfig
  *
- * <p>Update epic games iap config. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE) *
- * Returns : updated epic games iap config
+ * <p>Update epic games iap config. Other detail info: * Required permission :
+ * resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE) * Returns : updated epic
+ * games iap config
  */
 @Getter
 @Setter

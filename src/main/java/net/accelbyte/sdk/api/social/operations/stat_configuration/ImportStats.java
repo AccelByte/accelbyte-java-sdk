@@ -24,9 +24,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Import stat configurations for a given namespace from file. At current, only JSON file is
  * supported.
  *
- * <p>Other detail info:
- *
- * <p>* *Required permission*: resource="ADMIN:NAMESPACE:{namespace}:STAT", action=1 (CREATE)
+ * <p>Other detail info: * *Required permission*: resource="ADMIN:NAMESPACE:{namespace}:STAT",
+ * action=1 (CREATE)
  */
 @Getter
 @Setter

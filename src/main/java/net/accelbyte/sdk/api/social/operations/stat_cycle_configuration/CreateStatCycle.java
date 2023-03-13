@@ -21,10 +21,16 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createStatCycle
  *
- * <p>Create stat cycle. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STAT", action=1 (CREATE) *
- * Returns : created stat cycle
+ * <p>Create stat cycle. Fields: * name: Cycle name, maximum length is 128 characters. (required). *
+ * resetTime: Reset time must follow hours:minutes in 24 hours format e.g. 01:30, 23:15. (required)
+ * * resetDay: Reset Day follows the ISO-8601 standard, from 1 (Monday) to 7 (Sunday). Required when
+ * cycleType is WEEKLY. * resetDate: Reset Date must be a number 1 - 31. Required when cycleType is
+ * MONTHLY or ANNUALLY. * resetMonth: Reset Month must be a number 1 - 12. Required when cycleType
+ * is ANNUALLY. * seasonPeriod: Season period must be a number greater than or equal to 1 (days).
+ * Required when cycleType is SEASONAL. * start: Start time must follow RFC3339 standard. e.g.
+ * 2023-02-24T05:10:24.865Z. (required) * end: End time must follow RFC3339 standard. e.g.
+ * 2023-02-24T05:10:24.865Z. Other detail info: * Required permission :
+ * resource="ADMIN:NAMESPACE:{namespace}:STAT", action=1 (CREATE) * Returns : created stat cycle
  */
 @Getter
 @Setter

@@ -77,6 +77,7 @@ public class ModelUserResponseV3 extends Model {
   private String newEmailAddress;
 
   @JsonProperty("oldEmailAddress")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String oldEmailAddress;
 
   @JsonProperty("permissions")

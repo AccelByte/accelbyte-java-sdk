@@ -46,6 +46,10 @@ public class EntitlementSummary extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String itemId;
 
+  @JsonProperty("name")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String name;
+
   @JsonProperty("namespace")
   private String namespace;
 

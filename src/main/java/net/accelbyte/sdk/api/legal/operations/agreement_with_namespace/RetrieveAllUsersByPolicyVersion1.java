@@ -23,9 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * retrieveAllUsersByPolicyVersion_1
  *
- * <p>This API will return all users who has accepted a specific policy version.Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+ * <p>This API will return all users who has accepted a specific policy version.Other detail info: *
+ * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
  */
 @Getter
 @Setter

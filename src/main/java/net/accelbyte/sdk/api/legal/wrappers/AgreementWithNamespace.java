@@ -23,6 +23,16 @@ public class AgreementWithNamespace {
   }
 
   /**
+   * @see RetrieveAcceptedAgreementsForMultiUsers
+   */
+  public List<UserAgreementsResponse> retrieveAcceptedAgreementsForMultiUsers(
+      RetrieveAcceptedAgreementsForMultiUsers input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see RetrieveAcceptedAgreements1
    */
   public List<RetrieveAcceptedAgreementResponse> retrieveAcceptedAgreements1(

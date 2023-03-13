@@ -21,10 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * incUserStatItemValue
  *
- * <p>Update user's statitem value. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM",
- * action=4 (UPDATE) * Returns : updated user's statItem
+ * <p>Update user's statitem value. Other detail info: * Required permission :
+ * resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE) * Returns :
+ * updated user's statItem
  */
 @Getter
 @Setter

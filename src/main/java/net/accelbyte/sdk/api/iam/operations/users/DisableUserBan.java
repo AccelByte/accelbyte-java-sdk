@@ -35,9 +35,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>"+ " * The admin user in publisher namespace disables userâs ban in publisher namespace. "+
  * " * The admin user in game namespace disables userâs ban in game namespace. "+ " * The admin
- * user in publisher namespace disables userâs ban in publisher namespace.
- *
- * <p>"+ "
+ * user in publisher namespace disables userâs ban in publisher namespace. "+ "
  *
  * <p>Other scenarios are not supported and will return 403: Forbidden.
  *

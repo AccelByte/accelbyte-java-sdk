@@ -23,10 +23,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetUserNamespaceSlots
  *
- * <p>GetÂ list of slots for a given user in namespace. Other detail info:
- *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2
- * (READ) * Returns : list of slots
+ * <p>GetÂ list of slots for a given user in namespace. Other detail info: * Required permission :
+ * resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ) * Returns : list of
+ * slots
  */
 @Getter
 @Setter

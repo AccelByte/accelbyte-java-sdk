@@ -58,9 +58,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * previously defined on authorize request parameter `redirect_uri`
  *
  * <p>* discord Discord login page will redirects to this endpoint after login success as previously
- * defined on authorize request parameter `redirect_uri`
- *
- * <p>action code : 10709
+ * defined on authorize request parameter `redirect_uri` action code : 10709
  */
 @Getter
 @Setter

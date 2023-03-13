@@ -405,6 +405,7 @@
 | `/iam/v4/public/namespaces/{namespace}/users/me/mfa/email/enable` | POST | PublicEnableMyEmailV4 | [PublicEnableMyEmailV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/PublicEnableMyEmailV4.java) | [PublicEnableMyEmailV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users_v4/PublicEnableMyEmailV4.java) |
 | `/iam/v4/public/namespaces/{namespace}/users/me/mfa/factor` | GET | PublicGetMyEnabledFactorsV4 | [PublicGetMyEnabledFactorsV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/PublicGetMyEnabledFactorsV4.java) | [PublicGetMyEnabledFactorsV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users_v4/PublicGetMyEnabledFactorsV4.java) |
 | `/iam/v4/public/namespaces/{namespace}/users/me/mfa/factor` | POST | PublicMakeFactorMyDefaultV4 | [PublicMakeFactorMyDefaultV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/PublicMakeFactorMyDefaultV4.java) | [PublicMakeFactorMyDefaultV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users_v4/PublicMakeFactorMyDefaultV4.java) |
+| `/iam/v4/public/users/invite` | POST | PublicInviteUserV4 | [PublicInviteUserV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/PublicInviteUserV4.java) | [PublicInviteUserV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users_v4/PublicInviteUserV4.java) |
 
 
 &nbsp;  
@@ -565,6 +566,7 @@
 | `model.PlatformDomainUpdateRequest` | [ModelPlatformDomainUpdateRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelPlatformDomainUpdateRequest.java) |
 | `model.PlatformUserIDRequest` | [ModelPlatformUserIDRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelPlatformUserIDRequest.java) |
 | `model.PlatformUserInformation` | [ModelPlatformUserInformation](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelPlatformUserInformation.java) |
+| `model.PublicInviteUserRequestV4` | [ModelPublicInviteUserRequestV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelPublicInviteUserRequestV4.java) |
 | `model.PublicThirdPartyPlatformInfo` | [ModelPublicThirdPartyPlatformInfo](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelPublicThirdPartyPlatformInfo.java) |
 | `model.PublicUserInformationResponseV3` | [ModelPublicUserInformationResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelPublicUserInformationResponseV3.java) |
 | `model.PublicUserInformationV3` | [ModelPublicUserInformationV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelPublicUserInformationV3.java) |

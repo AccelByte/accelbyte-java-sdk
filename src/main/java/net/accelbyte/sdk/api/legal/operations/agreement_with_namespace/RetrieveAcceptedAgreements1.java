@@ -23,9 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * retrieveAcceptedAgreements_1
  *
- * <p>This API will return all accepted Legal Agreements for specified user. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+ * <p>This API will return all accepted Legal Agreements for specified user. Other detail info: *
+ * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
  */
 @Getter
 @Setter

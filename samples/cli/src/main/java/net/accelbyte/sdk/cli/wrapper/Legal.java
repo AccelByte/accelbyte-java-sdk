@@ -44,6 +44,7 @@ import picocli.CommandLine.Command;
       UpdateLocalizedPolicyVersion.class,
       RequestPresignedURL.class,
       SetDefaultPolicy.class,
+      RetrieveAcceptedAgreementsForMultiUsers.class,
       RetrieveAcceptedAgreements1.class,
       RetrieveAllUsersByPolicyVersion1.class,
       RetrieveAllLegalPoliciesByNamespace.class,

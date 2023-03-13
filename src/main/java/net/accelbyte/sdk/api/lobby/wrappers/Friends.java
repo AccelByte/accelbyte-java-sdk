@@ -43,10 +43,30 @@ public class Friends {
   }
 
   /**
+   * @see GetUserIncomingFriendsWithTime
+   */
+  public List<ModelLoadIncomingFriendsWithTimeResponse> getUserIncomingFriendsWithTime(
+      GetUserIncomingFriendsWithTime input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetUserOutgoingFriends
    */
   public List<ModelGetUserOutgoingFriendsResponse> getUserOutgoingFriends(
       GetUserOutgoingFriends input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GetUserOutgoingFriendsWithTime
+   */
+  public List<ModelLoadOutgoingFriendsWithTimeResponse> getUserOutgoingFriendsWithTime(
+      GetUserOutgoingFriendsWithTime input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

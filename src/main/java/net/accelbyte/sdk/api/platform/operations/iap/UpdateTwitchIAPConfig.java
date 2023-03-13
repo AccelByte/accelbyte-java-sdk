@@ -21,10 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateTwitchIAPConfig
  *
- * <p>Update twitch iap config. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE) *
- * Returns : updated twitch iap config
+ * <p>Update twitch iap config. Other detail info: * Required permission :
+ * resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE) * Returns : updated twitch
+ * iap config
  */
 @Getter
 @Setter

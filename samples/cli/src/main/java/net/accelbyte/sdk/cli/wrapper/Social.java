@@ -15,6 +15,7 @@ import net.accelbyte.sdk.cli.api.social.slot_config.*;
 import net.accelbyte.sdk.cli.api.social.stat_configuration.*;
 import net.accelbyte.sdk.cli.api.social.stat_cycle_configuration.*;
 import net.accelbyte.sdk.cli.api.social.user_statistic.*;
+import net.accelbyte.sdk.cli.api.social.user_statistic_cycle.*;
 import picocli.CommandLine.Command;
 
 @Command(
@@ -67,6 +68,7 @@ import picocli.CommandLine.Command;
       DeleteStat.class,
       UpdateStat.class,
       DeleteTiedStat.class,
+      GetUserStatCycleItems.class,
       GetUserStatItems.class,
       BulkCreateUserStatItems.class,
       BulkIncUserStatItem1.class,
@@ -85,6 +87,7 @@ import picocli.CommandLine.Command;
       PublicBulkIncUserStatItemValue.class,
       BulkResetUserStatItem2.class,
       CreateStat1.class,
+      GetUserStatCycleItems1.class,
       PublicQueryUserStatItems.class,
       PublicBulkCreateUserStatItems.class,
       PublicQueryUserStatItems1.class,

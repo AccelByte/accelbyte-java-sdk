@@ -33,6 +33,7 @@ public class ModelBackupCodesResponseV4 extends Model {
   private List<String> invalidCodes;
 
   @JsonProperty("validCodes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> validCodes;
 
   @JsonIgnore

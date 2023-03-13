@@ -8,6 +8,8 @@
 
 package net.accelbyte.sdk.api.platform.operations.iap;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
@@ -21,18 +23,17 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * syncTwitchDropsEntitlement
  *
- * <p>Sync twitch drops entitlements.
+ * <p>Sync my game twitch drops entitlements.
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
- * * Returns :
+ * <p>* Required permission : resource=NAMESPACE:{namespace}:IAP, action=4 (UPDATE) * Returns :
  */
 @Getter
 @Setter
 public class SyncTwitchDropsEntitlement extends Operation {
   /** generated field's value */
-  private String path = "/platform/public/namespaces/{namespace}/users/{userId}/iap/twitch/sync";
+  private String path = "/platform/public/namespaces/{namespace}/users/me/iap/twitch/sync";
 
   private String method = "PUT";
   private List<String> consumes = Arrays.asList("application/json");
@@ -41,19 +42,16 @@ public class SyncTwitchDropsEntitlement extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private String userId;
   private TwitchSyncRequest body;
 
   /**
    * @param namespace required
-   * @param userId required
    */
   @Builder
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public SyncTwitchDropsEntitlement(String namespace, String userId, TwitchSyncRequest body) {
+  public SyncTwitchDropsEntitlement(String namespace, TwitchSyncRequest body) {
     this.namespace = namespace;
-    this.userId = userId;
     this.body = body;
 
     securities.add("Bearer");
@@ -64,9 +62,6 @@ public class SyncTwitchDropsEntitlement extends Operation {
     Map<String, String> pathParams = new HashMap<>();
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
-    }
-    if (this.userId != null) {
-      pathParams.put("userId", this.userId);
     }
     return pathParams;
   }
@@ -81,17 +76,16 @@ public class SyncTwitchDropsEntitlement extends Operation {
     if (this.namespace == null) {
       return false;
     }
-    if (this.userId == null) {
-      return false;
-    }
     return true;
   }
 
-  public void handleEmptyResponse(int code, String contentType, InputStream payload)
+  public List<TwitchSyncResult> parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    if (code != 204) {
+    if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
+    final String json = Helper.convertInputStreamToString(payload);
+    return new ObjectMapper().readValue(json, new TypeReference<List<TwitchSyncResult>>() {});
   }
 }
