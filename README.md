@@ -113,7 +113,7 @@ AccelByteSDK sdk = new AccelByteSDK(config);
 
 #### Local Token Validation
 
-To enable local token validation, use the following when instantiating the SDK. When enabled, the SDK instance will cache JWKS and revocation list for performing token validation so that it does not have to call AccelByte cloud endpoint each time. See [Validate Token](#validate-token) section on how to validate token using SDK.
+To enable local token validation, use the following when instantiating the SDK. When enabled, the SDK instance will cache JWKS and revocation list for performing token validation so that it does not have to call AccelByte Gaming Services endpoint each time. See [Validate Token](#validate-token) section on how to validate token using SDK.
 
 ```java
 final DefaultConfigRepository defaultConfigRepository = new DefaultConfigRepository();    // Using DefaultConfigRepository, make sure the required environment variables are set
@@ -158,7 +158,7 @@ if (!login) {
 To validate if an access token is valid and has the required permission, use the `ValidateToken` method of `AccelByteSDK` instance. To validate an access token without validating the required permission, omit the optional `permission` and `action` parameters of `ValidateToken` method. By default, remote token validation is performed. However, if higher throughput is required, you may enable local token validation as mentioned in [Local Token Validation](#local-token-validation) section. With local token validation, token validation will be quicker at the expense of delayed revocation list update (a revoked token may still be regarded as valid until local cache of the revocation list is updated).
 
 ```java
-boolean isOk = sdk.validateToken("token", "ADMIN:NAMESPACE:serversdk:INFORMATION:USER:abdedef", 2);  // Validate token
+boolean isOk = sdk.validateToken("token", "ADMIN:NAMESPACE:serversdktest:INFORMATION:USER:abdedef", 2);  // Validate token
 
 if (isOk) {
     // Token is valid and has the required permission

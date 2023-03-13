@@ -1,6 +1,6 @@
 # Title Matchmaking Sample App
 
-A sample app to showcase simple matchmaking using AB Cloud, Java Server SDK, and AWS Lambda.
+A sample app to showcase simple matchmaking using AB Gaming Services, Java Extend SDK, and AWS Lambda.
 
 ## Prerequsites
 
@@ -10,7 +10,7 @@ A sample app to showcase simple matchmaking using AB Cloud, Java Server SDK, and
 
 * A Redis host
 
-* AccelByte Cloud Demo Enviroment
+* AccelByte Gaming Services Demo Enviroment
 
     * `Base URL` 
       
@@ -26,7 +26,7 @@ A sample app to showcase simple matchmaking using AB Cloud, Java Server SDK, and
 
         
 
-    * Two users registered in AB Cloud as player #1 and player #2.
+    * Two users registered in AB Gaming Services as player #1 and player #2.
 
     
 

@@ -1,12 +1,12 @@
-# AccelByte Cloud and 3rd Party OpenID Connect Login Integration Using AccelByte Java Server SDK
+# AccelByte Gaming Services and 3rd Party OpenID Connect Login Integration Using AccelByte Java Extend SDK
 
 ## Overview
 
-AccelByte Cloud provides [integration with OpenID Connect providers](https://docs.accelbyte.io/guides/access/3rd-party-platform-integration.html#openid-connect) as one of the 3rd party login integration options. Any OpenID Connect providers should work. The following sample app will show you how to do this with AccelByte Java Server SDK and [PhantAuth](https://www.phantauth.net/), an OpenID Connect provider to simplify testing.
+AccelByte Gaming Services provides [integration with OpenID Connect providers](https://docs.accelbyte.io/guides/access/3rd-party-platform-integration.html#openid-connect) as one of the 3rd party login integration options. Any OpenID Connect providers should work. The following sample app will show you how to do this with AccelByte Java Extend SDK and [PhantAuth](https://www.phantauth.net/), an OpenID Connect provider to simplify testing.
 
 ## Sample App
 
-1. Clone [AccelByte Java Server SDK](https://github.com/AccelByte/accelbyte-java-sdk) 
+1. Clone [AccelByte Java Extend SDK](https://github.com/AccelByte/accelbyte-java-sdk) 
 2. Go to [samples/oidc](https://github.com/AccelByte/accelbyte-java-sdk/tree/main/samples/oidc) folder
 3. Follow the [README.md](https://github.com/AccelByte/accelbyte-java-sdk/blob/main/samples/oidc#readme) to setup and use the sample application
 
@@ -20,7 +20,7 @@ AccelByte Cloud provides [integration with OpenID Connect providers](https://doc
 3. In `/callback` endpoint: 
     - Get auth token from `PhantAuth` with `code` from the query string
     - Perform login platform using `Platform ID` and `ID Token` from `PhantAuth` auth token
-    - After login platform is successful, we can try to call some AccelByte Cloud endpoints
+    - After login platform is successful, we can try to call some AccelByte Gaming Services endpoints
 
 ```mermaid
 sequenceDiagram
@@ -28,7 +28,7 @@ sequenceDiagram
     participant B as Web Browser
     participant S as Sample App
     participant P as PhantAuth (OIDC Provider)
-    participant I as AB Cloud IAM Service
+    participant I as AB Gaming Services IAM Service
 
     U ->>+ B: Open Index Page
     B ->>+ S: Get index.html (/)
@@ -56,7 +56,7 @@ sequenceDiagram
     S ->>+ P: Get Auth Token with Code from Query String
     P -->>- S: Auth Token
     S ->>+ I: Login Platform with ID Token from Auth Token
-    I -->>- S: AB Cloud Auth Token
+    I -->>- S: AB Gaming Services Auth Token
     S -->>- B: Callback (/callback) Response
     B -->>- U: 
 ```
@@ -125,7 +125,7 @@ get("/config", (req, res) -> {
 
 #### Endpoint `/callback`
 
-Get auth token from `PhantAuth` with `code` from the query string and perform login platform using Platform ID and ID Token from PhantAuth auth token. After login platform is successful, we can try to call some AccelByte Cloud endpoints.
+Get auth token from `PhantAuth` with `code` from the query string and perform login platform using Platform ID and ID Token from PhantAuth auth token. After login platform is successful, we can try to call some AccelByte Gaming Services endpoints.
 
 ```java
 // Handler for callback from PhantAuth

@@ -1,32 +1,32 @@
-# Tic Tac Toe Game using AccelByte Java Server SDK
+# Tic Tac Toe Game using AccelByte Java Extend SDK
 
 ## Overview
 
-We can create a simple tic tac toe game with AccelByte Cloud and AWS Lambda developed using AccelByte Java Server SDK. 
+We can create a simple tic tac toe game with AccelByte Gaming Services and AWS Lambda developed using AccelByte Java Extend SDK. 
 
 The sample app consists of two parts: the lambda itself and the client app that is used by players.
 
 ## Sample App
 
-1. Clone [AccelByte Java Server SDK](https://github.com/AccelByte/accelbyte-java-sdk) 
+1. Clone [AccelByte Java Extend SDK](https://github.com/AccelByte/accelbyte-java-sdk) 
 2. Go to [samples/tic-tac-toe](https://github.com/AccelByte/accelbyte-java-sdk/tree/main/samples/tic-tac-toe) folder
 3. Follow the [README.md](https://github.com/AccelByte/accelbyte-java-sdk/blob/main/samples/tic-tac-toe#readme) to setup and use the sample application
 
 ## How It Works
 
-1. Player #1 client app logs in to AB Cloud and get an access token.
-2. Player #1 client app connects to AB Cloud Lobby Service websocket and wait for messages from tic tac toe lambda.
+1. Player #1 client app logs in to AB Gaming Services and get an access token.
+2. Player #1 client app connects to AB Gaming Services Lobby Service websocket and wait for messages from tic tac toe lambda.
 2. Player #1 client app post access token to tic tac toe lambda `/start` endpoint.
 3. Receiving client app post data, tic tac toe lambda `/start` endpoint handler performs the following:
-    - Contact AB Cloud to verify player #1 access token and get the user id.
+    - Contact AB Gaming Services to verify player #1 access token and get the user id.
     - Check Redis to see if there is a player waiting. If no, then store player #1 user id as player #1.
     - If there is an existing game recorded in Redis, offer to clear it first. This sample app only support a single tic tac toe game at one time.
 4. Player #1 client app waits for player #2.
-5. Player #2 client app logs in to AB Cloud and get an access token.
-6. Player #2 client app connects to AB Cloud Lobby Service websocket and wait for messages from tic tac toe lambda.
+5. Player #2 client app logs in to AB Gaming Services and get an access token.
+6. Player #2 client app connects to AB Gaming Services Lobby Service websocket and wait for messages from tic tac toe lambda.
 7. Player #2 client app post access token to tic tac toe lambda `/start` endpoint.
 8. Receiving client app post data, tic tac toe lambda `/start` endpoint handler performs the following:
-    - Contact AB Cloud to verify player #2 access token and get the user id.
+    - Contact AB Gaming Services to verify player #2 access token and get the user id.
     - Check Redis to see if there is player #1 waiting. If yes, then store player #2 user id as player #2.
 9. Tic tac toe game starts. Player #1 moves first.
 10. Player #1 and player #2 take turns to make a move until the game ends.
@@ -39,8 +39,8 @@ sequenceDiagram
     participant C2 as Client App 2
     participant TT as Tic Tac Toe Lambda
     participant R as Redis
-    participant IAM as IAM Service (AB Cloud)
-    participant LOB as Lobby Service (AB Cloud)
+    participant IAM as IAM Service (AB Gaming Services)
+    participant LOB as Lobby Service (AB Gaming Services)
 
     P1 ->>+ C1: Use
     C1 ->>+ IAM: Login Player 1
@@ -121,7 +121,7 @@ sequenceDiagram
 
 ### Client App
 
-#### Login User to IAM Service (AB Cloud)
+#### Login User to IAM Service (AB Gaming Services)
 
 The access token is needed to call Tic Tac Toe lambda.
 
@@ -139,7 +139,7 @@ if (!isLoginOk) {
 }
 ```
 
-#### Connect to Lobby Service (AB Cloud) Websocket and listen for messages
+#### Connect to Lobby Service (AB Gaming Services) Websocket and listen for messages
 
 Only take action on game start or board update messages from Tic Tac Toe lambda.
 
@@ -180,7 +180,7 @@ try (Response lambdaResponse = lambdaClient.newCall(startRequest).execute()) {
 
 #### Get Game State
 
-Get game state when receiving game start or board update messages from AB Cloud Lobby Service sent by Tic Tac Toe lambda.
+Get game state when receiving game start or board update messages from AB Gaming Services Lobby Service sent by Tic Tac Toe lambda.
 
 ```java
 final Request stateRequest =

@@ -1,10 +1,10 @@
-# Getting Started Guide for AccelByte Java Server SDK
+# Getting Started Guide for AccelByte Java Extend SDK
 
-This guide will show you how to create a project which uses Java Server SDK from scratch.
+This guide will show you how to create a project which uses Java Extend SDK from scratch.
 
 ## Prerequisites
 
-* AccelByte Cloud (demo environment):
+* AccelByte Gaming Services (demo environment):
     * Use https://demo.accelbyte.io for `AB_BASE_URL` environment variable.
     * [Create an Oauth Client](https://docs.accelbyte.io/guides/access/iam-client.html#create-a-client) with client type `Confidential`.
         * Use `Client ID` value for `AB_CLIENT_ID` environment variable.
@@ -53,7 +53,7 @@ Add the required configuration in `build.gradle`.
 
 Replace `{VERSION}` with a specific release version tag from [releases](https://github.com/AccelByte/accelbyte-java-sdk/releases) without the leading `v` character.
 
-It is recommended to use the matching Java Server SDK version for the given AccelByte Cloud version.
+It is recommended to use the matching Java Extend SDK version for the given AccelByte Gaming Services version.
 
 ```groovy
 // build.gradle
@@ -71,7 +71,7 @@ dependencies {
 
 ### 3. Use in Code
 
-Create an SDK instance, login using client credentials, and call an AccelByte Cloud API in `App.java`. 
+Create an SDK instance, login using client credentials, and call an AccelByte Gaming Services API in `App.java`. 
 
 The `DefaultConfigRepository` gets its values from `AB_BASE_URL`, `AB_CLIENT_ID`, and `AB_CLIENT_SECRET` environment variables.
 
@@ -111,7 +111,7 @@ public class App {
             System.exit(1); // Login failed
         }
 
-        // Call an AccelByte Cloud endpoint e.g. GetCountryLocationV3
+        // Call an AccelByte Gaming Services endpoint e.g. GetCountryLocationV3
 
         OAuth20Extension wrapper = new OAuth20Extension(sdk);
         GetCountryLocationV3 operation = GetCountryLocationV3.builder()
@@ -128,17 +128,17 @@ public class App {
 Set the required environment variables and run the code using `gradle run`.
 
 ```bash
-$ export AB_BASE_URL="https://demo.accelbyte.io"              # AccelByte Cloud Base URL e.g. demo environment
-$ export AB_CLIENT_ID="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"      # AccelByte Cloud OAuth Client ID
-$ export AB_CLIENT_SECRET="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  # AccelByte Cloud OAuth Client Secret
+$ export AB_BASE_URL="https://demo.accelbyte.io"              # AccelByte Gaming Services Base URL e.g. demo environment
+$ export AB_CLIENT_ID="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"      # AccelByte Gaming Services OAuth Client ID
+$ export AB_CLIENT_SECRET="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  # AccelByte Gaming Services OAuth Client Secret
 $ gradle run
 ```
 
 ## Follow Up Resources
 
-* Java Server SDK [README.md](https://github.com/AccelByte/accelbyte-java-sdk/blob/main/README.md)
-* Reference documentation on AccelByte Cloud endpoints, their corresponding Java Server SDK API, and short examples on how to use them is available in [docs](https://github.com/AccelByte/accelbyte-java-sdk/blob/main/docs)
-* Sample apps which show some practical usage of Java Server SDK are available in [samples](https://github.com/AccelByte/accelbyte-java-sdk/blob/main/samples)
+* Java Extend SDK [README.md](https://github.com/AccelByte/accelbyte-java-sdk/blob/main/README.md)
+* Reference documentation on AccelByte Gaming Services endpoints, their corresponding Java Extend SDK API, and short examples on how to use them is available in [docs](https://github.com/AccelByte/accelbyte-java-sdk/blob/main/docs)
+* Sample apps which show some practical usage of Java Extend SDK are available in [samples](https://github.com/AccelByte/accelbyte-java-sdk/blob/main/samples)
 
 ## FAQ
 
@@ -146,6 +146,6 @@ $ gradle run
 
 Yes. You just need to implement the interface accordingly.
 
-### 2. How can I use more advanced features of Java Server SDK e.g. HTTP retry and automatic token refresh? 
+### 2. How can I use more advanced features of Java Extend SDK e.g. HTTP retry and automatic token refresh? 
 
 See [README.md](https://github.com/AccelByte/accelbyte-java-sdk/blob/main/README.md)

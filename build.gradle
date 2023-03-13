@@ -74,7 +74,7 @@ publishing {
 
             pom {
                 name = 'accelbyte-java-sdk'
-                description = 'AccelByte Cloud Java Server SDK generated from OpenAPI specs'
+                description = 'AccelByte Gaming Services Java Extend SDK generated from OpenAPI specs'
                 url = 'https://github.com/AccelByte/accelbyte-java-sdk'
                 inceptionYear = '2021'
 

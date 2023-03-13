@@ -3,7 +3,7 @@
 
 ### BREAKING CHANGE
 
-Following changes in AB Cloud OpenAPI spec:
+Following changes in AB Gaming Services OpenAPI spec:
 
 - Model `TrackedEntitlementInfo` is replaced with `EntitlementDecrementResult`
 

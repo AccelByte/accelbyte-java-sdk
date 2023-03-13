@@ -21,7 +21,7 @@ import spark.Spark;
 
 public class App {
   public static String PH_AB_PLATFORM_ID =
-      "phantauth"; // Must match with the registered PhantAuth OIDC provider in AB Cloud
+      "phantauth"; // Must match with the registered PhantAuth OIDC provider in AB Gaming Services
 
   public static String PH_DISCOVERY_URL = "https://phantauth.net/.well-known/openid-configuration";
   public static String PH_CLIENT_ID = "test.client";

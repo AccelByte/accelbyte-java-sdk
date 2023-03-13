@@ -1,6 +1,6 @@
 # OIDC Login Sample App
 
-A sample app to showcase OIDC login using AccelByte Java Server SDK and PhantAuth. 
+A sample app to showcase OIDC login using AccelByte Java Extend SDK and PhantAuth. 
 
 ## Prerequsites
 
@@ -8,7 +8,7 @@ A sample app to showcase OIDC login using AccelByte Java Server SDK and PhantAut
 
 * Gradle
 
-* AccelByte Cloud Demo Enviromenta
+* AccelByte Gaming Services Demo Enviroment
 
     * `Base URL` 
       

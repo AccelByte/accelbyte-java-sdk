@@ -28,7 +28,7 @@ public class App {
       System.exit(1); // Login failed
     }
 
-    // Call an AccelByte Cloud endpoint e.g. GetCountryLocationV3
+    // Call an AccelByte Gaming Services endpoint e.g. GetCountryLocationV3
 
     OAuth20Extension wrapper = new OAuth20Extension(sdk);
     GetCountryLocationV3 operation = GetCountryLocationV3.builder().build();

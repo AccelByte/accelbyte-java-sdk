@@ -71,7 +71,7 @@ pipeline {
         sh script: """
           cd ${sdkGenPath};
           make -f Makefile.sdk-java sdk_all beautify SDK_PATH=${sdkPath};
-        """, label: "Generate Server SDK"
+        """, label: "Generate Extend SDK"
 
         catchError(buildResult: 'SUCCESS') {
           sh script: """
@@ -92,7 +92,7 @@ pipeline {
           sh "make version"
 
           sh "git add --all"
-          sh "git commit -m 'chore(sdk): generate java server sdk (${timeStamp()})' -m '- generated from source sdk spec commit: ${sdkSpecCommitHash}'"
+          sh "git commit -m 'chore(sdk): generate java extend sdk (${timeStamp()})' -m '- generated from source sdk spec commit: ${sdkSpecCommitHash}'"
           sshagent(credentials: [bitbucketCredentialsSsh]) {
             sh "git push --set-upstream origin +${sdkNewBranchName}:${sdkNewBranchName}"
           }
@@ -171,7 +171,7 @@ pipeline {
         specLink = "https://bitbucket.org/accelbyte/justice-codegen-sdk-spec/commits/${sdkSpecCommitHash}"
         sdkLink = "https://bitbucket.org/accelbyte/${sdkRepoName}/commits/${sdkCommitHash}"
         message = """
-                  :white_check_mark: <${env.BUILD_URL}|${env.JOB_NAME}-${env.BUILD_NUMBER}> *Generate Java Server SDK Successful :coffee:*
+                  :white_check_mark: <${env.BUILD_URL}|${env.JOB_NAME}-${env.BUILD_NUMBER}> *Generate Java Extend SDK Successful :coffee:*
                 
                   |*Source SDK Spec:* <${specLink}|${sdkSpecCommitHash}>
                   |*Generated SDK:* <${sdkLink}|${sdkCommitHash}>

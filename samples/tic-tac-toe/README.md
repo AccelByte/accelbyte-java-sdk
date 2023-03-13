@@ -1,6 +1,6 @@
 # Tic Tac Toe Sample App
 
-A sample app to showcase a simple tic tac toe game using AB Cloud, Java Server SDK, and AWS Lambda.
+A sample app to showcase a simple tic tac toe game using AB Gaming Services, Java Extend SDK, and AWS Lambda.
 
 ## Prerequsites
 
@@ -10,7 +10,7 @@ A sample app to showcase a simple tic tac toe game using AB Cloud, Java Server S
 
 * A Redis host
 
-* AccelByte Cloud Demo Enviroment
+* AccelByte Gaming Services Demo Enviroment
 
     * `Base URL` 
       
@@ -19,7 +19,7 @@ A sample app to showcase a simple tic tac toe game using AB Cloud, Java Server S
     * [Create a Game Namespace](https://docs.accelbyte.io/esg/uam/namespaces.html#tutorials) if you don't have one yet. Keep the `Namespace ID`
         
 
-    * Two users registered in AB Cloud as player #1 and player #2.
+    * Two users registered in AB Gaming Services as player #1 and player #2.
 
     
 

@@ -1,14 +1,14 @@
-# Title Matchmaking Using AccelByte Java Server SDK
+# Title Matchmaking Using AccelByte Java Extend SDK
 
 ## Overview
 
-We can perform a simple matchmaking with AccelByte Cloud services and AWS Lambda developed using AccelByte Java Server SDK. 
+We can perform a simple matchmaking with AccelByte Gaming Services services and AWS Lambda developed using AccelByte Java Extend SDK. 
 
 The sample app consists of two parts: the lambda itself and the client app that is used by players.
 
 ## Sample App
 
-1. Clone [AccelByte Java Server SDK](https://github.com/AccelByte/accelbyte-java-sdk) 
+1. Clone [AccelByte Java Extend SDK](https://github.com/AccelByte/accelbyte-java-sdk) 
 2. Go to [samples/title-matchmaking](https://github.com/AccelByte/accelbyte-java-sdk/tree/main/samples/title-matchmaking) folder
 3. Follow the [README.md](https://github.com/AccelByte/accelbyte-java-sdk/blob/main/samples/title-matchmaking#readme) to setup and use the sample application
 
@@ -16,22 +16,22 @@ The sample app consists of two parts: the lambda itself and the client app that 
 
 ### Player 1
 
-1. Client app logs in player #1 to AB Cloud and get an access token
-2. Client app connect to AB Cloud Lobby Service websocket and waiting for messages from title matchmaking lambda
+1. Client app logs in player #1 to AB Gaming Services and get an access token
+2. Client app connect to AB Gaming Services Lobby Service websocket and waiting for messages from title matchmaking lambda
 2. Client app post player #1 access token to title matchmaking lambda
 3. Receiving client app post data, title matchmaking lambda performs the following:
-    - Contact AB Cloud to verify player #1 access token and get the user id
+    - Contact AB Gaming Services to verify player #1 access token and get the user id
     - Check Redis to see if there is a player waiting for matchmaking. If no, then store player #1 user id as the user who waits for matchmaking
 
 ### Player 2
 
-1. Client app logs in player #2 to AB Cloud and get an access token
-2. Client app connect to AB Cloud Lobby Service websocket and waiting for messages from title matchmaking lambda
+1. Client app logs in player #2 to AB Gaming Services and get an access token
+2. Client app connect to AB Gaming Services Lobby Service websocket and waiting for messages from title matchmaking lambda
 2. Client app post player #2 access token to title matchmaking lambda
 3. Receiving client app post data, title matchmaking lambda performs the following:
-    - Contact AB Cloud to verify player #2 access token and get the user id
+    - Contact AB Gaming Services to verify player #2 access token and get the user id
     - Check Redis to see if there is a player waiting for matchmaking. If yes, then take that user id as Player 1 for matchmaking
-    - Contact AB Cloud to perform the following.
+    - Contact AB Gaming Services to perform the following.
         - Create session
         - Register session to DSMC
         - Claim server
@@ -48,10 +48,10 @@ sequenceDiagram
     participant C2 as Client App 2
     participant TM as Title Matchmaking Lambda
     participant R as Redis
-    participant IAM as IAM Service (AB Cloud)
-    participant LOB as Lobby Service (AB Cloud)
-    participant SB as Session Browser Service (AB Cloud)
-    participant DSMC as DSMC Service (AB Cloud)
+    participant IAM as IAM Service (AB Gaming Services)
+    participant LOB as Lobby Service (AB Gaming Services)
+    participant SB as Session Browser Service (AB Gaming Services)
+    participant DSMC as DSMC Service (AB Gaming Services)
 
     P1 ->>+ C1: Use
     C1 ->>+ IAM: Login Player 1
@@ -104,7 +104,7 @@ sequenceDiagram
 
 ### Client App
 
-#### Login User to IAM Service (AB Cloud)
+#### Login User to IAM Service (AB Gaming Services)
 
 ```java
 System.out.print("Username: ");
@@ -120,7 +120,7 @@ if (!isLoginOk) {
 }
 ```
 
-#### Connect to Lobby Service (AB Cloud) Websocket
+#### Connect to Lobby Service (AB Gaming Services) Websocket
 
 ```java
 ws = OkhttpWebSocketClient.create(

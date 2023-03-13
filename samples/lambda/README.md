@@ -8,7 +8,7 @@ An AWS Lambda Sample App built using AccelByte Java SDK for adding statistic to 
     * Java Development Kit (JDK) 8
     * Gradle 7.5.1
     * AWS SAM CLI
-* AccelByte Cloud Demo Enviroment
+* AccelByte Gaming Services Demo Enviroment
     * Base URL: https://demo.accelbyte.io.
     * [Create a Game Namespace](https://docs.accelbyte.io/esg/uam/namespaces.html#tutorials) if you don't have one yet. Keep the `Namespace ID`.
     * [Create an OAuth Client](https://docs.accelbyte.io/guides/access/iam-client.html) with confidential client type with the following permission. Keep the `Client ID` and `Client Secret`.
