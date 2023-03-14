@@ -5,7 +5,7 @@
 
 Following changes in OpenAPI spec:
 
-- Platform
+1. Platform
 
-  In `net.accelbyte.sdk.api.platform.operations.iap` package the old `SyncTwitchDropsEntitlement` operation is renamed to `SyncTwitchDropsEntitlement1` and there is a new `SyncTwitchDropsEntitlement` operation which takes over but it has incompatible parameters e.g. it has no `userId` parameter.
+  - In package `net.accelbyte.sdk.api.platform.operations.iap` the `SyncTwitchDropsEntitlement` remove `userId` parameter.
   

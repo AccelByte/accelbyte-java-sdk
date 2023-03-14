@@ -1,3 +1,15 @@
+<a name="v0.32.0"></a>
+## [v0.32.0] - 2023-03-13
+### Chore
+- **sdk:** chore(sdk): generate java server sdk (230313.2157)
+
+### Docs
+- update changelog for ab gaming service 3.44
+- rename ab gaming services, extend sdk
+- **migration-guide**: v0.31.0 to v0.32.0 update matchmaking v2 (again)
+- **migration-guide**: v0.31.0 to v0.32.0 update matchmaking v2 
+- **migration-guide**: v0.31.0 to v0.32.0 
+
 <a name="v0.31.0"></a>
 ## [v0.31.0] - 2023-02-27
 ### Chore
@@ -917,6 +929,7 @@
 - replace unnecessary object
 
 
+[v0.32.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.31.0...v0.32.0
 [v0.31.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.30.0...v0.31.0
 [v0.30.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.29.0...v0.30.0
 [v0.29.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.28.0...v0.29.0
