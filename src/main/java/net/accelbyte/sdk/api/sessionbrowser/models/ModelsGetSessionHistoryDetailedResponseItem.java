@@ -49,6 +49,9 @@ public class ModelsGetSessionHistoryDetailedResponseItem extends Model {
   @JsonProperty("joinable")
   private Boolean joinable;
 
+  @JsonProperty("joining")
+  private List<ModelsSessionPlayerJoining> joining;
+
   @JsonProperty("match_id")
   private String matchId;
 
@@ -62,14 +65,26 @@ public class ModelsGetSessionHistoryDetailedResponseItem extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String partyId;
 
+  @JsonProperty("players")
+  private List<ModelsSessionPlayerHistory> players;
+
   @JsonProperty("region")
   private String region;
+
+  @JsonProperty("removed_reason")
+  private String removedReason;
 
   @JsonProperty("server_name")
   private String serverName;
 
+  @JsonProperty("session_type")
+  private String sessionType;
+
   @JsonProperty("status")
   private String status;
+
+  @JsonProperty("user_id")
+  private String userId;
 
   @JsonIgnore
   public ModelsGetSessionHistoryDetailedResponseItem createFromJson(String json)

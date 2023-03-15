@@ -129,7 +129,8 @@ public class CreditRequest extends Model {
     REDEEMCODE("REDEEM_CODE"),
     REFERRALBONUS("REFERRAL_BONUS"),
     REFUND("REFUND"),
-    REWARD("REWARD");
+    REWARD("REWARD"),
+    SELLBACK("SELL_BACK");
 
     private String value;
 

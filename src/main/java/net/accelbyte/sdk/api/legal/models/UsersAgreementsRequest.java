@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class UsersAgreementsRequest extends Model {
 
+  @JsonProperty("currentPublishedOnly")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean currentPublishedOnly;
+
   @JsonProperty("userIds")
   private List<String> userIds;
 

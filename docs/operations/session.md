@@ -10,6 +10,11 @@
 | `/healthz` | GET | GetHealthcheckInfo | [GetHealthcheckInfo](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/GetHealthcheckInfo.java) | [GetHealthcheckInfo](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/GetHealthcheckInfo.java) |
 | `/session/healthz` | GET | GetHealthcheckInfoV1 | [GetHealthcheckInfoV1](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/GetHealthcheckInfoV1.java) | [GetHealthcheckInfoV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/GetHealthcheckInfoV1.java) |
 
+### DSMC Default Configuration Wrapper:  [DSMCDefaultConfiguration](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/DSMCDefaultConfiguration.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/session/v1/admin/dsconfigs/default` | GET | AdminGetDSMCConfigurationDefault | [AdminGetDSMCConfigurationDefault](../../src/main/java/net/accelbyte/sdk/api/session/operations/dsmc_default_configuration/AdminGetDSMCConfigurationDefault.java) | [AdminGetDSMCConfigurationDefault](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/dsmc_default_configuration/AdminGetDSMCConfigurationDefault.java) |
+
 ### Configuration Template Wrapper:  [ConfigurationTemplate](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/ConfigurationTemplate.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -18,6 +23,8 @@
 | `/session/v1/admin/namespaces/{namespace}/configurations/{name}` | GET | AdminGetConfigurationTemplateV1 | [AdminGetConfigurationTemplateV1](../../src/main/java/net/accelbyte/sdk/api/session/operations/configuration_template/AdminGetConfigurationTemplateV1.java) | [AdminGetConfigurationTemplateV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/configuration_template/AdminGetConfigurationTemplateV1.java) |
 | `/session/v1/admin/namespaces/{namespace}/configurations/{name}` | PUT | AdminUpdateConfigurationTemplateV1 | [AdminUpdateConfigurationTemplateV1](../../src/main/java/net/accelbyte/sdk/api/session/operations/configuration_template/AdminUpdateConfigurationTemplateV1.java) | [AdminUpdateConfigurationTemplateV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/configuration_template/AdminUpdateConfigurationTemplateV1.java) |
 | `/session/v1/admin/namespaces/{namespace}/configurations/{name}` | DELETE | AdminDeleteConfigurationTemplateV1 | [AdminDeleteConfigurationTemplateV1](../../src/main/java/net/accelbyte/sdk/api/session/operations/configuration_template/AdminDeleteConfigurationTemplateV1.java) | [AdminDeleteConfigurationTemplateV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/configuration_template/AdminDeleteConfigurationTemplateV1.java) |
+| `/session/v1/admin/namespaces/{namespace}/dsconfigs` | GET | AdminGetDSMCConfiguration | [AdminGetDSMCConfiguration](../../src/main/java/net/accelbyte/sdk/api/session/operations/configuration_template/AdminGetDSMCConfiguration.java) | [AdminGetDSMCConfiguration](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/configuration_template/AdminGetDSMCConfiguration.java) |
+| `/session/v1/admin/namespaces/{namespace}/dsconfigs/sync` | GET | AdminSyncDSMCConfiguration | [AdminSyncDSMCConfiguration](../../src/main/java/net/accelbyte/sdk/api/session/operations/configuration_template/AdminSyncDSMCConfiguration.java) | [AdminSyncDSMCConfiguration](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/configuration_template/AdminSyncDSMCConfiguration.java) |
 
 ### Game Session Wrapper:  [GameSession](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/GameSession.java)
 | Endpoint | Method | ID | Class | Example |
@@ -36,6 +43,7 @@
 | `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/join` | POST | JoinGameSession | [JoinGameSession](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/JoinGameSession.java) | [JoinGameSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/JoinGameSession.java) |
 | `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/leave` | DELETE | LeaveGameSession | [LeaveGameSession](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/LeaveGameSession.java) | [LeaveGameSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/LeaveGameSession.java) |
 | `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/reject` | DELETE | PublicGameSessionReject | [PublicGameSessionReject](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/PublicGameSessionReject.java) | [PublicGameSessionReject](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/PublicGameSessionReject.java) |
+| `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/teams` | POST | AppendTeamGameSession | [AppendTeamGameSession](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/AppendTeamGameSession.java) | [AppendTeamGameSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/AppendTeamGameSession.java) |
 | `/session/v1/public/namespaces/{namespace}/users/me/gamesessions` | GET | PublicQueryMyGameSessions | [PublicQueryMyGameSessions](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/PublicQueryMyGameSessions.java) | [PublicQueryMyGameSessions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/PublicQueryMyGameSessions.java) |
 
 ### Party Wrapper:  [Party](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/Party.java)
@@ -73,6 +81,7 @@
 
 | Model | Class |
 |---|---|
+| `apimodels.AppendTeamGameSessionRequest` | [ApimodelsAppendTeamGameSessionRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsAppendTeamGameSessionRequest.java) |
 | `apimodels.ConfigurationTemplateResponse` | [ApimodelsConfigurationTemplateResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsConfigurationTemplateResponse.java) |
 | `apimodels.ConfigurationTemplatesResponse` | [ApimodelsConfigurationTemplatesResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsConfigurationTemplatesResponse.java) |
 | `apimodels.CreateConfigurationTemplateRequest` | [ApimodelsCreateConfigurationTemplateRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsCreateConfigurationTemplateRequest.java) |
@@ -98,6 +107,8 @@
 | `apimodels.UpdateGameSessionRequest` | [ApimodelsUpdateGameSessionRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsUpdateGameSessionRequest.java) |
 | `apimodels.UpdatePartyRequest` | [ApimodelsUpdatePartyRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsUpdatePartyRequest.java) |
 | `apimodels.UserResponse` | [ApimodelsUserResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsUserResponse.java) |
+| `models.DSMConfigRecord` | [ModelsDSMConfigRecord](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsDSMConfigRecord.java) |
+| `models.DefaultDSMCConfig` | [ModelsDefaultDSMCConfig](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsDefaultDSMCConfig.java) |
 | `models.GameServer` | [ModelsGameServer](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsGameServer.java) |
 | `models.PartyMembers` | [ModelsPartyMembers](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsPartyMembers.java) |
 | `models.Team` | [ModelsTeam](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsTeam.java) |

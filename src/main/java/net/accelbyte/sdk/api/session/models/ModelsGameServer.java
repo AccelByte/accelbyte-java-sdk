@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsGameServer extends Model {
 
   @JsonProperty("alternate_ips")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> alternateIps;
 
   @JsonProperty("custom_attribute")

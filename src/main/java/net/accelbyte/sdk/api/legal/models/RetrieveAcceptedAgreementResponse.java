@@ -72,6 +72,10 @@ public class RetrieveAcceptedAgreementResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String signingDate;
 
+  @JsonProperty("tags")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> tags;
+
   @JsonProperty("updatedAt")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String updatedAt;

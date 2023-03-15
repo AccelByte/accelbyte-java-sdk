@@ -54,6 +54,7 @@ import picocli.CommandLine.Command;
       UpdateStatCycle.class,
       DeleteStatCycle.class,
       BulkAddStats.class,
+      StopStatCycle.class,
       BulkFetchStatItems.class,
       BulkIncUserStatItem.class,
       BulkIncUserStatItemValue.class,

@@ -52,6 +52,7 @@ import picocli.CommandLine.Command;
       GetUserProfileInfoByPublicId.class,
       AdminGetUserProfilePublicInfoByIds.class,
       GetNamespacePublisher.class,
+      GetPublisherConfig.class,
       ChangeNamespaceStatus.class,
       AnonymizeUserProfile.class,
       GeneratedUserUploadContentUrl.class,

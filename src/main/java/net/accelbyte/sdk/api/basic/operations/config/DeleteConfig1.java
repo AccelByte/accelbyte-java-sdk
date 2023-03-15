@@ -22,8 +22,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Delete a config. Other detail info:
  *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:CONFIG" , action=8 (DELETE) *
- * Returns : created config
+ * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=8
+ * (DELETE) * Returns : created config
  */
 @Getter
 @Setter

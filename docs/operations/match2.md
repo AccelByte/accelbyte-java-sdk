@@ -26,6 +26,7 @@
 |---|---|---|---|---|
 | `/match2/v1/namespaces/{namespace}/match-functions` | GET | MatchFunctionList | [MatchFunctionList](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_functions/MatchFunctionList.java) | [MatchFunctionList](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_functions/MatchFunctionList.java) |
 | `/match2/v1/namespaces/{namespace}/match-functions` | POST | CreateMatchFunction | [CreateMatchFunction](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_functions/CreateMatchFunction.java) | [CreateMatchFunction](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_functions/CreateMatchFunction.java) |
+| `/match2/v1/namespaces/{namespace}/match-functions/{name}` | PUT | UpdateMatchFunction | [UpdateMatchFunction](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_functions/UpdateMatchFunction.java) | [UpdateMatchFunction](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_functions/UpdateMatchFunction.java) |
 | `/match2/v1/namespaces/{namespace}/match-functions/{name}` | DELETE | DeleteMatchFunction | [DeleteMatchFunction](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_functions/DeleteMatchFunction.java) | [DeleteMatchFunction](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_functions/DeleteMatchFunction.java) |
 
 ### Match-Pools Wrapper:  [MatchPools](../../src/main/java/net/accelbyte/sdk/api/match2/wrappers/MatchPools.java)

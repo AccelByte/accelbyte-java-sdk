@@ -41,6 +41,11 @@
 | `/leaderboard/v1/public/namespaces/{namespace}/leaderboards/{leaderboardCode}/week` | GET | GetCurrentWeekLeaderboardRankingPublicV1 | [GetCurrentWeekLeaderboardRankingPublicV1](../../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/GetCurrentWeekLeaderboardRankingPublicV1.java) | [GetCurrentWeekLeaderboardRankingPublicV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/leaderboard/leaderboard_data/GetCurrentWeekLeaderboardRankingPublicV1.java) |
 | `/leaderboard/v2/public/namespaces/{namespace}/leaderboards/{leaderboardCode}/alltime` | GET | GetAllTimeLeaderboardRankingPublicV2 | [GetAllTimeLeaderboardRankingPublicV2](../../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data/GetAllTimeLeaderboardRankingPublicV2.java) | [GetAllTimeLeaderboardRankingPublicV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/leaderboard/leaderboard_data/GetAllTimeLeaderboardRankingPublicV2.java) |
 
+### Anonymization Wrapper:  [Anonymization](../../src/main/java/net/accelbyte/sdk/api/leaderboard/wrappers/Anonymization.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/leaderboard/v1/admin/namespaces/{namespace}/users/{userId}/anonymization/leaderboards` | DELETE | AdminAnonymizeUserLeaderboardAdminV1 | [AdminAnonymizeUserLeaderboardAdminV1](../../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/anonymization/AdminAnonymizeUserLeaderboardAdminV1.java) | [AdminAnonymizeUserLeaderboardAdminV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/leaderboard/anonymization/AdminAnonymizeUserLeaderboardAdminV1.java) |
+
 ### UserData Wrapper:  [UserData](../../src/main/java/net/accelbyte/sdk/api/leaderboard/wrappers/UserData.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|

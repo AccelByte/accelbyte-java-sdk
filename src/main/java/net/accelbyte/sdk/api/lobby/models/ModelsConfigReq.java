@@ -101,6 +101,9 @@ public class ModelsConfigReq extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer readyConsentTimeout;
 
+  @JsonProperty("unregisterDelay")
+  private Integer unregisterDelay;
+
   @JsonIgnore
   public ModelsConfigReq createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

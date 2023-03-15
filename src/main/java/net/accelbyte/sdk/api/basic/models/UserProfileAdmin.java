@@ -57,6 +57,10 @@ public class UserProfileAdmin extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String lastName;
 
+  @JsonProperty("privateCustomAttributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> privateCustomAttributes;
+
   @JsonProperty("status")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String status;

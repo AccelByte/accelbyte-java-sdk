@@ -50,12 +50,7 @@ public class ApimodelsCreateConfigurationTemplateRequest extends Model {
   private String name;
 
   @JsonProperty("persistent")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean persistent;
-
-  @JsonProperty("persistentTTL")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer persistentTTL;
 
   @JsonProperty("requestedRegions")
   private List<String> requestedRegions;

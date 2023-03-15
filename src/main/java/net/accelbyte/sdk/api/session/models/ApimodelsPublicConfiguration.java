@@ -53,6 +53,7 @@ public class ApimodelsPublicConfiguration extends Model {
   private Boolean persistent;
 
   @JsonProperty("requestedRegions")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> requestedRegions;
 
   @JsonProperty("textChat")

@@ -57,6 +57,10 @@ public class UserProfileUpdate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String lastName;
 
+  @JsonProperty("privateCustomAttributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> privateCustomAttributes;
+
   @JsonProperty("timeZone")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String timeZone;

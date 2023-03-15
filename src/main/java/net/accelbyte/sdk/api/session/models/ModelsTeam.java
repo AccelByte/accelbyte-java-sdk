@@ -29,6 +29,7 @@ public class ModelsTeam extends Model {
   private List<String> userIDs;
 
   @JsonProperty("parties")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsPartyMembers> parties;
 
   @JsonIgnore

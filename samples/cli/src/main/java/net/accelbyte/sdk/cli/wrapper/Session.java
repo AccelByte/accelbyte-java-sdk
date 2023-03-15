@@ -9,6 +9,7 @@
 package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.session.configuration_template.*;
+import net.accelbyte.sdk.cli.api.session.dsmc_default_configuration.*;
 import net.accelbyte.sdk.cli.api.session.game_session.*;
 import net.accelbyte.sdk.cli.api.session.operations.*;
 import net.accelbyte.sdk.cli.api.session.party.*;
@@ -21,11 +22,14 @@ import picocli.CommandLine.Command;
     subcommands = {
       GetHealthcheckInfo.class,
       GetHealthcheckInfoV1.class,
+      AdminGetDSMCConfigurationDefault.class,
       AdminCreateConfigurationTemplateV1.class,
       AdminGetAllConfigurationTemplatesV1.class,
       AdminGetConfigurationTemplateV1.class,
       AdminUpdateConfigurationTemplateV1.class,
       AdminDeleteConfigurationTemplateV1.class,
+      AdminGetDSMCConfiguration.class,
+      AdminSyncDSMCConfiguration.class,
       AdminQueryGameSessions.class,
       AdminUpdateGameSessionMember.class,
       AdminQueryParties.class,
@@ -43,6 +47,7 @@ import picocli.CommandLine.Command;
       JoinGameSession.class,
       LeaveGameSession.class,
       PublicGameSessionReject.class,
+      AppendTeamGameSession.class,
       PublicPartyJoinCode.class,
       PublicGetParty.class,
       PublicUpdateParty.class,

@@ -29,6 +29,7 @@ public class ApimodelsGameSessionResponse extends Model {
   private ApimodelsDSInformationResponse dsInformation;
 
   @JsonProperty("attributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> attributes;
 
   @JsonProperty("backfillTicketID")
@@ -68,13 +69,12 @@ public class ApimodelsGameSessionResponse extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
-  @JsonProperty("persistent")
-  private Boolean persistent;
-
   @JsonProperty("teams")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsTeam> teams;
 
   @JsonProperty("ticketIDs")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> ticketIDs;
 
   @JsonProperty("updatedAt")

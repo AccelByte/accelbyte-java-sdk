@@ -69,6 +69,7 @@ public class AdminDeleteConfigurationTemplateV1 implements Callable<Integer> {
                   .namespace(namespace)
                   .build();
       wrapper.adminDeleteConfigurationTemplateV1(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

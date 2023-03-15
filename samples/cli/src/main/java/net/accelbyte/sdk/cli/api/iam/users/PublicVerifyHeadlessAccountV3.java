@@ -36,6 +36,11 @@ public class PublicVerifyHeadlessAccountV3 implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--needVerificationCode"},
+      description = "needVerificationCode")
+  Boolean needVerificationCode;
+
+  @Option(
       names = {"--body"},
       description = "body")
   String body;
@@ -64,6 +69,7 @@ public class PublicVerifyHeadlessAccountV3 implements Callable<Integer> {
       final net.accelbyte.sdk.api.iam.operations.users.PublicVerifyHeadlessAccountV3 operation =
           net.accelbyte.sdk.api.iam.operations.users.PublicVerifyHeadlessAccountV3.builder()
               .namespace(namespace)
+              .needVerificationCode(needVerificationCode)
               .body(new ObjectMapper().readValue(body, ModelUpgradeHeadlessAccountV3Request.class))
               .build();
       final ModelUserResponseV3 response = wrapper.publicVerifyHeadlessAccountV3(operation);

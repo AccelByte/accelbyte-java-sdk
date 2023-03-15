@@ -244,6 +244,15 @@ public class Entitlement {
   }
 
   /**
+   * @see SellUserEntitlement
+   */
+  public EntitlementSoldResult sellUserEntitlement(SellUserEntitlement input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicExistsAnyMyActiveEntitlement
    */
   public Ownership publicExistsAnyMyActiveEntitlement(PublicExistsAnyMyActiveEntitlement input)
@@ -406,6 +415,16 @@ public class Entitlement {
    * @see PublicConsumeUserEntitlement
    */
   public EntitlementDecrementResult publicConsumeUserEntitlement(PublicConsumeUserEntitlement input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicSellUserEntitlement
+   */
+  public EntitlementSoldResult publicSellUserEntitlement(PublicSellUserEntitlement input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

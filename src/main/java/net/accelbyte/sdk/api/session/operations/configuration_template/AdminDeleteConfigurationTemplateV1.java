@@ -13,7 +13,6 @@ import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.session.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
@@ -77,7 +76,7 @@ public class AdminDeleteConfigurationTemplateV1 extends Operation {
 
   public void handleEmptyResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    if (code >= 400 && code <= 599) {
+    if (code != 204) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }

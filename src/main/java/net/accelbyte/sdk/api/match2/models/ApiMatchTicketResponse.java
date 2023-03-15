@@ -28,6 +28,9 @@ public class ApiMatchTicketResponse extends Model {
   @JsonProperty("matchTicketID")
   private String matchTicketID;
 
+  @JsonProperty("queueTime")
+  private Integer queueTime;
+
   @JsonIgnore
   public ApiMatchTicketResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

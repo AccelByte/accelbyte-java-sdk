@@ -152,9 +152,17 @@ public class ItemInfo extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<RegionDataItem> regionData;
 
+  @JsonProperty("saleConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private SaleConfig saleConfig;
+
   @JsonProperty("seasonType")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String seasonType;
+
+  @JsonProperty("sellable")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean sellable;
 
   @JsonProperty("sku")
   @JsonInclude(JsonInclude.Include.NON_NULL)

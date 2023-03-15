@@ -55,6 +55,7 @@ public class DetailedWalletTransactionInfo extends Model {
   private String userId;
 
   @JsonProperty("walletAction")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String walletAction;
 
   @JsonProperty("walletId")

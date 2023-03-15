@@ -29,9 +29,9 @@ public class ApiMatchFunctionOverride extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String backfillMatches;
 
-  @JsonProperty("hydration")
+  @JsonProperty("enrichment")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private List<String> hydration;
+  private List<String> enrichment;
 
   @JsonProperty("make_matches")
   @JsonInclude(JsonInclude.Include.NON_NULL)

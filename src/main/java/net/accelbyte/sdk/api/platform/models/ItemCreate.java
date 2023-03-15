@@ -115,9 +115,17 @@ public class ItemCreate extends Model {
   @JsonProperty("regionData")
   private Map<String, List<RegionDataItem>> regionData;
 
+  @JsonProperty("saleConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private SaleConfig saleConfig;
+
   @JsonProperty("seasonType")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String seasonType;
+
+  @JsonProperty("sellable")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean sellable;
 
   @JsonProperty("sku")
   @JsonInclude(JsonInclude.Include.NON_NULL)

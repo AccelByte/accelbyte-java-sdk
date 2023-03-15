@@ -79,7 +79,8 @@ public class EntitlementUpdate extends Model {
     ACTIVE("ACTIVE"),
     CONSUMED("CONSUMED"),
     INACTIVE("INACTIVE"),
-    REVOKED("REVOKED");
+    REVOKED("REVOKED"),
+    SOLD("SOLD");
 
     private String value;
 

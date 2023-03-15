@@ -87,6 +87,7 @@ public class EntitlementHistoryInfo extends Model {
     ENABLE("ENABLE"),
     GRANT("GRANT"),
     REVOKE("REVOKE"),
+    SELLBACK("SELL_BACK"),
     UPDATE("UPDATE");
 
     private String value;

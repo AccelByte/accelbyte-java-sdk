@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ApimodelsPartySessionResponse extends Model {
 
   @JsonProperty("attributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> attributes;
 
   @JsonProperty("code")
@@ -62,9 +63,6 @@ public class ApimodelsPartySessionResponse extends Model {
 
   @JsonProperty("namespace")
   private String namespace;
-
-  @JsonProperty("persistent")
-  private Boolean persistent;
 
   @JsonProperty("updatedAt")
   private String updatedAt;

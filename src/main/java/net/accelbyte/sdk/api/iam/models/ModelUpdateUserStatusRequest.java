@@ -29,6 +29,7 @@ public class ModelUpdateUserStatusRequest extends Model {
   private Boolean enabled;
 
   @JsonProperty("reason")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String reason;
 
   @JsonIgnore

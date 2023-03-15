@@ -45,7 +45,7 @@ public class UpdateMyProfile extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private UserProfilePrivateUpdate body;
+  private UserProfileUpdate body;
 
   /**
    * @param namespace required
@@ -53,7 +53,7 @@ public class UpdateMyProfile extends Operation {
   @Builder
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public UpdateMyProfile(String namespace, UserProfilePrivateUpdate body) {
+  public UpdateMyProfile(String namespace, UserProfileUpdate body) {
     this.namespace = namespace;
     this.body = body;
 
@@ -70,7 +70,7 @@ public class UpdateMyProfile extends Operation {
   }
 
   @Override
-  public UserProfilePrivateUpdate getBodyParams() {
+  public UserProfileUpdate getBodyParams() {
     return this.body;
   }
 

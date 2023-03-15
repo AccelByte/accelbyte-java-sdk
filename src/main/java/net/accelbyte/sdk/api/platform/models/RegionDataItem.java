@@ -59,6 +59,7 @@ public class RegionDataItem extends Model {
   private String expireAt;
 
   @JsonProperty("price")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer price;
 
   @JsonProperty("purchaseAt")

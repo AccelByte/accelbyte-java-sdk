@@ -64,7 +64,7 @@ public class UpdateMyProfile implements Callable<Integer> {
       final net.accelbyte.sdk.api.basic.operations.user_profile.UpdateMyProfile operation =
           net.accelbyte.sdk.api.basic.operations.user_profile.UpdateMyProfile.builder()
               .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, UserProfilePrivateUpdate.class))
+              .body(new ObjectMapper().readValue(body, UserProfileUpdate.class))
               .build();
       final UserProfilePrivateInfo response = wrapper.updateMyProfile(operation);
       final String responseString =

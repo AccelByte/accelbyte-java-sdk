@@ -36,6 +36,16 @@ public class AdminGetAllConfigurationTemplatesV1 implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--limit"},
+      description = "limit")
+  Integer limit;
+
+  @Option(
+      names = {"--offset"},
+      description = "offset")
+  Integer offset;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -62,6 +72,8 @@ public class AdminGetAllConfigurationTemplatesV1 implements Callable<Integer> {
               net.accelbyte.sdk.api.session.operations.configuration_template
                   .AdminGetAllConfigurationTemplatesV1.builder()
                   .namespace(namespace)
+                  .limit(limit)
+                  .offset(offset)
                   .build();
       final ApimodelsConfigurationTemplatesResponse response =
           wrapper.adminGetAllConfigurationTemplatesV1(operation);

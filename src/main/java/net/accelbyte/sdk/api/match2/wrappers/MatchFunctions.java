@@ -40,6 +40,15 @@ public class MatchFunctions {
   }
 
   /**
+   * @see UpdateMatchFunction
+   */
+  public ApiMatchFunctionConfig updateMatchFunction(UpdateMatchFunction input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see DeleteMatchFunction
    */
   public void deleteMatchFunction(DeleteMatchFunction input) throws Exception {

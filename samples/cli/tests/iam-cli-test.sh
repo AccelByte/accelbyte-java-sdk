@@ -1463,6 +1463,7 @@ eval_tap $? 247 'PublicUpgradeHeadlessAccountV3' test.out
 #- 248 PublicVerifyHeadlessAccountV3
 ./ng net.accelbyte.sdk.cli.Main iam publicVerifyHeadlessAccountV3 \
     --namespace "$AB_NAMESPACE" \
+    --needVerificationCode  \
     --body '{"emailAddress": "t2ENKKWr", "password": "FtHIi1CM"}' \
     > test.out 2>&1
 eval_tap $? 248 'PublicVerifyHeadlessAccountV3' test.out

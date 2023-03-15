@@ -36,6 +36,7 @@
 | `/basic/v1/admin/namespaces/{namespace}/configs/{configKey}` | GET | GetConfig1 | [GetConfig1](../../src/main/java/net/accelbyte/sdk/api/basic/operations/config/GetConfig1.java) | [GetConfig1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/config/GetConfig1.java) |
 | `/basic/v1/admin/namespaces/{namespace}/configs/{configKey}` | DELETE | DeleteConfig1 | [DeleteConfig1](../../src/main/java/net/accelbyte/sdk/api/basic/operations/config/DeleteConfig1.java) | [DeleteConfig1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/config/DeleteConfig1.java) |
 | `/basic/v1/admin/namespaces/{namespace}/configs/{configKey}` | PATCH | UpdateConfig1 | [UpdateConfig1](../../src/main/java/net/accelbyte/sdk/api/basic/operations/config/UpdateConfig1.java) | [UpdateConfig1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/config/UpdateConfig1.java) |
+| `/basic/v1/admin/namespaces/{namespace}/publisher/configs/{configKey}` | GET | GetPublisherConfig | [GetPublisherConfig](../../src/main/java/net/accelbyte/sdk/api/basic/operations/config/GetPublisherConfig.java) | [GetPublisherConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/config/GetPublisherConfig.java) |
 
 ### EQU8Config Wrapper:  [EQU8Config](../../src/main/java/net/accelbyte/sdk/api/basic/wrappers/EQU8Config.java)
 | Endpoint | Method | ID | Class | Example |
@@ -140,7 +141,6 @@
 | `UserProfileInfo` | [UserProfileInfo](../../src/main/java/net/accelbyte/sdk/api/basic/models/UserProfileInfo.java) |
 | `UserProfilePrivateCreate` | [UserProfilePrivateCreate](../../src/main/java/net/accelbyte/sdk/api/basic/models/UserProfilePrivateCreate.java) |
 | `UserProfilePrivateInfo` | [UserProfilePrivateInfo](../../src/main/java/net/accelbyte/sdk/api/basic/models/UserProfilePrivateInfo.java) |
-| `UserProfilePrivateUpdate` | [UserProfilePrivateUpdate](../../src/main/java/net/accelbyte/sdk/api/basic/models/UserProfilePrivateUpdate.java) |
 | `UserProfilePublicInfo` | [UserProfilePublicInfo](../../src/main/java/net/accelbyte/sdk/api/basic/models/UserProfilePublicInfo.java) |
 | `UserProfileStatusUpdate` | [UserProfileStatusUpdate](../../src/main/java/net/accelbyte/sdk/api/basic/models/UserProfileStatusUpdate.java) |
 | `UserProfileUpdate` | [UserProfileUpdate](../../src/main/java/net/accelbyte/sdk/api/basic/models/UserProfileUpdate.java) |

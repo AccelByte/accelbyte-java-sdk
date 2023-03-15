@@ -187,6 +187,15 @@ public class Item {
   }
 
   /**
+   * @see BulkUpdateRegionData
+   */
+  public void bulkUpdateRegionData(BulkUpdateRegionData input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see SearchItems
    */
   public FullItemPagingSlicedResult searchItems(SearchItems input) throws Exception {

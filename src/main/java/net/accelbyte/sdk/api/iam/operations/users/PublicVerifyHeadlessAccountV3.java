@@ -22,6 +22,11 @@ import net.accelbyte.sdk.core.util.Helper;
  * PublicVerifyHeadlessAccountV3
  *
  * <p>Require valid user authorization action code : 10124
+ *
+ * <p>if set NeedVerificationCode = true, IAM will send verification code into email
+ *
+ * <p>user can use that verification code to verify user through
+ * /iam/v3/public/namespaces/{namespace}/users/me/code/verify
  */
 @Getter
 @Setter
@@ -36,6 +41,7 @@ public class PublicVerifyHeadlessAccountV3 extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private Boolean needVerificationCode;
   private ModelUpgradeHeadlessAccountV3Request body;
 
   /**
@@ -46,8 +52,9 @@ public class PublicVerifyHeadlessAccountV3 extends Operation {
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicVerifyHeadlessAccountV3(
-      String namespace, ModelUpgradeHeadlessAccountV3Request body) {
+      String namespace, Boolean needVerificationCode, ModelUpgradeHeadlessAccountV3Request body) {
     this.namespace = namespace;
+    this.needVerificationCode = needVerificationCode;
     this.body = body;
 
     securities.add("Bearer");
@@ -60,6 +67,17 @@ public class PublicVerifyHeadlessAccountV3 extends Operation {
       pathParams.put("namespace", this.namespace);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "needVerificationCode",
+        this.needVerificationCode == null
+            ? null
+            : Arrays.asList(String.valueOf(this.needVerificationCode)));
+    return queryParams;
   }
 
   @Override
@@ -83,5 +101,12 @@ public class PublicVerifyHeadlessAccountV3 extends Operation {
     }
     final String json = Helper.convertInputStreamToString(payload);
     return new ModelUserResponseV3().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("needVerificationCode", "None");
+    return result;
   }
 }

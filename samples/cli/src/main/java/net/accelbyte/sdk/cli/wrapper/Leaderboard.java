@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.cli.wrapper;
 
+import net.accelbyte.sdk.cli.api.leaderboard.anonymization.*;
 import net.accelbyte.sdk.cli.api.leaderboard.leaderboard_configuration.*;
 import net.accelbyte.sdk.cli.api.leaderboard.leaderboard_data.*;
 import net.accelbyte.sdk.cli.api.leaderboard.user_data.*;
@@ -35,6 +36,7 @@ import picocli.CommandLine.Command;
       DeleteUserRankingAdminV1.class,
       GetCurrentWeekLeaderboardRankingAdminV1.class,
       DeleteUserRankingsAdminV1.class,
+      AdminAnonymizeUserLeaderboardAdminV1.class,
       GetUserLeaderboardRankingsAdminV1.class,
       GetLeaderboardConfigurationsPublicV1.class,
       CreateLeaderboardConfigurationPublicV1.class,

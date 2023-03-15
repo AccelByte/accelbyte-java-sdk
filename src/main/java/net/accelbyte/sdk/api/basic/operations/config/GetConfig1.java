@@ -23,8 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get a config. Other detail info:
  *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:CONFIG" , action=2 (READ) *
- * Returns : config
+ * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=2 (READ)
+ * * Returns : config
  */
 @Getter
 @Setter

@@ -70,4 +70,24 @@ public class ConfigurationTemplate {
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see AdminGetDSMCConfiguration
+   */
+  public ModelsDSMConfigRecord adminGetDSMCConfiguration(AdminGetDSMCConfiguration input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminSyncDSMCConfiguration
+   */
+  public ModelsDSMConfigRecord adminSyncDSMCConfiguration(AdminSyncDSMCConfiguration input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }
