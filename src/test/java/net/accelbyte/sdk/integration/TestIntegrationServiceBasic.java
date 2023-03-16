@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import net.accelbyte.sdk.api.basic.models.UserProfilePrivateCreate;
 import net.accelbyte.sdk.api.basic.models.UserProfilePrivateInfo;
-import net.accelbyte.sdk.api.basic.models.UserProfilePrivateUpdate;
+import net.accelbyte.sdk.api.basic.models.UserProfileUpdate;
 import net.accelbyte.sdk.api.basic.operations.user_profile.CreateMyProfile;
 import net.accelbyte.sdk.api.basic.operations.user_profile.DeleteUserProfile;
 import net.accelbyte.sdk.api.basic.operations.user_profile.GetMyProfileInfo;
@@ -109,8 +109,8 @@ public class TestIntegrationServiceBasic extends TestIntegration {
 
     // CASE Update a user profile
 
-    final UserProfilePrivateUpdate updateProfileBody =
-        UserProfilePrivateUpdate.builder().timeZone(profileTimeZone).build();
+    final UserProfileUpdate updateProfileBody =
+            UserProfileUpdate.builder().timeZone(profileTimeZone).build();
 
     final UserProfilePrivateInfo updateProfileResult =
         userProfileWrapper.updateMyProfile(

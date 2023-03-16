@@ -124,8 +124,8 @@ final UserProfilePrivateInfo getProfileResult =
 ### Update a user profile
 
 ```java
-final UserProfilePrivateUpdate updateProfileBody =
-    UserProfilePrivateUpdate.builder().timeZone(profileTimeZone).build();
+final UserProfileUpdate updateProfileBody =
+        UserProfileUpdate.builder().timeZone(profileTimeZone).build();
 
 final UserProfilePrivateInfo updateProfileResult =
     userProfileWrapper.updateMyProfile(
