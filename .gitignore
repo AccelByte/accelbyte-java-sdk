@@ -305,3 +305,6 @@ gradle-app.setting
 
 # TAP test results
 *.tap
+
+# Ecxlude *.env
+*.env
