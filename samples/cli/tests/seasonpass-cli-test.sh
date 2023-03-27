@@ -211,7 +211,7 @@ eval_tap $? 21 'DeleteReward' test.out
     --code 'IbeZxzfT' \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'cyiuATus' \
-    --body '{"currency": {"currencyCode": "9hsfpFDc", "namespace": "SDG8aMVG"}, "image": {"as": "LiBNrDjq", "caption": "oxcwgGLX", "height": 32, "imageUrl": "cekdqCt8", "smallImageUrl": "1P1ktfIo", "width": 44}, "itemId": "eIP6rOvD", "nullFields": ["RByjlBiu", "2k6YmJFf", "z9KOsb39"], "quantity": 65, "type": "ITEM"}' \
+    --body '{"currency": {"currencyCode": "9hsfpFDc", "namespace": "SDG8aMVG"}, "image": {"as": "LiBNrDjq", "caption": "oxcwgGLX", "height": 32, "imageUrl": "cekdqCt8", "smallImageUrl": "1P1ktfIo", "width": 44}, "itemId": "eIP6rOvD", "nullFields": ["z9KOsb39", "RByjlBiu", "2k6YmJFf"], "quantity": 65, "type": "ITEM"}' \
     > test.out 2>&1
 eval_tap $? 22 'UpdateReward' test.out
 

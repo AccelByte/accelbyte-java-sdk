@@ -26,7 +26,12 @@ import net.accelbyte.sdk.core.util.Helper;
  * will be assign to NONE - MinPlayers (must greather or equal 0) - MaxPlayers (must greather than
  * 0) - InviteTimeout (must greather or equal 0) if InviteTimeout equal 0 will be use default
  * DefaultTimeoutSecond (60s) - InactiveTimeout (must greather or equal 0) if InactiveTimeout equal
- * 0 will be use default DefaultTimeoutSecond (60s)
+ * 0 will be use default DefaultTimeoutSecond (60s) - Persistent Flag only can use with type DS
+ * (example value true or false) - If Persistent True the session always active even DS removing or
+ * terminate and Session will be request DS again until DS Ready or Busy. - To Stop Session Not
+ * request again to DS or want Delete Session can Delete Session using endpoint DELETE
+ * /session/v1/public/namespaces/{namespace}/gamesessions/{sessionId} - If Persistent False the
+ * session will be inactive if all member left and DS terminate or removing
  */
 @Getter
 @Setter

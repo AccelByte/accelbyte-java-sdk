@@ -6,10 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.core.Model;
-
-import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder(toBuilder = true)
@@ -18,16 +17,16 @@ import java.util.List;
 @Setter
 @Getter
 public class CustomSearchResult extends Model {
-    @JsonProperty("items")
-    private List<CustomSearchItem> items;
+  @JsonProperty("items")
+  private List<CustomSearchItem> items;
 
-    @JsonIgnore
-    public CustomSearchResult createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-    @JsonIgnore
-    public List<CustomSearchResult> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<CustomSearchResult>>() {});
-    }
+  @JsonIgnore
+  public CustomSearchResult createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
+  @JsonIgnore
+  public List<CustomSearchResult> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<CustomSearchResult>>() {});
+  }
 }

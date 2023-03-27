@@ -46,6 +46,9 @@ public class ModelsCreateChannelResponse extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("region_expansion_rate_ms")
+  private Integer regionExpansionRateMs;
+
   @JsonProperty("ruleset")
   private ModelsRuleSet ruleset;
 

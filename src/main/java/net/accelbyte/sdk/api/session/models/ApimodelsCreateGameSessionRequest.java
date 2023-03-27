@@ -58,9 +58,6 @@ public class ApimodelsCreateGameSessionRequest extends Model {
   @JsonProperty("minPlayers")
   private Integer minPlayers;
 
-  @JsonProperty("persistent")
-  private Boolean persistent;
-
   @JsonProperty("requestedRegions")
   private List<String> requestedRegions;
 

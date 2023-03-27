@@ -110,7 +110,7 @@ public class TestIntegrationServiceBasic extends TestIntegration {
     // CASE Update a user profile
 
     final UserProfileUpdate updateProfileBody =
-            UserProfileUpdate.builder().timeZone(profileTimeZone).build();
+        UserProfileUpdate.builder().timeZone(profileTimeZone).build();
 
     final UserProfilePrivateInfo updateProfileResult =
         userProfileWrapper.updateMyProfile(

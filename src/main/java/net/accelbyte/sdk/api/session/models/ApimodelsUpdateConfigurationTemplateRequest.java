@@ -49,6 +49,9 @@ public class ApimodelsUpdateConfigurationTemplateRequest extends Model {
   @JsonProperty("name")
   private String name;
 
+  @JsonProperty("persistent")
+  private Boolean persistent;
+
   @JsonProperty("requestedRegions")
   private List<String> requestedRegions;
 

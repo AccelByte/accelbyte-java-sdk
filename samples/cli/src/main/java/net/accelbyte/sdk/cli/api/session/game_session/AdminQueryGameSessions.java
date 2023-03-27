@@ -56,6 +56,11 @@ public class AdminQueryGameSessions implements Callable<Integer> {
   String gameMode;
 
   @Option(
+      names = {"--isPersistent"},
+      description = "isPersistent")
+  String isPersistent;
+
+  @Option(
       names = {"--isSoftDeleted"},
       description = "isSoftDeleted")
   String isSoftDeleted;
@@ -143,6 +148,7 @@ public class AdminQueryGameSessions implements Callable<Integer> {
               .dsPodName(dsPodName)
               .fromTime(fromTime)
               .gameMode(gameMode)
+              .isPersistent(isPersistent)
               .isSoftDeleted(isSoftDeleted)
               .joinability(joinability)
               .limit(limit)

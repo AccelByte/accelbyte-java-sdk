@@ -40,6 +40,10 @@ public class ModelsUpdateChannelRequest extends Model {
   @JsonProperty("max_delay_ms")
   private Integer maxDelayMs;
 
+  @JsonProperty("region_expansion_rate_ms")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer regionExpansionRateMs;
+
   @JsonProperty("ruleSet")
   private ModelsUpdateRuleset ruleSet;
 
