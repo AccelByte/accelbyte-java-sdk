@@ -45,13 +45,13 @@ Here's a simplified example output of the endpoint.
 ```
 
 Please refer to these models in the directory, 
-[../models](samples/custom-operation/src/main/java/net/accelbyte/sdk/api/customsearch/models)
+[../models](../samples/custom-operation/src/main/java/net/accelbyte/sdk/api/customsearch/models)
 
 
 ### Create the Operation Class
 
 Please refer to these operation class in the directory, 
-[../operations](samples/custom-operation/src/main/java/net/accelbyte/sdk/api/customsearch/operations)
+[../operations](../samples/custom-operation/src/main/java/net/accelbyte/sdk/api/customsearch/operations)
 
 ### Customize URL configuration in ConfigurationRepository if needed
 
@@ -62,7 +62,7 @@ Please refer to the implementation in this directory
 
 After you create the necessary classes, you can now use it with the AccelByte SDK. 
 Please refer to this implementation 
-[here](samples/custom-operation/src/main/java/net/accelbyte/sdk/api/customsearch/Main.java)
+[here](../samples/custom-operation/src/main/java/net/accelbyte/sdk/api/customsearch/Main.java)
 
 ## References
 
