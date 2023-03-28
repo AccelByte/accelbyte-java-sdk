@@ -6,13 +6,12 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.platform.revocation;
+package net.accelbyte.sdk.cli.api.leaderboard.leaderboard_configuration;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.wrappers.Revocation;
+import net.accelbyte.sdk.api.leaderboard.models.*;
+import net.accelbyte.sdk.api.leaderboard.wrappers.LeaderboardConfiguration;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +24,15 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "getPaymentCallbackConfig1", mixinStandardHelpOptions = true)
-public class GetPaymentCallbackConfig1 implements Callable<Integer> {
+@Command(name = "hardDeleteLeaderboardAdminV1", mixinStandardHelpOptions = true)
+public class HardDeleteLeaderboardAdminV1 implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(GetPaymentCallbackConfig1.class);
+  private static final Logger log = LogManager.getLogger(HardDeleteLeaderboardAdminV1.class);
+
+  @Option(
+      names = {"--leaderboardCode"},
+      description = "leaderboardCode")
+  String leaderboardCode;
 
   @Option(
       names = {"--namespace"},
@@ -41,7 +45,7 @@ public class GetPaymentCallbackConfig1 implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new GetPaymentCallbackConfig1()).execute(args);
+    int exitCode = new CommandLine(new HardDeleteLeaderboardAdminV1()).execute(args);
     System.exit(exitCode);
   }
 
@@ -55,17 +59,17 @@ public class GetPaymentCallbackConfig1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Revocation wrapper = new Revocation(sdk);
-      final net.accelbyte.sdk.api.platform.operations.revocation.GetPaymentCallbackConfig1
+      final LeaderboardConfiguration wrapper = new LeaderboardConfiguration(sdk);
+      final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration
+              .HardDeleteLeaderboardAdminV1
           operation =
-              net.accelbyte.sdk.api.platform.operations.revocation.GetPaymentCallbackConfig1
-                  .builder()
+              net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration
+                  .HardDeleteLeaderboardAdminV1.builder()
+                  .leaderboardCode(leaderboardCode)
                   .namespace(namespace)
                   .build();
-      final RevocationConfigInfo response = wrapper.getPaymentCallbackConfig1(operation);
-      final String responseString =
-          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful\n{}", responseString);
+      wrapper.hardDeleteLeaderboardAdminV1(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

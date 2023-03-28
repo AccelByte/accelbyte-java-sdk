@@ -76,7 +76,7 @@ public class CreateContentS3 implements Callable<Integer> {
               .channelId(channelId)
               .namespace(namespace)
               .userId(userId)
-              .body(new ObjectMapper().readValue(body, ModelsCreateContentRequestS3.class))
+              .body(new ObjectMapper().readValue(body, ModelsPublicCreateContentRequestS3.class))
               .build();
       final ModelsCreateContentResponse response = wrapper.createContentS3(operation);
       final String responseString =

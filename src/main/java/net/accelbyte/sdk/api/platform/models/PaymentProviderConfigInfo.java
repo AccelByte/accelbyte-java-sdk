@@ -36,6 +36,7 @@ public class PaymentProviderConfigInfo extends Model {
   private String namespace;
 
   @JsonProperty("paymentMerchantConfigId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String paymentMerchantConfigId;
 
   @JsonProperty("region")

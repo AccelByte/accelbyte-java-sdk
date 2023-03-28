@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.api.platform.wrappers;
 
-import java.util.*;
 import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.catalog_changes.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -25,7 +24,7 @@ public class CatalogChanges {
   /**
    * @see QueryChanges
    */
-  public List<CatalogChangePagingSlicedResult> queryChanges(QueryChanges input) throws Exception {
+  public CatalogChangePagingSlicedResult queryChanges(QueryChanges input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

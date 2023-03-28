@@ -132,7 +132,7 @@ public class QueryChanges implements Callable<Integer> {
               .updatedAtEnd(updatedAtEnd)
               .updatedAtStart(updatedAtStart)
               .build();
-      final List<CatalogChangePagingSlicedResult> response = wrapper.queryChanges(operation);
+      final CatalogChangePagingSlicedResult response = wrapper.queryChanges(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

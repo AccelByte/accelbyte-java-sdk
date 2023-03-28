@@ -95,7 +95,7 @@ import picocli.CommandLine.Command;
       GetFollowedUsers.class,
       PublicGetCreator.class,
       GetChannels.class,
-      CreateChannel.class,
+      PublicCreateChannel.class,
       DeleteAllUserChannel.class,
       UpdateChannel.class,
       DeleteChannel.class,

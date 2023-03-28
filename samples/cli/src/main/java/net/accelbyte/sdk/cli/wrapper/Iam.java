@@ -338,6 +338,7 @@ import picocli.CommandLine.Command;
       AdminListAssignedUsersV4.class,
       AdminAssignUserToRoleV4.class,
       AdminRevokeUserFromRoleV4.class,
+      AdminInviteUserNewV4.class,
       AdminUpdateMyUserV4.class,
       AdminDisableMyAuthenticatorV4.class,
       AdminEnableMyAuthenticatorV4.class,

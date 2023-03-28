@@ -70,7 +70,7 @@ public class SingleAdminUpdateChannel implements Callable<Integer> {
           net.accelbyte.sdk.api.ugc.operations.admin_channel.SingleAdminUpdateChannel.builder()
               .channelId(channelId)
               .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelsChannelRequest.class))
+              .body(new ObjectMapper().readValue(body, ModelsUpdateChannelRequest.class))
               .build();
       final ModelsChannelResponse response = wrapper.singleAdminUpdateChannel(operation);
       final String responseString =

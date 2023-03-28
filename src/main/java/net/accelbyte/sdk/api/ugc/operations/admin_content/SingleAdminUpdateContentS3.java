@@ -47,7 +47,7 @@ public class SingleAdminUpdateContentS3 extends Operation {
 
   private String contentId;
   private String namespace;
-  private ModelsContentRequest body;
+  private ModelsUpdateContentRequest body;
 
   /**
    * @param channelId required
@@ -59,7 +59,7 @@ public class SingleAdminUpdateContentS3 extends Operation {
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
   public SingleAdminUpdateContentS3(
-      String channelId, String contentId, String namespace, ModelsContentRequest body) {
+      String channelId, String contentId, String namespace, ModelsUpdateContentRequest body) {
     this.channelId = channelId;
     this.contentId = contentId;
     this.namespace = namespace;
@@ -84,7 +84,7 @@ public class SingleAdminUpdateContentS3 extends Operation {
   }
 
   @Override
-  public ModelsContentRequest getBodyParams() {
+  public ModelsUpdateContentRequest getBodyParams() {
     return this.body;
   }
 

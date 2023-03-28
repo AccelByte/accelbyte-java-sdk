@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelsChannelRequest extends Model {
 
+  @JsonProperty("id")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String id;
+
   @JsonProperty("name")
   private String name;
 

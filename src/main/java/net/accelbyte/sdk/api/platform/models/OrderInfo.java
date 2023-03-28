@@ -55,6 +55,7 @@ public class OrderInfo extends Model {
   private Integer discountedPrice;
 
   @JsonProperty("expireTime")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String expireTime;
 
   @JsonProperty("ext")

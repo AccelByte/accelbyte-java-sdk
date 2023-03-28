@@ -1450,7 +1450,9 @@ public class Users {
 
   /**
    * @see PublicGetUserByUserIdV3
+   * @deprecated
    */
+  @Deprecated
   public ModelPublicUserResponseV3 publicGetUserByUserIdV3(PublicGetUserByUserIdV3 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

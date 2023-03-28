@@ -5176,9 +5176,11 @@
           "x-nullable": true
         },
         "displayName": {
+          "description": "namespace display name",
           "type": "string"
         },
         "namespace": {
+          "description": "namespace",
           "type": "string"
         },
         "parentNamespace": {
@@ -5199,6 +5201,10 @@
           "x-nullable": true
         }
       },
+      "required": [
+        "displayName",
+        "namespace"
+      ],
       "type": "object"
     },
     "NamespacePublisherInfo": {

@@ -109,6 +109,16 @@ public class UsersV4 {
   }
 
   /**
+   * @see AdminInviteUserNewV4
+   */
+  public ModelInviteUserResponseV3 adminInviteUserNewV4(AdminInviteUserNewV4 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminUpdateMyUserV4
    */
   public ModelUserResponseV3 adminUpdateMyUserV4(AdminUpdateMyUserV4 input) throws Exception {
@@ -242,7 +252,9 @@ public class UsersV4 {
 
   /**
    * @see AdminInviteUserV4
+   * @deprecated
    */
+  @Deprecated
   public ModelInviteUserResponseV3 adminInviteUserV4(AdminInviteUserV4 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

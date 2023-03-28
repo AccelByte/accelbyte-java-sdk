@@ -141,7 +141,7 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/ugc/v1/public/namespaces/{namespace}/users/{userId}/channels` | GET | GetChannels | [GetChannels](../../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_channel/GetChannels.java) | [GetChannels](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/public_channel/GetChannels.java) |
-| `/ugc/v1/public/namespaces/{namespace}/users/{userId}/channels` | POST | CreateChannel | [CreateChannel](../../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_channel/CreateChannel.java) | [CreateChannel](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/public_channel/CreateChannel.java) |
+| `/ugc/v1/public/namespaces/{namespace}/users/{userId}/channels` | POST | PublicCreateChannel | [PublicCreateChannel](../../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_channel/PublicCreateChannel.java) | [PublicCreateChannel](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/public_channel/PublicCreateChannel.java) |
 | `/ugc/v1/public/namespaces/{namespace}/users/{userId}/channels/{channelId}` | PUT | UpdateChannel | [UpdateChannel](../../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_channel/UpdateChannel.java) | [UpdateChannel](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/public_channel/UpdateChannel.java) |
 | `/ugc/v1/public/namespaces/{namespace}/users/{userId}/channels/{channelId}` | DELETE | DeleteChannel | [DeleteChannel](../../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_channel/DeleteChannel.java) | [DeleteChannel](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/public_channel/DeleteChannel.java) |
 
@@ -169,7 +169,6 @@
 | `models.ContentDownloadResponse` | [ModelsContentDownloadResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsContentDownloadResponse.java) |
 | `models.ContentLikeRequest` | [ModelsContentLikeRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsContentLikeRequest.java) |
 | `models.ContentLikeResponse` | [ModelsContentLikeResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsContentLikeResponse.java) |
-| `models.ContentRequest` | [ModelsContentRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsContentRequest.java) |
 | `models.CreateContentRequest` | [ModelsCreateContentRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsCreateContentRequest.java) |
 | `models.CreateContentRequestS3` | [ModelsCreateContentRequestS3](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsCreateContentRequestS3.java) |
 | `models.CreateContentResponse` | [ModelsCreateContentResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsCreateContentResponse.java) |
@@ -196,8 +195,12 @@
 | `models.PagingCursor` | [ModelsPagingCursor](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPagingCursor.java) |
 | `models.PayloadURL` | [ModelsPayloadURL](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPayloadURL.java) |
 | `models.PreviewURL` | [ModelsPreviewURL](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPreviewURL.java) |
+| `models.PublicChannelRequest` | [ModelsPublicChannelRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPublicChannelRequest.java) |
+| `models.PublicCreateContentRequestS3` | [ModelsPublicCreateContentRequestS3](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPublicCreateContentRequestS3.java) |
 | `models.PublicGetContentBulkRequest` | [ModelsPublicGetContentBulkRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPublicGetContentBulkRequest.java) |
 | `models.ScreenshotResponse` | [ModelsScreenshotResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsScreenshotResponse.java) |
+| `models.UpdateChannelRequest` | [ModelsUpdateChannelRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUpdateChannelRequest.java) |
+| `models.UpdateContentRequest` | [ModelsUpdateContentRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUpdateContentRequest.java) |
 | `models.UpdateScreenshotRequest` | [ModelsUpdateScreenshotRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUpdateScreenshotRequest.java) |
 | `models.UpdateScreenshotResponse` | [ModelsUpdateScreenshotResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUpdateScreenshotResponse.java) |
 | `models.UserFollowRequest` | [ModelsUserFollowRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUserFollowRequest.java) |

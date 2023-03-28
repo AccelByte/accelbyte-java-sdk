@@ -76,7 +76,7 @@ public class AdminUpdateChannel implements Callable<Integer> {
               .channelId(channelId)
               .namespace(namespace)
               .userId(userId)
-              .body(new ObjectMapper().readValue(body, ModelsChannelRequest.class))
+              .body(new ObjectMapper().readValue(body, ModelsUpdateChannelRequest.class))
               .build();
       final ModelsChannelResponse response = wrapper.adminUpdateChannel(operation);
       final String responseString =

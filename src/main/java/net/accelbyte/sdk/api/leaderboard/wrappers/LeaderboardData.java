@@ -64,6 +64,16 @@ public class LeaderboardData {
   }
 
   /**
+   * @see DeleteUserRankingByLeaderboardCodeAdminV1
+   */
+  public void deleteUserRankingByLeaderboardCodeAdminV1(
+      DeleteUserRankingByLeaderboardCodeAdminV1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetCurrentSeasonLeaderboardRankingAdminV1
    */
   public ModelsGetLeaderboardRankingResp getCurrentSeasonLeaderboardRankingAdminV1(

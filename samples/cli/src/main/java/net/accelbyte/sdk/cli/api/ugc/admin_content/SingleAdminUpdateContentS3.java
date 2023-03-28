@@ -78,7 +78,7 @@ public class SingleAdminUpdateContentS3 implements Callable<Integer> {
                   .channelId(channelId)
                   .contentId(contentId)
                   .namespace(namespace)
-                  .body(new ObjectMapper().readValue(body, ModelsContentRequest.class))
+                  .body(new ObjectMapper().readValue(body, ModelsUpdateContentRequest.class))
                   .build();
       final ModelsCreateContentResponse response = wrapper.singleAdminUpdateContentS3(operation);
       final String responseString =

@@ -44,7 +44,7 @@ public class Agreement {
   /**
    * @see RetrieveAllUsersByPolicyVersion
    */
-  public List<PagedRetrieveUserAcceptedAgreementResponse> retrieveAllUsersByPolicyVersion(
+  public PagedRetrieveUserAcceptedAgreementResponse retrieveAllUsersByPolicyVersion(
       RetrieveAllUsersByPolicyVersion input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

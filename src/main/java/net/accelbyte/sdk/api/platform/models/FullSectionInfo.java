@@ -77,9 +77,11 @@ public class FullSectionInfo extends Model {
   private String updatedAt;
 
   @JsonProperty("viewId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String viewId;
 
   @JsonProperty("viewName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String viewName;
 
   @JsonIgnore

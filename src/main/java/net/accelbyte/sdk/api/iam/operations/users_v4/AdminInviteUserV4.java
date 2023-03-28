@@ -27,15 +27,21 @@ import net.accelbyte.sdk.core.util.Helper;
  * scoped to namespace. An admin user can only assign role with namespaces that the admin user has
  * required permission which is same as the required permission of endpoint: [AdminAddUserRoleV4].
  *
- * <p>Detail request body : - Assigned Namespaces is required, List of namespaces that will be
- * assigned to the user. - Email Address is required, List of email addresses that will be invited -
- * isAdmin is required, true if user is admin, false if user is not admin - Namespace is optional.
- * Only works on multi tenant mode, if not specified then it will be assigned Publisher namespace,
- * if specified, it will become that studio/publisher where user is invited to. - Role is optional,
- * if not specified then it will only assign User role.
+ * <p>Detail request body : - Email Address is required, List of email addresses that will be
+ * invited - isAdmin is required, true if user is admin, false if user is not admin - Namespace is
+ * optional. Only works on multi tenant mode, if not specified then it will be assigned Publisher
+ * namespace, if specified, it will become that studio/publisher where user is invited to. - Role is
+ * optional, if not specified then it will only assign User role. - Assigned Namespaces is optional,
+ * List of namespaces which the Role will be assigned to the user, only works when Role is not
+ * empty.
  *
  * <p>The invited admin will also assigned with "User" role by default.
+ *
+ * <p>Substitute endpoint: /iam/v4/admin/users/invite
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminInviteUserV4 extends Operation {

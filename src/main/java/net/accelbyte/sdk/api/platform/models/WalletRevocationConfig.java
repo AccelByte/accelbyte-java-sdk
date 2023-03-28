@@ -66,6 +66,7 @@ public class WalletRevocationConfig extends Model {
 
   public enum Strategy {
     ALWAYSREVOKE("ALWAYS_REVOKE"),
+    CUSTOM("CUSTOM"),
     REVOKEORREPORT("REVOKE_OR_REPORT");
 
     private String value;

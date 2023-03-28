@@ -29,6 +29,10 @@ public class ItemRevocation extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<CreditRevocation> creditRevocations;
 
+  @JsonProperty("customRevocation")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> customRevocation;
+
   @JsonProperty("entitlementRevocations")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<EntitlementRevocation> entitlementRevocations;
@@ -53,6 +57,10 @@ public class ItemRevocation extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer quantity;
 
+  @JsonProperty("reason")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String reason;
+
   @JsonProperty("skipped")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean skipped;
@@ -60,6 +68,10 @@ public class ItemRevocation extends Model {
   @JsonProperty("status")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String status;
+
+  @JsonProperty("strategy")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String strategy;
 
   @JsonIgnore
   public String getItemType() {

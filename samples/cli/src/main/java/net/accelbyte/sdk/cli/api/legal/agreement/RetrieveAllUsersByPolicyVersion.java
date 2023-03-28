@@ -80,7 +80,7 @@ public class RetrieveAllUsersByPolicyVersion implements Callable<Integer> {
                   .offset(offset)
                   .policyVersionId(policyVersionId)
                   .build();
-      final List<PagedRetrieveUserAcceptedAgreementResponse> response =
+      final PagedRetrieveUserAcceptedAgreementResponse response =
           wrapper.retrieveAllUsersByPolicyVersion(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

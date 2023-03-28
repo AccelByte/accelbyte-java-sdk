@@ -46,7 +46,7 @@ public class CreateContentS3 extends Operation {
 
   private String namespace;
   private String userId;
-  private ModelsCreateContentRequestS3 body;
+  private ModelsPublicCreateContentRequestS3 body;
 
   /**
    * @param channelId required
@@ -58,7 +58,7 @@ public class CreateContentS3 extends Operation {
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
   public CreateContentS3(
-      String channelId, String namespace, String userId, ModelsCreateContentRequestS3 body) {
+      String channelId, String namespace, String userId, ModelsPublicCreateContentRequestS3 body) {
     this.channelId = channelId;
     this.namespace = namespace;
     this.userId = userId;
@@ -83,7 +83,7 @@ public class CreateContentS3 extends Operation {
   }
 
   @Override
-  public ModelsCreateContentRequestS3 getBodyParams() {
+  public ModelsPublicCreateContentRequestS3 getBodyParams() {
     return this.body;
   }
 

@@ -170,6 +170,15 @@ public class Entitlement {
   }
 
   /**
+   * @see RevokeAllEntitlements
+   */
+  public BulkOperationResult revokeAllEntitlements(RevokeAllEntitlements input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see RevokeUserEntitlements
    */
   public BulkOperationResult revokeUserEntitlements(RevokeUserEntitlements input) throws Exception {
@@ -238,6 +247,15 @@ public class Entitlement {
    * @see RevokeUserEntitlement
    */
   public EntitlementInfo revokeUserEntitlement(RevokeUserEntitlement input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see RevokeUseCount
+   */
+  public EntitlementInfo revokeUseCount(RevokeUseCount input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

@@ -34,11 +34,9 @@ public class NamespaceInfo extends Model {
   private String createdAt;
 
   @JsonProperty("displayName")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String displayName;
 
   @JsonProperty("namespace")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;
 
   @JsonProperty("parentNamespace")

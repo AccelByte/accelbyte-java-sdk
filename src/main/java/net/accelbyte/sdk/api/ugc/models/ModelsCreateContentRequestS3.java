@@ -47,6 +47,10 @@ public class ModelsCreateContentRequestS3 extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsPreviewMetadata previewMetadata;
 
+  @JsonProperty("shareCode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String shareCode;
+
   @JsonProperty("subType")
   private String subType;
 

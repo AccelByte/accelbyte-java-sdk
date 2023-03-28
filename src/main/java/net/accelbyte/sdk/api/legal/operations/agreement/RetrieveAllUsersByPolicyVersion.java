@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.legal.operations.agreement;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
@@ -80,15 +78,14 @@ public class RetrieveAllUsersByPolicyVersion extends Operation {
     return true;
   }
 
-  public List<PagedRetrieveUserAcceptedAgreementResponse> parseResponse(
+  public PagedRetrieveUserAcceptedAgreementResponse parseResponse(
       int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ObjectMapper()
-        .readValue(json, new TypeReference<List<PagedRetrieveUserAcceptedAgreementResponse>>() {});
+    return new PagedRetrieveUserAcceptedAgreementResponse().createFromJson(json);
   }
 
   @Override

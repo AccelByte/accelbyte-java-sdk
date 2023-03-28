@@ -31,6 +31,10 @@ public class OauthmodelTokenResponse extends Model {
   @JsonProperty("bans")
   private List<AccountcommonJWTBanV3> bans;
 
+  @JsonProperty("device_id")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String deviceId;
+
   @JsonProperty("display_name")
   private String displayName;
 

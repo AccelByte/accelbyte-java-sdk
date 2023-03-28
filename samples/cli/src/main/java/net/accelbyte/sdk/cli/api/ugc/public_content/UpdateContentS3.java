@@ -82,7 +82,7 @@ public class UpdateContentS3 implements Callable<Integer> {
               .contentId(contentId)
               .namespace(namespace)
               .userId(userId)
-              .body(new ObjectMapper().readValue(body, ModelsContentRequest.class))
+              .body(new ObjectMapper().readValue(body, ModelsUpdateContentRequest.class))
               .build();
       final ModelsCreateContentResponse response = wrapper.updateContentS3(operation);
       final String responseString =

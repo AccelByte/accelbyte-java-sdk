@@ -67,6 +67,7 @@ public class DurableEntitlementRevocationConfig extends Model {
   }
 
   public enum Strategy {
+    CUSTOM("CUSTOM"),
     REVOKEORREPORT("REVOKE_OR_REPORT");
 
     private String value;

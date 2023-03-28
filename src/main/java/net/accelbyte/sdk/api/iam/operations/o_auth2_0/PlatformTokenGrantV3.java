@@ -186,6 +186,7 @@ public class PlatformTokenGrantV3 extends Operation {
   private String deviceId;
   private String macAddress;
   private String platformToken;
+  private Boolean skipSetCookie;
 
   /**
    * @param platformId required
@@ -199,13 +200,15 @@ public class PlatformTokenGrantV3 extends Operation {
       Boolean createHeadless,
       String deviceId,
       String macAddress,
-      String platformToken) {
+      String platformToken,
+      Boolean skipSetCookie) {
     this.platformId = platformId;
     this.clientId = clientId;
     this.createHeadless = createHeadless;
     this.deviceId = deviceId;
     this.macAddress = macAddress;
     this.platformToken = platformToken;
+    this.skipSetCookie = skipSetCookie;
 
     securities.add("Basic");
   }
@@ -238,6 +241,10 @@ public class PlatformTokenGrantV3 extends Operation {
     }
     if (this.platformToken != null) {
       formDataParams.put("platform_token", this.platformToken);
+    }
+    if (this.skipSetCookie != null) {
+      formDataParams.put(
+          "skipSetCookie", this.skipSetCookie == null ? null : String.valueOf(this.skipSetCookie));
     }
     return formDataParams;
   }

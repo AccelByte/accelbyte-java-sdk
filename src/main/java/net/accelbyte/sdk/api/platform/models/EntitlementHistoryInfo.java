@@ -40,12 +40,20 @@ public class EntitlementHistoryInfo extends Model {
   @JsonProperty("operator")
   private String operator;
 
+  @JsonProperty("reason")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String reason;
+
   @JsonProperty("updatedAt")
   private String updatedAt;
 
   @JsonProperty("useCount")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer useCount;
+
+  @JsonProperty("useCountChange")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer useCountChange;
 
   @JsonProperty("userId")
   private String userId;

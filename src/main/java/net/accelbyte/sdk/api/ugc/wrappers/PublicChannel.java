@@ -31,9 +31,9 @@ public class PublicChannel {
   }
 
   /**
-   * @see CreateChannel
+   * @see PublicCreateChannel
    */
-  public ModelsChannelResponse createChannel(CreateChannel input) throws Exception {
+  public ModelsChannelResponse publicCreateChannel(PublicCreateChannel input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

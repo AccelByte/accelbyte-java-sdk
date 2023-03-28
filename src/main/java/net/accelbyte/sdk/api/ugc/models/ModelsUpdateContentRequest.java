@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.Model;
 // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ModelsContentRequest extends Model {
+public class ModelsUpdateContentRequest extends Model {
 
   @JsonProperty("contentType")
   private String contentType;
@@ -61,12 +61,14 @@ public class ModelsContentRequest extends Model {
   private Boolean updateContentFile;
 
   @JsonIgnore
-  public ModelsContentRequest createFromJson(String json) throws JsonProcessingException {
+  public ModelsUpdateContentRequest createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ModelsContentRequest> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsContentRequest>>() {});
+  public List<ModelsUpdateContentRequest> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsUpdateContentRequest>>() {});
   }
 }

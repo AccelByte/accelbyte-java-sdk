@@ -108,6 +108,7 @@ public class PaymentOrderInfo extends Model {
   private String paymentOrderNo;
 
   @JsonProperty("paymentProvider")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String paymentProvider;
 
   @JsonProperty("paymentProviderFee")

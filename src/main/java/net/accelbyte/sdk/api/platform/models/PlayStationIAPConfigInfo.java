@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class PlayStationIAPConfigInfo extends Model {
 
   @JsonProperty("environment")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String environment;
 
   @JsonProperty("namespace")

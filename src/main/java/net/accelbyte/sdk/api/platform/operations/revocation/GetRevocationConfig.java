@@ -19,7 +19,7 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * getPaymentCallbackConfig_1
+ * getRevocationConfig
  *
  * <p>Get revocation configuration. Other detail info:
  *
@@ -28,7 +28,7 @@ import net.accelbyte.sdk.core.util.Helper;
  */
 @Getter
 @Setter
-public class GetPaymentCallbackConfig1 extends Operation {
+public class GetRevocationConfig extends Operation {
   /** generated field's value */
   private String path = "/platform/admin/namespaces/{namespace}/revocation/config";
 
@@ -45,7 +45,7 @@ public class GetPaymentCallbackConfig1 extends Operation {
   @Builder
   // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetPaymentCallbackConfig1(String namespace) {
+  public GetRevocationConfig(String namespace) {
     this.namespace = namespace;
 
     securities.add("Bearer");

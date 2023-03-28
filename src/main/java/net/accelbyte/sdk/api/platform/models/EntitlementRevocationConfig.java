@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class EntitlementRevocationConfig extends Model {
 
+  @JsonProperty("consumable")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ConsumableEntitlementRevocationConfig consumable;
+
   @JsonProperty("durable")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private DurableEntitlementRevocationConfig durable;

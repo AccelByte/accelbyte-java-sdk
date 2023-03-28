@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class AppleIAPConfigInfo extends Model {
 
   @JsonProperty("bundleId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String bundleId;
 
   @JsonProperty("namespace")

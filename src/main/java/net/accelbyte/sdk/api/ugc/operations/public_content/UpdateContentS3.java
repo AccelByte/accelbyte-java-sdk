@@ -48,7 +48,7 @@ public class UpdateContentS3 extends Operation {
   private String contentId;
   private String namespace;
   private String userId;
-  private ModelsContentRequest body;
+  private ModelsUpdateContentRequest body;
 
   /**
    * @param channelId required
@@ -65,7 +65,7 @@ public class UpdateContentS3 extends Operation {
       String contentId,
       String namespace,
       String userId,
-      ModelsContentRequest body) {
+      ModelsUpdateContentRequest body) {
     this.channelId = channelId;
     this.contentId = contentId;
     this.namespace = namespace;
@@ -94,7 +94,7 @@ public class UpdateContentS3 extends Operation {
   }
 
   @Override
-  public ModelsContentRequest getBodyParams() {
+  public ModelsUpdateContentRequest getBodyParams() {
     return this.body;
   }
 

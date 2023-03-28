@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class EntitlementRevocation extends Model {
 
+  @JsonProperty("customRevocation")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> customRevocation;
+
   @JsonProperty("entitlementId")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String entitlementId;

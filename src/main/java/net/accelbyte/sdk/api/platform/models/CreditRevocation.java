@@ -37,6 +37,10 @@ public class CreditRevocation extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String currencyCode;
 
+  @JsonProperty("customRevocation")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> customRevocation;
+
   @JsonProperty("reason")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String reason;

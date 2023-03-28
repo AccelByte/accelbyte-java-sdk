@@ -29,6 +29,7 @@ public class EpicGamesIAPConfigInfo extends Model {
   private String namespace;
 
   @JsonProperty("sandboxId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String sandboxId;
 
   @JsonIgnore

@@ -39,6 +39,7 @@ public class ModelInviteUserRequestV4 extends Model {
   private String namespace;
 
   @JsonProperty("roleId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String roleId;
 
   @JsonIgnore

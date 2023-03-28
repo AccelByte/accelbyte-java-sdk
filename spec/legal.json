@@ -251,10 +251,7 @@
           "200": {
             "description": "successful operation",
             "schema": {
-              "items": {
-                "$ref": "#/definitions/PagedRetrieveUserAcceptedAgreementResponse"
-              },
-              "type": "array"
+              "$ref": "#/definitions/PagedRetrieveUserAcceptedAgreementResponse"
             }
           },
           "404": {

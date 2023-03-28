@@ -82,6 +82,15 @@ public class LeaderboardConfiguration {
   }
 
   /**
+   * @see HardDeleteLeaderboardAdminV1
+   */
+  public void hardDeleteLeaderboardAdminV1(HardDeleteLeaderboardAdminV1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetLeaderboardConfigurationsPublicV1
    */
   public ModelsGetAllLeaderboardConfigsPublicResp getLeaderboardConfigurationsPublicV1(

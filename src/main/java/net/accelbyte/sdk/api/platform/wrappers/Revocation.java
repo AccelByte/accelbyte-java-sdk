@@ -22,10 +22,9 @@ public class Revocation {
   }
 
   /**
-   * @see GetPaymentCallbackConfig1
+   * @see GetRevocationConfig
    */
-  public RevocationConfigInfo getPaymentCallbackConfig1(GetPaymentCallbackConfig1 input)
-      throws Exception {
+  public RevocationConfigInfo getRevocationConfig(GetRevocationConfig input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

@@ -185,6 +185,12 @@
               "$ref": "#/definitions/response.Error"
             }
           },
+          "409": {
+            "description": "Conflict",
+            "schema": {
+              "$ref": "#/definitions/response.Error"
+            }
+          },
           "500": {
             "description": "Internal Server Error",
             "schema": {
@@ -280,7 +286,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/models.ChannelRequest"
+              "$ref": "#/definitions/models.UpdateChannelRequest"
             }
           },
           {
@@ -401,6 +407,12 @@
               "$ref": "#/definitions/response.Error"
             }
           },
+          "409": {
+            "description": "Conflict",
+            "schema": {
+              "$ref": "#/definitions/response.Error"
+            }
+          },
           "500": {
             "description": "Internal Server Error",
             "schema": {
@@ -475,6 +487,12 @@
               "$ref": "#/definitions/response.Error"
             }
           },
+          "409": {
+            "description": "Conflict",
+            "schema": {
+              "$ref": "#/definitions/response.Error"
+            }
+          },
           "500": {
             "description": "Internal Server Error",
             "schema": {
@@ -509,7 +527,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/models.ContentRequest"
+              "$ref": "#/definitions/models.UpdateContentRequest"
             }
           },
           {
@@ -2810,7 +2828,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/models.ChannelRequest"
+              "$ref": "#/definitions/models.UpdateChannelRequest"
             }
           },
           {
@@ -2897,7 +2915,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/models.ContentRequest"
+              "$ref": "#/definitions/models.UpdateContentRequest"
             }
           },
           {
@@ -5251,14 +5269,14 @@
           "application/octet-stream"
         ],
         "description": "Required permission \u0026lt;b\u0026gt;NAMESPACE:{namespace}:USER:{userId}:CHANNEL [CREATE]\u0026lt;/b\u0026gt;",
-        "operationId": "CreateChannel",
+        "operationId": "PublicCreateChannel",
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/models.ChannelRequest"
+              "$ref": "#/definitions/models.PublicChannelRequest"
             }
           },
           {
@@ -5402,7 +5420,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/models.ChannelRequest"
+              "$ref": "#/definitions/models.UpdateChannelRequest"
             }
           },
           {
@@ -5573,7 +5591,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/models.CreateContentRequestS3"
+              "$ref": "#/definitions/models.PublicCreateContentRequestS3"
             }
           },
           {
@@ -5655,7 +5673,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/models.ContentRequest"
+              "$ref": "#/definitions/models.UpdateContentRequest"
             }
           },
           {
@@ -7159,6 +7177,9 @@
     },
     "models.ChannelRequest": {
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "name": {
           "type": "string"
         }
@@ -7337,59 +7358,6 @@
         "likeStatus"
       ]
     },
-    "models.ContentRequest": {
-      "properties": {
-        "contentType": {
-          "type": "string"
-        },
-        "customAttributes": {
-          "type": "object"
-        },
-        "fileExtension": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "payload": {
-          "type": "string"
-        },
-        "preview": {
-          "description": "Preview is legacy code, please use Screenshot instead",
-          "type": "string"
-        },
-        "previewMetadata": {
-          "$ref": "#/definitions/models.previewMetadata"
-        },
-        "subType": {
-          "type": "string"
-        },
-        "tags": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "type": {
-          "type": "string"
-        },
-        "updateContentFile": {
-          "type": "boolean",
-          "x-omitempty": false
-        }
-      },
-      "required": [
-        "contentType",
-        "fileExtension",
-        "name",
-        "payload",
-        "preview",
-        "subType",
-        "tags",
-        "type",
-        "updateContentFile"
-      ]
-    },
     "models.CreateContentRequest": {
       "properties": {
         "customAttributes": {
@@ -7450,6 +7418,9 @@
         },
         "previewMetadata": {
           "$ref": "#/definitions/models.previewMetadata"
+        },
+        "shareCode": {
+          "type": "string"
         },
         "subType": {
           "type": "string"
@@ -8004,6 +7975,58 @@
         }
       }
     },
+    "models.PublicChannelRequest": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "models.PublicCreateContentRequestS3": {
+      "properties": {
+        "contentType": {
+          "type": "string"
+        },
+        "customAttributes": {
+          "type": "object"
+        },
+        "fileExtension": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "preview": {
+          "description": "Preview is legacy code, please use Screenshot instead",
+          "type": "string"
+        },
+        "previewMetadata": {
+          "$ref": "#/definitions/models.previewMetadata"
+        },
+        "subType": {
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "preview",
+        "subType",
+        "tags",
+        "type"
+      ]
+    },
     "models.PublicGetContentBulkRequest": {
       "properties": {
         "contentIds": {
@@ -8044,6 +8067,69 @@
         "screenshotId",
         "source",
         "url"
+      ]
+    },
+    "models.UpdateChannelRequest": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "models.UpdateContentRequest": {
+      "properties": {
+        "contentType": {
+          "type": "string"
+        },
+        "customAttributes": {
+          "type": "object"
+        },
+        "fileExtension": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "payload": {
+          "type": "string"
+        },
+        "preview": {
+          "description": "Preview is legacy code, please use Screenshot instead",
+          "type": "string"
+        },
+        "previewMetadata": {
+          "$ref": "#/definitions/models.previewMetadata"
+        },
+        "subType": {
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "type": {
+          "type": "string"
+        },
+        "updateContentFile": {
+          "type": "boolean",
+          "x-omitempty": false
+        }
+      },
+      "required": [
+        "contentType",
+        "fileExtension",
+        "name",
+        "payload",
+        "preview",
+        "subType",
+        "tags",
+        "type",
+        "updateContentFile"
       ]
     },
     "models.UpdateScreenshotRequest": {
