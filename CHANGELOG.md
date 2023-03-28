@@ -1,4 +1,19 @@
-<a name="v0.32.0"></a>
+<a name="v0.33.0"></a>
+## [v0.33.0] - 2023-03-28
+### Chore
+generate java extend sdk (230327.2155)
+delete title matchmaking sample app
+
+### Docs
+**samples**: fix broken link on custom-operation docs
+**samples**: add custom-operation sample
+**samples**: remove phantauth.net url since the site is down
+**migration-guide**: v0.32.0 to v0.33.0 rename model in basic
+
+### Fix
+**integration**: model renamed from UserProfilePrivateUpdate to UserProfileUpdate
+
+  <a name="v0.32.0"></a>
 ## [v0.32.0] - 2023-03-13
 ### Chore
 - **sdk:** chore(sdk): generate java server sdk (230313.2157)
@@ -929,6 +944,7 @@
 - replace unnecessary object
 
 
+[v0.32.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.32.0...v0.33.0
 [v0.32.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.31.0...v0.32.0
 [v0.31.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.30.0...v0.31.0
 [v0.30.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.29.0...v0.30.0
