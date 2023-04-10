@@ -49,7 +49,7 @@ public class GetKeyGroupByBoothName extends Operation {
    * @param boothName required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GetKeyGroupByBoothName(String namespace, String boothName) {
     this.namespace = namespace;

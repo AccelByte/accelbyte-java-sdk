@@ -31,6 +31,7 @@ import picocli.CommandLine.Command;
       AdminGetDSMCConfiguration.class,
       AdminSyncDSMCConfiguration.class,
       AdminQueryGameSessions.class,
+      AdminDeleteBulkGameSessions.class,
       AdminUpdateGameSessionMember.class,
       AdminQueryParties.class,
       AdminQueryPlayerAttributes.class,

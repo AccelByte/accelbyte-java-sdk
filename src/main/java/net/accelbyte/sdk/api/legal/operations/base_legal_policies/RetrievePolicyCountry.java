@@ -45,7 +45,7 @@ public class RetrievePolicyCountry extends Operation {
    * @param countryCode required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public RetrievePolicyCountry(String basePolicyId, String countryCode) {
     this.basePolicyId = basePolicyId;

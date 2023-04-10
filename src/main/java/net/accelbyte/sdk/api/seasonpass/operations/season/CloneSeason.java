@@ -49,7 +49,7 @@ public class CloneSeason extends Operation {
    * @param seasonId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public CloneSeason(String namespace, String seasonId, SeasonCloneRequest body) {
     this.namespace = namespace;

@@ -23,7 +23,7 @@ public class PartyJoinNotif {
   private PartyJoinNotif() {}
 
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PartyJoinNotif(String userId) {
     this.userId = userId;

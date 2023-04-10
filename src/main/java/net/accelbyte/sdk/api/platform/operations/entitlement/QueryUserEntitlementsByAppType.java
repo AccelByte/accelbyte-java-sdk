@@ -54,7 +54,7 @@ public class QueryUserEntitlementsByAppType extends Operation {
    * @param appType required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public QueryUserEntitlementsByAppType(
       String namespace,

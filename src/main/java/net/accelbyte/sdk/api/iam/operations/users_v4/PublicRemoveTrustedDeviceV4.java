@@ -46,7 +46,7 @@ public class PublicRemoveTrustedDeviceV4 extends Operation {
    * @param deviceToken required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicRemoveTrustedDeviceV4(String namespace, String deviceToken) {
     this.namespace = namespace;

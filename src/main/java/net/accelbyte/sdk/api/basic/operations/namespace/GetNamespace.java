@@ -45,7 +45,7 @@ public class GetNamespace extends Operation {
    * @param namespace required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GetNamespace(String namespace, Boolean activeOnly) {
     this.namespace = namespace;

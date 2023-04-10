@@ -50,7 +50,7 @@ public class CreateNotificationTopicV1Admin extends Operation {
    * @param body required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public CreateNotificationTopicV1Admin(String namespace, ModelCreateTopicRequestV1 body) {
     this.namespace = namespace;

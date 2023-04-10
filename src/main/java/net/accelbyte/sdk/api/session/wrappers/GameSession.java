@@ -33,6 +33,16 @@ public class GameSession {
   }
 
   /**
+   * @see AdminDeleteBulkGameSessions
+   */
+  public ApimodelsDeleteBulkGameSessionsAPIResponse adminDeleteBulkGameSessions(
+      AdminDeleteBulkGameSessions input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminUpdateGameSessionMember
    */
   public ApimodelsUpdateGameSessionMemberStatusResponse adminUpdateGameSessionMember(

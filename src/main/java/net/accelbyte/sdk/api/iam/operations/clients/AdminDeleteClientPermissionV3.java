@@ -47,7 +47,7 @@ public class AdminDeleteClientPermissionV3 extends Operation {
    * @param resource required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminDeleteClientPermissionV3(
       Integer action, String clientId, String namespace, String resource) {

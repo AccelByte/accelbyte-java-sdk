@@ -369,7 +369,7 @@ eval_tap $? 40 'GetStats' test.out
 #- 41 CreateStat
 ./ng net.accelbyte.sdk.cli.Main social createStat \
     --namespace "$AB_NAMESPACE" \
-    --body '{"cycleIds": ["OvDz9KOs", "b392k6Ym", "zDmeIP6r"], "defaultValue": 0.5793456161760823, "description": "FfRByjlB", "incrementOnly": false, "maximum": 0.9967557290714741, "minimum": 0.605745334271637, "name": "JE8HoRS1", "setAsGlobal": false, "setBy": "SERVER", "statCode": "AnkCmBUq", "tags": ["X9y1aZSW", "g2SCnqnt", "MiVi10sG"]}' \
+    --body '{"cycleIds": ["zDmeIP6r", "b392k6Ym", "OvDz9KOs"], "defaultValue": 0.5793456161760823, "description": "FfRByjlB", "incrementOnly": false, "maximum": 0.9967557290714741, "minimum": 0.605745334271637, "name": "JE8HoRS1", "setAsGlobal": false, "setBy": "SERVER", "statCode": "AnkCmBUq", "tags": ["X9y1aZSW", "MiVi10sG", "g2SCnqnt"]}' \
     > test.out 2>&1
 eval_tap $? 41 'CreateStat' test.out
 
@@ -415,7 +415,7 @@ eval_tap $? 46 'DeleteStat' test.out
 ./ng net.accelbyte.sdk.cli.Main social updateStat \
     --namespace "$AB_NAMESPACE" \
     --statCode 'CSz9WEi8' \
-    --body '{"cycleIds": ["KlloeH0J", "T1yduat2", "vQR3biBf"], "defaultValue": 0.3013449407187887, "description": "u4jmsRE2", "name": "w1yEkLgh", "tags": ["YUTLDx9g", "3tIYt4Sq", "IiDandpG"]}' \
+    --body '{"cycleIds": ["vQR3biBf", "T1yduat2", "KlloeH0J"], "defaultValue": 0.3013449407187887, "description": "u4jmsRE2", "name": "w1yEkLgh", "tags": ["YUTLDx9g", "3tIYt4Sq", "IiDandpG"]}' \
     > test.out 2>&1
 eval_tap $? 47 'UpdateStat' test.out
 
@@ -584,7 +584,7 @@ eval_tap $? 66 'BulkResetUserStatItem2' test.out
 #- 67 CreateStat1
 ./ng net.accelbyte.sdk.cli.Main social createStat1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"cycleIds": ["PZnGBt4P", "jX7ZshZy", "7WnbdSJt"], "defaultValue": 0.8293567122625791, "description": "l5x4bRXB", "incrementOnly": true, "maximum": 0.75107051173064, "minimum": 0.7417007734915865, "name": "rDzZSKsc", "setAsGlobal": false, "setBy": "CLIENT", "statCode": "OcYu3dpC", "tags": ["XVFCmpo6", "ROYqUiGK", "sPwVOEDS"]}' \
+    --body '{"cycleIds": ["PZnGBt4P", "jX7ZshZy", "7WnbdSJt"], "defaultValue": 0.8293567122625791, "description": "l5x4bRXB", "incrementOnly": true, "maximum": 0.75107051173064, "minimum": 0.7417007734915865, "name": "rDzZSKsc", "setAsGlobal": false, "setBy": "CLIENT", "statCode": "OcYu3dpC", "tags": ["sPwVOEDS", "ROYqUiGK", "XVFCmpo6"]}' \
     > test.out 2>&1
 eval_tap $? 67 'CreateStat1' test.out
 

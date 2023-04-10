@@ -43,7 +43,7 @@ public class AdminGetUserContentByShareCode extends Operation {
    * @param shareCode required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminGetUserContentByShareCode(String namespace, String shareCode) {
     this.namespace = namespace;

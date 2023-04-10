@@ -85,7 +85,7 @@ public class AdminPlatformLinkV3 extends Operation {
    * @param ticket required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminPlatformLinkV3(String namespace, String platformId, String userId, String ticket) {
     this.namespace = namespace;

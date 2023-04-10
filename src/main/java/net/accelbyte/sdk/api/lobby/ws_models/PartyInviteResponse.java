@@ -25,7 +25,7 @@ public class PartyInviteResponse {
   private PartyInviteResponse() {}
 
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PartyInviteResponse(Integer code, String id) {
     this.code = code;

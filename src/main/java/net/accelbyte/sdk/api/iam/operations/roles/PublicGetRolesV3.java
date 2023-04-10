@@ -44,7 +44,7 @@ public class PublicGetRolesV3 extends Operation {
 
   /** */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicGetRolesV3(String after, String before, Boolean isWildcard, Integer limit) {
     this.after = after;

@@ -48,7 +48,7 @@ public class CreateCodes extends Operation {
    * @param namespace required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public CreateCodes(String campaignId, String namespace, CodeCreate body) {
     this.campaignId = campaignId;

@@ -27,7 +27,7 @@ public class UnblockPlayerResponse {
   private UnblockPlayerResponse() {}
 
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public UnblockPlayerResponse(Integer code, String id, String namespace, String unblockedUserId) {
     this.code = code;

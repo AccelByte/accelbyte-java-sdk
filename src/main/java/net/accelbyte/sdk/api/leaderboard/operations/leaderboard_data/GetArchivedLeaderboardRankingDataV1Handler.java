@@ -50,7 +50,7 @@ public class GetArchivedLeaderboardRankingDataV1Handler extends Operation {
    * @param leaderboardCodes required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GetArchivedLeaderboardRankingDataV1Handler(
       String leaderboardCode, String namespace, String slug, String leaderboardCodes) {

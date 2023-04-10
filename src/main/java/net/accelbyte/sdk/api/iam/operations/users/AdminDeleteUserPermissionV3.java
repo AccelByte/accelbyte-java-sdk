@@ -47,7 +47,7 @@ public class AdminDeleteUserPermissionV3 extends Operation {
    * @param userId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminDeleteUserPermissionV3(
       Integer action, String namespace, String resource, String userId) {

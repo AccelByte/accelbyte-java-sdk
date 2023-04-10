@@ -28,7 +28,7 @@ public class ListOutgoingFriendsResponse {
   private ListOutgoingFriendsResponse() {}
 
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public ListOutgoingFriendsResponse(Integer code, List<String> friendIds, String id) {
     this.code = code;

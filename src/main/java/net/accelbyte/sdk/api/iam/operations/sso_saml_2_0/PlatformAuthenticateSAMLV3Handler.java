@@ -50,7 +50,7 @@ public class PlatformAuthenticateSAMLV3Handler extends Operation {
    * @param state required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PlatformAuthenticateSAMLV3Handler(
       String platformId, String code, String error, String state) {

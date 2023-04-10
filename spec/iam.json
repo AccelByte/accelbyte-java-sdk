@@ -13,6 +13,10 @@
   "schemes": [
     "https"
   ],
+  "externalDocs": {
+    "description": "API Docs",
+    "url": "https://stage.accelbyte.io/iam/apidocs"
+  },
   "securityDefinitions": {
     "HasPermission": {
       "authorizationUrl": "https://dummy.oauth.net/auth",
@@ -31104,5 +31108,18 @@
         "errorMessage"
       ]
     }
+  },
+  "x-docs": {
+    "alias": "iam",
+    "host": "https://stage.accelbyte.io",
+    "path": "/iam/apidocs/api.json"
+  },
+  "x-version": {
+    "buildDate": "2023-04-04T14:39:23+00:00",
+    "gitHash": "aa4b3553c753abcb4556222e12fb85440e868c24",
+    "name": "justice-iam-service",
+    "realm": "staging",
+    "version": "5.31.0",
+    "version-roles-seeding": "0.0.3"
   }
 }

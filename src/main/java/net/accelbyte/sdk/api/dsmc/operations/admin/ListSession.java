@@ -53,7 +53,7 @@ public class ListSession extends Operation {
    * @param offset required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public ListSession(
       String namespace, String region, Boolean withServer, Integer count, Integer offset) {

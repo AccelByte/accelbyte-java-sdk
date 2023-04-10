@@ -44,7 +44,7 @@ public class TestWxPayConfigById extends Operation {
    * @param id required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public TestWxPayConfigById(String id) {
     this.id = id;

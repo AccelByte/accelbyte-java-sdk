@@ -26,7 +26,7 @@ public class SendChannelChatRequest {
   private SendChannelChatRequest() {}
 
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public SendChannelChatRequest(String channelSlug, String id, String payload) {
     this.channelSlug = channelSlug;

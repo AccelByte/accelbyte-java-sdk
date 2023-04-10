@@ -52,7 +52,7 @@ public class AddClientPermission extends Operation {
    * @param resource required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AddClientPermission(Integer action, String clientId, String resource) {
     this.action = action;

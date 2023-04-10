@@ -49,7 +49,7 @@ public class PublicIncUserStatItem extends Operation {
    * @param userId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicIncUserStatItem(String namespace, String statCode, String userId, StatItemInc body) {
     this.namespace = namespace;

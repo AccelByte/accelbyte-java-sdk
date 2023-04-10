@@ -26,7 +26,7 @@ public class PartyRejectResponse {
   private PartyRejectResponse() {}
 
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PartyRejectResponse(Integer code, String id, String partyId) {
     this.code = code;

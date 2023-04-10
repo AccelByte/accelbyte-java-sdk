@@ -24,7 +24,7 @@ public class PartyCreateRequest {
   private PartyCreateRequest() {}
 
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PartyCreateRequest(String id) {
     this.id = id;

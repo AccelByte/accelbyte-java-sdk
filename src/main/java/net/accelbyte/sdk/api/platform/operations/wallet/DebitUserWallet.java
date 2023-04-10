@@ -53,7 +53,7 @@ public class DebitUserWallet extends Operation {
    * @param walletId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public DebitUserWallet(String namespace, String userId, String walletId, DebitRequest body) {
     this.namespace = namespace;

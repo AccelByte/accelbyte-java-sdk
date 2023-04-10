@@ -50,7 +50,7 @@ public class QueryTiers extends Operation {
    * @param seasonId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public QueryTiers(String namespace, String seasonId, Integer limit, Integer offset) {
     this.namespace = namespace;

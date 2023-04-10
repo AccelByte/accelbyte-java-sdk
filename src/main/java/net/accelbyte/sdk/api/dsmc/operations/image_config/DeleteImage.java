@@ -50,7 +50,7 @@ public class DeleteImage extends Operation {
    * @param version required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public DeleteImage(String namespace, String imageURI, String version) {
     this.namespace = namespace;

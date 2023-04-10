@@ -101,7 +101,7 @@ public class AdminUpdateClientV3 extends Operation {
    * @param body required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminUpdateClientV3(
       String clientId, String namespace, ClientmodelClientUpdateV3Request body) {

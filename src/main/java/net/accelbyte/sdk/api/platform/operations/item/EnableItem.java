@@ -48,7 +48,7 @@ public class EnableItem extends Operation {
    * @param storeId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public EnableItem(String itemId, String namespace, String storeId) {
     this.itemId = itemId;

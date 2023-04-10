@@ -49,7 +49,7 @@ public class DeleteUserRankingsAdminV1 extends Operation {
    * @param leaderboardCode required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public DeleteUserRankingsAdminV1(String namespace, String userId, List<String> leaderboardCode) {
     this.namespace = namespace;

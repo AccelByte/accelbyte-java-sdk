@@ -48,7 +48,7 @@ public class RetrieveAllPolicyTypes1 extends Operation {
    * @param limit required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public RetrieveAllPolicyTypes1(String namespace, Integer offset, Integer limit) {
     this.namespace = namespace;

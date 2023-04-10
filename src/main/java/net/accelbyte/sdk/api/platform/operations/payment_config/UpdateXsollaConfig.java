@@ -47,7 +47,7 @@ public class UpdateXsollaConfig extends Operation {
    * @param id required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public UpdateXsollaConfig(String id, Boolean validate, XsollaConfig body) {
     this.id = id;

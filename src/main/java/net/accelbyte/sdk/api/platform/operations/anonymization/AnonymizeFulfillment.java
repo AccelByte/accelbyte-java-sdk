@@ -47,7 +47,7 @@ public class AnonymizeFulfillment extends Operation {
    * @param userId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AnonymizeFulfillment(String namespace, String userId) {
     this.namespace = namespace;

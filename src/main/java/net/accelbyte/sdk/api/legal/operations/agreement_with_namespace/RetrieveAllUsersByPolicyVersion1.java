@@ -49,7 +49,7 @@ public class RetrieveAllUsersByPolicyVersion1 extends Operation {
    * @param policyVersionId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public RetrieveAllUsersByPolicyVersion1(
       String namespace, String keyword, Integer limit, Integer offset, String policyVersionId) {

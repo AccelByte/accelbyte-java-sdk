@@ -47,7 +47,7 @@ public class UpdateCheckoutConfig extends Operation {
    * @param id required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public UpdateCheckoutConfig(String id, Boolean sandbox, Boolean validate, CheckoutConfig body) {
     this.id = id;

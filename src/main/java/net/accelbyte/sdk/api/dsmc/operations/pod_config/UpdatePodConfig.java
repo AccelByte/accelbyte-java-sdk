@@ -49,7 +49,7 @@ public class UpdatePodConfig extends Operation {
    * @param body required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public UpdatePodConfig(String name, String namespace, ModelsUpdatePodConfigRequest body) {
     this.name = name;

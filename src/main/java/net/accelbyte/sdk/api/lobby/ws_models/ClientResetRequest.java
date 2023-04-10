@@ -24,7 +24,7 @@ public class ClientResetRequest {
   private ClientResetRequest() {}
 
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public ClientResetRequest(String namespace, String userId) {
     this.namespace = namespace;

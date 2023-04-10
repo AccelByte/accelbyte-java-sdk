@@ -41,7 +41,7 @@ public class LogoutSSOClient extends Operation {
    * @param platformId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public LogoutSSOClient(String platformId) {
     this.platformId = platformId;

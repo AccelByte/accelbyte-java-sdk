@@ -56,7 +56,7 @@ public class AuthenticationWithPlatformLinkV3 extends Operation {
    * @param username required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AuthenticationWithPlatformLinkV3(
       Boolean extendExp, String clientId, String linkingToken, String password, String username) {

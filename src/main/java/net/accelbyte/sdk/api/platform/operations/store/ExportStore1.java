@@ -48,7 +48,7 @@ public class ExportStore1 extends Operation {
    * @param storeId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public ExportStore1(String namespace, String storeId, ExportStoreRequest body) {
     this.namespace = namespace;

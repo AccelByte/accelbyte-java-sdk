@@ -137,7 +137,7 @@ public class UpdateApp extends Operation {
    * @param storeId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public UpdateApp(String itemId, String namespace, String storeId, AppUpdate body) {
     this.itemId = itemId;

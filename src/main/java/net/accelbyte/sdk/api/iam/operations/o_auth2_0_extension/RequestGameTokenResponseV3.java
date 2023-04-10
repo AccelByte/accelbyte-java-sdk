@@ -45,7 +45,7 @@ public class RequestGameTokenResponseV3 extends Operation {
    * @param code required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public RequestGameTokenResponseV3(String code) {
     this.code = code;

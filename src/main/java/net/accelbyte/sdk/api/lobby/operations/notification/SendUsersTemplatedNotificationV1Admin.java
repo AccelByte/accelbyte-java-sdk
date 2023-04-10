@@ -54,7 +54,7 @@ public class SendUsersTemplatedNotificationV1Admin extends Operation {
    * @param body required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public SendUsersTemplatedNotificationV1Admin(
       String namespace, ModelNotificationWithTemplateRequestV1 body) {

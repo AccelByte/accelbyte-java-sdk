@@ -49,7 +49,7 @@ public class CreateReward extends Operation {
    * @param seasonId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public CreateReward(String namespace, String seasonId, RewardCreate body) {
     this.namespace = namespace;

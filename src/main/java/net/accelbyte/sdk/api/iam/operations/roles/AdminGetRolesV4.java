@@ -44,7 +44,7 @@ public class AdminGetRolesV4 extends Operation {
 
   /** */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminGetRolesV4(Boolean adminRole, Boolean isWildcard, Integer limit, Integer offset) {
     this.adminRole = adminRole;

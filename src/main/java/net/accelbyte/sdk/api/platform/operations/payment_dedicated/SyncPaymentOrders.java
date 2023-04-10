@@ -48,7 +48,7 @@ public class SyncPaymentOrders extends Operation {
    * @param start required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public SyncPaymentOrders(String nextEvaluatedKey, String end, String start) {
     this.nextEvaluatedKey = nextEvaluatedKey;

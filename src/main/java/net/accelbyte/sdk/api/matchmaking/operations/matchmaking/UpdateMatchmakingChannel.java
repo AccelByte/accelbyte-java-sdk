@@ -51,7 +51,7 @@ public class UpdateMatchmakingChannel extends Operation {
    * @param body required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public UpdateMatchmakingChannel(
       String channelName, String namespace, ModelsUpdateChannelRequest body) {

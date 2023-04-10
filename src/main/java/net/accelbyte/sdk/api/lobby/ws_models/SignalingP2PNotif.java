@@ -24,7 +24,7 @@ public class SignalingP2PNotif {
   private SignalingP2PNotif() {}
 
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public SignalingP2PNotif(String destinationId, String message) {
     this.destinationId = destinationId;

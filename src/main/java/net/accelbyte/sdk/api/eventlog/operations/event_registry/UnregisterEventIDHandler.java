@@ -42,7 +42,7 @@ public class UnregisterEventIDHandler extends Operation {
    * @param eventId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public UnregisterEventIDHandler(String eventId) {
     this.eventId = eventId;

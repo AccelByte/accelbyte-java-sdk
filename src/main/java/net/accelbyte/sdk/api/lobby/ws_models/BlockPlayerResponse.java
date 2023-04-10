@@ -27,7 +27,7 @@ public class BlockPlayerResponse {
   private BlockPlayerResponse() {}
 
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public BlockPlayerResponse(String blockUserId, Integer code, String id, String namespace) {
     this.blockUserId = blockUserId;

@@ -47,7 +47,7 @@ public class AdminRequestDataRetrieval extends Operation {
    * @param userId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminRequestDataRetrieval(String namespace, String userId, String password) {
     this.namespace = namespace;

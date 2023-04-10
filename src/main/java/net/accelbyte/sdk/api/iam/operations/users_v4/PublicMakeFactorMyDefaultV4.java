@@ -44,7 +44,7 @@ public class PublicMakeFactorMyDefaultV4 extends Operation {
    * @param factor required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicMakeFactorMyDefaultV4(String namespace, String factor) {
     this.namespace = namespace;

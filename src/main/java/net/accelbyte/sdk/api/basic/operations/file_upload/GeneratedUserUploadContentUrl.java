@@ -50,7 +50,7 @@ public class GeneratedUserUploadContentUrl extends Operation {
    * @param fileType required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GeneratedUserUploadContentUrl(
       String namespace, String userId, String category, String fileType) {

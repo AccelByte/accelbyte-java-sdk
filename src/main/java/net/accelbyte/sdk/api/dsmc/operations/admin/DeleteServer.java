@@ -46,7 +46,7 @@ public class DeleteServer extends Operation {
    * @param podName required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public DeleteServer(String namespace, String podName) {
     this.namespace = namespace;

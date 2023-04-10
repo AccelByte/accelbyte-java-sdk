@@ -50,7 +50,7 @@ public class PublicDeletePaymentAccount extends Operation {
    * @param userId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicDeletePaymentAccount(String id, String namespace, String type, String userId) {
     this.id = id;

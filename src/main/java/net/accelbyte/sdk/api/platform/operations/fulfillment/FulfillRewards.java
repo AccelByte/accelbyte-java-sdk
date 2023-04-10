@@ -47,7 +47,7 @@ public class FulfillRewards extends Operation {
    * @param userId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public FulfillRewards(String namespace, String userId, RewardsRequest body) {
     this.namespace = namespace;

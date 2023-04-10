@@ -42,7 +42,7 @@ public class DeleteReason extends Operation {
    * @param reasonId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public DeleteReason(String namespace, String reasonId) {
     this.namespace = namespace;

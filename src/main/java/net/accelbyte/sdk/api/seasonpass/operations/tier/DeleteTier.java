@@ -48,7 +48,7 @@ public class DeleteTier extends Operation {
    * @param seasonId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public DeleteTier(String id, String namespace, String seasonId) {
     this.id = id;

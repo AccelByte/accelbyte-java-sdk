@@ -38,6 +38,7 @@
 | `/match2/v1/namespaces/{namespace}/match-pools/{pool}` | PUT | UpdateMatchPool | [UpdateMatchPool](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_pools/UpdateMatchPool.java) | [UpdateMatchPool](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_pools/UpdateMatchPool.java) |
 | `/match2/v1/namespaces/{namespace}/match-pools/{pool}` | DELETE | DeleteMatchPool | [DeleteMatchPool](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_pools/DeleteMatchPool.java) | [DeleteMatchPool](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_pools/DeleteMatchPool.java) |
 | `/match2/v1/namespaces/{namespace}/match-pools/{pool}/metrics` | GET | MatchPoolMetric | [MatchPoolMetric](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_pools/MatchPoolMetric.java) | [MatchPoolMetric](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_pools/MatchPoolMetric.java) |
+| `/match2/v1/namespaces/{namespace}/match-pools/{pool}/metrics/player` | GET | GetPlayerMetric | [GetPlayerMetric](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_pools/GetPlayerMetric.java) | [GetPlayerMetric](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_pools/GetPlayerMetric.java) |
 
 ### Match-Tickets Wrapper:  [MatchTickets](../../src/main/java/net/accelbyte/sdk/api/match2/wrappers/MatchTickets.java)
 | Endpoint | Method | ID | Class | Example |
@@ -82,6 +83,7 @@
 | `api.MatchTicketStatus` | [ApiMatchTicketStatus](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchTicketStatus.java) |
 | `api.Party` | [ApiParty](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiParty.java) |
 | `api.PlayerData` | [ApiPlayerData](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiPlayerData.java) |
+| `api.PlayerMetricRecord` | [ApiPlayerMetricRecord](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiPlayerMetricRecord.java) |
 | `api.ProposedProposal` | [ApiProposedProposal](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiProposedProposal.java) |
 | `api.RuleSetPayload` | [ApiRuleSetPayload](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiRuleSetPayload.java) |
 | `api.Team` | [ApiTeam](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiTeam.java) |

@@ -43,7 +43,7 @@ public class AdminDeleteRoleV4 extends Operation {
    * @param roleId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminDeleteRoleV4(String roleId) {
     this.roleId = roleId;

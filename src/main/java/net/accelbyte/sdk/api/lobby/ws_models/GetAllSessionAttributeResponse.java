@@ -29,7 +29,7 @@ public class GetAllSessionAttributeResponse {
   private GetAllSessionAttributeResponse() {}
 
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GetAllSessionAttributeResponse(Map<String, String> attributes, Integer code, String id) {
     this.attributes = attributes;

@@ -47,7 +47,7 @@ public class GetProfile extends Operation {
    * @param userId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GetProfile(String namespace, String profileId, String userId) {
     this.namespace = namespace;

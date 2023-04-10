@@ -26,7 +26,7 @@ public class BlockPlayerRequest {
   private BlockPlayerRequest() {}
 
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public BlockPlayerRequest(String blockUserId, String id, String namespace) {
     this.blockUserId = blockUserId;

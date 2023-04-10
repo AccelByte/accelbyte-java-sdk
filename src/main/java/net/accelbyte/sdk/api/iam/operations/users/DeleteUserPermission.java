@@ -57,7 +57,7 @@ public class DeleteUserPermission extends Operation {
    * @param userId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public DeleteUserPermission(Integer action, String namespace, String resource, String userId) {
     this.action = action;

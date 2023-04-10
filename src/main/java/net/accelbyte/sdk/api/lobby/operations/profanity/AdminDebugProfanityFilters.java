@@ -47,7 +47,7 @@ public class AdminDebugProfanityFilters extends Operation {
    * @param body required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminDebugProfanityFilters(String namespace, ModelsDebugProfanityFilterRequest body) {
     this.namespace = namespace;

@@ -44,7 +44,7 @@ public class RetrieveSSOLoginPlatformCredential extends Operation {
    * @param platformId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public RetrieveSSOLoginPlatformCredential(String namespace, String platformId) {
     this.namespace = namespace;

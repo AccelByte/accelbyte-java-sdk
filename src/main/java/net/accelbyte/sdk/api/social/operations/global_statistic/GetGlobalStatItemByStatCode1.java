@@ -44,7 +44,7 @@ public class GetGlobalStatItemByStatCode1 extends Operation {
    * @param statCode required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GetGlobalStatItemByStatCode1(String namespace, String statCode) {
     this.namespace = namespace;

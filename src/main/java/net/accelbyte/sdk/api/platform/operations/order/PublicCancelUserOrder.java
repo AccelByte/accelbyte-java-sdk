@@ -49,7 +49,7 @@ public class PublicCancelUserOrder extends Operation {
    * @param userId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicCancelUserOrder(String namespace, String orderNo, String userId) {
     this.namespace = namespace;

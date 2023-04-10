@@ -104,7 +104,7 @@ public class PublicForcePlatformLinkV3 extends Operation {
    * @param ticket required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicForcePlatformLinkV3(String namespace, String platformId, String ticket) {
     this.namespace = namespace;

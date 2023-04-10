@@ -55,7 +55,7 @@ public class PublicGetDescendantCategories extends Operation {
    * @param namespace required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicGetDescendantCategories(
       String categoryPath, String namespace, String language, String storeId) {

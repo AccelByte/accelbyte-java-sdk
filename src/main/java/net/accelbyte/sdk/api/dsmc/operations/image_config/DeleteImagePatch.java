@@ -50,7 +50,7 @@ public class DeleteImagePatch extends Operation {
    * @param versionPatch required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public DeleteImagePatch(String namespace, String imageURI, String version, String versionPatch) {
     this.namespace = namespace;

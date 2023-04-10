@@ -46,7 +46,7 @@ public class DeleteRuleSet extends Operation {
    * @param ruleset required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public DeleteRuleSet(String namespace, String ruleset) {
     this.namespace = namespace;

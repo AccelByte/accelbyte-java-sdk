@@ -53,7 +53,7 @@ public class GetUserEntitlementByItemId extends Operation {
    * @param itemId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GetUserEntitlementByItemId(
       String namespace, String userId, Boolean activeOnly, String entitlementClazz, String itemId) {

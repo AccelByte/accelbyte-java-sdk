@@ -50,7 +50,7 @@ public class ListGameRecordsHandlerV1 extends Operation {
    * @param offset required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public ListGameRecordsHandlerV1(String namespace, String query, Integer limit, Integer offset) {
     this.namespace = namespace;

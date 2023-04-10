@@ -28,7 +28,7 @@ public class PartyChatNotif {
   private PartyChatNotif() {}
 
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PartyChatNotif(String from, String id, String payload, Integer receivedAt, String to) {
     this.from = from;

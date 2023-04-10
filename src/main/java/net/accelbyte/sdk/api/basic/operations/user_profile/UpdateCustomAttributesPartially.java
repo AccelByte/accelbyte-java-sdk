@@ -50,7 +50,7 @@ public class UpdateCustomAttributesPartially extends Operation {
    * @param userId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public UpdateCustomAttributesPartially(String namespace, String userId, Map<String, ?> body) {
     this.namespace = namespace;

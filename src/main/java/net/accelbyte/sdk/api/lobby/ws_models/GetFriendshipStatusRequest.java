@@ -25,7 +25,7 @@ public class GetFriendshipStatusRequest {
   private GetFriendshipStatusRequest() {}
 
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GetFriendshipStatusRequest(String friendId, String id) {
     this.friendId = friendId;

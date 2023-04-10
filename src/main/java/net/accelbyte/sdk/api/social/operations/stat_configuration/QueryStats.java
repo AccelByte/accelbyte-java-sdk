@@ -47,7 +47,7 @@ public class QueryStats extends Operation {
    * @param keyword required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public QueryStats(
       String namespace, Boolean isGlobal, Integer limit, Integer offset, String keyword) {

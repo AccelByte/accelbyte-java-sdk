@@ -47,7 +47,7 @@ public class UpdateReward extends Operation {
    * @param rewardId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public UpdateReward(String namespace, String rewardId, RewardUpdate body) {
     this.namespace = namespace;

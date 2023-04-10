@@ -53,7 +53,7 @@ public class DeleteOverrideRegionOverride extends Operation {
    * @param version required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public DeleteOverrideRegionOverride(
       String deployment, String namespace, String region, String version) {

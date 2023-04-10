@@ -8,6 +8,10 @@
   "schemes": [
     "https"
   ],
+  "externalDocs": {
+    "description": "API Docs",
+    "url": "https://stage.accelbyte.io/game-telemetry"
+  },
   "securityDefinitions": {
     "APIKeyCookie": {
       "in": "header",
@@ -385,5 +389,18 @@
       "title": "ValidationError",
       "type": "object"
     }
+  },
+  "x-docs": {
+    "alias": "game-telemetry",
+    "host": "https://stage.accelbyte.io",
+    "path": "/game-telemetry/openapi.json"
+  },
+  "x-version": {
+    "buildDate": "2023-03-28T02:01:38+00:00",
+    "gitHash": "8866133d7137bcd7518c5e9cfb1ae584e53d6616",
+    "name": "analytics-game-telemetry",
+    "realm": "staging",
+    "rolesSeedingVersion": "0.0.3",
+    "version": "1.17.1"
   }
 }

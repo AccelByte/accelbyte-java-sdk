@@ -52,7 +52,7 @@ public class PublicGetItemBySku extends Operation {
    * @param sku required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicGetItemBySku(
       String namespace, String language, String region, String storeId, String sku) {

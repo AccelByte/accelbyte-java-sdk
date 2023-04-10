@@ -47,7 +47,7 @@ public class UpdatePayPalConfig extends Operation {
    * @param id required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public UpdatePayPalConfig(String id, Boolean sandbox, Boolean validate, PayPalConfig body) {
     this.id = id;

@@ -46,7 +46,7 @@ public class UpdateUserSlotConfig extends Operation {
    * @param userId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public UpdateUserSlotConfig(String namespace, String userId, SlotConfigUpdate body) {
     this.namespace = namespace;

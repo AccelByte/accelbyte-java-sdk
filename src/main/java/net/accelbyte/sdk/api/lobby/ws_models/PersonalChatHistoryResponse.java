@@ -27,7 +27,7 @@ public class PersonalChatHistoryResponse {
   private PersonalChatHistoryResponse() {}
 
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PersonalChatHistoryResponse(String chat, Integer code, String friendId, String id) {
     this.chat = chat;

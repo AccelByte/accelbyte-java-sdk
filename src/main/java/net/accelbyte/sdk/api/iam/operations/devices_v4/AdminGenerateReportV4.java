@@ -48,7 +48,7 @@ public class AdminGenerateReportV4 extends Operation {
    * @param deviceType required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminGenerateReportV4(
       String namespace, String endDate, String startDate, String deviceType) {

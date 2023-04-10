@@ -43,7 +43,7 @@ public class DeleteTicket extends Operation {
    * @param ticketId required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public DeleteTicket(String namespace, String ticketId) {
     this.namespace = namespace;

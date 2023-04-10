@@ -50,7 +50,7 @@ public class GetItemBySku extends Operation {
    * @param sku required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GetItemBySku(String namespace, Boolean activeOnly, String storeId, String sku) {
     this.namespace = namespace;

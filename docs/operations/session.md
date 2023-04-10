@@ -30,6 +30,7 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/session/v1/admin/namespaces/{namespace}/gamesessions` | GET | AdminQueryGameSessions | [AdminQueryGameSessions](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/AdminQueryGameSessions.java) | [AdminQueryGameSessions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/AdminQueryGameSessions.java) |
+| `/session/v1/admin/namespaces/{namespace}/gamesessions/bulk` | DELETE | AdminDeleteBulkGameSessions | [AdminDeleteBulkGameSessions](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/AdminDeleteBulkGameSessions.java) | [AdminDeleteBulkGameSessions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/AdminDeleteBulkGameSessions.java) |
 | `/session/v1/admin/namespaces/{namespace}/gamesessions/{sessionId}/members/{memberId}/status/{statusType}` | PUT | AdminUpdateGameSessionMember | [AdminUpdateGameSessionMember](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/AdminUpdateGameSessionMember.java) | [AdminUpdateGameSessionMember](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/AdminUpdateGameSessionMember.java) |
 | `/session/v1/public/namespaces/{namespace}/gamesession` | POST | CreateGameSession | [CreateGameSession](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/CreateGameSession.java) | [CreateGameSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/CreateGameSession.java) |
 | `/session/v1/public/namespaces/{namespace}/gamesessions` | POST | PublicQueryGameSessions | [PublicQueryGameSessions](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/PublicQueryGameSessions.java) | [PublicQueryGameSessions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/PublicQueryGameSessions.java) |
@@ -88,6 +89,8 @@
 | `apimodels.CreateGameSessionRequest` | [ApimodelsCreateGameSessionRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsCreateGameSessionRequest.java) |
 | `apimodels.CreatePartyRequest` | [ApimodelsCreatePartyRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsCreatePartyRequest.java) |
 | `apimodels.DSInformationResponse` | [ApimodelsDSInformationResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsDSInformationResponse.java) |
+| `apimodels.DeleteBulkGameSessionRequest` | [ApimodelsDeleteBulkGameSessionRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsDeleteBulkGameSessionRequest.java) |
+| `apimodels.DeleteBulkGameSessionsAPIResponse` | [ApimodelsDeleteBulkGameSessionsAPIResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsDeleteBulkGameSessionsAPIResponse.java) |
 | `apimodels.GameSessionQueryResponse` | [ApimodelsGameSessionQueryResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsGameSessionQueryResponse.java) |
 | `apimodels.GameSessionResponse` | [ApimodelsGameSessionResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsGameSessionResponse.java) |
 | `apimodels.JoinByCodeRequest` | [ApimodelsJoinByCodeRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsJoinByCodeRequest.java) |
@@ -100,6 +103,7 @@
 | `apimodels.PromoteLeaderRequest` | [ApimodelsPromoteLeaderRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPromoteLeaderRequest.java) |
 | `apimodels.PublicConfiguration` | [ApimodelsPublicConfiguration](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPublicConfiguration.java) |
 | `apimodels.RequestMember` | [ApimodelsRequestMember](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsRequestMember.java) |
+| `apimodels.ResponseDeleteBulkGameSessions` | [ApimodelsResponseDeleteBulkGameSessions](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsResponseDeleteBulkGameSessions.java) |
 | `apimodels.SessionInviteRequest` | [ApimodelsSessionInviteRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsSessionInviteRequest.java) |
 | `apimodels.UpdateConfigurationTemplateRequest` | [ApimodelsUpdateConfigurationTemplateRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsUpdateConfigurationTemplateRequest.java) |
 | `apimodels.UpdateGameSessionBackfillRequest` | [ApimodelsUpdateGameSessionBackfillRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsUpdateGameSessionBackfillRequest.java) |

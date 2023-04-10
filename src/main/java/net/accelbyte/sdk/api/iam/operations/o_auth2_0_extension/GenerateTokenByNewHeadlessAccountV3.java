@@ -44,7 +44,7 @@ public class GenerateTokenByNewHeadlessAccountV3 extends Operation {
    * @param linkingToken required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GenerateTokenByNewHeadlessAccountV3(Boolean extendExp, String linkingToken) {
     this.extendExp = extendExp;

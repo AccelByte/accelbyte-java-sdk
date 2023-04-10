@@ -48,7 +48,7 @@ public class PublicGeneratedUploadUrl extends Operation {
    * @param fileType required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicGeneratedUploadUrl(String folder, String namespace, String fileType) {
     this.folder = folder;

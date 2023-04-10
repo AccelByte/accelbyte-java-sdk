@@ -45,7 +45,7 @@ public class UpdateReason extends Operation {
    * @param body required
    */
   @Builder
-  // deprecated(2022-08-29): All args constructor may cause problems. Use builder instead.
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public UpdateReason(String namespace, String reasonId, RestapiCreateReasonRequest body) {
     this.namespace = namespace;
