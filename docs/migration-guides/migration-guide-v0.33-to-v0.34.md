@@ -5,11 +5,7 @@
 
 Following changes in OpenAPI spec:
 
-1. Legal
-
-  - Method `net.accelbyte.sdk.api.legal.wrappers.Agreement.retrieveAllUsersByPolicyVersion` change return values from.`List<PagedRetrieveUserAcceptedAgreementResponse>` to `PagedRetrieveUserAcceptedAgreementResponse`
-
-2. UGC
+1. UGC
 
   - Class `net.accelbyte.sdk.api.ugc.operations.public_channel.UpdateChannel.UpdateChannel` change builder body param from `ModelsChannelRequest` to `ModelsUpdateChannelRequest`
   - Class `net.accelbyte.sdk.api.ugc.operations.public_channel.CreateChannel` changed `net.accelbyte.sdk.api.ugc.operations.public_channel.PublicCreateChannel`
@@ -22,7 +18,7 @@ Following changes in OpenAPI spec:
   - Class `net.accelbyte.sdk.api.ugc.operations.public_content.UpdateContentS3` change builder body param from `ModelsContentRequest` to `ModelsUpdateContentRequest`
 
 
-3. Platform
+2. Platform
 
    - Class changed from `net.accelbyte.sdk.api.platform.operations.revocation.GetPaymentCallbackConfig1`  to `net.accelbyte.sdk.api.platform.operations.revocation.GetRevocationConfig`
    - Method `net.accelbyte.sdk.api.platform.wrappers.CatalogChanges.queryChanges` return valeu changed from `List<CatalogChangePagingSlicedResult> ` to `CatalogChangePagingSlicedResult`

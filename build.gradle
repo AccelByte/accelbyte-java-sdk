@@ -65,7 +65,7 @@ publishing {
         mavenJava(MavenPublication){
             //groupId = 'net.accelbyte.sdk'
             artifactId = 'sdk'
-            //version = '0.36.0'
+            //version = '0.34.0'
             from components.java
             
             afterEvaluate {
