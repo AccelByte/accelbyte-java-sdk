@@ -1,3 +1,16 @@
+<a name="v0.34.0"></a>
+## [v0.33.0] - 2023-04-11
+### Chore
+adjust sdk version because early cherry-pick
+generate java extend sdk (230410.0052)
+generate java extend sdk (230328.2153)
+
+### Docs
+**migration-guide**: v0.33.0 to v0.34.0 breaking change in legal,ugc,platform
+
+### CI
+rename jenkins slack notif channel
+
 <a name="v0.33.0"></a>
 ## [v0.33.0] - 2023-03-28
 ### Chore
