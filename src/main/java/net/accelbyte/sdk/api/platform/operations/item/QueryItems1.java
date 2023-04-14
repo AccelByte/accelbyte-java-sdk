@@ -54,6 +54,7 @@ public class QueryItems1 extends Operation {
   private Integer limit;
   private Integer offset;
   private String region;
+  private Boolean sectionExclusive;
   private List<String> sortBy;
   private String storeId;
   private String tags;
@@ -79,6 +80,7 @@ public class QueryItems1 extends Operation {
       Integer limit,
       Integer offset,
       String region,
+      Boolean sectionExclusive,
       List<String> sortBy,
       String storeId,
       String tags,
@@ -96,6 +98,7 @@ public class QueryItems1 extends Operation {
     this.limit = limit;
     this.offset = offset;
     this.region = region;
+    this.sectionExclusive = sectionExclusive;
     this.sortBy = sortBy;
     this.storeId = storeId;
     this.tags = tags;
@@ -135,6 +138,11 @@ public class QueryItems1 extends Operation {
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
+    queryParams.put(
+        "sectionExclusive",
+        this.sectionExclusive == null
+            ? null
+            : Arrays.asList(String.valueOf(this.sectionExclusive)));
     queryParams.put("sortBy", this.sortBy == null ? null : this.sortBy);
     queryParams.put("storeId", this.storeId == null ? null : Arrays.asList(this.storeId));
     queryParams.put("tags", this.tags == null ? null : Arrays.asList(this.tags));
@@ -177,6 +185,7 @@ public class QueryItems1 extends Operation {
     result.put("limit", "None");
     result.put("offset", "None");
     result.put("region", "None");
+    result.put("sectionExclusive", "None");
     result.put("sortBy", "csv");
     result.put("storeId", "None");
     result.put("tags", "None");

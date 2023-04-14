@@ -72,7 +72,7 @@ public class GetUserDLC implements Callable<Integer> {
               .userId(userId)
               .type(type)
               .build();
-      final UserDLC response = wrapper.getUserDLC(operation);
+      final List<UserDLCRecord> response = wrapper.getUserDLC(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

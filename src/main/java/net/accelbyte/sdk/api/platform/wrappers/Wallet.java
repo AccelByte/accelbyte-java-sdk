@@ -179,6 +179,24 @@ public class Wallet {
   }
 
   /**
+   * @see BulkCredit
+   */
+  public BulkCreditResult bulkCredit(BulkCredit input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see BulkDebit
+   */
+  public BulkDebitResult bulkDebit(BulkDebit input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetWallet
    * @deprecated
    */

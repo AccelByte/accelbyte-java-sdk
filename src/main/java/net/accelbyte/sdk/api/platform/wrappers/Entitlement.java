@@ -32,6 +32,34 @@ public class Entitlement {
   }
 
   /**
+   * @see QueryEntitlements1
+   */
+  public EntitlementPagingSlicedResult queryEntitlements1(QueryEntitlements1 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GrantEntitlements
+   */
+  public BulkEntitlementGrantResult grantEntitlements(GrantEntitlements input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see RevokeEntitlements
+   */
+  public BulkEntitlementRevokeResult revokeEntitlements(RevokeEntitlements input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetEntitlement
    */
   public EntitlementInfo getEntitlement(GetEntitlement input) throws Exception {

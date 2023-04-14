@@ -6,20 +6,7 @@
 
 package net.accelbyte.sdk.integration;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import net.accelbyte.sdk.api.platform.models.CategoryCreate;
-import net.accelbyte.sdk.api.platform.models.FullItemInfo;
-import net.accelbyte.sdk.api.platform.models.ItemCreate;
-import net.accelbyte.sdk.api.platform.models.RegionDataItem;
-import net.accelbyte.sdk.api.platform.models.StoreCreate;
-import net.accelbyte.sdk.api.platform.models.StoreInfo;
+import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.category.CreateCategory;
 import net.accelbyte.sdk.api.platform.operations.item.CreateItem;
 import net.accelbyte.sdk.api.platform.operations.store.CreateStore;
@@ -36,14 +23,17 @@ import net.accelbyte.sdk.api.seasonpass.operations.season.DeleteSeason;
 import net.accelbyte.sdk.api.seasonpass.operations.season.GetSeason;
 import net.accelbyte.sdk.api.seasonpass.operations.season.UpdateSeason;
 import net.accelbyte.sdk.api.seasonpass.wrappers.Season;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @Tag("test-integration")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -118,15 +108,15 @@ class TestIntegrationServiceSeasonPass extends TestIntegration {
         new HashMap<>();
     mapLocalizations.put("en-US", usLocalName);
 
-    final RegionDataItem regionDataItem =
-        RegionDataItem.builder()
+    final RegionDataItemDTO regionDataItem =
+        RegionDataItemDTO.builder()
             .currencyCode("USD")
             .currencyNamespace(this.namespace)
-            .currencyTypeFromEnum(RegionDataItem.CurrencyType.REAL)
+            .currencyTypeFromEnum(RegionDataItemDTO.CurrencyType.REAL)
             .price(10)
             .build();
-    final Map<String, List<RegionDataItem>> mapRegions = new HashMap<>();
-    final List<RegionDataItem> regionsList = new ArrayList<>();
+    final Map<String, List<RegionDataItemDTO>> mapRegions = new HashMap<>();
+    final List<RegionDataItemDTO> regionsList = new ArrayList<>();
     regionsList.add(regionDataItem);
     mapRegions.put("US", regionsList);
 

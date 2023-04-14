@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.platform.operations.dlc;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
@@ -21,18 +19,18 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * getUserDLC
+ * getUserDLCByPlatform
  *
- * <p>Get user dlc records. Other detail info:
+ * <p>Get user dlc by platform. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2
  * (READ) * Returns : user dlc
  */
 @Getter
 @Setter
-public class GetUserDLC extends Operation {
+public class GetUserDLCByPlatform extends Operation {
   /** generated field's value */
-  private String path = "/platform/admin/namespaces/{namespace}/users/{userId}/dlc/records";
+  private String path = "/platform/admin/namespaces/{namespace}/users/{userId}/dlc";
 
   private String method = "GET";
   private List<String> consumes = Arrays.asList();
@@ -47,11 +45,12 @@ public class GetUserDLC extends Operation {
   /**
    * @param namespace required
    * @param userId required
+   * @param type required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetUserDLC(String namespace, String userId, String type) {
+  public GetUserDLCByPlatform(String namespace, String userId, String type) {
     this.namespace = namespace;
     this.userId = userId;
     this.type = type;
@@ -86,17 +85,20 @@ public class GetUserDLC extends Operation {
     if (this.userId == null) {
       return false;
     }
+    if (this.type == null) {
+      return false;
+    }
     return true;
   }
 
-  public List<UserDLCRecord> parseResponse(int code, String contentType, InputStream payload)
+  public UserDLC parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ObjectMapper().readValue(json, new TypeReference<List<UserDLCRecord>>() {});
+    return new UserDLC().createFromJson(json);
   }
 
   @Override
@@ -124,15 +126,15 @@ public class GetUserDLC extends Operation {
     }
   }
 
-  public static class GetUserDLCBuilder {
+  public static class GetUserDLCByPlatformBuilder {
     private String type;
 
-    public GetUserDLCBuilder type(final String type) {
+    public GetUserDLCByPlatformBuilder type(final String type) {
       this.type = type;
       return this;
     }
 
-    public GetUserDLCBuilder typeFromEnum(final Type type) {
+    public GetUserDLCByPlatformBuilder typeFromEnum(final Type type) {
       this.type = type.toString();
       return this;
     }

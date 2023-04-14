@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.platform.wrappers;
 
+import java.util.*;
 import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.dlc.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -77,9 +78,18 @@ public class DLC {
   }
 
   /**
+   * @see GetUserDLCByPlatform
+   */
+  public UserDLC getUserDLCByPlatform(GetUserDLCByPlatform input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetUserDLC
    */
-  public UserDLC getUserDLC(GetUserDLC input) throws Exception {
+  public List<UserDLCRecord> getUserDLC(GetUserDLC input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

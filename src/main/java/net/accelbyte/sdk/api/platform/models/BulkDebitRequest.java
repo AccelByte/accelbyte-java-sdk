@@ -23,50 +23,27 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class OrderCreate extends Model {
+public class BulkDebitRequest extends Model {
 
   @JsonProperty("currencyCode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String currencyCode;
 
-  @JsonProperty("discountedPrice")
-  private Integer discountedPrice;
-
-  @JsonProperty("ext")
+  @JsonProperty("request")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Map<String, ?> ext;
+  private DebitByCurrencyCodeRequest request;
 
-  @JsonProperty("itemId")
-  private String itemId;
-
-  @JsonProperty("language")
+  @JsonProperty("userIds")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String language;
-
-  @JsonProperty("price")
-  private Integer price;
-
-  @JsonProperty("quantity")
-  private Integer quantity;
-
-  @JsonProperty("region")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String region;
-
-  @JsonProperty("returnUrl")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String returnUrl;
-
-  @JsonProperty("sectionId")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String sectionId;
+  private List<String> userIds;
 
   @JsonIgnore
-  public OrderCreate createFromJson(String json) throws JsonProcessingException {
+  public BulkDebitRequest createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<OrderCreate> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<OrderCreate>>() {});
+  public List<BulkDebitRequest> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<BulkDebitRequest>>() {});
   }
 }

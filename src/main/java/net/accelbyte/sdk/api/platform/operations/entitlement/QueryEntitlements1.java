@@ -6,10 +6,8 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.platform.operations.dlc;
+package net.accelbyte.sdk.api.platform.operations.entitlement;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
@@ -21,18 +19,20 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * getUserDLC
+ * queryEntitlements_1
  *
- * <p>Get user dlc records. Other detail info:
+ * <p>Query entitlements by Item Ids.
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2
- * (READ) * Returns : user dlc
+ * <p>Other detail info:
+ *
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ENTITLEMENT", action=2 (READ) *
+ * Returns : entitlement list
  */
 @Getter
 @Setter
-public class GetUserDLC extends Operation {
+public class QueryEntitlements1 extends Operation {
   /** generated field's value */
-  private String path = "/platform/admin/namespaces/{namespace}/users/{userId}/dlc/records";
+  private String path = "/platform/admin/namespaces/{namespace}/entitlements/byItemIds";
 
   private String method = "GET";
   private List<String> consumes = Arrays.asList();
@@ -41,20 +41,24 @@ public class GetUserDLC extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private String userId;
-  private String type;
+  private Boolean activeOnly;
+  private List<String> itemIds;
+  private Integer limit;
+  private Integer offset;
 
   /**
    * @param namespace required
-   * @param userId required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetUserDLC(String namespace, String userId, String type) {
+  public QueryEntitlements1(
+      String namespace, Boolean activeOnly, List<String> itemIds, Integer limit, Integer offset) {
     this.namespace = namespace;
-    this.userId = userId;
-    this.type = type;
+    this.activeOnly = activeOnly;
+    this.itemIds = itemIds;
+    this.limit = limit;
+    this.offset = offset;
 
     securities.add("Bearer");
   }
@@ -65,16 +69,19 @@ public class GetUserDLC extends Operation {
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
     }
-    if (this.userId != null) {
-      pathParams.put("userId", this.userId);
-    }
     return pathParams;
   }
 
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
-    queryParams.put("type", this.type == null ? null : Arrays.asList(this.type));
+    queryParams.put(
+        "activeOnly",
+        this.activeOnly == null ? null : Arrays.asList(String.valueOf(this.activeOnly)));
+    queryParams.put("itemIds", this.itemIds == null ? null : this.itemIds);
+    queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+    queryParams.put(
+        "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     return queryParams;
   }
 
@@ -83,58 +90,26 @@ public class GetUserDLC extends Operation {
     if (this.namespace == null) {
       return false;
     }
-    if (this.userId == null) {
-      return false;
-    }
     return true;
   }
 
-  public List<UserDLCRecord> parseResponse(int code, String contentType, InputStream payload)
-      throws HttpResponseException, IOException {
+  public EntitlementPagingSlicedResult parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ObjectMapper().readValue(json, new TypeReference<List<UserDLCRecord>>() {});
+    return new EntitlementPagingSlicedResult().createFromJson(json);
   }
 
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
-    result.put("type", "None");
+    result.put("activeOnly", "None");
+    result.put("itemIds", "multi");
+    result.put("limit", "None");
+    result.put("offset", "None");
     return result;
-  }
-
-  public enum Type {
-    EPICGAMES("EPICGAMES"),
-    PSN("PSN"),
-    STEAM("STEAM"),
-    XBOX("XBOX");
-
-    private String value;
-
-    Type(String value) {
-      this.value = value;
-    }
-
-    @Override
-    public String toString() {
-      return this.value;
-    }
-  }
-
-  public static class GetUserDLCBuilder {
-    private String type;
-
-    public GetUserDLCBuilder type(final String type) {
-      this.type = type;
-      return this;
-    }
-
-    public GetUserDLCBuilder typeFromEnum(final Type type) {
-      this.type = type.toString();
-      return this;
-    }
   }
 }

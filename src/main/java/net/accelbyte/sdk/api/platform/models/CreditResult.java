@@ -23,50 +23,31 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class OrderCreate extends Model {
+public class CreditResult extends Model {
+
+  @JsonProperty("creditRequest")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private CreditRequest creditRequest;
 
   @JsonProperty("currencyCode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String currencyCode;
 
-  @JsonProperty("discountedPrice")
-  private Integer discountedPrice;
-
-  @JsonProperty("ext")
+  @JsonProperty("reason")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Map<String, ?> ext;
+  private String reason;
 
-  @JsonProperty("itemId")
-  private String itemId;
-
-  @JsonProperty("language")
+  @JsonProperty("userId")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String language;
-
-  @JsonProperty("price")
-  private Integer price;
-
-  @JsonProperty("quantity")
-  private Integer quantity;
-
-  @JsonProperty("region")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String region;
-
-  @JsonProperty("returnUrl")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String returnUrl;
-
-  @JsonProperty("sectionId")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String sectionId;
+  private String userId;
 
   @JsonIgnore
-  public OrderCreate createFromJson(String json) throws JsonProcessingException {
+  public CreditResult createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<OrderCreate> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<OrderCreate>>() {});
+  public List<CreditResult> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<CreditResult>>() {});
   }
 }

@@ -1,5 +1,5 @@
 <a name="v0.34.0"></a>
-## [v0.33.0] - 2023-04-11
+## [v0.34.0] - 2023-04-11
 ### Chore
 adjust sdk version because early cherry-pick
 generate java extend sdk (230410.0052)

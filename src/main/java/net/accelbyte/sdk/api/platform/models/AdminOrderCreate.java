@@ -71,6 +71,10 @@ public class AdminOrderCreate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean sandbox;
 
+  @JsonProperty("sectionId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String sectionId;
+
   @JsonIgnore
   public String getPlatform() {
     return this.platform;

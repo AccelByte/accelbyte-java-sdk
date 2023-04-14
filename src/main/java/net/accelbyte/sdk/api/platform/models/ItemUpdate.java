@@ -117,7 +117,7 @@ public class ItemUpdate extends Model {
 
   @JsonProperty("regionData")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Map<String, List<RegionDataItem>> regionData;
+  private Map<String, List<RegionDataItemDTO>> regionData;
 
   @JsonProperty("saleConfig")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -126,6 +126,10 @@ public class ItemUpdate extends Model {
   @JsonProperty("seasonType")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String seasonType;
+
+  @JsonProperty("sectionExclusive")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean sectionExclusive;
 
   @JsonProperty("sellable")
   @JsonInclude(JsonInclude.Include.NON_NULL)
