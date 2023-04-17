@@ -78,3 +78,28 @@ version:
 			sed -i "s/version = '[0-9]\+\.[0-9]\+\.[0-9]\+'/version = '$$VERSION_NEW'/" build.gradle &&		# Bump build.gradle \
 			sed -i "s/private String sdkVersion = \"[0-9]\+\.[0-9]\+\.[0-9]\+\";\+/private String sdkVersion = \"$$VERSION_NEW\";/" src/main/java/net/accelbyte/sdk/core/SDKInfo.java &&		# Bump SDK \
 			sed -i "s/implementation 'net.accelbyte.sdk:sdk:[0-9]\+\.[0-9]\+\.[0-9]\+'\+/implementation 'net.accelbyte.sdk:sdk:$$VERSION_OLD'/" samples/getting-started/app/build.gradle		# Bump getting-started sample app
+
+outstanding_deprecation:
+	find * -type f -iname '*.java' \
+		| xargs awk ' \
+				BEGIN { \
+					count_ok = 0; \
+					count_not_ok = 0; \
+					"date +%s -d \"6 months ago\"" | getline limit_epoch; \
+				} \
+				match($$0,/@deprecated +([0-9]{4}-[0-9]{1,2}-[0-9]{1,2})/,since_date) { \
+					"date +%s -d " since_date[1] | getline since_epoch; \
+					if (limit_epoch < since_epoch) { \
+						count_ok += 1; \
+						print "ok - " FILENAME ":" $$0; \
+					} \
+					else { \
+						count_not_ok += 1; \
+						print "not ok - " FILENAME ":" $$0; \
+					} \
+				} \
+				END { \
+					exit (count_not_ok ? 1 : 0); \
+				}' \
+		| tee outstanding_deprecation.out
+	@echo 1..$$(grep -c '^\(not \)\?ok' outstanding_deprecation.out) 
