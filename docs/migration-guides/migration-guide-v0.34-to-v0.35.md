@@ -8,7 +8,7 @@ Following changes in OpenAPI spec:
 1. Lobby
    - Class `net.accelbyte.sdk.api.lobby.operations.chat.PersonalChatHistory` removed
    - Class `net.accelbyte.sdk.api.lobby.operations.chat.GetPersonalChatHistoryV1Public` removed
-   - Class `net.accelbyte.sdk.api.lobby.operations.chat.PersonalChatHistory` removed
+   - Class `net.accelbyte.sdk.api.lobby.operations.chat.AdminChatHistory` removed
 
 2. Platform
 

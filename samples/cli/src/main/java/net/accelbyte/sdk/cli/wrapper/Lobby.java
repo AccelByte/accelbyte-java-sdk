@@ -9,7 +9,6 @@
 package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.lobby.admin.*;
-import net.accelbyte.sdk.cli.api.lobby.chat.*;
 import net.accelbyte.sdk.cli.api.lobby.config.*;
 import net.accelbyte.sdk.cli.api.lobby.friends.*;
 import net.accelbyte.sdk.cli.api.lobby.lobby_operations.*;
@@ -37,8 +36,6 @@ import picocli.CommandLine.Command;
       UserGetFriendshipStatus.class,
       UserUnfriendRequest.class,
       AddFriendsWithoutConfirmation.class,
-      PersonalChatHistory.class,
-      AdminChatHistory.class,
       AdminGetAllConfigV1.class,
       AdminGetConfigV1.class,
       AdminUpdateConfigV1.class,
@@ -94,7 +91,6 @@ import picocli.CommandLine.Command;
       AdminCreateThirdPartyConfig.class,
       AdminDeleteThirdPartyConfig.class,
       PublicGetMessages.class,
-      GetPersonalChatHistoryV1Public.class,
       PublicGetPartyDataV1.class,
       PublicUpdatePartyAttributesV1.class,
       PublicSetPartyLimitV1.class,

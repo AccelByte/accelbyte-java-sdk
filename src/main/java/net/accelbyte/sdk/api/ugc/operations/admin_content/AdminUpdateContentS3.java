@@ -21,12 +21,22 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateContentS3
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE]. All request
- * body are required except payload, preview, tags, contentType, updateContentFile and
- * customAttributes. contentType values is used to enforce the Content-Type header needed by the
- * client to upload the content using the S3 presigned URL. If not specified, it will use
- * fileExtension value. To update content's file, set `updateContentFile` to `true` and upload the
- * file using URL in `payloadURL.url` in response body.
+ * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE].
+ *
+ * <p>All request body are required except `payload`, `preview`, `tags`,`contentType`,
+ * `updateContentFile`, `customAttributes` and `shareCode`.
+ *
+ * <p>`contentType` values is used to enforce the Content-Type header needed by the client to upload
+ * the content using the S3 presigned URL.
+ *
+ * <p>If not specified, it will use `fileExtension` value.
+ *
+ * <p>To update content file, set `updateContentFile` to `true` and upload the file using URL in
+ * `payloadURL.url` in response body.
+ *
+ * <p>`shareCode` format should follows:
+ *
+ * <p>Max length: 7 Available characters: abcdefhkpqrstuxyz
  *
  * <p>NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of
  * a content
@@ -48,7 +58,7 @@ public class AdminUpdateContentS3 extends Operation {
   private String contentId;
   private String namespace;
   private String userId;
-  private ModelsUpdateContentRequest body;
+  private ModelsAdminUpdateContentRequest body;
 
   /**
    * @param channelId required
@@ -65,7 +75,7 @@ public class AdminUpdateContentS3 extends Operation {
       String contentId,
       String namespace,
       String userId,
-      ModelsUpdateContentRequest body) {
+      ModelsAdminUpdateContentRequest body) {
     this.channelId = channelId;
     this.contentId = contentId;
     this.namespace = namespace;
@@ -94,7 +104,7 @@ public class AdminUpdateContentS3 extends Operation {
   }
 
   @Override
-  public ModelsUpdateContentRequest getBodyParams() {
+  public ModelsAdminUpdateContentRequest getBodyParams() {
     return this.body;
   }
 
