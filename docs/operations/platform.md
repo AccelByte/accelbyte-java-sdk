@@ -126,7 +126,8 @@
 | `/platform/admin/namespaces/{namespace}/dlc/config/platformMap` | GET | GetPlatformDLCConfig | [GetPlatformDLCConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/GetPlatformDLCConfig.java) | [GetPlatformDLCConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/GetPlatformDLCConfig.java) |
 | `/platform/admin/namespaces/{namespace}/dlc/config/platformMap` | PUT | UpdatePlatformDLCConfig | [UpdatePlatformDLCConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/UpdatePlatformDLCConfig.java) | [UpdatePlatformDLCConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/UpdatePlatformDLCConfig.java) |
 | `/platform/admin/namespaces/{namespace}/dlc/config/platformMap` | DELETE | DeletePlatformDLCConfig | [DeletePlatformDLCConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/DeletePlatformDLCConfig.java) | [DeletePlatformDLCConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/DeletePlatformDLCConfig.java) |
-| `/platform/admin/namespaces/{namespace}/users/{userId}/dlc` | GET | GetUserDLC | [GetUserDLC](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/GetUserDLC.java) | [GetUserDLC](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/GetUserDLC.java) |
+| `/platform/admin/namespaces/{namespace}/users/{userId}/dlc` | GET | GetUserDLCByPlatform | [GetUserDLCByPlatform](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/GetUserDLCByPlatform.java) | [GetUserDLCByPlatform](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/GetUserDLCByPlatform.java) |
+| `/platform/admin/namespaces/{namespace}/users/{userId}/dlc/records` | GET | GetUserDLC | [GetUserDLC](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/GetUserDLC.java) | [GetUserDLC](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/GetUserDLC.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/dlc/epicgames/sync` | PUT | SyncEpicGameDLC | [SyncEpicGameDLC](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/SyncEpicGameDLC.java) | [SyncEpicGameDLC](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/SyncEpicGameDLC.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/dlc/psn/sync` | PUT | PublicSyncPsnDlcInventory | [PublicSyncPsnDlcInventory](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/PublicSyncPsnDlcInventory.java) | [PublicSyncPsnDlcInventory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/PublicSyncPsnDlcInventory.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/dlc/psn/sync/multiServiceLabels` | PUT | PublicSyncPsnDlcInventoryWithMultipleServiceLabels | [PublicSyncPsnDlcInventoryWithMultipleServiceLabels](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/PublicSyncPsnDlcInventoryWithMultipleServiceLabels.java) | [PublicSyncPsnDlcInventoryWithMultipleServiceLabels](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/PublicSyncPsnDlcInventoryWithMultipleServiceLabels.java) |
@@ -137,6 +138,9 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/platform/admin/namespaces/{namespace}/entitlements` | GET | QueryEntitlements | [QueryEntitlements](../../src/main/java/net/accelbyte/sdk/api/platform/operations/entitlement/QueryEntitlements.java) | [QueryEntitlements](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/entitlement/QueryEntitlements.java) |
+| `/platform/admin/namespaces/{namespace}/entitlements/byItemIds` | GET | QueryEntitlements1 | [QueryEntitlements1](../../src/main/java/net/accelbyte/sdk/api/platform/operations/entitlement/QueryEntitlements1.java) | [QueryEntitlements1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/entitlement/QueryEntitlements1.java) |
+| `/platform/admin/namespaces/{namespace}/entitlements/grant` | POST | GrantEntitlements | [GrantEntitlements](../../src/main/java/net/accelbyte/sdk/api/platform/operations/entitlement/GrantEntitlements.java) | [GrantEntitlements](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/entitlement/GrantEntitlements.java) |
+| `/platform/admin/namespaces/{namespace}/entitlements/revoke` | POST | RevokeEntitlements | [RevokeEntitlements](../../src/main/java/net/accelbyte/sdk/api/platform/operations/entitlement/RevokeEntitlements.java) | [RevokeEntitlements](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/entitlement/RevokeEntitlements.java) |
 | `/platform/admin/namespaces/{namespace}/entitlements/{entitlementId}` | GET | GetEntitlement | [GetEntitlement](../../src/main/java/net/accelbyte/sdk/api/platform/operations/entitlement/GetEntitlement.java) | [GetEntitlement](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/entitlement/GetEntitlement.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/entitlements` | GET | QueryUserEntitlements | [QueryUserEntitlements](../../src/main/java/net/accelbyte/sdk/api/platform/operations/entitlement/QueryUserEntitlements.java) | [QueryUserEntitlements](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/entitlement/QueryUserEntitlements.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/entitlements` | POST | GrantUserEntitlement | [GrantUserEntitlement](../../src/main/java/net/accelbyte/sdk/api/platform/operations/entitlement/GrantUserEntitlement.java) | [GrantUserEntitlement](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/entitlement/GrantUserEntitlement.java) |
@@ -320,6 +324,8 @@
 | [DEPRECATED] `/platform/admin/namespaces/{namespace}/users/{userId}/wallets/{walletId}/enable` | PUT | EnableUserWallet | [EnableUserWallet](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/EnableUserWallet.java) | [EnableUserWallet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/EnableUserWallet.java) |
 | [DEPRECATED] `/platform/admin/namespaces/{namespace}/users/{userId}/wallets/{walletId}/transactions` | GET | ListUserWalletTransactions | [ListUserWalletTransactions](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/ListUserWalletTransactions.java) | [ListUserWalletTransactions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/ListUserWalletTransactions.java) |
 | [DEPRECATED] `/platform/admin/namespaces/{namespace}/wallets` | GET | QueryWallets | [QueryWallets](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/QueryWallets.java) | [QueryWallets](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/QueryWallets.java) |
+| `/platform/admin/namespaces/{namespace}/wallets/credit` | POST | BulkCredit | [BulkCredit](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/BulkCredit.java) | [BulkCredit](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/BulkCredit.java) |
+| `/platform/admin/namespaces/{namespace}/wallets/debit` | POST | BulkDebit | [BulkDebit](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/BulkDebit.java) | [BulkDebit](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/BulkDebit.java) |
 | [DEPRECATED] `/platform/admin/namespaces/{namespace}/wallets/{walletId}` | GET | GetWallet | [GetWallet](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/GetWallet.java) | [GetWallet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/GetWallet.java) |
 | `/platform/public/namespaces/{namespace}/users/me/wallets/{currencyCode}` | GET | PublicGetMyWallet | [PublicGetMyWallet](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/PublicGetMyWallet.java) | [PublicGetMyWallet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/PublicGetMyWallet.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/wallets/{currencyCode}` | GET | PublicGetWallet | [PublicGetWallet](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/PublicGetWallet.java) | [PublicGetWallet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/PublicGetWallet.java) |
@@ -546,6 +552,13 @@
 | `BillingHistoryInfo` | [BillingHistoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/BillingHistoryInfo.java) |
 | `BillingHistoryPagingSlicedResult` | [BillingHistoryPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/BillingHistoryPagingSlicedResult.java) |
 | `BoxItem` | [BoxItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/BoxItem.java) |
+| `BulkCreditRequest` | [BulkCreditRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/BulkCreditRequest.java) |
+| `BulkCreditResult` | [BulkCreditResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/BulkCreditResult.java) |
+| `BulkDebitRequest` | [BulkDebitRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/BulkDebitRequest.java) |
+| `BulkDebitResult` | [BulkDebitResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/BulkDebitResult.java) |
+| `BulkEntitlementGrantRequest` | [BulkEntitlementGrantRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/BulkEntitlementGrantRequest.java) |
+| `BulkEntitlementGrantResult` | [BulkEntitlementGrantResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/BulkEntitlementGrantResult.java) |
+| `BulkEntitlementRevokeResult` | [BulkEntitlementRevokeResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/BulkEntitlementRevokeResult.java) |
 | `BulkOperationResult` | [BulkOperationResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/BulkOperationResult.java) |
 | `BulkRegionDataChangeRequest` | [BulkRegionDataChangeRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/BulkRegionDataChangeRequest.java) |
 | `BundledItemInfo` | [BundledItemInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/BundledItemInfo.java) |
@@ -573,6 +586,7 @@
 | `ConsumableEntitlementRevocationConfig` | [ConsumableEntitlementRevocationConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/ConsumableEntitlementRevocationConfig.java) |
 | `ConsumeItem` | [ConsumeItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/ConsumeItem.java) |
 | `CreditRequest` | [CreditRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/CreditRequest.java) |
+| `CreditResult` | [CreditResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/CreditResult.java) |
 | `CreditRevocation` | [CreditRevocation](../../src/main/java/net/accelbyte/sdk/api/platform/models/CreditRevocation.java) |
 | `CreditSummary` | [CreditSummary](../../src/main/java/net/accelbyte/sdk/api/platform/models/CreditSummary.java) |
 | `CurrencyConfig` | [CurrencyConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/CurrencyConfig.java) |
@@ -588,6 +602,7 @@
 | `DLCRecord` | [DLCRecord](../../src/main/java/net/accelbyte/sdk/api/platform/models/DLCRecord.java) |
 | `DebitByCurrencyCodeRequest` | [DebitByCurrencyCodeRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/DebitByCurrencyCodeRequest.java) |
 | `DebitRequest` | [DebitRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/DebitRequest.java) |
+| `DebitResult` | [DebitResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/DebitResult.java) |
 | `DeleteRewardConditionRequest` | [DeleteRewardConditionRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/DeleteRewardConditionRequest.java) |
 | `DetailedWalletTransactionInfo` | [DetailedWalletTransactionInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/DetailedWalletTransactionInfo.java) |
 | `DetailedWalletTransactionPagingSlicedResult` | [DetailedWalletTransactionPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/DetailedWalletTransactionPagingSlicedResult.java) |
@@ -595,6 +610,7 @@
 | `EntitlementDecrement` | [EntitlementDecrement](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementDecrement.java) |
 | `EntitlementDecrementResult` | [EntitlementDecrementResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementDecrementResult.java) |
 | `EntitlementGrant` | [EntitlementGrant](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementGrant.java) |
+| `EntitlementGrantResult` | [EntitlementGrantResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementGrantResult.java) |
 | `EntitlementHistoryInfo` | [EntitlementHistoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementHistoryInfo.java) |
 | `EntitlementInfo` | [EntitlementInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementInfo.java) |
 | `EntitlementLootBoxReward` | [EntitlementLootBoxReward](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementLootBoxReward.java) |
@@ -602,6 +618,7 @@
 | `EntitlementPagingSlicedResult` | [EntitlementPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementPagingSlicedResult.java) |
 | `EntitlementRevocation` | [EntitlementRevocation](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementRevocation.java) |
 | `EntitlementRevocationConfig` | [EntitlementRevocationConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementRevocationConfig.java) |
+| `EntitlementRevokeResult` | [EntitlementRevokeResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementRevokeResult.java) |
 | `EntitlementSoldRequest` | [EntitlementSoldRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementSoldRequest.java) |
 | `EntitlementSoldResult` | [EntitlementSoldResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementSoldResult.java) |
 | `EntitlementSummary` | [EntitlementSummary](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementSummary.java) |
@@ -770,6 +787,7 @@
 | `RedeemableItem` | [RedeemableItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/RedeemableItem.java) |
 | `RegionDataChange` | [RegionDataChange](../../src/main/java/net/accelbyte/sdk/api/platform/models/RegionDataChange.java) |
 | `RegionDataItem` | [RegionDataItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/RegionDataItem.java) |
+| `RegionDataItemDTO` | [RegionDataItemDTO](../../src/main/java/net/accelbyte/sdk/api/platform/models/RegionDataItemDTO.java) |
 | `RequestHistory` | [RequestHistory](../../src/main/java/net/accelbyte/sdk/api/platform/models/RequestHistory.java) |
 | `Requirement` | [Requirement](../../src/main/java/net/accelbyte/sdk/api/platform/models/Requirement.java) |
 | `RevocationConfigInfo` | [RevocationConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevocationConfigInfo.java) |
@@ -840,6 +858,7 @@
 | `TwitchSyncRequest` | [TwitchSyncRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/TwitchSyncRequest.java) |
 | `TwitchSyncResult` | [TwitchSyncResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/TwitchSyncResult.java) |
 | `UserDLC` | [UserDLC](../../src/main/java/net/accelbyte/sdk/api/platform/models/UserDLC.java) |
+| `UserDLCRecord` | [UserDLCRecord](../../src/main/java/net/accelbyte/sdk/api/platform/models/UserDLCRecord.java) |
 | `ValidationErrorEntity` | [ValidationErrorEntity](../../src/main/java/net/accelbyte/sdk/api/platform/models/ValidationErrorEntity.java) |
 | `ViewCreate` | [ViewCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/ViewCreate.java) |
 | `ViewInfo` | [ViewInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ViewInfo.java) |

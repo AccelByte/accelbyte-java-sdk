@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.ugc.admin_content;
+package net.accelbyte.sdk.cli.api.platform.dlc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.ugc.models.*;
-import net.accelbyte.sdk.api.ugc.wrappers.AdminContent;
+import net.accelbyte.sdk.api.platform.models.*;
+import net.accelbyte.sdk.api.platform.wrappers.DLC;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,20 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "singleAdminUpdateContentS3", mixinStandardHelpOptions = true)
-public class SingleAdminUpdateContentS3 implements Callable<Integer> {
+@Command(name = "getUserDLCByPlatform", mixinStandardHelpOptions = true)
+public class GetUserDLCByPlatform implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(SingleAdminUpdateContentS3.class);
-
-  @Option(
-      names = {"--channelId"},
-      description = "channelId")
-  String channelId;
-
-  @Option(
-      names = {"--contentId"},
-      description = "contentId")
-  String contentId;
+  private static final Logger log = LogManager.getLogger(GetUserDLCByPlatform.class);
 
   @Option(
       names = {"--namespace"},
@@ -46,9 +36,14 @@ public class SingleAdminUpdateContentS3 implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--body"},
-      description = "body")
-  String body;
+      names = {"--userId"},
+      description = "userId")
+  String userId;
+
+  @Option(
+      names = {"--type"},
+      description = "type")
+  String type;
 
   @Option(
       names = {"--logging"},
@@ -56,7 +51,7 @@ public class SingleAdminUpdateContentS3 implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new SingleAdminUpdateContentS3()).execute(args);
+    int exitCode = new CommandLine(new GetUserDLCByPlatform()).execute(args);
     System.exit(exitCode);
   }
 
@@ -70,17 +65,14 @@ public class SingleAdminUpdateContentS3 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final AdminContent wrapper = new AdminContent(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_content.SingleAdminUpdateContentS3
-          operation =
-              net.accelbyte.sdk.api.ugc.operations.admin_content.SingleAdminUpdateContentS3
-                  .builder()
-                  .channelId(channelId)
-                  .contentId(contentId)
-                  .namespace(namespace)
-                  .body(new ObjectMapper().readValue(body, ModelsUpdateContentRequest.class))
-                  .build();
-      final ModelsCreateContentResponse response = wrapper.singleAdminUpdateContentS3(operation);
+      final DLC wrapper = new DLC(sdk);
+      final net.accelbyte.sdk.api.platform.operations.dlc.GetUserDLCByPlatform operation =
+          net.accelbyte.sdk.api.platform.operations.dlc.GetUserDLCByPlatform.builder()
+              .namespace(namespace)
+              .userId(userId)
+              .type(type)
+              .build();
+      final UserDLC response = wrapper.getUserDLCByPlatform(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

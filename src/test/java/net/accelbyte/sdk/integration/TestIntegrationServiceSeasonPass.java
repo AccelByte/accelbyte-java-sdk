@@ -6,6 +6,14 @@
 
 package net.accelbyte.sdk.integration;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.category.CreateCategory;
 import net.accelbyte.sdk.api.platform.operations.item.CreateItem;
@@ -23,17 +31,8 @@ import net.accelbyte.sdk.api.seasonpass.operations.season.DeleteSeason;
 import net.accelbyte.sdk.api.seasonpass.operations.season.GetSeason;
 import net.accelbyte.sdk.api.seasonpass.operations.season.UpdateSeason;
 import net.accelbyte.sdk.api.seasonpass.wrappers.Season;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.*;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.Order;
 
 @Tag("test-integration")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)

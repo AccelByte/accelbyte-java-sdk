@@ -64,21 +64,21 @@ eval_tap $? 2 'SingleAdminGetChannel' test.out
 #- 3 AdminCreateChannel
 ./ng net.accelbyte.sdk.cli.Main ugc adminCreateChannel \
     --namespace "$AB_NAMESPACE" \
-    --body '{"id": "AxcVpFrt", "name": "tufHIRdH"}' \
+    --body '{"id": "AxcVpFrttufHIRdH", "name": "9UzVRiXbqlAw7r6W"}' \
     > test.out 2>&1
 eval_tap $? 3 'AdminCreateChannel' test.out
 
 #- 4 SingleAdminUpdateChannel
 ./ng net.accelbyte.sdk.cli.Main ugc singleAdminUpdateChannel \
-    --channelId '9UzVRiXb' \
+    --channelId '2ktQG0h5JAav5kRa' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"name": "qlAw7r6W"}' \
+    --body '{"name": "62WopBJHPtcDs8bB"}' \
     > test.out 2>&1
 eval_tap $? 4 'SingleAdminUpdateChannel' test.out
 
 #- 5 SingleAdminDeleteChannel
 ./ng net.accelbyte.sdk.cli.Main ugc singleAdminDeleteChannel \
-    --channelId '2ktQG0h5' \
+    --channelId 'ZLCXLx8bbgorQeFb' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 5 'SingleAdminDeleteChannel' test.out
@@ -88,36 +88,36 @@ eval_tap 0 6 'AdminUploadContentDirect # SKIP deprecated' test.out
 
 #- 7 AdminUploadContentS3
 ./ng net.accelbyte.sdk.cli.Main ugc adminUploadContentS3 \
-    --channelId 'JAav5kRa' \
+    --channelId 'Q1g7qbPngUNB1vRo' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"contentType": "62WopBJH", "customAttributes": {"PtcDs8bB": {}, "ZLCXLx8b": {}, "bgorQeFb": {}}, "fileExtension": "Q1g7qbPn", "name": "gUNB1vRo", "preview": "dwpzS6Da", "previewMetadata": {"previewContentType": "Dpv8N7ZQ", "previewFileExtension": "VqGj6oDL"}, "shareCode": "jWjkY1aX", "subType": "lFcDtgOj", "tags": ["chIua5tW", "EIC32ogW", "7olvbTgr"], "type": "hRTcPiSu"}' \
+    --body '{"contentType": "dwpzS6DaDpv8N7ZQ", "customAttributes": {"VqGj6oDLjWjkY1aX": {}, "lFcDtgOjchIua5tW": {}, "EIC32ogW7olvbTgr": {}}, "fileExtension": "hRTcPiSuL0Sly6XM", "name": "4OI18mAQLnzjMf8G", "preview": "Z2WBZqxYG3aREAu2", "previewMetadata": {"previewContentType": "D6QVKNCWP75TB0i7", "previewFileExtension": "pKxR8dl0zRVW4EZG"}, "shareCode": "9m0XcgGVbMqSszE8", "subType": "GHavj7AorKsxwkos", "tags": ["AVerXpc1C8XfwHuK", "eb9l3rGN9A3sNm84", "hddSpHt0P7MIIR7C"], "type": "kyF6C7duuyZ0GhDo"}' \
     > test.out 2>&1
 eval_tap $? 7 'AdminUploadContentS3' test.out
 
 #- 8 SingleAdminUpdateContentS3
 ./ng net.accelbyte.sdk.cli.Main ugc singleAdminUpdateContentS3 \
-    --channelId 'L0Sly6XM' \
-    --contentId '4OI18mAQ' \
+    --channelId 'gqrhBRd8lDR6qVNP' \
+    --contentId 'RZYdFLIAjGGJddVC' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"contentType": "LnzjMf8G", "customAttributes": {"Z2WBZqxY": {}, "G3aREAu2": {}, "D6QVKNCW": {}}, "fileExtension": "P75TB0i7", "name": "pKxR8dl0", "payload": "zRVW4EZG", "preview": "9m0XcgGV", "previewMetadata": {"previewContentType": "bMqSszE8", "previewFileExtension": "GHavj7Ao"}, "subType": "rKsxwkos", "tags": ["AVerXpc1", "C8XfwHuK", "eb9l3rGN"], "type": "9A3sNm84", "updateContentFile": false}' \
+    --body '{"contentType": "vu9vx5KQ7KYnIuMB", "customAttributes": {"vaO35llzQRaT5kPx": {}, "UfofvnnSuB0y5WUl": {}, "rMdI4sNveabntBSx": {}}, "fileExtension": "TeIv53HGCiljvjKo", "name": "yD6SCwGrncqmLtjQ", "payload": "HAf8TgoNm03VLisV", "preview": "6zwPuo3td6TC6I3l", "previewMetadata": {"previewContentType": "MjGSWN2laRlxfcjH", "previewFileExtension": "fYakUCTqGkE7wcWf"}, "subType": "DslpJSqGAXQ0yYoN", "tags": ["RKd3IL5TAQ6iiPlS", "C2uE4o5Vwdo3fePq", "IJA8IHtrkmu0hpDD"], "type": "WVAla2l5BYNtIuS5", "updateContentFile": true}' \
     > test.out 2>&1
 eval_tap $? 8 'SingleAdminUpdateContentS3' test.out
 
 #- 9 AdminSearchChannelSpecificContent
 ./ng net.accelbyte.sdk.cli.Main ugc adminSearchChannelSpecificContent \
-    --channelId 'ZSoEAcBd' \
+    --channelId 'djsoqwGyzzWi9gwQ' \
     --namespace "$AB_NAMESPACE" \
-    --creator 'W19m4eu6' \
-    --isofficial 'd5tA5jUm' \
-    --limit '17' \
-    --name 'yZ0GhDog' \
-    --offset '34' \
-    --orderby 'xLzFQN05' \
-    --sortby 'MYzYiKWe' \
-    --subtype '5dNRljv7' \
-    --tags 'IPrDQQRg,at0SevkL,GMS0lyuI' \
-    --type '9a2I9u6V' \
-    --userId 'pbsx5w8h' \
+    --creator 'Yv7t1o7TTr1DmrhZ' \
+    --isofficial 'v15T7quIOvBMcaYm' \
+    --limit '44' \
+    --name 't0zYoMcHyCUEXlAv' \
+    --offset '48' \
+    --orderby 'oxozr6wfNPX2bOIt' \
+    --sortby 'RMvqtlB2jJCSQT27' \
+    --subtype '9ZZPYGu0rdlgdWyO' \
+    --tags 'tXi3choQrpOsDBU5,SepjChB3V0v52Dly,m6puQ23xoJ8aeCna' \
+    --type 'LpUKp44YUDjasWIP' \
+    --userId 'UvmEejtGeoyIPa8Z' \
     > test.out 2>&1
 eval_tap $? 9 'AdminSearchChannelSpecificContent' test.out
 
@@ -126,8 +126,8 @@ eval_tap 0 10 'SingleAdminUpdateContentDirect # SKIP deprecated' test.out
 
 #- 11 SingleAdminDeleteContent
 ./ng net.accelbyte.sdk.cli.Main ugc singleAdminDeleteContent \
-    --channelId 'qUI06UpO' \
-    --contentId 'XGSLmCVu' \
+    --channelId 'Rrvjj7il35MXbN9o' \
+    --contentId 'CMNqq98SjTvhZNkS' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 11 'SingleAdminDeleteContent' test.out
@@ -135,226 +135,226 @@ eval_tap $? 11 'SingleAdminDeleteContent' test.out
 #- 12 SingleAdminGetContent
 ./ng net.accelbyte.sdk.cli.Main ugc singleAdminGetContent \
     --namespace "$AB_NAMESPACE" \
-    --limit '69' \
-    --offset '6' \
+    --limit '88' \
+    --offset '60' \
     > test.out 2>&1
 eval_tap $? 12 'SingleAdminGetContent' test.out
 
 #- 13 AdminGetContentBulk
 ./ng net.accelbyte.sdk.cli.Main ugc adminGetContentBulk \
     --namespace "$AB_NAMESPACE" \
-    --body '{"contentIds": ["OPlLlkvR", "8sKgnuRk", "gghGoYup"]}' \
+    --body '{"contentIds": ["X3ateEKDpADz1x3p", "oD3Qgb3boLQQ1MzH", "7Qm8bwbmXgdAPh1E"]}' \
     > test.out 2>&1
 eval_tap $? 13 'AdminGetContentBulk' test.out
 
 #- 14 AdminSearchContent
 ./ng net.accelbyte.sdk.cli.Main ugc adminSearchContent \
     --namespace "$AB_NAMESPACE" \
-    --creator 'D391C2qt' \
-    --isofficial 'PYokahFj' \
-    --limit '21' \
-    --name 'mLtjQHAf' \
-    --offset '93' \
-    --orderby 'd67FXGk2' \
-    --sortby 's9Q0mPVo' \
-    --subtype '3twu0Mes' \
-    --tags 'TCf9x4rt,69lna7qx,NeIxPz6M' \
-    --type 'bwL6IY69' \
-    --userId 'z1UaLqYS' \
+    --creator 'ThG96gAFKK2WDgCc' \
+    --isofficial 'xvONZm3EeERmDnye' \
+    --limit '65' \
+    --name 'lmVr9XuoJbRFQSKV' \
+    --offset '85' \
+    --orderby 'Tb3g7mSQUhAEtrmj' \
+    --sortby 'qU6YE3p4lSck0ZHn' \
+    --subtype '5GI39YBHqaTHeKtW' \
+    --tags '18iGeUlc9d9sogWa,24CKNS0GqVvUfHQv,sHXNUNe4mhgo5QB6' \
+    --type '5lSAiYnNjkfZrQvG' \
+    --userId 'gbLdLsFzHkBMr1yr' \
     > test.out 2>&1
 eval_tap $? 14 'AdminSearchContent' test.out
 
 #- 15 AdminGetUserContentByShareCode
 ./ng net.accelbyte.sdk.cli.Main ugc adminGetUserContentByShareCode \
     --namespace "$AB_NAMESPACE" \
-    --shareCode 'YWytLPzi' \
+    --shareCode 'OMlNFSrUEirnjX9f' \
     > test.out 2>&1
 eval_tap $? 15 'AdminGetUserContentByShareCode' test.out
 
 #- 16 AdminGetSpecificContent
 ./ng net.accelbyte.sdk.cli.Main ugc adminGetSpecificContent \
-    --contentId 'ZMdjxcBZ' \
+    --contentId 'DmIbeZxzfTcyiuAT' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 16 'AdminGetSpecificContent' test.out
 
 #- 17 AdminDownloadContentPreview
 ./ng net.accelbyte.sdk.cli.Main ugc adminDownloadContentPreview \
-    --contentId 'ufQxGiHP' \
+    --contentId 'us9hsfpFDcSDG8aM' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 17 'AdminDownloadContentPreview' test.out
 
 #- 18 AdminUpdateScreenshots
 ./ng net.accelbyte.sdk.cli.Main ugc adminUpdateScreenshots \
-    --contentId 'llG4cYEz' \
+    --contentId 'VGLiBNrDjqoxcwgG' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"screenshots": [{"description": "fTD1ZBm3", "screenshotId": "MqHcUmLZ"}, {"description": "ZbSqb8Rw", "screenshotId": "Nmn9HrNQ"}, {"description": "y4uZAAiE", "screenshotId": "0mit9RGC"}]}' \
+    --body '{"screenshots": [{"description": "LXpUL4pp2ncYAHdN", "screenshotId": "zDmeIP6rOvDz9KOs"}, {"description": "b392k6YmJFfRByjl", "screenshotId": "BiuFM3FIoVk8T3Gp"}, {"description": "AnkCmBUqg2SCnqnt", "screenshotId": "X9y1aZSWMiVi10sG"}]}' \
     > test.out 2>&1
 eval_tap $? 18 'AdminUpdateScreenshots' test.out
 
 #- 19 AdminUploadContentScreenshot
 ./ng net.accelbyte.sdk.cli.Main ugc adminUploadContentScreenshot \
-    --contentId 'CHYzUOcE' \
+    --contentId '6vxkfUcmqRRbceJ5' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"screenshots": [{"contentType": "dscKHPEq", "description": "gA8yu7Vk", "fileExtension": "jpeg"}, {"contentType": "Jt4Ymos9", "description": "Jcdos4fY", "fileExtension": "bmp"}, {"contentType": "BMcaYmvC", "description": "kGZ5dAgq", "fileExtension": "jpg"}]}' \
+    --body '{"screenshots": [{"contentType": "i0EeDxOgBnhhqElI", "description": "aDml48wdNFLTm5T5", "fileExtension": "jpg"}, {"contentType": "vQR3biBfsu4jmsRE", "description": "2w1yEkLgh3tIYt4S", "fileExtension": "jpeg"}, {"contentType": "Ll4XlbGL8QOxtjzm", "description": "8y2wNhmwoYZyI4EF", "fileExtension": "pjp"}]}' \
     > test.out 2>&1
 eval_tap $? 19 'AdminUploadContentScreenshot' test.out
 
 #- 20 AdminDeleteContentScreenshot
 ./ng net.accelbyte.sdk.cli.Main ugc adminDeleteContentScreenshot \
-    --contentId 'UEXlAvxJ' \
+    --contentId 'KBcYrCEAE7WIsfmx' \
     --namespace "$AB_NAMESPACE" \
-    --screenshotId 'MdalwSyl' \
+    --screenshotId '40NLRc6m8heKnWhz' \
     > test.out 2>&1
 eval_tap $? 20 'AdminDeleteContentScreenshot' test.out
 
 #- 21 SingleAdminGetAllGroups
 ./ng net.accelbyte.sdk.cli.Main ugc singleAdminGetAllGroups \
     --namespace "$AB_NAMESPACE" \
-    --limit '16' \
-    --offset '100' \
+    --limit '11' \
+    --offset '9' \
     > test.out 2>&1
 eval_tap $? 21 'SingleAdminGetAllGroups' test.out
 
 #- 22 AdminCreateGroup
 ./ng net.accelbyte.sdk.cli.Main ugc adminCreateGroup \
     --namespace "$AB_NAMESPACE" \
-    --body '{"contents": ["2bOItRMv", "qtlB2jJC", "SQT279ZZ"], "name": "PYGu0rdl"}' \
+    --body '{"contents": ["z3LNUj7fdgLA84Z8", "YYk6QEgJjBbEDoNf", "3n0hEoRCAcf80zfF"], "name": "yabWAgIUXiI07A68"}' \
     > test.out 2>&1
 eval_tap $? 22 'AdminCreateGroup' test.out
 
 #- 23 SingleAdminGetGroup
 ./ng net.accelbyte.sdk.cli.Main ugc singleAdminGetGroup \
-    --groupId 'gdWyOtXi' \
+    --groupId 'eaqC2J9jyEW6GLbc' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 23 'SingleAdminGetGroup' test.out
 
 #- 24 SingleAdminUpdateGroup
 ./ng net.accelbyte.sdk.cli.Main ugc singleAdminUpdateGroup \
-    --groupId '3choQrpO' \
+    --groupId '0NaKDUL3sa13lk1d' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"contents": ["sDBU5Sep", "jChB3V0v", "52Dlym6p"], "name": "uQ23xoJ8"}' \
+    --body '{"contents": ["QBHO86IlBhnetU4R", "wTqUXlTDBzOuYsaZ", "A2yyd4mbqoOfADMM"], "name": "AXFaY9eKa699bRVh"}' \
     > test.out 2>&1
 eval_tap $? 24 'SingleAdminUpdateGroup' test.out
 
 #- 25 SingleAdminDeleteGroup
 ./ng net.accelbyte.sdk.cli.Main ugc singleAdminDeleteGroup \
-    --groupId 'aeCnaLpU' \
+    --groupId 'yaKwwrAP2aMlu7Wt' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 25 'SingleAdminDeleteGroup' test.out
 
 #- 26 SingleAdminGetGroupContents
 ./ng net.accelbyte.sdk.cli.Main ugc singleAdminGetGroupContents \
-    --groupId 'Kp44YUDj' \
+    --groupId 'jCtoYetOO847g8Ou' \
     --namespace "$AB_NAMESPACE" \
-    --limit '0' \
-    --offset '99' \
+    --limit '6' \
+    --offset '25' \
     > test.out 2>&1
 eval_tap $? 26 'SingleAdminGetGroupContents' test.out
 
 #- 27 AdminGetTag
 ./ng net.accelbyte.sdk.cli.Main ugc adminGetTag \
     --namespace "$AB_NAMESPACE" \
-    --limit '38' \
-    --offset '44' \
+    --limit '83' \
+    --offset '10' \
     > test.out 2>&1
 eval_tap $? 27 'AdminGetTag' test.out
 
 #- 28 AdminCreateTag
 ./ng net.accelbyte.sdk.cli.Main ugc adminCreateTag \
     --namespace "$AB_NAMESPACE" \
-    --body '{"tag": "WIPUvmEe"}' \
+    --body '{"tag": "cTtFWbotQyXJRcQW"}' \
     > test.out 2>&1
 eval_tap $? 28 'AdminCreateTag' test.out
 
 #- 29 AdminUpdateTag
 ./ng net.accelbyte.sdk.cli.Main ugc adminUpdateTag \
     --namespace "$AB_NAMESPACE" \
-    --tagId 'jtGeoyIP' \
-    --body '{"tag": "a8ZRrvjj"}' \
+    --tagId 'smqPNs92epxk0i8V' \
+    --body '{"tag": "xsZNereSvf9699mC"}' \
     > test.out 2>&1
 eval_tap $? 29 'AdminUpdateTag' test.out
 
 #- 30 AdminDeleteTag
 ./ng net.accelbyte.sdk.cli.Main ugc adminDeleteTag \
     --namespace "$AB_NAMESPACE" \
-    --tagId '7il35MXb' \
+    --tagId 'EHThUJkETAsSp7gh' \
     > test.out 2>&1
 eval_tap $? 30 'AdminDeleteTag' test.out
 
 #- 31 AdminGetType
 ./ng net.accelbyte.sdk.cli.Main ugc adminGetType \
     --namespace "$AB_NAMESPACE" \
-    --limit '80' \
-    --offset '18' \
+    --limit '26' \
+    --offset '93' \
     > test.out 2>&1
 eval_tap $? 31 'AdminGetType' test.out
 
 #- 32 AdminCreateType
 ./ng net.accelbyte.sdk.cli.Main ugc adminCreateType \
     --namespace "$AB_NAMESPACE" \
-    --body '{"subtype": ["9oCMNqq9", "8SjTvhZN", "kSQ70D0H"], "type": "6BXksUC9"}' \
+    --body '{"subtype": ["db4rbkXj0ZwsVC0g", "L97ZVJSPqJiwv1ql", "YB1RSKs6gQxC3Gb7"], "type": "S0o4zGYY7KQI1AeF"}' \
     > test.out 2>&1
 eval_tap $? 32 'AdminCreateType' test.out
 
 #- 33 AdminUpdateType
 ./ng net.accelbyte.sdk.cli.Main ugc adminUpdateType \
     --namespace "$AB_NAMESPACE" \
-    --typeId 'b6i5lZC9' \
-    --body '{"subtype": ["xv32e8c5", "csSovoqs", "ZNBdte9N"], "type": "DUPVJf6c"}' \
+    --typeId 'gPqaOkvo1aolB4lk' \
+    --body '{"subtype": ["KB4EYOkQ1jMD3cym", "8xIfkOVW2grREOLx", "0KOww3HICQLfl7MU"], "type": "BG7qtPu64yAtURKL"}' \
     > test.out 2>&1
 eval_tap $? 33 'AdminUpdateType' test.out
 
 #- 34 AdminDeleteType
 ./ng net.accelbyte.sdk.cli.Main ugc adminDeleteType \
     --namespace "$AB_NAMESPACE" \
-    --typeId '2Z0QZxfg' \
+    --typeId 'Rkb738HGS6rDgMdI' \
     > test.out 2>&1
 eval_tap $? 34 'AdminDeleteType' test.out
 
 #- 35 AdminGetChannel
 ./ng net.accelbyte.sdk.cli.Main ugc adminGetChannel \
     --namespace "$AB_NAMESPACE" \
-    --userId 'PubTDIHr' \
-    --limit '44' \
-    --offset '80' \
+    --userId 'IlhS1fSiM9331m7T' \
+    --limit '1' \
+    --offset '9' \
     > test.out 2>&1
 eval_tap $? 35 'AdminGetChannel' test.out
 
 #- 36 AdminDeleteAllUserChannels
 ./ng net.accelbyte.sdk.cli.Main ugc adminDeleteAllUserChannels \
     --namespace "$AB_NAMESPACE" \
-    --userId 'qAThuwjR' \
+    --userId 'PsKc50Kv6ecnEevc' \
     > test.out 2>&1
 eval_tap $? 36 'AdminDeleteAllUserChannels' test.out
 
 #- 37 AdminUpdateChannel
 ./ng net.accelbyte.sdk.cli.Main ugc adminUpdateChannel \
-    --channelId 'HpKKTlmV' \
+    --channelId 'Ax2K2zkRenmPZnGB' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'r9XuoJbR' \
-    --body '{"name": "FQSKVPHb"}' \
+    --userId 't4P7WnbdSJtjX7Zs' \
+    --body '{"name": "hZyZl5x4bRXBHUTr"}' \
     > test.out 2>&1
 eval_tap $? 37 'AdminUpdateChannel' test.out
 
 #- 38 AdminDeleteChannel
 ./ng net.accelbyte.sdk.cli.Main ugc adminDeleteChannel \
-    --channelId 'n4Xxtu7L' \
+    --channelId 'DzZSKscfOcYu3dpC' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'QRENjEEz' \
+    --userId 'ROYqUiGKXVFCmpo6' \
     > test.out 2>&1
 eval_tap $? 38 'AdminDeleteChannel' test.out
 
 #- 39 AdminUpdateContentS3
 ./ng net.accelbyte.sdk.cli.Main ugc adminUpdateContentS3 \
-    --channelId 'tx1WsYSi' \
-    --contentId 'Zqan0nSB' \
+    --channelId 'sPwVOEDSJsEK5QpN' \
+    --contentId 'hlI2iS5EpGhhvXYc' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'Jroav91G' \
-    --body '{"contentType": "XlvPG6bF", "customAttributes": {"YReVHQip": {}, "cCx9Zw5D": {}, "2L7vIYhG": {}}, "fileExtension": "GSyEW4ZJ", "name": "J42d3PBd", "payload": "dN8S48l9", "preview": "lyNApflx", "previewMetadata": {"previewContentType": "qMrj3oZk", "previewFileExtension": "03QXcKMD"}, "subType": "YDDxHSZj", "tags": ["tqXyJ58f", "7Gc26Sai", "GVkydwYW"], "type": "QG26yUZN", "updateContentFile": false}' \
+    --userId 'k0upMzUYnb76tFkE' \
+    --body '{"contentType": "ORV3bu1bNCtX7W40", "customAttributes": {"V6Do5sYadCCFrHHC": {}, "3DpZxkrQDXuNFviM": {}, "arv8mnfHK8CCmE2l": {}}, "fileExtension": "PnsbD3SGEdlwuUcc", "name": "E536ugBp3HBvepnD", "payload": "CjgyJlXe36mgWjLf", "preview": "Fmteue9nzJ6fH24T", "previewMetadata": {"previewContentType": "805tVg8JqU0jZpjv", "previewFileExtension": "sugAOS7u8RiWyerC"}, "subType": "Sa8SRgwsAj1ik1jg", "tags": ["laDXTvKCWwNTAhd2", "wrS0uPdjhdinpng5", "BLy8wbhMssAHjapI"], "type": "kY9Rf4wP57dBZNR8", "updateContentFile": false}' \
     > test.out 2>&1
 eval_tap $? 39 'AdminUpdateContentS3' test.out
 
@@ -363,34 +363,34 @@ eval_tap 0 40 'AdminUpdateContentDirect # SKIP deprecated' test.out
 
 #- 41 AdminDeleteContent
 ./ng net.accelbyte.sdk.cli.Main ugc adminDeleteContent \
-    --channelId 'hsfpFDcS' \
-    --contentId 'DG8aMVGL' \
+    --channelId 'YbCtmKy8M9zVrjfG' \
+    --contentId 'XZnqAQUoY1GjlIIk' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'iBNrDjqo' \
+    --userId '0iKoTTS1j02o7JjT' \
     > test.out 2>&1
 eval_tap $? 41 'AdminDeleteContent' test.out
 
 #- 42 AdminGetContent
 ./ng net.accelbyte.sdk.cli.Main ugc adminGetContent \
     --namespace "$AB_NAMESPACE" \
-    --userId 'xcwgGLXp' \
-    --limit '96' \
-    --offset '10' \
+    --userId 'XAQN0qdskdQV0TqI' \
+    --limit '9' \
+    --offset '62' \
     > test.out 2>&1
 eval_tap $? 42 'AdminGetContent' test.out
 
 #- 43 AdminDeleteAllUserContents
 ./ng net.accelbyte.sdk.cli.Main ugc adminDeleteAllUserContents \
     --namespace "$AB_NAMESPACE" \
-    --userId 'L4pp2ncY' \
+    --userId 'aKQDOJvrTefglSs6' \
     > test.out 2>&1
 eval_tap $? 43 'AdminDeleteAllUserContents' test.out
 
 #- 44 AdminHideUserContent
 ./ng net.accelbyte.sdk.cli.Main ugc adminHideUserContent \
-    --contentId 'AHdNzDme' \
+    --contentId 'g4iY9u02aCNYIWek' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'IP6rOvDz' \
+    --userId 'p18lOC3mNqF7Bl0L' \
     --body '{"isHidden": false}' \
     > test.out 2>&1
 eval_tap $? 44 'AdminHideUserContent' test.out
@@ -398,108 +398,108 @@ eval_tap $? 44 'AdminHideUserContent' test.out
 #- 45 AdminGetAllGroups
 ./ng net.accelbyte.sdk.cli.Main ugc adminGetAllGroups \
     --namespace "$AB_NAMESPACE" \
-    --userId 'KOsb392k' \
-    --limit '89' \
-    --offset '60' \
+    --userId 'a9EIIlGcHB3CfR3n' \
+    --limit '4' \
+    --offset '4' \
     > test.out 2>&1
 eval_tap $? 45 'AdminGetAllGroups' test.out
 
 #- 46 AdminDeleteAllUserGroup
 ./ng net.accelbyte.sdk.cli.Main ugc adminDeleteAllUserGroup \
     --namespace "$AB_NAMESPACE" \
-    --userId 'mJFfRByj' \
+    --userId 'Dlwi3v3MFFJ1KesK' \
     > test.out 2>&1
 eval_tap $? 46 'AdminDeleteAllUserGroup' test.out
 
 #- 47 AdminGetGroup
 ./ng net.accelbyte.sdk.cli.Main ugc adminGetGroup \
-    --groupId 'lBiuFM3F' \
+    --groupId 'oELCpobBEG8X645x' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'IoVk8T3G' \
+    --userId 'pdXpai0rYaT5hOPj' \
     > test.out 2>&1
 eval_tap $? 47 'AdminGetGroup' test.out
 
 #- 48 AdminUpdateGroup
 ./ng net.accelbyte.sdk.cli.Main ugc adminUpdateGroup \
-    --groupId 'pAnkCmBU' \
+    --groupId 'af3H0tYighU0VUfc' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'qg2SCnqn' \
-    --body '{"contents": ["tX9y1aZS", "WMiVi10s", "G6vxkfUc"], "name": "mqRRbceJ"}' \
+    --userId 'YHJbBfAKSiPW3Vgs' \
+    --body '{"contents": ["ZXiR1DJ7HVWqMkNS", "awQUWDFJvJBWic7U", "kBeIXuqDuAXI66bQ"], "name": "71w0deoV9Lx5RDA1"}' \
     > test.out 2>&1
 eval_tap $? 48 'AdminUpdateGroup' test.out
 
 #- 49 AdminDeleteGroup
 ./ng net.accelbyte.sdk.cli.Main ugc adminDeleteGroup \
-    --groupId '5i0EeDxO' \
+    --groupId 'l2XcrciYNEzvSZIP' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'gBnhhqEl' \
+    --userId 'khSgORcz5S5BvmgB' \
     > test.out 2>&1
 eval_tap $? 49 'AdminDeleteGroup' test.out
 
 #- 50 AdminGetGroupContents
 ./ng net.accelbyte.sdk.cli.Main ugc adminGetGroupContents \
-    --groupId 'IaDml48w' \
+    --groupId 'Lxh4ijFnE3Tam69q' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'dNFLTm5T' \
-    --limit '39' \
-    --offset '48' \
+    --userId 'SZ7PC6f6QkmZXElW' \
+    --limit '77' \
+    --offset '11' \
     > test.out 2>&1
 eval_tap $? 50 'AdminGetGroupContents' test.out
 
 #- 51 AdminDeleteAllUserStates
 ./ng net.accelbyte.sdk.cli.Main ugc adminDeleteAllUserStates \
     --namespace "$AB_NAMESPACE" \
-    --userId 'vQR3biBf' \
+    --userId 'uWJu3pDMUAeeZ97S' \
     > test.out 2>&1
 eval_tap $? 51 'AdminDeleteAllUserStates' test.out
 
 #- 52 SearchChannelSpecificContent
 ./ng net.accelbyte.sdk.cli.Main ugc searchChannelSpecificContent \
-    --channelId 'su4jmsRE' \
+    --channelId 'BROPYuG6XqP6oo7G' \
     --namespace "$AB_NAMESPACE" \
-    --creator '2w1yEkLg' \
-    --isofficial 'h3tIYt4S' \
-    --limit '33' \
-    --name 'Ll4XlbGL' \
-    --offset '70' \
-    --orderby 'QOxtjzm8' \
-    --sortby 'y2wNhmwo' \
-    --subtype 'YZyI4EFZ' \
-    --tags 'KBcYrCEA,E7WIsfmx,40NLRc6m' \
-    --type '8heKnWhz' \
-    --userId 'fe2Nubeo' \
+    --creator '73zdxTgOfnwIdlNa' \
+    --isofficial '29fDLh741IslKHzG' \
+    --limit '24' \
+    --name '34sZKHcl5LLLOexL' \
+    --offset '51' \
+    --orderby 'fZvWtND2tcBFpX8l' \
+    --sortby 'NtFEJ7tnkY6Mca5a' \
+    --subtype 'fj12K2IzrBvvWm4u' \
+    --tags 'dE0OXudXgNne8kJA,Twlc6esUp6Sw1I98,jeZQ7hfxnhLd3Kna' \
+    --type 'knoed9DHhLOqQGhC' \
+    --userId 'Ur6iTrjyEgarAdNJ' \
     > test.out 2>&1
 eval_tap $? 52 'SearchChannelSpecificContent' test.out
 
 #- 53 PublicSearchContent
 ./ng net.accelbyte.sdk.cli.Main ugc publicSearchContent \
     --namespace "$AB_NAMESPACE" \
-    --creator 'KFeIaFQC' \
-    --isofficial 'YoDPICpn' \
-    --limit '6' \
-    --name 'JjBbEDoN' \
-    --offset '12' \
-    --orderby 'Jz4mnRBk' \
-    --sortby 'MNxvvKgA' \
-    --subtype 'T8mJrYq6' \
-    --tags 'hRkloqxM,3gpwxcfM,y9XzjjI5' \
-    --type 'YbsKoADk' \
-    --userId 'zJEN2VHz' \
+    --creator 'OIG36I6tRbRcrEve' \
+    --isofficial 'MdAdiPKDUVSC00PY' \
+    --limit '9' \
+    --name 'oujQD4IEiH9Z5qXn' \
+    --offset '8' \
+    --orderby 'aoRtlqOECohViHA5' \
+    --sortby 'CzgFSy8X1A3PrIfa' \
+    --subtype 'pq5AAeMe4L3mDWOR' \
+    --tags 'BVXTIIJM9XsYIIZx,iXNMR9BgaWcFX3SU,BhyoTsMWPAxUMkaw' \
+    --type 'aGpAyrIwMif3BOdk' \
+    --userId 'ocVTd4BxqGWV6mTJ' \
     > test.out 2>&1
 eval_tap $? 53 'PublicSearchContent' test.out
 
 #- 54 PublicGetContentBulk
 ./ng net.accelbyte.sdk.cli.Main ugc publicGetContentBulk \
     --namespace "$AB_NAMESPACE" \
-    --body '{"contentIds": ["ih3bit0V", "Wn3CO39P", "XDNxtXge"]}' \
+    --body '{"contentIds": ["0sQs6XNbjvqhnUVL", "Wu8olKdxL6ozRmDD", "0jJvlfV5OemPYdYT"]}' \
     > test.out 2>&1
 eval_tap $? 54 'PublicGetContentBulk' test.out
 
 #- 55 GetFollowedContent
 ./ng net.accelbyte.sdk.cli.Main ugc getFollowedContent \
     --namespace "$AB_NAMESPACE" \
-    --limit '83' \
-    --offset '55' \
+    --limit '94' \
+    --offset '60' \
     > test.out 2>&1
 eval_tap $? 55 'GetFollowedContent' test.out
 
@@ -507,49 +507,49 @@ eval_tap $? 55 'GetFollowedContent' test.out
 ./ng net.accelbyte.sdk.cli.Main ugc getLikedContent \
     --namespace "$AB_NAMESPACE" \
     --isofficial  \
-    --limit '52' \
-    --name 'FgkXhjDz' \
-    --offset '0' \
-    --orderby 'yyd4mbqo' \
-    --sortby 'OfADMMAX' \
-    --subtype 'FaY9eKa6' \
-    --tags '99bRVhya,KwwrAP2a,Mlu7WtjC' \
-    --type 'toYetOO8' \
+    --limit '67' \
+    --name 'ROCjtuzFMbAG9YI8' \
+    --offset '83' \
+    --orderby 'hmguB8FOTjMLo4b9' \
+    --sortby 'rIzqYkEpstyVTBcr' \
+    --subtype 'M8rG0rH0zcswwVeM' \
+    --tags 'K6MbGIVIu8vvwLc7,KY3uVoJXTIMtpgki,eDyF97lGdMiHKxbW' \
+    --type 'CYzo8yO2KTK9tmmO' \
     > test.out 2>&1
 eval_tap $? 56 'GetLikedContent' test.out
 
 #- 57 PublicDownloadContentByShareCode
 ./ng net.accelbyte.sdk.cli.Main ugc publicDownloadContentByShareCode \
     --namespace "$AB_NAMESPACE" \
-    --shareCode '47g8OudO' \
+    --shareCode 'nYnOpas6ghP1y4Zi' \
     > test.out 2>&1
 eval_tap $? 57 'PublicDownloadContentByShareCode' test.out
 
 #- 58 PublicDownloadContentByContentID
 ./ng net.accelbyte.sdk.cli.Main ugc publicDownloadContentByContentID \
-    --contentId 'fjnCuHZ3' \
+    --contentId '7s7QBlk44Z44B1GZ' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 58 'PublicDownloadContentByContentID' test.out
 
 #- 59 AddDownloadCount
 ./ng net.accelbyte.sdk.cli.Main ugc addDownloadCount \
-    --contentId 'c46IjGa2' \
+    --contentId 'gKg4uKxaCgcGLuC3' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 59 'AddDownloadCount' test.out
 
 #- 60 UpdateContentLikeStatus
 ./ng net.accelbyte.sdk.cli.Main ugc updateContentLikeStatus \
-    --contentId '3YvYmmDg' \
+    --contentId 'brWdTYCfHkIySok5' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"likeStatus": false}' \
+    --body '{"likeStatus": true}' \
     > test.out 2>&1
 eval_tap $? 60 'UpdateContentLikeStatus' test.out
 
 #- 61 PublicDownloadContentPreview
 ./ng net.accelbyte.sdk.cli.Main ugc publicDownloadContentPreview \
-    --contentId 'VYPXIuvU' \
+    --contentId 'eE9LN9bvhOrHflIO' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 61 'PublicDownloadContentPreview' test.out
@@ -557,8 +557,8 @@ eval_tap $? 61 'PublicDownloadContentPreview' test.out
 #- 62 GetTag
 ./ng net.accelbyte.sdk.cli.Main ugc getTag \
     --namespace "$AB_NAMESPACE" \
-    --limit '38' \
-    --offset '93' \
+    --limit '6' \
+    --offset '7' \
     > test.out 2>&1
 eval_tap $? 62 'GetTag' test.out
 
@@ -566,73 +566,73 @@ eval_tap $? 62 'GetTag' test.out
 ./ng net.accelbyte.sdk.cli.Main ugc getType \
     --namespace "$AB_NAMESPACE" \
     --limit '82' \
-    --offset '57' \
+    --offset '86' \
     > test.out 2>&1
 eval_tap $? 63 'GetType' test.out
 
 #- 64 PublicSearchCreator
 ./ng net.accelbyte.sdk.cli.Main ugc publicSearchCreator \
     --namespace "$AB_NAMESPACE" \
-    --limit '9' \
-    --offset '89' \
-    --orderby 'reSvf969' \
-    --sortby '9mCEHThU' \
+    --limit '43' \
+    --offset '35' \
+    --orderby 'iLvtEk4mTIpUA9gx' \
+    --sortby 'o8SV38nEhoXmM2W7' \
     > test.out 2>&1
 eval_tap $? 64 'PublicSearchCreator' test.out
 
 #- 65 GetFollowedUsers
 ./ng net.accelbyte.sdk.cli.Main ugc getFollowedUsers \
     --namespace "$AB_NAMESPACE" \
-    --limit '73' \
-    --offset '59' \
+    --limit '24' \
+    --offset '76' \
     > test.out 2>&1
 eval_tap $? 65 'GetFollowedUsers' test.out
 
 #- 66 PublicGetCreator
 ./ng net.accelbyte.sdk.cli.Main ugc publicGetCreator \
     --namespace "$AB_NAMESPACE" \
-    --userId 'kETAsSp7' \
+    --userId '6jHMA2rG3nakopAy' \
     > test.out 2>&1
 eval_tap $? 66 'PublicGetCreator' test.out
 
 #- 67 GetChannels
 ./ng net.accelbyte.sdk.cli.Main ugc getChannels \
     --namespace "$AB_NAMESPACE" \
-    --userId 'gh4TeUTk' \
-    --limit '82' \
-    --offset '21' \
+    --userId 'welu01nryEJ0NqoT' \
+    --limit '30' \
+    --offset '22' \
     > test.out 2>&1
 eval_tap $? 67 'GetChannels' test.out
 
 #- 68 PublicCreateChannel
 ./ng net.accelbyte.sdk.cli.Main ugc publicCreateChannel \
     --namespace "$AB_NAMESPACE" \
-    --userId 'kAYfJB8A' \
-    --body '{"name": "T9t4Tv20"}' \
+    --userId 'w0qiOiC4j0iktm0Z' \
+    --body '{"name": "PLkLOsp0LZ5njN86"}' \
     > test.out 2>&1
 eval_tap $? 68 'PublicCreateChannel' test.out
 
 #- 69 DeleteAllUserChannel
 ./ng net.accelbyte.sdk.cli.Main ugc deleteAllUserChannel \
     --namespace "$AB_NAMESPACE" \
-    --userId '7Y2QD3oD' \
+    --userId 'Hl8kUXzt6bSc6bWv' \
     > test.out 2>&1
 eval_tap $? 69 'DeleteAllUserChannel' test.out
 
 #- 70 UpdateChannel
 ./ng net.accelbyte.sdk.cli.Main ugc updateChannel \
-    --channelId '5fLCr3OO' \
+    --channelId 'gpVyW9dD1kOmvrAe' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'lXVv8ZGF' \
-    --body '{"name": "7uYnGzpi"}' \
+    --userId 'jcq2LgkQuaS7RBx3' \
+    --body '{"name": "vim02jBOxrZDyvpc"}' \
     > test.out 2>&1
 eval_tap $? 70 'UpdateChannel' test.out
 
 #- 71 DeleteChannel
 ./ng net.accelbyte.sdk.cli.Main ugc deleteChannel \
-    --channelId 'pNDigNJm' \
+    --channelId 'LYOWA8NjxOnaEok4' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'a1MbqqZt' \
+    --userId 'nOOCzfsflhjbngJO' \
     > test.out 2>&1
 eval_tap $? 71 'DeleteChannel' test.out
 
@@ -641,20 +641,20 @@ eval_tap 0 72 'CreateContentDirect # SKIP deprecated' test.out
 
 #- 73 CreateContentS3
 ./ng net.accelbyte.sdk.cli.Main ugc createContentS3 \
-    --channelId 'fNWql4nm' \
+    --channelId 'Un18G5MlfDTk8aG4' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'wAft4gqk' \
-    --body '{"contentType": "NNlWkD9e", "customAttributes": {"OziYRFOn": {}, "0jJLHC9L": {}, "xhvNXTwG": {}}, "fileExtension": "BCtohLtl", "name": "9Zuhytm5", "preview": "UDrT6QXC", "previewMetadata": {"previewContentType": "s5SPBbRP", "previewFileExtension": "ZTF6oQAX"}, "subType": "VG7tnsZg", "tags": ["5QgXjvyG", "JPN4eXbJ", "E5Vs2Gcy"], "type": "omQoIXim"}' \
+    --userId '0NlncceIZSwgAIkg' \
+    --body '{"contentType": "zh4pTU0Am4DZhl0b", "customAttributes": {"QxFJ3sWCqQpQ2FbK": {}, "PFMycMSQ4qfAacR0": {}, "LgB5BUXvjcu2s6w3": {}}, "fileExtension": "VifnKqmTSoGH1XEf", "name": "Y6QAYn6WQ5UBEU1Q", "preview": "AOHfZiGhxOdcuDXS", "previewMetadata": {"previewContentType": "xSc3aZPV87pna08g", "previewFileExtension": "xefTYKhuxaEc7M4P"}, "subType": "7UckSC6ePeN8i4Gr", "tags": ["FES9z7xueHpATHcc", "ee9GXhKcjmSEwdrk", "EnnqKzFsLfYalUlf"], "type": "wEQKjU7eHGebSVu0"}' \
     > test.out 2>&1
 eval_tap $? 73 'CreateContentS3' test.out
 
 #- 74 UpdateContentS3
 ./ng net.accelbyte.sdk.cli.Main ugc updateContentS3 \
-    --channelId 'BJehyxlN' \
-    --contentId 'sjUgxBkF' \
+    --channelId 'LQ40kepEaC4dfiOM' \
+    --contentId 'ZfEhHr39pysFO3Zv' \
     --namespace "$AB_NAMESPACE" \
-    --userId '6wFPoJeQ' \
-    --body '{"contentType": "ediogEhh", "customAttributes": {"M2rIizGd": {}, "KvOPdq5x": {}, "rgxSmy1D": {}}, "fileExtension": "N9LFkYW5", "name": "DQyj4bj5", "payload": "Ro2ogaKt", "preview": "2ujQSa3Z", "previewMetadata": {"previewContentType": "db65UXmy", "previewFileExtension": "0Zp6iIaT"}, "subType": "IKUkmkk9", "tags": ["QM0NBMA9", "ORxpzwLR", "2AK6eXUG"], "type": "PJsw1fiP", "updateContentFile": true}' \
+    --userId 'c1BZG99LyvfvHEsJ' \
+    --body '{"contentType": "KQQewVLMUoAnaRcY", "customAttributes": {"p7FUjfIGaffoflEI": {}, "ByYqeKN0meGelYF5": {}, "wWaDhukU4khGG4vZ": {}}, "fileExtension": "FTYnPkmSu4PWam1j", "name": "xR7SETWjteoc8fgv", "payload": "ZDDhoO05oKqymxLD", "preview": "1Lcvw6T6mZEiwxxE", "previewMetadata": {"previewContentType": "lpMYSWIeVzm7z9no", "previewFileExtension": "owmlTIKVowi0RY2V"}, "subType": "N4ZONJREdUQ3z9F1", "tags": ["BxNNgnke4akncw7w", "u9TmXfJWBPrx9Ns8", "eLzYEvwSWTaLQjct"], "type": "vrK2jhsYpKPlXn77", "updateContentFile": true}' \
     > test.out 2>&1
 eval_tap $? 74 'UpdateContentS3' test.out
 
@@ -663,60 +663,60 @@ eval_tap 0 75 'UpdateContentDirect # SKIP deprecated' test.out
 
 #- 76 DeleteContent
 ./ng net.accelbyte.sdk.cli.Main ugc deleteContent \
-    --channelId 'G9Pclxcf' \
-    --contentId 't2ulIJzP' \
+    --channelId 'MKtezapPr2QEPx3z' \
+    --contentId 'TxBGtEJIYppuUSsK' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'yrVEiOG4' \
+    --userId 'oHw2hyd12uSE7BEv' \
     > test.out 2>&1
 eval_tap $? 76 'DeleteContent' test.out
 
 #- 77 PublicGetUserContent
 ./ng net.accelbyte.sdk.cli.Main ugc publicGetUserContent \
     --namespace "$AB_NAMESPACE" \
-    --userId 'UcqsuGKH' \
-    --limit '15' \
-    --offset '10' \
+    --userId '3aevq6iohU1cg4W1' \
+    --limit '70' \
+    --offset '31' \
     > test.out 2>&1
 eval_tap $? 77 'PublicGetUserContent' test.out
 
 #- 78 DeleteAllUserContents
 ./ng net.accelbyte.sdk.cli.Main ugc deleteAllUserContents \
     --namespace "$AB_NAMESPACE" \
-    --userId 'MRWLVd3D' \
+    --userId 'S3Uv1BpWoJBaqdg2' \
     > test.out 2>&1
 eval_tap $? 78 'DeleteAllUserContents' test.out
 
 #- 79 UpdateScreenshots
 ./ng net.accelbyte.sdk.cli.Main ugc updateScreenshots \
-    --contentId 'lhLuIpom' \
+    --contentId 'FHcunsS1lnaO2m9v' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'M8sm1Mia' \
-    --body '{"screenshots": [{"description": "I1mX2tJo", "screenshotId": "ARtdbBe7"}, {"description": "udsMrok0", "screenshotId": "WvGYYnx4"}, {"description": "V709xbnG", "screenshotId": "ezKsDwG2"}]}' \
+    --userId 'qjhbeK2qN8g6x2Py' \
+    --body '{"screenshots": [{"description": "YDo5R3hLiD5sf5y1", "screenshotId": "JsxJNGmyt0SQDUDo"}, {"description": "WBZVGLlkUetzCAWc", "screenshotId": "9x1aMjgGim51T107"}, {"description": "XIZRZ7tZdIs0xf4c", "screenshotId": "zdt7zqmSKxOEQlVc"}]}' \
     > test.out 2>&1
 eval_tap $? 79 'UpdateScreenshots' test.out
 
 #- 80 UploadContentScreenshot
 ./ng net.accelbyte.sdk.cli.Main ugc uploadContentScreenshot \
-    --contentId 'omOR2nvY' \
+    --contentId 'x6GqsBq8vdhWVnuY' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'I9TVqJdv' \
-    --body '{"screenshots": [{"contentType": "zcWbfUpa", "description": "Xp5JMl5L", "fileExtension": "pjp"}, {"contentType": "CSa8SRgw", "description": "sAj1ik1j", "fileExtension": "bmp"}, {"contentType": "NRsB1fPq", "description": "qRRulpqp", "fileExtension": "jpg"}]}' \
+    --userId 'LgpZehK0G2nmyuVi' \
+    --body '{"screenshots": [{"contentType": "B9kRTcSQdTnNYGeA", "description": "fYFG3wSkHKufBdS3", "fileExtension": "jfif"}, {"contentType": "OokZB4cXnAXyuGz6", "description": "LlxHv8SwyagYvDJ3", "fileExtension": "jpeg"}, {"contentType": "NnTn3rzH5NvAtcvN", "description": "edgS1fUfKmihDbmu", "fileExtension": "pjp"}]}' \
     > test.out 2>&1
 eval_tap $? 80 'UploadContentScreenshot' test.out
 
 #- 81 DeleteContentScreenshot
 ./ng net.accelbyte.sdk.cli.Main ugc deleteContentScreenshot \
-    --contentId 'wrS0uPdj' \
+    --contentId 'ePWlQMVDXEHeiGTn' \
     --namespace "$AB_NAMESPACE" \
-    --screenshotId 'hdinpng5' \
-    --userId 'BLy8wbhM' \
+    --screenshotId 'wyEw6hIWDZrpP7rz' \
+    --userId '3ISW510kHr4isTKW' \
     > test.out 2>&1
 eval_tap $? 81 'DeleteContentScreenshot' test.out
 
 #- 82 UpdateUserFollowStatus
 ./ng net.accelbyte.sdk.cli.Main ugc updateUserFollowStatus \
     --namespace "$AB_NAMESPACE" \
-    --userId 'ssAHjapI' \
+    --userId 'jmv67nuHCXWfwnwG' \
     --body '{"followStatus": false}' \
     > test.out 2>&1
 eval_tap $? 82 'UpdateUserFollowStatus' test.out
@@ -724,84 +724,84 @@ eval_tap $? 82 'UpdateUserFollowStatus' test.out
 #- 83 GetPublicFollowers
 ./ng net.accelbyte.sdk.cli.Main ugc getPublicFollowers \
     --namespace "$AB_NAMESPACE" \
-    --userId 'qjRJOqB5' \
-    --limit '64' \
-    --offset '6' \
+    --userId 'E9sJ4NpUtKp6M9I6' \
+    --limit '27' \
+    --offset '53' \
     > test.out 2>&1
 eval_tap $? 83 'GetPublicFollowers' test.out
 
 #- 84 GetPublicFollowing
 ./ng net.accelbyte.sdk.cli.Main ugc getPublicFollowing \
     --namespace "$AB_NAMESPACE" \
-    --userId '3zFQbJnd' \
-    --limit '96' \
-    --offset '58' \
+    --userId 'EwnZhsjwJeGwaPSD' \
+    --limit '80' \
+    --offset '96' \
     > test.out 2>&1
 eval_tap $? 84 'GetPublicFollowing' test.out
 
 #- 85 GetGroups
 ./ng net.accelbyte.sdk.cli.Main ugc getGroups \
     --namespace "$AB_NAMESPACE" \
-    --userId 'DpdONneA' \
-    --limit '4' \
-    --offset '97' \
+    --userId 'Zz95OYKiqaZD63xe' \
+    --limit '58' \
+    --offset '36' \
     > test.out 2>&1
 eval_tap $? 85 'GetGroups' test.out
 
 #- 86 CreateGroup
 ./ng net.accelbyte.sdk.cli.Main ugc createGroup \
     --namespace "$AB_NAMESPACE" \
-    --userId 'zbBdHb2s' \
-    --body '{"contents": ["lt71B1Sm", "Zp2JZp50", "CnPb71OR"], "name": "YcmQbTU5"}' \
+    --userId 'qSMzpqIFGLkDs7AC' \
+    --body '{"contents": ["C1RgBfoNrHlFi2qJ", "LgmBLE35YhyiDV90", "SeI5yppBHoytVznC"], "name": "gNyx9fbT63ShEh8P"}' \
     > test.out 2>&1
 eval_tap $? 86 'CreateGroup' test.out
 
 #- 87 DeleteAllUserGroup
 ./ng net.accelbyte.sdk.cli.Main ugc deleteAllUserGroup \
     --namespace "$AB_NAMESPACE" \
-    --userId 'JX8ccLjM' \
+    --userId 'bGikLjgjcj34uulU' \
     > test.out 2>&1
 eval_tap $? 87 'DeleteAllUserGroup' test.out
 
 #- 88 GetGroup
 ./ng net.accelbyte.sdk.cli.Main ugc getGroup \
-    --groupId 'XJRk0eaK' \
+    --groupId '6FYBZsWFbr3RSP0W' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'QDOJvrTe' \
+    --userId '9nBhvhf8Q0DtJMcY' \
     > test.out 2>&1
 eval_tap $? 88 'GetGroup' test.out
 
 #- 89 UpdateGroup
 ./ng net.accelbyte.sdk.cli.Main ugc updateGroup \
-    --groupId 'fglSs6g4' \
+    --groupId 'QdN66bswAgt65X4N' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'iY9u02aC' \
-    --body '{"contents": ["NYIWekp1", "8lOC3mNq", "F7Bl0Lcg"], "name": "hVHfPEsp"}' \
+    --userId '1LQZmB61JMdtwCVU' \
+    --body '{"contents": ["rYQue84dwmbwFEnA", "ZaWsQJtRYoagRJK5", "PX9UcOvhPyE11TRT"], "name": "2SKseoe8VLie0LBa"}' \
     > test.out 2>&1
 eval_tap $? 89 'UpdateGroup' test.out
 
 #- 90 DeleteGroup
 ./ng net.accelbyte.sdk.cli.Main ugc deleteGroup \
-    --groupId 'xwhRON0b' \
+    --groupId '36KNzjf005CXNGeh' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'c1eMbEIj' \
+    --userId 'Q2aTjTDfKFDXC7eG' \
     > test.out 2>&1
 eval_tap $? 90 'DeleteGroup' test.out
 
 #- 91 GetGroupContent
 ./ng net.accelbyte.sdk.cli.Main ugc getGroupContent \
-    --groupId 'owLqc3ec' \
+    --groupId 'L5YhJDWh9YWqc0qg' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'jXJbZDKK' \
-    --limit '30' \
-    --offset '67' \
+    --userId 'V6d9yOfIMLds2DbP' \
+    --limit '5' \
+    --offset '12' \
     > test.out 2>&1
 eval_tap $? 91 'GetGroupContent' test.out
 
 #- 92 DeleteAllUserStates
 ./ng net.accelbyte.sdk.cli.Main ugc deleteAllUserStates \
     --namespace "$AB_NAMESPACE" \
-    --userId 'xLE1Y3Dy' \
+    --userId 'aoMdtRLTmSvTkQQg' \
     > test.out 2>&1
 eval_tap $? 92 'DeleteAllUserStates' test.out
 

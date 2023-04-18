@@ -6,13 +6,14 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.ugc.admin_content;
+package net.accelbyte.sdk.cli.api.platform.wallet;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.ugc.models.*;
-import net.accelbyte.sdk.api.ugc.wrappers.AdminContent;
+import net.accelbyte.sdk.api.platform.models.*;
+import net.accelbyte.sdk.api.platform.wrappers.Wallet;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,20 +26,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "singleAdminUpdateContentS3", mixinStandardHelpOptions = true)
-public class SingleAdminUpdateContentS3 implements Callable<Integer> {
+@Command(name = "bulkCredit", mixinStandardHelpOptions = true)
+public class BulkCredit implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(SingleAdminUpdateContentS3.class);
-
-  @Option(
-      names = {"--channelId"},
-      description = "channelId")
-  String channelId;
-
-  @Option(
-      names = {"--contentId"},
-      description = "contentId")
-  String contentId;
+  private static final Logger log = LogManager.getLogger(BulkCredit.class);
 
   @Option(
       names = {"--namespace"},
@@ -56,7 +47,7 @@ public class SingleAdminUpdateContentS3 implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new SingleAdminUpdateContentS3()).execute(args);
+    int exitCode = new CommandLine(new BulkCredit()).execute(args);
     System.exit(exitCode);
   }
 
@@ -70,17 +61,15 @@ public class SingleAdminUpdateContentS3 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final AdminContent wrapper = new AdminContent(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_content.SingleAdminUpdateContentS3
-          operation =
-              net.accelbyte.sdk.api.ugc.operations.admin_content.SingleAdminUpdateContentS3
-                  .builder()
-                  .channelId(channelId)
-                  .contentId(contentId)
-                  .namespace(namespace)
-                  .body(new ObjectMapper().readValue(body, ModelsUpdateContentRequest.class))
-                  .build();
-      final ModelsCreateContentResponse response = wrapper.singleAdminUpdateContentS3(operation);
+      final Wallet wrapper = new Wallet(sdk);
+      final net.accelbyte.sdk.api.platform.operations.wallet.BulkCredit operation =
+          net.accelbyte.sdk.api.platform.operations.wallet.BulkCredit.builder()
+              .namespace(namespace)
+              .body(
+                  new ObjectMapper()
+                      .readValue(body, new TypeReference<List<BulkCreditRequest>>() {}))
+              .build();
+      final BulkCreditResult response = wrapper.bulkCredit(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -96,6 +96,11 @@ public class QueryItems1 implements Callable<Integer> {
   String region;
 
   @Option(
+      names = {"--sectionExclusive"},
+      description = "sectionExclusive")
+  Boolean sectionExclusive;
+
+  @Option(
       names = {"--sortBy"},
       description = "sortBy")
   List<String> sortBy;
@@ -151,6 +156,7 @@ public class QueryItems1 implements Callable<Integer> {
               .limit(limit)
               .offset(offset)
               .region(region)
+              .sectionExclusive(sectionExclusive)
               .sortBy(sortBy)
               .storeId(storeId)
               .tags(tags)

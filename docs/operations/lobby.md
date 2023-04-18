@@ -21,13 +21,6 @@
 | `/friends/namespaces/{namespace}/users/{userId}/add/bulk` | POST | AddFriendsWithoutConfirmation | [AddFriendsWithoutConfirmation](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/friends/AddFriendsWithoutConfirmation.java) | [AddFriendsWithoutConfirmation](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/friends/AddFriendsWithoutConfirmation.java) |
 | `/lobby/v1/admin/friend/namespaces/{namespace}/users/{userId}` | GET | GetListOfFriends | [GetListOfFriends](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/friends/GetListOfFriends.java) | [GetListOfFriends](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/friends/GetListOfFriends.java) |
 
-### chat Wrapper:  [Chat](../../src/main/java/net/accelbyte/sdk/api/lobby/wrappers/Chat.java)
-| Endpoint | Method | ID | Class | Example |
-|---|---|---|---|---|
-| `/lobby/chat/namespaces/{namespace}/users/{userId}/friend/{friendId}` | GET | PersonalChatHistory | [PersonalChatHistory](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/chat/PersonalChatHistory.java) | [PersonalChatHistory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/chat/PersonalChatHistory.java) |
-| `/lobby/v1/admin/chat/namespaces/{namespace}/users/{userId}/friends/{friendId}` | GET | AdminChatHistory | [AdminChatHistory](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/chat/AdminChatHistory.java) | [AdminChatHistory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/chat/AdminChatHistory.java) |
-| `/lobby/v1/public/chat/namespaces/{namespace}/users/me/friends/{friendId}` | GET | GetPersonalChatHistoryV1Public | [GetPersonalChatHistoryV1Public](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/chat/GetPersonalChatHistoryV1Public.java) | [GetPersonalChatHistoryV1Public](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/chat/GetPersonalChatHistoryV1Public.java) |
-
 ### config Wrapper:  [Config](../../src/main/java/net/accelbyte/sdk/api/lobby/wrappers/Config.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -153,7 +146,6 @@
 | `log.AppMessageDeclaration` | [LogAppMessageDeclaration](../../src/main/java/net/accelbyte/sdk/api/lobby/models/LogAppMessageDeclaration.java) |
 | `model.BulkAddFriendsRequest` | [ModelBulkAddFriendsRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelBulkAddFriendsRequest.java) |
 | `model.BulkUsersFreeFormNotificationRequestV1` | [ModelBulkUsersFreeFormNotificationRequestV1](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelBulkUsersFreeFormNotificationRequestV1.java) |
-| `model.ChatMessageResponse` | [ModelChatMessageResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelChatMessageResponse.java) |
 | `model.CreateTemplateRequest` | [ModelCreateTemplateRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelCreateTemplateRequest.java) |
 | `model.CreateTopicRequest` | [ModelCreateTopicRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelCreateTopicRequest.java) |
 | `model.CreateTopicRequestV1` | [ModelCreateTopicRequestV1](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelCreateTopicRequestV1.java) |
