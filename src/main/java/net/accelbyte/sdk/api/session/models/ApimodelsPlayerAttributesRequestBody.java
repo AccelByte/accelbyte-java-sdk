@@ -28,6 +28,9 @@ public class ApimodelsPlayerAttributesRequestBody extends Model {
   @JsonProperty("crossplayEnabled")
   private Boolean crossplayEnabled;
 
+  @JsonProperty("currentPlatform")
+  private String currentPlatform;
+
   @JsonProperty("data")
   private Map<String, ?> data;
 

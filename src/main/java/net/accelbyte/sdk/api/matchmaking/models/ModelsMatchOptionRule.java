@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsMatchOptionRule extends Model {
 
   @JsonProperty("options")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsMatchOption> options;
 
   @JsonIgnore

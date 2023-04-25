@@ -60,7 +60,6 @@
 | `models.ChannelRequest` | [ModelsChannelRequest](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsChannelRequest.java) |
 | `models.ChannelV1` | [ModelsChannelV1](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsChannelV1.java) |
 | `models.Combination` | [ModelsCombination](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsCombination.java) |
-| `models.Combination.alliances` | [ModelsCombinationAlliances](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsCombinationAlliances.java) |
 | `models.CreateChannelResponse` | [ModelsCreateChannelResponse](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsCreateChannelResponse.java) |
 | `models.DequeueRequest` | [ModelsDequeueRequest](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsDequeueRequest.java) |
 | `models.FlexingRule` | [ModelsFlexingRule](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsFlexingRule.java) |
@@ -83,6 +82,7 @@
 | `models.RebalanceResponse` | [ModelsRebalanceResponse](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsRebalanceResponse.java) |
 | `models.ResultAttributeRequest` | [ModelsResultAttributeRequest](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsResultAttributeRequest.java) |
 | `models.ResultAttributeResponse` | [ModelsResultAttributeResponse](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsResultAttributeResponse.java) |
+| `models.Role` | [ModelsRole](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsRole.java) |
 | `models.RuleSet` | [ModelsRuleSet](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsRuleSet.java) |
 | `models.RuleSetV1` | [ModelsRuleSetV1](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsRuleSetV1.java) |
 | `models.SubGameMode` | [ModelsSubGameMode](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsSubGameMode.java) |

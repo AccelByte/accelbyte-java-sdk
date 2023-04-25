@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelsAchievementUpdateRequest extends Model {
 
+  @JsonProperty("customAttributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> customAttributes;
+
   @JsonProperty("defaultLanguage")
   private String defaultLanguage;
 

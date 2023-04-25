@@ -62,6 +62,26 @@ public class PublicPlayerRecord {
   }
 
   /**
+   * @see GetOtherPlayerPublicRecordKeyHandlerV1
+   */
+  public ModelsListPlayerRecordKeysResponse getOtherPlayerPublicRecordKeyHandlerV1(
+      GetOtherPlayerPublicRecordKeyHandlerV1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GetOtherPlayerPublicRecordHandlerV1
+   */
+  public ModelsBulkGetPlayerRecordResponse getOtherPlayerPublicRecordHandlerV1(
+      GetOtherPlayerPublicRecordHandlerV1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetPlayerRecordHandlerV1
    */
   public ModelsPlayerRecordResponse getPlayerRecordHandlerV1(GetPlayerRecordHandlerV1 input)

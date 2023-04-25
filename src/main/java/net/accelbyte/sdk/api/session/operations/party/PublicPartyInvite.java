@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicPartyInvite
  *
- * <p>Invite a user to a party.
+ * <p>Invite a user to a party. platformID represents the native platform of the invitee. API will
+ * return the corresponding native platform's userID. supported platforms: - STEAM - XBOX - PSN
  */
 @Getter
 @Setter

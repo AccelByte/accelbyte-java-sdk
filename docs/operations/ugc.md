@@ -164,6 +164,7 @@
 |---|---|
 | `models.AddDownloadCountResponse` | [ModelsAddDownloadCountResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsAddDownloadCountResponse.java) |
 | `models.AdminGetContentBulkRequest` | [ModelsAdminGetContentBulkRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsAdminGetContentBulkRequest.java) |
+| `models.AdminUpdateContentRequest` | [ModelsAdminUpdateContentRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsAdminUpdateContentRequest.java) |
 | `models.ChannelRequest` | [ModelsChannelRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsChannelRequest.java) |
 | `models.ChannelResponse` | [ModelsChannelResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsChannelResponse.java) |
 | `models.ContentDownloadResponse` | [ModelsContentDownloadResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsContentDownloadResponse.java) |

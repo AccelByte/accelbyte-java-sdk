@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..40"
+echo "1..42"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -306,65 +306,82 @@ eval_tap $? 32 'PutPlayerRecordConcurrentHandlerV1' test.out
     > test.out 2>&1
 eval_tap $? 33 'PutPlayerPublicRecordConcurrentHandlerV1' test.out
 
-#- 34 GetPlayerRecordHandlerV1
+#- 34 GetOtherPlayerPublicRecordKeyHandlerV1
+./ng net.accelbyte.sdk.cli.Main cloudsave getOtherPlayerPublicRecordKeyHandlerV1 \
+    --namespace "$AB_NAMESPACE" \
+    --userId 'kMNxvvKgAT8mJrYq' \
+    --limit '95' \
+    --offset '15' \
+    > test.out 2>&1
+eval_tap $? 34 'GetOtherPlayerPublicRecordKeyHandlerV1' test.out
+
+#- 35 GetOtherPlayerPublicRecordHandlerV1
+./ng net.accelbyte.sdk.cli.Main cloudsave getOtherPlayerPublicRecordHandlerV1 \
+    --namespace "$AB_NAMESPACE" \
+    --userId 'XiI07A68eaqC2J9j' \
+    --body '{"keys": ["yEW6GLbc0NaKDUL3", "sa13lk1dQBHO86Il", "BhnetU4RwTqUXlTD"]}' \
+    > test.out 2>&1
+eval_tap $? 35 'GetOtherPlayerPublicRecordHandlerV1' test.out
+
+#- 36 GetPlayerRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave getPlayerRecordHandlerV1 \
-    --key 'kMNxvvKgAT8mJrYq' \
+    --key 'BzOuYsaZA2yyd4mb' \
     --namespace "$AB_NAMESPACE" \
-    --userId '6hRkloqxM3gpwxcf' \
+    --userId 'qoOfADMMAXFaY9eK' \
     > test.out 2>&1
-eval_tap $? 34 'GetPlayerRecordHandlerV1' test.out
+eval_tap $? 36 'GetPlayerRecordHandlerV1' test.out
 
-#- 35 PutPlayerRecordHandlerV1
+#- 37 PutPlayerRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave putPlayerRecordHandlerV1 \
-    --key 'My9XzjjI5YbsKoAD' \
+    --key 'a699bRVhyaKwwrAP' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'kzJEN2VHzih3bit0' \
+    --userId '2aMlu7WtjCtoYetO' \
     --body '{}' \
     > test.out 2>&1
-eval_tap $? 35 'PutPlayerRecordHandlerV1' test.out
+eval_tap $? 37 'PutPlayerRecordHandlerV1' test.out
 
-#- 36 PostPlayerRecordHandlerV1
+#- 38 PostPlayerRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave postPlayerRecordHandlerV1 \
-    --key 'VWn3CO39PXDNxtXg' \
+    --key 'O847g8OudOfjnCuH' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'eO3FgkXhjDzaQY3s' \
+    --userId 'Z3c46IjGa23YvYmm' \
     --body '{}' \
     > test.out 2>&1
-eval_tap $? 36 'PostPlayerRecordHandlerV1' test.out
+eval_tap $? 38 'PostPlayerRecordHandlerV1' test.out
 
-#- 37 DeletePlayerRecordHandlerV1
+#- 39 DeletePlayerRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave deletePlayerRecordHandlerV1 \
-    --key 'nn2ZkP7cFdP43e5d' \
+    --key 'Dg7VYPXIuvUYTZBR' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'C9XIBudfZgrbHDID' \
+    --userId 'ujIUE1Tq5jyAZvkR' \
     > test.out 2>&1
-eval_tap $? 37 'DeletePlayerRecordHandlerV1' test.out
+eval_tap $? 39 'DeletePlayerRecordHandlerV1' test.out
 
-#- 38 GetPlayerPublicRecordHandlerV1
+#- 40 GetPlayerPublicRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave getPlayerPublicRecordHandlerV1 \
-    --key 'm4hMzF4TxodenSrU' \
+    --key 'CMNFIurjh2imdb4r' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'TvfqU0bfoMm5cTtF' \
+    --userId 'bkXj0ZwsVC0gL97Z' \
     > test.out 2>&1
-eval_tap $? 38 'GetPlayerPublicRecordHandlerV1' test.out
+eval_tap $? 40 'GetPlayerPublicRecordHandlerV1' test.out
 
-#- 39 PutPlayerPublicRecordHandlerV1
+#- 41 PutPlayerPublicRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave putPlayerPublicRecordHandlerV1 \
-    --key 'WbotQyXJRcQWsmqP' \
+    --key 'VJSPqJiwv1qlYB1R' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'Ns92epxk0i8VxsZN' \
+    --userId 'SKs6gQxC3Gb7S0o4' \
     --body '{}' \
     > test.out 2>&1
-eval_tap $? 39 'PutPlayerPublicRecordHandlerV1' test.out
+eval_tap $? 41 'PutPlayerPublicRecordHandlerV1' test.out
 
-#- 40 PostPlayerPublicRecordHandlerV1
+#- 42 PostPlayerPublicRecordHandlerV1
 ./ng net.accelbyte.sdk.cli.Main cloudsave postPlayerPublicRecordHandlerV1 \
-    --key 'ereSvf9699mCEHTh' \
+    --key 'zGYY7KQI1AeFgPqa' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'UJkETAsSp7gh4TeU' \
+    --userId 'Okvo1aolB4lkKB4E' \
     --body '{}' \
     > test.out 2>&1
-eval_tap $? 40 'PostPlayerPublicRecordHandlerV1' test.out
+eval_tap $? 42 'PostPlayerPublicRecordHandlerV1' test.out
 
 
 rm -f "tmp.dat"

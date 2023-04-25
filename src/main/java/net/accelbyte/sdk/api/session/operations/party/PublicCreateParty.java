@@ -27,7 +27,12 @@ import net.accelbyte.sdk.core.util.Helper;
  * configuration name if empty: { "name": "default", "type": "NONE", "joinability": "OPEN",
  * "minPlayers": 1, "maxPlayers": 8, "inviteTimeout": 60, "inactiveTimeout": 60, "textChat": false }
  *
- * <p>Supported platforms: 1. STEAM
+ * <p>Supported platforms: 1. STEAM 2. PSN 3. XBOX
+ *
+ * <p>Reserved attributes key: 1. preference: used to store preference of the leader and it is
+ * non-replaceable to keep the initial behavior of the session regardless the leader changes. 2.
+ * NATIVESESSIONTITLE: used for session sync, to define name of session displayed on PlayStation
+ * system UI.
  */
 @Getter
 @Setter

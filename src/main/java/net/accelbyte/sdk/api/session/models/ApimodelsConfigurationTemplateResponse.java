@@ -58,6 +58,10 @@ public class ApimodelsConfigurationTemplateResponse extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("nativeSessionSetting")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelsNativeSessionSetting nativeSessionSetting;
+
   @JsonProperty("persistent")
   private Boolean persistent;
 

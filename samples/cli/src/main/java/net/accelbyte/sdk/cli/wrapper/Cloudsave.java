@@ -52,6 +52,8 @@ import picocli.CommandLine.Command;
       PublicDeletePlayerPublicRecordHandlerV1.class,
       PutPlayerRecordConcurrentHandlerV1.class,
       PutPlayerPublicRecordConcurrentHandlerV1.class,
+      GetOtherPlayerPublicRecordKeyHandlerV1.class,
+      GetOtherPlayerPublicRecordHandlerV1.class,
       GetPlayerRecordHandlerV1.class,
       PutPlayerRecordHandlerV1.class,
       PostPlayerRecordHandlerV1.class,

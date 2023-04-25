@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelsSessionInviteRequest extends Model {
 
+  @JsonProperty("platformID")
+  private String platformID;
+
   @JsonProperty("userID")
   private String userID;
 

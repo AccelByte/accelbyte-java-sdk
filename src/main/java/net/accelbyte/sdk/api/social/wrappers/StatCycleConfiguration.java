@@ -41,6 +41,15 @@ public class StatCycleConfiguration {
   }
 
   /**
+   * @see BulkGetStatCycle
+   */
+  public BulkStatCycleResult bulkGetStatCycle(BulkGetStatCycle input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetStatCycle
    */
   public StatCycleInfo getStatCycle(GetStatCycle input) throws Exception {
@@ -89,6 +98,15 @@ public class StatCycleConfiguration {
    * @see GetStatCycles1
    */
   public StatCyclePagingSlicedResult getStatCycles1(GetStatCycles1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see BulkGetStatCycle1
+   */
+  public BulkStatCycleResult bulkGetStatCycle1(BulkGetStatCycle1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

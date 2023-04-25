@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelsCreateConfigurationTemplateRequest extends Model {
 
+  @JsonProperty("NativeSessionSetting")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelsNativeSessionSetting nativeSessionSetting;
+
   @JsonProperty("clientVersion")
   private String clientVersion;
 

@@ -65,6 +65,7 @@ import picocli.CommandLine.Command;
       KickGroupMemberPublicV1.class,
       GetListGroupByIDsAdminV2.class,
       GetUserJoinedGroupInformationPublicV2.class,
+      AdminGetUserGroupStatusInformationV2.class,
       CreateNewGroupPublicV2.class,
       GetListGroupByIDsV2.class,
       UpdatePutSingleGroupPublicV2.class,

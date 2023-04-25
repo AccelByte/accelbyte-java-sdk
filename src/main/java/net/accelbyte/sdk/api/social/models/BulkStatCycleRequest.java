@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.matchmaking.models;
+package net.accelbyte.sdk.api.social.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,26 +23,18 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ModelsCombinationAlliances extends Model {
+public class BulkStatCycleRequest extends Model {
 
-  @JsonProperty("max")
-  private Integer max;
-
-  @JsonProperty("min")
-  private Integer min;
-
-  @JsonProperty("name")
-  private String name;
+  @JsonProperty("cycleIds")
+  private List<String> cycleIds;
 
   @JsonIgnore
-  public ModelsCombinationAlliances createFromJson(String json) throws JsonProcessingException {
+  public BulkStatCycleRequest createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ModelsCombinationAlliances> createFromJsonList(String json)
-      throws JsonProcessingException {
-    return new ObjectMapper()
-        .readValue(json, new TypeReference<List<ModelsCombinationAlliances>>() {});
+  public List<BulkStatCycleRequest> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<BulkStatCycleRequest>>() {});
   }
 }

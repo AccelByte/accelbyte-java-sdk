@@ -150,6 +150,16 @@ public class GroupMember {
   }
 
   /**
+   * @see AdminGetUserGroupStatusInformationV2
+   */
+  public ModelsGetUserGroupInformationResponseV1 adminGetUserGroupStatusInformationV2(
+      AdminGetUserGroupStatusInformationV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AcceptGroupInvitationPublicV2
    */
   public ModelsMemberRequestGroupResponseV1 acceptGroupInvitationPublicV2(

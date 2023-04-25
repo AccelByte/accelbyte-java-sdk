@@ -29,6 +29,7 @@ public class ModelsRuleSet extends Model {
   private ModelsAllianceRule alliance;
 
   @JsonProperty("alliance_flexing_rule")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsAllianceFlexingRule> allianceFlexingRule;
 
   @JsonProperty("flexing_rule")
@@ -44,6 +45,7 @@ public class ModelsRuleSet extends Model {
   private Boolean rebalanceEnable;
 
   @JsonProperty("sub_game_modes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ModelsSubGameMode> subGameModes;
 
   @JsonIgnore

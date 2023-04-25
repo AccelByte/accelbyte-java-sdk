@@ -31,6 +31,10 @@ public class ModelsAchievementResponse extends Model {
   @JsonProperty("createdAt")
   private String createdAt;
 
+  @JsonProperty("customAttributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> customAttributes;
+
   @JsonProperty("defaultLanguage")
   private String defaultLanguage;
 

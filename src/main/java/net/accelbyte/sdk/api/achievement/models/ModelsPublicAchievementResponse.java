@@ -31,6 +31,10 @@ public class ModelsPublicAchievementResponse extends Model {
   @JsonProperty("createdAt")
   private String createdAt;
 
+  @JsonProperty("customAttributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> customAttributes;
+
   @JsonProperty("description")
   private String description;
 

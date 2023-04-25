@@ -114,6 +114,7 @@
 | `models.DSMConfigRecord` | [ModelsDSMConfigRecord](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsDSMConfigRecord.java) |
 | `models.DefaultDSMCConfig` | [ModelsDefaultDSMCConfig](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsDefaultDSMCConfig.java) |
 | `models.GameServer` | [ModelsGameServer](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsGameServer.java) |
+| `models.NativeSessionSetting` | [ModelsNativeSessionSetting](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsNativeSessionSetting.java) |
 | `models.PartyMembers` | [ModelsPartyMembers](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsPartyMembers.java) |
 | `models.Team` | [ModelsTeam](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsTeam.java) |
 | `models.UserPlatformInfo` | [ModelsUserPlatformInfo](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsUserPlatformInfo.java) |

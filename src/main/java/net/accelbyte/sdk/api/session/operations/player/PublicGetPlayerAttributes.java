@@ -26,7 +26,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Field descriptions: - userID : user who owns the attributes. - crossplayEnabled : set to true
  * if the player wants to enable crossplay to their session (default: false). - platforms : list of
  * the player's 3rd party platform account information. - name : platform name. supported platforms:
- * STEAM - userID : platform userID - data : other data that the player wants to store.
+ * STEAM, XBOX, PSN - userID : platform userID - data : other data that the player wants to store. -
+ * currentPlatform : latest user game platform.
  */
 @Getter
 @Setter

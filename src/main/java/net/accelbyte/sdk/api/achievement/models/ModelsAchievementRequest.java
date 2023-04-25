@@ -28,6 +28,10 @@ public class ModelsAchievementRequest extends Model {
   @JsonProperty("achievementCode")
   private String achievementCode;
 
+  @JsonProperty("customAttributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> customAttributes;
+
   @JsonProperty("defaultLanguage")
   private String defaultLanguage;
 
