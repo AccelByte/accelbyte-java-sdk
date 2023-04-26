@@ -1,45 +1,67 @@
+<a name="v0.35.0"></a>
+## [v0.35.0] - 2023-04-26
+### Chore
+- **sdk:** generate java extend sdk (230425.2153)
+
+### Ci
+- **jenkinsfile.generate:** fix error when there is no outstanding deprecation
+- **jenkinsfile.generate:** add outstanding deprecation check
+- **makefile:** add outstanding_deprecation target
+
+### Fix
+- follow-up issue after adding lobby doc rev.2
+- follow-up issue after adding lobby docs
+- update integration test DLC and the migration docs
+
+
 <a name="v0.34.0"></a>
 ## [v0.34.0] - 2023-04-11
 ### Chore
-adjust sdk version because early cherry-pick
-generate java extend sdk (230410.0052)
-generate java extend sdk (230328.2153)
+- **sdk:** adjust sdk version because early cherry-pick
+- **sdk:** generate java extend sdk (230410.0052)
+- **sdk:** generate java extend sdk (230328.2153)
+
+### Ci
+- rename jenkins slack notif channel
 
 ### Docs
-**migration-guide**: v0.33.0 to v0.34.0 breaking change in legal,ugc,platform
+- update changelog for ags 3.46
+- **migration-guide:** v0.33.0 to v0.34.0 breaking change in legal,ugc,platform
 
-### CI
-rename jenkins slack notif channel
 
 <a name="v0.33.0"></a>
 ## [v0.33.0] - 2023-03-28
 ### Chore
-generate java extend sdk (230327.2155)
-delete title matchmaking sample app
+- **samples:** delete title matchmaking sample app
+- **sdk:** generate java extend sdk (230327.2155)
+- **sdk:** generate java extend sdk (230315.2156)
 
 ### Docs
-**samples**: fix broken link on custom-operation docs
-**samples**: add custom-operation sample
-**samples**: remove phantauth.net url since the site is down
-**migration-guide**: v0.32.0 to v0.33.0 rename model in basic
+- update changelog for ags 3.45
+- **migration-guide:** v0.32.0 to v0.33.0 rename model in basic
+- **samples:** fix broken link on custom-operation docs
+- **samples:** add custom-operation sample
+- **samples:** remove phantauth.net url since the site is down
 
 ### Fix
-**integration**: model renamed from UserProfilePrivateUpdate to UserProfileUpdate
+- **integration:** model renamed from UserProfilePrivateUpdate to UserProfileUpdate
 
-  <a name="v0.32.0"></a>
-## [v0.32.0] - 2023-03-13
+
+<a name="v0.32.0"></a>
+## [v0.32.0] - 2023-03-14
 ### Chore
-- **sdk:** chore(sdk): generate java server sdk (230313.2157)
+- **docs:** rename ab gaming services, extend sdk
+- **sdk:** generate java extend sdk (230313.2157)
 
 ### Docs
-- update changelog for ab gaming service 3.44
-- rename ab gaming services, extend sdk
-- **migration-guide**: v0.31.0 to v0.32.0 update matchmaking v2 (again)
-- **migration-guide**: v0.31.0 to v0.32.0 update matchmaking v2 
-- **migration-guide**: v0.31.0 to v0.32.0 
+- update changelog for ags 3.44
+- **migration-guide:** v0.31.0 to v0.32.0 update matchmaking v2 (again)
+- **migration-guide:** v0.31.0 to v0.32.0 update matchmaking v2
+- **migration-guide:** v0.31.0 to v0.32.0
+
 
 <a name="v0.31.0"></a>
-## [v0.31.0] - 2023-02-27
+## [v0.31.0] - 2023-02-28
 ### Chore
 - **lambda-sample-app:** remove credential information
 - **sdk:** generate java server sdk (230226.2157)
@@ -48,7 +70,7 @@ delete title matchmaking sample app
 - updated coverity image
 
 ### Docs
-- update changelog for ab cloud 3.43
+- update changelog for ags 3.43
 - **common use case:** add reporting service
 - **migration-guide:** v0.30.0 to v0.31.0 update
 - **migration-guide:** v0.30.0 to v0.31.0
@@ -957,7 +979,9 @@ delete title matchmaking sample app
 - replace unnecessary object
 
 
-[v0.32.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.32.0...v0.33.0
+[v0.35.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.34.0...v0.35.0
+[v0.34.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.33.0...v0.34.0
+[v0.33.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.32.0...v0.33.0
 [v0.32.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.31.0...v0.32.0
 [v0.31.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.30.0...v0.31.0
 [v0.30.0]: https://github.com/AccelByte/accelbyte-java-sdk/compare/v0.29.0...v0.30.0
