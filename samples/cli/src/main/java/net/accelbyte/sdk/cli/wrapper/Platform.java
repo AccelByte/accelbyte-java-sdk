@@ -34,6 +34,7 @@ import net.accelbyte.sdk.cli.api.platform.revocation.*;
 import net.accelbyte.sdk.cli.api.platform.reward.*;
 import net.accelbyte.sdk.cli.api.platform.section.*;
 import net.accelbyte.sdk.cli.api.platform.service_plugin_config.*;
+import net.accelbyte.sdk.cli.api.platform.session_platform.*;
 import net.accelbyte.sdk.cli.api.platform.store.*;
 import net.accelbyte.sdk.cli.api.platform.subscription.*;
 import net.accelbyte.sdk.cli.api.platform.ticket.*;
@@ -287,6 +288,7 @@ import picocli.CommandLine.Command;
       RefundUserPaymentOrder.class,
       ApplyUserRedemption.class,
       DoRevocation.class,
+      RegisterXblSessions.class,
       QueryUserSubscriptions.class,
       GetUserSubscriptionActivities.class,
       PlatformSubscribeSubscription.class,

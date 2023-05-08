@@ -29,6 +29,10 @@ public class RewardItem extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer duration;
 
+  @JsonProperty("endDate")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String endDate;
+
   @JsonProperty("itemId")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String itemId;

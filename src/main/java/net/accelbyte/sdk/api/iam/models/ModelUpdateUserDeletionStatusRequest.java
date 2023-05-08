@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelUpdateUserDeletionStatusRequest extends Model {
 
+  @JsonProperty("deletionDate")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer deletionDate;
+
   @JsonProperty("enabled")
   private Boolean enabled;
 

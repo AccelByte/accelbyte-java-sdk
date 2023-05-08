@@ -774,7 +774,7 @@ eval_tap $? 158 'AdminGetUserDeletionStatusV3' test.out
 ./ng net.accelbyte.sdk.cli.Main iam adminUpdateUserDeletionStatusV3 \
     --namespace "$AB_NAMESPACE" \
     --userId 'WeYeA9t2ENKKWrFt' \
-    --body '{"enabled": true}' \
+    --body '{"deletionDate": 68, "enabled": true}' \
     > test.out 2>&1
 eval_tap $? 159 'AdminUpdateUserDeletionStatusV3' test.out
 
@@ -1141,6 +1141,7 @@ eval_tap $? 206 'ValidateOneTimeLinkingCodeV3' test.out
 
 #- 207 RequestTokenByOneTimeLinkCodeResponseV3
 ./ng net.accelbyte.sdk.cli.Main iam requestTokenByOneTimeLinkCodeResponseV3 \
+    --isTransient  \
     --clientId '7Ot2DkUt3yexZBRv' \
     --oneTimeLinkCode 'xYnEBhXtAVxCd3me' \
     > test.out 2>&1

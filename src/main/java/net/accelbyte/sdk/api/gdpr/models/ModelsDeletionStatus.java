@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelsDeletionStatus extends Model {
 
+  @JsonProperty("DeletionDate")
+  private String deletionDate;
+
   @JsonProperty("DeletionStatus")
   private Boolean deletionStatus;
 

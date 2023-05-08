@@ -46,8 +46,17 @@ public class ModelsChannel extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("region_expansion_range_ms")
+  private Integer regionExpansionRangeMs;
+
   @JsonProperty("region_expansion_rate_ms")
   private Integer regionExpansionRateMs;
+
+  @JsonProperty("region_latency_initial_range_ms")
+  private Integer regionLatencyInitialRangeMs;
+
+  @JsonProperty("region_latency_max_ms")
+  private Integer regionLatencyMaxMs;
 
   @JsonProperty("ruleset")
   private ModelsRuleSet ruleset;

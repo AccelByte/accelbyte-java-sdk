@@ -40,9 +40,21 @@ public class ModelsUpdateChannelRequest extends Model {
   @JsonProperty("max_delay_ms")
   private Integer maxDelayMs;
 
+  @JsonProperty("region_expansion_range_ms")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer regionExpansionRangeMs;
+
   @JsonProperty("region_expansion_rate_ms")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer regionExpansionRateMs;
+
+  @JsonProperty("region_latency_initial_range_ms")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer regionLatencyInitialRangeMs;
+
+  @JsonProperty("region_latency_max_ms")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer regionLatencyMaxMs;
 
   @JsonProperty("ruleSet")
   private ModelsUpdateRuleset ruleSet;

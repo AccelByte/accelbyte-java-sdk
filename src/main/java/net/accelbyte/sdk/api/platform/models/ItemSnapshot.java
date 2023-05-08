@@ -122,6 +122,10 @@ public class ItemSnapshot extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String seasonType;
 
+  @JsonProperty("sectionExclusive")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean sectionExclusive;
+
   @JsonProperty("sellable")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean sellable;

@@ -1,3 +1,10 @@
+<a name="v0.36.0"></a>
+## [v0.36.0]
+### ci
+- **generate:** refactor jenkinsfile.generate
+- **generate:** generate changelog also
+
+
 <a name="v0.35.0"></a>
 ## [v0.35.0] - 2023-04-26
 ### Chore

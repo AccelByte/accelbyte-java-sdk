@@ -36,7 +36,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * correspondent to the AB session template, and is needed to define XBox session's joinRestriction
  * and maxMembersCount when doing the session sync. - XboxServiceConfigID: the XBox service
  * configuration ID. - PSNServiceLabel: the PSN service label. - SessionTitle: the session title. In
- * PSN, this will be used to define name of the session thats displayed on PlayStation system UI.
+ * PSN, this will be used to define name of the session thats displayed on PlayStation system UI. -
+ * ShouldSync: to define whether the service needs to do session sync with native platform(s).
+ * Default: false (disabled).
  */
 @Getter
 @Setter

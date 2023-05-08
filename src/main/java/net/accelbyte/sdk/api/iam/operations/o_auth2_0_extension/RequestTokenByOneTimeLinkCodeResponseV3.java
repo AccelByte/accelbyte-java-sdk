@@ -26,6 +26,14 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>It require publisher ClientID
  *
  * <p>It required a code which can be generated from /iam/v3/link/code/request.
+ *
+ * <p>This endpoint support creating transient token by utilizing isTransient param:
+ *
+ * <p>isTransient=true will generate a transient token with a short Time Expiration and without a
+ * refresh token
+ *
+ * <p>isTransient=false will consume the one-time code and generate the access token with a refresh
+ * token.
  */
 @Getter
 @Setter
@@ -38,8 +46,9 @@ public class RequestTokenByOneTimeLinkCodeResponseV3 extends Operation {
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
   /** fields as input parameter */
-  private String clientId;
+  private Boolean isTransient;
 
+  private String clientId;
   private String oneTimeLinkCode;
 
   /**
@@ -49,7 +58,9 @@ public class RequestTokenByOneTimeLinkCodeResponseV3 extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public RequestTokenByOneTimeLinkCodeResponseV3(String clientId, String oneTimeLinkCode) {
+  public RequestTokenByOneTimeLinkCodeResponseV3(
+      Boolean isTransient, String clientId, String oneTimeLinkCode) {
+    this.isTransient = isTransient;
     this.clientId = clientId;
     this.oneTimeLinkCode = oneTimeLinkCode;
   }
@@ -57,6 +68,10 @@ public class RequestTokenByOneTimeLinkCodeResponseV3 extends Operation {
   @Override
   public Map<String, Object> getFormParams() {
     Map<String, Object> formDataParams = new HashMap<>();
+    if (this.isTransient != null) {
+      formDataParams.put(
+          "isTransient", this.isTransient == null ? null : String.valueOf(this.isTransient));
+    }
     if (this.clientId != null) {
       formDataParams.put("client_id", this.clientId);
     }

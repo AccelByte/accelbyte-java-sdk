@@ -450,6 +450,11 @@
 | `/platform/admin/namespaces/{namespace}/users/{userId}/anonymization/subscriptions` | DELETE | AnonymizeSubscription | [AnonymizeSubscription](../../src/main/java/net/accelbyte/sdk/api/platform/operations/anonymization/AnonymizeSubscription.java) | [AnonymizeSubscription](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/anonymization/AnonymizeSubscription.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/anonymization/wallets` | DELETE | AnonymizeWallet | [AnonymizeWallet](../../src/main/java/net/accelbyte/sdk/api/platform/operations/anonymization/AnonymizeWallet.java) | [AnonymizeWallet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/anonymization/AnonymizeWallet.java) |
 
+### Session(Platform) Wrapper:  [SessionPlatform](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/SessionPlatform.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/platform/admin/namespaces/{namespace}/users/{userId}/session/xbl` | PUT | RegisterXblSessions | [RegisterXblSessions](../../src/main/java/net/accelbyte/sdk/api/platform/operations/session_platform/RegisterXblSessions.java) | [RegisterXblSessions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/session_platform/RegisterXblSessions.java) |
+
 ### View Wrapper:  [View](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/View.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -877,6 +882,7 @@
 | `XblReconcileRequest` | [XblReconcileRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/XblReconcileRequest.java) |
 | `XblReconcileResult` | [XblReconcileResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/XblReconcileResult.java) |
 | `XblUserAchievements` | [XblUserAchievements](../../src/main/java/net/accelbyte/sdk/api/platform/models/XblUserAchievements.java) |
+| `XblUserSessionRequest` | [XblUserSessionRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/XblUserSessionRequest.java) |
 | `XsollaConfig` | [XsollaConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/XsollaConfig.java) |
 | `XsollaPaywallConfig` | [XsollaPaywallConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/XsollaPaywallConfig.java) |
 | `XsollaPaywallConfigRequest` | [XsollaPaywallConfigRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/XsollaPaywallConfigRequest.java) |

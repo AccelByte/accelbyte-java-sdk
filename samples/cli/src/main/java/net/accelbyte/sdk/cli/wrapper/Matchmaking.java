@@ -21,6 +21,7 @@ import picocli.CommandLine.Command;
       HandlerV3Healthz.class,
       GetAllChannelsHandler.class,
       CreateChannelHandler.class,
+      GetMatchPoolMetric.class,
       DeleteChannelHandler.class,
       StoreMatchResults.class,
       Rebalance.class,

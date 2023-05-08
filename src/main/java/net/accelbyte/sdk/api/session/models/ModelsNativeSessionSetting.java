@@ -31,6 +31,10 @@ public class ModelsNativeSessionSetting extends Model {
   @JsonProperty("SessionTitle")
   private String sessionTitle;
 
+  @JsonProperty("ShouldSync")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean shouldSync;
+
   @JsonProperty("XboxServiceConfigID")
   private String xboxServiceConfigID;
 

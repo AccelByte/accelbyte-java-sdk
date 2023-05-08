@@ -71,7 +71,7 @@ eval_tap $? 4 'AdminGetDSMCConfigurationDefault' test.out
 #- 5 AdminCreateConfigurationTemplateV1
 ./ng net.accelbyte.sdk.cli.Main session adminCreateConfigurationTemplateV1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"NativeSessionSetting": {"PSNServiceLabel": 62, "SessionTitle": "twYCA9kPI6LZrkq6", "XboxServiceConfigID": "Dc09nIW0Oaiw9B0D", "XboxSessionTemplateName": "7eHpzSn3ZPUdc0qh"}, "clientVersion": "4n8mzZ0m8SAMTwE6", "deployment": "I56IaRDBXxyaNoMR", "inactiveTimeout": 87, "inviteTimeout": 14, "joinability": "1g7qbPngUNB1vRod", "maxPlayers": 46, "minPlayers": 63, "name": "pzS6DaDpv8N7ZQVq", "persistent": false, "requestedRegions": ["j6oDLjWjkY1aXlFc", "DtgOjchIua5tWEIC", "32ogW7olvbTgrhRT"], "textChat": false, "type": "bCbPOyNQkT7NvyE3"}' \
+    --body '{"NativeSessionSetting": {"PSNServiceLabel": 62, "SessionTitle": "twYCA9kPI6LZrkq6", "ShouldSync": true, "XboxServiceConfigID": "9UzVRiXbqlAw7r6W", "XboxSessionTemplateName": "2ktQG0h5JAav5kRa"}, "clientVersion": "62WopBJHPtcDs8bB", "deployment": "ZLCXLx8bbgorQeFb", "inactiveTimeout": 87, "inviteTimeout": 14, "joinability": "1g7qbPngUNB1vRod", "maxPlayers": 46, "minPlayers": 63, "name": "pzS6DaDpv8N7ZQVq", "persistent": false, "requestedRegions": ["j6oDLjWjkY1aXlFc", "DtgOjchIua5tWEIC", "32ogW7olvbTgrhRT"], "textChat": false, "type": "bCbPOyNQkT7NvyE3"}' \
     > test.out 2>&1
 eval_tap $? 5 'AdminCreateConfigurationTemplateV1' test.out
 
@@ -94,7 +94,7 @@ eval_tap $? 7 'AdminGetConfigurationTemplateV1' test.out
 ./ng net.accelbyte.sdk.cli.Main session adminUpdateConfigurationTemplateV1 \
     --name 'qxYG3aREAu2D6QVK' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"NativeSessionSetting": {"PSNServiceLabel": 81, "SessionTitle": "vdiRilZ7oFgx4c8O", "XboxServiceConfigID": "umKtPDKJDXn7Z4U6", "XboxSessionTemplateName": "8su8XfqlqNiTvB6S"}, "clientVersion": "dAdIhUDrwoZ5Mecd", "deployment": "Ki5r6QEa1ysLEzth", "inactiveTimeout": 67, "inviteTimeout": 25, "joinability": "N9A3sNm84hddSpHt", "maxPlayers": 7, "minPlayers": 85, "name": "W19m4eu6d5tA5jUm", "persistent": false, "requestedRegions": ["yZ0GhDogqrhBRd8l", "DR6qVNPRZYdFLIAj", "GGJddVCvu9vx5KQ7"], "textChat": false, "type": "S0lyuI9a2I9u6Vpb"}' \
+    --body '{"NativeSessionSetting": {"PSNServiceLabel": 81, "SessionTitle": "vdiRilZ7oFgx4c8O", "ShouldSync": true, "XboxServiceConfigID": "l0zRVW4EZG9m0Xcg", "XboxSessionTemplateName": "GVbMqSszE8GHavj7"}, "clientVersion": "AorKsxwkosAVerXp", "deployment": "c1C8XfwHuKeb9l3r", "inactiveTimeout": 67, "inviteTimeout": 25, "joinability": "N9A3sNm84hddSpHt", "maxPlayers": 7, "minPlayers": 85, "name": "W19m4eu6d5tA5jUm", "persistent": false, "requestedRegions": ["yZ0GhDogqrhBRd8l", "DR6qVNPRZYdFLIAj", "GGJddVCvu9vx5KQ7"], "textChat": false, "type": "S0lyuI9a2I9u6Vpb"}' \
     > test.out 2>&1
 eval_tap $? 8 'AdminUpdateConfigurationTemplateV1' test.out
 

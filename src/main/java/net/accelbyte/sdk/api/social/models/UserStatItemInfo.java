@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class UserStatItemInfo extends Model {
 
+  @JsonProperty("additionalData")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> additionalData;
+
   @JsonProperty("createdAt")
   private String createdAt;
 

@@ -24,8 +24,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Grant entitlements to multiple users, skipped granting will be treated as fail. Other detail
  * info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT",
- * action=4 (UPDATE) * Returns : bulk grant entitlements result
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ENTITLEMENT", action=4 (UPDATE)
+ * * Returns : bulk grant entitlements result
  */
 @Getter
 @Setter

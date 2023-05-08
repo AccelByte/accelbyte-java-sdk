@@ -44,6 +44,16 @@ public class Matchmaking {
   }
 
   /**
+   * @see GetMatchPoolMetric
+   */
+  public ModelsTicketMetricResultRecord getMatchPoolMetric(GetMatchPoolMetric input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see DeleteChannelHandler
    */
   public void deleteChannelHandler(DeleteChannelHandler input) throws Exception {

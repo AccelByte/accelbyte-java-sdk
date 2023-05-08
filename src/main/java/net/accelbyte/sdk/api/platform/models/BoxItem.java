@@ -29,6 +29,14 @@ public class BoxItem extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer count;
 
+  @JsonProperty("duration")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer duration;
+
+  @JsonProperty("endDate")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String endDate;
+
   @JsonProperty("itemId")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String itemId;
