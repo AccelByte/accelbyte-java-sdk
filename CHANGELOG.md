@@ -1,9 +1,12 @@
-<a name="v0.36.0"></a>
-## [v0.36.0]
+<a name="v0.37.0"></a>
+## [v0.37.0]
 ### ci
 - **generate:** refactor jenkinsfile.generate
 - **generate:** generate changelog also
 
+<a name="v0.36.0"></a>
+## [v0.36.0]
+We skipped this version, because some unexpected issue
 
 <a name="v0.35.0"></a>
 ## [v0.35.0] - 2023-04-26
