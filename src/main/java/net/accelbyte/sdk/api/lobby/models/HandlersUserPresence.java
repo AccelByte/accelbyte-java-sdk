@@ -37,6 +37,9 @@ public class HandlersUserPresence extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("platform")
+  private String platform;
+
   @JsonProperty("userID")
   private String userID;
 

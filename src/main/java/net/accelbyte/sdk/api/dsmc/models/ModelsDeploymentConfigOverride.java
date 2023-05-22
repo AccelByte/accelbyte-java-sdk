@@ -37,6 +37,10 @@ public class ModelsDeploymentConfigOverride extends Model {
   @JsonProperty("enable_region_overrides")
   private Boolean enableRegionOverrides;
 
+  @JsonProperty("extendable_session")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean extendableSession;
+
   @JsonProperty("game_version")
   private String gameVersion;
 

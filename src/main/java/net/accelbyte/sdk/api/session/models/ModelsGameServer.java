@@ -74,6 +74,9 @@ public class ModelsGameServer extends Model {
   @JsonProperty("session_id")
   private String sessionId;
 
+  @JsonProperty("source")
+  private String source;
+
   @JsonProperty("status")
   private String status;
 

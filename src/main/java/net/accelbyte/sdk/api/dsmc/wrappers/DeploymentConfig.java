@@ -155,4 +155,33 @@ public class DeploymentConfig {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see GetAllDeploymentClient
+   */
+  public ModelsListDeploymentResponse getAllDeploymentClient(GetAllDeploymentClient input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see CreateDeploymentClient
+   */
+  public ModelsDeploymentWithOverride createDeploymentClient(CreateDeploymentClient input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see DeleteDeploymentClient
+   */
+  public void deleteDeploymentClient(DeleteDeploymentClient input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

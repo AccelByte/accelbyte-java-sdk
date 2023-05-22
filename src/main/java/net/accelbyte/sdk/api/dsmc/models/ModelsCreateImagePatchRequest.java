@@ -46,6 +46,9 @@ public class ModelsCreateImagePatchRequest extends Model {
   @JsonProperty("persistent")
   private Boolean persistent;
 
+  @JsonProperty("uploaderFlags")
+  private List<ModelsUploaderFlag> uploaderFlags;
+
   @JsonProperty("version")
   private String version;
 

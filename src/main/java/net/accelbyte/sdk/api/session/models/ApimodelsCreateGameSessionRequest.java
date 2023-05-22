@@ -40,6 +40,14 @@ public class ApimodelsCreateGameSessionRequest extends Model {
   @JsonProperty("deployment")
   private String deployment;
 
+  @JsonProperty("dsSource")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String dsSource;
+
+  @JsonProperty("fallbackClaimKeys")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> fallbackClaimKeys;
+
   @JsonProperty("inactiveTimeout")
   private Integer inactiveTimeout;
 
@@ -57,6 +65,10 @@ public class ApimodelsCreateGameSessionRequest extends Model {
 
   @JsonProperty("minPlayers")
   private Integer minPlayers;
+
+  @JsonProperty("preferredClaimKeys")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> preferredClaimKeys;
 
   @JsonProperty("requestedRegions")
   private List<String> requestedRegions;

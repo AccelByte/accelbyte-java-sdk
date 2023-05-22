@@ -23,9 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Delete user ranking across leaderboard Required permission:
  * ADMIN:NAMESPACE:{namespace}:LEADERBOARD:USER [DELETE]
  *
- * <p>Remove entry with provided userId from leaderboard. If leaderboard with given leaderboard code
- * not found, it will return http status not found (404). If the leaderboard is found and no entry
- * found in it, it will still return success (204)
+ * <p>Remove entry with provided userId from leaderboard.
  */
 @Getter
 @Setter

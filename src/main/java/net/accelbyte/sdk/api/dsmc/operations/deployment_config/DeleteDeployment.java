@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteDeployment
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [READ]
+ * <p>Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [DELETE]
  *
  * <p>Required scope: social
  *

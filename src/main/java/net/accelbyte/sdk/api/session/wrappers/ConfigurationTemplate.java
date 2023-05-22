@@ -22,6 +22,46 @@ public class ConfigurationTemplate {
   }
 
   /**
+   * @see AdminGetConfigurationAlertV1
+   */
+  public ApimodelsConfigAlertResponse adminGetConfigurationAlertV1(
+      AdminGetConfigurationAlertV1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminUpdateConfigurationAlertV1
+   */
+  public ApimodelsConfigAlertResponse adminUpdateConfigurationAlertV1(
+      AdminUpdateConfigurationAlertV1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminCreateConfigurationAlertV1
+   */
+  public ApimodelsConfigAlertResponse adminCreateConfigurationAlertV1(
+      AdminCreateConfigurationAlertV1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminDeleteConfigurationAlertV1
+   */
+  public void adminDeleteConfigurationAlertV1(AdminDeleteConfigurationAlertV1 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminCreateConfigurationTemplateV1
    */
   public ApimodelsConfigurationTemplateResponse adminCreateConfigurationTemplateV1(

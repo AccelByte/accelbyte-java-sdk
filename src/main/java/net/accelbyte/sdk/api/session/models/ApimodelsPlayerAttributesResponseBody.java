@@ -37,6 +37,9 @@ public class ApimodelsPlayerAttributesResponseBody extends Model {
   @JsonProperty("platforms")
   private List<ModelsUserPlatformInfo> platforms;
 
+  @JsonProperty("roles")
+  private List<String> roles;
+
   @JsonProperty("userID")
   private String userID;
 

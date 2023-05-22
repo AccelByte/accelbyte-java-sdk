@@ -1,3 +1,11 @@
+<a name="v0.38.0"></a>
+## [v0.38.0]
+### chore
+- **jenkinsfile:** update generate spec target
+### fix
+- **jenkinsfile:** fix typo in generate target
+
+
 <a name="v0.37.0"></a>
 ## [v0.37.0]
 ### ci

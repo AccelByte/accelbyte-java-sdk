@@ -87,6 +87,14 @@
 | `/leaderboard/v3/public/namespaces/{namespace}/leaderboards/{leaderboardCode}/cycles/{cycleId}` | GET | GetCurrentCycleLeaderboardRankingPublicV3 | [GetCurrentCycleLeaderboardRankingPublicV3](../../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data_v3/GetCurrentCycleLeaderboardRankingPublicV3.java) | [GetCurrentCycleLeaderboardRankingPublicV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/leaderboard/leaderboard_data_v3/GetCurrentCycleLeaderboardRankingPublicV3.java) |
 | `/leaderboard/v3/public/namespaces/{namespace}/leaderboards/{leaderboardCode}/users/{userId}` | GET | GetUserRankingPublicV3 | [GetUserRankingPublicV3](../../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/leaderboard_data_v3/GetUserRankingPublicV3.java) | [GetUserRankingPublicV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/leaderboard/leaderboard_data_v3/GetUserRankingPublicV3.java) |
 
+### UserVisibilityV3 Wrapper:  [UserVisibilityV3](../../src/main/java/net/accelbyte/sdk/api/leaderboard/wrappers/UserVisibilityV3.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/leaderboard/v3/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/users/hidden` | GET | GetHiddenUsersV3 | [GetHiddenUsersV3](../../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/user_visibility_v3/GetHiddenUsersV3.java) | [GetHiddenUsersV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/leaderboard/user_visibility_v3/GetHiddenUsersV3.java) |
+| `/leaderboard/v3/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/users/{userId}/visibility` | GET | GetUserVisibilityStatusV3 | [GetUserVisibilityStatusV3](../../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/user_visibility_v3/GetUserVisibilityStatusV3.java) | [GetUserVisibilityStatusV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/leaderboard/user_visibility_v3/GetUserVisibilityStatusV3.java) |
+| `/leaderboard/v3/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/users/{userId}/visibility` | PUT | SetUserLeaderboardVisibilityV3 | [SetUserLeaderboardVisibilityV3](../../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/user_visibility_v3/SetUserLeaderboardVisibilityV3.java) | [SetUserLeaderboardVisibilityV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/leaderboard/user_visibility_v3/SetUserLeaderboardVisibilityV3.java) |
+| `/leaderboard/v3/admin/namespaces/{namespace}/users/{userId}/visibility` | PUT | SetUserVisibilityV3 | [SetUserVisibilityV3](../../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/user_visibility_v3/SetUserVisibilityV3.java) | [SetUserVisibilityV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/leaderboard/user_visibility_v3/SetUserVisibilityV3.java) |
+
 
 &nbsp;  
 

@@ -23,10 +23,10 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Create a game session. Session configuration name is mandatory, this API will refer following
  * values from the session template if they're not provided in the request: - type - joinability -
- * minPlayers - maxPlayers - inviteTimeout - inactiveTimeout
+ * minPlayers - maxPlayers - inviteTimeout - inactiveTimeout - dsSource
  *
- * <p>When the session type is a DS, a DS creation request will be sent to DSMC if number of active
- * players reaches session's minPlayers.
+ * <p>When the session type is a DS, a DS creation request will be sent if number of active players
+ * reaches session's minPlayers.
  *
  * <p>Active user is a user who present within the session, has status CONNECTED/JOINED.
  *
@@ -35,6 +35,12 @@ import net.accelbyte.sdk.core.util.Helper;
  * not yet requested. - REQUESTED: DS is being requested to DSMC. - AVAILABLE: DS is ready to use.
  * The DSMC status for this DS is either READY/BUSY. - FAILED_TO_REQUEST: DSMC fails to create the
  * DS.
+ *
+ * <p>By default, DS requests are sent to DSMC, but if dsSource is set to "AMS": - A DS will be
+ * requested from AMS instead of DSMC. - The server will be chosen based on a set of claim keys, in
+ * order of preference, to match with fleets. - The claim key list is built build from the
+ * preferredClaimKeys, fallbackClaimKeys, and clientVersion as follows: [preferredClaimKeys..,
+ * clientVersion, fallbackClaimKeys...]
  */
 @Getter
 @Setter

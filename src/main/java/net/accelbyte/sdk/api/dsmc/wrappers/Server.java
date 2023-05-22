@@ -22,6 +22,24 @@ public class Server {
   }
 
   /**
+   * @see ListServerClient
+   */
+  public ModelsListServerResponse listServerClient(ListServerClient input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see ServerHeartbeat
+   */
+  public void serverHeartbeat(ServerHeartbeat input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see DeregisterLocalServer
    */
   public void deregisterLocalServer(DeregisterLocalServer input) throws Exception {
@@ -54,6 +72,16 @@ public class Server {
   public void shutdownServer(ShutdownServer input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GetServerSessionTimeout
+   */
+  public ModelsServerDeploymentConfigSessionTimeoutResponse getServerSessionTimeout(
+      GetServerSessionTimeout input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

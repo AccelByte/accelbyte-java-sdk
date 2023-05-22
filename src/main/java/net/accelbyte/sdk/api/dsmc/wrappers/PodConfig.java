@@ -74,4 +74,32 @@ public class PodConfig {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see GetAllPodConfigClient
+   */
+  public ModelsListPodConfigResponse getAllPodConfigClient(GetAllPodConfigClient input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see CreatePodConfigClient
+   */
+  public ModelsPodConfigRecord createPodConfigClient(CreatePodConfigClient input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see DeletePodConfigClient
+   */
+  public void deletePodConfigClient(DeletePodConfigClient input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

@@ -35,6 +35,14 @@ public class ApimodelsCreateConfigurationTemplateRequest extends Model {
   @JsonProperty("deployment")
   private String deployment;
 
+  @JsonProperty("dsSource")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String dsSource;
+
+  @JsonProperty("fallbackClaimKeys")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> fallbackClaimKeys;
+
   @JsonProperty("inactiveTimeout")
   private Integer inactiveTimeout;
 
@@ -55,6 +63,10 @@ public class ApimodelsCreateConfigurationTemplateRequest extends Model {
 
   @JsonProperty("persistent")
   private Boolean persistent;
+
+  @JsonProperty("preferredClaimKeys")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> preferredClaimKeys;
 
   @JsonProperty("requestedRegions")
   private List<String> requestedRegions;

@@ -55,6 +55,9 @@ public class ModelsPatchImageRecord extends Model {
   @JsonProperty("updatedAt")
   private String updatedAt;
 
+  @JsonProperty("uploaderFlags")
+  private List<ModelsUploaderFlag> uploaderFlags;
+
   @JsonProperty("version")
   private String version;
 

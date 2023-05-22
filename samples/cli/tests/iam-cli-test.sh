@@ -1340,6 +1340,7 @@ eval_tap $? 230 'RetrieveActiveOIDCClientsPublicV3' test.out
 ./ng net.accelbyte.sdk.cli.Main iam publicListUserIDByPlatformUserIDsV3 \
     --namespace "$AB_NAMESPACE" \
     --platformId 'sBFrUs9BYp6TgCej' \
+    --rawPUID  \
     --body '{"platformUserIds": ["Bd5o7iTST7R3KbbQ", "GERMNpqWb51y5RUz", "vMfTkPy0fGvTGgfL"]}' \
     > test.out 2>&1
 eval_tap $? 231 'PublicListUserIDByPlatformUserIDsV3' test.out

@@ -37,6 +37,10 @@ public class ApimodelsPlayerAttributesRequestBody extends Model {
   @JsonProperty("platforms")
   private List<ModelsUserPlatformInfo> platforms;
 
+  @JsonProperty("roles")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> roles;
+
   @JsonIgnore
   public ApimodelsPlayerAttributesRequestBody createFromJson(String json)
       throws JsonProcessingException {
