@@ -4,6 +4,7 @@
 - **jenkinsfile:** update generate spec target
 ### fix
 - **jenkinsfile:** fix typo in generate target
+- **integration:** fix issue on leaderboard test and dsmc
 
 
 <a name="v0.37.0"></a>

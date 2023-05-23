@@ -14,6 +14,8 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+
+import net.accelbyte.sdk.api.iam.models.ModelBanCreateRequest;
 import net.accelbyte.sdk.api.leaderboard.models.ModelsDailyConfig;
 import net.accelbyte.sdk.api.leaderboard.models.ModelsGetLeaderboardConfigResp;
 import net.accelbyte.sdk.api.leaderboard.models.ModelsLeaderboardConfigReq;
@@ -25,6 +27,11 @@ import net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.De
 import net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.GetLeaderboardConfigurationAdminV1;
 import net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration.UpdateLeaderboardConfigurationAdminV1;
 import net.accelbyte.sdk.api.leaderboard.wrappers.LeaderboardConfiguration;
+import net.accelbyte.sdk.api.social.models.StatCreate;
+import net.accelbyte.sdk.api.social.models.StatInfo;
+import net.accelbyte.sdk.api.social.operations.stat_configuration.CreateStat;
+import net.accelbyte.sdk.api.social.operations.stat_configuration.DeleteStat;
+import net.accelbyte.sdk.api.social.wrappers.StatConfiguration;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
@@ -55,6 +62,23 @@ public class TestIntegrationServiceLeaderboard extends TestIntegration {
             .atZone(ZoneId.systemDefault())
             .format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSxxx"));
 
+    // Setup requirement to use leaderboard, by setting up Stat Configuration in Social
+    final StatConfiguration statConfiguration = new StatConfiguration(sdk);
+    final StatCreate statCreate = StatCreate.builder()
+            .defaultValue(1.0f)
+            .setBy("SERVER")
+            .name(leaderboardName)
+            .statCode(leaderboardCode)
+            .build();
+    final CreateStat createStatReq = CreateStat.builder()
+            .namespace(namespace)
+            .body(statCreate)
+            .build();
+    StatInfo createStateResult = statConfiguration.createStat(createStatReq);
+
+    assertNotNull(createStateResult);
+    assertEquals(leaderboardCode, createStateResult.getStatCode());
+
     final LeaderboardConfiguration leaderboardConfigWrapper = new LeaderboardConfiguration(sdk);
 
     // CASE Create a leaderboard
@@ -63,7 +87,7 @@ public class TestIntegrationServiceLeaderboard extends TestIntegration {
         ModelsLeaderboardConfigReq.builder()
             .leaderboardCode(leaderboardCode)
             .name(leaderboardName)
-            .statCode("1")
+            .statCode(leaderboardCode)
             .seasonPeriod(36)
             .descending(false)
             .startTime(startTime)
@@ -103,7 +127,7 @@ public class TestIntegrationServiceLeaderboard extends TestIntegration {
     final ModelsUpdateLeaderboardConfigReq updateLeaderboardBody =
         ModelsUpdateLeaderboardConfigReq.builder()
             .name(leaderboardName)
-            .statCode("1")
+            .statCode(leaderboardCode)
             .startTime(startTime)
             .seasonPeriod(40)
             .build();
@@ -142,6 +166,13 @@ public class TestIntegrationServiceLeaderboard extends TestIntegration {
 
     assertNotNull(getLeaderboardConfirmResult);
     assertTrue(getLeaderboardConfirmResult.getIsDeleted());
+
+    // Clean up stat configuration
+    final DeleteStat deleteStat = DeleteStat.builder()
+            .namespace(this.namespace)
+            .statCode(leaderboardCode)
+            .build();
+    statConfiguration.deleteStat(deleteStat);
   }
 
   @AfterAll

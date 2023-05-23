@@ -9,8 +9,11 @@ package net.accelbyte.sdk.integration;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.HashMap;
+
+import lombok.SneakyThrows;
 import net.accelbyte.sdk.api.dsmc.models.ModelsClaimSessionRequest;
 import net.accelbyte.sdk.api.dsmc.models.ModelsListServerResponse;
 import net.accelbyte.sdk.api.dsmc.models.ModelsRequestMatchMember;
@@ -32,6 +35,7 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy;
 import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy.RetryIntervalType;
 import net.accelbyte.sdk.core.client.ReliableHttpClient;
+import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
@@ -166,12 +170,20 @@ class TestIntegrationServiceDsmc extends TestIntegration {
 
       final DefaultHttpRetryPolicy retryPolicy =
           new DefaultHttpRetryPolicy() {
+            @SneakyThrows
             @Override
             public boolean doRetry(
                 int attempt, Operation operation, HttpResponse response, Exception exception) {
               // Custom logic to handle DSMC claim server 425 server is not ready
               if (attempt < this.getMaxRetry()) {
-                if (response != null && response.getCode() == 425) {
+                if (response == null) {
+                  return false;
+                }
+                // if we hit to fast we might get 500 error, but what makes it weird the error message, something like:
+                // "Job not found 404",
+                // so here by adding a retry in the case we got that message we will just retry it
+                String responseMsg = IOUtils.toString(response.getPayload(), Charset.defaultCharset());
+                if (response.getCode() == 425 || responseMsg.contains("404")) {
                   try {
                     final int multiplier =
                         this.getRetryIntervalType() == RetryIntervalType.EXPONENTIAL ? attempt : 1;
