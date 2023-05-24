@@ -14,8 +14,6 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-
-import net.accelbyte.sdk.api.iam.models.ModelBanCreateRequest;
 import net.accelbyte.sdk.api.leaderboard.models.ModelsDailyConfig;
 import net.accelbyte.sdk.api.leaderboard.models.ModelsGetLeaderboardConfigResp;
 import net.accelbyte.sdk.api.leaderboard.models.ModelsLeaderboardConfigReq;
@@ -64,16 +62,15 @@ public class TestIntegrationServiceLeaderboard extends TestIntegration {
 
     // Setup requirement to use leaderboard, by setting up Stat Configuration in Social
     final StatConfiguration statConfiguration = new StatConfiguration(sdk);
-    final StatCreate statCreate = StatCreate.builder()
+    final StatCreate statCreate =
+        StatCreate.builder()
             .defaultValue(1.0f)
             .setBy("SERVER")
             .name(leaderboardName)
             .statCode(leaderboardCode)
             .build();
-    final CreateStat createStatReq = CreateStat.builder()
-            .namespace(namespace)
-            .body(statCreate)
-            .build();
+    final CreateStat createStatReq =
+        CreateStat.builder().namespace(namespace).body(statCreate).build();
     StatInfo createStateResult = statConfiguration.createStat(createStatReq);
 
     assertNotNull(createStateResult);
@@ -168,10 +165,8 @@ public class TestIntegrationServiceLeaderboard extends TestIntegration {
     assertTrue(getLeaderboardConfirmResult.getIsDeleted());
 
     // Clean up stat configuration
-    final DeleteStat deleteStat = DeleteStat.builder()
-            .namespace(this.namespace)
-            .statCode(leaderboardCode)
-            .build();
+    final DeleteStat deleteStat =
+        DeleteStat.builder().namespace(this.namespace).statCode(leaderboardCode).build();
     statConfiguration.deleteStat(deleteStat);
   }
 

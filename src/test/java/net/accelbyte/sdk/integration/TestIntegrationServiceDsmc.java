@@ -12,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.HashMap;
-
 import lombok.SneakyThrows;
 import net.accelbyte.sdk.api.dsmc.models.ModelsClaimSessionRequest;
 import net.accelbyte.sdk.api.dsmc.models.ModelsListServerResponse;
@@ -179,10 +178,12 @@ class TestIntegrationServiceDsmc extends TestIntegration {
                 if (response == null) {
                   return false;
                 }
-                // if we hit to fast we might get 500 error, but what makes it weird the error message, something like:
+                // if we hit to fast we might get 500 error, but what makes it weird the error
+                // message, something like:
                 // "Job not found 404",
                 // so here by adding a retry in the case we got that message we will just retry it
-                String responseMsg = IOUtils.toString(response.getPayload(), Charset.defaultCharset());
+                String responseMsg =
+                    IOUtils.toString(response.getPayload(), Charset.defaultCharset());
                 if (response.getCode() == 425 || responseMsg.contains("404")) {
                   try {
                     final int multiplier =

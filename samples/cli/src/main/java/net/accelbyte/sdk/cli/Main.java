@@ -22,6 +22,7 @@ import picocli.CommandLine;
       LoginClient.class,
       LobbyWebsocket.class,
       Achievement.class,
+      Ams.class,
       Basic.class,
       Cloudsave.class,
       Dslogmanager.class,
