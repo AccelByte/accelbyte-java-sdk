@@ -35,6 +35,7 @@ public class TestFulfillmentScriptEval extends Operation {
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList();
   private String locationQuery = null;
+
   /** fields as input parameter */
   private FulfillmentScriptEvalTestRequest body;
 

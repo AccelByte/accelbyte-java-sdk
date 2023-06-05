@@ -14,6 +14,7 @@ import net.accelbyte.sdk.cli.api.leaderboard.leaderboard_configuration_v3.*;
 import net.accelbyte.sdk.cli.api.leaderboard.leaderboard_data.*;
 import net.accelbyte.sdk.cli.api.leaderboard.leaderboard_data_v3.*;
 import net.accelbyte.sdk.cli.api.leaderboard.user_data.*;
+import net.accelbyte.sdk.cli.api.leaderboard.user_data_v3.*;
 import net.accelbyte.sdk.cli.api.leaderboard.user_visibility.*;
 import net.accelbyte.sdk.cli.api.leaderboard.user_visibility_v3.*;
 import picocli.CommandLine.Command;
@@ -75,6 +76,7 @@ import picocli.CommandLine.Command;
       GetUserVisibilityStatusV3.class,
       SetUserLeaderboardVisibilityV3.class,
       DeleteUserRankingsAdminV3.class,
+      GetUserLeaderboardRankingsAdminV3.class,
       SetUserVisibilityV3.class,
       GetLeaderboardConfigurationsPublicV3.class,
       GetLeaderboardConfigurationPublicV3.class,

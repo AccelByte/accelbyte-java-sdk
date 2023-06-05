@@ -34,6 +34,7 @@ public class PublicWebLinkPlatformEstablish extends Operation {
   private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = "PLACEHOLDER";
+
   /** fields as input parameter */
   private String namespace;
 

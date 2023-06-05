@@ -36,9 +36,17 @@ public class StatCreate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
+  @JsonProperty("ignoreAdditionalDataOnValueRejected")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean ignoreAdditionalDataOnValueRejected;
+
   @JsonProperty("incrementOnly")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean incrementOnly;
+
+  @JsonProperty("isPublic")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean isPublic;
 
   @JsonProperty("maximum")
   @JsonInclude(JsonInclude.Include.NON_NULL)

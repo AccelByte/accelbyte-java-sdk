@@ -460,6 +460,7 @@
 | `accountcommon.Permissions` | [AccountcommonPermissions](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPermissions.java) |
 | `accountcommon.PermissionsV3` | [AccountcommonPermissionsV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPermissionsV3.java) |
 | `accountcommon.PlatformAccount` | [AccountcommonPlatformAccount](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPlatformAccount.java) |
+| `accountcommon.PlatformLinkingHistory` | [AccountcommonPlatformLinkingHistory](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPlatformLinkingHistory.java) |
 | `accountcommon.PlatformUserInformationV3` | [AccountcommonPlatformUserInformationV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPlatformUserInformationV3.java) |
 | `accountcommon.RegisteredDomain` | [AccountcommonRegisteredDomain](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonRegisteredDomain.java) |
 | `accountcommon.Role` | [AccountcommonRole](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonRole.java) |

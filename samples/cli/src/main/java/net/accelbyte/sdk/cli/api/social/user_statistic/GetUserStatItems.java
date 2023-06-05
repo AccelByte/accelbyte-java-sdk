@@ -41,6 +41,11 @@ public class GetUserStatItems implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--isPublic"},
+      description = "isPublic")
+  Boolean isPublic;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -90,6 +95,7 @@ public class GetUserStatItems implements Callable<Integer> {
           net.accelbyte.sdk.api.social.operations.user_statistic.GetUserStatItems.builder()
               .namespace(namespace)
               .userId(userId)
+              .isPublic(isPublic)
               .limit(limit)
               .offset(offset)
               .sortBy(sortBy)

@@ -34,10 +34,12 @@ public class QueryStats extends Operation {
   private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
+
   /** fields as input parameter */
   private String namespace;
 
   private Boolean isGlobal;
+  private Boolean isPublic;
   private Integer limit;
   private Integer offset;
   private String keyword;
@@ -50,9 +52,15 @@ public class QueryStats extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public QueryStats(
-      String namespace, Boolean isGlobal, Integer limit, Integer offset, String keyword) {
+      String namespace,
+      Boolean isGlobal,
+      Boolean isPublic,
+      Integer limit,
+      Integer offset,
+      String keyword) {
     this.namespace = namespace;
     this.isGlobal = isGlobal;
+    this.isPublic = isPublic;
     this.limit = limit;
     this.offset = offset;
     this.keyword = keyword;
@@ -74,6 +82,8 @@ public class QueryStats extends Operation {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put(
         "isGlobal", this.isGlobal == null ? null : Arrays.asList(String.valueOf(this.isGlobal)));
+    queryParams.put(
+        "isPublic", this.isPublic == null ? null : Arrays.asList(String.valueOf(this.isPublic)));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
@@ -106,6 +116,7 @@ public class QueryStats extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("isGlobal", "None");
+    result.put("isPublic", "None");
     result.put("limit", "None");
     result.put("offset", "None");
     result.put("keyword", "None");

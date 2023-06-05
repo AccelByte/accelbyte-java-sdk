@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.legal.operations.agreement_with_namespace;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
@@ -36,9 +34,11 @@ public class RetrieveAllUsersByPolicyVersion1 extends Operation {
   private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
+
   /** fields as input parameter */
   private String namespace;
 
+  private Boolean convertGameUserId;
   private String keyword;
   private Integer limit;
   private Integer offset;
@@ -52,8 +52,14 @@ public class RetrieveAllUsersByPolicyVersion1 extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public RetrieveAllUsersByPolicyVersion1(
-      String namespace, String keyword, Integer limit, Integer offset, String policyVersionId) {
+      String namespace,
+      Boolean convertGameUserId,
+      String keyword,
+      Integer limit,
+      Integer offset,
+      String policyVersionId) {
     this.namespace = namespace;
+    this.convertGameUserId = convertGameUserId;
     this.keyword = keyword;
     this.limit = limit;
     this.offset = offset;
@@ -74,6 +80,11 @@ public class RetrieveAllUsersByPolicyVersion1 extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "convertGameUserId",
+        this.convertGameUserId == null
+            ? null
+            : Arrays.asList(String.valueOf(this.convertGameUserId)));
     queryParams.put("keyword", this.keyword == null ? null : Arrays.asList(this.keyword));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
@@ -95,20 +106,20 @@ public class RetrieveAllUsersByPolicyVersion1 extends Operation {
     return true;
   }
 
-  public List<PagedRetrieveUserAcceptedAgreementResponse> parseResponse(
+  public PagedRetrieveUserAcceptedAgreementResponse parseResponse(
       int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ObjectMapper()
-        .readValue(json, new TypeReference<List<PagedRetrieveUserAcceptedAgreementResponse>>() {});
+    return new PagedRetrieveUserAcceptedAgreementResponse().createFromJson(json);
   }
 
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("convertGameUserId", "None");
     result.put("keyword", "None");
     result.put("limit", "None");
     result.put("offset", "None");

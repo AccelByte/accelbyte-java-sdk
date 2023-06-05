@@ -35,6 +35,10 @@ public class ApimodelsGameSessionResponse extends Model {
   @JsonProperty("backfillTicketID")
   private String backfillTicketID;
 
+  @JsonProperty("code")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String code;
+
   @JsonProperty("configuration")
   private ApimodelsPublicConfiguration configuration;
 

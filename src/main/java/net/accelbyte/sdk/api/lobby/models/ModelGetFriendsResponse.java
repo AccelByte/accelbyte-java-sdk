@@ -28,6 +28,9 @@ public class ModelGetFriendsResponse extends Model {
   @JsonProperty("friendIDs")
   private List<String> friendIDs;
 
+  @JsonProperty("friendsSinceTimes")
+  private List<String> friendsSinceTimes;
+
   @JsonProperty("paging")
   private ModelPagination paging;
 

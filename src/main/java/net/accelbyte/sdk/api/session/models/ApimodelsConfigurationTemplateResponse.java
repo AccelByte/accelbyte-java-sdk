@@ -54,6 +54,10 @@ public class ApimodelsConfigurationTemplateResponse extends Model {
   @JsonProperty("last")
   private String last;
 
+  @JsonProperty("maxActiveSessions")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer maxActiveSessions;
+
   @JsonProperty("maxPlayers")
   private Integer maxPlayers;
 

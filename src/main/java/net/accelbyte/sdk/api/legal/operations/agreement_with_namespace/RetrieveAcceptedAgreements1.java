@@ -37,10 +37,12 @@ public class RetrieveAcceptedAgreements1 extends Operation {
   private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
+
   /** fields as input parameter */
   private String namespace;
 
   private String userId;
+  private Boolean excludeOtherNamespacesPolicies;
 
   /**
    * @param namespace required
@@ -49,9 +51,11 @@ public class RetrieveAcceptedAgreements1 extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public RetrieveAcceptedAgreements1(String namespace, String userId) {
+  public RetrieveAcceptedAgreements1(
+      String namespace, String userId, Boolean excludeOtherNamespacesPolicies) {
     this.namespace = namespace;
     this.userId = userId;
+    this.excludeOtherNamespacesPolicies = excludeOtherNamespacesPolicies;
 
     securities.add("Bearer");
   }
@@ -66,6 +70,17 @@ public class RetrieveAcceptedAgreements1 extends Operation {
       pathParams.put("userId", this.userId);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "excludeOtherNamespacesPolicies",
+        this.excludeOtherNamespacesPolicies == null
+            ? null
+            : Arrays.asList(String.valueOf(this.excludeOtherNamespacesPolicies)));
+    return queryParams;
   }
 
   @Override
@@ -88,5 +103,12 @@ public class RetrieveAcceptedAgreements1 extends Operation {
     final String json = Helper.convertInputStreamToString(payload);
     return new ObjectMapper()
         .readValue(json, new TypeReference<List<RetrieveAcceptedAgreementResponse>>() {});
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("excludeOtherNamespacesPolicies", "None");
+    return result;
   }
 }

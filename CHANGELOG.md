@@ -1,3 +1,9 @@
+<a name="v0.39.0"></a>
+## [v0.39.0]
+### chore
+- **sdk:** add ams
+
+
 <a name="v0.38.0"></a>
 ## [v0.38.0]
 ### chore

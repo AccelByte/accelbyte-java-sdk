@@ -69,6 +69,7 @@ public class AuthorizeV3 extends Operation {
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = "request_id";
+
   /** fields as input parameter */
   private String codeChallenge;
 

@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetAsyncStatus
  *
- * <p>This endpoint is used to get linking status.
+ * <p>This endpoint is used to get linking status. This API need logged user and user can only
+ * request its own linking status.'
  */
 @Getter
 @Setter
@@ -33,6 +34,7 @@ public class PublicGetAsyncStatus extends Operation {
   private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
+
   /** fields as input parameter */
   private String namespace;
 

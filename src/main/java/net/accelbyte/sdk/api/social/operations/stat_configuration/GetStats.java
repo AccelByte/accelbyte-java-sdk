@@ -34,11 +34,13 @@ public class GetStats extends Operation {
   private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
+
   /** fields as input parameter */
   private String namespace;
 
   private String cycleIds;
   private Boolean isGlobal;
+  private Boolean isPublic;
   private Integer limit;
   private Integer offset;
 
@@ -49,10 +51,16 @@ public class GetStats extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GetStats(
-      String namespace, String cycleIds, Boolean isGlobal, Integer limit, Integer offset) {
+      String namespace,
+      String cycleIds,
+      Boolean isGlobal,
+      Boolean isPublic,
+      Integer limit,
+      Integer offset) {
     this.namespace = namespace;
     this.cycleIds = cycleIds;
     this.isGlobal = isGlobal;
+    this.isPublic = isPublic;
     this.limit = limit;
     this.offset = offset;
 
@@ -74,6 +82,8 @@ public class GetStats extends Operation {
     queryParams.put("cycleIds", this.cycleIds == null ? null : Arrays.asList(this.cycleIds));
     queryParams.put(
         "isGlobal", this.isGlobal == null ? null : Arrays.asList(String.valueOf(this.isGlobal)));
+    queryParams.put(
+        "isPublic", this.isPublic == null ? null : Arrays.asList(String.valueOf(this.isPublic)));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
@@ -103,6 +113,7 @@ public class GetStats extends Operation {
     Map<String, String> result = new HashMap<>();
     result.put("cycleIds", "None");
     result.put("isGlobal", "None");
+    result.put("isPublic", "None");
     result.put("limit", "None");
     result.put("offset", "None");
     return result;

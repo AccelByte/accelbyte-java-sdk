@@ -36,6 +36,7 @@ public class DownloadUserOrderReceipt extends Operation {
   private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/pdf");
   private String locationQuery = null;
+
   /** fields as input parameter */
   private String namespace;
 

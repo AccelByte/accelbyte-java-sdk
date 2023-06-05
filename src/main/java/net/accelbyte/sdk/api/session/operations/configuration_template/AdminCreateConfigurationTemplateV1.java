@@ -38,7 +38,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * configuration ID. - PSNServiceLabel: the PSN service label. - SessionTitle: the session title. In
  * PSN, this will be used to define name of the session thats displayed on PlayStation system UI. -
  * ShouldSync: to define whether the service needs to do session sync with native platform(s).
- * Default: false (disabled).
+ * Default: false (disabled). - PSNSupportedPlatforms: the PSN supported platforms. In PSN, if
+ * ShouldSync true and PSNSupportedPlatforms is empty, then PS5 will be set as default value.
  */
 @Getter
 @Setter
@@ -50,6 +51,7 @@ public class AdminCreateConfigurationTemplateV1 extends Operation {
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
+
   /** fields as input parameter */
   private String namespace;
 

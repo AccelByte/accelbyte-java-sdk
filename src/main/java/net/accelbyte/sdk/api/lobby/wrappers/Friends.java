@@ -73,6 +73,16 @@ public class Friends {
   }
 
   /**
+   * @see GetUserFriendsWithPlatform
+   */
+  public ModelListBulkUserPlatformsResponse getUserFriendsWithPlatform(
+      GetUserFriendsWithPlatform input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see UserRequestFriend
    */
   public void userRequestFriend(UserRequestFriend input) throws Exception {
@@ -140,6 +150,26 @@ public class Friends {
    * @see GetListOfFriends
    */
   public ModelGetFriendsResponse getListOfFriends(GetListOfFriends input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GetIncomingFriendRequests
+   */
+  public ModelLoadIncomingFriendsWithTimeResponse getIncomingFriendRequests(
+      GetIncomingFriendRequests input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GetOutgoingFriendRequests
+   */
+  public ModelLoadOutgoingFriendsWithTimeResponse getOutgoingFriendRequests(
+      GetOutgoingFriendRequests input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

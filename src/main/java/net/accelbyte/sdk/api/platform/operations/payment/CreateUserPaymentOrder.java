@@ -27,6 +27,16 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:PAYMENT", action=1
  * (CREATE) * It will be forbidden while the user is banned: PAYMENT_INITIATE or ORDER_AND_PAYMENT *
  * Returns : created order
+ *
+ * <p>## Restrictions for custom parameters and meta data
+ *
+ * <p>1. Cannot use "." as the key name -
+ *
+ * <p>{ "data.2": "value" }
+ *
+ * <p>2. Cannot use "$" as the prefix in key names -
+ *
+ * <p>{ "$data": "value" }
  */
 @Getter
 @Setter
@@ -38,6 +48,7 @@ public class CreateUserPaymentOrder extends Operation {
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
+
   /** fields as input parameter */
   private String namespace;
 

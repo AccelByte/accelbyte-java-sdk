@@ -39,8 +39,14 @@ public class StatInfo extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
+  @JsonProperty("ignoreAdditionalDataOnValueRejected")
+  private Boolean ignoreAdditionalDataOnValueRejected;
+
   @JsonProperty("incrementOnly")
   private Boolean incrementOnly;
+
+  @JsonProperty("isPublic")
+  private Boolean isPublic;
 
   @JsonProperty("maximum")
   @JsonInclude(JsonInclude.Include.NON_NULL)

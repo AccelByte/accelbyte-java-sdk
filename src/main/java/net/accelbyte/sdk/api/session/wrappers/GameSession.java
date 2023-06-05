@@ -72,6 +72,16 @@ public class GameSession {
   }
 
   /**
+   * @see PublicSessionJoinCode
+   */
+  public ApimodelsGameSessionResponse publicSessionJoinCode(PublicSessionJoinCode input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetGameSessionByPodName
    */
   public ApimodelsGameSessionResponse getGameSessionByPodName(GetGameSessionByPodName input)
@@ -123,6 +133,26 @@ public class GameSession {
    */
   public ApimodelsGameSessionResponse updateGameSessionBackfillTicketID(
       UpdateGameSessionBackfillTicketID input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GameSessionGenerateCode
+   */
+  public ApimodelsGameSessionResponse gameSessionGenerateCode(GameSessionGenerateCode input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicRevokeGameSessionCode
+   */
+  public ApimodelsGameSessionResponse publicRevokeGameSessionCode(PublicRevokeGameSessionCode input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

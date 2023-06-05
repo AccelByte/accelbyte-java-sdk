@@ -31,6 +31,10 @@ public class ModelsUpdateRuleset extends Model {
   @JsonProperty("alliance_flexing_rule")
   private List<ModelsAllianceFlexingRule> allianceFlexingRule;
 
+  @JsonProperty("bucket_mmr_rule")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelsBucketMMRRule bucketMmrRule;
+
   @JsonProperty("flexingRules")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsFlexingRule> flexingRules;
@@ -46,6 +50,10 @@ public class ModelsUpdateRuleset extends Model {
   @JsonProperty("sub_game_modes")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsUpdateRulesetSubGameModes subGameModes;
+
+  @JsonProperty("use_newest_ticket_for_flexing")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean useNewestTicketForFlexing;
 
   @JsonIgnore
   public ModelsUpdateRuleset createFromJson(String json) throws JsonProcessingException {

@@ -81,6 +81,11 @@ public class AdminQueryParties implements Callable<Integer> {
   String orderBy;
 
   @Option(
+      names = {"--partyID"},
+      description = "partyID")
+  String partyID;
+
+  @Option(
       names = {"--value"},
       description = "value")
   String value;
@@ -118,6 +123,7 @@ public class AdminQueryParties implements Callable<Integer> {
               .offset(offset)
               .order(order)
               .orderBy(orderBy)
+              .partyID(partyID)
               .value(value)
               .build();
       final ApimodelsPartyQueryResponse response = wrapper.adminQueryParties(operation);

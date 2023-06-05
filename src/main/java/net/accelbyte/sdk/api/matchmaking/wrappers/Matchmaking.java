@@ -212,6 +212,15 @@ public class Matchmaking {
   }
 
   /**
+   * @see GetStatData
+   */
+  public ModelsStatResumeResponse getStatData(GetStatData input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see SearchSessions
    * @deprecated
    */

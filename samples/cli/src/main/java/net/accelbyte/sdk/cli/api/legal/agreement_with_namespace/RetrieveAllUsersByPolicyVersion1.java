@@ -36,6 +36,11 @@ public class RetrieveAllUsersByPolicyVersion1 implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--convertGameUserId"},
+      description = "convertGameUserId")
+  Boolean convertGameUserId;
+
+  @Option(
       names = {"--keyword"},
       description = "keyword")
   String keyword;
@@ -82,12 +87,13 @@ public class RetrieveAllUsersByPolicyVersion1 implements Callable<Integer> {
               net.accelbyte.sdk.api.legal.operations.agreement_with_namespace
                   .RetrieveAllUsersByPolicyVersion1.builder()
                   .namespace(namespace)
+                  .convertGameUserId(convertGameUserId)
                   .keyword(keyword)
                   .limit(limit)
                   .offset(offset)
                   .policyVersionId(policyVersionId)
                   .build();
-      final List<PagedRetrieveUserAcceptedAgreementResponse> response =
+      final PagedRetrieveUserAcceptedAgreementResponse response =
           wrapper.retrieveAllUsersByPolicyVersion1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

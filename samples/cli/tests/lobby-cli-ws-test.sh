@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..104"
+echo "1..103"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -511,60 +511,55 @@ eval_tap $? 92 'StartMatchmakingRequest' test.out
     > test.out 2>&1
 eval_tap $? 93 'StartMatchmakingResponse' test.out
 
-#- 94 SystemComponentsStatus
-./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: systemComponentsStatus\ncomponents: {"f5y1JsxJNGmyt0SQ":true,"blS7Nz81GRazPAAN":false,"AWc9x1aMjgGim51T":true}' -u \
+#- 94 UnblockPlayerNotif
+./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: unblockPlayerNotif\nunblockedUserId: f5y1JsxJNGmyt0SQ\nuserId: DUDoWBZVGLlkUetz' -u \
     > test.out 2>&1
-eval_tap $? 94 'SystemComponentsStatus' test.out
+eval_tap $? 94 'UnblockPlayerNotif' test.out
 
-#- 95 UnblockPlayerNotif
-./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: unblockPlayerNotif\nunblockedUserId: 07XIZRZ7tZdIs0xf\nuserId: 4czdt7zqmSKxOEQl' -u \
+#- 95 UnblockPlayerRequest
+./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: unblockPlayerRequest\nid: CAWc9x1aMjgGim51\nnamespace: T107XIZRZ7tZdIs0\nunblockedUserId: xf4czdt7zqmSKxOE' -u \
     > test.out 2>&1
-eval_tap $? 95 'UnblockPlayerNotif' test.out
+eval_tap $? 95 'UnblockPlayerRequest' test.out
 
-#- 96 UnblockPlayerRequest
-./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: unblockPlayerRequest\nid: Vcx6GqsBq8vdhWVn\nnamespace: uYLgpZehK0G2nmyu\nunblockedUserId: ViB9kRTcSQdTnNYG' -u \
+#- 96 UnblockPlayerResponse
+./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: unblockPlayerResponse\nid: nbLzvtCIW5ynMKqu\ncode: 88\nnamespace: UicAeIVXtoWAXhMl\nunblockedUserId: W4tLqX7OICf5oD1e' -u \
     > test.out 2>&1
-eval_tap $? 96 'UnblockPlayerRequest' test.out
+eval_tap $? 96 'UnblockPlayerResponse' test.out
 
-#- 97 UnblockPlayerResponse
-./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: unblockPlayerResponse\nid: I9FmYel0kOw72o8Z\ncode: 8\nnamespace: kgk0jS6rDWUwfhKv\nunblockedUserId: rf2AaH4yCWrHSppn' -u \
+#- 97 UnfriendNotif
+./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: unfriendNotif\nfriendId: 6oI9FmYel0kOw72o' -u \
     > test.out 2>&1
-eval_tap $? 97 'UnblockPlayerResponse' test.out
+eval_tap $? 97 'UnfriendNotif' test.out
 
-#- 98 UnfriendNotif
-./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: unfriendNotif\nfriendId: IZkNnTn3rzH5NvAt' -u \
+#- 98 UnfriendRequest
+./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: unfriendRequest\nid: Kvrf2AaH4yCWrHSp\nfriendId: 8Zkgk0jS6rDWUwfh' -u \
     > test.out 2>&1
-eval_tap $? 98 'UnfriendNotif' test.out
+eval_tap $? 98 'UnfriendRequest' test.out
 
-#- 99 UnfriendRequest
-./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: unfriendRequest\nid: bmu8ePWlQMVDXEHe\nfriendId: cvNedgS1fUfKmihD' -u \
+#- 99 UnfriendResponse
+./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: unfriendResponse\nid: vDJ3w3UNgIGj2jZt\ncode: 31' -u \
     > test.out 2>&1
-eval_tap $? 99 'UnfriendRequest' test.out
+eval_tap $? 99 'UnfriendResponse' test.out
 
-#- 100 UnfriendResponse
-./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: unfriendResponse\nid: MsQgb64ELbzDMwyo\ncode: 17' -u \
-    > test.out 2>&1
-eval_tap $? 100 'UnfriendResponse' test.out
-
-#- 101 UserBannedNotification
+#- 100 UserBannedNotification
 ./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: userBannedNotification' -u \
     > test.out 2>&1
-eval_tap $? 101 'UserBannedNotification' test.out
+eval_tap $? 100 'UserBannedNotification' test.out
 
-#- 102 UserMetricRequest
-./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: userMetricRequest\nid: 4nIRysQdbufXjYnS' -u \
+#- 101 UserMetricRequest
+./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: userMetricRequest\nid: EYT8sIPSE1XXPzyS' -u \
     > test.out 2>&1
-eval_tap $? 102 'UserMetricRequest' test.out
+eval_tap $? 101 'UserMetricRequest' test.out
 
-#- 103 UserMetricResponse
-./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: userMetricResponse\nid: TKWjmv67nuHCXWfw\ncode: 29\nplayerCount: 27' -u \
+#- 102 UserMetricResponse
+./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: userMetricResponse\nid: Dbmu8ePWlQMVDXEH\ncode: 0\nplayerCount: 8' -u \
     > test.out 2>&1
-eval_tap $? 103 'UserMetricResponse' test.out
+eval_tap $? 102 'UserMetricResponse' test.out
 
-#- 104 UserStatusNotif
-./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: userStatusNotif\nactivity: lGVE9sJ4NpUtKp6M\navailability: 34\nlastSeenAt: I6nEwnZhsjwJeGwa\nuserId: PSDMZz95OYKiqaZD' -u \
+#- 103 UserStatusNotif
+./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: userStatusNotif\nactivity: pMsQgb64ELbzDMwy\navailability: 30\nlastSeenAt: P7rz3ISW510kHr4i\nuserId: sTKWjmv67nuHCXWf' -u \
     > test.out 2>&1
-eval_tap $? 104 'UserStatusNotif' test.out
+eval_tap $? 103 'UserStatusNotif' test.out
 
 
 exit $EXIT_CODE

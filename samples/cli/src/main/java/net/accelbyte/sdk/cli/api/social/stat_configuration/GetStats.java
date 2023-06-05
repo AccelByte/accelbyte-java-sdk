@@ -46,6 +46,11 @@ public class GetStats implements Callable<Integer> {
   Boolean isGlobal;
 
   @Option(
+      names = {"--isPublic"},
+      description = "isPublic")
+  Boolean isPublic;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -81,6 +86,7 @@ public class GetStats implements Callable<Integer> {
               .namespace(namespace)
               .cycleIds(cycleIds)
               .isGlobal(isGlobal)
+              .isPublic(isPublic)
               .limit(limit)
               .offset(offset)
               .build();

@@ -52,6 +52,10 @@ public class ApimodelsUpdateConfigurationTemplateRequest extends Model {
   @JsonProperty("joinability")
   private String joinability;
 
+  @JsonProperty("maxActiveSessions")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer maxActiveSessions;
+
   @JsonProperty("maxPlayers")
   private Integer maxPlayers;
 

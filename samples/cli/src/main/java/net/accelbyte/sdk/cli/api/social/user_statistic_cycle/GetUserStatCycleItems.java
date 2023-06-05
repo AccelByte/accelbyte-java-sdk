@@ -46,6 +46,11 @@ public class GetUserStatCycleItems implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--isPublic"},
+      description = "isPublic")
+  Boolean isPublic;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -93,6 +98,7 @@ public class GetUserStatCycleItems implements Callable<Integer> {
                   .cycleId(cycleId)
                   .namespace(namespace)
                   .userId(userId)
+                  .isPublic(isPublic)
                   .limit(limit)
                   .offset(offset)
                   .sortBy(sortBy)

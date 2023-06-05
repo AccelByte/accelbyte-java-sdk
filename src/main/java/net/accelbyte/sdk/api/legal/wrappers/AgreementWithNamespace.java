@@ -45,7 +45,7 @@ public class AgreementWithNamespace {
   /**
    * @see RetrieveAllUsersByPolicyVersion1
    */
-  public List<PagedRetrieveUserAcceptedAgreementResponse> retrieveAllUsersByPolicyVersion1(
+  public PagedRetrieveUserAcceptedAgreementResponse retrieveAllUsersByPolicyVersion1(
       RetrieveAllUsersByPolicyVersion1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

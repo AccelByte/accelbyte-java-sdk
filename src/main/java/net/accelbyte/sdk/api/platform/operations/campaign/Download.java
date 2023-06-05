@@ -36,6 +36,7 @@ public class Download extends Operation {
   private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("text/csv");
   private String locationQuery = null;
+
   /** fields as input parameter */
   private String campaignId;
 

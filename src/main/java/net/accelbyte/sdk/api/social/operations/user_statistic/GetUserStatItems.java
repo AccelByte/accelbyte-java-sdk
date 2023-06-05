@@ -35,10 +35,12 @@ public class GetUserStatItems extends Operation {
   private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
+
   /** fields as input parameter */
   private String namespace;
 
   private String userId;
+  private Boolean isPublic;
   private Integer limit;
   private Integer offset;
   private String sortBy;
@@ -55,6 +57,7 @@ public class GetUserStatItems extends Operation {
   public GetUserStatItems(
       String namespace,
       String userId,
+      Boolean isPublic,
       Integer limit,
       Integer offset,
       String sortBy,
@@ -62,6 +65,7 @@ public class GetUserStatItems extends Operation {
       String tags) {
     this.namespace = namespace;
     this.userId = userId;
+    this.isPublic = isPublic;
     this.limit = limit;
     this.offset = offset;
     this.sortBy = sortBy;
@@ -86,6 +90,8 @@ public class GetUserStatItems extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "isPublic", this.isPublic == null ? null : Arrays.asList(String.valueOf(this.isPublic)));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
@@ -119,6 +125,7 @@ public class GetUserStatItems extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("isPublic", "None");
     result.put("limit", "None");
     result.put("offset", "None");
     result.put("sortBy", "None");

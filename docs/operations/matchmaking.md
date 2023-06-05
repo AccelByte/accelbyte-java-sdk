@@ -35,6 +35,7 @@
 | `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/sessions/{matchID}` | POST | AddUserIntoSessionInChannel | [AddUserIntoSessionInChannel](../../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/matchmaking/AddUserIntoSessionInChannel.java) | [AddUserIntoSessionInChannel](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/matchmaking/matchmaking/AddUserIntoSessionInChannel.java) |
 | `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/sessions/{matchID}` | DELETE | DeleteSessionInChannel | [DeleteSessionInChannel](../../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/matchmaking/DeleteSessionInChannel.java) | [DeleteSessionInChannel](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/matchmaking/matchmaking/DeleteSessionInChannel.java) |
 | `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/sessions/{matchID}/users/{userID}` | DELETE | DeleteUserFromSessionInChannel | [DeleteUserFromSessionInChannel](../../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/matchmaking/DeleteUserFromSessionInChannel.java) | [DeleteUserFromSessionInChannel](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/matchmaking/matchmaking/DeleteUserFromSessionInChannel.java) |
+| `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/stats` | GET | GetStatData | [GetStatData](../../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/matchmaking/GetStatData.java) | [GetStatData](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/matchmaking/matchmaking/GetStatData.java) |
 | [DEPRECATED] `/matchmaking/v1/admin/namespaces/{namespace}/sessions/history/search` | GET | SearchSessions | [SearchSessions](../../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/matchmaking/SearchSessions.java) | [SearchSessions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/matchmaking/matchmaking/SearchSessions.java) |
 | [DEPRECATED] `/matchmaking/v1/admin/namespaces/{namespace}/sessions/{matchID}/history/detailed` | GET | GetSessionHistoryDetailed | [GetSessionHistoryDetailed](../../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/matchmaking/GetSessionHistoryDetailed.java) | [GetSessionHistoryDetailed](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/matchmaking/matchmaking/GetSessionHistoryDetailed.java) |
 | `/matchmaking/v1/public/namespaces/{namespace}/channels` | GET | PublicGetAllMatchmakingChannel | [PublicGetAllMatchmakingChannel](../../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/matchmaking/PublicGetAllMatchmakingChannel.java) | [PublicGetAllMatchmakingChannel](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/matchmaking/matchmaking/PublicGetAllMatchmakingChannel.java) |
@@ -45,6 +46,17 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/matchmaking/social/playtime/namespaces/{namespace}/weight` | PATCH | UpdatePlayTimeWeight | [UpdatePlayTimeWeight](../../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/social_matchmaking/UpdatePlayTimeWeight.java) | [UpdatePlayTimeWeight](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/matchmaking/social_matchmaking/UpdatePlayTimeWeight.java) |
+
+### Mock Matchmaking Wrapper:  [MockMatchmaking](../../src/main/java/net/accelbyte/sdk/api/matchmaking/wrappers/MockMatchmaking.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/mocks` | DELETE | CleanAllMocks | [CleanAllMocks](../../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/mock_matchmaking/CleanAllMocks.java) | [CleanAllMocks](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/matchmaking/mock_matchmaking/CleanAllMocks.java) |
+| `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/mocks/matches` | GET | GetAllMockMatches | [GetAllMockMatches](../../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/mock_matchmaking/GetAllMockMatches.java) | [GetAllMockMatches](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/matchmaking/mock_matchmaking/GetAllMockMatches.java) |
+| `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/mocks/matches` | POST | GetMockMatchesByTimestamp | [GetMockMatchesByTimestamp](../../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/mock_matchmaking/GetMockMatchesByTimestamp.java) | [GetMockMatchesByTimestamp](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/matchmaking/mock_matchmaking/GetMockMatchesByTimestamp.java) |
+| `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/mocks/tickets` | GET | GetAllMockTickets | [GetAllMockTickets](../../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/mock_matchmaking/GetAllMockTickets.java) | [GetAllMockTickets](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/matchmaking/mock_matchmaking/GetAllMockTickets.java) |
+| `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/mocks/tickets` | POST | CreateMockTickets | [CreateMockTickets](../../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/mock_matchmaking/CreateMockTickets.java) | [CreateMockTickets](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/matchmaking/mock_matchmaking/CreateMockTickets.java) |
+| `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/mocks/tickets/bulk` | POST | BulkCreateMockTickets | [BulkCreateMockTickets](../../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/mock_matchmaking/BulkCreateMockTickets.java) | [BulkCreateMockTickets](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/matchmaking/mock_matchmaking/BulkCreateMockTickets.java) |
+| `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/mocks/tickets/query` | POST | GetMockTicketsByTimestamp | [GetMockTicketsByTimestamp](../../src/main/java/net/accelbyte/sdk/api/matchmaking/operations/mock_matchmaking/GetMockTicketsByTimestamp.java) | [GetMockTicketsByTimestamp](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/matchmaking/mock_matchmaking/GetMockTicketsByTimestamp.java) |
 
 
 &nbsp;  
@@ -57,14 +69,18 @@
 | `models.AllianceFlexingRule` | [ModelsAllianceFlexingRule](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsAllianceFlexingRule.java) |
 | `models.AllianceRule` | [ModelsAllianceRule](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsAllianceRule.java) |
 | `models.AllianceRuleV1` | [ModelsAllianceRuleV1](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsAllianceRuleV1.java) |
+| `models.BucketMMRRule` | [ModelsBucketMMRRule](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsBucketMMRRule.java) |
 | `models.Channel` | [ModelsChannel](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsChannel.java) |
 | `models.ChannelRequest` | [ModelsChannelRequest](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsChannelRequest.java) |
 | `models.ChannelV1` | [ModelsChannelV1](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsChannelV1.java) |
 | `models.Combination` | [ModelsCombination](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsCombination.java) |
 | `models.CreateChannelResponse` | [ModelsCreateChannelResponse](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsCreateChannelResponse.java) |
+| `models.CreateMockTicket` | [ModelsCreateMockTicket](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsCreateMockTicket.java) |
 | `models.DequeueRequest` | [ModelsDequeueRequest](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsDequeueRequest.java) |
 | `models.FlexingRule` | [ModelsFlexingRule](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsFlexingRule.java) |
 | `models.GetChannelsResponse` | [ModelsGetChannelsResponse](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsGetChannelsResponse.java) |
+| `models.GetMockMatchesResponse` | [ModelsGetMockMatchesResponse](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsGetMockMatchesResponse.java) |
+| `models.GetMockTicketsResponse` | [ModelsGetMockTicketsResponse](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsGetMockTicketsResponse.java) |
 | `models.ImportConfigResponse` | [ModelsImportConfigResponse](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsImportConfigResponse.java) |
 | `models.MatchAddUserIntoSessionRequest` | [ModelsMatchAddUserIntoSessionRequest](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsMatchAddUserIntoSessionRequest.java) |
 | `models.MatchOption` | [ModelsMatchOption](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsMatchOption.java) |
@@ -75,17 +91,22 @@
 | `models.MatchingParty` | [ModelsMatchingParty](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsMatchingParty.java) |
 | `models.MatchingRule` | [ModelsMatchingRule](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsMatchingRule.java) |
 | `models.MatchmakingResult` | [ModelsMatchmakingResult](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsMatchmakingResult.java) |
+| `models.MockMatch` | [ModelsMockMatch](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsMockMatch.java) |
+| `models.MockTicket` | [ModelsMockTicket](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsMockTicket.java) |
 | `models.Pagination` | [ModelsPagination](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsPagination.java) |
 | `models.PartyMember` | [ModelsPartyMember](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsPartyMember.java) |
 | `models.PlayerResultRequest` | [ModelsPlayerResultRequest](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsPlayerResultRequest.java) |
 | `models.PlayerResultResponse` | [ModelsPlayerResultResponse](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsPlayerResultResponse.java) |
+| `models.QueryMockBy` | [ModelsQueryMockBy](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsQueryMockBy.java) |
 | `models.RebalanceRequest` | [ModelsRebalanceRequest](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsRebalanceRequest.java) |
 | `models.RebalanceResponse` | [ModelsRebalanceResponse](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsRebalanceResponse.java) |
+| `models.Region` | [ModelsRegion](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsRegion.java) |
 | `models.ResultAttributeRequest` | [ModelsResultAttributeRequest](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsResultAttributeRequest.java) |
 | `models.ResultAttributeResponse` | [ModelsResultAttributeResponse](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsResultAttributeResponse.java) |
 | `models.Role` | [ModelsRole](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsRole.java) |
 | `models.RuleSet` | [ModelsRuleSet](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsRuleSet.java) |
 | `models.RuleSetV1` | [ModelsRuleSetV1](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsRuleSetV1.java) |
+| `models.StatResumeResponse` | [ModelsStatResumeResponse](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsStatResumeResponse.java) |
 | `models.SubGameMode` | [ModelsSubGameMode](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsSubGameMode.java) |
 | `models.TicketMetricResultRecord` | [ModelsTicketMetricResultRecord](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsTicketMetricResultRecord.java) |
 | `models.UpdateAllianceRule` | [ModelsUpdateAllianceRule](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsUpdateAllianceRule.java) |

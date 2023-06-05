@@ -10,6 +10,7 @@ package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.matchmaking.matchmaking.*;
 import net.accelbyte.sdk.cli.api.matchmaking.matchmaking_operations.*;
+import net.accelbyte.sdk.cli.api.matchmaking.mock_matchmaking.*;
 import net.accelbyte.sdk.cli.api.matchmaking.social_matchmaking.*;
 import picocli.CommandLine.Command;
 
@@ -35,11 +36,19 @@ import picocli.CommandLine.Command;
       ImportChannels.class,
       GetSingleMatchmakingChannel.class,
       UpdateMatchmakingChannel.class,
+      CleanAllMocks.class,
+      GetAllMockMatches.class,
+      GetMockMatchesByTimestamp.class,
+      GetAllMockTickets.class,
+      CreateMockTickets.class,
+      BulkCreateMockTickets.class,
+      GetMockTicketsByTimestamp.class,
       GetAllPartyInChannel.class,
       GetAllSessionsInChannel.class,
       AddUserIntoSessionInChannel.class,
       DeleteSessionInChannel.class,
       DeleteUserFromSessionInChannel.class,
+      GetStatData.class,
       SearchSessions.class,
       GetSessionHistoryDetailed.class,
       PublicGetMessages.class,

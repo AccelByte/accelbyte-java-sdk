@@ -39,10 +39,12 @@ public class PublicQueryUserStatItems1 extends Operation {
   private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
+
   /** fields as input parameter */
   private String namespace;
 
   private String userId;
+  private String additionalKey;
   private List<String> statCodes;
   private List<String> tags;
 
@@ -54,9 +56,14 @@ public class PublicQueryUserStatItems1 extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicQueryUserStatItems1(
-      String namespace, String userId, List<String> statCodes, List<String> tags) {
+      String namespace,
+      String userId,
+      String additionalKey,
+      List<String> statCodes,
+      List<String> tags) {
     this.namespace = namespace;
     this.userId = userId;
+    this.additionalKey = additionalKey;
     this.statCodes = statCodes;
     this.tags = tags;
 
@@ -78,6 +85,8 @@ public class PublicQueryUserStatItems1 extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "additionalKey", this.additionalKey == null ? null : Arrays.asList(this.additionalKey));
     queryParams.put("statCodes", this.statCodes == null ? null : this.statCodes);
     queryParams.put("tags", this.tags == null ? null : this.tags);
     return queryParams;
@@ -108,6 +117,7 @@ public class PublicQueryUserStatItems1 extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("additionalKey", "None");
     result.put("statCodes", "multi");
     result.put("tags", "multi");
     return result;

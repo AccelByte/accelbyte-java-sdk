@@ -31,6 +31,16 @@ public class Player {
   }
 
   /**
+   * @see AdminGetBulkPlayerBlockedPlayersV1
+   */
+  public ModelsGetBulkAllPlayerBlockedUsersResponse adminGetBulkPlayerBlockedPlayersV1(
+      AdminGetBulkPlayerBlockedPlayersV1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminGetAllPlayerSessionAttribute
    */
   public ModelsGetAllPlayerSessionAttributeResponse adminGetAllPlayerSessionAttribute(

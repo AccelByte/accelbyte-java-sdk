@@ -247,6 +247,16 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=1 (CREATE) *
  * Returns : created item data
+ *
+ * <p>## Restrictions for item extension and localization extension
+ *
+ * <p>1. Cannot use "." as the key name -
+ *
+ * <p>{ "data.2": "value" }
+ *
+ * <p>2. Cannot use "$" as the prefix in key names -
+ *
+ * <p>{ "$data": "value" }
  */
 @Getter
 @Setter
@@ -258,6 +268,7 @@ public class CreateItem extends Operation {
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
+
   /** fields as input parameter */
   private String namespace;
 

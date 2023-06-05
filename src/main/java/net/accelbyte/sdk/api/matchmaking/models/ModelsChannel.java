@@ -70,6 +70,10 @@ public class ModelsChannel extends Model {
   @JsonProperty("social_matchmaking")
   private Boolean socialMatchmaking;
 
+  @JsonProperty("ticket_observability_enable")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean ticketObservabilityEnable;
+
   @JsonProperty("updated_at")
   private String updatedAt;
 

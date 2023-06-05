@@ -70,6 +70,10 @@ public class ModelsChannelRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean socialMatchmaking;
 
+  @JsonProperty("ticket_observability_enable")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean ticketObservabilityEnable;
+
   @JsonProperty("use_sub_gamemode")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean useSubGamemode;

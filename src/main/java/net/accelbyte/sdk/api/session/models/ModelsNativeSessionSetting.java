@@ -28,6 +28,10 @@ public class ModelsNativeSessionSetting extends Model {
   @JsonProperty("PSNServiceLabel")
   private Integer psnServiceLabel;
 
+  @JsonProperty("PSNSupportedPlatforms")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> psnSupportedPlatforms;
+
   @JsonProperty("SessionTitle")
   private String sessionTitle;
 

@@ -41,6 +41,11 @@ public class RetrieveAcceptedAgreements1 implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--excludeOtherNamespacesPolicies"},
+      description = "excludeOtherNamespacesPolicies")
+  Boolean excludeOtherNamespacesPolicies;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -68,6 +73,7 @@ public class RetrieveAcceptedAgreements1 implements Callable<Integer> {
                   .RetrieveAcceptedAgreements1.builder()
                   .namespace(namespace)
                   .userId(userId)
+                  .excludeOtherNamespacesPolicies(excludeOtherNamespacesPolicies)
                   .build();
       final List<RetrieveAcceptedAgreementResponse> response =
           wrapper.retrieveAcceptedAgreements1(operation);

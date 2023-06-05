@@ -38,6 +38,7 @@ public class AdminGetListBanReasonV3 extends Operation {
   private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
+
   /** fields as input parameter */
 
   /** */

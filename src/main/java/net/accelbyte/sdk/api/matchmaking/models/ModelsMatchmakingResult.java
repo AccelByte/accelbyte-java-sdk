@@ -43,6 +43,9 @@ public class ModelsMatchmakingResult extends Model {
   @JsonProperty("game_mode")
   private String gameMode;
 
+  @JsonProperty("is_mock")
+  private String isMock;
+
   @JsonProperty("joinable")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean joinable;

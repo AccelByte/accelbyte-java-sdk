@@ -41,6 +41,11 @@ public class PublicQueryUserStatItems1 implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--additionalKey"},
+      description = "additionalKey")
+  String additionalKey;
+
+  @Option(
       names = {"--statCodes"},
       description = "statCodes")
   List<String> statCodes;
@@ -77,6 +82,7 @@ public class PublicQueryUserStatItems1 implements Callable<Integer> {
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
+                  .additionalKey(additionalKey)
                   .statCodes(statCodes)
                   .tags(tags)
                   .build();

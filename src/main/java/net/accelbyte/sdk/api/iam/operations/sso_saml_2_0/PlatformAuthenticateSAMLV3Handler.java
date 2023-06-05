@@ -38,6 +38,7 @@ public class PlatformAuthenticateSAMLV3Handler extends Operation {
   private List<String> consumes = Arrays.asList("application/x-www-form-urlencoded");
   private List<String> produces = Arrays.asList();
   private String locationQuery = "PLACEHOLDER";
+
   /** fields as input parameter */
   private String platformId;
 

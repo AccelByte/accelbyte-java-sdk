@@ -32,6 +32,16 @@ public class UserStatisticCycle {
   }
 
   /**
+   * @see PublicListMyStatCycleItems
+   */
+  public UserStatCycleItemPagingSlicedResult publicListMyStatCycleItems(
+      PublicListMyStatCycleItems input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetUserStatCycleItems1
    */
   public UserStatCycleItemPagingSlicedResult getUserStatCycleItems1(GetUserStatCycleItems1 input)

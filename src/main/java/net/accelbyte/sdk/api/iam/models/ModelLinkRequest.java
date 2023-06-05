@@ -82,6 +82,10 @@ public class ModelLinkRequest extends Model {
   @JsonProperty("status")
   private String status;
 
+  @JsonProperty("userID")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String userID;
+
   @JsonIgnore
   public ModelLinkRequest createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

@@ -196,6 +196,26 @@ public class UserStatistic {
   }
 
   /**
+   * @see PublicListMyStatItems
+   */
+  public UserStatItemPagingSlicedResult publicListMyStatItems(PublicListMyStatItems input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicListAllMyStatItems
+   */
+  public List<ADTOObjectForUserStatItemValue> publicListAllMyStatItems(
+      PublicListAllMyStatItems input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicQueryUserStatItems
    */
   public UserStatItemPagingSlicedResult publicQueryUserStatItems(PublicQueryUserStatItems input)

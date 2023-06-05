@@ -37,6 +37,14 @@ public class StatUpdate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
+  @JsonProperty("ignoreAdditionalDataOnValueRejected")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean ignoreAdditionalDataOnValueRejected;
+
+  @JsonProperty("isPublic")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean isPublic;
+
   @JsonProperty("name")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String name;

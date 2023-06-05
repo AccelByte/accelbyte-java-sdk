@@ -24,6 +24,16 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Update Platform DLC config. Other detail info: * Required permission :
  * resource="ADMIN:NAMESPACE:{namespace}:DLC:CONFIG", action=4 (UPDATE) * Returns : updated Platform
  * DLC config
+ *
+ * <p>## Restrictions for platform dlc map
+ *
+ * <p>1. Cannot use "." as the key name -
+ *
+ * <p>{ "data.2": "value" }
+ *
+ * <p>2. Cannot use "$" as the prefix in key names -
+ *
+ * <p>{ "$data": "value" }
  */
 @Getter
 @Setter
@@ -35,6 +45,7 @@ public class UpdatePlatformDLCConfig extends Operation {
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
+
   /** fields as input parameter */
   private String namespace;
 

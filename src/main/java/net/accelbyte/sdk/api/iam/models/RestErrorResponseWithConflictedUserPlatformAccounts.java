@@ -35,6 +35,10 @@ public class RestErrorResponseWithConflictedUserPlatformAccounts extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private AccountcommonConflictedUserPlatformAccounts messageVariables;
 
+  @JsonProperty("previousLinkedPlatformAccount")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private AccountcommonPlatformLinkingHistory previousLinkedPlatformAccount;
+
   @JsonIgnore
   public RestErrorResponseWithConflictedUserPlatformAccounts createFromJson(String json)
       throws JsonProcessingException {

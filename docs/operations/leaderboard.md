@@ -95,6 +95,11 @@
 | `/leaderboard/v3/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/users/{userId}/visibility` | PUT | SetUserLeaderboardVisibilityV3 | [SetUserLeaderboardVisibilityV3](../../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/user_visibility_v3/SetUserLeaderboardVisibilityV3.java) | [SetUserLeaderboardVisibilityV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/leaderboard/user_visibility_v3/SetUserLeaderboardVisibilityV3.java) |
 | `/leaderboard/v3/admin/namespaces/{namespace}/users/{userId}/visibility` | PUT | SetUserVisibilityV3 | [SetUserVisibilityV3](../../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/user_visibility_v3/SetUserVisibilityV3.java) | [SetUserVisibilityV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/leaderboard/user_visibility_v3/SetUserVisibilityV3.java) |
 
+### UserDataV3 Wrapper:  [UserDataV3](../../src/main/java/net/accelbyte/sdk/api/leaderboard/wrappers/UserDataV3.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/leaderboard/v3/admin/namespaces/{namespace}/users/{userId}/leaderboards` | GET | GetUserLeaderboardRankingsAdminV3 | [GetUserLeaderboardRankingsAdminV3](../../src/main/java/net/accelbyte/sdk/api/leaderboard/operations/user_data_v3/GetUserLeaderboardRankingsAdminV3.java) | [GetUserLeaderboardRankingsAdminV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/leaderboard/user_data_v3/GetUserLeaderboardRankingsAdminV3.java) |
+
 
 &nbsp;  
 
@@ -113,6 +118,7 @@
 | `models.GetAllLeaderboardConfigsResp` | [ModelsGetAllLeaderboardConfigsResp](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsGetAllLeaderboardConfigsResp.java) |
 | `models.GetAllLeaderboardConfigsRespV3` | [ModelsGetAllLeaderboardConfigsRespV3](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsGetAllLeaderboardConfigsRespV3.java) |
 | `models.GetAllUserLeaderboardsResp` | [ModelsGetAllUserLeaderboardsResp](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsGetAllUserLeaderboardsResp.java) |
+| `models.GetAllUserLeaderboardsRespV3` | [ModelsGetAllUserLeaderboardsRespV3](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsGetAllUserLeaderboardsRespV3.java) |
 | `models.GetHiddenUserResponse` | [ModelsGetHiddenUserResponse](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsGetHiddenUserResponse.java) |
 | `models.GetLeaderboardConfigPublicResp` | [ModelsGetLeaderboardConfigPublicResp](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsGetLeaderboardConfigPublicResp.java) |
 | `models.GetLeaderboardConfigPublicRespV3` | [ModelsGetLeaderboardConfigPublicRespV3](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsGetLeaderboardConfigPublicRespV3.java) |
@@ -132,6 +138,7 @@
 | `models.UpdateUserPointAdminV1Response` | [ModelsUpdateUserPointAdminV1Response](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsUpdateUserPointAdminV1Response.java) |
 | `models.UserCycleRankingResponseDetail` | [ModelsUserCycleRankingResponseDetail](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsUserCycleRankingResponseDetail.java) |
 | `models.UserLeaderboardRanking` | [ModelsUserLeaderboardRanking](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsUserLeaderboardRanking.java) |
+| `models.UserLeaderboardRankingV3` | [ModelsUserLeaderboardRankingV3](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsUserLeaderboardRankingV3.java) |
 | `models.UserPoint` | [ModelsUserPoint](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsUserPoint.java) |
 | `models.UserRankingResponse` | [ModelsUserRankingResponse](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsUserRankingResponse.java) |
 | `models.UserRankingResponseDetail` | [ModelsUserRankingResponseDetail](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsUserRankingResponseDetail.java) |

@@ -33,6 +33,7 @@ public class AdminQueryParties extends Operation {
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
+
   /** fields as input parameter */
   private String namespace;
 
@@ -45,6 +46,7 @@ public class AdminQueryParties extends Operation {
   private Integer offset;
   private String order;
   private String orderBy;
+  private String partyID;
   private String value;
 
   /**
@@ -64,6 +66,7 @@ public class AdminQueryParties extends Operation {
       Integer offset,
       String order,
       String orderBy,
+      String partyID,
       String value) {
     this.namespace = namespace;
     this.joinability = joinability;
@@ -75,6 +78,7 @@ public class AdminQueryParties extends Operation {
     this.offset = offset;
     this.order = order;
     this.orderBy = orderBy;
+    this.partyID = partyID;
     this.value = value;
 
     securities.add("Bearer");
@@ -104,6 +108,7 @@ public class AdminQueryParties extends Operation {
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put("order", this.order == null ? null : Arrays.asList(this.order));
     queryParams.put("orderBy", this.orderBy == null ? null : Arrays.asList(this.orderBy));
+    queryParams.put("partyID", this.partyID == null ? null : Arrays.asList(this.partyID));
     queryParams.put("value", this.value == null ? null : Arrays.asList(this.value));
     return queryParams;
   }
@@ -138,6 +143,7 @@ public class AdminQueryParties extends Operation {
     result.put("offset", "None");
     result.put("order", "None");
     result.put("orderBy", "None");
+    result.put("partyID", "None");
     result.put("value", "None");
     return result;
   }
