@@ -1,0 +1,53 @@
+package net.accelbyte.sdk.integration;
+
+import net.accelbyte.sdk.api.ams.models.ApiAvailableInstanceTypesResponse;
+import net.accelbyte.sdk.api.ams.models.ApiRegionsResponse;
+import net.accelbyte.sdk.api.ams.operations.ams_info.InfoRegions;
+import net.accelbyte.sdk.api.ams.operations.ams_info.InfoSupportedInstances;
+import net.accelbyte.sdk.api.ams.wrappers.AMSInfo;
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+
+@Tag("test-integration")
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+public class TestIntegrationServiceAms extends TestIntegration {
+    @BeforeAll
+    public void setup() throws Exception {
+        super.setup();
+    }
+
+    @Test
+    @Order(1)
+    public void test() throws Exception {
+        final AMSInfo amsInfoWrapper = new AMSInfo(sdk);
+
+        // CASE Get AMS info for info region operation
+
+        final ApiRegionsResponse infoRegions = amsInfoWrapper.infoRegions(InfoRegions.builder().build());
+
+        // ESAC
+
+        assertNotNull(infoRegions);
+        assertTrue(infoRegions.getRegions().size() > 0);
+
+        // CASE Get AMS info for info region operation
+
+        final ApiAvailableInstanceTypesResponse infoInstances =
+                amsInfoWrapper.infoSupportedInstances(InfoSupportedInstances.builder().build());
+
+        // ESAC
+
+        assertNotNull(infoInstances);
+        assertTrue(infoInstances.getAvailableInstanceTypes().size() > 0);
+    }
+
+    @AfterAll
+    public void tear() throws Exception {
+        super.tear();
+    }
+}
+
