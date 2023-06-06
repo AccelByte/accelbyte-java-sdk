@@ -2,7 +2,8 @@
 ## [v0.39.0]
 ### chore
 - **sdk:** add ams
-
+### docs
+- **migration-guide:** v0.38.0 to v0.39.0 breaking change in legal
 
 <a name="v0.38.0"></a>
 ## [v0.38.0]

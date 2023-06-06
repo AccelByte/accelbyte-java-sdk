@@ -308,3 +308,6 @@ gradle-app.setting
 
 # Ecxlude *.env
 *.env
+
+# Exclude .run directory
+.run/
