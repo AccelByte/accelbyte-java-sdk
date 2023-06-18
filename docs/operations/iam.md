@@ -272,6 +272,7 @@
 | `/iam/v3/admin/inputValidations` | PUT | AdminUpdateInputValidations | [AdminUpdateInputValidations](../../src/main/java/net/accelbyte/sdk/api/iam/operations/input_validations/AdminUpdateInputValidations.java) | [AdminUpdateInputValidations](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/input_validations/AdminUpdateInputValidations.java) |
 | `/iam/v3/admin/inputValidations/{field}` | DELETE | AdminResetInputValidations | [AdminResetInputValidations](../../src/main/java/net/accelbyte/sdk/api/iam/operations/input_validations/AdminResetInputValidations.java) | [AdminResetInputValidations](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/input_validations/AdminResetInputValidations.java) |
 | `/iam/v3/public/inputValidations` | GET | PublicGetInputValidations | [PublicGetInputValidations](../../src/main/java/net/accelbyte/sdk/api/iam/operations/input_validations/PublicGetInputValidations.java) | [PublicGetInputValidations](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/input_validations/PublicGetInputValidations.java) |
+| `/iam/v3/public/inputValidations/{field}` | GET | PublicGetInputValidationByField | [PublicGetInputValidationByField](../../src/main/java/net/accelbyte/sdk/api/iam/operations/input_validations/PublicGetInputValidationByField.java) | [PublicGetInputValidationByField](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/input_validations/PublicGetInputValidationByField.java) |
 
 ### Third Party Credential Wrapper:  [ThirdPartyCredential](../../src/main/java/net/accelbyte/sdk/api/iam/wrappers/ThirdPartyCredential.java)
 | Endpoint | Method | ID | Class | Example |
@@ -429,6 +430,7 @@
 | `account.createUserResponseV4` | [AccountCreateUserResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountCreateUserResponseV4.java) |
 | `account.upgradeHeadlessAccountRequestV4` | [AccountUpgradeHeadlessAccountRequestV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountUpgradeHeadlessAccountRequestV4.java) |
 | `account.upgradeHeadlessAccountWithVerificationCodeRequestV4` | [AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4.java) |
+| `accountcommon.AvatarConfig` | [AccountcommonAvatarConfig](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonAvatarConfig.java) |
 | `accountcommon.Ban` | [AccountcommonBan](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonBan.java) |
 | `accountcommon.BanReason` | [AccountcommonBanReason](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonBanReason.java) |
 | `accountcommon.BanReasonV3` | [AccountcommonBanReasonV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonBanReasonV3.java) |
@@ -538,6 +540,7 @@
 | `model.GetUserMapping` | [ModelGetUserMapping](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetUserMapping.java) |
 | `model.GetUserMappingV3` | [ModelGetUserMappingV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetUserMappingV3.java) |
 | `model.GetUsersResponseWithPaginationV3` | [ModelGetUsersResponseWithPaginationV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetUsersResponseWithPaginationV3.java) |
+| `model.InputValidationConfigVersion` | [ModelInputValidationConfigVersion](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelInputValidationConfigVersion.java) |
 | `model.InputValidationData` | [ModelInputValidationData](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelInputValidationData.java) |
 | `model.InputValidationDataPublic` | [ModelInputValidationDataPublic](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelInputValidationDataPublic.java) |
 | `model.InputValidationUpdatePayload` | [ModelInputValidationUpdatePayload](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelInputValidationUpdatePayload.java) |

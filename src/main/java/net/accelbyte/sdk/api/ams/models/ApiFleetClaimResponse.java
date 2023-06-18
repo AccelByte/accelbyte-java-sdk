@@ -31,6 +31,9 @@ public class ApiFleetClaimResponse extends Model {
   @JsonProperty("ports")
   private Map<String, Integer> ports;
 
+  @JsonProperty("region")
+  private String region;
+
   @JsonProperty("serverId")
   private String serverId;
 

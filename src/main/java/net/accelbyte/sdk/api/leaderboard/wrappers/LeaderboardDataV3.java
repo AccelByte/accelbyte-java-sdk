@@ -100,6 +100,16 @@ public class LeaderboardDataV3 {
   }
 
   /**
+   * @see BulkGetUsersRankingPublicV3
+   */
+  public ModelsBulkUserRankingResponseV3 bulkGetUsersRankingPublicV3(
+      BulkGetUsersRankingPublicV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetUserRankingPublicV3
    */
   public ModelsUserRankingResponseV3 getUserRankingPublicV3(GetUserRankingPublicV3 input)

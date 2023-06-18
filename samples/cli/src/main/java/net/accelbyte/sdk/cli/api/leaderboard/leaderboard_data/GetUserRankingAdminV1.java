@@ -46,6 +46,11 @@ public class GetUserRankingAdminV1 implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--previousVersion"},
+      description = "previousVersion")
+  Integer previousVersion;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -73,6 +78,7 @@ public class GetUserRankingAdminV1 implements Callable<Integer> {
                   .leaderboardCode(leaderboardCode)
                   .namespace(namespace)
                   .userId(userId)
+                  .previousVersion(previousVersion)
                   .build();
       final ModelsUserRankingResponse response = wrapper.getUserRankingAdminV1(operation);
       final String responseString =

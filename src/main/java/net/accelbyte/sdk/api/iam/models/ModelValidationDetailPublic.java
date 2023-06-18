@@ -40,6 +40,10 @@ public class ModelValidationDetailPublic extends Model {
   @JsonProperty("allowUnicode")
   private Boolean allowUnicode;
 
+  @JsonProperty("avatarConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private AccountcommonAvatarConfig avatarConfig;
+
   @JsonProperty("blockedWord")
   private List<String> blockedWord;
 

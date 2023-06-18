@@ -135,6 +135,11 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>To remember device for 2FA, should provide cookie: device_token or header: Device-Token
  *
+ * <p>## Response note
+ *
+ * <p>If it is a user token request and user hasn't accepted required legal policy, the field
+ * `is_comply` will be false in response and responsed token will have no permission.
+ *
  * <p>action code: 10703
  */
 @Getter

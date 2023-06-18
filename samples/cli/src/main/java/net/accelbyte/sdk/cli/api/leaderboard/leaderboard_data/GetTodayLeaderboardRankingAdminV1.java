@@ -51,6 +51,11 @@ public class GetTodayLeaderboardRankingAdminV1 implements Callable<Integer> {
   Integer offset;
 
   @Option(
+      names = {"--previousVersion"},
+      description = "previousVersion")
+  Integer previousVersion;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -80,6 +85,7 @@ public class GetTodayLeaderboardRankingAdminV1 implements Callable<Integer> {
                   .namespace(namespace)
                   .limit(limit)
                   .offset(offset)
+                  .previousVersion(previousVersion)
                   .build();
       final ModelsGetLeaderboardRankingResp response =
           wrapper.getTodayLeaderboardRankingAdminV1(operation);

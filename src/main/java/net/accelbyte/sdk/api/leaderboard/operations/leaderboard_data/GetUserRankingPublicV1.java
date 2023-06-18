@@ -40,6 +40,7 @@ public class GetUserRankingPublicV1 extends Operation {
 
   private String namespace;
   private String userId;
+  private Integer previousVersion;
 
   /**
    * @param leaderboardCode required
@@ -49,10 +50,12 @@ public class GetUserRankingPublicV1 extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetUserRankingPublicV1(String leaderboardCode, String namespace, String userId) {
+  public GetUserRankingPublicV1(
+      String leaderboardCode, String namespace, String userId, Integer previousVersion) {
     this.leaderboardCode = leaderboardCode;
     this.namespace = namespace;
     this.userId = userId;
+    this.previousVersion = previousVersion;
 
     securities.add("Bearer");
   }
@@ -70,6 +73,15 @@ public class GetUserRankingPublicV1 extends Operation {
       pathParams.put("userId", this.userId);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "previousVersion",
+        this.previousVersion == null ? null : Arrays.asList(String.valueOf(this.previousVersion)));
+    return queryParams;
   }
 
   @Override
@@ -94,5 +106,12 @@ public class GetUserRankingPublicV1 extends Operation {
     }
     final String json = Helper.convertInputStreamToString(payload);
     return new ModelsUserRankingResponse().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("previousVersion", "None");
+    return result;
   }
 }

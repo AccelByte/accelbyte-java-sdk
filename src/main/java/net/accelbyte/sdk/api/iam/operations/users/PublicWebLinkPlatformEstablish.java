@@ -39,6 +39,7 @@ public class PublicWebLinkPlatformEstablish extends Operation {
   private String namespace;
 
   private String platformId;
+  private String code;
   private String state;
 
   /**
@@ -49,9 +50,11 @@ public class PublicWebLinkPlatformEstablish extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public PublicWebLinkPlatformEstablish(String namespace, String platformId, String state) {
+  public PublicWebLinkPlatformEstablish(
+      String namespace, String platformId, String code, String state) {
     this.namespace = namespace;
     this.platformId = platformId;
+    this.code = code;
     this.state = state;
 
     securities.add("Bearer");
@@ -72,6 +75,7 @@ public class PublicWebLinkPlatformEstablish extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("code", this.code == null ? null : Arrays.asList(this.code));
     queryParams.put("state", this.state == null ? null : Arrays.asList(this.state));
     return queryParams;
   }
@@ -102,6 +106,7 @@ public class PublicWebLinkPlatformEstablish extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("code", "None");
     result.put("state", "None");
     return result;
   }

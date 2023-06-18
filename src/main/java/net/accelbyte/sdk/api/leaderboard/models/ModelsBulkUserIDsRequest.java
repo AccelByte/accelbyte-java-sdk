@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.ams.models;
+package net.accelbyte.sdk.api.leaderboard.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,21 +23,20 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class TidID extends Model {
+public class ModelsBulkUserIDsRequest extends Model {
 
-  @JsonProperty("Type")
-  private String type;
-
-  @JsonProperty("UUID")
-  private String uuid;
+  @JsonProperty("userIds")
+  private List<String> userIds;
 
   @JsonIgnore
-  public TidID createFromJson(String json) throws JsonProcessingException {
+  public ModelsBulkUserIDsRequest createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<TidID> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<TidID>>() {});
+  public List<ModelsBulkUserIDsRequest> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsBulkUserIDsRequest>>() {});
   }
 }

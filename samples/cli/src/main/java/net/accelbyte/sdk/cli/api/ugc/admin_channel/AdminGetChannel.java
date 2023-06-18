@@ -46,6 +46,11 @@ public class AdminGetChannel implements Callable<Integer> {
   Integer limit;
 
   @Option(
+      names = {"--name"},
+      description = "name")
+  String name;
+
+  @Option(
       names = {"--offset"},
       description = "offset")
   Integer offset;
@@ -76,6 +81,7 @@ public class AdminGetChannel implements Callable<Integer> {
               .namespace(namespace)
               .userId(userId)
               .limit(limit)
+              .name(name)
               .offset(offset)
               .build();
       final ModelsPaginatedGetChannelResponse response = wrapper.adminGetChannel(operation);

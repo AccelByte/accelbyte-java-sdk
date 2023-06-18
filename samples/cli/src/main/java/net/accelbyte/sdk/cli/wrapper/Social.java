@@ -107,6 +107,7 @@ import picocli.CommandLine.Command;
       ResetUserStatItemValue1.class,
       BulkUpdateUserStatItemV2.class,
       BulkFetchOrDefaultStatItems1.class,
+      AdminListUsersStatItems.class,
       BulkUpdateUserStatItem.class,
       BulkResetUserStatItemValues.class,
       DeleteUserStatItems2.class,

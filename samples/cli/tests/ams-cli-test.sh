@@ -125,6 +125,8 @@ eval_tap $? 11 'FleetServers' test.out
 ./ng net.accelbyte.sdk.cli.Main ams fleetServerHistory \
     --fleetID '0zYoMcHyCUEXlAvx' \
     --namespace "$AB_NAMESPACE" \
+    --limit '73' \
+    --offset '49' \
     > test.out 2>&1
 eval_tap $? 12 'FleetServerHistory' test.out
 
@@ -136,16 +138,16 @@ eval_tap $? 13 'ImageList' test.out
 
 #- 14 ImageGet
 ./ng net.accelbyte.sdk.cli.Main ams imageGet \
-    --imageID 'JMdalwSyliWMNW5N' \
+    --imageID 'MdalwSyliWMNW5Ny' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 14 'ImageGet' test.out
 
 #- 15 ImagePatch
 ./ng net.accelbyte.sdk.cli.Main ams imagePatch \
-    --imageID 'yLu0M3VHh2EI8JlD' \
+    --imageID 'Lu0M3VHh2EI8JlDb' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"addedTags": ["bPWbQ6Q9lNmqRBaA", "kLnvxkT1X68cmDc3", "fxU8MyKrQpM4hkkK"], "isProtected": false, "name": "KXNB3Gv0IqmF51Tk", "removedTags": ["hjYnaq6foWvXa3bM", "rXsDr6kILsSSyDdm", "ykmoPYgc2L4jk4Lo"]}' \
+    --body '{"addedTags": ["PWbQ6Q9lNmqRBaAk", "LnvxkT1X68cmDc3f", "xU8MyKrQpM4hkkK6"], "isProtected": false, "name": "KXNB3Gv0IqmF51Tk", "removedTags": ["hjYnaq6foWvXa3bM", "rXsDr6kILsSSyDdm", "ykmoPYgc2L4jk4Lo"]}' \
     > test.out 2>&1
 eval_tap $? 15 'ImagePatch' test.out
 
@@ -186,14 +188,14 @@ eval_tap $? 20 'FleetClaimByID' test.out
 #- 21 FleetClaimByKeys
 ./ng net.accelbyte.sdk.cli.Main ams fleetClaimByKeys \
     --namespace "$AB_NAMESPACE" \
-    --body '{"region": "EThG96gAFKK2WDgC"}' \
+    --body '{"claimKeys": ["EThG96gAFKK2WDgC", "cxvONZm3EeERmDny", "eFoF7VSZ6pf3vneS"], "regions": ["D2Tb3g7mSQUhAEtr", "mjqU6YE3p4lSck0Z", "Hn5GI39YBHqaTHeK"]}' \
     > test.out 2>&1
 eval_tap $? 21 'FleetClaimByKeys' test.out
 
 #- 22 WatchdogConnect
 ./ng net.accelbyte.sdk.cli.Main ams watchdogConnect \
     --namespace "$AB_NAMESPACE" \
-    --watchdogID 'cxvONZm3EeERmDny' \
+    --watchdogID 'tW18iGeUlc9d9sog' \
     > test.out 2>&1
 eval_tap $? 22 'WatchdogConnect' test.out
 

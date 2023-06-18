@@ -38,6 +38,8 @@ public class FleetServerHistory extends Operation {
   private String fleetID;
 
   private String namespace;
+  private Integer limit;
+  private Integer offset;
 
   /**
    * @param fleetID required
@@ -46,9 +48,11 @@ public class FleetServerHistory extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public FleetServerHistory(String fleetID, String namespace) {
+  public FleetServerHistory(String fleetID, String namespace, Integer limit, Integer offset) {
     this.fleetID = fleetID;
     this.namespace = namespace;
+    this.limit = limit;
+    this.offset = offset;
 
     securities.add("Bearer");
   }
@@ -63,6 +67,15 @@ public class FleetServerHistory extends Operation {
       pathParams.put("namespace", this.namespace);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+    queryParams.put(
+        "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    return queryParams;
   }
 
   @Override
@@ -84,5 +97,13 @@ public class FleetServerHistory extends Operation {
     }
     final String json = Helper.convertInputStreamToString(payload);
     return new ApiDSHistoryList().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("limit", "None");
+    result.put("offset", "None");
+    return result;
   }
 }

@@ -64,7 +64,7 @@ public class FleetClaimByKeys implements Callable<Integer> {
       final net.accelbyte.sdk.api.ams.operations.fleets.FleetClaimByKeys operation =
           net.accelbyte.sdk.api.ams.operations.fleets.FleetClaimByKeys.builder()
               .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ApiFleetClaimReq.class))
+              .body(new ObjectMapper().readValue(body, ApiFleetClaimByKeysReq.class))
               .build();
       final ApiFleetClaimResponse response = wrapper.fleetClaimByKeys(operation);
       final String responseString =

@@ -52,6 +52,11 @@ public class GetCurrentMonthLeaderboardRankingAdminV1 implements Callable<Intege
   Integer offset;
 
   @Option(
+      names = {"--previousVersion"},
+      description = "previousVersion")
+  Integer previousVersion;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -81,6 +86,7 @@ public class GetCurrentMonthLeaderboardRankingAdminV1 implements Callable<Intege
                   .namespace(namespace)
                   .limit(limit)
                   .offset(offset)
+                  .previousVersion(previousVersion)
                   .build();
       final ModelsGetLeaderboardRankingResp response =
           wrapper.getCurrentMonthLeaderboardRankingAdminV1(operation);

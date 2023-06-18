@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.leaderboard.leaderboard_data;
+package net.accelbyte.sdk.cli.api.social.user_statistic;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.leaderboard.models.*;
-import net.accelbyte.sdk.api.leaderboard.wrappers.LeaderboardData;
+import net.accelbyte.sdk.api.social.models.*;
+import net.accelbyte.sdk.api.social.wrappers.UserStatistic;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,16 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "getCurrentWeekLeaderboardRankingPublicV1", mixinStandardHelpOptions = true)
-public class GetCurrentWeekLeaderboardRankingPublicV1 implements Callable<Integer> {
+@Command(name = "adminListUsersStatItems", mixinStandardHelpOptions = true)
+public class AdminListUsersStatItems implements Callable<Integer> {
 
-  private static final Logger log =
-      LogManager.getLogger(GetCurrentWeekLeaderboardRankingPublicV1.class);
-
-  @Option(
-      names = {"--leaderboardCode"},
-      description = "leaderboardCode")
-  String leaderboardCode;
+  private static final Logger log = LogManager.getLogger(AdminListUsersStatItems.class);
 
   @Option(
       names = {"--namespace"},
@@ -42,19 +36,24 @@ public class GetCurrentWeekLeaderboardRankingPublicV1 implements Callable<Intege
   String namespace;
 
   @Option(
-      names = {"--limit"},
-      description = "limit")
-  Integer limit;
+      names = {"--userId"},
+      description = "userId")
+  String userId;
 
   @Option(
-      names = {"--offset"},
-      description = "offset")
-  Integer offset;
+      names = {"--additionalKey"},
+      description = "additionalKey")
+  String additionalKey;
 
   @Option(
-      names = {"--previousVersion"},
-      description = "previousVersion")
-  Integer previousVersion;
+      names = {"--statCodes"},
+      description = "statCodes")
+  List<String> statCodes;
+
+  @Option(
+      names = {"--tags"},
+      description = "tags")
+  List<String> tags;
 
   @Option(
       names = {"--logging"},
@@ -62,7 +61,7 @@ public class GetCurrentWeekLeaderboardRankingPublicV1 implements Callable<Intege
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new GetCurrentWeekLeaderboardRankingPublicV1()).execute(args);
+    int exitCode = new CommandLine(new AdminListUsersStatItems()).execute(args);
     System.exit(exitCode);
   }
 
@@ -76,20 +75,19 @@ public class GetCurrentWeekLeaderboardRankingPublicV1 implements Callable<Intege
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final LeaderboardData wrapper = new LeaderboardData(sdk);
-      final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data
-              .GetCurrentWeekLeaderboardRankingPublicV1
+      final UserStatistic wrapper = new UserStatistic(sdk);
+      final net.accelbyte.sdk.api.social.operations.user_statistic.AdminListUsersStatItems
           operation =
-              net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data
-                  .GetCurrentWeekLeaderboardRankingPublicV1.builder()
-                  .leaderboardCode(leaderboardCode)
+              net.accelbyte.sdk.api.social.operations.user_statistic.AdminListUsersStatItems
+                  .builder()
                   .namespace(namespace)
-                  .limit(limit)
-                  .offset(offset)
-                  .previousVersion(previousVersion)
+                  .userId(userId)
+                  .additionalKey(additionalKey)
+                  .statCodes(statCodes)
+                  .tags(tags)
                   .build();
-      final ModelsGetLeaderboardRankingResp response =
-          wrapper.getCurrentWeekLeaderboardRankingPublicV1(operation);
+      final List<ADTOObjectForUserStatItemValue> response =
+          wrapper.adminListUsersStatItems(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

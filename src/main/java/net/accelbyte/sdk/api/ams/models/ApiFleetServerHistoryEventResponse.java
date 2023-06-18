@@ -32,7 +32,7 @@ public class ApiFleetServerHistoryEventResponse extends Model {
   private Integer exitCode;
 
   @JsonProperty("fleetId")
-  private TidID fleetId;
+  private String fleetId;
 
   @JsonProperty("newState")
   private String newState;
@@ -44,7 +44,7 @@ public class ApiFleetServerHistoryEventResponse extends Model {
   private String reason;
 
   @JsonProperty("serverId")
-  private TidID serverId;
+  private String serverId;
 
   @JsonIgnore
   public ApiFleetServerHistoryEventResponse createFromJson(String json)

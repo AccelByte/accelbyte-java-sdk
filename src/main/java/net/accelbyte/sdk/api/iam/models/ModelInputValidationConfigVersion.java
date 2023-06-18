@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ModelValidationDetail extends Model {
+public class ModelInputValidationConfigVersion extends Model {
 
   @JsonProperty("allowAllSpecialCharacters")
   private Boolean allowAllSpecialCharacters;
@@ -46,9 +46,6 @@ public class ModelValidationDetail extends Model {
 
   @JsonProperty("blockedWord")
   private List<String> blockedWord;
-
-  @JsonProperty("description")
-  private List<AccountcommonInputValidationDescription> description;
 
   @JsonProperty("isCustomRegex")
   private Boolean isCustomRegex;
@@ -80,14 +77,19 @@ public class ModelValidationDetail extends Model {
   @JsonProperty("specialCharacters")
   private List<String> specialCharacters;
 
+  @JsonProperty("version")
+  private Integer version;
+
   @JsonIgnore
-  public ModelValidationDetail createFromJson(String json) throws JsonProcessingException {
+  public ModelInputValidationConfigVersion createFromJson(String json)
+      throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ModelValidationDetail> createFromJsonList(String json)
+  public List<ModelInputValidationConfigVersion> createFromJsonList(String json)
       throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<ModelValidationDetail>>() {});
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelInputValidationConfigVersion>>() {});
   }
 }

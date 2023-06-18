@@ -72,6 +72,7 @@
 | `api.DSHistoryEvent` | [ApiDSHistoryEvent](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDSHistoryEvent.java) |
 | `api.DSHistoryList` | [ApiDSHistoryList](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDSHistoryList.java) |
 | `api.DSHostConfiguration` | [ApiDSHostConfiguration](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDSHostConfiguration.java) |
+| `api.FleetClaimByKeysReq` | [ApiFleetClaimByKeysReq](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetClaimByKeysReq.java) |
 | `api.FleetClaimReq` | [ApiFleetClaimReq](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetClaimReq.java) |
 | `api.FleetClaimResponse` | [ApiFleetClaimResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetClaimResponse.java) |
 | `api.FleetCreateResponse` | [ApiFleetCreateResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetCreateResponse.java) |
@@ -96,4 +97,3 @@
 | `api.RegionsResponse` | [ApiRegionsResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiRegionsResponse.java) |
 | `api.Timeout` | [ApiTimeout](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiTimeout.java) |
 | `response.ErrorResponse` | [ResponseErrorResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ResponseErrorResponse.java) |
-| `tid.ID` | [TidID](../../src/main/java/net/accelbyte/sdk/api/ams/models/TidID.java) |

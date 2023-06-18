@@ -254,6 +254,7 @@ import picocli.CommandLine.Command;
       VerifyTokenV3.class,
       PlatformAuthenticationV3.class,
       PublicGetInputValidations.class,
+      PublicGetInputValidationByField.class,
       PublicGetCountryAgeRestrictionV3.class,
       RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3.class,
       RetrieveActiveOIDCClientsPublicV3.class,

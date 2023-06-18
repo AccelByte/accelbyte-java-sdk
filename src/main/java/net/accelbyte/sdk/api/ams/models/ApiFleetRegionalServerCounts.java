@@ -37,6 +37,12 @@ public class ApiFleetRegionalServerCounts extends Model {
   @JsonProperty("runningVmCount")
   private Integer runningVmCount;
 
+  @JsonProperty("targetDsCount")
+  private Integer targetDsCount;
+
+  @JsonProperty("targetVmCount")
+  private Integer targetVmCount;
+
   @JsonIgnore
   public ApiFleetRegionalServerCounts createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

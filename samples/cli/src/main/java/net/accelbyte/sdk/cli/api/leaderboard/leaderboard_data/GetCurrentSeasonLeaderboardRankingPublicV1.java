@@ -52,6 +52,11 @@ public class GetCurrentSeasonLeaderboardRankingPublicV1 implements Callable<Inte
   Integer offset;
 
   @Option(
+      names = {"--previousVersion"},
+      description = "previousVersion")
+  Integer previousVersion;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -81,6 +86,7 @@ public class GetCurrentSeasonLeaderboardRankingPublicV1 implements Callable<Inte
                   .namespace(namespace)
                   .limit(limit)
                   .offset(offset)
+                  .previousVersion(previousVersion)
                   .build();
       final ModelsGetLeaderboardRankingResp response =
           wrapper.getCurrentSeasonLeaderboardRankingPublicV1(operation);

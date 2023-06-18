@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.ams.models;
+package net.accelbyte.sdk.api.leaderboard.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,39 +23,21 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ApiDSHistoryEvent extends Model {
+public class ModelsBulkUserRankingResponseV3 extends Model {
 
-  @JsonProperty("createdAt")
-  private String createdAt;
-
-  @JsonProperty("exitCode")
-  private Integer exitCode;
-
-  @JsonProperty("gameSession")
-  private String gameSession;
-
-  @JsonProperty("ipAddress")
-  private String ipAddress;
-
-  @JsonProperty("reason")
-  private String reason;
-
-  @JsonProperty("region")
-  private String region;
-
-  @JsonProperty("serverId")
-  private String serverId;
-
-  @JsonProperty("status")
-  private String status;
+  @JsonProperty("data")
+  private List<ModelsUserRankingResponseV3> data;
 
   @JsonIgnore
-  public ApiDSHistoryEvent createFromJson(String json) throws JsonProcessingException {
+  public ModelsBulkUserRankingResponseV3 createFromJson(String json)
+      throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ApiDSHistoryEvent> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<ApiDSHistoryEvent>>() {});
+  public List<ModelsBulkUserRankingResponseV3> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsBulkUserRankingResponseV3>>() {});
   }
 }

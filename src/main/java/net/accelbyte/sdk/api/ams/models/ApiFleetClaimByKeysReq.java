@@ -23,39 +23,22 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ApiDSHistoryEvent extends Model {
+public class ApiFleetClaimByKeysReq extends Model {
 
-  @JsonProperty("createdAt")
-  private String createdAt;
+  @JsonProperty("claimKeys")
+  private List<String> claimKeys;
 
-  @JsonProperty("exitCode")
-  private Integer exitCode;
-
-  @JsonProperty("gameSession")
-  private String gameSession;
-
-  @JsonProperty("ipAddress")
-  private String ipAddress;
-
-  @JsonProperty("reason")
-  private String reason;
-
-  @JsonProperty("region")
-  private String region;
-
-  @JsonProperty("serverId")
-  private String serverId;
-
-  @JsonProperty("status")
-  private String status;
+  @JsonProperty("regions")
+  private List<String> regions;
 
   @JsonIgnore
-  public ApiDSHistoryEvent createFromJson(String json) throws JsonProcessingException {
+  public ApiFleetClaimByKeysReq createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ApiDSHistoryEvent> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<ApiDSHistoryEvent>>() {});
+  public List<ApiFleetClaimByKeysReq> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ApiFleetClaimByKeysReq>>() {});
   }
 }

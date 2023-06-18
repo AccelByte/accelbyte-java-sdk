@@ -55,6 +55,9 @@ public class ApiFleetServerInfoResponse extends Model {
   @JsonProperty("serverId")
   private String serverId;
 
+  @JsonProperty("status")
+  private String status;
+
   @JsonIgnore
   public ApiFleetServerInfoResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

@@ -42,6 +42,7 @@ public class GetUserLeaderboardRankingsAdminV1 extends Operation {
   private String userId;
   private Integer limit;
   private Integer offset;
+  private Integer previousVersion;
 
   /**
    * @param namespace required
@@ -51,11 +52,12 @@ public class GetUserLeaderboardRankingsAdminV1 extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GetUserLeaderboardRankingsAdminV1(
-      String namespace, String userId, Integer limit, Integer offset) {
+      String namespace, String userId, Integer limit, Integer offset, Integer previousVersion) {
     this.namespace = namespace;
     this.userId = userId;
     this.limit = limit;
     this.offset = offset;
+    this.previousVersion = previousVersion;
 
     securities.add("Bearer");
   }
@@ -78,6 +80,9 @@ public class GetUserLeaderboardRankingsAdminV1 extends Operation {
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put(
+        "previousVersion",
+        this.previousVersion == null ? null : Arrays.asList(String.valueOf(this.previousVersion)));
     return queryParams;
   }
 
@@ -107,6 +112,7 @@ public class GetUserLeaderboardRankingsAdminV1 extends Operation {
     Map<String, String> result = new HashMap<>();
     result.put("limit", "None");
     result.put("offset", "None");
+    result.put("previousVersion", "None");
     return result;
   }
 }

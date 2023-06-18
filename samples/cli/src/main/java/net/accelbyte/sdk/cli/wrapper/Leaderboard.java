@@ -82,6 +82,7 @@ import picocli.CommandLine.Command;
       GetLeaderboardConfigurationPublicV3.class,
       GetAllTimeLeaderboardRankingPublicV3.class,
       GetCurrentCycleLeaderboardRankingPublicV3.class,
+      BulkGetUsersRankingPublicV3.class,
       GetUserRankingPublicV3.class,
     })
 public class Leaderboard implements Runnable {

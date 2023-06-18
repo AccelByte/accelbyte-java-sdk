@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * FleetClaimByKeys
  *
- * <p>Required Permission: NAMESPACE:{namespace}:ARMADA:FLEET [UPDATE]
+ * <p>Required Permission: NAMESPACE:{namespace}:AMS:SERVER:CLAIM [UPDATE]
  */
 @Getter
 @Setter
@@ -37,7 +37,7 @@ public class FleetClaimByKeys extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private ApiFleetClaimReq body;
+  private ApiFleetClaimByKeysReq body;
 
   /**
    * @param namespace required
@@ -46,7 +46,7 @@ public class FleetClaimByKeys extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public FleetClaimByKeys(String namespace, ApiFleetClaimReq body) {
+  public FleetClaimByKeys(String namespace, ApiFleetClaimByKeysReq body) {
     this.namespace = namespace;
     this.body = body;
 
@@ -63,7 +63,7 @@ public class FleetClaimByKeys extends Operation {
   }
 
   @Override
-  public ApiFleetClaimReq getBodyParams() {
+  public ApiFleetClaimByKeysReq getBodyParams() {
     return this.body;
   }
 

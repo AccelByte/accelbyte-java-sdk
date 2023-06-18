@@ -40,6 +40,11 @@ public class PublicWebLinkPlatformEstablish implements Callable<Integer> {
   String platformId;
 
   @Option(
+      names = {"--code"},
+      description = "code")
+  String code;
+
+  @Option(
       names = {"--state"},
       description = "state")
   String state;
@@ -69,6 +74,7 @@ public class PublicWebLinkPlatformEstablish implements Callable<Integer> {
           net.accelbyte.sdk.api.iam.operations.users.PublicWebLinkPlatformEstablish.builder()
               .namespace(namespace)
               .platformId(platformId)
+              .code(code)
               .state(state)
               .build();
       wrapper.publicWebLinkPlatformEstablish(operation);

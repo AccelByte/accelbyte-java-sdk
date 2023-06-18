@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.leaderboard.leaderboard_data;
+package net.accelbyte.sdk.cli.api.leaderboard.leaderboard_data_v3;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.leaderboard.models.*;
-import net.accelbyte.sdk.api.leaderboard.wrappers.LeaderboardData;
+import net.accelbyte.sdk.api.leaderboard.wrappers.LeaderboardDataV3;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,11 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "getCurrentWeekLeaderboardRankingPublicV1", mixinStandardHelpOptions = true)
-public class GetCurrentWeekLeaderboardRankingPublicV1 implements Callable<Integer> {
+@Command(name = "bulkGetUsersRankingPublicV3", mixinStandardHelpOptions = true)
+public class BulkGetUsersRankingPublicV3 implements Callable<Integer> {
 
-  private static final Logger log =
-      LogManager.getLogger(GetCurrentWeekLeaderboardRankingPublicV1.class);
+  private static final Logger log = LogManager.getLogger(BulkGetUsersRankingPublicV3.class);
 
   @Option(
       names = {"--leaderboardCode"},
@@ -42,19 +41,9 @@ public class GetCurrentWeekLeaderboardRankingPublicV1 implements Callable<Intege
   String namespace;
 
   @Option(
-      names = {"--limit"},
-      description = "limit")
-  Integer limit;
-
-  @Option(
-      names = {"--offset"},
-      description = "offset")
-  Integer offset;
-
-  @Option(
-      names = {"--previousVersion"},
-      description = "previousVersion")
-  Integer previousVersion;
+      names = {"--body"},
+      description = "body")
+  String body;
 
   @Option(
       names = {"--logging"},
@@ -62,7 +51,7 @@ public class GetCurrentWeekLeaderboardRankingPublicV1 implements Callable<Intege
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new GetCurrentWeekLeaderboardRankingPublicV1()).execute(args);
+    int exitCode = new CommandLine(new BulkGetUsersRankingPublicV3()).execute(args);
     System.exit(exitCode);
   }
 
@@ -76,20 +65,18 @@ public class GetCurrentWeekLeaderboardRankingPublicV1 implements Callable<Intege
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final LeaderboardData wrapper = new LeaderboardData(sdk);
-      final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data
-              .GetCurrentWeekLeaderboardRankingPublicV1
+      final LeaderboardDataV3 wrapper = new LeaderboardDataV3(sdk);
+      final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data_v3
+              .BulkGetUsersRankingPublicV3
           operation =
-              net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data
-                  .GetCurrentWeekLeaderboardRankingPublicV1.builder()
+              net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data_v3
+                  .BulkGetUsersRankingPublicV3.builder()
                   .leaderboardCode(leaderboardCode)
                   .namespace(namespace)
-                  .limit(limit)
-                  .offset(offset)
-                  .previousVersion(previousVersion)
+                  .body(new ObjectMapper().readValue(body, ModelsBulkUserIDsRequest.class))
                   .build();
-      final ModelsGetLeaderboardRankingResp response =
-          wrapper.getCurrentWeekLeaderboardRankingPublicV1(operation);
+      final ModelsBulkUserRankingResponseV3 response =
+          wrapper.bulkGetUsersRankingPublicV3(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

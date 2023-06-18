@@ -32,7 +32,7 @@ public class AdminJoinPartyV1 extends Operation {
       "/lobby/v1/admin/party/namespaces/{namespace}/parties/{partyId}/join/{userId}";
 
   private String method = "POST";
-  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 

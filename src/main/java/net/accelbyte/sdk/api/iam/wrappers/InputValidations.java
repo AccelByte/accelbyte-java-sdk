@@ -58,4 +58,14 @@ public class InputValidations {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see PublicGetInputValidationByField
+   */
+  public ModelInputValidationConfigVersion publicGetInputValidationByField(
+      PublicGetInputValidationByField input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }
