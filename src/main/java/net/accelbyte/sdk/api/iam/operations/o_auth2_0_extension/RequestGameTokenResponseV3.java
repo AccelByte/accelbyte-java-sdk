@@ -40,6 +40,8 @@ public class RequestGameTokenResponseV3 extends Operation {
   private String locationQuery = null;
 
   /** fields as input parameter */
+  private String additionalData;
+
   private String code;
 
   /**
@@ -48,7 +50,8 @@ public class RequestGameTokenResponseV3 extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public RequestGameTokenResponseV3(String code) {
+  public RequestGameTokenResponseV3(String additionalData, String code) {
+    this.additionalData = additionalData;
     this.code = code;
 
     securities.add("Bearer");
@@ -57,6 +60,9 @@ public class RequestGameTokenResponseV3 extends Operation {
   @Override
   public Map<String, Object> getFormParams() {
     Map<String, Object> formDataParams = new HashMap<>();
+    if (this.additionalData != null) {
+      formDataParams.put("additionalData", this.additionalData);
+    }
     if (this.code != null) {
       formDataParams.put("code", this.code);
     }

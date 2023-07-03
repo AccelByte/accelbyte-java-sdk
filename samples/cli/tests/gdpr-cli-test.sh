@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..21"
+echo "1..24"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -210,6 +210,23 @@ eval_tap $? 20 'PublicCancelUserPersonalDataRequest' test.out
     --password 'o5Vwdo3fePqIJA8I' \
     > test.out 2>&1
 eval_tap $? 21 'PublicGeneratePersonalDataURL' test.out
+
+#- 22 PublicSubmitMyAccountDeletionRequest
+./ng net.accelbyte.sdk.cli.Main gdpr publicSubmitMyAccountDeletionRequest \
+    --platformId 'Htrkmu0hpDDWVAla' \
+    --platformToken '2l5BYNtIuS5S5XUd' \
+    > test.out 2>&1
+eval_tap $? 22 'PublicSubmitMyAccountDeletionRequest' test.out
+
+#- 23 PublicCancelMyAccountDeletionRequest
+./ng net.accelbyte.sdk.cli.Main gdpr publicCancelMyAccountDeletionRequest \
+    > test.out 2>&1
+eval_tap $? 23 'PublicCancelMyAccountDeletionRequest' test.out
+
+#- 24 PublicGetMyAccountDeletionStatus
+./ng net.accelbyte.sdk.cli.Main gdpr publicGetMyAccountDeletionStatus \
+    > test.out 2>&1
+eval_tap $? 24 'PublicGetMyAccountDeletionStatus' test.out
 
 
 rm -f "tmp.dat"

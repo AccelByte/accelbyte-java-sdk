@@ -125,7 +125,7 @@ eval_tap $? 11 'FleetServers' test.out
 ./ng net.accelbyte.sdk.cli.Main ams fleetServerHistory \
     --fleetID '0zYoMcHyCUEXlAvx' \
     --namespace "$AB_NAMESPACE" \
-    --limit '73' \
+    --count '73' \
     --offset '49' \
     > test.out 2>&1
 eval_tap $? 12 'FleetServerHistory' test.out

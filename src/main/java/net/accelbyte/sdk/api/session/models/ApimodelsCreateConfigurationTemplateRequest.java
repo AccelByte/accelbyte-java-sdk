@@ -29,6 +29,10 @@ public class ApimodelsCreateConfigurationTemplateRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsNativeSessionSetting nativeSessionSetting;
 
+  @JsonProperty("PSNBaseUrl")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String psnBaseUrl;
+
   @JsonProperty("clientVersion")
   private String clientVersion;
 

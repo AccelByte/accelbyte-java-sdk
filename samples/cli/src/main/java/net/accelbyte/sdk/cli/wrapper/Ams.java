@@ -10,6 +10,7 @@ package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.ams.account.*;
 import net.accelbyte.sdk.cli.api.ams.ams_info.*;
+import net.accelbyte.sdk.cli.api.ams.fleet_commander.*;
 import net.accelbyte.sdk.cli.api.ams.fleets.*;
 import net.accelbyte.sdk.cli.api.ams.images.*;
 import net.accelbyte.sdk.cli.api.ams.operations.*;

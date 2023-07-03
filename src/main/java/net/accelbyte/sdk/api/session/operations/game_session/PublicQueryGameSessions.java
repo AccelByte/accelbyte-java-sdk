@@ -28,6 +28,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * of active players hasn't reached session's minPlayers therefore DS has not yet requested. -
  * REQUESTED: DS is being requested to DSMC. - AVAILABLE: DS is ready to use. The DSMC status for
  * this DS is either READY/BUSY. - FAILED_TO_REQUEST: DSMC fails to create the DS.
+ *
+ * <p>query parameter "availability" to filter sessions' availabillity: all: return all sessions
+ * regardless it's full full: only return active sessions default behavior (unset or else): return
+ * only available sessions (not full)
  */
 @Getter
 @Setter

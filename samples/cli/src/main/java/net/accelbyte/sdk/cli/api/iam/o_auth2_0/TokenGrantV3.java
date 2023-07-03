@@ -31,6 +31,11 @@ public class TokenGrantV3 implements Callable<Integer> {
   private static final Logger log = LogManager.getLogger(TokenGrantV3.class);
 
   @Option(
+      names = {"--additionalData"},
+      description = "additionalData")
+  String additionalData;
+
+  @Option(
       names = {"--clientId"},
       description = "clientId")
   String clientId;
@@ -98,6 +103,7 @@ public class TokenGrantV3 implements Callable<Integer> {
       final OAuth20 wrapper = new OAuth20(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenGrantV3 operation =
           net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenGrantV3.builder()
+              .additionalData(additionalData != null ? additionalData : null)
               .clientId(clientId != null ? clientId : null)
               .code(code != null ? code : null)
               .codeVerifier(codeVerifier != null ? codeVerifier : null)

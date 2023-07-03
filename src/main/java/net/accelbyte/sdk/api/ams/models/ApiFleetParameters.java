@@ -29,6 +29,7 @@ public class ApiFleetParameters extends Model {
   private Boolean active;
 
   @JsonProperty("claimKeys")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> claimKeys;
 
   @JsonProperty("dsHostConfiguration")

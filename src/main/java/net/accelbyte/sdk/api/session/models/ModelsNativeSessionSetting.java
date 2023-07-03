@@ -45,6 +45,10 @@ public class ModelsNativeSessionSetting extends Model {
   @JsonProperty("XboxSessionTemplateName")
   private String xboxSessionTemplateName;
 
+  @JsonProperty("localizedSessionName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> localizedSessionName;
+
   @JsonIgnore
   public ModelsNativeSessionSetting createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

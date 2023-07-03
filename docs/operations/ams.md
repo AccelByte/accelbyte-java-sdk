@@ -49,10 +49,14 @@
 |---|---|---|---|---|
 | `/ams/v1/namespaces/{namespace}/watchdogs/{watchdogID}/connect` | GET | WatchdogConnect | [WatchdogConnect](../../src/main/java/net/accelbyte/sdk/api/ams/operations/watchdogs/WatchdogConnect.java) | [WatchdogConnect](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/watchdogs/WatchdogConnect.java) |
 
+### Fleet Commander Wrapper:  [FleetCommander](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/FleetCommander.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/ams/version` | GET | Func1 | [Func1](../../src/main/java/net/accelbyte/sdk/api/ams/operations/fleet_commander/Func1.java) | [Func1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/fleet_commander/Func1.java) |
+
 ### Operations Wrapper:  [Operations](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/Operations.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
-| `/ams/version` | GET | Func1 | [Func1](../../src/main/java/net/accelbyte/sdk/api/ams/operations/operations/Func1.java) | [Func1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/operations/Func1.java) |
 | `/healthz` | GET | BasicHealthCheck | [BasicHealthCheck](../../src/main/java/net/accelbyte/sdk/api/ams/operations/operations/BasicHealthCheck.java) | [BasicHealthCheck](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/operations/BasicHealthCheck.java) |
 
 
@@ -91,6 +95,7 @@
 | `api.ImageListItem` | [ApiImageListItem](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiImageListItem.java) |
 | `api.ImageUpdate` | [ApiImageUpdate](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiImageUpdate.java) |
 | `api.InstanceTypeDescriptionResponse` | [ApiInstanceTypeDescriptionResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiInstanceTypeDescriptionResponse.java) |
+| `api.PagingInfo` | [ApiPagingInfo](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiPagingInfo.java) |
 | `api.PortConfiguration` | [ApiPortConfiguration](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiPortConfiguration.java) |
 | `api.ReferencingFleet` | [ApiReferencingFleet](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiReferencingFleet.java) |
 | `api.RegionConfig` | [ApiRegionConfig](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiRegionConfig.java) |

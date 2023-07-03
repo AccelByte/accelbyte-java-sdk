@@ -31,6 +31,11 @@ public class RequestGameTokenResponseV3 implements Callable<Integer> {
   private static final Logger log = LogManager.getLogger(RequestGameTokenResponseV3.class);
 
   @Option(
+      names = {"--additionalData"},
+      description = "additionalData")
+  String additionalData;
+
+  @Option(
       names = {"--code"},
       description = "code")
   String code;
@@ -60,6 +65,7 @@ public class RequestGameTokenResponseV3 implements Callable<Integer> {
           operation =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.RequestGameTokenResponseV3
                   .builder()
+                  .additionalData(additionalData != null ? additionalData : null)
                   .code(code != null ? code : null)
                   .build();
       final OauthmodelTokenResponseV3 response = wrapper.requestGameTokenResponseV3(operation);

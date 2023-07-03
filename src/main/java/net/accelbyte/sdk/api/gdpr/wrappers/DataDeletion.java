@@ -90,4 +90,34 @@ public class DataDeletion {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see PublicSubmitMyAccountDeletionRequest
+   */
+  public ModelsRequestDeleteResponse publicSubmitMyAccountDeletionRequest(
+      PublicSubmitMyAccountDeletionRequest input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicCancelMyAccountDeletionRequest
+   */
+  public void publicCancelMyAccountDeletionRequest(PublicCancelMyAccountDeletionRequest input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicGetMyAccountDeletionStatus
+   */
+  public ModelsDeletionStatus publicGetMyAccountDeletionStatus(
+      PublicGetMyAccountDeletionStatus input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

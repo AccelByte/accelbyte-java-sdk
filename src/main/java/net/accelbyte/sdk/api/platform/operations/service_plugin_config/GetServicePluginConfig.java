@@ -25,7 +25,10 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* Required permission : resource= ADMIN:NAMESPACE:{namespace}:CONFIG:SERVICEPLUGIN , action=2
  * (READ)
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetServicePluginConfig extends Operation {

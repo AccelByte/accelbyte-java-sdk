@@ -285,7 +285,7 @@ eval_tap $? 29 'CreateStatCycle' test.out
 #- 30 BulkGetStatCycle
 ./ng net.accelbyte.sdk.cli.Main social bulkGetStatCycle \
     --namespace "$AB_NAMESPACE" \
-    --body '{"cycleIds": ["NJma1MbqqZtfNWql", "ZGF7uYnGzpipNDig", "4nmwAft4gqkNNlWk"]}' \
+    --body '{"cycleIds": ["NJma1MbqqZtfNWql", "4nmwAft4gqkNNlWk", "ZGF7uYnGzpipNDig"]}' \
     > test.out 2>&1
 eval_tap $? 30 'BulkGetStatCycle' test.out
 
@@ -377,7 +377,7 @@ eval_tap $? 41 'GetStats' test.out
 #- 42 CreateStat
 ./ng net.accelbyte.sdk.cli.Main social createStat \
     --namespace "$AB_NAMESPACE" \
-    --body '{"cycleIds": ["VHfPEspxwhRON0bc", "1eMbEIjowLqc3ecj", "XJbZDKKoxLE1Y3Dy"], "defaultValue": 0.2078213154618923, "description": "tj3giPg4x4yiPX6u", "ignoreAdditionalDataOnValueRejected": false, "incrementOnly": true, "isPublic": true, "maximum": 0.5432299733932602, "minimum": 0.12199928719409914, "name": "hkg1yLVbLFzHEP8c", "setAsGlobal": false, "setBy": "SERVER", "statCode": "3VgsZXiR1DJ7HVWq", "tags": ["ic7UkBeIXuqDuAXI", "MkNSawQUWDFJvJBW", "66bQ71w0deoV9Lx5"]}' \
+    --body '{"cycleIds": ["XJbZDKKoxLE1Y3Dy", "1eMbEIjowLqc3ecj", "VHfPEspxwhRON0bc"], "defaultValue": 0.2078213154618923, "description": "tj3giPg4x4yiPX6u", "ignoreAdditionalDataOnValueRejected": false, "incrementOnly": true, "isPublic": true, "maximum": 0.5432299733932602, "minimum": 0.12199928719409914, "name": "hkg1yLVbLFzHEP8c", "setAsGlobal": false, "setBy": "SERVER", "statCode": "3VgsZXiR1DJ7HVWq", "tags": ["ic7UkBeIXuqDuAXI", "66bQ71w0deoV9Lx5", "MkNSawQUWDFJvJBW"]}' \
     > test.out 2>&1
 eval_tap $? 42 'CreateStat' test.out
 
@@ -424,7 +424,7 @@ eval_tap $? 47 'DeleteStat' test.out
 ./ng net.accelbyte.sdk.cli.Main social updateStat \
     --namespace "$AB_NAMESPACE" \
     --statCode '69qSZ7PC6f6QkmZX' \
-    --body '{"cycleIds": ["4czz0QKFlAVmVLu4", "ElW9YfRSse6AAz3S", "AOec0z8eBeeoip68"], "defaultValue": 0.5710583818094697, "description": "1nsv4W2OJhtafxMS", "ignoreAdditionalDataOnValueRejected": false, "isPublic": true, "name": "eb34sZKHcl5LLLOe", "tags": ["xL4fZvWtND2tcBFp", "X8lNtFEJ7tnkY6Mc", "a5afj12K2IzrBvvW"]}' \
+    --body '{"cycleIds": ["AOec0z8eBeeoip68", "4czz0QKFlAVmVLu4", "ElW9YfRSse6AAz3S"], "defaultValue": 0.5710583818094697, "description": "1nsv4W2OJhtafxMS", "ignoreAdditionalDataOnValueRejected": false, "isPublic": true, "name": "eb34sZKHcl5LLLOe", "tags": ["xL4fZvWtND2tcBFp", "a5afj12K2IzrBvvW", "X8lNtFEJ7tnkY6Mc"]}' \
     > test.out 2>&1
 eval_tap $? 48 'UpdateStat' test.out
 
@@ -559,7 +559,7 @@ eval_tap $? 62 'GetStatCycles1' test.out
 #- 63 BulkGetStatCycle1
 ./ng net.accelbyte.sdk.cli.Main social bulkGetStatCycle1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"cycleIds": ["qx8CzPML52faXUr9", "ME74HUtipUWYhWV1", "Sk4lq2faBcAXXKlh"]}' \
+    --body '{"cycleIds": ["ME74HUtipUWYhWV1", "Sk4lq2faBcAXXKlh", "qx8CzPML52faXUr9"]}' \
     > test.out 2>&1
 eval_tap $? 63 'BulkGetStatCycle1' test.out
 
@@ -602,7 +602,7 @@ eval_tap $? 68 'BulkResetUserStatItem2' test.out
 #- 69 CreateStat1
 ./ng net.accelbyte.sdk.cli.Main social createStat1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"cycleIds": ["lncV7vWgSHdfo07U", "6xG2mXEQdbzIVy8a", "ctPErqxyMyOK06Mq"], "defaultValue": 0.6813226172842516, "description": "BErxgjVBycvU4Pbm", "ignoreAdditionalDataOnValueRejected": true, "incrementOnly": false, "isPublic": false, "maximum": 0.2817686318307818, "minimum": 0.10814999242564793, "name": "0DjQjBECXvea7H1m", "setAsGlobal": false, "setBy": "CLIENT", "statCode": "wxxElpMYSWIeVzm7", "tags": ["z9noowmlTIKVowi0", "RY2VN4ZONJREdUQ3", "z9F1BxNNgnke4akn"]}' \
+    --body '{"cycleIds": ["6xG2mXEQdbzIVy8a", "ctPErqxyMyOK06Mq", "lncV7vWgSHdfo07U"], "defaultValue": 0.6813226172842516, "description": "BErxgjVBycvU4Pbm", "ignoreAdditionalDataOnValueRejected": true, "incrementOnly": false, "isPublic": false, "maximum": 0.2817686318307818, "minimum": 0.10814999242564793, "name": "0DjQjBECXvea7H1m", "setAsGlobal": false, "setBy": "CLIENT", "statCode": "wxxElpMYSWIeVzm7", "tags": ["RY2VN4ZONJREdUQ3", "z9noowmlTIKVowi0", "z9F1BxNNgnke4akn"]}' \
     > test.out 2>&1
 eval_tap $? 69 'CreateStat1' test.out
 

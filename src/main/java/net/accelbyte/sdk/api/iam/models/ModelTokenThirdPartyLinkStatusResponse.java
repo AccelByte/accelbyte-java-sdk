@@ -28,6 +28,14 @@ public class ModelTokenThirdPartyLinkStatusResponse extends Model {
   @JsonProperty("linked")
   private Boolean linked;
 
+  @JsonProperty("platformToken")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String platformToken;
+
+  @JsonProperty("sandboxId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String sandboxId;
+
   @JsonIgnore
   public ModelTokenThirdPartyLinkStatusResponse createFromJson(String json)
       throws JsonProcessingException {

@@ -177,6 +177,16 @@ public class GameSession {
   }
 
   /**
+   * @see PublicPromoteGameSessionLeader
+   */
+  public ApimodelsGameSessionResponse publicPromoteGameSessionLeader(
+      PublicPromoteGameSessionLeader input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see LeaveGameSession
    */
   public void leaveGameSession(LeaveGameSession input) throws Exception {

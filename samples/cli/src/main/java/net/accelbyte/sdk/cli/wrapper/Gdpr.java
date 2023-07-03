@@ -36,6 +36,9 @@ import picocli.CommandLine.Command;
       PublicRequestDataRetrieval.class,
       PublicCancelUserPersonalDataRequest.class,
       PublicGeneratePersonalDataURL.class,
+      PublicSubmitMyAccountDeletionRequest.class,
+      PublicCancelMyAccountDeletionRequest.class,
+      PublicGetMyAccountDeletionStatus.class,
     })
 public class Gdpr implements Runnable {
 

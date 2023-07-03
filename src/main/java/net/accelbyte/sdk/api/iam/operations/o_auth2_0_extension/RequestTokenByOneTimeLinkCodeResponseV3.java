@@ -47,8 +47,9 @@ public class RequestTokenByOneTimeLinkCodeResponseV3 extends Operation {
   private String locationQuery = null;
 
   /** fields as input parameter */
-  private Boolean isTransient;
+  private String additionalData;
 
+  private Boolean isTransient;
   private String clientId;
   private String oneTimeLinkCode;
 
@@ -60,7 +61,8 @@ public class RequestTokenByOneTimeLinkCodeResponseV3 extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public RequestTokenByOneTimeLinkCodeResponseV3(
-      Boolean isTransient, String clientId, String oneTimeLinkCode) {
+      String additionalData, Boolean isTransient, String clientId, String oneTimeLinkCode) {
+    this.additionalData = additionalData;
     this.isTransient = isTransient;
     this.clientId = clientId;
     this.oneTimeLinkCode = oneTimeLinkCode;
@@ -69,6 +71,9 @@ public class RequestTokenByOneTimeLinkCodeResponseV3 extends Operation {
   @Override
   public Map<String, Object> getFormParams() {
     Map<String, Object> formDataParams = new HashMap<>();
+    if (this.additionalData != null) {
+      formDataParams.put("additionalData", this.additionalData);
+    }
     if (this.isTransient != null) {
       formDataParams.put(
           "isTransient", this.isTransient == null ? null : String.valueOf(this.isTransient));

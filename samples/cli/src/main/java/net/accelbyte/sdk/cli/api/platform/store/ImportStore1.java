@@ -42,6 +42,11 @@ public class ImportStore1 implements Callable<Integer> {
   String storeId;
 
   @Option(
+      names = {"--strictMode"},
+      description = "strictMode")
+  Boolean strictMode;
+
+  @Option(
       names = {"--file"},
       description = "file")
   File file;
@@ -71,6 +76,7 @@ public class ImportStore1 implements Callable<Integer> {
           net.accelbyte.sdk.api.platform.operations.store.ImportStore1.builder()
               .namespace(namespace)
               .storeId(storeId)
+              .strictMode(strictMode)
               .file(file != null ? file : null)
               .build();
       final ImportStoreResult response = wrapper.importStore1(operation);

@@ -21,15 +21,6 @@ public class Operations {
   }
 
   /**
-   * @see Func1
-   */
-  public void func1(Func1 input) throws Exception {
-    final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
-        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-  }
-
-  /**
    * @see BasicHealthCheck
    */
   public void basicHealthCheck(BasicHealthCheck input) throws Exception {

@@ -36,6 +36,11 @@ public class PlatformTokenGrantV3 implements Callable<Integer> {
   String platformId;
 
   @Option(
+      names = {"--additionalData"},
+      description = "additionalData")
+  String additionalData;
+
+  @Option(
       names = {"--clientId"},
       description = "clientId")
   String clientId;
@@ -89,6 +94,7 @@ public class PlatformTokenGrantV3 implements Callable<Integer> {
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0.PlatformTokenGrantV3 operation =
           net.accelbyte.sdk.api.iam.operations.o_auth2_0.PlatformTokenGrantV3.builder()
               .platformId(platformId)
+              .additionalData(additionalData != null ? additionalData : null)
               .clientId(clientId != null ? clientId : null)
               .createHeadless(createHeadless != null ? createHeadless : null)
               .deviceId(deviceId != null ? deviceId : null)

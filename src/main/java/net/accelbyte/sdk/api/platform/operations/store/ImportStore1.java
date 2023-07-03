@@ -42,6 +42,7 @@ public class ImportStore1 extends Operation {
   private String namespace;
 
   private String storeId;
+  private Boolean strictMode;
   private File file;
 
   /**
@@ -50,9 +51,10 @@ public class ImportStore1 extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public ImportStore1(String namespace, String storeId, File file) {
+  public ImportStore1(String namespace, String storeId, Boolean strictMode, File file) {
     this.namespace = namespace;
     this.storeId = storeId;
+    this.strictMode = strictMode;
     this.file = file;
 
     securities.add("Bearer");
@@ -71,6 +73,9 @@ public class ImportStore1 extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put("storeId", this.storeId == null ? null : Arrays.asList(this.storeId));
+    queryParams.put(
+        "strictMode",
+        this.strictMode == null ? null : Arrays.asList(String.valueOf(this.strictMode)));
     return queryParams;
   }
 
@@ -105,6 +110,7 @@ public class ImportStore1 extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("storeId", "None");
+    result.put("strictMode", "None");
     return result;
   }
 }

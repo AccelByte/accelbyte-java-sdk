@@ -154,8 +154,9 @@ public class TokenGrantV3 extends Operation {
   private String locationQuery = null;
 
   /** fields as input parameter */
-  private String clientId;
+  private String additionalData;
 
+  private String clientId;
   private String code;
   private String codeVerifier;
   private Boolean extendExp;
@@ -172,6 +173,7 @@ public class TokenGrantV3 extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public TokenGrantV3(
+      String additionalData,
       String clientId,
       String code,
       String codeVerifier,
@@ -181,6 +183,7 @@ public class TokenGrantV3 extends Operation {
       String refreshToken,
       String username,
       String grantType) {
+    this.additionalData = additionalData;
     this.clientId = clientId;
     this.code = code;
     this.codeVerifier = codeVerifier;
@@ -197,6 +200,9 @@ public class TokenGrantV3 extends Operation {
   @Override
   public Map<String, Object> getFormParams() {
     Map<String, Object> formDataParams = new HashMap<>();
+    if (this.additionalData != null) {
+      formDataParams.put("additionalData", this.additionalData);
+    }
     if (this.clientId != null) {
       formDataParams.put("client_id", this.clientId);
     }

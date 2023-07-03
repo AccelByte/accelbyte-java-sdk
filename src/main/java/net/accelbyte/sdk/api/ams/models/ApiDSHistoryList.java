@@ -28,6 +28,9 @@ public class ApiDSHistoryList extends Model {
   @JsonProperty("events")
   private List<ApiDSHistoryEvent> events;
 
+  @JsonProperty("paging")
+  private ApiPagingInfo paging;
+
   @JsonIgnore
   public ApiDSHistoryList createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

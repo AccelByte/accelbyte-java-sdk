@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.ams.operations.operations;
+package net.accelbyte.sdk.api.ams.operations.fleet_commander;
 
 import java.io.*;
 import java.util.*;

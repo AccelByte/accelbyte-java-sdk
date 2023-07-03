@@ -41,9 +41,9 @@ public class FleetServerHistory implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--limit"},
-      description = "limit")
-  Integer limit;
+      names = {"--count"},
+      description = "count")
+  Integer count;
 
   @Option(
       names = {"--offset"},
@@ -75,7 +75,7 @@ public class FleetServerHistory implements Callable<Integer> {
           net.accelbyte.sdk.api.ams.operations.servers.FleetServerHistory.builder()
               .fleetID(fleetID)
               .namespace(namespace)
-              .limit(limit)
+              .count(count)
               .offset(offset)
               .build();
       final ApiDSHistoryList response = wrapper.fleetServerHistory(operation);

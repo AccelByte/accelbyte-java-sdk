@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* Required permission : resource=ADMIN:NAMESPACE:{namespace}:CONFIG:SERVICEPLUGIN, action=8
  * (DELETE)
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class DeleteServicePluginConfig extends Operation {

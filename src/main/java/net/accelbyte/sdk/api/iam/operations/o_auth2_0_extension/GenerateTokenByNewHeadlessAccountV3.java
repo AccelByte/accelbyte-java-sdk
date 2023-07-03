@@ -37,8 +37,9 @@ public class GenerateTokenByNewHeadlessAccountV3 extends Operation {
   private String locationQuery = null;
 
   /** fields as input parameter */
-  private Boolean extendExp;
+  private String additionalData;
 
+  private Boolean extendExp;
   private String linkingToken;
 
   /**
@@ -47,7 +48,9 @@ public class GenerateTokenByNewHeadlessAccountV3 extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GenerateTokenByNewHeadlessAccountV3(Boolean extendExp, String linkingToken) {
+  public GenerateTokenByNewHeadlessAccountV3(
+      String additionalData, Boolean extendExp, String linkingToken) {
+    this.additionalData = additionalData;
     this.extendExp = extendExp;
     this.linkingToken = linkingToken;
 
@@ -57,6 +60,9 @@ public class GenerateTokenByNewHeadlessAccountV3 extends Operation {
   @Override
   public Map<String, Object> getFormParams() {
     Map<String, Object> formDataParams = new HashMap<>();
+    if (this.additionalData != null) {
+      formDataParams.put("additionalData", this.additionalData);
+    }
     if (this.extendExp != null) {
       formDataParams.put(
           "extend_exp", this.extendExp == null ? null : String.valueOf(this.extendExp));

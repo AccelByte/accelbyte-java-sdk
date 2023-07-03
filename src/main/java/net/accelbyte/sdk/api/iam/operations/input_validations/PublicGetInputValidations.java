@@ -50,8 +50,6 @@ public class PublicGetInputValidations extends Operation {
   public PublicGetInputValidations(Boolean defaultOnEmpty, String languageCode) {
     this.defaultOnEmpty = defaultOnEmpty;
     this.languageCode = languageCode;
-
-    securities.add("Bearer");
   }
 
   @Override

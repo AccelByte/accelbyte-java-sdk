@@ -28,6 +28,9 @@ public class ApiMatchFunctionRequest extends Model {
   @JsonProperty("match_function")
   private String matchFunction;
 
+  @JsonProperty("serviceAppName")
+  private String serviceAppName;
+
   @JsonProperty("url")
   private String url;
 

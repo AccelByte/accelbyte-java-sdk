@@ -31,6 +31,11 @@ public class GenerateTokenByNewHeadlessAccountV3 implements Callable<Integer> {
   private static final Logger log = LogManager.getLogger(GenerateTokenByNewHeadlessAccountV3.class);
 
   @Option(
+      names = {"--additionalData"},
+      description = "additionalData")
+  String additionalData;
+
+  @Option(
       names = {"--extendExp"},
       description = "extendExp")
   Boolean extendExp;
@@ -66,6 +71,7 @@ public class GenerateTokenByNewHeadlessAccountV3 implements Callable<Integer> {
           operation =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension
                   .GenerateTokenByNewHeadlessAccountV3.builder()
+                  .additionalData(additionalData != null ? additionalData : null)
                   .extendExp(extendExp != null ? extendExp : null)
                   .linkingToken(linkingToken != null ? linkingToken : null)
                   .build();

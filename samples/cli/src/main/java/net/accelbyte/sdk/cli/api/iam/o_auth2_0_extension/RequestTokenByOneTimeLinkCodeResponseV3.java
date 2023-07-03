@@ -32,6 +32,11 @@ public class RequestTokenByOneTimeLinkCodeResponseV3 implements Callable<Integer
       LogManager.getLogger(RequestTokenByOneTimeLinkCodeResponseV3.class);
 
   @Option(
+      names = {"--additionalData"},
+      description = "additionalData")
+  String additionalData;
+
+  @Option(
       names = {"--isTransient"},
       description = "isTransient")
   Boolean isTransient;
@@ -72,6 +77,7 @@ public class RequestTokenByOneTimeLinkCodeResponseV3 implements Callable<Integer
           operation =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension
                   .RequestTokenByOneTimeLinkCodeResponseV3.builder()
+                  .additionalData(additionalData != null ? additionalData : null)
                   .isTransient(isTransient != null ? isTransient : null)
                   .clientId(clientId != null ? clientId : null)
                   .oneTimeLinkCode(oneTimeLinkCode != null ? oneTimeLinkCode : null)

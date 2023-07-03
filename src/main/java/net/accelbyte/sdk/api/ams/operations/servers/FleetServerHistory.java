@@ -38,7 +38,7 @@ public class FleetServerHistory extends Operation {
   private String fleetID;
 
   private String namespace;
-  private Integer limit;
+  private Integer count;
   private Integer offset;
 
   /**
@@ -48,10 +48,10 @@ public class FleetServerHistory extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public FleetServerHistory(String fleetID, String namespace, Integer limit, Integer offset) {
+  public FleetServerHistory(String fleetID, String namespace, Integer count, Integer offset) {
     this.fleetID = fleetID;
     this.namespace = namespace;
-    this.limit = limit;
+    this.count = count;
     this.offset = offset;
 
     securities.add("Bearer");
@@ -72,7 +72,7 @@ public class FleetServerHistory extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
-    queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+    queryParams.put("count", this.count == null ? null : Arrays.asList(String.valueOf(this.count)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     return queryParams;
@@ -102,7 +102,7 @@ public class FleetServerHistory extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
-    result.put("limit", "None");
+    result.put("count", "None");
     result.put("offset", "None");
     return result;
   }
