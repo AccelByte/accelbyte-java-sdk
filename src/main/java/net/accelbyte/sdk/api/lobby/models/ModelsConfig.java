@@ -88,6 +88,10 @@ public class ModelsConfig extends Model {
   @JsonProperty("maxDSWaitTime")
   private Integer maxDSWaitTime;
 
+  @JsonProperty("maxFriendsLimit")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer maxFriendsLimit;
+
   @JsonProperty("maxPartyMember")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxPartyMember;

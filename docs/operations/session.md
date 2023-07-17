@@ -77,7 +77,9 @@
 ### Platform Credential Wrapper:  [PlatformCredential](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/PlatformCredential.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
+| `/session/v1/admin/namespaces/{namespace}/platform-credentials` | GET | AdminGetPlatformCredentials | [AdminGetPlatformCredentials](../../src/main/java/net/accelbyte/sdk/api/session/operations/platform_credential/AdminGetPlatformCredentials.java) | [AdminGetPlatformCredentials](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/platform_credential/AdminGetPlatformCredentials.java) |
 | `/session/v1/admin/namespaces/{namespace}/platform-credentials` | PUT | AdminUpdatePlatformCredentials | [AdminUpdatePlatformCredentials](../../src/main/java/net/accelbyte/sdk/api/session/operations/platform_credential/AdminUpdatePlatformCredentials.java) | [AdminUpdatePlatformCredentials](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/platform_credential/AdminUpdatePlatformCredentials.java) |
+| `/session/v1/admin/namespaces/{namespace}/platform-credentials` | DELETE | AdminDeletePlatformCredentials | [AdminDeletePlatformCredentials](../../src/main/java/net/accelbyte/sdk/api/session/operations/platform_credential/AdminDeletePlatformCredentials.java) | [AdminDeletePlatformCredentials](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/platform_credential/AdminDeletePlatformCredentials.java) |
 
 ### Player Wrapper:  [Player](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/Player.java)
 | Endpoint | Method | ID | Class | Example |
@@ -137,6 +139,7 @@
 | `models.NativeSessionSetting` | [ModelsNativeSessionSetting](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsNativeSessionSetting.java) |
 | `models.PSNAppServerCredentials` | [ModelsPSNAppServerCredentials](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsPSNAppServerCredentials.java) |
 | `models.PartyMembers` | [ModelsPartyMembers](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsPartyMembers.java) |
+| `models.PlatformCredentials` | [ModelsPlatformCredentials](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsPlatformCredentials.java) |
 | `models.Team` | [ModelsTeam](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsTeam.java) |
 | `models.UserPlatformInfo` | [ModelsUserPlatformInfo](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsUserPlatformInfo.java) |
 | `response.Error` | [ResponseError](../../src/main/java/net/accelbyte/sdk/api/session/models/ResponseError.java) |

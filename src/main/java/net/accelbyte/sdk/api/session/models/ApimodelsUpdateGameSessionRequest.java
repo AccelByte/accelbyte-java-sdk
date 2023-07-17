@@ -72,6 +72,10 @@ public class ApimodelsUpdateGameSessionRequest extends Model {
   @JsonProperty("ticketIDs")
   private List<String> ticketIDs;
 
+  @JsonProperty("tieTeamsSessionLifetime")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean tieTeamsSessionLifetime;
+
   @JsonProperty("type")
   private String type;
 

@@ -21,10 +21,30 @@ public class AdminConcurrentRecord {
   }
 
   /**
+   * @see AdminPutAdminGameRecordConcurrentHandlerV1
+   */
+  public void adminPutAdminGameRecordConcurrentHandlerV1(
+      AdminPutAdminGameRecordConcurrentHandlerV1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminPutGameRecordConcurrentHandlerV1
    */
   public void adminPutGameRecordConcurrentHandlerV1(AdminPutGameRecordConcurrentHandlerV1 input)
       throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminPutAdminPlayerRecordConcurrentHandlerV1
+   */
+  public void adminPutAdminPlayerRecordConcurrentHandlerV1(
+      AdminPutAdminPlayerRecordConcurrentHandlerV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

@@ -28,6 +28,10 @@ public class ApimodelsCreateGameSessionRequest extends Model {
   @JsonProperty("attributes")
   private Map<String, ?> attributes;
 
+  @JsonProperty("autoJoin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean autoJoin;
+
   @JsonProperty("backfillTicketID")
   private String backfillTicketID;
 
@@ -84,6 +88,10 @@ public class ApimodelsCreateGameSessionRequest extends Model {
 
   @JsonProperty("ticketIDs")
   private List<String> ticketIDs;
+
+  @JsonProperty("tieTeamsSessionLifetime")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean tieTeamsSessionLifetime;
 
   @JsonProperty("type")
   private String type;

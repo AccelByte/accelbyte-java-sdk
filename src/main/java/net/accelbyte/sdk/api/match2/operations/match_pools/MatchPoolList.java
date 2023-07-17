@@ -42,6 +42,7 @@ public class MatchPoolList extends Operation {
   private String namespace;
 
   private Integer limit;
+  private String name;
   private Integer offset;
 
   /**
@@ -50,9 +51,10 @@ public class MatchPoolList extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public MatchPoolList(String namespace, Integer limit, Integer offset) {
+  public MatchPoolList(String namespace, Integer limit, String name, Integer offset) {
     this.namespace = namespace;
     this.limit = limit;
+    this.name = name;
     this.offset = offset;
 
     securities.add("Bearer");
@@ -71,6 +73,7 @@ public class MatchPoolList extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+    queryParams.put("name", this.name == null ? null : Arrays.asList(this.name));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     return queryParams;
@@ -98,6 +101,7 @@ public class MatchPoolList extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("limit", "None");
+    result.put("name", "None");
     result.put("offset", "None");
     return result;
   }

@@ -1,3 +1,9 @@
+<a name="v0.42.0"></a>
+## [v0.42.0]
+### feat
+- **:** update jenkingenerate for mock-server
+
+
 <a name="v0.41.0"></a>
 ## [v0.41.0]
 ### ci

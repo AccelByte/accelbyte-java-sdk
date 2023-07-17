@@ -1122,6 +1122,16 @@ public class Users {
   }
 
   /**
+   * @see AdminGetUserSinglePlatformAccount
+   */
+  public ModelUserPlatformMetadata adminGetUserSinglePlatformAccount(
+      AdminGetUserSinglePlatformAccount input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminDeleteUserRolesV3
    */
   public void adminDeleteUserRolesV3(AdminDeleteUserRolesV3 input) throws Exception {

@@ -29,6 +29,7 @@ public class ApiMatchFunctionConfig extends Model {
   private String matchFunction;
 
   @JsonProperty("serviceAppName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String serviceAppName;
 
   @JsonProperty("url")

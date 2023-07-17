@@ -41,6 +41,11 @@ public class MatchPoolList implements Callable<Integer> {
   Integer limit;
 
   @Option(
+      names = {"--name"},
+      description = "name")
+  String name;
+
+  @Option(
       names = {"--offset"},
       description = "offset")
   Integer offset;
@@ -70,6 +75,7 @@ public class MatchPoolList implements Callable<Integer> {
           net.accelbyte.sdk.api.match2.operations.match_pools.MatchPoolList.builder()
               .namespace(namespace)
               .limit(limit)
+              .name(name)
               .offset(offset)
               .build();
       final ApiListMatchPoolsResponse response = wrapper.matchPoolList(operation);

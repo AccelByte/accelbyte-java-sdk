@@ -120,6 +120,8 @@ public class PaymentProviderConfigInfo extends Model {
 
   public enum Aggregate {
     ADYEN("ADYEN"),
+    CHECKOUT("CHECKOUT"),
+    STRIPE("STRIPE"),
     XSOLLA("XSOLLA");
 
     private String value;

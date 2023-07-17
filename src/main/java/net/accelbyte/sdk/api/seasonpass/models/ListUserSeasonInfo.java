@@ -44,6 +44,7 @@ public class ListUserSeasonInfo extends Model {
   private String namespace;
 
   @JsonProperty("season")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private SeasonSummary season;
 
   @JsonProperty("seasonId")

@@ -57,6 +57,7 @@ public class BillingHistoryInfo extends Model {
   private String namespace;
 
   @JsonProperty("paymentOrderNo")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String paymentOrderNo;
 
   @JsonProperty("recurringOrderNo")

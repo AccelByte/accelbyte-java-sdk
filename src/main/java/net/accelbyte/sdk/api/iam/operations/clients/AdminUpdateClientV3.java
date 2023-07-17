@@ -64,6 +64,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* Nintendo
  *
+ * <p>* Oculus
+ *
  * <p>* twoFactorEnabled : The flag to indicate whether 2FA validation is enable for this client.
  * default value: false
  *

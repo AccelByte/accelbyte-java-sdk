@@ -46,6 +46,7 @@ public class FullItemInfo extends Model {
   private List<String> boundItemIds;
 
   @JsonProperty("categoryPath")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String categoryPath;
 
   @JsonProperty("clazz")

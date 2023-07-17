@@ -41,6 +41,11 @@ public class AdminGetAllConfigurationTemplatesV1 implements Callable<Integer> {
   Integer limit;
 
   @Option(
+      names = {"--name"},
+      description = "name")
+  String name;
+
+  @Option(
       names = {"--offset"},
       description = "offset")
   Integer offset;
@@ -73,6 +78,7 @@ public class AdminGetAllConfigurationTemplatesV1 implements Callable<Integer> {
                   .AdminGetAllConfigurationTemplatesV1.builder()
                   .namespace(namespace)
                   .limit(limit)
+                  .name(name)
                   .offset(offset)
                   .build();
       final ApimodelsConfigurationTemplatesResponse response =

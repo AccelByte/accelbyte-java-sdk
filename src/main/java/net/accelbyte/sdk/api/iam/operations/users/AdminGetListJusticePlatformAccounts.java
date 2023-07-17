@@ -25,6 +25,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This endpoint gets list justice platform account by providing publisher namespace and
  * publisher userID.
+ *
+ * <p>Required permission: ADMIN:NAMESPACE:{namespace}:USER:{userId} [READ]
  */
 @Getter
 @Setter

@@ -89,6 +89,10 @@ public class ModelsConfigReq extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxDSWaitTime;
 
+  @JsonProperty("maxFriendsLimit")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer maxFriendsLimit;
+
   @JsonProperty("maxPartyMember")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxPartyMember;
@@ -102,6 +106,7 @@ public class ModelsConfigReq extends Model {
   private Integer readyConsentTimeout;
 
   @JsonProperty("unregisterDelay")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer unregisterDelay;
 
   @JsonIgnore

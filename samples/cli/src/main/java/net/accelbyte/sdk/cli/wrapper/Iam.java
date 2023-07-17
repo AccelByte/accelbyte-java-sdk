@@ -202,6 +202,7 @@ import picocli.CommandLine.Command;
       AdminPlatformUnlinkV3.class,
       AdminPlatformLinkV3.class,
       AdminGetThirdPartyPlatformTokenLinkStatusV3.class,
+      AdminGetUserSinglePlatformAccount.class,
       AdminDeleteUserRolesV3.class,
       AdminSaveUserRoleV3.class,
       AdminAddUserRoleV3.class,

@@ -11,6 +11,7 @@ package net.accelbyte.sdk.cli.wrapper;
 import net.accelbyte.sdk.cli.api.cloudsave.admin_concurrent_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.admin_game_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.admin_player_record.*;
+import net.accelbyte.sdk.cli.api.cloudsave.admin_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.concurrent_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.public_game_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.public_player_record.*;
@@ -20,14 +21,29 @@ import picocli.CommandLine.Command;
     name = "cloudsave",
     mixinStandardHelpOptions = true,
     subcommands = {
+      AdminListAdminGameRecordV1.class,
+      AdminBulkGetAdminGameRecordV1.class,
+      AdminGetAdminGameRecordV1.class,
+      AdminPutAdminGameRecordV1.class,
+      AdminPostAdminGameRecordV1.class,
+      AdminDeleteAdminGameRecordV1.class,
+      AdminPutAdminGameRecordConcurrentHandlerV1.class,
       AdminPutGameRecordConcurrentHandlerV1.class,
       ListGameRecordsHandlerV1.class,
       AdminGetGameRecordHandlerV1.class,
       AdminPutGameRecordHandlerV1.class,
       AdminPostGameRecordHandlerV1.class,
       AdminDeleteGameRecordHandlerV1.class,
+      BulkGetAdminPlayerRecordByUserIdsV1.class,
       BulkGetPlayerRecordSizeHandlerV1.class,
       ListPlayerRecordHandlerV1.class,
+      AdminListAdminUserRecordsV1.class,
+      AdminBulkGetAdminPlayerRecordV1.class,
+      AdminGetAdminPlayerRecordV1.class,
+      AdminPutAdminPlayerRecordV1.class,
+      AdminPostPlayerAdminRecordV1.class,
+      AdminDeleteAdminPlayerRecordV1.class,
+      AdminPutAdminPlayerRecordConcurrentHandlerV1.class,
       AdminPutPlayerRecordConcurrentHandlerV1.class,
       AdminPutPlayerPublicRecordConcurrentHandlerV1.class,
       AdminRetrievePlayerRecords.class,

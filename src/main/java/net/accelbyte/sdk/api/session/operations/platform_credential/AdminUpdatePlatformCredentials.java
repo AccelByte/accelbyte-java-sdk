@@ -21,7 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminUpdatePlatformCredentials
  *
- * <p>Update platform credentials.
+ * <p>Update platform credentials for Native Session sync. Currently supports PSN platform. Send an
+ * empty body to clear data. PSN: - clientID: Auth Server (Client Credential) ClientID -
+ * clientSecret: Auth Server (Client Credential) Secret - scope: psn:s2s.service (For Sync non PSN
+ * member to PSN Session)
  */
 @Getter
 @Setter
@@ -76,13 +79,13 @@ public class AdminUpdatePlatformCredentials extends Operation {
     return true;
   }
 
-  public String parseResponse(int code, String contentType, InputStream payload)
+  public ModelsPlatformCredentials parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return json;
+    return new ModelsPlatformCredentials().createFromJson(json);
   }
 }
