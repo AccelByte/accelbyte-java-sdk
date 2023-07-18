@@ -29,6 +29,7 @@ import net.accelbyte.sdk.api.match2.models.ApiRuleSetPayload;
 import net.accelbyte.sdk.api.match2.operations.match_functions.MatchFunctionList;
 import net.accelbyte.sdk.api.match2.operations.match_pools.CreateMatchPool;
 import net.accelbyte.sdk.api.match2.operations.match_pools.DeleteMatchPool;
+import net.accelbyte.sdk.api.match2.operations.match_pools.MatchPoolDetails;
 import net.accelbyte.sdk.api.match2.operations.match_pools.MatchPoolList;
 import net.accelbyte.sdk.api.match2.operations.match_tickets.CreateMatchTicket;
 import net.accelbyte.sdk.api.match2.operations.match_tickets.DeleteMatchTicket;
@@ -168,8 +169,12 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
     // ESAC
 
     assertNotNull(matchPoolListResult);
-    assertTrue(
-        matchPoolListResult.getData().stream().anyMatch(mp -> mp.getName().equals(poolName)));
+    MatchPoolDetails matchPoolDetails = MatchPoolDetails.builder()
+            .namespace(namespace)
+            .pool(poolName)
+            .build();
+    ApiMatchPool matchPool = matchPoolsWrapper.matchPoolDetails(matchPoolDetails);
+    assertNotNull(matchPool);
 
     final AccelByteSDK player1Sdk =
         new AccelByteSDK(
