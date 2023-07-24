@@ -6,26 +6,16 @@
 
 package net.accelbyte.sdk.integration;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import net.accelbyte.sdk.api.sessionbrowser.models.ModelsCreateSessionRequest;
-import net.accelbyte.sdk.api.sessionbrowser.models.ModelsGameSessionSetting;
-import net.accelbyte.sdk.api.sessionbrowser.models.ModelsSessionResponse;
-import net.accelbyte.sdk.api.sessionbrowser.models.ModelsUpdateSessionRequest;
+import net.accelbyte.sdk.api.sessionbrowser.models.*;
+import net.accelbyte.sdk.api.sessionbrowser.operations.session.AdminDeleteSession;
 import net.accelbyte.sdk.api.sessionbrowser.operations.session.CreateSession;
-import net.accelbyte.sdk.api.sessionbrowser.operations.session.DeleteSession;
 import net.accelbyte.sdk.api.sessionbrowser.operations.session.GetSession;
 import net.accelbyte.sdk.api.sessionbrowser.operations.session.UpdateSession;
 import net.accelbyte.sdk.api.sessionbrowser.wrappers.Session;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @Tag("test-integration")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -41,7 +31,7 @@ public class TestIntegrationServiceSessionBrowser extends TestIntegration {
   public void test() throws Exception {
     final String sessionUsername = "email@example.com";
     final String sessionGameVersion = "0.3.0";
-    final String sessionType = "p2p";
+    final String sessionType = "dedicated";
     final String mode = "deathmatch";
     final String mapName = "Java Server SDK Integration Test";
 
@@ -106,9 +96,9 @@ public class TestIntegrationServiceSessionBrowser extends TestIntegration {
 
     // CASE Delete a session
 
-    final ModelsSessionResponse deleteSessionResult =
-        sessionWrapper.deleteSession(
-            DeleteSession.builder().namespace(this.namespace).sessionID(sessionId).build());
+    final ModelsAdminSessionResponse deleteSessionResult =
+        sessionWrapper.adminDeleteSession(
+            AdminDeleteSession.builder().namespace(this.namespace).sessionID(sessionId).build());
 
     // ESAC
 
