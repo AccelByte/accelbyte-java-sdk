@@ -65,6 +65,7 @@ public class PlatformDlcEntry extends Model {
 
   public enum Platform {
     EPICGAMES("EPICGAMES"),
+    OCULUS("OCULUS"),
     PSN("PSN"),
     STEAM("STEAM"),
     XBOX("XBOX");

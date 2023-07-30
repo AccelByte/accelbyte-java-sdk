@@ -47,6 +47,7 @@ public class RevokeUserV3 extends Operation {
   private String namespace;
 
   private String userId;
+  private Boolean includeGameNamespace;
 
   /**
    * @param namespace required
@@ -55,9 +56,10 @@ public class RevokeUserV3 extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public RevokeUserV3(String namespace, String userId) {
+  public RevokeUserV3(String namespace, String userId, Boolean includeGameNamespace) {
     this.namespace = namespace;
     this.userId = userId;
+    this.includeGameNamespace = includeGameNamespace;
 
     securities.add("Bearer");
   }
@@ -75,6 +77,17 @@ public class RevokeUserV3 extends Operation {
   }
 
   @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "includeGameNamespace",
+        this.includeGameNamespace == null
+            ? null
+            : Arrays.asList(String.valueOf(this.includeGameNamespace)));
+    return queryParams;
+  }
+
+  @Override
   public boolean isValid() {
     if (this.namespace == null) {
       return false;
@@ -87,9 +100,16 @@ public class RevokeUserV3 extends Operation {
 
   public void handleEmptyResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    if (code != 200) {
+    if (code != 204) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("includeGameNamespace", "None");
+    return result;
   }
 }

@@ -20,11 +20,16 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteNamespaceSlotConfig
  *
+ * <p>## The endpoint is going to be deprecated
+ *
  * <p>Deletes a namespace slot configuration, the configuration will be default after delete. Other
  * detail info:
  *
  * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=8 (DELETE)
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class DeleteNamespaceSlotConfig extends Operation {

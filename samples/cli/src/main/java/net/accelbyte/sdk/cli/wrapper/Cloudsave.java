@@ -13,6 +13,7 @@ import net.accelbyte.sdk.cli.api.cloudsave.admin_game_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.admin_player_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.admin_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.concurrent_record.*;
+import net.accelbyte.sdk.cli.api.cloudsave.plugin_config.*;
 import net.accelbyte.sdk.cli.api.cloudsave.public_game_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.public_player_record.*;
 import picocli.CommandLine.Command;
@@ -29,6 +30,10 @@ import picocli.CommandLine.Command;
       AdminDeleteAdminGameRecordV1.class,
       AdminPutAdminGameRecordConcurrentHandlerV1.class,
       AdminPutGameRecordConcurrentHandlerV1.class,
+      GetPluginConfig.class,
+      CreatePluginConfig.class,
+      DeletePluginConfig.class,
+      UpdatePluginConfig.class,
       ListGameRecordsHandlerV1.class,
       AdminGetGameRecordHandlerV1.class,
       AdminPutGameRecordHandlerV1.class,

@@ -40,6 +40,11 @@ public class RevokeUserV3 implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--includeGameNamespace"},
+      description = "includeGameNamespace")
+  Boolean includeGameNamespace;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -64,6 +69,7 @@ public class RevokeUserV3 implements Callable<Integer> {
           net.accelbyte.sdk.api.iam.operations.o_auth2_0.RevokeUserV3.builder()
               .namespace(namespace)
               .userId(userId)
+              .includeGameNamespace(includeGameNamespace)
               .build();
       wrapper.revokeUserV3(operation);
       log.info("Operation successful");

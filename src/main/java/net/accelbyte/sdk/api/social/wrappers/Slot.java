@@ -25,7 +25,9 @@ public class Slot {
 
   /**
    * @see GetUserNamespaceSlots
+   * @deprecated
    */
+  @Deprecated
   public List<SlotInfo> getUserNamespaceSlots(GetUserNamespaceSlots input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -34,7 +36,9 @@ public class Slot {
 
   /**
    * @see GetSlotData
+   * @deprecated
    */
+  @Deprecated
   public InputStream getSlotData(GetSlotData input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -43,7 +47,9 @@ public class Slot {
 
   /**
    * @see PublicGetUserNamespaceSlots
+   * @deprecated
    */
+  @Deprecated
   public List<SlotInfo> publicGetUserNamespaceSlots(PublicGetUserNamespaceSlots input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -53,7 +59,9 @@ public class Slot {
 
   /**
    * @see PublicCreateUserNamespaceSlot
+   * @deprecated
    */
+  @Deprecated
   public void publicCreateUserNamespaceSlot(PublicCreateUserNamespaceSlot input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -62,7 +70,9 @@ public class Slot {
 
   /**
    * @see PublicGetSlotData
+   * @deprecated
    */
+  @Deprecated
   public InputStream publicGetSlotData(PublicGetSlotData input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -71,7 +81,9 @@ public class Slot {
 
   /**
    * @see PublicUpdateUserNamespaceSlot
+   * @deprecated
    */
+  @Deprecated
   public SlotInfo publicUpdateUserNamespaceSlot(PublicUpdateUserNamespaceSlot input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -81,7 +93,9 @@ public class Slot {
 
   /**
    * @see PublicDeleteUserNamespaceSlot
+   * @deprecated
    */
+  @Deprecated
   public void publicDeleteUserNamespaceSlot(PublicDeleteUserNamespaceSlot input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -90,7 +104,9 @@ public class Slot {
 
   /**
    * @see PublicUpdateUserNamespaceSlotMetadata
+   * @deprecated
    */
+  @Deprecated
   public SlotInfo publicUpdateUserNamespaceSlotMetadata(PublicUpdateUserNamespaceSlotMetadata input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

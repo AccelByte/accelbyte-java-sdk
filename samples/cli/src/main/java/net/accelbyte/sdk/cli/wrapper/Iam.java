@@ -170,6 +170,7 @@ import picocli.CommandLine.Command;
       AdminGetUserByPlatformUserIDV3.class,
       GetAdminUsersByRoleIdV3.class,
       AdminGetUserByEmailAddressV3.class,
+      AdminGetBulkUserBanV3.class,
       AdminListUserIDByUserIDsV3.class,
       AdminInviteUserV3.class,
       AdminQueryThirdPlatformLinkHistoryV3.class,

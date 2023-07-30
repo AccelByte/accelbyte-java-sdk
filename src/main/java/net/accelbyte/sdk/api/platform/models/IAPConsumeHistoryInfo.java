@@ -120,6 +120,7 @@ public class IAPConsumeHistoryInfo extends Model {
     APPLE("APPLE"),
     EPICGAMES("EPICGAMES"),
     GOOGLE("GOOGLE"),
+    OCULUS("OCULUS"),
     PLAYSTATION("PLAYSTATION"),
     STADIA("STADIA"),
     STEAM("STEAM"),

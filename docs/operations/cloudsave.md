@@ -30,6 +30,14 @@
 | `/cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/concurrent/records/{key}` | PUT | AdminPutPlayerRecordConcurrentHandlerV1 | [AdminPutPlayerRecordConcurrentHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_concurrent_record/AdminPutPlayerRecordConcurrentHandlerV1.java) | [AdminPutPlayerRecordConcurrentHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_concurrent_record/AdminPutPlayerRecordConcurrentHandlerV1.java) |
 | `/cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/concurrent/records/{key}/public` | PUT | AdminPutPlayerPublicRecordConcurrentHandlerV1 | [AdminPutPlayerPublicRecordConcurrentHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_concurrent_record/AdminPutPlayerPublicRecordConcurrentHandlerV1.java) | [AdminPutPlayerPublicRecordConcurrentHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_concurrent_record/AdminPutPlayerPublicRecordConcurrentHandlerV1.java) |
 
+### PluginConfig Wrapper:  [PluginConfig](../../src/main/java/net/accelbyte/sdk/api/cloudsave/wrappers/PluginConfig.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/cloudsave/v1/admin/namespaces/{namespace}/plugins` | GET | GetPluginConfig | [GetPluginConfig](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/plugin_config/GetPluginConfig.java) | [GetPluginConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/plugin_config/GetPluginConfig.java) |
+| `/cloudsave/v1/admin/namespaces/{namespace}/plugins` | POST | CreatePluginConfig | [CreatePluginConfig](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/plugin_config/CreatePluginConfig.java) | [CreatePluginConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/plugin_config/CreatePluginConfig.java) |
+| `/cloudsave/v1/admin/namespaces/{namespace}/plugins` | DELETE | DeletePluginConfig | [DeletePluginConfig](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/plugin_config/DeletePluginConfig.java) | [DeletePluginConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/plugin_config/DeletePluginConfig.java) |
+| `/cloudsave/v1/admin/namespaces/{namespace}/plugins` | PATCH | UpdatePluginConfig | [UpdatePluginConfig](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/plugin_config/UpdatePluginConfig.java) | [UpdatePluginConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/plugin_config/UpdatePluginConfig.java) |
+
 ### AdminGameRecord Wrapper:  [AdminGameRecord](../../src/main/java/net/accelbyte/sdk/api/cloudsave/wrappers/AdminGameRecord.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -103,6 +111,7 @@
 | `models.AdminPlayerRecordKeyInfo` | [ModelsAdminPlayerRecordKeyInfo](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsAdminPlayerRecordKeyInfo.java) |
 | `models.AdminPlayerRecordRequest` | [ModelsAdminPlayerRecordRequest](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsAdminPlayerRecordRequest.java) |
 | `models.AdminPlayerRecordResponse` | [ModelsAdminPlayerRecordResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsAdminPlayerRecordResponse.java) |
+| `models.AppConfig` | [ModelsAppConfig](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsAppConfig.java) |
 | `models.BulkGetAdminGameRecordRequest` | [ModelsBulkGetAdminGameRecordRequest](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsBulkGetAdminGameRecordRequest.java) |
 | `models.BulkGetAdminGameRecordResponse` | [ModelsBulkGetAdminGameRecordResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsBulkGetAdminGameRecordResponse.java) |
 | `models.BulkGetAdminPlayerRecordRequest` | [ModelsBulkGetAdminPlayerRecordRequest](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsBulkGetAdminPlayerRecordRequest.java) |
@@ -115,6 +124,8 @@
 | `models.BulkUserIDsRequest` | [ModelsBulkUserIDsRequest](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsBulkUserIDsRequest.java) |
 | `models.BulkUserKeyRequest` | [ModelsBulkUserKeyRequest](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsBulkUserKeyRequest.java) |
 | `models.ConcurrentRecordRequest` | [ModelsConcurrentRecordRequest](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsConcurrentRecordRequest.java) |
+| `models.CustomConfig` | [ModelsCustomConfig](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsCustomConfig.java) |
+| `models.CustomFunction` | [ModelsCustomFunction](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsCustomFunction.java) |
 | `models.GameRecordRequest` | [ModelsGameRecordRequest](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsGameRecordRequest.java) |
 | `models.GameRecordResponse` | [ModelsGameRecordResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsGameRecordResponse.java) |
 | `models.ListAdminGameRecordKeysResponse` | [ModelsListAdminGameRecordKeysResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsListAdminGameRecordKeysResponse.java) |
@@ -126,5 +137,7 @@
 | `models.PlayerRecordRequest` | [ModelsPlayerRecordRequest](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsPlayerRecordRequest.java) |
 | `models.PlayerRecordResponse` | [ModelsPlayerRecordResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsPlayerRecordResponse.java) |
 | `models.PlayerRecordSizeResponse` | [ModelsPlayerRecordSizeResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsPlayerRecordSizeResponse.java) |
+| `models.PluginRequest` | [ModelsPluginRequest](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsPluginRequest.java) |
+| `models.PluginResponse` | [ModelsPluginResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsPluginResponse.java) |
 | `models.ResponseError` | [ModelsResponseError](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsResponseError.java) |
 | `models.UserKeyRequest` | [ModelsUserKeyRequest](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsUserKeyRequest.java) |

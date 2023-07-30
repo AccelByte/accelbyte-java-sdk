@@ -142,6 +142,33 @@ public class IAP {
   }
 
   /**
+   * @see GetOculusIAPConfig
+   */
+  public OculusIAPConfigInfo getOculusIAPConfig(GetOculusIAPConfig input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see UpdateOculusIAPConfig
+   */
+  public OculusIAPConfigInfo updateOculusIAPConfig(UpdateOculusIAPConfig input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see DeleteOculusIAPConfig
+   */
+  public void deleteOculusIAPConfig(DeleteOculusIAPConfig input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetPlayStationIAPConfig
    */
   public PlayStationIAPConfigInfo getPlayStationIAPConfig(GetPlayStationIAPConfig input)
@@ -341,6 +368,16 @@ public class IAP {
    */
   public GoogleReceiptResolveResult publicFulfillGoogleIAPItem(PublicFulfillGoogleIAPItem input)
       throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see SyncOculusConsumableEntitlements
+   */
+  public List<OculusReconcileResult> syncOculusConsumableEntitlements(
+      SyncOculusConsumableEntitlements input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

@@ -21,10 +21,15 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateUserSlotConfig
  *
+ * <p>## The endpoint is going to be deprecated
+ *
  * <p>Update a user slot configuration in given namespace. Other detail info: * Required permission
  * : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=4 (UPDATE) * Returns :
  * updated slot config
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class UpdateUserSlotConfig extends Operation {

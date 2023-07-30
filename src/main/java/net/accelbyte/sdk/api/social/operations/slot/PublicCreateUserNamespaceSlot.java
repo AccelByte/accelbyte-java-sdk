@@ -20,10 +20,15 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicCreateUserNamespaceSlot
  *
+ * <p>## The endpoint is going to be deprecated
+ *
  * <p>Creates a slot. Other detail info: * Required permission :
  * resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=1 (CREATE) * Returns : created
  * slot info
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicCreateUserNamespaceSlot extends Operation {

@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.platform.service_plugin_config;
+package net.accelbyte.sdk.cli.api.platform.iap;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.wrappers.ServicePluginConfig;
+import net.accelbyte.sdk.api.platform.wrappers.IAP;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "updateLootBoxPluginConfig1", mixinStandardHelpOptions = true)
-public class UpdateLootBoxPluginConfig1 implements Callable<Integer> {
+@Command(name = "syncOculusConsumableEntitlements", mixinStandardHelpOptions = true)
+public class SyncOculusConsumableEntitlements implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(UpdateLootBoxPluginConfig1.class);
+  private static final Logger log = LogManager.getLogger(SyncOculusConsumableEntitlements.class);
 
   @Option(
       names = {"--namespace"},
@@ -36,9 +36,9 @@ public class UpdateLootBoxPluginConfig1 implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--body"},
-      description = "body")
-  String body;
+      names = {"--userId"},
+      description = "userId")
+  String userId;
 
   @Option(
       names = {"--logging"},
@@ -46,7 +46,7 @@ public class UpdateLootBoxPluginConfig1 implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new UpdateLootBoxPluginConfig1()).execute(args);
+    int exitCode = new CommandLine(new SyncOculusConsumableEntitlements()).execute(args);
     System.exit(exitCode);
   }
 
@@ -60,16 +60,16 @@ public class UpdateLootBoxPluginConfig1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final ServicePluginConfig wrapper = new ServicePluginConfig(sdk);
-      final net.accelbyte.sdk.api.platform.operations.service_plugin_config
-              .UpdateLootBoxPluginConfig1
+      final IAP wrapper = new IAP(sdk);
+      final net.accelbyte.sdk.api.platform.operations.iap.SyncOculusConsumableEntitlements
           operation =
-              net.accelbyte.sdk.api.platform.operations.service_plugin_config
-                  .UpdateLootBoxPluginConfig1.builder()
+              net.accelbyte.sdk.api.platform.operations.iap.SyncOculusConsumableEntitlements
+                  .builder()
                   .namespace(namespace)
-                  .body(new ObjectMapper().readValue(body, RevocationPluginConfigUpdate.class))
+                  .userId(userId)
                   .build();
-      final RevocationPluginConfigInfo response = wrapper.updateLootBoxPluginConfig1(operation);
+      final List<OculusReconcileResult> response =
+          wrapper.syncOculusConsumableEntitlements(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.platform.models;
+package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,23 +23,20 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class Achievement extends Model {
+public class ModelGetBulkUserBansRequest extends Model {
 
-  @JsonProperty("id")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String id;
-
-  @JsonProperty("value")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer value;
+  @JsonProperty("bulkUserId")
+  private List<String> bulkUserId;
 
   @JsonIgnore
-  public Achievement createFromJson(String json) throws JsonProcessingException {
+  public ModelGetBulkUserBansRequest createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<Achievement> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<Achievement>>() {});
+  public List<ModelGetBulkUserBansRequest> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelGetBulkUserBansRequest>>() {});
   }
 }

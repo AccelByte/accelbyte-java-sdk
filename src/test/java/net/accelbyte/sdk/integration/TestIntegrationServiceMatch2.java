@@ -8,7 +8,6 @@ package net.accelbyte.sdk.integration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Collections;
@@ -169,10 +168,8 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
     // ESAC
 
     assertNotNull(matchPoolListResult);
-    MatchPoolDetails matchPoolDetails = MatchPoolDetails.builder()
-            .namespace(namespace)
-            .pool(poolName)
-            .build();
+    MatchPoolDetails matchPoolDetails =
+        MatchPoolDetails.builder().namespace(namespace).pool(poolName).build();
     ApiMatchPool matchPool = matchPoolsWrapper.matchPoolDetails(matchPoolDetails);
     assertNotNull(matchPool);
 

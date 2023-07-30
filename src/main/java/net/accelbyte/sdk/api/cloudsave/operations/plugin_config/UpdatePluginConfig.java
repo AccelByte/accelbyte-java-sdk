@@ -6,32 +6,35 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.platform.operations.service_plugin_config;
+package net.accelbyte.sdk.api.cloudsave.operations.plugin_config;
 
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.platform.models.*;
+import net.accelbyte.sdk.api.cloudsave.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * updateLootBoxPluginConfig_1
+ * updatePluginConfig
  *
- * <p>Update revocation plugin config. Other detail info: * Required permission :
- * resource=ADMIN:NAMESPACE:{namespace}:PLUGIN:REVOCATION, action=4 (UPDATE) * Returns : updated
- * service plugin config
+ * <p>Required permission: `ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:PLUGINS [UPDATE]` Required scope:
+ * `social`
+ *
+ * <p>## Description
+ *
+ * <p>This endpoints will update grpc plugins configuration
  */
 @Getter
 @Setter
-public class UpdateLootBoxPluginConfig1 extends Operation {
+public class UpdatePluginConfig extends Operation {
   /** generated field's value */
-  private String path = "/platform/admin/namespaces/{namespace}/revocation/plugins/revocation";
+  private String path = "/cloudsave/v1/admin/namespaces/{namespace}/plugins";
 
-  private String method = "PUT";
+  private String method = "PATCH";
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
@@ -39,15 +42,16 @@ public class UpdateLootBoxPluginConfig1 extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private RevocationPluginConfigUpdate body;
+  private ModelsPluginRequest body;
 
   /**
    * @param namespace required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public UpdateLootBoxPluginConfig1(String namespace, RevocationPluginConfigUpdate body) {
+  public UpdatePluginConfig(String namespace, ModelsPluginRequest body) {
     this.namespace = namespace;
     this.body = body;
 
@@ -64,7 +68,7 @@ public class UpdateLootBoxPluginConfig1 extends Operation {
   }
 
   @Override
-  public RevocationPluginConfigUpdate getBodyParams() {
+  public ModelsPluginRequest getBodyParams() {
     return this.body;
   }
 
@@ -76,13 +80,13 @@ public class UpdateLootBoxPluginConfig1 extends Operation {
     return true;
   }
 
-  public RevocationPluginConfigInfo parseResponse(int code, String contentType, InputStream payload)
+  public ModelsPluginResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new RevocationPluginConfigInfo().createFromJson(json);
+    return new ModelsPluginResponse().createFromJson(json);
   }
 }

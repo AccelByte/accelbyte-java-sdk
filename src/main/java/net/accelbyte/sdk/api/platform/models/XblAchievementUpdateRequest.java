@@ -27,7 +27,7 @@ public class XblAchievementUpdateRequest extends Model {
 
   @JsonProperty("achievements")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private List<Achievement> achievements;
+  private List<XboxAchievement> achievements;
 
   @JsonProperty("serviceConfigId")
   @JsonInclude(JsonInclude.Include.NON_NULL)

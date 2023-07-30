@@ -20,10 +20,15 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getSlotData
  *
+ * <p>## The endpoint is going to be deprecated
+ *
  * <p>Get slot data. Other detail info: * Required permission :
  * resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ) * Returns : slot
  * data
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetSlotData extends Operation {

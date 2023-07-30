@@ -27,7 +27,7 @@ public class SteamAchievementUpdateRequest extends Model {
 
   @JsonProperty("achievements")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private List<Achievement> achievements;
+  private List<SteamAchievement> achievements;
 
   @JsonProperty("steamUserId")
   @JsonInclude(JsonInclude.Include.NON_NULL)

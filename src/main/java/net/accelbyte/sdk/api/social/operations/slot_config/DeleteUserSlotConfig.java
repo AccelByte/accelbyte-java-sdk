@@ -20,10 +20,15 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteUserSlotConfig
  *
+ * <p>## The endpoint is going to be deprecated
+ *
  * <p>Deletes a user slot configuration in given namespace, the namespace slot configuration will be
  * returned after delete. Other detail info: * Required permission :
  * resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=8 (DELETE)
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class DeleteUserSlotConfig extends Operation {

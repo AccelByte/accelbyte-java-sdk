@@ -23,10 +23,15 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getUserNamespaceSlots
  *
- * <p>GetÂ slots for a given user. Other detail info: * Required permission :
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Get slots for a given user. Other detail info: * Required permission :
  * resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ) * Returns : list
  * of slots
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetUserNamespaceSlots extends Operation {

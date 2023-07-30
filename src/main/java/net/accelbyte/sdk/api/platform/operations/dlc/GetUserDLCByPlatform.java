@@ -111,6 +111,7 @@ public class GetUserDLCByPlatform extends Operation {
 
   public enum Type {
     EPICGAMES("EPICGAMES"),
+    OCULUS("OCULUS"),
     PSN("PSN"),
     STEAM("STEAM"),
     XBOX("XBOX");

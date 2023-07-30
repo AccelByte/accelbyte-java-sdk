@@ -27,7 +27,6 @@ import net.accelbyte.sdk.api.sessionbrowser.models.ModelsGameSessionSetting;
 import net.accelbyte.sdk.api.sessionbrowser.models.ModelsSessionResponse;
 import net.accelbyte.sdk.api.sessionbrowser.operations.session.AdminDeleteSession;
 import net.accelbyte.sdk.api.sessionbrowser.operations.session.CreateSession;
-import net.accelbyte.sdk.api.sessionbrowser.operations.session.DeleteSession;
 import net.accelbyte.sdk.api.sessionbrowser.wrappers.Session;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;

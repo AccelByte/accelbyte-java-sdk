@@ -105,6 +105,15 @@ public class DLC {
   }
 
   /**
+   * @see SyncOculusDLC
+   */
+  public void syncOculusDLC(SyncOculusDLC input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicSyncPsnDlcInventory
    */
   public void publicSyncPsnDlcInventory(PublicSyncPsnDlcInventory input) throws Exception {

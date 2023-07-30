@@ -21,10 +21,15 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicUpdateUserNamespaceSlotMetadata
  *
+ * <p>## The endpoint is going to be deprecated
+ *
  * <p>Updates the slot metadata. Other detail info: * Required permission :
  * resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=4 (UPDATE) * Returns : updated
  * slot
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicUpdateUserNamespaceSlotMetadata extends Operation {

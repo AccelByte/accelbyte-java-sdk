@@ -6,6 +6,9 @@
 
 package net.accelbyte.sdk.integration;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import net.accelbyte.sdk.api.sessionbrowser.models.*;
 import net.accelbyte.sdk.api.sessionbrowser.operations.session.AdminDeleteSession;
 import net.accelbyte.sdk.api.sessionbrowser.operations.session.CreateSession;
@@ -13,9 +16,6 @@ import net.accelbyte.sdk.api.sessionbrowser.operations.session.GetSession;
 import net.accelbyte.sdk.api.sessionbrowser.operations.session.UpdateSession;
 import net.accelbyte.sdk.api.sessionbrowser.wrappers.Session;
 import org.junit.jupiter.api.*;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @Tag("test-integration")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)

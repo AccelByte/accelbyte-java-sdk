@@ -154,9 +154,9 @@ public class ServicePluginConfig {
   }
 
   /**
-   * @see UpdateLootBoxPluginConfig1
+   * @see UpdateRevocationPluginConfig
    */
-  public RevocationPluginConfigInfo updateLootBoxPluginConfig1(UpdateLootBoxPluginConfig1 input)
+  public RevocationPluginConfigInfo updateRevocationPluginConfig(UpdateRevocationPluginConfig input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

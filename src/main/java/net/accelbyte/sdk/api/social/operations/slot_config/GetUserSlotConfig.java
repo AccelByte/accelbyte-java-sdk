@@ -21,12 +21,17 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getUserSlotConfig
  *
- * <p>GetÂ a user slot configuration in given namespace. In case the user slot configuration is not
+ * <p>## The endpoint is going to be deprecated
+ *
+ * <p>Get a user slot configuration in given namespace. In case the user slot configuration is not
  * set, the namespace configuration will be returned. Other detail info:
  *
  * <p>* Required permission: resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG",
  * action=2 (READ) * Returns: slot config info
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetUserSlotConfig extends Operation {

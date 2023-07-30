@@ -1,3 +1,9 @@
+<a name="v0.43.0"></a>
+## [v0.43.0]
+### fix
+- **:** integration test unable to delete session
+
+
 <a name="v0.42.0"></a>
 ## [v0.42.0]
 ### feat

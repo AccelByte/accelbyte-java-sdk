@@ -72,6 +72,7 @@ public class RevokeCurrency extends Model {
     GooglePlay("GooglePlay"),
     IOS("IOS"),
     Nintendo("Nintendo"),
+    Oculus("Oculus"),
     Other("Other"),
     Playstation("Playstation"),
     Steam("Steam"),
