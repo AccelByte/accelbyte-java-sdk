@@ -21,14 +21,15 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * indirectBulkAcceptVersionedPolicyV2
  *
- * <p>IMPORTANT: GOING TO DEPRECATE
- *
  * <p>Accepts many legal policy versions all at once. Supply with localized version policy id,
  * version policy id, policy id, userId, namespace, country code and client id to accept an
  * agreement. This endpoint used by APIGateway during new user registration. Other detail info:
  *
  * <p>* Required permission : resource="NAMESPACE:{namespace}:LEGAL", action=1 (CREATE)
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class IndirectBulkAcceptVersionedPolicyV2 extends Operation {

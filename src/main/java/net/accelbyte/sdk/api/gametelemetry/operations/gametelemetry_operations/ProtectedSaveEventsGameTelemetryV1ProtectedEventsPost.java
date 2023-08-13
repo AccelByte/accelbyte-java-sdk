@@ -47,6 +47,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>- **Payload (required)**: An arbitrary json with the payload of the said event.
  *
  * <p>Default maximum payload size is 1MB
+ *
+ * <p>- **ClientTimestamp (optional)**: Timestamp of the event captured by the client SDK.
  */
 @Getter
 @Setter

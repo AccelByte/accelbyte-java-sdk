@@ -22,6 +22,7 @@ import picocli.CommandLine.Command;
     name = "ams",
     mixinStandardHelpOptions = true,
     subcommands = {
+      Func2.class,
       AccountGet.class,
       AccountCreate.class,
       AccountLinkTokenGet.class,
@@ -43,8 +44,8 @@ import picocli.CommandLine.Command;
       FleetClaimByID.class,
       FleetClaimByKeys.class,
       WatchdogConnect.class,
-      Func1.class,
-      BasicHealthCheck.class,
+      Func3.class,
+      PortalHealthCheck.class,
     })
 public class Ams implements Runnable {
 

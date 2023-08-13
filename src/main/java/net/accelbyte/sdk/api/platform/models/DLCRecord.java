@@ -29,6 +29,10 @@ public class DLCRecord extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String id;
 
+  @JsonProperty("metadata")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> metadata;
+
   @JsonProperty("obtainedAt")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String obtainedAt;

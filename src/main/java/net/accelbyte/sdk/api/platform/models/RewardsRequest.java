@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class RewardsRequest extends Model {
 
+  @JsonProperty("metadata")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> metadata;
+
   @JsonProperty("origin")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String origin;
@@ -113,15 +117,21 @@ public class RewardsRequest extends Model {
 
   public enum Source {
     ACHIEVEMENT("ACHIEVEMENT"),
+    CONSUMEENTITLEMENT("CONSUME_ENTITLEMENT"),
     DLC("DLC"),
+    DLCREVOCATION("DLC_REVOCATION"),
+    EXPIRATION("EXPIRATION"),
     GIFT("GIFT"),
     IAP("IAP"),
+    ORDERREVOCATION("ORDER_REVOCATION"),
     OTHER("OTHER"),
+    PAYMENT("PAYMENT"),
     PROMOTION("PROMOTION"),
     PURCHASE("PURCHASE"),
     REDEEMCODE("REDEEM_CODE"),
     REFERRALBONUS("REFERRAL_BONUS"),
-    REWARD("REWARD");
+    REWARD("REWARD"),
+    SELLBACK("SELL_BACK");
 
     private String value;
 

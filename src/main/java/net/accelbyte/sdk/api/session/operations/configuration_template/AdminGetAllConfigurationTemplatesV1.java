@@ -40,6 +40,8 @@ public class AdminGetAllConfigurationTemplatesV1 extends Operation {
   private Integer limit;
   private String name;
   private Integer offset;
+  private String order;
+  private String orderBy;
 
   /**
    * @param namespace required
@@ -48,11 +50,13 @@ public class AdminGetAllConfigurationTemplatesV1 extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminGetAllConfigurationTemplatesV1(
-      String namespace, Integer limit, String name, Integer offset) {
+      String namespace, Integer limit, String name, Integer offset, String order, String orderBy) {
     this.namespace = namespace;
     this.limit = limit;
     this.name = name;
     this.offset = offset;
+    this.order = order;
+    this.orderBy = orderBy;
 
     securities.add("Bearer");
   }
@@ -73,6 +77,8 @@ public class AdminGetAllConfigurationTemplatesV1 extends Operation {
     queryParams.put("name", this.name == null ? null : Arrays.asList(this.name));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put("order", this.order == null ? null : Arrays.asList(this.order));
+    queryParams.put("orderBy", this.orderBy == null ? null : Arrays.asList(this.orderBy));
     return queryParams;
   }
 
@@ -100,6 +106,8 @@ public class AdminGetAllConfigurationTemplatesV1 extends Operation {
     result.put("limit", "None");
     result.put("name", "None");
     result.put("offset", "None");
+    result.put("order", "None");
+    result.put("orderBy", "None");
     return result;
   }
 }

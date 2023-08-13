@@ -313,6 +313,7 @@
 | `/iam/v3/namespace/{namespace}/token/request` | POST | RequestGameTokenCodeResponseV3 | [RequestGameTokenCodeResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_extension/RequestGameTokenCodeResponseV3.java) | [RequestGameTokenCodeResponseV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_extension/RequestGameTokenCodeResponseV3.java) |
 | `/iam/v3/platforms/{platformId}/authenticate` | GET | PlatformAuthenticationV3 | [PlatformAuthenticationV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_extension/PlatformAuthenticationV3.java) | [PlatformAuthenticationV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_extension/PlatformAuthenticationV3.java) |
 | `/iam/v3/token/exchange` | POST | RequestGameTokenResponseV3 | [RequestGameTokenResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_extension/RequestGameTokenResponseV3.java) | [RequestGameTokenResponseV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_extension/RequestGameTokenResponseV3.java) |
+| `/iam/v3/v3/platforms/{platformId}/token/verify` | POST | PlatformTokenRefreshV3 | [PlatformTokenRefreshV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_extension/PlatformTokenRefreshV3.java) | [PlatformTokenRefreshV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_extension/PlatformTokenRefreshV3.java) |
 
 ### OAuth2.0 Wrapper:  [OAuth20](../../src/main/java/net/accelbyte/sdk/api/iam/wrappers/OAuth20.java)
 | Endpoint | Method | ID | Class | Example |
@@ -671,6 +672,7 @@
 | `oauthmodel.GameTokenCodeResponse` | [OauthmodelGameTokenCodeResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelGameTokenCodeResponse.java) |
 | `oauthmodel.OneTimeLinkingCodeResponse` | [OauthmodelOneTimeLinkingCodeResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelOneTimeLinkingCodeResponse.java) |
 | `oauthmodel.OneTimeLinkingCodeValidationResponse` | [OauthmodelOneTimeLinkingCodeValidationResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelOneTimeLinkingCodeValidationResponse.java) |
+| `oauthmodel.PlatformTokenRefreshResponseV3` | [OauthmodelPlatformTokenRefreshResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelPlatformTokenRefreshResponseV3.java) |
 | `oauthmodel.TokenIntrospectResponse` | [OauthmodelTokenIntrospectResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelTokenIntrospectResponse.java) |
 | `oauthmodel.TokenResponse` | [OauthmodelTokenResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelTokenResponse.java) |
 | `oauthmodel.TokenResponseV3` | [OauthmodelTokenResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelTokenResponseV3.java) |

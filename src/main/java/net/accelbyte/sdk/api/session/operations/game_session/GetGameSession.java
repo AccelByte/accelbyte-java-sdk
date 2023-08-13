@@ -21,11 +21,12 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getGameSession
  *
- * <p>Get game session detail. Session service has several DSInformation status to track DS request
- * to DSMC: - NEED_TO_REQUEST: number of active players hasn't reached session's minPlayers
- * therefore DS has not yet requested. - REQUESTED: DS is being requested to DSMC. - AVAILABLE: DS
- * is ready to use. The DSMC status for this DS is either READY/BUSY. - FAILED_TO_REQUEST: DSMC
- * fails to create the DS.
+ * <p>Get game session detail. Session will only be accessible from active players in the session,
+ * and client with the permission, except the joinability is set to OPEN. Session service has
+ * several DSInformation status to track DS request to DSMC: - NEED_TO_REQUEST: number of active
+ * players hasn't reached session's minPlayers therefore DS has not yet requested. - REQUESTED: DS
+ * is being requested to DSMC. - AVAILABLE: DS is ready to use. The DSMC status for this DS is
+ * either READY/BUSY. - FAILED_TO_REQUEST: DSMC fails to create the DS.
  */
 @Getter
 @Setter

@@ -41,6 +41,11 @@ public class AdminLinkPlatformAccount implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--skipConflict"},
+      description = "skipConflict")
+  Boolean skipConflict;
+
+  @Option(
       names = {"--body"},
       description = "body")
   String body;
@@ -70,6 +75,7 @@ public class AdminLinkPlatformAccount implements Callable<Integer> {
           net.accelbyte.sdk.api.iam.operations.users.AdminLinkPlatformAccount.builder()
               .namespace(namespace)
               .userId(userId)
+              .skipConflict(skipConflict)
               .body(new ObjectMapper().readValue(body, ModelLinkPlatformAccountRequest.class))
               .build();
       wrapper.adminLinkPlatformAccount(operation);

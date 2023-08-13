@@ -127,4 +127,14 @@ public class OAuth20Extension {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see PlatformTokenRefreshV3
+   */
+  public OauthmodelPlatformTokenRefreshResponseV3 platformTokenRefreshV3(
+      PlatformTokenRefreshV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

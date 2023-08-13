@@ -21,9 +21,9 @@ public class FleetCommander {
   }
 
   /**
-   * @see Func1
+   * @see Func3
    */
-  public void func1(Func1 input) throws Exception {
+  public void func3(Func3 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

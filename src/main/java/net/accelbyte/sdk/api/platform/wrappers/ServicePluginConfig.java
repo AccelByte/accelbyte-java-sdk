@@ -144,9 +144,9 @@ public class ServicePluginConfig {
   }
 
   /**
-   * @see GetLootBoxPluginConfig1
+   * @see GetRevocationPluginConfig
    */
-  public RevocationPluginConfigInfo getLootBoxPluginConfig1(GetLootBoxPluginConfig1 input)
+  public RevocationPluginConfigInfo getRevocationPluginConfig(GetRevocationPluginConfig input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -164,9 +164,9 @@ public class ServicePluginConfig {
   }
 
   /**
-   * @see DeleteLootBoxPluginConfig1
+   * @see DeleteRevocationPluginConfig
    */
-  public void deleteLootBoxPluginConfig1(DeleteLootBoxPluginConfig1 input) throws Exception {
+  public void deleteRevocationPluginConfig(DeleteRevocationPluginConfig input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

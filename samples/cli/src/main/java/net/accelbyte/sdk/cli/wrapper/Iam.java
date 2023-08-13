@@ -309,6 +309,7 @@ import picocli.CommandLine.Command;
       LoginSSOClient.class,
       LogoutSSOClient.class,
       RequestGameTokenResponseV3.class,
+      PlatformTokenRefreshV3.class,
       AdminGetDevicesByUserV4.class,
       AdminGetBannedDevicesV4.class,
       AdminGetUserDeviceBansV4.class,

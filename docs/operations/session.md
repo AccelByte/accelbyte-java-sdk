@@ -15,6 +15,11 @@
 |---|---|---|---|---|
 | `/session/v1/admin/dsconfigs/default` | GET | AdminGetDSMCConfigurationDefault | [AdminGetDSMCConfigurationDefault](../../src/main/java/net/accelbyte/sdk/api/session/operations/dsmc_default_configuration/AdminGetDSMCConfigurationDefault.java) | [AdminGetDSMCConfigurationDefault](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/dsmc_default_configuration/AdminGetDSMCConfigurationDefault.java) |
 
+### Environment Variable Wrapper:  [EnvironmentVariable](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/EnvironmentVariable.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/session/v1/admin/environment-variables` | GET | AdminListEnvironmentVariables | [AdminListEnvironmentVariables](../../src/main/java/net/accelbyte/sdk/api/session/operations/environment_variable/AdminListEnvironmentVariables.java) | [AdminListEnvironmentVariables](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/environment_variable/AdminListEnvironmentVariables.java) |
+
 ### Configuration Template Wrapper:  [ConfigurationTemplate](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/ConfigurationTemplate.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -109,6 +114,8 @@
 | `apimodels.DSInformationResponse` | [ApimodelsDSInformationResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsDSInformationResponse.java) |
 | `apimodels.DeleteBulkGameSessionRequest` | [ApimodelsDeleteBulkGameSessionRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsDeleteBulkGameSessionRequest.java) |
 | `apimodels.DeleteBulkGameSessionsAPIResponse` | [ApimodelsDeleteBulkGameSessionsAPIResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsDeleteBulkGameSessionsAPIResponse.java) |
+| `apimodels.EnvironmentVariableListResponse` | [ApimodelsEnvironmentVariableListResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsEnvironmentVariableListResponse.java) |
+| `apimodels.EnvironmentVariableResponse` | [ApimodelsEnvironmentVariableResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsEnvironmentVariableResponse.java) |
 | `apimodels.GameSessionQueryResponse` | [ApimodelsGameSessionQueryResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsGameSessionQueryResponse.java) |
 | `apimodels.GameSessionResponse` | [ApimodelsGameSessionResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsGameSessionResponse.java) |
 | `apimodels.JoinByCodeRequest` | [ApimodelsJoinByCodeRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsJoinByCodeRequest.java) |

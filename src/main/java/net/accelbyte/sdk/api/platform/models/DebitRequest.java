@@ -28,9 +28,37 @@ public class DebitRequest extends Model {
   @JsonProperty("amount")
   private Integer amount;
 
+  @JsonProperty("balanceSource")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String balanceSource;
+
+  @JsonProperty("metadata")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> metadata;
+
   @JsonProperty("reason")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String reason;
+
+  @JsonIgnore
+  public String getBalanceSource() {
+    return this.balanceSource;
+  }
+
+  @JsonIgnore
+  public BalanceSource getBalanceSourceAsEnum() {
+    return BalanceSource.valueOf(this.balanceSource);
+  }
+
+  @JsonIgnore
+  public void setBalanceSource(final String balanceSource) {
+    this.balanceSource = balanceSource;
+  }
+
+  @JsonIgnore
+  public void setBalanceSourceFromEnum(final BalanceSource balanceSource) {
+    this.balanceSource = balanceSource.toString();
+  }
 
   @JsonIgnore
   public DebitRequest createFromJson(String json) throws JsonProcessingException {
@@ -40,5 +68,38 @@ public class DebitRequest extends Model {
   @JsonIgnore
   public List<DebitRequest> createFromJsonList(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, new TypeReference<List<DebitRequest>>() {});
+  }
+
+  public enum BalanceSource {
+    DLCREVOCATION("DLC_REVOCATION"),
+    EXPIRATION("EXPIRATION"),
+    ORDERREVOCATION("ORDER_REVOCATION"),
+    OTHER("OTHER"),
+    PAYMENT("PAYMENT");
+
+    private String value;
+
+    BalanceSource(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class DebitRequestBuilder {
+    private String balanceSource;
+
+    public DebitRequestBuilder balanceSource(final String balanceSource) {
+      this.balanceSource = balanceSource;
+      return this;
+    }
+
+    public DebitRequestBuilder balanceSourceFromEnum(final BalanceSource balanceSource) {
+      this.balanceSource = balanceSource.toString();
+      return this;
+    }
   }
 }

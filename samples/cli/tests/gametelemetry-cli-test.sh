@@ -68,20 +68,20 @@ eval_tap $? 2 'GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet' test.o
 
 #- 3 ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost
 ./ng net.accelbyte.sdk.cli.Main gametelemetry protectedSaveEventsGameTelemetryV1ProtectedEventsPost \
-    --body '[{"EventId": "Q1g7qbPngUNB1vRo", "EventName": "dwpzS6DaDpv8N7ZQ", "EventNamespace": "VqGj6oDLjWjkY1aX", "EventTimestamp": "1977-05-08T00:00:00Z", "Payload": {"FcDtgOjchIua5tWE": {}, "IC32ogW7olvbTgrh": {}, "RTcPiSuL0Sly6XM4": {}}}, {"EventId": "OI18mAQLnzjMf8GZ", "EventName": "2WBZqxYG3aREAu2D", "EventNamespace": "6QVKNCWP75TB0i7p", "EventTimestamp": "1989-07-10T00:00:00Z", "Payload": {"c8OumKtPDKJDXn7Z": {}, "4U68su8XfqlqNiTv": {}, "B6SdAdIhUDrwoZ5M": {}}}, {"EventId": "ecdKi5r6QEa1ysLE", "EventName": "zth6mXhzkzWkFeZS", "EventNamespace": "oEAcBdW19m4eu6d5", "EventTimestamp": "1981-08-01T00:00:00Z", "Payload": {"C7duuyZ0GhDogqrh": {}, "BRd8lDR6qVNPRZYd": {}, "FLIAjGGJddVCvu9v": {}}}]' \
+    --body '[{"ClientTimestamp": "1992-02-25T00:00:00Z", "EventId": "1g7qbPngUNB1vRod", "EventName": "wpzS6DaDpv8N7ZQV", "EventNamespace": "qGj6oDLjWjkY1aXl", "EventTimestamp": "1987-04-24T00:00:00Z", "Payload": {"cDtgOjchIua5tWEI": {}, "C32ogW7olvbTgrhR": {}, "TcPiSuL0Sly6XM4O": {}}}, {"ClientTimestamp": "1988-01-19T00:00:00Z", "EventId": "8mAQLnzjMf8GZ2WB", "EventName": "ZqxYG3aREAu2D6QV", "EventNamespace": "KNCWP75TB0i7pKxR", "EventTimestamp": "1992-01-28T00:00:00Z", "Payload": {"umKtPDKJDXn7Z4U6": {}, "8su8XfqlqNiTvB6S": {}, "dAdIhUDrwoZ5Mecd": {}}}, {"ClientTimestamp": "1990-01-19T00:00:00Z", "EventId": "i5r6QEa1ysLEzth6", "EventName": "mXhzkzWkFeZSoEAc", "EventNamespace": "BdW19m4eu6d5tA5j", "EventTimestamp": "1995-06-10T00:00:00Z", "Payload": {"miTqpyhPFdxLzFQN": {}, "05MYzYiKWe5dNRlj": {}, "v7IPrDQQRgat0Sev": {}}}]' \
     > test.out 2>&1
 eval_tap $? 3 'ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost' test.out
 
 #- 4 ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet
 ./ng net.accelbyte.sdk.cli.Main gametelemetry protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet \
-    --steamId 'x5KQ7KYnIuMBvaO3' \
+    --steamId 'kLGMS0lyuI9a2I9u' \
     > test.out 2>&1
 eval_tap $? 4 'ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet' test.out
 
 #- 5 ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
 ./ng net.accelbyte.sdk.cli.Main gametelemetry protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut \
-    --playtime '5llzQRaT5kPxUfof' \
-    --steamId 'vnnSuB0y5WUlrMdI' \
+    --playtime '6Vpbsx5w8hqUI06U' \
+    --steamId 'pOXGSLmCVuHOPlLl' \
     > test.out 2>&1
 eval_tap $? 5 'ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut' test.out
 

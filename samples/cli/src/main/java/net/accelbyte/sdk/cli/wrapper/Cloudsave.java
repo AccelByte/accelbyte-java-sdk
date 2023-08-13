@@ -9,12 +9,16 @@
 package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.cloudsave.admin_concurrent_record.*;
+import net.accelbyte.sdk.cli.api.cloudsave.admin_game_binary_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.admin_game_record.*;
+import net.accelbyte.sdk.cli.api.cloudsave.admin_player_binary_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.admin_player_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.admin_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.concurrent_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.plugin_config.*;
+import net.accelbyte.sdk.cli.api.cloudsave.public_game_binary_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.public_game_record.*;
+import net.accelbyte.sdk.cli.api.cloudsave.public_player_binary_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.public_player_record.*;
 import picocli.CommandLine.Command;
 
@@ -28,6 +32,13 @@ import picocli.CommandLine.Command;
       AdminPutAdminGameRecordV1.class,
       AdminPostAdminGameRecordV1.class,
       AdminDeleteAdminGameRecordV1.class,
+      AdminListGameBinaryRecordsV1.class,
+      AdminPostGameBinaryRecordV1.class,
+      AdminGetGameBinaryRecordV1.class,
+      AdminPutGameBinaryRecordV1.class,
+      AdminDeleteGameBinaryRecordV1.class,
+      AdminPutGameBinaryRecorMetadataV1.class,
+      AdminPostGameBinaryPresignedURLV1.class,
       AdminPutAdminGameRecordConcurrentHandlerV1.class,
       AdminPutGameRecordConcurrentHandlerV1.class,
       GetPluginConfig.class,
@@ -48,6 +59,13 @@ import picocli.CommandLine.Command;
       AdminPutAdminPlayerRecordV1.class,
       AdminPostPlayerAdminRecordV1.class,
       AdminDeleteAdminPlayerRecordV1.class,
+      AdminListPlayerBinaryRecordsV1.class,
+      AdminPostPlayerBinaryRecordV1.class,
+      AdminGetPlayerBinaryRecordV1.class,
+      AdminPutPlayerBinaryRecordV1.class,
+      AdminDeletePlayerBinaryRecordV1.class,
+      AdminPutPlayerBinaryRecorMetadataV1.class,
+      AdminPostPlayerBinaryPresignedURLV1.class,
       AdminPutAdminPlayerRecordConcurrentHandlerV1.class,
       AdminPutPlayerRecordConcurrentHandlerV1.class,
       AdminPutPlayerPublicRecordConcurrentHandlerV1.class,
@@ -61,16 +79,35 @@ import picocli.CommandLine.Command;
       AdminPostPlayerPublicRecordHandlerV1.class,
       AdminDeletePlayerPublicRecordHandlerV1.class,
       AdminGetPlayerRecordSizeHandlerV1.class,
+      ListGameBinaryRecordsV1.class,
+      PostGameBinaryRecordV1.class,
+      BulkGetGameBinaryRecordV1.class,
+      GetGameBinaryRecordV1.class,
+      PutGameBinaryRecordV1.class,
+      DeleteGameBinaryRecordV1.class,
+      PostGameBinaryPresignedURLV1.class,
       PutGameRecordConcurrentHandlerV1.class,
       GetGameRecordsBulk.class,
       GetGameRecordHandlerV1.class,
       PutGameRecordHandlerV1.class,
       PostGameRecordHandlerV1.class,
       DeleteGameRecordHandlerV1.class,
+      BulkGetPlayerPublicBinaryRecordsV1.class,
       BulkGetPlayerPublicRecordHandlerV1.class,
+      ListMyBinaryRecordsV1.class,
+      BulkGetMyBinaryRecordV1.class,
       RetrievePlayerRecords.class,
       GetPlayerRecordsBulkHandlerV1.class,
       PublicDeletePlayerPublicRecordHandlerV1.class,
+      PostPlayerBinaryRecordV1.class,
+      ListOtherPlayerPublicBinaryRecordsV1.class,
+      BulkGetOtherPlayerPublicBinaryRecordsV1.class,
+      GetPlayerBinaryRecordV1.class,
+      PutPlayerBinaryRecordV1.class,
+      DeletePlayerBinaryRecordV1.class,
+      PutPlayerBinaryRecorMetadataV1.class,
+      PostPlayerBinaryPresignedURLV1.class,
+      GetPlayerPublicBinaryRecordsV1.class,
       PutPlayerRecordConcurrentHandlerV1.class,
       PutPlayerPublicRecordConcurrentHandlerV1.class,
       GetOtherPlayerPublicRecordKeyHandlerV1.class,

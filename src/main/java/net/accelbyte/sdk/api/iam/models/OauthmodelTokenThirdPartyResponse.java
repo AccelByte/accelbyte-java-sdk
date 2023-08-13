@@ -28,6 +28,10 @@ public class OauthmodelTokenThirdPartyResponse extends Model {
   @JsonProperty("platform_token")
   private String platformToken;
 
+  @JsonProperty("platform_token_expires_at")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer platformTokenExpiresAt;
+
   @JsonProperty("sand_box_id")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String sandBoxId;

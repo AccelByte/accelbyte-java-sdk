@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ConsumeItem extends Model {
 
+  @JsonProperty("extItemDefId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String extItemDefId;
+
   @JsonProperty("extItemId")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String extItemId;

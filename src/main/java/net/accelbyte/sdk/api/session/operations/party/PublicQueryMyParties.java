@@ -8,8 +8,6 @@
 
 package net.accelbyte.sdk.api.session.operations.party;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
@@ -84,15 +82,14 @@ public class PublicQueryMyParties extends Operation {
     return true;
   }
 
-  public List<ApimodelsPartySessionResponse> parseResponse(
+  public ApimodelsPartyQueryResponse parseResponse(
       int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ObjectMapper()
-        .readValue(json, new TypeReference<List<ApimodelsPartySessionResponse>>() {});
+    return new ApimodelsPartyQueryResponse().createFromJson(json);
   }
 
   @Override

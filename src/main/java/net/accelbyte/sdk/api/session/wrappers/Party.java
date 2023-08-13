@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.api.session.wrappers;
 
-import java.util.*;
 import net.accelbyte.sdk.api.session.models.*;
 import net.accelbyte.sdk.api.session.operations.party.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -156,7 +155,7 @@ public class Party {
   /**
    * @see PublicQueryMyParties
    */
-  public List<ApimodelsPartySessionResponse> publicQueryMyParties(PublicQueryMyParties input)
+  public ApimodelsPartyQueryResponse publicQueryMyParties(PublicQueryMyParties input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

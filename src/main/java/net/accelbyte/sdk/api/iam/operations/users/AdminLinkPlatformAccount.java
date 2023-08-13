@@ -24,7 +24,11 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
  *
  * <p>Force linking platform account to user User Account. This endpoint intended for admin to
- * forcefully link account to user.
+ * forcefully link account to user. By default, these cases are not allowed
+ *
+ * <p>* The platform account current is linked by another account
+ *
+ * <p>* The target account ever linked this platform's another account
  */
 @Getter
 @Setter
@@ -41,6 +45,7 @@ public class AdminLinkPlatformAccount extends Operation {
   private String namespace;
 
   private String userId;
+  private Boolean skipConflict;
   private ModelLinkPlatformAccountRequest body;
 
   /**
@@ -52,9 +57,10 @@ public class AdminLinkPlatformAccount extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminLinkPlatformAccount(
-      String namespace, String userId, ModelLinkPlatformAccountRequest body) {
+      String namespace, String userId, Boolean skipConflict, ModelLinkPlatformAccountRequest body) {
     this.namespace = namespace;
     this.userId = userId;
+    this.skipConflict = skipConflict;
     this.body = body;
 
     securities.add("Bearer");
@@ -70,6 +76,15 @@ public class AdminLinkPlatformAccount extends Operation {
       pathParams.put("userId", this.userId);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "skipConflict",
+        this.skipConflict == null ? null : Arrays.asList(String.valueOf(this.skipConflict)));
+    return queryParams;
   }
 
   @Override
@@ -94,5 +109,12 @@ public class AdminLinkPlatformAccount extends Operation {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("skipConflict", "None");
+    return result;
   }
 }

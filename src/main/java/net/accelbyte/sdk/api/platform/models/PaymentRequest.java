@@ -28,6 +28,10 @@ public class PaymentRequest extends Model {
   @JsonProperty("amount")
   private Integer amount;
 
+  @JsonProperty("metadata")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> metadata;
+
   @JsonProperty("walletPlatform")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String walletPlatform;

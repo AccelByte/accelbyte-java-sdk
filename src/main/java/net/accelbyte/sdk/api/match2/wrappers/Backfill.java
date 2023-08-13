@@ -61,9 +61,9 @@ public class Backfill {
   /**
    * @see AcceptBackfill
    */
-  public void acceptBackfill(AcceptBackfill input) throws Exception {
+  public ModelsGameSession acceptBackfill(AcceptBackfill input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

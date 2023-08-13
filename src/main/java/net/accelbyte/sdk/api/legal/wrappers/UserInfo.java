@@ -34,7 +34,9 @@ public class UserInfo {
 
   /**
    * @see SyncUserInfo
+   * @deprecated
    */
+  @Deprecated
   public void syncUserInfo(SyncUserInfo input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -43,7 +45,9 @@ public class UserInfo {
 
   /**
    * @see InvalidateUserInfoCache
+   * @deprecated
    */
+  @Deprecated
   public void invalidateUserInfoCache(InvalidateUserInfoCache input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(

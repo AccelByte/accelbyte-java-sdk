@@ -78,7 +78,7 @@ public class PublicQueryMyParties implements Callable<Integer> {
               .orderBy(orderBy)
               .status(status)
               .build();
-      final List<ApimodelsPartySessionResponse> response = wrapper.publicQueryMyParties(operation);
+      final ApimodelsPartyQueryResponse response = wrapper.publicQueryMyParties(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

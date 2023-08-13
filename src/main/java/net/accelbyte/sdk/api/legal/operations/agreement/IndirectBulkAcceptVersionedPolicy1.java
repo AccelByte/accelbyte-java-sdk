@@ -23,13 +23,9 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Accepts many legal policy versions all at once. Supply with localized version policy id and
  * userId to accept an agreement. This endpoint used by Authentication Service during new user
- * registration.
+ * registration. Other detail info:
  *
- * <p>Available Extra Information to return:
- *
- * <p>* userIds : List of userId mapping ( IMPORTANT: GOING TO DEPRECATE )
- *
- * <p>Other detail info: * Required permission : login user
+ * <p>* Required permission : login user
  */
 @Getter
 @Setter

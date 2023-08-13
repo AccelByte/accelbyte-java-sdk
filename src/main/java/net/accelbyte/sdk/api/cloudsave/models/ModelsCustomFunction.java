@@ -25,23 +25,11 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelsCustomFunction extends Model {
 
-  @JsonProperty("afterBulkReadAdminGameRecord")
-  private Boolean afterBulkReadAdminGameRecord;
-
-  @JsonProperty("afterBulkReadAdminPlayerRecord")
-  private Boolean afterBulkReadAdminPlayerRecord;
-
   @JsonProperty("afterBulkReadGameRecord")
   private Boolean afterBulkReadGameRecord;
 
   @JsonProperty("afterBulkReadPlayerRecord")
   private Boolean afterBulkReadPlayerRecord;
-
-  @JsonProperty("afterReadAdminGameRecord")
-  private Boolean afterReadAdminGameRecord;
-
-  @JsonProperty("afterReadAdminPlayerRecord")
-  private Boolean afterReadAdminPlayerRecord;
 
   @JsonProperty("afterReadGameRecord")
   private Boolean afterReadGameRecord;

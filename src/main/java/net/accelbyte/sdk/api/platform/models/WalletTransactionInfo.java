@@ -38,6 +38,10 @@ public class WalletTransactionInfo extends Model {
   @JsonProperty("currencyCode")
   private String currencyCode;
 
+  @JsonProperty("metadata")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> metadata;
+
   @JsonProperty("namespace")
   private String namespace;
 

@@ -43,6 +43,26 @@ public class ModelsPluginResponse extends Model {
   private String namespace;
 
   @JsonIgnore
+  public String getExtendType() {
+    return this.extendType;
+  }
+
+  @JsonIgnore
+  public ExtendType getExtendTypeAsEnum() {
+    return ExtendType.valueOf(this.extendType);
+  }
+
+  @JsonIgnore
+  public void setExtendType(final String extendType) {
+    this.extendType = extendType;
+  }
+
+  @JsonIgnore
+  public void setExtendTypeFromEnum(final ExtendType extendType) {
+    this.extendType = extendType.toString();
+  }
+
+  @JsonIgnore
   public ModelsPluginResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -50,5 +70,35 @@ public class ModelsPluginResponse extends Model {
   @JsonIgnore
   public List<ModelsPluginResponse> createFromJsonList(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, new TypeReference<List<ModelsPluginResponse>>() {});
+  }
+
+  public enum ExtendType {
+    APP("APP"),
+    CUSTOM("CUSTOM");
+
+    private String value;
+
+    ExtendType(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ModelsPluginResponseBuilder {
+    private String extendType;
+
+    public ModelsPluginResponseBuilder extendType(final String extendType) {
+      this.extendType = extendType;
+      return this;
+    }
+
+    public ModelsPluginResponseBuilder extendTypeFromEnum(final ExtendType extendType) {
+      this.extendType = extendType.toString();
+      return this;
+    }
   }
 }

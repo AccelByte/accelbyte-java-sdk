@@ -21,9 +21,18 @@ public class Operations {
   }
 
   /**
-   * @see BasicHealthCheck
+   * @see Func2
    */
-  public void basicHealthCheck(BasicHealthCheck input) throws Exception {
+  public void func2(Func2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PortalHealthCheck
+   */
+  public void portalHealthCheck(PortalHealthCheck input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

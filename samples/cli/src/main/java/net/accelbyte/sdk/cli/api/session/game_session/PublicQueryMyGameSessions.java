@@ -80,7 +80,7 @@ public class PublicQueryMyGameSessions implements Callable<Integer> {
                   .orderBy(orderBy)
                   .status(status)
                   .build();
-      final List<ApimodelsGameSessionResponse> response =
+      final ApimodelsGameSessionQueryResponse response =
           wrapper.publicQueryMyGameSessions(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

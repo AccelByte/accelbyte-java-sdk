@@ -1,3 +1,9 @@
+<a name="v0.44.0"></a>
+## [v0.44.0]
+### docs
+- **:** use docs-old for now for some docs
+
+
 <a name="v0.43.0"></a>
 ## [v0.43.0]
 ### fix

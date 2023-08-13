@@ -20,12 +20,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * syncUserInfo
  *
- * <p>Important: GOING TO DEPRECATE
- *
  * <p>Sync user info cache in agreement service with iam service. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class SyncUserInfo extends Operation {

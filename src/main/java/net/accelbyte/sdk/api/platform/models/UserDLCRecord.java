@@ -29,6 +29,10 @@ public class UserDLCRecord extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String id;
 
+  @JsonProperty("metadata")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> metadata;
+
   @JsonProperty("namespace")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;

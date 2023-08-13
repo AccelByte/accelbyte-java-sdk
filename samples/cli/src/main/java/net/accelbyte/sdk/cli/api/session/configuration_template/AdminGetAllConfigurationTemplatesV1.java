@@ -51,6 +51,16 @@ public class AdminGetAllConfigurationTemplatesV1 implements Callable<Integer> {
   Integer offset;
 
   @Option(
+      names = {"--order"},
+      description = "order")
+  String order;
+
+  @Option(
+      names = {"--orderBy"},
+      description = "orderBy")
+  String orderBy;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -80,6 +90,8 @@ public class AdminGetAllConfigurationTemplatesV1 implements Callable<Integer> {
                   .limit(limit)
                   .name(name)
                   .offset(offset)
+                  .order(order)
+                  .orderBy(orderBy)
                   .build();
       final ApimodelsConfigurationTemplatesResponse response =
           wrapper.adminGetAllConfigurationTemplatesV1(operation);

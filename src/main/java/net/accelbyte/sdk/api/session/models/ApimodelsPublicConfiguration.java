@@ -55,6 +55,10 @@ public class ApimodelsPublicConfiguration extends Model {
   @JsonProperty("joinability")
   private String joinability;
 
+  @JsonProperty("maxActiveSession")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer maxActiveSession;
+
   @JsonProperty("maxPlayers")
   private Integer maxPlayers;
 
@@ -64,7 +68,7 @@ public class ApimodelsPublicConfiguration extends Model {
   @JsonProperty("name")
   private String name;
 
-  @JsonProperty("native_session_setting")
+  @JsonProperty("nativeSessionSetting")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsNativeSessionSetting nativeSessionSetting;
 

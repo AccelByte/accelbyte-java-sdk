@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.api.session.wrappers;
 
-import java.util.*;
 import net.accelbyte.sdk.api.session.models.*;
 import net.accelbyte.sdk.api.session.operations.game_session.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -217,7 +216,7 @@ public class GameSession {
   /**
    * @see PublicQueryMyGameSessions
    */
-  public List<ApimodelsGameSessionResponse> publicQueryMyGameSessions(
+  public ApimodelsGameSessionQueryResponse publicQueryMyGameSessions(
       PublicQueryMyGameSessions input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

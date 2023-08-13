@@ -51,6 +51,31 @@ public class FleetServerHistory implements Callable<Integer> {
   Integer offset;
 
   @Option(
+      names = {"--reason"},
+      description = "reason")
+  String reason;
+
+  @Option(
+      names = {"--region"},
+      description = "region")
+  String region;
+
+  @Option(
+      names = {"--serverId"},
+      description = "serverId")
+  String serverId;
+
+  @Option(
+      names = {"--sortDirection"},
+      description = "sortDirection")
+  String sortDirection;
+
+  @Option(
+      names = {"--status"},
+      description = "status")
+  String status;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -77,6 +102,11 @@ public class FleetServerHistory implements Callable<Integer> {
               .namespace(namespace)
               .count(count)
               .offset(offset)
+              .reason(reason)
+              .region(region)
+              .serverId(serverId)
+              .sortDirection(sortDirection)
+              .status(status)
               .build();
       final ApiDSHistoryList response = wrapper.fleetServerHistory(operation);
       final String responseString =

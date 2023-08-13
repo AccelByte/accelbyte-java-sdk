@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApiImageDetails extends Model {
 
+  @JsonProperty("createdAt")
+  private String createdAt;
+
   @JsonProperty("id")
   private String id;
 

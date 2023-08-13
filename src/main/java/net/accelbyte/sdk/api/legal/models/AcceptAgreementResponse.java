@@ -28,10 +28,6 @@ public class AcceptAgreementResponse extends Model {
   @JsonProperty("comply")
   private Boolean comply;
 
-  @JsonProperty("ext")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Map<String, ?> ext;
-
   @JsonProperty("proceed")
   private Boolean proceed;
 
