@@ -141,6 +141,7 @@
 | `A DTO object for user stat item value` | [ADTOObjectForUserStatItemValue](../../src/main/java/net/accelbyte/sdk/api/social/models/ADTOObjectForUserStatItemValue.java) |
 | `Attribute` | [Attribute](../../src/main/java/net/accelbyte/sdk/api/social/models/Attribute.java) |
 | `BulkCycleStatsAdd` | [BulkCycleStatsAdd](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkCycleStatsAdd.java) |
+| `BulkStatCycleOperationResult` | [BulkStatCycleOperationResult](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkStatCycleOperationResult.java) |
 | `BulkStatCycleRequest` | [BulkStatCycleRequest](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkStatCycleRequest.java) |
 | `BulkStatCycleResult` | [BulkStatCycleResult](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkStatCycleResult.java) |
 | `BulkStatItemCreate` | [BulkStatItemCreate](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkStatItemCreate.java) |

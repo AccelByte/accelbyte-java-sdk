@@ -29,6 +29,7 @@ public class ModelsMatchResult extends Model {
   private String gameMode;
 
   @JsonProperty("matching_allies")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsRequestMatchingAlly> matchingAllies;
 
   @JsonProperty("namespace")

@@ -49,6 +49,9 @@ public class ApiFleetServerInfoResponse extends Model {
   @JsonProperty("portConfiguration")
   private List<ApiPortConfiguration> portConfiguration;
 
+  @JsonProperty("ports")
+  private Map<String, Integer> ports;
+
   @JsonProperty("region")
   private String region;
 

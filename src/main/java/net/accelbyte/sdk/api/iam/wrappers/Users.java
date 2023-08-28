@@ -1460,6 +1460,16 @@ public class Users {
   }
 
   /**
+   * @see PublicProcessWebLinkPlatformV3
+   */
+  public ModelLinkRequest publicProcessWebLinkPlatformV3(PublicProcessWebLinkPlatformV3 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see ResetPasswordV3
    */
   public void resetPasswordV3(ResetPasswordV3 input) throws Exception {

@@ -79,7 +79,7 @@ public class StatCycleConfiguration {
   /**
    * @see BulkAddStats
    */
-  public List<BulkStatOperationResult> bulkAddStats(BulkAddStats input) throws Exception {
+  public List<BulkStatCycleOperationResult> bulkAddStats(BulkAddStats input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

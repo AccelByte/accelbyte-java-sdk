@@ -129,6 +129,7 @@ public class CreditRequest extends Model {
     DLC("DLC"),
     GIFT("GIFT"),
     IAP("IAP"),
+    IAPCHARGEBACKREVERSED("IAP_CHARGEBACK_REVERSED"),
     OTHER("OTHER"),
     PROMOTION("PROMOTION"),
     PURCHASE("PURCHASE"),

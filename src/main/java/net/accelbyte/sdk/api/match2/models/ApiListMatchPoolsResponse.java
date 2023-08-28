@@ -29,6 +29,7 @@ public class ApiListMatchPoolsResponse extends Model {
   private List<ApiMatchPool> data;
 
   @JsonProperty("pagination")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsPagination pagination;
 
   @JsonIgnore

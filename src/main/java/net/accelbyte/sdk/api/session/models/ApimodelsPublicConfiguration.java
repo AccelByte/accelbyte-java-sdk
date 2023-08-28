@@ -46,6 +46,10 @@ public class ApimodelsPublicConfiguration extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> fallbackClaimKeys;
 
+  @JsonProperty("immutableStorage")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean immutableStorage;
+
   @JsonProperty("inactiveTimeout")
   private Integer inactiveTimeout;
 

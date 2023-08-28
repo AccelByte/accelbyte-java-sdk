@@ -37,6 +37,7 @@ import picocli.CommandLine.Command;
       UserGetFriendshipStatus.class,
       UserUnfriendRequest.class,
       AddFriendsWithoutConfirmation.class,
+      BulkDeleteFriends.class,
       AdminGetAllConfigV1.class,
       AdminGetConfigV1.class,
       AdminUpdateConfigV1.class,

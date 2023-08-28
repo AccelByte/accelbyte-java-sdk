@@ -16,6 +16,7 @@ import net.accelbyte.sdk.cli.api.session.operations.*;
 import net.accelbyte.sdk.cli.api.session.party.*;
 import net.accelbyte.sdk.cli.api.session.platform_credential.*;
 import net.accelbyte.sdk.cli.api.session.player.*;
+import net.accelbyte.sdk.cli.api.session.session_storage.*;
 import picocli.CommandLine.Command;
 
 @Command(
@@ -44,6 +45,9 @@ import picocli.CommandLine.Command;
       AdminGetPlatformCredentials.class,
       AdminUpdatePlatformCredentials.class,
       AdminDeletePlatformCredentials.class,
+      AdminReadSessionStorage.class,
+      AdminDeleteUserSessionStorage.class,
+      AdminReadUserSessionStorage.class,
       AdminQueryPlayerAttributes.class,
       AdminGetPlayerAttributes.class,
       CreateGameSession.class,
@@ -76,6 +80,8 @@ import picocli.CommandLine.Command;
       PublicPartyReject.class,
       PublicPartyKick.class,
       PublicCreateParty.class,
+      PublicUpdateInsertSessionStorageLeader.class,
+      PublicUpdateInsertSessionStorage.class,
       PublicGetBulkPlayerCurrentPlatform.class,
       PublicGetPlayerAttributes.class,
       PublicStorePlayerAttributes.class,

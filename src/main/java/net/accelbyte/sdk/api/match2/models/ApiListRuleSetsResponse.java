@@ -29,6 +29,7 @@ public class ApiListRuleSetsResponse extends Model {
   private List<ApiMatchRuleSetNameData> data;
 
   @JsonProperty("pagination")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsPagination pagination;
 
   @JsonIgnore

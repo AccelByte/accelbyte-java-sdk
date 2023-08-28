@@ -36,6 +36,16 @@ public class GetUserOutgoingFriends implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--limit"},
+      description = "limit")
+  Integer limit;
+
+  @Option(
+      names = {"--offset"},
+      description = "offset")
+  Integer offset;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -59,6 +69,8 @@ public class GetUserOutgoingFriends implements Callable<Integer> {
       final net.accelbyte.sdk.api.lobby.operations.friends.GetUserOutgoingFriends operation =
           net.accelbyte.sdk.api.lobby.operations.friends.GetUserOutgoingFriends.builder()
               .namespace(namespace)
+              .limit(limit)
+              .offset(offset)
               .build();
       final List<ModelGetUserOutgoingFriendsResponse> response =
           wrapper.getUserOutgoingFriends(operation);

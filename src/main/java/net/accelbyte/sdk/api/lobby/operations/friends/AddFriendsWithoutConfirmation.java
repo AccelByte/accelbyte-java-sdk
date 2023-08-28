@@ -41,7 +41,7 @@ public class AddFriendsWithoutConfirmation extends Operation {
   private String namespace;
 
   private String userId;
-  private ModelBulkAddFriendsRequest body;
+  private ModelBulkFriendsRequest body;
 
   /**
    * @param namespace required
@@ -52,7 +52,7 @@ public class AddFriendsWithoutConfirmation extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AddFriendsWithoutConfirmation(
-      String namespace, String userId, ModelBulkAddFriendsRequest body) {
+      String namespace, String userId, ModelBulkFriendsRequest body) {
     this.namespace = namespace;
     this.userId = userId;
     this.body = body;
@@ -73,7 +73,7 @@ public class AddFriendsWithoutConfirmation extends Operation {
   }
 
   @Override
-  public ModelBulkAddFriendsRequest getBodyParams() {
+  public ModelBulkFriendsRequest getBodyParams() {
     return this.body;
   }
 

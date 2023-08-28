@@ -81,6 +81,10 @@ public class ModelsMatchmakingResult extends Model {
   @JsonProperty("ticket_id")
   private String ticketId;
 
+  @JsonProperty("ticket_ids")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> ticketIds;
+
   @JsonProperty("updated_at")
   private String updatedAt;
 

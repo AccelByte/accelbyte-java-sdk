@@ -37,6 +37,10 @@ public class BulkStatOperationResult extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean success;
 
+  @JsonProperty("userId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String userId;
+
   @JsonIgnore
   public BulkStatOperationResult createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

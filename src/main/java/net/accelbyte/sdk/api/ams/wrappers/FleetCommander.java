@@ -21,9 +21,27 @@ public class FleetCommander {
   }
 
   /**
-   * @see Func3
+   * @see PortalHealthCheck
    */
-  public void func3(Func3 input) throws Exception {
+  public void portalHealthCheck(PortalHealthCheck input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see Func1
+   */
+  public void func1(Func1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see BasicHealthCheck
+   */
+  public void basicHealthCheck(BasicHealthCheck input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

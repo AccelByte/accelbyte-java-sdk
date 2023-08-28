@@ -73,6 +73,7 @@ public class DebitRequest extends Model {
   public enum BalanceSource {
     DLCREVOCATION("DLC_REVOCATION"),
     EXPIRATION("EXPIRATION"),
+    IAPREVOCATION("IAP_REVOCATION"),
     ORDERREVOCATION("ORDER_REVOCATION"),
     OTHER("OTHER"),
     PAYMENT("PAYMENT");

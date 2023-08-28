@@ -41,6 +41,11 @@ public class GetListOfFriends implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--friendId"},
+      description = "friendId")
+  String friendId;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -75,6 +80,7 @@ public class GetListOfFriends implements Callable<Integer> {
           net.accelbyte.sdk.api.lobby.operations.friends.GetListOfFriends.builder()
               .namespace(namespace)
               .userId(userId)
+              .friendId(friendId)
               .limit(limit)
               .offset(offset)
               .build();

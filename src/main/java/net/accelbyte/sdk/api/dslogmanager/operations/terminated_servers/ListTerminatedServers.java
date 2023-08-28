@@ -23,7 +23,9 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>``` Required permission: ADMIN:NAMESPACE:{namespace}:DSLM:SERVER [READ]
  *
- * <p>This endpoint used to retrieve terminated servers in a namespace ```
+ * <p>This endpoint used to retrieve terminated servers in a namespace
+ *
+ * <p>The namespace filter is will give result exact namespace response ```
  */
 @Getter
 @Setter

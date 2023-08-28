@@ -73,6 +73,10 @@ public class ApimodelsGameSessionResponse extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("storage")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> storage;
+
   @JsonProperty("teams")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsTeam> teams;

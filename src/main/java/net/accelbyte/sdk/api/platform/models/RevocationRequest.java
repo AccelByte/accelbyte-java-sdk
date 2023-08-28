@@ -73,6 +73,7 @@ public class RevocationRequest extends Model {
 
   public enum Source {
     DLC("DLC"),
+    IAP("IAP"),
     ORDER("ORDER"),
     OTHER("OTHER");
 

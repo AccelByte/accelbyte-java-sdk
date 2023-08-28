@@ -64,6 +64,10 @@ public class ApimodelsPartySessionResponse extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("storage")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> storage;
+
   @JsonProperty("updatedAt")
   private String updatedAt;
 

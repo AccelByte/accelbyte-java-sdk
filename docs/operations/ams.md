@@ -4,11 +4,17 @@
 
 ## Operations
 
-### Operations Wrapper:  [Operations](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/Operations.java)
+### Auth Wrapper:  [Auth](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/Auth.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
-| `/ams/healthz` | GET | Func2 | [Func2](../../src/main/java/net/accelbyte/sdk/api/ams/operations/operations/Func2.java) | [Func2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/operations/Func2.java) |
-| `/healthz` | GET | PortalHealthCheck | [PortalHealthCheck](../../src/main/java/net/accelbyte/sdk/api/ams/operations/operations/PortalHealthCheck.java) | [PortalHealthCheck](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/operations/PortalHealthCheck.java) |
+| `/ams/auth` | GET | AuthCheck | [AuthCheck](../../src/main/java/net/accelbyte/sdk/api/ams/operations/auth/AuthCheck.java) | [AuthCheck](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/auth/AuthCheck.java) |
+
+### Fleet Commander Wrapper:  [FleetCommander](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/FleetCommander.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/ams/healthz` | GET | PortalHealthCheck | [PortalHealthCheck](../../src/main/java/net/accelbyte/sdk/api/ams/operations/fleet_commander/PortalHealthCheck.java) | [PortalHealthCheck](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/fleet_commander/PortalHealthCheck.java) |
+| `/ams/version` | GET | Func1 | [Func1](../../src/main/java/net/accelbyte/sdk/api/ams/operations/fleet_commander/Func1.java) | [Func1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/fleet_commander/Func1.java) |
+| `/healthz` | GET | BasicHealthCheck | [BasicHealthCheck](../../src/main/java/net/accelbyte/sdk/api/ams/operations/fleet_commander/BasicHealthCheck.java) | [BasicHealthCheck](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/fleet_commander/BasicHealthCheck.java) |
 
 ### Account Wrapper:  [Account](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/Account.java)
 | Endpoint | Method | ID | Class | Example |
@@ -54,11 +60,6 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/ams/v1/namespaces/{namespace}/watchdogs/{watchdogID}/connect` | GET | WatchdogConnect | [WatchdogConnect](../../src/main/java/net/accelbyte/sdk/api/ams/operations/watchdogs/WatchdogConnect.java) | [WatchdogConnect](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/watchdogs/WatchdogConnect.java) |
-
-### Fleet Commander Wrapper:  [FleetCommander](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/FleetCommander.java)
-| Endpoint | Method | ID | Class | Example |
-|---|---|---|---|---|
-| `/ams/version` | GET | Func3 | [Func3](../../src/main/java/net/accelbyte/sdk/api/ams/operations/fleet_commander/Func3.java) | [Func3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/fleet_commander/Func3.java) |
 
 
 &nbsp;  

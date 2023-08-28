@@ -87,7 +87,7 @@ public class BulkAddStats extends Operation {
     return true;
   }
 
-  public List<BulkStatOperationResult> parseResponse(
+  public List<BulkStatCycleOperationResult> parseResponse(
       int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
@@ -95,6 +95,6 @@ public class BulkAddStats extends Operation {
     }
     final String json = Helper.convertInputStreamToString(payload);
     return new ObjectMapper()
-        .readValue(json, new TypeReference<List<BulkStatOperationResult>>() {});
+        .readValue(json, new TypeReference<List<BulkStatCycleOperationResult>>() {});
   }
 }

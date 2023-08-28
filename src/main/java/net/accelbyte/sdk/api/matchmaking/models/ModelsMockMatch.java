@@ -84,6 +84,10 @@ public class ModelsMockMatch extends Model {
   @JsonProperty("ticket_id")
   private String ticketId;
 
+  @JsonProperty("ticket_ids")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> ticketIds;
+
   @JsonProperty("time_to_match_seconds")
   private Integer timeToMatchSeconds;
 

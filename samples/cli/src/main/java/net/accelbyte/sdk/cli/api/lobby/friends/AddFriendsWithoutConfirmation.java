@@ -70,7 +70,7 @@ public class AddFriendsWithoutConfirmation implements Callable<Integer> {
           net.accelbyte.sdk.api.lobby.operations.friends.AddFriendsWithoutConfirmation.builder()
               .namespace(namespace)
               .userId(userId)
-              .body(new ObjectMapper().readValue(body, ModelBulkAddFriendsRequest.class))
+              .body(new ObjectMapper().readValue(body, ModelBulkFriendsRequest.class))
               .build();
       wrapper.addFriendsWithoutConfirmation(operation);
       log.info("Operation successful");

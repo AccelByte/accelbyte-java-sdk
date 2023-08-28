@@ -40,6 +40,10 @@ public class RewardsRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String source;
 
+  @JsonProperty("transactionId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String transactionId;
+
   @JsonIgnore
   public String getOrigin() {
     return this.origin;
@@ -119,10 +123,10 @@ public class RewardsRequest extends Model {
     ACHIEVEMENT("ACHIEVEMENT"),
     CONSUMEENTITLEMENT("CONSUME_ENTITLEMENT"),
     DLC("DLC"),
-    DLCREVOCATION("DLC_REVOCATION"),
     EXPIRATION("EXPIRATION"),
     GIFT("GIFT"),
     IAP("IAP"),
+    IAPCHARGEBACKREVERSED("IAP_CHARGEBACK_REVERSED"),
     ORDERREVOCATION("ORDER_REVOCATION"),
     OTHER("OTHER"),
     PAYMENT("PAYMENT"),

@@ -74,7 +74,7 @@ public class BulkAddStats implements Callable<Integer> {
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, BulkCycleStatsAdd.class))
                   .build();
-      final List<BulkStatOperationResult> response = wrapper.bulkAddStats(operation);
+      final List<BulkStatCycleOperationResult> response = wrapper.bulkAddStats(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

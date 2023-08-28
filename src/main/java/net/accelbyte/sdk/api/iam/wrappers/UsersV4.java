@@ -463,6 +463,16 @@ public class UsersV4 {
   }
 
   /**
+   * @see PublicGetUserPublicInfoByUserIdV4
+   */
+  public ModelUserPublicInfoResponseV4 publicGetUserPublicInfoByUserIdV4(
+      PublicGetUserPublicInfoByUserIdV4 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicInviteUserV4
    */
   public ModelInviteUserResponseV3 publicInviteUserV4(PublicInviteUserV4 input) throws Exception {

@@ -76,6 +76,9 @@ public class ModelsMockTicket extends Model {
   @JsonProperty("ticket_id")
   private String ticketId;
 
+  @JsonProperty("ticket_ids")
+  private List<String> ticketIds;
+
   @JsonIgnore
   public ModelsMockTicket createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

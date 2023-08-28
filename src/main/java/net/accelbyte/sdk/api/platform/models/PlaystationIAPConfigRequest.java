@@ -25,8 +25,28 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class PlaystationIAPConfigRequest extends Model {
 
+  @JsonProperty("backOfficeServerClientId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String backOfficeServerClientId;
+
+  @JsonProperty("backOfficeServerClientSecret")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String backOfficeServerClientSecret;
+
+  @JsonProperty("enableStreamJob")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean enableStreamJob;
+
   @JsonProperty("environment")
   private String environment;
+
+  @JsonProperty("streamName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String streamName;
+
+  @JsonProperty("streamPartnerName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String streamPartnerName;
 
   @JsonIgnore
   public PlaystationIAPConfigRequest createFromJson(String json) throws JsonProcessingException {

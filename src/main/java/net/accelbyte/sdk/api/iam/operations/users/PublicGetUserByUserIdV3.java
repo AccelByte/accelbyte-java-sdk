@@ -23,6 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This endpoint retrieve user attributes. action code: 10129
  *
+ * <p>Substitute endpoint: /v4/public/namespaces/{namespace}/users/{userId} [READ]
+ *
  * @deprecated
  */
 @Deprecated

@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelWebLinkingResponse extends Model {
 
+  @JsonProperty("state")
+  private String state;
+
   @JsonProperty("third_party_url")
   private String thirdPartyUrl;
 

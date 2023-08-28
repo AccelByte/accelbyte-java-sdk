@@ -33,14 +33,19 @@ public class GetUserFriendsWithPlatform extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private Integer limit;
+  private Integer offset;
+
   /**
    * @param namespace required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetUserFriendsWithPlatform(String namespace) {
+  public GetUserFriendsWithPlatform(String namespace, Integer limit, Integer offset) {
     this.namespace = namespace;
+    this.limit = limit;
+    this.offset = offset;
 
     securities.add("Bearer");
   }
@@ -52,6 +57,15 @@ public class GetUserFriendsWithPlatform extends Operation {
       pathParams.put("namespace", this.namespace);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+    queryParams.put(
+        "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    return queryParams;
   }
 
   @Override
@@ -70,5 +84,13 @@ public class GetUserFriendsWithPlatform extends Operation {
     }
     final String json = Helper.convertInputStreamToString(payload);
     return new ModelListBulkUserPlatformsResponse().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("limit", "None");
+    result.put("offset", "None");
+    return result;
   }
 }
