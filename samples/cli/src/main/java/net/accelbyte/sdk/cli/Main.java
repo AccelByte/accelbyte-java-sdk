@@ -45,6 +45,7 @@ import picocli.CommandLine;
       Sessionbrowser.class,
       Social.class,
       Ugc.class,
+      Inventory.class,
     })
 public class Main implements Callable<Integer> {
 
