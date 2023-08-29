@@ -1,6 +1,11 @@
 <a name="v0.45.0"></a>
 ## [v0.45.0]
+### fix
+- **fix:** cli test failed for inventory service
 
+### docs
+- update changelog for ags 3.56
+- **migration-guide:** v0.45.0 to v0.46.0 breaking change in social
 
 <a name="v0.44.0"></a>
 ## [v0.44.0]
