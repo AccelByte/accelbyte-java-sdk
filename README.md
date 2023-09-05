@@ -130,6 +130,17 @@ AccelByteConfig config = new AccelByteConfig(
 AccelByteSDK sdk = new AccelByteSDK(config);
 ```
 
+### Parse Access Token
+
+Use the following to parse access token and get its payload.
+```java
+AccessTokenPayload payload = sdk.parseAccessToken("access token", false);
+
+// or if token validation is required before parsing, then use this
+AccessTokenPayload payload = sdk.parseAccessToken("access token", true);
+```
+`payload` will be null if the parse failed or when validation is required, and it failed.
+
 ### Login
 
 #### Login Using Username and Password

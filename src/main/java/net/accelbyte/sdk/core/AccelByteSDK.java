@@ -86,6 +86,89 @@ public class AccelByteSDK {
   private LoadingCache<String, OauthapiRevocationList> revocationListCache;
   private static final BloomFilter bloomFilter = new BloomFilter();
 
+  protected boolean internalValidateToken(SignedJWT signedJWT, String token, String resource, int action) {
+    try {
+      final JWTClaimsSet jwtClaimsSet = signedJWT.getJWTClaimsSet();
+
+      final boolean isLocalTokenValidationEnabled =
+              jwksCache != null && revocationListCache != null;
+
+      if (isLocalTokenValidationEnabled) {
+        final String kid = signedJWT.getHeader().getKeyID();
+        final RSAPublicKey pubKey = jwksCache.get(DEFAULT_CACHE_KEY).get(kid);
+
+        if (pubKey == null) {
+          return false; // Matching JWK key not found
+        }
+
+        final JWSVerifier verifier = new RSASSAVerifier(pubKey);
+
+        if (!signedJWT.verify(verifier)) {
+          return false; // JWT signature verification failed
+        }
+
+        if (jwtClaimsSet.getExpirationTime() == null
+                || jwtClaimsSet.getExpirationTime().before(new Date())) {
+          return false; // JWT expired
+        }
+
+        final OauthapiRevocationList revocationList = revocationListCache.get(DEFAULT_CACHE_KEY);
+
+        final BloomFilterJSON revokedTokens = revocationList.getRevokedTokens();
+        final long[] bits =
+                revokedTokens.getBits().stream()
+                        .mapToLong(value -> Long.parseUnsignedLong(value.toString()))
+                        .toArray();
+        final int k = revokedTokens.getK();
+        final int m = revokedTokens.getM();
+
+        final boolean isTokenRevoked = bloomFilter.mightContain(token, k, BitSet.valueOf(bits), m);
+
+        if (isTokenRevoked) {
+          return false;
+        }
+
+        final String tokenUserId = (String) jwtClaimsSet.getClaim(CLAIM_SUB);
+
+        if (tokenUserId != null && !tokenUserId.equals("")) {
+          final boolean isUserRevoked =
+                  revocationList.getRevokedUsers().stream()
+                          .anyMatch(ruid -> tokenUserId.equals(ruid.getId()));
+          if (isUserRevoked) {
+            return false;
+          }
+        }
+      } else {
+        final OAuth20 oAuth20 = new OAuth20(this);
+
+        oAuth20.verifyTokenV3(VerifyTokenV3.builder().token(token).build());
+      }
+
+      if (resource == null) {
+        return true; // Check token only without checking resource
+      }
+
+      final List<Map<String, Object>> tokenPermissions =
+              (List<Map<String, Object>>) jwtClaimsSet.getClaim(CLAIM_PERMISSIONS);
+
+      for (Map<String, Object> p : tokenPermissions) {
+        final String tokenPermissionResource = p.get(PERMISSION_RESOURCE).toString();
+        final int tokenPermissionAction = ((Long) p.get(PERMISSION_ACTION)).intValue();
+        if (IsResourceAllowed(tokenPermissionResource, resource)) {
+          if (IsActionAllowed(tokenPermissionAction, action)) {
+            return true;
+          }
+        }
+      }
+
+      return false;
+    } catch (Exception e) {
+      log.warning(e.getMessage());
+    }
+
+    return false;
+  }
+
   public AccelByteSDK(
       HttpClient<?> httpClient,
       TokenRepository tokenRepository,
@@ -401,85 +484,31 @@ public class AccelByteSDK {
   public boolean validateToken(String token, String resource, int action) {
     try {
       final SignedJWT signedJWT = SignedJWT.parse(token);
-      final JWTClaimsSet jwtClaimsSet = signedJWT.getJWTClaimsSet();
-
-      final boolean isLocalTokenValidationEnabled =
-          jwksCache != null && revocationListCache != null;
-
-      if (isLocalTokenValidationEnabled) {
-        final String kid = signedJWT.getHeader().getKeyID();
-        final RSAPublicKey pubKey = jwksCache.get(DEFAULT_CACHE_KEY).get(kid);
-
-        if (pubKey == null) {
-          return false; // Matching JWK key not found
-        }
-
-        final JWSVerifier verifier = new RSASSAVerifier(pubKey);
-
-        if (!signedJWT.verify(verifier)) {
-          return false; // JWT signature verification failed
-        }
-
-        if (jwtClaimsSet.getExpirationTime() == null
-            || jwtClaimsSet.getExpirationTime().before(new Date())) {
-          return false; // JWT expired
-        }
-
-        final OauthapiRevocationList revocationList = revocationListCache.get(DEFAULT_CACHE_KEY);
-
-        final BloomFilterJSON revokedTokens = revocationList.getRevokedTokens();
-        final long[] bits =
-            revokedTokens.getBits().stream()
-                .mapToLong(value -> Long.parseUnsignedLong(value.toString()))
-                .toArray();
-        final int k = revokedTokens.getK();
-        final int m = revokedTokens.getM();
-
-        final boolean isTokenRevoked = bloomFilter.mightContain(token, k, BitSet.valueOf(bits), m);
-
-        if (isTokenRevoked) {
-          return false;
-        }
-
-        final String tokenUserId = (String) jwtClaimsSet.getClaim(CLAIM_SUB);
-
-        if (tokenUserId != null && !tokenUserId.equals("")) {
-          final boolean isUserRevoked =
-              revocationList.getRevokedUsers().stream()
-                  .anyMatch(ruid -> tokenUserId.equals(ruid.getId()));
-          if (isUserRevoked) {
-            return false;
-          }
-        }
-      } else {
-        final OAuth20 oAuth20 = new OAuth20(this);
-
-        oAuth20.verifyTokenV3(VerifyTokenV3.builder().token(token).build());
-      }
-
-      if (resource == null) {
-        return true; // Check token only without checking resource
-      }
-
-      final List<Map<String, Object>> tokenPermissions =
-          (List<Map<String, Object>>) jwtClaimsSet.getClaim(CLAIM_PERMISSIONS);
-
-      for (Map<String, Object> p : tokenPermissions) {
-        final String tokenPermissionResource = p.get(PERMISSION_RESOURCE).toString();
-        final int tokenPermissionAction = ((Long) p.get(PERMISSION_ACTION)).intValue();
-        if (IsResourceAllowed(tokenPermissionResource, resource)) {
-          if (IsActionAllowed(tokenPermissionAction, action)) {
-            return true;
-          }
-        }
-      }
-
-      return false;
+      return internalValidateToken(signedJWT, token, resource, action);
     } catch (Exception e) {
       log.warning(e.getMessage());
     }
 
     return false;
+  }
+
+  public AccessTokenPayload parseAccessToken(String token, Boolean validateFirst) {
+    try {
+      final SignedJWT signedJWT = SignedJWT.parse(token);
+      if (validateFirst) {
+        final boolean isValid = internalValidateToken(signedJWT, token, null,0);
+        if (!isValid)
+          return  null;
+      }
+
+      final String payloadStr = signedJWT.getPayload().toString();
+      return new AccessTokenPayload().createFromJson(payloadStr);
+
+    } catch (Exception e) {
+      log.warning(e.getMessage());
+    }
+
+    return null;
   }
 
   public boolean logout() {
