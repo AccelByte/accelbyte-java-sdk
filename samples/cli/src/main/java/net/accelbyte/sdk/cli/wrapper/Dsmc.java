@@ -85,6 +85,7 @@ import picocli.CommandLine.Command;
       GetAllPodConfigClient.class,
       CreatePodConfigClient.class,
       DeletePodConfigClient.class,
+      ListImagesClient.class,
       ImageLimitClient.class,
       ImageDetailClient.class,
       ListServerClient.class,

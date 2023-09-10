@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.platform.models;
+package net.accelbyte.sdk.api.dsmc.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,24 +23,28 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class IAPClawbackPagingSlicedResult extends Model {
+public class ModelsImageReplication extends Model {
 
-  @JsonProperty("data")
-  private List<ClawbackInfo> data;
+  @JsonProperty("failure_code")
+  private String failureCode;
 
-  @JsonProperty("paging")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Paging paging;
+  @JsonProperty("region")
+  private String region;
+
+  @JsonProperty("status")
+  private String status;
+
+  @JsonProperty("uri")
+  private String uri;
 
   @JsonIgnore
-  public IAPClawbackPagingSlicedResult createFromJson(String json) throws JsonProcessingException {
+  public ModelsImageReplication createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<IAPClawbackPagingSlicedResult> createFromJsonList(String json)
+  public List<ModelsImageReplication> createFromJsonList(String json)
       throws JsonProcessingException {
-    return new ObjectMapper()
-        .readValue(json, new TypeReference<List<IAPClawbackPagingSlicedResult>>() {});
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsImageReplication>>() {});
   }
 }

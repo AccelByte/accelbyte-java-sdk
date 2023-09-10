@@ -50,6 +50,7 @@ public class AdminGetUserPlatformAccountsV3 extends Operation {
   private String after;
   private String before;
   private Integer limit;
+  private String platformId;
 
   /**
    * @param namespace required
@@ -59,12 +60,18 @@ public class AdminGetUserPlatformAccountsV3 extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminGetUserPlatformAccountsV3(
-      String namespace, String userId, String after, String before, Integer limit) {
+      String namespace,
+      String userId,
+      String after,
+      String before,
+      Integer limit,
+      String platformId) {
     this.namespace = namespace;
     this.userId = userId;
     this.after = after;
     this.before = before;
     this.limit = limit;
+    this.platformId = platformId;
 
     securities.add("Bearer");
   }
@@ -87,6 +94,7 @@ public class AdminGetUserPlatformAccountsV3 extends Operation {
     queryParams.put("after", this.after == null ? null : Arrays.asList(this.after));
     queryParams.put("before", this.before == null ? null : Arrays.asList(this.before));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+    queryParams.put("platformId", this.platformId == null ? null : Arrays.asList(this.platformId));
     return queryParams;
   }
 
@@ -117,6 +125,7 @@ public class AdminGetUserPlatformAccountsV3 extends Operation {
     result.put("after", "None");
     result.put("before", "None");
     result.put("limit", "None");
+    result.put("platformId", "None");
     return result;
   }
 }

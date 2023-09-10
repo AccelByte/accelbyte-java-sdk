@@ -21,7 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateInventory
  *
- * <p>Updating an inventory. MaxSlots will be increased from existing value
+ * <p>Updating an inventory. Positive value will increase MaxSlots from existing value Negative
+ * value will decrease MaxSlots from existing value Limited slots can not be changed to unlimited,
+ * vice versa
  *
  * <p>Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY [UPDATE]
  */

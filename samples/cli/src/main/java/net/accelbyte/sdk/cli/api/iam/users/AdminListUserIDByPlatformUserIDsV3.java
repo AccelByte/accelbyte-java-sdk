@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.platform.clawback;
+package net.accelbyte.sdk.cli.api.iam.users;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.wrappers.Clawback;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.iam.wrappers.Users;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "queryIAPClawbackHistory", mixinStandardHelpOptions = true)
-public class QueryIAPClawbackHistory implements Callable<Integer> {
+@Command(name = "adminListUserIDByPlatformUserIDsV3", mixinStandardHelpOptions = true)
+public class AdminListUserIDByPlatformUserIDsV3 implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(QueryIAPClawbackHistory.class);
+  private static final Logger log = LogManager.getLogger(AdminListUserIDByPlatformUserIDsV3.class);
 
   @Option(
       names = {"--namespace"},
@@ -36,44 +36,19 @@ public class QueryIAPClawbackHistory implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--endTime"},
-      description = "endTime")
-  String endTime;
+      names = {"--platformId"},
+      description = "platformId")
+  String platformId;
 
   @Option(
-      names = {"--eventType"},
-      description = "eventType")
-  String eventType;
+      names = {"--rawPID"},
+      description = "rawPID")
+  Boolean rawPID;
 
   @Option(
-      names = {"--externalOrderId"},
-      description = "externalOrderId")
-  String externalOrderId;
-
-  @Option(
-      names = {"--limit"},
-      description = "limit")
-  Integer limit;
-
-  @Option(
-      names = {"--offset"},
-      description = "offset")
-  Integer offset;
-
-  @Option(
-      names = {"--startTime"},
-      description = "startTime")
-  String startTime;
-
-  @Option(
-      names = {"--status"},
-      description = "status")
-  String status;
-
-  @Option(
-      names = {"--userId"},
-      description = "userId")
-  String userId;
+      names = {"--body"},
+      description = "body")
+  String body;
 
   @Option(
       names = {"--logging"},
@@ -81,7 +56,7 @@ public class QueryIAPClawbackHistory implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new QueryIAPClawbackHistory()).execute(args);
+    int exitCode = new CommandLine(new AdminListUserIDByPlatformUserIDsV3()).execute(args);
     System.exit(exitCode);
   }
 
@@ -95,20 +70,18 @@ public class QueryIAPClawbackHistory implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Clawback wrapper = new Clawback(sdk);
-      final net.accelbyte.sdk.api.platform.operations.clawback.QueryIAPClawbackHistory operation =
-          net.accelbyte.sdk.api.platform.operations.clawback.QueryIAPClawbackHistory.builder()
-              .namespace(namespace)
-              .endTime(endTime)
-              .eventType(eventType)
-              .externalOrderId(externalOrderId)
-              .limit(limit)
-              .offset(offset)
-              .startTime(startTime)
-              .status(status)
-              .userId(userId)
-              .build();
-      final IAPClawbackPagingSlicedResult response = wrapper.queryIAPClawbackHistory(operation);
+      final Users wrapper = new Users(sdk);
+      final net.accelbyte.sdk.api.iam.operations.users.AdminListUserIDByPlatformUserIDsV3
+          operation =
+              net.accelbyte.sdk.api.iam.operations.users.AdminListUserIDByPlatformUserIDsV3
+                  .builder()
+                  .namespace(namespace)
+                  .platformId(platformId)
+                  .rawPID(rawPID)
+                  .body(new ObjectMapper().readValue(body, ModelPlatformUserIDRequest.class))
+                  .build();
+      final AccountcommonUserPlatforms response =
+          wrapper.adminListUserIDByPlatformUserIDsV3(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

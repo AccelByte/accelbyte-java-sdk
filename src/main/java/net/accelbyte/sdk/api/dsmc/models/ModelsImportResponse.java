@@ -29,6 +29,7 @@ public class ModelsImportResponse extends Model {
   private List<String> affected;
 
   @JsonProperty("failed")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> failed;
 
   @JsonIgnore

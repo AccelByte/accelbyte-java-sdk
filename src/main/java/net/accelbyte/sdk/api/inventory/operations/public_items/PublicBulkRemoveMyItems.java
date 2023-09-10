@@ -41,7 +41,7 @@ public class PublicBulkRemoveMyItems extends Operation {
   private String inventoryId;
 
   private String namespace;
-  private ApimodelsBulkRemoveItemsReq body;
+  private List<ApimodelsRemoveInventoryItemReq> body;
 
   /**
    * @param inventoryId required
@@ -52,7 +52,7 @@ public class PublicBulkRemoveMyItems extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicBulkRemoveMyItems(
-      String inventoryId, String namespace, ApimodelsBulkRemoveItemsReq body) {
+      String inventoryId, String namespace, List<ApimodelsRemoveInventoryItemReq> body) {
     this.inventoryId = inventoryId;
     this.namespace = namespace;
     this.body = body;
@@ -73,7 +73,7 @@ public class PublicBulkRemoveMyItems extends Operation {
   }
 
   @Override
-  public ApimodelsBulkRemoveItemsReq getBodyParams() {
+  public List<ApimodelsRemoveInventoryItemReq> getBodyParams() {
     return this.body;
   }
 

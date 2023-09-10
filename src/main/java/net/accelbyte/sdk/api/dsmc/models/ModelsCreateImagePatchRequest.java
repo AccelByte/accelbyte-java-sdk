@@ -28,6 +28,9 @@ public class ModelsCreateImagePatchRequest extends Model {
   @JsonProperty("artifactPath")
   private String artifactPath;
 
+  @JsonProperty("coreDumpEnabled")
+  private Boolean coreDumpEnabled;
+
   @JsonProperty("dockerPath")
   private String dockerPath;
 
@@ -46,8 +49,8 @@ public class ModelsCreateImagePatchRequest extends Model {
   @JsonProperty("persistent")
   private Boolean persistent;
 
-  @JsonProperty("uploaderFlags")
-  private List<ModelsUploaderFlag> uploaderFlags;
+  @JsonProperty("uploaderFlag")
+  private String uploaderFlag;
 
   @JsonProperty("version")
   private String version;

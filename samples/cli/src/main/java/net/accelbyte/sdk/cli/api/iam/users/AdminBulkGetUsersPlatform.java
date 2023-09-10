@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.platform.fulfillment;
+package net.accelbyte.sdk.cli.api.iam.users;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.wrappers.Fulfillment;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.iam.wrappers.Users;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,20 +25,15 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "fulfillRewardsV2", mixinStandardHelpOptions = true)
-public class FulfillRewardsV2 implements Callable<Integer> {
+@Command(name = "adminBulkGetUsersPlatform", mixinStandardHelpOptions = true)
+public class AdminBulkGetUsersPlatform implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(FulfillRewardsV2.class);
+  private static final Logger log = LogManager.getLogger(AdminBulkGetUsersPlatform.class);
 
   @Option(
       names = {"--namespace"},
       description = "namespace")
   String namespace;
-
-  @Option(
-      names = {"--userId"},
-      description = "userId")
-  String userId;
 
   @Option(
       names = {"--body"},
@@ -51,7 +46,7 @@ public class FulfillRewardsV2 implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new FulfillRewardsV2()).execute(args);
+    int exitCode = new CommandLine(new AdminBulkGetUsersPlatform()).execute(args);
     System.exit(exitCode);
   }
 
@@ -65,14 +60,14 @@ public class FulfillRewardsV2 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Fulfillment wrapper = new Fulfillment(sdk);
-      final net.accelbyte.sdk.api.platform.operations.fulfillment.FulfillRewardsV2 operation =
-          net.accelbyte.sdk.api.platform.operations.fulfillment.FulfillRewardsV2.builder()
+      final Users wrapper = new Users(sdk);
+      final net.accelbyte.sdk.api.iam.operations.users.AdminBulkGetUsersPlatform operation =
+          net.accelbyte.sdk.api.iam.operations.users.AdminBulkGetUsersPlatform.builder()
               .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, RewardsRequest.class))
+              .body(new ObjectMapper().readValue(body, ModelUserIDsRequest.class))
               .build();
-      final FulfillmentResult response = wrapper.fulfillRewardsV2(operation);
+      final ModelListBulkUserPlatformsResponse response =
+          wrapper.adminBulkGetUsersPlatform(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

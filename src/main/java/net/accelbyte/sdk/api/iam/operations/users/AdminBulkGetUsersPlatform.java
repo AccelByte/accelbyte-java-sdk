@@ -6,32 +6,35 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.platform.operations.clawback;
+package net.accelbyte.sdk.api.iam.operations.users;
 
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.platform.models.*;
+import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * mockPlayStationStreamEvent
+ * AdminBulkGetUsersPlatform
  *
- * <p>Mock Sync PlayStation Clawback event..
+ * <p>Notes:
  *
- * <p>Other detail info:
+ * <p>* Required permission 'ADMIN:NAMESPACE:{namespace}:USER [READ]'
  *
- * <p>* Required permission : resource=ADMIN:NAMESPACE:{namespace}:IAP:CLAWBACK, action=1(CREATE)
+ * <p>* This endpoint bulk get users' basic info by userId, max allowed 100 at a time
+ *
+ * <p>* If namespace is game, will search by game user Id, other wise will search by publisher
+ * namespace
  */
 @Getter
 @Setter
-public class MockPlayStationStreamEvent extends Operation {
+public class AdminBulkGetUsersPlatform extends Operation {
   /** generated field's value */
-  private String path = "/platform/admin/namespaces/{namespace}/iap/clawback/playstation/mock";
+  private String path = "/iam/v3/admin/namespaces/{namespace}/users/bulk/platforms";
 
   private String method = "POST";
   private List<String> consumes = Arrays.asList("application/json");
@@ -41,15 +44,16 @@ public class MockPlayStationStreamEvent extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private StreamEvent body;
+  private ModelUserIDsRequest body;
 
   /**
    * @param namespace required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public MockPlayStationStreamEvent(String namespace, StreamEvent body) {
+  public AdminBulkGetUsersPlatform(String namespace, ModelUserIDsRequest body) {
     this.namespace = namespace;
     this.body = body;
 
@@ -66,7 +70,7 @@ public class MockPlayStationStreamEvent extends Operation {
   }
 
   @Override
-  public StreamEvent getBodyParams() {
+  public ModelUserIDsRequest getBodyParams() {
     return this.body;
   }
 
@@ -78,11 +82,13 @@ public class MockPlayStationStreamEvent extends Operation {
     return true;
   }
 
-  public void handleEmptyResponse(int code, String contentType, InputStream payload)
-      throws HttpResponseException, IOException {
-    if (code != 204) {
+  public ModelListBulkUserPlatformsResponse parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
+    if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
+    final String json = Helper.convertInputStreamToString(payload);
+    return new ModelListBulkUserPlatformsResponse().createFromJson(json);
   }
 }

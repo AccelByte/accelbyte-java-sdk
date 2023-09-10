@@ -198,26 +198,6 @@ public class IAP {
   }
 
   /**
-   * @see ValidateExistedPlaystationIAPConfig
-   */
-  public TestResult validateExistedPlaystationIAPConfig(ValidateExistedPlaystationIAPConfig input)
-      throws Exception {
-    final HttpResponse httpResponse = sdk.runRequest(input);
-    return input.parseResponse(
-        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-  }
-
-  /**
-   * @see ValidatePlaystationIAPConfig
-   */
-  public TestResult validatePlaystationIAPConfig(ValidatePlaystationIAPConfig input)
-      throws Exception {
-    final HttpResponse httpResponse = sdk.runRequest(input);
-    return input.parseResponse(
-        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-  }
-
-  /**
    * @see GetSteamIAPConfig
    */
   public SteamIAPConfig getSteamIAPConfig(GetSteamIAPConfig input) throws Exception {

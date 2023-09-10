@@ -30,7 +30,7 @@ import net.accelbyte.sdk.core.util.Helper;
 public class AdminGetInventoryItem extends Operation {
   /** generated field's value */
   private String path =
-      "/inventory/v1/admin/namespaces/{namespace}/inventories/{inventoryId}/items/{itemId}";
+      "/inventory/v1/admin/namespaces/{namespace}/inventories/{inventoryId}/slots/{slotId}/sourceItems/{sourceItemId}";
 
   private String method = "GET";
   private List<String> consumes = Arrays.asList("application/json");
@@ -40,21 +40,25 @@ public class AdminGetInventoryItem extends Operation {
   /** fields as input parameter */
   private String inventoryId;
 
-  private String itemId;
   private String namespace;
+  private String slotId;
+  private String sourceItemId;
 
   /**
    * @param inventoryId required
-   * @param itemId required
    * @param namespace required
+   * @param slotId required
+   * @param sourceItemId required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public AdminGetInventoryItem(String inventoryId, String itemId, String namespace) {
+  public AdminGetInventoryItem(
+      String inventoryId, String namespace, String slotId, String sourceItemId) {
     this.inventoryId = inventoryId;
-    this.itemId = itemId;
     this.namespace = namespace;
+    this.slotId = slotId;
+    this.sourceItemId = sourceItemId;
 
     securities.add("Bearer");
   }
@@ -65,11 +69,14 @@ public class AdminGetInventoryItem extends Operation {
     if (this.inventoryId != null) {
       pathParams.put("inventoryId", this.inventoryId);
     }
-    if (this.itemId != null) {
-      pathParams.put("itemId", this.itemId);
-    }
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
+    }
+    if (this.slotId != null) {
+      pathParams.put("slotId", this.slotId);
+    }
+    if (this.sourceItemId != null) {
+      pathParams.put("sourceItemId", this.sourceItemId);
     }
     return pathParams;
   }
@@ -79,10 +86,13 @@ public class AdminGetInventoryItem extends Operation {
     if (this.inventoryId == null) {
       return false;
     }
-    if (this.itemId == null) {
+    if (this.namespace == null) {
       return false;
     }
-    if (this.namespace == null) {
+    if (this.slotId == null) {
+      return false;
+    }
+    if (this.sourceItemId == null) {
       return false;
     }
     return true;

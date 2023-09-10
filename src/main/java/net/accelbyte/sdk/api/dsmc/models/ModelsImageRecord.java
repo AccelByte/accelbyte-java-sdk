@@ -28,6 +28,9 @@ public class ModelsImageRecord extends Model {
   @JsonProperty("artifactPath")
   private String artifactPath;
 
+  @JsonProperty("coreDumpEnabled")
+  private Boolean coreDumpEnabled;
+
   @JsonProperty("createdAt")
   private String createdAt;
 
@@ -36,6 +39,12 @@ public class ModelsImageRecord extends Model {
 
   @JsonProperty("image")
   private String image;
+
+  @JsonProperty("imageReplications")
+  private List<ModelsImageReplication> imageReplications;
+
+  @JsonProperty("imageReplicationsMap")
+  private Map<String, ModelsImageReplication> imageReplicationsMap;
 
   @JsonProperty("imageSize")
   private Integer imageSize;

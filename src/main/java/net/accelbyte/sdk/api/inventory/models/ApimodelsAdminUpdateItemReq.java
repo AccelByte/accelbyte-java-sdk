@@ -28,11 +28,14 @@ public class ApimodelsAdminUpdateItemReq extends Model {
   @JsonProperty("customAttributes")
   private Map<String, ?> customAttributes;
 
-  @JsonProperty("id")
-  private String id;
-
   @JsonProperty("serverCustomAttributes")
   private Map<String, ?> serverCustomAttributes;
+
+  @JsonProperty("slotId")
+  private String slotId;
+
+  @JsonProperty("sourceItemId")
+  private String sourceItemId;
 
   @JsonProperty("tags")
   private List<String> tags;

@@ -28,6 +28,12 @@ public class ApimodelsConsumeItemReq extends Model {
   @JsonProperty("qty")
   private Integer qty;
 
+  @JsonProperty("slotId")
+  private String slotId;
+
+  @JsonProperty("sourceItemId")
+  private String sourceItemId;
+
   @JsonIgnore
   public ApimodelsConsumeItemReq createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

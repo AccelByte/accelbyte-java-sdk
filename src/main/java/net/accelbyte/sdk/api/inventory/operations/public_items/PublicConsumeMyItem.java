@@ -28,7 +28,7 @@ import net.accelbyte.sdk.core.util.Helper;
 public class PublicConsumeMyItem extends Operation {
   /** generated field's value */
   private String path =
-      "/inventory/v1/public/namespaces/{namespace}/users/me/inventories/{inventoryId}/items/{itemId}/consume";
+      "/inventory/v1/public/namespaces/{namespace}/users/me/inventories/{inventoryId}/consume";
 
   private String method = "POST";
   private List<String> consumes = Arrays.asList("application/json");
@@ -38,23 +38,19 @@ public class PublicConsumeMyItem extends Operation {
   /** fields as input parameter */
   private String inventoryId;
 
-  private String itemId;
   private String namespace;
   private ApimodelsConsumeItemReq body;
 
   /**
    * @param inventoryId required
-   * @param itemId required
    * @param namespace required
    * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public PublicConsumeMyItem(
-      String inventoryId, String itemId, String namespace, ApimodelsConsumeItemReq body) {
+  public PublicConsumeMyItem(String inventoryId, String namespace, ApimodelsConsumeItemReq body) {
     this.inventoryId = inventoryId;
-    this.itemId = itemId;
     this.namespace = namespace;
     this.body = body;
 
@@ -66,9 +62,6 @@ public class PublicConsumeMyItem extends Operation {
     Map<String, String> pathParams = new HashMap<>();
     if (this.inventoryId != null) {
       pathParams.put("inventoryId", this.inventoryId);
-    }
-    if (this.itemId != null) {
-      pathParams.put("itemId", this.itemId);
     }
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
@@ -84,9 +77,6 @@ public class PublicConsumeMyItem extends Operation {
   @Override
   public boolean isValid() {
     if (this.inventoryId == null) {
-      return false;
-    }
-    if (this.itemId == null) {
       return false;
     }
     if (this.namespace == null) {

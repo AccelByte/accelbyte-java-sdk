@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.cli.api.inventory.admin_items;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
@@ -76,7 +77,10 @@ public class AdminBulkRemoveItems implements Callable<Integer> {
               .inventoryId(inventoryId)
               .namespace(namespace)
               .userId(userId)
-              .body(new ObjectMapper().readValue(body, ApimodelsBulkRemoveItemsReq.class))
+              .body(
+                  new ObjectMapper()
+                      .readValue(
+                          body, new TypeReference<List<ApimodelsRemoveInventoryItemReq>>() {}))
               .build();
       final List<ApimodelsUpdateItemResp> response = wrapper.adminBulkRemoveItems(operation);
       final String responseString =

@@ -40,10 +40,6 @@ public class MockIAPReceipt extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String region;
 
-  @JsonProperty("transactionId")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String transactionId;
-
   @JsonProperty("type")
   private String type;
 

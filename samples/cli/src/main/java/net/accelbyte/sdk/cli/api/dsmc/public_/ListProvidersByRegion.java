@@ -60,7 +60,7 @@ public class ListProvidersByRegion implements Callable<Integer> {
           net.accelbyte.sdk.api.dsmc.operations.public_.ListProvidersByRegion.builder()
               .region(region)
               .build();
-      final ModelsDefaultProvider response = wrapper.listProvidersByRegion(operation);
+      final List<String> response = wrapper.listProvidersByRegion(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

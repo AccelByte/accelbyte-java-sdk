@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.inventory.models;
+package net.accelbyte.sdk.api.ugc.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,20 +23,21 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ApimodelsBulkRemoveItemsReq extends Model {
+public class ModelsGetContentBulkByShareCodesRequest extends Model {
 
-  @JsonProperty("ids")
-  private List<String> ids;
+  @JsonProperty("shareCodes")
+  private List<String> shareCodes;
 
   @JsonIgnore
-  public ApimodelsBulkRemoveItemsReq createFromJson(String json) throws JsonProcessingException {
+  public ModelsGetContentBulkByShareCodesRequest createFromJson(String json)
+      throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ApimodelsBulkRemoveItemsReq> createFromJsonList(String json)
+  public List<ModelsGetContentBulkByShareCodesRequest> createFromJsonList(String json)
       throws JsonProcessingException {
     return new ObjectMapper()
-        .readValue(json, new TypeReference<List<ApimodelsBulkRemoveItemsReq>>() {});
+        .readValue(json, new TypeReference<List<ModelsGetContentBulkByShareCodesRequest>>() {});
   }
 }

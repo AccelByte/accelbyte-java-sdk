@@ -56,6 +56,10 @@ public class AccountcommonUserLinkedPlatformV3 extends Model {
   @JsonProperty("userId")
   private String userId;
 
+  @JsonProperty("xuid")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String xuid;
+
   @JsonIgnore
   public AccountcommonUserLinkedPlatformV3 createFromJson(String json)
       throws JsonProcessingException {

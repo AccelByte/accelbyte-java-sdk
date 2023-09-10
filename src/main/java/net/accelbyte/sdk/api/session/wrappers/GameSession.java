@@ -150,10 +150,9 @@ public class GameSession {
   /**
    * @see PublicRevokeGameSessionCode
    */
-  public ApimodelsGameSessionResponse publicRevokeGameSessionCode(PublicRevokeGameSessionCode input)
-      throws Exception {
+  public void publicRevokeGameSessionCode(PublicRevokeGameSessionCode input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    return input.parseResponse(
+    input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

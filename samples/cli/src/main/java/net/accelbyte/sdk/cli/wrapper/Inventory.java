@@ -42,21 +42,21 @@ import picocli.CommandLine.Command;
       AdminListTags.class,
       AdminCreateTag.class,
       AdminDeleteTag.class,
+      AdminConsumeUserItem.class,
       AdminBulkUpdateMyItems.class,
       AdminSaveItemToInventory.class,
       AdminBulkRemoveItems.class,
-      AdminConsumeUserItem.class,
       AdminSaveItem.class,
       PublicListInventoryConfigurations.class,
       PublicListItemTypes.class,
       PublicListTags.class,
       PublicListInventories.class,
+      PublicConsumeMyItem.class,
       PublicListItems.class,
       PublicBulkUpdateMyItems.class,
       PublicBulkRemoveMyItems.class,
       PublicMoveMyItems.class,
       PublicGetItem.class,
-      PublicConsumeMyItem.class,
     })
 public class Inventory implements Runnable {
 

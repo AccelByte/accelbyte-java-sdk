@@ -1,3 +1,14 @@
+<a name="v0.46.0"></a>
+## [v0.46.0]
+### fix
+- **:** wrong file naming for migration guide v0.45
+- **:** remove unused imports in parse access token test
+### test
+- **integration:** cloudsave player record
+### feat
+- **:** add parse access token function
+
+
 <a name="v0.45.0"></a>
 ## [v0.45.0]
 ### fix

@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.cli.api.inventory.public_items;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
@@ -72,7 +73,10 @@ public class PublicBulkRemoveMyItems implements Callable<Integer> {
                   .builder()
                   .inventoryId(inventoryId)
                   .namespace(namespace)
-                  .body(new ObjectMapper().readValue(body, ApimodelsBulkRemoveItemsReq.class))
+                  .body(
+                      new ObjectMapper()
+                          .readValue(
+                              body, new TypeReference<List<ApimodelsRemoveInventoryItemReq>>() {}))
                   .build();
       final List<ApimodelsUpdateItemResp> response = wrapper.publicBulkRemoveMyItems(operation);
       final String responseString =

@@ -81,10 +81,9 @@ public class Party {
   /**
    * @see PublicRevokePartyCode
    */
-  public ApimodelsPartySessionResponse publicRevokePartyCode(PublicRevokePartyCode input)
-      throws Exception {
+  public void publicRevokePartyCode(PublicRevokePartyCode input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    return input.parseResponse(
+    input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

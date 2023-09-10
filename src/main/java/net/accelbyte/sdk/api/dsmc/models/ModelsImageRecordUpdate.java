@@ -31,8 +31,14 @@ public class ModelsImageRecordUpdate extends Model {
   @JsonProperty("image")
   private String image;
 
+  @JsonProperty("imageReplicationsMap")
+  private Map<String, ModelsImageReplication> imageReplicationsMap;
+
   @JsonProperty("namespace")
   private String namespace;
+
+  @JsonProperty("patchVersion")
+  private String patchVersion;
 
   @JsonProperty("persistent")
   private Boolean persistent;

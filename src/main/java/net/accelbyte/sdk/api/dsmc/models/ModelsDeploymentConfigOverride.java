@@ -54,9 +54,11 @@ public class ModelsDeploymentConfigOverride extends Model {
   private String name;
 
   @JsonProperty("region_overrides")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ModelsPodCountConfigOverride> regionOverrides;
 
   @JsonProperty("regions")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> regions;
 
   @JsonProperty("session_timeout")

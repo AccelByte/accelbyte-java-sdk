@@ -19,52 +19,47 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * PublicGetUserPlatformAccountsV3
+ * AdminListUserIDByPlatformUserIDsV3
  *
- * <p>This endpoint retrieves platform accounts linked to user. Required valid user authorization.
+ * <p>Admin List User ID By Platform User ID Required permission 'ADMIN:NAMESPACE:{namespace}:USER
+ * [READ]' This endpoint intended to list game user ID from the given namespace This endpoint return
+ * list of user ID by given platform ID and list of platform user ID
  *
- * <p>action code: 10128
+ * <p>nintendo platform user ID : NSA ID need to be appended with Environment ID using colon as
+ * separator. e.g kmzwa8awaa:dd1
  */
 @Getter
 @Setter
-public class PublicGetUserPlatformAccountsV3 extends Operation {
+public class AdminListUserIDByPlatformUserIDsV3 extends Operation {
   /** generated field's value */
-  private String path = "/iam/v3/public/namespaces/{namespace}/users/{userId}/platforms";
+  private String path = "/iam/v3/admin/namespaces/{namespace}/platforms/{platformId}/users";
 
-  private String method = "GET";
-  private List<String> consumes = Arrays.asList();
+  private String method = "POST";
+  private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 
   /** fields as input parameter */
   private String namespace;
 
-  private String userId;
-  private String after;
-  private String before;
-  private Integer limit;
   private String platformId;
+  private Boolean rawPID;
+  private ModelPlatformUserIDRequest body;
 
   /**
    * @param namespace required
-   * @param userId required
+   * @param platformId required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public PublicGetUserPlatformAccountsV3(
-      String namespace,
-      String userId,
-      String after,
-      String before,
-      Integer limit,
-      String platformId) {
+  public AdminListUserIDByPlatformUserIDsV3(
+      String namespace, String platformId, Boolean rawPID, ModelPlatformUserIDRequest body) {
     this.namespace = namespace;
-    this.userId = userId;
-    this.after = after;
-    this.before = before;
-    this.limit = limit;
     this.platformId = platformId;
+    this.rawPID = rawPID;
+    this.body = body;
 
     securities.add("Bearer");
   }
@@ -75,8 +70,8 @@ public class PublicGetUserPlatformAccountsV3 extends Operation {
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
     }
-    if (this.userId != null) {
-      pathParams.put("userId", this.userId);
+    if (this.platformId != null) {
+      pathParams.put("platformId", this.platformId);
     }
     return pathParams;
   }
@@ -84,11 +79,14 @@ public class PublicGetUserPlatformAccountsV3 extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
-    queryParams.put("after", this.after == null ? null : Arrays.asList(this.after));
-    queryParams.put("before", this.before == null ? null : Arrays.asList(this.before));
-    queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
-    queryParams.put("platformId", this.platformId == null ? null : Arrays.asList(this.platformId));
+    queryParams.put(
+        "rawPID", this.rawPID == null ? null : Arrays.asList(String.valueOf(this.rawPID)));
     return queryParams;
+  }
+
+  @Override
+  public ModelPlatformUserIDRequest getBodyParams() {
+    return this.body;
   }
 
   @Override
@@ -96,29 +94,26 @@ public class PublicGetUserPlatformAccountsV3 extends Operation {
     if (this.namespace == null) {
       return false;
     }
-    if (this.userId == null) {
+    if (this.platformId == null) {
       return false;
     }
     return true;
   }
 
-  public AccountcommonUserLinkedPlatformsResponseV3 parseResponse(
-      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
+  public AccountcommonUserPlatforms parseResponse(int code, String contentType, InputStream payload)
+      throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new AccountcommonUserLinkedPlatformsResponseV3().createFromJson(json);
+    return new AccountcommonUserPlatforms().createFromJson(json);
   }
 
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
-    result.put("after", "None");
-    result.put("before", "None");
-    result.put("limit", "None");
-    result.put("platformId", "None");
+    result.put("rawPID", "None");
     return result;
   }
 }

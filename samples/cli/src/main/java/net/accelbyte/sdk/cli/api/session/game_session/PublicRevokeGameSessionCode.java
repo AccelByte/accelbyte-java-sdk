@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.cli.api.session.game_session;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.session.models.*;
@@ -68,10 +67,8 @@ public class PublicRevokeGameSessionCode implements Callable<Integer> {
                   .namespace(namespace)
                   .sessionId(sessionId)
                   .build();
-      final ApimodelsGameSessionResponse response = wrapper.publicRevokeGameSessionCode(operation);
-      final String responseString =
-          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful\n{}", responseString);
+      wrapper.publicRevokeGameSessionCode(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

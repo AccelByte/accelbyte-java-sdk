@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.platform.models;
+package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,43 +23,39 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class StreamEvent extends Model {
+public class ModelUserWithPlatformInfo extends Model {
 
-  @JsonProperty("body")
+  @JsonProperty("avatarUrl")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private StreamEventBody body;
+  private String avatarUrl;
 
-  @JsonProperty("eventDomain")
+  @JsonProperty("displayName")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String eventDomain;
+  private String displayName;
 
-  @JsonProperty("eventSource")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String eventSource;
+  @JsonProperty("platformInfos")
+  private List<ModelUserPlatformInfo> platformInfos;
 
-  @JsonProperty("eventType")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String eventType;
+  @JsonProperty("userId")
+  private String userId;
 
-  @JsonProperty("eventVersion")
+  @JsonProperty("username")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer eventVersion;
+  private String username;
 
-  @JsonProperty("id")
+  @JsonProperty("xuid")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String id;
-
-  @JsonProperty("timestamp")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String timestamp;
+  private String xuid;
 
   @JsonIgnore
-  public StreamEvent createFromJson(String json) throws JsonProcessingException {
+  public ModelUserWithPlatformInfo createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<StreamEvent> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<StreamEvent>>() {});
+  public List<ModelUserWithPlatformInfo> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelUserWithPlatformInfo>>() {});
   }
 }

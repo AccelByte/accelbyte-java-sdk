@@ -25,11 +25,14 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelsTradeItem extends Model {
 
-  @JsonProperty("id")
-  private String id;
-
   @JsonProperty("qty")
   private Integer qty;
+
+  @JsonProperty("slotId")
+  private String slotId;
+
+  @JsonProperty("sourceItemId")
+  private String sourceItemId;
 
   @JsonIgnore
   public ApimodelsTradeItem createFromJson(String json) throws JsonProcessingException {

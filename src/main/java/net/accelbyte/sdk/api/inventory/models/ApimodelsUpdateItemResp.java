@@ -29,8 +29,11 @@ public class ApimodelsUpdateItemResp extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private ApimodelsErrorResponse errorDetails;
 
-  @JsonProperty("id")
-  private String id;
+  @JsonProperty("slotId")
+  private String slotId;
+
+  @JsonProperty("sourceItemId")
+  private String sourceItemId;
 
   @JsonProperty("success")
   private Boolean success;

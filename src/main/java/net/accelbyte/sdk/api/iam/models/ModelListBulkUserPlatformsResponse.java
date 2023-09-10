@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.platform.models;
+package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,29 +23,21 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class AdditionalDataEntitlement extends Model {
+public class ModelListBulkUserPlatformsResponse extends Model {
 
-  @JsonProperty("clientTransaction")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private List<ClientTransaction> clientTransaction;
-
-  @JsonProperty("entitlementId")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String entitlementId;
-
-  @JsonProperty("usageCount")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer usageCount;
+  @JsonProperty("data")
+  private List<ModelUserWithPlatformInfo> data;
 
   @JsonIgnore
-  public AdditionalDataEntitlement createFromJson(String json) throws JsonProcessingException {
+  public ModelListBulkUserPlatformsResponse createFromJson(String json)
+      throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<AdditionalDataEntitlement> createFromJsonList(String json)
+  public List<ModelListBulkUserPlatformsResponse> createFromJsonList(String json)
       throws JsonProcessingException {
     return new ObjectMapper()
-        .readValue(json, new TypeReference<List<AdditionalDataEntitlement>>() {});
+        .readValue(json, new TypeReference<List<ModelListBulkUserPlatformsResponse>>() {});
   }
 }

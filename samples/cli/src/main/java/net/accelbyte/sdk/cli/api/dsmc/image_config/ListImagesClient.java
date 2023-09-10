@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.platform.iap;
+package net.accelbyte.sdk.cli.api.dsmc.image_config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.wrappers.IAP;
+import net.accelbyte.sdk.api.dsmc.models.*;
+import net.accelbyte.sdk.api.dsmc.wrappers.ImageConfig;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "validatePlaystationIAPConfig", mixinStandardHelpOptions = true)
-public class ValidatePlaystationIAPConfig implements Callable<Integer> {
+@Command(name = "listImagesClient", mixinStandardHelpOptions = true)
+public class ListImagesClient implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(ValidatePlaystationIAPConfig.class);
+  private static final Logger log = LogManager.getLogger(ListImagesClient.class);
 
   @Option(
       names = {"--namespace"},
@@ -36,9 +36,29 @@ public class ValidatePlaystationIAPConfig implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--body"},
-      description = "body")
-  String body;
+      names = {"--count"},
+      description = "count")
+  Integer count;
+
+  @Option(
+      names = {"--offset"},
+      description = "offset")
+  Integer offset;
+
+  @Option(
+      names = {"--q"},
+      description = "q")
+  String q;
+
+  @Option(
+      names = {"--sortBy"},
+      description = "sortBy")
+  String sortBy;
+
+  @Option(
+      names = {"--sortDirection"},
+      description = "sortDirection")
+  String sortDirection;
 
   @Option(
       names = {"--logging"},
@@ -46,7 +66,7 @@ public class ValidatePlaystationIAPConfig implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new ValidatePlaystationIAPConfig()).execute(args);
+    int exitCode = new CommandLine(new ListImagesClient()).execute(args);
     System.exit(exitCode);
   }
 
@@ -60,13 +80,17 @@ public class ValidatePlaystationIAPConfig implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.ValidatePlaystationIAPConfig operation =
-          net.accelbyte.sdk.api.platform.operations.iap.ValidatePlaystationIAPConfig.builder()
+      final ImageConfig wrapper = new ImageConfig(sdk);
+      final net.accelbyte.sdk.api.dsmc.operations.image_config.ListImagesClient operation =
+          net.accelbyte.sdk.api.dsmc.operations.image_config.ListImagesClient.builder()
               .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, PlaystationIAPConfigRequest.class))
+              .count(count)
+              .offset(offset)
+              .q(q)
+              .sortBy(sortBy)
+              .sortDirection(sortDirection)
               .build();
-      final TestResult response = wrapper.validatePlaystationIAPConfig(operation);
+      final ModelsListImageResponse response = wrapper.listImagesClient(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

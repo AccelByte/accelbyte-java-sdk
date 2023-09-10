@@ -41,6 +41,15 @@ public class AdminItems {
   }
 
   /**
+   * @see AdminConsumeUserItem
+   */
+  public ApimodelsItemResp adminConsumeUserItem(AdminConsumeUserItem input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminBulkUpdateMyItems
    */
   public List<ApimodelsUpdateItemResp> adminBulkUpdateMyItems(AdminBulkUpdateMyItems input)
@@ -65,15 +74,6 @@ public class AdminItems {
    */
   public List<ApimodelsUpdateItemResp> adminBulkRemoveItems(AdminBulkRemoveItems input)
       throws Exception {
-    final HttpResponse httpResponse = sdk.runRequest(input);
-    return input.parseResponse(
-        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-  }
-
-  /**
-   * @see AdminConsumeUserItem
-   */
-  public ApimodelsItemResp adminConsumeUserItem(AdminConsumeUserItem input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

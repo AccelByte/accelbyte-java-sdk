@@ -30,7 +30,7 @@ import net.accelbyte.sdk.core.util.Helper;
 public class AdminConsumeUserItem extends Operation {
   /** generated field's value */
   private String path =
-      "/inventory/v1/admin/namespaces/{namespace}/users/{userId}/inventories/{inventoryId}/items/{itemId}/consume";
+      "/inventory/v1/admin/namespaces/{namespace}/users/{userId}/inventories/{inventoryId}/consume";
 
   private String method = "POST";
   private List<String> consumes = Arrays.asList("application/json");
@@ -40,14 +40,12 @@ public class AdminConsumeUserItem extends Operation {
   /** fields as input parameter */
   private String inventoryId;
 
-  private String itemId;
   private String namespace;
   private String userId;
   private ApimodelsConsumeItemReq body;
 
   /**
    * @param inventoryId required
-   * @param itemId required
    * @param namespace required
    * @param userId required
    * @param body required
@@ -56,13 +54,8 @@ public class AdminConsumeUserItem extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminConsumeUserItem(
-      String inventoryId,
-      String itemId,
-      String namespace,
-      String userId,
-      ApimodelsConsumeItemReq body) {
+      String inventoryId, String namespace, String userId, ApimodelsConsumeItemReq body) {
     this.inventoryId = inventoryId;
-    this.itemId = itemId;
     this.namespace = namespace;
     this.userId = userId;
     this.body = body;
@@ -75,9 +68,6 @@ public class AdminConsumeUserItem extends Operation {
     Map<String, String> pathParams = new HashMap<>();
     if (this.inventoryId != null) {
       pathParams.put("inventoryId", this.inventoryId);
-    }
-    if (this.itemId != null) {
-      pathParams.put("itemId", this.itemId);
     }
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
@@ -96,9 +86,6 @@ public class AdminConsumeUserItem extends Operation {
   @Override
   public boolean isValid() {
     if (this.inventoryId == null) {
-      return false;
-    }
-    if (this.itemId == null) {
       return false;
     }
     if (this.namespace == null) {

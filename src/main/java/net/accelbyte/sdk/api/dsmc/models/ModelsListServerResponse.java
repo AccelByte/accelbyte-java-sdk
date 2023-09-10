@@ -29,6 +29,7 @@ public class ModelsListServerResponse extends Model {
   private ModelsPagingCursor paging;
 
   @JsonProperty("servers")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsServer> servers;
 
   @JsonIgnore

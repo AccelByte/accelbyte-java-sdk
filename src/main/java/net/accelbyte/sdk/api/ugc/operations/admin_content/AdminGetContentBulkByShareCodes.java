@@ -6,31 +6,33 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.platform.operations.iap;
+package net.accelbyte.sdk.api.ugc.operations.admin_content;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.platform.models.*;
+import net.accelbyte.sdk.api.ugc.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * validatePlaystationIAPConfig
+ * AdminGetContentBulkByShareCodes
  *
- * <p>Validate playstation iap config. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE) * Returns : Test Results
+ * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:*:CONTENT [READ]. Maximum sharecodes per
+ * request 100
  */
 @Getter
 @Setter
-public class ValidatePlaystationIAPConfig extends Operation {
+public class AdminGetContentBulkByShareCodes extends Operation {
   /** generated field's value */
-  private String path = "/platform/admin/namespaces/{namespace}/iap/config/playstation/validate";
+  private String path = "/ugc/v1/admin/namespaces/{namespace}/contents/sharecodes/bulk";
 
-  private String method = "PUT";
+  private String method = "POST";
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
@@ -38,15 +40,17 @@ public class ValidatePlaystationIAPConfig extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private PlaystationIAPConfigRequest body;
+  private ModelsGetContentBulkByShareCodesRequest body;
 
   /**
    * @param namespace required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public ValidatePlaystationIAPConfig(String namespace, PlaystationIAPConfigRequest body) {
+  public AdminGetContentBulkByShareCodes(
+      String namespace, ModelsGetContentBulkByShareCodesRequest body) {
     this.namespace = namespace;
     this.body = body;
 
@@ -63,7 +67,7 @@ public class ValidatePlaystationIAPConfig extends Operation {
   }
 
   @Override
-  public PlaystationIAPConfigRequest getBodyParams() {
+  public ModelsGetContentBulkByShareCodesRequest getBodyParams() {
     return this.body;
   }
 
@@ -75,13 +79,14 @@ public class ValidatePlaystationIAPConfig extends Operation {
     return true;
   }
 
-  public TestResult parseResponse(int code, String contentType, InputStream payload)
-      throws HttpResponseException, IOException {
+  public List<ModelsContentDownloadResponse> parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new TestResult().createFromJson(json);
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsContentDownloadResponse>>() {});
   }
 }

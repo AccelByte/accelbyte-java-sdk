@@ -37,6 +37,7 @@
 | `/dsmcontroller/admin/namespaces/{namespace}/images/versions/{version}/patches/{versionPatch}` | GET | GetImagePatchDetail | [GetImagePatchDetail](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/image_config/GetImagePatchDetail.java) | [GetImagePatchDetail](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/image_config/GetImagePatchDetail.java) |
 | `/dsmcontroller/admin/namespaces/{namespace}/repository` | GET | GetRepository | [GetRepository](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/image_config/GetRepository.java) | [GetRepository](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/image_config/GetRepository.java) |
 | `/dsmcontroller/admin/repository` | POST | CreateRepository | [CreateRepository](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/image_config/CreateRepository.java) | [CreateRepository](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/image_config/CreateRepository.java) |
+| `/dsmcontroller/namespaces/{namespace}/images` | GET | ListImagesClient | [ListImagesClient](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/image_config/ListImagesClient.java) | [ListImagesClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/image_config/ListImagesClient.java) |
 | `/dsmcontroller/namespaces/{namespace}/images/limit` | GET | ImageLimitClient | [ImageLimitClient](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/image_config/ImageLimitClient.java) | [ImageLimitClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/image_config/ImageLimitClient.java) |
 | `/dsmcontroller/namespaces/{namespace}/images/versions/{version}` | GET | ImageDetailClient | [ImageDetailClient](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/image_config/ImageDetailClient.java) | [ImageDetailClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/image_config/ImageDetailClient.java) |
 
@@ -155,6 +156,7 @@
 | `models.GetImagePatchDetailResponse` | [ModelsGetImagePatchDetailResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsGetImagePatchDetailResponse.java) |
 | `models.ImageRecord` | [ModelsImageRecord](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsImageRecord.java) |
 | `models.ImageRecordUpdate` | [ModelsImageRecordUpdate](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsImageRecordUpdate.java) |
+| `models.ImageReplication` | [ModelsImageReplication](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsImageReplication.java) |
 | `models.ImportResponse` | [ModelsImportResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsImportResponse.java) |
 | `models.InstanceSpec` | [ModelsInstanceSpec](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsInstanceSpec.java) |
 | `models.ListConfigResponse` | [ModelsListConfigResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsListConfigResponse.java) |
@@ -188,5 +190,4 @@
 | `models.UpdatePodConfigRequest` | [ModelsUpdatePodConfigRequest](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsUpdatePodConfigRequest.java) |
 | `models.UpdatePortRequest` | [ModelsUpdatePortRequest](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsUpdatePortRequest.java) |
 | `models.UpdateRegionOverrideRequest` | [ModelsUpdateRegionOverrideRequest](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsUpdateRegionOverrideRequest.java) |
-| `models.UploaderFlag` | [ModelsUploaderFlag](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsUploaderFlag.java) |
 | `response.Error` | [ResponseError](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ResponseError.java) |

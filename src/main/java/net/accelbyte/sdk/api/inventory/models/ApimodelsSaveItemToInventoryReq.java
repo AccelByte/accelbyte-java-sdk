@@ -34,6 +34,12 @@ public class ApimodelsSaveItemToInventoryReq extends Model {
   @JsonProperty("serverCustomAttributes")
   private Map<String, ?> serverCustomAttributes;
 
+  @JsonProperty("slotId")
+  private String slotId;
+
+  @JsonProperty("slotUsed")
+  private Integer slotUsed;
+
   @JsonProperty("sourceItemId")
   private String sourceItemId;
 

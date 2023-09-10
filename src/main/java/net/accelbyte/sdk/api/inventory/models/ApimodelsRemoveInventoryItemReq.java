@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.dsmc.models;
+package net.accelbyte.sdk.api.inventory.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,24 +23,24 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ModelsUploaderFlag extends Model {
+public class ApimodelsRemoveInventoryItemReq extends Model {
 
-  @JsonProperty("name")
-  private String name;
+  @JsonProperty("slotId")
+  private String slotId;
 
-  @JsonProperty("shorthand")
-  private String shorthand;
-
-  @JsonProperty("value")
-  private String value;
+  @JsonProperty("sourceItemId")
+  private String sourceItemId;
 
   @JsonIgnore
-  public ModelsUploaderFlag createFromJson(String json) throws JsonProcessingException {
+  public ApimodelsRemoveInventoryItemReq createFromJson(String json)
+      throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ModelsUploaderFlag> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUploaderFlag>>() {});
+  public List<ApimodelsRemoveInventoryItemReq> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ApimodelsRemoveInventoryItemReq>>() {});
   }
 }

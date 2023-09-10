@@ -36,11 +36,6 @@ public class AdminConsumeUserItem implements Callable<Integer> {
   String inventoryId;
 
   @Option(
-      names = {"--itemId"},
-      description = "itemId")
-  String itemId;
-
-  @Option(
       names = {"--namespace"},
       description = "namespace")
   String namespace;
@@ -79,7 +74,6 @@ public class AdminConsumeUserItem implements Callable<Integer> {
       final net.accelbyte.sdk.api.inventory.operations.admin_items.AdminConsumeUserItem operation =
           net.accelbyte.sdk.api.inventory.operations.admin_items.AdminConsumeUserItem.builder()
               .inventoryId(inventoryId)
-              .itemId(itemId)
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ApimodelsConsumeItemReq.class))

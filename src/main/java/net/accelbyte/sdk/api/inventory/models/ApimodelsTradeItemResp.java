@@ -25,11 +25,11 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelsTradeItemResp extends Model {
 
-  @JsonProperty("itemId")
-  private String itemId;
-
   @JsonProperty("qty")
   private Integer qty;
+
+  @JsonProperty("slotId")
+  private String slotId;
 
   @JsonProperty("sourceItemId")
   private String sourceItemId;

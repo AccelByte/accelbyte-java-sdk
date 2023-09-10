@@ -66,13 +66,4 @@ public class Fulfillment {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
-
-  /**
-   * @see FulfillRewardsV2
-   */
-  public FulfillmentResult fulfillRewardsV2(FulfillRewardsV2 input) throws Exception {
-    final HttpResponse httpResponse = sdk.runRequest(input);
-    return input.parseResponse(
-        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-  }
 }

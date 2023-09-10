@@ -56,6 +56,11 @@ public class PublicGetUserPlatformAccountsV3 implements Callable<Integer> {
   Integer limit;
 
   @Option(
+      names = {"--platformId"},
+      description = "platformId")
+  String platformId;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -83,6 +88,7 @@ public class PublicGetUserPlatformAccountsV3 implements Callable<Integer> {
               .after(after)
               .before(before)
               .limit(limit)
+              .platformId(platformId)
               .build();
       final AccountcommonUserLinkedPlatformsResponseV3 response =
           wrapper.publicGetUserPlatformAccountsV3(operation);

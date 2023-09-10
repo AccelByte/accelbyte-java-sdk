@@ -36,11 +36,6 @@ public class PublicConsumeMyItem implements Callable<Integer> {
   String inventoryId;
 
   @Option(
-      names = {"--itemId"},
-      description = "itemId")
-  String itemId;
-
-  @Option(
       names = {"--namespace"},
       description = "namespace")
   String namespace;
@@ -74,7 +69,6 @@ public class PublicConsumeMyItem implements Callable<Integer> {
       final net.accelbyte.sdk.api.inventory.operations.public_items.PublicConsumeMyItem operation =
           net.accelbyte.sdk.api.inventory.operations.public_items.PublicConsumeMyItem.builder()
               .inventoryId(inventoryId)
-              .itemId(itemId)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApimodelsConsumeItemReq.class))
               .build();

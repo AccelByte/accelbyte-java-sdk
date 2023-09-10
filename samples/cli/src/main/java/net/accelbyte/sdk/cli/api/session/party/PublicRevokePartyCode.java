@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.cli.api.session.party;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.session.models.*;
@@ -66,10 +65,8 @@ public class PublicRevokePartyCode implements Callable<Integer> {
               .namespace(namespace)
               .partyId(partyId)
               .build();
-      final ApimodelsPartySessionResponse response = wrapper.publicRevokePartyCode(operation);
-      final String responseString =
-          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful\n{}", responseString);
+      wrapper.publicRevokePartyCode(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

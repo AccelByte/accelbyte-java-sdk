@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.platform.models;
+package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,23 +23,25 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ClientTransaction extends Model {
+public class ModelUserPlatformInfo extends Model {
 
-  @JsonProperty("amountConsumed")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer amountConsumed;
+  @JsonProperty("platformDisplayName")
+  private String platformDisplayName;
 
-  @JsonProperty("clientTransactionId")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String clientTransactionId;
+  @JsonProperty("platformId")
+  private String platformId;
+
+  @JsonProperty("platformUserId")
+  private String platformUserId;
 
   @JsonIgnore
-  public ClientTransaction createFromJson(String json) throws JsonProcessingException {
+  public ModelUserPlatformInfo createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ClientTransaction> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<ClientTransaction>>() {});
+  public List<ModelUserPlatformInfo> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserPlatformInfo>>() {});
   }
 }

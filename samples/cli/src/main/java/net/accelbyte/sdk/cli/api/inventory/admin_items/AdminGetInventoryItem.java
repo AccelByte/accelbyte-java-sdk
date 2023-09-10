@@ -36,14 +36,19 @@ public class AdminGetInventoryItem implements Callable<Integer> {
   String inventoryId;
 
   @Option(
-      names = {"--itemId"},
-      description = "itemId")
-  String itemId;
-
-  @Option(
       names = {"--namespace"},
       description = "namespace")
   String namespace;
+
+  @Option(
+      names = {"--slotId"},
+      description = "slotId")
+  String slotId;
+
+  @Option(
+      names = {"--sourceItemId"},
+      description = "sourceItemId")
+  String sourceItemId;
 
   @Option(
       names = {"--logging"},
@@ -69,8 +74,9 @@ public class AdminGetInventoryItem implements Callable<Integer> {
       final net.accelbyte.sdk.api.inventory.operations.admin_items.AdminGetInventoryItem operation =
           net.accelbyte.sdk.api.inventory.operations.admin_items.AdminGetInventoryItem.builder()
               .inventoryId(inventoryId)
-              .itemId(itemId)
               .namespace(namespace)
+              .slotId(slotId)
+              .sourceItemId(sourceItemId)
               .build();
       final ApimodelsItemResp response = wrapper.adminGetInventoryItem(operation);
       final String responseString =

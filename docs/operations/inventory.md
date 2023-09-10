@@ -17,11 +17,11 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/inventory/v1/admin/namespaces/{namespace}/inventories/{inventoryId}/items` | GET | AdminListItems | [AdminListItems](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_items/AdminListItems.java) | [AdminListItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_items/AdminListItems.java) |
-| `/inventory/v1/admin/namespaces/{namespace}/inventories/{inventoryId}/items/{itemId}` | GET | AdminGetInventoryItem | [AdminGetInventoryItem](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_items/AdminGetInventoryItem.java) | [AdminGetInventoryItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_items/AdminGetInventoryItem.java) |
+| `/inventory/v1/admin/namespaces/{namespace}/inventories/{inventoryId}/slots/{slotId}/sourceItems/{sourceItemId}` | GET | AdminGetInventoryItem | [AdminGetInventoryItem](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_items/AdminGetInventoryItem.java) | [AdminGetInventoryItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_items/AdminGetInventoryItem.java) |
+| `/inventory/v1/admin/namespaces/{namespace}/users/{userId}/inventories/{inventoryId}/consume` | POST | AdminConsumeUserItem | [AdminConsumeUserItem](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_items/AdminConsumeUserItem.java) | [AdminConsumeUserItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_items/AdminConsumeUserItem.java) |
 | `/inventory/v1/admin/namespaces/{namespace}/users/{userId}/inventories/{inventoryId}/items` | PUT | AdminBulkUpdateMyItems | [AdminBulkUpdateMyItems](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_items/AdminBulkUpdateMyItems.java) | [AdminBulkUpdateMyItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_items/AdminBulkUpdateMyItems.java) |
 | `/inventory/v1/admin/namespaces/{namespace}/users/{userId}/inventories/{inventoryId}/items` | POST | AdminSaveItemToInventory | [AdminSaveItemToInventory](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_items/AdminSaveItemToInventory.java) | [AdminSaveItemToInventory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_items/AdminSaveItemToInventory.java) |
 | `/inventory/v1/admin/namespaces/{namespace}/users/{userId}/inventories/{inventoryId}/items` | DELETE | AdminBulkRemoveItems | [AdminBulkRemoveItems](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_items/AdminBulkRemoveItems.java) | [AdminBulkRemoveItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_items/AdminBulkRemoveItems.java) |
-| `/inventory/v1/admin/namespaces/{namespace}/users/{userId}/inventories/{inventoryId}/items/{itemId}/consume` | POST | AdminConsumeUserItem | [AdminConsumeUserItem](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_items/AdminConsumeUserItem.java) | [AdminConsumeUserItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_items/AdminConsumeUserItem.java) |
 | `/inventory/v1/admin/namespaces/{namespace}/users/{userId}/items` | POST | AdminSaveItem | [AdminSaveItem](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_items/AdminSaveItem.java) | [AdminSaveItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_items/AdminSaveItem.java) |
 
 ### Admin Inventory Configurations Wrapper:  [AdminInventoryConfigurations](../../src/main/java/net/accelbyte/sdk/api/inventory/wrappers/AdminInventoryConfigurations.java)
@@ -70,12 +70,12 @@
 ### Public Items Wrapper:  [PublicItems](../../src/main/java/net/accelbyte/sdk/api/inventory/wrappers/PublicItems.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
+| `/inventory/v1/public/namespaces/{namespace}/users/me/inventories/{inventoryId}/consume` | POST | PublicConsumeMyItem | [PublicConsumeMyItem](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/public_items/PublicConsumeMyItem.java) | [PublicConsumeMyItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/public_items/PublicConsumeMyItem.java) |
 | `/inventory/v1/public/namespaces/{namespace}/users/me/inventories/{inventoryId}/items` | GET | PublicListItems | [PublicListItems](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/public_items/PublicListItems.java) | [PublicListItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/public_items/PublicListItems.java) |
 | `/inventory/v1/public/namespaces/{namespace}/users/me/inventories/{inventoryId}/items` | PUT | PublicBulkUpdateMyItems | [PublicBulkUpdateMyItems](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/public_items/PublicBulkUpdateMyItems.java) | [PublicBulkUpdateMyItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/public_items/PublicBulkUpdateMyItems.java) |
 | `/inventory/v1/public/namespaces/{namespace}/users/me/inventories/{inventoryId}/items` | DELETE | PublicBulkRemoveMyItems | [PublicBulkRemoveMyItems](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/public_items/PublicBulkRemoveMyItems.java) | [PublicBulkRemoveMyItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/public_items/PublicBulkRemoveMyItems.java) |
 | `/inventory/v1/public/namespaces/{namespace}/users/me/inventories/{inventoryId}/items/movement` | POST | PublicMoveMyItems | [PublicMoveMyItems](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/public_items/PublicMoveMyItems.java) | [PublicMoveMyItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/public_items/PublicMoveMyItems.java) |
-| `/inventory/v1/public/namespaces/{namespace}/users/me/inventories/{inventoryId}/items/{itemId}` | GET | PublicGetItem | [PublicGetItem](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/public_items/PublicGetItem.java) | [PublicGetItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/public_items/PublicGetItem.java) |
-| `/inventory/v1/public/namespaces/{namespace}/users/me/inventories/{inventoryId}/items/{itemId}/consume` | POST | PublicConsumeMyItem | [PublicConsumeMyItem](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/public_items/PublicConsumeMyItem.java) | [PublicConsumeMyItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/public_items/PublicConsumeMyItem.java) |
+| `/inventory/v1/public/namespaces/{namespace}/users/me/inventories/{inventoryId}/slots/{slotId}/sourceItems/{sourceItemId}` | GET | PublicGetItem | [PublicGetItem](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/public_items/PublicGetItem.java) | [PublicGetItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/public_items/PublicGetItem.java) |
 
 
 &nbsp;  
@@ -85,7 +85,6 @@
 | Model | Class |
 |---|---|
 | `apimodels.AdminUpdateItemReq` | [ApimodelsAdminUpdateItemReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsAdminUpdateItemReq.java) |
-| `apimodels.BulkRemoveItemsReq` | [ApimodelsBulkRemoveItemsReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsBulkRemoveItemsReq.java) |
 | `apimodels.ConsumeItemReq` | [ApimodelsConsumeItemReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsConsumeItemReq.java) |
 | `apimodels.CreateInventoryConfigurationReq` | [ApimodelsCreateInventoryConfigurationReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsCreateInventoryConfigurationReq.java) |
 | `apimodels.CreateInventoryReq` | [ApimodelsCreateInventoryReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsCreateInventoryReq.java) |
@@ -107,6 +106,7 @@
 | `apimodels.MoveItemsReq` | [ApimodelsMoveItemsReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsMoveItemsReq.java) |
 | `apimodels.MoveItemsResp` | [ApimodelsMoveItemsResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsMoveItemsResp.java) |
 | `apimodels.Paging` | [ApimodelsPaging](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsPaging.java) |
+| `apimodels.RemoveInventoryItemReq` | [ApimodelsRemoveInventoryItemReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsRemoveInventoryItemReq.java) |
 | `apimodels.SaveItemReq` | [ApimodelsSaveItemReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsSaveItemReq.java) |
 | `apimodels.SaveItemToInventoryReq` | [ApimodelsSaveItemToInventoryReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsSaveItemToInventoryReq.java) |
 | `apimodels.TradeItem` | [ApimodelsTradeItem](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsTradeItem.java) |

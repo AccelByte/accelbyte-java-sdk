@@ -42,6 +42,7 @@ import picocli.CommandLine.Command;
       SingleAdminGetContent.class,
       AdminGetContentBulk.class,
       AdminSearchContent.class,
+      AdminGetContentBulkByShareCodes.class,
       AdminGetUserContentByShareCode.class,
       AdminGetSpecificContent.class,
       AdminDownloadContentPreview.class,

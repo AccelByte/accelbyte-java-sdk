@@ -6,6 +6,9 @@
 
 package net.accelbyte.sdk.integration;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Map;
 import net.accelbyte.sdk.api.cloudsave.models.ModelsGameRecordResponse;
 import net.accelbyte.sdk.api.cloudsave.models.ModelsPlayerRecordResponse;
 import net.accelbyte.sdk.api.cloudsave.operations.public_game_record.DeleteGameRecordHandlerV1;
@@ -25,10 +28,6 @@ import net.accelbyte.sdk.core.DummyGameRecord;
 import net.accelbyte.sdk.core.DummyPlayerRecord;
 import net.accelbyte.sdk.core.HttpResponseException;
 import org.junit.jupiter.api.*;
-
-import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @Tag("test-integration")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -150,7 +149,7 @@ public class TestIntegrationServiceCloudSave extends TestIntegration {
     // TODO: For now we're using this to get userId, since token parser hasn't merged yet
     final Users usersWrapper = new Users(sdk);
     final ModelUserResponseV3 getUserResult =
-            usersWrapper.adminGetMyUserV3(AdminGetMyUserV3.builder().build());
+        usersWrapper.adminGetMyUserV3(AdminGetMyUserV3.builder().build());
     assertNotNull(getUserResult);
 
     final String userId = getUserResult.getUserId();
@@ -158,27 +157,31 @@ public class TestIntegrationServiceCloudSave extends TestIntegration {
     // CASE Create a player record
 
     final DummyPlayerRecord createPlayerRecordBody =
-            DummyPlayerRecord.builder()
-                    .Foo(playerRecordFoo)
-                    .FooBar(playerRecordFooBar)
-                    .FooValue(playerRecordFooValue)
-                    .build();
+        DummyPlayerRecord.builder()
+            .Foo(playerRecordFoo)
+            .FooBar(playerRecordFooBar)
+            .FooValue(playerRecordFooValue)
+            .build();
 
     publicPlayerRecord.postPlayerRecordHandlerV1(
-            PostPlayerRecordHandlerV1.builder()
-                    .namespace(this.namespace)
-                    .userId(userId)
-                    .key(playerRecordKey)
-                    .body(createPlayerRecordBody)
-                    .build());
+        PostPlayerRecordHandlerV1.builder()
+            .namespace(this.namespace)
+            .userId(userId)
+            .key(playerRecordKey)
+            .body(createPlayerRecordBody)
+            .build());
 
     // ESAC
 
     // CASE Get a player record
 
     final ModelsPlayerRecordResponse getPlayerRecordResult =
-            publicPlayerRecord.getPlayerRecordHandlerV1(
-                    GetPlayerRecordHandlerV1.builder().namespace(this.namespace).userId(userId).key(playerRecordKey).build());
+        publicPlayerRecord.getPlayerRecordHandlerV1(
+            GetPlayerRecordHandlerV1.builder()
+                .namespace(this.namespace)
+                .userId(userId)
+                .key(playerRecordKey)
+                .build());
 
     // ESAC
 
@@ -193,27 +196,31 @@ public class TestIntegrationServiceCloudSave extends TestIntegration {
     // CASE Update a player record
 
     DummyPlayerRecord updateRecord =
-            DummyPlayerRecord.builder()
-                    .Foo(playerRecordFoo)
-                    .FooBar(playerRecordFooBarUpdate)
-                    .FooValue(playerRecordFooValue)
-                    .build();
+        DummyPlayerRecord.builder()
+            .Foo(playerRecordFoo)
+            .FooBar(playerRecordFooBarUpdate)
+            .FooValue(playerRecordFooValue)
+            .build();
 
     publicPlayerRecord.putPlayerRecordHandlerV1(
-            PutPlayerRecordHandlerV1.builder()
-                    .namespace(this.namespace)
-                    .userId(userId)
-                    .key(playerRecordKey)
-                    .body(updateRecord)
-                    .build());
+        PutPlayerRecordHandlerV1.builder()
+            .namespace(this.namespace)
+            .userId(userId)
+            .key(playerRecordKey)
+            .body(updateRecord)
+            .build());
 
     // ESAC
 
     // Confirm if player record is updated
 
     final ModelsPlayerRecordResponse getGameRecordConfirmResult =
-            publicPlayerRecord.getPlayerRecordHandlerV1(
-                    GetPlayerRecordHandlerV1.builder().namespace(this.namespace).userId(userId).key(playerRecordKey).build());
+        publicPlayerRecord.getPlayerRecordHandlerV1(
+            GetPlayerRecordHandlerV1.builder()
+                .namespace(this.namespace)
+                .userId(userId)
+                .key(playerRecordKey)
+                .build());
 
     assertNotNull(getGameRecordConfirmResult);
     final Map<String, ?> gameRecordValue2 = getGameRecordConfirmResult.getValue();
@@ -226,22 +233,27 @@ public class TestIntegrationServiceCloudSave extends TestIntegration {
     // CASE Delete a player record
 
     publicPlayerRecord.deletePlayerRecordHandlerV1(
-            DeletePlayerRecordHandlerV1.builder().namespace(this.namespace).userId(userId).key(playerRecordKey).build());
+        DeletePlayerRecordHandlerV1.builder()
+            .namespace(this.namespace)
+            .userId(userId)
+            .key(playerRecordKey)
+            .build());
 
     // ESAC
 
     // Confirm if player record is deleted
 
     assertThrows(
-            HttpResponseException.class,
-            () -> {
-              publicPlayerRecord.getPlayerRecordHandlerV1(
-                      GetPlayerRecordHandlerV1.builder()
-                              .namespace(this.namespace)
-                              .key(playerRecordKey)
-                              .build());
-            });
+        HttpResponseException.class,
+        () -> {
+          publicPlayerRecord.getPlayerRecordHandlerV1(
+              GetPlayerRecordHandlerV1.builder()
+                  .namespace(this.namespace)
+                  .key(playerRecordKey)
+                  .build());
+        });
   }
+
   @AfterAll
   public void tear() throws Exception {
     super.tear();

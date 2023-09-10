@@ -13,7 +13,6 @@ import net.accelbyte.sdk.cli.api.platform.anonymization.*;
 import net.accelbyte.sdk.cli.api.platform.campaign.*;
 import net.accelbyte.sdk.cli.api.platform.catalog_changes.*;
 import net.accelbyte.sdk.cli.api.platform.category.*;
-import net.accelbyte.sdk.cli.api.platform.clawback.*;
 import net.accelbyte.sdk.cli.api.platform.currency.*;
 import net.accelbyte.sdk.cli.api.platform.dlc.*;
 import net.accelbyte.sdk.cli.api.platform.entitlement.*;
@@ -111,8 +110,6 @@ import picocli.CommandLine.Command;
       RevokeEntitlements.class,
       GetEntitlement.class,
       QueryFulfillmentHistories.class,
-      QueryIAPClawbackHistory.class,
-      MockPlayStationStreamEvent.class,
       GetAppleIAPConfig.class,
       UpdateAppleIAPConfig.class,
       DeleteAppleIAPConfig.class,
@@ -132,8 +129,6 @@ import picocli.CommandLine.Command;
       GetPlayStationIAPConfig.class,
       UpdatePlaystationIAPConfig.class,
       DeletePlaystationIAPConfig.class,
-      ValidateExistedPlaystationIAPConfig.class,
-      ValidatePlaystationIAPConfig.class,
       GetSteamIAPConfig.class,
       UpdateSteamIAPConfig.class,
       DeleteSteamIAPConfig.class,
@@ -465,7 +460,6 @@ import picocli.CommandLine.Command;
       QueryItems1.class,
       ImportStore1.class,
       ExportStore1.class,
-      FulfillRewardsV2.class,
     })
 public class Platform implements Runnable {
 

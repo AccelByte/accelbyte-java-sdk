@@ -46,6 +46,12 @@ public class ApimodelsItemResp extends Model {
   @JsonProperty("serverCustomAttributes")
   private Map<String, ?> serverCustomAttributes;
 
+  @JsonProperty("slotId")
+  private String slotId;
+
+  @JsonProperty("slotUsed")
+  private Integer slotUsed;
+
   @JsonProperty("source")
   private String source;
 

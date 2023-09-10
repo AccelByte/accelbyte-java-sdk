@@ -28,6 +28,9 @@ public class ModelsCreateImageRequest extends Model {
   @JsonProperty("artifactPath")
   private String artifactPath;
 
+  @JsonProperty("coreDumpEnabled")
+  private Boolean coreDumpEnabled;
+
   @JsonProperty("dockerPath")
   private String dockerPath;
 

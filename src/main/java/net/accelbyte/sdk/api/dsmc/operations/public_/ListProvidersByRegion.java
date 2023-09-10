@@ -8,12 +8,13 @@
 
 package net.accelbyte.sdk.api.dsmc.operations.public_;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.dsmc.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
@@ -66,13 +67,13 @@ public class ListProvidersByRegion extends Operation {
     return true;
   }
 
-  public ModelsDefaultProvider parseResponse(int code, String contentType, InputStream payload)
+  public List<String> parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ModelsDefaultProvider().createFromJson(json);
+    return new ObjectMapper().readValue(json, new TypeReference<List<String>>() {});
   }
 }

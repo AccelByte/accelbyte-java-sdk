@@ -41,9 +41,9 @@ public class PublicListUserIDByPlatformUserIDsV3 implements Callable<Integer> {
   String platformId;
 
   @Option(
-      names = {"--rawPUID"},
-      description = "rawPUID")
-  Boolean rawPUID;
+      names = {"--rawPID"},
+      description = "rawPID")
+  Boolean rawPID;
 
   @Option(
       names = {"--body"},
@@ -77,7 +77,7 @@ public class PublicListUserIDByPlatformUserIDsV3 implements Callable<Integer> {
                   .builder()
                   .namespace(namespace)
                   .platformId(platformId)
-                  .rawPUID(rawPUID)
+                  .rawPID(rawPID)
                   .body(new ObjectMapper().readValue(body, ModelPlatformUserIDRequest.class))
                   .build();
       final AccountcommonUserPlatforms response =

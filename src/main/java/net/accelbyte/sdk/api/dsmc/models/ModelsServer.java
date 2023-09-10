@@ -26,13 +26,19 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsServer extends Model {
 
   @JsonProperty("allocation_events")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsAllocationEvent> allocationEvents;
 
   @JsonProperty("allocation_id")
   private String allocationId;
 
   @JsonProperty("alternate_ips")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> alternateIps;
+
+  @JsonProperty("artifact_path")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String artifactPath;
 
   @JsonProperty("cpu_limit")
   private Integer cpuLimit;
@@ -41,12 +47,14 @@ public class ModelsServer extends Model {
   private String createdAt;
 
   @JsonProperty("custom_attribute")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String customAttribute;
 
   @JsonProperty("deployment")
   private String deployment;
 
   @JsonProperty("deployment_override")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String deploymentOverride;
 
   @JsonProperty("game_version")
@@ -57,6 +65,9 @@ public class ModelsServer extends Model {
 
   @JsonProperty("ip")
   private String ip;
+
+  @JsonProperty("is_core_dump_enabled")
+  private Boolean isCoreDumpEnabled;
 
   @JsonProperty("is_override_game_version")
   private Boolean isOverrideGameVersion;
@@ -83,6 +94,7 @@ public class ModelsServer extends Model {
   private Integer port;
 
   @JsonProperty("ports")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, Integer> ports;
 
   @JsonProperty("protocol")
@@ -101,6 +113,7 @@ public class ModelsServer extends Model {
   private String status;
 
   @JsonProperty("status_history")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsStatusHistory> statusHistory;
 
   @JsonProperty("termination_reason")

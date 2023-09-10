@@ -43,7 +43,7 @@ public class Public {
   /**
    * @see ListProvidersByRegion
    */
-  public ModelsDefaultProvider listProvidersByRegion(ListProvidersByRegion input) throws Exception {
+  public List<String> listProvidersByRegion(ListProvidersByRegion input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

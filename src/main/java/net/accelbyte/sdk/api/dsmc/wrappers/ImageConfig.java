@@ -150,6 +150,15 @@ public class ImageConfig {
   }
 
   /**
+   * @see ListImagesClient
+   */
+  public ModelsListImageResponse listImagesClient(ListImagesClient input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see ImageLimitClient
    */
   public ModelsGetImageLimitResponse imageLimitClient(ImageLimitClient input) throws Exception {

@@ -47,6 +47,7 @@ public class ModelsDSMConfigRecord extends Model {
   private Integer port;
 
   @JsonProperty("ports")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, Integer> ports;
 
   @JsonProperty("protocol")

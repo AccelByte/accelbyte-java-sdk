@@ -42,7 +42,7 @@ public class PublicListUserIDByPlatformUserIDsV3 extends Operation {
   private String namespace;
 
   private String platformId;
-  private Boolean rawPUID;
+  private Boolean rawPID;
   private ModelPlatformUserIDRequest body;
 
   /**
@@ -54,10 +54,10 @@ public class PublicListUserIDByPlatformUserIDsV3 extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicListUserIDByPlatformUserIDsV3(
-      String namespace, String platformId, Boolean rawPUID, ModelPlatformUserIDRequest body) {
+      String namespace, String platformId, Boolean rawPID, ModelPlatformUserIDRequest body) {
     this.namespace = namespace;
     this.platformId = platformId;
-    this.rawPUID = rawPUID;
+    this.rawPID = rawPID;
     this.body = body;
 
     securities.add("Bearer");
@@ -79,7 +79,7 @@ public class PublicListUserIDByPlatformUserIDsV3 extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put(
-        "rawPUID", this.rawPUID == null ? null : Arrays.asList(String.valueOf(this.rawPUID)));
+        "rawPID", this.rawPID == null ? null : Arrays.asList(String.valueOf(this.rawPID)));
     return queryParams;
   }
 
@@ -112,7 +112,7 @@ public class PublicListUserIDByPlatformUserIDsV3 extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
-    result.put("rawPUID", "None");
+    result.put("rawPID", "None");
     return result;
   }
 }

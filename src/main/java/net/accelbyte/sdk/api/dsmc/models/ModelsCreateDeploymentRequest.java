@@ -54,12 +54,15 @@ public class ModelsCreateDeploymentRequest extends Model {
   private Integer minCount;
 
   @JsonProperty("overrides")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ModelsDeploymentConfigOverride> overrides;
 
   @JsonProperty("region_overrides")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ModelsPodCountConfigOverride> regionOverrides;
 
   @JsonProperty("regions")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> regions;
 
   @JsonProperty("session_timeout")

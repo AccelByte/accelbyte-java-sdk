@@ -789,6 +789,16 @@ public class Users {
   }
 
   /**
+   * @see AdminListUserIDByPlatformUserIDsV3
+   */
+  public AccountcommonUserPlatforms adminListUserIDByPlatformUserIDsV3(
+      AdminListUserIDByPlatformUserIDsV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminGetUserByPlatformUserIDV3
    */
   public ModelUserResponseV3 adminGetUserByPlatformUserIDV3(AdminGetUserByPlatformUserIDV3 input)
@@ -833,6 +843,16 @@ public class Users {
    */
   public ModelListUserInformationResult adminListUserIDByUserIDsV3(AdminListUserIDByUserIDsV3 input)
       throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminBulkGetUsersPlatform
+   */
+  public ModelListBulkUserPlatformsResponse adminBulkGetUsersPlatform(
+      AdminBulkGetUsersPlatform input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

@@ -23,6 +23,15 @@ public class PublicItems {
   }
 
   /**
+   * @see PublicConsumeMyItem
+   */
+  public ApimodelsItemResp publicConsumeMyItem(PublicConsumeMyItem input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicListItems
    */
   public ApimodelsListItemResp publicListItems(PublicListItems input) throws Exception {
@@ -64,15 +73,6 @@ public class PublicItems {
    * @see PublicGetItem
    */
   public ApimodelsItemResp publicGetItem(PublicGetItem input) throws Exception {
-    final HttpResponse httpResponse = sdk.runRequest(input);
-    return input.parseResponse(
-        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-  }
-
-  /**
-   * @see PublicConsumeMyItem
-   */
-  public ApimodelsItemResp publicConsumeMyItem(PublicConsumeMyItem input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

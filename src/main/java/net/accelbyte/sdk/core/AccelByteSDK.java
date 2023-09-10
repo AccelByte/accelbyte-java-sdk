@@ -86,12 +86,13 @@ public class AccelByteSDK {
   private LoadingCache<String, OauthapiRevocationList> revocationListCache;
   private static final BloomFilter bloomFilter = new BloomFilter();
 
-  protected boolean internalValidateToken(SignedJWT signedJWT, String token, String resource, int action) {
+  protected boolean internalValidateToken(
+      SignedJWT signedJWT, String token, String resource, int action) {
     try {
       final JWTClaimsSet jwtClaimsSet = signedJWT.getJWTClaimsSet();
 
       final boolean isLocalTokenValidationEnabled =
-              jwksCache != null && revocationListCache != null;
+          jwksCache != null && revocationListCache != null;
 
       if (isLocalTokenValidationEnabled) {
         final String kid = signedJWT.getHeader().getKeyID();
@@ -108,7 +109,7 @@ public class AccelByteSDK {
         }
 
         if (jwtClaimsSet.getExpirationTime() == null
-                || jwtClaimsSet.getExpirationTime().before(new Date())) {
+            || jwtClaimsSet.getExpirationTime().before(new Date())) {
           return false; // JWT expired
         }
 
@@ -116,9 +117,9 @@ public class AccelByteSDK {
 
         final BloomFilterJSON revokedTokens = revocationList.getRevokedTokens();
         final long[] bits =
-                revokedTokens.getBits().stream()
-                        .mapToLong(value -> Long.parseUnsignedLong(value.toString()))
-                        .toArray();
+            revokedTokens.getBits().stream()
+                .mapToLong(value -> Long.parseUnsignedLong(value.toString()))
+                .toArray();
         final int k = revokedTokens.getK();
         final int m = revokedTokens.getM();
 
@@ -132,8 +133,8 @@ public class AccelByteSDK {
 
         if (tokenUserId != null && !tokenUserId.equals("")) {
           final boolean isUserRevoked =
-                  revocationList.getRevokedUsers().stream()
-                          .anyMatch(ruid -> tokenUserId.equals(ruid.getId()));
+              revocationList.getRevokedUsers().stream()
+                  .anyMatch(ruid -> tokenUserId.equals(ruid.getId()));
           if (isUserRevoked) {
             return false;
           }
@@ -149,7 +150,7 @@ public class AccelByteSDK {
       }
 
       final List<Map<String, Object>> tokenPermissions =
-              (List<Map<String, Object>>) jwtClaimsSet.getClaim(CLAIM_PERMISSIONS);
+          (List<Map<String, Object>>) jwtClaimsSet.getClaim(CLAIM_PERMISSIONS);
 
       for (Map<String, Object> p : tokenPermissions) {
         final String tokenPermissionResource = p.get(PERMISSION_RESOURCE).toString();
@@ -496,9 +497,8 @@ public class AccelByteSDK {
     try {
       final SignedJWT signedJWT = SignedJWT.parse(token);
       if (validateFirst) {
-        final boolean isValid = internalValidateToken(signedJWT, token, null,0);
-        if (!isValid)
-          return  null;
+        final boolean isValid = internalValidateToken(signedJWT, token, null, 0);
+        if (!isValid) return null;
       }
 
       final String payloadStr = signedJWT.getPayload().toString();
