@@ -130,17 +130,6 @@ AccelByteConfig config = new AccelByteConfig(
 AccelByteSDK sdk = new AccelByteSDK(config);
 ```
 
-### Parse Access Token
-
-Use the following to parse access token and get its payload.
-```java
-AccessTokenPayload payload = sdk.parseAccessToken("access token", false);
-
-// or if token validation is required before parsing, then use this
-AccessTokenPayload payload = sdk.parseAccessToken("access token", true);
-```
-`payload` will be null if the parse failed or when validation is required, and it failed.
-
 ### Login
 
 #### Login Using Username and Password
@@ -164,7 +153,7 @@ if (!login) {
 }
 ```
 
-### Validate Token
+### Validate Access Token
 
 To validate if an access token is valid and has the required permission, use the `ValidateToken` method of `AccelByteSDK` instance. To validate an access token without validating the required permission, omit the optional `permission` and `action` parameters of `ValidateToken` method. By default, remote token validation is performed. However, if higher throughput is required, you may enable local token validation as mentioned in [Local Token Validation](#local-token-validation) section. With local token validation, token validation will be quicker at the expense of delayed revocation list update (a revoked token may still be regarded as valid until local cache of the revocation list is updated).
 
@@ -176,7 +165,21 @@ if (isOk) {
 }
 else {
    // Token is not valid or expired or does not have the required permission
+}
 ```
+
+### Parse Access Token
+
+Use the following to parse access token and get its payload.
+```java
+AccessTokenPayload payload = sdk.parseAccessToken("access token", false);
+
+// Or if token validation is required before parsing, then use the following
+
+AccessTokenPayload payload = sdk.parseAccessToken("access token", true);
+```
+The `payload` will be null if the parse failed or when validation is required, and it failed.
+
 
 ### Interacting with a Service Endpoint
 
@@ -215,7 +218,7 @@ try {
 }
 ```
 
-### Refresh Token
+### Refresh Token Manually
 
 ```java
 boolean isOk = sdk.refreshToken();  // Trigger token refresh manually when not using automatic token refresh functionality
