@@ -113,7 +113,7 @@ AccelByteSDK sdk = new AccelByteSDK(config);
 
 #### Local Token Validation
 
-To enable local token validation, use the following when instantiating the SDK. When enabled, the SDK instance will cache JWKS and revocation list for performing token validation so that it does not have to call AccelByte Gaming Services endpoint each time. See [Validate Token](#validate-token) section on how to validate token using SDK.
+To enable local token validation, use the following when instantiating the SDK. When enabled, the SDK instance will cache JWKS and revocation list for performing token validation so that it does not have to call AccelByte Gaming Services endpoint each time. See [Validate Access Token](#validate-access-token) section on how to validate token using SDK.
 
 ```java
 final DefaultConfigRepository defaultConfigRepository = new DefaultConfigRepository();    // Using DefaultConfigRepository, make sure the required environment variables are set
