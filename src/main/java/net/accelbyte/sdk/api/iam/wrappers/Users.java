@@ -1207,6 +1207,16 @@ public class Users {
   }
 
   /**
+   * @see AdminTrustlyUpdateUserIdentity
+   */
+  public void adminTrustlyUpdateUserIdentity(AdminTrustlyUpdateUserIdentity input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminVerifyUserWithoutVerificationCodeV3
    */
   public void adminVerifyUserWithoutVerificationCodeV3(

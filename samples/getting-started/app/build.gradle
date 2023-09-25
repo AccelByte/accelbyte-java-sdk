@@ -23,7 +23,7 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.0.1-jre'
 
-    implementation 'net.accelbyte.sdk:sdk:0.45.0'
+    implementation 'net.accelbyte.sdk:sdk:0.46.0'
 }
 
 application {

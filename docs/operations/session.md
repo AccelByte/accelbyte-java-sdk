@@ -156,6 +156,7 @@
 | `models.PSNAppServerCredentials` | [ModelsPSNAppServerCredentials](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsPSNAppServerCredentials.java) |
 | `models.PartyMembers` | [ModelsPartyMembers](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsPartyMembers.java) |
 | `models.PlatformCredentials` | [ModelsPlatformCredentials](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsPlatformCredentials.java) |
+| `models.PortConfigurationAMS` | [ModelsPortConfigurationAMS](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsPortConfigurationAMS.java) |
 | `models.Team` | [ModelsTeam](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsTeam.java) |
 | `models.UserPlatformInfo` | [ModelsUserPlatformInfo](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsUserPlatformInfo.java) |
 | `response.Error` | [ResponseError](../../src/main/java/net/accelbyte/sdk/api/session/models/ResponseError.java) |

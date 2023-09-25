@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.platform.models;
+package net.accelbyte.sdk.api.iam.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,26 +23,24 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class FulfillmentScriptEvalTestResult extends Model {
+public class ModelUserIdentityUpdateRequestV3 extends Model {
 
-  @JsonProperty("errorStackTrace")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String errorStackTrace;
+  @JsonProperty("emailAddress")
+  private String emailAddress;
 
-  @JsonProperty("result")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Map<String, ?> result;
+  @JsonProperty("password")
+  private String password;
 
   @JsonIgnore
-  public FulfillmentScriptEvalTestResult createFromJson(String json)
+  public ModelUserIdentityUpdateRequestV3 createFromJson(String json)
       throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<FulfillmentScriptEvalTestResult> createFromJsonList(String json)
+  public List<ModelUserIdentityUpdateRequestV3> createFromJsonList(String json)
       throws JsonProcessingException {
     return new ObjectMapper()
-        .readValue(json, new TypeReference<List<FulfillmentScriptEvalTestResult>>() {});
+        .readValue(json, new TypeReference<List<ModelUserIdentityUpdateRequestV3>>() {});
   }
 }

@@ -52,6 +52,7 @@ public class ListTerminatedServers extends Operation {
   private String provider;
   private String region;
   private String sessionId;
+  private String source;
   private String startDate;
   private String status;
   private String userId;
@@ -75,6 +76,7 @@ public class ListTerminatedServers extends Operation {
       String provider,
       String region,
       String sessionId,
+      String source,
       String startDate,
       String status,
       String userId) {
@@ -90,6 +92,7 @@ public class ListTerminatedServers extends Operation {
     this.provider = provider;
     this.region = region;
     this.sessionId = sessionId;
+    this.source = source;
     this.startDate = startDate;
     this.status = status;
     this.userId = userId;
@@ -120,6 +123,7 @@ public class ListTerminatedServers extends Operation {
     queryParams.put("provider", this.provider == null ? null : Arrays.asList(this.provider));
     queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
     queryParams.put("session_id", this.sessionId == null ? null : Arrays.asList(this.sessionId));
+    queryParams.put("source", this.source == null ? null : Arrays.asList(this.source));
     queryParams.put("start_date", this.startDate == null ? null : Arrays.asList(this.startDate));
     queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));
     queryParams.put("user_id", this.userId == null ? null : Arrays.asList(this.userId));
@@ -158,6 +162,7 @@ public class ListTerminatedServers extends Operation {
     result.put("provider", "None");
     result.put("region", "None");
     result.put("session_id", "None");
+    result.put("source", "None");
     result.put("start_date", "None");
     result.put("status", "None");
     result.put("user_id", "None");

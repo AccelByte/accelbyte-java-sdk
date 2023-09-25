@@ -27,9 +27,16 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>A new client automatically granted with these scopes: commerce, account, analytics,
  * publishing, social.
  *
- * <p>In multi tenant mode, new confidential client will have default client role assigned to it.
- * The role will have all permissions to access all APIs that's supported by game server SDK and DS
- * uploader.
+ * <p>Note for Multi Tenant Mode:
+ *
+ * <p>New Confidential Client will have Default Client Role assigned to it. The role will have all
+ * permissions to access all APIs that's supported by game server SDK and DS uploader.
+ *
+ * <p>However if Game Admin create Confidential Client and the permission(s) are specified in
+ * request body, then the Default Client Role will not be assigned.
+ *
+ * <p>But in this case, the assigned permissions will be restricted in the Default Client Permission
+ * collection only.
  *
  * <p>action code: 10301
  *

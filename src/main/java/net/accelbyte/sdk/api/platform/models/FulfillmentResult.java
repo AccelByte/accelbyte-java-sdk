@@ -33,6 +33,10 @@ public class FulfillmentResult extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<EntitlementSummary> entitlementSummaries;
 
+  @JsonProperty("id")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String id;
+
   @JsonProperty("namespace")
   private String namespace;
 

@@ -33,9 +33,11 @@ public class ApimodelsDSInformationResponse extends Model {
   private ModelsGameServer server;
 
   @JsonProperty("Status")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String status;
 
   @JsonProperty("StatusV2")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String statusV2;
 
   @JsonIgnore

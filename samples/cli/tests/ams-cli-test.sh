@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..26"
+echo "1..27"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -200,29 +200,36 @@ eval_tap $? 21 'InfoSupportedInstances' test.out
     > test.out 2>&1
 eval_tap $? 22 'FleetClaimByID' test.out
 
-#- 23 FleetClaimByKeys
+#- 23 LocalWatchdogConnect
+./ng net.accelbyte.sdk.cli.Main ams localWatchdogConnect \
+    --namespace "$AB_NAMESPACE" \
+    --watchdogID 'n5GI39YBHqaTHeKt' \
+    > test.out 2>&1
+eval_tap $? 23 'LocalWatchdogConnect' test.out
+
+#- 24 FleetClaimByKeys
 ./ng net.accelbyte.sdk.cli.Main ams fleetClaimByKeys \
     --namespace "$AB_NAMESPACE" \
-    --body '{"claimKeys": ["n5GI39YBHqaTHeKt", "W18iGeUlc9d9sogW", "a24CKNS0GqVvUfHQ"], "regions": ["vsHXNUNe4mhgo5QB", "65lSAiYnNjkfZrQv", "GgbLdLsFzHkBMr1y"]}' \
+    --body '{"claimKeys": ["W18iGeUlc9d9sogW", "a24CKNS0GqVvUfHQ", "vsHXNUNe4mhgo5QB"], "regions": ["65lSAiYnNjkfZrQv", "GgbLdLsFzHkBMr1y", "rOMlNFSrUEirnjX9"]}' \
     > test.out 2>&1
-eval_tap $? 23 'FleetClaimByKeys' test.out
+eval_tap $? 24 'FleetClaimByKeys' test.out
 
-#- 24 WatchdogConnect
+#- 25 WatchdogConnect
 ./ng net.accelbyte.sdk.cli.Main ams watchdogConnect \
     --namespace "$AB_NAMESPACE" \
-    --watchdogID 'rOMlNFSrUEirnjX9' \
+    --watchdogID 'fDmIbeZxzfTcyiuA' \
     > test.out 2>&1
-eval_tap $? 24 'WatchdogConnect' test.out
+eval_tap $? 25 'WatchdogConnect' test.out
 
-#- 25 Func1
+#- 26 Func1
 ./ng net.accelbyte.sdk.cli.Main ams func1 \
     > test.out 2>&1
-eval_tap $? 25 'Func1' test.out
+eval_tap $? 26 'Func1' test.out
 
-#- 26 BasicHealthCheck
+#- 27 BasicHealthCheck
 ./ng net.accelbyte.sdk.cli.Main ams basicHealthCheck \
     > test.out 2>&1
-eval_tap $? 26 'BasicHealthCheck' test.out
+eval_tap $? 27 'BasicHealthCheck' test.out
 
 
 rm -f "tmp.dat"

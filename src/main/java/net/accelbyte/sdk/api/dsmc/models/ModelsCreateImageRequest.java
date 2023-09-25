@@ -46,6 +46,9 @@ public class ModelsCreateImageRequest extends Model {
   @JsonProperty("persistent")
   private Boolean persistent;
 
+  @JsonProperty("ulimitFileSize")
+  private Integer ulimitFileSize;
+
   @JsonProperty("version")
   private String version;
 

@@ -35,6 +35,7 @@ public class ApiMatchTicketRequest extends Model {
   private String matchPool;
 
   @JsonProperty("sessionID")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String sessionID;
 
   @JsonIgnore

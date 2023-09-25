@@ -24,7 +24,9 @@ public class Misc {
 
   /**
    * @see GetCountries
+   * @deprecated
    */
+  @Deprecated
   public List<CountryObject> getCountries(GetCountries input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -97,7 +99,9 @@ public class Misc {
 
   /**
    * @see PublicGetCountries
+   * @deprecated
    */
+  @Deprecated
   public List<CountryObject> publicGetCountries(PublicGetCountries input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

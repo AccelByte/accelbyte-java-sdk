@@ -26,7 +26,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>List countries. Other detail info:
  *
  * <p>* Returns : country code list
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicGetCountries extends Operation {

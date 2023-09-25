@@ -8,7 +8,6 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/platform/admin/fulfillment/scripts` | GET | ListFulfillmentScripts | [ListFulfillmentScripts](../../src/main/java/net/accelbyte/sdk/api/platform/operations/fulfillment_script/ListFulfillmentScripts.java) | [ListFulfillmentScripts](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/fulfillment_script/ListFulfillmentScripts.java) |
-| `/platform/admin/fulfillment/scripts/tests/eval` | POST | TestFulfillmentScriptEval | [TestFulfillmentScriptEval](../../src/main/java/net/accelbyte/sdk/api/platform/operations/fulfillment_script/TestFulfillmentScriptEval.java) | [TestFulfillmentScriptEval](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/fulfillment_script/TestFulfillmentScriptEval.java) |
 | `/platform/admin/fulfillment/scripts/{id}` | GET | GetFulfillmentScript | [GetFulfillmentScript](../../src/main/java/net/accelbyte/sdk/api/platform/operations/fulfillment_script/GetFulfillmentScript.java) | [GetFulfillmentScript](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/fulfillment_script/GetFulfillmentScript.java) |
 | `/platform/admin/fulfillment/scripts/{id}` | POST | CreateFulfillmentScript | [CreateFulfillmentScript](../../src/main/java/net/accelbyte/sdk/api/platform/operations/fulfillment_script/CreateFulfillmentScript.java) | [CreateFulfillmentScript](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/fulfillment_script/CreateFulfillmentScript.java) |
 | `/platform/admin/fulfillment/scripts/{id}` | DELETE | DeleteFulfillmentScript | [DeleteFulfillmentScript](../../src/main/java/net/accelbyte/sdk/api/platform/operations/fulfillment_script/DeleteFulfillmentScript.java) | [DeleteFulfillmentScript](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/fulfillment_script/DeleteFulfillmentScript.java) |
@@ -207,6 +206,13 @@
 | `/platform/admin/namespaces/{namespace}/users/{userId}/fulfillment/code` | POST | RedeemCode | [RedeemCode](../../src/main/java/net/accelbyte/sdk/api/platform/operations/fulfillment/RedeemCode.java) | [RedeemCode](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/fulfillment/RedeemCode.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/fulfillment/rewards` | POST | FulfillRewards | [FulfillRewards](../../src/main/java/net/accelbyte/sdk/api/platform/operations/fulfillment/FulfillRewards.java) | [FulfillRewards](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/fulfillment/FulfillRewards.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/fulfillment/code` | POST | PublicRedeemCode | [PublicRedeemCode](../../src/main/java/net/accelbyte/sdk/api/platform/operations/fulfillment/PublicRedeemCode.java) | [PublicRedeemCode](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/fulfillment/PublicRedeemCode.java) |
+| `/platform/v2/admin/namespaces/{namespace}/users/{userId}/fulfillment/rewards` | POST | FulfillRewardsV2 | [FulfillRewardsV2](../../src/main/java/net/accelbyte/sdk/api/platform/operations/fulfillment/FulfillRewardsV2.java) | [FulfillRewardsV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/fulfillment/FulfillRewardsV2.java) |
+
+### Clawback Wrapper:  [Clawback](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/Clawback.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/platform/admin/namespaces/{namespace}/iap/clawback/histories` | GET | QueryIAPClawbackHistory | [QueryIAPClawbackHistory](../../src/main/java/net/accelbyte/sdk/api/platform/operations/clawback/QueryIAPClawbackHistory.java) | [QueryIAPClawbackHistory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/clawback/QueryIAPClawbackHistory.java) |
+| `/platform/admin/namespaces/{namespace}/iap/clawback/playstation/mock` | POST | MockPlayStationStreamEvent | [MockPlayStationStreamEvent](../../src/main/java/net/accelbyte/sdk/api/platform/operations/clawback/MockPlayStationStreamEvent.java) | [MockPlayStationStreamEvent](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/clawback/MockPlayStationStreamEvent.java) |
 
 ### IAP Wrapper:  [IAP](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/IAP.java)
 | Endpoint | Method | ID | Class | Example |
@@ -230,6 +236,8 @@
 | `/platform/admin/namespaces/{namespace}/iap/config/playstation` | GET | GetPlayStationIAPConfig | [GetPlayStationIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/GetPlayStationIAPConfig.java) | [GetPlayStationIAPConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/GetPlayStationIAPConfig.java) |
 | `/platform/admin/namespaces/{namespace}/iap/config/playstation` | PUT | UpdatePlaystationIAPConfig | [UpdatePlaystationIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/UpdatePlaystationIAPConfig.java) | [UpdatePlaystationIAPConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/UpdatePlaystationIAPConfig.java) |
 | `/platform/admin/namespaces/{namespace}/iap/config/playstation` | DELETE | DeletePlaystationIAPConfig | [DeletePlaystationIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/DeletePlaystationIAPConfig.java) | [DeletePlaystationIAPConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/DeletePlaystationIAPConfig.java) |
+| `/platform/admin/namespaces/{namespace}/iap/config/playstation/validate` | GET | ValidateExistedPlaystationIAPConfig | [ValidateExistedPlaystationIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/ValidateExistedPlaystationIAPConfig.java) | [ValidateExistedPlaystationIAPConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/ValidateExistedPlaystationIAPConfig.java) |
+| `/platform/admin/namespaces/{namespace}/iap/config/playstation/validate` | PUT | ValidatePlaystationIAPConfig | [ValidatePlaystationIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/ValidatePlaystationIAPConfig.java) | [ValidatePlaystationIAPConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/ValidatePlaystationIAPConfig.java) |
 | `/platform/admin/namespaces/{namespace}/iap/config/steam` | GET | GetSteamIAPConfig | [GetSteamIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/GetSteamIAPConfig.java) | [GetSteamIAPConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/GetSteamIAPConfig.java) |
 | `/platform/admin/namespaces/{namespace}/iap/config/steam` | PUT | UpdateSteamIAPConfig | [UpdateSteamIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/UpdateSteamIAPConfig.java) | [UpdateSteamIAPConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/UpdateSteamIAPConfig.java) |
 | `/platform/admin/namespaces/{namespace}/iap/config/steam` | DELETE | DeleteSteamIAPConfig | [DeleteSteamIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/DeleteSteamIAPConfig.java) | [DeleteSteamIAPConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/DeleteSteamIAPConfig.java) |
@@ -555,6 +563,7 @@
 |---|---|
 | `AchievementInfo` | [AchievementInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/AchievementInfo.java) |
 | `AdditionalData` | [AdditionalData](../../src/main/java/net/accelbyte/sdk/api/platform/models/AdditionalData.java) |
+| `AdditionalDataEntitlement` | [AdditionalDataEntitlement](../../src/main/java/net/accelbyte/sdk/api/platform/models/AdditionalDataEntitlement.java) |
 | `AdminOrderCreate` | [AdminOrderCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/AdminOrderCreate.java) |
 | `AdyenConfig` | [AdyenConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/AdyenConfig.java) |
 | `AliPayConfig` | [AliPayConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/AliPayConfig.java) |
@@ -600,7 +609,9 @@
 | `CategoryInfo` | [CategoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/CategoryInfo.java) |
 | `CategoryUpdate` | [CategoryUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/CategoryUpdate.java) |
 | `CheckoutConfig` | [CheckoutConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/CheckoutConfig.java) |
+| `ClawbackInfo` | [ClawbackInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ClawbackInfo.java) |
 | `ClientRequestParameter` | [ClientRequestParameter](../../src/main/java/net/accelbyte/sdk/api/platform/models/ClientRequestParameter.java) |
+| `ClientTransaction` | [ClientTransaction](../../src/main/java/net/accelbyte/sdk/api/platform/models/ClientTransaction.java) |
 | `CodeCreate` | [CodeCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/CodeCreate.java) |
 | `CodeCreateResult` | [CodeCreateResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/CodeCreateResult.java) |
 | `CodeInfo` | [CodeInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/CodeInfo.java) |
@@ -654,6 +665,7 @@
 | `EpicGamesReconcileRequest` | [EpicGamesReconcileRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/EpicGamesReconcileRequest.java) |
 | `EpicGamesReconcileResult` | [EpicGamesReconcileResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EpicGamesReconcileResult.java) |
 | `ErrorEntity` | [ErrorEntity](../../src/main/java/net/accelbyte/sdk/api/platform/models/ErrorEntity.java) |
+| `EventAdditionalData` | [EventAdditionalData](../../src/main/java/net/accelbyte/sdk/api/platform/models/EventAdditionalData.java) |
 | `EventPayload` | [EventPayload](../../src/main/java/net/accelbyte/sdk/api/platform/models/EventPayload.java) |
 | `ExportStoreRequest` | [ExportStoreRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/ExportStoreRequest.java) |
 | `ExtensionFulfillmentSummary` | [ExtensionFulfillmentSummary](../../src/main/java/net/accelbyte/sdk/api/platform/models/ExtensionFulfillmentSummary.java) |
@@ -667,10 +679,7 @@
 | `FulfillmentItem` | [FulfillmentItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentItem.java) |
 | `FulfillmentRequest` | [FulfillmentRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentRequest.java) |
 | `FulfillmentResult` | [FulfillmentResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentResult.java) |
-| `FulfillmentScriptContext` | [FulfillmentScriptContext](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentScriptContext.java) |
 | `FulfillmentScriptCreate` | [FulfillmentScriptCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentScriptCreate.java) |
-| `FulfillmentScriptEvalTestRequest` | [FulfillmentScriptEvalTestRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentScriptEvalTestRequest.java) |
-| `FulfillmentScriptEvalTestResult` | [FulfillmentScriptEvalTestResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentScriptEvalTestResult.java) |
 | `FulfillmentScriptInfo` | [FulfillmentScriptInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentScriptInfo.java) |
 | `FulfillmentScriptUpdate` | [FulfillmentScriptUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentScriptUpdate.java) |
 | `FullAppInfo` | [FullAppInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FullAppInfo.java) |
@@ -686,6 +695,7 @@
 | `GrantSubscriptionDaysRequest` | [GrantSubscriptionDaysRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/GrantSubscriptionDaysRequest.java) |
 | `GrpcServerInfo` | [GrpcServerInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/GrpcServerInfo.java) |
 | `HierarchicalCategoryInfo` | [HierarchicalCategoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/HierarchicalCategoryInfo.java) |
+| `IAPClawbackPagingSlicedResult` | [IAPClawbackPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/IAPClawbackPagingSlicedResult.java) |
 | `IAPConsumeHistoryInfo` | [IAPConsumeHistoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/IAPConsumeHistoryInfo.java) |
 | `IAPConsumeHistoryPagingSlicedResult` | [IAPConsumeHistoryPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/IAPConsumeHistoryPagingSlicedResult.java) |
 | `IAPItemConfigInfo` | [IAPItemConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/IAPItemConfigInfo.java) |
@@ -867,6 +877,8 @@
 | `StoreCreate` | [StoreCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/StoreCreate.java) |
 | `StoreInfo` | [StoreInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/StoreInfo.java) |
 | `StoreUpdate` | [StoreUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/StoreUpdate.java) |
+| `StreamEvent` | [StreamEvent](../../src/main/java/net/accelbyte/sdk/api/platform/models/StreamEvent.java) |
+| `StreamEventBody` | [StreamEventBody](../../src/main/java/net/accelbyte/sdk/api/platform/models/StreamEventBody.java) |
 | `StripeConfig` | [StripeConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/StripeConfig.java) |
 | `Subscribable` | [Subscribable](../../src/main/java/net/accelbyte/sdk/api/platform/models/Subscribable.java) |
 | `SubscribeRequest` | [SubscribeRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/SubscribeRequest.java) |

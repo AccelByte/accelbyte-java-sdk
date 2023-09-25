@@ -25,12 +25,32 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class PlayStationIAPConfigInfo extends Model {
 
+  @JsonProperty("backOfficeServerClientId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String backOfficeServerClientId;
+
+  @JsonProperty("backOfficeServerClientSecret")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String backOfficeServerClientSecret;
+
+  @JsonProperty("enableStreamJob")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean enableStreamJob;
+
   @JsonProperty("environment")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String environment;
 
   @JsonProperty("namespace")
   private String namespace;
+
+  @JsonProperty("streamName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String streamName;
+
+  @JsonProperty("streamPartnerName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String streamPartnerName;
 
   @JsonIgnore
   public PlayStationIAPConfigInfo createFromJson(String json) throws JsonProcessingException {

@@ -28,6 +28,9 @@ public class ModelsImageRecordUpdate extends Model {
   @JsonProperty("artifactPath")
   private String artifactPath;
 
+  @JsonProperty("coreDumpEnabled")
+  private Boolean coreDumpEnabled;
+
   @JsonProperty("image")
   private String image;
 

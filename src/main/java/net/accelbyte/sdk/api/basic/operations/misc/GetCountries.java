@@ -26,7 +26,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>List countries. Other detail info:
  *
  * <p>* Required permission : login user * Action code : 11204 * Returns : country code list
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetCountries extends Operation {

@@ -40,6 +40,9 @@ public class ApiFleetGetResponse extends Model {
   @JsonProperty("imageDeploymentProfile")
   private ApiImageDeploymentProfile imageDeploymentProfile;
 
+  @JsonProperty("isLocal")
+  private Boolean isLocal;
+
   @JsonProperty("name")
   private String name;
 

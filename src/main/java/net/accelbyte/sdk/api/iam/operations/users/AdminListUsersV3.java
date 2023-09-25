@@ -23,8 +23,9 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This endpoint requires ADMIN:NAMESPACE:{namespace}:USER [READ] permission.
  *
- * <p>Returns list of users ID and namespace with their Justice platform account, under a namespace.
- * If user doesn't have Justice platform account, the linkedPlatforms will be empty array.'
+ * <p>This endpoint requires publisher namespace. Returns list of users ID and namespace with their
+ * Justice platform account, under a namespace. If user doesn't have Justice platform account, the
+ * linkedPlatforms will be empty array.'
  */
 @Getter
 @Setter

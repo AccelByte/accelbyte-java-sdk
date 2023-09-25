@@ -49,6 +49,9 @@ public class ModelsCreateImagePatchRequest extends Model {
   @JsonProperty("persistent")
   private Boolean persistent;
 
+  @JsonProperty("ulimitFileSize")
+  private Integer ulimitFileSize;
+
   @JsonProperty("uploaderFlag")
   private String uploaderFlag;
 

@@ -24,7 +24,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>This endpoint will return a list of revoked users and revoked tokens. List of revoked tokens
  * in bloom filter format.
  *
- * <p>This endpoint requires authorized requests header with valid access token.
+ * <p>This endpoint requires all requests to have Authorization header set with Basic access
+ * authentication constructed from client id and client secret.
  *
  * <p>The bloom filter uses MurmurHash3 algorithm for hashing the values
  *

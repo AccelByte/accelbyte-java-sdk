@@ -91,6 +91,11 @@ public class ListTerminatedServers implements Callable<Integer> {
   String sessionId;
 
   @Option(
+      names = {"--source"},
+      description = "source")
+  String source;
+
+  @Option(
       names = {"--startDate"},
       description = "startDate")
   String startDate;
@@ -142,6 +147,7 @@ public class ListTerminatedServers implements Callable<Integer> {
                   .provider(provider)
                   .region(region)
                   .sessionId(sessionId)
+                  .source(source)
                   .startDate(startDate)
                   .status(status)
                   .userId(userId)

@@ -33,16 +33,6 @@ public class FulfillmentScript {
   }
 
   /**
-   * @see TestFulfillmentScriptEval
-   */
-  public FulfillmentScriptEvalTestResult testFulfillmentScriptEval(TestFulfillmentScriptEval input)
-      throws Exception {
-    final HttpResponse httpResponse = sdk.runRequest(input);
-    return input.parseResponse(
-        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-  }
-
-  /**
    * @see GetFulfillmentScript
    */
   public FulfillmentScriptInfo getFulfillmentScript(GetFulfillmentScript input) throws Exception {

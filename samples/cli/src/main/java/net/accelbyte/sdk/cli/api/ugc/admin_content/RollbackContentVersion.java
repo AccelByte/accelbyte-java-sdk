@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.platform.fulfillment_script;
+package net.accelbyte.sdk.cli.api.ugc.admin_content;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.platform.models.*;
-import net.accelbyte.sdk.api.platform.wrappers.FulfillmentScript;
+import net.accelbyte.sdk.api.ugc.models.*;
+import net.accelbyte.sdk.api.ugc.wrappers.AdminContent;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,15 +25,25 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "testFulfillmentScriptEval", mixinStandardHelpOptions = true)
-public class TestFulfillmentScriptEval implements Callable<Integer> {
+@Command(name = "rollbackContentVersion", mixinStandardHelpOptions = true)
+public class RollbackContentVersion implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(TestFulfillmentScriptEval.class);
+  private static final Logger log = LogManager.getLogger(RollbackContentVersion.class);
 
   @Option(
-      names = {"--body"},
-      description = "body")
-  String body;
+      names = {"--contentId"},
+      description = "contentId")
+  String contentId;
+
+  @Option(
+      names = {"--namespace"},
+      description = "namespace")
+  String namespace;
+
+  @Option(
+      names = {"--versionId"},
+      description = "versionId")
+  String versionId;
 
   @Option(
       names = {"--logging"},
@@ -41,7 +51,7 @@ public class TestFulfillmentScriptEval implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new TestFulfillmentScriptEval()).execute(args);
+    int exitCode = new CommandLine(new RollbackContentVersion()).execute(args);
     System.exit(exitCode);
   }
 
@@ -55,14 +65,14 @@ public class TestFulfillmentScriptEval implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final FulfillmentScript wrapper = new FulfillmentScript(sdk);
-      final net.accelbyte.sdk.api.platform.operations.fulfillment_script.TestFulfillmentScriptEval
-          operation =
-              net.accelbyte.sdk.api.platform.operations.fulfillment_script.TestFulfillmentScriptEval
-                  .builder()
-                  .body(new ObjectMapper().readValue(body, FulfillmentScriptEvalTestRequest.class))
-                  .build();
-      final FulfillmentScriptEvalTestResult response = wrapper.testFulfillmentScriptEval(operation);
+      final AdminContent wrapper = new AdminContent(sdk);
+      final net.accelbyte.sdk.api.ugc.operations.admin_content.RollbackContentVersion operation =
+          net.accelbyte.sdk.api.ugc.operations.admin_content.RollbackContentVersion.builder()
+              .contentId(contentId)
+              .namespace(namespace)
+              .versionId(versionId)
+              .build();
+      final ModelsContentDownloadResponse response = wrapper.rollbackContentVersion(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

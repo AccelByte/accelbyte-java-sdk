@@ -23,7 +23,10 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Updates an OAuth 2.0 client. Protected by the permission: ADMIN:NAMESPACE:{namespace}:CLIENT
  * [UPDATE]. Specify only the fields you want to update in the request payload, e.g.
- * {"ClientName":"E-commerce", "BaseUri":"https://example.net"}
+ * {"ClientName":"E-commerce", "BaseUri":"https://example.net"} Note for Multi Tenant Mode:
+ *
+ * <p>1. The assigned permission(s) should be restricted in the Default Client permission
+ * collection.
  *
  * <p>action code: 10302
  *

@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApiAccountResponse extends Model {
 
+  @JsonProperty("Limits")
+  private ApiAccountLimits limits;
+
   @JsonProperty("id")
   private String id;
 

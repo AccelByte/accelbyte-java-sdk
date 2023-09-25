@@ -59,6 +59,7 @@
 ### Watchdogs Wrapper:  [Watchdogs](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/Watchdogs.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
+| `/ams/v1/namespaces/{namespace}/local/{watchdogID}/connect` | GET | LocalWatchdogConnect | [LocalWatchdogConnect](../../src/main/java/net/accelbyte/sdk/api/ams/operations/watchdogs/LocalWatchdogConnect.java) | [LocalWatchdogConnect](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/watchdogs/LocalWatchdogConnect.java) |
 | `/ams/v1/namespaces/{namespace}/watchdogs/{watchdogID}/connect` | GET | WatchdogConnect | [WatchdogConnect](../../src/main/java/net/accelbyte/sdk/api/ams/operations/watchdogs/WatchdogConnect.java) | [WatchdogConnect](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/watchdogs/WatchdogConnect.java) |
 
 
@@ -70,6 +71,7 @@
 |---|---|
 | `api.AccountCreateRequest` | [ApiAccountCreateRequest](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAccountCreateRequest.java) |
 | `api.AccountCreateResponse` | [ApiAccountCreateResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAccountCreateResponse.java) |
+| `api.AccountLimits` | [ApiAccountLimits](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAccountLimits.java) |
 | `api.AccountLinkRequest` | [ApiAccountLinkRequest](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAccountLinkRequest.java) |
 | `api.AccountLinkResponse` | [ApiAccountLinkResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAccountLinkResponse.java) |
 | `api.AccountLinkTokenResponse` | [ApiAccountLinkTokenResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAccountLinkTokenResponse.java) |
@@ -99,6 +101,7 @@
 | `api.InstanceTypeDescriptionResponse` | [ApiInstanceTypeDescriptionResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiInstanceTypeDescriptionResponse.java) |
 | `api.PagingInfo` | [ApiPagingInfo](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiPagingInfo.java) |
 | `api.PortConfiguration` | [ApiPortConfiguration](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiPortConfiguration.java) |
+| `api.QOSServer` | [ApiQOSServer](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiQOSServer.java) |
 | `api.ReferencingFleet` | [ApiReferencingFleet](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiReferencingFleet.java) |
 | `api.RegionConfig` | [ApiRegionConfig](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiRegionConfig.java) |
 | `api.RegionsResponse` | [ApiRegionsResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiRegionsResponse.java) |

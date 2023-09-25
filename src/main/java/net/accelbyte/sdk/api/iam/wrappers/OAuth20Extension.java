@@ -119,6 +119,16 @@ public class OAuth20Extension {
   }
 
   /**
+   * @see PlatformTokenRefreshV3
+   */
+  public OauthmodelPlatformTokenRefreshResponseV3 platformTokenRefreshV3(
+      PlatformTokenRefreshV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see RequestGameTokenResponseV3
    */
   public OauthmodelTokenResponseV3 requestGameTokenResponseV3(RequestGameTokenResponseV3 input)
@@ -129,10 +139,12 @@ public class OAuth20Extension {
   }
 
   /**
-   * @see PlatformTokenRefreshV3
+   * @see PlatformTokenRefreshV3Deprecate
+   * @deprecated
    */
-  public OauthmodelPlatformTokenRefreshResponseV3 platformTokenRefreshV3(
-      PlatformTokenRefreshV3 input) throws Exception {
+  @Deprecated
+  public OauthmodelPlatformTokenRefreshResponseV3 platformTokenRefreshV3Deprecate(
+      PlatformTokenRefreshV3Deprecate input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

@@ -31,7 +31,7 @@ public class AdminSubmitUserAccountDeletionRequest extends Operation {
   private String path = "/gdpr/admin/namespaces/{namespace}/users/{userId}/deletions";
 
   private String method = "POST";
-  private List<String> consumes = Arrays.asList("application/x-www-form-urlencoded");
+  private List<String> consumes = Arrays.asList("*/*");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 

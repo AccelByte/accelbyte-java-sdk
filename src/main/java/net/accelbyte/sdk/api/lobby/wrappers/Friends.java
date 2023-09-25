@@ -156,6 +156,16 @@ public class Friends {
   }
 
   /**
+   * @see SyncNativeFriends
+   */
+  public List<ModelNativeFriendSyncResponse> syncNativeFriends(SyncNativeFriends input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetListOfFriends
    */
   public ModelGetFriendsResponse getListOfFriends(GetListOfFriends input) throws Exception {

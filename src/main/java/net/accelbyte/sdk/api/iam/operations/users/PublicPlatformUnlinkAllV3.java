@@ -22,7 +22,12 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Required valid user authorization.
  *
- * <p>Unlink user's account from for all third platforms.
+ * <p>Unlink user's account from third platform in all namespaces.
+ *
+ * <p>This API support to handling platform group use case: i.e. 1. Steam group: steam, steamopenid
+ * 2. PSN group: ps4, ps5, psnweb 3. XBOX group: live, xblweb
+ *
+ * <p>Example: if user unlink from ps4, the API logic will unlink ps5 and psnweb as well.
  */
 @Getter
 @Setter

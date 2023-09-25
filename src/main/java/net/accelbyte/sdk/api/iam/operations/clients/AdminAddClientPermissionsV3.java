@@ -23,6 +23,11 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:CLIENT' [UPDATE]'
  *
+ * <p>Note for Multi Tenant Mode:
+ *
+ * <p>1. The assigned permission(s) should be restricted in the Default Client permission
+ * collection.
+ *
  * <p>action code: 10303
  */
 @Getter

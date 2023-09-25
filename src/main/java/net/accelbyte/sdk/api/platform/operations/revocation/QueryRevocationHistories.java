@@ -137,6 +137,7 @@ public class QueryRevocationHistories extends Operation {
 
   public enum Source {
     DLC("DLC"),
+    IAP("IAP"),
     ORDER("ORDER"),
     OTHER("OTHER");
 

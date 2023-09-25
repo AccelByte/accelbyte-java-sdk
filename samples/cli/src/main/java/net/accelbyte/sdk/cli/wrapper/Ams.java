@@ -43,6 +43,7 @@ import picocli.CommandLine.Command;
       ServerHistory.class,
       InfoSupportedInstances.class,
       FleetClaimByID.class,
+      LocalWatchdogConnect.class,
       FleetClaimByKeys.class,
       WatchdogConnect.class,
       Func1.class,

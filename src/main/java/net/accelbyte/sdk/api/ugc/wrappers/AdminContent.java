@@ -156,6 +156,16 @@ public class AdminContent {
   }
 
   /**
+   * @see RollbackContentVersion
+   */
+  public ModelsContentDownloadResponse rollbackContentVersion(RollbackContentVersion input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminUpdateScreenshots
    */
   public ModelsUpdateScreenshotResponse adminUpdateScreenshots(AdminUpdateScreenshots input)
@@ -181,6 +191,16 @@ public class AdminContent {
   public void adminDeleteContentScreenshot(AdminDeleteContentScreenshot input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see ListContentVersions
+   */
+  public ModelsListContentVersionsResponse listContentVersions(ListContentVersions input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

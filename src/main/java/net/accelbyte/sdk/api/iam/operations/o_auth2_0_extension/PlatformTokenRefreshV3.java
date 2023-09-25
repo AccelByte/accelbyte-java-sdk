@@ -54,7 +54,7 @@ import net.accelbyte.sdk.core.util.Helper;
 @Setter
 public class PlatformTokenRefreshV3 extends Operation {
   /** generated field's value */
-  private String path = "/iam/v3/v3/platforms/{platformId}/token/verify";
+  private String path = "/iam/v3/platforms/{platformId}/token/verify";
 
   private String method = "POST";
   private List<String> consumes = Arrays.asList("application/x-www-form-urlencoded");

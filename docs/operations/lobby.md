@@ -21,6 +21,7 @@
 | `/friends/namespaces/{namespace}/me/unfriend` | POST | UserUnfriendRequest | [UserUnfriendRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/friends/UserUnfriendRequest.java) | [UserUnfriendRequest](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/friends/UserUnfriendRequest.java) |
 | `/friends/namespaces/{namespace}/users/{userId}/add/bulk` | POST | AddFriendsWithoutConfirmation | [AddFriendsWithoutConfirmation](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/friends/AddFriendsWithoutConfirmation.java) | [AddFriendsWithoutConfirmation](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/friends/AddFriendsWithoutConfirmation.java) |
 | `/friends/namespaces/{namespace}/users/{userId}/delete/bulk` | POST | BulkDeleteFriends | [BulkDeleteFriends](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/friends/BulkDeleteFriends.java) | [BulkDeleteFriends](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/friends/BulkDeleteFriends.java) |
+| `/friends/sync/namespaces/{namespace}/me` | PATCH | SyncNativeFriends | [SyncNativeFriends](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/friends/SyncNativeFriends.java) | [SyncNativeFriends](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/friends/SyncNativeFriends.java) |
 | `/lobby/v1/admin/friend/namespaces/{namespace}/users/{userId}` | GET | GetListOfFriends | [GetListOfFriends](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/friends/GetListOfFriends.java) | [GetListOfFriends](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/friends/GetListOfFriends.java) |
 | `/lobby/v1/admin/friend/namespaces/{namespace}/users/{userId}/incoming` | GET | GetIncomingFriendRequests | [GetIncomingFriendRequests](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/friends/GetIncomingFriendRequests.java) | [GetIncomingFriendRequests](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/friends/GetIncomingFriendRequests.java) |
 | `/lobby/v1/admin/friend/namespaces/{namespace}/users/{userId}/outgoing` | GET | GetOutgoingFriendRequests | [GetOutgoingFriendRequests](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/friends/GetOutgoingFriendRequests.java) | [GetOutgoingFriendRequests](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/friends/GetOutgoingFriendRequests.java) |
@@ -157,6 +158,7 @@
 | `model.CreateTopicRequestV1` | [ModelCreateTopicRequestV1](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelCreateTopicRequestV1.java) |
 | `model.FreeFormNotificationRequest` | [ModelFreeFormNotificationRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelFreeFormNotificationRequest.java) |
 | `model.FreeFormNotificationRequestV1` | [ModelFreeFormNotificationRequestV1](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelFreeFormNotificationRequestV1.java) |
+| `model.FriendWithPlatform` | [ModelFriendWithPlatform](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelFriendWithPlatform.java) |
 | `model.GetAllNotificationTemplateSlugResp` | [ModelGetAllNotificationTemplateSlugResp](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelGetAllNotificationTemplateSlugResp.java) |
 | `model.GetAllNotificationTopicsResponse` | [ModelGetAllNotificationTopicsResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelGetAllNotificationTopicsResponse.java) |
 | `model.GetFriendsResponse` | [ModelGetFriendsResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelGetFriendsResponse.java) |
@@ -168,6 +170,8 @@
 | `model.LoadIncomingFriendsWithTimeResponse` | [ModelLoadIncomingFriendsWithTimeResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelLoadIncomingFriendsWithTimeResponse.java) |
 | `model.LoadOutgoingFriendsWithTimeResponse` | [ModelLoadOutgoingFriendsWithTimeResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelLoadOutgoingFriendsWithTimeResponse.java) |
 | `model.Localization` | [ModelLocalization](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelLocalization.java) |
+| `model.NativeFriendRequest` | [ModelNativeFriendRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelNativeFriendRequest.java) |
+| `model.NativeFriendSyncResponse` | [ModelNativeFriendSyncResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelNativeFriendSyncResponse.java) |
 | `model.NotificationTemplateResponse` | [ModelNotificationTemplateResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelNotificationTemplateResponse.java) |
 | `model.NotificationTopicResponse` | [ModelNotificationTopicResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelNotificationTopicResponse.java) |
 | `model.NotificationTopicResponseV1` | [ModelNotificationTopicResponseV1](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelNotificationTopicResponseV1.java) |

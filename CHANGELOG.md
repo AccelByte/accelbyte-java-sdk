@@ -1,3 +1,12 @@
+<a name="v0.47.0"></a>
+## [v0.47.0]
+### ci
+- **generate:** use demo_extend-sdk
+### docs
+- **readme:** rearrange sections
+- **readme:** fix broken validate access token docs link
+
+
 <a name="v0.46.0"></a>
 ## [v0.46.0]
 ### fix

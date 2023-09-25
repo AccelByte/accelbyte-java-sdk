@@ -21,6 +21,15 @@ public class Watchdogs {
   }
 
   /**
+   * @see LocalWatchdogConnect
+   */
+  public void localWatchdogConnect(LocalWatchdogConnect input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see WatchdogConnect
    */
   public void watchdogConnect(WatchdogConnect input) throws Exception {

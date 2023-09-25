@@ -29,13 +29,19 @@ public class ModelsGameServer extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> alternateIps;
 
+  @JsonProperty("ams_protocol")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<ModelsPortConfigurationAMS> amsProtocol;
+
   @JsonProperty("custom_attribute")
   private String customAttribute;
 
   @JsonProperty("deployment")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String deployment;
 
   @JsonProperty("game_version")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String gameVersion;
 
   @JsonProperty("image_version")
@@ -57,15 +63,19 @@ public class ModelsGameServer extends Model {
   private String podName;
 
   @JsonProperty("port")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer port;
 
   @JsonProperty("ports")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, Integer> ports;
 
   @JsonProperty("protocol")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String protocol;
 
   @JsonProperty("provider")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String provider;
 
   @JsonProperty("region")

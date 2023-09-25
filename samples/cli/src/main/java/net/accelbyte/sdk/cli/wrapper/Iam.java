@@ -10,6 +10,7 @@ package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.iam.bans.*;
 import net.accelbyte.sdk.cli.api.iam.clients.*;
+import net.accelbyte.sdk.cli.api.iam.country.*;
 import net.accelbyte.sdk.cli.api.iam.devices_v4.*;
 import net.accelbyte.sdk.cli.api.iam.input_validations.*;
 import net.accelbyte.sdk.cli.api.iam.o_auth.*;
@@ -154,6 +155,9 @@ import picocli.CommandLine.Command;
       AdminUpdateClientPermissionV3.class,
       AdminAddClientPermissionsV3.class,
       AdminDeleteClientPermissionV3.class,
+      AdminGetCountryListV3.class,
+      AdminGetCountryBlacklistV3.class,
+      AdminAddCountryBlacklistV3.class,
       RetrieveAllThirdPartyLoginPlatformCredentialV3.class,
       RetrieveAllActiveThirdPartyLoginPlatformCredentialV3.class,
       RetrieveAllSSOLoginPlatformCredentialV3.class,
@@ -211,6 +215,7 @@ import picocli.CommandLine.Command;
       AdminAddUserRoleV3.class,
       AdminDeleteUserRoleV3.class,
       AdminUpdateUserStatusV3.class,
+      AdminTrustlyUpdateUserIdentity.class,
       AdminVerifyUserWithoutVerificationCodeV3.class,
       AdminUpdateClientSecretV3.class,
       AdminGetRolesV3.class,
@@ -257,9 +262,11 @@ import picocli.CommandLine.Command;
       TokenGrantV3.class,
       VerifyTokenV3.class,
       PlatformAuthenticationV3.class,
+      PlatformTokenRefreshV3.class,
       PublicGetInputValidations.class,
       PublicGetInputValidationByField.class,
       PublicGetCountryAgeRestrictionV3.class,
+      PublicGetCountryListV3.class,
       RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3.class,
       RetrieveActiveOIDCClientsPublicV3.class,
       PublicListUserIDByPlatformUserIDsV3.class,
@@ -312,7 +319,7 @@ import picocli.CommandLine.Command;
       LoginSSOClient.class,
       LogoutSSOClient.class,
       RequestGameTokenResponseV3.class,
-      PlatformTokenRefreshV3.class,
+      PlatformTokenRefreshV3Deprecate.class,
       AdminGetDevicesByUserV4.class,
       AdminGetBannedDevicesV4.class,
       AdminGetUserDeviceBansV4.class,

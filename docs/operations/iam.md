@@ -157,6 +157,7 @@
 | `/iam/v3/admin/namespaces/{namespace}/users/{userId}/roles/{roleId}` | POST | AdminAddUserRoleV3 | [AdminAddUserRoleV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminAddUserRoleV3.java) | [AdminAddUserRoleV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminAddUserRoleV3.java) |
 | `/iam/v3/admin/namespaces/{namespace}/users/{userId}/roles/{roleId}` | DELETE | AdminDeleteUserRoleV3 | [AdminDeleteUserRoleV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminDeleteUserRoleV3.java) | [AdminDeleteUserRoleV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminDeleteUserRoleV3.java) |
 | `/iam/v3/admin/namespaces/{namespace}/users/{userId}/status` | PATCH | AdminUpdateUserStatusV3 | [AdminUpdateUserStatusV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminUpdateUserStatusV3.java) | [AdminUpdateUserStatusV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminUpdateUserStatusV3.java) |
+| `/iam/v3/admin/namespaces/{namespace}/users/{userId}/trustly/identity` | PATCH | AdminTrustlyUpdateUserIdentity | [AdminTrustlyUpdateUserIdentity](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminTrustlyUpdateUserIdentity.java) | [AdminTrustlyUpdateUserIdentity](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminTrustlyUpdateUserIdentity.java) |
 | `/iam/v3/admin/namespaces/{namespace}/users/{userId}/verify` | PUT | AdminVerifyUserWithoutVerificationCodeV3 | [AdminVerifyUserWithoutVerificationCodeV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminVerifyUserWithoutVerificationCodeV3.java) | [AdminVerifyUserWithoutVerificationCodeV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminVerifyUserWithoutVerificationCodeV3.java) |
 | `/iam/v3/admin/users/me` | GET | AdminGetMyUserV3 | [AdminGetMyUserV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminGetMyUserV3.java) | [AdminGetMyUserV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminGetMyUserV3.java) |
 | `/iam/v3/public/namespaces/{namespace}/agerestrictions/countries/{countryCode}` | GET | PublicGetCountryAgeRestrictionV3 | [PublicGetCountryAgeRestrictionV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicGetCountryAgeRestrictionV3.java) | [PublicGetCountryAgeRestrictionV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicGetCountryAgeRestrictionV3.java) |
@@ -279,6 +280,14 @@
 | `/iam/v3/public/inputValidations` | GET | PublicGetInputValidations | [PublicGetInputValidations](../../src/main/java/net/accelbyte/sdk/api/iam/operations/input_validations/PublicGetInputValidations.java) | [PublicGetInputValidations](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/input_validations/PublicGetInputValidations.java) |
 | `/iam/v3/public/inputValidations/{field}` | GET | PublicGetInputValidationByField | [PublicGetInputValidationByField](../../src/main/java/net/accelbyte/sdk/api/iam/operations/input_validations/PublicGetInputValidationByField.java) | [PublicGetInputValidationByField](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/input_validations/PublicGetInputValidationByField.java) |
 
+### Country Wrapper:  [Country](../../src/main/java/net/accelbyte/sdk/api/iam/wrappers/Country.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/iam/v3/admin/namespaces/{namespace}/countries` | GET | AdminGetCountryListV3 | [AdminGetCountryListV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/country/AdminGetCountryListV3.java) | [AdminGetCountryListV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/country/AdminGetCountryListV3.java) |
+| `/iam/v3/admin/namespaces/{namespace}/countries/blacklist` | GET | AdminGetCountryBlacklistV3 | [AdminGetCountryBlacklistV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/country/AdminGetCountryBlacklistV3.java) | [AdminGetCountryBlacklistV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/country/AdminGetCountryBlacklistV3.java) |
+| `/iam/v3/admin/namespaces/{namespace}/countries/blacklist` | POST | AdminAddCountryBlacklistV3 | [AdminAddCountryBlacklistV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/country/AdminAddCountryBlacklistV3.java) | [AdminAddCountryBlacklistV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/country/AdminAddCountryBlacklistV3.java) |
+| `/iam/v3/public/namespaces/{namespace}/countries` | GET | PublicGetCountryListV3 | [PublicGetCountryListV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/country/PublicGetCountryListV3.java) | [PublicGetCountryListV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/country/PublicGetCountryListV3.java) |
+
 ### Third Party Credential Wrapper:  [ThirdPartyCredential](../../src/main/java/net/accelbyte/sdk/api/iam/wrappers/ThirdPartyCredential.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -315,8 +324,9 @@
 | `/iam/v3/logout` | POST | Logout | [Logout](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_extension/Logout.java) | [Logout](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_extension/Logout.java) |
 | `/iam/v3/namespace/{namespace}/token/request` | POST | RequestGameTokenCodeResponseV3 | [RequestGameTokenCodeResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_extension/RequestGameTokenCodeResponseV3.java) | [RequestGameTokenCodeResponseV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_extension/RequestGameTokenCodeResponseV3.java) |
 | `/iam/v3/platforms/{platformId}/authenticate` | GET | PlatformAuthenticationV3 | [PlatformAuthenticationV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_extension/PlatformAuthenticationV3.java) | [PlatformAuthenticationV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_extension/PlatformAuthenticationV3.java) |
+| `/iam/v3/platforms/{platformId}/token/verify` | POST | PlatformTokenRefreshV3 | [PlatformTokenRefreshV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_extension/PlatformTokenRefreshV3.java) | [PlatformTokenRefreshV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_extension/PlatformTokenRefreshV3.java) |
 | `/iam/v3/token/exchange` | POST | RequestGameTokenResponseV3 | [RequestGameTokenResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_extension/RequestGameTokenResponseV3.java) | [RequestGameTokenResponseV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_extension/RequestGameTokenResponseV3.java) |
-| `/iam/v3/v3/platforms/{platformId}/token/verify` | POST | PlatformTokenRefreshV3 | [PlatformTokenRefreshV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_extension/PlatformTokenRefreshV3.java) | [PlatformTokenRefreshV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_extension/PlatformTokenRefreshV3.java) |
+| [DEPRECATED] `/iam/v3/v3/platforms/{platformId}/token/verify` | POST | PlatformTokenRefreshV3Deprecate | [PlatformTokenRefreshV3Deprecate](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_extension/PlatformTokenRefreshV3Deprecate.java) | [PlatformTokenRefreshV3Deprecate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_extension/PlatformTokenRefreshV3Deprecate.java) |
 
 ### OAuth2.0 Wrapper:  [OAuth20](../../src/main/java/net/accelbyte/sdk/api/iam/wrappers/OAuth20.java)
 | Endpoint | Method | ID | Class | Example |
@@ -519,6 +529,9 @@
 | `model.Country` | [ModelCountry](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelCountry.java) |
 | `model.CountryAgeRestrictionRequest` | [ModelCountryAgeRestrictionRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelCountryAgeRestrictionRequest.java) |
 | `model.CountryAgeRestrictionV3Request` | [ModelCountryAgeRestrictionV3Request](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelCountryAgeRestrictionV3Request.java) |
+| `model.CountryBlacklistRequest` | [ModelCountryBlacklistRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelCountryBlacklistRequest.java) |
+| `model.CountryBlacklistResponse` | [ModelCountryBlacklistResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelCountryBlacklistResponse.java) |
+| `model.CountryResponse` | [ModelCountryResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelCountryResponse.java) |
 | `model.CountryV3Response` | [ModelCountryV3Response](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelCountryV3Response.java) |
 | `model.CreateJusticeUserResponse` | [ModelCreateJusticeUserResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelCreateJusticeUserResponse.java) |
 | `model.DeviceBanRequestV4` | [ModelDeviceBanRequestV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelDeviceBanRequestV4.java) |
@@ -646,6 +659,7 @@
 | `model.UserCreateResponseV3` | [ModelUserCreateResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserCreateResponseV3.java) |
 | `model.UserDeletionStatusResponse` | [ModelUserDeletionStatusResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserDeletionStatusResponse.java) |
 | `model.UserIDsRequest` | [ModelUserIDsRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserIDsRequest.java) |
+| `model.UserIdentityUpdateRequestV3` | [ModelUserIdentityUpdateRequestV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserIdentityUpdateRequestV3.java) |
 | `model.UserInfoResponse` | [ModelUserInfoResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserInfoResponse.java) |
 | `model.UserInformation` | [ModelUserInformation](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserInformation.java) |
 | `model.UserInvitationV3` | [ModelUserInvitationV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserInvitationV3.java) |
