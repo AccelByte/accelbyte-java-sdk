@@ -13,6 +13,9 @@ This guide will show you how to create a project which uses Java Extend SDK from
 * Gradle 7
 * Java IDE e.g. Visual Studio Code, etc
 
+> **WARNING**: We don't recommend the use of `public Client ID`, which means `Client ID` without `Client Secret`.  
+> Please ensure the `Client ID` have `Client Secret`
+
 ## Tutorial
 
 ### 1. Create a Java Project

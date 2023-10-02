@@ -145,6 +145,10 @@ if (!login) {
 
 #### Login Using OAuth Client (Public or Private)
 
+> **warning**: Please use confidential OAuth client for LoginClient (client ID *WITH* client secret) moving forward. 
+> Public Oauth client (client ID *WITHOUT* client secret) is no longer supported.
+
+
 ```java
 boolean login = sdk.loginClient();
 
