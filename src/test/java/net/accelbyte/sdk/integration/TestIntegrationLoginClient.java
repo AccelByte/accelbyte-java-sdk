@@ -27,11 +27,11 @@ public class TestIntegrationLoginClient extends TestIntegration {
   public void testLoginPublicClient() throws Exception {
 
     /*
-     * WARNING: The use of public client id is no longer supported, please use confidential client,
-     * in the `testLoginConfidentialClient()` bellow
+     * WARNING: Please use loginClient() function with confidential OAuth client.
+     * Using loginClient() function with public OAuth client is not supported.
+     * This test is kept here for historical reason only.
      */
 
-    // Mock "get client_id" and "get client_secret" method to specific value.
     DefaultConfigRepository configRepo1 = Mockito.spy(new DefaultConfigRepository());
     doReturn(System.getenv("PUBLIC_AB_CLIENT_ID")).when(configRepo1).getClientId();
     doReturn("").when(configRepo1).getClientSecret();
