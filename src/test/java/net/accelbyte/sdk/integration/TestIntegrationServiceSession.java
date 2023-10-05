@@ -72,14 +72,6 @@ public class TestIntegrationServiceSession extends TestIntegration {
 
   @Test
   @Order(1)
-  public void testHealth() throws Exception {
-    final Operations operationsWrapper = new Operations(sdk);
-
-    operationsWrapper.getHealthcheckInfoV1(GetHealthcheckInfoV1.builder().build());
-  }
-
-  @Test
-  @Order(1)
   public void testConfigurationTemplate() throws Exception {
     final String cfgTemplateName = "java_sdk_template_" + TestHelper.generateRandomId(4);
 

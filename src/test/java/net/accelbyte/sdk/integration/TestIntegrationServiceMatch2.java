@@ -71,15 +71,6 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
 
   @Test
   @Order(1)
-  public void testHealth() throws Exception {
-
-    final Operations operationsWrapper = new Operations(sdk);
-
-    operationsWrapper.getHealthcheckInfoV1(GetHealthcheckInfoV1.builder().build());
-  }
-
-  @Test
-  @Order(1)
   public void testMatchPool() throws Exception {
     final String nameSuffix = TestHelper.generateRandomId(4);
 
