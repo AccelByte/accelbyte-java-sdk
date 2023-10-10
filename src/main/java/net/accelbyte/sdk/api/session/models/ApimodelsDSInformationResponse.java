@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelsDSInformationResponse extends Model {
 
+  @JsonProperty("CreatedAt")
+  private String createdAt;
+
   @JsonProperty("RequestedAt")
   private String requestedAt;
 

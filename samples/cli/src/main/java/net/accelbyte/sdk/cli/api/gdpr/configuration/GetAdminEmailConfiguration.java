@@ -6,14 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.gdpr.data_retrieval;
+package net.accelbyte.sdk.cli.api.gdpr.configuration;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.gdpr.models.*;
-import net.accelbyte.sdk.api.gdpr.wrappers.DataRetrieval;
+import net.accelbyte.sdk.api.gdpr.wrappers.Configuration;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -26,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "saveAdminEmailConfiguration", mixinStandardHelpOptions = true)
-public class SaveAdminEmailConfiguration implements Callable<Integer> {
+@Command(name = "getAdminEmailConfiguration", mixinStandardHelpOptions = true)
+public class GetAdminEmailConfiguration implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(SaveAdminEmailConfiguration.class);
+  private static final Logger log = LogManager.getLogger(GetAdminEmailConfiguration.class);
 
   @Option(
       names = {"--namespace"},
@@ -37,17 +36,12 @@ public class SaveAdminEmailConfiguration implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--body"},
-      description = "body")
-  String body;
-
-  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new SaveAdminEmailConfiguration()).execute(args);
+    int exitCode = new CommandLine(new GetAdminEmailConfiguration()).execute(args);
     System.exit(exitCode);
   }
 
@@ -61,16 +55,17 @@ public class SaveAdminEmailConfiguration implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final DataRetrieval wrapper = new DataRetrieval(sdk);
-      final net.accelbyte.sdk.api.gdpr.operations.data_retrieval.SaveAdminEmailConfiguration
+      final Configuration wrapper = new Configuration(sdk);
+      final net.accelbyte.sdk.api.gdpr.operations.configuration.GetAdminEmailConfiguration
           operation =
-              net.accelbyte.sdk.api.gdpr.operations.data_retrieval.SaveAdminEmailConfiguration
+              net.accelbyte.sdk.api.gdpr.operations.configuration.GetAdminEmailConfiguration
                   .builder()
                   .namespace(namespace)
-                  .body(new ObjectMapper().readValue(body, new TypeReference<List<String>>() {}))
                   .build();
-      wrapper.saveAdminEmailConfiguration(operation);
-      log.info("Operation successful");
+      final List<String> response = wrapper.getAdminEmailConfiguration(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

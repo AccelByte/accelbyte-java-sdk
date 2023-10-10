@@ -43,6 +43,7 @@ public class OrderCreate extends Model {
   private String language;
 
   @JsonProperty("price")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer price;
 
   @JsonProperty("quantity")

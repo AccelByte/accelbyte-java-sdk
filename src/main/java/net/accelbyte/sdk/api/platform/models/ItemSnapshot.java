@@ -56,6 +56,10 @@ public class ItemSnapshot extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> features;
 
+  @JsonProperty("flexible")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean flexible;
+
   @JsonProperty("itemId")
   private String itemId;
 

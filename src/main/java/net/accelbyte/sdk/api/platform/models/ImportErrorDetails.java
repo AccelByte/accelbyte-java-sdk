@@ -29,9 +29,17 @@ public class ImportErrorDetails extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer errorCode;
 
+  @JsonProperty("errorField")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String errorField;
+
   @JsonProperty("errorMessage")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String errorMessage;
+
+  @JsonProperty("errorValue")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String errorValue;
 
   @JsonProperty("messageVariables")
   @JsonInclude(JsonInclude.Include.NON_NULL)

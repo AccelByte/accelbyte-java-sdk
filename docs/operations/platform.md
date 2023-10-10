@@ -27,8 +27,10 @@
 | `/platform/admin/namespaces/{namespace}/items/byAppId` | GET | GetItemByAppId | [GetItemByAppId](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/GetItemByAppId.java) | [GetItemByAppId](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/GetItemByAppId.java) |
 | `/platform/admin/namespaces/{namespace}/items/byCriteria` | GET | QueryItems | [QueryItems](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/QueryItems.java) | [QueryItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/QueryItems.java) |
 | `/platform/admin/namespaces/{namespace}/items/byFeatures/basic` | GET | ListBasicItemsByFeatures | [ListBasicItemsByFeatures](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/ListBasicItemsByFeatures.java) | [ListBasicItemsByFeatures](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/ListBasicItemsByFeatures.java) |
+| `/platform/admin/namespaces/{namespace}/items/byIds` | GET | GetItems | [GetItems](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/GetItems.java) | [GetItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/GetItems.java) |
 | `/platform/admin/namespaces/{namespace}/items/bySku` | GET | GetItemBySku | [GetItemBySku](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/GetItemBySku.java) | [GetItemBySku](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/GetItemBySku.java) |
 | `/platform/admin/namespaces/{namespace}/items/bySku/locale` | GET | GetLocaleItemBySku | [GetLocaleItemBySku](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/GetLocaleItemBySku.java) | [GetLocaleItemBySku](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/GetLocaleItemBySku.java) |
+| `/platform/admin/namespaces/{namespace}/items/estimatedPrice` | GET | GetEstimatedPrice | [GetEstimatedPrice](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/GetEstimatedPrice.java) | [GetEstimatedPrice](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/GetEstimatedPrice.java) |
 | `/platform/admin/namespaces/{namespace}/items/itemId/bySku` | GET | GetItemIdBySku | [GetItemIdBySku](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/GetItemIdBySku.java) | [GetItemIdBySku](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/GetItemIdBySku.java) |
 | `/platform/admin/namespaces/{namespace}/items/itemId/bySkus` | GET | GetBulkItemIdBySkus | [GetBulkItemIdBySkus](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/GetBulkItemIdBySkus.java) | [GetBulkItemIdBySkus](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/GetBulkItemIdBySkus.java) |
 | `/platform/admin/namespaces/{namespace}/items/locale/byIds` | GET | BulkGetLocaleItems | [BulkGetLocaleItems](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/BulkGetLocaleItems.java) | [BulkGetLocaleItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/BulkGetLocaleItems.java) |
@@ -54,6 +56,7 @@
 | `/platform/public/namespaces/{namespace}/items/byAppId` | GET | PublicGetItemByAppId | [PublicGetItemByAppId](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/PublicGetItemByAppId.java) | [PublicGetItemByAppId](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/PublicGetItemByAppId.java) |
 | `/platform/public/namespaces/{namespace}/items/byCriteria` | GET | PublicQueryItems | [PublicQueryItems](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/PublicQueryItems.java) | [PublicQueryItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/PublicQueryItems.java) |
 | `/platform/public/namespaces/{namespace}/items/bySku` | GET | PublicGetItemBySku | [PublicGetItemBySku](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/PublicGetItemBySku.java) | [PublicGetItemBySku](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/PublicGetItemBySku.java) |
+| `/platform/public/namespaces/{namespace}/items/estimatedPrice` | GET | PublicGetEstimatedPrice | [PublicGetEstimatedPrice](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/PublicGetEstimatedPrice.java) | [PublicGetEstimatedPrice](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/PublicGetEstimatedPrice.java) |
 | `/platform/public/namespaces/{namespace}/items/locale/byIds` | GET | PublicBulkGetItems | [PublicBulkGetItems](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/PublicBulkGetItems.java) | [PublicBulkGetItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/PublicBulkGetItems.java) |
 | `/platform/public/namespaces/{namespace}/items/purchase/conditions/validate` | POST | PublicValidateItemPurchaseCondition | [PublicValidateItemPurchaseCondition](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/PublicValidateItemPurchaseCondition.java) | [PublicValidateItemPurchaseCondition](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/PublicValidateItemPurchaseCondition.java) |
 | `/platform/public/namespaces/{namespace}/items/search` | GET | PublicSearchItems | [PublicSearchItems](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/PublicSearchItems.java) | [PublicSearchItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/PublicSearchItems.java) |
@@ -578,6 +581,7 @@
 | `AppleIAPReceipt` | [AppleIAPReceipt](../../src/main/java/net/accelbyte/sdk/api/platform/models/AppleIAPReceipt.java) |
 | `AvailableComparison` | [AvailableComparison](../../src/main/java/net/accelbyte/sdk/api/platform/models/AvailableComparison.java) |
 | `AvailablePredicate` | [AvailablePredicate](../../src/main/java/net/accelbyte/sdk/api/platform/models/AvailablePredicate.java) |
+| `AvailablePrice` | [AvailablePrice](../../src/main/java/net/accelbyte/sdk/api/platform/models/AvailablePrice.java) |
 | `BaseCustomConfig` | [BaseCustomConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/BaseCustomConfig.java) |
 | `BaseTLSConfig` | [BaseTLSConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/BaseTLSConfig.java) |
 | `BasicCategoryInfo` | [BasicCategoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/BasicCategoryInfo.java) |
@@ -665,6 +669,7 @@
 | `EpicGamesReconcileRequest` | [EpicGamesReconcileRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/EpicGamesReconcileRequest.java) |
 | `EpicGamesReconcileResult` | [EpicGamesReconcileResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EpicGamesReconcileResult.java) |
 | `ErrorEntity` | [ErrorEntity](../../src/main/java/net/accelbyte/sdk/api/platform/models/ErrorEntity.java) |
+| `EstimatedPriceInfo` | [EstimatedPriceInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/EstimatedPriceInfo.java) |
 | `EventAdditionalData` | [EventAdditionalData](../../src/main/java/net/accelbyte/sdk/api/platform/models/EventAdditionalData.java) |
 | `EventPayload` | [EventPayload](../../src/main/java/net/accelbyte/sdk/api/platform/models/EventPayload.java) |
 | `ExportStoreRequest` | [ExportStoreRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/ExportStoreRequest.java) |
@@ -707,9 +712,13 @@
 | `IAPOrderPagingSlicedResult` | [IAPOrderPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/IAPOrderPagingSlicedResult.java) |
 | `Image` | [Image](../../src/main/java/net/accelbyte/sdk/api/platform/models/Image.java) |
 | `ImportErrorDetails` | [ImportErrorDetails](../../src/main/java/net/accelbyte/sdk/api/platform/models/ImportErrorDetails.java) |
+| `ImportStoreAppInfo` | [ImportStoreAppInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ImportStoreAppInfo.java) |
+| `ImportStoreCategoryInfo` | [ImportStoreCategoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ImportStoreCategoryInfo.java) |
 | `ImportStoreError` | [ImportStoreError](../../src/main/java/net/accelbyte/sdk/api/platform/models/ImportStoreError.java) |
 | `ImportStoreItemInfo` | [ImportStoreItemInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ImportStoreItemInfo.java) |
 | `ImportStoreResult` | [ImportStoreResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/ImportStoreResult.java) |
+| `ImportStoreSectionInfo` | [ImportStoreSectionInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ImportStoreSectionInfo.java) |
+| `ImportStoreViewInfo` | [ImportStoreViewInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ImportStoreViewInfo.java) |
 | `InGameItemSync` | [InGameItemSync](../../src/main/java/net/accelbyte/sdk/api/platform/models/InGameItemSync.java) |
 | `InvoiceCurrencySummary` | [InvoiceCurrencySummary](../../src/main/java/net/accelbyte/sdk/api/platform/models/InvoiceCurrencySummary.java) |
 | `InvoiceSummary` | [InvoiceSummary](../../src/main/java/net/accelbyte/sdk/api/platform/models/InvoiceSummary.java) |
@@ -750,6 +759,7 @@
 | `OculusReconcileResult` | [OculusReconcileResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/OculusReconcileResult.java) |
 | `OptionBoxConfig` | [OptionBoxConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/OptionBoxConfig.java) |
 | `Order` | [Order](../../src/main/java/net/accelbyte/sdk/api/platform/models/Order.java) |
+| `OrderBundleItemInfo` | [OrderBundleItemInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/OrderBundleItemInfo.java) |
 | `OrderCreate` | [OrderCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/OrderCreate.java) |
 | `OrderCreationOptions` | [OrderCreationOptions](../../src/main/java/net/accelbyte/sdk/api/platform/models/OrderCreationOptions.java) |
 | `OrderGrantInfo` | [OrderGrantInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/OrderGrantInfo.java) |
@@ -880,6 +890,7 @@
 | `StreamEvent` | [StreamEvent](../../src/main/java/net/accelbyte/sdk/api/platform/models/StreamEvent.java) |
 | `StreamEventBody` | [StreamEventBody](../../src/main/java/net/accelbyte/sdk/api/platform/models/StreamEventBody.java) |
 | `StripeConfig` | [StripeConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/StripeConfig.java) |
+| `SubItemAvailablePrice` | [SubItemAvailablePrice](../../src/main/java/net/accelbyte/sdk/api/platform/models/SubItemAvailablePrice.java) |
 | `Subscribable` | [Subscribable](../../src/main/java/net/accelbyte/sdk/api/platform/models/Subscribable.java) |
 | `SubscribeRequest` | [SubscribeRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/SubscribeRequest.java) |
 | `SubscriptionActivityInfo` | [SubscriptionActivityInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/SubscriptionActivityInfo.java) |

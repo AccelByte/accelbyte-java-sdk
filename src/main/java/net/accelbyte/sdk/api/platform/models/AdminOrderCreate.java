@@ -55,6 +55,7 @@ public class AdminOrderCreate extends Model {
   private String platform;
 
   @JsonProperty("price")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer price;
 
   @JsonProperty("quantity")

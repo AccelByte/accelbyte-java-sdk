@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.cli.wrapper;
 
+import net.accelbyte.sdk.cli.api.seasonpass.export.*;
 import net.accelbyte.sdk.cli.api.seasonpass.pass.*;
 import net.accelbyte.sdk.cli.api.seasonpass.reward.*;
 import net.accelbyte.sdk.cli.api.seasonpass.season.*;
@@ -18,6 +19,7 @@ import picocli.CommandLine.Command;
     name = "seasonpass",
     mixinStandardHelpOptions = true,
     subcommands = {
+      ExportSeason.class,
       QuerySeasons.class,
       CreateSeason.class,
       GetCurrentSeason.class,

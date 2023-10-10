@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.gdpr.operations.data_retrieval;
+package net.accelbyte.sdk.api.seasonpass.operations.export;
 
 import java.io.*;
 import java.util.*;
@@ -18,38 +18,32 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * UpdateAdminEmailConfiguration
+ * exportSeason
  *
- * <p>Update admin email address for receiving personal data request notification.
- *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [UPDATE]`
+ * <p>This API is used to export all of season service data files with csv format.
  */
 @Getter
 @Setter
-public class UpdateAdminEmailConfiguration extends Operation {
+public class ExportSeason extends Operation {
   /** generated field's value */
-  private String path = "/gdpr/admin/namespaces/{namespace}/emails/configurations";
+  private String path = "/seasonpass/admin/namespace/{namespace}/export";
 
-  private String method = "PUT";
-  private List<String> consumes = Arrays.asList("application/json");
-  private List<String> produces = Arrays.asList("application/json");
+  private String method = "GET";
+  private List<String> consumes = Arrays.asList();
+  private List<String> produces = Arrays.asList("application/octet-stream");
   private String locationQuery = null;
 
   /** fields as input parameter */
   private String namespace;
 
-  private List<String> body;
-
   /**
    * @param namespace required
-   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public UpdateAdminEmailConfiguration(String namespace, List<String> body) {
+  public ExportSeason(String namespace) {
     this.namespace = namespace;
-    this.body = body;
 
     securities.add("Bearer");
   }
@@ -64,11 +58,6 @@ public class UpdateAdminEmailConfiguration extends Operation {
   }
 
   @Override
-  public List<String> getBodyParams() {
-    return this.body;
-  }
-
-  @Override
   public boolean isValid() {
     if (this.namespace == null) {
       return false;
@@ -76,11 +65,12 @@ public class UpdateAdminEmailConfiguration extends Operation {
     return true;
   }
 
-  public void handleEmptyResponse(int code, String contentType, InputStream payload)
+  public InputStream parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    if (code != 204) {
+    if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
+    return payload;
   }
 }

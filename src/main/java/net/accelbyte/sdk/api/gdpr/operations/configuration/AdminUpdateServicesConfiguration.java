@@ -6,34 +6,33 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.gdpr.operations.data_retrieval;
+package net.accelbyte.sdk.api.gdpr.operations.configuration;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import net.accelbyte.sdk.api.gdpr.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * GetAdminEmailConfiguration
+ * AdminUpdateServicesConfiguration
  *
- * <p>Get list of admin email address configuration.
+ * <p>Update Registered Services Configuration.
  *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [READ]` and scope
+ * <p>Required permission `ADMIN:NAMESPACE:{namespace}:GDPR:CONFIGURATION [UPDATE]` and scope
  * `account`
  */
 @Getter
 @Setter
-public class GetAdminEmailConfiguration extends Operation {
+public class AdminUpdateServicesConfiguration extends Operation {
   /** generated field's value */
-  private String path = "/gdpr/admin/namespaces/{namespace}/emails/configurations";
+  private String path = "/gdpr/admin/namespaces/{namespace}/services/configurations";
 
-  private String method = "GET";
+  private String method = "PUT";
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
@@ -41,14 +40,19 @@ public class GetAdminEmailConfiguration extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private DtoServiceConfigurationUpdateRequest body;
+
   /**
    * @param namespace required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetAdminEmailConfiguration(String namespace) {
+  public AdminUpdateServicesConfiguration(
+      String namespace, DtoServiceConfigurationUpdateRequest body) {
     this.namespace = namespace;
+    this.body = body;
 
     securities.add("Bearer");
   }
@@ -63,6 +67,11 @@ public class GetAdminEmailConfiguration extends Operation {
   }
 
   @Override
+  public DtoServiceConfigurationUpdateRequest getBodyParams() {
+    return this.body;
+  }
+
+  @Override
   public boolean isValid() {
     if (this.namespace == null) {
       return false;
@@ -70,13 +79,13 @@ public class GetAdminEmailConfiguration extends Operation {
     return true;
   }
 
-  public List<String> parseResponse(int code, String contentType, InputStream payload)
-      throws HttpResponseException, IOException {
+  public DtoServiceConfigurationUpdateRequest parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ObjectMapper().readValue(json, new TypeReference<List<String>>() {});
+    return new DtoServiceConfigurationUpdateRequest().createFromJson(json);
   }
 }

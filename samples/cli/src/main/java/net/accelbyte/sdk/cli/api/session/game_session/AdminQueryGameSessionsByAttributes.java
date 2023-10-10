@@ -6,13 +6,14 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.gdpr.data_retrieval;
+package net.accelbyte.sdk.cli.api.session.game_session;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.gdpr.models.*;
-import net.accelbyte.sdk.api.gdpr.wrappers.DataRetrieval;
+import net.accelbyte.sdk.api.session.models.*;
+import net.accelbyte.sdk.api.session.wrappers.GameSession;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +26,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "getAdminEmailConfiguration", mixinStandardHelpOptions = true)
-public class GetAdminEmailConfiguration implements Callable<Integer> {
+@Command(name = "adminQueryGameSessionsByAttributes", mixinStandardHelpOptions = true)
+public class AdminQueryGameSessionsByAttributes implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(GetAdminEmailConfiguration.class);
+  private static final Logger log = LogManager.getLogger(AdminQueryGameSessionsByAttributes.class);
 
   @Option(
       names = {"--namespace"},
@@ -36,12 +37,17 @@ public class GetAdminEmailConfiguration implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--body"},
+      description = "body")
+  String body;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new GetAdminEmailConfiguration()).execute(args);
+    int exitCode = new CommandLine(new AdminQueryGameSessionsByAttributes()).execute(args);
     System.exit(exitCode);
   }
 
@@ -55,14 +61,16 @@ public class GetAdminEmailConfiguration implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final DataRetrieval wrapper = new DataRetrieval(sdk);
-      final net.accelbyte.sdk.api.gdpr.operations.data_retrieval.GetAdminEmailConfiguration
+      final GameSession wrapper = new GameSession(sdk);
+      final net.accelbyte.sdk.api.session.operations.game_session.AdminQueryGameSessionsByAttributes
           operation =
-              net.accelbyte.sdk.api.gdpr.operations.data_retrieval.GetAdminEmailConfiguration
-                  .builder()
+              net.accelbyte.sdk.api.session.operations.game_session
+                  .AdminQueryGameSessionsByAttributes.builder()
                   .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, new TypeReference<Map<String, ?>>() {}))
                   .build();
-      final List<String> response = wrapper.getAdminEmailConfiguration(operation);
+      final ApimodelsGameSessionQueryResponse response =
+          wrapper.adminQueryGameSessionsByAttributes(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

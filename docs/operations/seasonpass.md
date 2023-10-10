@@ -4,6 +4,11 @@
 
 ## Operations
 
+### Export Wrapper:  [Export](../../src/main/java/net/accelbyte/sdk/api/seasonpass/wrappers/Export.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/seasonpass/admin/namespace/{namespace}/export` | GET | ExportSeason | [ExportSeason](../../src/main/java/net/accelbyte/sdk/api/seasonpass/operations/export/ExportSeason.java) | [ExportSeason](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/seasonpass/export/ExportSeason.java) |
+
 ### Season Wrapper:  [Season](../../src/main/java/net/accelbyte/sdk/api/seasonpass/wrappers/Season.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|

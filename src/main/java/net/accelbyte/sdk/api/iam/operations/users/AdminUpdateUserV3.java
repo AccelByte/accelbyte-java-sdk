@@ -32,7 +32,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
  *
- * <p>Several case of updating email address
+ * <p>Response body logic when user updating email address:
  *
  * <p>* User want to update email address of which have been verified, NewEmailAddress response
  * field will be filled with new email address.

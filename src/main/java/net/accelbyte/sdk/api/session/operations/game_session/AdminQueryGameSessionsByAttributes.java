@@ -6,30 +6,38 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.gdpr.operations.data_retrieval;
+package net.accelbyte.sdk.api.session.operations.game_session;
 
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import net.accelbyte.sdk.api.session.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * SaveAdminEmailConfiguration
+ * adminQueryGameSessionsByAttributes
  *
- * <p>Add admin email address for receiving personal data request notification.
+ * <p>Query game sessions by admin.
  *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [CREATE]` and scope
- * `account`
+ * <p>By default, API will return a list of available game sessions (joinability: open). Session
+ * service has several DSInformation status to track DS request to DSMC: - NEED_TO_REQUEST: number
+ * of active players hasn't reached session's minPlayers therefore DS has not yet requested. -
+ * REQUESTED: DS is being requested to DSMC. - AVAILABLE: DS is ready to use. The DSMC status for
+ * this DS is either READY/BUSY. - FAILED_TO_REQUEST: DSMC fails to create the DS.
+ *
+ * <p>query parameter "availability" to filter sessions' availability: all: return all sessions
+ * regardless it's full full: only return active sessions default behavior (unset or else): return
+ * only available sessions (not full)
  */
 @Getter
 @Setter
-public class SaveAdminEmailConfiguration extends Operation {
+public class AdminQueryGameSessionsByAttributes extends Operation {
   /** generated field's value */
-  private String path = "/gdpr/admin/namespaces/{namespace}/emails/configurations";
+  private String path = "/session/v1/admin/namespaces/{namespace}/gamesessions";
 
   private String method = "POST";
   private List<String> consumes = Arrays.asList("application/json");
@@ -39,7 +47,7 @@ public class SaveAdminEmailConfiguration extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private List<String> body;
+  private Map<String, ?> body;
 
   /**
    * @param namespace required
@@ -48,7 +56,7 @@ public class SaveAdminEmailConfiguration extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public SaveAdminEmailConfiguration(String namespace, List<String> body) {
+  public AdminQueryGameSessionsByAttributes(String namespace, Map<String, ?> body) {
     this.namespace = namespace;
     this.body = body;
 
@@ -65,7 +73,7 @@ public class SaveAdminEmailConfiguration extends Operation {
   }
 
   @Override
-  public List<String> getBodyParams() {
+  public Map<String, ?> getBodyParams() {
     return this.body;
   }
 
@@ -77,11 +85,13 @@ public class SaveAdminEmailConfiguration extends Operation {
     return true;
   }
 
-  public void handleEmptyResponse(int code, String contentType, InputStream payload)
-      throws HttpResponseException, IOException {
-    if (code != 204) {
+  public ApimodelsGameSessionQueryResponse parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
+    if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
+    final String json = Helper.convertInputStreamToString(payload);
+    return new ApimodelsGameSessionQueryResponse().createFromJson(json);
   }
 }

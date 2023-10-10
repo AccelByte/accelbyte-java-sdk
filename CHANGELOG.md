@@ -1,3 +1,14 @@
+<a name="v0.48.0"></a>
+## [v0.48.0]
+### test
+- **integration:** public and confidential client test
+- **integration:** reword warning about login client public oauth
+- **integration:** remove test health in match2 and session
+### docs
+- **getting-started:** no need warning because prerequisites already mention that this needs confidential oauth client
+- **readme:** reword warning about login client public oauth
+
+
 <a name="v0.47.0"></a>
 ## [v0.47.0]
 ### ci

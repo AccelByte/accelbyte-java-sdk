@@ -105,6 +105,10 @@ public class Order extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;
 
+  @JsonProperty("orderBundleItemInfos")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<OrderBundleItemInfo> orderBundleItemInfos;
+
   @JsonProperty("orderNo")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String orderNo;

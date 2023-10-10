@@ -23,11 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>The endpoint to update my email address.
  *
- * <p>It requires a verification code from
- *
- * <p>/users/me/code/request
- *
- * <p>with UpdateEmailAddress context.
+ * <p>It requires a verification code from /users/me/code/request with UpdateEmailAddress context.
  */
 @Getter
 @Setter

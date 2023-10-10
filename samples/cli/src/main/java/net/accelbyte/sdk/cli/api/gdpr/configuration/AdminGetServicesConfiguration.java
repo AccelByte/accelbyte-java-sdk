@@ -6,12 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.gdpr.data_retrieval;
+package net.accelbyte.sdk.cli.api.gdpr.configuration;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.gdpr.models.*;
-import net.accelbyte.sdk.api.gdpr.wrappers.DataRetrieval;
+import net.accelbyte.sdk.api.gdpr.wrappers.Configuration;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -24,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "deleteAdminEmailConfiguration", mixinStandardHelpOptions = true)
-public class DeleteAdminEmailConfiguration implements Callable<Integer> {
+@Command(name = "adminGetServicesConfiguration", mixinStandardHelpOptions = true)
+public class AdminGetServicesConfiguration implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(DeleteAdminEmailConfiguration.class);
+  private static final Logger log = LogManager.getLogger(AdminGetServicesConfiguration.class);
 
   @Option(
       names = {"--namespace"},
@@ -35,17 +36,12 @@ public class DeleteAdminEmailConfiguration implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--emails"},
-      description = "emails")
-  List<String> emails;
-
-  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new DeleteAdminEmailConfiguration()).execute(args);
+    int exitCode = new CommandLine(new AdminGetServicesConfiguration()).execute(args);
     System.exit(exitCode);
   }
 
@@ -59,16 +55,18 @@ public class DeleteAdminEmailConfiguration implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final DataRetrieval wrapper = new DataRetrieval(sdk);
-      final net.accelbyte.sdk.api.gdpr.operations.data_retrieval.DeleteAdminEmailConfiguration
+      final Configuration wrapper = new Configuration(sdk);
+      final net.accelbyte.sdk.api.gdpr.operations.configuration.AdminGetServicesConfiguration
           operation =
-              net.accelbyte.sdk.api.gdpr.operations.data_retrieval.DeleteAdminEmailConfiguration
+              net.accelbyte.sdk.api.gdpr.operations.configuration.AdminGetServicesConfiguration
                   .builder()
                   .namespace(namespace)
-                  .emails(emails)
                   .build();
-      wrapper.deleteAdminEmailConfiguration(operation);
-      log.info("Operation successful");
+      final DtoServicesConfigurationResponse response =
+          wrapper.adminGetServicesConfiguration(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

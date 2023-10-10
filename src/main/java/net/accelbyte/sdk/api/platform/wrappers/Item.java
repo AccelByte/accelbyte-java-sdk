@@ -122,6 +122,15 @@ public class Item {
   }
 
   /**
+   * @see GetItems
+   */
+  public List<FullItemInfo> getItems(GetItems input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetItemBySku
    */
   public FullItemInfo getItemBySku(GetItemBySku input) throws Exception {
@@ -134,6 +143,15 @@ public class Item {
    * @see GetLocaleItemBySku
    */
   public PopulatedItemInfo getLocaleItemBySku(GetLocaleItemBySku input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GetEstimatedPrice
+   */
+  public EstimatedPriceInfo getEstimatedPrice(GetEstimatedPrice input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -363,6 +381,16 @@ public class Item {
    * @see PublicGetItemBySku
    */
   public ItemInfo publicGetItemBySku(PublicGetItemBySku input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicGetEstimatedPrice
+   */
+  public List<EstimatedPriceInfo> publicGetEstimatedPrice(PublicGetEstimatedPrice input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

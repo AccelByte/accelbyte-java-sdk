@@ -1,5 +1,8 @@
 package net.accelbyte.sdk.integration;
 
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.doReturn;
+
 import net.accelbyte.sdk.core.AccelByteConfig;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.AccessTokenPayload;
@@ -8,9 +11,6 @@ import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.doReturn;
 
 @Tag("test-integration")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -52,7 +52,6 @@ public class TestIntegrationLoginClient extends TestIntegration {
     assertEquals(configRepo1.getClientId(), payload.getClientId());
   }
 
-
   @Order(1)
   @Test
   public void testLoginConfidentialClient() throws Exception {
@@ -60,8 +59,8 @@ public class TestIntegrationLoginClient extends TestIntegration {
     DefaultConfigRepository configRepo1 = new DefaultConfigRepository();
 
     final AccelByteSDK sdk1 =
-            new AccelByteSDK(
-                    new AccelByteConfig(new OkhttpClient(), new DefaultTokenRepository(), configRepo1));
+        new AccelByteSDK(
+            new AccelByteConfig(new OkhttpClient(), new DefaultTokenRepository(), configRepo1));
 
     boolean loggedIn = sdk1.loginClient();
     assertTrue(loggedIn);

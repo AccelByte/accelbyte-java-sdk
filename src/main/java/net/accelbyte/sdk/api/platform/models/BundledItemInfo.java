@@ -78,6 +78,10 @@ public class BundledItemInfo extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> features;
 
+  @JsonProperty("flexible")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean flexible;
+
   @JsonProperty("fresh")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean fresh;

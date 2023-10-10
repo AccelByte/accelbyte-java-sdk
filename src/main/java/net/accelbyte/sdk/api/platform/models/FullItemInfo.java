@@ -71,6 +71,10 @@ public class FullItemInfo extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> features;
 
+  @JsonProperty("flexible")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean flexible;
+
   @JsonProperty("images")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<Image> images;

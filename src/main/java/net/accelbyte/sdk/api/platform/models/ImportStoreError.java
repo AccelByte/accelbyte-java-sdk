@@ -25,6 +25,14 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ImportStoreError extends Model {
 
+  @JsonProperty("app")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ImportStoreAppInfo app;
+
+  @JsonProperty("category")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ImportStoreCategoryInfo category;
+
   @JsonProperty("errors")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ImportErrorDetails> errors;
@@ -33,9 +41,17 @@ public class ImportStoreError extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private ImportStoreItemInfo item;
 
+  @JsonProperty("section")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ImportStoreSectionInfo section;
+
   @JsonProperty("type")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String type;
+
+  @JsonProperty("view")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ImportStoreViewInfo view;
 
   @JsonIgnore
   public String getType() {
@@ -68,7 +84,12 @@ public class ImportStoreError extends Model {
   }
 
   public enum Type {
-    ITEM("ITEM");
+    APP("APP"),
+    CATEGORY("CATEGORY"),
+    ITEM("ITEM"),
+    SECTION("SECTION"),
+    STORE("STORE"),
+    VIEW("VIEW");
 
     private String value;
 

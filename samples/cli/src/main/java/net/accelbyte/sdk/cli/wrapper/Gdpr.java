@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.cli.wrapper;
 
+import net.accelbyte.sdk.cli.api.gdpr.configuration.*;
 import net.accelbyte.sdk.cli.api.gdpr.data_deletion.*;
 import net.accelbyte.sdk.cli.api.gdpr.data_retrieval.*;
 import picocli.CommandLine.Command;
@@ -22,6 +23,9 @@ import picocli.CommandLine.Command;
       SaveAdminEmailConfiguration.class,
       DeleteAdminEmailConfiguration.class,
       AdminGetListPersonalDataRequest.class,
+      AdminGetServicesConfiguration.class,
+      AdminUpdateServicesConfiguration.class,
+      AdminResetServicesConfiguration.class,
       AdminGetUserAccountDeletionRequest.class,
       AdminSubmitUserAccountDeletionRequest.class,
       AdminCancelUserAccountDeletionRequest.class,

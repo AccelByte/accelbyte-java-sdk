@@ -61,6 +61,10 @@ public class FulfillmentRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String origin;
 
+  @JsonProperty("overrideBundleItemQty")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, Integer> overrideBundleItemQty;
+
   @JsonProperty("quantity")
   private Integer quantity;
 

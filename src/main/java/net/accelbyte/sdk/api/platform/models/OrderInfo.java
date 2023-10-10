@@ -80,6 +80,10 @@ public class OrderInfo extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("orderBundleItemInfos")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<OrderBundleItemInfo> orderBundleItemInfos;
+
   @JsonProperty("orderNo")
   private String orderNo;
 
