@@ -7,7 +7,9 @@
 ### docs
 - **getting-started:** no need warning because prerequisites already mention that this needs confidential oauth client
 - **readme:** reword warning about login client public oauth
-
+- **migrations:** add migration-guide-v0.47-to-v0.48.md 
+### fix
+- **integration-test:** caused by gdpr tage renaming 
 
 <a name="v0.47.0"></a>
 ## [v0.47.0]
