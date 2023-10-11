@@ -10,11 +10,12 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.Arrays;
 import java.util.List;
-import net.accelbyte.sdk.api.gdpr.operations.data_retrieval.DeleteAdminEmailConfiguration;
-import net.accelbyte.sdk.api.gdpr.operations.data_retrieval.GetAdminEmailConfiguration;
-import net.accelbyte.sdk.api.gdpr.operations.data_retrieval.SaveAdminEmailConfiguration;
-import net.accelbyte.sdk.api.gdpr.operations.data_retrieval.UpdateAdminEmailConfiguration;
-import net.accelbyte.sdk.api.gdpr.wrappers.DataRetrieval;
+
+import net.accelbyte.sdk.api.gdpr.operations.configuration.DeleteAdminEmailConfiguration;
+import net.accelbyte.sdk.api.gdpr.operations.configuration.GetAdminEmailConfiguration;
+import net.accelbyte.sdk.api.gdpr.operations.configuration.SaveAdminEmailConfiguration;
+import net.accelbyte.sdk.api.gdpr.operations.configuration.UpdateAdminEmailConfiguration;
+import net.accelbyte.sdk.api.gdpr.wrappers.Configuration;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
@@ -39,7 +40,7 @@ public class TestIntegrationServiceGdpr extends TestIntegration {
     final String email1 = "email1@example.com";
     final String email2 = "email2@dummy.com";
 
-    final DataRetrieval dataRetrievalWrapper = new DataRetrieval(sdk);
+    final Configuration dataRetrievalWrapper = new Configuration(sdk);
 
     // CASE Save admin email configuration
 
