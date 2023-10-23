@@ -45,9 +45,11 @@ public class ModelsGameServer extends Model {
   private String gameVersion;
 
   @JsonProperty("image_version")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String imageVersion;
 
   @JsonProperty("ip")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String ip;
 
   @JsonProperty("is_override_game_version")
@@ -60,6 +62,7 @@ public class ModelsGameServer extends Model {
   private String namespace;
 
   @JsonProperty("pod_name")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String podName;
 
   @JsonProperty("port")

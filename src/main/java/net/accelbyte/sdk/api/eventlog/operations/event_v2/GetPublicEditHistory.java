@@ -21,21 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetPublicEditHistory
  *
- * <p>Available Type:
+ * <p>Available Type: * email * password * displayname * dateofbirth * country * language
  *
- * <p>* email
- *
- * <p>* password
- *
- * <p>* displayname
- *
- * <p>* dateofbirth
- *
- * <p>* country
- *
- * <p>* language
- *
- * <p>Requires a valid user access token
+ * <p>Requires valid user access token
  */
 @Getter
 @Setter

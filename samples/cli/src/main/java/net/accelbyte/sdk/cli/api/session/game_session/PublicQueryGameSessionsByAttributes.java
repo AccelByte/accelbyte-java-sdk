@@ -26,10 +26,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "publicQueryGameSessions", mixinStandardHelpOptions = true)
-public class PublicQueryGameSessions implements Callable<Integer> {
+@Command(name = "publicQueryGameSessionsByAttributes", mixinStandardHelpOptions = true)
+public class PublicQueryGameSessionsByAttributes implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(PublicQueryGameSessions.class);
+  private static final Logger log = LogManager.getLogger(PublicQueryGameSessionsByAttributes.class);
 
   @Option(
       names = {"--namespace"},
@@ -47,7 +47,7 @@ public class PublicQueryGameSessions implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new PublicQueryGameSessions()).execute(args);
+    int exitCode = new CommandLine(new PublicQueryGameSessionsByAttributes()).execute(args);
     System.exit(exitCode);
   }
 
@@ -62,14 +62,16 @@ public class PublicQueryGameSessions implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
-      final net.accelbyte.sdk.api.session.operations.game_session.PublicQueryGameSessions
+      final net.accelbyte.sdk.api.session.operations.game_session
+              .PublicQueryGameSessionsByAttributes
           operation =
-              net.accelbyte.sdk.api.session.operations.game_session.PublicQueryGameSessions
-                  .builder()
+              net.accelbyte.sdk.api.session.operations.game_session
+                  .PublicQueryGameSessionsByAttributes.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, new TypeReference<Map<String, ?>>() {}))
                   .build();
-      final ApimodelsGameSessionQueryResponse response = wrapper.publicQueryGameSessions(operation);
+      final ApimodelsGameSessionQueryResponse response =
+          wrapper.publicQueryGameSessionsByAttributes(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

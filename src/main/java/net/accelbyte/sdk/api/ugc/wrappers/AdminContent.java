@@ -205,12 +205,31 @@ public class AdminContent {
   }
 
   /**
+   * @see AdminUpdateContentS3ByShareCode
+   */
+  public ModelsCreateContentResponse adminUpdateContentS3ByShareCode(
+      AdminUpdateContentS3ByShareCode input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminUpdateContentS3
    */
   public ModelsCreateContentResponse adminUpdateContentS3(AdminUpdateContentS3 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see DeleteContentByShareCode
+   */
+  public void deleteContentByShareCode(DeleteContentByShareCode input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

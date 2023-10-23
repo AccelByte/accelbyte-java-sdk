@@ -12,6 +12,7 @@ import net.accelbyte.sdk.cli.api.session.configuration_template.*;
 import net.accelbyte.sdk.cli.api.session.dsmc_default_configuration.*;
 import net.accelbyte.sdk.cli.api.session.environment_variable.*;
 import net.accelbyte.sdk.cli.api.session.game_session.*;
+import net.accelbyte.sdk.cli.api.session.global_configuration.*;
 import net.accelbyte.sdk.cli.api.session.operations.*;
 import net.accelbyte.sdk.cli.api.session.party.*;
 import net.accelbyte.sdk.cli.api.session.platform_credential.*;
@@ -27,6 +28,9 @@ import picocli.CommandLine.Command;
       GetHealthcheckInfoV1.class,
       AdminGetDSMCConfigurationDefault.class,
       AdminListEnvironmentVariables.class,
+      AdminListGlobalConfiguration.class,
+      AdminUpdateGlobalConfiguration.class,
+      AdminDeleteGlobalConfiguration.class,
       AdminGetConfigurationAlertV1.class,
       AdminUpdateConfigurationAlertV1.class,
       AdminCreateConfigurationAlertV1.class,
@@ -52,7 +56,7 @@ import picocli.CommandLine.Command;
       AdminQueryPlayerAttributes.class,
       AdminGetPlayerAttributes.class,
       CreateGameSession.class,
-      PublicQueryGameSessions.class,
+      PublicQueryGameSessionsByAttributes.class,
       PublicSessionJoinCode.class,
       GetGameSessionByPodName.class,
       GetGameSession.class,

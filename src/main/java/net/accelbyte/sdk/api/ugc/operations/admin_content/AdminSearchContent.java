@@ -60,6 +60,7 @@ public class AdminSearchContent extends Operation {
   private String namespace;
 
   private String creator;
+  private String ishidden;
   private String isofficial;
   private Integer limit;
   private String name;
@@ -80,6 +81,7 @@ public class AdminSearchContent extends Operation {
   public AdminSearchContent(
       String namespace,
       String creator,
+      String ishidden,
       String isofficial,
       Integer limit,
       String name,
@@ -92,6 +94,7 @@ public class AdminSearchContent extends Operation {
       String userId) {
     this.namespace = namespace;
     this.creator = creator;
+    this.ishidden = ishidden;
     this.isofficial = isofficial;
     this.limit = limit;
     this.name = name;
@@ -119,6 +122,7 @@ public class AdminSearchContent extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put("creator", this.creator == null ? null : Arrays.asList(this.creator));
+    queryParams.put("ishidden", this.ishidden == null ? null : Arrays.asList(this.ishidden));
     queryParams.put("isofficial", this.isofficial == null ? null : Arrays.asList(this.isofficial));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put("name", this.name == null ? null : Arrays.asList(this.name));
@@ -155,6 +159,7 @@ public class AdminSearchContent extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("creator", "None");
+    result.put("ishidden", "None");
     result.put("isofficial", "None");
     result.put("limit", "None");
     result.put("name", "None");

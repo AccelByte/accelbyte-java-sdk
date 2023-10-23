@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.cli.wrapper;
 
+import net.accelbyte.sdk.cli.api.inventory.admin_chaining_operations.*;
 import net.accelbyte.sdk.cli.api.inventory.admin_inventories.*;
 import net.accelbyte.sdk.cli.api.inventory.admin_inventory_configurations.*;
 import net.accelbyte.sdk.cli.api.inventory.admin_item_types.*;
@@ -24,6 +25,7 @@ import picocli.CommandLine.Command;
     name = "inventory",
     mixinStandardHelpOptions = true,
     subcommands = {
+      AdminCreateChainingOperations.class,
       AdminListInventories.class,
       AdminCreateInventory.class,
       AdminGetInventory.class,

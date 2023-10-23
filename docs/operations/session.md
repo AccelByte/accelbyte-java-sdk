@@ -20,6 +20,13 @@
 |---|---|---|---|---|
 | `/session/v1/admin/environment-variables` | GET | AdminListEnvironmentVariables | [AdminListEnvironmentVariables](../../src/main/java/net/accelbyte/sdk/api/session/operations/environment_variable/AdminListEnvironmentVariables.java) | [AdminListEnvironmentVariables](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/environment_variable/AdminListEnvironmentVariables.java) |
 
+### Global Configuration Wrapper:  [GlobalConfiguration](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/GlobalConfiguration.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/session/v1/admin/global-configurations` | GET | AdminListGlobalConfiguration | [AdminListGlobalConfiguration](../../src/main/java/net/accelbyte/sdk/api/session/operations/global_configuration/AdminListGlobalConfiguration.java) | [AdminListGlobalConfiguration](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/global_configuration/AdminListGlobalConfiguration.java) |
+| `/session/v1/admin/global-configurations` | PUT | AdminUpdateGlobalConfiguration | [AdminUpdateGlobalConfiguration](../../src/main/java/net/accelbyte/sdk/api/session/operations/global_configuration/AdminUpdateGlobalConfiguration.java) | [AdminUpdateGlobalConfiguration](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/global_configuration/AdminUpdateGlobalConfiguration.java) |
+| `/session/v1/admin/global-configurations` | DELETE | AdminDeleteGlobalConfiguration | [AdminDeleteGlobalConfiguration](../../src/main/java/net/accelbyte/sdk/api/session/operations/global_configuration/AdminDeleteGlobalConfiguration.java) | [AdminDeleteGlobalConfiguration](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/global_configuration/AdminDeleteGlobalConfiguration.java) |
+
 ### Configuration Template Wrapper:  [ConfigurationTemplate](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/ConfigurationTemplate.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -43,7 +50,7 @@
 | `/session/v1/admin/namespaces/{namespace}/gamesessions/bulk` | DELETE | AdminDeleteBulkGameSessions | [AdminDeleteBulkGameSessions](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/AdminDeleteBulkGameSessions.java) | [AdminDeleteBulkGameSessions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/AdminDeleteBulkGameSessions.java) |
 | `/session/v1/admin/namespaces/{namespace}/gamesessions/{sessionId}/members/{memberId}/status/{statusType}` | PUT | AdminUpdateGameSessionMember | [AdminUpdateGameSessionMember](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/AdminUpdateGameSessionMember.java) | [AdminUpdateGameSessionMember](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/AdminUpdateGameSessionMember.java) |
 | `/session/v1/public/namespaces/{namespace}/gamesession` | POST | CreateGameSession | [CreateGameSession](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/CreateGameSession.java) | [CreateGameSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/CreateGameSession.java) |
-| `/session/v1/public/namespaces/{namespace}/gamesessions` | POST | PublicQueryGameSessions | [PublicQueryGameSessions](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/PublicQueryGameSessions.java) | [PublicQueryGameSessions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/PublicQueryGameSessions.java) |
+| `/session/v1/public/namespaces/{namespace}/gamesessions` | POST | PublicQueryGameSessionsByAttributes | [PublicQueryGameSessionsByAttributes](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/PublicQueryGameSessionsByAttributes.java) | [PublicQueryGameSessionsByAttributes](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/PublicQueryGameSessionsByAttributes.java) |
 | `/session/v1/public/namespaces/{namespace}/gamesessions/join/code` | POST | PublicSessionJoinCode | [PublicSessionJoinCode](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/PublicSessionJoinCode.java) | [PublicSessionJoinCode](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/PublicSessionJoinCode.java) |
 | `/session/v1/public/namespaces/{namespace}/gamesessions/servers/{podName}` | GET | GetGameSessionByPodName | [GetGameSessionByPodName](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/GetGameSessionByPodName.java) | [GetGameSessionByPodName](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/GetGameSessionByPodName.java) |
 | `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}` | GET | GetGameSession | [GetGameSession](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/GetGameSession.java) | [GetGameSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/GetGameSession.java) |
@@ -128,6 +135,7 @@
 | `apimodels.EnvironmentVariableResponse` | [ApimodelsEnvironmentVariableResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsEnvironmentVariableResponse.java) |
 | `apimodels.GameSessionQueryResponse` | [ApimodelsGameSessionQueryResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsGameSessionQueryResponse.java) |
 | `apimodels.GameSessionResponse` | [ApimodelsGameSessionResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsGameSessionResponse.java) |
+| `apimodels.GlobalConfigurationResponse` | [ApimodelsGlobalConfigurationResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsGlobalConfigurationResponse.java) |
 | `apimodels.JoinByCodeRequest` | [ApimodelsJoinByCodeRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsJoinByCodeRequest.java) |
 | `apimodels.KickResponse` | [ApimodelsKickResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsKickResponse.java) |
 | `apimodels.Pagination` | [ApimodelsPagination](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPagination.java) |
@@ -140,6 +148,7 @@
 | `apimodels.PlayersCurrentPlatformResponse` | [ApimodelsPlayersCurrentPlatformResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPlayersCurrentPlatformResponse.java) |
 | `apimodels.PromoteLeaderRequest` | [ApimodelsPromoteLeaderRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPromoteLeaderRequest.java) |
 | `apimodels.PublicConfiguration` | [ApimodelsPublicConfiguration](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPublicConfiguration.java) |
+| `apimodels.PutGlobalConfigurationRequest` | [ApimodelsPutGlobalConfigurationRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPutGlobalConfigurationRequest.java) |
 | `apimodels.PutPlatformCredentialsRequest` | [ApimodelsPutPlatformCredentialsRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPutPlatformCredentialsRequest.java) |
 | `apimodels.RequestMember` | [ApimodelsRequestMember](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsRequestMember.java) |
 | `apimodels.ResponseDeleteBulkGameSessions` | [ApimodelsResponseDeleteBulkGameSessions](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsResponseDeleteBulkGameSessions.java) |

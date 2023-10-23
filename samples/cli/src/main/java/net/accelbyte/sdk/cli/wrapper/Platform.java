@@ -384,6 +384,7 @@ import picocli.CommandLine.Command;
       PublicGetChildCategories.class,
       PublicGetDescendantCategories.class,
       PublicListCurrencies.class,
+      GeDLCDurableRewardShortMap.class,
       GetIAPItemMapping.class,
       PublicGetItemByAppId.class,
       PublicQueryItems.class,

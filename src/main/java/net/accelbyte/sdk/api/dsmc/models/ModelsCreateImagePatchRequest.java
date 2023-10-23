@@ -29,6 +29,7 @@ public class ModelsCreateImagePatchRequest extends Model {
   private String artifactPath;
 
   @JsonProperty("coreDumpEnabled")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean coreDumpEnabled;
 
   @JsonProperty("dockerPath")
@@ -50,6 +51,7 @@ public class ModelsCreateImagePatchRequest extends Model {
   private Boolean persistent;
 
   @JsonProperty("ulimitFileSize")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer ulimitFileSize;
 
   @JsonProperty("uploaderFlag")

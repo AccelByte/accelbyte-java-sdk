@@ -71,10 +71,10 @@ public class GameSession {
   }
 
   /**
-   * @see PublicQueryGameSessions
+   * @see PublicQueryGameSessionsByAttributes
    */
-  public ApimodelsGameSessionQueryResponse publicQueryGameSessions(PublicQueryGameSessions input)
-      throws Exception {
+  public ApimodelsGameSessionQueryResponse publicQueryGameSessionsByAttributes(
+      PublicQueryGameSessionsByAttributes input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

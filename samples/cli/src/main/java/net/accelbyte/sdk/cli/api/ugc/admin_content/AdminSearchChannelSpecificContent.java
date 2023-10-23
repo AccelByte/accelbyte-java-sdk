@@ -46,6 +46,11 @@ public class AdminSearchChannelSpecificContent implements Callable<Integer> {
   String creator;
 
   @Option(
+      names = {"--ishidden"},
+      description = "ishidden")
+  String ishidden;
+
+  @Option(
       names = {"--isofficial"},
       description = "isofficial")
   String isofficial;
@@ -123,6 +128,7 @@ public class AdminSearchChannelSpecificContent implements Callable<Integer> {
                   .channelId(channelId)
                   .namespace(namespace)
                   .creator(creator)
+                  .ishidden(ishidden)
                   .isofficial(isofficial)
                   .limit(limit)
                   .name(name)

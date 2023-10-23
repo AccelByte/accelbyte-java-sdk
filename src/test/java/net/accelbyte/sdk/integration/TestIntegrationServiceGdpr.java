@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.Arrays;
 import java.util.List;
-
 import net.accelbyte.sdk.api.gdpr.operations.configuration.DeleteAdminEmailConfiguration;
 import net.accelbyte.sdk.api.gdpr.operations.configuration.GetAdminEmailConfiguration;
 import net.accelbyte.sdk.api.gdpr.operations.configuration.SaveAdminEmailConfiguration;

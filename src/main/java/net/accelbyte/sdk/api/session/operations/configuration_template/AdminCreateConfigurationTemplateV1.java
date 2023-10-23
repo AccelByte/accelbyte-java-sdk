@@ -49,9 +49,12 @@ import net.accelbyte.sdk.core.util.Helper;
  * - https://s2s.prod-qa.playstation.net (QA Environment/PSN Certification) -
  * https://s2s.np.playstation.net (Production) - localizedSessionName : for localized name and
  * default language example payload : "localizedSessionName":{ "defaultLanguage" : "en-US"
- * "localizedText" :{ "en-US" : "title" } } - TieTeamsSessionLifetime (optional, default: false): If
- * it is set to true, the lifetime of any partyId session inside teams attribute will be tied to the
- * game session. Only applies when the teams partyId is game session.
+ * "localizedText" :{ "en-US" : "title" } } - if the game client wants to enable push context to
+ * PSN, game client will need to store PSN_PUSH_CONTEXT_ID on the player attributes, otherwise
+ * Session service will try to populate from the session attributes or auto generate with random
+ * UUID if empty. - TieTeamsSessionLifetime (optional, default: false): If it is set to true, the
+ * lifetime of any partyId session inside teams attribute will be tied to the game session. Only
+ * applies when the teams partyId is game session.
  */
 @Getter
 @Setter

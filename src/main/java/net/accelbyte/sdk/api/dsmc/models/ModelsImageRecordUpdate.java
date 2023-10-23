@@ -29,6 +29,7 @@ public class ModelsImageRecordUpdate extends Model {
   private String artifactPath;
 
   @JsonProperty("coreDumpEnabled")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean coreDumpEnabled;
 
   @JsonProperty("image")

@@ -27,8 +27,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * if the player wants to enable crossplay to their session (default: false). - platforms : list of
  * the player's 3rd party platform account information. - name : platform name. supported platforms:
  * STEAM, XBOX, PSN - userID : platform userID - data : other data that the player wants to store. -
- * currentPlatform : latest user game platform. - roles : user role for matchmaking role base
- * support.
+ * PSN_PUSH_CONTEXT_ID: if provided, session will refer to this when performing session sync with
+ * PSN, otherwise will populate from session attributes - currentPlatform : latest user game
+ * platform. - roles : user role for matchmaking role base support.
  */
 @Getter
 @Setter

@@ -4,6 +4,11 @@
 
 ## Operations
 
+### Admin Chaining Operations Wrapper:  [AdminChainingOperations](../../src/main/java/net/accelbyte/sdk/api/inventory/wrappers/AdminChainingOperations.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/inventory/v1/admin/namespaces/{namespace}/chainingOperations` | POST | AdminCreateChainingOperations | [AdminCreateChainingOperations](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_chaining_operations/AdminCreateChainingOperations.java) | [AdminCreateChainingOperations](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_chaining_operations/AdminCreateChainingOperations.java) |
+
 ### Admin Inventories Wrapper:  [AdminInventories](../../src/main/java/net/accelbyte/sdk/api/inventory/wrappers/AdminInventories.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -85,9 +90,13 @@
 | Model | Class |
 |---|---|
 | `apimodels.AdminUpdateItemReq` | [ApimodelsAdminUpdateItemReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsAdminUpdateItemReq.java) |
+| `apimodels.ChainingOperationReq` | [ApimodelsChainingOperationReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsChainingOperationReq.java) |
+| `apimodels.ChainingOperationResp` | [ApimodelsChainingOperationResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsChainingOperationResp.java) |
+| `apimodels.ConsumeItem` | [ApimodelsConsumeItem](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsConsumeItem.java) |
 | `apimodels.ConsumeItemReq` | [ApimodelsConsumeItemReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsConsumeItemReq.java) |
 | `apimodels.CreateInventoryConfigurationReq` | [ApimodelsCreateInventoryConfigurationReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsCreateInventoryConfigurationReq.java) |
 | `apimodels.CreateInventoryReq` | [ApimodelsCreateInventoryReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsCreateInventoryReq.java) |
+| `apimodels.CreateItem` | [ApimodelsCreateItem](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsCreateItem.java) |
 | `apimodels.CreateItemTypeReq` | [ApimodelsCreateItemTypeReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsCreateItemTypeReq.java) |
 | `apimodels.CreateItemTypeResp` | [ApimodelsCreateItemTypeResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsCreateItemTypeResp.java) |
 | `apimodels.CreateTagReq` | [ApimodelsCreateTagReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsCreateTagReq.java) |
@@ -105,12 +114,15 @@
 | `apimodels.ListTagsResp` | [ApimodelsListTagsResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsListTagsResp.java) |
 | `apimodels.MoveItemsReq` | [ApimodelsMoveItemsReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsMoveItemsReq.java) |
 | `apimodels.MoveItemsResp` | [ApimodelsMoveItemsResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsMoveItemsResp.java) |
+| `apimodels.Operation` | [ApimodelsOperation](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsOperation.java) |
 | `apimodels.Paging` | [ApimodelsPaging](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsPaging.java) |
 | `apimodels.RemoveInventoryItemReq` | [ApimodelsRemoveInventoryItemReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsRemoveInventoryItemReq.java) |
+| `apimodels.RemoveItem` | [ApimodelsRemoveItem](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsRemoveItem.java) |
 | `apimodels.SaveItemReq` | [ApimodelsSaveItemReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsSaveItemReq.java) |
 | `apimodels.SaveItemToInventoryReq` | [ApimodelsSaveItemToInventoryReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsSaveItemToInventoryReq.java) |
 | `apimodels.TradeItem` | [ApimodelsTradeItem](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsTradeItem.java) |
 | `apimodels.TradeItemResp` | [ApimodelsTradeItemResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsTradeItemResp.java) |
 | `apimodels.UpdateInventoryReq` | [ApimodelsUpdateInventoryReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsUpdateInventoryReq.java) |
+| `apimodels.UpdateItem` | [ApimodelsUpdateItem](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsUpdateItem.java) |
 | `apimodels.UpdateItemReq` | [ApimodelsUpdateItemReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsUpdateItemReq.java) |
 | `apimodels.UpdateItemResp` | [ApimodelsUpdateItemResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsUpdateItemResp.java) |
