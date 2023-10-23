@@ -111,6 +111,26 @@ AccelByteConfig config = new AccelByteConfig(
 AccelByteSDK sdk = new AccelByteSDK(config);
 ```
 
+#### On-demand Refresh Token (Preview)
+
+The on-demand refresh token is intended to be used in environment where automatic refresh token cannot work properly e.g. AWS Lambda.`
+
+```java
+DefaultConfigRepository configRepo = new DefaultConfigRepository();
+// Must use this if you want to use LoginOrRefresh
+DefaultTokenRefreshRepository refreshRepo = new DefaultTokenRefreshRepository();
+AccelByteConfig config = new AccelByteConfig(new OkhttpClient(), refreshRepo, configRepo);
+AccelByteSDK sdk = new AccelByteSDK(config);
+// Before making endpoint call
+// Either use this for user credentials
+boolean result = sdk.loginOrRefreshUser("username", "password");
+// Or this for client credentials
+boolean result = sdk.loginOrRefreshClient();
+
+```
+
+You can refer to this example of more details, [sample login or refresh](samples/login-or-refresh)
+
 #### Local Token Validation
 
 To enable local token validation, use the following when instantiating the SDK. When enabled, the SDK instance will cache JWKS and revocation list for performing token validation so that it does not have to call AccelByte Gaming Services endpoint each time. See [Validate Access Token](#validate-access-token) section on how to validate token using SDK.

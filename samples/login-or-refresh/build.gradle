@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'ext.event'
+version = '1.0-SNAPSHOT'
+
+application {
+    mainClass = 'ext.sample.Main'
+}
+
+ext.loadDotEnv = {
+    def envFile = file('.env')
+    if (!envFile.exists()) return [:]
+
+    def env = [:]
+    envFile.readLines()
+            .findAll { it.contains('=') && !it.split('=')[1].trim().isEmpty() }
+            .each { line ->
+                def (key, value) = line.split('=')
+                env[key] = value.trim()
+            }
+    return env
+}
+
+run {
+    environment loadDotEnv()
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'net.accelbyte.sdk:sdk:+'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.14.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.7.1'
+    implementation 'org.projectlombok:lombok:1.18.28'
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}

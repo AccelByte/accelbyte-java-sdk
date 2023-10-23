@@ -1,0 +1,10 @@
+rootProject.name = 'login-or-refresh'
+
+// remove all codes bellow if you want to run this sample outside of this project
+includeBuild("../..") {
+    dependencySubstitution {
+        substitute module('net.accelbyte.sdk:sdk') using project(':')
+    }
+}
+
+

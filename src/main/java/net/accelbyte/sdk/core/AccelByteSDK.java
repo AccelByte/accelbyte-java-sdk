@@ -6,6 +6,7 @@
 
 package net.accelbyte.sdk.core;
 
+import com.google.common.base.Strings;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
@@ -34,6 +35,8 @@ import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
+
+import lombok.SneakyThrows;
 import lombok.extern.java.Log;
 import net.accelbyte.sdk.api.iam.models.BloomFilterJSON;
 import net.accelbyte.sdk.api.iam.models.OauthapiRevocationList;
@@ -52,10 +55,7 @@ import net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.UserAuthenticati
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20Extension;
 import net.accelbyte.sdk.core.client.HttpClient;
-import net.accelbyte.sdk.core.repository.ConfigRepository;
-import net.accelbyte.sdk.core.repository.TokenRefresh;
-import net.accelbyte.sdk.core.repository.TokenRepository;
-import net.accelbyte.sdk.core.repository.TokenValidation;
+import net.accelbyte.sdk.core.repository.*;
 import net.accelbyte.sdk.core.util.BloomFilter;
 import net.accelbyte.sdk.core.util.Helper;
 import okhttp3.Credentials;
@@ -66,8 +66,6 @@ import org.apache.http.client.utils.URLEncodedUtils;
 public class AccelByteSDK {
   private static final String COOKIE_KEY_ACCESS_TOKEN = "access_token";
   private static final String LOGIN_USER_SCOPE = "commerce account social publishing analytics";
-  private static final float TOKEN_REFRESH_RATIO = 0.8f;
-
   private static final String DEFAULT_CACHE_KEY = "default";
   private static final String CLAIM_PERMISSIONS = "permissions";
   private static final String CLAIM_SUB = "sub";
@@ -85,6 +83,10 @@ public class AccelByteSDK {
   private LoadingCache<String, Map<String, RSAPublicKey>> jwksCache;
   private LoadingCache<String, OauthapiRevocationList> revocationListCache;
   private static final BloomFilter bloomFilter = new BloomFilter();
+
+  // TODO: make this configurable
+  private float tokenRefreshRatio = 0.8f;
+
 
   protected boolean internalValidateToken(
       SignedJWT signedJWT, String token, String resource, int action) {
@@ -326,8 +328,8 @@ public class AccelByteSDK {
       tokenRepository.storeToken(token.getAccessToken());
       if (tokenRepository instanceof TokenRefresh) {
         final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
-        final long expiresIn = (long) (token.getExpiresIn() * TOKEN_REFRESH_RATIO);
-        final long refreshExpiresIn = (long) (token.getRefreshExpiresIn() * TOKEN_REFRESH_RATIO);
+        final long expiresIn = (long) (token.getExpiresIn() * tokenRefreshRatio);
+        final long refreshExpiresIn = (long) (token.getRefreshExpiresIn() * tokenRefreshRatio);
         tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(expiresIn)));
         tokenRefresh.storeRefreshToken(token.getRefreshToken());
         tokenRefresh.setRefreshTokenExpiresAt(Date.from(utcNow.plusSeconds(refreshExpiresIn)));
@@ -356,7 +358,7 @@ public class AccelByteSDK {
       tokenRepository.storeToken(token.getAccessToken());
       if (tokenRepository instanceof TokenRefresh) {
         final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
-        final long expiresIn = (long) (token.getExpiresIn() * TOKEN_REFRESH_RATIO);
+        final long expiresIn = (long) (token.getExpiresIn() * tokenRefreshRatio);
         tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(expiresIn)));
         tokenRefresh.storeRefreshToken(null);
         tokenRefresh.setRefreshTokenExpiresAt(null);
@@ -368,6 +370,57 @@ public class AccelByteSDK {
       log.warning(e.getMessage());
     }
     return false;
+  }
+
+  @SneakyThrows // TODO: remove unused exception from getToken, getTokenExpiredAt
+  public boolean loginOrRefreshClient() {
+    TokenRepository tokenRepo = sdkConfiguration.getTokenRepository();
+    TokenRefresh refreshRepo;
+    if (tokenRepo instanceof TokenRefresh) {
+      refreshRepo = (TokenRefresh) tokenRepo;
+    } else {
+      throw new IllegalArgumentException("Token repository is not a Refresh Repository"); // TODO: restructure the inheritance
+    }
+
+    if (Strings.isNullOrEmpty(tokenRepo.getToken())) {
+      return loginClient();
+    }
+
+    boolean isAccessTokenExpired = isExpired(refreshRepo.getTokenExpiresAt());
+    if (!isAccessTokenExpired) {
+      return true; // do nothing, since accessToken still valid
+    }
+
+
+    return loginClient();
+  }
+
+  @SneakyThrows // TODO: remove unused exception from getToken, getTokenExpiredAt
+  public boolean loginOrRefreshUser(String username, String password) {
+    TokenRepository tokenRepo = sdkConfiguration.getTokenRepository();
+    TokenRefresh refreshRepo;
+    if (tokenRepo instanceof TokenRefresh) {
+      refreshRepo = (TokenRefresh) tokenRepo;
+    } else {
+      throw new IllegalArgumentException("Token repository is not a Refresh Repository"); // TODO: restructure the inheritance
+    }
+
+    if (Strings.isNullOrEmpty(tokenRepo.getToken())) {
+      return loginUser(username, password);
+    }
+
+    boolean isAccessTokenExpired = isExpired(refreshRepo.getTokenExpiresAt());
+    boolean isRefreshTokenExpired = isExpired(refreshRepo.getRefreshTokenExpiresAt());
+
+    if (!isAccessTokenExpired) {
+      return true; // do nothing, since accessToken still valid
+    }
+
+    if (!isRefreshTokenExpired) {
+      return refreshToken();
+    }
+
+    return loginUser(username, password);
   }
 
   public boolean loginPlatform(String platformId, String platformToken) {
@@ -386,8 +439,8 @@ public class AccelByteSDK {
       tokenRepository.storeToken(token.getAccessToken());
       if (tokenRepository instanceof TokenRefresh) {
         final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
-        final long expiresIn = (long) (token.getExpiresIn() * TOKEN_REFRESH_RATIO);
-        final long refreshExpiresIn = (long) (token.getRefreshExpiresIn() * TOKEN_REFRESH_RATIO);
+        final long expiresIn = (long) (token.getExpiresIn() * tokenRefreshRatio);
+        final long refreshExpiresIn = (long) (token.getRefreshExpiresIn() * tokenRefreshRatio);
         tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(expiresIn)));
         tokenRefresh.storeRefreshToken(token.getRefreshToken());
         tokenRefresh.setRefreshTokenExpiresAt(Date.from(utcNow.plusSeconds(refreshExpiresIn)));
@@ -450,8 +503,8 @@ public class AccelByteSDK {
           final OauthmodelTokenWithDeviceCookieResponseV3 token =
               oAuth20.tokenGrantV3(tokenGrantV3);
 
-          final long expiresIn = (long) (token.getExpiresIn() * TOKEN_REFRESH_RATIO);
-          final long refreshExpiresIn = (long) (token.getRefreshExpiresIn() * TOKEN_REFRESH_RATIO);
+          final long expiresIn = (long) (token.getExpiresIn() * tokenRefreshRatio);
+          final long refreshExpiresIn = (long) (token.getRefreshExpiresIn() * tokenRefreshRatio);
           tokenRepository.storeToken(token.getAccessToken());
           tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(expiresIn)));
           tokenRefresh.storeRefreshToken(token.getRefreshToken());
