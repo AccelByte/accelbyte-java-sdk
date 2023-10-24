@@ -36,11 +36,8 @@ import net.accelbyte.sdk.api.session.operations.configuration_template.AdminCrea
 import net.accelbyte.sdk.api.session.operations.configuration_template.AdminDeleteConfigurationTemplateV1;
 import net.accelbyte.sdk.api.session.operations.configuration_template.AdminGetConfigurationTemplateV1;
 import net.accelbyte.sdk.api.session.operations.configuration_template.AdminUpdateConfigurationTemplateV1;
-import net.accelbyte.sdk.api.session.operations.game_session.CreateGameSession;
-import net.accelbyte.sdk.api.session.operations.game_session.DeleteGameSession;
-import net.accelbyte.sdk.api.session.operations.game_session.JoinGameSession;
-import net.accelbyte.sdk.api.session.operations.game_session.LeaveGameSession;
-import net.accelbyte.sdk.api.session.operations.game_session.PublicQueryGameSessions;
+import net.accelbyte.sdk.api.session.operations.game_session.*;
+import net.accelbyte.sdk.api.session.operations.game_session.PublicQueryGameSessionsByAttributes;
 import net.accelbyte.sdk.api.session.operations.party.PublicGetParty;
 import net.accelbyte.sdk.api.session.operations.party.PublicPartyJoinCode;
 import net.accelbyte.sdk.api.session.wrappers.ConfigurationTemplate;
@@ -329,8 +326,8 @@ public class TestIntegrationServiceSession extends TestIntegration {
     final GameSession gameSessionWrapper = new GameSession(sdk);
 
     final ApimodelsGameSessionQueryResponse publicQueryGameSessionsResult =
-        gameSessionWrapper.publicQueryGameSessions(
-            PublicQueryGameSessions.builder()
+        gameSessionWrapper.publicQueryGameSessionsByAttributes(
+              PublicQueryGameSessionsByAttributes.builder()
                 .namespace(namespace)
                 .body(Collections.emptyMap())
                 .build());
