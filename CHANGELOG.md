@@ -1,6 +1,11 @@
 <a name="v0.49.0"></a>
 ## [v0.49.0]
-
+### feat
+- **feat:** login or refresh implementation 
+### fix
+- **integration-test:** session issue because spec change 
+### docs
+- **migrations:** add migration-guide-v0.48-to-v0.49.md
 
 <a name="v0.48.0"></a>
 ## [v0.48.0]
