@@ -454,9 +454,25 @@ public class AccelByteSDK {
     return false;
   }
 
+  /**
+   * Attempts to perform the refresh token operation with a default wait time of 500 milliseconds
+   * to acquire the necessary lock. Will return false if 500 milliseconds of waiting passed.
+   * Refer to {@link #refreshToken(long, TimeUnit)} for customized timeout.
+   * <br>
+   * <b>WARNING:</b> Please don't use this method  if you use TokenRepository class with
+   * TokenRefreshRepository interface a.k.a. automatic refresh token enabled.
+   * @return {@code true} if operation was successful, {@code false} otherwise.
+   */
   public boolean refreshToken() {
+    return refreshToken(500, TimeUnit.MILLISECONDS);
+  }
+
+  public boolean refreshToken(long timeout, TimeUnit unit) {
+    boolean acquiredLock = false;
     try {
-      if (!refreshTokenMethodLock.tryLock()) {
+      acquiredLock = refreshTokenMethodLock.tryLock(timeout, unit);
+      if (!acquiredLock) {
+        log.warning(String.format("unable to acquire lock after (%s)%s", timeout, unit));
         return false; // Refresh token in-progress
       }
 
@@ -525,7 +541,12 @@ public class AccelByteSDK {
     } catch (Exception e) {
       log.warning(e.getMessage());
     } finally {
-      refreshTokenMethodLock.unlock();
+      // to ensure, when in a race condition (i.e. this method called by multiple thread at the same time)
+      // and lock haven't been acquired by any thread yet.
+      // adding this will ensure only the owner can unlock, to prevent error IllegalMonitoringState
+      if (acquiredLock) {
+        refreshTokenMethodLock.unlock();
+      }
     }
 
     return false;
