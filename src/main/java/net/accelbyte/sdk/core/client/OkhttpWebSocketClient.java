@@ -9,15 +9,9 @@ package net.accelbyte.sdk.core.client;
 import java.util.concurrent.TimeUnit;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
 import net.accelbyte.sdk.core.repository.TokenRepository;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.WebSocket;
-import okhttp3.WebSocketListener;
+import okhttp3.*;
 
 public class OkhttpWebSocketClient {
-  private static final OkHttpClient client =
-      new OkHttpClient.Builder().readTimeout(0, TimeUnit.SECONDS).build();
-
   private WebSocket websocket;
 
   private OkhttpWebSocketClient(WebSocket websocket) {
@@ -29,6 +23,8 @@ public class OkhttpWebSocketClient {
       TokenRepository tokenRepository,
       WebSocketListener listener)
       throws Exception {
+    final OkHttpClient client =
+            new OkHttpClient.Builder().readTimeout(0, TimeUnit.SECONDS).build();
     String baseURL = configRepository.getBaseURL();
     if (baseURL == null || baseURL.isEmpty()) {
       throw new IllegalArgumentException("Base URL cannot be null or empty");
