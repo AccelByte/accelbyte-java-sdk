@@ -2,7 +2,9 @@
 ## [v0.50.0]
 ### fix
 - **:** concurrent issue on refresh token
-
+- **integration-test:** ams breaking change 
+### docs
+- **migrations:** add migration-guide-v0.49-to-v0.50.md
 
 <a name="v0.49.0"></a>
 ## [v0.49.0]
