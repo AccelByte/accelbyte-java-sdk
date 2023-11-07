@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelPublicInviteUserRequestV4 extends Model {
 
+  @JsonProperty("additionalData")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String additionalData;
+
   @JsonProperty("emailAddress")
   private String emailAddress;
 

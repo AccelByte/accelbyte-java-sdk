@@ -67,6 +67,7 @@ public class ModelsServer extends Model {
   private String ip;
 
   @JsonProperty("is_core_dump_enabled")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean isCoreDumpEnabled;
 
   @JsonProperty("is_override_game_version")

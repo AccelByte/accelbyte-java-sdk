@@ -24,7 +24,7 @@ public class AMSInfo {
   /**
    * @see InfoRegions
    */
-  public ApiRegionsResponse infoRegions(InfoRegions input) throws Exception {
+  public ApiAMSRegionsResponse infoRegions(InfoRegions input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

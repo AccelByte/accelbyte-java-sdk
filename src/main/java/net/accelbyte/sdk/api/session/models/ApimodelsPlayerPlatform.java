@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelsPlayerPlatform extends Model {
 
+  @JsonProperty("crossplayEnabled")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean crossplayEnabled;
+
   @JsonProperty("currentPlatform")
   private String currentPlatform;
 

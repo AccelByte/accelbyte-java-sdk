@@ -347,6 +347,7 @@
 | `/platform/admin/namespaces/{namespace}/users/{userId}/wallets/currencies/{currencyCode}/transactions` | GET | ListUserCurrencyTransactions | [ListUserCurrencyTransactions](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/ListUserCurrencyTransactions.java) | [ListUserCurrencyTransactions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/ListUserCurrencyTransactions.java) |
 | [DEPRECATED] `/platform/admin/namespaces/{namespace}/users/{userId}/wallets/{currencyCode}/check` | GET | CheckWallet | [CheckWallet](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/CheckWallet.java) | [CheckWallet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/CheckWallet.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/wallets/{currencyCode}/credit` | PUT | CreditUserWallet | [CreditUserWallet](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/CreditUserWallet.java) | [CreditUserWallet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/CreditUserWallet.java) |
+| `/platform/admin/namespaces/{namespace}/users/{userId}/wallets/{currencyCode}/debitByWalletPlatform` | PUT | DebitByWalletPlatform | [DebitByWalletPlatform](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/DebitByWalletPlatform.java) | [DebitByWalletPlatform](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/DebitByWalletPlatform.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/wallets/{currencyCode}/payment` | PUT | PayWithUserWallet | [PayWithUserWallet](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/PayWithUserWallet.java) | [PayWithUserWallet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/PayWithUserWallet.java) |
 | [DEPRECATED] `/platform/admin/namespaces/{namespace}/users/{userId}/wallets/{walletId}` | GET | GetUserWallet | [GetUserWallet](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/GetUserWallet.java) | [GetUserWallet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/GetUserWallet.java) |
 | [DEPRECATED] `/platform/admin/namespaces/{namespace}/users/{userId}/wallets/{walletId}/debit` | PUT | DebitUserWallet | [DebitUserWallet](../../src/main/java/net/accelbyte/sdk/api/platform/operations/wallet/DebitUserWallet.java) | [DebitUserWallet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/wallet/DebitUserWallet.java) |
@@ -460,6 +461,13 @@
 | `/platform/admin/namespaces/{namespace}/tickets/{boothName}/increment` | PUT | IncreaseTicketSale | [IncreaseTicketSale](../../src/main/java/net/accelbyte/sdk/api/platform/operations/ticket/IncreaseTicketSale.java) | [IncreaseTicketSale](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/ticket/IncreaseTicketSale.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/tickets/{boothName}` | POST | AcquireUserTicket | [AcquireUserTicket](../../src/main/java/net/accelbyte/sdk/api/platform/operations/ticket/AcquireUserTicket.java) | [AcquireUserTicket](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/ticket/AcquireUserTicket.java) |
 
+### TradeAction Wrapper:  [TradeAction](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/TradeAction.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/platform/admin/namespaces/{namespace}/trade/commit` | POST | Commit | [Commit](../../src/main/java/net/accelbyte/sdk/api/platform/operations/trade_action/Commit.java) | [Commit](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/trade_action/Commit.java) |
+| `/platform/admin/namespaces/{namespace}/trade/history/byCriteria` | GET | GetTradeHistoryByCriteria | [GetTradeHistoryByCriteria](../../src/main/java/net/accelbyte/sdk/api/platform/operations/trade_action/GetTradeHistoryByCriteria.java) | [GetTradeHistoryByCriteria](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/trade_action/GetTradeHistoryByCriteria.java) |
+| `/platform/admin/namespaces/{namespace}/trade/{transactionId}` | GET | GetTradeHistoryByTransactionId | [GetTradeHistoryByTransactionId](../../src/main/java/net/accelbyte/sdk/api/platform/operations/trade_action/GetTradeHistoryByTransactionId.java) | [GetTradeHistoryByTransactionId](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/trade_action/GetTradeHistoryByTransactionId.java) |
+
 ### Achievement(Platform) Wrapper:  [AchievementPlatform](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/AchievementPlatform.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -566,6 +574,8 @@
 | Model | Class |
 |---|---|
 | `AchievementInfo` | [AchievementInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/AchievementInfo.java) |
+| `Action` | [Action](../../src/main/java/net/accelbyte/sdk/api/platform/models/Action.java) |
+| `ActionRequest` | [ActionRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/ActionRequest.java) |
 | `AdditionalData` | [AdditionalData](../../src/main/java/net/accelbyte/sdk/api/platform/models/AdditionalData.java) |
 | `AdditionalDataEntitlement` | [AdditionalDataEntitlement](../../src/main/java/net/accelbyte/sdk/api/platform/models/AdditionalDataEntitlement.java) |
 | `AdminOrderCreate` | [AdminOrderCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/AdminOrderCreate.java) |
@@ -626,6 +636,7 @@
 | `ConditionMatchResult` | [ConditionMatchResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/ConditionMatchResult.java) |
 | `ConsumableEntitlementRevocationConfig` | [ConsumableEntitlementRevocationConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/ConsumableEntitlementRevocationConfig.java) |
 | `ConsumeItem` | [ConsumeItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/ConsumeItem.java) |
+| `CreditPayload` | [CreditPayload](../../src/main/java/net/accelbyte/sdk/api/platform/models/CreditPayload.java) |
 | `CreditRequest` | [CreditRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/CreditRequest.java) |
 | `CreditResult` | [CreditResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/CreditResult.java) |
 | `CreditRevocation` | [CreditRevocation](../../src/main/java/net/accelbyte/sdk/api/platform/models/CreditRevocation.java) |
@@ -643,6 +654,8 @@
 | `DLCItemConfigUpdate` | [DLCItemConfigUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/DLCItemConfigUpdate.java) |
 | `DLCRecord` | [DLCRecord](../../src/main/java/net/accelbyte/sdk/api/platform/models/DLCRecord.java) |
 | `DebitByCurrencyCodeRequest` | [DebitByCurrencyCodeRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/DebitByCurrencyCodeRequest.java) |
+| `DebitByWalletPlatformRequest` | [DebitByWalletPlatformRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/DebitByWalletPlatformRequest.java) |
+| `DebitPayload` | [DebitPayload](../../src/main/java/net/accelbyte/sdk/api/platform/models/DebitPayload.java) |
 | `DebitRequest` | [DebitRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/DebitRequest.java) |
 | `DebitResult` | [DebitResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/DebitResult.java) |
 | `DeleteRewardConditionRequest` | [DeleteRewardConditionRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/DeleteRewardConditionRequest.java) |
@@ -679,6 +692,7 @@
 | `ExternalPaymentOrderCreate` | [ExternalPaymentOrderCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/ExternalPaymentOrderCreate.java) |
 | `FieldValidationError` | [FieldValidationError](../../src/main/java/net/accelbyte/sdk/api/platform/models/FieldValidationError.java) |
 | `FixedPeriodRotationConfig` | [FixedPeriodRotationConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/FixedPeriodRotationConfig.java) |
+| `FulFillItemPayload` | [FulFillItemPayload](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulFillItemPayload.java) |
 | `FulfillCodeRequest` | [FulfillCodeRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillCodeRequest.java) |
 | `FulfillmentError` | [FulfillmentError](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentError.java) |
 | `FulfillmentHistoryInfo` | [FulfillmentHistoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentHistoryInfo.java) |
@@ -759,6 +773,8 @@
 | `OculusIAPConfigInfo` | [OculusIAPConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/OculusIAPConfigInfo.java) |
 | `OculusIAPConfigRequest` | [OculusIAPConfigRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/OculusIAPConfigRequest.java) |
 | `OculusReconcileResult` | [OculusReconcileResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/OculusReconcileResult.java) |
+| `Operation` | [Operation](../../src/main/java/net/accelbyte/sdk/api/platform/models/Operation.java) |
+| `OperationRequest` | [OperationRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/OperationRequest.java) |
 | `OptionBoxConfig` | [OptionBoxConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/OptionBoxConfig.java) |
 | `Order` | [Order](../../src/main/java/net/accelbyte/sdk/api/platform/models/Order.java) |
 | `OrderBundleItemInfo` | [OrderBundleItemInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/OrderBundleItemInfo.java) |
@@ -855,6 +871,7 @@
 | `RevocationResult` | [RevocationResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevocationResult.java) |
 | `RevokeCurrency` | [RevokeCurrency](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeCurrency.java) |
 | `RevokeEntitlement` | [RevokeEntitlement](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeEntitlement.java) |
+| `RevokeEntitlementPayload` | [RevokeEntitlementPayload](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeEntitlementPayload.java) |
 | `RevokeEntry` | [RevokeEntry](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeEntry.java) |
 | `RevokeItem` | [RevokeItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeItem.java) |
 | `RevokeItemSummary` | [RevokeItemSummary](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeItemSummary.java) |
@@ -912,6 +929,8 @@
 | `TicketSaleIncrementResult` | [TicketSaleIncrementResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/TicketSaleIncrementResult.java) |
 | `Time-limited balance` | [TimeLimitedBalance](../../src/main/java/net/accelbyte/sdk/api/platform/models/TimeLimitedBalance.java) |
 | `TimedOwnership` | [TimedOwnership](../../src/main/java/net/accelbyte/sdk/api/platform/models/TimedOwnership.java) |
+| `TradeChainActionHistoryInfo` | [TradeChainActionHistoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/TradeChainActionHistoryInfo.java) |
+| `TradeChainedActionCommitRequest` | [TradeChainedActionCommitRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/TradeChainedActionCommitRequest.java) |
 | `TradeNotification` | [TradeNotification](../../src/main/java/net/accelbyte/sdk/api/platform/models/TradeNotification.java) |
 | `Transaction` | [Transaction](../../src/main/java/net/accelbyte/sdk/api/platform/models/Transaction.java) |
 | `TransactionAmountDetails` | [TransactionAmountDetails](../../src/main/java/net/accelbyte/sdk/api/platform/models/TransactionAmountDetails.java) |

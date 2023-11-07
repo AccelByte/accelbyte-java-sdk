@@ -131,7 +131,8 @@ public class DebitByCurrencyCodeRequest extends Model {
     IAPREVOCATION("IAP_REVOCATION"),
     ORDERREVOCATION("ORDER_REVOCATION"),
     OTHER("OTHER"),
-    PAYMENT("PAYMENT");
+    PAYMENT("PAYMENT"),
+    TRADE("TRADE");
 
     private String value;
 

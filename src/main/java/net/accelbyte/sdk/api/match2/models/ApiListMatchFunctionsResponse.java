@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ApiListMatchFunctionsResponse extends Model {
 
   @JsonProperty("configs")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ApiMatchFunctionConfig> configs;
 
   @JsonProperty("functions")

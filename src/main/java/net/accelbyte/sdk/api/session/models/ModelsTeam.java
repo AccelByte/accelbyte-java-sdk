@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsTeam extends Model {
 
   @JsonProperty("UserIDs")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> userIDs;
 
   @JsonProperty("parties")

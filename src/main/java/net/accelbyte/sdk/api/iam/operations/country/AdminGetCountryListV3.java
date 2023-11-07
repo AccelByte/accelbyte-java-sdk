@@ -23,9 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetCountryListV3
  *
- * <p>Admin get country list:
- *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MISC [READ]
+ * <p>Admin get country list
  */
 @Getter
 @Setter

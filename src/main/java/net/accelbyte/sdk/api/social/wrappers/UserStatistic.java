@@ -72,6 +72,15 @@ public class UserStatistic {
   }
 
   /**
+   * @see GetStatItems
+   */
+  public StatItemValuePagingSlicedResult getStatItems(GetStatItems input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetUserStatItems
    */
   public UserStatItemPagingSlicedResult getUserStatItems(GetUserStatItems input) throws Exception {

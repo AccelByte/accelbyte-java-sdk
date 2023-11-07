@@ -24,7 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>This endpoint is being used to request the one time code [8 length] for headless account to
  * link or upgrade to a full account.
  *
- * <p>It require a valid user token.
+ * <p>It requires a valid user token.
  *
  * <p>Should specify the target platform id and current user should already linked to this platform.
  *

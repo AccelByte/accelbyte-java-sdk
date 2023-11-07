@@ -25,12 +25,6 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApiFleetListItemResponse extends Model {
 
-  @JsonProperty("activeDs")
-  private Integer activeDs;
-
-  @JsonProperty("claimedDs")
-  private Integer claimedDs;
-
   @JsonProperty("counts")
   private List<ApiFleetRegionalServerCounts> counts;
 

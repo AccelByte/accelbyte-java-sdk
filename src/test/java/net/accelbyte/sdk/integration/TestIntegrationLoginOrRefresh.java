@@ -1,5 +1,10 @@
 package net.accelbyte.sdk.integration;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.lang.reflect.Field;
+import java.time.Instant;
+import java.util.Date;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.AccessTokenPayload;
 import net.accelbyte.sdk.core.client.OkhttpClient;
@@ -7,12 +12,6 @@ import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRefreshRepository;
 import net.accelbyte.sdk.core.repository.TokenRefresh;
 import org.junit.jupiter.api.*;
-
-import java.lang.reflect.Field;
-import java.time.Instant;
-import java.util.Date;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @Tag("test-integration")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -56,7 +55,8 @@ public class TestIntegrationLoginOrRefresh extends TestIntegration {
     assertTrue(loggedIn);
 
     final String token1 = sdk.getSdkConfiguration().getTokenRepository().getToken();
-    Date tokenExpiredAt1 = ((TokenRefresh)sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
+    Date tokenExpiredAt1 =
+        ((TokenRefresh) sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
     assertTrue(timeDifferenceInSeconds(startDate1, tokenExpiredAt1) <= expirationDuration);
 
     final AccessTokenPayload payload1 = sdk.parseAccessToken(token1, false);
@@ -66,14 +66,16 @@ public class TestIntegrationLoginOrRefresh extends TestIntegration {
     assertEquals(configRepo.getClientId(), payload1.getClientId());
 
     // TODO: make the scheduler 'test-able' and follow SOLID
-    Thread.sleep(expirationDuration*1_000); // sleep for 2 second, since expiredAt was set 1.8 second
+    Thread.sleep(
+        expirationDuration * 1_000); // sleep for 2 second, since expiredAt was set 1.8 second
 
     Date startDate2 = Date.from(Instant.now());
     boolean loggedIn2 = sdk.loginOrRefreshUser(username, password);
     assertTrue(loggedIn2);
 
     final String token2 = sdk.getSdkConfiguration().getTokenRepository().getToken();
-    Date tokenExpiredAt2 = ((TokenRefresh)sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
+    Date tokenExpiredAt2 =
+        ((TokenRefresh) sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
     assertTrue(timeDifferenceInSeconds(startDate2, tokenExpiredAt2) <= expirationDuration);
 
     final AccessTokenPayload payload2 = sdk.parseAccessToken(token2, false);
@@ -102,7 +104,8 @@ public class TestIntegrationLoginOrRefresh extends TestIntegration {
     assertTrue(loggedIn);
 
     final String token1 = sdk.getSdkConfiguration().getTokenRepository().getToken();
-    Date tokenExpiredAt1 = ((TokenRefresh)sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
+    Date tokenExpiredAt1 =
+        ((TokenRefresh) sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
     assertTrue(timeDifferenceInSeconds(startDate1, tokenExpiredAt1) <= expirationDuration);
 
     final AccessTokenPayload payload1 = sdk.parseAccessToken(token1, false);
@@ -112,14 +115,16 @@ public class TestIntegrationLoginOrRefresh extends TestIntegration {
     assertEquals(configRepo.getClientId(), payload1.getClientId());
 
     // TODO: make the scheduler 'test-able' and follow SOLID
-    Thread.sleep(expirationDuration*1_000); // sleep for 2 second, since expiredAt was set 1.8 second
+    Thread.sleep(
+        expirationDuration * 1_000); // sleep for 2 second, since expiredAt was set 1.8 second
 
     Date startDate2 = Date.from(Instant.now());
     boolean loggedIn2 = sdk.loginOrRefreshClient();
     assertTrue(loggedIn2);
 
     final String token2 = sdk.getSdkConfiguration().getTokenRepository().getToken();
-    Date tokenExpiredAt2 = ((TokenRefresh)sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
+    Date tokenExpiredAt2 =
+        ((TokenRefresh) sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
     assertTrue(timeDifferenceInSeconds(startDate2, tokenExpiredAt2) <= expirationDuration);
 
     final AccessTokenPayload payload2 = sdk.parseAccessToken(token2, false);

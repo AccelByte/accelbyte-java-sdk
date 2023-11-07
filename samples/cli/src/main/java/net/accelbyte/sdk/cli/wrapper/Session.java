@@ -8,11 +8,13 @@
 
 package net.accelbyte.sdk.cli.wrapper;
 
+import net.accelbyte.sdk.cli.api.session.certificate.*;
 import net.accelbyte.sdk.cli.api.session.configuration_template.*;
 import net.accelbyte.sdk.cli.api.session.dsmc_default_configuration.*;
 import net.accelbyte.sdk.cli.api.session.environment_variable.*;
 import net.accelbyte.sdk.cli.api.session.game_session.*;
 import net.accelbyte.sdk.cli.api.session.global_configuration.*;
+import net.accelbyte.sdk.cli.api.session.max_active.*;
 import net.accelbyte.sdk.cli.api.session.operations.*;
 import net.accelbyte.sdk.cli.api.session.party.*;
 import net.accelbyte.sdk.cli.api.session.platform_credential.*;
@@ -35,16 +37,20 @@ import picocli.CommandLine.Command;
       AdminUpdateConfigurationAlertV1.class,
       AdminCreateConfigurationAlertV1.class,
       AdminDeleteConfigurationAlertV1.class,
+      HandleUploadXboxPFXCertificate.class,
       AdminCreateConfigurationTemplateV1.class,
       AdminGetAllConfigurationTemplatesV1.class,
       AdminGetConfigurationTemplateV1.class,
       AdminUpdateConfigurationTemplateV1.class,
       AdminDeleteConfigurationTemplateV1.class,
+      AdminGetMemberActiveSession.class,
+      AdminReconcileMaxActiveSession.class,
       AdminGetDSMCConfiguration.class,
       AdminSyncDSMCConfiguration.class,
       AdminQueryGameSessions.class,
       AdminQueryGameSessionsByAttributes.class,
       AdminDeleteBulkGameSessions.class,
+      AdminSetDSReady.class,
       AdminUpdateGameSessionMember.class,
       AdminQueryParties.class,
       AdminGetPlatformCredentials.class,

@@ -123,4 +123,24 @@ public class AdminGroup {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see AdminGetOfficialGroupContentsV2
+   */
+  public ModelsPaginatedContentDownloadResponseV2 adminGetOfficialGroupContentsV2(
+      AdminGetOfficialGroupContentsV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminGetUserGroupContentsV2
+   */
+  public ModelsPaginatedContentDownloadResponseV2 adminGetUserGroupContentsV2(
+      AdminGetUserGroupContentsV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

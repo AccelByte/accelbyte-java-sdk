@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsCreateImageRequest extends Model {
 
   @JsonProperty("artifactPath")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String artifactPath;
 
   @JsonProperty("coreDumpEnabled")

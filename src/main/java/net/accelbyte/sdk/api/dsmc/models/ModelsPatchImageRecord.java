@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsPatchImageRecord extends Model {
 
   @JsonProperty("artifactPath")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String artifactPath;
 
   @JsonProperty("coreDumpEnabled")
@@ -42,9 +43,11 @@ public class ModelsPatchImageRecord extends Model {
   private String image;
 
   @JsonProperty("imageReplications")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsImageReplication> imageReplications;
 
   @JsonProperty("imageReplicationsMap")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ModelsImageReplication> imageReplicationsMap;
 
   @JsonProperty("imageSize")

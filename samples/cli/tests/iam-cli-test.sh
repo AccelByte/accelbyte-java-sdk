@@ -1222,12 +1222,12 @@ eval_tap $? 216 'GetCountryLocationV3' test.out
     > test.out 2>&1
 eval_tap $? 217 'Logout' test.out
 
-#- 218 RequestGameTokenCodeResponseV3
-./ng net.accelbyte.sdk.cli.Main iam requestGameTokenCodeResponseV3 \
+#- 218 RequestTokenExchangeCodeV3
+./ng net.accelbyte.sdk.cli.Main iam requestTokenExchangeCodeV3 \
     --namespace "$AB_NAMESPACE" \
     --clientId 'jwyKRxhkLe5zohg9' \
     > test.out 2>&1
-eval_tap $? 218 'RequestGameTokenCodeResponseV3' test.out
+eval_tap $? 218 'RequestTokenExchangeCodeV3' test.out
 
 #- 219 AdminRetrieveUserThirdPartyPlatformTokenV3
 ./ng net.accelbyte.sdk.cli.Main iam adminRetrieveUserThirdPartyPlatformTokenV3 \
@@ -1791,12 +1791,12 @@ eval_tap $? 289 'LoginSSOClient' test.out
     > test.out 2>&1
 eval_tap $? 290 'LogoutSSOClient' test.out
 
-#- 291 RequestGameTokenResponseV3
-./ng net.accelbyte.sdk.cli.Main iam requestGameTokenResponseV3 \
+#- 291 RequestTargetTokenResponseV3
+./ng net.accelbyte.sdk.cli.Main iam requestTargetTokenResponseV3 \
     --additionalData 'T9DH3DfLCv8q4Thm' \
     --code 'q09bBgPAYxrBE9jl' \
     > test.out 2>&1
-eval_tap $? 291 'RequestGameTokenResponseV3' test.out
+eval_tap $? 291 'RequestTargetTokenResponseV3' test.out
 
 #- 292 PlatformTokenRefreshV3Deprecate
 eval_tap 0 292 'PlatformTokenRefreshV3Deprecate # SKIP deprecated' test.out
@@ -2267,7 +2267,7 @@ eval_tap $? 362 'PublicGetUserPublicInfoByUserIdV4' test.out
 
 #- 363 PublicInviteUserV4
 ./ng net.accelbyte.sdk.cli.Main iam publicInviteUserV4 \
-    --body '{"emailAddress": "khOQ161TFjROYJm7", "namespace": "5VIuCOCkt2W1DfI8", "namespaceDisplayName": "QtgODk9K6DcMnyCP"}' \
+    --body '{"additionalData": "khOQ161TFjROYJm7", "emailAddress": "5VIuCOCkt2W1DfI8", "namespace": "QtgODk9K6DcMnyCP", "namespaceDisplayName": "n1FylWdaNV1VaZTk"}' \
     > test.out 2>&1
 eval_tap $? 363 'PublicInviteUserV4' test.out
 

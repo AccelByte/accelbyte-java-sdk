@@ -100,10 +100,10 @@ public class OAuth20Extension {
   }
 
   /**
-   * @see RequestGameTokenCodeResponseV3
+   * @see RequestTokenExchangeCodeV3
    */
-  public OauthmodelGameTokenCodeResponse requestGameTokenCodeResponseV3(
-      RequestGameTokenCodeResponseV3 input) throws Exception {
+  public OauthmodelTargetTokenCodeResponse requestTokenExchangeCodeV3(
+      RequestTokenExchangeCodeV3 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -129,9 +129,9 @@ public class OAuth20Extension {
   }
 
   /**
-   * @see RequestGameTokenResponseV3
+   * @see RequestTargetTokenResponseV3
    */
-  public OauthmodelTokenResponseV3 requestGameTokenResponseV3(RequestGameTokenResponseV3 input)
+  public OauthmodelTokenResponseV3 requestTargetTokenResponseV3(RequestTargetTokenResponseV3 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

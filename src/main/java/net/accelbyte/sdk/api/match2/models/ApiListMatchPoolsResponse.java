@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ApiListMatchPoolsResponse extends Model {
 
   @JsonProperty("data")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ApiMatchPool> data;
 
   @JsonProperty("pagination")

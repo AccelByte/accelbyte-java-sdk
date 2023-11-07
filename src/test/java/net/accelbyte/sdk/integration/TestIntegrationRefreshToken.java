@@ -1,19 +1,18 @@
 package net.accelbyte.sdk.integration;
 
-import lombok.Data;
-import net.accelbyte.sdk.core.AccelByteSDK;
-import net.accelbyte.sdk.core.client.OkhttpClient;
-import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
-import net.accelbyte.sdk.core.repository.DefaultTokenRefreshRepository;
-import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
-
-import static org.junit.jupiter.api.Assertions.*;
+import lombok.Data;
+import net.accelbyte.sdk.core.AccelByteSDK;
+import net.accelbyte.sdk.core.client.OkhttpClient;
+import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
+import net.accelbyte.sdk.core.repository.DefaultTokenRefreshRepository;
+import org.junit.jupiter.api.*;
 
 @Tag("test-integration")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -58,7 +57,8 @@ public class TestIntegrationRefreshToken extends TestIntegration {
     assertTrue(loggedIn);
 
     // TODO: make the scheduler 'test-able' and follow SOLID
-    Thread.sleep(expirationDuration*1_000); // sleep for 2 second, since expiredAt was set 1.8 second
+    Thread.sleep(
+        expirationDuration * 1_000); // sleep for 2 second, since expiredAt was set 1.8 second
 
     CountDownLatch latch = new CountDownLatch(1); // all threads will wait on this latch
     int numWorker = 2;
@@ -66,16 +66,20 @@ public class TestIntegrationRefreshToken extends TestIntegration {
     ArrayList<Future<RefreshedToken>> result = new ArrayList<>();
 
     for (int i = 0; i < numWorker; i++) {
-      result.add(executor.submit(() -> {
-        latch.await();
-        boolean success = sdk.refreshToken();
-        return new RefreshedToken(success, sdk.getSdkConfiguration().getTokenRepository().getToken());
-      }));
+      result.add(
+          executor.submit(
+              () -> {
+                latch.await();
+                boolean success = sdk.refreshToken();
+                return new RefreshedToken(
+                    success, sdk.getSdkConfiguration().getTokenRepository().getToken());
+              }));
     }
 
     latch.countDown(); // release the lock of all threads at once
 
-    List<String> newTokens = result.stream()
+    List<String> newTokens =
+        result.stream()
             .map(it -> assertDoesNotThrow(() -> it.get(1, TimeUnit.SECONDS)))
             .filter(it -> it.isSuccess)
             .map(RefreshedToken::getNewToken)
@@ -83,7 +87,6 @@ public class TestIntegrationRefreshToken extends TestIntegration {
 
     assertEquals(2, newTokens.size());
   }
-
 
   @AfterAll
   public void tear() throws Exception {

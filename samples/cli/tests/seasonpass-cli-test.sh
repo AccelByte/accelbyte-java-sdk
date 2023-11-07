@@ -217,7 +217,7 @@ eval_tap $? 22 'DeleteReward' test.out
     --code 'NRsB1fPqqRRulpqp' \
     --namespace "$AB_NAMESPACE" \
     --seasonId 'ymDkQhtrHWwRVnwV' \
-    --body '{"currency": {"currencyCode": "BOqOHi8pWGd1juYh", "namespace": "iqjRJOqB5F93zFQb"}, "image": {"as": "JndUDpdONneAczbB", "caption": "dHb2slt71B1SmZp2", "height": 74, "imageUrl": "k0iKoTTS1j02o7Jj", "smallImageUrl": "TXAQN0qdskdQV0Tq", "width": 72}, "itemId": "0eaKQDOJvrTefglS", "nullFields": ["0LcghVHfPEspxwhR", "s6g4iY9u02aCNYIW", "ekp18lOC3mNqF7Bl"], "quantity": 84, "type": "CURRENCY"}' \
+    --body '{"currency": {"currencyCode": "BOqOHi8pWGd1juYh", "namespace": "iqjRJOqB5F93zFQb"}, "image": {"as": "JndUDpdONneAczbB", "caption": "dHb2slt71B1SmZp2", "height": 74, "imageUrl": "k0iKoTTS1j02o7Jj", "smallImageUrl": "TXAQN0qdskdQV0Tq", "width": 72}, "itemId": "0eaKQDOJvrTefglS", "nullFields": ["s6g4iY9u02aCNYIW", "ekp18lOC3mNqF7Bl", "0LcghVHfPEspxwhR"], "quantity": 84, "type": "CURRENCY"}' \
     > test.out 2>&1
 eval_tap $? 23 'UpdateReward' test.out
 

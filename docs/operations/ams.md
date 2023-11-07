@@ -36,6 +36,14 @@
 | `/ams/v1/namespaces/{namespace}/fleets/{fleetID}/claim` | PUT | FleetClaimByID | [FleetClaimByID](../../src/main/java/net/accelbyte/sdk/api/ams/operations/fleets/FleetClaimByID.java) | [FleetClaimByID](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/fleets/FleetClaimByID.java) |
 | `/ams/v1/namespaces/{namespace}/servers/claim` | PUT | FleetClaimByKeys | [FleetClaimByKeys](../../src/main/java/net/accelbyte/sdk/api/ams/operations/fleets/FleetClaimByKeys.java) | [FleetClaimByKeys](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/fleets/FleetClaimByKeys.java) |
 
+### Images Wrapper:  [Images](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/Images.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/ams/v1/admin/namespaces/{namespace}/fleets/{fleetID}/artifacts-sampling-rules` | GET | FleetArtifactSamplingRulesGet | [FleetArtifactSamplingRulesGet](../../src/main/java/net/accelbyte/sdk/api/ams/operations/images/FleetArtifactSamplingRulesGet.java) | [FleetArtifactSamplingRulesGet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/images/FleetArtifactSamplingRulesGet.java) |
+| `/ams/v1/admin/namespaces/{namespace}/images` | GET | ImageList | [ImageList](../../src/main/java/net/accelbyte/sdk/api/ams/operations/images/ImageList.java) | [ImageList](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/images/ImageList.java) |
+| `/ams/v1/admin/namespaces/{namespace}/images/{imageID}` | GET | ImageGet | [ImageGet](../../src/main/java/net/accelbyte/sdk/api/ams/operations/images/ImageGet.java) | [ImageGet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/images/ImageGet.java) |
+| `/ams/v1/admin/namespaces/{namespace}/images/{imageID}` | PATCH | ImagePatch | [ImagePatch](../../src/main/java/net/accelbyte/sdk/api/ams/operations/images/ImagePatch.java) | [ImagePatch](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/images/ImagePatch.java) |
+
 ### Servers Wrapper:  [Servers](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/Servers.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -43,12 +51,11 @@
 | `/ams/v1/admin/namespaces/{namespace}/servers/{serverID}` | GET | FleetServerInfo | [FleetServerInfo](../../src/main/java/net/accelbyte/sdk/api/ams/operations/servers/FleetServerInfo.java) | [FleetServerInfo](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/servers/FleetServerInfo.java) |
 | `/ams/v1/admin/namespaces/{namespace}/servers/{serverID}/history` | GET | ServerHistory | [ServerHistory](../../src/main/java/net/accelbyte/sdk/api/ams/operations/servers/ServerHistory.java) | [ServerHistory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/servers/ServerHistory.java) |
 
-### Images Wrapper:  [Images](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/Images.java)
+### AMS QoS Wrapper:  [AMSQoS](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/AMSQoS.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
-| `/ams/v1/admin/namespaces/{namespace}/images` | GET | ImageList | [ImageList](../../src/main/java/net/accelbyte/sdk/api/ams/operations/images/ImageList.java) | [ImageList](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/images/ImageList.java) |
-| `/ams/v1/admin/namespaces/{namespace}/images/{imageID}` | GET | ImageGet | [ImageGet](../../src/main/java/net/accelbyte/sdk/api/ams/operations/images/ImageGet.java) | [ImageGet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/images/ImageGet.java) |
-| `/ams/v1/admin/namespaces/{namespace}/images/{imageID}` | PATCH | ImagePatch | [ImagePatch](../../src/main/java/net/accelbyte/sdk/api/ams/operations/images/ImagePatch.java) | [ImagePatch](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/images/ImagePatch.java) |
+| `/ams/v1/admin/namespaces/{namespace}/qos/{region}` | PATCH | QoSRegionsUpdate | [QoSRegionsUpdate](../../src/main/java/net/accelbyte/sdk/api/ams/operations/ams_qo_s/QoSRegionsUpdate.java) | [QoSRegionsUpdate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/ams_qo_s/QoSRegionsUpdate.java) |
+| `/ams/v1/namespaces/{namespace}/qos` | GET | QoSRegionsGet | [QoSRegionsGet](../../src/main/java/net/accelbyte/sdk/api/ams/operations/ams_qo_s/QoSRegionsGet.java) | [QoSRegionsGet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/ams_qo_s/QoSRegionsGet.java) |
 
 ### AMS Info Wrapper:  [AMSInfo](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/AMSInfo.java)
 | Endpoint | Method | ID | Class | Example |
@@ -69,6 +76,7 @@
 
 | Model | Class |
 |---|---|
+| `api.AMSRegionsResponse` | [ApiAMSRegionsResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAMSRegionsResponse.java) |
 | `api.AccountCreateRequest` | [ApiAccountCreateRequest](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAccountCreateRequest.java) |
 | `api.AccountCreateResponse` | [ApiAccountCreateResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAccountCreateResponse.java) |
 | `api.AccountLimits` | [ApiAccountLimits](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAccountLimits.java) |
@@ -76,10 +84,13 @@
 | `api.AccountLinkResponse` | [ApiAccountLinkResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAccountLinkResponse.java) |
 | `api.AccountLinkTokenResponse` | [ApiAccountLinkTokenResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAccountLinkTokenResponse.java) |
 | `api.AccountResponse` | [ApiAccountResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAccountResponse.java) |
+| `api.ArtifactSamplingRuleResponse` | [ApiArtifactSamplingRuleResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiArtifactSamplingRuleResponse.java) |
+| `api.ArtifactTypeSamplingRulesResponse` | [ApiArtifactTypeSamplingRulesResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiArtifactTypeSamplingRulesResponse.java) |
 | `api.AvailableInstanceTypesResponse` | [ApiAvailableInstanceTypesResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAvailableInstanceTypesResponse.java) |
 | `api.DSHistoryEvent` | [ApiDSHistoryEvent](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDSHistoryEvent.java) |
 | `api.DSHistoryList` | [ApiDSHistoryList](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDSHistoryList.java) |
 | `api.DSHostConfiguration` | [ApiDSHostConfiguration](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDSHostConfiguration.java) |
+| `api.FleetArtifactsSampleRulesResponse` | [ApiFleetArtifactsSampleRulesResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetArtifactsSampleRulesResponse.java) |
 | `api.FleetClaimByKeysReq` | [ApiFleetClaimByKeysReq](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetClaimByKeysReq.java) |
 | `api.FleetClaimReq` | [ApiFleetClaimReq](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetClaimReq.java) |
 | `api.FleetClaimResponse` | [ApiFleetClaimResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetClaimResponse.java) |
@@ -101,9 +112,14 @@
 | `api.InstanceTypeDescriptionResponse` | [ApiInstanceTypeDescriptionResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiInstanceTypeDescriptionResponse.java) |
 | `api.PagingInfo` | [ApiPagingInfo](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiPagingInfo.java) |
 | `api.PortConfiguration` | [ApiPortConfiguration](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiPortConfiguration.java) |
-| `api.QOSServer` | [ApiQOSServer](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiQOSServer.java) |
+| `api.QoSEndpointResponse` | [ApiQoSEndpointResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiQoSEndpointResponse.java) |
+| `api.QoSServer` | [ApiQoSServer](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiQoSServer.java) |
 | `api.ReferencingFleet` | [ApiReferencingFleet](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiReferencingFleet.java) |
 | `api.RegionConfig` | [ApiRegionConfig](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiRegionConfig.java) |
-| `api.RegionsResponse` | [ApiRegionsResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiRegionsResponse.java) |
+| `api.Time` | [ApiTime](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiTime.java) |
 | `api.Timeout` | [ApiTimeout](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiTimeout.java) |
+| `api.UpdateServerRequest` | [ApiUpdateServerRequest](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiUpdateServerRequest.java) |
 | `response.ErrorResponse` | [ResponseErrorResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ResponseErrorResponse.java) |
+| `time.Location` | [TimeLocation](../../src/main/java/net/accelbyte/sdk/api/ams/models/TimeLocation.java) |
+| `time.zone` | [TimeZone](../../src/main/java/net/accelbyte/sdk/api/ams/models/TimeZone.java) |
+| `time.zoneTrans` | [TimeZoneTrans](../../src/main/java/net/accelbyte/sdk/api/ams/models/TimeZoneTrans.java) |

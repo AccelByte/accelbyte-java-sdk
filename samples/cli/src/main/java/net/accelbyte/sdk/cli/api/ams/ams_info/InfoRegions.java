@@ -60,7 +60,7 @@ public class InfoRegions implements Callable<Integer> {
           net.accelbyte.sdk.api.ams.operations.ams_info.InfoRegions.builder()
               .namespace(namespace)
               .build();
-      final ApiRegionsResponse response = wrapper.infoRegions(operation);
+      final ApiAMSRegionsResponse response = wrapper.infoRegions(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

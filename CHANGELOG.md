@@ -1,3 +1,9 @@
+<a name="v0.50.0"></a>
+## [v0.50.0]
+### fix
+- **:** concurrent issue on refresh token
+
+
 <a name="v0.49.0"></a>
 ## [v0.49.0]
 ### feat

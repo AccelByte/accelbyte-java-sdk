@@ -23,6 +23,35 @@ public class Admin {
   }
 
   /**
+   * @see AdminGetGlobalConfig
+   */
+  public ModelGlobalConfiguration adminGetGlobalConfig(AdminGetGlobalConfig input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminUpdateGlobalConfig
+   */
+  public ModelGlobalConfiguration adminUpdateGlobalConfig(AdminUpdateGlobalConfig input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminDeleteGlobalConfig
+   */
+  public void adminDeleteGlobalConfig(AdminDeleteGlobalConfig input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see FreeFormNotification
    */
   public void freeFormNotification(FreeFormNotification input) throws Exception {

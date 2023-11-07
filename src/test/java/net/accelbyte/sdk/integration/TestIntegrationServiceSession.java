@@ -327,7 +327,7 @@ public class TestIntegrationServiceSession extends TestIntegration {
 
     final ApimodelsGameSessionQueryResponse publicQueryGameSessionsResult =
         gameSessionWrapper.publicQueryGameSessionsByAttributes(
-              PublicQueryGameSessionsByAttributes.builder()
+            PublicQueryGameSessionsByAttributes.builder()
                 .namespace(namespace)
                 .body(Collections.emptyMap())
                 .build());

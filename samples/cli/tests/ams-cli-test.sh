@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..27"
+echo "1..30"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -124,112 +124,134 @@ eval_tap $? 11 'FleetUpdate' test.out
     > test.out 2>&1
 eval_tap $? 12 'FleetDelete' test.out
 
-#- 13 FleetServers
-./ng net.accelbyte.sdk.cli.Main ams fleetServers \
+#- 13 FleetArtifactSamplingRulesGet
+./ng net.accelbyte.sdk.cli.Main ams fleetArtifactSamplingRulesGet \
     --fleetID 'Jcdos4fYcTVU6RBt' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 13 'FleetServers' test.out
+eval_tap $? 13 'FleetArtifactSamplingRulesGet' test.out
 
-#- 14 FleetServerHistory
-./ng net.accelbyte.sdk.cli.Main ams fleetServerHistory \
+#- 14 FleetServers
+./ng net.accelbyte.sdk.cli.Main ams fleetServers \
     --fleetID '0zYoMcHyCUEXlAvx' \
     --namespace "$AB_NAMESPACE" \
-    --count '73' \
-    --offset '49' \
-    --reason 'MdalwSyliWMNW5Ny' \
-    --region 'Lu0M3VHh2EI8JlDb' \
-    --serverId 'PWbQ6Q9lNmqRBaAk' \
-    --sortDirection 'LnvxkT1X68cmDc3f' \
-    --status 'xU8MyKrQpM4hkkK6' \
     > test.out 2>&1
-eval_tap $? 14 'FleetServerHistory' test.out
+eval_tap $? 14 'FleetServers' test.out
 
-#- 15 ImageList
+#- 15 FleetServerHistory
+./ng net.accelbyte.sdk.cli.Main ams fleetServerHistory \
+    --fleetID 'JMdalwSyliWMNW5N' \
+    --namespace "$AB_NAMESPACE" \
+    --count '50' \
+    --offset '78' \
+    --reason 'Lu0M3VHh2EI8JlDb' \
+    --region 'PWbQ6Q9lNmqRBaAk' \
+    --serverId 'LnvxkT1X68cmDc3f' \
+    --sortDirection 'xU8MyKrQpM4hkkK6' \
+    --status 'KKXNB3Gv0IqmF51T' \
+    > test.out 2>&1
+eval_tap $? 15 'FleetServerHistory' test.out
+
+#- 16 ImageList
 ./ng net.accelbyte.sdk.cli.Main ams imageList \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 15 'ImageList' test.out
+eval_tap $? 16 'ImageList' test.out
 
-#- 16 ImageGet
+#- 17 ImageGet
 ./ng net.accelbyte.sdk.cli.Main ams imageGet \
-    --imageID 'KKXNB3Gv0IqmF51T' \
-    --namespace "$AB_NAMESPACE" \
-    > test.out 2>&1
-eval_tap $? 16 'ImageGet' test.out
-
-#- 17 ImagePatch
-./ng net.accelbyte.sdk.cli.Main ams imagePatch \
     --imageID 'khjYnaq6foWvXa3b' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"addedTags": ["MrXsDr6kILsSSyDd", "mykmoPYgc2L4jk4L", "o0LSP0pf4IxjUkl5"], "isProtected": true, "name": "X3ateEKDpADz1x3p", "removedTags": ["oD3Qgb3boLQQ1MzH", "7Qm8bwbmXgdAPh1E", "ThG96gAFKK2WDgCc"]}' \
     > test.out 2>&1
-eval_tap $? 17 'ImagePatch' test.out
+eval_tap $? 17 'ImageGet' test.out
 
-#- 18 InfoRegions
+#- 18 ImagePatch
+./ng net.accelbyte.sdk.cli.Main ams imagePatch \
+    --imageID 'MrXsDr6kILsSSyDd' \
+    --namespace "$AB_NAMESPACE" \
+    --body '{"addedTags": ["mykmoPYgc2L4jk4L", "o0LSP0pf4IxjUkl5", "35X3ateEKDpADz1x"], "isProtected": false, "name": "poD3Qgb3boLQQ1Mz", "removedTags": ["H7Qm8bwbmXgdAPh1", "EThG96gAFKK2WDgC", "cxvONZm3EeERmDny"]}' \
+    > test.out 2>&1
+eval_tap $? 18 'ImagePatch' test.out
+
+#- 19 QoSRegionsUpdate
+./ng net.accelbyte.sdk.cli.Main ams qoSRegionsUpdate \
+    --namespace "$AB_NAMESPACE" \
+    --region 'eFoF7VSZ6pf3vneS' \
+    --body '{"status": "D2Tb3g7mSQUhAEtr"}' \
+    > test.out 2>&1
+eval_tap $? 19 'QoSRegionsUpdate' test.out
+
+#- 20 InfoRegions
 ./ng net.accelbyte.sdk.cli.Main ams infoRegions \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 18 'InfoRegions' test.out
+eval_tap $? 20 'InfoRegions' test.out
 
-#- 19 FleetServerInfo
+#- 21 FleetServerInfo
 ./ng net.accelbyte.sdk.cli.Main ams fleetServerInfo \
     --namespace "$AB_NAMESPACE" \
-    --serverID 'xvONZm3EeERmDnye' \
+    --serverID 'mjqU6YE3p4lSck0Z' \
     > test.out 2>&1
-eval_tap $? 19 'FleetServerInfo' test.out
+eval_tap $? 21 'FleetServerInfo' test.out
 
-#- 20 ServerHistory
+#- 22 ServerHistory
 ./ng net.accelbyte.sdk.cli.Main ams serverHistory \
     --namespace "$AB_NAMESPACE" \
-    --serverID 'FoF7VSZ6pf3vneSD' \
+    --serverID 'Hn5GI39YBHqaTHeK' \
     > test.out 2>&1
-eval_tap $? 20 'ServerHistory' test.out
+eval_tap $? 22 'ServerHistory' test.out
 
-#- 21 InfoSupportedInstances
+#- 23 InfoSupportedInstances
 ./ng net.accelbyte.sdk.cli.Main ams infoSupportedInstances \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 21 'InfoSupportedInstances' test.out
+eval_tap $? 23 'InfoSupportedInstances' test.out
 
-#- 22 FleetClaimByID
+#- 24 FleetClaimByID
 ./ng net.accelbyte.sdk.cli.Main ams fleetClaimByID \
-    --fleetID '2Tb3g7mSQUhAEtrm' \
+    --fleetID 'tW18iGeUlc9d9sog' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"region": "jqU6YE3p4lSck0ZH"}' \
+    --body '{"region": "Wa24CKNS0GqVvUfH"}' \
     > test.out 2>&1
-eval_tap $? 22 'FleetClaimByID' test.out
+eval_tap $? 24 'FleetClaimByID' test.out
 
-#- 23 LocalWatchdogConnect
+#- 25 LocalWatchdogConnect
 ./ng net.accelbyte.sdk.cli.Main ams localWatchdogConnect \
     --namespace "$AB_NAMESPACE" \
-    --watchdogID 'n5GI39YBHqaTHeKt' \
+    --watchdogID 'QvsHXNUNe4mhgo5Q' \
     > test.out 2>&1
-eval_tap $? 23 'LocalWatchdogConnect' test.out
+eval_tap $? 25 'LocalWatchdogConnect' test.out
 
-#- 24 FleetClaimByKeys
+#- 26 QoSRegionsGet
+./ng net.accelbyte.sdk.cli.Main ams qoSRegionsGet \
+    --namespace "$AB_NAMESPACE" \
+    --status 'B65lSAiYnNjkfZrQ' \
+    > test.out 2>&1
+eval_tap $? 26 'QoSRegionsGet' test.out
+
+#- 27 FleetClaimByKeys
 ./ng net.accelbyte.sdk.cli.Main ams fleetClaimByKeys \
     --namespace "$AB_NAMESPACE" \
-    --body '{"claimKeys": ["W18iGeUlc9d9sogW", "a24CKNS0GqVvUfHQ", "vsHXNUNe4mhgo5QB"], "regions": ["65lSAiYnNjkfZrQv", "GgbLdLsFzHkBMr1y", "rOMlNFSrUEirnjX9"]}' \
+    --body '{"claimKeys": ["vGgbLdLsFzHkBMr1", "yrOMlNFSrUEirnjX", "9fDmIbeZxzfTcyiu"], "regions": ["ATus9hsfpFDcSDG8", "aMVGLiBNrDjqoxcw", "gGLXpUL4pp2ncYAH"]}' \
     > test.out 2>&1
-eval_tap $? 24 'FleetClaimByKeys' test.out
+eval_tap $? 27 'FleetClaimByKeys' test.out
 
-#- 25 WatchdogConnect
+#- 28 WatchdogConnect
 ./ng net.accelbyte.sdk.cli.Main ams watchdogConnect \
     --namespace "$AB_NAMESPACE" \
-    --watchdogID 'fDmIbeZxzfTcyiuA' \
+    --watchdogID 'dNzDmeIP6rOvDz9K' \
     > test.out 2>&1
-eval_tap $? 25 'WatchdogConnect' test.out
+eval_tap $? 28 'WatchdogConnect' test.out
 
-#- 26 Func1
+#- 29 Func1
 ./ng net.accelbyte.sdk.cli.Main ams func1 \
     > test.out 2>&1
-eval_tap $? 26 'Func1' test.out
+eval_tap $? 29 'Func1' test.out
 
-#- 27 BasicHealthCheck
+#- 30 BasicHealthCheck
 ./ng net.accelbyte.sdk.cli.Main ams basicHealthCheck \
     > test.out 2>&1
-eval_tap $? 27 'BasicHealthCheck' test.out
+eval_tap $? 30 'BasicHealthCheck' test.out
 
 
 rm -f "tmp.dat"

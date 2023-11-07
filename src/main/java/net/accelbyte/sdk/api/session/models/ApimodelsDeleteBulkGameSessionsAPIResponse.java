@@ -26,9 +26,11 @@ import net.accelbyte.sdk.core.Model;
 public class ApimodelsDeleteBulkGameSessionsAPIResponse extends Model {
 
   @JsonProperty("failed")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ApimodelsResponseDeleteBulkGameSessions> failed;
 
   @JsonProperty("success")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> success;
 
   @JsonIgnore

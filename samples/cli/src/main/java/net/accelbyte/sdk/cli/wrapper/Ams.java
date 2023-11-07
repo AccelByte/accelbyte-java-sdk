@@ -10,6 +10,7 @@ package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.ams.account.*;
 import net.accelbyte.sdk.cli.api.ams.ams_info.*;
+import net.accelbyte.sdk.cli.api.ams.ams_qo_s.*;
 import net.accelbyte.sdk.cli.api.ams.auth.*;
 import net.accelbyte.sdk.cli.api.ams.fleet_commander.*;
 import net.accelbyte.sdk.cli.api.ams.fleets.*;
@@ -33,17 +34,20 @@ import picocli.CommandLine.Command;
       FleetGet.class,
       FleetUpdate.class,
       FleetDelete.class,
+      FleetArtifactSamplingRulesGet.class,
       FleetServers.class,
       FleetServerHistory.class,
       ImageList.class,
       ImageGet.class,
       ImagePatch.class,
+      QoSRegionsUpdate.class,
       InfoRegions.class,
       FleetServerInfo.class,
       ServerHistory.class,
       InfoSupportedInstances.class,
       FleetClaimByID.class,
       LocalWatchdogConnect.class,
+      QoSRegionsGet.class,
       FleetClaimByKeys.class,
       WatchdogConnect.class,
       Func1.class,

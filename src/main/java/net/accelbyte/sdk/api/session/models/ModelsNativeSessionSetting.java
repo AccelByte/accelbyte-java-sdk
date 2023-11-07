@@ -39,11 +39,20 @@ public class ModelsNativeSessionSetting extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean shouldSync;
 
+  @JsonProperty("XboxAllowCrossPlatform")
+  private Boolean xboxAllowCrossPlatform;
+
+  @JsonProperty("XboxSandboxID")
+  private String xboxSandboxID;
+
   @JsonProperty("XboxServiceConfigID")
   private String xboxServiceConfigID;
 
   @JsonProperty("XboxSessionTemplateName")
   private String xboxSessionTemplateName;
+
+  @JsonProperty("XboxTitleID")
+  private String xboxTitleID;
 
   @JsonProperty("localizedSessionName")
   @JsonInclude(JsonInclude.Include.NON_NULL)

@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ApiListRuleSetsResponse extends Model {
 
   @JsonProperty("data")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ApiMatchRuleSetNameData> data;
 
   @JsonProperty("pagination")

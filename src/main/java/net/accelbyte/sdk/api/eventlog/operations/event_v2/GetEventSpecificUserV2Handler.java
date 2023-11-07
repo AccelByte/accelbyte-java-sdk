@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetEventSpecificUserV2Handler
  *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:EVENT [READ]`and scope `analytics`
+ * <p>Get events from a specific user
  */
 @Getter
 @Setter

@@ -39,6 +39,7 @@ import net.accelbyte.sdk.cli.api.platform.session_platform.*;
 import net.accelbyte.sdk.cli.api.platform.store.*;
 import net.accelbyte.sdk.cli.api.platform.subscription.*;
 import net.accelbyte.sdk.cli.api.platform.ticket.*;
+import net.accelbyte.sdk.cli.api.platform.trade_action.*;
 import net.accelbyte.sdk.cli.api.platform.view.*;
 import net.accelbyte.sdk.cli.api.platform.wallet.*;
 import picocli.CommandLine.Command;
@@ -251,6 +252,9 @@ import picocli.CommandLine.Command;
       DecreaseTicketSale.class,
       GetTicketBoothID.class,
       IncreaseTicketSale.class,
+      Commit.class,
+      GetTradeHistoryByCriteria.class,
+      GetTradeHistoryByTransactionId.class,
       UnlockSteamUserAchievement.class,
       GetXblUserAchievements.class,
       UpdateXblUserAchievement.class,
@@ -327,6 +331,7 @@ import picocli.CommandLine.Command;
       ListUserCurrencyTransactions.class,
       CheckWallet.class,
       CreditUserWallet.class,
+      DebitByWalletPlatform.class,
       PayWithUserWallet.class,
       GetUserWallet.class,
       DebitUserWallet.class,

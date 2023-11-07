@@ -38,6 +38,14 @@ public class ApimodelsPublicConfiguration extends Model {
   @JsonProperty("deployment")
   private String deployment;
 
+  @JsonProperty("disableCodeGeneration")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean disableCodeGeneration;
+
+  @JsonProperty("dsManualSetReady")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean dsManualSetReady;
+
   @JsonProperty("dsSource")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String dsSource;

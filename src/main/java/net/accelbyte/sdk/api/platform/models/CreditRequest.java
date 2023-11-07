@@ -137,7 +137,8 @@ public class CreditRequest extends Model {
     REFERRALBONUS("REFERRAL_BONUS"),
     REFUND("REFUND"),
     REWARD("REWARD"),
-    SELLBACK("SELL_BACK");
+    SELLBACK("SELL_BACK"),
+    TRADE("TRADE");
 
     private String value;
 

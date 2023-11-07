@@ -22,8 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * GetPublicEditHistory
  *
  * <p>Available Type: * email * password * displayname * dateofbirth * country * language
- *
- * <p>Requires valid user access token
  */
 @Getter
 @Setter

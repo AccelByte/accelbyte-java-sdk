@@ -35,6 +35,23 @@
 | `/lobby/v1/admin/config/namespaces/{namespace}/export` | GET | AdminExportConfigV1 | [AdminExportConfigV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/config/AdminExportConfigV1.java) | [AdminExportConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/config/AdminExportConfigV1.java) |
 | `/lobby/v1/admin/config/namespaces/{namespace}/import` | POST | AdminImportConfigV1 | [AdminImportConfigV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/config/AdminImportConfigV1.java) | [AdminImportConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/config/AdminImportConfigV1.java) |
 
+### admin Wrapper:  [Admin](../../src/main/java/net/accelbyte/sdk/api/lobby/wrappers/Admin.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/lobby/v1/admin/global-configurations` | GET | AdminGetGlobalConfig | [AdminGetGlobalConfig](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/AdminGetGlobalConfig.java) | [AdminGetGlobalConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/AdminGetGlobalConfig.java) |
+| `/lobby/v1/admin/global-configurations` | PUT | AdminUpdateGlobalConfig | [AdminUpdateGlobalConfig](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/AdminUpdateGlobalConfig.java) | [AdminUpdateGlobalConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/AdminUpdateGlobalConfig.java) |
+| `/lobby/v1/admin/global-configurations` | DELETE | AdminDeleteGlobalConfig | [AdminDeleteGlobalConfig](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/AdminDeleteGlobalConfig.java) | [AdminDeleteGlobalConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/AdminDeleteGlobalConfig.java) |
+| `/notification/namespaces/{namespace}/freeform` | POST | FreeFormNotification | [FreeFormNotification](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/FreeFormNotification.java) | [FreeFormNotification](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/FreeFormNotification.java) |
+| `/notification/namespaces/{namespace}/templated` | POST | NotificationWithTemplate | [NotificationWithTemplate](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/NotificationWithTemplate.java) | [NotificationWithTemplate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/NotificationWithTemplate.java) |
+| `/notification/namespaces/{namespace}/templates` | GET | GetGameTemplate | [GetGameTemplate](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/GetGameTemplate.java) | [GetGameTemplate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/GetGameTemplate.java) |
+| `/notification/namespaces/{namespace}/templates` | POST | CreateTemplate | [CreateTemplate](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/CreateTemplate.java) | [CreateTemplate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/CreateTemplate.java) |
+| `/notification/namespaces/{namespace}/templates/{templateSlug}` | GET | GetSlugTemplate | [GetSlugTemplate](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/GetSlugTemplate.java) | [GetSlugTemplate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/GetSlugTemplate.java) |
+| `/notification/namespaces/{namespace}/templates/{templateSlug}` | DELETE | DeleteTemplateSlug | [DeleteTemplateSlug](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/DeleteTemplateSlug.java) | [DeleteTemplateSlug](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/DeleteTemplateSlug.java) |
+| `/notification/namespaces/{namespace}/templates/{templateSlug}/languages/{templateLanguage}` | GET | GetLocalizationTemplate | [GetLocalizationTemplate](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/GetLocalizationTemplate.java) | [GetLocalizationTemplate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/GetLocalizationTemplate.java) |
+| `/notification/namespaces/{namespace}/templates/{templateSlug}/languages/{templateLanguage}` | PUT | UpdateLocalizationTemplate | [UpdateLocalizationTemplate](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/UpdateLocalizationTemplate.java) | [UpdateLocalizationTemplate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/UpdateLocalizationTemplate.java) |
+| `/notification/namespaces/{namespace}/templates/{templateSlug}/languages/{templateLanguage}` | DELETE | DeleteTemplateLocalization | [DeleteTemplateLocalization](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/DeleteTemplateLocalization.java) | [DeleteTemplateLocalization](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/DeleteTemplateLocalization.java) |
+| `/notification/namespaces/{namespace}/templates/{templateSlug}/languages/{templateLanguage}/publish` | POST | PublishTemplate | [PublishTemplate](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/PublishTemplate.java) | [PublishTemplate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/PublishTemplate.java) |
+
 ### notification Wrapper:  [Notification](../../src/main/java/net/accelbyte/sdk/api/lobby/wrappers/Notification.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -126,20 +143,6 @@
 |---|---|---|---|---|
 | `/lobby/v1/public/presence/namespaces/{namespace}/users/presence` | GET | UsersPresenceHandlerV1 | [UsersPresenceHandlerV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/presence/UsersPresenceHandlerV1.java) | [UsersPresenceHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/presence/UsersPresenceHandlerV1.java) |
 
-### admin Wrapper:  [Admin](../../src/main/java/net/accelbyte/sdk/api/lobby/wrappers/Admin.java)
-| Endpoint | Method | ID | Class | Example |
-|---|---|---|---|---|
-| `/notification/namespaces/{namespace}/freeform` | POST | FreeFormNotification | [FreeFormNotification](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/FreeFormNotification.java) | [FreeFormNotification](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/FreeFormNotification.java) |
-| `/notification/namespaces/{namespace}/templated` | POST | NotificationWithTemplate | [NotificationWithTemplate](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/NotificationWithTemplate.java) | [NotificationWithTemplate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/NotificationWithTemplate.java) |
-| `/notification/namespaces/{namespace}/templates` | GET | GetGameTemplate | [GetGameTemplate](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/GetGameTemplate.java) | [GetGameTemplate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/GetGameTemplate.java) |
-| `/notification/namespaces/{namespace}/templates` | POST | CreateTemplate | [CreateTemplate](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/CreateTemplate.java) | [CreateTemplate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/CreateTemplate.java) |
-| `/notification/namespaces/{namespace}/templates/{templateSlug}` | GET | GetSlugTemplate | [GetSlugTemplate](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/GetSlugTemplate.java) | [GetSlugTemplate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/GetSlugTemplate.java) |
-| `/notification/namespaces/{namespace}/templates/{templateSlug}` | DELETE | DeleteTemplateSlug | [DeleteTemplateSlug](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/DeleteTemplateSlug.java) | [DeleteTemplateSlug](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/DeleteTemplateSlug.java) |
-| `/notification/namespaces/{namespace}/templates/{templateSlug}/languages/{templateLanguage}` | GET | GetLocalizationTemplate | [GetLocalizationTemplate](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/GetLocalizationTemplate.java) | [GetLocalizationTemplate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/GetLocalizationTemplate.java) |
-| `/notification/namespaces/{namespace}/templates/{templateSlug}/languages/{templateLanguage}` | PUT | UpdateLocalizationTemplate | [UpdateLocalizationTemplate](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/UpdateLocalizationTemplate.java) | [UpdateLocalizationTemplate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/UpdateLocalizationTemplate.java) |
-| `/notification/namespaces/{namespace}/templates/{templateSlug}/languages/{templateLanguage}` | DELETE | DeleteTemplateLocalization | [DeleteTemplateLocalization](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/DeleteTemplateLocalization.java) | [DeleteTemplateLocalization](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/DeleteTemplateLocalization.java) |
-| `/notification/namespaces/{namespace}/templates/{templateSlug}/languages/{templateLanguage}/publish` | POST | PublishTemplate | [PublishTemplate](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/admin/PublishTemplate.java) | [PublishTemplate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/admin/PublishTemplate.java) |
-
 
 &nbsp;  
 
@@ -165,6 +168,7 @@
 | `model.GetUserFriendsResponse` | [ModelGetUserFriendsResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelGetUserFriendsResponse.java) |
 | `model.GetUserIncomingFriendsResponse` | [ModelGetUserIncomingFriendsResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelGetUserIncomingFriendsResponse.java) |
 | `model.GetUserOutgoingFriendsResponse` | [ModelGetUserOutgoingFriendsResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelGetUserOutgoingFriendsResponse.java) |
+| `model.GlobalConfiguration` | [ModelGlobalConfiguration](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelGlobalConfiguration.java) |
 | `model.IncomingFriendsWithTimeData` | [ModelIncomingFriendsWithTimeData](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelIncomingFriendsWithTimeData.java) |
 | `model.ListBulkUserPlatformsResponse` | [ModelListBulkUserPlatformsResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelListBulkUserPlatformsResponse.java) |
 | `model.LoadIncomingFriendsWithTimeResponse` | [ModelLoadIncomingFriendsWithTimeResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelLoadIncomingFriendsWithTimeResponse.java) |
@@ -179,6 +183,7 @@
 | `model.NotificationWithTemplateRequestV1` | [ModelNotificationWithTemplateRequestV1](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelNotificationWithTemplateRequestV1.java) |
 | `model.OutgoingFriendsWithTimeData` | [ModelOutgoingFriendsWithTimeData](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelOutgoingFriendsWithTimeData.java) |
 | `model.Pagination` | [ModelPagination](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelPagination.java) |
+| `model.PutGlobalConfigurationRequest` | [ModelPutGlobalConfigurationRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelPutGlobalConfigurationRequest.java) |
 | `model.TemplateContent` | [ModelTemplateContent](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelTemplateContent.java) |
 | `model.TemplateLocalization` | [ModelTemplateLocalization](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelTemplateLocalization.java) |
 | `model.TemplateLocalizationResponse` | [ModelTemplateLocalizationResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelTemplateLocalizationResponse.java) |

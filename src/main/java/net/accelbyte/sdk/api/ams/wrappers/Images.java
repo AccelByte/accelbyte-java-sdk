@@ -22,6 +22,16 @@ public class Images {
   }
 
   /**
+   * @see FleetArtifactSamplingRulesGet
+   */
+  public ApiFleetArtifactsSampleRulesResponse fleetArtifactSamplingRulesGet(
+      FleetArtifactSamplingRulesGet input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see ImageList
    */
   public ApiImageList imageList(ImageList input) throws Exception {

@@ -35,7 +35,6 @@ import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
-
 import lombok.SneakyThrows;
 import lombok.extern.java.Log;
 import net.accelbyte.sdk.api.iam.models.BloomFilterJSON;
@@ -86,7 +85,6 @@ public class AccelByteSDK {
 
   // TODO: make this configurable
   private float tokenRefreshRatio = 0.8f;
-
 
   protected boolean internalValidateToken(
       SignedJWT signedJWT, String token, String resource, int action) {
@@ -379,7 +377,8 @@ public class AccelByteSDK {
     if (tokenRepo instanceof TokenRefresh) {
       refreshRepo = (TokenRefresh) tokenRepo;
     } else {
-      throw new IllegalArgumentException("Token repository is not a Refresh Repository"); // TODO: restructure the inheritance
+      throw new IllegalArgumentException(
+          "Token repository is not a Refresh Repository"); // TODO: restructure the inheritance
     }
 
     if (Strings.isNullOrEmpty(tokenRepo.getToken())) {
@@ -391,7 +390,6 @@ public class AccelByteSDK {
       return true; // do nothing, since accessToken still valid
     }
 
-
     return loginClient();
   }
 
@@ -402,7 +400,8 @@ public class AccelByteSDK {
     if (tokenRepo instanceof TokenRefresh) {
       refreshRepo = (TokenRefresh) tokenRepo;
     } else {
-      throw new IllegalArgumentException("Token repository is not a Refresh Repository"); // TODO: restructure the inheritance
+      throw new IllegalArgumentException(
+          "Token repository is not a Refresh Repository"); // TODO: restructure the inheritance
     }
 
     if (Strings.isNullOrEmpty(tokenRepo.getToken())) {
@@ -455,12 +454,12 @@ public class AccelByteSDK {
   }
 
   /**
-   * Attempts to perform the refresh token operation with a default wait time of 500 milliseconds
-   * to acquire the necessary lock. Will return false if 500 milliseconds of waiting passed.
-   * Refer to {@link #refreshToken(long, TimeUnit)} for customized timeout.
-   * <br>
-   * <b>WARNING:</b> Please don't use this method  if you use TokenRepository class with
+   * Attempts to perform the refresh token operation with a default wait time of 500 milliseconds to
+   * acquire the necessary lock. Will return false if 500 milliseconds of waiting passed. Refer to
+   * {@link #refreshToken(long, TimeUnit)} for customized timeout. <br>
+   * <b>WARNING:</b> Please don't use this method if you use TokenRepository class with
    * TokenRefreshRepository interface a.k.a. automatic refresh token enabled.
+   *
    * @return {@code true} if operation was successful, {@code false} otherwise.
    */
   public boolean refreshToken() {
@@ -541,7 +540,8 @@ public class AccelByteSDK {
     } catch (Exception e) {
       log.warning(e.getMessage());
     } finally {
-      // to ensure, when in a race condition (i.e. this method called by multiple thread at the same time)
+      // to ensure, when in a race condition (i.e. this method called by multiple thread at the same
+      // time)
       // and lock haven't been acquired by any thread yet.
       // adding this will ensure only the owner can unlock, to prevent error IllegalMonitoringState
       if (acquiredLock) {

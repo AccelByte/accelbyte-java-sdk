@@ -10,17 +10,21 @@ package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.ugc.admin_channel.*;
 import net.accelbyte.sdk.cli.api.ugc.admin_content.*;
+import net.accelbyte.sdk.cli.api.ugc.admin_content_v2.*;
 import net.accelbyte.sdk.cli.api.ugc.admin_group.*;
 import net.accelbyte.sdk.cli.api.ugc.admin_tag.*;
 import net.accelbyte.sdk.cli.api.ugc.admin_type.*;
 import net.accelbyte.sdk.cli.api.ugc.anonymization.*;
 import net.accelbyte.sdk.cli.api.ugc.public_channel.*;
-import net.accelbyte.sdk.cli.api.ugc.public_content.*;
+import net.accelbyte.sdk.cli.api.ugc.public_content_legacy.*;
+import net.accelbyte.sdk.cli.api.ugc.public_content_v2.*;
 import net.accelbyte.sdk.cli.api.ugc.public_creator.*;
-import net.accelbyte.sdk.cli.api.ugc.public_download_count.*;
+import net.accelbyte.sdk.cli.api.ugc.public_download_count_legacy.*;
+import net.accelbyte.sdk.cli.api.ugc.public_download_count_v2.*;
 import net.accelbyte.sdk.cli.api.ugc.public_follow.*;
 import net.accelbyte.sdk.cli.api.ugc.public_group.*;
-import net.accelbyte.sdk.cli.api.ugc.public_like.*;
+import net.accelbyte.sdk.cli.api.ugc.public_like_legacy.*;
+import net.accelbyte.sdk.cli.api.ugc.public_like_v2.*;
 import net.accelbyte.sdk.cli.api.ugc.public_tag.*;
 import net.accelbyte.sdk.cli.api.ugc.public_type.*;
 import picocli.CommandLine.Command;
@@ -125,6 +129,46 @@ import picocli.CommandLine.Command;
       DeleteGroup.class,
       GetGroupContent.class,
       DeleteAllUserStates.class,
+      AdminGetContentByChannelIDV2.class,
+      AdminCreateContentV2.class,
+      AdminDeleteOfficialContentV2.class,
+      AdminUpdateOfficialContentV2.class,
+      AdminUpdateOfficialContentFileLocation.class,
+      AdminGenerateOfficialContentUploadURLV2.class,
+      AdminListContentV2.class,
+      AdminBulkGetContentByIDsV2.class,
+      AdminGetContentByShareCodeV2.class,
+      AdminGetContentByContentIDV2.class,
+      AdminUpdateScreenshotsV2.class,
+      AdminUploadContentScreenshotV2.class,
+      AdminDeleteContentScreenshotV2.class,
+      AdminGetOfficialGroupContentsV2.class,
+      AdminDeleteUserContentV2.class,
+      AdminUpdateUserContentV2.class,
+      AdminUpdateUserContentFileLocation.class,
+      AdminGenerateUserContentUploadURLV2.class,
+      AdminGetContentByUserIDV2.class,
+      AdminUpdateContentHideStatusV2.class,
+      AdminGetUserGroupContentsV2.class,
+      PublicGetContentByChannelIDV2.class,
+      PublicListContentV2.class,
+      PublicBulkGetContentByIDV2.class,
+      PublicGetContentByShareCodeV2.class,
+      PublicGetContentByIDV2.class,
+      PublicAddDownloadCountV2.class,
+      PublicListContentDownloaderV2.class,
+      PublicListContentLikeV2.class,
+      UpdateContentLikeStatusV2.class,
+      PublicCreateContentV2.class,
+      PublicDeleteContentV2.class,
+      PublicUpdateContentV2.class,
+      PublicUpdateContentFileLocation.class,
+      PublicGenerateContentUploadURLV2.class,
+      PublicGetContentByUserIDV2.class,
+      UpdateScreenshotsV2.class,
+      UploadContentScreenshotV2.class,
+      DeleteContentScreenshotV2.class,
+      PublicGetGroupContentsV2.class,
     })
 public class Ugc implements Runnable {
 

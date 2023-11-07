@@ -75,4 +75,14 @@ public class PublicGroup {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see PublicGetGroupContentsV2
+   */
+  public ModelsPaginatedContentDownloadResponseV2 publicGetGroupContentsV2(
+      PublicGetGroupContentsV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

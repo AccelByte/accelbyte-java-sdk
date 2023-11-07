@@ -66,13 +66,13 @@ public class InfoRegions extends Operation {
     return true;
   }
 
-  public ApiRegionsResponse parseResponse(int code, String contentType, InputStream payload)
+  public ApiAMSRegionsResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ApiRegionsResponse().createFromJson(json);
+    return new ApiAMSRegionsResponse().createFromJson(json);
   }
 }
