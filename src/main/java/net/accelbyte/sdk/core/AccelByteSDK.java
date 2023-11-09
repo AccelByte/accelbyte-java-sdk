@@ -64,7 +64,7 @@ import org.apache.http.client.utils.URLEncodedUtils;
 @Log
 public class AccelByteSDK {
   private static final String COOKIE_KEY_ACCESS_TOKEN = "access_token";
-  private static final String LOGIN_USER_SCOPE = "commerce account social publishing analytics";
+  private static final String DEFAULT_LOGIN_USER_SCOPE = "commerce account social publishing analytics";
   private static final String DEFAULT_CACHE_KEY = "default";
   private static final String CLAIM_PERMISSIONS = "permissions";
   private static final String CLAIM_SUB = "sub";
@@ -259,6 +259,10 @@ public class AccelByteSDK {
   }
 
   public boolean loginUser(String username, String password) {
+    return  loginUser(username, password, DEFAULT_LOGIN_USER_SCOPE);
+  }
+
+  public boolean loginUser(String username, String password, String scope) {
     final String codeVerifier = Helper.generateCodeVerifier();
     final String codeChallenge = Helper.generateCodeChallenge(codeVerifier);
     final String clientId = this.sdkConfiguration.getConfigRepository().getClientId();
@@ -271,7 +275,7 @@ public class AccelByteSDK {
           AuthorizeV3.builder()
               .codeChallenge(codeChallenge)
               .codeChallengeMethodFromEnum(CodeChallengeMethod.S256)
-              .scope(LOGIN_USER_SCOPE)
+              .scope(scope)
               .clientId(clientId)
               .responseTypeFromEnum(AuthorizeV3.ResponseType.Code)
               .build();

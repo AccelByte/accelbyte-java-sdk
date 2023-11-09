@@ -162,6 +162,16 @@ if (!login) {
 }
 ```
 
+#### Login Using Username and Password with Specific Scope
+
+```java
+boolean login = sdk.loginUser("myUsername", "myPassword", "scopeA scopeB");   // Space separated scope values
+
+if (!login) {
+    // Login failed  
+}
+```
+
 #### Login Using OAuth Client
 
 ```java
